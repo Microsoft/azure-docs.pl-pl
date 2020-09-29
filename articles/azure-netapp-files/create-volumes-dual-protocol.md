@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278496"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449642"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -38,6 +38,8 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 * Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
+* Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. W tym celu należy zainstalować i skonfigurować rolę [usługi LDS Active Directory (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
+* Upewnij się, że urząd certyfikacji jest tworzony w usłudze AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
 
 ## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego
 
@@ -136,6 +138,11 @@ Można zarządzać atrybutami POSIX, takimi jak UID, katalogiem macierzystym i i
 
 ![Edytor atrybutów Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+Należy ustawić następujące atrybuty dla użytkowników LDAP i grup LDAP: 
+* Wymagane atrybuty dla użytkowników LDAP:   
+    `uid`: Alicja, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* Wymagane atrybuty dla grup LDAP:   
+    `objectClass`: "POSIX", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Konfigurowanie klienta NFS 
 

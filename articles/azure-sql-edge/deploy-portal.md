@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886735"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445716"
 ---
 # <a name="deploy-azure-sql-edge"></a>Wdrażanie usługi Azure SQL Edge 
 
@@ -62,7 +62,6 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
 
    |**Parametr**  |**Opis**|
    |---------|---------|
-   | Nazwa | Nazwa modułu. |
    | MSSQL_SA_PASSWORD  | Zmień wartość domyślną, aby określić silne hasło dla konta administratora programu SQL Edge. |
    | MSSQL_LCID   | Zmień wartość domyślną, aby ustawić żądany identyfikator języka dla programu SQL Edge. Na przykład 1036 jest francuski. |
    | MSSQL_COLLATION | Zmień wartość domyślną, aby ustawić sortowanie domyślne dla programu SQL Edge. To ustawienie przesłania domyślne mapowanie identyfikatora języka (LCID) do sortowania. |
@@ -110,7 +109,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    
 8. W okienku **Aktualizowanie modułu IoT Edge** kliknij pozycję **Aktualizuj**.
 9. Na stronie **Ustawianie modułów na urządzeniu** kliknij pozycję **dalej: trasy >** , jeśli chcesz zdefiniować trasy dla wdrożenia. W przeciwnym razie kliknij pozycję **Przegląd + Utwórz**. Aby uzyskać więcej informacji na temat konfigurowania tras, zobacz [wdrażanie modułów i ustanawianie tras w IoT Edge](../iot-edge/module-composition.md).
-11. W okienku **Aktualizowanie modułu IoT Edge** kliknij pozycję **Utwórz**.
+11. Na stronie **Ustawianie modułów na urządzeniu** kliknij pozycję **Utwórz**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Łączenie z usługą Azure SQL Edge
 

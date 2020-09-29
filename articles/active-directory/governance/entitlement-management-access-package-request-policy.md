@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980239"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449972"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ustawienia żądania zmiany dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -125,8 +125,8 @@ Wykonaj następujące kroki, aby zezwolić użytkownikom, którzy nie należą d
     |  |  |
     | --- | --- |
     | **Określone organizacje połączone** | Wybierz tę opcję, jeśli chcesz wybrać z listy organizacji, które wcześniej dodaliśmy do administratora. Wszyscy użytkownicy wybranych organizacji mogą zażądać tego pakietu dostępu. |
-    | **Wszystkie połączone organizacje** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich połączonych organizacji mogą zażądać tego pakietu dostępu. |
-    | **Wszyscy użytkownicy (wszystkie połączone organizacje + Wszyscy nowi użytkownicy zewnętrzni)** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich połączonych organizacji mogą zażądać tego pakietu dostępu, a ustawienia listy dozwolonych lub zablokowanych B2B powinny mieć pierwszeństwo dla każdego nowego użytkownika zewnętrznego. |
+    | **Wszystkie skonfigurowane połączone organizacje** | Wybierz tę opcję, jeśli wszyscy użytkownicy ze wszystkich skonfigurowanych połączonych organizacji mogą żądać tego pakietu dostępu. Tylko użytkownicy z skonfigurowanych połączonych organizacji mogą żądać pakietów dostępu, które są widoczne dla użytkowników ze wszystkich skonfigurowanych organizacji. |
+    | **Wszyscy użytkownicy (wszystkie połączone organizacje + Wszyscy nowi użytkownicy zewnętrzni)** | Wybierz tę opcję, jeśli dowolny użytkownik w Internecie powinien mieć możliwość zażądania tego pakietu dostępu.  Jeśli nie należy do połączonej organizacji w katalogu, połączona organizacja zostanie automatycznie utworzona dla nich po zażądaniu pakietu. Automatycznie utworzona podłączona organizacja będzie w stanie **proponowanym** . Aby uzyskać więcej informacji na temat proponowanego stanu, zobacz [Właściwości stanu połączonych organizacji](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     Połączona organizacja to zewnętrzny katalog usługi Azure AD lub domena, z którą istnieje relacja.
 

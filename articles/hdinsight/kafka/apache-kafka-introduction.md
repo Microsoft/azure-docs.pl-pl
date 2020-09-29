@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651339"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449547"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Co to jest Apache Kafka w usłudze Azure HDInsight
 
@@ -33,7 +33,9 @@ Cechy charakterystyczne platformy Kafka w usłudze HDInsight są następujące:
 
     Aby uzyskać więcej informacji, zobacz [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md) (Wysoka dostępność na platformie Apache Kafka w usłudze HDInsight).
 
-* Usługa HDInsight umożliwia zmianę liczby węzłów procesu roboczego (które hostują brokera platformy Kafka) po utworzeniu klastra. Skalowanie może być przeprowadzane w witrynie Azure Portal, w programie Azure PowerShell i w innych interfejsach zarządzania platformy Azure. W przypadku platformy Kafka po wykonaniu operacji skalowania należy przeprowadzić ponowne równoważenie replik partycji. Ponowne równoważenie partycji na platformie Kafka umożliwia skorzystanie z nowej liczby węzłów procesu roboczego.
+* Usługa HDInsight umożliwia zmianę liczby węzłów procesu roboczego (które hostują brokera platformy Kafka) po utworzeniu klastra. Skalowanie w górę można wykonać z poziomu Azure Portal, Azure PowerShell i innych interfejsów zarządzania platformy Azure. W przypadku platformy Kafka po wykonaniu operacji skalowania należy przeprowadzić ponowne równoważenie replik partycji. Ponowne równoważenie partycji na platformie Kafka umożliwia skorzystanie z nowej liczby węzłów procesu roboczego.
+
+   Usługa HDInsight Kafka nie obsługuje skalowania w dół ani zmniejsza liczbę brokerów w klastrze. Jeśli podjęta zostanie próba zmniejszenia liczby węzłów, `InvalidKafkaScaleDownRequestErrorCode` zwracany jest błąd.
 
     Aby uzyskać więcej informacji, zobacz [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md) (Wysoka dostępność na platformie Apache Kafka w usłudze HDInsight).
 

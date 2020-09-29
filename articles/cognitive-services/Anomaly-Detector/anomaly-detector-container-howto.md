@@ -1,33 +1,38 @@
 ---
-title: Jak zainstalować i uruchomić kontenery do korzystania z interfejsu API wykrywania anomalii
+title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API wykrywania anomalii
 titleSuffix: Azure Cognitive Services
-description: Informacje na temat instalowania i używania kontenera na potrzeby używania zaawansowanych algorytmów interfejsu API wykrywania anomalii.
+description: Algorytmy API wykrywania anomalii umożliwiają Znajdowanie anomalii w danych, lokalnie przy użyciu kontenera Docker.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: lokalne, Docker, kontener, przesyłanie strumieniowe, algorytmy
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903555"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460004"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalowanie i uruchamianie kontenerów narzędzia do wykrywania anomalii 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API wykrywania anomalii 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-Narzędzie do wykrywania anomalii ma następujące funkcje kontenera:
+Kontenery umożliwiają korzystanie z interfejsu API wykrywania anomalii własnego środowiska. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener wykrywania anomalii.
 
-| Funkcja | Funkcje |
-|--|--|
-| Wykrywacz anomalii | <li> Wykrywa anomalie w czasie rzeczywistym. <li> Wykrywa anomalie w zestawie danych jako zadanie wsadowe. <li> Wykrywa punkty zmian trendu w zestawie danych jako zadanie wsadowe.<li> Wnioskuje oczekiwany normalny zakres danych. <li> Obsługuje dostosowanie wykrywania anomalii w celu lepszego dopasowania do danych. |
+Detektor anomalii oferuje pojedynczy kontener platformy Docker służący do korzystania z interfejsu API lokalnie. Użyj kontenera, aby:
+* Korzystanie z algorytmów wykrywania anomalii na danych
+* Monitoruj dane przesyłane strumieniowo i wykrywaj anomalie w czasie rzeczywistym.
+* Wykrywaj anomalie w zestawie danych jako Partia zadań. 
+* Wykryj punkty zmian trendu w zestawie danych jako zadanie wsadowe.
+* Dostosuj czułość algorytmu wykrywania anomalii, aby lepiej dopasować dane.
 
-Aby uzyskać szczegółowe informacje na temat interfejsów API, zobacz:
+Aby uzyskać szczegółowe informacje na temat interfejsu API, zobacz:
 * [Dowiedz się więcej o usłudze interfejsu API wykrywania anomalii](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).

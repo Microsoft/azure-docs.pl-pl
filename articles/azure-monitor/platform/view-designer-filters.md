@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955959"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449318"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtry w widokach Azure Monitor
 **Filtr** w [widoku Azure monitor](view-designer.md) umożliwia użytkownikom filtrowanie danych w widoku przez wartość określonej właściwości bez modyfikowania widoku.  Można na przykład umożliwić użytkownikom widoku filtrowanie widoku danych tylko z określonego komputera lub zestawu komputerów.  Można utworzyć wiele filtrów w jednym widoku, aby umożliwić użytkownikom filtrowanie według wielu właściwości.  W tym artykule opisano sposób używania filtra i dodawania go do widoku niestandardowego.
@@ -19,12 +19,12 @@ ms.locfileid: "85955959"
 ## <a name="using-a-filter"></a>Korzystanie z filtru
 Kliknij zakres dat w górnej części widoku, aby otworzyć listę rozwijaną, w której można zmienić zakres dat dla widoku.
 
-![Przykład filtru](media/view-designer-filters/filters-example-time.png)
+![Zrzut ekranu przedstawiający menu rozwijane zakres czasu dla widoku w Azure Monitor, który pokazuje przycisk radiowy w ciągu ostatnich 7 dni.](media/view-designer-filters/filters-example-time.png)
 
 Kliknij, **+** Aby dodać filtr przy użyciu filtrów niestandardowych, które są zdefiniowane dla tego widoku. Wybierz wartość filtru z listy rozwijanej lub wpisz wartość. Kontynuuj Dodawanie filtrów, klikając przycisk **+** . 
 
 
-![Przykład filtru](media/view-designer-filters/filters-example-custom.png)
+![Zrzut ekranu okna dialogowego służącego do dodawania filtru niestandardowego w Azure Monitor. Właściwość komputery jest wybierana z menu rozwijanego wybierz właściwość.](media/view-designer-filters/filters-example-custom.png)
 
 Jeśli usuniesz wszystkie wartości filtru, ten filtr nie zostanie już zastosowany.
 

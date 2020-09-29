@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264942"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450379"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -38,6 +38,12 @@ Administrator licencji  |  Można przypisywać, usuwać i aktualizować przypisa
 Administrator haseł  |  Można resetować hasła dla administratorów nie będących administratorami i haseł tylko w ramach przypisanej jednostki administracyjnej.
 Administrator użytkowników  |  Może zarządzać wszystkimi aspektami użytkowników i grup, włącznie z resetowaniem haseł dla ograniczonych administratorów tylko w przypisanej jednostce administracyjnej.
 
+## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Podmioty zabezpieczeń, które można przypisać do roli z zakresem funkcji AU
+Następujące podmioty zabezpieczeń można przypisać do roli z zakresem funkcji AU:
+* Użytkownicy
+* Grupy w chmurze, które można przypisać do ról (wersja zapoznawcza)
+* Główna nazwa usługi
+
 ## <a name="assign-a-scoped-role"></a>Przypisywanie roli w zakresie
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -50,15 +56,19 @@ Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dod
 
 ![Wybierz rolę do zakresu, a następnie wybierz pozycję Dodaj przypisania](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> Aby przypisać rolę w jednostce administracyjnej przy użyciu programu PIM, wykonaj kroki opisane [tutaj](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
@@ -67,7 +77,7 @@ Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środow
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -87,8 +97,8 @@ Wszystkie przypisania ról wykonane z zakresem jednostki administracyjnej można
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
@@ -97,7 +107,7 @@ Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środow
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```

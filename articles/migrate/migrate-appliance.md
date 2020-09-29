@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera podsumowanie obsługi urządzenia Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084774"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450038"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -22,7 +22,7 @@ Urządzenie Azure Migrate jest używane w następujących scenariuszach.
 --- | --- | ---
 **Ocena maszyny wirtualnej VMware** | Azure Migrate: Ocena serwera | Odnajdywanie maszyn wirtualnych VMware<br/><br/> Odnajdywanie aplikacji i zależności maszyn<br/><br/> Zbieraj metadane maszyn i metadane wydajności dla ocen.
 **Migracja bez agenta maszyny wirtualnej VMware** | Azure Migrate: Migracja serwera | Odnajdywanie maszyn wirtualnych VMware <br/><br/> Replikowanie maszyn wirtualnych VMware z migracją bez agenta.
-**Ocena maszyny wirtualnej funkcji Hyper-V** | Azure Migrate: Ocena serwera | Odnajdywanie maszyn wirtualnych funkcji Hyper-V<br/><br/> Zbieraj metadane maszyn i metadane wydajności dla ocen.
+**Ocena maszyny wirtualnej funkcji Hyper-V** | Azure Migrate: Ocena serwera | Odnajdywanie maszyn wirtualnych Hyper-V<br/><br/> Zbieraj metadane maszyn i metadane wydajności dla ocen.
 **Ocena komputera fizycznego** |  Azure Migrate: Ocena serwera |  Odnajdywanie serwerów fizycznych (lub maszyn wirtualnych traktowanych jako serwery fizyczne).<br/><br/> Zbieraj metadane maszyn i metadane wydajności dla ocen.
 
 ## <a name="deployment-methods"></a>Metody wdrażania
@@ -47,12 +47,12 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną VMware przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż aplikację jako maszynę wirtualną VMware lub maszynę fizyczną przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.<br/> Urządzenie może połączyć się z pojedynczym vCenter Server.
-**Szablon komórki jajowe** | Pobierz z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Rozmiar pobieranych plików to 11,6 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
+**Szablon komórki jajowe** | Pobierz z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Rozmiar pobieranych plików to 11,9 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na maszynie wirtualnej VMware, konieczne jest posiadanie wystarczającej ilości zasobów na vCenter Server do przydzielenia maszyny wirtualnej spełniającej wymagania.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.
 **Wymagania dotyczące oprogramowania VMware** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware należy je wdrożyć na hoście ESXi z systemem w wersji 5,5 lub nowszej.<br/><br/> vCenter Server uruchomione 5,5, 6,0, 6,5 lub 6,7.
 **VDDK (migracja bez wykorzystania agentów)** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware i korzystania z migracji bez agenta należy zainstalować na maszynie wirtualnej urządzenia VMware vSphere VDDK.
-**Wartość skrótu — komórki jajowe** | [Sprawdź](tutorial-assess-vmware.md#verify-security) wartości skrótu szablonu komórki jajowe.
+**Wartość skrótu — komórki jajowe** | [Sprawdź](tutorial-discover-vmware.md#verify-security) wartości skrótu szablonu komórki jajowe.
 **Wartość skrótu — skrypt programu PowerShell** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
 
 
@@ -67,11 +67,11 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdróż aplikację jako maszynę wirtualną lub maszynę fizyczną z funkcją Hyper-V przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 5000 maszyn wirtualnych funkcji Hyper-V.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
-**Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Rozmiar pobieranych plików to 10,4 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
+**Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Rozmiar pobieranych plików to 8,91 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V jest wystarczająca ilość zasobów do przydzielenia 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca do magazynowania oraz przełącznik zewnętrzny dla maszyny wirtualnej urządzenia.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
+**Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie zostanie uruchomione jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V potrzeba przydzielenia wymagań sprzętowych.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
 **Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożone przy użyciu szablonu VHD, maszyna wirtualna z urządzeniem udostępniona przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy. 
-**Wartość skrótu — wirtualny dysk twardy** | Wartości skrótu szablonu wirtualnego dysku twardego.
+**Wartość skrótu — wirtualny dysk twardy** | [Sprawdź](tutorial-discover-hyper-v.md#verify-security) Wartości skrótu szablonu wirtualnego dysku twardego.
 **Wartość skrótu — skrypt programu PowerShell** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
 
 
@@ -84,9 +84,9 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako dedykowaną maszynę fizyczną lub maszynę wirtualną przy użyciu skryptu instalacyjnego programu PowerShell. Skrypt jest dostępny do pobrania z portalu.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 1000 serwerów fizycznych.
-**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller.ps1) w folderze spakowanym z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140334). [Dowiedz się więcej](tutorial-discover-physical.md).<br/><br/> Rozmiar pobieranych plików to 85 MB.
-**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/> Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane.
-**Wartość skrótu** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
+**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller.ps1) w folderze spakowanym z portalu lub z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=2140334). [Dowiedz się więcej](tutorial-discover-physical.md).<br/><br/> Rozmiar pobieranych plików to 85,8 MB.
+**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/>_(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._
+**Wartość skrótu** | [Sprawdź](tutorial-discover-physical.md#verify-security) wartości skrótu skryptu programu PowerShell.
 
 ## <a name="url-access"></a>Dostęp do adresu URL
 
@@ -268,7 +268,7 @@ Oto dane systemu operacyjnego, które urządzenie zbiera dla każdej maszyny wir
 
 **Dane**  | **Polecenie** 
 --- | --- | ---
-Nazwa <br/> version | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nazwa <br/> Wersja | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architektura | uname
 
 
@@ -424,7 +424,7 @@ Oto dane wydajności systemu Windows Server, które urządzenie zbiera i wysyła
 
 **Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
 --- | --- | ---
-Użycie procesora CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Użycie procesora | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
 Użycie pamięci | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Liczba kart sieciowych | Win32_PerfFormattedData_Tcpip_NetworkInterface | Pobierz liczbę urządzeń sieciowych.
 Odebrane dane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
@@ -438,7 +438,7 @@ Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządz
 
 **Dane** | **Linux** 
 --- | --- 
-Użycie procesora CPU | /proc/stat/Cat| /proc/stat procesora grep
+Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
 Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
 Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1
 Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes

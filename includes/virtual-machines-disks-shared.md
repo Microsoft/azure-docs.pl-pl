@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451367"
 ---
 Azure Shared disks to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia jednoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
@@ -57,7 +57,7 @@ Dyski udostępnione platformy Azure są obsługiwane w systemie:
 - [SUSE SLE for SAP i SUSE SLE HA 15 SP1 i nowszych](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18,04 i nowsze](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL Developer Preview na dowolnej wersji RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Klastry systemu Linux mogą korzystać z menedżerów klastra, takich jak [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker kompiluje w [Corosync](http://corosync.github.io/corosync/), co umożliwia komunikację klastra w przypadku aplikacji wdrożonych w środowiskach o wysokiej dostępności. Niektóre typowe klastrowane systemy plików to [OCFS2](https://oss.oracle.com/projects/ocfs2/) i [GFS2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Do rozstrzygania dostępu do dysku można użyć modeli klastrów opartych na rezerwacjach trwałych SCSI (SCSI PR) i/lub STONITH Block Device (SBD). Przy użyciu żądania ściągnięcia SCSI można manipulować rezerwacjami i rejestracjami przy użyciu narzędzi, takich jak [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) i [sg_persist](https://linux.die.net/man/8/sg_persist).
 
@@ -91,7 +91,7 @@ Przepływ jest następujący:
 
 Ultra disks oferuje dodatkową przepustowość w przypadku łącznej liczby dwóch przepustnic. Ze względu na to, przepływ rezerwacji Ultra disks może współdziałać zgodnie z opisem w poprzedniej sekcji lub bardziej szczegółowym Ograniczeniem i dystrybucją wydajności.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Obraz tabeli, która przedstawia dostęp typu "ReadOnly" lub "Odczyt/zapis" dla posiadacza rezerwacji, zarejestrowanych i innych.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
 
 ## <a name="performance-throttles"></a>Ograniczenia wydajności
 
@@ -111,7 +111,7 @@ Funkcja Ultra disks ma unikatową funkcję umożliwiającą ustawienie wydajnoś
 |DiskIOPSReadOnly*     |Całkowita liczba operacji we/wy dozwolonych dla wszystkich maszyn wirtualnych instalujących dysk udostępniony jako `ReadOnly` .         |
 |DiskMBpsReadOnly*     |Całkowita przepływność (MB/s) dozwolona przez wszystkie maszyny wirtualne instalująca dysk udostępniony jako `ReadOnly` .         |
 
-\*Dotyczy tylko współużytkowanych dysków o najwyższej rozdzielczości
+\* Dotyczy tylko współużytkowanych dysków o najwyższej rozdzielczości
 
 Poniższe wzory wyjaśniają, jak można ustawić atrybuty wydajności, ponieważ są one modyfikowane przez użytkowników:
 
@@ -131,19 +131,19 @@ W poniższych przykładach przedstawiono kilka scenariuszy, które pokazują, ja
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC korzystającej z udostępnionych woluminów klastra. W przypadku tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że `ReadWrite` ograniczanie przepustowości między dwiema maszynami wirtualnymi i `ReadOnly` ograniczenie nie są używane.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC, która nie korzysta z udostępnionych woluminów klastra. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to `ReadWrite` ograniczenie używane wyłącznie dla podstawowej maszyny wirtualnej i `ReadOnly` ograniczenie używane przez pomocniczą.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
 
 ##### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
 
 Poniżej znajduje się przykładowy klaster z systemem Linux z 4 węzłami z pojedynczym modułem zapisywania i trzema czytnikami skalowalnymi w poziomie. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to `ReadWrite` ograniczenie używane wyłącznie dla podstawowej maszyny wirtualnej i `ReadOnly` ograniczanie przepustowości przez pomocnicze maszyny wirtualne.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład o czterech węzłach Ultra":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Obraz tabeli, która przedstawia dostęp typu &quot;ReadOnly&quot; lub &quot;Odczyt/zapis&quot; dla posiadacza rezerwacji, zarejestrowanych i innych.":::
 
 #### <a name="ultra-pricing"></a>Niezwykle Cennik
 

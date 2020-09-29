@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399756"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449276"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
 Korzystając z usług frontonu platformy Azure, można monitorować zasoby w następujący sposób:
 
-- **Metryki**. Drzwi frontonu platformy Azure mają obecnie siedem metryk do wyświetlania liczników wydajności.
+- **Metryki**. Drzwi frontonu platformy Azure mają obecnie osiem metryk do wyświetlania liczników wydajności.
 - **Dzienniki**. Dzienniki działań i diagnostyki umożliwiają zapisywanie lub zużywanie wydajności, dostępu i innych danych z zasobów na potrzeby monitorowania.
 
 ### <a name="metrics"></a>Metryki
@@ -52,7 +52,7 @@ Uzyskuj dostęp do dzienników aktywności w swoich drzwiach lub wszystkich dzie
 1. Wybierz wystąpienie z drzwiami czołowymi.
 2. Wybierz pozycję **Dziennik aktywności**.
 
-    ![Dziennik aktywności](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Dziennik aktywności":::
 
 3. Wybierz zakres filtrowania, a następnie wybierz pozycję **Zastosuj**.
 
@@ -61,7 +61,7 @@ Dzienniki diagnostyczne zawierają bogate informacje o operacjach i błędach, k
 
 Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób. Aby uzyskać więcej informacji, zobacz [Azure monitor dzienników diagnostycznych](../azure-monitor/platform/platform-logs-overview.md).
 
-![Dzienniki diagnostyczne](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Dziennik aktywności":::
 
 Aby skonfigurować dzienniki diagnostyczne dla drzwi czołowych:
 
@@ -103,7 +103,6 @@ Drzwi z przodu zawierają obecnie dzienniki diagnostyczne (wsadowe co godzinę).
 | Reguła routingu z włączonym buforowaniem. Trafienie pamięci podręcznej w punkcie POP krawędzi | 1 | Kod POP krawędzi | Pusty | Fałsz | Podstawa |
 | Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej w punkcie obecności, ale w podręcznym buforze zostanie osiągnięty bufor | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. puste | 1. true</br>2. false | 1. CHYBIEŃ</br>2. PARTIAL_HIT |
 | Reguła routingu z włączonym buforowaniem. Chybienia w pamięci podręcznej zarówno na krawędzi | 2 | 1. kod POP krawędzi</br>2. nadrzędny kod POP pamięci podręcznej | 1. nadrzędna pamięć podręczna w pamięci podręcznej</br>2. zaplecze, które ułatwia wypełnienie pamięci podręcznej | 1. true</br>2. false | 1. CHYBIEŃ</br>2. CHYBIEŃ |
-
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399654"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449258"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrowanie geograficzne w domenie dla drzwi frontonu platformy Azure
 
-Domyślnie drzwi frontonu platformy Azure reagują na żądania użytkowników, niezależnie od lokalizacji użytkownika wysyłającego żądanie. Jednak w niektórych przypadkach możesz chcieć ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Usługa Zapora aplikacji sieci Web (WAF) w przód drzwi umożliwia zdefiniowanie zasad przy użyciu niestandardowych reguł dostępu dla określonej ścieżki w punkcie końcowym, aby zezwolić na dostęp z określonych krajów/regionów lub go zablokować. 
+Domyślnie drzwi frontonu platformy Azure reagują na wszystkie żądania użytkowników, niezależnie od lokalizacji, z której pochodzi żądanie. W niektórych scenariuszach możesz chcieć ograniczyć dostęp do aplikacji sieci Web według krajów/regionów. Usługa Zapora aplikacji sieci Web (WAF) w przód drzwi umożliwia definiowanie zasad przy użyciu niestandardowych reguł dostępu dla określonej ścieżki w punkcie końcowym w celu zezwalania na dostęp lub blokowania go w określonych krajach/regionach. 
 
-Zasady WAF zazwyczaj obejmują zestaw reguł niestandardowych. Reguła składa się z warunków dopasowań, akcji i priorytetu. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość dopasowania.  Dla reguły filtrowania geograficznego zmienna dopasowania jest REMOTE_ADDR, operator jest geodopasowania, wartość to dwuliterowy kod kraju/regionu. Możesz połączyć warunek GeoMatch i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartą na ścieżkach.
+Zasady WAF zawierają zestaw reguł niestandardowych. Reguła zawiera warunki dopasowania, akcję i priorytet. W warunku dopasowania należy zdefiniować zmienną dopasowania, operator i wartość Match. Dla reguły filtrowania geograficznego zmienna dopasowania jest REMOTE_ADDR, operator jest geodopasowywany, a wartość to dwuliterowy kod kraju/regionu. Można połączyć warunek geodopasowania i warunek dopasowania ciągu REQUEST_URI, aby utworzyć regułę filtrowania geograficznego opartego na ścieżce.
 
-Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy użyciu [Azure PowerShell](front-door-tutorial-geo-filtering.md) lub przy użyciu naszego [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy użyciu [Azure PowerShell](front-door-tutorial-geo-filtering.md) lub przy użyciu [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Odwołanie do kodu kraju/regionu
 
@@ -103,7 +103,7 @@ Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy 
 | HR | Chorwacja|
 | HT | Haiti|
 | HU | Węgry|
-| ID (Identyfikator) | Indonezja|
+| ID | Indonezja|
 | IE | Irlandia|
 | IL | Izrael|
 | IN | Indie|
@@ -212,5 +212,5 @@ Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Uzyskaj informacje o [zabezpieczeniach warstwy aplikacji w usłudze Front Door](front-door-application-security.md).
 - Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
+- Zapoznaj się z gorącą, aby [skonfigurować zasady WAFego filtrowania geograficznego](front-door-tutorial-geo-filtering.md).

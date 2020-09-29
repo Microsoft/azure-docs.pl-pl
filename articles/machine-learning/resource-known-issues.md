@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280984"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450051"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -61,7 +61,7 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
      
 * **Nie ma gwarancji, że pakiet jest instalowany podczas instalowania programu Azure-pociąg-automl-Client:** 
    
-   W przypadku uruchamiania zdalnego AutoML z włączonym wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie "Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu". Jest to znany problem. Jako obejście wykonaj jedną z poniższych czynności:
+   W przypadku uruchamiania zdalnego AutoML z włączonym wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie "Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu". To jest znany problem. Jako obejście wykonaj jedną z poniższych czynności:
   
   1. Zainstaluj usługę Azure — Wyjaśnij model lokalnie.
    ```
@@ -209,6 +209,9 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
     ```
 
     Jeśli nie dołączysz wiodącego ukośnika "/", musisz utworzyć prefiks katalogu roboczego, np. `/mnt/batch/.../tmp/dataset` w elemencie docelowym obliczeń, aby wskazać, gdzie ma być zainstalowany zestaw danych.
+
+### <a name="mount-dataset"></a>Zainstaluj zestaw danych
+* **Nie można zainicjować zestawu danych: upłynął limit czasu oczekiwania na gotowość punktu instalacji**: aby `azureml-sdk >=1.12.0` rozwiązać ten problem, dodano logikę ponownej próby. Jeśli korzystasz z wcześniejszych wersji zestawu Azure SDK, przeprowadź uaktualnienie do najnowszej wersji. Jeśli jesteś już w programie `azureml-sdk>=1.12.0` , Utwórz ponownie środowisko, aby dysponować najnowszą poprawką.
 
 ### <a name="data-labeling-projects"></a>Projekty etykietowania danych
 
@@ -407,7 +410,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Error  | Rozwiązanie  |
+|Błąd  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |

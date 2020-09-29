@@ -9,36 +9,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445493"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Ponowne zapisywanie adresów URL (niestandardowa ścieżka przesyłania dalej)
-Funkcja Azure Front Drzwiczks obsługuje ponowne zapisywanie adresów URL, umożliwiając Konfigurowanie opcjonalnej **niestandardowej ścieżki przekazywania** , która będzie używana podczas konstruowania żądania do przesyłania dalej do zaplecza. Domyślnie jeśli nie ma określonej niestandardowej ścieżki przesyłania dalej, usługa Front Door kopiuje przychodzącą ścieżkę adresu URL do adresu URL użytego w przesłanym dalej żądaniu. Nagłówek Host użyty w przesłanym dalej żądaniu jest skonfigurowany dla wybranego zaplecza. Odczytaj [nagłówek hosta zaplecza](front-door-backend-pool.md#hostheader) , aby dowiedzieć się, co robi i jak można go skonfigurować.
+Funkcja Front-drzwiczki platformy Azure obsługuje ponowne zapisywanie adresów URL przez skonfigurowanie opcjonalnej **niestandardowej ścieżki przesyłania dalej** , która będzie używana podczas konstruowania żądania do przesyłania dalej do zaplecza. Domyślnie, jeśli nie podano niestandardowej ścieżki przekazywania, drzwi z przodu skopiują ścieżkę przychodzącego adresu URL do adresu URL używanego w żądaniu przekazywanym dalej. Nagłówek Host użyty w przesłanym dalej żądaniu jest skonfigurowany dla wybranego zaplecza. Odczytaj [nagłówek hosta zaplecza](front-door-backend-pool.md#hostheader) , aby dowiedzieć się, co robi i jak można go skonfigurować.
 
-Zaawansowana część adresu URL do ponownego zapisu przy użyciu ścieżki niestandardowego przesyłania dalej polega na skopiowaniu dowolnej części ścieżki przychodzącej dopasowanej do ścieżki wieloznacznej do przesłanej dalej ścieżki (te segmenty ścieżki są **zielonymi** segmentami w poniższym przykładzie):
+Niestandardową częścią funkcji ponownego zapisywania adresów URL jest skopiowanie dowolnej części ścieżki przychodzącej, która pasuje do ścieżki wieloznacznej do przesłanej dalej ścieżki (te segmenty ścieżki są **zielonymi** segmentami w poniższym przykładzie):
 </br>
-![Ponowne zapisywanie adresu URL usługi Azure Front-drzwiczk][1]
+
+:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg" alt-text="Ponowne zapisywanie adresu URL usługi Azure Front-drzwiczk":::
 
 ## <a name="url-rewrite-example"></a>Przykład ponownego zapisywania adresu URL
-Rozważ użycie reguły routingu z skonfigurowanymi następującymi hostami frontonu i ścieżkami:
+Rozważ użycie reguły routingu z następującą kombinacją skonfigurowanych hostów frontonu i ścieżek:
 
 | Hosts      | Ścieżki       |
 |------------|-------------|
-| \.contoso.com www | /\*         |
+| \.contoso.com www | /\*   |
 |            | /foo        |
 |            | Foo\*     |
 |            | /foo/bar/\* |
 
-W pierwszej kolumnie poniższej tabeli przedstawiono przykłady żądań przychodzących, a druga kolumna pokazuje, co to jest "najbardziej specyficzna" ścieżka do trasy.  Trzecia i kolejna kolumna pierwszego wiersza tabeli to przykłady skonfigurowanych **niestandardowych ścieżek przesyłania dalej**, z pozostałymi wierszami w tych kolumnach, które reprezentują przykłady ścieżki przesłane dalej, jeśli pasują do żądania w tym wierszu.
+W pierwszej kolumnie poniższej tabeli przedstawiono przykłady żądań przychodzących, a druga kolumna pokazuje, co to jest "najbardziej specyficzna" ścieżka do trasy.  Trzecia i kolumnowa kolumna tabeli to przykłady skonfigurowanych **niestandardowych ścieżek przesyłania dalej**.
 
 Na przykład jeśli odczytasz w drugim wierszu, oznacza to, że w przypadku żądania przychodzącego `www.contoso.com/sub` , jeśli niestandardowa ścieżka przesyłania dalej to `/` , przekazana ścieżka będzie `/sub` . W przypadku niestandardowej ścieżki przesyłania dalej `/fwd/` zostanie przekazana ścieżka `/fwd/sub` . I tak dalej, dla pozostałych kolumn. **Wyróżnione** fragmenty ścieżek poniżej reprezentują fragmenty, które są częścią dopasowania symboli wieloznacznych.
-
 
 | Żądanie przychodzące       | Najbardziej Szczegółowa ścieżka dopasowania | /          | /fwd/          | Foo          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
@@ -49,18 +49,12 @@ Na przykład jeśli odczytasz w drugim wierszu, oznacza to, że w przypadku żą
 | \.contoso.com/foo/www        | Foo\*                  | /          | /fwd/          | Foo          | /foo/bar/          |
 | \.**pasek** contoso.com/foo/www | Foo\*                  | /**słup**   | **pasek** /FWD/   | **pasek** /foo/   | **pasek** /foo/bar/   |
 
-
 ## <a name="optional-settings"></a>Ustawienia opcjonalne
 Dostępne są dodatkowe ustawienia opcjonalne, które można także określić dla określonych ustawień reguły routingu:
 
-* **Konfiguracja pamięci podręcznej** — Jeśli ta wartość jest wyłączona lub nie została określona, żądania zgodne z tą regułą routingu nie będą próbować korzystać z zawartości w pamięci podręcznej, a zamiast tego będą zawsze pobierane z zaplecza. Przeczytaj więcej [na temat buforowania z przednimi drzwiami](front-door-caching.md).
-
-
+* **Konfiguracja pamięci podręcznej** — Jeśli ta wartość jest wyłączona lub nie została określona, żądania zgodne z tą regułą routingu nie będą próbować korzystać z pamięci podręcznej, a zamiast tego będą zawsze pobierane z zaplecza. Przeczytaj więcej [na temat buforowania z przednimi drzwiami](front-door-caching.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
 - Dowiedz się, [jak działa usługa Front Door](front-door-routing-architecture.md).
-
-<!--Image references-->
-[1]: ./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg

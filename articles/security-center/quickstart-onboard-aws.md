@@ -4,15 +4,15 @@ description: Monitorowanie zasobów AWS z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 33ff6748eba9d0349df244e70f07ad178f258373
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250288"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449039"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -71,7 +71,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
 
 #### <a name="create-an-iam-role-for-security-center"></a>Utwórz rolę usługi IAM dla Security Center
 1. Z poziomu konsoli Amazon Web Services w obszarze **zabezpieczenia, tożsamość & zgodność**, wybierz pozycję **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Usługi AWS Services":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
 1. Wybierz **role** i **Utwórz rolę**.
 1. Wybierz **inne konto AWS**.
@@ -81,7 +81,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. W sekcji **Dołącz zasady uprawnień** wybierz następujące zasady:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - AWSSecurityHubReadOnlyAccess
 
 1. Opcjonalnie dodaj Tagi. Dodawanie tagów do użytkownika nie ma wpływu na połączenie.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Na liście role Wybierz utworzoną rolę
 
@@ -127,17 +127,17 @@ Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączani
 
 1. Z menu Security Center wybierz pozycję **wiele łączników w chmurze**.
 1. Wybierz pozycję **Dodaj konto AWS**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Przycisk dodawania konta AWS na stronie łączników wielochmurowych Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 1. Skonfiguruj opcje na karcie **uwierzytelnianie AWS** :
     1. Wprowadź **nazwę wyświetlaną** dla łącznika.
     1. Upewnij się, że subskrypcja jest poprawna. Jest to subskrypcja obejmująca łącznik i AWS zalecenia dotyczące usługi Centrum zabezpieczeń.
     1. W zależności od opcji uwierzytelniania wybranej w [kroku 2. Skonfiguruj uwierzytelnianie dla Security Center w AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Wybierz pozycję  **przyjmij rolę** i wklej ARN z obszaru [Tworzenie roli usługi IAM dla Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="wklejenia pliku ARN w odpowiednim polu Kreatora połączenia AWS w witrynie Azure Portal":::
+        - Wybierz pozycję  **przyjmij rolę** i wklej ARN z obszaru [Tworzenie roli usługi IAM dla Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
             LUB
 
         - Wybierz pozycję **poświadczenia** i wklej **klucz dostępu** i **klucz tajny** z pliku CSV zapisanego w temacie [Create a AWS User for Security Center](#create-an-aws-user-for-security-center).
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Skonfiguruj opcje na karcie **Konfiguracja usługi Azure Arc** :
 
     Security Center odnajduje wystąpienia EC2 na połączonym koncie AWS i używa program SSM, aby dołączyć je do usługi Azure Arc. 
@@ -164,7 +164,7 @@ Po pomyślnym utworzeniu łącznika i AWS Centrum zabezpieczeń zostało prawid�
 - Usługa ASC skanuje nowe wystąpienia usługi AWS EC2 co 6 godzin i dołączy je zgodnie z konfiguracją.
 - Standard AWS CIS zostanie wyświetlony na pulpicie nawigacyjnym zgodności z przepisami Security Center.
 - Jeśli zasady Centrum zabezpieczeń są włączone, zalecenia będą wyświetlane w portalu Security Center i na pulpicie nawigacyjnym zgodności z przepisami 5-10 minut po zakończeniu dołączania.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="AWS zasoby i zalecenia na stronie zalecenia dotyczące Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
 
 
@@ -174,7 +174,7 @@ Jak pokazano powyżej, na stronie zalecenia dotyczące zabezpieczeń Azure Secur
 
 Aby wyświetlić wszystkie aktywne zalecenia dotyczące zasobów według typu zasobu, użyj strony spisu środków Security Center i przefiltruj do typu zasobu AWS, w którym jesteś zainteresowani:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtr typu zasobu strony spisu zasobów przedstawiający opcje AWS"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS w Security Center często zadawane pytania

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206139"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449663"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
-W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem, które można wykonywać na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. Ten artykuł dotyczy zadań, które można wykonywać za pomocą lokalnego internetowego interfejsu użytkownika.
+W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem wykonywane na urządzeniach urządzenie Data Box i Data Box Heavy. Urządzeniami urządzenie Data Box i Data Box Heavy można zarządzać za pomocą interfejsu użytkownika Azure Portal oraz lokalnego interfejsu użytkownika sieci Web dla urządzenia. W tym artykule omówiono zadania wykonywane przy użyciu lokalnego interfejsu użytkownika sieci Web.
 
-Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników i wygenerować pakiet dzienników dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
+Lokalny interfejs użytkownika sieci Web dla urządzenie Data Box i dla Data Box Heavy służy do wstępnej konfiguracji urządzenia. Możesz również użyć lokalnego interfejsu użytkownika sieci Web, aby zamknąć lub ponownie uruchomić urządzenie, uruchomić testy diagnostyczne, zaktualizować oprogramowanie, wyświetlić kopie dzienników i wygenerować pakiet dzienników dla pomoc techniczna firmy Microsoft. Na urządzeniu Data Box Heavy z dwoma niezależnymi węzłami możesz uzyskać dostęp do dwóch oddzielnych lokalnych interfejsów użytkownika sieci Web odpowiadających poszczególnym węzłom urządzenia.
 
 W tym artykule zawarto następujące samouczki:
 
@@ -53,7 +53,7 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
 ## <a name="shut-down-or-restart-your-device"></a>Zamykanie lub ponowne uruchamianie urządzenia
 
-Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Takie działanie minimalizuje możliwość uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas wyłączania urządzenia.
+Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Takie działanie minimalizuje możliwość uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas zamykania urządzenia.
 
 Aby zamknąć urządzenie, wykonaj następujące czynności.
 
@@ -62,7 +62,7 @@ Aby zamknąć urządzenie, wykonaj następujące czynności.
 
     ![Zamykanie urządzenia Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby wykonać operację.
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby kontynuować.
 
     ![Zamykanie urządzenia Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -75,7 +75,7 @@ Aby ponownie uruchomić urządzenie Data Box, wykonaj następujące czynności.
 
     ![Ponowne uruchamianie urządzenia Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby wykonać operację.
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby kontynuować.
 
    Urządzenie zostaje wyłączone i uruchomione ponownie.
 
@@ -93,7 +93,7 @@ Przed rozpoczęciem wykonaj następujące kroki, aby pobrać pliki BOM lub manif
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. W Eksploratorze plików zauważysz, że jest generowana oddzielna lista plików w zależności od protokołu użytego do nawiązania połączenia z urządzeniem i od użytego typu magazynu usługi Azure Storage.
+3. W Eksploratorze plików zobaczysz, że wygenerowane są osobne listy plików w zależności od protokołu używanego do nawiązywania połączenia z urządzeniem i używanego typu magazynu platformy Azure.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Pliki dla typu magazynu i protokołu połączenia](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -202,6 +202,49 @@ Aby włączyć podpisywanie protokołu SMB na urządzeniu platformy Azure:
 4. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
 5. Wybierz pozycję **Uruchom ponownie**.
 
+## <a name="enable-backup-operator-privileges"></a>Włącz uprawnienia operatora kopii zapasowych
+
+Użytkownicy interfejsu użytkownika sieci Web domyślnie mają uprawnienia operatora kopii zapasowych w udziałach SMB. Jeśli nie chcesz tego zrobić, użyj **uprawnień operatora Włącz** , aby wyłączyć lub włączyć uprawnienia.
+
+Aby uzyskać więcej informacji, zobacz Operatory kopii zapasowych w [Active Directory grupy zabezpieczeń](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+
+Aby włączyć uprawnienia operatorów kopii zapasowych na urządzeniu platformy Azure:
+
+1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
+
+   ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Włącz** Uprawnienia operatora kopii zapasowych.
+
+   ![Włącz uprawnienia operatora kopii zapasowych](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **Wybierz pozycję Zastosuj**.
+4. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
+5. Wybierz pozycję **Uruchom ponownie**.
+
+## <a name="enable-acls-for-azure-files"></a>Włącz listy ACL dla Azure Files
+
+Metadane w plikach są domyślnie transferowane, gdy użytkownik przekaże dane za pośrednictwem protokołu SMB do urządzenie Data Box. Metadane obejmują listy kontroli dostępu (ACL), atrybuty plików i sygnatury czasowe. Jeśli nie chcesz tego zrobić, użyj **list ACL dla usługi Azure Files** , aby wyłączyć lub włączyć tę funkcję.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> Aby przesłać metadane z plikami, musisz być operatorem kopii zapasowych. W przypadku korzystania z tej funkcji upewnij się, że użytkownicy lokalni interfejsu użytkownika sieci Web są operatorami kopii zapasowych. Zobacz [Włączanie uprawnień operatora kopii zapasowych](#enable-backup-operator-privileges).
+
+Aby włączyć transfer list ACL dla usługi Azure Files:
+
+1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
+
+    ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Włącz** Listy ACL dla plików platformy Azure.
+
+     ![Włączanie list ACL dla usługi Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Wybierz przycisk **Zastosuj**.
+4. W lokalnym internetowym interfejsie użytkownika przejdź do pozycji **Zamknij lub uruchom ponownie**.
+5. Wybierz pozycję **Uruchom ponownie**.
+
 ## <a name="enable-tls-11"></a>Włącz protokół TLS 1,1
 
 Domyślnie Azure Data Box używa Transport Layer Security (TLS) 1,2 do szyfrowania, ponieważ jest bezpieczniejsze niż TSL 1,1. Jeśli jednak klient korzysta z przeglądarki w celu uzyskania dostępu do danych, które nie obsługują protokołu TLS 1,2, można włączyć protokół TLS 1,1.
@@ -212,7 +255,7 @@ Aby włączyć protokół TLS 1,1 na urządzeniu platformy Azure:
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
 
-    ![Otwórz ustawienia](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Włącz** TLS 1,1.
 

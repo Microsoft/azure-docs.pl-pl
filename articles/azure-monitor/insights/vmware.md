@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090180"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450393"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
 
@@ -133,16 +133,16 @@ Możesz przejść do szczegółów, klikając hosta ESXi lub typ zdarzenia.
 
 Po kliknięciu nazwy hosta ESXi można wyświetlić informacje z tego hosta ESXi. Jeśli chcesz zawęzić wyniki przy użyciu typu zdarzenia, Dodaj `“ProcessName_s=EVENT TYPE”` zapytanie wyszukiwania. W filtrze wyszukiwania można wybrać wartość **ProcessName** . Pozwala to zawęzić informacje dla Ciebie.
 
-![prób](./media/vmware/eventhostdrilldown.png)
+![Zrzut ekranu przedstawiający hosta ESXi na liczbę zdarzeń i podział na bloki typu zdarzenia w widoku pulpitu nawigacyjnego VMware Monitoring.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Znajdowanie działań o dużej maszynie wirtualnej
 Maszynę wirtualną można utworzyć i usunąć na dowolnym hoście ESXi. Pomaga administratorowi określić, ile maszyn wirtualnych tworzy Host ESXi. To z kolei pomaga zrozumieć planowanie wydajności i pojemności. Śledzenie zdarzeń aktywności maszyn wirtualnych jest niezwykle ważne w przypadku zarządzania środowiskiem.
 
-![prób](./media/vmware/vmactivities1.png)
+![Zrzut ekranu bloku działania maszyny wirtualnej na pulpicie nawigacyjnym VMware Monitoring, przedstawiający wykres tworzenia i usuwania maszyn wirtualnych przez hosta ESXi.](./media/vmware/vmactivities1.png)
 
 Jeśli chcesz zobaczyć dodatkowe dane dotyczące tworzenia maszyny wirtualnej hosta ESXi, kliknij nazwę hosta ESXi.
 
-![prób](./media/vmware/createvm.png)
+![Zrzut ekranu okienka z pulpitu nawigacyjnego VMware Monitoring przedstawiający tabelę z wierszem danych dla każdej maszyny wirtualnej na potrzeby tworzenia przez hosta ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Typowe zapytania dzienników
 Rozwiązanie obejmuje inne przydatne zapytania, które mogą ułatwić Zarządzanie hostami ESXi, takimi jak duże miejsce do magazynowania, opóźnienie magazynu i awaria ścieżki.

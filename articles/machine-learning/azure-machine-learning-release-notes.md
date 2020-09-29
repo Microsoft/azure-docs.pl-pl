@@ -9,18 +9,55 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450069"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowiedzieć się więcej o znanych usterkach i obejść.
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.15.0
++ **Poprawki i ulepszenia błędów**
+  + **azureml-contrib-interpret**
+    + Wyjaśniono, że wyjaśnienie WAPNa zostało przeniesione z platformy Azure-contrib-Interpretuj do interpretowania — pakiet Community i objaśnienie obrazu usunięte z pakietu Azure-contrib-interpreter
+    + Pulpit nawigacyjny wizualizacji został usunięty z pakietu platformy Azure-contrib-interpreter, wyjaśnienie klient został przeniesiony do programu Azure — Interpretuj pakiet i został uznany za przestarzały w usłudze Azure-contrib-Interpretuj pakiet i notesy zaktualizowane w celu odzwierciedlenia ulepszonego
+    + Popraw opisy pakietów PyPi dla platformy Azure-interpretacji, uczenia maszynowego — wyjaśnienie-model, uczenie maszynowe-contrib — interpretowanie i Azure tensorboard
+  + **azureml-contrib-notebook**
+    + Przypnij zależność nbcovert do < 6, aby Papermill 1. x nadal działała.
+  + **azureml-core**
+    + Dodano parametry do konstruktora TensorflowConfiguration i MpiConfiguration, aby umożliwić bardziej usprawnione inicjowanie atrybutów klasy bez konieczności od użytkownika ustawiania poszczególnych atrybutów. Dodano klasę PyTorchConfiguration do konfigurowania zadań rozproszonego PyTorch w programie ScriptRunConfig.
+    + Przypnij wersję platformy Azure-zarządzanie-zasób, aby naprawić błąd uwierzytelniania.
+    + Obsługa Triton bez wdrażania kodu
+    + katalogi wyjściowe określone w Run. start_logging () będą teraz śledzone w przypadku korzystania z funkcji run w scenariuszach interaktywnych. Śledzone pliki będą widoczne na ML Studio po wywołaniu metody Run. Complete ()
+    + Kodowanie plików można teraz określić podczas tworzenia zestawu danych za pomocą `Dataset.Tabular.from_delimited_files` i `Dataset.Tabular.from_json_lines_files` przez przekazanie `encoding` argumentu. Obsługiwane kodowania to "UTF8", "iso88591", "Latin1", "ASCII", UTF16 "," UTF32 "," utf8bom "i" windows1252 ".
+    + Poprawka błędu, gdy obiekt środowiska nie jest przekazaniem do konstruktora ScriptRunConfig.
+    + Zaktualizowano przebieg. Cancel (), aby zezwolić na anulowanie lokalnego uruchomienia z innego komputera.
+  + **azureml-dataprep**
+    +  Rozwiązano problemy z limitem czasu instalowania zestawu danych.
+  + **Uczenie maszynowe — wyjaśnienie modelu**
+    + Popraw opisy pakietów PyPi dla platformy Azure-interpretacji, uczenia maszynowego — wyjaśnienie-model, uczenie maszynowe-contrib — interpretowanie i Azure tensorboard
+  + **Azure — interpretowanie**
+    + Pulpit nawigacyjny wizualizacji został usunięty z pakietu platformy Azure-contrib-interpreter, wyjaśnienie klient został przeniesiony do programu Azure — Interpretuj pakiet i został uznany za przestarzały w usłudze Azure-contrib-Interpretuj pakiet i notesy zaktualizowane w celu odzwierciedlenia ulepszonego
+    + pakiet Azure-interpreter został zaktualizowany do programu w zależności od interpretera 0.15.0 Community
+    + Popraw opisy pakietów PyPi dla platformy Azure-interpretacji, uczenia maszynowego — wyjaśnienie-model, uczenie maszynowe-contrib — interpretowanie i Azure tensorboard
+  + **azureml-pipeline-core**
+    +  Problem z rozwieszeniem stałego potoku z `OutputFileDatasetConfig` `register_on_complete` parametrem when jest wywoływany przy użyciu `name` parametru ustawionego na nazwę istniejącego zestawu danych.
+  + **azureml-pipeline-steps**
+    + Usunięto stare notesy datakostek.
+  + **azureml-tensorboard**
+    + Popraw opisy pakietów PyPi dla platformy Azure-interpretacji, uczenia maszynowego — wyjaśnienie-model, uczenie maszynowe-contrib — interpretowanie i Azure tensorboard
+  + **azureml-train-automl-runtime**
+    + Pulpit nawigacyjny wizualizacji został usunięty z pakietu platformy Azure-contrib-interpreter, wyjaśnienie klient został przeniesiony do programu Azure — Interpretuj pakiet i został uznany za przestarzały w usłudze Azure-contrib-Interpretuj pakiet i notesy zaktualizowane w celu odzwierciedlenia ulepszonego
+  + **azureml-widgets**
+    + Pulpit nawigacyjny wizualizacji został usunięty z pakietu platformy Azure-contrib-interpreter, wyjaśnienie klient został przeniesiony do programu Azure — Interpretuj pakiet i został uznany za przestarzały w usłudze Azure-contrib-Interpretuj pakiet i notesy zaktualizowane w celu odzwierciedlenia ulepszonego
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -313,7 +350,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Nie można już włączyć czyszczenia równoważenia klasy, jeśli użytkownik wyłączy cechowania.  
   + **Azure-contrib-itp**
     + Typ obliczania zestawu CmAk jest obsługiwany. Możesz dołączyć własny klaster AKS do obszaru roboczego na potrzeby zadania szkoleniowego.
-  + **Azure — contrib — Notes**
+  + **azureml-contrib-notebook**
     + Udoskonalenia dokumentacji dotyczącej pakietu Azure-contrib-Notes.
   + **azureml-contrib-pipeline-steps**
     + Udoskonalenia dokumentacji pakietu Azure-contrib--Pipeline-etaps.
@@ -403,7 +440,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Ulepszona dokumentacja register_azure_blob_container i register_azure_file_share
   + **azureml-datadrift**
     + Ulepszona implementacja do wyłączania i włączania monitorów dryfowania zestawu danych
-  + **azureml-interpret**
+  + **Azure — interpretowanie**
     + W wyjaśnieniu klient usuwa NaNs lub inf przed serializacji JSON przy przekazywaniu z artefaktów
     + Aktualizowanie do najnowszej wersji programu interpretuje społeczność, aby zwiększyć błędy pamięci dla globalnych wyjaśnień z wieloma funkcjami i klasami
     + Dodaj true_ys opcjonalny parametr do wyjaśnienia przekazywanie, aby włączyć dodatkowe funkcje w interfejsie użytkownika programu Studio
@@ -597,7 +634,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Poprawa obsługi zapisów z ograniczonym środowiskiem Python w przypadku zapewnienia zależności .NET wymaganych do dostarczania danych.
     + Naprawiono tworzenie przepływu danych w pliku z wiodącymi pustymi rekordami.
     + Dodano opcje obsługi błędów dla `to_partition_iterator` podobnej do `to_pandas_dataframe` .
-  + **azureml-interpret**
+  + **Azure — interpretowanie**
     + Zmniejszono limity długości ścieżki, aby zmniejszyć prawdopodobieństwo przekroczenia limitu systemu Windows
     + Poprawka dla wyjaśnień rozrzedzonych utworzonych za pomocą narzędzia do demetrii przy użyciu wieloskładnikowego modelu.
   + **azureml-opendatasets**

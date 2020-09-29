@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783947"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449888"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -66,6 +66,8 @@ Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną o
 
     ![Okienko podstawowe "Dodawanie połączonej organizacji"](./media/entitlement-management-organization/organization-basics.png)
 
+1. Stan zostanie automatycznie ustawiony na wartość **skonfigurowane** podczas tworzenia nowej połączonej organizacji. Aby uzyskać więcej informacji o właściwościach stanu, zobacz [Właściwości stanu połączonych organizacji](#state-properties-of-connected-organizations)
+
 1. Wybierz kartę **katalog + domena** , a następnie wybierz pozycję **Dodaj katalog + domena**.
 
     Zostanie otwarte okienko **Wybieranie katalogów i domen** .
@@ -109,7 +111,7 @@ Jeśli połączona organizacja zmieni się w inną domenę, nazwa organizacji ul
 
 1. W lewym okienku wybierz pozycję **połączone organizacje**, a następnie wybierz połączoną organizację, aby ją otworzyć.
 
-1. W okienku Przegląd połączonej organizacji wybierz pozycję **Edytuj** , aby zmienić nazwę lub opis organizacji.  
+1. W okienku Przegląd połączonej organizacji wybierz pozycję **Edytuj** , aby zmienić nazwę organizacji, opis lub stan.  
 
 1. W okienku **katalog + domena** wybierz pozycję **Aktualizuj katalog i domenę** , aby zmienić na inny katalog lub domenę.
 
@@ -135,6 +137,23 @@ Jeśli nie masz już relacji z zewnętrznym katalogiem lub domeną usługi Azure
 ## <a name="managing-a-connected-organization-programmatically"></a>Programistyczne zarządzanie połączoną organizacją
 
 Można również tworzyć, wyświetlać, aktualizować i usuwać połączone organizacje przy użyciu Microsoft Graph. Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby zarządzać obiektami [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) i ustawiać dla nich sponsorów.
+
+## <a name="state-properties-of-connected-organizations"></a>Właściwości stanu połączonych organizacji
+
+Istnieją dwa różne typy właściwości stanu dla połączonych organizacji, które obecnie są skonfigurowane i proponowane przez usługę zarządzania prawami w usłudze Azure AD: 
+
+- Skonfigurowana podłączona organizacja to w pełni funkcjonalna podłączona organizacja, która umożliwia użytkownikom w tej organizacji dostęp do pakietów dostępu. Gdy administrator utworzy nową podłączoną organizację w Azure Portal, będzie ona domyślnie w **skonfigurowanym** stanie od momentu utworzenia administratora i chce korzystać z tej połączonej organizacji. Ponadto, gdy podłączona organizacja jest tworzona programowo za pośrednictwem interfejsu API, należy **skonfigurować** stan domyślny, chyba że jest on jawnie ustawiony na inny stan. 
+
+    Skonfigurowane połączone organizacje będą widoczne w selektorach połączonych organizacji i będą w zasięgu dla wszelkich zasad, które są przeznaczone dla połączonych organizacji "wszystkie".
+
+- Proponowana połączona organizacja to połączona organizacja, która została utworzona automatycznie, ale nie miała uprawnienia administratora ani nie utworzyła organizacji. Gdy użytkownik loguje się w celu uzyskania dostępu do pakietu, który należy do skonfigurowanej połączonej organizacji, wszystkie automatycznie utworzone połączone organizacje będą w stanie **zaproponować** , ponieważ nie ma żadnego administratora w zestawie dzierżawców. 
+    
+    Proponowane połączone organizacje nie są wyświetlane w selektorach dla skonfigurowanych połączonych organizacji i nie są w zakresie dla ustawienia "wszystkie skonfigurowane połączone organizacje" dla wszystkich zasad. 
+
+Tylko użytkownicy z skonfigurowanych połączonych organizacji mogą żądać pakietów dostępu, które są dostępne dla użytkowników ze wszystkich skonfigurowanych organizacji. Użytkownicy z proponowanych połączonych organizacji mają doświadczenie, ponieważ nie istnieje połączona organizacja dla tej domeny i nie będzie miał dostępu do pakietu dostępu do momentu zmiany stanu przez administratora.
+
+> [!NOTE]
+> W ramach wdrażania tej nowej funkcji zostały uznane za **skonfigurowane**wszystkie połączone organizacje utworzone przed 09/09/20. Jeśli masz pakiet dostępu, który zezwala użytkownikom z dowolnej organizacji na rejestrację, należy przejrzeć listę połączonych organizacji, które zostały utworzone przed tą datą, aby upewnić się, że żadna z nich nie została sklasyfikowana jako **skonfigurowana**.  Administrator może zaktualizować właściwość **stanu** stosownie do potrzeb. Aby uzyskać wskazówki, zobacz [Aktualizowanie połączonej organizacji](#update-a-connected-organization).
 
 ## <a name="next-steps"></a>Następne kroki
 

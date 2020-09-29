@@ -1,23 +1,25 @@
 ---
-title: Instalowanie kontenerów mowy — usługa mowy
+title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy
 titleSuffix: Azure Cognitive Services
-description: Instalowanie i uruchamianie kontenerów mowy. Funkcja zamiany mowy na tekst przekształca strumienie audio do tekstu w czasie rzeczywistym, które mogą być używane przez aplikacje, narzędzia lub urządzenia. Zamiana tekstu na mowę polega na konwertowaniu tekstu wejściowego na mowę, przypominającą człowieka.
+description: Użyj kontenerów platformy Docker dla usługi mowy, aby przeprowadzić rozpoznawanie mowy, transkrypcję, generowanie i wiele miejsc w środowisku lokalnym.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: cog-serv-seo-aug-2020
+keywords: lokalna, Docker, kontener
+ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371681"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460054"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalowanie i uruchamianie kontenerów usługi mowy 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
 Kontenery umożliwiają uruchamianie niektórych interfejsów API usługi Mowa we własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener usługi Mowa.
 
@@ -482,7 +484,7 @@ ApiKey={API_KEY}
 
 To polecenie: 
 
-* Uruchamia kontener wykrywania języka mowy z obrazu kontenera. Obecnie nie zostanie naliczona opłata za uruchomienie tego obrazu. 
+* Uruchamia kontener wykrywania języka mowy z obrazu kontenera. Obecnie nie zostanie naliczona opłata za uruchomienie tego obrazu.
 * Przypisuje 1 rdzenie procesora CPU i 1 gigabajt (GB) pamięci.
 * Udostępnia port TCP 5003 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.

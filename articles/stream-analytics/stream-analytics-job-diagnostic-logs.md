@@ -6,13 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319358"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459816"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 

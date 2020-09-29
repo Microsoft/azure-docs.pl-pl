@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 2092a1aa3d5157db0392397e86553c5cc9da9de2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883791"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449942"
 ---
 # <a name="supported-platforms"></a>Obsługiwane platformy 
 

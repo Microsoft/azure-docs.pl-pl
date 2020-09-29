@@ -1,22 +1,22 @@
 ---
 title: 'Azure ExpressRoute: Konfigurowanie usługi ExpressRoute Direct'
-description: Dowiedz się, jak używać Azure PowerShell, aby skonfigurować usługę Azure ExpressRoute Direct do bezpośredniego łączenia się z siecią globalną firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.
+description: Dowiedz się, jak za pomocą Azure PowerShell skonfigurować usługę Azure ExpressRoute Direct do bezpośredniego połączenia z siecią globalną firmy Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396033"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450191"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Jak skonfigurować ExpressRoute Direct
 
-Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft w przypadku lokalizacji komunikacji równorzędnej strategicznie dystrybuowanej na całym świecie. Aby uzyskać więcej informacji, zobacz [About ExpressRoute Direct (Usługa ExpressRoute Direct)](expressroute-erdirect-about.md).
+Funkcja ExpressRoute Direct umożliwia bezpośrednie łączenie się z siecią globalną firmy Microsoft przy użyciu lokalizacji komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Aby uzyskać więcej informacji, zobacz [About ExpressRoute Direct (Usługa ExpressRoute Direct)](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Tworzenie zasobu
 
@@ -155,10 +155,20 @@ Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia 
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Zmień stan administratora linków
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generuj list autoryzacji (DOWANIU)
 
-  Ten proces powinien służyć do przeprowadzenia testu warstwy 1, co gwarantuje, że każde połączenie krzyżowe jest prawidłowo poprawione na każdy router dla podstawowego i pomocniczego.
-1. Pobierz szczegóły ExpressRoute bezpośredniego.
+Odwołuje się do ostatnio utworzonego zasobu ExpressRoute Direct, wprowadź nazwę klienta, aby zapisać DOWANIU do i (opcjonalnie) zdefiniować lokalizację pliku do przechowywania dokumentu. Jeśli ścieżka do pliku nie jest przywoływana, dokument zostanie pobrany do bieżącego katalogu.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Przykładowe dane wyjściowe**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+
+  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+1. Get ExpressRoute Direct details.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -227,13 +237,13 @@ Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia 
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Tworzenie obwodu
 
-Domyślnie można utworzyć 10 obwodów w ramach subskrypcji, w której znajduje się zasób ExpressRoute Direct. Można to zwiększyć przez pomoc techniczną. Użytkownik jest odpowiedzialny za śledzenie zarówno alokowanej, jak i wykorzystywanej przepustowości. Przystosowana przepustowość to suma przepustowości wszystkich obwodów w ramach zasobu ExpressRoute Direct, a wykorzystanie przepustowości jest fizycznym użyciem podstawowych interfejsów fizycznych.
+Domyślnie można utworzyć 10 obwodów w ramach subskrypcji, w której znajduje się zasób ExpressRoute Direct. Ten limit można zwiększyć przez pomoc techniczną. Użytkownik jest odpowiedzialny za śledzenie zarówno alokowanej, jak i wykorzystywanej przepustowości. Przystosowana przepustowość to suma przepustowości wszystkich obwodów w ramach zasobu ExpressRoute Direct, a wykorzystanie przepustowości jest fizycznym użyciem podstawowych interfejsów fizycznych.
 
-Dostępne są dodatkowe przepustowości obwodów, które mogą być używane w ExpressRoute bezpośrednio tylko w celu obsługi scenariuszy opisanych powyżej. Są to: 40Gbps i 100Gbps.
+Dostępne są dodatkowe przepustowości obwodów, które mogą być używane w usłudze ExpressRoute Direct do obsługi tylko scenariuszy opisanych powyżej. Przepustowość wynosi 40 GB/s i 100 GB/s.
 
 **SkuTier** może być lokalna, standardowa lub Premium.
 
-**SkuFamily** muszą być MeteredData tylko jako nieograniczone nie są obsługiwane w przypadku ExpressRoute Direct.
+**SkuFamily** może być tylko MeteredData. Nieograniczona nie jest obsługiwana w przypadku ExpressRoute Direct.
 
 Utwórz obwód w zasobie ExpressRoute Direct.
 

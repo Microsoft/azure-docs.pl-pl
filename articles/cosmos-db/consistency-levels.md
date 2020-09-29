@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396029"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445329"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Jakie są poziomy spójności w Azure Cosmos DB?
 
@@ -43,9 +43,7 @@ Semantyka pięciu poziomów spójności została opisana tutaj:
 
   Poniższa ilustracja ilustruje silną spójność z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" podczas odczytywania danych z innych regionów otrzymujesz najnowszą wartość:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="wideo":::
-
-- **Powiązana nieaktualność**: odczyty są gwarantowane do przestrzegania gwarancji o spójnym prefiksie. Odczyty mogą być opóźnione w stosunku do zapisu o większości *"K"* wersjach (czyli "aktualizacje") elementu lub interwału czasu *"T"* , w zależności od tego, który zostanie osiągnięty jako pierwszy. Innymi słowy, w przypadku wybrania ograniczonej nieodświeżoności, "nieaktualność" można skonfigurować na dwa sposoby:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Spójność jako spektrum" można skonfigurować na dwa sposoby:
 
 - Liczba wersji (*K*) elementu
 - Przedział czasu (*T*), przez który odczyty mogą być opóźnione za zapisem
@@ -61,9 +59,7 @@ W oknie nieodświeżone, powiązana nieaktualność zapewnia następujące gwara
 
   Ograniczone nieodświeżoności są często wybierane przez aplikacje rozproszone globalnie, które oczekują niskich opóźnień zapisu, ale wymagają całkowitej gwarancji zamówienia globalnego. Powiązana nieaktualność jest doskonałe dla aplikacji, które udostępniają współpracę i udostępnianie grup, taktowanie, publikowanie/subskrybowanie/kolejkowanie itp. Poniższa ilustracja ilustruje ograniczone niezgodność ze spójnością z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" regiony "Wschodnie stany USA 2" i "Australia Wschodnia" odczytaj wartość zapisaną na podstawie skonfigurowanego maksymalnego czasu zwłoki lub maksymalnej liczby operacji:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="wideo":::
-
-- **Sesja**: w ramach jednej sesji klienta zagwarantowane jest przestrzeganie spójnego prefiksu, odczytów monotoniczny, zapisów monotoniczny, odczytów i zapisów, a ponadto gwarantuje zapis w ramach funkcji odczytu. Przyjęto założenie pojedynczej sesji "składnika zapisywania" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Spójność jako spektrum" lub udostępnienie tokenu sesji dla wielu modułów zapisujących.
 
 Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące gwarancje:
 
@@ -74,7 +70,7 @@ Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące g
 
   Spójność sesji to najczęściej używany poziom spójności dla jednego regionu, a także aplikacje rozproszone globalnie. Zapewnia ona opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej samej spójności ostatecznej, ale również zapewnia gwarancje spójności, które odpowiadają potrzebom aplikacji napisanych w kontekście użytkownika. Poniższa ilustracja ilustruje spójność sesji z notatkami muzycznymi. Moduł zapisujący "zachodnie stany USA 2" i "zachodnie stany USA 2" używają tej samej sesji (sesji A), tak aby jednocześnie odczytywać te same dane w tym samym czasie. Natomiast region "Australia Wschodnia" używa "Session B", więc otrzymuje dane później, ale w tej samej kolejności jak zapisy.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="wideo":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Spójność jako spektrum":::
 
 - **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
 
@@ -89,12 +85,12 @@ Poniżej przedstawiono gwarancje spójności dla spójnego prefiksu:
 
 Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzycznymi. We wszystkich regionach odczyty nigdy nie są wyświetlane w kolejności zapisu:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="wideo":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Spójność jako spektrum":::
 
 - **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
 Spójność ostateczna to najsłaba forma spójności, ponieważ klient może odczytać wartości starsze niż te, które były wcześniej odczytywane. Spójność ostateczna jest idealnym miejscem, w którym aplikacja nie wymaga żadnych gwarancji związanych z porządkowaniem. Przykłady obejmują liczbę ponownych tweetów, polubień lub komentarzy niewielowątkowych. Na poniższej ilustracji przedstawiono spójność ostateczną z notatkami muzycznymi.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="wideo":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Spójność jako spektrum":::
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 

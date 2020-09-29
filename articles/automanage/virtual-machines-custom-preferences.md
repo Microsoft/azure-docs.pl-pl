@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937644"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450320"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Utwórz preferencję niestandardową w usłudze Azure automanage dla maszyn wirtualnych
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 > Konta bezpłatnych wersji próbnych nie mają dostępu do maszyn wirtualnych używanych w tym samouczku. Przeprowadź uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
-> Następujące uprawnienie RBAC jest konieczne, aby włączyć Autozarządzanie: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Następujące uprawnienie RBAC jest konieczne do włączenia funkcji Autozarządzanie: rola **właściciela** lub **współautora** wraz z rolami **administratora dostępu użytkowników** .
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -57,11 +57,11 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 4. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Przeglądaj i zmieniaj profile i preferencje.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
 5. W bloku **Wybierz profil konfiguracji i preferencje** wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla środowiska produkcyjnego.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Przeglądaj profil konfiguracji produkcyjnej.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
 6. W wybranym profilu w obszarze **Preferencje konfiguracji** znajduje się lista rozwijana, w której można dostosować je do określonych usług.
     1. Kliknij przycisk **Utwórz nowe preferencje**.
@@ -69,9 +69,9 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
         1. Subskrypcja
         1. Grupa zasobów
         1. Nazwa preferencji
-        1. Region
+        1. Region (Region)
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Wypełnij preferencje konfiguracji.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
 7. Przejdź do karty Preferencje i Dostosuj odpowiednie preferencje konfiguracji.
         
@@ -88,7 +88,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Szybko Zatrzymaj zarządzanie maszynami wirtualnymi przy użyciu usługi Azure automanage przez wyłączenie autozarządzania.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Wyłączanie autozarządzania na maszynie wirtualnej.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
 1. Przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych, które są zarządzane przez nią.
 1. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć.
@@ -96,7 +96,7 @@ Szybko Zatrzymaj zarządzanie maszynami wirtualnymi przy użyciu usługi Azure a
 1. Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli została utworzona nowa grupa zasobów w celu wypróbowania usługi Azure automanage dla maszyn wirtualnych i nie będzie już potrzebna, możesz usunąć grupę zasobów. Usunięcie grupy spowoduje również usunięcie maszyny wirtualnej i wszystkich zasobów w grupie zasobów.
 

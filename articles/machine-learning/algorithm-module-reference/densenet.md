@@ -8,19 +8,24 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898526"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450096"
 ---
 # <a name="densenet"></a>Model DenseNet
 
 W tym artykule opisano, jak używać modułu **DenseNet** w projektancie Azure Machine Learning, aby utworzyć model klasyfikacji obrazów przy użyciu algorytmu DenseNet.  
 
-Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga zestawu danych z etykietą. Zapoznaj się z tematem [konwertowanie do modułu usługi Image Directory](convert-to-image-directory.md) , aby uzyskać więcej instrukcji na temat pobierania katalogu obrazu z etykietą. Możesz nauczyć model, dostarczając model i katalog obrazu z etykietą jako dane wejściowe do [uczenia modelu Pytorch](train-pytorch-model.md). Model przeszkolony może następnie służyć do przewidywania wartości nowych przykładów wejściowych przy użyciu [modelu obrazu oceny](score-image-model.md).
+Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga katalogu obrazu z etykietą. 
+
+> [!NOTE]
+> Ten moduł nie obsługuje oznaczonego zestawem danych wygenerowanego na podstawie *etykietowania* w programie Studio, ale obsługuje tylko katalog obrazu z etykietami wygenerowany na podstawie [konwersji do modułu usługi Image Directory](convert-to-image-directory.md) . 
+
+Możesz nauczyć model, dostarczając model i katalog obrazu z etykietą jako dane wejściowe do [uczenia modelu Pytorch](train-pytorch-model.md). Model przeszkolony może następnie służyć do przewidywania wartości nowych przykładów wejściowych przy użyciu [modelu obrazu oceny](score-image-model.md).
 
 ### <a name="more-about-densenet"></a>Więcej informacji na temat DenseNet
 
@@ -53,7 +58,7 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nazwa modelu       | Dowolne   | Tryb    | densenet201 | Nazwa pewnej struktury densenet     |
 | Przeduczenie       | Dowolne   | Boolean | Prawda        | Czy używać modelu wstępnie nauczonego na ImageNet |
-| Wydajna pamięć | Dowolne   | Boolean | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
+| Wydajna pamięć | Dowolne   | Wartość logiczna | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
 
 ###  <a name="output"></a>Dane wyjściowe  
 

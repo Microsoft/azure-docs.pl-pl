@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502940"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450216"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Dodawanie użytkownika w witrynie Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502940"
 2. Kliknij przycisk **Dodaj użytkownika Kreatora**.
 3. W kroku **Wybierz użytkownika** Znajdź użytkownika, który chcesz dodać. Kliknij pozycję **Wybierz**.
 4. **Wybierz krok roli** , wybierz **Data Lake Analytics deweloper**. Ta rola ma minimalny zestaw uprawnień wymaganych do przesyłania i monitorowania zadań U-SQL oraz zarządzania nimi. Przypisz do tej roli, jeśli grupa nie jest przeznaczona do zarządzania usługami platformy Azure.
-5. W kroku **Wybierz uprawnienia katalogu** wybierz Wszystkie dodatkowe bazy danych, do których użytkownik będzie potrzebował dostępu. Do przesyłania zadań wymagane są uprawnienia do odczytu i zapisu w bazie danych Master. Gdy wszystko będzie gotowe, kliknij pozycję **OK**.
+5. W kroku **Wybierz uprawnienia katalogu** wybierz Wszystkie dodatkowe bazy danych, do których użytkownik będzie potrzebował dostępu. Do przesyłania zadań wymagane są uprawnienia do odczytu i zapisu do domyślnej statycznej bazy danych o nazwie "Master". Gdy wszystko będzie gotowe, kliknij pozycję **OK**.
 6. W ostatnim kroku o nazwie **Przypisz wybrane uprawnienia** Przejrzyj zmiany wprowadzone przez kreatora. Kliknij przycisk **OK**.
 
 

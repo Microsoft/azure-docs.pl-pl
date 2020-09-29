@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401575"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449217"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Jak usługa Front Door dopasowuje żądania do reguły routingu
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Jak są dopasowywane żądania do reguły routingu
 
-Po ustanowieniu połączenia i przeprowadzeniu uzgadniania protokołu TLS, gdy żądanie znajduje się w środowisku przednim, jeden z pierwszych elementów jest określany na podstawie wszystkich konfiguracji, które są określone dla każdej reguły routingu, aby dopasować żądanie do, a następnie wykonać zdefiniowaną akcję. W poniższym dokumencie wyjaśniono, jak drzwi z przodu określają konfigurację tras, która ma być używana podczas przetwarzania żądania HTTP.
+Po ustanowieniu połączenia i zakończeniu uzgadniania protokołu TLS, gdy żądanie jest pokrywane w środowisku czołowym, jedna z pierwszych elementów jest określana, która reguła routingu będzie zgodna z żądaniem, a następnie wykonać zdefiniowaną akcję w konfiguracji. W poniższym dokumencie wyjaśniono, jak drzwi z przodu określają konfigurację tras, która ma być używana podczas przetwarzania żądania HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Struktura konfiguracji trasy z drzwiami
 Konfiguracja reguły routingu dla drzwi przednich składa się z dwóch głównych części: "po lewej stronie" i "po prawej stronie". Dopasowujemy żądanie przychodzące do lewej strony trasy, a po prawej stronie definiuje sposób przetwarzania żądania.
@@ -41,7 +41,7 @@ Decyzja o sposobie przetwarzania żądania zależy od tego, czy buforowanie jest
 Ta sekcja koncentruje się na tym, jak zgadzamy się z daną regułą routingu przed drzwiami. Podstawowa koncepcja polega na tym, że zawsze pasujemy do **najbardziej konkretnego dopasowania** , które najpierw szuka tylko po lewej stronie.  Najpierw pasujemy do protokołu HTTP, a następnie hosta frontonu, a następnie ścieżki.
 
 ### <a name="frontend-host-matching"></a>Dopasowanie hosta frontonu
-W przypadku dopasowania hostów frontonu używamy logiki w następujący sposób:
+W przypadku dopasowania hostów frontonu używana jest logika zdefiniowana poniżej:
 
 1. Poszukaj dowolnej trasy z dokładnym dopasowaniem na hoście.
 2. Jeśli żadne dokładne hosty frontonu nie pasują do siebie, Odrzuć żądanie i Wyślij błąd nieprawidłowego żądania 400.

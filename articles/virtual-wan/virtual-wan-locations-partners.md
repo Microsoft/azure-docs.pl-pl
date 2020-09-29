@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 928a68cff5dc8043e69c25be3dcfa3510a7d3a2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8dcb188dc5aad59738e3eab4169bf9dbd3679ec
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267308"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449346"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Wirtualne partnerzy sieci WAN i wirtualne lokalizacje koncentratora
 
@@ -58,7 +58,7 @@ Ci partnerzy mają oferty **aplikacji zarządzanych** , które są teraz dostęp
 |Partnerzy|Konfiguracja/Przewodnik dotyczący wdrażania|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Podręcznik wdrażania Barracuda CloudGen sieci WAN](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[VWAN routera usług w chmurze (CSR) firmy Cisco](https://aka.ms/ciscoMarketPlaceOffer)| [Przewodnik wdrażania VWAN (CSR) firmy Cisco w chmurze]()
+|[VWAN routera usług w chmurze (CSR) firmy Cisco](https://aka.ms/ciscoMarketPlaceOffer)| Aby wdrożyć sieć WAN firmy Cisco Cloud Services (CSR) w koncentratorze wirtualnym, Wyślij wiadomość e-mail do vwan_public_preview@cisco.com |
 
 Następujący partnerzy są styczeń, aby urządzenie WUS w centrum wirtualne w najbliższej przyszłości: Citrix, Verse Networks i VeloCloud.
 

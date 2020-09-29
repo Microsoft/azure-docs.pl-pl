@@ -2,27 +2,27 @@
 title: Użyj Azure Stream Analytics
 description: Porady dotyczące używania Azure Stream Analytics z magazynem danych w usłudze Azure Synapse na potrzeby tworzenia rozwiązań w czasie rzeczywistym.
 services: synapse-analytics
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213350"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449505"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Używanie usługi Azure Stream Analytics z usługą Azure Synapse Analytics
 
 Azure Stream Analytics to w pełni zarządzana usługa dostarczająca wysoce opóźnienia i skalowalne, skomplikowane przetwarzanie złożone przetwarzania zdarzeń na danych przesyłanych strumieniowo w chmurze. Podstawowe informacje można uzyskać, odczytując [wprowadzenie do Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Następnie można dowiedzieć się, jak utworzyć kompleksowe rozwiązanie przy użyciu Stream Analytics, postępując zgodnie z samouczkiem [Rozpoczynanie pracy przy użyciu Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-Ten artykuł zawiera informacje na temat używania magazynu danych jako ujścia danych wyjściowych dla zadań Azure Stream Analytics.
+W tym artykule dowiesz się, jak korzystać z magazynu danych jako ujścia danych wyjściowych w celu pozyskiwania dużych przepływności przy użyciu Azure Stream Analytics zadań.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,7 +32,7 @@ Ten artykuł zawiera informacje na temat używania magazynu danych jako ujścia 
     2. Konfigurowanie i uruchamianie aplikacji generatora zdarzeń
     3. Inicjowanie obsługi zadania Stream Analytics
     4. Określ dane wejściowe i zapytania dotyczące zadania
-* Magazyn danych puli SQL usługi Azure Synapse — aby utworzyć nowy magazyn danych, wykonaj kroki opisane w [przewodniku Szybki Start, aby utworzyć nowy magazyn danych](create-data-warehouse-portal.md).
+* Azure Synapse — Pula SQL dla magazynu danych — aby utworzyć nowy magazyn danych, wykonaj kroki opisane w [przewodniku Szybki Start, aby utworzyć nowy magazyn danych](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Określ dane wyjściowe przesyłania strumieniowego, aby wskazywały magazyn danych
 
@@ -42,25 +42,25 @@ W Azure Portal przejdź do zadania Stream Analytics, a następnie kliknij pozycj
 
 ### <a name="step-2"></a>Krok 2
 
-Kliknij przycisk **Dodaj** , a następnie wybierz **SQL Database** z menu rozwijanego.
+Kliknij przycisk **Dodaj** , a następnie wybierz pozycję **Azure Synapse Analytics** z menu rozwijanego.
 
-![Wybierz SQL Database](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Wybierz pozycję Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### <a name="step-3"></a>Krok 3
 
-Wprowadź następujące wartości:
+Podaj następujące wartości:
 
 * *Alias wyjściowy*: wprowadź przyjazną nazwę dla tego wyjścia zadania.
 * *Subskrypcja*:
-  * Jeśli magazyn danych znajduje się w tej samej subskrypcji co zadanie Stream Analytics, kliknij pozycję ***wybierz SQL Database z subskrypcji***.
-  * Jeśli Twoja baza danych znajduje się w innej subskrypcji, kliknij pozycję Podaj SQL Database ustawienia ręcznie.
+  * Jeśli magazyn danych znajduje się w tej samej subskrypcji co zadanie Stream Analytics, kliknij ***opcję Wybierz pozycję Azure Synapse Analytics z subskrypcji***.
+  * Jeśli magazyn danych znajduje się w innej subskrypcji, kliknij pozycję Podaj ręcznie ustawienia usługi Azure Synapse Analytics.
 * *Baza danych*: wybierz docelową bazę danych z listy rozwijanej.
 * *Nazwa użytkownika*: Określ nazwę użytkownika konta, które ma uprawnienia do zapisu w bazie danych.
 * *Hasło*: Podaj hasło do określonego konta użytkownika.
 * *Tabela*: Określ nazwę docelowej tabeli w bazie danych.
 * Kliknij przycisk **Zapisz**
 
-![Formularz SQL Database ukończony](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Ukończony formularz analizy usługi Azure Synapse](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### <a name="step-4"></a>Krok 4
 

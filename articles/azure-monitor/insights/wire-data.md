@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325155"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445773"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Rozwiązanie Wire Data 2.0 (wersja zapoznawcza) w Azure Monitor
 
@@ -115,7 +115,7 @@ W poniższych sekcjach przedstawiono obsługiwane systemy operacyjne dla agenta 
 
 | Wersja systemu operacyjnego | Wersja jądra |
 |:--|:--|
-| 7.4 | 3.10.0-693 |
+| 7,4 | 3.10.0-693 |
 | 7,5 | 3.10.0-862 |
 | 7,6 | 3.10.0-957 |
 
@@ -183,7 +183,7 @@ Agent zależności jest instalowany na komputerach z systemem Windows za pomocą
 Wykonaj następujące kroki, aby zainstalować agenta zależności na każdym komputerze z systemem Windows:
 
 1. Zainstaluj agenta Log Analytics, wykonując czynności opisane w temacie [zbieranie danych z komputerów z systemem Windows hostowanych w danym środowisku](../platform/agent-windows.md).
-2. Pobierz agenta zależności systemu Windows przy użyciu linku w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia:`InstallDependencyAgent-Windows.exe`
+2. Pobierz agenta zależności systemu Windows przy użyciu linku w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia: `InstallDependencyAgent-Windows.exe`
 3. Użyj kreatora, aby zainstalować agenta.
 4. Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Windows katalog dziennika to %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -226,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| **Plikach** | **Lokalizacja** |
+| **Files** | **Lokalizacja** |
 | --- | --- |
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -364,15 +364,15 @@ Na stronie **Omówienie** Twojego obszaru roboczego usługi Log Analytics w witr
 
 Możesz użyć bloku **Agenci przechwytujący ruch sieciowy**, aby ustalić, jaka część przepustowości sieci jest zużywana przez komputery. Ten blok może pomóc łatwo odnaleźć _najbardziej rozgadany_ komputer w Twoim środowisku. Takie komputery mogą być przeciążone, działać inaczej niż zwykle lub zużywać więcej zasobów sieciowych niż zwykle.
 
-![przykład przeszukiwania dzienników](./media/wire-data/log-search-example01.png)
+![Zrzut ekranu przedstawiający blok ruch sieciowy z agentów przechwytywania na pulpicie nawigacyjnym Wire Data 2.0, w którym jest wyświetlana przepustowość sieci używana przez poszczególne komputery.](./media/wire-data/log-search-example01.png)
 
 Analogicznie możesz użyć bloku **Podsieci lokalne**, aby określić, ile ruchu sieciowego przechodzi przez Twoje podsieci. Użytkownicy często definiują podsieci wokół najważniejszych obszarów dla swoich aplikacji. Ten blok oferuje wgląd w te obszary.
 
-![przykład przeszukiwania dzienników](./media/wire-data/log-search-example02.png)
+![Zrzut ekranu bloku podsieci lokalnych na pulpicie nawigacyjnym Wire Data 2.0 przedstawiający przepustowość sieci wykorzystywaną przez każdy LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 Blok **Protokoły poziomu aplikacji** przydaje się, ponieważ pomaga dowiedzieć się, jakie protokoły są używane. Na przykład możesz spodziewać się, że protokół SSH nie będzie używany w Twoim środowisku sieciowym. Wyświetlanie informacji dostępnych w bloku może szybko potwierdzić lub obalić Twoje oczekiwania.
 
-![przykład przeszukiwania dzienników](./media/wire-data/log-search-example03.png)
+![Zrzut ekranu przedstawiający blok protokołów poziomu aplikacji na pulpicie nawigacyjnym Wire Data 2.0, w którym jest wyświetlana przepustowość sieci używana przez poszczególne protokoły.](./media/wire-data/log-search-example03.png)
 
 Warto również wiedzieć, czy ruch w ramach protokołu zwiększa się, czy też zmniejsza wraz z upływem czasu. Jeśli na przykład wzrasta ilość danych przesyłanych przez aplikację, być może warto zwrócić uwagę.
 

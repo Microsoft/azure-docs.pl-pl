@@ -4,15 +4,15 @@ description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1c47c1cd464c9dc0ac8dc78f5d6f91f33481922a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8b6faa6e2e8928e008370cb0eca00595712a679d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449020"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Wprowadzenie do usługi Azure Defender dla magazynu
 

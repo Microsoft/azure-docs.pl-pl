@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449560"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Wysyłanie komunikatów z chmury do urządzenia przy użyciu IoT Hub (.NET)
 
@@ -91,13 +91,20 @@ W tej sekcji zmodyfikuj aplikację urządzenia utworzoną w obszarze Wysyłanie 
 
 `ReceiveAsync`Metoda asynchronicznie zwraca odebraną wiadomość w momencie odebrania jej przez urządzenie. Zwraca *wartość null* po określonym okresie limitu czasu. W tym przykładzie użyto domyślnie jednej minuty. Gdy aplikacja otrzymuje *wartość null*, powinna nadal czekać na nowe komunikaty. To wymaganie jest przyczyną dla `if (receivedMessage == null) continue` wiersza.
 
-Wywołanie `CompleteAsync()` powiadamia IoT Hub, że komunikat został pomyślnie przetworzony. Komunikat można bezpiecznie usunąć z kolejki urządzeń. Jeśli wystąpił problem uniemożliwiający ukończenie przetwarzania komunikatu przez aplikację urządzenia, program IoT Hub go ponownie pomoże. Logika przetwarzania wiadomości w aplikacji urządzenia musi być *idempotentne*, tak aby ten sam komunikat wielokrotnie generował ten sam wynik.
+Wywołanie `CompleteAsync()` powiadomienia powiadamia IoT Hub o pomyślnym przetworzeniu komunikatu oraz o tym, że komunikat można bezpiecznie usunąć z kolejki urządzeń. Urządzenie powinno wywołać tę metodę, gdy przetwarzanie zostało pomyślnie zakończone, niezależnie od używanego protokołu.
 
-Aplikacja może również tymczasowo porzucić komunikat, co spowoduje, że w usłudze IoT Hub zachowywanie komunikatu w kolejce do użycia w przyszłości. Lub aplikacja może odrzucić komunikat, który trwale usuwa komunikat z kolejki. Aby uzyskać więcej informacji na temat cyklu życia komunikatów z chmury do urządzenia, zobacz [D2C i C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
+W przypadku AMQP i HTTPS, ale nie MQTT, urządzenie może również:
 
-   > [!NOTE]
-   > W przypadku korzystania z protokołu HTTPS zamiast MQTT lub AMQP jako transportu `ReceiveAsync` Metoda wraca natychmiast. Obsługiwany wzorzec dla komunikatów z chmury do urządzenia z protokołem HTTPS jest sporadycznie połączonymi urządzeniami, które często sprawdzają obecność komunikatów (mniej niż co 25 minut). Wydawanie większej liczby odbieranych przez protokół HTTPS powoduje IoT Hub ograniczanie żądań. Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS, a IoT Hub ograniczania, zobacz [D2C i C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
-   >
+* Porzuć komunikat, co spowoduje IoT Hub zachowywanie komunikatu w kolejce urządzeń w celu użycia w przyszłości.
+* Odrzuć komunikat, który trwale usuwa komunikat z kolejki urządzeń.
+
+W przypadku, gdy coś się nie powiedzie, że urządzenie zakończy działanie, porzucanie lub odrzucanie komunikatu, IoT Hub po upływie ustalonego limitu czasu będzie kolejkować komunikat o dostarczeniu ponownie. Z tego powodu logika przetwarzania komunikatów w aplikacji urządzenia musi być *idempotentne*, dzięki czemu ten sam komunikat wielokrotnie daje ten sam wynik.
+
+Aby uzyskać szczegółowe informacje na temat sposobu, w jaki IoT Hub przetwarza komunikatów z chmury do urządzenia, w tym szczegółowe informacje o cyklu życia komunikatów z chmury do urządzenia, zobacz [wysyłanie komunikatów z chmury do urządzeń z Centrum IoT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> W przypadku korzystania z protokołu HTTPS zamiast MQTT lub AMQP jako transportu `ReceiveAsync` Metoda wraca natychmiast. Obsługiwany wzorzec dla komunikatów z chmury do urządzenia z protokołem HTTPS jest sporadycznie połączonymi urządzeniami, które często sprawdzają obecność komunikatów (co najmniej 25 minut). Wydawanie większej liczby odbieranych przez protokół HTTPS powoduje IoT Hub ograniczanie żądań. Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS, zobacz [wskazówki dotyczące komunikacji z chmury do urządzeń](iot-hub-devguide-c2d-guidance.md) i [Wybierz protokół komunikacyjny](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 
@@ -164,7 +171,7 @@ W tej sekcji utworzysz aplikację konsolową .NET, która wysyła komunikaty z c
 
 1. Naciśnij klawisz **F5**. Należy uruchomić obie aplikacje. Wybierz okno **SendCloudToDevice** , a następnie naciśnij klawisz **Enter**. Powinien zostać wyświetlony komunikat, który jest odbierany przez aplikację urządzenia.
 
-   ![Komunikat z informacją o odebraniu aplikacji](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Komunikat dotyczący odebrania aplikacji urządzenia](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>Otrzymywanie opinii o dostawie
 
@@ -211,13 +218,13 @@ W tej sekcji zmodyfikujesz aplikację **SendCloudToDevice** , aby żądać opini
 
 1. Uruchom aplikacje, naciskając klawisz **F5**. Powinny pojawić się oba uruchomienia aplikacji. Wybierz okno **SendCloudToDevice** , a następnie naciśnij klawisz **Enter**. Powinien pojawić się komunikat z informacją, że odebrana przez aplikację urządzenia, a po upływie kilku sekund komunikat o opinii jest odbierany przez aplikację **SendCloudToDevice** .
 
-   ![Komunikat z informacją o odebraniu aplikacji](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Aplikacja urządzenia, która otrzymuje informację o komunikacie i usłudze](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > Dla uproszczenia w tym samouczku nie są implementowane żadne zasady ponawiania. W kodzie produkcyjnym należy zaimplementować zasady ponawiania, takie jak wycofywania wykładniczy, zgodnie z sugestią w [przejściowej obsłudze błędów](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym instruktażu pokazano, jak wysyłać i odbierać komunikaty z chmury do urządzenia.
 

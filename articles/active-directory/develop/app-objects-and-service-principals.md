@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782442"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449356"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
@@ -49,7 +49,7 @@ Aby uzyskać dostęp do zasobów zabezpieczonych przez dzierżawę usługi Azure
 
 Jednostka usługi to lokalna reprezentacja lub wystąpienie aplikacji globalnego obiektu aplikacji w pojedynczej dzierżawie lub katalogu. Nazwa główna usługi jest konkretnym wystąpieniem utworzonym na podstawie obiektu aplikacji i dziedziczy pewne właściwości z tego obiektu aplikacji.  Jednostka usługi jest tworzona w każdej dzierżawie, w której używana jest aplikacja, i odwołuje się do globalnego, unikatowego obiektu aplikacji.  Obiekt główny usługi definiuje, co aplikacja może w rzeczywistości wykonać w określonej dzierżawie, kto może uzyskiwać dostęp do aplikacji i jakie zasoby mogą uzyskać do niej dostęp.
 
-Gdy aplikacja uzyskuje uprawnienia dostępu do zasobów w dzierżawie (po rejestracji lub [zgodzie](developer-glossary.md#consent)), tworzony jest obiekt jednostki usługi. Możesz również utworzyć obiekt jednostki usługi w dzierżawie przy użyciu [Azure PowerShell](howto-authenticate-service-principal-powershell.md), interfejsu wiersza polecenia platformy Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]i innych narzędzi.  W przypadku korzystania z portalu jednostka usługi jest tworzona automatycznie podczas rejestrowania aplikacji.
+Gdy aplikacja uzyskuje uprawnienia dostępu do zasobów w dzierżawie (po rejestracji lub [zgodzie](developer-glossary.md#consent)), tworzony jest obiekt jednostki usługi. Możesz również utworzyć obiekt jednostki usługi w dzierżawie przy użyciu [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]i innych narzędzi.  W przypadku korzystania z portalu jednostka usługi jest tworzona automatycznie podczas rejestrowania aplikacji.
 
 Blok **aplikacje przedsiębiorstwa** w portalu służy do wyświetlania i zarządzania jednostkami usługi w dzierżawie. Można wyświetlić uprawnienia jednostki usługi, uprawnienia użytkowników, którzy wykonali tę zgodę, informacje logowania i inne.
 

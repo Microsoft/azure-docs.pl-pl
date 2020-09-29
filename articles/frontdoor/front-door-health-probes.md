@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399637"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449244"
 ---
 # <a name="health-probes"></a>Sondy kondycji
 
-Aby określić kondycję i bliskość każdego zaplecza z danego środowiska z przodu, każde środowisko tylne drzwi okresowo wysyła syntetyczne żądanie HTTP/HTTPS do każdego ze skonfigurowanych zaplecza. Usługa Front Door następnie używa odpowiedzi z tych sond, aby określić „najlepsze” zaplecza, do których powinna kierować rzeczywiste żądania klientów. 
+Aby określić kondycję i bliskość każdego zaplecza dla danego środowiska z przodu, każde środowisko tylne drzwi okresowo wysyła syntetyczne żądanie HTTP/HTTPS do każdego ze skonfigurowanych zaplecza. Przede wszystkim są używane te odpowiedzi z sondy w celu określenia "najlepszych" zasobów zaplecza, które umożliwiają kierowanie żądań klientów. 
 
 > [!WARNING]
-> Ze względu na to, że drzwi tylne mają wiele środowisk brzegowych, sonda kondycji żąda dużej ilości danych od 25 żądań co minutę do 1200 żądań na minutę, w zależności od skonfigurowanej częstotliwości sondowania kondycji. Domyślna częstotliwość sondy wynosząca 30 sekund, objętość sondy w zasobie powinna wynosić około 200 żądań na minutę.
+> Ze względu na to, że drzwi z przodu zawierają wiele środowisk brzegowych, ilość sondy kondycji dla zakończyeń może być dość duża od 25 żądań co minutę do 1200 żądań na minutę, w zależności od skonfigurowanej częstotliwości sondowania kondycji. Domyślna częstotliwość sondy wynosząca 30 sekund, objętość sondy w zasobie powinna wynosić około 200 żądań na minutę.
 
 ## <a name="supported-protocols"></a>Obsługiwane protokoły
 
@@ -43,8 +43,8 @@ Drzwi tylne obsługują następujące metody HTTP do wysyłania sond kondycji:
 
 | Odpowiedzi  | Opis | 
 | ------------- | ------------- |
-| Określanie kondycji  |  Kod stanu 200 OK wskazuje, że zaplecze jest w dobrej kondycji. Wszystko inne jest uznawane za niepowodzenie. Jeśli z jakiegoś powodu (w tym awarii sieci) nie odebrano prawidłowej odpowiedzi HTTP dla sondy, sonda jest traktowana jako błąd.|
-| Pomiar opóźnienia  | Opóźnienie to czas zegara ściany mierzony od momentu natychmiast po wysłaniu żądania sondy do momentu otrzymania ostatniego bajtu odpowiedzi. Dla każdego żądania używane jest nowe połączenie TCP, więc pomiary nie są wliczane do zachodzących istniejących połączeń ciepłej.  |
+| Określanie kondycji  |  Kod stanu 200 OK wskazuje, że zaplecze jest w dobrej kondycji. Wszystko inne jest uznawane za niepowodzenie. Jeśli z jakiegoś powodu (w tym awarii sieci) nie otrzymasz prawidłowej odpowiedzi HTTP dla sondy, sonda jest traktowana jako błąd.|
+| Pomiar opóźnienia  | Opóźnienie to czas zegara ściany mierzony od momentu natychmiast po wysłaniu żądania sondy do momentu otrzymania ostatniego bajtu odpowiedzi. Korzystamy z nowego połączenia TCP dla każdego żądania, więc ta wartość nie jest rozliczania na koniec z istniejącymi połączeniami ciepłymi.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Jak drzwi z przodu określają kondycję zaplecza
 
@@ -59,7 +59,7 @@ Drzwi frontonu platformy Azure używają tego samego dwuetapowego procesu dla ws
 
     * wartość _x_ jest konfigurowana przez zmianę właściwości SuccessfulSamplesRequired w ustawieniach równoważenia obciążenia.
 
-3. Poza zestawem nieprawidłowych punktów końcowych w puli zaplecza z przodu są dodatkowo stosowane i utrzymywane opóźnienie (czas błądzenia) dla każdego zaplecza.
+3. W przypadku zestawów w dobrej kondycji w puli zaplecza z przodu są dodatkowo stosowane i utrzymywane opóźnienie (czas błądzenia) dla każdego zaplecza.
 
 
 ## <a name="complete-health-probe-failure"></a>Ukończ błąd sondy kondycji

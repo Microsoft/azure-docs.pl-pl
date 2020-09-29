@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451584"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ Dodaj do projektu bibliotekę klienta wywołującą usługi Azure Communication 
 5. Otwórz kartę **Ustawienia kompilacji** w edytorze ustawień projektu i przewiń do sekcji **ścieżki wyszukiwania** . Dodaj nowy wpis **ścieżki wyszukiwania struktury** dla katalogu zawierającego **AzureCommunicationCalling. Framework**.
     1. Dodaj kolejną pozycję ścieżki wyszukiwania struktury wskazującej folder zawierający zależności.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający aktualizowanie ścieżek wyszukiwania struktury w programie XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie nowego projektu w programie Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Zażądaj dostępu do mikrofonu
 
@@ -113,7 +113,7 @@ Przekaż obiekt CommunicationUserCredential utworzony powyżej do ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ Mobilne Powiadomienie wypychane to powiadomienie wyskakujące, które otrzymujes
 - Krok 2: Xcode > podpisywania & możliwości — > Dodawanie możliwości-> "tryby tła"
 - Krok 3. "tryby tła" — > wybierz pozycję "Voice over IP" i "powiadomienia zdalne"
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania funkcji w Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie nowego projektu w programie Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Zarejestruj się w celu otrzymywania powiadomień wypychanych
 

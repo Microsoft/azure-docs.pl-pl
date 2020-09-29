@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat używania usługi Azure Defender do r
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302013"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449125"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach
 
@@ -150,7 +150,7 @@ Aby utworzyć regułę:
 1. Aby wyświetlić, przesłonić lub usunąć regułę: 
     1. Wybierz pozycję **Wyłącz regułę**.
     1. Z listy zakres subskrypcje z aktywnymi regułami są wyświetlane jako **zastosowana reguła**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modyfikowanie lub usuwanie istniejącej reguły":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Tworzenie reguły wyłączania dla ustaleń o usłudze VA w rejestrze":::
     1. Aby wyświetlić lub usunąć regułę, wybierz menu wielokropka ("...").
 
 

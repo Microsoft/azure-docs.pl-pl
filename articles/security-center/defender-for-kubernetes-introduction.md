@@ -4,15 +4,15 @@ description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender 
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301707"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449075"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Wprowadzenie do usługi Azure Defender dla Kubernetes
 

@@ -4,15 +4,15 @@ description: Monitorowanie zasobów GCP z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c4020bc5e96ff35fa2d04a872216e43abbba5323
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328313"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448996"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Połącz konta GCP z Azure Security Center
 
@@ -80,7 +80,7 @@ Dowiedz się więcej o [interfejsie API centrum poleceń zabezpieczeń](https://
     1. Wybierz pozycję **Dodaj**.
     1. W polu **nowe elementy członkowskie** wklej wcześniej skopiowaną **wartość wiadomości e-mail** .
     1. Określ rolę jako **Security Center przeglądarką administracyjną** , a następnie wybierz pozycję Zapisz.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Ustawianie odpowiednich uprawnień GCP":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Krok 4. Utwórz klucz prywatny dla dedykowanego konta usługi
@@ -107,7 +107,7 @@ Dowiedz się więcej o [interfejsie API centrum poleceń zabezpieczeń](https://
 Po pomyślnym utworzeniu łącznika i poprawnym skonfigurowaniu centrum poleceń zabezpieczeń GCP:
 
 - Standard GCP CIS zostanie wyświetlony na pulpicie nawigacyjnym zgodności z przepisami Security Center.
-- Zalecenia dotyczące zabezpieczeń dla zasobów usługi GCP będą wyświetlane w portalu Security Center i na pulpicie nawigacyjnym zgodności z przepisami 5-10 minut po zakończeniu dołączania:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP zasoby i zalecenia na stronie zalecenia dotyczące Security Center":::
+- Zalecenia dotyczące zabezpieczeń dla zasobów usługi GCP będą wyświetlane w portalu Security Center i na pulpicie nawigacyjnym zgodności z przepisami 5-10 minut po zakończeniu dołączania:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Monitorowanie zasobów GCP
@@ -116,7 +116,7 @@ Jak pokazano powyżej, na stronie zalecenia dotyczące zabezpieczeń Azure Secur
 
 Aby wyświetlić wszystkie aktywne zalecenia dotyczące zasobów według typu zasobu, użyj strony spisu środków Security Center i przefiltruj do typu zasobu GCP, w którym jesteś zainteresowani:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtr typu zasobu strony spisu zasobów przedstawiający opcje GCP"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 GCP projekty wymienione na pulpicie nawigacyjnym przeglądu Security Center"::: 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.date: 09/27/2020
+ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319801"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449588"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -23,56 +23,43 @@ Ten artykuł zawiera informacje **o najnowszych aktualizacjach wersji usługi Az
 
 Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korporacyjnych na potrzeby analiz typu open source na platformie Azure.
 
-## <a name="release-date-08092020"></a>Data wydania: 08/09/2020
+## <a name="release-date-09282020"></a>Data wydania: 09/28/2020
 
-Ta wersja dotyczy tylko usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
+Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
-### <a name="support-for-sparkcruise"></a>Obsługa SparkCruise
-SparkCruise to system automatycznego ponownego użycia obliczeń dla platformy Spark. Wybiera wspólne podwyrażeniey do zmaterializowania w oparciu o obciążenie przeszłe zapytania. SparkCruise materializuje te podwyrażenia w ramach przetwarzania zapytań i ponownego wykorzystania obliczeń są automatycznie stosowane w tle. Można korzystać z SparkCruise bez żadnych modyfikacji kodu Spark.
- 
-### <a name="support-hive-view-for-hdinsight-40"></a>Obsługa widoku programu Hive dla usługi HDInsight 4,0
-Widok Hive platformy Apache Ambari został zaprojektowany z założeniami ułatwiającymi tworzenie, optymalizowanie i wykonywanie zapytań Hive z poziomu przeglądarki sieci Web. Widok Hive jest obsługiwany natywnie dla klastrów usługi HDInsight 4,0, począwszy od tej wersji. Nie dotyczy istniejących klastrów. Musisz porzucić i utworzyć ponownie klaster, aby uzyskać wbudowany widok Hive.
- 
-### <a name="support-tez-view-for-hdinsight-40"></a>Obsługa widoku tez dla usługi HDInsight 4,0
-Widok Apache Tez służy do śledzenia i debugowania wykonywania zadania Hive tez. Widok tez jest obsługiwany natywnie dla usługi HDInsight 4,0 od tej wersji. Nie dotyczy istniejących klastrów. Aby uzyskać wbudowany widok tez, należy porzucić i ponownie utworzyć klaster.
+### <a name="llap-cluster-auto-scale-general-available"></a>Automatyczne skalowanie klastra LLAP jest dostępne ogólnie
+Funkcja automatycznego skalowania dla typu klastra LLAP jest teraz ogólnie dostępna (GA). Wszystkie klastry LLAP utworzone po 27 sierpnia 2020 będą miały rozmyślną obsługę skalowania automatycznego.
+
+### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Klaster HBase obsługuje ADLS Gen2 Premium
+Usługa HDInsight obsługuje teraz ADLS Gen2 Premium jako konto magazynu podstawowego dla klastrów HDInsight HBase 3,6 i 4,0. Wraz z [przyspieszeniem zapisu](./hbase/apache-hbase-accelerated-writes.md)można uzyskać lepszą wydajność klastrów HBase.
+
+### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Kafka dystrybucji partycji w domenach błędów platformy Azure
+Domena błędów to logiczna grupa bazowego sprzętu w centrum danych platformy Azure. Wszystkie domeny błędów korzystają ze wspólnego źródła zasilania i przełącznika sieciowego. Zanim Usługa HDInsight Kafka może przechowywać wszystkie repliki partycji w tej samej domenie błędów. Od tej wersji Usługa HDInsight obsługuje teraz automatyczne dystrybuowanie partycji Kafka na podstawie domen błędów platformy Azure. 
+
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+Klienci mogą włączyć szyfrowanie między węzłami klastra przy użyciu szyfrowania IPSec z kluczami zarządzanymi przez platformę. Tę opcję można włączyć w czasie tworzenia klastra. Zobacz więcej szczegółów na temat [włączania szyfrowania podczas przesyłania](./domain-joined/encryption-in-transit.md).
+
+### <a name="encryption-at-host"></a>Szyfrowanie na hoście
+Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. W tej wersji można **włączyć szyfrowanie na dysku danych tymczasowych** podczas tworzenia klastra. Szyfrowanie na hoście jest obsługiwane tylko dla [niektórych jednostek SKU maszyn wirtualnych w ograniczonych regionach](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). Usługa HDInsight obsługuje [następujące konfiguracje węzła i jednostki SKU](./hdinsight-supported-node-configuration.md). Zobacz więcej szczegółowych informacji na temat [włączania szyfrowania na hoście](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
+Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. Począwszy od tej wersji, usługa stopniowo przeprowadzi migrację do [zestawów skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Cały proces może potrwać miesiące. Po przeprowadzeniu migracji regionów i subskrypcji nowo utworzone klastry usługi HDInsight będą uruchamiane w zestawach skalowania maszyn wirtualnych bez akcji klienta. Nie oczekiwano zmiany krytycznej.
 
 ## <a name="deprecation"></a>Przestarzałe
-### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.1 i 2.2 w klastrze platformy Spark w usłudze HDInsight 3.6
-Począwszy od lipca 1 2020, klienci nie mogą tworzyć nowych klastrów Spark z platformami Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
- 
-### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.3 w klastrze platformy Spark w usłudze HDInsight 4.0
-Począwszy od 1 2020 lipca, klienci nie mogą tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Spark 2.4 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
- 
-### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Zakończenie obsługi platformy Kafka 1.1 w klastrze platformy Kafka w usłudze HDInsight 4.0
-Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Kafka 2.1 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+Brak zaniechania dla tej wersji.
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
-### <a name="ambari-stack-version-change"></a>Zmiana wersji stosu Ambari
-W tej wersji wersja Ambari zmienia się z 2. x. x. x na 4,1. Możesz sprawdzić wersję stosu (HDInsight 4,1) w Ambari: Ambari > wersje > użytkownika.
+Brak zmian w zachowaniu dla tej wersji.
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
-Brak przyszłych zmian, do których należy zwrócić uwagę.
+Następujące zmiany zostaną wykonane w przyszłych wydaniach.
+
+### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Możliwość wybrania innej jednostki SKU dozorcy dla usług Spark, Hadoop i ML
+Usługa HDInsight obecnie nie obsługuje zmieniania jednostki SKU dozorcy dla typów klastrów usług Spark, Hadoop i ML. Używa A2_v2 jednostki SKU/a2 dla węzłów dozorcy i klienci nie są dla nich obciążani. W nadchodzącym wydaniu klienci mogą zmienić dozorcy jednostki SKU dla usług Spark, Hadoop i ML zgodnie z potrzebami. Dozorcy węzły z jednostką SKU inną niż A2_v2/a2 zostaną rozliczone. Domyślna jednostka SKU będzie nadal A2_V2/a2 i bezpłatna.
 
 ## <a name="bug-fixes"></a>Poprawki błędów
 Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
 
-Poniżej JIRAs są ponownie przyłączone do platformy Hive:
-* [GAŁĄŹ-23619](https://issues.apache.org/jira/browse/HIVE-23619)
-* [GAŁĄŹ-21223](https://issues.apache.org/jira/browse/HIVE-21223)
-* [GAŁĄŹ-22599](https://issues.apache.org/jira/browse/HIVE-22599)
-* [GAŁĄŹ-22121](https://issues.apache.org/jira/browse/HIVE-22121)
-* [GAŁĄŹ-22136](https://issues.apache.org/jira/browse/HIVE-22136)
-* [GAŁĄŹ-18786](https://issues.apache.org/jira/browse/HIVE-18786)
-
-Poniżej JIRAs są ponownie przyłączone do HBase:
-* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
-* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
-* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
-
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## <a name="known-issues"></a>Znane problemy
-
-W witrynie Azure Portal rozwiązano problem polegający na tym, że użytkownicy napotykali błąd podczas tworzenia klastra usługi Azure HDInsight przy użyciu uwierzytelniania SSH klucza publicznego. Gdy użytkownicy klikali pozycję **Przeglądanie i tworzenie**, wyświetlany był błąd „Nie może zawierać żadnych trzech kolejnych znaków z nazwy użytkownika protokołu SSH”. Ten problem został rozwiązany, ale może być wymagane odświeżenie pamięci podręcznej przeglądarki przez naciśnięcie klawiszy CTRL + F5 w celu załadowania poprawionego widoku. Obejście tego problemu było utworzeniu klastra przy użyciu szablonu usługi ARM. 

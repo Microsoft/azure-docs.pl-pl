@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010833"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451640"
 ---
 *Rozgrzewanie pamięci podręcznej*  
 Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższą liczbę operacji we/wy na sekundę. Aby uzyskać maksymalną wydajność odczytu z pamięci podręcznej hosta, należy najpierw wykonać rozgrzewanie pamięci podręcznej tego dysku. Zapewnia to, że odczytywanie systemu IOs, które narzędzie testuje na woluminie CacheReads, rzeczywiście trafi pamięć podręczną, a nie dysk bezpośrednio. Liczba trafień w pamięci podręcznej powoduje dodatkowe IOPS z dysku z włączoną obsługą jednej pamięci podręcznej.
@@ -25,7 +25,7 @@ Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższ�
 
 ### <a name="iometer"></a>Iometer
 
-[Pobierz narzędzie IOMeter](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na maszynie wirtualnej.
+[Pobierz narzędzie IOMeter](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) na maszynie wirtualnej.
 
 #### <a name="test-file"></a>Plik testowy
 

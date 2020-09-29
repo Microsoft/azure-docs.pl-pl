@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318049"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445123"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Rozwiązanie Azure Key Vault Analytics w Azure Monitor
 
@@ -42,10 +42,10 @@ Aby zainstalować i skonfigurować rozwiązanie Azure Key Vault, należy wykona�
 1. W Azure Portal przejdź do zasobu Key Vault do monitorowania
 2. Wybierz pozycję *Ustawienia diagnostyczne* , aby otworzyć następującą stronę
 
-   ![obraz kafelka Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Zrzut ekranu przedstawiający stronę ustawień diagnostyki dla Key Vault zasobów ContosoKVSCUS. opcja włączenia diagnostyki jest wyróżniona.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Kliknij pozycję *Włącz diagnostykę* , aby otworzyć następującą stronę
 
-   ![obraz kafelka Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Zrzut ekranu przedstawiający stronę konfigurowania ustawień diagnostycznych. Wybrane są opcje Wyślij do Log Analytics, dziennik AuditEvent i AllMetrics.](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Nadaj nazwę dla ustawienia diagnostycznego.
 5. Kliknij pole wyboru *Wyślij do log Analytics*
 6. Wybierz istniejący obszar roboczy Log Analytics lub Utwórz obszar roboczy
@@ -77,7 +77,7 @@ W poniższej tabeli przedstawiono metody zbierania danych oraz inne szczegóły 
 ## <a name="use-azure-key-vault"></a>Korzystanie z rozwiązania Azure Key Vault
 Po [zainstalowaniu rozwiązania](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)Wyświetl Key Vault dane, klikając kafelek **Key Vault Analytics** na stronie **Przegląd** Azure monitor. Otwórz Tę stronę z menu **Azure monitor** , klikając pozycję **więcej** w sekcji **szczegółowe informacje** . 
 
-![obraz kafelka Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![Zrzut ekranu kafelka Key Vault Analytics na stronie Przegląd Azure Monitor przedstawiający wykres wolumenu operacji magazynu kluczy w czasie.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
 Po kliknięciu kafelka **Key Vault Analytics** można wyświetlić podsumowania dzienników, a następnie przejść do szczegółów dla następujących kategorii:
 
@@ -86,9 +86,9 @@ Po kliknięciu kafelka **Key Vault Analytics** można wyświetlić podsumowania 
 * Średnie opóźnienie operacyjne według operacji
 * Jakość usługi dla operacji z liczbą operacji, które mają więcej niż 1000 MS i listę operacji, które mają więcej niż 1000 MS
 
-![obraz pulpitu nawigacyjnego Azure Key Vault](media/azure-key-vault/log-analytics-keyvault01.png)
+![Zrzut ekranu pulpitu nawigacyjnego Azure Key Vault przedstawiający kafelki z danymi graficznymi dotyczącymi wszystkich operacji, operacji zakończonych niepowodzeniem i średniego opóźnienia operacyjnego.](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![obraz pulpitu nawigacyjnego Azure Key Vault](media/azure-key-vault/log-analytics-keyvault02.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny Azure Key Vault pokazujący kafelki z danymi na potrzeby średniego opóźnienia operacyjnego, Quality of Service i zalecanych wyszukiwań.](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Aby wyświetlić szczegóły dla każdej operacji
 1. Na stronie **Przegląd** kliknij kafelek **Key Vault Analytics** .
@@ -135,13 +135,13 @@ Aby użyć zaktualizowanego rozwiązania:
 2. Włącz rozwiązanie Azure Key Vault przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md)
 3. Zaktualizuj wszystkie zapisane zapytania, pulpity nawigacyjne lub alerty, aby użyć nowego typu danych
    + Typ jest zmieniany z: magazyny kluczy do AzureDiagnostics. Do filtrowania dzienników Key Vault można użyć elementu ResourceType.
-   + Zamiast: `KeyVaults` , użyj`AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Zamiast: `KeyVaults` , użyj `AzureDiagnostics | where ResourceType'=="VAULTS"`
    + Pola: (nazwy pól są rozróżniane wielkości liter)
    + Dla każdego pola, które ma sufiks \_ s, \_ d lub \_ g w nazwie, Zmień pierwszy znak na małe litery
-   + Dla każdego pola, które ma sufiks \_ o wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól. Na przykład nazwa UPN obiektu wywołującego jest przechowywana w polu`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Dla każdego pola, które ma sufiks \_ o wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól. Na przykład nazwa UPN obiektu wywołującego jest przechowywana w polu `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    + Zmieniono CallerIpAddress pola na CallerIPAddress
    + Pole RemoteIPCountry nie jest już obecne
-4. Usuń rozwiązanie *Key Vault Analytics (przestarzałe)* . Jeśli używasz programu PowerShell, użyj polecenia`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Usuń rozwiązanie *Key Vault Analytics (przestarzałe)* . Jeśli używasz programu PowerShell, użyj polecenia `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Dane zbierane przed zmianą nie będą widoczne w nowym rozwiązaniu. Można kontynuować zapytania o te dane przy użyciu starych typów i nazw pól.
 

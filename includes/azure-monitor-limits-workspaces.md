@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9de26246756f831ace57e7ed03a3a598ef020c91
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371756"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451364"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -47,7 +47,7 @@ ms.locfileid: "91371756"
 | Maksymalny rozmiar pojedynczego wpisu | 30 MB | Podziel większe woluminy na wiele wpisów. |
 | Maksymalny rozmiar wartości pól  | 32 KB | Pola dłuższe niż 32 KB są obcinane. |
 
-**Wyszukaj interfejs API**
+**Interfejs API wyszukiwania**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -75,25 +75,25 @@ Aby otrzymywać powiadomienia o zbliżaniu się lub osiągnięciu limitu ilości
 Współczynnik wolumenu pozyskiwania przekroczył próg
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
+| where OperationStatus == "Error"
 ```
 
 Współczynnik objętości pozyskiwania przekraczający 80% wartości progowej
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
+| where OperationStatus == "Warning"
 ```
 
 Współczynnik objętości pozyskiwania przekraczający 70% wartości progowej
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
+| where OperationStatus == "Info"
 ```
 
 >[!NOTE]

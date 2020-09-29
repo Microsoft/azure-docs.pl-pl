@@ -4,15 +4,15 @@ description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d15e881ca1246d463d8054fe5bd094efaff0cdd5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449111"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987725"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445347"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiowanie i wklejanie do maszyny wirtualnej: Azure bastionu
 
@@ -35,13 +35,13 @@ Po nawiązaniu połączenia z maszyną wirtualną przy użyciu [Azure Portal ](h
 1. Skopiuj tekst/zawartość z urządzenia lokalnego do schowka lokalnego.
 1. Podczas sesji zdalnej Uruchom paletę narzędzi dostępu do schowka bastionu, wybierając dwie strzałki. Strzałki znajdują się na lewym środku sesji.
 
-   ![Paleta narzędzi](./media/bastion-vm-manage/left.png)
+   ![Zrzut ekranu pokazujący strzałki uruchamiania dla palety narzędzi wyróżnionej po lewej stronie okna.](./media/bastion-vm-manage/left.png)
 
    ![Zrzut ekranu przedstawia schowek dla tekstu skopiowanego w bastionu.](./media/bastion-vm-manage/clipboard.png)
 1. Zwykle kopiowany tekst jest automatycznie wyświetlany na palecie kopiowania bastionu. Jeśli Twój tekst nie istnieje, wklej tekst w obszarze tekstu na palecie.
 1. Gdy tekst znajduje się w obszarze tekstu, można wkleić go do sesji zdalnej.
 
-   ![Wklej](./media/bastion-vm-manage/local.png)
+   ![Zrzut ekranu, który pokazuje wyróżniony przycisk kopiowania/wklejania i przykładowy ciąg tekstowy kopiowany do sesji zdalnej.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Kopiuj z sesji zdalnej
 

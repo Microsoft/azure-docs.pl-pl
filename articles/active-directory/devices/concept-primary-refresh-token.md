@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468610"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450411"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -199,6 +199,9 @@ Na poniższych diagramach przedstawiono podstawowe informacje dotyczące wydawan
 | D | Wtyczka CloudAP utworzy plik cookie PRT, zaloguj się przy użyciu klucza sesji powiązanego z modułem TPM i wyśle go z powrotem do natywnego hosta klienta. Ponieważ plik cookie jest podpisany przez klucz sesji, nie może zostać naruszony. |
 | E | Natywny Host klienta zwróci ten plik cookie PRT do przeglądarki, który będzie zawierać go jako część nagłówka żądania o nazwie x-MS-RefreshTokenCredential i zażądać tokenów z usługi Azure AD. |
 | F | Usługa Azure AD sprawdza poprawność sygnatury klucza sesji w pliku cookie PRT, sprawdza poprawność identyfikatora nonce, weryfikuje, czy urządzenie jest prawidłowe w dzierżawie, i wystawia token identyfikatora dla strony sieci Web oraz pliku cookie zaszyfrowanej sesji dla przeglądarki. |
+
+> [!NOTE]
+> Przepływ rejestracji jednokrotnej w przeglądarce opisany w powyższych krokach nie dotyczy sesji w trybach prywatnych, takich jak InPrivate w przeglądarce Microsoft Edge lub incognito w usłudze Google Chrome (w przypadku korzystania z rozszerzenia konta Microsoft).
 
 ## <a name="next-steps"></a>Następne kroki
 

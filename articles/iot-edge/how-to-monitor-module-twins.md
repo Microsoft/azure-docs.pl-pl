@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221405"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450159"
 ---
 # <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
 
 Bliźniaczych reprezentacji modułów na platformie Azure IoT Hub umożliwia monitorowanie łączności i kondycji wdrożeń IoT Edge. Moduł bliźniaczych reprezentacji przechowuje przydatne informacje w usłudze IoT Hub dotyczące wydajności uruchomionych modułów. [IoT Edge Agent](iot-edge-runtime.md#iot-edge-agent) i moduły środowiska uruchomieniowego [Centrum IoT Edge](iot-edge-runtime.md#iot-edge-hub) każdy z nich utrzymuje bliźniaczych reprezentacji modułów `$edgeAgent` i `$edgeHub` , odpowiednio:
 
-* `$edgeAgent`zawiera dane o kondycji i łączności dotyczące modułów IoT Edge Agent i IoT Edge Hub oraz modułów niestandardowych. Agent IoT Edge jest odpowiedzialny za wdrażanie modułów, monitorowanie ich i raportowanie stanu połączenia do usługi Azure IoT Hub.
-* `$edgeHub`zawiera dane dotyczące komunikacji między centrum IoT Edge działającym na urządzeniu a usługą Azure IoT Hub. Obejmuje to przetwarzanie komunikatów przychodzących z urządzeń podrzędnych. Centrum IoT Edge jest odpowiedzialne za przetwarzanie komunikacji między usługą Azure IoT Hub i urządzeniami IoT Edge i modułami.
+* `$edgeAgent` zawiera dane o kondycji i łączności dotyczące modułów IoT Edge Agent i IoT Edge Hub oraz modułów niestandardowych. Agent IoT Edge jest odpowiedzialny za wdrażanie modułów, monitorowanie ich i raportowanie stanu połączenia do usługi Azure IoT Hub.
+* `$edgeHub` zawiera dane dotyczące komunikacji między centrum IoT Edge działającym na urządzeniu a usługą Azure IoT Hub. Obejmuje to przetwarzanie komunikatów przychodzących z urządzeń podrzędnych. Centrum IoT Edge jest odpowiedzialne za przetwarzanie komunikacji między usługą Azure IoT Hub i urządzeniami IoT Edge i modułami.
 
 Dane są zorganizowane w metadane, znaczniki, wraz z żądanymi i zgłoszonymi zestawami właściwości w strukturach JSON modułu bliźniaczych reprezentacji. Żądane właściwości określone w deployment.jsw pliku są kopiowane do modułu bliźniaczych reprezentacji. Agent IoT Edge i centrum IoT Edge każda aktualizuje raportowane właściwości dla swoich modułów.
 
@@ -213,7 +213,7 @@ Jeśli wprowadzisz zmiany, wybierz pozycję **Aktualizuj sznurek modułu** powy�
 
 Aby sprawdzić, czy IoT Edge jest uruchomiona, użyj polecenia [AZ IoT Hub Invoke-module-Method](how-to-edgeagent-direct-method.md#ping) , aby wysłać polecenie ping do agenta IoT Edge.
 
-Polecenie [AZ IoT Hub module-sznuring](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) udostępnia następujące polecenia:
+Polecenie [AZ IoT Hub module-sznuring](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) udostępnia następujące polecenia:
 
 * **AZ IoT Hub module-sznury show** -show a module — definicja
 * **AZ IoT Hub module-splot Update** -Update a module — definicja

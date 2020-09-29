@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439692"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449621"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Windows
 
@@ -281,7 +281,7 @@ Sprawdzono, że skompilowane obrazy kontenerów są przechowywane w rejestrze ko
 
    ![Tworzenie wdrożenia dla pojedynczego urządzenia](./media/tutorial-develop-for-windows/create-deployment.png)
 
-3. W Eksploratorze plików przejdź do folderu config projektu i wybierz **deployment.windows-amd64.jsw** pliku. Ten plik często znajduje się w lokalizacji`C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
+3. W Eksploratorze plików przejdź do folderu config projektu i wybierz **deployment.windows-amd64.jsw** pliku. Ten plik często znajduje się w lokalizacji `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Nie należy używać deployment.template.jsw pliku, który nie ma pełnych wartości obrazu modułu.
 
@@ -329,7 +329,7 @@ Polecenia w tej sekcji dotyczą urządzenia IoT Edge, a nie komputera dewelopers
 
    Dzienniki SimulatedTemperatureSensor i IotEdgeModule1 powinny zawierać komunikaty, które są przetwarzane. Moduł edgeAgent jest odpowiedzialny za uruchamianie innych modułów, więc jego dzienniki zawierają informacje dotyczące implementowania manifestu wdrożenia. Jeśli którykolwiek moduł nie jest wyświetlany lub nie jest uruchomiony, dzienniki edgeAgent prawdopodobnie będą miały błędy. Moduł edgeHub jest odpowiedzialny za komunikację między modułami i IoT Hub. Jeśli moduły są uruchomione, ale komunikaty nie docierają do centrum IoT, dzienniki edgeHub prawdopodobnie będą miały błędy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318066"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449926"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -87,10 +87,10 @@ Skorzystaj z poniższych instrukcji, aby zainstalować i skonfigurować rozwiąz
 1. W Azure Portal przejdź do zasobu Application Gateway do monitorowania.
 2. Wybierz pozycję *dzienniki diagnostyczne* , aby otworzyć tę stronę.
 
-   ![obraz zasobu usługi Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Zrzut ekranu strony dzienników diagnostycznych dla zasobu Application Gateway, w którym jest wyświetlana opcja włączenia diagnostyki.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Kliknij pozycję *Włącz diagnostykę* , aby otworzyć następującą stronę.
 
-   ![obraz zasobu usługi Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Zrzut ekranu przedstawiający stronę konfigurowania ustawień diagnostycznych. Opcja Wyślij do Log Analytics jest wybierana jako trzy typy dzienników i metryka.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Aby włączyć diagnostykę *, kliknij pozycję w obszarze* *stan*.
 5. Kliknij pole wyboru *Wyślij do log Analytics*.
 6. Wybierz istniejący obszar roboczy Log Analytics lub Utwórz obszar roboczy.
@@ -123,9 +123,9 @@ Po kliknięciu kafelka **usługi Azure Application Gateway Analytics** na stroni
   * Kondycja hosta dla Application Gateway
   * Maksymalny i używany 95. percentyl dla żądań Application Gateway zakończonych niepowodzeniem
 
-![ilustracja pulpitu nawigacyjnego usługi Azure Application Gateway Analytics](media/azure-networking-analytics/log-analytics-appgateway01.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny dzienników dostępu Application Gateway, w którym są wyświetlane kafelki z danymi dotyczącymi błędów bramy, żądań i żądań zakończonych niepowodzeniem.](media/azure-networking-analytics/log-analytics-appgateway01.png)
 
-![ilustracja pulpitu nawigacyjnego usługi Azure Application Gateway Analytics](media/azure-networking-analytics/log-analytics-appgateway02.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny dzienników dostępu Application Gateway pokazujący kafelki z danymi dotyczącymi błędów według agenta użytkownika, kondycji hosta i żądań zakończonych niepowodzeniem.](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
 Na pulpicie nawigacyjnym **usługi Azure Application Gateway Analytics** Przejrzyj informacje podsumowujące w jednej z bloków, a następnie kliknij jeden, aby wyświetlić szczegółowe informacje na stronie przeszukiwanie dzienników.
 
@@ -158,10 +158,10 @@ Skorzystaj z poniższych instrukcji, aby zainstalować i skonfigurować rozwiąz
 1. W Azure Portal przejdź do zasobu sieciowej grupy zabezpieczeń do monitorowania
 2. Wybierz pozycję *dzienniki diagnostyczne* , aby otworzyć następującą stronę
 
-   ![obraz zasobu grupy zabezpieczeń sieci platformy Azure](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![Zrzut ekranu przedstawiający stronę dzienników diagnostycznych zasobu sieciowej grupy zabezpieczeń, w którym jest wyświetlana opcja włączenia diagnostyki.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Kliknij pozycję *Włącz diagnostykę* , aby otworzyć następującą stronę
 
-   ![obraz zasobu grupy zabezpieczeń sieci platformy Azure](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![Zrzut ekranu przedstawiający stronę konfigurowania ustawień diagnostycznych. Stan jest ustawiony na włączone, wybrano opcję Wyślij do Log Analytics, a wybrano dwa typy dzienników.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Aby włączyć diagnostykę *, kliknij pozycję w obszarze* *stan*
 5. Kliknij pole wyboru *Wyślij do log Analytics*
 6. Wybierz istniejący obszar roboczy Log Analytics lub Utwórz obszar roboczy
@@ -189,9 +189,9 @@ Po kliknięciu kafelka **Analiza grup zabezpieczeń sieci platformy Azure** na s
   * Reguły sieciowej grupy zabezpieczeń z dozwolonymi przepływami
   * Adresy MAC z dozwolonymi przepływami
 
-![obraz pulpitu nawigacyjnego analizy grup zabezpieczeń sieci platformy Azure](media/azure-networking-analytics/log-analytics-nsg01.png)
+![Zrzut ekranu kafelków z danymi dla zablokowanych przepływów sieciowych grup zabezpieczeń, w tym reguł z zablokowanymi przepływami i adresami MAC z zablokowanymi przepływami.](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![obraz pulpitu nawigacyjnego analizy grup zabezpieczeń sieci platformy Azure](media/azure-networking-analytics/log-analytics-nsg02.png)
+![Zrzut ekranu kafelków z danymi na potrzeby przepływów sieciowych grup zabezpieczeń, w tym reguł z dozwolonymi przepływami i adresami MAC z dozwolonymi przepływami.](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 Na pulpicie nawigacyjnym **analizy grup zabezpieczeń sieci Azure** Przejrzyj informacje podsumowujące w jednej z bloków, a następnie kliknij jeden, aby wyświetlić szczegółowe informacje na stronie przeszukiwanie dzienników.
 
@@ -221,7 +221,7 @@ Aby korzystać z zaktualizowanych rozwiązań:
    + Dla każdego pola, które ma sufiks \_ s, \_ d lub \_ g w nazwie, Zmień pierwszy znak na małe litery
    + Dla każdego pola, które ma sufiks \_ o wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól.
 4. Usuń rozwiązanie *Azure Networking Analytics (przestarzałe)* .
-   + Jeśli używasz programu PowerShell, użyj polecenia`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Jeśli używasz programu PowerShell, użyj polecenia `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Dane zbierane przed zmianą nie będą widoczne w nowym rozwiązaniu. Można kontynuować zapytania o te dane przy użyciu starych typów i nazw pól.
 

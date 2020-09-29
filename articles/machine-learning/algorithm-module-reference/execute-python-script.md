@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318269"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450135"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > Jeśli potok zawiera wiele modułów skryptu wykonywania w języku Python, które wymagają pakietów, które nie znajdują się na liście wstępnie zainstalowanych, zainstaluj pakiety w każdym module.
+
+> [!WARNING]
+> Moduł skryptu języka Python excute nie obsługuje instalowania pakietów, które są zależne od dodatkowych bibliotek natywnych za pomocą polecenia, takiego jak "apt-get", takie jak Java, moduł pyodbc i itp. Jest to spowodowane tym, że ten moduł jest wykonywany w prostym środowisku z wstępnie zainstalowanym językiem Python i z uprawnieniem innym niż administrator.  
 
 ## <a name="upload-files"></a>Przekazywanie plików
 Moduł wykonywania skryptu języka Python obsługuje przekazywanie plików przy użyciu [zestawu SDK języka python Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
@@ -140,7 +143,10 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
 
     Do projektanta można zwrócić dwa zestawy danych, które muszą być sekwencją typu `pandas.DataFrame` . Możesz tworzyć inne dane wyjściowe w kodzie języka Python i zapisywać je bezpośrednio w usłudze Azure Storage.
 
-6. Prześlij potok lub wybierz moduł, a następnie wybierz pozycję **Uruchom wybrane** , aby uruchomić tylko skrypt języka Python.
+    > [!WARNING]
+    > **Nie** zaleca się łączenia się z bazą danych ani innymi magazynami zewnętrznymi w **module wykonywania skryptów języka Python**. Możesz użyć modułu [Importuj dane](./import-data.md) i [modułu eksport danych](./export-data.md)     
+
+6. Prześlij potok.
 
     Wszystkie dane i kod są ładowane do maszyny wirtualnej i uruchamiane przy użyciu określonego środowiska języka Python.
 

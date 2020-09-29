@@ -12,18 +12,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334858"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450223"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Długoterminowe przechowywanie — Azure SQL Database i wystąpienie zarządzane Azure SQL
 
-Wiele aplikacji ma przepisy prawne, zgodność lub inne cele biznesowe, które wymagają zachowania kopii zapasowych bazy danych ponad 7-35 dni udostępnionych przez Azure SQL Database i [Automatyczne kopie zapasowe](automated-backups-overview.md)wystąpienia zarządzanego usługi Azure SQL. Za pomocą funkcji długoterminowego przechowywania (LTR) można przechowywać określone SQL Database i wystąpienia zarządzane SQL pełne kopie zapasowe w usłudze Azure Blob Storage z magazynem geograficznie nadmiarowym z dostępem do odczytu przez maksymalnie 10 lat. Następnie można przywrócić wszystkie kopie zapasowe jako nową bazę danych.
-
-Ponadto w wystąpieniu zarządzanym SQL wprowadzono [nadmiarowość magazynów kopii zapasowych](automated-backups-overview.md#backup-storage-redundancy) , która zapewnia elastyczność pozwalającą wybierać między obiektami [blob magazynu](../../storage/common/storage-redundancy.md)lokalnie nadmiarowego (LRS), Strefowo nadmiarowego (ZRS) lub geograficznie nadmiarowego (RA-GRS). Ta opcja jest obecnie dostępna tylko w procesie tworzenia wystąpienia zarządzanego i nie można jej zmienić po zainicjowaniu obsługi administracyjnej zasobu.
+Wiele aplikacji ma przepisy prawne, zgodność lub inne cele biznesowe, które wymagają zachowania kopii zapasowych bazy danych ponad 7-35 dni udostępnionych przez Azure SQL Database i [Automatyczne kopie zapasowe](automated-backups-overview.md)wystąpienia zarządzanego usługi Azure SQL. Za pomocą funkcji długoterminowego przechowywania (LTR) można przechowywać określone SQL Database i wystąpienia zarządzane przez usługę SQL pełne kopie zapasowe w usłudze Azure Blob Storage ze [skonfigurowaną nadmiarowością](automated-backups-overview.md#backup-storage-redundancy) przez maksymalnie 10 lat. Następnie można przywrócić wszystkie kopie zapasowe jako nową bazę danych.
 
 Przechowywanie w czasie długim można włączyć dla Azure SQL Database i jest w ograniczonej publicznej wersji zapoznawczej wystąpienia zarządzanego Azure SQL. Ten artykuł zawiera omówienie pojęć dotyczących przechowywania długoterminowego. Aby skonfigurować długoterminowe przechowywanie, zobacz [konfigurowanie Azure SQL Database ltr](long-term-backup-retention-configure.md) i [Konfigurowanie programu Azure SQL Managed instance ltr](../managed-instance/long-term-backup-retention-configure.md). 
 

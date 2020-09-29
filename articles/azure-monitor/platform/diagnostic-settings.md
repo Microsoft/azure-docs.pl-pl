@@ -1,5 +1,5 @@
 ---
-title: Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych
+title: Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 description: Wysyłaj metryki i dzienniki Azure Monitor platformy do dzienników Azure Monitor, Azure Storage lub Azure Event Hubs przy użyciu ustawienia diagnostycznego.
 author: bwren
 ms.author: bwren
@@ -7,14 +7,14 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614040"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449335"
 ---
-# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych
+# <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
 
 > [!IMPORTANT]
@@ -73,15 +73,15 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
 
    - W przypadku pojedynczego zasobu kliknij pozycję **Ustawienia diagnostyczne** w obszarze **monitor** w menu zasób.
 
-        ![Ustawienia diagnostyczne](media/diagnostic-settings/menu-resource.png)
+        ![Zrzut ekranu przedstawiający sekcję monitorowanie menu zasobów w Azure Portal z wyróżnionymi ustawieniami diagnostycznymi.](media/diagnostic-settings/menu-resource.png)
 
    - W przypadku co najmniej jednego zasobu kliknij pozycję **Ustawienia diagnostyczne** w obszarze **ustawienia** w menu Azure Monitor a następnie kliknij zasób.
 
-      ![Ustawienia diagnostyczne](media/diagnostic-settings/menu-monitor.png)
+        ![Zrzut ekranu przedstawiający sekcję Ustawienia w menu Azure Monitor z wyróżnionymi ustawieniami diagnostycznymi.](media/diagnostic-settings/menu-monitor.png)
 
    - W dzienniku aktywności kliknij pozycję **Dziennik aktywności** w menu **Azure monitor** a następnie wybierz polecenie **Ustawienia diagnostyczne**. Upewnij się, że dla dziennika aktywności została wyłączona każda starsza konfiguracja. Aby uzyskać szczegółowe informacje, zobacz temat [wyłączanie istniejących ustawień](./activity-log.md#legacy-collection-methods) .
 
-        ![Ustawienia diagnostyczne](media/diagnostic-settings/menu-activity-log.png)
+        ![Zrzut ekranu przedstawiający menu Azure Monitor z wybranym dziennikiem aktywności i ustawieniami diagnostycznymi wyróżnionymi na pasku menu dziennika aktywności monitora.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Jeśli w wybranym zasobie nie ma żadnych ustawień, zostanie wyświetlony monit o utworzenie ustawienia. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 

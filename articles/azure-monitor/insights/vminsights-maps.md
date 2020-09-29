@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320514"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445535"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Użyj funkcji map Azure Monitor dla maszyn wirtualnych, aby zrozumieć składniki aplikacji
 W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Można obserwować maszyny wirtualne na dwa sposoby. Wyświetl mapę bezpośrednio z maszyny wirtualnej lub Wyświetl mapę z Azure Monitor, aby wyświetlić składniki w różnych grupach maszyn wirtualnych. Ten artykuł pomoże Ci zrozumieć te dwie metody wyświetlania i sposób korzystania z funkcji map. 
@@ -95,7 +95,7 @@ Mapa wizualizuje zależności maszyn wirtualnych przez odnajdywanie uruchomionyc
 
 Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są zależności w przeszłości, można wykonać zapytanie o historyczne zakresy czasu o wartości do godziny. Aby uruchomić zapytanie, użyj selektora **TimeRange** w lewym górnym rogu. Na przykład podczas zdarzenia lub przed zmianą może zostać uruchomione zapytanie.  
 
-![Omówienie mapy maszyn wirtualnych Direct](./media/vminsights-maps/map-direct-vm-01.png)
+![Zrzut ekranu karty Mapa w sekcji monitorowanie szczegółowych informacji Azure Portal przedstawiający diagram zależności między maszynami wirtualnymi.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Wyświetlanie mapy z zestawu skalowania maszyn wirtualnych
 
@@ -111,7 +111,7 @@ Aby załadować mapę dla określonego wystąpienia, najpierw wybierz to wystąp
 
 Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są zależności w przeszłości, można wykonać zapytanie o historyczne zakresy czasu o wartości do godziny. Aby uruchomić zapytanie, użyj selektora **TimeRange** . Na przykład podczas zdarzenia lub przed zmianą może zostać uruchomione zapytanie.
 
-![Omówienie mapy maszyn wirtualnych Direct](./media/vminsights-maps/map-direct-vmss-01.png)
+![Zrzut ekranu karty Mapa w sekcji monitorowanie szczegółowych informacji Azure Portal przedstawiający diagram zależności między zestawami skalowania maszyn wirtualnych.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >Możesz również uzyskać dostęp do mapy dla określonego wystąpienia z widoku **wystąpień** dla zestawu skalowania maszyn wirtualnych. W sekcji **Ustawienia** przejdź do pozycji informacje o **wystąpieniach**  >  **Insights**.

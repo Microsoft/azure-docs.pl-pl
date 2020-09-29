@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264734"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450359"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
 Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure Active Directory (Azure AD), można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej (np.).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 1. Aby uruchamiać zapytania z poniższych instrukcji za pośrednictwem [Eksploratora grafów](https://aka.ms/ge), wykonaj następujące czynności:
 
@@ -33,9 +33,6 @@ Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure
 
     ![Zrzut ekranu przedstawiający link do "Udziel zgody administratora"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. W Eksploratorze grafu wybierz wersję **beta** .
-
-    ![Zrzut ekranu przedstawiający wybraną wersję beta](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Użyj wersji zapoznawczej programu Azure AD PowerShell.
 
@@ -59,7 +56,7 @@ Zainstaluj program Azure AD PowerShell (wersja zapoznawcza) przed podjęciem pr�
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 W razie potrzeby można zmodyfikować wartości ujęte w znaki cudzysłowu.
@@ -91,8 +88,8 @@ W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 Wartości, które są ujęte w znaki cudzysłowu, można modyfikować zgodnie z wymaganiami określonego środowiska.

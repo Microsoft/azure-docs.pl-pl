@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897381"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460037"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 
@@ -50,7 +50,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz opcję **Notes** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
@@ -80,15 +80,20 @@ Aby uzyskać dostęp do terminalu:
 1. Wybierz element docelowy **obliczeń** lub Utwórz nowy i poczekaj na jego uruchomienie.
 1. Wybierz ikonę **Otwórz Terminal** .
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Otwórz Terminal":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Utwórz nowy plik":::
 
 1. Jeśli nie widzisz ikony, wybierz pozycję **...** z prawej strony elementu docelowego obliczeń, a następnie wybierz pozycję **Otwórz Terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Otwórz Terminal z...":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Utwórz nowy plik":::
 
 
 Dowiedz się więcej [na temat klonowania repozytoriów Git w systemie plików obszaru roboczego](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### <a name="copy-and-paste-in-terminal"></a>Kopiowanie i wklejanie w terminalu
+
+> * Windows: `Ctrl-Insert` do kopiowania i używania `Ctrl-Shift-v` lub `Shift-Insert` do wklejania.
+> * Mac OS: `Cmd-c` kopiowanie i `Cmd-v` wklejanie.
+> * Program FireFox/IE może prawidłowo obsługiwać uprawnienia do Schowka.
 
 ### <a name="share-notebooks-and-other-files"></a>Udostępnianie notesów i innych plików
 
@@ -121,7 +126,7 @@ W trakcie tworzenia notesu zazwyczaj możesz kończyć się komórkami używanym
 1. Uruchom wszystkie komórki notesu.
 1. Wybierz komórkę zawierającą kod, który ma zostać uruchomiony w nowym notesie. Na przykład kod, który przesyła eksperyment lub może być kodem, który rejestruje model.
 1. Wybierz ikonę **Zbierz** , która pojawia się na pasku narzędzi komórki.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Zrzut ekranu: wybierz ikonę zbierania":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Utwórz nowy plik":::
 1. Wprowadź nazwę nowego notesu "zebrana".  
 
 Nowy notes zawiera tylko komórki kodu, a wszystkie komórki wymagane do wygenerowania tych samych wyników co Komórka wybrana do zebrania.
@@ -132,7 +137,7 @@ Azure Machine Learning tworzy plik punktu kontrolnego podczas tworzenia pliku *
 
 Na pasku narzędzi Notes wybierz menu, a następnie **Zapisz plik &gt; i punkt kontrolny** , aby ręcznie zapisać Notes i dodać plik punktu kontrolnego skojarzony z notesem.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Zrzut ekranu narzędzia zapisywania na pasku narzędzi notesu":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Utwórz nowy plik":::
 
 Każdy Notes jest automatycznie zapisywany co 30 sekund.Funkcja autozapisywania aktualizuje tylko początkowy plik *ipynb*   , a nie plik punktu kontrolnego.
  
@@ -166,7 +171,7 @@ Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchom
 
 1. Wybierz **+** na pasku narzędzi Notes. 
 2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480457"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449789"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
 
@@ -66,7 +66,7 @@ Skoroszyt składa się z sekcji składających się niezależnie od edytowalnych
 
 Skoroszyty mają dwa tryby: **tryb edycji**i **tryb odczytywania**. Po pierwszym uruchomieniu nowego skoroszytu zostanie on otwarty w **trybie edycji**. Pokazuje całą zawartość skoroszytu, w tym wszelkie kroki i parametry, które są w inny sposób ukryte. **Tryb odczytu** przedstawia uproszczony widok stylu raportu. Tryb odczytywania pozwala na abstrakcję złożoności, która pomogła utworzyć raport przy zachowaniu zasadniczej Mechanics tylko kilku kliknięć, gdy jest to potrzebne do modyfikacji.
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Zrzut ekranu przedstawiający sekcję Virtual Machines skoroszyt w Azure Monitor pokazujący nowy skoroszyt w trybie edycji z wyróżnionymi kontrolkami edycji.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. Po zakończeniu edycji sekcji kliknij pozycję **Zakończono edycję** w lewym dolnym rogu sekcji.
 
@@ -102,7 +102,7 @@ Aby dołączyć dane z innych obszarów roboczych Log Analytics lub z określone
 
 Każda sekcja ma własne ustawienia zaawansowane, które są dostępne w ![ sekcji skoroszyty ustawień edytowanie ikon kontrolek ](media/vminsights-workbooks/006-settings.png) znajdujących się po prawej stronie przycisku **Dodaj parametry** .
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/007-settings-expanded.png)
+![Zrzut ekranu okna dialogowego Ustawienia zaawansowane w Virtual Machines skoroszycie Azure Monitor. Zostanie wyróżniona ikona otwierająca okno dialogowe.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ Jeden z wbudowanych skoroszytów — **ruch TCP**, zawiera informacje dotyczące
 
 Pierwsza sekcja skoroszytu jest oparta na danych zapytania dziennika. Druga sekcja jest również oparta na danych zapytania dziennika, ale wybranie wiersza w pierwszej tabeli spowoduje interaktywną aktualizację zawartości wykresów:
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Zrzut ekranu przedstawiający sekcję Virtual Machines w Azure Monitor pokazujący ruch TCP prekompilowanego skoroszytu.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 Zachowanie jest możliwe w **przypadku wybrania elementu, eksportując** zaawansowane ustawienia parametru, które są włączone w zapytaniu dziennika tabeli.
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/009-settings-export.png)
+![Zrzut ekranu okna dialogowego Ustawienia zaawansowane dla skoroszytu Virtual Machines z zaznaczeniem opcji "gdy element jest zaznaczony, Eksportuj parametr".](media/vminsights-workbooks/009-settings-export.png)
 
 Drugie zapytanie dziennika wykorzystuje eksportowane wartości, gdy wiersz jest wybrany do utworzenia zestawu wartości, które są następnie używane przez nagłówek i wykresy sekcji. Jeśli nie wybrano żadnego wiersza, spowoduje to ukrycie nagłówka i wykresów sekcji. 
 
@@ -141,7 +141,7 @@ Sekcje metryk zapewniają pełny dostęp do dołączania danych metryk Azure Mon
 
 Poniżej znajduje się przykład danych maszyny wirtualnej, które są ściągane do skoroszytu w celu zapewnienia wizualizacji wydajności procesora CPU:
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/010-metrics-grid.png)
+![Zrzut ekranu przedstawiający sekcję metryki skoroszytu maszyny wirtualnej w Azure Monitor. Wydajność procesora CPU dla każdej maszyny wirtualnej jest pokazywana graficznie.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Dodawanie sekcji parametrów
 
@@ -180,11 +180,11 @@ Jeśli kolumna jest typu String, ciąg o wartości null/pusty jest uznawany za f
 
 Przyjrzyjmy się parametrom znajdującym się w raporcie przegląd połączeń. Kliknij przycisk Edytuj symbol obok pozycji **kierunek**.
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Zrzut ekranu przedstawiający sekcję służącą do dodawania i edytowania parametrów raportu w Azure Monitor. Wybrana jest ikona Edycja parametru kierunek.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Spowoduje to uruchomienie elementu menu **Edytuj parametr** .
 
-![Kontrolki edycji sekcji Azure Monitor dla maszyn wirtualnych skoroszytów](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Zrzut ekranu okna dialogowego Edytowanie parametru. Nazwa parametru ma kierunek, typ parametru to lista rozwijana, a wybrano opcję Pobierz dane z pliku JSON.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 KOD JSON umożliwia generowanie dowolnej tabeli wypełnionej zawartością. Na przykład następujące dane JSON generują dwie wartości na liście rozwijanej:
 
