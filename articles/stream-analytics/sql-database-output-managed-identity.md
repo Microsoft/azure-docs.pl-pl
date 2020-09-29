@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870191"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460645"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uzyskiwanie dostępu do Azure SQL Database z zadania Azure Stream Analytics za pomocą tożsamości zarządzanych (wersja zapoznawcza)
 
@@ -60,15 +60,15 @@ Po utworzeniu tożsamości zarządzanej wybierz administratora Active Directory.
 
    ![Dodaj administratora Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać użytkowników lub grup, które są wyszarzone, ponieważ nie są one obsługiwane jako Administratorzy usługi Azure AD. Zapoznaj się z listą obsługiwanych administratorów w sekcji **funkcje i ograniczenia usługi Azure AD**w   temacie [Używanie Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania przy użyciu SQL Database lub Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu i nie jest stosowana na serwerze SQL. Wybrany użytkownik lub grupa jest również użytkownikiem, który będzie mógł utworzyć **użytkownika zawartej bazy danych** w następnej sekcji.
+   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać użytkowników lub grup, które są wyszarzone, ponieważ nie są one obsługiwane jako administratorzy Azure Active Directory. Zapoznaj się z listą obsługiwanych administratorów w sekcji **Azure Active Directory funkcje i ograniczenia**   dotyczące [używania Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania w usłudze SQL Database lub Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (RBAC) ma zastosowanie tylko do portalu i nie jest stosowana na serwerze SQL. Wybrany użytkownik lub grupa jest również użytkownikiem, który będzie mógł utworzyć **użytkownika zawartej bazy danych** w następnej sekcji.
 
 1. Na stronie **administrator Active Directory** wybierz pozycję **Zapisz** . Proces zmieniania administratora trwa kilka minut.
 
-   Podczas konfigurowania administratora usługi Azure AD Nowa nazwa administratora (użytkownik lub Grupa) nie może być obecna w wirtualnej głównej bazie danych jako użytkownik uwierzytelniania SQL Server. Jeśli jest obecny, Instalator administratora usługi Azure AD zakończy się niepowodzeniem i wycofa jego tworzenie, wskazując, że administrator (nazwa) już istnieje. Ponieważ użytkownik uwierzytelniania SQL Server nie jest częścią usługi Azure AD, Dowiedz się, jak nawiązać połączenie z serwerem przy użyciu uwierzytelniania usługi Azure AD, ponieważ ten użytkownik nie powiódł się. 
+   Po skonfigurowaniu administratora Azure Active Directory Nowa nazwa administratora (użytkownik lub Grupa) nie może być obecna w wirtualnej podstawowej bazie danych jako użytkownik uwierzytelniania SQL Server. Jeśli jest obecny, konfiguracja administratora Azure Active Directory nie powiedzie się i wycofa jego tworzenie, wskazując, że administrator (nazwa) już istnieje. Ponieważ użytkownik uwierzytelniania SQL Server nie jest częścią Azure Active Directory, wszelkie wysiłki związane z nawiązywaniem połączenia z serwerem za pomocą uwierzytelniania Azure Active Directory nie powiedzie się. 
 
 ## <a name="create-a-contained-database-user"></a>Tworzenie użytkownika zawartej bazy danych
 
-Następnie utworzysz użytkownika zawartej bazy danych w SQL Database, który jest mapowany do Azure Active Directory tożsamości. Użytkownik zawartej bazy danych nie ma nazwy logowania dla bazy danych Master, ale mapuje ją na tożsamość w katalogu, który jest skojarzony z bazą danych. Tożsamość Azure Active Directory może być pojedynczym kontem użytkownika lub grupą. W takim przypadku należy utworzyć użytkownika zawartej bazy danych dla zadania Stream Analytics. 
+Następnie utworzysz użytkownika zawartej bazy danych w SQL Database, który jest mapowany do Azure Active Directory tożsamości. Użytkownik zawartej bazy danych nie ma nazwy logowania podstawowej bazy danych, ale mapuje ją na tożsamość w katalogu, który jest skojarzony z bazą danych. Tożsamość Azure Active Directory może być pojedynczym kontem użytkownika lub grupą. W takim przypadku należy utworzyć użytkownika zawartej bazy danych dla zadania Stream Analytics. 
 
 1. Połącz się z SQL Database przy użyciu SQL Server Management Studio. **Nazwa użytkownika** to Azure Active Directory użytkownika z uprawnieniami **Zmiana dowolnego użytkownika** . Przykładem jest administrator ustawiony na SQL Server. Użyj **Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA. 
 

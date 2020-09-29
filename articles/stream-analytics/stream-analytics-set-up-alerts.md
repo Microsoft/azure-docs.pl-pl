@@ -6,13 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324798"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461040"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurowanie alertów dla zadań Azure Stream Analytics
 

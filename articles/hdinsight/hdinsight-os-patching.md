@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019669"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447206"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurowanie harmonogramu poprawek systemu operacyjnego dla klastrów usługi HDInsight opartych na systemie Linux
 
 > [!IMPORTANT]
-> Obrazy Ubuntu są dostępne dla nowego klastra usługi Azure HDInsight w ciągu trzech miesięcy od opublikowania. Począwszy od stycznia 2019, uruchomione klastry nie są stosowane do autopoprawek. Aby zastosować poprawki do działającego klastra, klienci muszą używać akcji skryptu lub innych mechanizmów. Nowo utworzone klastry będą zawsze miały najnowsze dostępne aktualizacje, w tym najnowsze poprawki zabezpieczeń.
+> Obrazy Ubuntu są dostępne dla nowego klastra usługi Azure HDInsight w ciągu trzech miesięcy od opublikowania. Uruchamianie klastrów nie jest zautomatyzowane. Aby zastosować poprawki do działającego klastra, klienci muszą używać akcji skryptu lub innych mechanizmów. Najlepszym rozwiązaniem jest uruchomienie tych akcji skryptu i zastosowanie aktualizacji zabezpieczeń bezpośrednio po utworzeniu klastra.
 
 Usługa HDInsight zapewnia obsługę typowych zadań w klastrze, takich jak instalowanie poprawek systemu operacyjnego, aktualizacji zabezpieczeń i węzłów ponownego uruchamiania. Te zadania są wykonywane przy użyciu następujących dwóch skryptów, które mogą być uruchamiane jako [Akcje skryptu](hdinsight-hadoop-customize-cluster-linux.md)i skonfigurowane z parametrami:
 

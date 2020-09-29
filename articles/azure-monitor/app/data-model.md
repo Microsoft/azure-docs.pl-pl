@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 69ed934e97d2726995a7a5cd122fadbd4a791942
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd5848eb44ecd32612943662b5a4fd0a5091cd9d
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320531"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461295"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights model danych telemetrii
 
@@ -46,7 +46,7 @@ Application Insights model telemetrii definiuje sposób [skorelowania](./correla
 
 Application Insights model danych to prosta i podstawowa, jeszcze wydajna metoda modelowania telemetrii aplikacji. Staramy się utrzymać model prosty i Slim, aby wspierać podstawowe scenariusze i umożliwiać zwiększenie schematu do użycia zaawansowanego.
 
-Aby zgłosić problemy z modelem lub schematem danych oraz sugestie dotyczące korzystania z repozytorium GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) .
+[Aby zgłosić problemy związane z modelem lub schematem danych i sugestiami, użyj naszego repozytorium GitHub](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose).
 
 ## <a name="next-steps"></a>Następne kroki
 

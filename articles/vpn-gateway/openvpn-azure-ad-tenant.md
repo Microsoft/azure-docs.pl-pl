@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445834"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy usługi Azure Active Directory dla połączeń protokołu OpenVPN typu punkt-lokacja
 
@@ -47,7 +47,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 1. Znajdź identyfikator katalogu katalogu, który ma być używany do uwierzytelniania. Jest on wymieniony w sekcji właściwości na stronie Active Directory.
 
-    ![Identyfikator katalogu](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Zrzut ekranu przedstawiający stronę "Właściwości katalogu" z wyróżnioną pozycją "identyfikator katalogu".](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Skopiuj identyfikator katalogu.
 
@@ -89,7 +89,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 7. W ramach usługi Azure AD w **aplikacjach dla przedsiębiorstw**zostanie wyświetlona lista **Azure VPN** .
 
-    ![Sieć VPN platformy Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Zrzut ekranu przedstawiający stronę "wszystkie aplikacje".](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. Jeśli nie masz jeszcze działającego środowiska punkt-lokacja, postępuj zgodnie z instrukcjami, aby je utworzyć. Zobacz [Tworzenie sieci VPN typu punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md) , aby utworzyć i skonfigurować bramę sieci VPN typu punkt-lokacja. 
 

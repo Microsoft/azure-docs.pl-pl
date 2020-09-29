@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530832"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448103"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele frontonów dla Azure Load Balancer
 
@@ -64,8 +64,8 @@ Definiujemy dwie reguły:
 
 | Reguła | Fronton mapy | Do puli zaplecza |
 | --- | --- | --- |
-| 1 |![zielony fronton](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![Adres VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![zielony fronton](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![zielone zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![zielone zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![Adres VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purpurowe zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![purpurowe zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Pełne mapowanie w Azure Load Balancer jest teraz następujące:
 
@@ -143,8 +143,8 @@ Definiujemy dwie reguły:
 
 | Reguła | Fronton | Mapowanie na pulę zaplecza |
 | --- | --- | --- |
-| 1 |![Rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (w VM1 i VM2) |
-| 2 |![Rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (w VM1 i VM2) |
+| 1 |![Zielona reguła](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![zielone zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (w VM1 i VM2) |
+| 2 |![Reguła purpurowa](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purpurowe zaplecze](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (w VM1 i VM2) |
 
 W poniższej tabeli przedstawiono pełne mapowanie modułu równoważenia obciążenia:
 

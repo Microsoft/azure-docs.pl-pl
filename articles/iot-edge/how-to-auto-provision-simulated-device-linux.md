@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531495"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447818"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
@@ -87,7 +87,7 @@ Po utworzeniu maszyny wirtualnej Otwórz jej ustawienia, aby włączyć moduł T
 
 4. Zaznacz **opcję włącz moduł TPM**.
 
-5. Kliknij pozycję **OK**.  
+5. Kliknij przycisk **OK**.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Uruchom maszynę wirtualną i Zbierz dane modułu TPM
 
@@ -147,7 +147,7 @@ Pobierz informacje o aprowizacji z maszyny wirtualnej i Użyj tej funkcji, aby u
 Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan dwuosiowy urządzenia**. W ramach sznurka urządzenia można ustawić Tagi do grupowania urządzeń według dowolnej metryki potrzebnej w rozwiązaniu, na przykład regionu, środowiska, lokalizacji lub typu urządzenia. Tagi te służą do tworzenia [wdrożeń automatycznych](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) i użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie jest urządzeniem IoT Edge.
+> W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](/cli/azure/ext/azure-iot/iot/dps/enrollment) i użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie jest urządzeniem IoT Edge.
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460598"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero
 
@@ -38,21 +38,19 @@ Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera.
 
 Oto jak wygląda przykład:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
 
-Po naciśnięciu przycisku "Rozpocznij połączenie" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o określenie aparatu i mikrofonu, który ma być używany. Można wyłączyć lub włączyć urządzenia z kontrolkami przełączania:
+Po naciśnięciu przycisku &quot;Rozpocznij połączenie" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o określenie aparatu i mikrofonu, który ma być używany. Można wyłączyć lub włączyć urządzenia z kontrolkami przełączania:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Zrzut ekranu przedstawiający ekran przed wywołaniem przykładowej aplikacji.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+
+Po naciśnięciu przycisku &quot;Rozpocznij połączenie":::
 
 Po skonfigurowaniu wyświetlanej nazwy i urządzeń można przyłączyć się do sesji wywołania. Teraz zobaczysz główną kanwę wywołań, w której działa podstawowe środowisko wywoływania.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Zrzut ekranu przedstawiający ekran główny przykładowej aplikacji.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
 
-Składniki głównego ekranu wywołującego:
-
-- **Galeria multimediów**: Główny etap pokazujący uczestników. Jeśli Uczestnik ma włączony aparat fotograficzny, w tym miejscu są wyświetlane ich kanały wideo. Każdy uczestnik ma pojedynczy kafelek, który pokazuje ich nazwę wyświetlaną i strumień wideo (gdy istnieje)
-- **Nagłówek**: to miejsce, w którym znajdują się podstawowe kontrolki wywołania, aby przełączać ustawienia i pasek boczny uczestnika, włączać lub wyłączać i mieszać zawartość ekranu oraz pozostawiać wywołanie.
-- **Pasek boczny**: to miejsce, w którym informacje o uczestnikach i ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Składnik może zostać odrzucony przy użyciu "X" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
+Po naciśnięciu przycisku &quot;Rozpocznij połączenie" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
@@ -61,7 +59,7 @@ Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków zw
 - Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 i nowsze)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 i nowsze)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Pamiętaj, aby zainstalować wersję odpowiadającą wystąpieniu programu Visual studio, 32 vs 64 bit)
+- [.NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Pamiętaj, aby zainstalować wersję odpowiadającą wystąpieniu programu Visual studio, 32 vs 64 bit)
 - Utwórz zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../quickstarts/create-communication-resource.md). Musisz zarejestrować **Parametry połączenia** zasobu dla tego przewodnika Szybki Start.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Lokalne wdrażanie usługi & aplikacji klienckich

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888403"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446951"
 ---
 # <a name="configure-azure-sql-edge"></a>Konfigurowanie usługi Azure SQL Edge
 
@@ -33,7 +33,8 @@ Usługa Azure SQL Edge uwidacznia kilka różnych zmiennych środowiskowych, kt�
 Następujące nowe zmienne środowiskowe zostały dodane do usługi Azure SQL Edge. 
 
 | Zmienna środowiskowa | Opis | Wartości |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **Identyfikator planu** | Określa jednostkę SKU usługi Azure SQL Edge, która będzie używana podczas inicjowania. Ta zmienna środowiskowa jest wymagana tylko w przypadku wdrażania usługi Azure SQL Edge przy użyciu Azure IoT Edge. | **ASDE — Developer-Edge-IoT** lub **ASDE-Premium-on-IoT** | 
 | **MSSQL_TELEMETRY_ENABLED** | Włącz lub Wyłącz zbieranie danych dotyczących użycia i diagnostyki. | TRUE lub FALSE |  
 | **MSSQL_TELEMETRY_DIR** | Ustawia katalog docelowy dla plików inspekcji zbierania danych użycia i diagnostyki. | Lokalizacja folderu w kontenerze programu SQL Edge. Ten folder można zamapować na wolumin hosta przy użyciu punktów instalacji lub woluminów danych. | 
 | **MSSQL_PACKAGE** | Określa lokalizację pakietu dacpac lub BACPAC, który ma zostać wdrożony. | Folder, plik lub adres URL sygnatury dostępu współdzielonego zawierający pakiety dacpac lub BACPAC. Aby uzyskać więcej informacji, zobacz [wdrażanie pakietów SQL Database dacpac i BACPAC w programie SQL Edge](deploy-dacpac.md). |

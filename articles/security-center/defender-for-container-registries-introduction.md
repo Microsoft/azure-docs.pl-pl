@@ -4,15 +4,15 @@ description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301928"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448381"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 

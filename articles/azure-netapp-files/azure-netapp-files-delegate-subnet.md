@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361028"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447568"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegowanie podsieci do usługi Azure NetApp Files 
 
@@ -33,7 +33,8 @@ Podsieć należy delegować do usługi Azure NetApp Files.   Podczas tworzenia w
    W sieci wirtualnej można mieć tylko jedną delegowaną podsieć. Konto NetApp może wdrażać woluminy w wielu sieci wirtualnych, z których każda ma własną podsieć delegowaną.  
 * W delegowanej podsieci nie można wyznaczyć sieciowej grupy zabezpieczeń ani punktu końcowego usługi. Jeśli się to zrobi, delegowanie podsieci nie powiedzie się.
 * Dostęp do woluminu z globalnej, równorzędnej sieci wirtualnej nie jest obecnie obsługiwany.
-* Tworzenie [niestandardowych tras zdefiniowanych przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) w podsieciach maszyny wirtualnej z prefiksem adresu (miejsce docelowe) do podsieci delegowanej do Azure NetApp Files nie jest obsługiwane. Takie działanie będzie miało wpływ na łączność z maszyną wirtualną. Azure NetApp Files tworzy trasę systemową do delegowanej podsieci. Trasa jest pokazywana w **efektywnych trasach** w tabeli tras, jeśli będzie potrzebna do rozwiązywania problemów.
+* [Trasy zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) i sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie są obsługiwane w delegowanych podsieciach dla Azure NetApp Files. Można jednak zastosować UDR i sieciowych grup zabezpieczeń do innych podsieci, nawet w ramach tej samej sieci wirtualnej co podsieć delegowana do Azure NetApp Files.  
+   Azure NetApp Files tworzy trasę systemową do delegowanej podsieci. Trasa jest pokazywana w **efektywnych trasach** w tabeli tras, jeśli będzie potrzebna do rozwiązywania problemów.
 
 ## <a name="steps"></a>Kroki
 

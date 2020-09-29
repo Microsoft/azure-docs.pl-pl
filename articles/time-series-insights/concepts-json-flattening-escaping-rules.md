@@ -8,16 +8,15 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 0cf0ef97cc1e06906a529c577e9c2578e5091ef4
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 09/28/2020
+ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050730"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460870"
 ---
-# <a name="ingestion-rules"></a>Reguły pozyskiwania
-### <a name="json-flattening-escaping-and-array-handling"></a>Spłaszczanie JSON, ucieczki i obsługa tablic
+# <a name="json-flattening-escaping-and-array-handling"></a>Spłaszczanie danych JSON, ucieczka i obsługa tablic
 
 Azure Time Series Insights środowisko Gen2 będzie dynamicznie tworzyć kolumny magazynu ciepłego i zimnego, zgodnie z określonym zestawem konwencji nazewnictwa. W przypadku pozyskania zdarzenia zestaw reguł jest stosowany do nazw ładunku i właściwości JSON. Obejmują one anulowanie niektórych znaków specjalnych i spłaszczonie zagnieżdżonych obiektów JSON. Ważne jest, aby poznać te reguły, aby zrozumieć, w jaki sposób kształt JSON będzie miał wpływ na sposób przechowywania i wykonywania zapytań dotyczących zdarzeń. Pełna lista reguł znajduje się w poniższej tabeli. Przykłady & B pokazują również, jak można efektywnie wsadowo wiele szeregów czasowych w tablicy.
 
@@ -32,25 +31,26 @@ Azure Time Series Insights środowisko Gen2 będzie dynamicznie tworzyć kolumny
 | Nazwy właściwości JSON, które zawierają znaki specjalne. [\ i "są wyprowadzane przy użyciu [" i "]  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | W obrębie ["i"] istnieje dodatkowe anulowanie apostrofów i ukośników odwrotnych. Pojedynczy cytat zostanie zapisany jako ", a ukośnik odwrotny zostanie zapisany jako \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Zagnieżdżone obiekty JSON są spłaszczone z kropką jako separatorem. Obsługiwane jest zagnieżdżanie do 10 poziomów. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long``$event['series']['value'].Long`lub`$event.series['value'].Long` |  `series.value_long` |
-| Tablice typów pierwotnych są przechowywane jako typ dynamiczny |  ```"values": [154, 149, 147]``` | Typy dynamiczne mogą być pobrano tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
-| Tablice zawierające obiekty mają dwa zachowania w zależności od zawartości obiektu: jeśli identyfikatory TS (s) lub właściwości sygnatur czasowych znajdują się w obiektach tablicy, tablica zostanie wycofana w taki sposób, że początkowy ładunek JSON generuje wiele zdarzeń. Pozwala to na przetwarzanie wsadowe wielu zdarzeń w jedną strukturę JSON. Wszystkie właściwości najwyższego poziomu, które są elementami równorzędnymi do tablicy, zostaną zapisane przy użyciu każdego nierzutowanego obiektu. Jeśli identyfikatory TS i sygnatura czasowa *nie* znajdują się w tablicy, zostanie ona zapisana jako typ dynamiczny. | Zobacz przykłady [a](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) i [C](concepts-json-flattening-escaping-rules.md#example-c) poniżej
-| Tablice zawierające elementy mieszane nie są spłaszczone. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Typy dynamiczne mogą być pobrano tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Tablice typów pierwotnych są przechowywane jako typ dynamiczny |  ```"values": [154, 149, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Tablice zawierające obiekty mają dwa zachowania w zależności od zawartości obiektu: jeśli identyfikatory TS (s) lub właściwości sygnatur czasowych znajdują się w obiektach tablicy, tablica zostanie wycofana w taki sposób, że początkowy ładunek JSON generuje wiele zdarzeń. Pozwala to na przetwarzanie wsadowe wielu zdarzeń w jedną strukturę JSON. Wszystkie właściwości najwyższego poziomu, które są elementami równorzędnymi do tablicy, zostaną zapisane przy użyciu każdego nierzutowanego obiektu. Jeśli identyfikatory TS i sygnatura czasowa *nie* znajdują się w tablicy, zostanie ona zapisana jako typ dynamiczny. | Zobacz przykłady [a](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b)i [C](concepts-json-flattening-escaping-rules.md#example-c) poniżej
+| Tablice zawierające elementy mieszane nie są spłaszczone. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Typy dynamiczne można pobrać tylko za pośrednictwem interfejsu API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | 512 znaków to limit nazw właściwości JSON. Jeśli długość nazwy przekracza 512 znaków, zostanie ona obcięta do 512 i zostanie dołączona wartość "_<" skrótu ">". **Należy zauważyć** , że dotyczy to również nazw właściwości, które zostały połączone z obiektu spłaszczonego, co oznacza zagnieżdżoną ścieżkę obiektu. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Zrozumienie podwójnego zachowania dla tablic
 
-Tablice obiektów będą przechowywane całościowo lub podzielone na wiele zdarzeń w zależności od sposobu modelowania danych. Pozwala to na użycie tablicy do zdarzeń wsadowych i uniknięcie powtarzających się właściwości telemetrii, które są zdefiniowane na poziomie obiektu głównego. Przetwarzanie wsadowe może być korzystne, ponieważ skutkuje mniej Event Hubs lub IoT Hub wysłanych komunikatów. 
+Tablice obiektów będą przechowywane całościowo lub podzielone na wiele zdarzeń w zależności od sposobu modelowania danych. Pozwala to na użycie tablicy do zdarzeń wsadowych i uniknięcie powtarzających się właściwości telemetrii, które są zdefiniowane na poziomie obiektu głównego. Przetwarzanie wsadowe może być korzystne, ponieważ skutkuje mniej Event Hubs lub IoT Hub wysłanych komunikatów.
 
 Jednak w niektórych przypadkach tablice zawierające obiekty są zrozumiałe tylko w kontekście innych wartości. Utworzenie wielu zdarzeń spowoduje nieznaczenie danych. Aby zapewnić, że tablica obiektów jest przechowywana jako typ dynamiczny, postępuj zgodnie z poniższymi wskazówkami dotyczącymi modelowania danych i zapoznaj się z [przykładem C](concepts-json-flattening-escaping-rules.md#example-c)
 
-### <a name="how-do-i-know-if-my-array-of-objects-will-produce-multiple-events"></a>Jak mogę wiedzieć, czy moja tablica obiektów będzie generować wiele zdarzeń?
+### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Jak dowiedzieć się, czy moja tablica obiektów będzie generować wiele zdarzeń
 
 Jeśli co najmniej jeden identyfikator szeregów czasowych jest zagnieżdżony w obrębie obiektów w tablicy *lub* Jeśli właściwość sygnatury czasowej źródła zdarzenia jest zagnieżdżona, aparat pozyskiwania podzieli go w celu utworzenia wielu zdarzeń. Nazwy właściwości podane dla identyfikatorów i/lub sygnatury czasowej usług terminalowych powinny być zgodne z powyższymi regułami spłaszczania i w związku z tym wskazują kształt JSON. Zapoznaj się z poniższymi przykładami i zapoznaj się z przewodnikiem dotyczącym [wybierania identyfikatora szeregów czasowych.](time-series-insights-update-how-to-id.md)
 
-### <a name="example-a"></a>Przykład:
-Identyfikator szeregów czasowych w elemencie głównym obiektu i w zagnieżdżonej sygnaturze czasowej<br/>
-**Identyfikator szeregów czasowych środowiska:**`"id"`<br/>
-**Sygnatura czasowa źródła zdarzeń:**`"values.time"`<br/>
+### <a name="example-a"></a>Przykład
+
+Identyfikator szeregów czasowych w elemencie głównym obiektu i w zagnieżdżonej sygnaturze czasowej \
+**Identyfikator szeregów czasowych środowiska:**`"id"`\
+**Sygnatura czasowa źródła zdarzeń:**`"values.time"`\
 **Ładunek JSON:**
 
 ```JSON
@@ -84,21 +84,21 @@ Identyfikator szeregów czasowych w elemencie głównym obiektu i w zagnieżdżo
 ]
 ```
 
-**Wynik w pliku Parquet:**
-<br/>
+**Wynik w pliku Parquet:**\
 Powyższa konfiguracja i ładunek będą generować trzy kolumny i cztery zdarzenia
 
-| sygnatura czasowa  | id_string | wartości. value_double 
-| ---- | ---- | ---- | 
-| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` | 
-| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` | 
-| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` | 
-| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` | 
+| sygnatura czasowa  | id_string | wartości. value_double
+| ---- | ---- | ---- |
+| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
+| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
+| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` |
+| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` |
 
-### <a name="example-b"></a>Przykład B:
-Złożony identyfikator szeregów czasowych z jedną właściwością zagnieżdżoną<br/> 
-**Identyfikator szeregów czasowych środowiska:** `"plantId"` lub `"telemetry.tagId"`<br/>
-**Sygnatura czasowa źródła zdarzeń:**`"timestamp"`<br/>
+### <a name="example-b"></a>Przykład B
+
+Złożony identyfikator szeregów czasowych z jedną właściwością zagnieżdżoną \
+**Identyfikator szeregów czasowych środowiska:** `"plantId"` lub `"telemetry.tagId"`\
+**Sygnatura czasowa źródła zdarzeń:**`"timestamp"`\
 **Ładunek JSON:**
 
 ```JSON
@@ -142,23 +142,23 @@ Złożony identyfikator szeregów czasowych z jedną właściwością zagnieżd�
 ]
 ```
 
-**Wynik w pliku Parquet:**
-<br/>
+**Wynik w pliku Parquet:**\
 Powyższa konfiguracja i ładunek będą generować cztery kolumny i sześć zdarzeń
 
-| sygnatura czasowa  | plantId_string | dane telemetryczne. tagId_string | dane telemetryczne. value_double 
+| sygnatura czasowa  | plantId_string | dane telemetryczne. tagId_string | dane telemetryczne. value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31,149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20,560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A7`` | -30,9918 |  
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19,960796 | 
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30,9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19,960796 |
 
-### <a name="example-c"></a>Przykład C:
-Identyfikator szeregów czasowych i sygnatura czasowa znajdują się w katalogu głównym obiektów<br/> 
-**Identyfikator szeregów czasowych środowiska:**`"id"`<br/>
-**Sygnatura czasowa źródła zdarzeń:**`"timestamp"`<br/>
+### <a name="example-c"></a>Przykład C
+
+Identyfikator szeregów czasowych i sygnatura czasowa znajdują się w katalogu głównym obiektu \
+**Identyfikator szeregów czasowych środowiska:**`"id"`\
+**Sygnatura czasowa źródła zdarzeń:**`"timestamp"`\
 **Ładunek JSON:**
 
 ```JSON
@@ -175,12 +175,11 @@ Identyfikator szeregów czasowych i sygnatura czasowa znajdują się w katalogu 
 }
 ```
 
-**Wynik w pliku Parquet:**
-<br/>
+**Wynik w pliku Parquet:**\
 Powyższa konfiguracja i ładunek spowodują utworzenie trzech kolumn i jednego zdarzenia
 
 | sygnatura czasowa  | id_string | datapoints_dynamic  
-| ---- | ---- | ---- | 
+| ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
 ## <a name="next-steps"></a>Następne kroki

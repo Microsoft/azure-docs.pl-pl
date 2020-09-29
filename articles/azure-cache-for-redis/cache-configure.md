@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009617"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460173"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -33,7 +33,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
 * [Omówienie](#overview)
 * [Dziennik aktywności](#activity-log)
 * [Kontrola dostępu (IAM)](#access-control-iam)
-* [Tabliczk](#tags)
+* [Tagi](#tags)
 * [Diagnozowanie i rozwiązywanie problemów](#diagnose-and-solve-problems)
 * [Ustawienia](#settings)
     * [Klawisze dostępu](#access-keys)
@@ -50,8 +50,8 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
     * [Blokady](#locks)
     * [Skrypt usługi Automation](#automation-script)
 * Administracja
-    * [Importuj dane](#importexport)
-    * [Eksportowanie danych](#importexport)
+    * [Importowanie danych](#importexport)
+    * [Eksportuj dane](#importexport)
     * [Ponowne uruchamianie](#reboot)
 * [Monitorowanie](#monitoring)
     * [Metryki Redis](#redis-metrics)
@@ -132,7 +132,7 @@ W bloku **Ustawienia zaawansowane** **zasady maxmemory**, **zarezerwowane maxmem
 
 **Zasady maxmemory** konfigurują Zasady wykluczania dla pamięci podręcznej i umożliwiają wybór spośród następujących zasad wykluczania:
 
-* `volatile-lru`-Domyślne zasady wykluczania.
+* `volatile-lru` -Domyślne zasady wykluczania.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -141,9 +141,9 @@ W bloku **Ustawienia zaawansowane** **zasady maxmemory**, **zarezerwowane maxmem
 
 Aby uzyskać więcej informacji na temat `maxmemory` zasad, zobacz [Zasady wykluczania](https://redis.io/topics/lru-cache#eviction-policies).
 
-Ustawienie **zastrzeżone maxmemory** konfiguruje ilość pamięci (w MB) zarezerwowaną dla operacji poza pamięcią podręczną, na przykład replikację podczas pracy w trybie failover. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy obciążenie jest różne. Ta wartość powinna być ustawiona na wyższą dla obciążeń, które są bardzo duże. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
+Ustawienie **zarezerwowane maxmemory** konfiguruje ilość pamięci (w MB na wystąpienie w klastrze) zarezerwowaną dla operacji poza pamięcią podręczną, takich jak replikacja podczas pracy w trybie failover. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy obciążenie jest różne. Ta wartość powinna być ustawiona na wyższą dla obciążeń, które są bardzo duże. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
 
-Ustawienie **zastrzeżone maxfragmentationmemory** konfiguruje ilość pamięci w MB zarezerwowaną dla fragmentacji pamięci. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy pamięć podręczna jest pełna lub bliska pełnej wartości, a współczynnik fragmentacji jest wysoki. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
+Ustawienie **zastrzeżone maxfragmentationmemory** konfiguruje ilość pamięci w MB na wystąpienie w klastrze, zarezerwowaną dla fragmentacji pamięci. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy pamięć podręczna jest pełna lub bliska pełnej wartości, a współczynnik fragmentacji jest wysoki. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
 
 Należy wziąć pod uwagę podczas wybierania nowej wartości rezerwacji pamięci (**maxmemory-zastrzeżone** lub **maxfragmentationmemory-zastrzeżone**), ponieważ ta zmiana może mieć wpływ na pamięć podręczną, która jest już uruchomiona z dużymi ilościami danych. Na przykład jeśli masz pamięć podręczną 53 GB z 49 GB danych, a następnie zmień wartość rezerwacji na 8 GB, ta zmiana spowoduje spadek maksymalnej dostępnej pamięci dla systemu do 45 GB. Jeśli bieżące `used_memory` lub Twoje `used_memory_rss` wartości są wyższe niż nowy limit wynoszący 45 GB, system będzie musiał wykluczyć dane do obydwu `used_memory` i `used_memory_rss` poniżej 45 GB. Wykluczenie może zwiększyć obciążenie serwera i fragmentację pamięci. Aby uzyskać więcej informacji na temat metryk pamięci podręcznej, takich jak `used_memory` i `used_memory_rss` , zobacz [Dostępne metryki i interwały raportowania](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -258,13 +258,13 @@ Sekcja **Virtual Network** umożliwia skonfigurowanie ustawień sieci wirtualnej
 >
 >
 
-### <a name="firewall"></a>Zapora
+### <a name="firewall"></a>Firewall
 
 Konfiguracja reguł zapory jest dostępna dla wszystkich warstw usługi Azure cache for Redis.
 
 Kliknij pozycję **Zapora** , aby wyświetlić i skonfigurować reguły zapory dla pamięci podręcznej.
 
-![Zapora](./media/cache-configure/redis-firewall-rules.png)
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
 Można określić reguły zapory z zakresem adresów IP początkowy i końcowy. Po skonfigurowaniu reguł zapory tylko połączenia klienckie z określonych zakresów adresów IP mogą łączyć się z pamięcią podręczną. Po zapisaniu reguły zapory występuje krótkie opóźnienie, zanim reguła zacznie obowiązywać. To opóźnienie jest zazwyczaj mniejsze niż jedna minuta.
 
@@ -290,8 +290,8 @@ Ustawienia w sekcji **Administracja** umożliwiają wykonywanie następujących 
 
 ![Administracja](./media/cache-configure/redis-cache-administration.png)
 
-* [Importuj dane](#importexport)
-* [Eksportowanie danych](#importexport)
+* [Importowanie danych](#importexport)
+* [Eksportuj dane](#importexport)
 * [Ponowne uruchamianie](#reboot)
 
 

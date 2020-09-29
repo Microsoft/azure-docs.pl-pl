@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86057011"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446093"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
 
@@ -59,7 +59,7 @@ Usługa Load Balancer w warstwie Standardowa obsługuje tylko publiczny adres IP
     | Nazwa                   | *myLoadBalancer*                                   |
     | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | SKU           | Wybierz pozycję **Standardowy**.                          |
+    | Jednostka SKU           | Wybierz pozycję **Standardowy**.                          |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP              | Wpisz *myPublicIP* w polu tekstowym.   |
     |Strefa dostępności| Wybierz pozycję **Strefowo nadmiarowy**.    |
@@ -93,7 +93,7 @@ Utwórz sieciową grupę zabezpieczeń w celu zdefiniowania połączeń przychod
     - *myNetworkSecurityGroup* — jako nazwę sieciowej grupy zabezpieczeń.
     - *myResourceGroupLBAZ* — jako nazwę istniejącej grupy zasobów.
    
-![Tworzenie sieci wirtualnej](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Zrzut ekranu przedstawia okienko Tworzenie grupy zabezpieczeń sieci.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Tworzenie reguł sieciowej grupy zabezpieczeń
 
@@ -110,9 +110,9 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
     - *100* — w polu **Priorytet**
     - *myHTTPRule* — jako nazwę reguły modułu równoważenia obciążenia.
     - *Zezwalaj na HTTP* — jako opis reguły modułu równoważenia obciążenia.
-4. Kliknij pozycję **OK**.
+4. Kliknij przycisk **OK**.
  
-   ![Tworzenie sieci wirtualnej](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Zrzut ekranu przedstawia okienko Dodawanie reguły zabezpieczeń dla ruchu przychodzącego.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Powtórz kroki od 2 do 4, używając następujących wartości, aby utworzyć inną regułę o nazwie *myRDPRule* zezwalającą na przychodzące połączenia RDP przy użyciu portu 3389:
     - *Tag usługi* — w polu **Źródło**.
     - *Internet* — w polu **Tag usługi źródłowej**
@@ -131,7 +131,7 @@ Utwórz maszyny wirtualne w różnych strefach regionu (strefie 1, strefie 2 i s
     - *myVM1* — jako nazwę maszyny wirtualnej.        
     - *azureuser* — jako nazwę użytkownika administratora.    
     - *myResourceGroupLBAZ* — w obszarze **Grupa zasobów** wybierz opcję **Użyj istniejącej**, a następnie wybierz wartość *myResourceGroupLBAZ*.
-2. Kliknij pozycję **OK**.
+2. Kliknij przycisk **OK**.
 3. Wybierz **DS1_V2** jako rozmiar maszyny wirtualnej, a następnie kliknij pozycję **Wybierz**.
 4. Wprowadź następujące wartości ustawień maszyny wirtualnej:
     - *zone 1* — jako strefę dostępności, w której umieszczono maszynę wirtualną.
@@ -198,7 +198,7 @@ Sonda kondycji umożliwia modułowi równoważenia obciążenia monitorowanie st
     - *80* — jako numeru portu.
     - *15* — w polu **Interwał** jako liczbę sekund między próbami sondy.
     - *2* — w polu **Próg złej kondycji** jako liczbę kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna została uznana za będącą w złej kondycji.
-4. Kliknij pozycję **OK**.
+4. Kliknij przycisk **OK**.
 
    ![Dodawanie sondy](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -215,7 +215,7 @@ Reguła modułu równoważenia obciążenia służy do definiowania sposobu dyst
     - *80* — jako portu zaplecza.
     - *myBackendPool* — jako nazwy puli zaplecza.
     - *myHealthProbe* — jako nazwy sondy kondycji.
-4. Kliknij pozycję **OK**.
+4. Kliknij przycisk **OK**.
     
     
     ![Dodawanie reguły równoważenia obciążenia](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
@@ -229,7 +229,7 @@ Reguła modułu równoważenia obciążenia służy do definiowania sposobu dyst
 
 Aby zobaczyć, jak moduł równoważenia obciążenia rozdziela ruch między maszynami wirtualnymi rozproszonymi w strefie, możesz wymusić odświeżenie w przeglądarce internetowej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów zawierającą moduł równoważenia obciążenia, a następnie kliknij przycisk **Usuń**.
 

@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66a04ebec6eb9d7219d4d5db3bdd1dfd780a730f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907353"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446004"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender przy użyciu Azure Security Center
 

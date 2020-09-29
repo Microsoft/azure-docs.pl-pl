@@ -3,12 +3,12 @@ title: Konfigurowanie urządzenia Azure Migrate dla funkcji Hyper-V
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych funkcji Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087154"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448086"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych funkcji Hyper-V
 
@@ -34,7 +34,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu wirtualnego dysku twardego:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 3. W **1: Wygeneruj klucz projektu Azure Migrate**, podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych funkcji Hyper-V. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -58,7 +58,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla wirtualnego dysku twardego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+    - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 
 
@@ -130,7 +130,7 @@ Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowani
 1. Na maszynie wirtualnej urządzenia Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Alternatywnie należy to zrobić w Edytor lokalnych zasad grupy na urządzeniu:
@@ -169,7 +169,7 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane odnalezionych serwerów by�
 
 Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoczne w portalu.
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
 2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 

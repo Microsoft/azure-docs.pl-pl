@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ddb4a825dda704d818cbc8d3537775743b5b0b45
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396726"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446123"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -64,7 +64,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Grupa zasobów   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Europa Zachodnia** |
+    | Region (Region)           | Wybierz **Europa Zachodnia** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -93,12 +93,12 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -111,9 +111,9 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **standardowa** |
+    | Jednostka SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -123,7 +123,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 4. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia." border="true":::
  
 ## <a name="create-load-balancer-resources"></a>Tworzenie zasobów modułu równoważenia obciążenia
 
@@ -226,7 +226,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
-    | Region | Wybierz **Europa Zachodnia** |
+    | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
     | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
@@ -297,7 +297,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Grupa zasobów   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Europa Zachodnia** |
+    | Region (Region)           | Wybierz **Europa Zachodnia** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -326,12 +326,12 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -344,9 +344,9 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | SKU           | Wybierz pozycję **podstawowa** |
+    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -355,7 +355,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 4. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Tworzenie zasobów modułu równoważenia obciążenia
 
@@ -406,7 +406,7 @@ Utwórz sondę kondycji o nazwie **myHealthProbe**, aby monitorować kondycję m
     | Interwał | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
 
-3. Wybierz przycisk **OK**.
+3. Wybierz pozycję **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
@@ -465,7 +465,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
-    | Region | Wybierz **Europa Zachodnia** |
+    | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz **przycisk OK** |
     | Image (Obraz) | **Windows Server 2019 Datacenter** |
@@ -537,7 +537,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Grupa zasobów | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
-    | Region | Wybierz **Europa Zachodnia** |
+    | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
     | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
@@ -614,7 +614,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
 
 8. Wprowadź adres IP z poprzedniego kroku na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia." border="true":::
    
 Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch na obu maszynach wirtualnych, można dostosować domyślną stronę każdej maszyny wirtualnej sieci Web usług IIS, a następnie wymusić odświeżenie przeglądarki sieci Web z komputera klienckiego.
 

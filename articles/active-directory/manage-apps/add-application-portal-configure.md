@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 719890447b976903e1c2419382ac9c9f81b4ae4a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707717"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448235"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -56,13 +56,13 @@ Aby edytować właściwości aplikacji:
     
     | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Zachowanie dla użytkowników, którzy zostali przypisani do aplikacji. |
     |---|---|---|---|
-    | Yes | Yes | Yes | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
-    | Yes | Yes | Nie  | Przypisane zastosowania nie mogą zobaczyć aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
-    | Yes | Nie  | Yes | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
-    | Yes | Nie  | Nie  | Przypisani użytkownicy nie widzą aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
-    | Nie  | Yes | Yes | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
-    | Nie  | Yes | Nie  | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
-    | Nie  | Nie  | Yes | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Tak | Tak | Tak | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Tak | Tak | Nie  | Przypisane zastosowania nie mogą zobaczyć aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Tak | Nie  | Tak | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
+    | Tak | Nie  | Nie  | Przypisani użytkownicy nie widzą aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
+    | Nie  | Tak | Tak | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Nie  | Tak | Nie  | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Nie  | Nie  | Tak | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
     | Nie  | Nie  | Nie  | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
 
 4. Gdy skończysz, wybierz pozycję **Zapisz**.
@@ -86,7 +86,17 @@ Aby użyć logo niestandardowego:
 > [!TIP]
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
+## <a name="add-notes"></a>Dodawanie notatek
 
+Za pomocą pola uwagi możesz dodać wszelkie informacje istotne dla zarządzania aplikacją w usłudze Azure AD. Uwagi to bezpłatne pole tekstowe o maksymalnym rozmiarze 1024 znaków.
+
+1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw**. Następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować.
+2. W sekcji **Zarządzanie** wybierz pozycję **Właściwości** , aby otworzyć okienko **Właściwości** do edycji.
+3. Zaktualizuj pole uwagi, a następnie wybierz pozycję **Zapisz**.
+
+    ![Zrzut ekranu przedstawiający ekran właściwości, który pokazuje, jak zmienić uwagi](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).

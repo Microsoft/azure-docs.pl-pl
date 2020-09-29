@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003706"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461346"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
@@ -145,8 +145,8 @@ Tak, replikacja geograficzna pamięci podręcznych w sieci wirtualnych jest obs�
 - Replikacja geograficzna między pamięciami podręcznymi w tej samej sieci wirtualnej jest obsługiwana.
 - Obsługiwane są również replikacje geograficzne między pamięciami podręcznymi w różnych sieci wirtualnych.
   - Jeśli sieci wirtualnych znajdują się w tym samym regionie, można połączyć je za pomocą [komunikacji równorzędnej sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) lub [VPN Gateway połączenia](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)między siećmi wirtualnymi.
-  - Jeśli sieci wirtualnych znajdują się w różnych regionach, replikacja geograficzna przy użyciu komunikacji równorzędnej sieci wirtualnych nie jest obsługiwana z powodu ograniczenia w przypadku podstawowych wewnętrznych modułów równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń wirtualnych sieci równorzędnych, zobacz [Virtual Network-Komunikacja równorzędna — wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie VPN Gateway połączenia między sieciami WIRTUALNYmi.
-
+  - Jeśli sieci wirtualnych znajdują się w różnych regionach, jest obsługiwana replikacja geograficzna używająca komunikacji równorzędnej sieci wirtualnych, ale maszyna wirtualna w sieci wirtualnej 1 (region 1) nie będzie w stanie uzyskać dostępu do pamięci podręcznej w sieci wirtualnej 2 (region 2) za pomocą nazwy DNS z powodu ograniczenia dotyczącego podstawowych wewnętrznych modułów równoważenia obciążenia. Aby uzyskać więcej informacji na temat ograniczeń wirtualnych sieci równorzędnych, zobacz [Virtual Network-Komunikacja równorzędna — wymagania i ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Zalecanym rozwiązaniem jest użycie VPN Gateway połączenia między sieciami WIRTUALNYmi.
+  
 Korzystając z [tego szablonu platformy Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), można szybko wdrożyć dwie buforowane geograficznie podsieci w sieci wirtualnej połączonej z VPN Gateway połączeniem między sieciami wirtualnymi.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Jaki jest harmonogram replikacji Redis georeplikacji?

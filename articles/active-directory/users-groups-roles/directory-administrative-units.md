@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335820"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447901"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Jednostki administracyjne w Azure Active Directory
 
@@ -48,7 +48,7 @@ Jednostkami administracyjnymi można zarządzać za pomocą Azure Portal, polece
 
 - [Twórz, usuwaj, wypełniaj i dodawaj role do jednostek administracyjnych](roles-admin-units-manage.md): wykonaj procedury opisane w procedurach
 - [Praca z jednostkami](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)administracyjnymi: jak pracować z jednostkami administracyjnymi przy użyciu programu PowerShell
-- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): szczegółowa dokumentacja dotycząca Microsoft Graph dla jednostek administracyjnych.
+- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): szczegółowa dokumentacja dotycząca Microsoft Graph dla jednostek administracyjnych.
 
 ### <a name="planning-your-administrative-units"></a>Planowanie jednostek administracyjnych
 
@@ -95,9 +95,6 @@ Uprawnienia |   Program MS Graph/program PowerShell   | Portal usługi Azure AD 
 Zarządzanie właściwościami grupy i członkami w zakresie jednostki administracyjnej     |  Obsługiwane   |    Obsługiwane    |  Nieobsługiwane
 Zarządzanie licencjonowaniem grupowym w zakresie jednostki administracyjnej   |    Obsługiwane  |    Obsługiwane   |   Nieobsługiwane
 
-> [!NOTE]
->
-> Administratorzy z zakresem jednostki administracyjnej nie mogą zarządzać regułami dynamicznego członkostwa w grupach.
 
 Jednostki administracyjne stosują zakres tylko do uprawnień zarządzania. Nie uniemożliwiają członkom ani administratorom korzystania z ich [domyślnych uprawnień użytkownika](../fundamentals/users-default-permissions.md) do przeglądania innych użytkowników, grup lub zasobów poza jednostką administracyjną. W centrum administracyjnym Microsoft 365 użytkownicy spoza jednostek administracyjnych administratora zakresu są odfiltrowani, ale można przeglądać innych użytkowników w portalu usługi Azure AD, programie PowerShell i innych usługach firmy Microsoft.
 

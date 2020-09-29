@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447805"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Ciągła integracja i ciągłe wdrażanie na urządzeniach Azure IoT Edge (klasyczny edytor)
 
@@ -160,7 +160,7 @@ Ten potok jest teraz skonfigurowany do automatycznego uruchamiania podczas wypyc
 >[!NOTE]
 >Jeśli chcesz używać **wdrożeń warstwowych** w potoku, wdrożenia warstwowe nie są jeszcze obsługiwane w Azure IoT Edge zadaniach w usłudze Azure DevOps.
 >
->Można jednak użyć [zadania interfejsu wiersza polecenia platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) , aby utworzyć wdrożenie jako wdrożenie warstwowe. W przypadku wartości **skryptu wbudowanego** można użyć [polecenia AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>Można jednak użyć [zadania interfejsu wiersza polecenia platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) , aby utworzyć wdrożenie jako wdrożenie warstwowe. W przypadku wartości **skryptu wbudowanego** można użyć [polecenia AZ IoT Edge Deployment Create](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

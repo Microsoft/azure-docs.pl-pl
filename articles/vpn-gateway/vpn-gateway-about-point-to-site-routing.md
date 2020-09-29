@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440817"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447967"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Routing sieci VPN typu punkt-lokacja — informacje
 
 Ten artykuł pomaga zrozumieć, jak działa routing sieci VPN typu punkt-lokacja. Zachowanie routingu sieci VPN P2S jest zależne od systemu operacyjnego klienta, protokołu używanego do połączenia sieci VPN oraz sposobu, w jaki sieci wirtualne (sieci wirtualnych) są połączone ze sobą.
 
-Platforma Azure obsługuje obecnie dwa protokoły dla dostępu zdalnego, IKEv2 i SSTP. Protokół IKEv2 jest obsługiwany w wielu systemach operacyjnych klienta, takich jak Windows, Linux, MacOS, Android i iOS. Protokół SSTP jest obsługiwany tylko w systemie Windows. Jeśli wprowadzisz zmiany w topologii sieci i masz klientów sieci VPN z systemem Windows, pakiet klienta VPN dla klientów systemu Windows musi zostać pobrany i zainstalowany ponownie, aby zmiany zostały zastosowane do klienta programu.
+Platforma Azure obsługuje obecnie dwa protokoły dla dostępu zdalnego, IKEv2 i SSTP. Protokół IKEv2 jest obsługiwany w wielu systemach operacyjnych klienta, takich jak Windows, Linux, macOS, Android i iOS. Protokół SSTP jest obsługiwany tylko w systemie Windows. Jeśli wprowadzisz zmiany w topologii sieci i masz klientów sieci VPN z systemem Windows, pakiet klienta VPN dla klientów systemu Windows musi zostać pobrany i zainstalowany ponownie, aby zmiany zostały zastosowane do klienta programu.
 
 > [!NOTE]
 > Ten artykuł ma zastosowanie tylko do protokołu IKEv2.
@@ -195,7 +195,7 @@ W tym przykładzie połączenie bramy sieci VPN typu punkt-lokacja jest przeznac
 
 Wszyscy klienci mogą uzyskiwać dostęp tylko do VNet1.
 
-![połączenie S2S i oddział z wielosieciową siecią wirtualną](./media/vpn-gateway-about-point-to-site-routing/7.jpg "połączenie S2S i oddział z wielosieciową siecią wirtualną")
+![Diagram przedstawiający wiele sieci S2S i oddział firmy.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "połączenie S2S i oddział z wielosieciową siecią wirtualną")
 
 ### <a name="address-space"></a>Przestrzeń adresowa
 

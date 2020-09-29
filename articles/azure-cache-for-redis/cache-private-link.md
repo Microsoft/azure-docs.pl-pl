@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460071"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
@@ -24,7 +24,7 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy pr
 > [!NOTE]
 > Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej dla ograniczonych regionów. Jeśli nie masz opcji tworzenia prywatnego punktu końcowego, [skontaktuj się z nami](mailto:azurecache@microsoft.com). Aby używać prywatnych punktów końcowych, należy utworzyć wystąpienie usługi Azure cache for Redis po 28 lipca 2020.
 >
-> Regiony z dostępem do publicznej wersji zapoznawczej obecnie: zachodnio-środkowe stany USA, Północno-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA 2, Norwegia Wschodnia, Europa Północna, Azja Wschodnia, Japonia Wschodnia i Indie Środkowe.
+> Regiony z dostępem do publicznej wersji zapoznawczej obecnie: zachodnio-środkowe stany USA, Północno-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Wschodnie stany USA 2, Norwegia Wschodnia, Norwegia Zachodnia, Europa Północna, Europa Zachodnia, Azja Wschodnia, japonia południowo, francja środkowa, Kanada środkowa, Korea środkowa Szwajcaria Północna Północna Republika Południowej Afryki Południowe Zjednoczone Królestwo Niemcy północne i Brazylia Południowa.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Tworzenie prywatnego punktu końcowego przy użyciu nowej usługi Azure cache for Redis 
@@ -71,7 +71,7 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
    
 1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Wybierz pozycję Utwórz zasób.":::
    
 1. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia dla nowej pamięci podręcznej.
    
@@ -89,7 +89,7 @@ Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
 
 1. Kliknij przycisk **Dodaj** , aby utworzyć prywatny punkt końcowy.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="W obszarze Sieć Dodaj prywatny punkt końcowy.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Wybierz pozycję Utwórz zasób.":::
 
 1. Na stronie **Tworzenie prywatnego punktu końcowego** Skonfiguruj ustawienia dla prywatnego punktu końcowego, korzystając z sieci wirtualnej i podsieci utworzonej w ostatniej sekcji, a następnie wybierz **przycisk OK**. 
 
@@ -153,7 +153,7 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 1. W Azure Portal Wyszukaj **usługę Azure cache for Redis** i naciśnij klawisz ENTER lub wybierz ją z sugestii wyszukiwania.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Wyszukaj usługę Azure cache for Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Wybierz pozycję Utwórz zasób.":::
 
 2. Wybierz wystąpienie pamięci podręcznej, do którego chcesz dodać prywatny punkt końcowy.
 
@@ -161,7 +161,7 @@ Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
 4. Kliknij przycisk **prywatny punkt końcowy** , aby utworzyć prywatny punkt końcowy.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Dodaj prywatny punkt końcowy.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Wybierz pozycję Utwórz zasób.":::
 
 5. Na **stronie Tworzenie prywatnego punktu końcowego**Skonfiguruj ustawienia dla prywatnego punktu końcowego.
 

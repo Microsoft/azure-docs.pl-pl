@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 4ef879806555634598d5de999bcd9fc01c050d60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314559"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447405"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -233,7 +233,7 @@ W obszarze [jak korzystać z Azure Security Center & Microsoft Operations Manage
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie omówiono, jak zaplanować wykorzystanie usługi Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
-* [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 * [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](faq-general.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.

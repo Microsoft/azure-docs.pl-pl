@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531478"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447785"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Tworzenie i Inicjowanie obsługi symulowanego urządzenia IoT Edge przy użyciu wirtualnego modułu TPM w systemie Windows
 
@@ -61,7 +61,7 @@ Wybierz język zestawu SDK, którego chcesz użyć do utworzenia symulowanego ur
 Podczas tworzenia rejestracji indywidualnej wybierz **wartość true** , aby zadeklarować, że symulowane urządzenie TPM na komputerze deweloperskim systemu Windows jest **urządzeniem IoT Edge**.
 
 > [!TIP]
-> W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
+> W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
 
 Symulowane urządzenia i indywidualne przewodniki rejestracji:
 

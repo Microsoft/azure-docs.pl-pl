@@ -1,28 +1,31 @@
 ---
-title: Kontenery usługi Azure Cognitive Services
+title: Korzystanie z usługi Azure Cognitive Services Containers lokalnie
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak kontenery platformy Docker mogą uzyskać Cognitive Services bliżej danych.
+description: Dowiedz się, jak używać kontenerów platformy Docker do korzystania z Cognitive Services lokalnie.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: lokalna, Docker, kontener, Kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906987"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461210"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
 > [!WARNING]
 > 11 czerwca 2020 roku firma Microsoft ogłosiła, że nie będzie sprzedawać technologii rozpoznawania twarzy departamentom policji w Stanach Zjednoczonych, dopóki nie zostaną wdrożone ścisłe przepisy oparte na prawach człowieka. W związku z tym klienci nie mogą korzystać z funkcji rozpoznawania twarzy ani funkcji dostępnych w ramach usług platformy Azure, takich jak twarzy lub Video Indexer, jeśli klient jest lub zezwala na korzystanie z takich usług przez lub w odniesieniu do działu policji w Stany Zjednoczone.
 
-Obsługa kontenerów w usłudze Azure Cognitive Services pozwala deweloperom korzystać z tych samych bogatych interfejsów API, które są dostępne na platformie Azure, i umożliwia elastyczność w przypadku wdrażania i hostowania usług, które są dostarczane z [kontenerami platformy Docker](https://www.docker.com/what-container). Obsługa kontenerów jest obecnie dostępna dla podzestawu Cognitive Services platformy Azure, w tym części:
+Usługa Azure Cognitive Services udostępnia kilka [kontenerów platformy Docker](https://www.docker.com/what-container) , które umożliwiają korzystanie z tych samych interfejsów API, które są dostępne na platformie Azure lokalnie. Użycie tych kontenerów zapewnia elastyczność Cognitive Services bliżej danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych. 
+
+Obsługa kontenerów jest obecnie dostępna dla podzestawu Cognitive Services platformy Azure, w tym części:
 
 > [!div class="checklist"]
 > * [Narzędzie do wykrywania anomalii][ad-containers]
@@ -42,8 +45,8 @@ Zasoby Cognitive Services są dostępne na [Microsoft Azure](https://azure.micro
 ## <a name="features-and-benefits"></a>Funkcje i korzyści
 
 - **Niezmienna infrastruktura**: Włącz zespoły DevOps ", aby korzystały z spójnego i niezawodnego zestawu znanych parametrów systemowych, jednocześnie umożliwiając dostosowanie się do zmian. Kontenery zapewniają elastyczność przestawiania w przewidywalnym ekosystemie i unikają dryfowania konfiguracji.
-- **Kontrola nad danymi**: Zezwól klientom na wybór, gdzie te Cognitive Services przetwarzać dane. Jest to istotne w przypadku klientów, którzy nie mogą wysyłać danych do chmury, ale muszą mieć dostęp do technologii Cognitive Services. Obsługa spójności w środowiskach hybrydowych — między danymi, zarządzaniem, tożsamością i zabezpieczeniami.
-- **Kontrolę nad aktualizacjami modelu**: zapewniają klientom elastyczność w zakresie przechowywania wersji i aktualizowania modeli wdrożonych w ich rozwiązaniach.
+- **Kontrola nad danymi**: Wybierz miejsce, w którym dane są przetwarzane przez Cognitive Services. Może to być konieczne, jeśli nie można wysłać danych do chmury, ale wymagany jest dostęp do interfejsy API usług Cognitive Services. Obsługa spójności w środowiskach hybrydowych — między danymi, zarządzaniem, tożsamością i zabezpieczeniami.
+- **Kontrola nad aktualizacjami modelu**: elastyczność w zakresie przechowywania wersji i aktualizowania modeli wdrożonych w ich rozwiązaniach.
 - **Architektura przenośna**: umożliwia tworzenie architektury aplikacji przenośnej, którą można wdrożyć na platformie Azure, lokalnie i na krawędzi. Kontenery można wdrażać bezpośrednio w [usłudze Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml)lub do klastra [Kubernetes](https://kubernetes.io/) wdrożonego w [Azure Stack](/azure-stack/operator). Aby uzyskać więcej informacji, zobacz [wdrażanie Kubernetes do Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Wysoka przepływność/małe opóźnienia**: umożliwiają klientom skalowanie w celu uzyskania wysokiej przepływności i małych opóźnień przez umożliwienie Cognitive Services uruchamiania w pobliżu ich logiki i danych aplikacji. Kontenery nie przekraczają transakcji na sekundę (TPS) i można je skalować w górę i w dół, aby obsługiwać zapotrzebowanie w przypadku podania niezbędnych zasobów sprzętowych.
 - **Skalowalność**: dzięki coraz większej popularności oprogramowania kontenerach i aranżacji kontenerów, takich jak Kubernetes; skalowalność jest w programie Forefront z góry postępów technologicznych. Tworzenie aplikacji na skalowalnym serwerze klastra zapewnia wysoką dostępność.

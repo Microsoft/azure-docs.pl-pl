@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257485"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447832"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Zapewnianie modułom dostępu do magazynu lokalnego na urządzeniu
 
@@ -26,11 +26,11 @@ Aby włączyć łącze z magazynu modułów do magazynu w systemie hosta, należ
 Na przykład jeśli chcesz włączyć Centrum IoT Edge do przechowywania wiadomości w lokalnym magazynie urządzenia i pobrać je później, możesz skonfigurować zmienne środowiskowe i opcje tworzenia w Azure Portal w sekcji **Ustawienia środowiska uruchomieniowego** .
 
 1. W przypadku agentów IoT Edge Hub i IoT Edge Dodaj zmienną środowiskową o nazwie **storageFolder** , która wskazuje katalog w module.
-1. Dla Centrum IoT Edge i agenta IoT Edge Dodaj powiązania, aby połączyć katalog lokalny na komputerze hosta z katalogiem w module. Przykład:
+1. Dla Centrum IoT Edge i agenta IoT Edge Dodaj powiązania, aby połączyć katalog lokalny na komputerze hosta z katalogiem w module. Na przykład:
 
    ![Dodawanie opcji tworzenia i zmiennych środowiskowych dla magazynu lokalnego](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia. Przykład:
+Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia. Na przykład:
 
 ```json
 "systemModules": {
@@ -85,7 +85,7 @@ Więcej informacji o opcjach tworzenia można znaleźć w dokumentacji [platform
 
 ## <a name="encrypted-data-in-module-storage"></a>Zaszyfrowane dane w magazynie modułów
 
-Gdy moduły wywołują interfejs API obciążenia demona IoT Edge, aby szyfrować dane, klucz szyfrowania jest uzyskiwany przy użyciu identyfikatora modułu i identyfikatora generacji modułu. Identyfikator generacji jest używany do ochrony kluczy tajnych, jeśli moduł zostanie usunięty z wdrożenia, a następnie inny moduł z tym samym IDENTYFIKATORem modułu zostanie wdrożony na tym samym urządzeniu. Identyfikator generacji modułu można wyświetlić, korzystając z polecenia, w którym jest polecenie [AZ IoT Hub module-Identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Gdy moduły wywołują interfejs API obciążenia demona IoT Edge, aby szyfrować dane, klucz szyfrowania jest uzyskiwany przy użyciu identyfikatora modułu i identyfikatora generacji modułu. Identyfikator generacji jest używany do ochrony kluczy tajnych, jeśli moduł zostanie usunięty z wdrożenia, a następnie inny moduł z tym samym IDENTYFIKATORem modułu zostanie wdrożony na tym samym urządzeniu. Identyfikator generacji modułu można wyświetlić, korzystając z polecenia, w którym jest polecenie [AZ IoT Hub module-Identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
 
 Jeśli chcesz udostępnić pliki między modułami w ramach generacji, nie mogą one zawierać żadnych wpisów tajnych lub nie mogą zostać odszyfrowane.
 

@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322159"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447719"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy
 
@@ -53,7 +53,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
     1. Wyzwalacze, które będą inicjować ten automatyczny przepływ pracy. Na przykład może być konieczne uruchomienie aplikacji logiki po wygenerowaniu alertu zabezpieczeń zawierającego "SQL".
     1. Aplikacja logiki, która będzie uruchamiana po spełnieniu warunków wyzwalacza. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Dodawanie okienka automatyzacji przepływu pracy":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista automatyzacji przepływu pracy":::
 
 1. W sekcji Actions (akcje) kliknij pozycję **Utwórz nową** , aby rozpocząć proces tworzenia aplikacji logiki.
 

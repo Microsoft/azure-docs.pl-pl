@@ -3,12 +3,12 @@ title: Obsługiwane typy zasobów za poorednictwem Azure Resource Health | Micro
 description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660647"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447054"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
 Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zasoby według typów zasobów.
@@ -207,7 +207,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft. PowerBIDedicated/pojemności
 |Wykonane sprawdzenia|
 |---|
-|<ul><li>Czy zasób wydajności jest uruchomiony i działa?</li><li>Czy wszystkie obciążenia są uruchomione i działają?</li></ul>|
+|<ul><li>Czy zasób wydajności jest uruchomiony i działa?</li><li>Czy wszystkie obciążenia są uruchomione i działają?</li></ul>
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft. Search/searchServices
 |Wykonane sprawdzenia|

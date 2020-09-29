@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228634"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460802"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -42,11 +42,7 @@ Wyłączenie usuwania nietrwałego kontenera nie powoduje trwałego usunięcia k
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
-Usuwanie nietrwałe kontenera jest dostępne w wersji zapoznawczej w następujących regionach:
-
-- Francja Środkowa
-- Kanada Wschodnia
-- Kanada Środkowa
+Usuwanie nietrwałe kontenera jest dostępne w wersji zapoznawczej we wszystkich publicznych regionach świadczenia usługi Azure.
 
 > [!IMPORTANT]
 > Wersja zapoznawcza usuwania nietrwałego kontenera jest przeznaczona wyłącznie do użytku nieprodukcyjnego. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.

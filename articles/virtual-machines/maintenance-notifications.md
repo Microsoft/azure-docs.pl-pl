@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182173"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460581"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Obsługa powiadomień dotyczących planowanej konserwacji
 
@@ -65,7 +65,7 @@ Najlepszym rozwiązaniem jest użycie samoobsługowej konserwacji w następując
 - Między dwiema domenami aktualizacji jest wymagana więcej niż 30 minut czasu odzyskiwania maszyny wirtualnej. Aby kontrolować czas między domenami aktualizacji, należy wyzwolić konserwację na maszynach wirtualnych w jednej domenie aktualizacji (UD) naraz.
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 
 **P: Dlaczego musisz teraz ponownie uruchomić moje maszyny wirtualne?**
@@ -80,7 +80,7 @@ Aby uzyskać więcej informacji na temat wysokiej dostępności, zobacz [dostęp
 
 **P: Jak mogę Otrzymuj powiadomienia o planowanej konserwacji?**
 
-Odp **.:** Planowana fala konserwacji jest uruchamiana przez ustawienie harmonogramu do co najmniej jednego regionu świadczenia usługi Azure. Wkrótce po otrzymaniu powiadomienia e-mail do administratorów subskrypcji (jednej wiadomości e-mail na subskrypcję). Dodatkowe kanały i adresatów dla tego powiadomienia można skonfigurować przy użyciu alertów dziennika aktywności. W przypadku wdrożenia maszyny wirtualnej w regionie, w którym zaplanowano zaplanowaną konserwację, nie otrzymasz powiadomienia, ale konieczne jest sprawdzenie stanu konserwacji maszyny wirtualnej.
+Odp **.:** Planowana fala konserwacji jest uruchamiana przez ustawienie harmonogramu do co najmniej jednego regionu świadczenia usługi Azure. Wkrótce po otrzymaniu powiadomienia e-mail do administratorów usługi (jednej wiadomości e-mail na subskrypcję). Dodatkowe kanały i adresatów dla tego powiadomienia można skonfigurować przy użyciu alertów dziennika aktywności. W przypadku wdrożenia maszyny wirtualnej w regionie, w którym zaplanowano zaplanowaną konserwację, nie otrzymasz powiadomienia, ale konieczne jest sprawdzenie stanu konserwacji maszyny wirtualnej.
 
 **P: nie widzę żadnego wskazania planowanej konserwacji w portalu, programie PowerShell lub interfejsie wiersza polecenia. Co jest nie tak?**
 

@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 7f04483415253145cd485ccf870160e83a6e0e4b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4e5880a39d6ad299fd6e7f29bd0e3aefadc3bcd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319120"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446892"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Java)
 
@@ -88,14 +88,25 @@ W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w arty
     client.open();
     ```
 
-    > [!NOTE]
-    > Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, wystąpienie **DeviceClient** sprawdza komunikaty IoT Hub rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS oraz ograniczaniem IoT Hub, zobacz [sekcję Obsługa komunikatów w przewodniku dewelopera IoT Hub](iot-hub-devguide-messaging.md).
-
 4. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
+
+`execute`Metoda w `AppMessageCallback` klasie zwraca `IotHubMessageResult.COMPLETE` . Spowoduje to powiadomienie IoT Hub, że komunikat został pomyślnie przetworzony i że można bezpiecznie usunąć ten komunikat z kolejki urządzeń. Urządzenie powinno zwrócić tę wartość, gdy przetwarzanie zostało pomyślnie zakończone, niezależnie od używanego protokołu.
+
+W przypadku AMQP i HTTPS, ale nie MQTT, urządzenie może również:
+
+* Porzuć komunikat, co spowoduje IoT Hub zachowywanie komunikatu w kolejce urządzeń w celu użycia w przyszłości.
+* Odrzuć komunikat, który trwale usuwa komunikat z kolejki urządzeń.
+
+W przypadku, gdy coś się nie powiedzie, że urządzenie zakończy działanie, porzucanie lub odrzucanie komunikatu, IoT Hub po upływie ustalonego limitu czasu będzie kolejkować komunikat o dostarczeniu ponownie. Z tego powodu logika przetwarzania komunikatów w aplikacji urządzenia musi być *idempotentne*, dzięki czemu ten sam komunikat wielokrotnie daje ten sam wynik.
+
+Aby uzyskać szczegółowe informacje na temat sposobu, w jaki IoT Hub przetwarza komunikatów z chmury do urządzenia, w tym szczegółowe informacje o cyklu życia komunikatów z chmury do urządzenia, zobacz [wysyłanie komunikatów z chmury do urządzeń z Centrum IoT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, wystąpienie **DeviceClient** sprawdza komunikaty IoT Hub rzadko (co najmniej 25 minut). Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS, zobacz [wskazówki dotyczące komunikacji z chmury do urządzeń](iot-hub-devguide-c2d-guidance.md) i [Wybierz protokół komunikacyjny](iot-hub-devguide-protocols.md).
 
 ## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 

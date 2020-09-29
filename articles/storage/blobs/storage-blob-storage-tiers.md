@@ -3,21 +3,21 @@ title: Warstwy dostępu gorąca, chłodna i archiwalna dla obiektów Blob — Az
 description: Przeczytaj o warstwach dostępu gorąca, chłodna i archiwalna dla usługi Azure Blob Storage. Przejrzyj konta magazynu obsługujące obsługę warstw. Porównaj opcje magazynu blokowych obiektów BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226186"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460734"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
-Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Dostępne warstwy dostępu obejmują:
+Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Do wyboru są następujące warstwy dostępu:
 
 - **Hot** Zoptymalizowany pod kątem przechowywania danych, które są często dostępne.
 - **Chłodnie** zoptymalizowane pod kątem przechowywania danych, które są rzadko używane i są przechowywane przez co najmniej 30 dni.
@@ -25,12 +25,12 @@ Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można p
 
 Poniższe uwagi dotyczą różnych warstw dostępu:
 
-- Na poziomie konta można ustawić tylko warstwy dostępu gorąca i chłodna. Warstwa dostępu archiwalnego nie jest dostępna na poziomie konta.
-- Warstwy gorąca, chłodna i archiwalna można ustawić na poziomie obiektu BLOB podczas przekazywania lub po przekazaniu.
-- Dane w warstwie dostępu chłodnego mogą być nieznacznie niższej dostępności, ale nadal wymagają dużej trwałości, opóźnienia pobierania i charakterystyki przepływności podobne do danych gorąca. W przypadku danych chłodnych nieznacznie niższa umowa dotycząca poziomu usług dostępności i wyższe koszty dostępu w porównaniu z gorącą usługą są akceptowalnymi kosztami niższych kosztów magazynowania.
-- Funkcja archiwalny magazyn przechowuje dane w trybie offline i oferuje najniższe koszty magazynowania, ale również najwyższą ilość danych i dostęp do nich.
+- Na poziomie konta można ustawić tylko warstwy dostępu Chłodna i Gorąca. Warstwa dostępu Archiwum jest niedostępna na poziomie konta.
+- Warstwy Gorąca, Chłodna i Archiwum można ustawić na poziomie obiektu blob podczas przekazywania lub po przekazaniu.
+- Dane w warstwie dostępu Chłodna mogą tolerować nieznacznie niższą dostępność, ale nadal wymagają wysokiej trwałości, opóźnienia pobierania i charakterystyk przepływności podobnych do gorących danych. W przypadku chłodnych danych umowa dotycząca poziomu usług o nieznacznie niższej dostępności i wyższe koszty dostępu w porównaniu z gorącymi danymi są akceptowalnymi ustępstwami za niższe koszty magazynowania.
+- Magazyn archiwalny przechowuje dane w trybie offline i oferuje najniższe koszty magazynowania, ale również najwyższe koszty przywracania danych i uzyskiwania do nich dostępu.
 
-Dane przechowywane w chmurze zwiększają się w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu i planowany okres przechowywania. Pozwoli to na optymalizację kosztów. Dane przechowywane w chmurze mogą być różne w zależności od tego, jak są generowane, przetwarzane i dostępne w okresie istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko używane, jeśli kiedykolwiek są do niego dostępne.
+Dane przechowywane w chmurze zwiększają się w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu i planowany okres przechowywania. Pozwoli to na optymalizację kosztów. Dane przechowywane w chmurze mogą być różne w zależności od tego, jak są generowane, przetwarzane i jak uzyskuje się do nich dostęp w okresie ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają w stanie bezczynności w chmurze i rzadko, jeśli kiedykolwiek, uzyskuje się do nich dostęp po rozpoczęciu ich przechowywania.
 
 Każdy z tych scenariuszy dostępu do danych korzysta z innej warstwy dostępu, która jest zoptymalizowana pod kątem określonego wzorca dostępu. Dzięki warstwom dostępu gorąca, chłodna i archiwalna usługa Azure Blob Storage jest wymagana w przypadku zróżnicowanych warstw dostępu z oddzielnymi modelami cenowymi.
 
@@ -44,14 +44,14 @@ Konta magazynu obiektów blob i GPv2 uwidaczniają atrybut **Warstwa dostępu** 
 
 ## <a name="hot-access-tier"></a>Warstwa dostępu Gorąca
 
-Warstwa dostępu gorąca ma wyższe koszty magazynowania niż warstwy chłodna i archiwum, ale najtańsze koszty dostępu. Przykładowe scenariusze użycia dla warstwy dostępu gorąca obejmują:
+Warstwa dostępu gorąca ma wyższe koszty magazynowania niż warstwy chłodna i archiwum, ale najniższe koszty dostępu. Przykładowe scenariusze użycia dla warstwy dostępu gorąca obejmują:
 
-- Dane, które są używane w aktywnym lub oczekiwanie, są często dostępne (odczyt i zapis).
+- Dane, które są aktywnie używane lub do których jest oczekiwany częsty dostęp (odczyt z i zapis do).
 - Dane przygotowane do przetworzenia i ostatecznej migracji do warstwy dostępu chłodna.
 
 ## <a name="cool-access-tier"></a>Warstwa dostępu Chłodna
 
-Warstwa dostępu chłodna ma niższe koszty magazynowania i wyższe koszty dostępu w porównaniu z magazynem gorąca. Ta warstwa jest przeznaczona dla danych, które pozostaną w warstwie Chłodna przez co najmniej 30 dni. Przykładowe scenariusze użycia dla warstwy dostępu chłodnego obejmują:
+Warstwa dostępu chłodna ma niższe koszty magazynowania i wyższe koszty dostępu w porównaniu do warstwy magazynowania gorąca. Ta warstwa jest przeznaczona dla danych, które pozostaną w warstwie Chłodna przez co najmniej 30 dni. Przykładowe scenariusze użycia dla warstwy dostępu chłodna obejmują:
 
 - Krótkoterminowe kopie zapasowe i zestawy danych odzyskiwania po awarii.
 - Starszą zawartość nośników, która nie jest już często wyświetlana, ale oczekiwane jest, że będzie ona natychmiast dostępna, gdy będzie to wymagane.
@@ -121,7 +121,7 @@ W poniższej tabeli przedstawiono porównanie magazynu obiektów BLOB wydajnośc
 |                                           | **Wydajność warstwy Premium**   | **Warstwa gorąca** | **Warstwa chłodna**       | **Warstwa Archiwum**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | Tryb offline           |
-| **Dostępność** <br> **(odczyty RA-GRS)**  | Brak                       | 99,99%       | 99,9%               | Tryb offline           |
+| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | Tryb offline           |
 | **Opłaty za użycie**                         | Wyższe koszty magazynowania, niższy dostęp i koszt transakcji | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
 | **Minimalny rozmiar obiektu**                   | NIE DOTYCZY                       | NIE DOTYCZY          | NIE DOTYCZY                 | NIE DOTYCZY               |
 | **Minimalny czas magazynowania**              | NIE DOTYCZY                       | NIE DOTYCZY          | 30 dni<sup>1</sup> | 180 dni
@@ -248,6 +248,10 @@ Nie. Tylko warstwy dostępu gorąca i chłodna mogą być ustawione jako domyśl
 **W jakich regionach są dostępne warstwy dostępu gorąca, chłodna i archiwalna?**
 
 Warstwy dostępu gorąca i chłodna wraz z warstwami na poziomie obiektów BLOB są dostępne we wszystkich regionach. Magazyn w warstwie Archiwum będzie początkowo dostępny tylko w wybranych regionach. Pełną listę można znaleźć w temacie [Dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
+
+**Które opcje nadmiarowości są obsługiwane dla warstw dostępu gorąca, chłodna i archiwalna?**
+
+Warstwy gorąca i chłodna obsługują wszystkie opcje nadmiarowości. Warstwa archiwum obsługuje tylko LRS, GRS i RA-GRS. ZRS, GZRS i RA-GZRS nie są obsługiwane dla warstwy archiwum.
 
 **Czy obiekty blob w warstwie dostępu chłodnego działają inaczej niż te w warstwie dostępu gorąca?**
 

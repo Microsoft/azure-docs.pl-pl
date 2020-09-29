@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 2ce2b7dab3e9eb4c9635ce4abc2933fd954844d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326007"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448196"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -219,7 +219,7 @@ Możesz łatwo skonstruować wymagany token sygnatury dostępu współdzielonego
 1. Wprowadź odpowiednie sekcje zgodnie z opisem wcześniej
 1. Kliknij przycisk Generuj sygnaturę dostępu współdzielonego.
 
-![image (obraz)](./media/diagnostics-linux/make_sas.png)
+![Zrzut ekranu przedstawia stronę sygnatura dostępu współdzielonego z opcją Generuj S A S.](./media/diagnostics-linux/make_sas.png)
 
 Skopiuj wygenerowany sygnaturę dostępu współdzielonego do pola storageAccountSasToken; Usuń wiodący znak zapytania ("?").
 
@@ -777,7 +777,7 @@ W każdym przypadku dane są również przekazywane do:
 
 Użyj Azure Portal, aby wyświetlić dane wydajności lub ustawić alerty:
 
-![image (obraz)](./media/diagnostics-linux/graph_metrics.png)
+![Zrzut ekranu przedstawia Azure Portal z wybraną metryką ilość miejsca na dysku i wykresem wyjściowym.](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters`Dane są zawsze przechowywane w tabeli usługi Azure Storage. Interfejsy API usługi Azure Storage są dostępne dla wielu języków i platform.
 
@@ -786,7 +786,7 @@ Dane wysyłane do ujścia JsonBlob są przechowywane w obiektach Blob na koncie 
 Ponadto można używać tych narzędzi interfejsu użytkownika do uzyskiwania dostępu do danych w usłudze Azure Storage:
 
 * Program Visual Studio Eksplorator serwera.
-* [Eksplorator usługi Microsoft Azure Storage](https://azurestorageexplorer.codeplex.com/ "Eksplorator usługi Azure Storage").
+* [Zrzut ekranu przedstawia kontenery i tabele w Eksplorator usługi Azure Storage.](https://azurestorageexplorer.codeplex.com/ "Eksplorator usługi Azure Storage").
 
 Ta migawka sesji Eksplorator usługi Microsoft Azure Storage zawiera wygenerowane tabele i kontenery usługi Azure Storage ze prawidłowej konfiguracji rozszerzenia LAD 3,0 na testowej maszynie wirtualnej. Obraz nie jest dokładnie zgodny z [konfiguracją przykładu LAD 3,0](#an-example-lad-30-configuration).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: e5ab3800e2d20bec34f321e0992240be8624404c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400874"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461465"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -70,11 +70,10 @@ Konto użytkownika, które tworzy klastry, musi mieć standardowe uprawnienie do
 **Program PowerShell**
 
 ```powershell
-invoke-command -scriptblock { New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} } -asjob
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
 
 # Check when the job is done
-Get-Job
-
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 **REST**
@@ -106,13 +105,16 @@ Powinna być 200 OK i nagłówek.
 
 ### <a name="check-provisioning-status"></a>Sprawdzanie stanu aprowizacji
 
-Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji można sprawdzić na dwa sposoby:
+Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji można sprawdzić na kilka sposobów:
 
-1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze sprawdzaniem stanu operacji asynchronicznych.
+- Uruchom polecenie programu PowerShell Get-AzOperationalInsightsCluster z nazwą grupy zasobów i sprawdź Właściwość ProvisioningState. Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
+  ```powershell
+  New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
+  ```
 
-   LUB
+- Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze sprawdzaniem stanu operacji asynchronicznych.
 
-1. Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
+- Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -275,10 +277,10 @@ Użyj następującego polecenia programu PowerShell, aby połączyć się z klas
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
 
 # Link the workspace to the cluster
-invoke-command -scriptblock { Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId } -asjob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
-Get-Job
+Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
 

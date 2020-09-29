@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359685"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446693"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -67,7 +67,7 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 
 ## <a name="datasets"></a>Zestawy danych
 
-Azure Machine Learning zestawy danych to odwołania wskazujące na dane w usłudze magazynu. Nie są to kopie dataBy, które tworzą zestaw danych Azure Machine Learning, utworzysz odwołanie do lokalizacji źródła danych wraz z kopią jej metadanych. 
+Zbiory danych Azure Machine Learning nie są kopiami Twoich dane. Tworząc zestaw danych, można utworzyć odwołanie do danych w usłudze Storage wraz z kopią jej metadanych. 
 
 Ponieważ zestawy danych są opóźnieniem oceniane, a dane pozostają w istniejącej lokalizacji, należy
 

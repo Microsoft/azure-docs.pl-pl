@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff942cdad74c3b8b71a8f1658f13faae021b983
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f9bcc356835fcfc080bd381043552d6e8868cc7f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446630"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -37,6 +37,169 @@ Usługa Azure AD otrzymuje ulepszenia na bieżąco. Aby zachować aktualność w
 
 Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, możesz je znaleźć w archiwum, aby poznać nowości [w Azure Active Directory](whats-new-archive.md).
 
+---
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---september-2020"></a>Nowe łączniki aprowizacji w galerii aplikacji usługi Azure AD — wrzesień 2020
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Inicjowanie obsługi aplikacji  
+**Możliwości produktu:** integracja innej firmy
+ 
+Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkowników dla nowo zintegrowanych aplikacji:
+
+- [Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
+- [InVision](../saas-apps/invision-provisioning-tutorial.md)
+- [myday](../saas-apps/myday-provision-tutorial.md)
+- [Chmura SAP Analytics](../saas-apps/sap-analytics-cloud-provisioning-tutorial.md)
+- [Świadomość zabezpieczeń w programie Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
+
+Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację przy użyciu funkcji automatycznego inicjowania obsługi kont użytkowników, zobacz [Automatyzacja aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### <a name="audited-bitlocker-recovery-in-azure-ad---public-preview"></a>Inspekcja odzyskiwania funkcji BitLocker w usłudze Azure AD — publiczna wersja zapoznawcza
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Zarządzanie dostępem do urządzeń  
+**Możliwość produktu:** Zarządzanie cyklem życia urządzeń
+ 
+Gdy Administratorzy IT lub Użytkownicy końcowi odczytują klucze odzyskiwania funkcji BitLocker, do których mają dostęp, Azure Active Directory teraz generuje dziennik inspekcji, który przechwytuje osoby, które uzyskały dostęp do klucza odzyskiwania. Ta sama Inspekcja zawiera szczegóły urządzenia, z którym skojarzony jest klucz funkcji BitLocker.
+
+Użytkownicy końcowi mogą [uzyskiwać dostęp do swoich kluczy odzyskiwania za pośrednictwem mojego konta](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). Administratorzy IT mogą uzyskać dostęp do kluczy odzyskiwania za pośrednictwem [interfejsu API odzyskiwania kluczy funkcji BitLocker w wersji beta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) lub za pośrednictwem portalu usługi Azure AD. Aby dowiedzieć się więcej, zobacz [Wyświetlanie lub kopiowanie kluczy funkcji BitLocker w portalu usługi Azure AD](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+
+---
+
+### <a name="teams-devices-administrator-built-in-role"></a>Wbudowana rola administratora urządzeń zespołów
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** RBAC  
+**Możliwość produktu:** Access Control
+ 
+Użytkownicy z rolą [administrator urządzeń zespołów](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) mogą zarządzać [urządzeniami certyfikowanymi przez zespoły](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) z poziomu Centrum administracyjnego zespołów. 
+
+Ta rola umożliwia użytkownikowi wyświetlanie wszystkich urządzeń w jednym skrócie, z możliwością wyszukiwania i filtrowania urządzeń. Użytkownik może również sprawdzić szczegóły każdego urządzenia, w tym konto zalogowane oraz Marka i model urządzenia. Użytkownik może zmienić ustawienia na urządzeniu i zaktualizować wersje oprogramowania. Ta rola nie udziela uprawnień do sprawdzania aktywności zespołów i jakości wywołań urządzenia.
+ 
+---
+
+### <a name="advanced-query-capabilities-for-directory-objects"></a>Zaawansowane możliwości zapytań dla obiektów katalogu
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Program MS Graph  
+**Możliwość produktu:** Środowisko deweloperskie
+ 
+Wszystkie nowe możliwości zapytania wprowadzone dla obiektów katalogu w interfejsach API usługi Azure AD są teraz dostępne w punkcie końcowym v 1.0 i w środowisku produkcyjnym. Deweloperzy mogą liczyć, wyszukiwać, filtrować i sortować obiekty katalogu i powiązane linki przy użyciu standardowych operatorów OData.
+
+Aby dowiedzieć się więcej, zapoznaj się z dokumentacją w [tym miejscu](https://aka.ms/BlogPostMezzoGA)i możesz wysłać opinię z tą [krótką ankietą](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
+ 
+---
+
+### <a name="public-preview-continuous-access-evaluation-for-tenants-who-configured-conditional-access-policies"></a>Publiczna wersja zapoznawcza: ciągła ocena dostępu dla dzierżawców, którzy skonfigurowali zasady dostępu warunkowego
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Uwierzytelnienia (nazwy logowania)  
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+ 
+Wersja ewaluacyjna ciągłego dostępu (CAE) jest teraz dostępna w publicznej wersji zapoznawczej dla dzierżawców usługi Azure AD z zasadami dostępu warunkowego. W przypadku CAE krytyczne zdarzenia zabezpieczeń i zasady są oceniane w czasie rzeczywistym. Obejmuje to wyłączenie konta, zresetowanie hasła oraz zmianę lokalizacji. Aby dowiedzieć się więcej, zobacz [ocenę dostępu ciągłego](../conditional-access/concept-continuous-access-evaluation.md).
+
+---
+
+### <a name="ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Poproś użytkowników o zażądanie pakietu dostępu dodatkowe pytania, aby usprawnić decyzje dotyczące zatwierdzania
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Zarządzanie dostępem użytkowników  
+**Możliwość produktu:** Zarządzanie prawami
+ 
+Administratorzy mogą teraz wymagać, aby użytkownicy żądający pakietu dostępu mogli udzielić dodatkowych pytań poza justem biznesowym w portalu zarządzania prawami dostępu usługi Azure AD. Odpowiedzi użytkowników będą następnie widoczne dla osób zatwierdzających, aby ułatwić im podejmowanie decyzji o zatwierdzeniu dostępu. Aby dowiedzieć się więcej, zobacz [zbieranie dodatkowych informacji o żądającym zatwierdzenia (wersja zapoznawcza)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview).
+ 
+---
+
+### <a name="public-preview-enhanced-user-management"></a>Publiczna wersja zapoznawcza: Ulepszone zarządzanie użytkownikami
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Zarządzanie użytkownikami  
+**Możliwość produktu:** Zarządzanie użytkownikami
+ 
+
+Portal usługi Azure AD został zaktualizowany, aby ułatwić znajdowanie użytkowników na stronach wszyscy użytkownicy i usunięci użytkownicy. Zmiany w wersji zapoznawczej obejmują: 
+- Bardziej widoczne właściwości użytkownika, w tym identyfikator obiektu, stan synchronizacji katalogu, typ tworzenia i wystawca tożsamości.
+- Wyszukiwanie umożliwia teraz połączone wyszukiwanie nazw, wiadomości e-mail i identyfikatorów obiektów.
+- Ulepszone filtrowanie według typu użytkownika (elementu członkowskiego, gościa i brak), stanu synchronizacji katalogów, typu tworzenia, nazwy firmy i nazwy domeny.
+- Nowe możliwości sortowania dotyczące właściwości, takie jak nazwa, główna nazwa użytkownika i Data usunięcia.
+- Nowa łączna liczba użytkowników, którzy aktualizujeją wszystkie wyszukiwania lub filtry.
+
+Aby uzyskać więcej informacji, zobacz [ulepszenia zarządzania użytkownikami (wersja zapoznawcza) w Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
+
+---
+
+### <a name="new-notes-field-for-enterprise-applications"></a>Nowe pole notatek dla aplikacji dla przedsiębiorstw
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** **Funkcja produktu** Enterprise Apps: Logowanie jednokrotne
+
+Możesz dodawać bezpłatne notatki do aplikacji dla przedsiębiorstw. Możesz dodać wszelkie istotne informacje, które ułatwią menedżerom aplikacji w aplikacjach dla przedsiębiorstw. Aby uzyskać więcej informacji, zobacz [Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)](../manage-apps/add-application-portal-configure.md). 
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---september-2020"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD — wrzesień 2020
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Aplikacje dla przedsiębiorstw  
+**Możliwości produktu:** integracja innej firmy
+
+We wrześniu 2020 dodaliśmy 34 następujące nowe aplikacje w galerii aplikacji z obsługą Federacji:
+
+[VMware Horizon — ujednolicona Brama dostępu](), [Pulse Secure PC](../saas-apps/vmware-horizon-unified-access-gateway-tutorial.md), [Inventory360](../saas-apps/pulse-secure-pcs-tutorial.md), [Frontitude](https://services.enteksystems.de/sso/microsoft/signup), [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_SERVER](https://zaas.zenmutech.com/user/signin), [HashData dla firm](https://hashdata.app/login.xhtml), [SecureLogin](https://securelogin.securelogin.nu/sso/azure/login), [CyberSolutions MAILBASEΣ/CMS](../saas-apps/cybersolutions-mailbase-tutorial.md), [CyberSolutions CYBERMAILΣ](../saas-apps/cybersolutions-cybermail-tutorial.md), [LimbleCMMS](https://auth.limblecmms.com/), [Glint Inc](../saas-apps/glint-inc-tutorial.md), [zeroheight](../saas-apps/zeroheight-tutorial.md), [przydatności do płci](https://app.genderfitness.com/), [Portal Coeo](https://my.coeo.com/), [Gramatyka](../saas-apps/grammarly-tutorial.md), [Fivetran](../saas-apps/fivetran-tutorial.md), [Kumolus](../saas-apps/kumolus-tutorial.md), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial.md), [TeamzSkill](../saas-apps/teamzskill-tutorial.md), [raumfürraum](../saas-apps/raumfurraum-tutorial.md), [Saviynt](../saas-apps/saviynt-tutorial.md), [BizMerlinHR](https://marketplace.bizmerlin.net/bmone/signup), [Mobile Locker](../saas-apps/mobile-locker-tutorial.md) [, Zengine,](../saas-apps/zengine-tutorial.md) [CloudCADI](https://app.cloudcadi.com/login), [Simfoni Analytics](https://simfonianalytics.com/accounts/microsoft/login/), [PRIVA Identity & Access Management](https://my.priva.com/) [,](https://wisteconline.com/auth/oidc) [Nitro Pro](https://www.gonitro.com/nps/product-details/downloads), [Eventfinity](../saas-apps/eventfinity-tutorial.md) [Fexa,](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md) [Wistec](../saas-apps/fexa-tutorial.md), [Secure Signing Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [Secure Signing Enterprise Portal Setup](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal)
+
+Możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji z tego miejsca: https://aka.ms/AppsTutorial .
+
+Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zapoznaj się ze szczegółowymi informacjami tutaj: https://aka.ms/AzureADAppRequest .
+
+---
+
+### <a name="new-delegation-role-in-azure-ad-entitlement-management-access-package-assignment-manager"></a>Nowa rola delegowania w zarządzaniu prawami usługi Azure AD: Menedżer przypisań pakietów programu Access
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Zarządzanie dostępem użytkowników  
+**Możliwość produktu:** Zarządzanie prawami
+ 
+Do usługi zarządzania prawami dostępu w usłudze Azure AD dodano nową rolę Menedżera przypisania pakietu, która zapewnia szczegółowe uprawnienia do zarządzania przypisaniami. Teraz można delegować zadania do użytkownika w tej roli, który może delegować Zarządzanie przypisaniami pakietu dostępu do właściciela firmy. Jednak Menedżer przypisania pakietów dostępu nie może zmienić zasad dostępu lub innych właściwości ustawionych przez administratorów. 
+
+Dzięki tej nowej roli można korzystać z najniższych uprawnień wymaganych do delegowania zarządzania przypisaniami i prowadzenia kontroli administracyjnej na wszystkich innych konfiguracjach pakietów dostępu. Aby dowiedzieć się więcej, zobacz [role zarządzania uprawnieniami](../governance/entitlement-management-delegate.md#entitlement-management-roles).
+ 
+---
+
+### <a name="changes-to-privileged-identity-managements-onboarding-flow"></a>Zmiany przepływu dołączania Privileged Identity Management
+
+**Typ:** Zmieniono funkcję  
+**Kategoria usługi:** Privileged Identity Management  
+**Możliwość produktu:** Privileged Identity Management
+ 
+Wcześniej podczas dołączania do Privileged Identity Management (PIM) wymagana jest zgoda użytkownika i przepływ dołączenia w bloku PIM, który obejmuje rejestrację w usłudze Azure MFA. Dzięki ostatniej integracji środowiska PIM z blokiem role i Administratorzy usługi Azure AD usuwamy to środowisko. Każda dzierżawa z ważną licencją P2 zostanie przełączona do aplikacji PIM.
+
+Dołączanie do programu PIM nie ma żadnego bezpośredniego skutku dla dzierżawy. Można oczekiwać następujących zmian:
+- Dodatkowe opcje przypisywania, takie jak Active a i czas zakończenia, są przypisywane w bloku role i Administratorzy usługi Azure AD. 
+- Dodatkowe mechanizmy określania zakresu, takie jak jednostki administracyjne i role niestandardowe, wprowadzane bezpośrednio w środowisku przypisywania. 
+- Jeśli jesteś administratorem globalnym lub administratorem roli uprzywilejowanej, możesz zacząć otrzymywać kilka dodatkowych wiadomości e-mail, takich jak PIM cotygodniowe podsumowanie. 
+- Nazwa główna usługi MS-PIM może być również widoczna w dzienniku inspekcji związanym z przypisaniem roli. Ta oczekiwana zmiana nie powinna mieć wpływu na normalny przepływ pracy.
+
+ Aby uzyskać więcej informacji, zobacz [Rozpoczynanie korzystania z Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+
+---
+
+### <a name="azure-ad-entitlement-management-the-select-pane-of-access-package-resources-now-shows-by-default-the-resources-currently-in-the-selected-catalog"></a>Zarządzanie prawami usługi Azure AD: Wybierz okienko zasobów pakietu dostęp teraz wyświetla domyślnie zasoby obecnie znajdujące się w wybranym katalogu
+
+**Typ:** Zmieniono funkcję  
+**Kategoria usługi:** Zarządzanie dostępem użytkowników  
+**Możliwość produktu:** Zarządzanie prawami
+ 
+
+W przepływie tworzenia pakietu dostępu na karcie role zasobów jest zmieniane zachowanie okienka wybieranie. Obecnie domyślne zachowanie polega na pokazywania wszystkich zasobów należących do użytkownika i zasobów dodanych do wybranego katalogu. 
+
+To środowisko zostanie zmienione w taki sposób, aby domyślnie wyświetlało tylko zasoby aktualnie dodane do katalogu, dzięki czemu użytkownicy będą mogli łatwo wybierać zasoby z wykazu. Aktualizacja ułatwi odnajdowanie zasobów do dodania do pakietów dostępu i zmniejsza ryzyko przypadkowego dodawania zasobów należących do użytkownika, które nie są częścią katalogu. Aby dowiedzieć się więcej, zobacz [Tworzenie nowego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania](../governance/entitlement-management-access-package-create.md#resource-roles).
+ 
 ---
 
 ## <a name="august-2020"></a>Sierpień 2020 r. 
@@ -147,7 +310,7 @@ Można rozszerzyć domenę zarządzaną, aby mieć więcej niż jeden zbiór rep
 **Kategoria usługi:** Uwierzytelnienia (nazwy logowania)  
 **Możliwość produktu:** Środowiska użytkownika końcowego
  
-Moje logowania w usłudze Azure AD to nowa funkcja umożliwiająca użytkownikom korporacyjnym przeglądanie historii logowania w celu sprawdzenia, czy nie występują żadne nietypowe działania. Ponadto ta funkcja umożliwia użytkownikom końcowym zgłaszanie "tego nie jestem" lub "to ja mnie" w podejrzanych działaniach. Aby dowiedzieć się więcej na temat korzystania z tej funkcji, zobacz [Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+Moje logowania w usłudze Azure AD to nowa funkcja umożliwiająca użytkownikom korporacyjnym przeglądanie historii logowania w celu sprawdzenia, czy nie występują żadne nietypowe działania. Ponadto ta funkcja umożliwia użytkownikom końcowym zgłaszanie "tego nie jestem" lub "to jestem ja" w podejrzanych działaniach. Aby dowiedzieć się więcej na temat korzystania z tej funkcji, zobacz [Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
  
 ---
 
@@ -720,7 +883,7 @@ Tożsamości zewnętrzne w usłudze Azure AD umożliwiają osobom spoza organiza
 **Kategoria usługi:** Dostęp warunkowy  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
 
-[Skoroszyt usługi Insights i raportowanie](../conditional-access/howto-conditional-access-insights-reporting.md) zapewnia administratorom Widok podsumowania dostępu warunkowego w usłudze Azure AD w swojej dzierżawie. Korzystając z możliwości wybierania poszczególnych zasad, Administratorzy mogą lepiej zrozumieć, jakie zasady są wykonywane i monitorują zmiany w czasie rzeczywistym. Skoroszyt strumieniuje dane przechowywane w Azure Monitor, które można skonfigurować w kilka minut, postępując zgodnie z [tymi instrukcjami](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Aby pulpit nawigacyjny był bardziej wykrywalny, został przeniesiony na nowe informacje i kartę Raportowanie w menu dostęp warunkowy usługi Azure AD.
+[Skoroszyt usługi Insights i raportowanie](../conditional-access/howto-conditional-access-insights-reporting.md) zapewnia administratorom Widok podsumowania dostępu warunkowego w usłudze Azure AD w swojej dzierżawie. Korzystając z możliwości wybierania poszczególnych zasad, Administratorzy mogą lepiej zrozumieć, jakie zasady są wykonywane i które są monitorowane w czasie rzeczywistym. Skoroszyt strumieniuje dane przechowywane w Azure Monitor, które można skonfigurować w kilka minut, postępując zgodnie z [tymi instrukcjami](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Aby pulpit nawigacyjny był bardziej wykrywalny, został przeniesiony na nowe informacje i kartę Raportowanie w menu dostęp warunkowy usługi Azure AD.
 
 ---
 
@@ -1203,158 +1366,5 @@ Dodano akcje ulepszania:
 - Wymagaj uwierzytelniania wieloskładnikowego dla ról administracyjnych
 
 Te nowe akcje poprawy wymagają zarejestrowania użytkowników lub administratorów na potrzeby uwierzytelniania wieloskładnikowego (MFA) w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę istnienia wielu zasad, które stosują decyzje w zakresie lub ustawienia domyślne zabezpieczeń (od 16 marca), dzięki którym firma Microsoft zdecyduje się, kiedy należy zakwestionować użytkowników usługi MFA. [Przeczytaj więcej na temat Nowości w zabezpieczeniach firmy Microsoft](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
-
----
-
-## <a name="march-2020"></a>Marzec 2020 r.
-
-### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march-2021"></a>Niezarządzane konta Azure Active Directory w aktualizacji B2B dla marca 2021
-
-**Typ:** Planowanie zmiany  
-**Kategoria usługi:** B2B  
-**Możliwość produktu:** B2B/B2C
- 
-**Począwszy od 31 marca 2021**, firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont Azure Active Directory (Azure AD) i dzierżawców na potrzeby scenariuszy współpracy B2B. Zachęcamy do tego, abyśmy mogli korzystać z [uwierzytelniania jednorazowego kodu dostępu za pośrednictwem poczty e-mail](../external-identities/one-time-passcode.md).
-
----
-
-### <a name="users-with-the-default-access-role-will-be-in-scope-for-provisioning"></a>Użytkownicy z domyślną rolą dostępu będą znajdować się w zakresie aprowizacji
-
-**Typ:** Planowanie zmiany  
-**Kategoria usługi:** Inicjowanie obsługi aplikacji  
-**Możliwość produktu:** Zarządzanie cyklem życia tożsamości
- 
-W przeszłości użytkownicy z domyślną rolą dostępu znajdują się poza zakresem aprowizacji. Otrzymaliśmy Opinie, dla których klienci chcą, aby użytkownicy z tą rolą mieli zasięg w zakresie aprowizacji. Pracujemy nad wdrożeniem zmiany, dzięki czemu wszystkie nowe konfiguracje aprowizacji będą zezwalały użytkownikom z domyślną rolą dostępu. Stopniowo zmieniamy zachowanie istniejących konfiguracji aprowizacji, aby obsługiwać użytkowników aprowizacji z tą rolą. Nie jest wymagane wykonanie jakiejkolwiek czynności przez klienta. Po wprowadzeniu tej zmiany wyślemy aktualizację do naszej [dokumentacji](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md) .
-
----
-
-### <a name="azure-ad-b2b-collaboration-will-be-available-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet-tenants"></a>Współpraca B2B w usłudze Azure AD będzie dostępna w Microsoft Azure obsługiwanych przez firmę 21Vianet (Azure Chiny 21Vianet)
-
-**Typ:** Planowanie zmiany  
-**Kategoria usługi:** B2B  
-**Możliwość produktu:** B2B/B2C
- 
-Możliwości współpracy B2B usługi Azure AD będą dostępne w Microsoft Azure obsługiwanych przez firmę 21Vianet (platformy Azure z Chin), umożliwiając użytkownikom w Chinach firmy 21Vianet współdziałanie z użytkownikami w innych dzierżawach usługi Azure Chiny. [Dowiedz się więcej o współpracy B2B usługi Azure AD](/azure/active-directory/b2b/).
-
----
- 
-### <a name="azure-ad-b2b-collaboration-invitation-email-redesign"></a>Przeprojektowana wiadomość e-mail z zaproszeniem do współpracy B2B usługi Azure AD
-
-**Typ:** Planowanie zmiany  
-**Kategoria usługi:** B2B  
-**Możliwość produktu:** B2B/B2C
- 
-[Wiadomości e-mail](../external-identities/invitation-email-elements.md) wysyłane przez usługę zaproszeń do współpracy B2B usługi Azure AD w celu zapraszania użytkowników do katalogu zostaną przeprojektowane w celu uzyskania informacji o zaproszeniach i kolejnych krokach użytkownika.
-
----
-
-### <a name="homerealmdiscovery-policy-changes-will-appear-in-the-audit-logs"></a>Zmiany zasad HomeRealmDiscovery będą widoczne w dziennikach inspekcji
-
-**Typ:** FIXED  
-**Kategoria usługi:** Wizyjn  
-**Możliwość produktu:** Monitorowanie & raportowania
- 
-Rozwiązano problem polegający na tym, że zmiany [zasad HomeRealmDiscovery](../manage-apps/configure-authentication-for-federated-users-portal.md) nie zostały uwzględnione w dziennikach inspekcji. Teraz będzie można zobaczyć, kiedy i w jaki sposób zasady zostały zmienione. 
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2020"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacja usługi Azure AD — marzec 2020
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** Aplikacje dla przedsiębiorstw  
-**Możliwości produktu:** integracja innej firmy
- 
-W marcu 2020 dodaliśmy do galerii aplikacji 51 te nowe aplikacje z obsługą Federacji: 
-
-[Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho jeden Chiny](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [Profit.co aplikacji SAML](../saas-apps/profitco-saml-app-tutorial.md) [iPoint Service Provider](../saas-apps/ipoint-service-provider-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx) [Campus Café](../saas-apps/campus-cafe-tutorial.md) [contexxt.AI Sphere](https://contexxt-sphere.com/login), [mądry przez Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [Flara cyfrowa](https://spark-dev.pixelnebula.com/login),, wgląd [w chmurę dla inżynierów](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [Logz.io](../saas-apps/spectrumu-tutorial.md), [SpectrumU](https://bizzcontact.app/), [BizzContact rejestracji jednokrotnej](../saas-apps/elqano-sso-tutorial.md), [Elqano](http://www.signshare.com/), [MarketSignShare Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md),, CrossKnowledge, COMPAS [Hub](../saas-apps/fcm-hub-tutorial.md) [,](../saas-apps/lift-tutorial.md) [żebra](../saas-apps/planview-enterprise-one-tutorial.md) [A/S FCM Mobile, Byggeweb](https://apps.apple.com/us/app/docia/id529058757) [,](https://demo.asterapp.io/login) [GoLinks](../saas-apps/golinks-tutorial.md), [usługi Datadog](../saas-apps/datadog-tutorial.md)Planview Enterprise one [platforma](../saas-apps/zscaler-b2b-user-portal-tutorial.md) [IP platform,](../saas-apps/ip-platform-tutorial.md)InVision [,](../saas-apps/invision-tutorial.md)usługi PIPEDRIVE [,](../saas-apps/pipedrive-tutorial.md)Zaprezentuj [warsztat,](https://app.showcaseworkshop.com/)Greenlight [Integration platform,](../saas-apps/greenlight-integration-platform-tutorial.md)Greenlight [zgodnego dostępu,](../saas-apps/greenlight-compliant-access-management-tutorial.md)Grok [uczenie](../saas-apps/grok-learning-tutorial.md), Miradore [online,](https://login.online.miradore.com/)Khoros [opieki,](../saas-apps/khoros-care-tutorial.md)AskYourTeam [,](../saas-apps/askyourteam-tutorial.md)TruNarrative [,](../saas-apps/trunarrative-tutorial.md)Smartwaiver [,](https://www.smartwaiver.com/m/user/sw_login.php?wms_login)Bizagi [Studio for Digital Process Automation,](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md)insuiteX [,](https://www.insuite.jp/)Sybo [,](https://www.systexsoftware.com.tw/)Britive [,](../saas-apps/britive-tutorial.md)WhosOffice [,](../saas-apps/whosoffice-tutorial.md)E [-dni,](../saas-apps/e-days-tutorial.md)Kollective [SDN,](https://portal.kollective.app/login) [WatchTeams](https://www.devfinition.com/)Witivio [,](https://app.witivio.com/) [PlayVox](../saas-apps/code42-tutorial.md) [,](https://my.playvox.com/login)360 [Netvision Compas](../saas-apps/netvision-compas-tutorial.md) [Skills Workflow](../saas-apps/skills-workflow-tutorial.md) [Korn Ferry 360](../saas-apps/korn-ferry-360-tutorial.md) [Catchpoint](../saas-apps/catchpoint-tutorial.md)
-
-Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="azure-ad-b2b-collaboration-available-in-azure-government-tenants"></a>Współpraca B2B w usłudze Azure AD jest dostępna w dzierżawach Azure Government
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** B2B  
-**Możliwość produktu:** B2B/B2C
- 
-Funkcje współpracy B2B usługi Azure AD są teraz dostępne między niektórymi dzierżawami Azure Government.  Aby dowiedzieć się, czy Dzierżawca może korzystać z tych możliwości, postępuj zgodnie z instrukcjami w temacie [Jak mogę sprawdzić, czy w mojej dzierżawie platformy Azure USA jest dostępna współpraca B2B?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
-
----
-
-### <a name="azure-monitor-integration-for-azure-logs-is-now-available-in-azure-government"></a>Azure Monitor integracja z usługą Azure Logs jest teraz dostępna w Azure Government
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** Reporting  
-**Możliwość produktu:** Monitorowanie & raportowania
- 
-Azure Monitor integracja z dziennikami usługi Azure AD jest teraz dostępna w programie Azure Government. Dzienniki usługi Azure AD (inspekcja i dzienniki logowania) można kierować do konta magazynu, centrum zdarzeń i Log Analytics. Zapoznaj się ze [szczegółową dokumentacją](https://aka.ms/aadlogsinamd) , [a także planami wdrażania raportowania i monitorowania](../reports-monitoring/plan-monitoring-and-reporting.md) scenariuszy usługi Azure AD.
-
----
-
-### <a name="identity-protection-refresh-in-azure-government"></a>Odświeżanie programu Identity Protection w Azure Government
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** Ochrona tożsamości  
-**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
-
-Przyjemnością się z tym, że udostępnimy teraz odświeżone środowisko [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs)   w [portalu Microsoft Azure Government](https://portal.azure.us/). Aby uzyskać więcej informacji, zobacz [wpis w blogu dotyczący anonsu](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
-
----
-
-### <a name="disaster-recovery-download-and-store-your-provisioning-configuration"></a>Odzyskiwanie po awarii: pobieranie i przechowywanie konfiguracji aprowizacji
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** Inicjowanie obsługi aplikacji  
-**Możliwość produktu:** Zarządzanie cyklem życia tożsamości
- 
-Usługa Azure AD Provisioning oferuje bogaty zestaw funkcji konfiguracji. Klienci muszą mieć możliwość zapisania swojej konfiguracji, aby mogły odwoływać się do niej później lub przywracać do znanej dobrej wersji. Dodaliśmy możliwość pobrania konfiguracji aprowizacji jako pliku JSON i przekazania jej w razie potrzeby. [Dowiedz się więcej](../app-provisioning/export-import-provisioning-configuration.md).
-
----
- 
-### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (Samoobsługowe resetowanie hasła) teraz wymaga dwóch bram dla administratorów Microsoft Azure obsługiwanych przez firmę 21Vianet (Azure Chiny 21Vianet) 
-
-**Typ:** Zmieniono funkcję  
-**Kategoria usługi:** Samoobsługowe resetowanie hasła  
-**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
- 
-Wcześniej w Microsoft Azure obsługiwane przez firmę 21Vianet (Azure Chiny 21Vianet) Administratorzy korzystający z funkcji samoobsługowego resetowania hasła (SSPR) do resetowania własnych haseł potrzebują tylko jednego "bramy" (wyzwanie), aby potwierdzić swoją tożsamość. W publicznych i innych chmurach narodowych Administratorzy zwykle muszą użyć dwóch bram, aby potwierdzić swoją tożsamość podczas korzystania z usługi SSPR. Ale ponieważ nie obsługujemy wiadomości SMS lub połączeń telefonicznych na platformie 21Vianet firmy Microsoft, zezwalamy na Resetowanie hasła przez administratorów.
-
-Tworzymy SSPR funkcji między platformą Azure Chiny 21Vianet a chmurą publiczną. W przyszłości Administratorzy muszą używać dwóch bram podczas korzystania z usługi SSPR. Obsługa wiadomości SMS, połączeń telefonicznych i powiadomień aplikacji uwierzytelniania oraz kodów. [Dowiedz się więcej](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
-
----
-
-### <a name="password-length-is-limited-to-256-characters"></a>Długość hasła jest ograniczona do 256 znaków
-
-**Typ:** Zmieniono funkcję  
-**Kategoria usługi:** Uwierzytelnienia (nazwy logowania)  
-**Możliwość produktu:** Uwierzytelnianie użytkownika
- 
-Aby zapewnić niezawodność usługi Azure AD, hasła użytkowników mają teraz ograniczoną długość do 256 znaków. Użytkownicy z hasłami dłużej niż zostanie wyświetlony monit o zmianę hasła podczas kolejnego logowania przez skontaktowanie się z administratorem lub funkcją samoobsługowego resetowania hasła.
-
-Ta zmiana została włączona 13 marca 2020, at od 10:00 PST (18:00 UTC), a błąd to AADSTS 50052, InvalidPasswordExceedsMaxLength. Aby uzyskać więcej informacji, zobacz [powiadomienie o zmianie](../develop/reference-breaking-changes.md#user-passwords-will-be-restricted-to-256-characters) .
-
----
-
-### <a name="azure-ad-sign-in-logs-are-now-available-for-all-free-tenants-through-the-azure-portal"></a>Dzienniki logowania usługi Azure AD są teraz dostępne dla wszystkich bezpłatnych dzierżawców za pomocą Azure Portal
-
-**Typ:** Zmieniono funkcję  
-**Kategoria usługi:** Reporting  
-**Możliwość produktu:** Monitorowanie & raportowania
- 
-Od tej pory Klienci, którzy mają bezpłatnych dzierżawców, mogą uzyskać dostęp do [dzienników logowania usługi Azure AD z Azure Portal](../reports-monitoring/concept-sign-ins.md) przez maksymalnie 7 dni. Wcześniej dzienniki logowania były dostępne tylko dla klientów z licencjami na Azure Active Directory — wersja Premium. W przypadku tej zmiany wszyscy dzierżawcy będą mogli uzyskiwać dostęp do tych dzienników za pomocą portalu.
-
-> [!NOTE]
-> Klienci nadal potrzebują licencji Premium (Azure Active Directory — wersja Premium P1 lub P2), aby uzyskać dostęp do dzienników logowania za pomocą Microsoft Graph API i Azure Monitor.
-
----
-
-### <a name="deprecation-of-directory-wide-groups-option-from-groups-general-settings-on-azure-portal"></a>Wycofanie opcji grup obejmujących cały katalog z ustawień ogólnych grup na Azure Portal
-
-**Typ:** Przestarzałe  
-**Kategoria usługi:** Zarządzanie grupami  
-**Możliwość produktu:** Społeczności
-
-Aby zapewnić klientom bardziej elastyczny sposób tworzenia grup obejmujących katalogi, które najlepiej odpowiadają potrzebom, zamienisz opcję **grupy w poziomie katalogów** z **Groups**  >  ustawień**ogólnych** grupy w Azure Portal z linkiem do [dokumentacji grupy dynamicznej](../users-groups-roles/groups-dynamic-membership.md). Ulepszono nasze dokumenty w celu uwzględnienia dodatkowych instrukcji, aby administratorzy mogli tworzyć wszystkie grupy użytkowników, które obejmują lub wykluczają użytkowników-Gości.
 
 ---

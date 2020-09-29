@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: f1dc37173dff8e694ba4d1e5aa9a1b14e462581a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311584"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445787"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Szybki Start: Włączanie usługi Azure automanage dla maszyn wirtualnych w Azure Portal
 
@@ -49,34 +49,36 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
     1. Zaznacz pole wyboru każdej maszyny wirtualnej, którą chcesz dołączyć.
     1. Kliknij przycisk **Wybierz** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 4. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Przeglądaj i zmieniaj profile i preferencje.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 5. W bloku **Wybierz profil konfiguracji + preferencje** :
     1. Wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla produkcji.
     1. Kliknij przycisk **Wybierz** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Przeglądaj profil konfiguracji produkcyjnej.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 6. Kliknij przycisk **Włącz**.
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Włączanie autozarządzania dla maszyn wirtualnych na nowej maszynie wirtualnej
 
+Zaloguj się do Azure Portal [tutaj](https://aka.ms/automanageportalnextstep) , aby utworzyć nową maszynę wirtualną i włączyć funkcję autozarządzania.
+
 1. Postępuj zgodnie z instrukcjami tworzenia w [przewodniku szybki start — Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](..\virtual-machines\windows\quick-create-portal.md).
 
 2. Po wdrożeniu maszyny wirtualnej na stronie stan wdrożenia zostanie wykorzystana zalecana **Następna część kroków** poniżej.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Sekcja następne kroki znajdująca się w dolnej części strony wdrożenia.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 3. W obszarze **następne kroki**wybierz pozycję **Włącz Autozarządzanie najlepsze rozwiązania dotyczące maszyn wirtualnych**.
 
 4. Na stronie Automatyczne **Zarządzanie — najlepsze rozwiązania dla maszyn wirtualnych platformy Azure** **maszyny** będą automatycznie wypełniane przez nowo utworzoną maszynę wirtualną.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Nowo utworzona maszyna wirtualna będzie wyświetlana jako wybrana maszyna.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 5. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
 
@@ -84,16 +86,15 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
     1. Wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla produkcji.
     1. Kliknij przycisk **Wybierz** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Przeglądaj profil konfiguracji produkcyjnej.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 7. Kliknij przycisk **Włącz**.
-
 
 ## <a name="disable-automanage-for-vms"></a>Wyłącz Autozarządzanie dla maszyn wirtualnych
 
 Szybko Zatrzymaj zarządzanie maszynami wirtualnymi przy użyciu usługi Azure automanage przez wyłączenie autozarządzania.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Wyłączanie autozarządzania na maszynie wirtualnej.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Włącz na istniejącej maszynie wirtualnej.":::
 
 1. Przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych, które są zarządzane przez nią.
 1. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć.

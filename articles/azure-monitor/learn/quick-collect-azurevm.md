@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067558"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448261"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Zbieranie danych z maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 
@@ -28,7 +28,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
 
-    ![Witryna Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Wybierz pozycję **Utwórz**, a następnie wybierz opcje dla następujących elementów:
 
@@ -87,7 +87,7 @@ Azure Monitor może zbierać zdarzenia z dzienników zdarzeń systemu Windows lu
 
 7. Podczas pierwszej konfiguracji liczników wydajności systemu Windows dla nowego obszaru roboczego usługi Log Analytics można szybko utworzyć kilka typowych liczników. Na liście obok każdego z nich znajduje się pole wyboru.
 
-    ![Zaznaczone domyślne liczniki wydajności systemu Windows](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Zrzut ekranu przedstawiający okienko liczników wydajności systemu Windows z listą wybranych liczników i wybranym przyciskiem Dodaj wybrane liczniki wydajności.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Wybierz pozycję **Dodaj wybrane liczniki wydajności**.  Są one dodawane i ustawiane wstępnie z dziesięciosekundowym interwałem próbkowania kolekcji.
   
@@ -107,7 +107,7 @@ Azure Monitor może zbierać zdarzenia z dzienników zdarzeń systemu Windows lu
 
 6. Podczas pierwszej konfiguracji liczników wydajności systemu Linux dla nowego obszaru roboczego usługi Log Analytics można szybko utworzyć kilka typowych liczników. Na liście obok każdego z nich znajduje się pole wyboru.
 
-    ![Zaznaczone domyślne liczniki wydajności systemu Windows](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Zrzut ekranu okienka liczników wydajności systemu Linux z listą wybranych liczników i wybranym przyciskiem Dodaj wybrane liczniki wydajności.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Wybierz pozycję **Zastosuj poniższą konfigurację do moich maszyn** , a następnie wybierz pozycję **Dodaj wybrane liczniki wydajności**.  Są one dodawane i ustawiane wstępnie z dziesięciosekundowym interwałem próbkowania kolekcji.  
 

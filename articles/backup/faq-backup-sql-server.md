@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500338"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461227"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -101,6 +101,10 @@ Możesz wybrać bazę danych, która została zmieniona na nazwę i skonfigurowa
 Baza danych, którą można [dodać do wystąpienia z ochroną](backup-sql-server-database-azure-vms.md#enable-auto-protection) chronioną, może nie być natychmiast widoczna w obszarze chronione elementy. Dzieje się tak, ponieważ odnajdywanie jest zazwyczaj uruchamiane co 8 godzin. Można jednak odnajdywać i chronić nowe bazy danych natychmiast po ręcznym uruchomieniu odnajdywania, wybierając pozycję **Rediscovery baz danych**, jak pokazano na poniższej ilustracji:
 
   ![Ręczne odnajdywanie nowo dodanej bazy danych](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Czy można chronić bazy danych z włączonym TDE (Transparent Data Encryption) i czy baza danych pozostanie szyfrowana przez cały proces tworzenia kopii zapasowej?
+
+Tak, Azure Backup obsługuje tworzenie kopii zapasowych SQL Server baz danych lub serwera z włączonym TDE. Usługa Backup obsługuje [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) z kluczami zarządzanymi przez platformę Azure lub z kluczami zarządzanymi przez klienta (BYOK).  W ramach procesu tworzenia kopii zapasowej nie jest wykonywane żadne szyfrowanie SQL, dlatego po utworzeniu kopii zapasowej baza danych pozostanie zaszyfrowana.
 
 ## <a name="next-steps"></a>Następne kroki
 

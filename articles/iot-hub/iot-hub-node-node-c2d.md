@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 2956c06614d6c374df6b073567bf7de688ee67c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315987"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446883"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Node.js)
 
@@ -77,11 +77,20 @@ W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w arty
     });
     ```
 
-    W tym przykładzie urządzenie wywoła **kompletną** funkcję w celu powiadomienia IoT Hub o przetworzeniu komunikatu. Wywołanie do **ukończenia** nie jest wymagane, jeśli używany jest transport MQTT i można go pominąć. Jest to wymagane w przypadku protokołów HTTPS i AMQP.
+W tym przykładzie urządzenie wywoła **kompletną** funkcję w celu powiadomienia IoT Hub o przetworzeniu komunikatu i można ją bezpiecznie usunąć z kolejki urządzeń. Wywołanie do **ukończenia** nie jest wymagane, jeśli używany jest transport MQTT i można go pominąć. Jest to wymagane w przypadku AMQP i HTTPS.
+
+W przypadku AMQP i HTTPS, ale nie MQTT, urządzenie może również:
+
+* Porzuć komunikat, co spowoduje IoT Hub zachowywanie komunikatu w kolejce urządzeń w celu użycia w przyszłości.
+* Odrzuć komunikat, który trwale usuwa komunikat z kolejki urządzeń.
+
+W przypadku, gdy coś się nie powiedzie, że urządzenie zakończy działanie, porzucanie lub odrzucanie komunikatu, IoT Hub po upływie ustalonego limitu czasu będzie kolejkować komunikat o dostarczeniu ponownie. Z tego powodu logika przetwarzania komunikatów w aplikacji urządzenia musi być *idempotentne*, dzięki czemu ten sam komunikat wielokrotnie daje ten sam wynik.
+
+Aby uzyskać szczegółowe informacje na temat sposobu, w jaki IoT Hub przetwarza komunikatów z chmury do urządzenia, w tym szczegółowe informacje o cyklu życia komunikatów z chmury do urządzenia, zobacz [wysyłanie komunikatów z chmury do urządzeń z Centrum IoT](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, wystąpienie **DeviceClient** sprawdza komunikaty IoT Hub rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS oraz ograniczenia IoT Hub, zobacz [przewodnik dewelopera IoT Hub](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, wystąpienie **DeviceClient** sprawdza komunikaty IoT Hub rzadko (co najmniej 25 minut). Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS, zobacz [wskazówki dotyczące komunikacji z chmury do urządzeń](iot-hub-devguide-c2d-guidance.md) i [Wybierz protokół komunikacyjny](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319324"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448147"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Połącz Configuration Manager z Azure Monitor
 Możesz połączyć środowisko Configuration Manager punktu końcowego firmy Microsoft w celu Azure Monitor synchronizacji danych kolekcji urządzeń i odwoływać się do tych kolekcji w Azure Monitor i Azure Automation.  
@@ -135,7 +135,7 @@ Po zakończeniu początkowej konfiguracji w celu zaimportowania kolekcji urządz
 4. Wybierz pozycję **grupy komputerów** , a następnie wybierz pozycję **SCCM**.  
 5. Wybierz pozycję **Importuj członkostwa w kolekcji Configuration Manager** a następnie kliknij przycisk **Zapisz**.  
    
-    ![Grupa komputerów — karta SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Zrzut ekranu przedstawiający zaawansowane ustawienia grup komputerów S C M zawierający opcję importowania członkostw kolekcji Configuration Manager.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Wyświetlanie danych z Configuration Manager
 
@@ -143,7 +143,7 @@ Po dodaniu Log Analytics połączenia w celu Configuration Manager i zainstalowa
 
 Po zaimportowaniu kolekcji można zobaczyć, ile komputerów z członkostwem w kolekcji zostały wykryte. Można także zobaczyć liczbę zaimportowanych kolekcji.
 
-![Grupa komputerów — karta SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Zrzut ekranu przedstawiający zaawansowane ustawienia grupy komputerów c C M, która zawiera opcję importowania wybranych członkostw kolekcji Configuration Manager.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Po kliknięciu jednego z nich zostanie otwarty Edytor zapytań dzienników zawierający wszystkie zaimportowane grupy lub wszystkie komputery należące do poszczególnych grup. Za pomocą funkcji [wyszukiwania w dzienniku](../log-query/log-query-overview.md)można wykonać dokładniejszą analizę danych członkostwa w kolekcji.
 

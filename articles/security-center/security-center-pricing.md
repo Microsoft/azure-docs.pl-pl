@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 393e769f147629d2d40344052ba502b22a18cd2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5537552e35c1738e6c3cd4873b4c6444685a5fe
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314542"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448310"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie ataków cybernetycznymi.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311567"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447921"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -46,6 +46,7 @@ Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych nale
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
 - Użytkownik musi mieć odpowiednie uprawnienia
 - Maszyny wirtualne nie mogą łączyć się z obszarem roboczym usługi log Analytics w innej subskrypcji
+- W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
 Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
@@ -111,7 +112,7 @@ W Azure Portal środowiska, gdy włączasz funkcję autozarządzania na maszynac
 
 W Azure Portal przejdź do strony " **Autozarządzanie" najlepszych rozwiązań dotyczących maszyn wirtualnych platformy Azure** , w której znajduje się lista wszystkich maszyn wirtualnych zarządzanych przez program. W tym miejscu zobaczysz ogólny stan każdej maszyny wirtualnej.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista skonfigurowanych maszyn wirtualnych.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Usługi inteligentnego dołączania.":::
 
 Dla każdej z wymienionych maszyn wirtualnych wyświetlane są następujące informacje: nazwa, profil konfiguracji, preferencje konfiguracji, stan, konto, subskrypcja i Grupa zasobów.
 
@@ -129,7 +130,7 @@ Aby wyłączyć funkcję autozarządzania na niektórych maszynach wirtualnych, 
 
 Aby to zrobić, w Azure Portal przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych zarządzanych przez program. Zaznacz pole wyboru obok maszyny wirtualnej, która ma zostać wyłączona z opcji Autozarządzanie, a następnie kliknij przycisk **Wyłącz automanagment** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Wyłączanie autozarządzania na maszynie wirtualnej.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Usługi inteligentnego dołączania.":::
 
 Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
 

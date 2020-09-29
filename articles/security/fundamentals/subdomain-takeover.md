@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403215"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447371"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -94,7 +94,7 @@ Narzędzie obsługuje zasoby platformy Azure wymienione w poniższej tabeli. Nar
 | Publiczne adresy IP       | Microsoft. Network/adresów publicipaddress         | Properties. dnsSettings. FQDN                | `abc.EastUs.cloudapp.azure.com` |
 | Azure Traffic Manager     | Microsoft. Network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
 | Wystąpienie kontenera platformy Azure  | Microsoft. containerinstance/containergroups | Properties. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
-| Usługa Azure API Management      | Microsoft. apimanagement/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
+| Azure API Management      | Microsoft. apimanagement/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
 | Azure App Service         | Microsoft. Web/witryny                         | Właściwości. defaultHostName                 | `abc.azurewebsites.net`         |
 | Azure App Service — miejsca | Microsoft. Web/Sites/miejsca                   | Właściwości. defaultHostName                 | `abc-def.azurewebsites.net`     |
 
@@ -107,11 +107,13 @@ Uruchom zapytanie jako użytkownik, który ma:
 - co najmniej dostęp na poziomie czytelnika do subskrypcji platformy Azure
 - dostęp do odczytu do grafu zasobów platformy Azure
 
-Jeśli jesteś administratorem globalnym dzierżawy organizacji, Podnieś poziom swojego konta, aby mieć dostęp do całej subskrypcji organizacji przy użyciu wskazówek w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Jeśli jesteś administratorem globalnym dzierżawy organizacji, Podnieś poziom swojego konta, aby mieć dostęp do całej subskrypcji organizacji przy użyciu wskazówek w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Wykres zasobów platformy Azure ma ograniczenia dotyczące ograniczania i stronicowania, które należy wziąć pod uwagę w przypadku dużego środowiska platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) o pracy z dużymi zestawami danych zasobów platformy Azure. 
+> Wykres zasobów platformy Azure ma ograniczenia dotyczące ograniczania i stronicowania, które należy wziąć pod uwagę w przypadku dużego środowiska platformy Azure. 
+> 
+> [Dowiedz się więcej o pracy z dużymi zestawami danych zasobów platformy Azure](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > Narzędzie używa tworzenia wsadowych subskrypcji, aby uniknąć tych ograniczeń.
 
@@ -145,7 +147,7 @@ Niektóre usługi platformy Azure oferują funkcje, które ułatwiają tworzenie
 
 ### <a name="use-azure-dns-alias-records"></a>Użyj Azure DNS rekordów aliasów
 
-[Rekordy aliasów](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS mogą uniemożliwiać odwołania zawieszonego przez Sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
+[Rekordy aliasów](../../dns/dns-alias.md#scenarios) Azure DNS mogą uniemożliwiać odwołania zawieszonego przez Sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
 
 - Azure Front Door
 - Profile usługi Traffic Manager
@@ -154,7 +156,7 @@ Niektóre usługi platformy Azure oferują funkcje, które ułatwiają tworzenie
 
 Pomimo tego, że oferty usługi są ograniczone, zalecamy korzystanie z rekordów aliasów w celu obrony przed przejęciem poddomeny, jeśli to możliwe.
 
-[Dowiedz się więcej](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) o możliwościach rekordów aliasów Azure DNS.
+[Dowiedz się więcej o możliwościach rekordów aliasów Azure DNS](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -164,7 +166,7 @@ Podczas tworzenia wpisów DNS dla Azure App Service Utwórz asuid. poddomeny Rek
 
 Te rekordy nie uniemożliwiają innej osobie tworzenia Azure App Service o tej samej nazwie, która znajduje się we wpisie rekordu CNAME. Bez możliwości udowodnienia własności nazwy domeny, aktorzy zagrożeń nie mogą odbierać ruchu ani kontrolować zawartości.
 
-[Dowiedz się więcej](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) o sposobie mapowania istniejącej NIESTANDARDOWEJ nazwy DNS na Azure App Service.
+[Dowiedz się więcej o sposobie mapowania istniejącej niestandardowej nazwy DNS na Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -178,13 +180,13 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
 
     - W przypadku likwidowania usługi należy umieścić na liście wymaganych sprawdzeń pozycję "Usuń wpis DNS".
 
-    - Umieść [blokady usuwania](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) dla wszystkich zasobów, które mają niestandardowy wpis DNS. Blokada usuwania służy jako wskaźnik, że mapowanie musi zostać usunięte przed anulowaniem aprowizacji zasobu. Takie działania mogą być wykonywane tylko w połączeniu z wewnętrznymi programami edukacyjnymi.
+    - Umieść [blokady usuwania](../../azure-resource-manager/management/lock-resources.md) dla wszystkich zasobów, które mają niestandardowy wpis DNS. Blokada usuwania służy jako wskaźnik, że mapowanie musi zostać usunięte przed anulowaniem aprowizacji zasobu. Takie działania mogą być wykonywane tylko w połączeniu z wewnętrznymi programami edukacyjnymi.
 
 - **Utwórz procedury odnajdywania:**
 
     - Regularnie Przeglądaj rekordy DNS, aby upewnić się, że domeny podrzędne są zamapowane na zasoby platformy Azure, które:
 
-        - Istnieje — kwerenda stref DNS dla zasobów wskazujących poddomeny platformy Azure, takich jak *. azurewebsites.net lub *. cloudapp.azure.com (zobacz [tę listę odwołań](azure-domains.md)).
+        - Istnieje — kwerenda stref DNS dla zasobów wskazujących poddomeny platformy Azure, takich jak *. azurewebsites.net lub *. cloudapp.azure.com (zobacz [listę referencyjną domen platformy Azure](azure-domains.md)).
         - Jesteś posiadaczem potwierdzenia, że masz wszystkie zasoby, które są przeznaczone dla poddomen DNS.
 
     - Obsługa katalogu usług w pełni kwalifikowanych punktów końcowych nazw domen (FQDN) platformy Azure oraz właścicieli aplikacji. Aby skompilować katalog usług, uruchom następujący skrypt zapytania grafu zasobów platformy Azure. Ten skrypt zawiera informacje o punktach końcowych FQDN zasobów, do których masz dostęp, i wyprowadza je w pliku CSV. Jeśli masz dostęp do wszystkich subskrypcji dzierżawy, skrypt traktuje wszystkie te subskrypcje, jak pokazano w poniższym przykładowym skrypcie. Aby ograniczyć wyniki do określonego zestawu subskrypcji, należy edytować skrypt jak pokazano.
@@ -200,8 +202,8 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
 
 Aby dowiedzieć się więcej na temat usług pokrewnych i funkcji platformy Azure, których można użyć do obrony przed przejęciem domeny podrzędnej, zobacz następujące strony.
 
-- [Azure DNS obsługuje używanie rekordów aliasów dla domen niestandardowych](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Zapobiegaj zawieszonego rekordów DNS z Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Użyj identyfikatora weryfikacji domeny podczas dodawania domen niestandardowych w Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Użyj identyfikatora weryfikacji domeny podczas dodawania domen niestandardowych w Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

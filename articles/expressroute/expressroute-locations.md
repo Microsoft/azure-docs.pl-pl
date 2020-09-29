@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/26/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 2177b37fe5723be64896fd5ee4e90c0137dc9be0
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 1721c2a9ede949bb6183c60e65f540869bb95e43
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370508"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446148"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partnerzy łączności ExpressRoute i lokalizacje komunikacji równorzędnej
 
@@ -86,10 +86,10 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Obsługiwane | Obsługiwane | Tokio |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Obsługiwane |Obsługiwane |Kapsztad, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Obsługiwane |Obsługiwane |Montreal, Toronto, miasto Quebec |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Obsługiwane |Obsługiwane |Amsterdam, Amsterdam2, Hongkong SAR, Johannesburg, Londyn, Newport (Walia), Wyspy Świętego Paulo, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Obsługiwane |Obsługiwane |Amsterdam, Amsterdam2, Hongkong SAR, Johannesburg, Londyn, Newport (Walia), Paryż, Wyspy świętegoł Paulo, Dolina Krzemowa, Singapur, Sydney, Tokio, Waszyngton |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Obsługiwane |Obsługiwane |Miami |
 | **CDC** | Obsługiwane | Obsługiwane | Canberra, Canberra2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Obsługiwane |Obsługiwane |Amsterdam2, Chicago, Frankfurt, Hongkong, Las Vegas, London2, Nowy Jork, Paryż, San Antonio, Dolina Krzemowa, Tokio, Toronto, Waszyngton DC, Waszyngton DC2 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Obsługiwane |Obsługiwane |Amsterdam2, Chicago, Dublin, Frankfurt, Hongkong, Las Vegas, London2, Nowy Jork, Paryż, San Antonio, Dolina Krzemowa, Tokio, Toronto, Waszyngton DC, Waszyngton DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Obsługiwane |Obsługiwane |Hongkong, Tajpej |
 | **Chiny międzynarodowe dla urządzeń przenośnych** |Obsługiwane |Obsługiwane | Hongkong, Hongkong Kong2, Singapur |
 | **China Telecom Global** |Obsługiwane |Obsługiwane |Hongkong, Hongkong Kong2 |
@@ -161,7 +161,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[Telia](https://www.teliacarrier.com/)** | Obsługiwane | Obsługiwane |Amsterdam, Chicago, Dallas, Frankfurt, Hongkong, Londyn, Oslo, Paryż, Dolina Krzemowa, Sztokholm, Waszyngton |
 | **Telmex Uninet**| Obsługiwane | Obsługiwane | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Obsługiwane |Obsługiwane |Melbourne, Singapur, Sydney |
-| **[Telus](https://www.telus.com)** |Obsługiwane |Obsługiwane |Montrealu, Seattle, Toronto |
+| **[Telus](https://www.telus.com)** |Obsługiwane |Obsługiwane |Montrealu, Seattle, Toronto, Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Obsługiwane |Obsługiwane |Kapsztad, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Obsługiwane | Obsługiwane | Kuala Lumpur |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Obsługiwane |Obsługiwane |Dallas, Queretaro (Meksyk)|

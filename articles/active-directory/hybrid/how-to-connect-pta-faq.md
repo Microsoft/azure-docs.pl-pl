@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280166"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461278"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory uwierzytelnianie przekazywane: często zadawane pytania
 
@@ -34,10 +34,6 @@ Zapoznaj się z [tym przewodnikiem](./choose-ad-authn.md) , aby porównać róż
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Czy uwierzytelnianie przekazywane jest bezpłatne?
 
 Uwierzytelnianie przekazywane jest bezpłatną funkcją. Nie są potrzebne żadne płatne wersje usługi Azure AD, które mają być używane.
-
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>Czy jest dostępne uwierzytelnianie przekazywane w [chmurze Microsoft Azure (Niemcy)](https://www.microsoft.de/cloud-deutschland) i w [chmurze Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
-
-Nie. Uwierzytelnianie przekazywane jest dostępne tylko w świecie wystąpienia usługi Azure AD.
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Czy [dostęp warunkowy](../conditional-access/overview.md) działa z uwierzytelnianiem przekazującym?
 

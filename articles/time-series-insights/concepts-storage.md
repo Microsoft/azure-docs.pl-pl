@@ -8,33 +8,32 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287551"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460832"
 ---
 # <a name="data-storage"></a>Magazyn danych
 
 W tym artykule opisano magazyn danych w Azure Time Series Insights Gen2. Obejmuje to ciepło i zimność, dostępność danych oraz najlepsze rozwiązania.
 
-## <a name="provisioning"></a>Aprowizowanie
+## <a name="provisioning"></a>Inicjowanie obsługi
 
 Podczas tworzenia środowiska Azure Time Series Insights Gen2 dostępne są następujące opcje:
 
 * Chłodny magazyn danych:
-   * Utwórz nowy zasób usługi Azure Storage w ramach subskrypcji i regionu wybranego dla danego środowiska.
-   * Dołącz już istniejące konto usługi Azure Storage. Ta opcja jest dostępna tylko przez wdrożenie z [szablonu](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)Azure Resource Manager i nie jest widoczna w Azure Portal.
+  * Utwórz nowy zasób usługi Azure Storage w ramach subskrypcji i regionu wybranego dla danego środowiska.
+  * Dołącz już istniejące konto usługi Azure Storage. Ta opcja jest dostępna tylko przez wdrożenie z [szablonu](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)Azure Resource Manager i nie jest widoczna w Azure Portal.
 * Magazyn danych ciepłych:
-   * Magazyn ciepły jest opcjonalny i można go włączyć lub wyłączyć w czasie aprowizacji lub po nim. Jeśli zdecydujesz się na włączenie sklepu w sieci w późniejszym czasie, a w chłodnym magazynie znajdują się już dane, zapoznaj się [z sekcją](concepts-storage.md#warm-store-behavior) poniżej, aby zrozumieć oczekiwane zachowanie. Czas przechowywania danych w sklepie ciepłym można skonfigurować od 7 do 31 dni. można go również dostosować w razie potrzeby.
+  * Magazyn ciepły jest opcjonalny i można go włączyć lub wyłączyć w czasie aprowizacji lub po nim. Jeśli zdecydujesz się na włączenie sklepu w sieci w późniejszym czasie, a w chłodnym magazynie znajdują się już dane, zapoznaj się [z sekcją](concepts-storage.md#warm-store-behavior) poniżej, aby zrozumieć oczekiwane zachowanie. Czas przechowywania danych w sklepie ciepłym można skonfigurować od 7 do 31 dni. można go również dostosować w razie potrzeby.
 
 Gdy zdarzenie jest pozyskiwane, jest indeksowane w obu sklepach (jeśli są włączone) i w chłodnym magazynie.
 
 [![Magazyn — Omówienie](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > Jako właściciel konta usługi Azure Blob Storage, na którym znajdują się dane w chłodnym sklepie, masz pełny dostęp do wszystkich danych na koncie. Ten dostęp obejmuje uprawnienia do zapisu i usuwania. Nie należy edytować ani usuwać danych Azure Time Series Insights zapisów Gen2, ponieważ może to spowodować utratę danych.
@@ -50,11 +49,11 @@ Azure Time Series Insights partycje Gen2 i indeksowanie danych w celu uzyskania 
 
 Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md), [Eksploratora TSI Azure Time Series Insights](./time-series-insights-update-explorer.md)lub [łącznika Power BI](./how-to-connect-power-bi.md). Zapytania magazynu w sieci ciepłej są bezpłatne i nie ma limitu przydziału, ale obowiązuje [limit 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) współbieżnych żądań.
 
-### <a name="warm-store-behavior"></a>Zachowanie magazynu ciepłego 
+### <a name="warm-store-behavior"></a>Zachowanie magazynu ciepłego
 
 * Po włączeniu wszystkie dane przesyłane strumieniowo do Twojego środowiska będą kierowane do magazynu ciepłego, niezależnie od sygnatury czasowej zdarzenia. Należy zauważyć, że potok pozyskiwania strumieniowego został skompilowany dla przesyłania strumieniowego niemal w czasie rzeczywistym i pozyskiwanie zdarzeń historycznych [nie jest obsługiwane](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * Okres przechowywania jest obliczany w oparciu o to, kiedy zdarzenie zostało zindeksowane w sklepie, a nie sygnatura czasowa zdarzenia. Oznacza to, że dane nie są już dostępne w sklepie ciepłym po upływie okresu przechowywania, nawet jeśli sygnatura czasowa zdarzenia jest w przyszłości.
-  - Przykład: zdarzenie z 10-dniowymi prognozami pogody jest pozyskiwane i indeksowane w kontenerze magazynu ciepłego skonfigurowanym z 7-dniowym okresem przechowywania. Po upływie 7 dni przewidywanie nie jest już dostępne w sklepie ciepłym, ale można je zbadać na zimno. 
+  * Przykład: zdarzenie z 10-dniowymi prognozami pogody jest pozyskiwane i indeksowane w kontenerze magazynu ciepłego skonfigurowanym z 7-dniowym okresem przechowywania. Po upływie 7 dni przewidywanie nie jest już dostępne w sklepie ciepłym, ale można je zbadać na zimno.
 * Jeśli włączysz magazyn ciepły w istniejącym środowisku, które ma już ostatnie dane indeksowane w chłodnym magazynie, pamiętaj, że magazyn ciepły nie zostanie wypełniony ponownie przy użyciu tych danych.
 * Jeśli po prostu włączono sklep ciepły i występują problemy z wyświetlaniem najnowszych danych w Eksploratorze, można tymczasowo przełączać zapytania z magazynu w sieci w sieci:
 

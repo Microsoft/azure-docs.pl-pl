@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6290d89ed0ee539b4df4c2c8bc9070097da98c81
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753310"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447364"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa
 
@@ -26,13 +26,13 @@ W poniższej tabeli przedstawiono konfiguracje dostępne dla każdego typu sieci
 
 1. Na stronie wirtualnej sieci WAN wybierz pozycję **Konfiguracja** , aby otworzyć stronę konfiguracja.
 
-   ![Diagram usługi Virtual WAN](./media/upgrade-virtual-wan/1.png)
+   ![Zrzut ekranu przedstawiający stronę "Konfiguracja" z polem tekstowym informacji o uaktualnianiu do wirtualnej sieci WAN typu standardowego wyróżnionej na dole.](./media/upgrade-virtual-wan/1.png)
 2. W polu Typ wirtualnej sieci WAN wybierz pozycję **standardowa** z listy rozwijanej.
 
-   ![Diagram usługi Virtual WAN](./media/upgrade-virtual-wan/2.png)
+   ![Zrzut ekranu przedstawiający menu rozwijane "wirtualny typ sieci WAN".](./media/upgrade-virtual-wan/2.png)
 3. Należy pamiętać, że w przypadku uaktualniania do standardowej wirtualnej sieci WAN nie można wrócić do podstawowej wirtualnej sieci WAN. Wybierz pozycję **Potwierdź** , jeśli chcesz przeprowadzić uaktualnienie.
 
-   ![Diagram usługi Virtual WAN](./media/upgrade-virtual-wan/4.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe "potwierdzenie uaktualnienia".](./media/upgrade-virtual-wan/4.png)
 4. Po zapisaniu zmiany Twoja wirtualna Strona sieci WAN będzie wyglądać podobnie do tego przykładu.
 
    ![Diagram usługi Virtual WAN](./media/upgrade-virtual-wan/5.png)

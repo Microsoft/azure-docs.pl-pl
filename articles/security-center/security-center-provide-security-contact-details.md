@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9fbd63e1b46b837350be720fadf68777927f9bff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa35d1325e339af515c8bfc052d1af524b464e09
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904754"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446018"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
 

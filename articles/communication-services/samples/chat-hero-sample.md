@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303248"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460564"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -38,15 +38,19 @@ Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera.
 
 Oto jak wygląda przykład:
 
-:::image type="content" source="./media/chat/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
+:::image type="content" source="./media/chat/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
 
-Po naciśnięciu przycisku "Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie. 
+Po naciśnięciu przycisku &quot;Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Zrzut ekranu przedstawiający ekran przedczatu aplikacji.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+
+Po naciśnięciu przycisku &quot;Rozpocznij rozmowę":::
 
 Po skonfigurowaniu nazwy wyświetlanej i Emoji można dołączyć do sesji rozmowy. Zostanie wyświetlona główna Kanwa rozmowy, w której znajduje się podstawowe doświadczenie z rozmowy.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Zrzut ekranu przedstawiający ekran główny aplikacji przykładowej.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+
+Po naciśnięciu przycisku &quot;Rozpocznij rozmowę":::
 
 Składniki głównego ekranu czatu:
 
@@ -61,7 +65,7 @@ Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków zw
 - Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 i nowsze)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 i nowsze)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Pamiętaj, aby zainstalować wersję odpowiadającą wystąpieniu programu Visual studio, 32 vs 64 bit)
+- [.NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Pamiętaj, aby zainstalować wersję odpowiadającą wystąpieniu programu Visual studio, 32 vs 64 bit)
 - Utwórz zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../quickstarts/create-communication-resource.md). Musisz zarejestrować **Parametry połączenia** zasobu dla tego przewodnika Szybki Start.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Lokalne wdrażanie usługi & aplikacji klienckiej

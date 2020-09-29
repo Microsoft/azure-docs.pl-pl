@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ccb8d29d0ec52c31913a43358c7daa1c0693df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447847"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -69,7 +69,7 @@ Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia plat
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia platformy Azure służących do tworzenia i zarządzania urządzeniami nadrzędnymi/podrzędnymi, zobacz zawartość referencyjną polecenia [AZ IoT Hub Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) .
+Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia platformy Azure służących do tworzenia i zarządzania urządzeniami nadrzędnymi/podrzędnymi, zobacz zawartość referencyjną polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) .
 
 Następnie należy [pobrać i zmodyfikować parametry połączenia](#retrieve-and-modify-connection-string) , aby urządzenie znało połączenie za pośrednictwem bramy.
 
@@ -126,7 +126,7 @@ Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia plat
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia platformy Azure na potrzeby tworzenia urządzeń, generowania certyfikatów i zarządzania nadrzędnego i podrzędnego, zobacz zawartość referencyjną polecenia [AZ IoT Hub Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) .
+Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia platformy Azure na potrzeby tworzenia urządzeń, generowania certyfikatów i zarządzania nadrzędnego i podrzędnego, zobacz zawartość referencyjną polecenia [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) .
 
 Następnie należy [pobrać i zmodyfikować parametry połączenia](#retrieve-and-modify-connection-string) , aby urządzenie znało połączenie za pośrednictwem bramy.
 
@@ -172,7 +172,7 @@ Możesz również użyć [rozszerzenia IoT dla interfejsu wiersza polecenia plat
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Aby uzyskać więcej informacji, zobacz Dokumentacja interfejsu wiersza polecenia platformy Azure dla poleceń [AZ IoT Hub Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) .
+Aby uzyskać więcej informacji, zobacz Dokumentacja interfejsu wiersza polecenia platformy Azure dla poleceń [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) .
 
 Następnie należy [pobrać i zmodyfikować parametry połączenia](#retrieve-and-modify-connection-string) , aby urządzenie znało połączenie za pośrednictwem bramy.
 
@@ -182,10 +182,12 @@ Po utworzeniu tożsamości urządzenia IoT w portalu można pobrać jej klucze p
 
 Parametry połączenia dla urządzeń podrzędnych muszą mieć następujące składniki:
 
-* Centrum IoT, z którym łączy się urządzenie:`Hostname={iothub name}.azure-devices.net`
-* Identyfikator urządzenia zarejestrowany w centrum:`DeviceID={device ID}`
-* Klucz podstawowy lub pomocniczy:`SharedAccessKey={key}`
-* Urządzenie bramy, za pomocą którego urządzenie nawiązuje połączenie. Podaj wartość **hostname** IoT Edge z pliku config. YAML urządzenia bramy:`GatewayHostName={gateway hostname}`
+* Centrum IoT, z którym łączy się urządzenie: `Hostname={iothub name}.azure-devices.net`
+* Identyfikator urządzenia zarejestrowany w centrum: `DeviceID={device ID}`
+* Metoda uwierzytelniania, bez względu na to, czy klucz symetryczny lub certyfikat X. 509
+  * W przypadku korzystania z uwierzytelniania przy użyciu klucza symetrycznego Podaj klucz podstawowy lub pomocniczy: `SharedAccessKey={key}`
+  * Jeśli używasz uwierzytelniania certyfikatu X. 509, podaj flagę: `x509=true`
+* Urządzenie bramy, za pomocą którego urządzenie nawiązuje połączenie. Podaj wartość **hostname** IoT Edge z pliku config. YAML urządzenia bramy: `GatewayHostName={gateway hostname}`
 
 Wszystkie razem, kompletne parametry połączenia wyglądają następująco:
 
@@ -193,7 +195,13 @@ Wszystkie razem, kompletne parametry połączenia wyglądają następująco:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Jeśli została ustanowiona relacja nadrzędny/podrzędny dla tego urządzenia podrzędnego, można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Relacje nadrzędny/podrzędny są wymagane do uwierzytelniania X. 509, ale opcjonalne do uwierzytelniania przy kluczu symetrycznym. Przykład:
+Oraz
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
+```
+
+Jeśli została ustanowiona relacja nadrzędny/podrzędny dla tego urządzenia podrzędnego, można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Relacje nadrzędny/podrzędny są wymagane do uwierzytelniania X. 509, ale opcjonalne do uwierzytelniania przy kluczu symetrycznym. Na przykład:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

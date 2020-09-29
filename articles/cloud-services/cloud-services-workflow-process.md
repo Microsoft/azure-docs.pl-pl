@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c427982854e1d328b5d1553aa86866ad298eea1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71162148"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461323"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Przepływ pracy architektury klasycznej maszyny wirtualnej platformy Microsoft Azure 
 Ten artykuł zawiera omówienie procesów przepływu pracy, które są wykonywane podczas wdrażania lub aktualizowania zasobu platformy Azure, takiego jak maszyna wirtualna. 
@@ -29,7 +29,7 @@ Ten artykuł zawiera omówienie procesów przepływu pracy, które są wykonywan
 
 Na poniższym diagramie przedstawiono architekturę zasobów platformy Azure.
 
-![Przepływ pracy Azure](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text="<Alt obrazu o przepływie pracy Azure>":::
 
 ## <a name="workflow-basics"></a>Podstawowe informacje o przepływie pracy
    
@@ -69,11 +69,9 @@ Na poniższym diagramie przedstawiono architekturę zasobów platformy Azure.
 
 **I**. WaWorkerHost to standardowy proces hosta dla normalnych ról procesów roboczych. Ten proces hosta obsługuje wszystkie biblioteki DLL i kod punktu wejścia roli, takie jak OnStart i Run.
 
-**J**. WaWebHost to standardowy proces hosta dla ról sieci Web, jeśli są skonfigurowane do używania zestawu SDK 1,2 zgodnego z hostem (obsługiwane). Role mogą włączyć tryb obsługiwane przez usunięcie elementu z definicji usługi (. csdef). W tym trybie cały kod i biblioteki DLL usługi są uruchamiane z procesu WaWebHost. Usługi IIS (w3wp) nie są używane i nie skonfigurowano pul aplikacji w Menedżerze usług IIS, ponieważ usługi IIS są hostowane w WaWebHost.exe.
+**J**. WaIISHost to proces hosta dla kodu punktu wejścia roli dla ról sieci Web, które używają pełnych usług IIS. Ten proces ładuje pierwszą odnalezioną bibliotekę DLL, która używa klasy **RoleEntryPoint** i wykonuje kod z tej klasy (OnStart, Run, OnStop). Wszystkie zdarzenia **RoleEnvironment** (takie jak StatusCheck i zmieniony), które są tworzone w klasie RoleEntryPoint, są zgłaszane w tym procesie.
 
-**K**. WaIISHost to proces hosta dla kodu punktu wejścia roli dla ról sieci Web, które używają pełnych usług IIS. Ten proces ładuje pierwszą odnalezioną bibliotekę DLL, która używa klasy **RoleEntryPoint** i wykonuje kod z tej klasy (OnStart, Run, OnStop). Wszystkie zdarzenia **RoleEnvironment** (takie jak StatusCheck i zmieniony), które są tworzone w klasie RoleEntryPoint, są zgłaszane w tym procesie.
-
-**L**. W3WP jest standardowym procesem roboczym usług IIS, który jest używany, Jeśli rola jest skonfigurowana do korzystania z pełnych usług IIS. Spowoduje to uruchomienie puli aplikacji, który jest skonfigurowany z IISConfigurator. Wszystkie zdarzenia RoleEnvironment (takie jak StatusCheck i zmieniony) utworzone w tym miejscu są zgłaszane w tym procesie. Należy pamiętać, że zdarzenia RoleEnvironment będą uruchamiane w obu lokalizacjach (WaIISHost i w3wp.exe), jeśli zasubskrybujesz zdarzenia w obu procesach.
+**K**. W3WP jest standardowym procesem roboczym usług IIS, który jest używany, Jeśli rola jest skonfigurowana do korzystania z pełnych usług IIS. Spowoduje to uruchomienie puli aplikacji, który jest skonfigurowany z IISConfigurator. Wszystkie zdarzenia RoleEnvironment (takie jak StatusCheck i zmieniony) utworzone w tym miejscu są zgłaszane w tym procesie. Należy pamiętać, że zdarzenia RoleEnvironment będą uruchamiane w obu lokalizacjach (WaIISHost i w3wp.exe), jeśli zasubskrybujesz zdarzenia w obu procesach.
 
 ## <a name="workflow-processes"></a>Procesy przepływu pracy
 
@@ -87,8 +85,7 @@ Na poniższym diagramie przedstawiono architekturę zasobów platformy Azure.
 8. W przypadku pełnych ról sieci Web usług IIS WaHostBootstrapper informuje IISConfigurator o konieczności skonfigurowania puli aplikacji usług IIS i wskazuje, że lokacja `E:\Sitesroot\<index>` `<index>` jest indeksem 0 na podstawie liczby `<Sites>` elementów zdefiniowanych dla usługi.
 9. WaHostBootstrapper rozpocznie proces hosta w zależności od typu roli:
     1. **Rola procesu roboczego**: WaWorkerHost.exe jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie funkcja WaHostBootstrapper rozpoczyna wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia (jeśli InputEndpoints są zdefiniowane). WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.
-    1. **Rola sieci Web obsługiwane zestawu SDK 1,2**: WaWebHost jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie funkcja WaHostBootstrapper rozpoczyna wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia. WaWebHost wystawia żądanie rozgrzewania (Pobierz/do. rd_runtime_init). Wszystkie żądania sieci Web są wysyłane do WaWebHost.exe. WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.
-    1. **Pełna rola sieci Web usług IIS**: aIISHost jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie rozpocznie się wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia. WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.
+    2. **Pełna rola sieci Web usług IIS**: aIISHost jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie rozpocznie się wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia. WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.
 10. Przychodzące żądania sieci Web do pełnej roli sieci Web usług IIS wyzwalają usługi IIS w celu uruchomienia procesu W3WP i obsłużynia żądania, tak samo jak w lokalnym środowisku usług IIS.
 
 ## <a name="log-file-locations"></a>Lokalizacje plików dziennika
@@ -103,10 +100,6 @@ Ten dziennik zawiera aktualizacje stanu i powiadomienia o pulsie i jest aktualiz
 **WaHostBootstrapper**
 
 `C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
- 
-**WaWebHost**
-
-`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
@@ -123,7 +116,3 @@ Ten dziennik zawiera aktualizacje stanu i powiadomienia o pulsie i jest aktualiz
 **Dzienniki zdarzeń systemu Windows**
 
 `D:\Windows\System32\Winevt\Logs`
- 
-
-
-

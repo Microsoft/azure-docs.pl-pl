@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f096993645aca6999667af88c91d3f55f79d914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445926"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
 
@@ -20,7 +20,7 @@ ms.locfileid: "84983057"
 Ten artykuł pokazuje, jak używać witryny Azure Portal do tworzenia połączenia bramy sieci VPN lokacja-lokacja z sieci lokalnej do sieci wirtualnej. Kroki opisane w tym artykule mają zastosowanie do klasycznego modelu wdrażania i nie mają zastosowania do bieżącego modelu wdrażania Menedżer zasobów. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Interfejs wiersza polecenia](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -112,7 +112,7 @@ Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP ur
    - **Adres IP bramy sieci VPN:** Publiczny adres IP urządzenia sieci VPN w sieci lokalnej. Urządzenie sieci VPN wymaga publicznego adresu IPv4. Określ prawidłowy publiczny adres IP dla urządzenia sieci VPN, z którym chcesz się połączyć. Musi być dostępna dla systemu Azure. Jeśli nie znasz adresu IP urządzenia sieci VPN, zawsze możesz podać wartość zastępczą (o ile jest w formacie prawidłowego publicznego adresu IP) i zmienić ją później.
    - **Przestrzeń adresowa klienta:** Podaj listę zakresów adresów IP, które mają być kierowane do sieci lokalnej za pośrednictwem tej bramy. Można dodać wiele zakresów przestrzeni adresów. Upewnij się, że określone w tym miejscu zakresy nie pokrywają się z zakresami innych sieci, z którymi łączy się Twoja sieć wirtualna, ani z zakresami adresów samej sieci wirtualnej.
 
-   ![Lokacja lokalna](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Konfiguruj lokację lokalną")
+   ![Zrzut ekranu przedstawiający okna "nowe połączenie sieci VPN i" lokacja lokalna ".](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png)
 
 Kliknij przycisk **OK** , aby zamknąć stronę lokacja lokalna. **Nie klikaj przycisku OK, aby zamknąć nową stronę połączenia sieci VPN**.
 

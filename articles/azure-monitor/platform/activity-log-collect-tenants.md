@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321874"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447648"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Zbieranie dzienników aktywności platformy Azure w Azure Monitor między dzierżawami Azure Active Directory (starsza wersja)
 
@@ -102,7 +102,7 @@ Aplikacja logiki obejmuje następujące elementy:
 - [Akcja redagowania](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) do konwertowania danych JSON na obiekty.
 - [Log Analytics wysłać Łącznik danych](/connectors/azureloganalyticsdatacollector/) w celu opublikowania danych w obszarze roboczym log Analytics.
 
-   ![obraz dodawania wyzwalacza centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Zrzut ekranu projektanta aplikacji logiki przedstawiający kroki zbierania dzienników aktywności z centrum zdarzeń i zapisywania ich w obszarze roboczym Log Analytics.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Wymagania aplikacji logiki
 Przed utworzeniem aplikacji logiki upewnij się, że masz następujące informacje z poprzednich kroków:
@@ -129,11 +129,11 @@ Aby uzyskać nazwę centrum zdarzeń i parametry połączenia, wykonaj kroki opi
    | Nazwa           | Unikatowa nazwa aplikacji logiki. |
    | Subskrypcja   | Wybierz subskrypcję platformy Azure, która będzie zawierać aplikację logiki. |
    | Grupa zasobów | Wybierz istniejącą grupę zasobów platformy Azure lub utwórz nową grupę dla aplikacji logiki. |
-   | Location       | Wybierz region centrum danych do wdrażania swojej aplikacji logiki. |
+   | Lokalizacja       | Wybierz region centrum danych do wdrażania swojej aplikacji logiki. |
    | Log Analytics  | Wybierz, czy chcesz rejestrować stan każdego przebiegu aplikacji logiki w obszarze roboczym Log Analytics.  |
 
     
-3. Wybierz przycisk **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
+3. Wybierz pozycję **Utwórz**. Gdy zostanie wyświetlone powiadomienie **Wdrażanie zakończyło się pomyślnie**, kliknij opcję **Przejdź do zasobu**, aby otworzyć aplikację logiki.
 
 4. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**. 
 
@@ -145,9 +145,9 @@ Projektant aplikacji logiki wyświetla teraz dostępne łączniki i ich wyzwalac
 
 1. W polu wyszukiwania projektanta aplikacji logiki wpisz *centra zdarzeń* jako filtr. Wybierz wyzwalacz **usługi Centra zdarzeń — gdy zdarzenia są dostępne w Centrum zdarzeń**.
 
-   ![obraz dodawania wyzwalacza centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Zrzut ekranu projektanta aplikacji logiki z "Event Hubs-when Events są dostępne w centrum zdarzeń" wybrany dla usługi Event Hubs.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz przycisk **Utwórz**.
+2. Jeśli zostanie wyświetlony monit o poświadczenia, połączenie z przestrzeni nazw usługi Centra zdarzeń. Wprowadź nazwę połączenia, a następnie skopiowane parametry połączenia.  Wybierz pozycję **Utwórz**.
 
    ![obraz dodawania połączenia centrum zdarzeń w usłudze Logic Apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -315,7 +315,7 @@ Po ukończeniu przepływu pracy możesz przeprowadzić test w projektancie, aby 
 
 W projektancie aplikacji logiki kliknij przycisk **Uruchom**, aby przetestować aplikację logiki. Każdy krok w aplikacji logiki wyświetla ikonę stanu. Biały znacznik wyboru w zielonym kole informuje o powodzeniu.
 
-   ![Testowanie aplikacji logiki](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Zrzut ekranu projektanta aplikacji logiki po uruchomieniu testu. Każdy krok aplikacji logiki ma znacznik wyboru wskazujący powodzenie.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 Aby wyświetlić szczegółowe informacje dotyczące każdego kroku, kliknij nazwę kroku, aby go rozwinąć. Kliknij opcje **Pokaż nieprzetworzone dane wejściowe** i **Pokaż nieprzetworzone dane wyjściowe**, aby zobaczyć więcej informacji o danych odbieranych i wysyłanych w każdym kroku.
 
@@ -333,7 +333,7 @@ Ostatnim krokiem jest sprawdzenie obszaru roboczego usługi Log Analytics, aby u
 > Dzienniki aktywności są zapisywane w tabeli niestandardowej i nie są wyświetlane w [rozwiązaniu dziennika aktywności](./activity-log.md).
 
 
-![Testowanie aplikacji logiki](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Zrzut ekranu wyszukiwania AzureActivity_CL w okienku przeszukiwania dzienników przedstawiający tabelę wyników z rozwiniętym wynikiem, aby wyświetlić szczegóły działania.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

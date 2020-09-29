@@ -4,12 +4,12 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449445"
+ms.locfileid: "91460099"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
 
@@ -211,6 +211,17 @@ Wypchnij wszystkie metryki, aby Azure Monitor i korzystać z nich, gdy ich potrz
 ![Logo QRadar](./media/partners/qradar.png)
 
 Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Więcej informacji na temat integracji z platformą Azure można znaleźć w [dokumentacji QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+
+
+## <a name="rsa"></a>RSA
+
+![Logo RSA](./media/partners/rsa.png)
+
+Platforma monitorów RSA jest wiodącą platformą do wykrywania zagrożeń i reagowania, która łączy rozbudowane rozwiązania SIEM i wykrywania. Rozwiązania zapewniają nieprzekraczające widoczność, analizę i automatyczne możliwości odpowiedzi. Te połączone możliwości pomagają zespołom ds. zabezpieczeń wydajniej i wydajnie, zwiększanie poziomu umiejętności związanych z łowiectwem zagrożeń oraz umożliwienie im szybszego badania zagrożeń i reagowania na nie, w całej infrastrukturze organizacji — zarówno w chmurze, lokalnie, jak i w środowisku wirtualnym. 
+
+Integracja platformy monitorów RSA z usługą Azure Monitor umożliwia szybkie wprowadzanie danych zdarzeń i dzienników z Azure Monitor natywnie do platformy świadków RSA za pośrednictwem intuicyjnego interfejsu użytkownika i niezawodne natywne możliwości analizy. Uzyskaj szybki wgląd w zdarzenia dotyczące działań, diagnostyki, Active Directory i innych danych centrum zdarzeń, a następnie zapoznaj się z tymi danymi wraz z innymi informacjami o zabezpieczeniach przedsiębiorstwa w ramach kompletnego rozwiązania do wykrywania zagrożeń i reagowania na nie.
+
+[Dowiedz się więcej.](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

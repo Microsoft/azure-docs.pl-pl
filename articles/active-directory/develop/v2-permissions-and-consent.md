@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1
+ms.openlocfilehash: 2ac23e16dd294f6a17fbc891eb87889760724f36
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256606"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461261"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 

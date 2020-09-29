@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258424"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447313"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -46,11 +46,11 @@ Klienci używają tokenów dostępu w celu uzyskiwania dostępu do chronionego z
 
 ### <a name="saml-tokens"></a>Tokeny języka SAML
 
-Tokeny SAML są używane przez wiele aplikacji SAAS opartych na sieci Web i są uzyskiwane Azure Active Directory przy użyciu punktu końcowego protokołu SAML2. Są one również używane przez aplikacje korzystające z protokołu WS-Federation. Domyślny okres istnienia tokenu to 1 godzina. W perspektywie aplikacji okres ważności tokenu jest określany przez wartość NotOnOrAfter `<conditions …>` elementu w tokenie. Po zakończeniu okresu ważności tokenu klient musi zainicjować nowe żądanie uwierzytelniania, które będzie często spełnione bez interakcyjnego logowania w wyniku tokenu sesji logowania jednokrotnego (SSO).
+Tokeny języka SAML są używane przez wiele aplikacji SAAS opartych na sieci Web i są uzyskiwane Azure Active Directory przy użyciu punktu końcowego protokołu SAML2. Są one również używane przez aplikacje korzystające z protokołu WS-Federation. Domyślny okres istnienia tokenu to 1 godzina. W perspektywie aplikacji okres ważności tokenu jest określany przez wartość NotOnOrAfter `<conditions …>` elementu w tokenie. Po zakończeniu okresu ważności tokenu klient musi zainicjować nowe żądanie uwierzytelniania, które będzie często spełnione bez interakcyjnego logowania w wyniku tokenu sesji logowania jednokrotnego (SSO).
 
 Wartość NotOnOrAfter można zmienić przy użyciu `AccessTokenLifetime` parametru w `TokenLifetimePolicy` . Zostanie ona ustawiona na okres istnienia skonfigurowany w ramach zasad, jeśli istnieje, oraz współczynnik pochylenia zegara wynoszący pięć minut.
 
-Należy pamiętać, że `<SubjectConfirmationData>` Konfiguracja okresu istnienia tokenu nie ma wpływ na potwierdzenie podmiotu NotOnOrAfter określone w elemencie. 
+`<SubjectConfirmationData>`Konfiguracja okresu istnienia tokenu nie ma wpływ na potwierdzenie podmiotu NotOnOrAfter określone w elemencie. 
 
 ### <a name="refresh-tokens"></a>Odśwież tokeny
 
@@ -103,7 +103,7 @@ Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły 
 | Maksymalny czas nieaktywności tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |90 dni |
 | Maksymalny wiek tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |Do odwołania |
 
-* <sup>1</sup> użytkownicy federacyjny, którzy mają niewystarczające informacje o odwołaniu, obejmują wszystkich użytkowników, którzy nie mają atrybutu "LastPasswordChangeTimestamp". Ci użytkownicy otrzymują ten krótki maksymalny wiek, ponieważ usługa AAD nie może zweryfikować, kiedy odwołać tokeny powiązane ze starym poświadczeniem (na przykład hasło, które zostało zmienione), i należy ponownie zaewidencjonować, aby upewnić się, że użytkownik i skojarzone tokeny są nadal w dobrym stanie. Aby ulepszyć to środowisko, Administratorzy dzierżaw muszą upewnić się, że synchronizują atrybut "LastPasswordChangeTimestamp" (można go ustawić dla obiektu użytkownika przy użyciu programu PowerShell lub za pośrednictwem AADSync).
+* <sup>1</sup> użytkownicy federacyjny, którzy mają niewystarczające informacje o odwołaniu, obejmują wszystkich użytkowników, którzy nie mają atrybutu "LastPasswordChangeTimestamp". Ci użytkownicy otrzymują ten krótki maksymalny wiek, ponieważ Azure Active Directory nie może zweryfikować, kiedy odwołać tokeny powiązane ze starym poświadczeniem (na przykład hasło, które zostało zmienione), i należy ponownie zaewidencjonować, aby upewnić się, że użytkownik i skojarzone tokeny są nadal w dobrym stanie. Aby ulepszyć to środowisko, Administratorzy dzierżaw muszą upewnić się, że synchronizują atrybut "LastPasswordChangeTimestamp" (można go ustawić dla obiektu użytkownika przy użyciu programu PowerShell lub za pośrednictwem AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Ocena zasad i priorytetyzacja
 Można utworzyć i przypisać zasady czasu istnienia tokenu do określonej aplikacji, organizacji, a także do podmiotów usługi. Do określonej aplikacji mogą być stosowane wiele zasad. Zasady okresu istnienia tokenu, które obowiązują, są zgodne z następującymi regułami:
@@ -382,170 +382,37 @@ W tym przykładzie utworzysz kilka zasad, aby dowiedzieć się, jak działa syst
 
 ## <a name="cmdlet-reference"></a>Dokumentacja poleceń cmdlet
 
+Są to polecenia cmdlet w [module Azure Active Directory PowerShell dla programu Graph Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+
 ### <a name="manage-policies"></a>Zarządzanie zasadami
 
 Aby zarządzać zasadami, można użyć następujących poleceń cmdlet.
 
-#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-
-Tworzy nowe zasady.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |Tablica JSON skonwertowanej, która zawiera wszystkie reguły zasad. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Ciąg nazwy zasad. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |W przypadku wartości true ustawia zasady jako domyślne zasady organizacji. W przypadku wartości false nic nie robi. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Typ zasad. W przypadku okresów istnienia tokenu zawsze używaj "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Pobiera wszystkie zasady usługi Azure AD lub określone zasady.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> Obowiązkowe |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Pobiera wszystkie aplikacje i jednostki usługi, które są połączone z zasadami.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Aktualizuje istniejące zasady.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Ciąg nazwy zasad. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> Obowiązkowe |Tablica JSON skonwertowanej, która zawiera wszystkie reguły zasad. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> Obowiązkowe |W przypadku wartości true ustawia zasady jako domyślne zasady organizacji. W przypadku wartości false nic nie robi. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> Obowiązkowe |Typ zasad. W przypadku okresów istnienia tokenu zawsze używaj "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Usuwa określone zasady.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** żądanych zasad. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| Polecenie cmdlet | Opis | 
+| --- | --- |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Tworzy nowe zasady. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Pobiera wszystkie zasady usługi Azure AD lub określone zasady. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Pobiera wszystkie aplikacje i jednostki usługi, które są połączone z zasadami. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Aktualizuje istniejące zasady. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Usuwa określone zasady. |
 
 ### <a name="application-policies"></a>Zasady aplikacji
 W przypadku zasad aplikacji można użyć następujących poleceń cmdlet.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Łączy określone zasady z aplikacją.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** Identyfikator obiektu zasad. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Pobiera zasady przypisane do aplikacji.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Usuwa zasady z aplikacji.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** Identyfikator obiektu zasad. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| Polecenie cmdlet | Opis | 
+| --- | --- |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Łączy określone zasady z aplikacją. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Pobiera zasady przypisane do aplikacji. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Usuwa zasady z aplikacji. |
 
 ### <a name="service-principal-policies"></a>Zasady dotyczące nazwy głównej usługi
 W przypadku zasad głównych usługi można użyć następujących poleceń cmdlet.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Łączy określone zasady z jednostką usługi.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** Identyfikator obiektu zasad. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Pobiera wszystkie zasady połączone z określoną jednostką usługi.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Usuwa zasady z określonej nazwy głównej usługi.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| Parametry | Opis | Przykład |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**Objectid (ID)** aplikacji. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** Identyfikator obiektu zasad. | `-PolicyId <ObjectId of Policy>` |
+| Polecenie cmdlet | Opis | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Łączy określone zasady z jednostką usługi. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Pobiera wszystkie zasady połączone z określoną jednostką usługi.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Usuwa zasady z określonej nazwy głównej usługi.|
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 

@@ -1,24 +1,25 @@
 ---
-title: Jak instalować i uruchamiać kontenery — przetwarzanie obrazów
+title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API odczytu przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Jak pobrać, zainstalować i uruchomić kontenery dla przetwarzanie obrazów w tym samouczku instruktażu.
+description: Użyj kontenera Docker dla przetwarzanie obrazów odczytywania interfejsu API do wykrywania i wyodrębniania tekstu z obrazów, lokalnie.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: seodec18
-ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: lokalna, Docker, kontener
+ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397197"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460445"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Instalowanie i uruchamianie kontenerów odczytu (wersja zapoznawcza)
+# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API odczytu (wersja zapoznawcza) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 

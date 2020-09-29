@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317093"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447521"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -107,7 +107,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | batchAccounts | Region | 3-24 | Małe litery i cyfry. |
+> | batchAccounts | Region (Region) | 3-24 | Małe litery i cyfry. |
 > | batchAccounts/aplikacje | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/certyfikaty | konto wsadowe | 5-45 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/pule | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
@@ -392,7 +392,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | actionGroups | grupa zasobów | 1-260 | Nie można użyć:<br>`/` <br><br>Nie można kończyć się spacją ani kropką.  |
+> | actionGroups | grupa zasobów | 1-260 | Nie można użyć:<br>`/&%\?` <br><br>Nie można kończyć się spacją ani kropką.  |
 > | komponentów | grupa zasobów | 1-260 | Nie można użyć:<br>`%&\?/` <br><br>Nie można kończyć się spacją ani kropką.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral

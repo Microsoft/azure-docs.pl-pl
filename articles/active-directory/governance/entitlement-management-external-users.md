@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460868"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447078"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -83,7 +83,7 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 
 - Zezwolenie Gościom na Zapraszanie innych Gości do katalogu oznacza, że zaproszenia gościa mogą wystąpić poza zarządzaniem prawami. Zalecamy ustawienie **Gości** w taki sposób, aby **nie** zezwalać na prawidłowe wykonywanie zaproszeń.
 - W przypadku korzystania z listy dozwolonych aplikacji B2B musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć za pomocą usługi zarządzania prawami, zostaną dodane do listy. Alternatywnie, jeśli używasz listy Odmów B2B, musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć, nie zostaną dodane do listy.
-- Jeśli utworzysz zasady zarządzania uprawnieniami dla **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy użytkownicy zewnętrzni), pierwszeństwo mają wszystkie ustawienia listy dozwolonych lub zablokowanych B2B. W związku z tym Pamiętaj o uwzględnieniu domen, które mają zostać uwzględnione w tych zasadach, na liście dozwolonych, jeśli są używane, i wykluczyć je z listy Odmów, jeśli używasz listy Odmów.
+- Jeśli utworzysz zasady zarządzania uprawnieniami dla **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy użytkownicy zewnętrzni), a użytkownik nie należy do połączonej organizacji w katalogu, połączona organizacja zostanie automatycznie utworzona dla nich po zażądaniu pakietu. Pierwszeństwo mają wszystkie ustawienia listy dozwolonych lub zablokowanych B2B. W związku z tym Pamiętaj o uwzględnieniu domen, które mają zostać uwzględnione w tych zasadach, na liście dozwolonych, jeśli są używane, i wykluczyć je z listy Odmów, jeśli używasz listy Odmów.
 - Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
 - Aby uzyskać więcej informacji na temat zewnętrznych ustawień współpracy B2B usługi Azure AD, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../external-identities/delegate-invitations.md).
 

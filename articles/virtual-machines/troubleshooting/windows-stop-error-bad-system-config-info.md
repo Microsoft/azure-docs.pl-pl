@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942194"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447315"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Błąd zatrzymania systemu Windows — 0x00000074 nieprawidłowe informacje o konfiguracji systemu
 
@@ -61,10 +61,10 @@ Kod zatrzymania **BAD_SYSTEM_CONFIG_INFO** występuje, jeśli gałąź rejestru 
 1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
 1. Sprawdź uszkodzenie Hive.
 1. Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną naprawy.
-1. Skopiuj `\windows\system32\config` folder i Zapisz go w odpowiedniej partycji dysku lub w innej bezpiecznej lokalizacji. Utwórz kopię zapasową tego folderu jako środek zapobiegawczy, ponieważ będziesz edytować krytyczne pliki rejestru.
+1. Skopiuj `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder i Zapisz go w odpowiedniej partycji dysku lub w innej bezpiecznej lokalizacji. Utwórz kopię zapasową tego folderu jako środek zapobiegawczy, ponieważ będziesz edytować krytyczne pliki rejestru. 
 
 > [!NOTE]
-> Utwórz kopię `\windows\system32\config` folderu jako kopie zapasowe w przypadku konieczności wycofania wszelkich zmian wprowadzonych w rejestrze.
+> Utwórz kopię `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folderu jako kopie zapasowe w przypadku konieczności wycofania wszelkich zmian wprowadzonych w rejestrze.
 
 ### <a name="check-for-hive-corruption"></a>Sprawdź uszkodzenie Hive
 
@@ -72,7 +72,7 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
 
 1. Na maszynie naprawczej należy otworzyć aplikację **Edytor rejestru** . Wpisz "regedit" na pasku wyszukiwania systemu Windows, aby go znaleźć.
 1. W Edytorze rejestru wybierz pozycję **HKEY_LOCAL_MACHINE** , aby ją wyróżnić, a następnie wybierz pozycję **plik > Załaduj gałąź rejestru...** z menu.
-1. Przejdź do `\windows\system32\config\SYSTEM` i wybierz pozycję **Otwórz**.
+1. Przejdź do `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` i wybierz pozycję **Otwórz**.
 1. Po wyświetleniu monitu o wprowadzenie nazwy wprowadź **BROKENSYSTEM**.
 
    1. Jeśli nie można otworzyć programu Hive lub jest on pusty, gałąź jest uszkodzona. Jeśli gałąź została uszkodzona, [Otwórz bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

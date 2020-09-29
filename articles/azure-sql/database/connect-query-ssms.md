@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461142"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: korzystanie z programu SSMS do nawiązywania połączenia z usługą i zapytań Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,12 +77,15 @@ W programie SSMS Połącz się z serwerem.
    | ------------ | ------------------ | ----------- |
    | **Typ serwera** | Aparat bazy danych | Wartość wymagana. |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Coś takiego jak: **servername.Database.Windows.NET**. |
-   | **Uwierzytelnianie** | Uwierzytelnianie programu SQL Server | W tym samouczku używane jest uwierzytelnianie SQL. |
+   | **Authentication** | Uwierzytelnianie programu SQL Server | W tym samouczku używane jest uwierzytelnianie SQL. |
    | **Zaloguj się** | Identyfikator użytkownika konta administratora serwera | Identyfikator użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
-   | **Hasło** | Hasło konta administratora serwera | Hasło użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
+   | **Hasło** | Hasło do konta administratora serwera | Hasło użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    ||||
 
    ![łączenie z serwerem](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> W tym samouczku użyto uwierzytelniania SQL Server.  Jednak w celu nawiązania połączenia za pośrednictwem Azure Active Directory z usługą MFA upewnij się, że korzystasz z programu [SSMS 18,6 lub nowszego](https://aka.ms/ssms). 
 
 3. Wybierz pozycję **Opcje** w oknie dialogowym **Połącz z serwerem**. Z menu rozwijanego **Połącz z bazą danych** wybierz pozycję **mojaPrzykladowaBazaDanych**. Ukończenie szybkiego startu w [sekcji wymagania wstępne](#prerequisites) powoduje utworzenie bazy danych AdventureWorksLT o nazwie mySampleDatabase. Jeśli robocza kopia bazy danych AdventureWorks ma inną nazwę niż mySampleDatabase, zaznacz ją.
 
@@ -90,7 +93,7 @@ W programie SSMS Połącz się z serwerem.
 
 4. Wybierz pozycję **Połącz**. Zostanie otwarte okno Eksplorator obiektów.
 
-5. Aby wyświetlić obiekty bazy danych, rozwiń węzeł **bazy** danych, a następnie rozwiń węzeł bazy danych.
+5. Aby wyświetlić obiekty bazy danych, rozwiń węzeł **Bazy danych**, a następnie rozwiń węzeł odpowiedniej bazy danych.
 
    ![mySampleDatabase — obiekty](./media/connect-query-ssms/connected.png)  
 
@@ -155,7 +158,7 @@ Uruchom następujący kod z instrukcją [INSERT](/sql/t-sql/statements/insert-tr
 
 ### <a name="update-data"></a>Aktualizowanie danych
 
-Uruchom ten kod [aktualizacji](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL, aby zmodyfikować nowy produkt.
+Uruchom ten kod [aktualizacji](/sql/t-sql/queries/update-transact-sql) Transact-SQL, aby zmodyfikować nowy produkt.
 
 1. Zastąp poprzednie zapytanie tym, które zwraca nowy utworzony wcześniej rekord:
 

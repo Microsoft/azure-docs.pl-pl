@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258599"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445887"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawianie systemu operacyjnego Windows w klastrze Service Fabric
 
@@ -161,12 +161,12 @@ Zachowanie POA można skonfigurować w celu spełnienia Twoich potrzeb. Zastąp 
 |TaskApprovalPolicy   |Wyliczenie <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy wskazuje zasady, które mają być używane przez usługę koordynatora do instalowania aktualizacji systemu Windows na Service Fabric węzłach klastra.<br><br>Dozwolone wartości to: <br>*NodeWise*: aktualizacje systemu Windows są instalowane po jednym węźle w danym momencie. <br> *UpgradeDomainWise*: aktualizacje systemu Windows są instalowane w jednej domenie aktualizacji jednocześnie. (W większości, wszystkie węzły należące do domeny aktualizacji mogą przejść do usługi Windows Update).<br><br> Aby ułatwić podjęcie decyzji, które zasady najlepiej nadają się dla klastra, zobacz sekcję [często zadawanych pytań](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |Długo  <br> (Domyślnie: *1024*)               | Maksymalny rozmiar dzienników aplikacji aranżacji w MB, które mogą być utrwalane lokalnie w węzłach.
 | WUQuery               | ciąg<br>(Domyślnie: *IsInstalled = 0*)                | Zapytanie w celu pobrania aktualizacji systemu Windows. Aby uzyskać więcej informacji, zobacz [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
-| InstallWindowsOSOnlyUpdates | *Boolean* <br> (wartość domyślna: false)                 | Użyj tej flagi, aby określić, które aktualizacje mają zostać pobrane i zainstalowane. Następujące wartości są dozwolone <br>true — instaluje tylko aktualizacje systemu operacyjnego Windows.<br>false — instaluje wszystkie dostępne aktualizacje na komputerze.          |
+| InstallWindowsOSOnlyUpdates | *Wartość logiczna* <br> (wartość domyślna: false)                 | Użyj tej flagi, aby określić, które aktualizacje mają zostać pobrane i zainstalowane. Następujące wartości są dozwolone <br>true — instaluje tylko aktualizacje systemu operacyjnego Windows.<br>false — instaluje wszystkie dostępne aktualizacje na komputerze.          |
 | WUOperationTimeOutInMinutes | int <br>(Domyślnie: *90*)                   | Określa limit czasu dla każdej operacji Windows Update (Wyszukaj lub Pobierz lub zainstaluj). Jeśli operacja nie zostanie zakończona w określonym limicie czasu, zostanie przerwana.       |
 | WURescheduleCount     | int <br> (Domyślnie: *5*)                  | Maksymalna liczba przypadków, w których usługa ponownie planuje aktualizację systemu Windows, jeśli operacja nie powiedzie się.          |
 | WURescheduleTimeInMinutes | int <br>(Wartość domyślna: *30*) | Interwał, w którym usługa ponownie planuje aktualizacje systemu Windows, jeśli błąd będzie nadal występował. |
 | WUFrequency           | Ciąg rozdzielony przecinkami (wartość domyślna: *Weekly, środa, 7:00:00*)     | Częstotliwość instalowania aktualizacji systemu Windows. Format i możliwe wartości to: <br>-Miesięcznie, DD, gg: MM: SS (przykład: *Monthly, 5, 12:22:32*). Dozwolone wartości pola _DD_ (Day) to liczby od 1 do 28 i _ostatnie_. <br>-Tydzień, dzień, gg: MM: SS (przykład: *Weekly, wtorek, 12:22:32*)  <br>-Codziennie, gg: MM: SS (przykład: *Daily, 12:22:32*)  <br>-Tydzień, dzień, gg: MM: SS (przykład: *2, piątek, 21:00:00* wskazuje 9:00 PM UTC w piątek tygodnia każdego miesiąca) <br>- *Brak* wskazuje, że aktualizacje systemu Windows nie należy wykonywać.  <br><br> Czasy są w formacie UTC.|
-| AcceptWindowsUpdateEula | Boolean <br>(Wartość domyślna: *true*) | Ustawiając tę flagę, aplikacja akceptuje umowę licencyjną użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
+| AcceptWindowsUpdateEula | Wartość logiczna <br>(Wartość domyślna: *true*) | Ustawiając tę flagę, aplikacja akceptuje umowę licencyjną użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
 
 > [!TIP]
 > Jeśli aktualizacje systemu Windows mają być wykonywane natychmiast, należy ustawić `WUFrequency` względem czasu wdrożenia aplikacji. Załóżmy na przykład, że masz klaster testowy z pięcioma węzłami i planujesz wdrożenie aplikacji na około 5:00 PM czasu UTC. Jeśli założono, że uaktualnienie lub wdrożenie aplikacji trwa 30 minut, ustaw WUFrequency jako *codziennie, 17:30:00*.
@@ -296,9 +296,9 @@ Aby ułatwić zrozumienie, jak aktualizacje są realizowane w węźle, przejdźm
 
    W programie POA w wersji 1.4.0 i nowszych można znaleźć stan aktualizacji, wyświetlając zdarzenia kondycji na NodeAgentService przy użyciu WUOperationStatus- \<NodeName> Property. Wyróżnione sekcje na poniższych ilustracjach pokazują stan aktualizacji systemu Windows w węzłach *poanode_0* i *poanode_2*:
 
-   [![Obraz stanu operacji Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Zrzut ekranu przedstawia okno konsoli Windows Update stan operacji z wyróżnioną poanode_0.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Obraz stanu operacji Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Zrzut ekranu przedstawia okno konsoli Windows Update stan operacji z wyróżnioną poanode_1.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    Możesz również uzyskać szczegółowe informacje za pomocą programu PowerShell. W tym celu należy połączyć się z klastrem i pobrać stan zadania naprawy przy użyciu polecenia [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -328,7 +328,7 @@ Aby ułatwić zrozumienie, jak aktualizacje są realizowane w węźle, przejdźm
 
 1. W programie POA w wersji 1.4.0 i nowszych po zakończeniu próby aktualizacji węzła zdarzenie z właściwością "WUOperationStatus-[nodename]" jest ogłaszane w usłudze NodeAgentService, aby powiadomić użytkownika, gdy zostanie rozpoczęta następna próba pobrania i zainstalowania aktualizacji systemu Windows. Ta wartość jest wyświetlana na poniższym obrazie:
 
-     [![Obraz stanu operacji Windows Update](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Zrzut ekranu przedstawia okno konsoli Windows Update stanu operacji z NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>Dzienniki diagnostyczne
 

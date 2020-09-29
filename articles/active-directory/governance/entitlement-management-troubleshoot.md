@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979426"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446992"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -146,7 +146,7 @@ Można anulować tylko oczekujące żądanie, które nie zostało jeszcze dostar
     | P1 | Określeni użytkownicy i grupy w katalogu lub określonych połączonych organizacjach |
     | P2 | Wszyscy członkowie w katalogu (z wyłączeniem Gości) |
     | P3 | Wszyscy użytkownicy w katalogu (w tym Goście) lub określone połączone organizacje |
-    | P4 | Wszystkie połączone organizacje lub wszyscy użytkownicy (wszystkie połączone organizacje + Wszyscy nowi użytkownicy zewnętrzni) |
+    | P4 | Wszystkie skonfigurowane połączone organizacje lub wszyscy użytkownicy (wszystkie połączone organizacje + Wszyscy nowi użytkownicy zewnętrzni) |
     
     Jeśli jakiekolwiek zasady znajdują się w kategorii o wyższym priorytecie, kategorie o niższym priorytecie są ignorowane. Aby zapoznać się z przykładem, jak wiele zasad o takim samym priorytecie jest wyświetlanych dla żądającego, zobacz [Wybieranie zasad](entitlement-management-request-access.md#select-a-policy).
 

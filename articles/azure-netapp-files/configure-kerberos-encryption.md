@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535477"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461482"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Skonfiguruj szyfrowanie Kerberos NFSv 4.1 dla Azure NetApp Files
 
@@ -135,7 +135,7 @@ W tej sekcji opisano pojedynczy wpływ na wydajność po stronie klienta różny
 
 ### <a name="expected-performance-impact"></a>Oczekiwany wpływ na wydajność 
 
-Istnieją dwa obszary fokusu: lekkie obciążenie i górny limit. Poniższa lista zawiera opis ustawienia zabezpieczeń wpływ na wydajność według ustawień zabezpieczeń i scenariusza według scenariusza. Wszystkie porównania są wykonywane względem `sec=sys` parametru Security.
+Istnieją dwa obszary fokusu: lekkie obciążenie i górny limit. Poniższa lista zawiera opis ustawienia zabezpieczeń wpływ na wydajność według ustawień zabezpieczeń i scenariusza według scenariusza. Wszystkie porównania są wykonywane względem `sec=sys` parametru Security. Test został wykonany na pojedynczym woluminie przy użyciu jednego klienta. 
 
 Wpływ na wydajność krb5:
 
@@ -175,4 +175,4 @@ Wpływ na wydajność Krb5p:
 * [Często zadawane pytania dotyczące Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Tworzenie woluminu NFS dla usługi Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Utwórz połączenie Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
-* [Konfigurowanie klienta NFS dla Azure NetApp Files](configure-nfs-clients.md) 
+* [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md) 

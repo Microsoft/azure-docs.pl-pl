@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42d994a9cdd0e2718d8c2288b6cc0b9618202b41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028672"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447494"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Resetowanie lokalnego hasła systemu Windows dla maszyny wirtualnej platformy Azure w trybie offline
 Możesz zresetować lokalne hasło systemu Windows maszyny wirtualnej na platformie Azure przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pod warunkiem, że zainstalowano agenta gościa platformy Azure. Ta metoda jest podstawowym sposobem resetowania hasła dla maszyny wirtualnej platformy Azure. Jeśli wystąpią problemy z agentem gościa platformy Azure, który nie odpowiada, lub instalacja nie powiedzie się po przesłaniu obrazu niestandardowego, można ręcznie zresetować hasło systemu Windows. W tym artykule szczegółowo opisano sposób resetowania hasła do konta lokalnego przez dołączenie źródłowego dysku wirtualnego systemu operacyjnego do innej maszyny wirtualnej. Kroki opisane w tym artykule nie dotyczą kontrolerów domeny systemu Windows. 
@@ -67,21 +67,21 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Utwórz scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Utwórz scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
-5. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
+5. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Utwórz FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Utwórz FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
@@ -93,7 +93,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
 9. Z sesji zdalnej na nową maszynę wirtualną Usuń następujące pliki, aby wyczyścić środowisko:
     
-    * Z%windir%\System32
+    * Z%windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * Usuń FixAzureVM. cmd
     * Z%windir%\System32\GroupPolicy\Machine\Scripts
       * Usuń scripts.ini
@@ -113,31 +113,31 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
    
    * Wybierz maszynę wirtualną w Azure Portal, a następnie kliknij pozycję *Usuń*:
      
-     ![Usuń istniejącą maszynę wirtualną](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![Usuń istniejącą klasyczną maszynę wirtualną](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
 2. Dołącz dysk systemu operacyjnego źródłowej maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna rozwiązywania problemów musi znajdować się w tym samym regionie co dysk systemu operacyjnego źródłowej maszyny wirtualnej (np `West US` .):
    
    1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal. Kliknij pozycję *dyski*  |  *Dołącz istniejące*:
      
-      ![Dołącz istniejący dysk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Dołącz istniejący dysk — klasyczny](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. Wybierz pozycję *plik VHD* , a następnie wybierz konto magazynu, które zawiera ŹRÓDŁową maszynę wirtualną:
      
-      ![Wybieranie konta magazynu](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![Wybierz konto magazynu — klasyczne](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. Zaznacz pole wyboru *Pokaż klasyczne konta magazynu*, a następnie wybierz kontener źródłowy. Kontener źródłowy jest zazwyczaj *dyskami VHD*:
      
-      ![Wybieranie kontenera magazynu](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![Wybieranie kontenera magazynu — wersja klasyczna](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![Wybieranie kontenera magazynu](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![Wybieranie kontenera magazynu — wirtualny dysk twardy — klasyczny](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
    4. Wybierz wirtualny dysk twardy systemu operacyjnego do dołączenia. Kliknij przycisk *Wybierz* , aby zakończyć proces:
      
-      ![Wybierz źródłowy dysk wirtualny](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      ![Wybierz źródłowy dysk wirtualny — klasyczny](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
    5. Kliknij przycisk OK, aby dołączyć dysk
 
-      ![Dołącz istniejący dysk](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Okno dialogowe Dołączanie istniejącego dysku — OK — klasyczne](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. Połącz się z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny i upewnij się, że dysk systemu operacyjnego źródłowej maszyny wirtualnej jest widoczny:
 
@@ -163,7 +163,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      Version=1
      ```
      
-     ![Utwórz gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Tworzenie gpt.ini — klasyczne](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
@@ -171,21 +171,21 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Utwórz scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Tworzenie scripts.ini — klasyczne](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
-6. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
+6. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Utwórz FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Utwórz FixAzureVM. cmd — klasyczny](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
@@ -195,17 +195,17 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
    
    2. Wybierz dysk danych dołączony w kroku 2, kliknij przycisk **Odłącz**, a następnie kliknij przycisk **OK**.
 
-     ![Odłączanie dysku](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Odłączanie dysku — rozwiązywanie problemów z maszyną wirtualną — klasyczne](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Odłączanie dysku](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Odłączanie dysku — okno dialogowe Rozwiązywanie problemów z maszyną wirtualną — klasyczne](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. Utwórz maszynę wirtualną na podstawie dysku systemu operacyjnego źródłowej maszyny wirtualnej:
    
-     ![Tworzenie maszyny wirtualnej na podstawie szablonu](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     ![Tworzenie maszyny wirtualnej na podstawie szablonu — klasyczne](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
-     ![Tworzenie maszyny wirtualnej na podstawie szablonu](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     ![Tworzenie maszyny wirtualnej na podstawie szablonu — Wybieranie subskrypcji — wersja klasyczna](./media/reset-local-password-without-agent/choose-subscription-classic.png)
 
-     ![Tworzenie maszyny wirtualnej na podstawie szablonu](./media/reset-local-password-without-agent/create-vm-classic.png)
+     ![Tworzenie maszyny wirtualnej na podstawie szablonu — Tworzenie maszyny wirtualnej — klasyczne](./media/reset-local-password-without-agent/create-vm-classic.png)
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Ukończ środowisko tworzenia maszyny wirtualnej
 
@@ -213,11 +213,11 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
 2. Z sesji zdalnej na nową maszynę wirtualną Usuń następujące pliki, aby wyczyścić środowisko:
     
-    * Wniosek`%windir%\System32`
-      * usuwa`FixAzureVM.cmd`
-    * Wniosek`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * usuwa`scripts.ini`
-    * Wniosek`%windir%\System32\GroupPolicy`
+    * Wniosek `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
+      * usuwa `FixAzureVM.cmd`
+    * Wniosek `%windir%\System32\GroupPolicy\Machine\Scripts`
+      * usuwa `scripts.ini`
+    * Wniosek `%windir%\System32\GroupPolicy`
       * Usuń `gpt.ini` (Jeśli `gpt.ini` istniały wcześniej i zmieniono jego nazwę na `gpt.ini.bak` , Zmień nazwę `.bak` pliku z powrotem na `gpt.ini` )
 
 ## <a name="next-steps"></a>Następne kroki

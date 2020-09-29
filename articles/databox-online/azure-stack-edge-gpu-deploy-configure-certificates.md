@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5be484c613c4a18e86df7b5a83f95ca75aec6077
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903332"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446313"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack brzeg Pro z procesorem GPU
 
@@ -51,11 +51,11 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
 
     - W przypadku zmiany nazwy urządzenia lub domeny DNS zobaczysz, że stan certyfikatów będzie wyświetlany jako **nieprawidłowy**. 
 
-        ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![Lokalny interfejs użytkownika sieci Web "certyfikaty" Strona 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
 
         Wybierz certyfikat, aby wyświetlić szczegóły stanu.
 
-        ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Lokalny interfejs użytkownika sieci Web "certyfikaty" — Strona 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
         Wynika to z faktu, że certyfikaty nie odzwierciedlają zaktualizowanej nazwy urządzenia i domeny DNS (które są używane w polu Nazwa podmiotu i alternatywny podmiot). Aby pomyślnie aktywować urządzenie, wybierz jedną z następujących opcji: 
     
@@ -108,11 +108,11 @@ Wykonaj następujące kroki, aby ponownie wygenerować i pobrać certyfikaty urz
 
 4. Wybierz łącze pobierania certyfikatu i po wyświetleniu monitu Zapisz certyfikat. 
 
-    ![Generuj i pobieraj certyfikat 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![Generowanie i pobieranie certyfikatu 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
 5. Powtórz ten proces dla wszystkich certyfikatów, które chcesz pobrać. 
     
-    ![Generowanie i pobieranie certyfikatu 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![Generowanie i pobieranie certyfikatu 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     Certyfikaty generowane przez urządzenie są zapisywane jako certyfikaty DER o następującym formacie nazwy: 
 
@@ -135,19 +135,19 @@ Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch pod
 
 1. Aby przekazać certyfikat, na stronie **certyfikat** wybierz pozycję **+ Dodaj certyfikat**.
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![Lokalny interfejs użytkownika sieci Web "certyfikaty" — Strona 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. Najpierw przekaż łańcuch podpisywania i wybierz pozycję **weryfikuj & Dodaj**.
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Strona lokalnego interfejsu użytkownika sieci Web "certyfikaty" 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. Teraz można przekazać inne certyfikaty. Można na przykład przekazać Azure Resource Manager i certyfikaty punktów końcowych usługi BLOB Storage.
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![Strona "certyfikaty" w lokalnym interfejsie użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
     Możesz również przekazać certyfikat lokalnego interfejsu użytkownika sieci Web. Po przekazaniu tego certyfikatu konieczne będzie uruchomienie przeglądarki i wyczyszczenie pamięci podręcznej. Następnie należy nawiązać połączenie z lokalnym interfejsem użytkownika sieci Web urządzenia.  
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![Lokalny interfejs użytkownika sieci Web "certyfikaty", Strona 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
     Możesz również przekazać certyfikat węzła.
 
@@ -155,7 +155,7 @@ Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch pod
 
     W dowolnym momencie możesz wybrać certyfikat i wyświetlić szczegóły, aby upewnić się, że są one zgodne z przekazanym certyfikatem.
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![Lokalny interfejs użytkownika sieci Web "certyfikaty" Strona 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
 
     Strona certyfikat powinna zostać zaktualizowana w celu odzwierciedlenia nowo dodanych certyfikatów.
 

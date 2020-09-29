@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat funkcji strony Przegląd Security Cen
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937173"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447673"
 ---
 # <a name="azure-security-centers-overview-page"></a>Strona przeglądu Azure Security Center
 
@@ -27,7 +27,7 @@ Przegląd zapewnia ujednolicony wgląd w zabezpieczenia stan obciążeń chmury 
 
 ## <a name="features-of-the-overview-page"></a>Funkcje strony przegląd
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Górny pasek strony przeglądu Security Center":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Strona przeglądu usługi Security Center":::
 
 **Górny pasek menu** oferuje następujące funkcje:
 - **Subskrypcje** — możesz wyświetlać i filtrować listę subskrypcji, wybierając ten przycisk. Security Center dostosowuje wyświetlanie, aby odzwierciedlały stan zabezpieczeń wybranych subskrypcji.

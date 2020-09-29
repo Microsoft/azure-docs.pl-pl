@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596065"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446524"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure PowerShell
 
@@ -333,11 +333,4 @@ Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z
 
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Tworzenie certyfikatu z podpisem własnym
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z certyfikatem
-> * Dodaj odbiornik i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+- [Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway](rewrite-http-headers-url.md)

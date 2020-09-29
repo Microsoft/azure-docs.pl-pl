@@ -1,27 +1,29 @@
 ---
-title: Kontenery platformy Docker — LUIS
+title: Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
 titleSuffix: Azure Cognitive Services
-description: Kontener LUIS ładuje aplikację przeszkolony lub opublikowaną do kontenera Docker i zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera.
+description: Użyj kontenera LUIS, aby załadować aplikację przeszkolony lub opublikowaną i uzyskać dostęp do jej prognoz w środowisku lokalnym.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: lokalna, Docker, kontener
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889491"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460989"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Instalowanie i uruchamianie kontenerów platformy Docker LUIS
+# <a name="install-and-run-docker-containers-for-luis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Kontenery umożliwiają korzystanie z LUIS w Twoim środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener LUIS.
 
 Kontener Language Understanding (LUIS) ładuje swój przeszkolony lub opublikowany Language Understanding model. Jako [aplikacja Luis](https://www.luis.ai), kontener platformy Docker zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera. Można zebrać dzienniki zapytań z kontenera i przekazać je z powrotem do aplikacji Language Understanding, aby zwiększyć dokładność przewidywania aplikacji.
 

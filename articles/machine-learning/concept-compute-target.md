@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330166"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446785"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -49,7 +49,7 @@ Dowiedz się [, gdzie i jak wdrożyć model w miejscu docelowym obliczeń](how-t
 Zarządzany zasób obliczeniowy jest tworzony i zarządzany przez Azure Machine Learning. To obliczenie jest zoptymalizowane pod kątem obciążeń uczenia maszynowego. Azure Machine Learning klastrami obliczeniowymi i [wystąpieniami obliczeniowymi](concept-compute-instance.md) są jedyne zarządzane obliczenia. 
 
 Można tworzyć Azure Machine Learning wystąpienia obliczeniowe lub Klastry obliczeniowe z:
-* [Studio uczenia maszynowego Azure](how-to-create-attach-compute-studio.md)
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Azure Portal
 * Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) zestawu SDK języka Python
 * [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (wersja zapoznawcza)
@@ -101,6 +101,20 @@ Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej na temat obsłu
 
 
 Mimo że Azure Machine Learning obsługuje te serie maszyn wirtualnych, mogą one nie być dostępne we wszystkich regionach świadczenia usługi Azure. Serie maszyn wirtualnych można sprawdzić tutaj: dostępne [produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### <a name="compute-isolation"></a>Izolacja obliczeniowa
+
+Azure Machine Learning COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Rozmiary maszyn wirtualnych wyizolowane najlepiej nadają się do obciążeń, które wymagają wysokiego stopnia odizolowania obciążeń innych klientów z przyczyn, które obejmują zgodność i wymagania prawne. Wykorzystanie wyizolowanego rozmiaru gwarantuje, że Twoja maszyna wirtualna będzie jedyną uruchomioną w tym konkretnym wystąpieniu serwera.
+
+Obecnie odizolowane oferty maszyn wirtualnych obejmują:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3 *
+
+*Obsługa technologii RDMA
+
+Zapoznaj się z tym artykułem, aby dowiedzieć się więcej o [izolacji w chmurze publicznej platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## <a name="unmanaged-compute"></a>Obliczenia niezarządzane
 

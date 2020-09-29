@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905490"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447217"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -71,7 +71,7 @@ Centrum zabezpieczeń może automatycznie utworzyć domyślny obszar roboczy, w 
 Aby wybrać obszar roboczy utworzony przez Security Center:
 
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję Użyj obszarów roboczych utworzonych przez Centrum zabezpieczeń.
-   ![Wybierz warstwę cenową][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics"::: 
 
 1. Kliknij pozycję **Zapisz**.<br>
     Security Center tworzy nową grupę zasobów i domyślny obszar roboczy w tej geolokalizacji i łączy agenta z tym obszarem roboczym. Konwencja nazewnictwa obszaru roboczego i grupy zasobów to:<br>
@@ -99,8 +99,7 @@ Aby korzystać z istniejącego obszaru roboczego Log Analytics, musisz mieć upr
 Aby wybrać istniejący obszar roboczy Log Analytics:
 
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję **Użyj innego obszaru roboczego**.
-
-   ![Użyj innego obszaru roboczego][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics"::: 
 
 2. Z menu rozwijanego wybierz obszar roboczy, w którym mają być przechowywane zebrane dane.
 
@@ -191,10 +190,10 @@ Poniżej znajduje się kompletny podział identyfikatorów zdarzeń związanych 
 >
 
 Aby wybrać zasady filtrowania:
-1. Na stronie **zbieranie danych** wybierz zasady filtrowania w obszarze **zdarzenia zabezpieczeń**.
-2. Wybierz pozycję **Zapisz**.
-
-   ![Wybieranie zasad filtrowania][5]
+1. Na stronie **zbieranie danych** wybierz zasady filtrowania w obszarze **przechowuj dodatkowe dane pierwotne — zdarzenia zabezpieczeń systemu Windows**.
+ 
+1. Wybierz pozycję **Zapisz**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
 ### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta <a name="preexisting"></a> 
 
@@ -224,7 +223,7 @@ Aby wyłączyć automatyczne Inicjowanie obsługi agenta Log Analytics:
 1. Z poziomu menu Security Center w portalu wybierz pozycję **cennik & ustawienia**.
 2. Wybierz odpowiednią subskrypcję.
 
-   ![Wybieranie subskrypcji][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
 3. Wybierz pozycję **zbieranie danych**.
 4. W obszarze **Automatyczna obsługa administracyjna**wybierz pozycję **Wyłącz** , aby wyłączyć automatyczne Inicjowanie obsługi.
@@ -309,13 +308,7 @@ W tym artykule pokazano, jak działa zbieranie danych i automatyczne Inicjowanie
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png

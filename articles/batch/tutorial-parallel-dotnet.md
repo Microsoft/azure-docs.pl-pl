@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f57354a6eb52b3439cf298f66b706f53d101371e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 84870970977a6907759bf5219c1feed57af77d8c
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930234"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461107"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -35,7 +35,7 @@ W tym samouczku przekonwertujesz równolegle pliki multimedialne w formacie MP4 
 
 * Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-* [64-bitowa wersja narzędzia ffmpeg 3.4 dla systemu Windows](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (plik zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
+* [Windows 64-bitowa wersja narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (. zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -47,7 +47,7 @@ W witrynie Azure Portal dodaj narzędzie ffmpeg jako [pakiet aplikacji](batch-ap
 
 1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta**, a następnie kliknij nazwę konta usługi Batch.
 3. Kliknij pozycję **aplikacje**  >  **Dodaj**.
-4. W polu **Identyfikator aplikacji** wprowadź nazwę *ffmpeg* i podaj *3.4* jako wersję pakietu. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
+4. W przypadku **identyfikatora aplikacji** wprowadź *Narzędzia FFmpeg*i wersję programu *4.3.1*. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
 
 ![Dodawanie pakietu aplikacji](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
 
 ```csharp
 // Batch account credentials
@@ -84,7 +84,7 @@ Upewnij się też, że odwołanie do pakietu aplikacji narzędzia ffmpeg w pliku
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### <a name="build-and-run-the-sample-project"></a>Kompilowanie i uruchamianie przykładowego projektu
@@ -263,7 +263,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);

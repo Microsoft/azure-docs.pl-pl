@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447725"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Grupa
+### <a name="group"></a>Group (Grupa)
 
 Aby uzyskać identyfikator grupy, można użyć poleceń [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) lub [AZ AD Group Show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -298,7 +298,7 @@ Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypi
 Poniższy szablon demonstruje:
 
 - Jak utworzyć nową nazwę główną usługi tożsamości zarządzanej
-- Jak określić`principalType`
+- Jak określić `principalType`
 - Jak przypisać rolę współautor do tej nazwy głównej usługi w zakresie grupy zasobów
 
 Aby użyć szablonu, należy określić następujące dane wejściowe:
@@ -365,12 +365,12 @@ W celu usunięcia dostępu do zasobu platformy Azure w usłudze Azure RBAC nale�
 
 - [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-role-assignment)
 - [Interfejs API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu witryny Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Understand the structure and syntax of Azure Resource Manager Templates (Omówienie struktury i składni szablonów usługi Azure Resource Manager)](../azure-resource-manager/templates/template-syntax.md)
+- [Zrozumienie struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

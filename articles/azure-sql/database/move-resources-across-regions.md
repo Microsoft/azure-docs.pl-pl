@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 9e7d2d08c7041b23f0eb02328367d07e72fe35eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333073"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446393"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Przenoszenie zasobów do nowego regionu — Azure SQL Database & wystąpienie zarządzane Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -170,7 +170,7 @@ Replikacja wszystkich baz danych w każdym wystąpieniu zostanie zainicjowana au
 
 ### <a name="monitor-the-preparation-process"></a>Monitorowanie procesu przygotowania
 
-Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState**:
+Można okresowo wywołać [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) , aby monitorować replikację baz danych z lokalizacji źródłowej do docelowej. Obiekt danych wyjściowych `Get-AzSqlDatabaseFailoverGroup` zawiera właściwość dla **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) wskazuje, że baza danych jest zsynchronizowana i może być bezpiecznie przełączona w tryb failover.
 - **ReplicationState = 0** (inicjator) wskazuje, że baza danych nie została jeszcze zainicjowana, a próba przełączenia w tryb failover zakończy się niepowodzeniem.
@@ -182,7 +182,7 @@ Gdy **ReplicationState** to `2` , Połącz się z każdą bazą danych lub podzb
 ### <a name="initiate-the-move"></a>Inicjowanie przenoszenia
 
 1. Nawiąż połączenie z docelowym wystąpieniem zarządzanym przy użyciu pomocniczego punktu końcowego `<fog-name>.secondary.database.windows.net` .
-1. Aby przełączyć pomocnicze wystąpienie zarządzane z pełną synchronizacją, należy użyć [przełącznika-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) . Ta operacja zakończy się powodzeniem lub zostanie wycofana.
+1. Aby przełączyć pomocnicze wystąpienie zarządzane z pełną synchronizacją, należy użyć [przełącznika-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) . Ta operacja zakończy się powodzeniem lub zostanie wycofana.
 1. Sprawdź, czy polecenie zostało pomyślnie zakończone przy użyciu, `nslook up <fog-name>.secondary.database.windows.net` Aby upewnić się, że wpis CNAME DNS wskazuje na adres IP regionu docelowego. Jeśli polecenie Switch zakończy się niepowodzeniem, rekord CNAME nie zostanie zaktualizowany.
 
 ### <a name="remove-the-source-managed-instances"></a>Usuń źródłowe wystąpienia zarządzane
