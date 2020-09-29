@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1bd0ff28906f35ddc56afbd0287bbe29879deb4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438941"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -245,7 +245,7 @@ Ponadto zalecenia dotyczące **wersji zapoznawczej** nie renderują zasobu w zł
 
 Przykład zalecenia dotyczącego wersji zapoznawczej:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń":::
 
 [Dowiedz się więcej na temat bezpiecznego oceny](secure-score-security-controls.md).
 
@@ -254,7 +254,7 @@ Przykład zalecenia dotyczącego wersji zapoznawczej:
 
 Strona szczegóły dotyczące rekomendacji zawiera teraz wskaźnik czasu świeżości (jeśli dotyczy) oraz jasne wyświetlanie ważności zalecenia.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Strona rekomendacja przedstawiająca aktualność i ważność":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń":::
 
 
 
@@ -678,7 +678,7 @@ Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiec
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Grupuj według kontrolek przełącznik dla zaleceń":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 

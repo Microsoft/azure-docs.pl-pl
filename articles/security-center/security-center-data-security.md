@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a999e2b5706c04b426f758ba46f49fb9f7e3057
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268030"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438777"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center — bezpieczeństwo danych
 Aby ułatwić klientom zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie, Azure Security Center zbiera i przetwarza dane związane z zabezpieczeniami, w tym informacje o konfiguracji, metadane, dzienniki zdarzeń itd. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi.

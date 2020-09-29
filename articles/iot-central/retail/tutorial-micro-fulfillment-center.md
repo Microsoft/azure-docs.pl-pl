@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980536"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440200"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
@@ -49,7 +49,7 @@ Aby utworzyć nową aplikację centrum o wysokiej realizacji, która korzysta z 
 
     Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie aplikacji](../preview/quick-deploy-iot-central.md) — Szybki Start.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     ![Zrzut ekranu strony nowej aplikacji IoT Central platformy Azure](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
@@ -62,11 +62,11 @@ Z poziomu pulpitu nawigacyjnego można:
    * Zapoznaj się z planem pomieszczeń i lokalizacją przewoźników zautomatyzowanych w ramach struktury realizacji.
    * Wyzwalaj polecenia, takie jak resetowanie systemu kontroli, aktualizowanie oprogramowania układowego operatora i ponowne konfigurowanie sieci.
 
-     ![Zrzut ekranu przedstawiający górną połowę pulpitu nawigacyjnego centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Zrzut ekranu przedstawiający górną połowę pulpitu nawigacyjnego centrum danych Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Zapoznaj się z przykładem pulpitu nawigacyjnego, którego operator może użyć do monitorowania warunków w centrum realizacji. 
    * Monitoruj kondycję ładunków, które są uruchomione na urządzeniu bramy w centrum realizacji.    
 
-     ![Zrzut ekranu przedstawiający połowę bottonu na pulpicie nawigacyjnym centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Zrzut ekranu przedstawiający połowę bottonu pulpitu nawigacyjnego centrum danych Northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
 W przypadku wybrania karty szablony urządzeń widoczne są dwa różne typy urządzeń, które są częścią szablonu: 
@@ -84,7 +84,7 @@ Użyj przykładowej reguły jako inspiracji, aby zdefiniować reguły, które s�
 
 ![Zrzut ekranu przedstawiający kartę reguły](./media/tutorial-micro-fulfillment-center-app/rules.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji. Przejdź do pozycji **Administracja**  >  **Ustawienia aplikacji**, a następnie wybierz pozycję **Usuń**.
 

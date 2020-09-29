@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501563"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439672"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Wdrażanie i monitorowanie modułów IoT Edge na dużą skalę przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -29,7 +29,7 @@ W tym artykule opisano konfigurowanie interfejsu wiersza polecenia platformy Azu
 
 * [Centrum IoT](../iot-hub/iot-hub-create-using-cli.md) w ramach subskrypcji platformy Azure.
 * [IoT Edge urządzeń](how-to-register-device.md#prerequisites-for-the-azure-cli) z zainstalowanym IoT Edge środowiska uruchomieniowego.
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az --version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az --version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack.
 * [Rozszerzenie IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
@@ -183,7 +183,7 @@ Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji i tagów ur
 
 Wdrażasz moduły na urządzeniach docelowych, tworząc wdrożenie, które składa się z manifestu wdrożenia, a także innych parametrów.
 
-Użyj polecenia [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) , aby utworzyć wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) , aby utworzyć wdrożenie:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -216,7 +216,7 @@ W przypadku zaktualizowania warunku docelowego następujące aktualizacje są wy
 
 Nie można zaktualizować zawartości wdrożenia, w tym modułów i tras zdefiniowanych w manifeście wdrożenia. Aby zaktualizować zawartość wdrożenia, należy utworzyć nowe wdrożenie, które jest przeznaczone dla tych samych urządzeń o wyższym priorytecie. Można modyfikować pewne właściwości istniejącego modułu, w tym warunek docelowy, etykiety, metryki i priorytet.
 
-Użyj polecenia [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) , aby zaktualizować wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) , aby zaktualizować wdrożenie:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -225,9 +225,9 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 Polecenie aktualizacji wdrożenia przyjmuje następujące parametry:
 
 * **--Deployment-ID** — nazwa wdrożenia, która istnieje w usłudze IoT Hub.
-* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`
 * **--Set** -aktualizuje właściwość we wdrożeniu. Można zaktualizować następujące właściwości:
-  * targetCondition — na przykład`targetCondition=tags.location.state='Oregon'`
+  * targetCondition — na przykład `targetCondition=tags.location.state='Oregon'`
   * Etykieta
   * priority
 * **--Add** -Dodaj nową właściwość do wdrożenia, łącznie z warunkami docelowymi lub etykietami.
@@ -237,7 +237,7 @@ Polecenie aktualizacji wdrożenia przyjmuje następujące parametry:
 
 Po usunięciu wdrożenia wszystkie urządzenia przyjmą kolejne wdrożenie o najwyższym priorytecie. Jeśli urządzenia nie spełniają warunku docelowego innego wdrożenia, moduły nie zostaną usunięte po usunięciu wdrożenia.
 
-Użyj polecenia [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) , aby usunąć wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) , aby usunąć wdrożenie:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
@@ -246,7 +246,7 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 Polecenie usunięcia wdrożenia przyjmuje następujące parametry:
 
 * **--Deployment-ID** — nazwa wdrożenia, która istnieje w usłudze IoT Hub.
-* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`
 
 ## <a name="next-steps"></a>Następne kroki
 

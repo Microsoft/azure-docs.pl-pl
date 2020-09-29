@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883234"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439087"
 ---
 # <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
 
@@ -49,7 +49,7 @@ W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w program
 
 8.  W przypadku wybrania tej metody należy określić liczbę epoki do wczesnego zatrzymania **szkolenia, jeśli**utrata walidacji nie zmniejszy się po kolei. Domyślnie 3.
 
-9.  Prześlij potok. Jeśli zestaw danych ma większy rozmiar, zajmie trochę czasu.
+9.  Prześlij potok. Jeśli zestaw danych ma większy rozmiar, to zajmie trochę czasu, a obliczenia procesora GPU są zalecane.
 
 ## <a name="results"></a>Wyniki
 
@@ -68,11 +68,11 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 | Nazwa          | Zakres            | Typ    | Domyślny | Opis                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Epoki        | >0               | Integer | 5       | Wybierz kolumnę, która zawiera etykietę lub kolumnę wyniku |
-| Rozmiar partii    | >0               | Integer | 16      | Liczba wystąpień do uczenia w partii   |
+| Epoki        | >0               | Liczba całkowita | 5       | Wybierz kolumnę, która zawiera etykietę lub kolumnę wyniku |
+| Rozmiar partii    | >0               | Liczba całkowita | 16      | Liczba wystąpień do uczenia w partii   |
 | Tempo nauki | >= Double. Epsilon | Float   | 0,001   | Początkowa stawka szkoleniowa dla Stochastycznegoego gradientu. |
-| Losowy inicjator   | Dowolne              | Integer | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
-| Oczekując      | >0               | Integer | 3       | Ile epok z wczesnym zatrzymywaniem szkoleń   |
+| Losowy inicjator   | Dowolne              | Liczba całkowita | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
+| Oczekując      | >0               | Liczba całkowita | 3       | Ile epok z wczesnym zatrzymywaniem szkoleń   |
 
 ###  <a name="outputs"></a>Dane wyjściowe  
 

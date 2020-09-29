@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244994"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441284"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Samouczek: wdrażanie aplikacji usługi Service Fabric w klastrze na platformie Azure
 
@@ -78,19 +78,19 @@ W polu **Punkt końcowy połączenia** wybierz pozycję **Tworzenie nowego klast
 
 Na karcie **Klaster** wprowadź wartość w polu **Nazwa klastra** (na przykład „mytestcluster”), wybierz swoją subskrypcję, wybierz region dla klastra (na przykład Południowo-środkowe stany USA), wprowadź liczby węzłów klastra (na potrzeby klastra testowego zalecamy trzy węzły), a następnie wprowadź grupę zasobów (na przykład „mytestclustergroup”). Kliknij przycisk **Dalej**.
 
-![Tworzenie klastra](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![Zrzut ekranu przedstawia kartę klaster okna dialogowego Tworzenie klastra Service Fabric.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 Na karcie **Certyfikat** wprowadź hasło i ścieżkę danych wyjściowych dla certyfikatu klastra. Certyfikat z podpisem własnym zostanie utworzony jako plik PFX i zapisany w określonej ścieżce danych wyjściowych.  Certyfikat jest używany zarówno w przypadku zabezpieczeń między węzłami, jak i zabezpieczeń między klientem i węzłem.  Nie używaj certyfikatu z podpisem własnym dla klastrów produkcyjnych.  Ten certyfikat jest używany przez program Visual Studio do uwierzytelniania w klastrze i wdrażania aplikacji. Zaznacz pozycję **Importuj certyfikat**, aby zainstalować plik PFX w folderze CurrentUser\My certificate store na Twoim komputerze.  Kliknij przycisk **Dalej**.
 
-![Tworzenie klastra](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![Zrzut ekranu przedstawia kartę certyfikat okna dialogowego Tworzenie klastra Service Fabric.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
 Na karcie **Szczegóły maszyny wirtualnej** wprowadź wartości **Nazwa użytkownika** i **Hasło** dla konta administratora klastra.  Wybierz pozycję **Obraz maszyny wirtualnej** dla węzłów klastra i **Rozmiar maszyny wirtualnej** dla każdego węzła klastra.  Kliknij kartę **Zaawansowane**.
 
-![Tworzenie klastra](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![Zrzut ekranu przedstawia kartę Szczegóły V M okna dialogowego Tworzenie klastra Service Fabric.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 W polu **Porty** wprowadź punkt końcowy usługi VotingWeb z poprzedniego kroku (na przykład 8080).  Po utworzeniu klastra te porty aplikacji będą otwierane w module równoważenia obciążenia platformy Azure w celu przekazywania ruchu do klastra.  Kliknij przycisk **Utwórz**, aby utworzyć klaster, co zajmie kilka minut.
 
-![Tworzenie klastra](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![Zrzut ekranu przedstawia kartę Zaawansowane okna dialogowego Tworzenie klastra Service Fabric.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## <a name="publish-the-application-to-the-cluster"></a>Publikowanie aplikacji w klastrze
 
@@ -101,7 +101,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (
 W polu **Punkt końcowy połączenia** wybierz punkt końcowy klastra utworzonego w poprzednim kroku.  Na przykład „mytestcluster.southcentral.cloudapp.azure.com:19000”. Jeśli wybierzesz pozycję **Zaawansowane parametry połączenia**, informacje o certyfikacie powinny być automatycznie wypełnione.  
 ![Publikowanie aplikacji usługi Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-Wybierz pozycję **Opublikuj**.
+Kliknij pozycję **Opublikuj**.
 
 Po wdrożeniu aplikacji otwórz przeglądarkę i wprowadź adres klastra, a następnie wartość **:8080**. Ewentualnie wpisz inny numer portu, jeśli został skonfigurowany. Może to być na przykład `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Aplikacja zostanie teraz wyświetlona jako uruchomiona w klastrze na platformie Azure. Na stronie internetowej aplikacji do głosowania spróbuj dodać lub usunąć opcje głosowania oraz zagłosować na co najmniej jedną z tych opcji.
 

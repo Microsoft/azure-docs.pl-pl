@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd4ec60691344cef4030472b474a82e84c70244f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261179"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441264"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -208,7 +208,7 @@ Na koniec przychodźmy wszystko razem. W `CreateAndSaveSphere()` metodzie Dodaj 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć [okna dane wyjściowe](https://docs.microsoft.com/visualstudio/ide/reference/output-window) podczas debugowania w **programie Visual Studio** , aby monitorować komunikaty dziennika wysyłane przez aplikację. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
+Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć [okna dane wyjściowe](https://docs.microsoft.com/visualstudio/ide/reference/output-window) podczas debugowania w **programie Visual Studio** , aby monitorować komunikaty dziennika wysyłane przez aplikację. Upewnij się, że wdrażasz `Debug` konfigurację aplikacji z programu Visual Studio, aby wyświetlić komunikaty dziennika. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
 
 > [!NOTE]
 > Jeśli zostanie wyświetlony element "DllNotFoundException —: nie można załadować biblioteki DLL" AzureSpatialAnchors ": nie można odnaleźć określonego modułu." należy **wyczyścić** i **skompilować** rozwiązanie ponownie.

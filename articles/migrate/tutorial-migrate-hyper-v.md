@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90525341"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439073"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób migrowania lokalnych maszyn wirtualnych funkcji H
 Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować maszyny na platformę Azure. 
 
 > [!NOTE]
-> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. 
+> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
  Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -133,7 +133,7 @@ Po ukończeniu odnajdywania można rozpocząć replikację maszyn wirtualnych fu
 
     ![Ustawienia obliczeniowe maszyny wirtualnej](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. W obszarze **Dyski** określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowe dyski SSD/dyski twarde lub dyski zarządzane w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
+12. W obszarze **dyski**Określ dyski maszyn wirtualnych, które mają być replikowane na platformę Azure. Następnie kliknij przycisk **Dalej**.
     - Dyski można wykluczyć z replikacji.
     - Jeśli wykluczysz dyski, nie będą one znajdować się na maszynie wirtualnej platformy Azure po migracji. 
 

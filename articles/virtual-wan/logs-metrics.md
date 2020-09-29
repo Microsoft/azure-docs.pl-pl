@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983639"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440864"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Dzienniki i metryki wirtualnych sieci WAN platformy Azure
 
@@ -66,7 +66,7 @@ Poniższe kroki ułatwiają lokalizowanie i wyświetlanie metryk:
 
 4. Na stronie **metryki** możesz wyświetlić interesujące Cię metryki.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Strona metryk":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Dzienniki diagnostyczne
 
@@ -93,15 +93,15 @@ Poniższe kroki ułatwiają znalezienie i wyświetlenie diagnostyki:
 
 1. W portalu przejdź do wirtualnego zasobu sieci WAN. W sekcji **Omówienie** wirtualnej sieci WAN w portalu wybierz pozycję **Essentials** , aby rozwinąć widok i uzyskać informacje o grupie zasobów. Skopiuj informacje o grupie zasobów.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Strona metryk":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
 
 2. W sekcji monitorowanie przejdź do grupy zasobów. Wybierz pozycję **Ustawienia diagnostyczne**, a następnie wprowadź informacje o zasobach. To są informacje o zasobie skopiowane w kroku 2 z sekcji [Wyświetl metryki bramy](#metrics-steps) wcześniej w tym artykule.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Strona metryk":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
 
 3. Na stronie Wyniki wybierz pozycję **+ Dodaj ustawienie diagnostyczne**, a następnie wybierz opcję. Możesz zdecydować się na wysyłanie do Log Analytics, przesyłanie strumieniowe do centrum zdarzeń lub po prostu archiwizowanie na koncie magazynu.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Strona metryk":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Przykładowe zapytanie Log Analytics
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 9b44b27730fff888685ef7e0ad06d35e7bdc88c7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567323"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439744"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -114,6 +114,7 @@ Ta sekcja zawiera odwołania do rozwiązań obliczeniowych o wysokiej wydajnośc
 ### <a name="analytics"></a>Analiza
 
 * [Azure NetApp Files: nowy współużytkowany system plików do użycia z siatką SAS na Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
+* [Najlepsze rozwiązania dotyczące używania Microsoft Azure z SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
 ## <a name="azure-platform-services-solutions"></a>Rozwiązania usług platformy Azure
 

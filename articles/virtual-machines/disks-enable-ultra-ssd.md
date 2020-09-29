@@ -4,16 +4,16 @@ description: Dowiedz się więcej o usłudze Ultra disks dla maszyn wirtualnych 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328229"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441207"
 ---
 # <a name="using-azure-ultra-disks"></a>Korzystanie z usługi Azure Ultra disks
 
@@ -155,7 +155,7 @@ W tej sekcji omówiono wdrażanie maszyny wirtualnej wyposażonej w dysk jako dy
 - Zmień wartości **niestandardowego rozmiaru dysku (GIB)**, operacji we **/wy**na dysku i **przepływności dysku** do wybranych przez siebie opcji.
 - Wybierz **przycisk OK** w obu blokach.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający blok Wybieranie rozmiaru dysku, Ultra dysk wybrany dla typu magazynu, inne wyróżnione wartości.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający tworzenie nowego bloku dysku, Zmień rozmiar wyróżniony.":::
 
 - Kontynuuj Wdrażanie maszyny wirtualnej, tak samo jak w przypadku wdrożenia innej maszyny wirtualnej.
 
@@ -250,7 +250,7 @@ Alternatywnie, jeśli istniejąca maszyna wirtualna znajduje się w strefie regi
 - Zmień **Typ konta** na **Ultra Disk**.
 - Zmień wartości **niestandardowego rozmiaru dysku (GIB)**, operacji we **/wy**na dysku i **przepływności dysku** do wybranych przez siebie opcji.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający blok Wybieranie rozmiaru dysku, Ultra dysk wybrany dla typu magazynu, inne wyróżnione wartości.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający tworzenie nowego bloku dysku, Zmień rozmiar wyróżniony.":::
 
 - Wybierz przycisk **OK** , a następnie wybierz pozycję **Utwórz**.
 - Po powrocie do bloku dysku wybierz pozycję **Zapisz**.
@@ -409,4 +409,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Korzystanie z usługi Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)](../aks/use-ultra-disks.md).
+- [Użyj usługi Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)](../aks/use-ultra-disks.md).
+- [Migruj dysk dziennika do postaci Ultra Disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

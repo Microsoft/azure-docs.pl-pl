@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983748"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441027"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Łączenie VPN Gateway (Brama sieci wirtualnej) z wirtualną siecią WAN
 
@@ -83,7 +83,7 @@ W tej sekcji pobrano plik konfiguracji sieci VPN dla każdej lokacji utworzonej 
 
 1. W górnej części strony wirtualne **sieci VPN** sieci WAN wybierz **lokację**, a następnie wybierz pozycję **Pobierz konfigurację sieci VPN typu lokacja-lokacja**. Na platformie Azure zostanie utworzony plik konfiguracji z ustawieniami.
 
-   ![Pobierz plik konfiguracji](./media/connect-virtual-network-gateway-vwan/download.png "pobieranie")
+   ![Zrzut ekranu przedstawiający stronę "witryny sieci VPN" z wybraną akcją Pobierz konfigurację sieci VPN typu lokacja-lokacja.](./media/connect-virtual-network-gateway-vwan/download.png "pobieranie")
 2. Pobierz i Otwórz plik konfiguracji.
 3. Powtórz te kroki dla drugiej lokacji. Po otwarciu obu plików konfiguracji można przejoć do następnej sekcji.
 
@@ -98,7 +98,7 @@ W tej sekcji utworzysz dwie bramy sieci lokalnej na platformie Azure VPN Gateway
    * **Subskrypcja, Grupa zasobów i lokalizacja** są takie same jak dla wirtualnego KONCENTRATORA sieci WAN.
 2. Przejrzyj i Utwórz bramę sieci lokalnej. Brama sieci lokalnej powinna wyglądać podobnie do tego przykładu.
 
-   ![Pobierz plik konfiguracji](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Zrzut ekranu przedstawiający stronę "Konfiguracja" z wyróżnionym adresem IP i wybraną opcją "Konfiguruj ustawienia protokołu BGP".](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Powtórz te kroki, aby utworzyć kolejną bramę sieci lokalnej, ale tym razem użyj wartości "Wystąpienia1" zamiast wartości "Instance0" z pliku konfiguracji.
 
    ![Pobierz plik konfiguracji](./media/connect-virtual-network-gateway-vwan/lng2.png "wystąpienia1")

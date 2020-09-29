@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904853"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440733"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
 
@@ -162,7 +162,7 @@ Można włączyć JIT na maszynie wirtualnej ze stron usługi Azure Virtual Mach
     1. Po zakończeniu edycji portów wybierz pozycję **Zapisz**.
 
 
-### <a name="powershell"></a>[**Narzędzia**](#tab/jit-config-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
 ### <a name="enable-jit-on-your-vms-using-powershell"></a>Włączanie JIT na maszynach wirtualnych za pomocą programu PowerShell
 
@@ -241,7 +241,7 @@ Każda z tych opcji została omówiona na osobnej karcie poniżej.
 
 Jeśli maszyna wirtualna ma włączoną funkcję JIT, musisz poprosić o uzyskanie dostępu, aby się z nim połączyć. Możesz zażądać dostępu na dowolnym z obsługiwanych sposobów, niezależnie od tego, jak włączono JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Żądanie dostępu JIT z Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Konfigurowanie dostępu JIT VM w Azure Security Center":::
 
 1. Na stronie **dostęp do maszyny wirtualnej just-in-Time** wybierz kartę **skonfigurowane** .
 
@@ -288,7 +288,7 @@ Aby zażądać dostępu z usługi Azure Virtual Machines:
 
 
 
-### <a name="powershell"></a>[**Narzędzia**](#tab/jit-request-powershell)
+### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
 ### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Zażądaj dostępu do maszyny wirtualnej z obsługą JIT przy użyciu programu PowerShell
 

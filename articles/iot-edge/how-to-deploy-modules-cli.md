@@ -10,18 +10,18 @@ ms.reviewer: menchi
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 222e3e75d61096dc7aebb409213b8016e478c72b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24630295eaea04044273c412760d25bcddf41335
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501580"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439683"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Wdrażanie modułów Azure IoT Edge za pomocą interfejsu wiersza polecenia platformy Azure
 
 Po utworzeniu modułów IoT Edge za pomocą logiki biznesowej należy wdrożyć je na urządzeniach, aby działały na brzegu. Jeśli masz wiele modułów, które współpracują ze sobą w celu zbierania i przetwarzania danych, możesz wdrożyć je wszystkie jednocześnie i zadeklarować reguły routingu, które je łączą.
 
-[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Edge. Umożliwia ona zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning Service i połączonymi centrami spoza pola. Nowe rozszerzenie IoT wzbogaca interfejs wiersza polecenia platformy Azure z funkcjami takimi jak zarządzanie urządzeniami i pełna IoT Edge.
+[Interfejs wiersza polecenia platformy Azure](/cli/azure) to narzędzie wielodostępnej do obsługi wielu platform i zarządzania zasobami platformy Azure, takimi jak IoT Edge. Umożliwia ona zarządzanie zasobami IoT Hub platformy Azure, wystąpieniami usługi Device Provisioning Service i połączonymi centrami spoza pola. Nowe rozszerzenie IoT wzbogaca interfejs wiersza polecenia platformy Azure z funkcjami takimi jak zarządzanie urządzeniami i pełna IoT Edge.
 
 W tym artykule przedstawiono sposób tworzenia manifestu wdrożenia JSON, a następnie użycia tego pliku do wypchnięcia wdrożenia na urządzenie IoT Edge. Aby uzyskać informacje na temat tworzenia wdrożenia, które jest przeznaczone dla wielu urządzeń na podstawie ich udostępnionych tagów, zobacz [wdrażanie i monitorowanie modułów IoT Edge w odpowiedniej skali](how-to-deploy-cli-at-scale.md)
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono sposób tworzenia manifestu wdrożenia JSON, a nast
 
 * [Centrum IoT](../iot-hub/iot-hub-create-using-cli.md) w ramach subskrypcji platformy Azure.
 * [Urządzenie IoT Edge](how-to-register-device.md#register-with-the-azure-cli) z zainstalowanym IoT Edge środowiska uruchomieniowego.
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az --version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w Twoim środowisku. Minimalna wersja interfejsu wiersza polecenia platformy Azure musi być 2.0.70 lub nowsza. Użyj polecenia `az --version` w celu przeprowadzenia weryfikacji. Ta wersja obsługuje polecenia rozszerzenia az i wprowadza platformę poleceń Knack.
 * [Rozszerzenie IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia

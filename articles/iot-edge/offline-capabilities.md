@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926658"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440045"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informacje o rozszerzonych możliwościach trybu offline dla urządzeń IoT Edge, modułów i urządzeń podrzędnych
 
@@ -68,7 +68,7 @@ Można zadeklarować relację nadrzędny-podrzędny podczas tworzenia nowego urz
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opcja 2. Korzystanie z `az` narzędzia wiersza polecenia
 
-Korzystając z [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) z [rozszerzeniem IoT](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 lub nowszy), można zarządzać relacjami nadrzędnych obiektów podrzędnych za pomocą podpoleceń [tożsamości urządzenia](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) . W poniższym przykładzie używa się zapytania do przypisywania wszystkich urządzeń, które nie są IoT Edge w koncentratorze, jako urządzeń podrzędnych urządzenia IoT Edge.
+Korzystając z [interfejsu wiersza polecenia platformy Azure](/cli/azure/) z [rozszerzeniem IoT](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 lub nowszy), można zarządzać relacjami nadrzędnych obiektów podrzędnych za pomocą podpoleceń [tożsamości urządzenia](/cli/azure/ext/azure-iot/iot/hub/device-identity) . W poniższym przykładzie używa się zapytania do przypisywania wszystkich urządzeń, które nie są IoT Edge w koncentratorze, jako urządzeń podrzędnych urządzenia IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device

@@ -1,22 +1,22 @@
 ---
 title: 'Azure VPN Gateway: Tworzenie & Instalowanie plików konfiguracji klienta sieci VPN — P2S połączeń usługi RADIUS'
-description: Tworzenie plików konfiguracji klienta sieci VPN systemu Windows, Mac OS X i Linux dla połączeń korzystających z uwierzytelniania usługi RADIUS.
+description: Tworzenie plików konfiguracji klienta sieci VPN systemu Windows, OS X i Linux dla połączeń korzystających z uwierzytelniania usługi RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419915"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440057"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN na potrzeby uwierzytelniania P2S RADIUS
 
-Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia typu punkt-lokacja (P2S), należy skonfigurować urządzenie klienckie, z którego będziesz się łączyć. Można tworzyć połączenia sieci VPN P2S z urządzeń klienckich z systemem Windows, Mac OS X i Linux. 
+Aby nawiązać połączenie z siecią wirtualną przy użyciu połączenia typu punkt-lokacja (P2S), należy skonfigurować urządzenie klienckie, z którego będziesz się łączyć. Połączenia sieci VPN P2S można tworzyć z urządzeń klienckich z systemami Windows, OS X i Linux. 
 
 W przypadku korzystania z uwierzytelniania usługi RADIUS istnieje wiele opcji uwierzytelniania: uwierzytelnianie nazwy użytkownika/hasła, uwierzytelnianie certyfikatów i inne typy uwierzytelniania. Konfiguracja klienta sieci VPN różni się w zależności od typu uwierzytelniania. Aby skonfigurować klienta sieci VPN, należy użyć plików konfiguracji klienta, które zawierają wymagane ustawienia. Ten artykuł ułatwia utworzenie i zainstalowanie konfiguracji klienta sieci VPN dla typu uwierzytelniania usługi RADIUS, który ma być używany.
 
@@ -36,7 +36,7 @@ Przepływ konfiguracji dla uwierzytelniania usługi P2S RADIUS jest następując
 >
 >
 
-Aby skorzystać z sekcji w tym artykule, najpierw należy wybrać typ uwierzytelniania, który ma być używany: Nazwa użytkownika/hasło, certyfikat lub inne typy uwierzytelniania. Każda sekcja zawiera kroki dla systemów Windows, Mac OS X i Linux (w tym momencie dostępne są ograniczone kroki).
+Aby skorzystać z sekcji w tym artykule, najpierw należy wybrać typ uwierzytelniania, który ma być używany: Nazwa użytkownika/hasło, certyfikat lub inne typy uwierzytelniania. Każda sekcja zawiera kroki dla systemów Windows, OS X i Linux (w tym momencie dostępne są ograniczone kroki).
 
 
 ## <a name="usernamepassword-authentication"></a><a name="adeap"></a>Uwierzytelnianie nazwy użytkownika/hasła
@@ -130,7 +130,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN syst
 6. Podczas instalacji profilu można określić nazwę użytkownika i hasło do uwierzytelniania sieci VPN. Wprowadzanie tych informacji nie jest obowiązkowe. W takim przypadku informacje są zapisywane i automatycznie używane po zainicjowaniu połączenia.Wybierz pozycję **Zainstaluj** , aby wykonać operację.
 
    ![Pola nazwy użytkownika i hasła dla sieci VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-7. Wprowadź nazwę użytkownika i hasło dla uprawnień wymaganych do zainstalowania profilu na komputerze. Wybierz przycisk **OK**.
+7. Wprowadź nazwę użytkownika i hasło dla uprawnień wymaganych do zainstalowania profilu na komputerze. Wybierz pozycję **OK**.
 
    ![Pola Nazwa użytkownika i hasło dla instalacji profilu](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 8. Po zainstalowaniu profilu jest on widoczny w oknie dialogowym **Profile** . Możesz również otworzyć to okno dialogowe później z poziomu **preferencji systemowych**.
@@ -142,9 +142,9 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN syst
 10. Połączenie sieci VPN jest wyświetlane jako **IkeV2-VPN**. Nazwę można zmienić, aktualizując plik **MOBILECONFIG** .
 
     ![Szczegóły połączenia sieci VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-11. Wybierz pozycję **Ustawienia uwierzytelniania**. Na liście wybierz pozycję **username** i wprowadź swoje poświadczenia. Jeśli poświadczenia zostały wprowadzone wcześniej, na liście zostanie automatycznie wybrana **Nazwa użytkownika** , a nazwa użytkownika i hasło są wypełniane wstępnie. Wybierz **przycisk OK** , aby zapisać ustawienia.
+11. Wybierz pozycję **Ustawienia uwierzytelniania**. Na liście wybierz pozycję **username** i wprowadź swoje poświadczenia. Jeśli poświadczenia zostały wprowadzone wcześniej, na liście zostanie automatycznie wybrana **Nazwa użytkownika** , a nazwa użytkownika i hasło zostaną wstępnie wypełnione. Wybierz **przycisk OK** , aby zapisać ustawienia.
 
-    ![Ustawienia uwierzytelniania](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną "ustawienia uwierzytelniania" z wybraną opcją "username".](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. W oknie dialogowym **Sieć** wybierz pozycję **Zastosuj** , aby zapisać zmiany. Aby zainicjować połączenie, wybierz pozycję **Połącz**.
 
 #### <a name="linux-vpn-client-setup-through-strongswan"></a><a name="adlinuxcli"></a>Konfiguracja klienta sieci VPN z systemem Linux za pośrednictwem klient strongswan

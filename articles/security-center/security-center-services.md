@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403496"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439420"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 

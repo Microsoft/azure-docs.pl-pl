@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947541"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439986"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL — elastyczny serwer
 
@@ -49,15 +49,14 @@ W przypadku planowanych lub nieplanowanych zdarzeń trybu failover, jeśli serwe
 1. Zainicjowano nową maszynę wirtualną obliczeniową z systemem Linux.
 2. Magazyn z plikami danych jest mapowany na nową maszynę wirtualną
 3. Aparat bazy danych PostgreSQL jest przełączany w tryb online na nowej maszynie wirtualnej.
-4. Usługa bramy zapewnia przezroczyste przełączanie do trybu failover, co nie wymaga żadnych zmian po stronie aplikacji.
 
 Na poniższej ilustracji przedstawiono przejście do awarii maszyny wirtualnej i magazynu.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Elastyczny serwer — awarie maszyn wirtualnych i magazynu":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Elastyczny serwer — awarie maszyn wirtualnych i magazynu":::
 
 Jeśli skonfigurowano nadmiarową wysoką dostępność strefy, usługa inicjuje i utrzymuje serwer rezerwy dynamicznej w strefie dostępności w tym samym regionie świadczenia usługi Azure. Zmiany danych na serwerze źródłowym są synchronicznie replikowane na serwerze rezerwy w celu zapewnienia zerowej utraty danych. Gdy zostanie wyzwolone planowane lub nieplanowane zdarzenie trybu failover z nadmiarową strefą o nieodpowiedniej dostępności, serwer rezerwy natychmiast przejdzie w tryb online i jest dostępny do przetwarzania przychodzących transakcji. Pozwala to na odporność usługi ze względu na awarię strefy dostępności w regionie świadczenia usługi Azure, który obsługuje wiele stref dostępności, jak pokazano na poniższej ilustracji.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Strefa nadmiarowa wysokiej dostępności":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Elastyczny serwer — awarie maszyn wirtualnych i magazynu":::
 
  Aby uzyskać więcej informacji, zobacz [dokument o wysokiej dostępności](./concepts-high-availability.md) .
 

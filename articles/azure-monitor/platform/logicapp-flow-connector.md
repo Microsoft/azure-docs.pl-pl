@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475740"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439247"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Łącznik Azure Monitor Logs dla Logic Apps i automatyzacji
 [Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
@@ -68,7 +68,7 @@ Kliknij pozycję **+ nowy krok** , aby dodać akcję, która jest uruchamiana po
 
 Kliknij pozycję **Azure log Analytics — uruchom zapytanie i Wizualizuj wyniki**.
 
-![Akcja uruchamiania zapytania i wizualizacji wyników](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Zrzut ekranu przedstawiający nową akcję dodawaną do kroku w Projektancie aplikacji logiki. Dzienniki Azure Monitor są wyróżnione w obszarze Wybierz akcję.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Dodaj akcję dzienników Azure Monitor
@@ -87,7 +87,7 @@ Event
 
 Wybierz pozycję *Ustaw w polu zapytanie* dla **zakresu czasu** i **tabeli HTML** dla **typu wykresu**.
    
-![Akcja uruchamiania zapytania i wizualizacji wyników](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Zrzut ekranu przedstawiający ustawienia nowej akcji dzienników Azure Monitor o nazwie Run Query i Wizualizuj wyniki.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 Wiadomość e-mail zostanie wysłana przez konto skojarzone z bieżącym połączeniem. Możesz określić inne konto, klikając pozycję **Zmień połączenie**.
 

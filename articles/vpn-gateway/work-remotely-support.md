@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: a70f7ccd1c3ca078bab0ff473283b505c0ded316
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441565"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440831"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Zdalna współpraca przy użyciu usługi Azure VPN Gateway Point-to-site
 
@@ -30,13 +30,13 @@ Połączenie bramy VPN Gateway typu punkt-lokacja pozwala utworzyć bezpieczne p
 
 W poniższej tabeli przedstawiono systemy operacyjne klienta i dostępne dla nich opcje uwierzytelniania. Warto wybrać metodę uwierzytelniania na podstawie systemu operacyjnego klienta, który jest już używany. Na przykład wybierz pozycję OpenVPN z uwierzytelnianiem opartym na certyfikatach, jeśli masz kombinację systemów operacyjnych klienta, które muszą nawiązać połączenie. Należy również pamiętać, że sieć VPN typu punkt-lokacja jest obsługiwana tylko na bramach sieci VPN opartych na trasach.
 
-![punkt-lokacja](./media/working-remotely-support/ostable.png "System operacyjny")
+![Zrzut ekranu przedstawiający klienckie systemy operacyjne i dostępne opcje uwierzytelniania.](./media/working-remotely-support/ostable.png "System operacyjny")
 
 ## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Scenariusz 1 — użytkownicy potrzebują dostępu tylko do zasobów na platformie Azure
 
 W tym scenariuszu użytkownicy zdalni muszą tylko uzyskać dostęp do zasobów znajdujących się na platformie Azure.
 
-![punkt-lokacja](./media/working-remotely-support/scenario1.png "Scenariusz 1")
+![Diagram pokazujący scenariusz punkt-lokacja dla użytkowników, którzy potrzebują dostępu do zasobów tylko na platformie Azure.](./media/working-remotely-support/scenario1.png "Scenariusz 1")
 
 Na wysokim poziomie następujące kroki są niezbędne, aby umożliwić użytkownikom bezpieczne łączenie z zasobami platformy Azure:
 
@@ -55,7 +55,7 @@ Na wysokim poziomie następujące kroki są niezbędne, aby umożliwić użytkow
 
 W tym scenariuszu użytkownicy zdalni muszą uzyskać dostęp do zasobów znajdujących się na platformie Azure i w lokalnych centrach danych.
 
-![punkt-lokacja](./media/working-remotely-support/scenario2.png "Scenariusz 2")
+![Diagram pokazujący scenariusz punkt-lokacja dla użytkowników, którzy potrzebują dostępu do zasobów na platformie Azure.](./media/working-remotely-support/scenario2.png "Scenariusz 2")
 
 Na wysokim poziomie następujące kroki są niezbędne, aby umożliwić użytkownikom bezpieczne łączenie z zasobami platformy Azure:
 

@@ -1,23 +1,23 @@
 ---
 title: 'Azure ExpressRoute: Konfigurowanie ExpressRoute Direct: interfejs wiersza polecenia'
-description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure, aby skonfigurować usługę Azure ExpressRoute Direct do bezpośredniego połączenia z siecią globalną firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.
+description: Dowiedz się, jak skonfigurować usługę Azure ExpressRoute Direct przy użyciu interfejsu wiersza polecenia platformy Azure, aby połączyć się bezpośrednio z siecią globalną firmy Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4eea79d6166ef4beae3b2d61e47e7df0bc82624c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395965"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440219"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurowanie usługi ExpressRoute Direct przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Możesz użyć usługi Azure ExpressRoute Direct, aby połączyć się bezpośrednio z siecią globalną firmy Microsoft w lokalizacjach komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Aby uzyskać więcej informacji, zobacz [Informacje o programie ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+Funkcja ExpressRoute Direct umożliwia bezpośrednie łączenie się z siecią globalną firmy Microsoft przy użyciu lokalizacji komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Aby uzyskać więcej informacji, zobacz [Informacje o programie ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Tworzenie zasobu
 
@@ -209,7 +209,13 @@ Możesz użyć usługi Azure ExpressRoute Direct, aby połączyć się bezpośre
    }  
    ```
 
-## <a name="change-adminstate-for-links"></a><a name="state"></a>Zmień AdminState dla linków
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generuj list autoryzacji (DOWANIU)
+
+Wprowadź ostatnio utworzoną nazwę zasobu ExpressRoute Direct, nazwę grupy zasobów i nazwę klienta, aby zapisać DOWANIU do i (opcjonalnie) zdefiniować lokalizację pliku do przechowywania dokumentu. Jeśli ścieżka do pliku nie jest przywoływana, dokument zostanie pobrany do bieżącego katalogu.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
 
 Użyj tego procesu, aby przeprowadzić test warstwy 1. Upewnij się, że każde połączenie krzyżowe jest poprawnie poprawione na każdy router w portach podstawowych i dodatkowych.
 
@@ -287,7 +293,8 @@ Dodatkowe przepustowości obwodów w usłudze ExpressRoute Direct można używa�
 
 **SkuTier** może być lokalna, standardowa lub Premium.
 
-**SkuFamily** muszą być MeteredData tylko jako nieograniczone nie są obsługiwane w przypadku ExpressRoute Direct.
+**SkuFamily** może być tylko MeteredData. Nieograniczona nie jest obsługiwana w przypadku ExpressRoute Direct.
+
 Utwórz obwód w zasobie ExpressRoute Direct:
 
   ```azurecli

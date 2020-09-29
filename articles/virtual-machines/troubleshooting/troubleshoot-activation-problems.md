@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3179324dd71ebf3bb44cb68f0fd84486bb88e2ce
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009700"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441054"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Rozwiązywanie problemów z aktywacją maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -61,7 +61,7 @@ W przypadku maszyny wirtualnej utworzonej na podstawie obrazu niestandardowego n
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Jeśli po wpisaniu **slmgr.vbs /dlv** zostanie wyświetlony kanał RETAIL, uruchom następujące polecenia, aby ustawić [klucz konfiguracji klienta usługi KMS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) dla używanej wersji systemu Windows Server i wymusić ponowienie próby aktywacji: 
+2. Jeśli po wpisaniu **slmgr.vbs /dlv** zostanie wyświetlony kanał RETAIL, uruchom następujące polecenia, aby ustawić [klucz konfiguracji klienta usługi KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys) dla używanej wersji systemu Windows Server i wymusić ponowienie próby aktywacji: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>

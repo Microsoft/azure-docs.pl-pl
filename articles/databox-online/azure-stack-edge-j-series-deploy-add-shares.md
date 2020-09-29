@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3c0a72c9daa72cffcfe2e5e45bbb6214a13e0a7f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891101"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440279"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów przy użyciu procesora GPU w Azure Stack Edge
 
@@ -116,7 +116,7 @@ Na kliencie systemu Windows używanym do łączenia się z urządzeniem wykonaj 
     ``` 
     Adres IP urządzenia można pobrać z **sieci** i przyjazną nazwę urządzenia ze strony **urządzenia** w lokalnym interfejsie użytkownika sieci Web. Następujący zrzut ekranu przedstawiający plik Hosts zawiera wpis:
 
-    ![Eksplorator Windows — plik hosts](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
+    ![Eksplorator Windows hostuje plik 2](media/azure-stack-edge-j-series-deploy-add-shares/client-hosts-file-2.png)
 
 ### <a name="connect-to-an-smb-share"></a>Łączenie z udziałem SMB
 

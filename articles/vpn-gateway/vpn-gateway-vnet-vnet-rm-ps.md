@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1b1cd0adb8581c7aa94f0de85a9f8beab38da112
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edd9f9f3127178f168f6c768b092a7ec6311e7bf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398566"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440925"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu programu PowerShell
 
@@ -67,7 +67,7 @@ W tym ćwiczeniu możesz łączyć konfiguracje lub po prostu wybrać tę, któr
 
 * [Sieci wirtualne znajdujące się w tej samej subskrypcji:](#samesub) w ramach tej konfiguracji są używane sieci TestVNet1 i TestVNet4.
 
-  ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![Diagram przedstawiający kroki usługi net-to-V netto dotyczące sieci V, które znajdują się w tej samej subskrypcji.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [Sieci wirtualnych, które znajdują się w różnych subskrypcjach](#difsub): dla tej konfiguracji należy użyć sieci testvnet1 i sieci testvnet5.
 
@@ -203,7 +203,7 @@ W przykładach stosujemy następujące wartości:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-Po zakończeniu poleceń zajmiemy do 45 minut, aby utworzyć tę bramę. Jeśli używasz Azure Cloud Shell, możesz ponownie uruchomić sesję CloudShell, klikając w lewym górnym rogu terminala Cloud Shell, a następnie skonfiguruj sieci testvnet4. Nie musisz czekać na zakończenie bramy sieci testvnet1.
+Po zakończeniu poleceń zajmiemy do 45 minut, aby utworzyć tę bramę. Jeśli używasz Azure Cloud Shell, możesz ponownie uruchomić sesję Cloud Shell, klikając w lewym górnym rogu terminalu Cloud Shell, a następnie skonfiguruj sieci testvnet4. Nie musisz czekać na zakończenie bramy sieci testvnet1.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3 — Tworzenie i konfigurowanie sieci TestVNet4
 
@@ -475,7 +475,7 @@ Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [verify connections PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 

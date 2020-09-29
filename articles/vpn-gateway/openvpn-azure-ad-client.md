@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: a1e2804b45efe95ee1f67c3aadbefccd805d1aa2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 279c66fa16ac82335a074da60bce35325d4b4499
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981887"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439467"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Uwierzytelnianie Azure Active Directory: Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN
 
@@ -58,7 +58,7 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Zaznacz profil klienta sieci VPN, który chcesz wyeksportować, wybierz pozycję **...**, a następnie wybierz pozycję **Eksportuj**.
 
-    ![eksportowanie](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![Zrzut ekranu przedstawiający stronę "klient sieci VPN platformy Azure" z zaznaczonym wielokropkiem i wyróżnioną opcją "Eksportuj".](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Wybierz lokalizację, w której chcesz zapisać ten profil, pozostaw nazwę pliku, a następnie wybierz pozycję **Zapisz** , aby zapisać plik XML.
 
@@ -68,19 +68,19 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Na stronie wybierz pozycję **Importuj**.
 
-    ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Dodaj" oraz akcję "Importuj" wyróżnioną w lewej dolnej części okna.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz**.
 
-    ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![Zrzut ekranu pokazujący wybrany profil x m l.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Określ nazwę profilu i wybierz pozycję **Zapisz**.
 
-    ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![Zrzut ekranu, na którym jest wyróżnione okno "nazwa połączenia" i wybrany przycisk "Zapisz".](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
-    ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![Zrzut ekranu pokazujący wybrany przycisk sieci VPN i "Połącz".](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Po nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
@@ -90,7 +90,7 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Wybierz wielokropek obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![Zrzut ekranu pokazujący, że wybrano opcję wielokropka i "Usuń".](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
@@ -100,19 +100,19 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Na stronie wybierz pozycję **+** , a następnie pozycję **+ Dodaj**.
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Dodaj".](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Wprowadź informacje o połączeniu. Jeśli nie masz pewności co do wartości, skontaktuj się z administratorem. Po wypełnieniu wartości wybierz pozycję **Zapisz**.
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![Zrzut ekranu pokazujący wyróżnione właściwości połączenia sieci VPN i wybrany przycisk "Zapisz".](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Połącz".](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Wybierz odpowiednie poświadczenia, a następnie wybierz pozycję **Kontynuuj**.
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![Zrzut ekranu przedstawiający przykładowe wyróżnione poświadczenia i wybrany przycisk "Kontynuuj".](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Po pomyślnym nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
@@ -124,15 +124,15 @@ Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z
 
 1. Na stronie głównej klienta sieci VPN wybierz pozycję **Ustawienia sieci VPN**.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![Zrzut ekranu strony głównej sieci VPN z wybraną opcją "Ustawienia sieci VPN".](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. W oknie dialogowym przełączanie aplikacji wybierz pozycję **tak** .
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![Zrzut ekranu przedstawiający "czy chcesz przełączyć aplikacje?" okno dialogowe z wybranym przyciskiem "tak".](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Upewnij się, że połączenie, które chcesz ustawić, nie jest już połączone, a następnie zaznacz profil i zaznacz pole wyboru **Połącz automatycznie** .
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![Zrzut ekranu przedstawiający okno "Ustawienia" z zaznaczonym polem "Połącz automatycznie".](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Wybierz pozycję **Połącz** , aby zainicjować połączenie sieci VPN.
 
@@ -142,15 +142,15 @@ Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z
 
 1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz **...** obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj**.
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Zrzut ekranu przedstawiający wielokropek i "Diagnozuj wybrane".](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę**.
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Zrzut ekranu przedstawiający stronę "właściwości połączenia" z wybraną opcją "Uruchom diagnostykę".](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Zaloguj się przy użyciu swoich poświadczeń.
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Logowanie do użytkownika" z wybraną opcją "konto służbowe".](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Wyświetl wyniki diagnostyki.
 

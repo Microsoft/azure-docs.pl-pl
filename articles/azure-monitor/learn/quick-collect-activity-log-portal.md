@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446378"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439213"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Wyślij dziennik aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu Azure Portal
 Dziennik aktywności to dziennik platformy na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne w celu wysłania dziennika aktywności do dzienników Azure Monitor, gdzie można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../platform/alerts-log-query.md) i [skoroszyty](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 W Azure Portal Wyszukaj, a następnie wybierz pozycję **log Analytics obszary robocze**. 
 
-![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
+![Zrzut ekranu przedstawiający Azure Portal pokazujący obszary robocze usługi log Analytics w polu wyszukiwania i Log Analytics obszary robocze wyróżnione w obszarze usługi.](media/quick-create-workspace/azure-portal-01.png)
   
 Kliknij przycisk **Dodaj**, a następnie podaj wartości dla **grupy zasobów**, **nazwy**obszaru roboczego i **lokalizacji**. Nazwa obszaru roboczego musi być unikatowa we wszystkich subskrypcjach platformy Azure.
 
@@ -36,7 +36,7 @@ Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć ustawienia, a następn
 ## <a name="create-diagnostic-setting"></a>Tworzenie ustawienia diagnostycznego
 W Azure Portal Wyszukaj, a następnie wybierz pozycję **Monitoruj**. 
 
-![Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Zrzut ekranu przedstawiający Azure Portal z "monitorem" w polu wyszukiwania i monitorze wyróżnionym w obszarze usługi.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Wybierz pozycję **Dziennik aktywności**. Ostatnie zdarzenia powinny być widoczne dla bieżącej subskrypcji. Kliknij pozycję **Ustawienia diagnostyczne** , aby wyświetlić ustawienia diagnostyki dla subskrypcji.
 

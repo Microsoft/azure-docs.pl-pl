@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439362"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -231,7 +231,7 @@ Jeśli chcesz wiedzieć, jak skonfigurować urządzenie, możesz skorzystać z i
 
 Ustawienia bramy sieci VPN można wyświetlać i konfigurować w dowolnym momencie, wybierając pozycję **Wyświetl/Skonfiguruj**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;sieć VPN (lokacja-lokacja)&quot; ze strzałką wskazującą akcję &quot;Wyświetl/Konfiguruj&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawienia:
 
@@ -240,7 +240,7 @@ Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawien
 * VPN Gateway domyślny adres IP protokołu BGP (przypisany przez platformę Azure)
 * Opcja konfiguracji dla niestandardowego adresu IP protokołu BGP: to pole jest zarezerwowane dla funkcji APIPA (automatyczne prywatne adresy IP). Platforma Azure obsługuje adres IP BGP w zakresach 169.254.21. * i 169.254.22. *. Platforma Azure akceptuje połączenia BGP w tych zakresach, ale nawiąże połączenie z domyślnym adresem IP protokołu BGP.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;sieć VPN (lokacja-lokacja)&quot; ze strzałką wskazującą akcję &quot;Wyświetl/Konfiguruj&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

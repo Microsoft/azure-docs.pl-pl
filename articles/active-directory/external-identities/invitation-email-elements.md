@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909338"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439842"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory
 
@@ -75,7 +75,21 @@ W następnej sekcji wiadomości e-mail znajdują się informacje o tym, gdzie za
 Stopka zawiera więcej informacji na temat wysyłanego zaproszenia. Zawsze istnieje opcja zapraszania do blokowania przyszłych zaproszeń. Jeśli organizacja [ustawi zasady zachowania poufności informacji](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), w tym miejscu zostanie wyświetlony link do instrukcji.  W przeciwnym razie Uwaga wskazuje, że organizacja nie ustawił zasad zachowania poufności informacji.
 
 ![Obraz sekcji stopki w wiadomości e-mail](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Blokowanie organizacji (anulowanie subskrypcji)
+
+W przypadku zaproszenia od organizacji Stopka zawiera opcję **blokowania przyszłych zaproszeń**. Użytkownik-gość może wybrać ten link, aby zablokować wszelkie przyszłe zaproszenia w organizacji. Ta akcja powoduje również dodanie organizacji do niesubskrybowanej listy użytkownika [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>Przeglądanie zablokowanych organizacji
+
+Użytkownik-gość może wykonać następujące kroki, aby wyświetlić lub wyeksportować organizacje, które zostały zablokowane:
+
+1. Przejdź do witryny [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Wprowadź swój adres e-mail i postępuj zgodnie z procedurami logowania do jednorazowego uwierzytelniania kodu dostępu w wiadomości e-mail.
+3. Wyświetl zablokowane organizacje lub wyeksportuj nazwy przy użyciu funkcji Kopiuj i wklej.
+   > [!NOTE]
+   > Jeśli chcesz zezwolić organizacji, dla której zablokowano zaproszenie, możesz wybrać organizację i wybrać pozycję **dalej**.
+
 ## <a name="how-the-language-is-determined"></a>Sposób ustalania języka
 
 Język prezentowany użytkownikowi gość w wiadomości e-mail z zaproszeniem jest określany na podstawie następujących ustawień. Te ustawienia są wymienione w kolejności pierwszeństwa. Jeśli ustawienie nie zostanie skonfigurowane, następne ustawienie na liście określi język.

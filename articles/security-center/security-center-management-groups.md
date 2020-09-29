@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534910"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440781"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
 W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą Azure Active Directory.
@@ -48,8 +48,8 @@ Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządz
     - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń z tej grupy zarządzania. Tego identyfikatora nie można edytować po utworzeniu, ponieważ jest on używany w całym systemie Azure do identyfikowania tej grupy. 
     - Pole Nazwa wyświetlana to nazwa wyświetlana w Azure Portal. Oddzielna nazwa wyświetlana jest polem opcjonalnym podczas tworzenia grupy zarządzania i można ją zmienić w dowolnym momencie.  
 
-      ![Przycisk Utwórz](./media/security-center-management-groups/create_context_menu.png)  
-5.  Wybierz pozycję **Zapisz**.
+      ![Utwórz](./media/security-center-management-groups/create_context_menu.png)  
+5.  Wybierz pozycję **Zapisz**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Wyświetlanie grup zarządzania w Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).

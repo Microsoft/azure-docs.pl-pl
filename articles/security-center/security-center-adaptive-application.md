@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268166"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439003"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 

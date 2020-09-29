@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 831ce1ccb2c09a85ddfff8fa65172b1871119a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079897"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439997"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure
 Połączenie RDP (Remote Desktop Protocol) z maszyną wirtualną platformy Azure bazującą na systemie Windows może ulec awarii z wielu powodów, uniemożliwiając uzyskanie dostępu do maszyny wirtualnej. Ten problem może być związany z usługą pulpitu zdalnego na maszynie wirtualnej, połączeniem sieciowym lub klientem pulpitu zdalnego na komputerze hosta. Ten artykuł przeprowadzi Cię przez niektóre z najbardziej popularnych metod rozwiązywania problemów z połączeniem RDP. 
@@ -66,7 +66,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Resetuj hasło** . Ustaw **tryb** **resetowania tylko konfiguracji** , a następnie kliknij przycisk **Aktualizuj** :
    
-    ![Zresetuj konfigurację RDP w Azure Portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
+    ![Zresetuj konfigurację R D P w Azure Portal.](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **Sprawdź reguły sieciowej grupy zabezpieczeń**. Użyj [weryfikacji przepływu IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) , aby potwierdzić, czy reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące zasady grupy zabezpieczeń, aby upewnić się, że przychodząca reguła sieciowej grupy zabezpieczeń "Zezwalaj" istnieje i ma priorytet dla portu RDP (domyślnie 3389). Aby uzyskać więcej informacji, zobacz Używanie obowiązujących [reguł zabezpieczeń w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Przejrzyj diagnostykę rozruchu maszyn wirtualnych**. Ten krok rozwiązywania problemów przegląda dzienniki konsoli maszyny wirtualnej w celu ustalenia, czy maszyna wirtualna zgłasza problem. Nie wszystkie maszyny wirtualne mają włączoną diagnostykę rozruchu, więc ten krok rozwiązywania problemów może być opcjonalny.
@@ -78,17 +78,17 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **kondycja zasobu** . Raporty maszyny wirtualnej w dobrej kondycji jako **dostępne**:
    
-    ![Sprawdź kondycję zasobów maszyny wirtualnej w Azure Portal](./media/troubleshoot-rdp-connection/check-resource-health.png)
+    ![Sprawdź kondycję zasobów V M w Azure Portal.](./media/troubleshoot-rdp-connection/check-resource-health.png)
 6. **Zresetuj poświadczenia użytkownika**. Ten krok rozwiązywania problemów resetuje hasło na koncie administratora lokalnego, gdy nie masz pewności lub nie pamiętasz poświadczeń.  Po zalogowaniu się do maszyny wirtualnej należy zresetować hasło dla tego użytkownika.
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Resetuj hasło** . Upewnij się, że **tryb** jest ustawiony na **Resetowanie hasła** , a następnie wprowadź nazwę użytkownika i nowe hasło. Na koniec kliknij przycisk **Aktualizuj** :
    
-    ![Zresetuj poświadczenia użytkownika w Azure Portal](./media/troubleshoot-rdp-connection/reset-password.png)
+    ![Zresetuj poświadczenia użytkownika w Azure Portal.](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **Uruchom ponownie maszynę wirtualną**. Ten krok rozwiązywania problemów może rozwiązać wszelkie podstawowe problemy związane z maszyną wirtualną.
    
-    Wybierz maszynę wirtualną w Azure Portal i kliknij kartę **Przegląd** . kliknij przycisk **Uruchom ponownie** :
+    Wybierz maszynę wirtualną w Azure Portal i kliknij kartę **Przegląd** . Kliknij przycisk **Uruchom ponownie** :
    
-    ![Uruchom ponownie maszynę wirtualną w Azure Portal](./media/troubleshoot-rdp-connection/restart-vm.png)
+    ![Ponownie uruchom V M w Azure Portal.](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **Wdróż ponownie maszynę wirtualną**. Ten krok rozwiązywania problemów polega na ponownym wdrożeniu maszyny wirtualnej na innym hoście na platformie Azure w celu poprawienia wszystkich podstawowych problemów z platformą lub siecią.
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Wdróż** ponownie, a następnie kliknij pozycję **ponowne wdrożenie**:
@@ -203,14 +203,14 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
     Wybierz maszynę wirtualną w Azure Portal. Kliknij przycisk **... Przycisk więcej** , a następnie kliknij pozycję **Zresetuj dostęp zdalny**:
    
-    ![Zresetuj konfigurację RDP w Azure Portal](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
+    ![Zresetuj konfigurację R D P w Azure Portal dla V M przy użyciu klasycznego modelu wdrażania.](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **Sprawdź Cloud Services punkty końcowe**. Ten krok rozwiązywania problemów sprawdza, czy masz punkty końcowe w Cloud Services, aby zezwolić na ruch RDP. Domyślnym portem protokołu RDP jest port TCP 3389. Reguła zezwalająca na ruch RDP może nie zostać utworzona automatycznie podczas tworzenia maszyny wirtualnej.
    
    Wybierz maszynę wirtualną w Azure Portal. Kliknij przycisk **punkty końcowe** , aby wyświetlić punkty końcowe aktualnie skonfigurowane dla maszyny wirtualnej. Sprawdź, czy istnieją punkty końcowe, które zezwalają na ruch RDP na porcie TCP 3389.
    
    W poniższym przykładzie przedstawiono prawidłowe punkty końcowe, które zezwalają na ruch RDP:
    
-   ![Sprawdź, Cloud Services punkty końcowe w Azure Portal](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
+   ![Sprawdź, Cloud Services punkty końcowe w Azure Portal dla V M przy użyciu klasycznego modelu wdrażania.](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
    Jeśli nie masz punktu końcowego, który zezwala na ruch RDP, [Utwórz punkt końcowy Cloud Services](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). Zezwalaj na TCP na port prywatny 3389.
 3. **Przejrzyj diagnostykę rozruchu maszyn wirtualnych**. Ten krok rozwiązywania problemów przegląda dzienniki konsoli maszyny wirtualnej w celu ustalenia, czy maszyna wirtualna zgłasza problem. Nie wszystkie maszyny wirtualne mają włączoną diagnostykę rozruchu, więc ten krok rozwiązywania problemów może być opcjonalny.
@@ -220,17 +220,17 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Resource Health** . Raporty maszyny wirtualnej w dobrej kondycji jako **dostępne**:
    
-    ![Sprawdź kondycję zasobów maszyny wirtualnej w Azure Portal](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
+    ![Sprawdź kondycję zasobów V M w Azure Portal dla V M przy użyciu klasycznego modelu wdrażania.](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
 5. **Zresetuj poświadczenia użytkownika**. Ten krok rozwiązywania problemów resetuje hasło na koncie administratora lokalnego określonego w przypadku braku pewności lub zapomniania poświadczeń.  Po zalogowaniu się do maszyny wirtualnej należy zresetować hasło dla tego użytkownika.
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Resetuj hasło** . Wprowadź nazwę użytkownika i nowe hasło. Na koniec kliknij przycisk **Zapisz** :
    
-    ![Zresetuj poświadczenia użytkownika w Azure Portal](./media/troubleshoot-rdp-connection/classic-reset-password.png)
+    ![Zresetuj poświadczenia użytkownika w Azure Portal dla V M przy użyciu klasycznego modelu wdrażania.](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **Uruchom ponownie maszynę wirtualną**. Ten krok rozwiązywania problemów może rozwiązać wszelkie podstawowe problemy związane z maszyną wirtualną.
    
-    Wybierz maszynę wirtualną w Azure Portal i kliknij kartę **Przegląd** . kliknij przycisk **Uruchom ponownie** :
+    Wybierz maszynę wirtualną w Azure Portal i kliknij kartę **Przegląd** . Kliknij przycisk **Uruchom ponownie** :
    
-    ![Uruchom ponownie maszynę wirtualną w Azure Portal](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+    ![Uruchom ponownie V M w Azure Portal dla V M przy użyciu klasycznego modelu wdrażania.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
 7. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
