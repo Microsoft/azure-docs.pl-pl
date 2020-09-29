@@ -4,12 +4,12 @@ description: Informacje na temat odnajdywania lokalnych maszyn wirtualnych VMwar
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442223"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych VMware z oceną serwera
 
@@ -50,7 +50,7 @@ Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, 
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
-Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
+Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
 
@@ -72,6 +72,7 @@ Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicie
 
     ![Sprawdź ustawienia użytkownika, które użytkownicy mogą rejestrować Active Directory aplikacje](./media/tutorial-discover-vmware/register-apps.png)
 
+9. Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę **dewelopera aplikacji** do konta, aby umożliwić rejestrację aplikacji usługi AAD. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Przygotuj oprogramowanie VMware
 
@@ -114,7 +115,7 @@ Skonfiguruj nowy projekt Azure Migrate.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-vmware/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -144,7 +145,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -165,7 +166,7 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Przykład użycia: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Sprawdź najnowsze wersje urządzeń i wartości skrótu:
 
@@ -173,13 +174,13 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
     
         **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        VMware (11,6 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11,9 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - Dla Azure Government:
     
         **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 

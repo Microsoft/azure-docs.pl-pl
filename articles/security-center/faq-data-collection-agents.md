@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894820"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441495"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -166,7 +166,7 @@ Automatyczne Inicjowanie obsługi dla subskrypcji w zasadach zabezpieczeń możn
 
 1. Jeśli subskrypcja ma włączoną usługę Azure Defender, Otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz pozycję **Azure Defender off**.
 
-   ![Warstwa cenowa][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Włączanie lub wyłączanie usługi Azure Defender":::
 
 1. Następnie wyłącz automatyczne Inicjowanie obsługi, wybierając pozycję **wyłączone** na stronie **zasady zabezpieczeń — zbieranie danych** .
    ![Zbieranie danych][2]
@@ -200,7 +200,7 @@ Ręcznie zainstaluj rozszerzenie agenta Log Analytics, aby Security Center móg�
 
 Możesz połączyć agenta z dowolnym istniejącym obszarem roboczym lub Security Center utworzonym obszarem roboczym. Jeśli w niestandardowym obszarze roboczym nie włączono rozwiązań "Security" lub "SecurityCenterFree", należy zastosować rozwiązanie. Aby zastosować tę opcję, wybierz niestandardowy obszar roboczy lub subskrypcję i Zastosuj warstwę cenową na stronie **zasady zabezpieczeń — warstwa cenowa** .
 
-   ![Warstwa cenowa][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Włączanie lub wyłączanie usługi Azure Defender":::
 
 Security Center włączy poprawne rozwiązanie w obszarze roboczym w oparciu o wybraną warstwę cenową.
 
@@ -271,7 +271,6 @@ Agent zużywa nominalną ilość zasobów systemowych i powinien mieć niewielki
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

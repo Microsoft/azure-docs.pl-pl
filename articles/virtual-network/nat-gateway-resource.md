@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612899"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441758"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
-Zasoby bramy translatora adresów sieciowych są częścią [Virtual Network NAT](nat-overview.md) i zapewniają wychodzącą łączność z Internetem dla jednej lub kilku podsieci sieci wirtualnej. Podsieć stanów sieci wirtualnej, która będzie używana przez bramę translatora adresów sieciowych. Translator adresów sieciowych udostępnia translację adresów sieci (Resources) dla podsieci.  Zasoby bramy translatora adresów sieciowych określają, które statyczne adresy IP będą używane przez maszyny wirtualne podczas tworzenia przepływów wychodzących. Statyczne adresy IP pochodzą z zasobów publicznych adresów IP, zasobów prefiksu publicznego adresu IP lub obu. Jeśli jest używany zasób prefiksu publicznego adresu IP, wszystkie adresy IP całego zasobu prefiksu publicznego adresu IP są używane przez zasób bramy translatora adresów sieciowych. Zasób bramy NAT może korzystać z maksymalnie 16 statycznych adresów IP z obu.
-
+Zasoby bramy translatora adresów sieciowych są częścią [Virtual Network NAT](nat-overview.md) i zapewniają wychodzącą łączność z Internetem dla jednej lub kilku podsieci sieci wirtualnej. Podsieć stanów sieci wirtualnej, która będzie używana przez bramę translatora adresów sieciowych. Translator adresów sieciowych udostępnia translację adresów sieci (Resources) dla podsieci.  Zasoby bramy translatora adresów sieciowych określają, które statyczne adresy IP będą używane przez maszyny wirtualne podczas tworzenia przepływów wychodzących. Statyczne adresy IP pochodzą z zasobów publicznego adresu IP (PIP), zasobów prefiksu publicznego adresu IP lub obu. Jeśli jest używany zasób prefiksu publicznego adresu IP, wszystkie adresy IP całego zasobu prefiksu publicznego adresu IP są używane przez zasób bramy translatora adresów sieciowych. Zasób bramy NAT może korzystać z maksymalnie 16 statycznych adresów IP z obu.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network translator adresów sieciowych dla ruchu wychodzącego do Internetu">
@@ -231,7 +230,7 @@ Gdy scenariusz będzie działał, jego model kondycji i tryb błędu nie są zde
 
 Każdy zasób bramy NAT może zapewnić do 50 GB/s przepustowości. Wdrożenia można podzielić na wiele podsieci i przypisać do skalowania każdą podsieć lub grupę podsieci.
 
-Każda Brama NAT może obsługiwać 64 000 połączeń według przypisanego wychodzącego adresu IP.  Zapoznaj się z poniższą sekcją dotyczącą translacji adresów sieciowych (NAT), aby uzyskać szczegółowe informacje, a także artykuł dotyczący [rozwiązywania problemów](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) z konkretną wskazówką
+Każda Brama NAT może obsługiwać 64 000 przepływy dla protokołów TCP i UDP odpowiednio dla przypisanego wychodzącego adresu IP.  Zapoznaj się z poniższą sekcją dotyczącą translacji adresów sieciowych (NAT), aby uzyskać szczegółowe informacje, a także artykuł dotyczący [rozwiązywania problemów](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) z konkretną wskazówką
 
 ## <a name="source-network-address-translation"></a>Translacja adresów sieci źródłowej
 
@@ -239,27 +238,39 @@ Translator adresów sieciowych (Resources Address Translation) ponownie zapisuje
 
 ### <a name="fundamentals"></a>Podstawy
 
-Spójrzmy na przykład cztery przepływy, aby wyjaśnić podstawową koncepcję.  Brama translatora adresów sieciowych korzysta z 65.52.0.2 zasobów publicznego adresu IP.
+Spójrzmy na przykład cztery przepływy, aby wyjaśnić podstawową koncepcję.  Brama translatora adresów sieciowych korzysta z 65.52.1.1 zasobów publicznego adresu IP, a maszyna wirtualna nawiązywa połączenia z 65.52.0.1.
 
 | Przepływ | Krotka źródłowa | Kolekcja docelowa |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 Te przepływy mogą wyglądać następująco po przejściu z lokalizacji:
 
 | Przepływ | Krotka źródłowa | Spójna kolekcja Source SNAT'ed | Kolekcja docelowa | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-Lokalizacja docelowa będzie widziała źródło przepływu jako 65.52.0.2 (krotka źródłowa źródła danych) ze pokazywanym przypisanym portem.  Dane o pokazanej w powyższej tabeli nazywa się również przystawcy reportcy adresów sieciowych.  Wiele źródeł prywatnych jest zamaskowanych za adresem IP i portem.
+Lokalizacja docelowa będzie widziała źródło przepływu jako 65.52.0.1 (krotka źródłowa źródła danych) ze pokazywanym przypisanym portem.  Dane o pokazanej w powyższej tabeli nazywa się również przystawcy reportcy adresów sieciowych.  Wiele źródeł prywatnych jest zamaskowanych za adresem IP i portem.  
 
-Nie należy polegać na określonym sposobie przypisywania portów źródłowych.  Powyższym jest ilustracja wyłącznie koncepcji podstawowej.
+#### <a name="source-snat-port-reuse"></a>ponowne użycie portu źródła (Resources)
+
+Bramy translatora adresów sieciowych odpowiednio Uzgodnij ponownie używać portów źródła (Resources).  Poniższy przykład ilustruje tę koncepcję jako dodatkowy przepływ dla poprzedzającego zestawu przepływów.  Maszyna wirtualna w przykładzie jest przepływem do 65.52.0.2.
+
+| Przepływ | Krotka źródłowa | Kolekcja docelowa |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+Brama NAT prawdopodobnie przetłumaczy przepływ 4 na port, który może być używany również dla innych miejsc docelowych.  Zobacz [skalowanie](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) w celu uzyskania dodatkowej dyskusji na temat prawidłowej zmiany wielkości APROWIZACJI adresów IP.
+
+| Przepływ | Krotka źródłowa | Spójna kolekcja Source SNAT'ed | Kolekcja docelowa | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+W powyższym przykładzie nie należy przypisywać określonych portów źródłowych.  Powyższym jest ilustracja wyłącznie koncepcji podstawowej.
 
 Przystawka NAT określona przez translatora adresów sieciowych różni się od [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) w kilku aspektach.
 
@@ -292,7 +303,12 @@ Skalowanie translatora adresów sieciowych jest głównie funkcją zarządzania 
 
 Reporty adresów sieciowych mapują adresy prywatne na co najmniej jeden publiczny adres IP, zastępując adres źródłowy i port źródłowy w procesach. Zasób bramy NAT będzie używać portów 64 000 (porty protokołu IP) na skonfigurowany publiczny adres IP dla tego tłumaczenia. Zasoby bramy translatora adresów sieciowych można skalować do maksymalnie 16 adresów IP i 1 – 1 portów. Jeśli zostanie podany zasób prefiksu publicznego adresu IP, każdy adres IP w ramach tego prefiksu udostępnia spis portów. Dodanie większej liczby publicznych adresów IP spowoduje zwiększenie dostępnych portów źródłowego translatora adresów sieciowych. Protokoły TCP i UDP są oddzielnymi spisami portów i niezwiązanych z nimi.
 
-Zasoby bramy translatora adresów sieciowych odpowiednio Uzgodnij ponownie używać portów źródłowych. W celu skalowania należy założyć, że każdy przepływ wymaga nowego portu i przeskaluje łączną liczbę dostępnych adresów IP dla ruchu wychodzącego.
+Zasoby bramy translatora adresów sieciowych odpowiednio Uzgodnij ponownie Użyj portów źródła (Resources). Jako wskazówki dotyczące projektowania na potrzeby skalowania, należy założyć, że każdy przepływ wymaga nowego portu i przeskaluje łączną liczbę dostępnych adresów IP dla ruchu wychodzącego.  Należy uważnie zastanowić się nad skalą, w której projektujesz adresy IP i zapewnić odpowiednie udostępnianie.
+
+Porty przyłączone do różnych miejsc docelowych najprawdopodobniej będą ponownie używane, gdy jest to możliwe. I jako podejścia do wyczerpania portów w ramach adresów sieciowych, przepływy mogą się nie powieść.  
+
+Zobacz [podstawowe informacje o Przytranslatorze adresów sieciowych](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) .
+
 
 ### <a name="protocols"></a>Protokoły
 
@@ -344,11 +360,9 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
   - [Szablon](./quickstart-create-nat-gateway-template.md)
 * Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
   - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [Program PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
 * Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md).
 * Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).
-
-

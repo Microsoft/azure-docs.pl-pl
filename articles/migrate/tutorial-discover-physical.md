@@ -4,12 +4,12 @@ description: Dowiedz się, jak odnajdywać lokalne serwery fizyczne przy użyciu
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600742"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442283"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Samouczek: odnajdywanie serwerów fizycznych za pomocą oceny serwera
 
@@ -37,7 +37,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Wprowadzony** | Potrzebna jest maszyna, na której będzie uruchamiane urządzenie Azure Migrate. Maszyna powinna mieć następujące:<br/><br/> — Zainstalowano system Windows Server 2016. Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane.<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/><br/> — Statyczny lub dynamiczny adres IP, z dostępem do Internetu, bezpośrednio lub za pomocą serwera proxy.
+**Wprowadzony** | Potrzebna jest maszyna, na której będzie uruchamiane urządzenie Azure Migrate. Maszyna powinna mieć następujące:<br/><br/> — Zainstalowano system Windows Server 2016. _(Obecnie wdrożenie urządzenia jest obsługiwane tylko w systemie Windows Server 2016)._<br/><br/> -16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku<br/><br/> — Statyczny lub dynamiczny adres IP, z dostępem do Internetu, bezpośrednio lub za pomocą serwera proxy.
 **Serwery z systemem Windows** | Zezwalaj na połączenia przychodzące na porcie WinRM 5985 (HTTP), aby urządzenie mogły ściągnąć konfigurację i metadane wydajności.
 **Serwery z systemem Linux** | Zezwalaj na połączenia przychodzące na porcie 22 (TCP).
 
@@ -47,7 +47,7 @@ Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, 
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
-Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
+Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
 
@@ -69,7 +69,7 @@ Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicie
 
     ![Sprawdź ustawienia użytkownika, które użytkownicy mogą rejestrować Active Directory aplikacje](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę **dewelopera aplikacji** do konta, aby umożliwić rejestrację aplikacji usługi AAD. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Przygotuj serwery fizyczne
 
@@ -94,7 +94,7 @@ Skonfiguruj nowy projekt Azure Migrate.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-physical/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -113,7 +113,7 @@ Aby skonfigurować urządzenie:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **fizyczne lub inne (AWS, GCP, Xen itp.)**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów fizycznych lub wirtualnych. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -139,13 +139,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Fizyczne (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Dla Azure Government:
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Fizyczne (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Uruchom skrypt Instalatora Azure Migrate
@@ -239,7 +239,7 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane wykrytego serwera pojawiły
 
 Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
 2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 ## <a name="next-steps"></a>Następne kroki
 

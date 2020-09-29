@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526888"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441621"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Aby skonfigurować ustawienia blokady konta, wykonaj następujące ustawienia:
 
 ## <a name="block-and-unblock-users"></a>Blokowanie i odblokowywanie użytkowników
 
-Jeśli urządzenie użytkownika zostało zgubione lub skradzione, można zablokować próby uwierzytelniania dla skojarzonego konta. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania.
+Jeśli urządzenie użytkownika zostało zgubione lub skradzione, można zablokować usługi Azure Multi-Factor Authentication dla skojarzonego konta. Wszystkie próby Multi-Factor Authentication platformy Azure dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania.
 
 ### <a name="block-a-user"></a>Blokuj użytkownika
 
@@ -85,7 +85,7 @@ Funkcja alertu oszustwa umożliwia użytkownikom zgłaszanie fałszywych prób u
 
 Dostępne są następujące opcje konfiguracji alertów oszustw:
 
-* **Automatycznie blokuj użytkowników, którzy zgłaszają oszustwo**: w przypadku zgłaszania oszustw przez użytkownika konto jest blokowane przez 90 dni lub do momentu odblokowania konta przez administratora. Administrator może przejrzeć logowania przy użyciu raportu logowania i podjąć odpowiednie działania, aby zapobiec przyszłym oszustwom. Administrator może następnie [odblokować](#unblock-a-user) konto użytkownika.
+* **Automatycznie blokuj użytkowników, którzy zgłaszają oszustwo**: w przypadku zgłaszania oszustw przez użytkownika próby uwierzytelnienia usługi Azure MFA dla konta użytkownika są blokowane przez 90 dni lub do momentu odblokowania konta przez administratora. Administrator może przejrzeć logowania przy użyciu raportu logowania i podjąć odpowiednie działania, aby zapobiec przyszłym oszustwom. Administrator może następnie [odblokować](#unblock-a-user) konto użytkownika.
 * **Kod służący do zgłaszania oszustw podczas początkowego powitania**: gdy użytkownicy otrzymają połączenie telefoniczne w celu przeprowadzenia uwierzytelniania wieloskładnikowego, zazwyczaj naciskają **#** się w celu potwierdzenia ich zalogowania. Aby zgłosić oszustwo, użytkownik wprowadza kod przed naciśnięciem klawisza **#** . Ten kod jest domyślnie **0** , ale można go dostosować.
 
    > [!NOTE]
@@ -244,7 +244,7 @@ Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwier
 
 | Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
 |:--- |:--- |
-| Zarządzany |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
+| Zarządzani |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
 | Federacyjni |**Wszyscy użytkownicy federacyjne**: Wszyscy użytkownicy zarejestrowani z wewnątrz organizacji mogą ominąć uwierzytelnianie wieloskładnikowe. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. |
 
 Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu uwierzytelniania wieloskładnikowego. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
@@ -268,7 +268,7 @@ Za pomocą reguł dostępu warunkowego można definiować nazwane lokalizacje, w
 1. Wprowadź nazwę lokalizacji.
 1. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
 1. Wprowadź zakres adresów IP w notacji CIDR dla danego środowiska, na przykład *40.77.182.32/27*.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
 

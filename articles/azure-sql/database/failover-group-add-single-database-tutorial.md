@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263593"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442726"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Samouczek: Dodawanie Azure SQL Database do grupy autotrybu failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

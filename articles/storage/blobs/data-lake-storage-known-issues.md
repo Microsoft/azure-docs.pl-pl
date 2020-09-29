@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923742"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441786"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -66,7 +66,7 @@ Możliwość stosowania zmian listy ACL rekursywnie z katalogu nadrzędnego do e
 
 <a id="known-issues-tools"></a>
 
-## <a name="azcopy"></a>Narzędzie AzCopy
+## <a name="azcopy"></a>AzCopy
 
 Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
@@ -96,7 +96,7 @@ Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) zos
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
-Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Przykład:
+Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Na przykład:
 
 ```powershell
 #To login
@@ -113,11 +113,9 @@ Ustawienie dni przechowywania nie jest jeszcze obsługiwane, ale można je usun�
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-- Zasady zarządzania cyklem życia nie są jeszcze obsługiwane na kontach magazynu BlockBlobStorage w warstwie Premium. 
+- Zasady zarządzania cyklem życia są obsługiwane tylko w przypadku kont ogólnego przeznaczenia w wersji 2. Nie są one jeszcze obsługiwane na kontach magazynu BlockBlobStorage w warstwie Premium.
+- Nie można przenieść danych z warstwy Premium do niższej warstwy.
 
-- Nie można przenieść danych z warstwy Premium do niższej warstwy. 
-
-- Akcja **usuwania obiektu BLOB** nie jest obecnie obsługiwana. 
 
 ### <a name="hdinsight-support"></a>Obsługa usługi HDInsight
 

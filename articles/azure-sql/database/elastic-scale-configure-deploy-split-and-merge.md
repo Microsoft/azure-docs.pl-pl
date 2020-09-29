@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064948"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443039"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi Split-Merge do przenoszenia danych między bazami danych podzielonej na fragmenty
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -141,7 +141,7 @@ Należy pamiętać, że w przypadku wdrożeń produkcyjnych dla urzędu certyfik
 
 ## <a name="deploy-your-service"></a>Wdrażanie usługi
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Wybierz utworzoną wcześniej usługę w chmurze.
 3. Kliknij pozycję **Przegląd**.
 4. Wybierz środowisko przejściowe, a następnie kliknij pozycję **Przekaż**.
@@ -182,7 +182,7 @@ Uwzględnione pliki skryptów:
 1. *SetupSampleSplitMergeEnvironment.ps1* — konfiguruje warstwę danych testowych dla operacji Split/Merge (zobacz tabelę poniżej, aby uzyskać szczegółowy opis)
 2. *ExecuteSampleSplitMerge.ps1* — wykonuje operacje testowe w warstwie danych testowych (patrz tabela poniżej w celu uzyskania szczegółowego opisu)
 3. Przykładowy skrypt *GetMappings.ps1* -najwyższego poziomu, który drukuje bieżący stan mapowań fragmentu.
-4. *ShardManagement. PSM1* — skrypt pomocniczy, który otacza interfejs API ShardManagement
+4. *ShardManagement. PSM1*  — skrypt pomocniczy, który otacza interfejs API ShardManagement
 5. *SqlDatabaseHelpers. PSM1* — skrypt pomocnika służący do tworzenia baz danych i zarządzania nimi w SQL Database
 
    <table style="width:100%">

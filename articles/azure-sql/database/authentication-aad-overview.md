@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277949"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444431"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Użyj uwierzytelniania Azure Active Directory
 

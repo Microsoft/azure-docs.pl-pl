@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3bc575dfd815ce4d967fb4328a0a412fce1e8d81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 657ddc9f772d31e8845631501e72175ecfbc78d7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829503"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442705"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uaktualnij aplikację, aby użyć najnowszej biblioteki klienta Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,8 +48,8 @@ Wykonanie tych kroków w celu zapewnienia, że stare wersje biblioteki klienta n
 ***Opcja 1: Uaktualnianie metadanych przy użyciu programu PowerShell***
 
 1. Pobierz najnowsze narzędzie wiersza polecenia dla programu NuGet z tego [miejsca](https://nuget.org/nuget.exe) i Zapisz je w folderze.
-2. Otwórz wiersz polecenia, przejdź do tego samego folderu i wydaj polecenie:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Przejdź do podfolderu zawierającego nową wersję biblioteki DLL klienta, na przykład:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+2. Otwórz wiersz polecenia, przejdź do tego samego folderu i wydaj polecenie: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Przejdź do podfolderu zawierającego nową wersję biblioteki DLL klienta, na przykład: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Pobierz skrypt uaktualnienia Elastic Database Client z [Centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)i Zapisz go w tym samym folderze, w którym znajduje się biblioteka DLL.
 5. W tym folderze Uruchom polecenie "PowerShell .\upgrade.ps1" w wierszu polecenia i postępuj zgodnie z monitami.
 

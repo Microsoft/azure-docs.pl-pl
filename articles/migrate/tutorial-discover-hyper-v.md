@@ -4,12 +4,12 @@ description: Dowiedz się, jak odnajdywać lokalne maszyny wirtualne funkcji Hyp
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603955"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442323"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Samouczek: odnajdywanie maszyn wirtualnych funkcji Hyper-V z oceną serwera
 
@@ -39,7 +39,7 @@ Przed rozpoczęciem tego samouczka zapoznaj się z wymaganiami wstępnymi.
 **Wymaganie** | **Szczegóły**
 --- | ---
 **Host funkcji Hyper-V** | Hosty funkcji Hyper-V, na których znajdują się maszyny wirtualne, mogą być autonomiczne lub w klastrze.<br/><br/> Na hoście musi być uruchomiony system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/><br/> Sprawdź, czy połączenia przychodzące są dozwolone na porcie WinRM 5985 (HTTP), tak aby urządzenie mogło nawiązać połączenie w celu ściągnięcia metadanych maszyny wirtualnej i danych wydajności przy użyciu sesji model wspólnych informacji (CIM).
-**Wdrażanie urządzenia** | vCenter Server wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> — Windows Server 2016<br/><br/> -32 GB pamięci RAM<br/><br/> -Osiem procesorów wirtualnych vCPU<br/><br/> -Około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny.<br/><br/> — Dostęp do Internetu dla maszyny wirtualnej, bezpośrednio lub za pośrednictwem serwera proxy.
+**Wdrażanie urządzenia** | Host funkcji Hyper-v wymaga zasobów do przydzielenia maszyny wirtualnej dla urządzenia:<br/><br/> — Windows Server 2016<br/><br/> -16 GB pamięci RAM<br/><br/> -Osiem procesorów wirtualnych vCPU<br/><br/> -Około 80 GB miejsca na dysku.<br/><br/> — Zewnętrzny przełącznik wirtualny.<br/><br/> — Dostęp do Internetu dla maszyny wirtualnej, bezpośrednio lub za pośrednictwem serwera proxy.
 **Maszyny wirtualne** | Na maszynach wirtualnych może działać dowolny system operacyjny Windows lub Linux. 
 
 Przed rozpoczęciem możesz [przejrzeć dane](migrate-appliance.md#collected-data---hyper-v) zbierane przez urządzenie podczas odnajdywania.
@@ -50,7 +50,7 @@ Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, 
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
-Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
+Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
 
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
@@ -73,6 +73,8 @@ Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicie
 
     ![Sprawdź ustawienia użytkownika, które użytkownicy mogą rejestrować Active Directory aplikacje](./media/tutorial-discover-hyper-v/register-apps.png)
 
+9. Alternatywnie, dzierżawa/Administrator globalny może przypisać rolę **dewelopera aplikacji** do konta, aby umożliwić rejestrację aplikacji usługi AAD. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 ## <a name="prepare-hyper-v-hosts"></a>Przygotuj hosty funkcji Hyper-V
 
 Skonfiguruj konto z dostępem administratora na hostach funkcji Hyper-V. Urządzenie używa tego konta do odnajdowania.
@@ -93,7 +95,7 @@ konfiguruje nowy projekt Azure Migrate.
 
    ![Pola nazwy i regionu projektu](./media/tutorial-discover-hyper-v/new-project.png)
 
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8. Zaczekaj kilka minut, aż projekt usługi Azure Migrate zostanie wdrożony.
 
 **Azure Migrate: Narzędzie do oceny serwera** jest domyślnie dodawane do nowego projektu.
@@ -115,7 +117,7 @@ Ten samouczek konfiguruje urządzenie na maszynie wirtualnej funkcji Hyper-V w n
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 3. W **1: Wygeneruj klucz projektu Azure Migrate**, podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych funkcji Hyper-V. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -135,7 +137,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 2. Uruchom następujące polecenie programu PowerShell, aby wygenerować skrót dla pliku ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Sprawdź najnowsze wersje urządzeń i wartości skrótu:
 
@@ -143,13 +145,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        Funkcja Hyper-V (10,4 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Funkcja Hyper-V (8,91 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - Dla Azure Government:
 
         **Scenariusz*** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        Funkcja Hyper-V (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Funkcja Hyper-V (85,8 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
 
@@ -214,7 +216,7 @@ Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowani
 1. Na maszynie wirtualnej urządzenia Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Alternatywnie należy to zrobić w Edytor lokalnych zasad grupy na urządzeniu:
@@ -252,7 +254,7 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane odnalezionych serwerów by�
 
 Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoczne w portalu.
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
 2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: migrate
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 574bc4721f83d60fdd8c75b4fedb824522968822
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f7aad271f04bcb4eb63472716ea2fe9f98a0e33
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070050"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443706"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: Importowanie pliku BACPAC do bazy danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,6 +147,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - Importowanie do bazy danych w elastycznej puli nie jest obsługiwane. Dane można importować do pojedynczej bazy danych, a następnie przenieść ją do elastycznej puli.
 - Usługa Import Export nie działa, gdy ustawienie Zezwalaj na dostęp do usług platformy Azure jest wyłączone. Można jednak obejść ten problem, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+- Import nie obsługuje określania nadmiarowości magazynu kopii zapasowych podczas tworzenia nowej bazy danych i jest tworzona przy użyciu domyślnej nadmiarowości geograficznie nadmiarowego magazynu kopii zapasowej. Aby obejść ten element, należy najpierw utworzyć pustą bazę danych o nadmiarowości magazynu kopii zapasowej za pomocą Azure Portal lub programu PowerShell, a następnie zaimportować BACPAC do tej pustej bazy danych. 
+
+> [!NOTE]
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna w publicznej wersji zapoznawczej tylko w regionie "Południowo-Wschodnia".
 
 ## <a name="import-using-wizards"></a>Importuj przy użyciu kreatorów
 

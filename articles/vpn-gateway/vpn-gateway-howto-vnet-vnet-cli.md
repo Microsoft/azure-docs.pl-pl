@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ffad738a8f10816f26760fa34c5ce686fac5bad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401150"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442159"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -70,7 +70,7 @@ W tym ćwiczeniu możesz łączyć konfiguracje lub po prostu wybrać tę, któr
 
 * [Sieci wirtualnych, które znajdują się w tej samej subskrypcji:](#samesub) W przypadku tej konfiguracji należy użyć sieci testvnet1 i sieci testvnet4.
 
-  ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![Diagram przedstawiający kroki usługi net-to-V netto dotyczące sieci V, które znajdują się w tej samej subskrypcji.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [Sieci wirtualne znajdujące się w różnych subskrypcjach:](#difsub) w ramach tej konfiguracji są używane sieci TestVNet1 i TestVNet5.
 

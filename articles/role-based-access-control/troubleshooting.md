@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329508"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441825"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -63,7 +63,7 @@ $ras.Count
 
     Istnieją dwa sposoby, aby potencjalnie rozwiązać ten problem. Pierwszy sposób polega na przypisaniu roli [czytniki katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do nazwy głównej usługi, aby mogła ona odczytywać dane w katalogu.
 
-    Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#new-service-principal).
+    Drugim sposobem na rozwiązanie tego błędu jest utworzenie przypisania roli przy użyciu `--assignee-object-id` parametru zamiast `--assignee` . Za pomocą `--assignee-object-id` interfejsu wiersza polecenia platformy Azure pominie wyszukiwanie w usłudze Azure AD. Konieczne będzie uzyskanie identyfikatora obiektu użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -150,7 +150,7 @@ Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejs
 }
 ```
 
-Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
+Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-role-assignment)
 
 W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniższe dane wyjściowe pokazują przykład komunikatu o błędzie:
 

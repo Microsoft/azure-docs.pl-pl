@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398753"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442353"
 ---
 # <a name="wildcard-domains"></a>Domeny wieloznaczne
 
@@ -72,7 +72,7 @@ Jeśli nie chcesz uruchamiać zasad WAFymi dla poddomeny, możesz utworzyć pust
 Podczas konfigurowania reguły routingu można wybrać domenę wieloznaczną jako hosta frontonu. Istnieje również różne zachowanie trasy dla domen symboli wieloznacznych i poddomen. Zgodnie z opisem w temacie [jak usługa Azure Front-drzwiczki kieruje Dopasowywanie](front-door-route-matching.md)do siebie, w czasie wykonywania wybiera się najbardziej szczegółowe dopasowanie dla domeny w różnych regułach routingu.
 
 > [!IMPORTANT]
-> Musisz mieć zgodne wzorce ścieżki w regułach routingu lub klienci będą widzieć błędy. Na przykład istnieją dwie reguły routingu, takie jak Route 1 ( `*.foo.com/*` zamapowane do puli zaplecza a) i trasy 2 ( `bar.foo.com/somePath/*` mapowane na pulę zaplecza B). Następnie zostanie odebrane żądanie `bar.foo.com/anotherPath/*` . Drzwi frontonu platformy Azure wybierają pozycję Route 2 w oparciu o bardziej szczegółowe dopasowanie domeny, aby znaleźć niezgodne wzorce ścieżki w ramach tras.
+> Musisz mieć zgodne wzorce ścieżki w regułach routingu lub klienci będą widzieć błędy. Na przykład istnieją dwie reguły routingu, takie jak Route 1 ( `*.foo.com/*` zamapowane do puli zaplecza a) i trasy 2 ( `/bar.foo.com/somePath/*` mapowane na pulę zaplecza B). Następnie zostanie odebrane żądanie `bar.foo.com/anotherPath/*` . Drzwi frontonu platformy Azure wybierają pozycję Route 2 w oparciu o bardziej szczegółowe dopasowanie domeny, aby znaleźć niezgodne wzorce ścieżki w ramach tras.
 
 ## <a name="next-steps"></a>Następne kroki
 

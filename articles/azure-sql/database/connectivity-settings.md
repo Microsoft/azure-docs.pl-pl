@@ -4,17 +4,17 @@ description: W tym dokumencie wyjaśniono wybór wersji usługi Transport Layer 
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 431d7ff2631f9b4a0a20db82c40b512c41209b7e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325372"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443851"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

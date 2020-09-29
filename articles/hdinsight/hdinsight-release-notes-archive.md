@@ -8,18 +8,72 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ad0ff98174a81518fe26063f9ccc6acbbddbf8d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292524"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442374"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
 ## <a name="summary"></a>Podsumowanie
 
 Azure HDInsight jest jedną z najpopularniejszych usług używanych przez klientów korporacyjnych na potrzeby analizy w narzędziach typu open source Apache Hadoop i Apache Spark na platformie Azure.
+
+## <a name="release-date-08092020"></a>Data wydania: 08/09/2020
+
+Ta wersja dotyczy tylko usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
+
+### <a name="new-features"></a>Nowe funkcje
+#### <a name="support-for-sparkcruise"></a>Obsługa SparkCruise
+SparkCruise to system automatycznego ponownego użycia obliczeń dla platformy Spark. Wybiera wspólne podwyrażeniey do zmaterializowania w oparciu o obciążenie przeszłe zapytania. SparkCruise materializuje te podwyrażenia w ramach przetwarzania zapytań i ponownego wykorzystania obliczeń są automatycznie stosowane w tle. Można korzystać z SparkCruise bez żadnych modyfikacji kodu Spark.
+ 
+#### <a name="support-hive-view-for-hdinsight-40"></a>Obsługa widoku programu Hive dla usługi HDInsight 4,0
+Widok Hive platformy Apache Ambari został zaprojektowany z założeniami ułatwiającymi tworzenie, optymalizowanie i wykonywanie zapytań Hive z poziomu przeglądarki sieci Web. Widok Hive jest obsługiwany natywnie dla klastrów usługi HDInsight 4,0, począwszy od tej wersji. Nie dotyczy istniejących klastrów. Musisz porzucić i utworzyć ponownie klaster, aby uzyskać wbudowany widok Hive.
+ 
+#### <a name="support-tez-view-for-hdinsight-40"></a>Obsługa widoku tez dla usługi HDInsight 4,0
+Widok Apache Tez służy do śledzenia i debugowania wykonywania zadania Hive tez. Widok tez jest obsługiwany natywnie dla usługi HDInsight 4,0 od tej wersji. Nie dotyczy istniejących klastrów. Aby uzyskać wbudowany widok tez, należy porzucić i ponownie utworzyć klaster.
+
+### <a name="deprecation"></a>Przestarzałe
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.1 i 2.2 w klastrze platformy Spark w usłudze HDInsight 3.6
+Począwszy od lipca 1 2020, klienci nie mogą tworzyć nowych klastrów Spark z platformami Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.3 w klastrze platformy Spark w usłudze HDInsight 4.0
+Począwszy od 1 2020 lipca, klienci nie mogą tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Spark 2.4 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Zakończenie obsługi platformy Kafka 1.1 w klastrze platformy Kafka w usłudze HDInsight 4.0
+Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Kafka 2.1 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+
+### <a name="behavior-changes"></a>Zmiany zachowania
+#### <a name="ambari-stack-version-change"></a>Zmiana wersji stosu Ambari
+W tej wersji wersja Ambari zmienia się z 2. x. x. x na 4,1. Możesz sprawdzić wersję stosu (HDInsight 4,1) w Ambari: Ambari > wersje > użytkownika.
+
+### <a name="upcoming-changes"></a>Nadchodzące zmiany
+Brak przyszłych zmian, do których należy zwrócić uwagę.
+
+### <a name="bug-fixes"></a>Poprawki błędów
+Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
+
+Poniżej JIRAs są ponownie przyłączone do platformy Hive:
+* [GAŁĄŹ-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [GAŁĄŹ-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [GAŁĄŹ-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [GAŁĄŹ-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [GAŁĄŹ-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [GAŁĄŹ-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+Poniżej JIRAs są ponownie przyłączone do HBase:
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
+### <a name="component-version-change"></a>Zmiana wersji składnika
+Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+### <a name="known-issues"></a>Znane problemy
+
+Problem został rozwiązany w Azure Portal, w którym wystąpił błąd podczas tworzenia klastra usługi Azure HDInsight przy użyciu typu uwierzytelniania SSH klucza publicznego. Gdy użytkownicy klikali pozycję **Przeglądanie i tworzenie**, wyświetlany był błąd „Nie może zawierać żadnych trzech kolejnych znaków z nazwy użytkownika protokołu SSH”. Ten problem został rozwiązany, ale może być wymagane odświeżenie pamięci podręcznej przeglądarki przez naciśnięcie klawiszy CTRL + F5 w celu załadowania poprawionego widoku. Obejście tego problemu było utworzeniu klastra przy użyciu szablonu usługi ARM. 
 
 ## <a name="release-date-07132020"></a>Data wydania: 07/13/2020
 
@@ -344,7 +398,7 @@ Aby uzyskać więcej informacji na temat poprawek dostępnych w usłudze HDInsig
 | Phoenix | [Informacje o poprawkach w Phoenix](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
 | Pig | [Informacje o poprawkach świń](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
 | Ranger | [Informacje o poprawkach Ranger](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
-| platforma Spark | [Informacje o poprawkach platformy Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| Spark | [Informacje o poprawkach platformy Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
 | Sqoop | Ta wersja udostępnia Sqoop 1.4.7 bez dodatkowych poprawek Apache. |
 | Tez | Ta wersja udostępnia tez od 0.9.1 bez dodatkowych poprawek Apache. |
 | Zeppelin | Ta wersja udostępnia Zeppelin 0.8.0 bez dodatkowych poprawek Apache. |
@@ -1033,11 +1087,11 @@ Ta wersja zawiera Ranger 0.7.0 i następujące poprawki Apache:
 
 -   [Ranger-2008](https://issues.apache.org/jira/browse/RANGER-2008): szacowanie zasad kończy się niepowodzeniem w przypadku warunków zasad wielowierszowych.
 
-#### <a name="slider"></a>Slider
+#### <a name="slider"></a>Suwak
 
 Ta wersja oferuje suwak 0.92.0 bez dodatkowych poprawek Apache.
 
-#### <a name="spark"></a>platforma Spark
+#### <a name="spark"></a>Spark
 
 Ta wersja udostępnia platformę Spark 2.3.0 i następujące poprawki Apache:
 
@@ -1693,7 +1747,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 |**Składnik Apache**|**Apache JIRA**|**Podsumowanie**|**Szczegóły**|
 |--|--|--|--|
 |**Platforma Spark 2,3** |**Nie dotyczy** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|platforma Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
+|Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
 |**Kafka 1,0**|**Nie dotyczy**|**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |Dodatkowe zasady programu Hive Ranger wymagane do wstawienia zastąpienia |**Scenariusz:** Dodatkowe zasady programu Hive Ranger wymagane do **wstawienia zastąpienia**<br /><br />**Poprzednie zachowanie:** Pomyślne **Wstawianie ZAstąpień** w programie Hive przebiega pomyślnie.<br /><br />**Nowe zachowanie:** Podczas uaktualniania do HDP-2.6. x z powodu błędu wystąpił nieoczekiwane nieudane zapytania dotyczące **zastępowania** programu Hive:<br /><br />Wystąpił błąd podczas kompilowania instrukcji: niepowodzenie: HiveAccessControlException uprawnień: użytkownik JKowalski nie ma uprawnienia do zapisu w/tmp/ \* (State = 42000, Code = 40000)<br /><br />Od HDP-2.6.0 zapytania programu Hive **INSERT OVERWRITE** wymagają zasad identyfikatora URI Ranger, aby zezwalać na operacje zapisu, nawet jeśli użytkownik ma uprawnienia do zapisu udzielone za pomocą zasad systemu plików HDFS.<br /><br />**Obejście/oczekiwanie na akcję klienta:**<br /><br />1. Utwórz nowe zasady w ramach repozytorium Hive.<br />2. na liście rozwijanej, w której znajduje się baza danych, wybierz pozycję Identyfikator URI.<br />3. Zaktualizuj ścieżkę (przykład:/tmp/*)<br />4. Dodaj użytkowników i grupę i Zapisz.<br />5. Ponów próbę wstawienia zapytania.|
 |**HDFS**|**Nie dotyczy** |System plików HDFS powinien obsługiwać wiele identyfikatorów URI usługi KMS |**Poprzednie zachowanie:** Właściwość DFS. Encryption. Key. Provider. URI została użyta do skonfigurowania ścieżki dostawcy usługi KMS.<br /><br />**Nowe zachowanie:** system plików DFS. Encryption. Key. Provider. URI jest obecnie przestarzały na rzecz platformy Hadoop. Security. Key. Provider. Path w celu skonfigurowania ścieżki dostawcy usługi KMS.|

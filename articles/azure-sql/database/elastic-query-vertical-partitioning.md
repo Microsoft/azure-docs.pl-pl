@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 95964064200064dcc43449e1d939c1cdfd78cdb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84048455"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443097"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Wykonywanie zapytań w bazach danych w chmurze z różnymi schematami (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -137,7 +137,7 @@ DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]
 
 **Uprawnienia do tworzenia/upuszczania tabeli zewnętrznej**: należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych w przypadku kodu DDL tabeli zewnętrznej, który jest również konieczny do odwoływania się do bazowego źródła danych.  
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Użytkownicy z dostępem do tabeli zewnętrznej automatycznie uzyskują dostęp do podstawowych tabel zdalnych w ramach poświadczeń podanych w definicji zewnętrznego źródła danych. Należy dokładnie zarządzać dostępem do tabeli zewnętrznej, aby uniknąć niepożądanego podniesienia uprawnień za pomocą poświadczeń zewnętrznego źródła danych. Regularne uprawnienia SQL mogą służyć do udzielenia lub odwołania dostępu do tabeli zewnętrznej, tak jakby była to zwykła tabela.  
 

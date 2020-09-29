@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284282"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443784"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -26,7 +26,10 @@ Azure SQL Database oferuje kilka metod tworzenia kopii istniejącej [bazy danych
 
 ## <a name="overview"></a>Omówienie
 
-Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Możesz również wybrać, aby zachować warstwę usług i rozmiar obliczeniowy źródłowej bazy danych, lub użyć innego rozmiaru obliczeniowego w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozmieszczania repliki połączenie replikacji geograficznej zostaje przerwane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą również operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
+Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Można również wybrać opcję zachowania nadmiarowości kopii zapasowej, warstwy usług i rozmiaru obliczeń źródłowej bazy danych albo użyć innej nadmiarowości magazynu kopii zapasowych i/lub rozmiaru obliczeń w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozmieszczania repliki połączenie replikacji geograficznej zostaje przerwane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą również operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
+
+> [!NOTE]
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna w publicznej wersji zapoznawczej tylko w regionie "Południowo-Wschodnia". W wersji zapoznawczej, jeśli źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości magazynu kopii zapasowych, kopia bazy danych na serwerze w innym regionie platformy Azure nie jest obsługiwana. 
 
 ## <a name="logins-in-the-database-copy"></a>Nazwy logowania w kopii bazy danych
 
@@ -84,6 +87,9 @@ Rozpocznij kopiowanie źródłowej bazy danych za pomocą programu [CREATE DATAB
 > [!NOTE]
 > Zakończenie instrukcji języka T-SQL nie kończy operacji kopiowania bazy danych. Aby zakończyć operację, Porzuć docelową bazę danych.
 >
+
+> [!IMPORTANT]
+> Wybieranie nadmiarowości magazynu kopii zapasowych podczas korzystania z usługi T-SQL CREATE DATABASE... Ponieważ kopia polecenia nie jest jeszcze obsługiwana. 
 
 ### <a name="copy-to-the-same-server"></a>Kopiuj na ten sam serwer
 

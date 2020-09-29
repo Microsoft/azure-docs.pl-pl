@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275216"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441875"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
 
@@ -119,7 +119,7 @@ Gdy pulpit nawigacyjny zgłosi zadanie, dyski są wysyłane do Ciebie, a numer �
 1. Po otrzymaniu dysków z wyeksportowanymi danymi należy pobrać klucze funkcji BitLocker w celu odblokowania dysków. Przejdź do zadania eksportu w Azure Portal. Kliknij kartę **Importuj/Eksportuj** .
 2. Wybierz i kliknij zadanie eksportowania z listy. Przejdź do pozycji **szyfrowanie** i Skopiuj klucze.
 
-   ![Wyświetl klucze funkcji BitLocker dla zadania eksportu](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![Wyświetl klucze funkcji BitLocker dla zadania eksportu](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Użyj kluczy funkcji BitLocker do odblokowania dysków.
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832359"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443128"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Raportowanie w skalowanych bazach danych w chmurze (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -165,7 +165,7 @@ Klauzula DISTRIBUTION określa dystrybucję danych używaną dla tej tabeli. Pro
 
 **Odwołanie do warstwy danych**: tablica zewnętrzna DDL odwołuje się do zewnętrznego źródła danych. Zewnętrzne źródło danych określa mapę fragmentu, która dostarcza tabelę zewnętrzną z informacjami niezbędnymi do lokalizowania wszystkich baz danych w warstwie danych.
 
-### <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+### <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Użytkownicy z dostępem do tabeli zewnętrznej automatycznie uzyskują dostęp do podstawowych tabel zdalnych w ramach poświadczeń podanych w definicji zewnętrznego źródła danych. Unikaj niepożądanego podniesienia uprawnień za pomocą poświadczeń zewnętrznego źródła danych. Użyj uprawnienia GRANT lub REVOKE dla tabeli zewnętrznej, tak jakby była to zwykła tabela.  
 

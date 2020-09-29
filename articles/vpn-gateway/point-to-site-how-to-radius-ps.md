@@ -1,18 +1,18 @@
 ---
 title: 'Łączenie komputera z siecią wirtualną przy użyciu połączenia typu punkt-lokacja i usługi RADIUS: PowerShell | Azure'
-description: Bezpieczne łączenie klientów systemu Windows i Mac OS X z siecią wirtualną przy użyciu uwierzytelniania P2S i usługi RADIUS.
+description: Bezpieczne łączenie klientów systemów Windows i OS X z siecią wirtualną przy użyciu uwierzytelniania P2S i usługi RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442409"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania usługi RADIUS: PowerShell
 
@@ -28,7 +28,7 @@ Połączenie sieci VPN typu punkt-lokacja jest uruchamiane z urządzeń z system
 
 Ten artykuł ułatwia skonfigurowanie konfiguracji P2S z uwierzytelnianiem przy użyciu serwera RADIUS. Jeśli zamiast tego chcesz uwierzytelniać się przy użyciu wygenerowanych certyfikatów i natywnego uwierzytelniania certyfikatu bramy sieci VPN, zobacz [Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu bramy sieci VPN](vpn-gateway-howto-point-to-site-rm-ps.md) lub [tworzenie dzierżawy Azure Active Directory dla połączeń protokołu P2S OpenVPN](openvpn-azure-ad-tenant.md) na potrzeby uwierzytelniania Azure Active Directory.
 
-![Diagram połączenia — promień](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagram przedstawiający konfigurację P2S z uwierzytelnianiem przy użyciu serwera RADIUS.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. P2S tworzy połączenie sieci VPN za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol), OpenVPN lub IKEv2.
 
@@ -65,7 +65,7 @@ Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskry
 
 ### <a name="working-with-azure-powershell"></a>Praca z Azure PowerShell
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example-values"></a><a name="example"></a>Przykładowe wartości
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cd33e202a76a5ae55a68d902bb4812dcaaf348aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51439edd1d8c7094a5b857821f632ace9e2dea53
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047538"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442760"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Poświadczenia używane do uzyskiwania dostępu do biblioteki klienta Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Zwróć uwagę na użycie **smmReadOnlyConnectionString** , aby odzwierciedlić 
 
 ## <a name="connection-credentials"></a>Poświadczenia połączenia
 
-Dodatkowe poświadczenia są potrzebne podczas korzystania z metody **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) w celu uzyskania dostępu do fragmentu skojarzonego z kluczem fragmentowania. Te poświadczenia muszą zapewniać uprawnienia dostępu tylko do odczytu do lokalnych tabel mapy fragmentu znajdujących się w fragmentu. Jest to konieczne do przeprowadzenia walidacji połączenia dla routingu zależnego od danych na fragmentu. Ten fragment kodu umożliwia dostęp do danych w kontekście routingu zależnego od danych:
+Dodatkowe poświadczenia są potrzebne podczas korzystania z metody **OpenConnectionForKey**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) w celu uzyskania dostępu do fragmentu skojarzonego z kluczem fragmentowania. Te poświadczenia muszą zapewniać uprawnienia dostępu tylko do odczytu do lokalnych tabel mapy fragmentu znajdujących się w fragmentu. Jest to konieczne do przeprowadzenia walidacji połączenia dla routingu zależnego od danych na fragmentu. Ten fragment kodu umożliwia dostęp do danych w kontekście routingu zależnego od danych:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))
@@ -73,7 +73,7 @@ W tym przykładzie **smmUserConnectionString** przechowuje parametry połączeni
 
 Podobnie jak w przypadku poświadczeń administratora, nie należy używać wartości w postaci " username@server ". Zamiast tego wystarczy użyć "username".  Należy również zauważyć, że parametry połączenia nie zawierają nazwy serwera i bazy danych. Wynika to z faktu, że wywołanie **OpenConnectionForKey** automatycznie kieruje połączenie do poprawnej fragmentu na podstawie klucza. W związku z tym nazwa bazy danych i nazwa serwera nie są podane.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Zarządzanie bazami danych i logowaniami w usłudze Azure SQL Database](logins-create-manage.md)
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 610e21064c26734461ba8fd6639868dc930f926c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443671"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Nawiązywanie połączenia z SQL Database przy użyciu języka C i C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -145,7 +145,7 @@ Można znaleźć rozwiązanie getstarted, które zawiera wszystkie przykłady w 
 * Zapoznaj się z [omówieniem opracowywania SQL Database](develop-overview.md)
 * Więcej informacji na temat [dokumentacji interfejsu API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wzorce projektowe dla wielodostępnych aplikacji SaaS wykorzystujących usługę Azure SQL Database](saas-tenancy-app-design-patterns.md)
 * Poznaj wszystkie [możliwości usługi SQL Database](https://azure.microsoft.com/services/sql-database/)

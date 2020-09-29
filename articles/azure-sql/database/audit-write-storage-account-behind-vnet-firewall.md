@@ -4,18 +4,18 @@ description: Konfigurowanie inspekcji do zapisywania zdarzeń bazy danych na kon
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530415"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444527"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -85,7 +85,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 1. Zarejestruj serwer w usłudze Azure Active Directory (Azure AD). Użyj programu PowerShell lub interfejsu API REST.
 
-   **PowerShell**
+   **Program PowerShell**
 
    ```powershell
    Connect-AzAccount

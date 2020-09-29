@@ -5,246 +5,141 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 01/14/2020
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4643e18088fe32f6b02f684b7a71307798b12c12
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235268"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441553"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
-W tym przewodniku szybki start utworzysz kompleksową implementację zarządzania funkcjami w aplikacji ASP.NET Core przy użyciu usługi Azure App Configuration. Za pomocą usługi konfiguracji aplikacji można centralnie przechowywać wszystkie flagi funkcji i kontrolować ich Stany. 
+W tym przewodniku szybki start utworzysz kompleksową implementację zarządzania funkcjami w aplikacji ASP.NET Core przy użyciu usługi Azure App Configuration. Użyjesz usługi konfiguracji aplikacji, aby centralnie przechowywać wszystkie flagi funkcji i kontrolować ich Stany. 
 
 Biblioteki zarządzania funkcjami platformy .NET Core poszerzają platformę Dzięki kompleksowemu obsłudze flagi funkcji. Te biblioteki są zbudowane na podstawie systemu konfiguracji platformy .NET Core. Zapewniają one bezproblemowe integrację z konfiguracją aplikacji za pomocą dostawcy konfiguracji platformy .NET Core.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-- [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download).
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
+* [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
+7. Wybierz pozycję **Operations**  >  **Manager**  >  **Dodaj** , aby dodać flagę funkcji o nazwie *beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)
 
-    `label`Dla tej pory pozostaw niezdefiniowane. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
+    Pozostaw pustą **etykietę** dla tej pory. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
-Użyj [interfejsu wiersza polecenia platformy .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) , aby utworzyć nowy projekt aplikacji sieci Web ASP.NET Core MVC. Zaletą korzystania z interfejs wiersza polecenia platformy .NET Core zamiast programu Visual Studio jest to, że interfejs wiersza polecenia platformy .NET Core jest dostępny na platformach Windows, macOS i Linux.
+Użyj [interfejsu wiersza polecenia platformy .NET Core (CLI)](/dotnet/core/tools) , aby utworzyć nowy projekt ASP.NET Core MVC. Zaletą korzystania z interfejs wiersza polecenia platformy .NET Core zamiast programu Visual Studio jest to, że interfejs wiersza polecenia platformy .NET Core jest dostępny na platformach Windows, macOS i Linux.
 
-1. Utwórz nowy folder dla projektu. W tym przewodniku szybki start nadaj mu nazwę *TestFeatureFlags*.
+Uruchom następujące polecenie, aby utworzyć projekt ASP.NET Core MVC w nowym folderze *TestFeatureFlags* :
 
-1. W nowym folderze Uruchom następujące polecenie, aby utworzyć nowy projekt aplikacji sieci Web ASP.NET Core MVC:
+```dotnetcli
+dotnet new mvc --no-https --output TestFeatureFlags
+```
 
-   ```    
-   dotnet new mvc --no-https
-   ```
-
-## <a name="add-secret-manager"></a>Dodawanie narzędzia Secret Manager
-
-Aby użyć Menedżera wpisów tajnych, Dodaj `UserSecretsId` element do pliku *. csproj* .
-
-1. Otwórz plik *. csproj* .
-
-1.  Dodaj `UserSecretsId` element, jak pokazano tutaj. Możesz użyć tego samego identyfikatora GUID lub można zastąpić tę wartość własną.
-
-    > [!IMPORTANT]
-    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
-
-    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-
-        <PropertyGroup>
-            <TargetFramework>netcoreapp2.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-
-        <ItemGroup>
-            <PackageReference Include="Microsoft.AspNetCore.App" />
-            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-        </ItemGroup>
-
-    </Project>
-    ```
-
-    #### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-
-        <PropertyGroup>
-            <TargetFramework>netcoreapp3.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-
-    </Project>
-    ```
-    ---
-
-1. Zapisz plik *. csproj* .
-
-Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperskiej poza Twoim drzewem projektu. Takie podejście zapobiega przypadkowemu ujawnieniu wpisów tajnych aplikacji w kodzie źródłowym.
-
-> [!TIP]
-> Aby dowiedzieć się więcej na temat programu Secret Manager, zobacz [bezpieczne przechowywanie wpisów tajnych aplikacji w programie Development w ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Dodaj odwołanie do `Microsoft.Azure.AppConfiguration.AspNetCore` i `Microsoft.FeatureManagement.AspNetCore` pakiety NuGet, uruchamiając następujące polecenia:
+1. Zainstaluj pakiety NuGet [Microsoft. Azure. AppConfiguration. AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) i [Microsoft. FeatureManagement. AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) , uruchamiając następujące polecenia:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    ```
+
+    ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Uruchom następujące polecenie, aby przywrócić pakiety dla projektu:
+1. Uruchom następujące polecenie w tym samym katalogu, w którym znajduje się plik *. csproj* . Polecenie używa Menedżera wpisów tajnych do przechowywania wpisu tajnego o nazwie `ConnectionStrings:AppConfig` , który przechowuje parametry połączenia dla magazynu konfiguracji aplikacji. Zastąp `<your_connection_string>` symbol zastępczy parametrami połączenia magazynu konfiguracji aplikacji. Parametry połączenia w obszarze **klucze dostępu** można znaleźć w Azure Portal.
 
     ```dotnetcli
-    dotnet restore
+    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-1. Dodaj wpis tajny o nazwie **ConnectionStrings:AppConfig** do narzędzia Secret Manager.
+    Menedżer wpisów tajnych służy tylko do lokalnego testowania aplikacji sieci Web. Po wdrożeniu aplikacji do [Azure App Service](https://azure.microsoft.com/services/app-service/web)należy użyć ustawienia aplikacji **parametry połączenia** w App Service zamiast tajnego Menedżera w celu przechowywania parametrów połączenia.
 
-    Ten wpis tajny zawiera parametry połączenia w celu uzyskania dostępu do magazynu konfiguracji aplikacji. Zastąp `<your_connection_string>` wartość w poniższym poleceniu parametrami połączenia dla magazynu konfiguracji aplikacji. Można znaleźć podstawowe parametry połączenia klucza tylko do odczytu w obszarze **klucze dostępu** w Azure Portal.
+    Uzyskaj dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji platformy .NET Core. Dwukropek ( `:` ) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Aby uzyskać więcej informacji, zobacz [klucze konfiguracji i wartości](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-    To polecenie należy wykonać w tym samym katalogu, w którym znajduje się plik *csproj*.
-
-    ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
-    ```
-
-    Do lokalnego testowania aplikacji sieci Web służy program Secret Manager. Po wdrożeniu aplikacji do [Azure App Service](https://azure.microsoft.com/services/app-service)można na przykład użyć ustawienia aplikacji o nazwie **parametry połączenia** w App Service zamiast używać Menedżera wpisów tajnych do przechowywania parametrów połączenia.
-
-    Możesz uzyskać dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji aplikacji. Dwukropek (:) działa w nazwie konfiguracji z interfejsem API konfiguracji aplikacji na wszystkich obsługiwanych platformach. Zobacz [Konfiguracja według środowiska](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
-
-1. W programie *program.cs*zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration()` metody.
+1. W programie *program.cs*zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `AddAzureAppConfiguration` metody.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
-
-    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                        .UseFeatureFlags();
-                });
-            })
-            .UseStartup<Startup>();
-    ```
+    > `CreateHostBuilder` zastępuje program `CreateWebHostBuilder` .NET Core 3. x. Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-            config.AddAzureAppConfiguration(options => {
-                options.Connect(settings["ConnectionStrings:AppConfig"])
-                    .UseFeatureFlags();
-            });
-        })
-        .UseStartup<Startup>());
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(connection).UseFeatureFlags());
+                }).UseStartup<Startup>());
     ```
+
+    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration(config =>
+               {
+                   var settings = config.Build();
+                   var connection = settings.GetConnectionString("AppConfig");
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(connection).UseFeatureFlags());
+               }).UseStartup<Startup>();
+    ```
+
     ---
 
-1. Otwórz *Startup.cs*i Dodaj odwołania do programu .NET Core Feature Manager:
+    Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
+
+1. W *Startup.cs*, Dodaj odwołanie do programu .NET Core Feature Manager:
 
     ```csharp
     using Microsoft.FeatureManagement;
     ```
 
-1. Zaktualizuj `ConfigureServices` metodę, aby dodać obsługę flagi funkcji przez wywołanie `services.AddFeatureManagement()` metody. Opcjonalnie możesz dołączyć dowolny filtr, który ma być używany z flagami funkcji przez wywołanie `services.AddFeatureFilter<FilterType>()` :
+1. Zaktualizuj `Startup.ConfigureServices` metodę, aby dodać obsługę flagi funkcji przez wywołanie `AddFeatureManagement` metody. Opcjonalnie możesz dołączyć dowolny filtr, który ma być używany z flagami funkcji przez wywołanie `AddFeatureFilter<FilterType>()` :
 
-    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
-        services.AddFeatureManagement();
-    }
-    ```
     #### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
+
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
         services.AddFeatureManagement();
     }
+    ```
+
+    #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc()
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        services.AddFeatureManagement();
+    }
+    ```
 
     ---
 
-1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
-
-    #### [.NET Core 2.x](#tab/core2x)
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-            app.UseAzureAppConfiguration();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-    }
-    ```
-    #### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-            app.UseAzureAppConfiguration();
-    }
-    ```
-    ---
-
-1. Dodaj plik *MyFeatureFlags.cs* :
+1. Dodaj plik *MyFeatureFlags.cs* do głównego katalogu projektu przy użyciu następującego kodu:
 
     ```csharp
     namespace TestFeatureFlags
@@ -256,7 +151,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     }
     ```
 
-1. Dodaj *BetaController.cs* do katalogu *controllers* :
+1. Dodaj plik *BetaController.cs* do katalogu *controllers* przy użyciu następującego kodu:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -269,29 +164,26 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
         {
             private readonly IFeatureManager _featureManager;
 
-            public BetaController(IFeatureManagerSnapshot featureManager)
-            {
+            public BetaController(IFeatureManagerSnapshot featureManager) =>
                 _featureManager = featureManager;
-            }
 
             [FeatureGate(MyFeatureFlags.Beta)]
-            public IActionResult Index()
-            {
-                return View();
-            }
+            public IActionResult Index() => View();
         }
     }
     ```
 
-1. Otwórz *_ViewImports. cshtml* w katalogu *widoków* i Dodaj pomocnika tagów programu Feature Manager:
+1. W *widoku/_ViewImports. cshtml*Zarejestruj pomocnika tagów programu Feature Manager za pomocą `@addTagHelper` dyrektywy:
 
-    ```html
+    ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Otwórz *_Layout. cshtml* w *Views* \\ *udostępnionym* katalogu widoki i Zastąp `<nav>` kod kreskowy poniżej `<body>`  >  `<header>` następującym kodem:
+    Poprzedni kod umożliwia `<feature>` pomocnikowi tagów używanie w plikach *. cshtml* projektu.
 
-    ```html
+1. W obszarze *widoki/Shared/_Layout. cshtml*Zastąp `<nav>` kod kreskowy poniżej `<body>`  >  `<header>` następującym znacznikiem:
+
+    ```cshtml
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
@@ -318,59 +210,59 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     </nav>
     ```
 
-1. Utwórz katalog *beta* w obszarze *widoki* i Dodaj do niego plik *index. cshtml* :
+    W powyższym znaczniku Zwróć uwagę na `<feature>` pomocnika tagów otaczający element listy *beta* .
 
-    ```html
+1. Utwórz katalog *widoki/beta* i plik *index. cshtml* zawierający następujące znaczniki:
+
+    ```cshtml
     @{
         ViewData["Title"] = "Beta Home Page";
     }
 
-    <h1>
-        This is the beta website.
-    </h1>
+    <h1>This is the beta website.</h1>
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
 1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoce poleceń:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację sieci Web lokalnie:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 
-1. Otwórz okno przeglądarki i przejdź do `https://localhost:5000` , który jest domyślnym adresem URL aplikacji sieci Web hostowanej lokalnie.
-    Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk *Podgląd sieci Web* , a następnie pozycję *Konfiguruj*.  Po wyświetleniu monitu wybierz pozycję port 5000.
+1. Otwórz okno przeglądarki i przejdź do `http://localhost:5000` , który jest domyślnym adresem URL aplikacji sieci Web hostowanej lokalnie. Jeśli pracujesz w Azure Cloud Shell, wybierz przycisk **Podgląd sieci Web** , a następnie pozycję **Konfiguruj**. Po wyświetleniu monitu wybierz pozycję port 5000.
 
     ![Znajdź przycisk Podgląd sieci Web](./media/quickstarts/cloud-shell-web-preview.png)
 
     W przeglądarce powinna zostać wyświetlona strona podobna do poniższej ilustracji.
-    ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Lokalna aplikacja szybkiego startu przed zmianą" border="true":::
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby**, a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
-1. Wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** na **włączone**.
+1. Wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza *beta* na **włączone**.
 
-1. Wróć do wiersza polecenia i Anuluj uruchomiony `dotnet` proces przez naciśnięcie klawisza `Ctrl-C` .  Uruchom ponownie aplikację przy użyciu programu `dotnet run` .
+1. Wróć do powłoki poleceń. Anuluj uruchomiony `dotnet` proces, naciskając <kbd>klawisze CTRL + C</kbd>. Uruchom ponownie aplikację przy użyciu programu `dotnet run` .
 
 1. Odśwież stronę przeglądarki, aby zobaczyć nowe ustawienia konfiguracji.
 
-    ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="Lokalna aplikacja szybkiego startu przed zmianą" border="true":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w ASP.NET Core aplikacji sieci Web za pośrednictwem [bibliotek zarządzania](https://go.microsoft.com/fwlink/?linkid=2074664)funkcjami.
 
-- Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
-- [Zarządzaj flagami funkcji](./manage-feature-flags.md).
-- [Użyj flag funkcji w aplikacji ASP.NET Core](./use-feature-flags-dotnet-core.md).
-- [Używanie dynamicznej konfiguracji w aplikacji platformy ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)
+* Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
+* [Zarządzaj flagami funkcji](./manage-feature-flags.md).
+* [Użyj flag funkcji w aplikacji ASP.NET Core](./use-feature-flags-dotnet-core.md).
+* [Używanie dynamicznej konfiguracji w aplikacji platformy ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)

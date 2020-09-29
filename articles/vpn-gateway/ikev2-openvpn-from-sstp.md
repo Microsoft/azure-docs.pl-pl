@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426286"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442178"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Przejście do protokołu OpenVPN lub IKEv2 z SSTP
 
@@ -47,7 +47,7 @@ Dodawanie protokołu IKEv2 do istniejącej bramy sieci VPN SSTP nie wpłynie na 
 
 Aby dodać protokół IKEv2 do istniejącej bramy, po prostu przejdź do karty "Konfiguracja punktu do lokacji" w obszarze Brama Virtual Network w portalu, a następnie w polu listy rozwijanej wybierz pozycję **IKEv2 i SSTP (SSL)** .
 
-![punkt-lokacja](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Zrzut ekranu przedstawiający stronę "Konfiguracja punktu do lokacji" z otwartym menu rozwijanym "typ tunelu" i "IKEv2 i SSTP (SSL)".](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Opcja 2 — Usuwanie protokołu SSTP i włączanie OpenVPN na bramie

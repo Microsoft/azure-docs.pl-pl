@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326039"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441509"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
 
@@ -73,11 +73,11 @@ Aby skonfigurować integrację z mapowaniem Azure Monitor dla maszyn wirtualnych
 
 6. Opcjonalne: wybierz pulę zasobów wszystkich serwerów zarządzania, z którą ma się komunikować Log Analytics, a następnie kliknij pozycję **Dodaj obszar roboczy**.
 
-    ![Pula zasobów konfiguracji Operations Manager](media/service-map-scom/scom-config-pool.png)
+    ![Zrzut ekranu przedstawiający ekran Pula serwerów w obszarze Dodawanie Microsoft Operations Management Suite obszarze roboczym z wybraną pulą zasobów wszystkie serwery zarządzania.](media/service-map-scom/scom-config-pool.png)
 
     Skonfigurowanie i zarejestrowanie obszaru roboczego Log Analytics może potrwać minutę. Po jego skonfigurowaniu Operations Manager inicjuje pierwszą synchronizację mapy.
 
-    ![Pula zasobów konfiguracji Operations Manager](media/service-map-scom/scom-config-success.png)
+    ![Zrzut ekranu przedstawiający ekran ukończenie w obszarze Dodawanie Microsoft Operations Management Suite obszaru roboczego potwierdzający, że obszar roboczy został dodany.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Monitorowanie integracji
 
@@ -98,11 +98,11 @@ Folder Service Map ma cztery węzły:
 
 * **Widoki zależności grupy maszyn**: zawiera listę wszystkich grup maszyn, które są synchronizowane z funkcji mapy. Możesz kliknąć dowolną grupę, aby wyświetlić jej diagram aplikacji rozproszonej.
 
-    ![Diagram aplikacji rozproszonej Operations Manager](media/service-map-scom/scom-group-dad.png)
+    ![Zrzut ekranu z Service Map przedstawiający diagram z obrazami dla każdej grupy maszyn i linie wskazujące zależności między nimi.](media/service-map-scom/scom-group-dad.png)
 
 * **Widoki zależności serwera**: wyświetla wszystkie serwery, które są synchronizowane z funkcji mapy. Możesz kliknąć dowolny serwer, aby wyświetlić jego diagram aplikacji rozproszonej.
 
-    ![Diagram aplikacji rozproszonej Operations Manager](media/service-map-scom/scom-dad.png)
+    ![Zrzut ekranu z Service Map pokazujący diagram z obrazami dla każdego serwera i linie wskazujące zależności między nimi.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Edytowanie lub usuwanie obszaru roboczego
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 42a2d571c04d08b5ec868bbd06cd521bfcda24bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050205"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443469"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych w celu skalowania w poziomie
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -162,7 +162,7 @@ Narzędzia są również w serwisie GitHub: [Azure/Elastic-DB-Tools](https://git
 
 Użyj narzędzia Split-Merge do przenoszenia danych do modelu z wieloma dzierżawcami lub z niego do modelu z jednym dzierżawcą. Zobacz [dzielenie narzędzia do scalania](elastic-scale-get-started.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 

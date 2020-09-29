@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905194"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442040"
 ---
 # <a name="resnet"></a>Model ResNet
 
 W tym artykule opisano, jak używać modułu **ResNet** w projektancie Azure Machine Learning, aby utworzyć model klasyfikacji obrazów przy użyciu algorytmu ResNet.  
 
-Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga zestawu danych z etykietą. Aby uzyskać więcej informacji o tym, jak uzyskać katalog obrazu z etykietą, zapoznaj się z tematem [konwertowanie do modułu usługi Image Directory](convert-to-image-directory.md) . Możesz nauczyć model, dostarczając model i katalog obrazu z etykietą jako dane wejściowe do [uczenia modelu Pytorch](train-pytorch-model.md). Model przeszkolony może następnie służyć do przewidywania wartości nowych przykładów wejściowych przy użyciu [modelu obrazu oceny](score-image-model.md).
+Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga zestawu danych z etykietą. 
+> [!NOTE]
+> Ten moduł nie obsługuje oznaczonego zestawem danych wygenerowanego na podstawie *etykietowania* w programie Studio, ale obsługuje tylko katalog obrazu z etykietami wygenerowany na podstawie [konwersji do modułu usługi Image Directory](convert-to-image-directory.md) . 
+
+Możesz nauczyć model, dostarczając model i katalog obrazu z etykietą jako dane wejściowe do [uczenia modelu Pytorch](train-pytorch-model.md). Model przeszkolony może następnie służyć do przewidywania wartości nowych przykładów wejściowych przy użyciu [modelu obrazu oceny](score-image-model.md).
 
 ### <a name="more-about-resnet"></a>Więcej informacji na temat ResNet
 
@@ -32,7 +36,7 @@ Zapoznaj się z [tym dokumentem](https://pytorch.org/docs/stable/torchvision/mod
 
 2.  W przypadku **nazwy modelu**należy określić nazwę pewnej struktury ResNet, a można wybrać opcję z obsługiwanych ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 32x4d", "resnext101", " \_ \_ wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
 
-3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dopasować model na podstawie wybranego wstępnie nauczonego modelu; w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
+3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
 
 4.  Połącz dane wyjściowe modułu **DenseNet** module, szkoleń i walidacji zestawu danych obrazu z [modelem uczenie Pytorch](train-pytorch-model.md). 
 
