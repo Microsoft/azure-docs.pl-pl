@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/28/2020
+ms.date: 09/24/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: b0c7f88004564a5f479c0917919ca14e0d048e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1d10247a349c33a30eb2ccd1d5858005506ab8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516874"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91422083"
 ---
 | Kategoria | Magazyn danych | Obsługiwany jako źródło | Obsługiwany jako ujście | Obsługiwane przez środowisko [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Obsługiwane przez [własne środowisko IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -27,6 +27,7 @@ ms.locfileid: "85516874"
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Databricks różnicowa Lake](../articles/data-factory/connector-azure-databricks-delta-lake.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Wystąpienie zarządzane Azure SQL](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
