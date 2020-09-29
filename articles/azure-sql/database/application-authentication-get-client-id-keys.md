@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5aba4c690f91b515424eb866d387652ca9f40e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d88fa0e096557169a956a2ba33f72448676785e1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344615"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444673"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Pobierz wymagane wartości w celu uwierzytelnienia aplikacji w celu uzyskania dostępu do Azure SQL Database z kodu
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -100,7 +100,7 @@ Write-Output "_applicationSecret:" $secret
 
 * * *
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Tworzenie bazy danych w Azure SQL Database przy użyciu języka C #](design-first-database-csharp-tutorial.md)  
 [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu uwierzytelniania Azure Active Directory](authentication-aad-overview.md)
