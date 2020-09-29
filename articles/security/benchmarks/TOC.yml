@@ -69,6 +69,8 @@
       href: ../../backup/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Cognitive Search
+      href: ../../search/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Data Box
       href: ../../databox/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Data Explorer

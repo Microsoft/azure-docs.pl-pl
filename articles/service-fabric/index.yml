@@ -6,14 +6,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
-  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/31/2020
+  ms.openlocfilehash: 9bce6570cef2703bf1ad63d92c55bb3794927a8b
+  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75452223"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91408705"
 landingContent:
+- title: Wypróbuj klastry zarządzane usługi Service Fabric (wersja zapoznawcza)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Co to są klastry zarządzane usługi Service Fabric (wersja zapoznawcza)
+      url: overview-managed-cluster.md
+    - text: Wdrażanie klastra zarządzanego (wersja zapoznawcza)
+      url: quickstart-managed-cluster-template.md
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie klastra zarządzanego (wersja zapoznawcza)
+      url: tutorial-managed-cluster-deploy.md
+    - text: Skalowanie w poziomie typu węzła klastra zarządzanego (wersja zapoznawcza)
+      url: tutorial-managed-cluster-scale.md
+    - text: Dodawanie i usuwanie typów węzłów klastra zarządzanego (wersja zapoznawcza)
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Wdrażanie aplikacji w klastrze zarządzanym (wersja zapoznawcza)
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Dodawanie rozszerzenia zestawu skalowania maszyn wirtualnych do typu węzła klastra zarządzanego (wersja zapoznawcza)
+      url: how-to-managed-cluster-vmss-extension.md
+  - linkListType: whats-new
+    links:
+    - text: Często zadawane pytania na temat klastrów zarządzanych usługi Service Fabric
+      url: faq-managed-cluster.md
 - title: Informacje o usłudze Service Fabric
   linkLists:
   - linkListType: overview
@@ -138,7 +162,7 @@ landingContent:
       url: samples-cli.md
   - linkListType: whats-new
     links:
-    - text: Często zadawane pytania dotyczące usługi Service Fabric
+    - text: Często zadawane pytania na temat usługi Service Fabric
       url: service-fabric-common-questions.md
 - title: Korzystanie z usługi Service Fabric w środowisku lokalnym
   linkLists:

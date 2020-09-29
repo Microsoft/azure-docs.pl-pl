@@ -46,7 +46,7 @@
         - name: Aprowizowanie pod kątem wielu dzierżaw
           href: how-to-provision-multitenant.md
         - name: Korzystanie z niestandardowych zasad alokacji
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: Przykłady
   items:
     - name: Przykład Zaświadczanie symulowanego urządzenia z modułem TPM
@@ -109,6 +109,8 @@
   items:
     - name: Łączenie zestawu deweloperskiego IoT MXChip z usługą IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Aprowizacja urządzeń przy użyciu niestandardowych zasad alokacji
+      href: how-to-use-custom-allocation-policies.md
     - name: Zarządzanie usługą Device Provisioning Service
       items:
         - name: Zarządzanie rejestracjami — Portal

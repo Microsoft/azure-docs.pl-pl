@@ -4,12 +4,16 @@
   items:
     - name: Co to jest Service Fabric?
       href: service-fabric-overview.md
+    - name: Klastry zarządzane usługi Service Fabric
+      href: overview-managed-cluster.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
     - name: Szablon ARM
       displayName: Resource Manager
       href: quickstart-cluster-template.md
+    - name: Klaster zarządzany
+      href: quickstart-managed-cluster-template.md
     - name: Tworzenie aplikacji .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Wdrażanie aplikacji kontenera systemu Linux
@@ -64,6 +68,16 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3 — Przechodzenie do trybu failover i skalowanie
           href: service-fabric-tutorial-containers-failover.md
+    - name: Tworzenie klastra zarządzanego usługi Service Fabric
+      items:
+        - name: 1 — Wdrażanie klastra zarządzanego usługi Service Fabric
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 — Skalowanie w poziomie typu węzła klastra zarządzanego
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 — Dodawanie i usuwanie typów węzłów klastra zarządzanego
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 — Nawiązywanie połączenia z klastrem zarządzanym i wdrażanie aplikacji
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Tworzenie klastra i zarządzanie nim
       items:
         - name: 1 — Tworzenie klastra na platformie Azure
@@ -155,7 +169,7 @@
           items:
             - name: Przegląd kontenerów
               href: service-fabric-containers-overview.md
-            - name: Docker Compose (wersja zapoznawcza)
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: Sondy
               href: probes-codepackage.md
@@ -430,7 +444,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: Tworzenie usługi kontenera
           items:
-            - name: Docker Compose (wersja zapoznawcza)
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: Sterowniki woluminów i rejestrowania
               href: service-fabric-containers-volume-logging-drivers.md
@@ -509,7 +523,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w systemie Linux
                   href: service-fabric-application-secret-management-linux.md
-                - name: Bezpieczne przechowywanie wpisów tajnych za pomocą funkcji KeyVaultReference (wersja zapoznawcza)
+                - name: Bezpieczne przechowywanie wpisów tajnych za pomocą funkcji KeyVaultReference
                   href: service-fabric-keyvault-references.md
             - name: Konfigurowanie zwrotnego serwera proxy na potrzeby bezpiecznej komunikacji
               href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -675,6 +689,8 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Uaktualnienie
               items:
+                - name: Dodawanie rozszerzenia zestawu skalowania maszyn wirtualnych do typu węzła klastra zarządzanego
+                  href: how-to-managed-cluster-vmss-extension.md
                 - name: Uaktualnianie wersji usługi Service Fabric
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Uaktualnianie konfiguracji klastra
@@ -901,6 +917,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Często zadawane pytania
       href: service-fabric-common-questions.md
+    - name: Typowe pytania na temat klastrów zarządzanych usługi Service Fabric
+      href: faq-managed-cluster.md
     - name: Pytania i odpowiedzi Microsoft — strona pytania
       href: /answers/topics/azure-service-fabric.html
     - name: Zabezpieczenia dotyczące wdrażania usługi Azure Resource Manager

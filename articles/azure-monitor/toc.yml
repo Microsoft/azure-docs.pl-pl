@@ -292,7 +292,7 @@
               href: log-query/query-optimization.md
             - name: Analizowanie danych tekstowych
               href: log-query/parse-text.md
-        - name: Obszary robocze
+        - name: Obszary robocze i klastry
           items:
             - name: Projektowanie wdrożenia obszaru roboczego
               href: platform/design-logs-deployment.md
@@ -312,6 +312,8 @@
               href: platform/service-providers.md
             - name: Zarządzanie dostępem
               href: platform/manage-access.md
+            - name: Dedykowane klastry
+              href: log-query/logs-dedicated-clusters.md
     - name: Eksplorator metryk
       items:
         - name: Wprowadzenie do Eksploratora metryk
