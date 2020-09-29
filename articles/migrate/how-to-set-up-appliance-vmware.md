@@ -3,12 +3,12 @@ title: Konfigurowanie urządzenia Azure Migrate dla oprogramowania VMware
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923628"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448642"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
 
@@ -34,7 +34,7 @@ Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -57,7 +57,7 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny.
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla komórek jajowych:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Przykład użycia: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 3. W przypadku najnowszej wersji urządzenia wygenerowany skrót powinien być zgodny z tymi [ustawieniami](./tutorial-assess-vmware.md#verify-security).
 
 

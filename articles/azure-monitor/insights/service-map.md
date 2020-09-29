@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825365"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448456"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -169,7 +169,7 @@ Niektóre procesy oferują określone role na maszynach: serwery sieci Web, serw
 
 Nieudane połączenia są wyświetlane w Service Map Maps dla procesów i komputerów, z przerywaną czerwoną linią wskazującą, że system klienta nie dociera do procesu lub portu. Nieudane połączenia są zgłaszane z dowolnego systemu ze wdrożonym agentem Service Map, jeśli ten system jest podłączany do nieudanego połączenia. Service Map mierzy ten proces, obserwując gniazda TCP, które nie mogą nawiązać połączenia. Ten błąd może być spowodowany przez zaporę, błędną konfigurację na kliencie lub serwerze lub usługa zdalna jest niedostępna.
 
-![Nieudane połączenia](media/service-map/failed-connections.png)
+![Zrzut ekranu jednej części Service Map wyróżnienia kreskowaną czerwoną linią wskazującą, że połączenie między procesem backup.pl i portem 4475 nie powiodło się.](media/service-map/failed-connections.png)
 
 Zrozumienie nieudanych połączeń może pomóc w rozwiązywaniu problemów, weryfikacji migracji, analizie zabezpieczeń i ogólnym zrozumieniu architektury. Nieudane połączenia są czasami nieszkodliwe, ale często wskazują na problem, na przykład nieprzerwane środowisko pracy awaryjnej lub dwie warstwy aplikacji nie mogą komunikować się po migracji do chmury.
 
@@ -189,11 +189,11 @@ Grupy portów serwera to pola reprezentujące porty serwera na serwerach, na kt�
 
 ![Grupy portów serwera](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu Kontekst
+## <a name="context-menu"></a>Menu kontekstowe
 
 Kliknięcie wielokropka (...) w prawym górnym rogu dowolnego serwera powoduje wyświetlenie menu kontekstowego dla tego serwera.
 
-![Nieudane połączenia](media/service-map/context-menu.png)
+![Zrzut ekranu przedstawiający menu kontekstowe otwarte dla serwera w Service Map. Menu zawiera opcje Załaduj mapę serwera i Pokaż własne linki.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Załaduj mapę serwera
 
@@ -258,7 +258,7 @@ Integracja Service Map z Change Tracking jest automatyczna, gdy oba rozwiązania
 
 W okienku **Change Tracking komputera** są wyświetlane wszystkie zmiany, z najnowszymi ostatnimi, a także link do przechodzenia do szczegółów w celu przeszukania dziennika w celu uzyskania dodatkowych szczegółów.
 
-![Okienko Change Tracking komputera](media/service-map/change-tracking.png)
+![Zrzut ekranu okienka Change Tracking komputera w Service Map.](media/service-map/change-tracking.png)
 
 Poniższy obraz przedstawia szczegółowy widok zdarzenia Zmianakonfiguracji, które może być widoczne po wybraniu opcji **Pokaż w log Analytics**.
 
@@ -300,7 +300,7 @@ Integracja Service Map z Update Management jest automatyczna, gdy oba rozwiązan
 
 W okienku **aktualizacje komputera** są wyświetlane dane z rozwiązania Update Management wybranego serwera. Okienko zawiera podsumowanie wszystkich brakujących aktualizacji dla serwera w wybranym zakresie czasu.
 
-![Okienko Change Tracking komputera](media/service-map/machine-updates.png)
+![Zrzut ekranu okienka aktualizacje komputera w Service Map.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: a108459985f235f0280354ef7b4fa0cb181f5dda
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054249"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444954"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Łączność SSL/TLS w Azure Database for MariaDB
 Azure Database for MariaDB obsługuje łączenie serwera bazy danych z aplikacjami klienckimi przy użyciu protokołu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
@@ -56,6 +56,17 @@ Na przykład ustawienie wartości minimalna wersja ustawienia protokołu TLS na 
 > Po wymuszeniu minimalnej wersji protokołu TLS nie można później wyłączyć wymuszania wersji minimalnej.
 
 Aby dowiedzieć się, jak ustawić ustawienie protokołu TLS dla Azure Database for MariaDB, zobacz [jak skonfigurować ustawienie protokołu TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mariadb"></a>Obsługa szyfrowania przez Azure Database for MariaDB
+
+W ramach komunikacji SSL/TLS mechanizmy szyfrowania są weryfikowane i obsługują tylko ubrania szyfrowania, które mogą komunikować się z bazą danych serer. Sprawdzanie poprawności pakietu szyfrowania jest kontrolowane w [warstwie bramy](concepts-connectivity-architecture.md#connectivity-architecture) i nie jest jawnie w samym węźle. Jeśli mechanizmy szyfrowania nie pasują do jednego z wymienionych poniżej pakietów, przychodzące połączenia klienta zostaną odrzucone.
+
+### <a name="cipher-suite-supported"></a>Obsługiwany mechanizm szyfrowania
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [regułach zapory serwera](concepts-firewall-rules.md)

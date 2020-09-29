@@ -2,15 +2,15 @@
 title: Przegląd specyfikacji szablonu
 description: Opisuje sposób tworzenia specyfikacji szablonu i udostępniania ich innym użytkownikom w organizacji.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369080"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448820"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Utwórz specyfikację szablonu przy użyciu:
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
@@ -165,7 +165,7 @@ W ćwiczeniu zazwyczaj można uruchomić polecenie, `Get-AzTemplateSpec` Aby uzy
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -332,7 +332,7 @@ Poniższy przykład jest podobny do wcześniejszego przykładu, ale użyto wła�
 
 Aby uzyskać więcej informacji na temat łączenia specyfikacji szablonu, zobacz [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](template-specs-deploy-linked-template.md).
 
-## <a name="versioning"></a>Obsługa wersji
+## <a name="versioning"></a>Przechowywanie wersji
 
 Podczas tworzenia specyfikacji szablonu należy podać dla niej numer wersji. Podczas iteracji kodu szablonu można zaktualizować istniejącą wersję (w przypadku poprawek) lub opublikować nową wersję. Wersja jest ciągiem tekstowym. Możesz użyć dowolnego systemu obsługi wersji, w tym wersji semantycznej. Użytkownicy specyfikacji szablonu mogą podać numer wersji, która ma być używana podczas jej wdrażania.
 

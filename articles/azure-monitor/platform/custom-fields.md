@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974705"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448558"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Tworzenie pól niestandardowych w obszarze roboczym Log Analytics w Azure Monitor (wersja zapoznawcza)
 
@@ -101,7 +101,7 @@ Wyróżnimy nazwę usługi we właściwości **RenderedDescription** i Użyj **u
 
 Zobaczymy, że nazwa usługi jest prawidłowo identyfikowana dla niektórych rekordów, ale nie dla innych.   **Wyniki wyszukiwania** pokazują, że nie wybrano części nazwy dla **karty wydajności WMI** .  **Podsumowanie** pokazuje, że jeden rekord identyfikuje **Instalatora modułów** zamiast **Instalatora modułów systemu Windows**.  
 
-![Wyniki wyszukiwania](media/custom-fields/search-results-01.png)
+![Zrzut ekranu przedstawiający fragmenty nazwy usługi wyróżnionej w okienku wyników wyszukiwania i jedną niepoprawną nazwę usługi wyróżnioną w podsumowaniu.](media/custom-fields/search-results-01.png)
 
 Zaczynamy od rekordu **karty wydajności usługi WMI** .  Kliknij ikonę edycji, a następnie **zmodyfikuj to wyróżnienie**.  
 
@@ -113,7 +113,7 @@ Zwiększamy wyróżnienie, aby uwzględnić słowo **WMI** , a następnie ponown
 
 Widzimy, że wpisy dla **karty wydajności WMI** zostały poprawione, a log Analytics również używały tych informacji w celu poprawienia rekordów dla **Instalatora modułu systemu Windows**.
 
-![Wyniki wyszukiwania](media/custom-fields/search-results-02.png)
+![Zrzut ekranu przedstawiający pełną nazwę usługi wyróżnioną w okienku wyników wyszukiwania oraz poprawne nazwy usług wyróżnione w podsumowaniu.](media/custom-fields/search-results-02.png)
 
 Teraz można uruchomić zapytanie, które weryfikuje **Service_CF** jest tworzone, ale nie zostało jeszcze dodane do żadnych rekordów. Wynika to z faktu, że pole niestandardowe nie działa z istniejącymi rekordami, więc musimy czekać, aż zostaną zebrane nowe rekordy.
 

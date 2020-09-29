@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate na potrz
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: bace4ab03051a9febfe14cc30143bd4a5cfa7c84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085958"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448074"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurowanie urządzenia dla serwerów fizycznych
 
@@ -34,7 +34,7 @@ Aby skonfigurować urządzenie:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **fizyczne lub inne (AWS, GCP, Xen itp.)**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów fizycznych lub wirtualnych. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -59,7 +59,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykładowe użycie chmury publicznej: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Przykładowe użycie w chmurze dla instytucji rządowych: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Sprawdź najnowszą wersję urządzenia i ustawienia wartości skrótu.
+3.  Sprawdź najnowszą wersję urządzenia i ustawienia [wartości skrótu](tutorial-discover-physical.md#verify-security) .
  
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Uruchom skrypt Instalatora Azure Migrate
@@ -154,7 +154,7 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane wykrytego serwera pojawiły
 
 Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
 2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 

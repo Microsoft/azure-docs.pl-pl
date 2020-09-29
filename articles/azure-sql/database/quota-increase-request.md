@@ -4,24 +4,24 @@ description: Na tej stronie opisano, jak utworzyć żądanie pomocy technicznej 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987290"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448836"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Wzrost przydziału żądań dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym artykule wyjaśniono, jak zażądać zwiększenia przydziału dla Azure SQL Database i wystąpienia zarządzanego Azure SQL. Wyjaśniono także, jak włączyć dostęp do subskrypcji do regionu.
 
-## <a name="create-a-new-support-request"></a><a id="newquota"></a>Utwórz nowe żądanie obsługi
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> Utwórz nowe żądanie obsługi
 
 Wykonaj następujące kroki, aby utworzyć nowe żądanie obsługi z Azure Portal SQL Database.
 
@@ -56,7 +56,7 @@ Wykonaj następujące kroki, aby utworzyć nowe żądanie obsługi z Azure Porta
 
 Kliknięcie przycisku **Wprowadź szczegóły** powoduje wyświetlenie okna **Szczegóły przydziału** , które umożliwia dodanie dodatkowych informacji. W poniższych sekcjach opisano różne opcje **SQL Database** i SQL Database typy przydziałów **wystąpienia zarządzanego** .
 
-## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>SQL Database typy przydziałów
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> SQL Database typy przydziałów
 
 W poniższych sekcjach opisano opcje zwiększania limitu przydziału dla **SQL Database** typów przydziałów:
 
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby zażądać zwiększenia liczby serwerów na sub
 
 Aby uzyskać więcej informacji, zobacz [SQL Database limity zasobów i zarządzanie zasobami](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Włączanie dostępu do subskrypcji do regionu
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a> Włączanie dostępu do subskrypcji do regionu
 
 Niektóre typy ofert nie są dostępne w każdym regionie. Może zostać wyświetlony następujący błąd:
 
@@ -107,9 +107,9 @@ Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, wybierz opcję 
 
 1. Wprowadź **model zakupu**oraz szczegóły **oczekiwanego zużycia** .
 
-   ![Dostęp do regionu żądania](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Dostęp do regionu żądania](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Włączanie dostępu z serii M do regionu
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Włączanie dostępu z serii M do regionu
 
 Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żądanie obsługi.
 
@@ -118,9 +118,9 @@ Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żą
 1. Z listy **Wybierz lokalizację** wybierz region platformy Azure, który ma być używany. Przydział jest przypadany na subskrypcję w każdym regionie.
 
 
-   ![Dostęp do regionu żądania](./media/quota-increase-request/quota-m-series.png)
+   ![Żądaj dostępu do regionu z serii M](./media/quota-increase-request/quota-m-series.png)
 
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Typ przydziału wystąpienia zarządzanego SQL
+## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Typ przydziału wystąpienia zarządzanego SQL
 
 W przypadku typu limitu przydziału **wystąpienia zarządzanego SQL** wykonaj następujące czynności:
 

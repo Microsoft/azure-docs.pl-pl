@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat planów, ochrony i alertów usługi A
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bb1c1e6443b5087b48aad7c3171bef557707adb1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977296"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448422"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
 

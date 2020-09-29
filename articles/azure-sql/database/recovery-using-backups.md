@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371783"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448794"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Jeśli skonfigurowano [długoterminowe przechowywanie kopii zapasowych](long-ter
 
 > [!IMPORTANT]
 > Nie można zastąpić istniejącej bazy danych podczas przywracania.
-
-Domyślnie usługi Azure SQL Database i kopie zapasowe wystąpienia zarządzanego Azure SQL są przechowywane w replikowanym geograficznie magazynie obiektów BLOB (typ magazynu RA-GRS). Ponadto wystąpienie zarządzane SQL obsługuje magazyn kopii zapasowych lokalnie nadmiarowy (LRS) i strefowo nadmiarowy (ZRS). Nadmiarowość gwarantuje, że dane są chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowymi awariami sprzętowymi, siecią lub przestojem, a także ogromnymi klęskami żywiołowymi. Magazyn strefowo nadmiarowy (ZRS) jest dostępny tylko w [określonych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> Konfigurowanie nadmiarowości magazynu dla kopii zapasowych jest dostępne tylko dla wystąpienia zarządzanego i dozwolone podczas procesu tworzenia. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
 
 W przypadku korzystania z warstwy usługi w warstwie Standardowa lub Premium przywrócenie bazy danych może pociągnąć za sobą dodatkowy koszt magazynu. Dodatkowy koszt jest naliczany, gdy maksymalny rozmiar przywróconej bazy danych jest większy niż ilość miejsca do magazynowania dołączona do warstwy usługi i poziomu wydajności docelowej bazy danych. Szczegóły cennika dodatkowego magazynu znajdują się na [stronie cennika SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Jeśli rzeczywista ilość zajętego miejsca jest mniejsza niż ilość dostępnego magazynu, możesz uniknąć tego dodatkowego kosztu, ustawiając wartość w polu Maksymalny rozmiar bazy danych na uwzględnioną kwotę.
 
@@ -87,7 +82,7 @@ Na ogół przywracana jest baza danych do wcześniejszego punktu na potrzeby odz
 
 Można odzyskać pojedynczą lub wystąpienie bazy danych do punktu w czasie z bloku przegląd bazy danych, która ma zostać przywrócona w Azure Portal.
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Aby odzyskać bazę danych do punktu w czasie za pomocą Azure Portal, Otwórz stronę przegląd bazy danych i wybierz pozycję **Przywróć** na pasku narzędzi. Wybierz źródło kopii zapasowej, a następnie wybierz punkt kopii zapasowej do punktu w czasie, z którego zostanie utworzona nowa baza danych.
 
@@ -113,7 +108,7 @@ Usuniętą bazę danych można przywrócić do czasu usunięcia lub do wcześnie
 
 Przywrócono usunięte bazy danych z Azure Portal z serwera lub zasobu wystąpienia zarządzanego.
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Aby odzyskać usuniętą bazę danych do czasu usunięcia przy użyciu Azure Portal, Otwórz stronę przegląd serwera i wybierz pozycję **usunięte bazy danych**. Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
 
@@ -129,7 +124,7 @@ Aby odzyskać zarządzaną bazę danych przy użyciu Azure Portal, Otwórz stron
 
 Poniższe przykładowe skrypty służą do przywracania usuniętej bazy danych dla wystąpienia zarządzanego SQL Database lub SQL za pomocą programu PowerShell.
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Przykładowy skrypt programu PowerShell przedstawiający sposób przywracania usuniętej bazy danych w Azure SQL Database można znaleźć w temacie [przywracanie bazy danych przy użyciu programu PowerShell](scripts/restore-database-powershell.md).
 
@@ -143,7 +138,7 @@ Przykładowy skrypt programu PowerShell przedstawiający sposób przywracania us
 ## <a name="geo-restore"></a>Przywracanie geograficzne
 
 > [!IMPORTANT]
-> Przywracanie geograficzne jest dostępne tylko dla wystąpień zarządzanych skonfigurowanych za pomocą typu magazynu kopii zapasowych nadmiarowego (RA-GRS). Zarządzane wystąpienia skonfigurowane przy użyciu programu z usługą lokalnie nadmiarowe lub nadmiarowe magazyny kopii zapasowych nie obsługują przywracania geograficznego.
+> Przywracanie geograficzne jest dostępne tylko dla baz danych SQL lub wystąpień zarządzanych skonfigurowanych przy użyciu geograficznie nadmiarowego [magazynu kopii zapasowych](automated-backups-overview.md#backup-storage-redundancy).
 
 Bazę danych można przywrócić na SQL Database dowolnym wystąpieniu zarządzanym w dowolnym regionie platformy Azure, na dowolnym z nich, na dowolnym z nich, na dowolnym z nich, na podstawie najnowszych kopii zapasowych replikowanych geograficznie. Przywracanie geograficzne używa kopii zapasowej replikowanej geograficznie jako źródła. Możesz zażądać przywracania geograficznego, nawet jeśli baza danych lub Datacenter jest niedostępna z powodu przestoju.
 
@@ -155,7 +150,7 @@ Przywracanie geograficzne jest domyślną opcją odzyskiwania, gdy baza danych j
 
 Z Azure Portal można utworzyć nową bazę danych wystąpienia pojedynczego lub zarządzanego i wybrać dostępną kopię zapasową przywracania geograficznego. Nowo utworzona baza danych zawiera dane kopii zapasowej przywróconej do lokalizacji geograficznej.
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Aby przywrócić geograficzną pojedynczą bazę danych z Azure Portal w wybranym regionie i serwerze, wykonaj następujące kroki:
 
@@ -183,7 +178,7 @@ Ukończ proces tworzenia nowej bazy danych. Po utworzeniu bazy danych wystąpien
 
 ### <a name="geo-restore-by-using-powershell"></a>Przywracanie geograficzne przy użyciu programu PowerShell
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Skrypt programu PowerShell pokazujący sposób wykonywania przywracania geograficznego dla pojedynczej bazy danych znajduje się w temacie [Używanie programu PowerShell do przywracania pojedynczej bazy danych do wcześniejszego punktu w czasie](scripts/restore-database-powershell.md).
 
@@ -212,7 +207,7 @@ Można również użyć Azure PowerShell lub interfejsu API REST do odzyskiwania
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez wystąpienia zarządzane SQL Database i SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są dokładnie takie same.
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Aby przywrócić bazę danych autonomiczną lub w puli, zobacz [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -247,7 +242,7 @@ Aby przywrócić bazę danych przy użyciu interfejsu API REST:
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-#### <a name="sql-database"></a>SQL Database
+#### <a name="sql-database"></a>Baza danych SQL
 
 Aby przywrócić bazę danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
 

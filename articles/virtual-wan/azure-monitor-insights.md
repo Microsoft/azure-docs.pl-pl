@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 47e9b616a2a686a7ce82a592ee81966041371048
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328007"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448617"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Przejdź do **Azure Portal**  >  **wirtualnej sieci WAN**. W menu **monitor** w 
 
 **Rysunek 1. menu monitorowanie > Insights**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Zrzut ekranu pokazujący opcję menu Insights." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza)." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
 W widoku **wglądu w szczegółowe** dane można wyświetlić wykryte zasoby wirtualnej sieci WAN. Te zasoby obejmują centra, bramy, zapory, połączenia i sieci wirtualne szprych, urządzeń WUS innych firm i gałęzie w kompleksowej wirtualnej sieci WAN. Aby zapoznać się z przykładem, zobacz **rysunek 2**.
 
@@ -45,7 +45,7 @@ Stan i stan zasobu są kodowane kolorami i nałożone na ikony zasobów na mapie
 
 **Rysunek 2: widok szczegółowych informacji**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Zrzut ekranu pokazujący widok informacji szczegółowych." lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza)." lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>Widok zależności
 
@@ -53,7 +53,7 @@ Widok **zależności** wirtualnej sieci WAN pomaga wizualizować połączony wid
 
 **Rysunek 3: widok zależności VWAN**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Zrzut ekranu pokazujący widok zależności." lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza)." lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
 Mapa widoku **zależności** przedstawia następujące zasoby jako połączone wykresy:
 
@@ -69,13 +69,13 @@ Mapa zależności umożliwia łatwe nawigowanie do ustawień konfiguracji poszcz
 
 **Ilustracja 4. przechodzenie do informacji dotyczących zasobów**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Zrzut ekranu pokazujący sposób nawigowania do informacji specyficznych dla zasobów.":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza).":::
 
 Wyszukiwanie i pasek filtru w widoku **zależności** zapewnia łatwy sposób wyszukiwania w grafie. Różne filtry zapewniają pomoc w zawężaniu wyszukiwania do określonej ścieżki i stanu.
 
 **Rysunek 5. wyszukiwanie i filtrowanie**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Zrzut ekranu pokazujący pasek wyszukiwania i paska filtru." lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza)." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>Szczegółowe metryki
 
@@ -83,7 +83,7 @@ Możesz wybrać opcję **Wyświetl szczegółowe metryki** , aby uzyskać dostę
 
 **Ilustracja 6. szczegółowy pulpit nawigacyjny metryk**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Zrzut ekranu pokazujący szczegółowy pulpit nawigacyjny metryk." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Zrzut ekranu pokazujący widok wglądu w szczegółowe dane (wersja zapoznawcza)." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

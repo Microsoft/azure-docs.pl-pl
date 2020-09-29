@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399926"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449291"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Frontony i pule zaplecza na platformie Azure — drzwi
-W tym artykule opisano zagadnienia dotyczące sposobu mapowania wdrożenia aplikacji za pomocą drzwi platformy Azure. Objaśniono w nim również różne terminy związane z konfiguracją drzwi przed końcami aplikacji.
+W tym artykule opisano zagadnienia dotyczące sposobu mapowania wdrożenia aplikacji sieci Web za pomocą drzwi platformy Azure. Wyjaśniono również różne terminologie używane w konfiguracji z drzwiami wstępnymi wokół frontonu aplikacji.
 
 ## <a name="backends"></a>Zaplecza
-Zaplecze jest równe wystąpieniu wdrożenia aplikacji w regionie. Drzwi z przodu obsługują zarówno platformę Azure, jak i punkty końcowe spoza platformy Azure, więc region nie jest ograniczony do regionów świadczenia usługi Azure. Ponadto może to być lokalne centrum danych lub wystąpienie aplikacji w innej chmurze.
+Zaplecze odwołuje się do wdrożenia aplikacji sieci Web w regionie. Drzwi z przodu obsługują zarówno zasoby platformy Azure, jak i spoza platformy Azure w puli zaplecza. Aplikacja może znajdować się w lokalnym centrum danych lub znajdować się w innym dostawcy chmury.
 
-Tylne punkty końcowe odnoszą się do nazwy hosta lub publicznego adresu IP aplikacji, która może obsługiwać żądania klientów. Zastąp nie należy mylić z warstwą bazy danych, warstwą magazynowania i tak dalej. Zaplecze należy wyświetlić jako publiczny punkt końcowy zaplecza aplikacji. Po dodaniu zaplecza w puli zaplecza z drzwiami przednimi, należy również dodać następujące elementy:
+Tylne punkty końcowe odnoszą się do nazwy hosta lub publicznego adresu IP aplikacji, która obsługuje żądania klientów. Zastąp nie należy mylić z warstwą bazy danych, warstwą magazynowania i tak dalej. Zaplecze powinno być wyświetlane jako publiczny punkt końcowy dla zaplecza aplikacji. Po dodaniu zaplecza do puli zaplecza z drzwiami przednimi, należy również dodać następujące elementy:
 
 - **Typ hosta zaplecza**. Typ zasobu, który ma zostać dodany. Drzwi tylne obsługują funkcję autowykrywania aplikacji zakończyłą się za pomocą usługi App Service, usługi w chmurze lub magazynu. Jeśli chcesz użyć innego zasobu na platformie Azure lub nawet z zapleczem innym niż Azure, wybierz opcję **host niestandardowy**.
 
@@ -41,13 +41,13 @@ Tylne punkty końcowe odnoszą się do nazwy hosta lub publicznego adresu IP apl
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Nagłówek hosta zaplecza
 
-Żądania przekazywane przez tylne drzwi do zaplecza zawierają pole nagłówka hosta używane przez zaplecze do pobrania zasobu dostosowanego. Wartość tego pola zazwyczaj pochodzi z identyfikatora URI zaplecza i ma hosta i port.
+Żądania przekazywane przez tylne drzwi do zaplecza zawierają pole nagłówka hosta używane przez zaplecze do pobrania zasobu dostosowanego. Wartość tego pola zazwyczaj pochodzi z identyfikatora URI zaplecza, który ma nagłówek i port hosta.
 
 Na przykład żądanie wykonane dla elementu `www.contoso.com` będzie miało nagłówek hosta www.contoso.com. Jeśli do skonfigurowania zaplecza używasz Azure Portal, wartością domyślną tego pola jest nazwa hosta zaplecza. Jeśli zaplecze to contoso-westus.azurewebsites.net, w Azure Portal wartość autowypełniana dla nagłówka hosta zaplecza będzie contoso-westus.azurewebsites.net. Jeśli jednak użyjesz szablonów Azure Resource Manager lub innej metody bez jawnego ustawienia tego pola, drzwi z przodu wyślą nazwę hosta przychodzącego jako wartość dla nagłówka hosta. Jeśli żądanie dotyczyło \. contoso.com www, a zaplecze jest contoso-westus.azurewebsites.NET, który ma puste pole nagłówka, drzwiczki z przodu spowodują ustawienie nagłówka hosta jako \. contoso.com www.
 
 Większość zapleców aplikacji (Azure Web Apps, BLOB Storage i Cloud Services) wymaga, aby nagłówek hosta był zgodny z domeną zaplecza. Jednak Host frontonu, który jest przesyłany do zaplecza, będzie używać innej nazwy hosta, takiej jak www.contoso.net.
 
-Jeśli zaplecze wymaga, aby nagłówek hosta był zgodny z nazwą hosta zaplecza, upewnij się, że nagłówek hosta zaplecza zawiera zaplecze nazwy hosta.
+Jeśli zaplecze wymaga, aby nagłówek hosta był zgodny z nazwą hosta zaplecza, upewnij się, że nagłówek hosta zaplecza zawiera nazwę hosta zaplecza.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Konfigurowanie nagłówka hosta zaplecza dla zaplecza
 

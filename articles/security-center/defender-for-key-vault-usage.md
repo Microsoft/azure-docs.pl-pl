@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat kroków niezbędnych do reagowania na
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd153eb1b0e96165bccc807a72bc3614ded49428
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301690"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448324"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Reagowanie na alerty usługi Azure Defender dla usługi Key Vault
 Po otrzymaniu alertu z usługi Azure Defender dla Key Vault zalecamy badanie alertu i jego odpowiedź zgodnie z poniższym opisem. Usługa Azure Defender dla Key Vault chroni aplikacje i poświadczenia, więc nawet w przypadku znajomości aplikacji lub użytkownika, który wyzwolił alert, ważne jest, aby sprawdzić sytuacje związane z każdym alertem.  

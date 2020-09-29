@@ -6,12 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.openlocfilehash: 70e68c566ccb0fe08ce3b8d2dc11fc3c141c16bc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: contperfq1
+ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997801"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445174"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Dokumentacja wiersza polecenia i programu PowerShell dla emulatora Azure Cosmos DB
 

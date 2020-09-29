@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330846"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445066"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Aby mieć pewność, że aplikacja będzie mogła natychmiast uzyskać dostęp d
 
 ## <a name="configuring-secondary-database"></a>Konfigurowanie pomocniczej bazy danych
 
-Podstawowa i pomocnicza baza danych muszą mieć tę samą warstwę usług. Zdecydowanie zaleca się również utworzenie pomocniczej bazy danych z tym samym rozmiarem obliczeń (DTU lub rdzeni wirtualnych) jako podstawową. Jeśli podstawowa baza danych ma duże obciążenie zapisu, może nie być możliwe przeprowadzenie dodatkowej z mniejszym rozmiarem obliczeniowym. Spowoduje to opóźnienie opóźnienia na pomocniczej i potencjalną niedostępność pomocniczą. Aby wyeliminować te zagrożenia, aktywna replikacja geograficzna ogranicza stawkę dziennika transakcji głównej, jeśli jest to konieczne, aby umożliwić jej wychwycenie.
+Podstawowa i pomocnicza baza danych muszą mieć tę samą warstwę usług. Zdecydowanie zaleca się również utworzenie pomocniczej bazy danych z tą samą nadmiarowością magazynu kopii zapasowych i rozmiarem obliczeń (DTU lub rdzeni wirtualnych) jako podstawową. Jeśli podstawowa baza danych ma duże obciążenie zapisu, może nie być możliwe przeprowadzenie dodatkowej z mniejszym rozmiarem obliczeniowym. Spowoduje to opóźnienie opóźnienia na pomocniczej i potencjalną niedostępność pomocniczą. Aby wyeliminować te zagrożenia, aktywna replikacja geograficzna ogranicza stawkę dziennika transakcji głównej, jeśli jest to konieczne, aby umożliwić jej wychwycenie.
 
 Inną konsekwencją niezrównoważonej konfiguracji dodatkowej jest to, że po przejściu w tryb failover wydajność aplikacji może ulec pogorszeniu z powodu niewystarczającej pojemności obliczeniowej nowego elementu podstawowego. W takim przypadku konieczne będzie skalowanie celu usługi bazy danych do niezbędnego poziomu, co może zająć dużo czasu i zasobów obliczeniowych, i będzie wymagało przejścia w tryb failover [o wysokiej dostępności](high-availability-sla.md) na końcu procesu skalowania w górę.
 
@@ -126,8 +126,13 @@ Jeśli zdecydujesz się na utworzenie pomocniczej o mniejszym rozmiarze oblicze�
 
 Ograniczanie szybkości dziennika transakcji na podstawowym ze względu na mniejszy rozmiar obliczeń na pomocniczym jest zgłaszane przy użyciu typu oczekiwania HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, widocznego w widokach bazy danych [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
 
+Domyślnie nadmiarowość magazynu kopii zapasowej pomocniczej jest taka sama jak w przypadku podstawowej bazy danych. Można skonfigurować dodatkową nadmiarowość magazynu kopii zapasowych. Kopie zapasowe są zawsze wykonywane w podstawowej bazie danych. Jeśli pomocnicza konfiguracja ma inną nadmiarowość magazynu kopii zapasowych, po przejściu do trybu failover w przypadku promowania pomocniczej bazy danych na serwerze podstawowym kopie zapasowe będą naliczane zgodnie z nadmiarowością magazynu wybraną w nowym podstawowym (powyższym poziomie). 
+
 > [!NOTE]
 > Szybkość dziennika transakcji na podstawowym może być ograniczona ze względu na niezwiązany z mniejszym rozmiarem obliczeń na pomocniczym. Ten rodzaj ograniczania może wystąpić nawet wtedy, gdy pomocniczy ma ten sam lub większy rozmiar obliczeniowy niż podstawowy. Aby uzyskać szczegółowe informacje, w tym typy oczekiwania dla różnych rodzajów ograniczania szybkości rejestrowania, zobacz temat [szybkość dziennika transakcji ładu](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna w publicznej wersji zapoznawczej tylko w regionie "Południowo-Wschodnia". W wersji zapoznawczej, jeśli źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości kopii zapasowej, utworzenie pomocniczej bazy danych w innym regionie platformy Azure nie będzie obsługiwane. 
 
 Aby uzyskać więcej informacji na temat rozmiarów obliczeń SQL Database, zobacz [co to są SQL Database warstwy usług](purchasing-models.md).
 

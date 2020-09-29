@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.openlocfilehash: 9f5f4b2b069ebc65430fba4bc31a9891ed61fedf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898690"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450105"
 ---
 # <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
@@ -22,9 +22,10 @@ W tym artykule opisano sposób użycia modułu Konwertuj do katalogu obrazów w 
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Jak używać konwersji do katalogu obrazów  
 
-1.  Dodaj do eksperymentu moduł **Konwertuj na katalog obrazu** . Ten moduł można znaleźć w kategorii "przetwarzanie obrazów/transformacje danych obrazu" na liście modułów. 
+1.  Dodaj moduł **Konwertuj do katalogu obrazu** na kanwę. Ten moduł można znaleźć w kategorii "przetwarzanie obrazów/transformacje danych obrazu" na liście modułów. 
 
-2.  [Zarejestruj zestaw danych obrazu](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) i połącz go z portem wejściowym modułu. Upewnij się, że w wejściowym zestawie danych znajduje się obraz. 
+2.  Wejście **konwersji do modułu katalogu obrazu** musi być zestawem danych pliku. [Zarejestruj zestaw danych obrazu](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) i połącz go z portem wejściowym modułu. Upewnij się, że w wejściowym zestawie danych znajduje się obraz. Obecnie projektant nie obsługuje zestawu danych obrazu wizualizacji.
+ 
     Obsługiwane są następujące formaty zestawu danych:
 
     - Skompresowany plik w tych rozszerzeniach: "zip", ". tar", ". gz", ". bz2".
@@ -35,20 +36,24 @@ W tym artykule opisano sposób użycia modułu Konwertuj do katalogu obrazów w 
     
 
     > [!NOTE]
-    > Jeśli Użyj zestawu danych obrazu w nadzorowanej uczeniu, etykieta jest wymagana.
-    > W przypadku zadania klasyfikacji obrazu można wygenerować etykietę jako "Kategoria" w danych wyjściowych modułu, jeśli ten zestaw danych obrazu jest zorganizowany w formacie torchvision ImageFolder. W przeciwnym razie tylko obrazy są zapisywane bez etykiety. Oto przykład sposobu organizowania zestawu danych obrazu w celu uzyskania etykiety. Użyj kategorii obrazu jako nazwy podfolderu. Aby uzyskać więcej informacji, zobacz [zestawy danych torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
+    > - Jeśli używasz zestawu danych obrazu w nadzorowanej uczenia, musisz określić etykietę zestawu danych szkoleniowych.
+    > - W przypadku zadania klasyfikacji obrazu można wygenerować etykietę jako "Kategoria" w danych wyjściowych modułu, jeśli ten zestaw danych obrazu jest zorganizowany w formacie torchvision ImageFolder. W przeciwnym razie tylko obrazy są zapisywane bez etykiety. Poniżej przedstawiono przykład sposobu organizowania zestawu danych obrazu w celu uzyskania etykiety, używania kategorii obrazu jako nazwy podfolderu. 
+    > - Nie musisz przekazywać tej samej liczby obrazów w każdym folderze kategorii.
+    > - Obrazy z tymi rozszerzeniami (małymi literami) są obsługiwane: "jpg", ". jpeg", ". png", ". ppm", ". bmp", ". PGM", ". tif", ". TIFF", ". WEBP". W jednym folderze można także mieć wiele typów obrazów.    
+    > - Aby uzyskać więcej informacji, zobacz [zestawy danych torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
     >
     > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
+    > Your_image_folder_name/Category_1/xxx.png
+    > Your_image_folder_name/Category_1/xxy.jpg
+    > Your_image_folder_name/Category_1/xxz.jpeg
     >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
+    > Your_image_folder_name/Category_2/123.png
+    > Your_image_folder_name/Category_2/nsdf3.png
+    > Your_image_folder_name/Category_2/asd932_.png
     > ```
-
-3.  Prześlij potok.
+    > - Jeśli użyjesz zestawu danych obrazu do oceniania, zestaw danych wejściowych plików tego modułu powinien zawierać obrazy niesklasyfikowane.
+    
+3.  Prześlij potok. Ten moduł można uruchomić na procesorze GPU lub procesorze CPU.
 
 ## <a name="results"></a>Wyniki
 

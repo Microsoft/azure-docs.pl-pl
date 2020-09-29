@@ -9,29 +9,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e72443e33d1b6f097f61f4c027b5f547b43ee2a9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449234"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Obsługa protokołu dla nagłówków HTTP w ramach zewnętrznych drzwi platformy Azure
 W tym artykule opisano protokół, który obsługuje drzwiczki z częściami ścieżki wywołania (Zobacz obraz). Poniższe sekcje zawierają więcej informacji na temat nagłówków HTTP obsługiwanych przez tylne drzwi.
 
-![Protokół HTTP dla drzwi z przodu platformy Azure][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Protokół HTTP dla drzwi z przodu platformy Azure":::
 
 >[!IMPORTANT]
 >Drzwi z przodu nie poświadczają żadnych nagłówków HTTP, które nie są udokumentowane w tym miejscu.
 
 ## <a name="client-to-front-door"></a>Klient do przednich drzwi
-Drzwi przede wszystkim przyjmują większość nagłówków z żądania przychodzącego bez konieczności ich modyfikacji. Niektóre zarezerwowane nagłówki są usuwane z przychodzącego żądania, jeśli są wysyłane, włącznie z nagłówkami z prefiksem X-FD-*.
+Drzwi z przodu akceptują większość nagłówków dla żądania przychodzącego bez konieczności ich modyfikacji. Niektóre zarezerwowane nagłówki są usuwane z przychodzącego żądania, jeśli są wysyłane, włącznie z nagłówkami z prefiksem X-FD-*.
 
 ## <a name="front-door-to-backend"></a>Drzwi z przodu do zaplecza
 
-Drzwi z przodu obejmują nagłówki z przychodzącego żądania, chyba że zostały usunięte ze względu na ograniczenia. Drzwi z przodu również dodaje następujące nagłówki:
+Przód drzwi obejmuje nagłówki dla żądania przychodzącego, o ile nie zostały usunięte z powodu ograniczeń. Drzwi z przodu również dodaje następujące nagłówki:
 
 | Header  | Przykład i opis |
 | ------------- | ------------- |
@@ -52,12 +52,9 @@ Wszystkie nagłówki wysyłane do przednich drzwi z zaplecza są również przek
 
 | Header  | Przykład |
 | ------------- | ------------- |
-| X-Azure-ref |  *X-Azure-ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> To jest unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi. Jest to ważne w przypadku rozwiązywania problemów, ponieważ służy do wyszukiwania dzienników dostępu.|
+| X-Azure-ref |  *X-Azure-ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Jest to unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi, co jest niezwykle ważne w przypadku rozwiązywania problemów, które jest używane do wyszukiwania dzienników dostępu.|
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie usługi Front Door](quickstart-create-front-door.md)
 - [Jak działają tylne drzwi](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552241"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448586"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
 
@@ -53,9 +53,9 @@ Po zapisaniu aplikacji logiki ten krok zostanie wypełniony przy użyciu adresu 
 
 2. Dodaj nowy krok i wyszukaj ciąg **http**.  
 
-   ![Dodawanie działania HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Zrzut ekranu przedstawiający sekcję "Wybieranie akcji" z wybranym kafelkiem "HTTP".](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Dodawanie działania HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Zrzut ekranu okna "HTTP" z wybranym kafelkiem "HTTP-HTTP".](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Wybierz pozycję **http** , aby dodać tę akcję.
 
@@ -98,15 +98,15 @@ Jeśli nie planujesz używania narzędzia Orchestration, takiego jak Data Factor
 
 Korzystając z powyższego przykładu, Usuń pierwsze działanie i zastąp je działaniem **harmonogramu** .
 
-![Planowanie działania](./media/analysis-services-async-refresh-logic-app/12.png)
+![Zrzut ekranu, na którym zostanie wyświetlona strona "Logic Apps" z wybranym kafelkiem "Schedule".](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Planowanie działania](./media/analysis-services-async-refresh-logic-app/13.png)
+![Zrzut ekranu przedstawiający stronę "wyzwalacze".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 W tym przykładzie zostanie użyty **cykl**.
 
 Po dodaniu działania Skonfiguruj interwał i częstotliwość, a następnie Dodaj nowy parametr i wybierz **w tych godzinach**.
 
-![Planowanie działania](./media/analysis-services-async-refresh-logic-app/16.png)
+![Zrzut ekranu przedstawiający sekcję "cykl" z wybranym parametrem "w tych godzinach".](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Wybierz odpowiednie godziny.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733005"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448507"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
@@ -167,7 +167,7 @@ Następnie uruchom skrypt, aby utworzyć maszynę wirtualną dla urządzenia IoT
     * Utwórz grupę zasobów, jeśli jeszcze nie istnieje
     * Tworzenie maszyny wirtualnej
     * Dodaj wyjątki sieciowej grupy zabezpieczeń dla maszyny wirtualnej dla portów 22 (SSH), 5671 (AMQP), 5672 (AMPQ) i 443 (TLS)
-    * Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+    * Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-apt)
 
 7. Skrypt wyprowadza parametry połączenia SSH w celu nawiązania połączenia z maszyną wirtualną. Skopiuj parametry połączenia dla następnego kroku.
 

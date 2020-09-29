@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6390180052cb21bb0d2230a066b9f10d4eb99ca1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447340"
+ms.locfileid: "91461424"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w usłudze Azure Security Center
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
 
 
@@ -31,7 +31,7 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking.md) |
 |||
 
 
@@ -95,45 +95,43 @@ Security Center zawiera poniższą listę zalecanych elementów do monitorowania
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 
-## <a name="using-file-integrity-monitoring"></a>Korzystanie z monitorowania integralności plików
+## <a name="enable-file-integrity-monitoring"></a>Włącz monitorowanie integralności plików 
 
-1. Otwórz pulpit nawigacyjny **usługi Azure Defender** .
+1. W obszarze **zaawansowanej ochrony** pulpitu nawigacyjnego **usługi Azure Defender** wybierz pozycję **monitorowanie integralności plików**.
 
-1. W obszarze **Ochrona zaawansowana** wybierz pozycję **monitorowanie integralności plików**.
+   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Uruchamianie programu FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Uruchamianie programu FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+    Zostanie otwarta strona Konfiguracja **monitorowania integralności plików** .
+
+    Dla każdego obszaru roboczego są dostępne następujące informacje:
+
+    - Łączna liczba zmian, które wystąpiły w ostatnim tygodniu (w obszarze roboczym nie jest włączona funkcja FIM)
+    - Łączna liczba komputerów i maszyn wirtualnych raportowanych do obszaru roboczego
+    - Lokalizacja geograficzna obszaru roboczego
+    - Subskrypcja platformy Azure, w której znajduje się obszar roboczy
+
+1. Ta strona służy do:
+
+    - Dostęp i wyświetlanie stanu i ustawień każdego obszaru roboczego
+
+    - ![Ikona planu uaktualniania ][4] umożliwia uaktualnienie obszaru roboczego do korzystania z usługi Azure Defender. Ta ikona wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji programu FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender. [Dowiedz się więcej](security-center-pricing.md).
+
+    - ![Ikona włączania][3] Włącz program FIM na wszystkich komputerach w obszarze roboczym i skonfiguruj opcje programu FIM. Ta ikona wskazuje, że program FIM nie jest włączony dla obszaru roboczego — Użyj tego przycisku, aby:
+
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Uruchamianie programu FIM":::
 
 
-    Zostanie otwarte **monitorowanie integralności plików** .
-    ![Pulpit nawigacyjny usługi Security Center][2]
+    > [!TIP]
+    > Jeśli nie ma przycisku włączania lub uaktualniania, a spacja jest pusta, oznacza to, że program FIM jest już włączony w obszarze roboczym.
 
-Dla każdego obszaru roboczego są dostępne następujące informacje:
 
-- Łączna liczba zmian, które wystąpiły w ostatnim tygodniu (w obszarze roboczym nie jest włączona funkcja FIM)
-- Łączna liczba komputerów i maszyn wirtualnych raportowanych do obszaru roboczego
-- Lokalizacja geograficzna obszaru roboczego
-- Subskrypcja platformy Azure, w której znajduje się obszar roboczy
+1. Wybierz pozycję **Włącz**. Pokazane są szczegóły obszaru roboczego, w tym liczba maszyn z systemami Windows i Linux w obszarze roboczym.
 
-Następujące przyciski mogą być również wyświetlane dla obszaru roboczego:
-
-- ![Ikona włączania][3] Wskazuje, że w obszarze roboczym nie jest włączona funkcja FIM. Wybranie obszaru roboczego umożliwia włączenie programu FIM na wszystkich komputerach w obszarze roboczym.
-- ![Ikona planu uaktualniania][4] Wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender.  Wybranie obszaru roboczego umożliwia uaktualnienie.
-- Puste (brak przycisku) oznacza, że FIM jest już włączony w obszarze roboczym.
-
-W obszarze **monitorowanie integralności plików**można wybrać obszar roboczy, aby włączyć program FIM dla tego obszaru roboczego, wyświetlić pulpit nawigacyjny monitorowania integralności plików dla tego obszaru roboczego lub [uaktualnić](security-center-pricing.md) obszar roboczy do korzystania z usługi Azure Defender.
-
-## <a name="enable-fim"></a>Włącz program FIM
-Aby włączyć program FIM w obszarze roboczym:
-
-1. W obszarze **monitorowanie integralności plików**wybierz obszar roboczy z przyciskiem **Włącz** .
-
-1. **Włączenie monitorowania integralności plików** spowoduje otwarcie wyświetlania liczby maszyn z systemami Windows i Linux w obszarze roboczym.
-
-   ![Włącz monitorowanie integralności plików][5]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Uruchamianie programu FIM":::
 
    Wyświetlane są również zalecane ustawienia dla systemów Windows i Linux.  Rozwiń pozycje **pliki systemu Windows**, **Rejestr**i **Linux** , aby wyświetlić pełną listę zalecanych elementów.
 
-1. Usuń zaznaczenie wszystkich zalecanych jednostek, do których nie chcesz stosować programu FIM.
+1. Wyczyść pola wyboru dla wszystkich zalecanych jednostek, które nie mają być monitorowane przez program FIM.
 
 1. Wybierz pozycję **Zastosuj monitorowanie integralności plików** , aby włączyć program FIM.
 
@@ -141,10 +139,12 @@ Aby włączyć program FIM w obszarze roboczym:
 > Ustawienia można zmienić w dowolnym momencie. Aby dowiedzieć się więcej, zobacz [Edytowanie monitorowanych jednostek](#edit-monitored-entities) poniżej.
 
 
-## <a name="view-the-fim-dashboard"></a>Wyświetlanie pulpitu nawigacyjnego programu FIM
+
+## <a name="audit-monitored-workspaces"></a>Inspekcja monitorowanych obszarów roboczych 
+
 Zostanie wyświetlony pulpit nawigacyjny **monitorowanie integralności plików** dla obszarów roboczych, w których jest włączony kod FIM. Pulpit nawigacyjny usługi FIM zostanie otwarty po włączeniu programu FIM w obszarze roboczym lub po wybraniu obszaru roboczego w oknie **monitorowanie integralności plików** , w którym już włączono funkcję FIM.
 
-![Pulpit nawigacyjny monitorowania integralności plików][6]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Uruchamianie programu FIM":::
 
 Pulpit nawigacyjny programu FIM dla obszaru roboczego zawiera następujące szczegóły:
 
@@ -153,11 +153,11 @@ Pulpit nawigacyjny programu FIM dla obszaru roboczego zawiera następujące szcz
 - Podział typu zmiany (pliki, rejestr)
 - Podział kategorii zmiany (zmodyfikowano, dodano, usunięto)
 
-Wybranie opcji Filtruj w górnej części pulpitu nawigacyjnego pozwala zastosować okres, w którym chcesz zobaczyć zmiany.
+Wybierz opcję **Filtr** w górnej części pulpitu nawigacyjnego, aby zmienić okres, w którym będą wyświetlane zmiany.
 
-![Filtr okresu][7]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Uruchamianie programu FIM":::
 
-Na karcie **komputery** (pokazane powyżej) są wyświetlane wszystkie maszyny, które są raportowane do tego obszaru roboczego. Na każdej maszynie pulpit nawigacyjny zawiera listę:
+Na karcie **serwery** znajduje się lista komputerów raportowanych do tego obszaru roboczego. Na każdej maszynie pulpit nawigacyjny zawiera listę:
 
 - Łączna liczba zmian, które wystąpiły w wybranym okresie
 - Podział łącznej liczby zmian w plikach lub zmianach rejestru
@@ -260,11 +260,9 @@ W tym artykule przedstawiono sposób korzystania z monitorowania integralności 
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
-[2]: ./media/security-center-file-integrity-monitoring/file-integrity-monitoring.png
 [3]: ./media/security-center-file-integrity-monitoring/enable.png
 [4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
 [5]: ./media/security-center-file-integrity-monitoring/enable-fim.png
-[6]: ./media/security-center-file-integrity-monitoring/fim-dashboard.png
 [7]: ./media/security-center-file-integrity-monitoring/filter.png
 [8]: ./media/security-center-file-integrity-monitoring/log-search.png
 [9]: ./media/security-center-file-integrity-monitoring/changes-tab.png

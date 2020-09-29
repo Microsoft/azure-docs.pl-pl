@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399433"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448701"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Obsługa protokołu HTTP/2 na platformie Azure — drzwi
 
 Obecnie obsługa protokołu HTTP/2 jest aktywna w przypadku wszystkich konfiguracji z przodu platformy Azure. Od klientów nie są wymagane żadne dalsze działania.
 
-HTTP/2 to główna wersja protokołu HTTP/1.1. Zapewnia to szybszą wydajność sieci Web, krótszy czas odpowiedzi i ulepszone środowisko użytkownika przy zachowaniu znanych metod HTTP, kodów stanu i semantyki. Mimo że protokół HTTP/2 jest przeznaczony do pracy z protokołami HTTP i HTTPS, wiele przeglądarek sieci Web klienta obsługuje tylko protokół HTTP/2 dla Transport Layer Security (TLS).
+HTTP/2 to główna wersja protokołu HTTP/1.1, która zapewnia szybsze działanie sieci Web przez skrócenie czasu odpowiedzi. Protokół HTTP/2 jest wykonywany przez utrzymywanie znanych metod HTTP, kodów stanu i semantyki w celu poprawy środowiska użytkownika. Mimo że protokół HTTP/2 jest przeznaczony do pracy z protokołami HTTP i HTTPS, wiele przeglądarek sieci Web klienta obsługuje tylko protokół HTTP/2 dla Transport Layer Security (TLS).
 
 > [!NOTE]
 > Obsługa protokołu HTTP/2 jest dostępna tylko dla żądań od klientów do przednich drzwi. Komunikacja z tylnych drzwi do zaplecza w puli zaplecza odbywa się za pośrednictwem protokołu HTTP/1.1. 

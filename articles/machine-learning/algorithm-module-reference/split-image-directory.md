@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268931"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448677"
 ---
 # <a name="split-image-directory"></a>Dzielenie katalogu obrazów
 
@@ -28,7 +28,7 @@ Ten moduł jest szczególnie przydatny, gdy trzeba podzielić dane obrazu na zes
 
 2. Połącz go z modułem, którego dane wyjściowe to katalog obrazu.
 
-3. Wprowadź **ułamek danych w pierwszym danych wyjściowych** , aby określić wartość procentową, która ma zostać umieszczona w lewym podziale, domyślnie 0,9.
+3. Wprowadź **ułamek danych w pierwszym danych wyjściowych** , aby określić wartość procentową, która ma zostać umieszczona w lewym podziale, domyślnie 0,9. Jeśli wynik Ułamkowy nie jest liczbą całkowitą, moduł używa mniejszej liczby całkowitej.
 
 
 ## <a name="technical-notes"></a>Uwagi techniczne

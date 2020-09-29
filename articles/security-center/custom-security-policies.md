@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448398"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
 

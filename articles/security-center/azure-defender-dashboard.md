@@ -4,15 +4,15 @@ description: Dowiedz się więcej o funkcjach pulpitu nawigacyjnego usługi Azur
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 268781f7f14ad93ca63cbbcbef1fb697d46b33a3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35469c7a11d47e586187b55bde1e8ad8a0c94f5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977351"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448404"
 ---
 # <a name="the-azure-defender-dashboard"></a>Pulpit nawigacyjny usługi Azure Defender
 

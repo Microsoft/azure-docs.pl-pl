@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553907"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448595"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
@@ -54,15 +54,15 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
 1. Na koncie usługi Automation Utwórz zasób **poświadczeń** , który będzie używany do bezpiecznego przechowywania nazwy głównej usługi.
 
-    ![Utwórz poświadczenie](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Zrzut ekranu przedstawiający stronę "poświadczenia" z wybraną akcją "Dodaj poświadczenie".](./media/analysis-services-refresh-azure-automation/6.png)
 
 2. Wprowadź szczegóły poświadczenia. W polu **Nazwa użytkownika**wprowadź identyfikator aplikacji głównej usługi (AppID), a następnie w polu **hasło**wprowadź klucz tajny jednostki usługi.
 
     ![Utwórz poświadczenie](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importowanie elementu Runbook usługi Automation
+3. Zaimportuj element Runbook usługi Automation.
 
-    ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Zrzut ekranu przedstawiający stronę "elementy Runbook" z wybraną akcją "Importuj element Runbook".](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Wyszukaj plik [Refresh-Model.ps1](#sample-powershell-runbook) , podaj **nazwę** i **Opis**, a następnie kliknij przycisk **Utwórz**.
 
@@ -80,7 +80,7 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
 6. Przetestuj element Runbook, klikając przycisk **Start**.
 
-    ![Uruchamianie elementu Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Zrzut ekranu pokazujący stronę "przegląd" z wybraną akcją "Start".](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Wypełnij parametry **DatabaseName**, **ANALYSISSERVER**i **reodświeżony** , a następnie kliknij przycisk **OK**. Parametr **WEBHOOKDATA** nie jest wymagany, gdy element Runbook jest uruchamiany ręcznie.
 
@@ -104,7 +104,7 @@ Można to skonfigurować w następujący sposób:
 
     ![Konfigurowanie harmonogramu](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 
 4. Wypełnij parametry harmonogramu. Zostaną one użyte przy każdym wyzwoleniu elementu Runbook. Parametr **WEBHOOKDATA** powinien pozostać pusty, gdy jest uruchamiany zgodnie z harmonogramem.
 
