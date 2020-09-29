@@ -4,15 +4,15 @@ description: Dowiedz się, jak połączyć maszyny spoza platformy Azure w celu 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 82b8161f92f337002e9d8bbdc45cd53d5921fc00
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280678"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448947"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 

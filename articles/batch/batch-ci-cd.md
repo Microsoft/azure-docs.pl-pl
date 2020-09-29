@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229399"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461533"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -43,7 +43,7 @@ Struktura codebase użyta w tym przykładzie jest podobna do następującej:
 
 * Folder **ARM-templates** zawierający kilka Azure Resource Manager szablonów. Te szablony zostały omówione w tym artykule.
 * Folder **aplikacji klienta** , który jest kopią [Azure Batch przetwarzania plików platformy .NET z](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) przykładem narzędzia FFmpeg. Ten artykuł nie jest wymagany.
-* Folder **HPC-aplikacja** , który jest wersją systemu Windows 64-bitową [Narzędzia FFmpeg 3,4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* Folder **HPC-aplikacja** , który jest wersją systemu Windows 64-bitową [Narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * Folder **potoków** . Zawiera plik YAML, który tworzy konspekt procesu kompilacji. Ten artykuł został omówiony w artykule.
 
 W tej sekcji założono, że znasz kontrolę wersji i projektujesz szablony Menedżer zasobów. Jeśli nie znasz tych pojęć, zobacz następujące strony, aby uzyskać więcej informacji.

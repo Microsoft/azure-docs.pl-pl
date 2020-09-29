@@ -3,12 +3,12 @@ title: Replikowanie Azure Stack maszyn wirtualnych na platformę Azure przy uży
 description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333719"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448969"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
 
@@ -314,26 +314,7 @@ Następnie uruchom tryb failover w następujący sposób:
 
 ### <a name="fail-back-to-azure-stack"></a>Powrót po awarii do Azure Stack
 
-Gdy lokacja główna zostanie uruchomiona ponownie, możesz wrócić z powrotem z platformy Azure do Azure Stack. Aby to zrobić, należy pobrać wirtualny dysk twardy maszyny wirtualnej platformy Azure i przekazać go do Azure Stack.
-
-1. Zamknij maszynę wirtualną platformy Azure, aby można było pobrać dysk VHD.
-2. Aby rozpocząć pobieranie wirtualnego dysku twardego, zainstaluj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
-3. Przejdź do maszyny wirtualnej w witrynie Azure Portal (przy użyciu nazwy maszyny wirtualnej).
-4. W obszarze **dyski**kliknij nazwę dysku i Zbierz ustawienia.
-
-    - Na przykład identyfikator URI dysku VHD użyty w naszym teście: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` może zostać podzielony, aby uzyskać następujące parametry wejściowe, które są używane do pobierania dysku VHD.
-        - Konto magazynu: 502055westcentralus
-        - Kontener: wahv9b8d2ceb284fb59287
-        - Nazwa wirtualnego dysku twardego: Copied-3676553984. VHD
-
-5. Teraz Użyj Eksplorator usługi Azure Storage, aby pobrać dysk VHD.
-6. Przekaż wirtualny dysk twardy do Azure Stack z [tymi krokami](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. W istniejącej maszynie wirtualnej lub nowej maszynie wirtualnej Dołącz przekazane wirtualne dyski twarde.
-8. Sprawdź, czy dysk systemu operacyjnego jest poprawny, i uruchom maszynę wirtualną.
-
-
-Na tym etapie powrót po awarii jest zakończony.
-
+Gdy lokacja główna zostanie uruchomiona ponownie, możesz wrócić z powrotem z platformy Azure do Azure Stack. Aby to zrobić, wykonaj kroki opisane w [tym miejscu](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Podsumowanie
 
