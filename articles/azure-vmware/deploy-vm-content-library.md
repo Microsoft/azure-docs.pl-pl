@@ -3,12 +3,12 @@ title: Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w r
 description: Utwórz bibliotekę zawartości, aby wdrożyć maszynę wirtualną w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: a8e2f1911899e659724760cff514a33c8f0740a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347586"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575807"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tworzenie biblioteki zawartości w celu wdrożenia maszyn wirtualnych w rozwiązaniu VMware platformy Azure
 
@@ -92,7 +92,7 @@ Teraz, po utworzeniu biblioteki zawartości, można dodać obraz ISO, aby wdroż
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli planujesz używanie rozszerzenia chmury hybrydowej (HCX) do migrowania obciążeń maszyn wirtualnych do chmury prywatnej, użyj procedury [rozwiązania Install HCX for Azure VMware](hybrid-cloud-extension-installation.md) .
+Jeśli planujesz używanie rozszerzenia chmury hybrydowej (HCX) do migrowania obciążeń maszyn wirtualnych do chmury prywatnej, użyj procedury [rozwiązania Install HCX for Azure VMware](tutorial-deploy-vmware-hcx.md) .
 
 <!-- LINKS - external-->
 

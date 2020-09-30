@@ -1,81 +1,64 @@
 ---
-title: Łączenie się z przykładowym kodem urządzenia składnika C# w programie IoT Plug and Play wersja zapoznawcza IoT Hub | Microsoft Docs
-description: Kompiluj i uruchamiaj program IoT Plug and Play Podgląd przykładowego kodu urządzenia w języku C#, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Łączenie Plug and Play IoT przykład kod urządzenia składnika C# IoT Hub | Microsoft Docs
+description: Kompiluj i uruchamiaj program IoT Plug and Play przykładowy kod urządzenia w języku C#, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 67b71399332fb29a277381a8c2806dbe7fb31d85
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552156"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575388"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Samouczek: łączenie IoT Plug and Play aplikacji z wieloma urządzeniami składnika działającą w systemie Windows do IoT Hub (C#)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami i interfejsem głównym, nawiązywania połączenia z usługą IoT Hub oraz przy użyciu narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku C# i jest zawarta w zestawie SDK urządzeń Azure IoT dla języka C#. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku C# i jest zawarta w zestawie SDK urządzeń Azure IoT dla języka C#. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Windows:
 
 * [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/).
 * Usługi [git](https://git-scm.com/download/).
-* [CMAKE](https://cmake.org/download/).
 
-### <a name="azure-iot-explorer"></a>Eksplorator IoT Azure
+### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Klonowanie repozytorium zestawu SDK przy użyciu przykładowego kodu
 
-Aby można było korzystać z przykładowego urządzenia w drugiej części tego samouczka, należy użyć narzędzia **Azure IoT Explorer** . [Pobierz i zainstaluj najnowszą wersję programu Azure IoT Explorer](./howto-use-iot-explorer.md) dla danego systemu operacyjnego.
+Jeśli zakończysz [Przewodnik Szybki Start: Podłącz przykładową aplikację urządzenia IoT Plug and Play działającą w systemie Windows do IoT Hub (C#)](quickstart-connect-device-csharp.md), masz już Sklonowane repozytorium.
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Uruchom następujące polecenie, aby pobrać _Parametry połączenia usługi IoT Hub_ dla centrum. Zanotuj te parametry połączenia w dalszej części tego samouczka:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Możesz również użyć narzędzia Azure IoT Explorer, aby znaleźć parametry połączenia usługi IoT Hub.
-
-Uruchom następujące polecenie, aby pobrać _Parametry połączenia urządzenia_ dla urządzenia dodanego do centrum. Zanotuj te parametry połączenia w dalszej części tego samouczka:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
-## <a name="download-the-code"></a>Pobieranie kodu
-
-W tym samouczku przygotowano środowisko programistyczne, którego można użyć do klonowania i kompilowania zestawu SDK języka C# dla usługi Azure IoT Hub.
-
-Otwórz wiersz polecenia w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować repozytorium [usługi Azure IoT C# SDK i biblioteki](https://github.com/Azure/azure-iot-sdk-csharp) GitHub do tej lokalizacji:
+Sklonuj przykłady z repozytorium Microsoft Azure IoT SDK dla programu .NET GitHub. Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT przykłady dla repozytorium programu .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 ```
 
-## <a name="build-the-code"></a>Kompilowanie kod
+## <a name="run-the-sample-device"></a>Uruchamianie przykładowego urządzenia
 
-Otwórz plik rozwiązania **azureiot. sln** w programie Visual Studio 2019 i ustaw projekt **TemperatureController** jako projekt startowy. W **Eksplorator rozwiązań**można znaleźć ten plik projektu w przykładach **> > urządzeń iothub**.
+W tym przewodniku szybki start użyto przykładowego urządzenia kontrolera temperatury, które jest zapisywana w języku C# jako urządzenie Plug and Play IoT. Aby uruchomić przykładowe urządzenie:
 
-Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
+1. Otwórz plik projektu *Azure-IoT-Samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController\TemperatureController.csproj* w programie Visual Studio 2019.
 
-## <a name="run-the-device-sample"></a>Uruchamianie przykładu urządzenia
+1. W programie Visual Studio przejdź do **projektu > właściwości TemperatureController > Debuguj**. Następnie Dodaj następujące zmienne środowiskowe do projektu:
 
-Utwórz zmienną środowiskową o nazwie **IOTHUB_DEVICE_CONNECTION_STRING** do przechowywania parametrów połączenia urządzenia, które zostały wcześniej wykonane.
+    | Nazwa | Wartość |
+    | ---- | ----- |
+    | IOTHUB_DEVICE_SECURITY_TYPE | DOKUMENTY |
+    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | Wartość zanotowana po zakończeniu [konfigurowania środowiska](set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | My-PnP-Device |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | Wartość zanotowana po zakończeniu [konfigurowania środowiska](set-up-environment.md) |
 
-Aby śledzić wykonywanie kodu w programie Visual Studio w systemie Windows, Dodaj punkt przerwania do `main` funkcji w pliku program.cs.
 
-Urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwości i rozpoczęło wysyłanie danych telemetrycznych do centrum. Kontynuuj działanie przykładu w przypadku wykonywania następnych kroków.
+1. Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
+
+1. Zobaczysz komunikaty informujące, że urządzenie wysłało pewne informacje i zakończyło się w trybie online. Te komunikaty wskazują, że urządzenie rozpoczęło wysyłanie danych telemetrycznych do centrum i jest teraz gotowe do odbierania poleceń i aktualizacji właściwości. Nie zamykaj tego wystąpienia programu Visual Studio, musisz sprawdzić, czy przykład usługi działa.
 
 ## <a name="use-azure-iot-explorer-to-validate-the-code"></a>Sprawdzanie poprawności kodu za pomocą programu Azure IoT Explorer
 
@@ -90,52 +73,57 @@ Ten przykład implementuje urządzenie kontrolera temperatury Plug and Play IoT.
 Kod urządzenia łączy się z Centrum IoT Hub przy użyciu standardowej `CreateFromConnectionString` metody. Urządzenie wysyła identyfikator modelu DTDL, który implementuje w żądaniu połączenia. Urządzenie, które wysyła identyfikator modelu, jest urządzeniem Plug and Play IoT:
 
 ```csharp
-private static void InitializeDeviceClientAsync()
+private static DeviceClient InitializeDeviceClient(string hostname, IAuthenticationMethod authenticationMethod)
 {
-  var options = new ClientOptions
-  {
-      ModelId = ModelId,
-  };
-  s_deviceClient = DeviceClient.CreateFromConnectionString(s_deviceConnectionString, TransportType.Mqtt, options);
-  s_deviceClient.SetConnectionStatusChangesHandler((status, reason) =>
-  {
-      s_logger.LogDebug($"Connection status change registered - status={status}, reason={reason}.");
-  });
+    var options = new ClientOptions
+    {
+        ModelId = ModelId,
+    };
+
+    var deviceClient = DeviceClient.Create(hostname, authenticationMethod, TransportType.Mqtt, options);
+    deviceClient.SetConnectionStatusChangesHandler((status, reason) =>
+    {
+        s_logger.LogDebug($"Connection status change registered - status={status}, reason={reason}.");
+    });
+
+    return deviceClient;
 }
 ```
 
 Identyfikator modelu jest przechowywany w kodzie, jak pokazano w poniższym fragmencie kodu:
 
 ```csharp
-private const string ModelId = "dtmi:com:example:Thermostat;1";
+private const string ModelId = "dtmi:com:example:TemperatureController;1";
 ```
 
-Po połączeniu urządzenia z usługą IoT Hub kod rejestruje programy obsługi poleceń. `reboot`Polecenie jest zdefiniowane w interfejsie głównym. `getMaxMinReport`Polecenie jest zdefiniowane w każdym z dwóch składników termostatu:
+Po połączeniu urządzenia z usługą IoT Hub kod rejestruje programy obsługi poleceń. `reboot`Polecenie jest zdefiniowane w składniku domyślnym. `getMaxMinReport`Polecenie jest zdefiniowane w każdym z dwóch składników termostatu:
 
 ```csharp
-await s_deviceClient.SetMethodHandlerAsync("reboot", HandleRebootCommandAsync, s_deviceClient);
-await s_deviceClient.SetMethodHandlerAsync("thermostat1*getMaxMinReport", HandleMaxMinReportCommandAsync, Thermostat1);
-await s_deviceClient.SetMethodHandlerAsync("thermostat2*getMaxMinReport", HandleMaxMinReportCommandAsync, Thermostat2);
+await _deviceClient.SetMethodHandlerAsync("reboot", HandleRebootCommandAsync, _deviceClient, cancellationToken);
+await _deviceClient.SetMethodHandlerAsync("thermostat1*getMaxMinReport", HandleMaxMinReportCommandAsync, Thermostat1, cancellationToken);
+await _deviceClient.SetMethodHandlerAsync("thermostat2*getMaxMinReport", HandleMaxMinReportCommandAsync, Thermostat2, cancellationToken);
+
 ```
 
 Istnieją osobne programy obsługi dla wymaganych aktualizacji właściwości na dwóch składnikach termostatu:
 
 ```csharp
-s_desiredPropertyUpdateCallbacks.Add(Thermostat1, TargetTemperatureUpdateCallbackAsync);
-s_desiredPropertyUpdateCallbacks.Add(Thermostat2, TargetTemperatureUpdateCallbackAsync);
+_desiredPropertyUpdateCallbacks.Add(Thermostat1, TargetTemperatureUpdateCallbackAsync);
+_desiredPropertyUpdateCallbacks.Add(Thermostat2, TargetTemperatureUpdateCallbackAsync);
+
 ```
 
 Przykładowy kod wysyła dane telemetryczne z każdego składnika termostatu:
 
 ```csharp
-await SendTemperatureAsync(Thermostat1);
-await SendTemperatureAsync(Thermostat2);
+await SendTemperatureAsync(Thermostat1, cancellationToken);
+await SendTemperatureAsync(Thermostat2, cancellationToken);
 ```
 
-`SendTemperature`Metoda używa `PnpHhelper` klasy do tworzenia komunikatów dla każdego składnika:
+`SendTemperatureTelemetryAsync`Metoda używa `PnpHhelper` klasy do tworzenia komunikatów dla każdego składnika:
 
 ```csharp
-Message msg = PnpHelper.CreateIothubMessageUtf8(telemetryName, JsonConvert.SerializeObject(currentTemperature), componentName);
+using Message msg = PnpHelper.CreateIothubMessageUtf8(telemetryName, JsonConvert.SerializeObject(currentTemperature), componentName);
 ```
 
 `PnpHelper`Klasa zawiera inne przykładowe metody, których można użyć z modelem wielu składników.
@@ -144,13 +132,11 @@ Użyj narzędzia Azure IoT Explorer, aby wyświetlić dane telemetryczne i wła�
 
 :::image type="content" source="media/tutorial-multiple-components-csharp/multiple-component.png" alt-text="Wiele urządzeń składników w programie Azure IoT Explorer":::
 
-Możesz również użyć narzędzia Azure IoT Explorer do wywołania poleceń w dowolnym z dwóch składników termostatu lub w interfejsie głównym.
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
+Możesz również użyć narzędzia Azure IoT Explorer do wywołania poleceń z jednego z dwóch składników termostatu lub w składniku domyślnym.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku dowiesz się, jak połączyć urządzenie z usługą IoT Plug and Play ze składnikami do centrum IoT. Aby dowiedzieć się więcej na temat modeli urządzeń IoT Plug and Play, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przewodnik dla deweloperów modelu IoT Plug and Play w wersji zapoznawczej](concepts-developer-guide.md)
+> [Przewodnik dewelopera modelowania Plug and Play IoT](concepts-developer-guide-device-csharp.md)

@@ -1,6 +1,7 @@
 ---
-title: Tworzenie dzierżawy usługi Azure Active Directory
-description: Dowiedz się, jak utworzyć dzierżawę usługi Azure AD na potrzeby rejestrowania i tworzenia aplikacji.
+title: 'Szybki Start: Tworzenie dzierżawy Azure Active Directory'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć dzierżawę Azure Active Directory do użycia podczas tworzenia aplikacji korzystających z platformy tożsamości firmy Microsoft na potrzeby uwierzytelniania i autoryzacji.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120817"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575983"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
@@ -26,6 +27,10 @@ Platforma tożsamości firmy Microsoft umożliwia deweloperom tworzenie aplikacj
 Dzierżawa reprezentuje organizację. Jest to dedykowane wystąpienie usługi Azure AD, którą organizacja lub deweloper aplikacji otrzymuje po utworzeniu relacji z firmą Microsoft, na przykład zarejestrowaniu się na platformie Azure, w usłudze Microsoft Intune lub Microsoft 365.
 
 Każda dzierżawa usługi Azure AD jest odrębna i oddzielona od innych dzierżaw usługi Azure AD i ma swoją własną reprezentację tożsamości służbowych, tożsamości klientów (jeśli jest to dzierżawa usługi Azure AD B2C) i rejestracji aplikacji. Rejestrowanie aplikacji w dzierżawie umożliwia uwierzytelnianie tylko z poziomu kont w ramach dzierżawy lub ze wszystkich dzierżaw.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Określanie typu środowiska
 
@@ -71,6 +76,5 @@ Aby rozpocząć tworzenie aplikacji, które umożliwiają logowanie za pomocą k
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarejestruj aplikację](quickstart-register-app.md) i Zintegruj ją z platformą tożsamości firmy Microsoft. 
-* Zapoznaj się z [podstawowymi informacjami na temat uwierzytelniania](./authentication-vs-authorization.md).
-* Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD, zobacz temat [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) .
+> [!div class="nextstepaction"]
+> [Zarejestruj aplikację](quickstart-register-app.md) , aby zintegrować ją z platformą tożsamości firmy Microsoft.

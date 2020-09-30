@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053058"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575575"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -159,34 +159,34 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 W przypadku wybrania opcji **Użyj pliku XML**można określić określone kontenery i obiekty blob (stronę i blok), które mają zostać wyeksportowane. Aby sformatować kod XML, należy postępować zgodnie ze specyfikacją [tabeli plików XML](#sample-xml-file) . Poniższe kroki pokazują, jak używać pliku XML do eksportowania danych:
 
 1. W obszarze **Typ eksportu**wybierz pozycję **Użyj pliku XML**. Jest to plik XML, który określa określone obiekty blob i pliki platformy Azure, które mają zostać wyeksportowane. Aby dodać plik XML, wybierz **pozycję kliknij tutaj, aby wybrać plik XML**.
-     ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Zrzut ekranu opcji Wybieranie eksportu z kliknięciem tutaj, aby wybrać opcję plik X M L o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Wybierz pozycję **+ kontener** , aby utworzyć kontener.
-    ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![Zrzut ekranu przedstawiający sekcję Containers.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. Na karcie **nowy kontener** , która znajduje się po prawej stronie Azure Portal, Dodaj nazwę kontenera. Nazwa musi zawierać małe litery i może zawierać cyfry i myślniki "-". Następnie w polu listy rozwijanej wybierz **poziom dostępu publicznego** . Zalecamy wybranie opcji **prywatny (dostęp nieanonimowy)** , aby uniemożliwić innym osobom dostęp do danych. Aby uzyskać więcej informacji na temat poziomów dostępu do kontenera, zobacz [uprawnienia dostępu do kontenera](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Zrzut ekranu przedstawiający kartę nowy kontener z wybraną opcją prywatny (brak dostępu anonimowego).](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. Wybierz pozycję **Utwórz**.
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Zrzut ekranu przedstawiający kartę nowy kontener z opcją tworzenia wywołana.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    Jeśli kontener zostanie utworzony pomyślnie, zostanie wyświetlony następujący komunikat:
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Zrzut ekranu przedstawiający komunikat "pomyślnie utworzono kontener magazynu".](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. Wybierz utworzony kontener i kliknij go dwukrotnie.
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Zrzut ekranu przedstawiający sekcję kontenerów z kontenerem kontenera my test Private.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. Dwukrotne kliknięcie kontenera spowoduje wyświetlenie widoku właściwości kontenera. Teraz chcesz dołączyć (lub przeszukać) plik XML zawierający listę obiektów blob i/lub plików platformy Azure, które mają zostać wyeksportowane. Wybierz pozycję **Przekaż**.
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Zrzut ekranu okna dialogowego przekazywanie obiektu BLOB z opcją przekazywania o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. Plik XML został pomyślnie dodany do kontenera. Eksportowane są tylko obiekty blob i pliki platformy Azure określone w tym formacie XML.
 
-   ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Zrzut ekranu kreatora zamówień z opcją Next: Security o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 

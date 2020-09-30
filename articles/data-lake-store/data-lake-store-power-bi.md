@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 282ac6f87d5ecff75e77b075ee1092f79b4923ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192866"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574198"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizowanie danych w Azure Data Lake Storage Gen1 przy użyciu Power BI
 W tym artykule dowiesz się, jak za pomocą Power BI Desktop analizować i wizualizować dane przechowywane w Azure Data Lake Storage Gen1.
@@ -27,7 +27,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 1. Uruchom Power BI Desktop na komputerze.
 2. Na Wstążce **Narzędzia główne** kliknij pozycję **Pobierz dane**, a następnie kliknij pozycję więcej. W oknie dialogowym **pobieranie danych** kliknij pozycję **Azure**, kliknij pozycję **Azure Data Lake Store**, a następnie kliknij pozycję **Połącz**.
    
-    ![Połącz z Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Połącz z Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający okno dialogowe Pobieranie danych z wyróżnioną opcją Azure Data Lake Store i opcją Połącz wywołana.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Połącz z Data Lake Storage Gen1")
 3. Jeśli zobaczysz okno dialogowe dotyczące łącznika w fazie tworzenia, wybierz opcję Kontynuuj.
 4. W oknie dialogowym **Azure Data Lake Store** Podaj adres URL konta Data Lake Storage Gen1, a następnie kliknij przycisk **OK**.
    
@@ -37,7 +37,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     ![Zaloguj się do Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Zaloguj się do Data Lake Storage Gen1")
 6. Po pomyślnym zalogowaniu kliknij pozycję **Połącz**.
    
-    ![Połącz z Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Połącz z Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający okno dialogowe Azure Data Lake Store z opcją Połącz o nazwie out.](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Połącz z Data Lake Storage Gen1")
 7. Następne okno dialogowe zawiera plik przekazany do konta Data Lake Storage Gen1. Sprawdź informacje, a następnie kliknij przycisk **Załaduj**.
    
     ![Ładowanie danych z Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Ładowanie danych z Data Lake Storage Gen1")
@@ -52,19 +52,19 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     W następnych krokach zaktualizujemy zapytanie w celu przekonwertowania zaimportowanych danych w żądanym formacie.
 9. Na Wstążce **Narzędzia główne** kliknij pozycję **Edytuj zapytania**.
    
-    ![Edytowanie zapytań](./media/data-lake-store-power-bi/edit-queries.png "Edytuj zapytania")
+    ![Zrzut ekranu wstążki Narzędzia główne z opcją Edytuj zapytania o nazwie out.](./media/data-lake-store-power-bi/edit-queries.png "Edytuj zapytania")
 10. W edytorze zapytań w kolumnie **zawartość** kliknij pozycję dane **binarne**.
     
-    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query1.png "Edytuj zapytania")
+    ![Zrzut ekranu edytora zapytań z kolumną zawartości o nazwie out.](./media/data-lake-store-power-bi/convert-query1.png "Edytuj zapytania")
 11. Zostanie wyświetlona ikona pliku reprezentująca plik **Drivers.txt** , który został przekazany. Kliknij plik prawym przyciskiem myszy, a następnie kliknij pozycję **CSV**.    
     
-    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query2.png "Edytuj zapytania")
+    ![Zrzut ekranu edytora zapytań z opcją CSV o nazwie out.](./media/data-lake-store-power-bi/convert-query2.png "Edytuj zapytania")
 12. Powinny pojawić się dane wyjściowe, jak pokazano poniżej. Twoje dane są teraz dostępne w formacie, którego można użyć do tworzenia wizualizacji.
     
-    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query3.png "Edytuj zapytania")
+    ![Zrzut ekranu edytora zapytań z danymi wyjściowymi wyświetlanymi zgodnie z oczekiwaniami.](./media/data-lake-store-power-bi/convert-query3.png "Edytuj zapytania")
 13. Na Wstążce **Narzędzia główne** kliknij przycisk **Zamknij i Zastosuj**, a następnie kliknij przycisk **Zamknij i Zastosuj**.
     
-    ![Edytowanie zapytań](./media/data-lake-store-power-bi/load-edited-query.png "Edytuj zapytania")
+    ![Zrzut ekranu wstążki Narzędzia główne z opcją Zamknij i Zastosuj o nazwie wychodzącej.](./media/data-lake-store-power-bi/load-edited-query.png "Edytuj zapytania")
 14. Po zaktualizowaniu zapytania na karcie **pola** zostaną wyświetlone nowe pola dostępne dla wizualizacji.
     
     ![Zaktualizowane pola](./media/data-lake-store-power-bi/updated-query-fields.png "Zaktualizowane pola")
@@ -90,6 +90,6 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 ## <a name="publish-report-to-power-bi-service"></a>Publikuj raport w usługa Power BI
 Po utworzeniu wizualizacji w Power BI Desktop możesz udostępnić ją innym osobom, publikując ją w usługa Power BI. Aby uzyskać instrukcje, jak to zrobić, zobacz temat [Publikowanie z Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Analizowanie danych w Data Lake Storage Gen1 przy użyciu Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

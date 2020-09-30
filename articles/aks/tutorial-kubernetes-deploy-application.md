@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — wdrażani
 description: W tym samouczku dotyczącym usługi Azure Kubernetes Service (AKS) wdrożysz aplikację z wieloma kontenerami w klastrze przy użyciu obrazu niestandardowego przechowywanego w usłudze Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8114aa0b6c2483d543376727a44d14041ed02b37
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77593278"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576493"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Samouczek: uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ Zastąp wartość *microsoft* nazwą serwera logowania usługi ACR. Nazwa obrazu
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
 ```
 
 Podaj własną nazwę serwera logowania usługi ACR, aby plik manifestu wyglądał podobnie jak w poniższym przykładzie:

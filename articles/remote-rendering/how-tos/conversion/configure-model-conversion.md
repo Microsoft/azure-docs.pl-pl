@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967223"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575184"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -33,7 +33,6 @@ Zawartość pliku powinna spełniać następujący schemat JSON:
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -85,10 +84,6 @@ Wyśrodkowanie modelu może pomóc w takiej sytuacji.
 
 * `opaqueMaterialDefaultSidedness` -Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
 Jeśli to założenie nie jest prawdziwe względem określonego modelu, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
-
-### <a name="material-overrides"></a>Zastępowanie materiału
-
-* `material-override` -Ten parametr umożliwia dostosowanie przetwarzania materiałów [podczas konwersji](override-materials.md).
 
 ### <a name="material-de-duplication"></a>Usuwanie materiału z deduplikacji
 
@@ -305,6 +300,8 @@ W tych przypadkach, modele często mają bardzo duże szczegóły w niewielkim w
 
 Udostępnianie ustawień przy użyciu nazwy pliku niezwiązanego z modelem `conversionSettings.json` jest nadal obsługiwane, ale przestarzałe.
 Zamiast tego użyj nazwy pliku specyficznego dla modelu `<modelName>.ConversionSettings.json` .
+
+Użycie `material-override` Ustawienia do identyfikacji [pliku przesłonięcia materiału](override-materials.md) w pliku ustawień konwersji jest nadal obsługiwane, ale przestarzałe. Zamiast tego użyj nazwy pliku specyficznego dla modelu `<modelName>.MaterialOverrides.json` .
 
 ## <a name="next-steps"></a>Następne kroki
 

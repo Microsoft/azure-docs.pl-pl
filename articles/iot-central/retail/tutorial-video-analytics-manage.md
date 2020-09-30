@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719074"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575201"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Samouczek: monitorowanie i zarządzanie analizą wideo — aplikacja do wykrywania obiektów i ruchu
 
@@ -27,7 +27,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Przed rozpoczęciem należy wykonać następujące czynności:
 
 * Samouczek [Tworzenie aplikacji do analizy filmów wideo na żywo w usłudze Azure IoT Central](./tutorial-video-analytics-create-app.md) .
-* Jedno z wcześniejszych [utworzonych wystąpień IoT Edge dla usługi Live Video Analytics (maszyna wirtualna z systemem Linux)](tutorial-video-analytics-iot-edge-vm.md) lub [Utwórz wystąpienie IoT Edge dla SAMOUCZKÓW dotyczących maszyn wirtualnych z systemem Linux](tutorial-video-analytics-iot-edge-nuc.md) .
+* Jedno z wcześniejszych [IoT Edge utworzyć wystąpienie dla usługi Live Video Analytics (maszyna wirtualna z systemem Linux)](tutorial-video-analytics-iot-edge-vm.md) lub [utworzyć wystąpienie IoT Edge dla samouczków analizy wideo na żywo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) .
 
 Na komputerze lokalnym musi być zainstalowany program [Docker](https://www.docker.com/products/docker-desktop) , aby można było uruchomić aplikację przeglądarka wideo.
 
@@ -61,7 +61,7 @@ Jeśli masz dwie aparaty podłączone do urządzenia bramy IoT Edge, powtórz po
 
 Wybierz kartę **urządzenia podrzędne** dla usługi **LVA Gateway 001** urządzenie, aby zobaczyć właśnie dodane urządzenia do aparatu:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Skontrol":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Dodaj kamerę":::
 
 Urządzenia kamer są również wyświetlane na liście na stronie **urządzenia** w aplikacji.
 
@@ -98,7 +98,7 @@ Wybierz pozycję **Zapisz**.
 
 Po kilku sekundach zobaczysz **zaakceptowany** komunikat z potwierdzeniem dla każdego ustawienia:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Wykrywanie obiektów":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Dodaj kamerę":::
 
 ## <a name="start-lva-processing"></a>Rozpocznij przetwarzanie LVA
 
@@ -108,13 +108,13 @@ Uruchom polecenie **uruchamiania przetwarzania LVA** .
 
 Po zakończeniu wykonywania polecenia przejrzyj historię poleceń, aby upewnić się, że nie ma żadnych błędów:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Uruchom LVA przetwarzania polecenia":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Dodaj kamerę":::
 
 ## <a name="monitor-the-cameras"></a>Monitoruj aparaty
 
 Przejdź do urządzenia **Camera-003** i wybierz kartę **pulpit nawigacyjny** :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Pulpit nawigacyjny aparatu":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Dodaj kamerę":::
 
 Kafelek **Liczba wykryć** pokazuje średnią liczbę wykryć dla każdego z wybranych klas wykrywania w trakcie jednego interwału wykrywania.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Przejdź do urządzenia **Camera-003** i wybierz kartę **pulpit nawigacyjny** . Następnie kliknij jeden z przechwyconych wykrytych obiektów hiperlinków na kafelku **wideo zdarzenia wnioskowania** . Film wideo pojawia się na stronie wyświetlanej przez lokalny odtwarzacz wideo:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragment filmu wideo":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Dodaj kamerę":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Zmienianie symulowanych urządzeń na pulpitach nawigacyjnych aplikacji
 
@@ -182,7 +182,7 @@ Pulpity nawigacyjne aplikacji są wypełniane jako dane telemetryczne i właści
 
 Pulpit nawigacyjny **monitora rzeczywistej kamery** przedstawia teraz wartości z rzeczywistego urządzenia z kamerą:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Pulpit nawigacyjny aplikacji dla kamer rzeczywistych":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Dodaj kamerę":::
 
 ## <a name="pause-processing"></a>Wstrzymaj przetwarzanie
 

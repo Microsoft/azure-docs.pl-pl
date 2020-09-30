@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575864"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -396,13 +396,19 @@ Nie, jest obsługiwana tylko w przypadku dysków zarządzanych SSD w warstwie Pr
 
 Nie, nie można używać standardowego dysku Managed SSD o dowolnym rozmiarze z dyskami niezarządzanymi ani stronicowymi obiektami BLOB.
 
-**Jaki jest największy obsługiwany rozmiar dysku zarządzanego dla systemu operacyjnego i dysków z danymi?**
+**Jaki jest największy obsługiwany rozmiar dysku zarządzanego dla systemu operacyjnego i dysków z danymi na maszynach wirtualnych Gen1?**
 
-Typ partycji obsługiwanej przez platformę Azure dla dysku systemu operacyjnego jest głównym rekordem rozruchowym (MBR) i tabelą partycji GUID (GPT) dla maszyn wirtualnych generacji 1 i generacji 2. Format MBR obsługuje rozmiar dysku do 2 TiB. W przypadku maszyn wirtualnych 1. generacji można przydzielić maksymalnie 4 TiB, na których można korzystać tylko do 2 TiB tego miejsca na dysku dla systemu operacyjnego. W przypadku maszyn wirtualnych generacji 2 największy rozmiar, który można przydzielić i użyć dla dysku systemu operacyjnego, to 4 TiB. Platforma Azure obsługuje do 32 TiB dla zarządzanych dysków danych.
+Typ partycji obsługiwanej przez platformę Azure dla dysków systemu operacyjnego Gen1 jest głównym rekordem rozruchowym (MBR). Dyski systemu operacyjnego Gen1 obsługują tylko dyski MBR obsługujące GPT. Chociaż można przydzielić maksymalnie 4 TiB dyskiem systemu operacyjnego, typ partycji MBR może używać maksymalnie 2 TiB tego miejsca na dysku dla systemu operacyjnego. Platforma Azure obsługuje do 32 TiB dla zarządzanych dysków danych.
+
+**Jaki jest największy obsługiwany rozmiar dysku zarządzanego dla systemu operacyjnego i dysków z danymi na maszynach wirtualnych Gen2?**
+
+Typ partycji obsługiwanej przez platformę Azure dla dysków systemu operacyjnego Gen2 to tabela partycji GUID (GPT). Maszyny wirtualne Gen2 obsługują do 4 TiB systemu operacyjnego. Platforma Azure obsługuje do 32 TiB dla zarządzanych dysków danych.
+
 
 **Jaki jest największy niezarządzany rozmiar dysku dla systemu operacyjnego i dysków z danymi?**
 
-Typ partycji obsługiwanej przez platformę Azure dla dysku systemu operacyjnego jest głównym rekordem rozruchowym (MBR). Format MBR obsługuje rozmiar dysku do 2 TiB. Największym rozmiarem obsługiwanym przez platformę Azure w przypadku dysku niezarządzanego systemu operacyjnego jest 4 TiB. Platforma Azure obsługuje maksymalnie 4 TiB dla dysków niezarządzanych danych.
+Typ partycji obsługiwanej przez platformę Azure dla dysku systemu operacyjnego przy użyciu dysków niezarządzanych jest głównym rekordem rozruchowym (MBR).  Chociaż można przydzielić maksymalnie 4 TiB dyskiem systemu operacyjnego, typ partycji MBR może używać maksymalnie 2 TiB tego miejsca na dysku dla systemu operacyjnego. Platforma Azure obsługuje maksymalnie 4 TiB dla niezarządzanych dysków danych.
+
 
 **Jaki jest największy rozmiar obiektu BLOB stronicowania, który jest obsługiwany?**
 

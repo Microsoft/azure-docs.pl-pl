@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357713"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576204"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
   
 - **Początkowe rozpełnianie**
 
-  Podczas dodawania baz danych, pul elastycznych lub wystąpień zarządzanych do grupy trybu failover istnieje początkowa faza wypełniania, przed rozpoczęciem replikacji danych. Początkowa faza wypełniania jest najdłuższym i najtańszą operacją. Po zakończeniu początkowego umieszczania dane są synchronizowane, a następnie replikowane są tylko kolejne zmiany danych. Czas potrzebny na ukończenie początkowego inicjatora zależy od rozmiaru danych, liczby zreplikowanych baz danych oraz szybkości połączenia między jednostkami w grupie trybu failover. W normalnych warunkach typowa szybkość wypełniania jest 50-500 GB godziny dla SQL Database i 18-35 GB dla wystąpienia zarządzanego SQL. Rozmieszczanie jest wykonywane dla wszystkich baz danych równolegle. Można użyć podanej szybkości wypełniania, wraz z liczbą baz danych i łącznym rozmiarem danych, aby oszacować, jak długo początkowa faza rozpełniania zostanie zastosowana przed rozpoczęciem replikacji danych.
+  Podczas dodawania baz danych, pul elastycznych lub wystąpień zarządzanych do grupy trybu failover istnieje początkowa faza wypełniania, przed rozpoczęciem replikacji danych. Początkowa faza wypełniania jest najdłuższym i najtańszą operacją. Po zakończeniu początkowego umieszczania dane są synchronizowane, a następnie replikowane są tylko kolejne zmiany danych. Czas potrzebny na ukończenie początkowego inicjatora zależy od rozmiaru danych, liczby zreplikowanych baz danych oraz szybkości połączenia między jednostkami w grupie trybu failover. W normalnych warunkach możliwa szybkość wypełniania jest równa 500 GB za godzinę dla SQL Database i nawet do 360 GB czasu dla wystąpienia zarządzanego SQL. Rozmieszczanie jest wykonywane dla wszystkich baz danych równolegle.
 
-  W przypadku wystąpienia zarządzanego SQL należy wziąć pod uwagę szybkość łącza usługi Express Route między dwoma wystąpieniami, która jest również potrzebna podczas szacowania czasu początkowej fazy wstępnego wypełniania. Jeśli szybkość łącza między dwoma wystąpieniami jest mniejsza niż to, co jest konieczne, może to mieć wpływ na czas, w którym jest to możliwe. Można użyć podanej szybkości wypełniania, liczby baz danych, łącznego rozmiaru danych i szybkości łącza, aby oszacować, jak długo początkowa faza rozsadzenia będzie trwać przed rozpoczęciem replikacji danych. Na przykład dla pojedynczej bazy danych 100 GB początkowa faza inicjatora zajmie od 2,8 do 5,5 godz., jeśli link jest w stanie wypchnięciem 35 GB na godzinę. Jeśli link umożliwia transfer 10 GB na godzinę, wówczas wypełnianie bazy danych 100 GB zajmie około 10 godzin. Jeśli istnieje wiele baz danych do replikowania, umieszczanie zostanie wykonane równolegle, a w połączeniu z powolnej szybkością łącza, początkowa faza wypełniania może potrwać znacznie dłużej, zwłaszcza jeśli równoległe umieszczanie danych ze wszystkich baz danych przekracza dostępną przepustowość łącza. Jeśli przepustowość sieci między dwoma wystąpieniami jest ograniczona i dodajesz wiele wystąpień zarządzanych do grupy trybu failover, rozważ dodanie wielu wystąpień zarządzanych do grupy trybu failover sekwencyjnie, jeden według jednego.
+  W przypadku wystąpienia zarządzanego SQL należy wziąć pod uwagę szybkość łącza usługi Express Route między dwoma wystąpieniami podczas szacowania czasu początkowej fazy umieszczania. Jeśli szybkość łącza między dwoma wystąpieniami jest mniejsza niż to, co jest konieczne, może to mieć wpływ na czas, w którym jest to możliwe. Można użyć podanej szybkości wypełniania, liczby baz danych, łącznego rozmiaru danych i szybkości łącza, aby oszacować, jak długo początkowa faza rozsadzenia będzie trwać przed rozpoczęciem replikacji danych. Na przykład w przypadku pojedynczej bazy danych 100 GB początkowa faza inicjatora zajmie około 1,2 godzin, jeśli Link umożliwia wypychanie 84 GB na godzinę, a w przypadku braku innych baz danych. Jeśli link umożliwia transfer 10 GB na godzinę, wówczas wypełnianie bazy danych 100 GB zajmie około 10 godzin. Jeśli istnieje wiele baz danych do replikowania, umieszczanie zostanie wykonane równolegle, a w połączeniu z powolnej szybkością łącza, początkowa faza wypełniania może potrwać znacznie dłużej, zwłaszcza jeśli równoległe umieszczanie danych ze wszystkich baz danych przekracza dostępną przepustowość łącza. Jeśli przepustowość sieci między dwoma wystąpieniami jest ograniczona i dodajesz wiele wystąpień zarządzanych do grupy trybu failover, rozważ dodanie wielu wystąpień zarządzanych do grupy trybu failover sekwencyjnie, jeden według jednego. Mając odpowiednią wielkość jednostki SKU bramy między dwoma wystąpieniami zarządzanymi, a w przypadku, gdy przepustowość sieci firmowej pozwala na to, możliwe jest osiągnięcie szybkości 360 GB.  
 
 - **Strefa DNS**
 
@@ -232,6 +232,10 @@ Aby zapewnić nieprzerwane połączenie z podstawowym wystąpieniem zarządzanym
 > Pierwsze wystąpienie zarządzane utworzone w podsieci określa strefę DNS dla wszystkich kolejnych wystąpień w tej samej podsieci. Oznacza to, że dwa wystąpienia z tej samej podsieci nie mogą należeć do różnych stref DNS.
 
 Aby uzyskać więcej informacji na temat tworzenia pomocniczego wystąpienia zarządzanego SQL w tej samej strefie DNS co wystąpienie podstawowe, zobacz [Tworzenie pomocniczego wystąpienia zarządzanego](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Używanie regionów geograficznych
+
+Wdróż oba wystąpienia zarządzane do [sparowanych regionów](../../best-practices-availability-paired-regions.md) ze względu na wydajność. Wystąpienia zarządzane znajdujące się w regionach z parą geograficzną mają znacznie lepszą wydajność w porównaniu z niesparowanymi regionami. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Włączanie ruchu replikacji między dwoma wystąpieniami
 

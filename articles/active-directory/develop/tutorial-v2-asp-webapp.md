@@ -1,7 +1,7 @@
 ---
-title: Dodawanie logowania do aplikacji sieci Web Microsoft Identity platform ASP.NET
+title: 'Samouczek: Tworzenie aplikacji sieci Web ASP.NET używającej platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: Implementowanie logowania firmy Microsoft w rozwiązaniu ASP.NET przy użyciu tradycyjnej aplikacji opartej na przeglądarce sieci Web i usługi OpenID Connect Connect Standard
+description: W tym samouczku utworzysz aplikację sieci Web ASP.NET, która korzysta z platformy tożsamości firmy Microsoft i oprogramowania pośredniczącego OWIN w celu włączenia logowania użytkownika.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165587"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574232"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -25,10 +25,18 @@ W tym przewodniku pokazano, jak zaimplementować logowanie do firmy Microsoft za
 
 Po ukończeniu tego przewodnika aplikacja będzie mogła akceptować logowania do kont osobistych za pomocą polubień outlook.com i live.com. Ponadto konta służbowe z dowolnej firmy lub organizacji zintegrowanej z platformą tożsamości firmy Microsoft będą mogły zalogować się do aplikacji.
 
-> Ten przewodnik wymaga Microsoft Visual Studio 2019.  Nie masz tego programu?  [Pobierz bezpłatnie program Visual Studio 2019](https://www.visualstudio.com/downloads/).
+W tym samouczku:
 
->[!NOTE]
-> Jeśli dopiero zaczynasz pracę z platformą tożsamości firmy Microsoft, zalecamy rozpoczęcie od [dodania do aplikacji sieci Web programu ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Tworzenie projektu *aplikacji sieci Web ASP.NET* w programie Visual Studio
+> * Dodaj składniki pośredniczące otwierania interfejsu sieci Web dla platformy .NET (OWIN)
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Zarejestruj aplikację w Azure Portal
+> * Testowanie aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/vs/) z zainstalowanym obciążeniem **ASP.NET i programowaniem w sieci Web**
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Jak działa Przykładowa aplikacja generowana przez ten przewodnik
 
@@ -264,7 +272,7 @@ W programie Visual Studio Utwórz nowy widok, aby dodać przycisk logowania i wy
     ```
 
 ### <a name="more-information"></a>Więcej informacji
- Ta strona dodaje przycisk logowania w formacie SVG z czarnym tłem:<br/>![Zaloguj się przy użyciu konta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Aby uzyskać więcej przycisków logowania, przejdź do [wskazówek dotyczących znakowania](./howto-add-branding-in-azure-ad-apps.md "Wytyczne dotyczące oznaczania marką").
+ Ta strona dodaje przycisk logowania w formacie SVG z czarnym tłem:<br/>![Przycisk Zaloguj się przy użyciu konta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Aby uzyskać więcej przycisków logowania, przejdź do [wskazówek dotyczących znakowania](./howto-add-branding-in-azure-ad-apps.md "Wytyczne dotyczące oznaczania marką").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Dodaj kontroler, aby wyświetlić oświadczenia użytkownika
 Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontrolera. Ten atrybut ogranicza dostęp do kontrolera przez umożliwienie tylko uwierzytelnionym użytkownikom. Poniższy kod umożliwia użycie atrybutu w celu wyświetlenia oświadczeń użytkownika, które zostały pobrane w ramach logowania:
@@ -353,7 +361,7 @@ Aby zarejestrować aplikację i dodać do rozwiązania informacje o rejestracji 
 
 Aby szybko zarejestrować aplikację, wykonaj następujące kroki:
 
-1. Przejdź do nowego okienka [Azure Portal-rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
+1. Przejdź do nowego okienka  [Azure Portal-rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację przy użyciu jednego kliknięcia.
 
@@ -392,7 +400,7 @@ Aby przetestować aplikację w programie Visual Studio, naciśnij klawisz F5, ab
 
 Gdy wszystko będzie gotowe do uruchomienia testu, użyj konta usługi Azure AD (konta służbowego) lub osobistego konto Microsoft (na<span>żywo.</span> com lub <span>Outlook.</span> com), aby się zalogować.
 
-![Zaloguj się przy użyciu konta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Przycisk Zaloguj się przy użyciu konta Microsoft wyświetlany na stronie logowania przeglądarki w przeglądarce](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Zaloguj się do konto Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -470,20 +478,11 @@ Możesz ograniczyć dostęp do logowania tylko do tych kont użytkowników, któ
 
 Można zaimplementować metodę niestandardową w celu weryfikacji wystawców przy użyciu parametru **IssuerValidator** . Aby uzyskać więcej informacji na temat korzystania z tego parametru, zobacz [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) Class.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak aplikacje sieci Web mogą wywoływać interfejsy API sieci Web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Dowiedz się, jak utworzyć aplikację używaną w tym przewodniku Szybki Start
-
-Dowiedz się więcej na temat aplikacji sieci Web wywołujących interfejsy API sieci Web za pomocą platformy tożsamości firmy Microsoft:
+Dowiedz się więcej o wywoływaniu chronionych interfejsów API sieci Web z aplikacji sieci Web za pomocą platformy tożsamości firmy Microsoft:
 
 > [!div class="nextstepaction"]
 > [Aplikacje sieci Web wywołujące interfejsy API sieci Web](scenario-web-app-sign-user-overview.md)
-
-Dowiedz się, jak tworzyć aplikacje sieci Web wywołujące Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Samouczek ASP.NET Microsoft Graph](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

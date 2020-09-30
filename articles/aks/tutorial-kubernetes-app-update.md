@@ -3,14 +3,14 @@ title: Samouczek dotyczący usługi Kubernetes na platformie Azure — aktualizo
 description: Z tego samouczka dotyczącego usługi Azure Kubernetes Service (AKS) dowiesz się, jak zaktualizować istniejące wdrożenie aplikacji do usługi AKS przy użyciu nowej wersji kodu aplikacji.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985356"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576442"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Samouczek: aktualizowanie aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Użyj polecenia [docker tag][docker-tag] w celu otagowania obrazu. Zastąp wartość `<acrLoginServer>` nazwą serwera logowania usługi ACR lub nazwą hosta rejestru publicznego i zaktualizuj wersję obrazu do wartości *:v2* w następujący sposób:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Następnie użyj polecenia [docker push][docker-push] w celu przekazania obrazu do rejestru. Zastąp wartość `<acrLoginServer>` nazwą serwera logowania usługi ACR.
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 Następnie otwórz adres IP usługi w lokalnej przeglądarce internetowej:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure otwartej w lokalnej przeglądarce sieci Web.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Zrzut ekranu przedstawiający przykład zaktualizowanej aplikacji do głosowania platformy Azure, otwartej przy użyciu lokalnej przeglądarki sieci Web i hosta lokalnego.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

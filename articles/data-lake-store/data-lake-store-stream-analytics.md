@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192141"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576221"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Przesyłanie strumieniowe danych z Azure Storage Blob do Azure Data Lake Storage Gen1 przy użyciu Azure Stream Analytics
 W tym artykule dowiesz się, jak używać Azure Data Lake Storage Gen1 jako danych wyjściowych dla zadania Azure Stream Analytics. W tym artykule przedstawiono prosty scenariusz, który odczytuje dane z obiektu BLOB usługi Azure Storage (dane wejściowe) i zapisuje dane do Data Lake Storage Gen1 (dane wyjściowe).
@@ -42,11 +42,11 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
 1. Otwórz stronę Stream Analytics zadania, w okienku po lewej stronie kliknij kartę **dane wejściowe** , a następnie kliknij przycisk **Dodaj**.
 
-    ![Dodawanie danych wejściowych do zadania](./media/data-lake-store-stream-analytics/create.input.1.png "Dodawanie danych wejściowych do zadania")
+    ![Zrzut ekranu przedstawiający blok zadania Stream Analytics z opcją dane wejściowe i opcję Dodaj strumień wejściowy o nazwie out.](./media/data-lake-store-stream-analytics/create.input.1.png "Dodawanie danych wejściowych do zadania")
 
 2. W bloku **nowe dane wejściowe** podaj następujące wartości.
 
-    ![Dodawanie danych wejściowych do zadania](./media/data-lake-store-stream-analytics/create.input.2.png "Dodawanie danych wejściowych do zadania")
+    ![Zrzut ekranu przedstawiający blok BLOB Storage — nowe dane wejściowe.](./media/data-lake-store-stream-analytics/create.input.2.png "Dodawanie danych wejściowych do zadania")
 
    * Dla **aliasu wejściowego**wprowadź unikatową nazwę dla danych wejściowych zadania.
    * W obszarze **Typ źródła**wybierz pozycję **strumień danych**.
@@ -58,25 +58,25 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
    * Dla **ogranicznika**wybierz pozycję **Tab**.
    * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
 
-     Kliknij przycisk **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Utwórz Data Lake Storage Gen1 dane wyjściowe dla zadania
 
 1. Otwórz stronę Stream Analytics zadania, kliknij kartę dane **wyjściowe** , kliknij przycisk **Dodaj**, a następnie wybierz pozycję **Data Lake Storage Gen1**.
 
-    ![Dodawanie danych wyjściowych do zadania](./media/data-lake-store-stream-analytics/create.output.1.png "Dodawanie danych wyjściowych do zadania")
+    ![Zrzut ekranu przedstawiający blok zadania Stream Analytics z opcją dane wyjściowe, opcja Dodaj i Data Lake Storage generacji 1 o nazwie.](./media/data-lake-store-stream-analytics/create.output.1.png "Dodawanie danych wyjściowych do zadania")
 
 2. W bloku **nowe dane wyjściowe** podaj następujące wartości.
 
-    ![Dodawanie danych wyjściowych do zadania](./media/data-lake-store-stream-analytics/create.output.2.png "Dodawanie danych wyjściowych do zadania")
+    ![Zrzut ekranu przedstawiający blok Data Lake Storage Gen 1-New Output z opcją Autoryzuj.](./media/data-lake-store-stream-analytics/create.output.2.png "Dodawanie danych wyjściowych do zadania")
 
     * Dla **aliasu danych wyjściowych**wprowadź unikatową nazwę dla danych wyjściowych zadania. Jest to przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tego konta Data Lake Storage Gen1.
     * Zostanie wyświetlony monit o autoryzację dostępu do konta Data Lake Storage Gen1. Kliknij przycisk **Autoryzuj**.
 
 3. W bloku **nowe dane wyjściowe** Kontynuuj udostępnianie następujących wartości.
 
-    ![Dodawanie danych wyjściowych do zadania](./media/data-lake-store-stream-analytics/create.output.3.png "Dodawanie danych wyjściowych do zadania")
+    ![Zrzut ekranu przedstawiający blok Data Lake Storage Gen 1-New Output.](./media/data-lake-store-stream-analytics/create.output.3.png "Dodawanie danych wyjściowych do zadania")
 
    * W polu **nazwa konta**wybierz już utworzone konto Data Lake Storage Gen1, do którego mają być wysyłane dane wyjściowe zadania.
    * W polu **wzorzec prefiksu ścieżki**wprowadź ścieżkę pliku używaną do zapisywania plików w ramach określonego konta Data Lake Storage Gen1.
@@ -86,7 +86,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
    * Dla **ogranicznika**wybierz pozycję **Tab**.
    * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
     
-     Kliknij przycisk **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
     
 ## <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 

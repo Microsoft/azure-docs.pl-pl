@@ -3,12 +3,12 @@ title: Samouczek — Lista kontrolna planowania sieci
 description: Więcej informacji na temat wymagań wstępnych dotyczących sieci i szczegółów dotyczących łączności sieciowej i portów sieciowych dla rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254401"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576681"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista kontrolna planowania sieci dla rozwiązań VMware platformy Azure 
 
@@ -21,8 +21,6 @@ Niniejszy samouczek zawiera informacje na temat następujących zagadnień:
 > * Wymagania dotyczące routingu i podsieci
 > * Wymagane porty sieciowe dla programu w celu komunikowania się z usługami
 > * Zagadnienia dotyczące protokołu DHCP i usługi DNS w rozwiązaniu VMware platformy Azure
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Zagadnienia dotyczące obwodów sieci wirtualnych i ExpressRoute
 Po utworzeniu połączenia sieci wirtualnej w ramach subskrypcji obwód usługi ExpressRoute jest ustanawiany za pośrednictwem komunikacji równorzędnej, korzysta z klucza autoryzacji i identyfikatora komunikacji równorzędnej, który jest żądany w Azure Portal. Komunikacja równorzędna to połączenie prywatne, jedno-do-jednego między chmurą prywatną i siecią wirtualną.

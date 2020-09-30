@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060819"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91573976"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure
 
@@ -32,21 +32,29 @@ Poniższy przykład pokazuje, jak utworzyć i uruchomić zadanie w celu ustawien
 
 1. Wybierz **Właściwość w chmurze**, **Właściwość**lub **polecenie** jako **Typ zadania**:
 
-    Aby skonfigurować konfigurację zadania **Właściwości** , wybierz właściwość i ustaw jej nową wartość. Aby skonfigurować konfigurację zadania **polecenia** , wybierz polecenie, które ma zostać uruchomione. Zadanie właściwości można ustawić wiele właściwości.
+    Aby skonfigurować zadanie **Właściwości** , wybierz właściwość i ustaw jej nową wartość. Aby skonfigurować zadanie **polecenia** , wybierz polecenie, które ma zostać uruchomione. Zadanie właściwości można ustawić wiele właściwości.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
     Wybierz pozycję **Zapisz i wyjdź** , aby dodać zadanie do listy zapisanych zadań na stronie **zadania** . Później możesz powrócić do zadania z listy zapisanych zadań.
 
+    Wybierz przycisk **dalej** , aby przejść do strony **Opcje dostarczania** . Na stronie **Opcje dostarczania** można ustawić opcje dostarczania dla tego zadania: **partie** i **próg anulowania**.
+
+    Partie umożliwiają rozłożenie zadań dla dużej liczby urządzeń. Zadanie jest podzielone na wiele partii, a każda partia zawiera podzestaw urządzeń. Partie są umieszczane w kolejce i uruchamiane w sekwencji.
+
+    Próg anulowania umożliwia automatyczne anulowanie zadania, jeśli liczba błędów przekracza limit ustawiony. Próg może dotyczyć wszystkich urządzeń w zadaniu lub do poszczególnych partii.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
+
     Wybierz pozycję **dalej** , aby przejść do strony **Przegląd** . Na stronie **Przegląd** są wyświetlane szczegóły konfiguracji zadania. Wybierz pozycję **Uruchom** , aby przesłać zadanie.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądu Kreatora zadań":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 1. Zadanie przechodzi przez etapy *oczekujące*, *uruchomione*i *ukończone* . Szczegóły wykonania zadania zawierają metryki wyników, szczegóły czasu trwania oraz siatkę listy urządzeń.
 
     Po zakończeniu zadania możesz wybrać pozycję **Dziennik wyników** , aby pobrać plik CSV zawierający szczegóły zadania, w tym urządzenia i ich wartości stanu. Te informacje mogą być przydatne podczas rozwiązywania problemów.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Zrzut ekranu przedstawiający stan urządzenia":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 1. Zadanie zostanie wyświetlone na liście **ostatnie 30 dni** na stronie **zadania** . Ta strona zawiera aktualnie uruchomione zadania i historię wszystkich poprzednio uruchomionych lub zapisanych zadań.
 
@@ -57,17 +65,17 @@ Poniższy przykład pokazuje, jak utworzyć i uruchomić zadanie w celu ustawien
 
 Aby zatrzymać uruchomione zadanie, otwórz je i wybierz pozycję **Zatrzymaj**. Stan zadania zmieni się, aby odzwierciedlić, że zadanie zostało zatrzymane. Sekcja **podsumowania** pokazuje, które urządzenia zostały ukończone, zakończyły się niepowodzeniem lub nadal oczekują.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Zrzut ekranu pokazujący uruchomione zadanie i przycisk służący do zatrzymywania zadania":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 Gdy zadanie jest w stanie zatrzymania, możesz wybrać pozycję **Kontynuuj** , aby wznowić działanie zadania. Stan zadania zmieni się, aby odzwierciedlić, że zadanie jest teraz uruchomione ponownie. Sekcja **podsumowania** kontynuuje aktualizację przy użyciu najnowszego postępu.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Zrzut ekranu pokazujący zatrzymane zadanie i przycisk służący do kontynuowania zadania":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 ## <a name="copy-a-job"></a>Kopiowanie zadania
 
 Aby skopiować istniejące zadanie, wybierz wykonane zadanie. Wybierz pozycję **Kopiuj** na stronie Szczegóły zadania lub strony szczegółów zadania:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Zrzut ekranu pokazujący przycisk kopiowania":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 Zostanie wyświetlona kopia konfiguracji zadania, którą można edytować, a w polu Nazwa zadania zostanie dodana **kopia** .
 
@@ -82,6 +90,7 @@ Po utworzeniu zadania kolumna **stan** będzie aktualizowana przy użyciu komuni
 | Oczekiwanie              | To zadanie nie zostało jeszcze uruchomione na urządzeniach.         |
 | Uruchomienie              | To zadanie jest obecnie uruchomione na urządzeniach.             |
 | Zatrzymano              | Użytkownik ręcznie zatrzymał to zadanie.           |
+| Anulowane             | To zadanie zostało anulowane, ponieważ próg ustawiony na stronie **Opcje dostarczania** został przekroczony. |
 
 Po komunikacie o stanie następuje przegląd urządzeń w zadaniu. Poniższa tabela zawiera listę możliwych wartości *stanu urządzenia* :
 
@@ -104,13 +113,13 @@ Aby pobrać plik CSV zawierający szczegóły zadania oraz listę urządzeń i i
 
 Listę urządzeń można filtrować na stronie **szczegóły zadania** , wybierając ikonę filtru. Można filtrować według **identyfikatora urządzenia** lub pola **stanu** :
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Zrzut ekranu pokazujący opcje filtrowania listy urządzeń.":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 ## <a name="customize-columns-in-the-device-list"></a>Dostosowywanie kolumn na liście urządzeń
 
 Możesz dodać kolumny do listy urządzeń, wybierając ikonę opcji kolumny:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Zrzut ekranu pokazujący ikonę opcji kolumn.":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 Za pomocą okna dialogowego **Opcje kolumny** możesz wybrać kolumny listy urządzeń. Wybierz kolumny, które chcesz wyświetlić, wybierz strzałkę w prawo, a następnie wybierz przycisk **OK**. Aby zaznaczyć wszystkie dostępne kolumny, wybierz **pozycję Zaznacz wszystko**. Wybrane kolumny pojawią się na liście urządzeń.
 
@@ -120,7 +129,7 @@ Wybrane kolumny są utrwalane w sesji użytkownika lub między sesjami użytkown
 
 Możesz ponownie uruchomić zadanie, które ma urządzenia, które uległy awarii. Wybierz pozycję **Uruchom ponownie przy nieudanych próbach**:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Zrzut ekranu pokazujący przycisk służący do uruchamiania zadania na urządzeniach zakończonych niepowodzeniem.":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Zrzut ekranu pokazujący wybory dla tworzenia zadania właściwości o nazwie Ustaw próg światła":::
 
 Wprowadź nazwę i opis zadania, a następnie wybierz pozycję **Uruchom ponownie zadanie**. Zostanie przesłane nowe zadanie, aby ponowić akcję na urządzeniach zakończonych niepowodzeniem.
 

@@ -1,6 +1,7 @@
 ---
-title: Rozpocznij pracę z platformą Microsoft Identity platformy UWP | Azure
-description: Jak aplikacje platforma uniwersalna systemu Windows (platformy UWP) mogą wywołać interfejs API, który wymaga tokenów dostępu przez punkt końcowy platformy tożsamości firmy Microsoft.
+title: 'Samouczek: Tworzenie aplikacji platforma uniwersalna systemu Windows (platformy UWP), która używa platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym samouczku utworzysz aplikację platformy UWP, która korzysta z platformy tożsamości firmy Microsoft do logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph w ich imieniu.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165553"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574249"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (XAML)
-
-> [!div renderon="docs"]
+# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
 W tym przewodniku wyjaśniono, jak aplikacja natywna platforma uniwersalna systemu Windows (platformy UWP) może zażądać tokenu dostępu. Aplikacja następnie wywołuje interfejs API Microsoft Graph. Przewodnik dotyczy również innych interfejsów API, które wymagają tokenów dostępu z punktu końcowego platformy tożsamości firmy Microsoft.
 
 Na końcu tego przewodnika aplikacja wywołuje chroniony interfejs API przy użyciu kont osobistych. Przykłady to outlook.com, live.com i inne. Aplikacja wywołuje również konta służbowe z dowolnej firmy lub organizacji, która ma Azure Active Directory (Azure AD).
 
->[!NOTE]
-> Ten przewodnik wymaga programu Visual Studio z zainstalowaną platforma uniwersalna systemu Windows programowaniem. Aby uzyskać instrukcje dotyczące pobierania i konfigurowania programu Visual Studio do opracowywania aplikacji platforma uniwersalna systemu Windows, zobacz [get set up](/windows/uwp/get-started/get-set-up).
+W tym samouczku:
 
->[!NOTE]
-> Jeśli jesteś nowym firmą Microsoft Identity platform, Zacznij od [wywołania interfejsu API Microsoft Graph z poziomu aplikacji platforma uniwersalna systemu Windows (platformy UWP)](quickstart-v2-uwp.md).
+> [!div class="checklist"]
+> * Tworzenie projektu *platforma uniwersalna systemu Windows (platformy UWP)* w programie Visual Studio
+> * Zarejestruj aplikację w Azure Portal
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Dodawanie kodu do wywołania interfejsu API Microsoft Graph
+> * Testowanie aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/vs/) z zainstalowanym obciążeniem [programowania platforma uniwersalna systemu Windows](/windows/uwp/get-started/get-set-up)
 
 ## <a name="how-this-guide-works"></a>Jak działa ten przewodnik
 
@@ -115,7 +121,7 @@ W tej sekcji przedstawiono sposób korzystania z biblioteki uwierzytelniania fir
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -316,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Więcej informacji<a name="more-information-1"></a>
 
-Tokeny identyfikatorów nabyte za pomocą programu **OpenID Connect Connect** również zawierają niewielki podzbiór informacji dotyczących użytkownika. `DisplayBasicTokenInfo`Wyświetla podstawowe informacje zawarte w tokenie. Te informacje obejmują nazwę wyświetlaną użytkownika i identyfikator. Zawiera również datę wygaśnięcia tokenu i ciąg, który reprezentuje token dostępu. W przypadku wybrania przycisku **Wywołaj Microsoft Graph interfejsu API** kilka razy zobaczysz, że ten sam token został ponownie użyty na potrzeby kolejnych żądań. Możesz również zobaczyć datę wygaśnięcia rozszerzoną, gdy biblioteka uwierzytelniania firmy Microsoft zdecyduje się na odnowienie tokenu.
+Tokeny identyfikatorów nabyte za pomocą programu **OpenID Connect Connect** również zawierają niewielki podzbiór informacji dotyczących użytkownika. `DisplayBasicTokenInfo` Wyświetla podstawowe informacje zawarte w tokenie. Te informacje obejmują nazwę wyświetlaną użytkownika i identyfikator. Zawiera również datę wygaśnięcia tokenu i ciąg, który reprezentuje token dostępu. W przypadku wybrania przycisku **Wywołaj Microsoft Graph interfejsu API** kilka razy zobaczysz, że ten sam token został ponownie użyty na potrzeby kolejnych żądań. Możesz również zobaczyć datę wygaśnięcia rozszerzoną, gdy biblioteka uwierzytelniania firmy Microsoft zdecyduje się na odnowienie tokenu.
 
 ### <a name="display-message"></a>Wyświetl komunikat
 
@@ -427,16 +433,15 @@ W bieżącym przykładzie `WithRedirectUri("https://login.microsoftonline.com/co
             }
            ...
     }
-  
+
     ```
 
-    Uruchom aplikację, a następnie skopiuj wartość `redirectUri` po trafieniu punktu przerwania. Wartość powinna wyglądać podobnie do następującej:  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Uruchom aplikację, a następnie skopiuj wartość `redirectUri` po trafieniu punktu przerwania. Wartość powinna wyglądać podobnie do następującej: `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    Następnie można usunąć wiersz kodu, ponieważ jest on wymagany tylko raz, aby pobrać wartość. 
+    Następnie można usunąć wiersz kodu, ponieważ jest on wymagany tylko raz, aby pobrać wartość.
 
 3. W portalu rejestracji aplikacji Dodaj wartość zwróconą w **RedirectUri** w okienku **uwierzytelnianie** .
-   
+
 ## <a name="test-your-code"></a>Testowanie kodu
 
 Aby przetestować aplikację, wybierz klawisz **F5** , aby uruchomić projekt w programie Visual Studio. Zostanie wyświetlone okno główne:
@@ -496,3 +501,10 @@ Po zalogowaniu się do aplikacji w federacyjnej domenie usługi Azure AD zostani
 **Obejście problemu:** Wybierz pozycję **Zaloguj się z innymi opcjami**. Następnie wybierz pozycję **Zaloguj się przy użyciu nazwy użytkownika i hasła**. Wybierz pozycję **Podaj hasło**. Następnie przejdź przez proces uwierzytelniania telefonu.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej na temat używania biblioteki uwierzytelniania firmy Microsoft (MSAL) do autoryzacji i uwierzytelniania w aplikacjach .NET:
+
+> [!div class="nextstepaction"]
+> [Omówienie biblioteki uwierzytelniania firmy Microsoft (MSAL)](msal-overview.md)

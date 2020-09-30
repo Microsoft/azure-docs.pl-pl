@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461465"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575524"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -19,7 +19,7 @@ Azure Monitor dzienniki dedykowane są opcją wdrożenia, która jest dostępna 
 
 Oprócz obsługi dużych ilości, istnieją inne korzyści wynikające z używania dedykowanych klastrów:
 
-- **Limit szybkości** — klient może mieć wyższe limity szybkości pozyskiwania tylko w dedykowanym klastrze.
+- **Limit szybkości** — klient może mieć wyższe [limity szybkości](../service-limits.md#data-ingestion-volume-rate) pozyskiwania tylko w dedykowanym klastrze.
 - **Funkcje** — niektóre funkcje przedsiębiorstwa są dostępne tylko w dedykowanych klastrach — w odniesieniu do kluczy zarządzanych przez klienta (CMK) i obsługi skrytki. 
 - **Spójność** — klienci mają własne dedykowane zasoby i nie mają wpływu na innych klientów korzystających z tej samej infrastruktury udostępnionej.
 - **Opłacalność** — może być tańsze używanie dedykowanego klastra jako przypisanej do nich warstwy rezerwacji zdolności produkcyjnych uwzględniają cały pozyskiwanie klastra i mają zastosowanie do wszystkich obszarów roboczych, nawet jeśli niektóre z nich są małe i nie kwalifikują się do rabatu za rezerwację zdolności produkcyjnych.
@@ -38,14 +38,23 @@ Po utworzeniu klastra można go skonfigurować i połączyć z nim obszary roboc
 
 Wszystkie operacje na poziomie klastra wymagają `Microsoft.OperationalInsights/clusters/write` uprawnienia akcja w klastrze. To uprawnienie można udzielić za pośrednictwem właściciela lub współautora, który zawiera `*/write` akcję, lub za pośrednictwem roli współautor log Analytics, która zawiera `Microsoft.OperationalInsights/*` akcję. Aby uzyskać więcej informacji na temat uprawnień Log Analytics, zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](../platform/manage-access.md). 
 
-## <a name="billing"></a>Rozliczenia
 
-Dedykowane klastry są obsługiwane tylko w przypadku obszarów roboczych, które używają warstw rezerwacji na magazyn lub bez nich. Dedykowane klastry nie mają dodatkowej opłaty dla klientów, którzy zapewnią pozyskanie więcej niż 1 TB dla tego klastra. Wartość "Zatwierdź do pozyskiwania" oznacza, że przypisano do poziomu klastra warstwę rezerwacji pojemności równą co najmniej 1 TB/dzień. Podczas gdy rezerwacja pojemności jest dołączana na poziomie klastra, dostępne są dwie opcje rzeczywistej opłaty za dane:
+## <a name="cluster-pricing-model"></a>Model cenowy klastra
 
-- *Klaster* (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
-- *Obszary robocze* — koszt rezerwacji pojemności dla klastra jest proporcjonalnie przypisany do obszarów roboczych w klastrze. W przypadku zasobu *klastra* jest naliczana część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra.
+Log Analytics dedykowane klastry używają modelu cenowego rezerwacji pojemności, który wynosi co najmniej 1000 GB/dzień. Każde użycie powyżej poziomu rezerwacji będzie rozliczane według stawki płatności zgodnie z rzeczywistym użyciem.  Informacje o cenach rezerwacji zdolności produkcyjnych są dostępne na [stronie cennika Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Aby uzyskać więcej informacji na temat rozliczania dedykowanych klastrów, zobacz [log Analytics rozliczanie dedykowanych](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)klastrów.
+Poziom rezerwacji pojemności klastra jest konfigurowany za pomocą programu programistycznego za pomocą Azure Resource Manager przy użyciu `Capacity` parametru w obszarze `Sku` . Wartość `Capacity` jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień.
+
+Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas konfigurowania klastra. 
+
+1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. 
+
+2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](https://docs.microsoft.com/azure/security-center/) dla każdego obszaru roboczego).
+
+Należy pamiętać, że jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest on połączony z klastrem, będzie rozliczany na podstawie danych pozyskanych w ramach rezerwacji pojemności klastra i nie jest już na węzeł. Alokacje danych na węzeł z Azure Security Center będą nadal stosowane.
+
+Więcej szczegółów zawiera rozliczenia dla Log Analytics dedykowanych klastrów są dostępne [tutaj]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+
 
 ## <a name="creating-a-cluster"></a>Tworzenie klastra
 
@@ -155,8 +164,8 @@ Po utworzeniu zasobu *klastra* , który jest w pełni zainicjowany, można edyto
 
 - **keyVaultProperties**: służy do konfigurowania Azure Key Vault używany do aprowizacji [Azure monitor kluczem zarządzanym przez klienta](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Zawiera następujące parametry:  *KeyVaultUri*, *KeyName*, *wersja*klucza. 
 - **rozliczenia** — Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
-- **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
-- **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
+  - **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
+  - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
 
 > [!NOTE]
 > Właściwość *rozliczeniatype* nie jest obsługiwana w programie PowerShell.
@@ -185,7 +194,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -265,8 +274,6 @@ W ramach dowolnej operacji klastra łączenie obszaru roboczego można wykonać 
 > [!WARNING]
 > Łączenie obszaru roboczego z klastrem wymaga synchronizacji wielu składników zaplecza i zapewnienia, że pamięć podręczna jest renderowana. Wykonanie tej operacji może potrwać do dwóch godzin. Zalecamy uruchomienie go asynchronicznie.
 
-
-### <a name="link-operations"></a>Operacje łączenia
 
 **Program PowerShell**
 
@@ -366,7 +373,36 @@ Możesz odłączyć obszar roboczy z klastra. Po odłączeniu obszaru roboczego 
 
 ## <a name="delete-a-dedicated-cluster"></a>Usuwanie dedykowanego klastra
 
-Można usunąć dedykowany zasób klastra. Przed usunięciem należy odłączyć wszystkie obszary robocze z klastra. Po usunięciu zasobu klastra fizycznego klaster przechodzi do procesu przeczyszczania i usuwania. Usunięcie klastra powoduje usunięcie wszystkich danych, które były przechowywane w klastrze. Dane mogą pochodzić z obszarów roboczych, które były połączone z klastrem w przeszłości.
+Można usunąć dedykowany zasób klastra. Przed usunięciem należy odłączyć wszystkie obszary robocze z klastra. Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . 
+
+Po usunięciu zasobu klastra fizycznego klaster przechodzi do procesu przeczyszczania i usuwania. Usunięcie klastra powoduje usunięcie wszystkich danych, które były przechowywane w klastrze. Dane mogą pochodzić z obszarów roboczych, które były połączone z klastrem w przeszłości.
+
+Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać z danymi. Ponieważ wszystkie obszary robocze zostały usunięte z zasobu *klastra* z usunięciem zasobów *klastra* , po odzyskaniu należy ponownie skojarzyć obszary robocze. Nie można wykonać operacji odzyskiwania przez użytkownika, skontaktuj się z kanałem firmy Microsoft lub pomocą techniczną, aby uzyskać żądania odzyskiwania.
+
+W ciągu 14 dni od usunięcia nazwa zasobu klastra jest zarezerwowana i nie może być używana przez inne zasoby.
+
+**Program PowerShell**
+
+Aby usunąć klaster, użyj następującego polecenia programu PowerShell:
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST**
+
+Aby usunąć klaster, użyj następującego wywołania REST:
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **Odpowiedź**
+
+  200 OK
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

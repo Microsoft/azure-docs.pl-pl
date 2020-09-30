@@ -3,22 +3,22 @@ title: Architektura Plug and Play IoT | Microsoft Docs
 description: Jako Konstruktor rozwiązań można zrozumieć najważniejsze elementy architektury Plug and Play IoT.
 author: ridomin
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475689"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574329"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Architektura technologii IoT Plug and Play (wersja zapoznawcza)
+# <a name="iot-plug-and-play-architecture"></a>Architektura Plug and Play IoT
 
-Wersja zapoznawcza Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
+Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
 
 - _Właściwości_ reprezentujące stan tylko do odczytu lub do zapisu urządzenia lub innej jednostki. Na przykład numer seryjny urządzenia może być właściwością tylko do odczytu, a docelowa temperatura w termostatie może być właściwością umożliwiającą zapis.
 - Dane _telemetryczne_ , które są emitowane przez urządzenie, niezależnie od tego, czy dane są regularnym strumieniem odczytów czujnika, okazjonalnym błędem czy komunikatem informacyjnym.
@@ -30,7 +30,7 @@ Na poniższym diagramie przedstawiono kluczowe elementy rozwiązania IoT Plug an
 
 :::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Architektura Plug and Play IoT":::
 
-## <a name="model-repository"></a>Repozytorium modelu
+## <a name="model-repository"></a>Repozytorium modeli
 
 [Repozytorium modelu](./concepts-model-repository.md) jest magazynem dla definicji modelu i interfejsu. Modele i interfejsy można definiować przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl).
 
@@ -38,17 +38,35 @@ Interfejs użytkownika sieci Web umożliwia zarządzanie modelami i interfejsami
 
 Repozytorium modelu używa RBAC, aby umożliwić ograniczenie dostępu do definicji interfejsu.
 
-## <a name="devices"></a>Devices
+## <a name="devices"></a>Urządzenia
 
 Konstruktor urządzeń implementuje kod do uruchomienia na urządzeniu inteligentnym IoT przy użyciu jednego z [zestawów SDK urządzeń usługi Azure IoT](./libraries-sdks.md). Zestawy SDK urządzeń pomagają konstruktorowi urządzeń:
 
 - Bezpieczne nawiązywanie połączenia z usługą IoT Hub.
-- Zarejestruj urządzenie w usłudze IoT Hub i Ogłoś Identyfikator modelu, który identyfikuje kolekcję interfejsów implementowanych przez urządzenie.
-- Zaktualizuj właściwości zdefiniowane w interfejsach DTDL, które implementuje urządzenie. Te właściwości są implementowane za pomocą Digital bliźniaczych reprezentacji, który zarządza synchronizacją w usłudze IoT Hub.
-- Dodaj programy obsługi poleceń dla poleceń zdefiniowanych w interfejsach DTDL, które implementuje urządzenie.
+- Zarejestruj urządzenie w usłudze IoT Hub i Ogłoś Identyfikator modelu, który identyfikuje kolekcję interfejsów DTDL, które implementuje urządzenie.
+- Zsynchronizuj właściwości zdefiniowane w interfejsach DTDL między urządzeniem a centrum IoT.
+- Dodaj programy obsługi poleceń dla poleceń zdefiniowanych w interfejsach DTDL.
 - Wyślij dane telemetryczne do centrum IoT Hub.
 
-## <a name="iot-hub"></a>Usługa IoT Hub
+## <a name="iot-edge-gateway"></a>IoT Edge Gateway
+
+Brama IoT Edge pełni funkcję pośrednika w celu połączenia urządzeń Plug and Play IoT, które nie mogą łączyć się bezpośrednio z Centrum IoT. Aby dowiedzieć się więcej, zobacz [jak urządzenie IoT Edge może być używane jako brama](../iot-edge/iot-edge-as-gateway.md).
+
+## <a name="iot-edge-modules"></a>Moduły usługi IoT Edge
+
+_Moduł IoT Edge_ pozwala wdrożyć logikę biznesową i zarządzać nią na krawędzi. Moduły Azure IoT Edge są najmniejszą jednostką obliczeniową zarządzaną przez IoT Edge i mogą zawierać usługi platformy Azure (takie jak Azure Stream Analytics) lub własny kod specyficzny dla rozwiązania.
+
+_Centrum IoT Edge_ jest jednym z modułów, które tworzą Azure IoT Edge środowiska uruchomieniowego. Działa jako lokalny serwer proxy dla IoT Hub, uwidaczniając te same punkty końcowe protokołu co IoT Hub. Taka spójność oznacza, że klienci (urządzenia lub moduły) mogą łączyć się z IoT Edge środowiska uruchomieniowego w taki sam sposób jak IoT Hub.
+
+Zestawy SDK urządzeń ułatwiają konstruktorowi modułu:
+
+- Użyj Centrum IoT Edge, aby bezpiecznie połączyć się z Centrum IoT.
+- Zarejestruj moduł w centrum IoT i Ogłoś Identyfikator modelu, który identyfikuje kolekcję interfejsów DTDL, które implementuje urządzenie.
+- Zsynchronizuj właściwości zdefiniowane w interfejsach DTDL między urządzeniem a centrum IoT.
+- Dodaj programy obsługi poleceń dla poleceń zdefiniowanych w interfejsach DTDL.
+- Wyślij dane telemetryczne do centrum IoT Hub.
+
+## <a name="iot-hub"></a>IoT Hub
 
 [IoT Hub](../iot-hub/about-iot-hub.md) to usługa hostowana w chmurze, która działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między rozwiązaniem IoT i zarządzanymi urządzeniami.
 
@@ -80,4 +98,4 @@ Teraz, gdy już masz Przegląd architektury rozwiązania IoT Plug and Play, kole
 
 - [Repozytorium modelu](./concepts-model-repository.md)
 - [Integracja modelu cyfrowej przędzy](./concepts-model-discovery.md)
-- [Opracowywanie Plug and Play IoT](./concepts-developer-guide.md)
+- [Opracowywanie Plug and Play IoT](./concepts-developer-guide-device-csharp.md)

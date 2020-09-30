@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515158"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576102"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 > [!div class="op_single_selector"]
@@ -65,12 +65,12 @@ Podczas programowego rejestrowania w programie potrzebny jest identyfikator apli
     ![Dodawanie grupy](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Dodawanie grupy")
 6. Kliknij pozycję **Wybierz uprawnienia**, wybierz uprawnienia i określ, czy chcesz przypisać uprawnienia jako domyślną listę ACL, listę ACL dostępu czy obie. Kliknij przycisk **OK**.
    
-    ![Przypisywanie uprawnień do grupy](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Przypisywanie uprawnień do grupy")
+    ![Zrzut ekranu przedstawiający blok Dodawanie dostępu niestandardowego z opcją wybierz uprawnienia o nazwie "out" i bloku Wybieranie uprawnień z opcją "OK".](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Przypisywanie uprawnień do grupy")
    
     Aby uzyskać więcej informacji o uprawnieniach w Data Lake Storage Gen1 i domyślnych listach kontroli dostępu, zobacz [Access Control w Data Lake Storage Gen1](data-lake-store-access-control.md).
 7. W bloku **Dodaj niestandardowy dostęp** kliknij przycisk **OK**. Nowo dodane grupy ze skojarzonymi uprawnieniami są wyświetlane w bloku **dostępu** .
    
-    ![Przypisywanie uprawnień do grupy](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Przypisywanie uprawnień do grupy")
+    ![Zrzut ekranu przedstawiający blok dostęp z nowo dodaną grupą o nazwie z niestandardowym dostępem.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Przypisywanie uprawnień do grupy")
 
 > [!NOTE]
 > Jeśli planujesz ograniczenie Azure Active Directory aplikacji do określonego folderu, musisz również nadać temu samemu uprawnienia do **wykonywania** tej samej aplikacji usługi Azure Active Directory, aby umożliwić dostęp do tworzenia plików za pośrednictwem zestawu .NET SDK.
@@ -88,11 +88,11 @@ Podczas programowego rejestrowania w programie potrzebny jest identyfikator apli
 
 3. W górnej części bloku Rejestracje aplikacji kliknij pozycję **punkty końcowe**.
 
-    ![Punkt końcowy tokenu OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Punkt końcowy tokenu OAuth")
+    ![Zrzut ekranu przedstawiający Active Directory z opcją Rejestracje aplikacji i punktami końcowymi o nazwie out.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Punkt końcowy tokenu OAuth")
 
 4. Z listy punktów końcowych Skopiuj punkt końcowy tokenu OAuth 2,0.
 
-    ![Punkt końcowy tokenu OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punkt końcowy tokenu OAuth")   
+    ![Zrzut ekranu przedstawiający blok punkty końcowe z ikoną punktu końcowego tokenu uwierzytelniania O wartości 2 punktu O o nazwie "out".](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punkt końcowy tokenu OAuth")   
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule opisano tworzenie aplikacji sieci Web usługi Azure AD i zebrano potrzebne informacje w aplikacjach klienckich, które tworzysz przy użyciu zestawu .NET SDK, Java, Python, interfejsu API REST itd. Teraz możesz przechodzić do poniższych artykułów, które zapoznają się z używaniem aplikacji natywnych usługi Azure AD do pierwszego uwierzytelniania przy użyciu Data Lake Storage Gen1 a następnie wykonywania innych operacji w sklepie.

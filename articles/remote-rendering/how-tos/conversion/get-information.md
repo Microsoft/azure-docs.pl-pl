@@ -1,18 +1,18 @@
 ---
-title: Uzyskaj informacje na temat konwersji
-description: Uzyskaj informacje na temat konwersji
+title: Uzyskiwanie informacji o konwersjach
+description: Uzyskiwanie informacji o konwersjach
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870293"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576629"
 ---
-# <a name="get-information-about-conversions"></a>Uzyskaj informacje na temat konwersji
+# <a name="get-information-about-conversions"></a>Uzyskiwanie informacji o konwersjach
 
 ## <a name="information-about-a-conversion-the-result-file"></a>Informacje o konwersji: plik wynikowy
 
@@ -65,6 +65,10 @@ Oto przykładowy plik *informacyjny* tworzony przez konwersję pliku o nazwie `b
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ Ta sekcja rejestruje informacje o formacie pliku źródłowego.
 * `sourceAssetFormat`: Opis formatu pliku źródłowego.
 * `sourceAssetFormatVersion`: Wersja formatu pliku źródłowego.
 * `sourceAssetGenerator`: Nazwa narzędzia, które wygenerowało plik źródłowy, jeśli jest dostępny.
+
+### <a name="the-materialoverrides-section"></a>Sekcja *materialOverrides*
+
+Ta sekcja zawiera informacje o [przesłanianiu materiału](override-materials.md) w przypadku, gdy plik zastąpień materiału został dostarczony do usługi konwersji.
+Zawiera ona następujące informacje:
+* `numOverrides`: Liczba wpisów zastąpień odczytanych z pliku zastąpienia materiału.
+* `numOverriddenMaterials`: Liczba zasłoniętych materiałów.
 
 ### <a name="the-inputstatistics-section"></a>Sekcja *inputStatistics*
 

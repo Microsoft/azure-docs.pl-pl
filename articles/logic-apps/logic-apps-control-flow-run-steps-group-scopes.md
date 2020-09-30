@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269288"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575014"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
 
 Aby uruchamiać akcje dopiero po pomyślnym lub niepowodzeniu innej grupy akcji, należy zgrupować te akcje w *zakresie*. Ta struktura jest przydatna, gdy chcesz organizować akcje jako grupę logiczną, oszacować stan grupy i wykonywać akcje, które są oparte na stanie zakresu. Gdy wszystkie akcje w zakresie zakończą działanie, zakres pobiera również własny stan. Można na przykład użyć zakresów, gdy chcesz zaimplementować [obsługę wyjątków i błędów](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Aby sprawdzić stan zakresu, można użyć tych samych kryteriów, które są używane do określania stanu uruchomienia aplikacji logiki, takich jak "powodzenie", "Niepowodzenie", "anulowane" i tak dalej. Domyślnie, gdy wszystkie akcje tego zakresu zakończyły się powodzeniem, stan zakresu jest oznaczony jako "powodzenie". Ale jeśli jakakolwiek akcja w zakresie nie powiedzie się lub zostanie anulowana, stan zakresu jest oznaczony jako "Niepowodzenie". Aby uzyskać ograniczenia dotyczące zakresów, zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
+Aby sprawdzić stan zakresu, można użyć tych samych kryteriów, które są używane do określania stanu uruchomienia aplikacji logiki, **takich jak powodzenie**, **Niepowodzenie**, **Anulowanie**i tak dalej. Domyślnie, gdy wszystkie akcje tego zakresu zakończyły się powodzeniem, stan zakresu jest oznaczony jako **zakończony powodzeniem**. Ale jeśli jakakolwiek akcja w zakresie nie powiedzie się lub zostanie anulowana, stan zakresu jest oznaczony jako **Niepowodzenie**. Aby uzyskać ograniczenia dotyczące zakresów, zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
 
-Na przykład poniżej znajduje się aplikacja logiki wysokiego poziomu, która używa zakresu do uruchamiania określonych akcji i warunku do sprawdzenia stanu zakresu. Jeśli jakiekolwiek akcje w zakresie zakończą się niepowodzeniem lub kończą się nieoczekiwanie, zakres jest oznaczony odpowiednio "Niepowodzenie" lub "przerwane", a aplikacja logiki wysyła komunikat "zakres nie powiódł się". Jeśli wszystkie akcje w zakresie zostały wykonane pomyślnie, aplikacja logiki wyśle komunikat "zakres został pomyślnie".
+Na przykład poniżej znajduje się aplikacja logiki wysokiego poziomu, która używa zakresu do uruchamiania określonych akcji i warunku do sprawdzenia stanu zakresu. Jeśli jakiekolwiek akcje w zakresie zakończą się niepowodzeniem lub kończą się nieoczekiwanie, zakres jest oznaczony jako **Niepowodzenie** lub **przerwane** odpowiednio, a aplikacja logiki wysyła komunikat "zakres nie powiódł się". Jeśli wszystkie akcje w zakresie zostały wykonane pomyślnie, aplikacja logiki wyśle komunikat "zakres został pomyślnie".
 
 ![Diagram przedstawia przepływ zakresu aplikacji logiki z przykładami "zakres nie powiodło się" i "zakres zakończony powodzeniem".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
@@ -192,7 +192,7 @@ Następnie Dodaj zakres, aby można było grupować określone akcje i oszacowa�
    
       `result('Scope')[0]['status']`
 
-      ![Zrzut ekranu pokazujący okno "Dodawanie wyrażenia" z wyróżnionym wyrażeniem wynikowym.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Zrzut ekranu pokazujący pole "wyrażenie" z wyróżnionym wyrażeniem wynikowym.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Dla obu wierszy wybierz opcję **jest równa** operatorowi. 
    

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f2b44d00361885778a523109a8fcb05dabe9dd
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83698670"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574351"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Dostęp do usługi Azure Cosmos DB z sieci wirtualnych
 
@@ -24,9 +24,9 @@ Domyślnie konto usługi Azure Cosmos jest dostępne z dowolnego źródła, jeś
 
 Poniżej przedstawiono kilka często zadawanych pytań dotyczących konfigurowania dostępu z sieci wirtualnych:
 
-### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Czy obecnie są dostępne Notesy i powłoka Mongo z włączonymi kontami Virtual Network?
+### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Czy powłoki Notesy i Mongo/Cassandra są obecnie zgodne z włączonymi kontami Virtual Network?
 
-W tej chwili [integracja powłoki Mongo w Eksplorator danych Cosmos DB](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) i [Usługa notesów Jupyter](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) nie są obsługiwane przez dostęp do sieci wirtualnej. Jest to obecnie aktywne programowanie.
+W tej chwili integracja [powłoki Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) i [powłoki Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) w Eksplorator danych Cosmos DB i [usługi notesów Jupyter](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)nie są obsługiwane w przypadku dostępu do sieci wirtualnej. Jest to obecnie aktywne programowanie.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Czy można określić zarówno punkt końcowy usługi sieci wirtualnej, jak i zasady kontroli dostępu IP na koncie usługi Azure Cosmos? 
 

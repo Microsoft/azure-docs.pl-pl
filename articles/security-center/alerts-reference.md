@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: memildin
-ms.openlocfilehash: e1cf6cb839d610fbf6e6188d257b2588d01f4df9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0e02a13db441bd4934bd84f66111924a77d0154f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448439"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575320"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — Podręcznik referencyjny
 
@@ -391,11 +391,30 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 
 [Dalsze szczegóły i uwagi](other-threat-protections.md#azure-ddos)
 
-| Alerty                                   | Opis                                                          | Zamierzenie ([Dowiedz się więcej](#intentions)) | Ważność |
+| Alerty                                   | Opis                                                          | Zamiar<br>([Dowiedz się więcej](#intentions)) | Ważność |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
 | **Wykryto atak DDoS dla publicznego adresu IP**  | Wykryto atak DDoS dla publicznego adresu IP (adres IP) i jest on zmniejszany. | Badanie                            | Wysoki     |
 | **Atak DDoS został skorygowany dla publicznego adresu IP** | Atak DDoS został skorygowany dla publicznego adresu IP (adres IP).                    | Badanie                            | Niski      |
 |                                         |                                                                      |                                    |          |
+
+
+
+
+
+## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Alerty zdarzeń zabezpieczeń
+
+[Dalsze szczegóły i uwagi](security-center-alerts-cloud-smart.md)
+
+
+| Alerty                                   | Opis                                                          | Zamiar<br>([Dowiedz się więcej](#intentions)) | Ważność |
+|-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
+|**Wykryto zdarzenie zabezpieczeń z procesem udostępnionym**|Zdarzenie rozpoczęte o godzinie {Start Time (UTC)} i ostatnio wykryte w {wykrytym czasie (UTC)} wskazuje, że osoba atakująca ma {Actions} zasób {Host}|-|Wysoki|
+|**Wykryto zdarzenie zabezpieczeń dla wielu zasobów**|Zdarzenie rozpoczęte o godzinie {Start Time (UTC)} i ostatnio wykryte w {wykrytym czasie (UTC)} wskazuje, że podobne metody ataków zostały wykonane w zasobach w chmurze {Host}|-|Średniaa|
+|**Wykryto zdarzenie zabezpieczeń z tego samego źródła**|Zdarzenie rozpoczęte o godzinie {Start Time (UTC)} i ostatnio wykryte w {wykrytym czasie (UTC)} wskazuje, że osoba atakująca ma {Actions} zasób {Host}|-|Wysoki|
+|**Wykryto zdarzenie zabezpieczeń na wielu komputerach**|Zdarzenie rozpoczęte o godzinie {Start Time (UTC)} i ostatnio wykryte w {wykrytym czasie (UTC)} wskazuje, że osoba atakująca ma {Actiond} Twoje zasoby {Host}|-|Średniaa|
+
+
+
 
 ## <a name="intentions"></a>Cele
 

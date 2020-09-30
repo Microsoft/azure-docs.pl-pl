@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c9d4747b227c7ff83e4c43292badd65836edfef
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052175"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575966"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Zainstaluj aktualizację 5,1 na urządzeniu StorSimple
 
@@ -60,15 +60,15 @@ Wykonaj następujące kroki, aby zaktualizować urządzenie do [aktualizacji 5,1
 
 2. Przejdź do **ustawień urządzenia ustawienia**  >  **aktualizacje urządzeń**.
 
-    ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update-51/update2.png)
+    ![Zrzut ekranu przedstawiający blok ustawień z opcją aktualizacje urządzenia o nazwie out.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. Zostanie wyświetlone powiadomienie, jeśli są dostępne nowe aktualizacje. Alternatywnie w bloku **aktualizacje urządzeń** kliknij pozycję **Skanuj aktualizacje**. Zostanie utworzone zadanie skanowania dostępnych aktualizacji. Otrzymasz powiadomienie, gdy zadanie zostanie pomyślnie ukończone.
 
-    ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update-51/update3.png)
+    ![Zrzut ekranu przedstawiający blok ustawień z opcją aktualizacje urządzenia o nazwie out, a blok aktualizacje urządzenia z nowymi regularnymi aktualizacjami jest dostępny komunikat o nazwie.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. Przed zastosowaniem aktualizacji na urządzeniu zalecamy przejrzenie informacji o wersji. Aby zastosować aktualizacje, kliknij przycisk **instaluj aktualizacje**. Przed zastosowaniem aktualizacji w bloku **Potwierdź regularne aktualizacje** zapoznaj się z wymaganiami wstępnymi. Zaznacz pole wyboru, aby wskazać, że wszystko jest gotowe do zaktualizowania urządzenia, a następnie kliknij przycisk **Instaluj**.
 
-    ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update-51/update4.png)
+    ![Zrzut ekranu przedstawiający blok aktualizacje urządzeń z opcją Zainstaluj aktualizacje o nazwie wychodzącą i Potwierdź regularne aktualizacje z opcją zgody i opcją instalacji o nazwie out.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. Zostanie rozpoczęty zestaw testów wymagań wstępnych. Testy te obejmują:
    
@@ -80,17 +80,17 @@ Wykonaj następujące kroki, aby zaktualizować urządzenie do [aktualizacji 5,1
 
 7. Po pomyślnym zakończeniu sprawdzenia zostanie utworzone zadanie aktualizacji. Otrzymasz powiadomienie o pomyślnym utworzeniu zadania aktualizacji.
    
-    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update-51/update6.png)
+    ![Zrzut ekranu przedstawiający powiadomienie "Uruchamianie zadania aktualizacji oprogramowania".](./media/storsimple-8000-install-update-51/update6.png)
    
     Następnie aktualizacja jest stosowania do Twojego urządzenia.
 
 9. Aktualizacja zajmuje kilka godzin. Aby w dowolnym momencie wyświetlić szczegóły zadania, wybierz zadanie aktualizacji i kliknij pozycję **Szczegóły**.
 
-    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update-51/update8.png)
+    ![Zrzut ekranu przedstawiający blok aktualizacje urządzenia z opcją Pobierz i zainstaluj aktualizacje oprogramowania w toku o nazwie z i bloku Zainstaluj aktualizacje.](./media/storsimple-8000-install-update-51/update8.png)
 
      Możesz również monitorować postęp zadania aktualizacji z **ustawień urządzenia > zadania**. W bloku **zadania** można zobaczyć postęp aktualizacji.
 
-     ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update-51/update7.png)
+     ![Zrzut ekranu przedstawiający blok ustawień z zadaniami o identyfikatorze out i blokiem zadania pokazujących postęp aktualizacji.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. Po zakończeniu zadania przejdź do **ustawień urządzenia, > aktualizacje urządzeń**. Wersja oprogramowania powinna zostać zaktualizowana.
 

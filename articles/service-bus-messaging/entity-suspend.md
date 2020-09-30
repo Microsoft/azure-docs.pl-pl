@@ -2,13 +2,13 @@
 title: Azure Service Bus-wstrzymywanie jednostek obsługi komunikatów
 description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie aktywować Azure Service Bus jednostki komunikatów (kolejki, tematy i subskrypcje).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/29/2020
+ms.openlocfilehash: f89e17e494cc777691b7f7ca47538cd29114d2dc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575262"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
 
@@ -18,28 +18,29 @@ Zawieszenie jednostki jest zwykle wykonywane z pilnymi przyczynami administracyj
 
 Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub przez system. System zawiesza jedynie jednostki z powodu poważnego działania administracyjnego, takiego jak nakroczenie limitu wydatków na subskrypcję. Jednostki wyłączone przez system nie mogą być ponownie uaktywniane przez użytkownika, ale są przywracane po rozdaniu przyczyny zawieszenia.
 
-W portalu sekcja **Przegląd** dla odpowiedniej jednostki umożliwia zmianę stanu. bieżący stan jest wyświetlany w obszarze **stan** jako hiperlink.
-
-Poniższy zrzut ekranu przedstawia dostępne Stany, do których można zmienić jednostkę, zaznaczając hiperlink: 
-
-![Zrzut ekranu funkcji Service Bus w ramach przeglądu, aby zmienić opcję stanu jednostki.][1]
-
-Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="suspension-states"></a>Stany zawieszenia
-
+## <a name="queue-status"></a>Stan kolejki 
 Stany, które można ustawić dla kolejki, to:
 
 -   **Aktywne**: kolejka jest aktywna.
--   **Wyłączone**: kolejka jest wstrzymana.
+-   **Wyłączone**: kolejka jest wstrzymana. Jest to równoznaczne z ustawieniem zarówno **SendDisabled** , jak i **ReceiveDisabled**. 
 -   **SendDisabled**: kolejka jest częściowo zawieszona, a odbieranie jest dozwolone.
 -   **ReceiveDisabled**: kolejka jest częściowo zawieszona z dozwolonym wysyłaniem.
 
-W przypadku subskrypcji i tematów można ustawić tylko **aktywne** i **wyłączone** .
+### <a name="change-the-queue-status-in-the-azure-portal"></a>Zmień stan kolejki w Azure Portal: 
 
-Wyliczenie [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiuje również zestaw stanów przejściowych, które mogą być ustawiane przez system. W poniższym przykładzie pokazano polecenie programu PowerShell do wyłączania kolejki. Polecenie ponownej aktywacji jest równoznaczne z ustawieniem `Status` **aktywny**.
+1. W Azure Portal przejdź do przestrzeni nazw Service Bus. 
+1. Wybierz kolejkę, dla której chcesz zmienić stan. W środkowym okienku wyświetlane są kolejki. 
+1. Na stronie **Service Bus Queue** (zapoznaj się z bieżącym stanem kolejki jako hiperłączem). Jeśli nie wybrano opcji **Przegląd** w menu po lewej stronie, wybierz ją, aby wyświetlić stan kolejki. Wybierz bieżący stan kolejki, aby ją zmienić. 
+
+    :::image type="content" source="./media/entity-suspend/select-state.png" alt-text="Wybierz stan kolejki":::
+4. Wybierz nowy stan dla kolejki, a następnie wybierz **przycisk OK**. 
+
+    :::image type="content" source="./media/entity-suspend/entity-state-change.png" alt-text="Wybierz stan kolejki":::
+    
+Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+
+### <a name="change-the-queue-status-using-azure-powershell"></a>Zmiana stanu kolejki przy użyciu Azure PowerShell
+W poniższym przykładzie pokazano polecenie programu PowerShell do wyłączania kolejki. Polecenie ponownej aktywacji jest równoznaczne z ustawieniem `Status` **aktywny**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -48,6 +49,30 @@ $q.Status = "Disabled"
 
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
+
+## <a name="topic-status"></a>Stan tematu
+Zmiana stanu tematu w Azure Portal jest podobna do zmiany stanu kolejki. Po wybraniu bieżącego stanu tematu zostanie wyświetlona następująca strona, która umożliwia zmianę stanu. 
+
+:::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Wybierz stan kolejki":::
+
+Stany, które można ustawić dla tematu, to:
+- **Aktywne**: temat jest aktywny.
+- **Wyłączone**: temat jest zawieszony.
+- **SendDisabled**: ten sam efekt jest **wyłączony**.
+
+## <a name="subscription-status"></a>Stan subskrypcji
+Zmiana stanu subskrypcji w Azure Portal jest podobna do zmiany stanu tematu lub kolejki. Po wybraniu bieżącego stanu subskrypcji zostanie wyświetlona następująca strona, która umożliwia zmianę stanu. 
+
+:::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Wybierz stan kolejki":::
+
+Stany, które można ustawić dla tematu, to:
+- **Aktywne**: temat jest aktywny.
+- **Wyłączone**: temat jest zawieszony.
+- **ReceiveDisabled**: ten sam efekt jest **wyłączony**.
+
+## <a name="other-statuses"></a>Inne Stany
+Wyliczenie [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definiuje również zestaw stanów przejściowych, które mogą być ustawiane przez system. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

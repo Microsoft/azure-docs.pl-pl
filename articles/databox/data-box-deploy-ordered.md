@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604312"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575303"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -215,11 +215,11 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 1. Użyj swoich poświadczeń platformy Microsoft Azure, aby zalogować się pod następującym adresem URL: [https://portal.azure.com](https://portal.azure.com).
 2. Wybierz pozycję **+ Utwórz zasób** i wyszukaj wartość *Azure Data Box*. Wybierz pozycję **Azure Data Box**.
 
-   ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Zrzut ekranu przedstawiający nową sekcję z Azure Data Box w polu wyszukiwania.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
-   ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Zrzut ekranu przedstawiający sekcję Azure Data Box z opcją tworzenia wywołana.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Sprawdź, czy usługa Data Box jest dostępna w Twoim regionie. Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Zastosuj**.
 
@@ -235,7 +235,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
 5. Wybierz pozycję **Data Box**. Maksymalna użyteczna pojemność dla pojedynczej kolejności wynosi 80 TB. W przypadku większych ilości danych możesz utworzyć wiele zamówień.
 
-    ![Wybieranie opcji 1 urządzenia Data Box](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Zrzut ekranu przedstawiający różne rozmiary danych, które są dostępne do wyboru: Data Box Disk 40 terabajtów, urządzenie Data Box 100 terabajtów, Data Box Heavy, 1000 terabajtów i wysyłania własnych dysków 1 terabajt.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Przejdź **do karty** **podstawowe informacje** . Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Dalej:>miejsca docelowego danych **.
 
@@ -245,7 +245,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |Grupa zasobów    | Wybrana wcześniej Grupa zasobów. |
     |Nazwa zamówienia importu | Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.    |
 
-    ![Wybieranie opcji 1 urządzenia Data Box](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Zrzut ekranu przedstawiający kreatora kolejności, który zawiera informacje o poprawnym kroku kreatora z wypełnionymi informacjami.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Domyślnie hasło odblokowywania urządzenia jest szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft. Po zakończeniu zamówienia możesz dodać klucz zarządzany przez klienta. Klucz zarządzany przez klienta umożliwia użycie własnego klucza z klucza magazynu kluczy platformy Azure w celu ochrony hasła do odblokowywania urządzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -265,7 +265,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     |---------|---------|
     |Grupy zasobów     | Utwórz nowe grupy zasobów, jeśli zamierzasz tworzyć dyski zarządzane na podstawie lokalnych dysków VHD. Istniejącej grupy zasobów można użyć tylko wtedy, gdy grupa zasobów została utworzona wcześniej podczas tworzenia kolejności urządzenie Data Box dla dysku zarządzanego przez usługę urządzenie Data Box. <br> Nazwy poszczególnych grup zasobów rozdziel średnikami. Obsługiwanych jest maksymalnie 10 grup zasobów.|
 
-    ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Zrzut ekranu przedstawiający Kreatora zamawiania z krokami miejsca docelowego danych w Kreatorze z wypełnionymi poprawnymi informacjami.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje wirtualne dyski twarde jako stronicowe obiekty blob do przejściowego konta magazynu przed przekonwertowaniem ich na dyski zarządzane i przeniesieniem do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -286,11 +286,11 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
 8. W obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy**.
 
-    ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Zrzut ekranu przedstawiający kreatora zamówień z etapem szczegóły kontaktu kreatora z opcją Dodaj adres wysyłkowy.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. W obszarze **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Wybierz pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie.
 
-   ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie adresu wysyłkowego z opcjami Wyślij przy użyciu i Dodaj adres wysyłkowy.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    W przypadku wybrania opcji Wysyłka samozarządzanego otrzymasz powiadomienie e-mail po pomyślnym przekazaniu zamówienia. Aby uzyskać więcej informacji na temat samozarządzanej wysyłki, zobacz [Korzystanie z funkcji samozarządzanej wysyłki](data-box-portal-customer-managed-shipping.md).
 
@@ -300,13 +300,13 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     Zalecamy użycie grupowego adresu e-mail, aby otrzymywać powiadomienia, jeśli administrator opuści grupę.
 
-    ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Zrzut ekranu przedstawiający sekcję adres E-mail kroku szczegóły kontaktu Kreatora zamawiania z polem tekstowym Adres E-mail i przycisk Dalej: recenzja i kolejność wywołana.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Zapoznaj się z informacjami w temacie **Przegląd + Order** (kolejność) związanych z warunkami zamówienia, kontaktu, powiadomień i prywatności. Zaznacz pole oznaczające wyrażenie zgody na postanowienia dotyczące prywatności.
 
 13. Wybierz pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
 
-    ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Zrzut ekranu przedstawiający kreatora kolejności, pokazujący krok Recenzja i kolejność oraz opcję Order wywołana.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 

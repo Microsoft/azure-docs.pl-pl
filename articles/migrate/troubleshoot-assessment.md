@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645647"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576595"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -52,7 +52,7 @@ Protokół internetowy gotowości warunkowej | Dotyczy wyłącznie ocen systemu 
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie oznaczono jako nieznane
 
-W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMware (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMware (HCX). [Dowiedz się więcej](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Maszyny wirtualne z systemem Linux są gotowe do oceny maszyn wirtualnych platformy Azure
 

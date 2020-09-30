@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268073"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575949"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Korelacja inteligentnego alertu w chmurze w Azure Security Center (zdarzenia)
 
@@ -35,6 +35,9 @@ Security Center korzysta z macierzy ataków MITRE do kojarzenia alertów z ich z
 Ponieważ ataki często występują między różnymi dzierżawcami, Security Center mogą łączyć algorytmy AI, aby analizować sekwencje ataków, które są zgłaszane w poszczególnych subskrypcjach. Ta technika identyfikuje sekwencje ataków jako nieznane wzorce alertów, a nie tylko incydentowo powiązane ze sobą.
 
 Podczas badania zdarzenia analitykowie często potrzebują dodatkowego kontekstu, aby dotrzeć do Verdict o charakterze zagrożenia i sposobach ich rozwiązywania. Na przykład nawet w przypadku wykrycia nietypowej sieci, bez zrozumienia, co się dzieje w sieci lub w odniesieniu do zasobu, trudno jest zrozumieć, jakie działania należy podjąć dalej. Aby pomóc, zdarzenie zabezpieczeń może obejmować artefakty, powiązane zdarzenia i informacje. Dodatkowe informacje dostępne dla zdarzeń związanych z zabezpieczeniami różnią się w zależności od typu wykrytego zagrożenia i konfiguracji środowiska. 
+
+> [!TIP]
+> Aby uzyskać listę alertów dotyczących zdarzeń zabezpieczeń, które mogą być tworzone przez usługę Fusion Analytics, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-fusion).
 
 ![Zrzut ekranu przedstawiający raport wykrytych zdarzeń zabezpieczeń](./media/security-center-alerts-cloud-smart/security-incident.png)
 

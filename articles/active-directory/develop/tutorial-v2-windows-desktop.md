@@ -1,6 +1,7 @@
 ---
-title: Wprowadzenie do programu Microsoft Identity platform Windows Desktop
-description: Jak aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez platformę tożsamości firmy Microsoft.
+title: 'Samouczek: Tworzenie aplikacji Windows Presentation Foundation (WPF), która używa platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym samouczku utworzysz aplikację WPF, która używa platformy tożsamości firmy Microsoft do logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph w ich imieniu.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +12,32 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7effb1592fb19f92958353a3333edf6fdf9a51af
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181544"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574266"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
 
-W tym przewodniku pokazano, jak Natywna aplikacja Windows Desktop .NET (XAML) używa tokenu dostępu do wywoływania interfejsu API Microsoft Graph. Aplikacja może również uzyskiwać dostęp do innych interfejsów API, które wymagają tokenów dostępu z platformy tożsamości firmy Microsoft dla deweloperów w wersji 2.0. Ta platforma była wcześniej nazywana usługą Azure AD.
+W tym przewodniku pokazano, jak Natywna aplikacja Windows Desktop .NET (XAML) używa tokenu dostępu do wywoływania interfejsu API Microsoft Graph. Aplikacja może również uzyskiwać dostęp do innych interfejsów API, które wymagają tokenów dostępu z platformy tożsamości firmy Microsoft.
 
 Po zakończeniu przewodnika aplikacja będzie mogła wywołać chroniony interfejs API, który korzysta z kont osobistych (w tym outlook.com, live.com i innych). Aplikacja będzie również używać kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory.
 
-> [!NOTE]
-> Przewodnik wymaga programu Visual Studio 2015 Update 3, Visual Studio 2017 lub Visual Studio 2019. Nie masz żadnej z tych wersji? [Pobierz bezpłatnie program Visual Studio 2019](https://www.visualstudio.com/downloads/).
+W tym samouczku:
 
->[!NOTE]
-> Jeśli dopiero zaczynasz pracę z platformą tożsamości firmy Microsoft, zalecamy rozpoczęcie od [aplikacji klasycznej z systemem Windows za pomocą interfejsu API pozyskiwania tokenu i wywołania Microsoft Graph](quickstart-v2-windows-desktop.md).
+> [!div class="checklist"]
+> * Tworzenie projektu *Windows Presentation Foundation (WPF)* w programie Visual Studio
+> * Zainstaluj bibliotekę uwierzytelniania firmy Microsoft (MSAL) dla platformy .NET
+> * Zarejestruj aplikację w Azure Portal
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Dodawanie kodu do wywołania interfejsu API Microsoft Graph
+> * Testowanie aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Jak działa Przykładowa aplikacja generowana przez ten przewodnik
 
@@ -106,7 +115,7 @@ Aby zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji
    1. W sekcji **identyfikatory URI przekierowania** na liście identyfikatorów URI przekierowania:
    1. W kolumnie **Typ** wybierz pozycję **publiczny Klient/natywny (Mobile & Desktop)**.
    1. W kolumnie **Identyfikator URI przekierowania** wprowadź wartość `https://login.microsoftonline.com/common/oauth2/nativeclient`
-1. Wybierz pozycję **Rejestruj**.
+1. Wybierz pozycję **Zarejestruj**.
 1. Przejdź do programu Visual Studio, Otwórz plik *App.XAML.cs* , a następnie zastąp ciąg `Enter_the_Application_Id_here` w poniższym fragmencie kodu identyfikatorem aplikacji, która została właśnie zarejestrowana i skopiowana.
 
     ```csharp
@@ -367,3 +376,10 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 Oprócz tokenu dostępu, który jest używany do wywoływania interfejsu API Microsoft Graph, po zalogowaniu się użytkownika MSAL również uzyskuje token identyfikatora. Ten token zawiera niewielki podzbiór informacji przydatnych dla użytkowników. `DisplayBasicTokenInfo`Metoda wyświetla podstawowe informacje zawarte w tokenie. Na przykład wyświetla nazwę wyświetlaną i identyfikator użytkownika, a także datę wygaśnięcia tokenu i ciąg reprezentujący sam token dostępu. Przycisk *wywołania Microsoft Graph API* można wybrać wiele razy i zobaczyć, że ten sam token został ponownie użyty dla kolejnych żądań. Możesz również sprawdzić datę wygaśnięcia, która zostanie rozszerzona, gdy MSAL zdecyduje, że jest czas odnowienia tokenu.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej o tworzeniu aplikacji klasycznych, które wywołują chronione interfejsy API sieci Web w naszej wieloczęściowej serii scenariuszy:
+
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja klasyczna, która wywołuje interfejsy API sieci Web](scenario-desktop-overview.md)

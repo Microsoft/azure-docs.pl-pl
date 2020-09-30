@@ -3,16 +3,16 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316901"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575762"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Przydatną perspektywą dotyczącą międzyłączności jest rozważenie dwóch typów implementacji chmury prywatnej rozwiązania Azure VMware:
 
@@ -53,7 +53,7 @@ Na poniższym diagramie przedstawiono międzyfirmowe łączenie z chmurą prywat
 * Gorąca/zimna vMotion — vCenter
 * Dostęp do zarządzania chmurą prywatną w usłudze Azure VMware
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Sieć wirtualna i lokalna pełna łączność z chmurą prywatną" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Podstawowa Sieć wirtualna do łączności z chmurą prywatną" border="false":::
 
 W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Zapoznaj się z [samouczkiem dotyczącym tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md) w celu uzyskania procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej.
 
