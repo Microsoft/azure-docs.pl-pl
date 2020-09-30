@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: a4be498b25aee7c5a50b2f35fe06be3763eb4732
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825858"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568322"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem interfejsu wiersza polecenia platformy Azure
 Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy operacyjne wystąpień maszyn wirtualnych na dyskach. Ważne jest, aby podczas tworzenia zestawu skalowania i zarządzania nim wybrać taki rozmiar dysku i konfigurację, które odpowiadają oczekiwanemu obciążeniu. W tym samouczku omówiono tworzenie dysków maszyn wirtualnych i zarządzanie nimi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -75,6 +75,8 @@ W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sek
 
 ## <a name="create-and-attach-disks"></a>Tworzenie i dołączanie dysków
 Dyski można tworzyć i dołączać podczas tworzenia zestawu skalowania lub w ramach modyfikacji istniejącego zestawu skalowania.
+
+Począwszy od wersji interfejsu API `2019-07-01` , można ustawić rozmiar dysku systemu operacyjnego w zestawie skalowania maszyn wirtualnych za pomocą właściwości [obszarze storageprofile. OsDisk. diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Po zainicjowaniu obsługi może być konieczne rozwinięcie lub ponowne partycjonowanie dysku, aby wykorzystać całe miejsce. Dowiedz się więcej [na temat rozszerzania dysku w tym miejscu](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Dołączanie dysków podczas tworzenia zestawu skalowania
 Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). W tym przykładzie grupa zasobów o nazwie *myResourceGroup* zostanie utworzona w regionie *eastus*.
@@ -271,7 +273,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby pozbyć się zestawu skalowania i dysków, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [az group delete](/cli/azure/group). Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive

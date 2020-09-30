@@ -31,6 +31,6 @@ ms.locfileid: "91372338"
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność ustawień.
 
-1. Wybierz przycisk **Utwórz**. Wdrożenie może potrwać kilka minut.
+1. Wybierz pozycję **Utwórz**. Wdrożenie może potrwać kilka minut.
 
 1. Po zakończeniu wdrażania przejdź do zasobu konfiguracja aplikacji. Wybierz pozycje **Ustawienia** > **Klucze dostępu**. Zanotuj podstawowe parametry połączenia klucza tylko do odczytu. Te parametry połączenia będą używane później, aby skonfigurować aplikację do komunikacji z utworzonym magazynem konfiguracji aplikacji.

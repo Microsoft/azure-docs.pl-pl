@@ -1,5 +1,5 @@
 ---
-title: Warunki dopasowania aparatu do usługi Azure Front drzwiczk
+title: Aparaty reguł dla drzwi frontonu platformy Azure spełniają warunki
 description: Ten artykuł zawiera listę różnych warunków dopasowania dostępnych w aparacie reguł dla drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531869"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569768"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania Aparatu reguł usługi Azure Front Door
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania aparatu do usługi Azure Front drzwiczk
 
-W [aparacie reguł AFD](front-door-rules-engine.md) reguła składa się z zero lub więcej warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w aparacie reguł AFD.
+W [aparacie reguł AFD](front-door-rules-engine.md)reguła składa się z zero lub więcej warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w aparacie reguł AFD.
 
-Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości (zanotowanych poniżej jako "rozdzielone spacjami"), przyjęto operator "OR".
+Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości (zanotowanych jako "rozdzielone spacjami"), przyjęto operator "OR".
 
 Można na przykład użyć warunku dopasowywania do:
 
@@ -84,7 +84,7 @@ Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
   - **Przykład IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* dopasowuje wszystkie żądania, które nadeszły z adresu 1:2:3:4:5:6:7:8 lub 10:20:30:40:50:60:70:80.
 - Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Na przykład:
   - **Przykład IPv4**: *5.5.5.64/26* dopasowuje wszystkie żądania odbierane z adresów 5.5.5.64 przez 5.5.5.127.
-  - **Przykład IPv6**: *1:2:3:/48* dopasowuje wszystkie żądania odbierane z adresów 1:2:3:0:0:0:0:0 do 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
+  - **Przykład IPv6**: *1:2:3:/48* dopasowuje wszystkie żądania, które nadeszły z adresów 1:2:3:0:0:0:0:0 do 1:2:3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
 ## <a name="request-body"></a>Treść żądania
 
@@ -204,11 +204,11 @@ Dla reguł, które akceptują wartości z standardowej listy operatorów, są pr
 - Nie większe niż
 - Nie większe niż lub równe
 
-W przypadku operatorów liczbowych, takich jak *mniejsza niż* i *większa niż lub równa*, użyte porównanie jest zależne od długości. W takim przypadku wartość w warunku dopasowania powinna być liczbą całkowitą, która jest równa długości, którą chcesz porównać. 
+W przypadku operatorów liczbowych, takich jak *mniejsza niż* i *większa niż lub równa*, użyte porównanie jest zależne od długości. Wartość w warunku dopasowywania powinna być liczbą całkowitą, która jest równa długości, którą chcesz porównać. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak skonfigurować pierwszą [konfigurację aparatu reguł](front-door-tutorial-rules-engine.md). 
+- Dowiedz się, jak skonfigurować pierwszy [aparat reguł](front-door-tutorial-rules-engine.md). 
 - Dowiedz się więcej na temat [akcji aparatu reguł](front-door-rules-engine-actions.md)
 - Dowiedz się więcej o [aparacie reguł dla drzwi platformy Azure](front-door-rules-engine.md)

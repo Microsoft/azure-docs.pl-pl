@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
