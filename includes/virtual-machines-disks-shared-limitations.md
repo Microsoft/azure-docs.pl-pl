@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279568"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566956"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -30,7 +30,6 @@ Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyśln
 
 ### <a name="premium-ssds"></a>Dyski SSD w warstwie Premium
 
-- Obecnie obsługiwane tylko w [podzbiorze regionów](#regional-availability).
 - Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK. 
 - Można ją włączyć tylko na dyskach danych, a nie na dyskach systemu operacyjnego.
 - Buforowanie hosta **tylko do odczytu** nie jest dostępne dla dysków SSD Premium z `maxShares>1` .
@@ -42,24 +41,4 @@ Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyśln
 
 #### <a name="regional-availability"></a>Dostępność regionalna
 
-Udostępnione dysków SSD Premium są obsługiwane tylko w następujących regionach:
-
-- East US
-- Wschodnie stany USA 2
-- Zachodnie stany USA
-- Zachodnie stany USA 2
-- Zachodnio-środkowe stany USA
-- South Central US
-- Północno-środkowe stany USA
-- Środkowe stany USA
-- West Europe
-- Europa Północna
-- Korea Środkowa
-- Kanada Środkowa
-- Kanada Wschodnia
-- Japonia Wschodnia
-- Japonia Zachodnia
-- Azja Południowo-Wschodnia
-- Azja Wschodnia
-- US Gov Wirginia
-- US Gov Arizona
+Udostępnione dysków SSD Premium są dostępne we wszystkich regionach, w których są dostępne dyski zarządzane.

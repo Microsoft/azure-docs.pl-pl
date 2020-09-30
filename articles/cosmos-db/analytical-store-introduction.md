@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253195"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567149"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -52,7 +52,7 @@ Magazyn analityczny, który jest magazynem kolumn, jest lepiej dostosowany do ta
 
 Na poniższej ilustracji przedstawiono magazyn wierszy transakcyjnych i analitycznego magazynu kolumn w Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Magazyn wierszy transakcyjnych i magazyn kolumn analitycznych w Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Przykładowa tabela operacyjna" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Oddzielona wydajność obciążeń analitycznych
 
@@ -91,7 +91,7 @@ Poniższe ograniczenia dotyczą danych operacyjnych w Azure Cosmos DB po włącz
 
 ##### <a name="schema-representation"></a>Reprezentacja schematu
 
-Istnieją dwa tryby reprezentacji schematu w magazynie analitycznym. Te tryby mają wady między prostotą reprezentacji kolumnowy, obsługą schematów polimorficznych i prostotą środowiska zapytań:
+W magazynie analitycznym można korzystać z dwóch trybów reprezentacji schematu. W tych trybach zastosowano kompromisy między prostotą reprezentacji kolumnowej, obsługą schematów polimorficznych i prostotą środowiska zapytań:
 
 * Dobrze zdefiniowana reprezentacja schematu
 * Reprezentacja schematu pełnej wierności
@@ -149,13 +149,13 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 | Double |  ". Float64" |    24,99|
 | Tablica | ". Array" |    ["a", "b"]|
 |Binarne | ". Binary" |0|
-|Boolean    | ". bool"   |Prawda|
+|Wartość logiczna    | ". bool"   |Prawda|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Zero   | ". null"   | wartość null|
-|String|    ". ciąg" | "ABC"|
+|Ciąg|    ". ciąg" | "ABC"|
 |Timestamp |    ". timestamp" |  Sygnatura czasowa (0, 0)|
-|Data i godzina   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Dokument   |". Object" |    {"a": "a"}|
 
@@ -171,7 +171,7 @@ Jeśli masz konto Azure Cosmos DB dystrybuowane globalnie, po włączeniu magazy
 
 ### <a name="security"></a>Zabezpieczenia
 
-Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypadku magazynu transakcyjnego dla danej bazy danych. Do uwierzytelniania można użyć kluczy głównych lub tylko do odczytu. Możesz użyć połączonej usługi w programie Synapse Studio, aby zapobiec wklejaniu kluczy Azure Cosmos DB w notesach platformy Spark. Dostęp do tej połączonej usługi jest dostępny dla każdego, kto ma dostęp do obszaru roboczego.
+Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypadku magazynu transakcyjnego dla danej bazy danych. Do uwierzytelniania można użyć kluczy podstawowych lub tylko do odczytu. Możesz użyć połączonej usługi w programie Synapse Studio, aby zapobiec wklejaniu kluczy Azure Cosmos DB w notesach platformy Spark. Dostęp do tej połączonej usługi jest dostępny dla każdego, kto ma dostęp do obszaru roboczego.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Obsługa wielu środowisk uruchomieniowych usługi Azure Synapse Analytics
 

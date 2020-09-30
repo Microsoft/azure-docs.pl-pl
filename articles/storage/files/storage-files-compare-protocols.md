@@ -1,6 +1,6 @@
 ---
-title: Dostępne Azure Files protokoły
-description: Dowiedz się więcej na temat dostępnych protokołów przed utworzeniem udziału plików platformy Azure.
+title: Dostępne protokoły Azure Files — NFS i SMB
+description: Więcej informacji na temat dostępnych protokołów przed utworzeniem udziału plików platformy Azure, w tym blok komunikatów serwera (SMB) i sieciowy system plików (NFS).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708142"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568475"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
@@ -25,8 +25,8 @@ Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plik�
 |---------|---------|---------|
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Obsługiwane systemy operacyjne     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
-|Dostępne warstwy     |Premium Storage         |Premium Storage, magazyn w warstwie Standardowa, gorąca, chłodna         |
-|Replikacja     |LRS         |LRS, ZRS, GRS         |
+|[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
+|[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |
 |Semantyka systemu plików     |Zgodne ze standardem POSIX         |Nie jest zgodny ze standardem POSIX         |

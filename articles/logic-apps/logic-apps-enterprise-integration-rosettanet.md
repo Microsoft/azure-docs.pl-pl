@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072580"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565109"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Komunikaty programu Exchange RosettaNet dla integracji z usługą B2B Enterprise w Azure Logic Apps
 
@@ -197,7 +197,7 @@ Aby przyspieszyć opracowywanie i zalecać wzorce integracji, można używać sz
 
 1. Podaj informacje o właściwościach akcji:
 
-   ![Podaj szczegóły akcji](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
+   ![Zrzut ekranu pokazujący, gdzie są podane informacje o właściwościach akcji.](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|

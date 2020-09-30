@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606902"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567863"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 
@@ -102,11 +102,11 @@ W przypadku zwiększenia elastycznej przepływności dla kontenera lub zestawu k
 
 * W miesiącu 720 godzin, jeśli dla przepływności przewidzianej przez 300 godz. została 120-K RU/s, a dla pozostałych usług 420 godz. zainicjowana przepływność wynosi 155 – K RU/s, zostanie wyświetlone miesięczne rozliczenie: 300 x $9.60/godzina + 420 x $12.40/Hour = $2 880 + $5 208 = $8088/miesiąc. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Przykład wspólnej przepływności":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Przykład dedykowanej opłaty za przepływność":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Przykłady rozliczeń z replikacją geograficzną i wieloma wzorcami  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Przykłady rozliczeń z replikacją geograficzną i zapisami w ramach wieloregionu  
 
-W dowolnym momencie możesz dodawać i usuwać regiony platformy Azure w dowolnym miejscu na świecie do konta usługi Azure Cosmos Database. Przepływność skonfigurowana dla różnych baz danych i kontenerów usługi Azure Cosmos zostanie zarezerwowana w każdym z regionów świadczenia usługi Azure skojarzonych z kontem bazy danych usługi Azure Cosmos. Jeśli suma zainicjowanej przepływności (RU/s) skonfigurowana dla wszystkich baz danych i kontenerów w ramach konta usługi Azure Cosmos Database (zainicjowana na godzinę) to T, a liczba regionów platformy Azure skojarzonych z kontem bazy danych to N, następnie całkowita zainicjowana przepływność przez daną godzinę dla konta usługi Azure Cosmos Database (a) skonfigurowanego za pomocą jednego regionu zapisu jest równa T x N RU/s i (b) skonfigurowany ze wszystkimi regionami, w których przetwarzanie zapisów jest równe T x (N + 1), odpowiednio, na poziomie RU/s. Elastyczna przepływność (pojedynczy region zapisu) koszty $0.008/godz. na 100 RU/s i zainicjowana przepływność z wieloma regionami do zapisu (Konfiguracja z wieloma wzorcami) — koszty $0,016;/za godzinę na 100 RU/s (zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)). Niezależnie od tego, czy jego pojedynczy region zapisu lub wiele regionów zapisu Azure Cosmos DB umożliwia odczytywanie danych z dowolnego regionu.
+W dowolnym momencie możesz dodawać i usuwać regiony platformy Azure w dowolnym miejscu na świecie do konta usługi Azure Cosmos Database. Przepływność skonfigurowana dla różnych baz danych i kontenerów usługi Azure Cosmos zostanie zarezerwowana w każdym z regionów świadczenia usługi Azure skojarzonych z kontem bazy danych usługi Azure Cosmos. Jeśli suma zainicjowanej przepływności (RU/s) skonfigurowana dla wszystkich baz danych i kontenerów w ramach konta usługi Azure Cosmos Database (zainicjowana na godzinę) to T, a liczba regionów platformy Azure skojarzonych z kontem bazy danych to N, następnie całkowita zainicjowana przepływność przez daną godzinę dla konta usługi Azure Cosmos Database (a) skonfigurowanego za pomocą jednego regionu zapisu jest równa T x N RU/s i (b) skonfigurowany ze wszystkimi regionami, w których przetwarzanie zapisów jest równe T x (N + 1), odpowiednio, na poziomie RU/s. Elastyczna przepływność (pojedynczy region zapisu) koszty $0.008/godzinę na 100 RU/s i elastyczna przepływność z wieloma regionami do zapisu (Konfiguracja w wielu regionach) koszty $0,016;/za godzinę na 100 RU/s (zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)). Niezależnie od tego, czy jego pojedynczy region zapisu lub wiele regionów zapisu Azure Cosmos DB umożliwia odczytywanie danych z dowolnego regionu.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Przykład rozliczeń: wieloregionowe konto usługi Azure Cosmos, zapisy jednego regionu
 
@@ -136,9 +136,9 @@ Załóżmy, że utworzysz kontener usługi Azure Cosmos w regionie zachodnie sta
 
 *Załóżmy również, że wychodzące 100 GB danych co miesiąc z kontenera w regionie zachodnie stany USA w celu replikowania danych do regionu Wschodnie stany USA, Europa Północna i Azja Wschodnia. Opłaty są naliczane za ruch wychodzący zgodnie z stawkami za transfer danych.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Przykład rozliczeń: konto usługi Azure Cosmos z wieloma głównymi przepływami na poziomie bazy danych, w tym dedykowanym trybem przepływności dla niektórych kontenerów
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Przykład rozliczeń: konto usługi Azure Cosmos z wieloregionowymi zapisami, przepływności na poziomie bazy danych, w tym dedykowany Tryb przepływności dla niektórych kontenerów
 
-Rozważmy poniższy przykład, w którym mamy wieloregionowe konto platformy Azure Cosmos, w którym wszystkie regiony są zapisywalne (Konfiguracja z wieloma wzorcami). Dla uproszczenia przyjęto, że rozmiar magazynu pozostaje stały i nie zostanie zmieniony i pominięty w tym miejscu, aby uprościć przykład. Zainicjowana przepływność w miesiącu, w którym nadano następujące czynności (przy założeniu 30 dni lub 720 godzin): 
+Rozważmy poniższy przykład, w którym mamy wieloregionowe konto platformy Azure Cosmos, w którym wszystkie regiony są zapisywalne (konfiguracja wielu regionów zapisu). Dla uproszczenia przyjęto, że rozmiar magazynu pozostaje stały i nie zostanie zmieniony i pominięty w tym miejscu, aby uprościć przykład. Zainicjowana przepływność w miesiącu, w którym nadano następujące czynności (przy założeniu 30 dni lub 720 godzin): 
 
 [0-100 godzin]:  
 
@@ -192,7 +192,7 @@ Rozważmy poniższy przykład, w którym mamy wieloregionowe konto platformy Azu
 
 Na poniższej ilustracji przedstawiono wizualnie zmiany całkowitej alokowanej przepływności w czasie 720 godzin dla miesiąca. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Przykład rzeczywistej żywotności":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Przykład dedykowanej opłaty za przepływność":::
 
 Łączny rachunek miesięczny (przy założeniu, że 30 dni/720 godzin w miesiącu) będzie obliczany w następujący sposób:
 
@@ -215,7 +215,7 @@ Na poniższej ilustracji przedstawiono wizualnie zmiany całkowitej alokowanej p
 || |**Łączny koszt miesięczny**  | |**$38 688**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Przykłady rozliczeń z kontami w warstwie Bezpłatna
-Dzięki Azure Cosmos DB warstwy Bezpłatna uzyskasz bezpłatnie 400 RU/s i 5 GB miejsca na koncie, które są stosowane na poziomie konta. Każdy RU/s i magazyn przekraczający 400 RU/s i 5 GB będą rozliczane według zwykłych stawek cenowych na stronie z cennikiem. Na rachunku nie będzie widoczna opłata ani linia za bezpłatny 400 jednostek ru/s i 5 GB, tylko te jednostki, które są objęte bezpłatną warstwą. 400 RU/s ma zastosowanie do dowolnego typu przepływności (RU/s), automatycznego skalowania i wielu wzorców.  
+Dzięki Azure Cosmos DB warstwy Bezpłatna uzyskasz bezpłatnie 400 RU/s i 5 GB miejsca na koncie, które są stosowane na poziomie konta. Każdy RU/s i magazyn przekraczający 400 RU/s i 5 GB będą rozliczane według zwykłych stawek cenowych na stronie z cennikiem. Na rachunku nie będzie widoczna opłata ani linia za bezpłatny 400 jednostek ru/s i 5 GB, tylko te jednostki, które są objęte bezpłatną warstwą. 400 RU/s ma zastosowanie do dowolnego typu danych przepływności, automatycznego skalowania i zapisu w wieloregionach.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Przykład rozliczeń — kontener lub baza danych z zainicjowaną przepływność
 - Załóżmy, że utworzymy bazę danych lub kontener na koncie warstwy Bezpłatna z 400 RU/s i 5 GB miejsca w magazynie.
@@ -231,16 +231,16 @@ Dzięki Azure Cosmos DB warstwy Bezpłatna uzyskasz bezpłatnie 400 RU/s i 5 GB 
 - Każdy magazyn przekraczający 5 GB zostanie rozliczony według normalnych stawek za magazyn. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Przykład rozliczeń — wieloregionowe, jedno konto regionu zapisu
-- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz bazę danych lub kontener z 1200 RU/s i 10 GB miejsca w magazynie. Replikujemy konto do 3 regionów i mamy konto z jednym wzorcem (pojedynczym regionem zapisu).
+- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz bazę danych lub kontener z 1200 RU/s i 10 GB miejsca w magazynie. Replikujemy konto do 3 regionów i mamy jedno konto w regionie zapisu.
 - W sumie, bez warstwy Bezpłatna, opłaty są naliczane za 3 * 1200 RU/s = 3600 RU/s i 3 * 10 GB = 30 GB miejsca w magazynie.
 - W przypadku rabatu warstwy Bezpłatna po usunięciu 400 RU/s i 5 GB miejsca do magazynowania zostanie naliczona stawka za rzeczywiste 3200 RU/s (32 jednostek), która ma zainicjowaną przepływność na poziomie jednego regionu zapisu i 25 GB miejsca w magazynie.
 - Miesięczny koszt dla RU/s to: 32 jednostek * $0,008 * 24 godziny * 31 dni = $190,46. Miesięczny koszt magazynu to: 25 GB * 0,25/GB = $6,25. Łączny koszt to $190,46 + $6,25 = $196,71.
 - Uwaga: Jeśli cena jednostkowa obiektu RU/s lub magazynu jest różna w regionach, warstwa Bezpłatna 400 RU/s i 5 GB będzie odzwierciedlać stawki regionu, w którym zostało utworzone konto.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Przykład rozliczeń — wiele regionów, wieloregionowe i wieloserwerowe (z wieloma regionami zapisu)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Przykład rozliczeń — wiele regionów, konto z wieloma regionami zapisu
 
-W tym przykładzie uwzględniono [Cennik wieloskładnikowy](https://azure.microsoft.com/pricing/details/cosmos-db/) dla kont utworzonych po 1 grudnia 2019. 
-- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz bazę danych lub kontener z 1200 RU/s i 10 GB miejsca w magazynie. Replikujemy konto do 3 regionów i mamy wielomaster (wiele regionów zapisu). 
+W tym przykładzie uwzględniono [Cennik zapisu wieloregionowego](https://azure.microsoft.com/pricing/details/cosmos-db/) dla kont utworzonych po 1 grudnia 2019. 
+- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz bazę danych lub kontener z 1200 RU/s i 10 GB miejsca w magazynie. Replikujemy konto do 3 regionów i mamy konto z wieloma regionami zapisu. 
 - W sumie, bez warstwy Bezpłatna, opłaty są naliczane za 3 * 1200 RU/s = 3600 RU/s i 3 * 10 GB = 30 GB miejsca w magazynie.
 - W przypadku rabatu warstwy Bezpłatna po usunięciu 400 RU/s i 5 GB miejsca do magazynowania zostanie naliczona stawka za rzeczywiste 3200 RU/s (32 jednostek), która zapewnia przepływność na poziomie wielu regionów zapisu oraz 25 GB miejsca w magazynie.
 - Miesięczny koszt dla RU/s to: 32 jednostek * $0,016 * 24 godziny * 31 dni = $380,93. Miesięczny koszt magazynu to: 25 GB * 0,25/GB = $6,25. Łączny koszt to $380,93 + $6,25 = $387,18.

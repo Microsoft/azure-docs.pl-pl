@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400387"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565747"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników wolnych zapytań dla Azure Database for MySQL-elastyczny serwer przy użyciu Azure Portal
 
@@ -31,15 +31,16 @@ Skonfiguruj dostęp do dziennika wolnych zapytań programu MySQL.
 1. Wybierz swój elastyczny serwer.
 
 1. W sekcji **Ustawienia** na pasku bocznym wybierz opcję **parametry serwera**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Strona parametrów serwera.":::
 
 1. Zaktualizuj parametr **Slow_query_log** na wartość **on**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Strona parametrów serwera.":::
 
 1. Zmień wszystkie inne parametry, które są potrzebne (np. `long_query_time`, `log_slow_admin_statements`). Więcej parametrów można znaleźć w dokumentacji [dzienników wolnych zapytań](./concepts-slow-query-logs.md#configure-slow-query-logging) .  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Strona parametrów serwera.":::
 
 1. Wybierz pozycję **Zapisz**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Strona parametrów serwera.":::
 
 Na stronie **parametry serwera** możesz powrócić do listy dzienników, zamykając stronę.
 
@@ -49,17 +50,17 @@ Dzienniki wolnych zapytań są zintegrowane z Azure Monitor ustawień diagnostyc
 
 1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienia diagnostyczne**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Strona parametrów serwera.":::
 
 1. Podaj nazwę ustawienia diagnostycznego.
 
 1. Określ, które lokalizacje docelowe mają wysyłać dzienniki wolnych zapytań (konto magazynu, centrum zdarzeń lub Log Analytics obszar roboczy).
 
 1. W polu Typ dziennika wybierz pozycję **MySqlSlowLogs** .
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Strona parametrów serwera.":::
 
 1. Po skonfigurowaniu ujścia danych w celu pomyślnego przetworzenia połączeń dzienników wolnych zapytań wybierz pozycję **Zapisz**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Strona parametrów serwera.":::
 
 1. Uzyskaj dostęp do dzienników wolnych zapytań, badając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 

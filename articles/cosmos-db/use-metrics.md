@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019236"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568016"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Następujące metryki są dostępne w okienku **metryki** :
 
 * **Metryki spójności** — ta Metryka przedstawia, jak ostateczna jest spójność wybranego modelu spójności. W przypadku kont wieloregionowych ta Metryka przedstawia również opóźnienie replikacji między wybranymi regionami.
 
-* **Metryki systemu** — ta Metryka przedstawia liczbę żądań metadanych obsługiwanych przez partycję główną. Pomaga również identyfikować żądania ograniczające.
+* **Metryki systemu** — ta Metryka przedstawia liczbę żądań metadanych obsługiwanych przez partycję podstawową. Pomaga również identyfikować żądania ograniczające.
 
 W poniższych sekcjach objaśniono typowe scenariusze, w których można używać metryk Azure Cosmos DB. 
 
@@ -51,13 +51,13 @@ Aby rozpocząć, należy przejść do [Azure Portal](https://portal.azure.com) i
 
 Najbardziej typowym kodem stanu błędu jest 429 (ograniczanie szybkości/ograniczanie przepustowości). Ten błąd oznacza, że żądania Azure Cosmos DB przekraczają przepływność zainicjowaną. Najbardziej typowym rozwiązaniem tego problemu jest [skalowanie w górę jednostek ru](./set-throughput.md) dla danej kolekcji.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Liczba żądań na minutę":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Określanie rozkładu przepływności między partycjami
 
 Dobrą kardynalnością kluczy partycji jest istotna dla każdej skalowalnej aplikacji. Aby określić dystrybucję przepływności dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do **bloku metryki** w [Azure Portal](https://portal.azure.com). Na karcie **przepływność** , podział magazynu jest pokazywany w polu **Maksymalna liczba ZUŻYTych jednostek ru na sekundę według poszczególnych wykresów partycji fizycznej** . Na poniższej ilustracji przedstawiono przykład słabej dystrybucji danych, jak pokazano na partycji skośnej po lewej stronie.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Użycie pojedynczej partycji":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
 Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
 
@@ -65,11 +65,11 @@ Nierówna dystrybucja przepływności może spowodować powstanie partycji na *g
 
 Posiadanie odpowiedniej kardynalności partycji jest niezbędne dla każdej skalowalnej aplikacji. Aby określić dystrybucję magazynu dla dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do bloku metryki w [Azure Portal](https://portal.azure.com). Na karcie Magazyn zostanie wyświetlona wartość podział magazynu w magazynie dane i indeks używane przez wykres najważniejszych kluczy partycji. Poniższa ilustracja przedstawia słabą dystrybucję magazynu danych, jak pokazano na partycji skośnej po lewej stronie.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Przykład słabej dystrybucji danych":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
 Możesz przyczynić się, że klucz partycji pochyla dystrybucję, klikając partycję na wykresie.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Klucz partycji pochyla rozkład":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
 Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
 
@@ -108,7 +108,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 *QueryMetrics* zawiera szczegółowe informacje o tym, jak długo każdy składnik zapytania wykonał wykonanie. Najbardziej powszechną główną przyczyną długotrwałych zapytań jest skanowanie, co oznacza, że zapytanie nie mogło użyć indeksów. Ten problem można rozwiązać, używając lepszego warunku filtru.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz wiesz już, jak monitorować i debugować problemy przy użyciu metryk podanych w Azure Portal. Warto dowiedzieć się więcej o ulepszaniu wydajności bazy danych, czytając następujące artykuły:
 

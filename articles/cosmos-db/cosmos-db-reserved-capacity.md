@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: ea1fec022227aba1be09e988b5802f0c1ecd4e8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90a4e86360916ba4b3dace0861fd1c6f7cd9b459
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85118937"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567115"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optymalizacja kosztów z użyciem pojemności zarezerwowanej w usłudze Azure Cosmos DB
 
@@ -46,7 +46,7 @@ Zalecenia można filtrować według następujących atrybutów:
 
 - **Okres** (1 rok lub 3 lata)
 - **Częstotliwość rozliczeń** (co miesiąc lub z góry)
-- **Typ przepływności** (ru z wieloma wzorcami ru)
+- **Typ przepływności** (ru/s vs wieloregionowe zapis ru/s)
 
 Ponadto możesz ograniczyć zakres zaleceń w ramach jednej grupy zasobów, pojedynczej subskrypcji lub całej rejestracji na platformie Azure. 
 
@@ -66,7 +66,7 @@ To zalecenie zakupu 30 000 RU/s oznacza, że w ciągu 3-letnich rezerwacji rozmi
 
 4. Wypełnij pola wymagane zgodnie z opisem w poniższej tabeli:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Wypełnij formularz zarezerwowanej pojemności":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Zalecenia dotyczące pojemności zastrzeżonej":::
 
    |Pole  |Opis  |
    |---------|---------|
@@ -74,7 +74,7 @@ To zalecenie zakupu 30 000 RU/s oznacza, że w ciągu 3-letnich rezerwacji rozmi
    |Subskrypcja  |   Subskrypcja, która jest używana do płacenia za Azure Cosmos DB zarezerwowaną pojemność. Metoda płatności w ramach wybranej subskrypcji jest używana w celu naliczania kosztów. Subskrypcja musi być jednym z następujących typów: <br/><br/>  Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P): w przypadku subskrypcji przedsiębiorstwa opłaty są naliczane od salda zobowiązania pieniężnego rejestracji lub opłaty są naliczane jako nadwyżkowe. <br/><br/> Indywidualna subskrypcja z stawką płatności zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P): w przypadku pojedynczej subskrypcji z stawką płatności zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.    |
    | Grupa zasobów | Grupa zasobów, w której jest stosowany rabat zarezerwowanej pojemności. |
    |Termin  |   Jeden rok lub trzy lata.   |
-   |Typ przepływności   |  Obsługa przepływności jest obsługiwana jako jednostki żądania. Możesz kupić rezerwację dla zainicjowanej przepływności dla obu konfiguracji — zapisu w jednym regionie, a także zapisów w wielu regionach. Typ przepływności ma dwie wartości, spośród których można wybrać: 100 RU/s na godzinę i 100 wiele wzorców RU/s na godzinę.|
+   |Typ przepływności   |  Obsługa przepływności jest obsługiwana jako jednostki żądania. Możesz kupić rezerwację dla zainicjowanej przepływności dla obu konfiguracji — zapisu w jednym regionie, a także zapisów w wielu regionach. Typ przepływności ma dwie wartości do wyboru: 100 RU/s na godzinę i 100 wiele regionów zapisów RU/s na godzinę.|
    | Zarezerwowane jednostki pojemności| Ilość przepływności, która ma zostać zarezerwowana. Tę wartość można obliczyć, określając przepływność potrzebną dla wszystkich zasobów Cosmos DB (na przykład baz danych lub kontenerów) na region. Następnie można je pomnożyć przez liczbę regionów, które zostaną skojarzone z bazą danych Cosmos. Na przykład: Jeśli masz pięć regionów z 1 000 000 RU/s w każdym regionie, wybierz 5 000 000 RU/s na potrzeby zakupu zdolności rezerwacji. |
 
 
@@ -82,7 +82,7 @@ To zalecenie zakupu 30 000 RU/s oznacza, że w ciągu 3-letnich rezerwacji rozmi
 
 6. W okienku **rezerwacje zakupu** Przejrzyj rabat i cenę rezerwacji. Ta cena rezerwacji dotyczy zasobów Azure Cosmos DB z obsługą przepływności we wszystkich regionach.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Podsumowanie pojemności zarezerwowanych":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Zalecenia dotyczące pojemności zastrzeżonej":::
 
 7. Wybierz pozycję **Recenzja + Kup** , a następnie **Kup teraz**. Po pomyślnym zakupie zostanie wyświetlona następująca strona:
 
@@ -100,7 +100,7 @@ Rabat rezerwacji jest automatycznie stosowany do zasobów Azure Cosmos DB, któr
 
 *  Aby dowiedzieć się, jak zarezerwowane rabaty pojemności są stosowane do Azure Cosmos DB, zobacz [Opis rabatu rezerwacji platformy Azure](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
-* Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
+* Więcej szczegółów na temat rezerwacji platformy Azure można znaleźć w następujących artykułach:
 
    * [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
    * [Zarządzanie rezerwacjami platformy Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  

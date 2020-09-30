@@ -3,12 +3,12 @@ title: Autoryzacja dostępu za pomocą usługi Azure Active Directory
 description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu do zasobów Event Hubs przy użyciu Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d26838831964b66beea4ed1e3c6e9873cfce247e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270036"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566265"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory
 Usługa Azure Event Hubs obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Event Hubs zasobów. Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -35,11 +35,11 @@ Platforma Azure udostępnia następujące wbudowane role platformy Azure do auto
 
 | Rola | Opis | 
 | ---- | ----------- | 
-[Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Ta rola umożliwia pełen dostęp do zasobów Event Hubs. |
+| [Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Ta rola umożliwia pełen dostęp do zasobów Event Hubs. |
 | [Nadawca danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Ta rola służy do nadawania dostępu Event Hubs do zasobów. |
 | [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Ta rola umożliwia nadanie dostępu do zasobów Event Hubs lub otrzymywanie do nich. |
-| Czytnik rejestru schematu (wersja zapoznawcza) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. |
-| Współautor rejestru schematu (wersja zapoznawcza) | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
+
+Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#role-based-access-control).
 
 ## <a name="resource-scope"></a>Zakres zasobu 
 Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy określić zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres.
@@ -61,7 +61,7 @@ Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, 
 
 
 
-## <a name="samples"></a>Przykłady
+## <a name="samples"></a>Samples
 - [Przykłady Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     Te przykłady używają starej biblioteki **Microsoft. Azure. EventHubs** , ale można ją łatwo zaktualizować do korzystania z najnowszej biblioteki **Azure. Messaging. EventHubs** . Aby przenieść przykład z używania starej biblioteki do nowej, zapoznaj się z [przewodnikiem migrowania z Microsoft. Azure. EventHubs do platformy Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).

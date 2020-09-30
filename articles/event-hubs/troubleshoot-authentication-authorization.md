@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji —
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533890"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566231"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Rozwiązywanie problemów dotyczących uwierzytelniania i autoryzacji — Event Hubs platformy Azure
 Artykuł [Rozwiązywanie problemów z łącznością](troubleshooting-guide.md) zawiera wskazówki dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs. Ten artykuł zawiera porady i zalecenia dotyczące rozwiązywania problemów z uwierzytelnianiem i autoryzacją za pomocą usługi Azure Event Hubs. 
@@ -20,6 +20,8 @@ Jeśli używasz usługi Azure Active Directory (Azure AD) do uwierzytelniania i 
 - [Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) w celu uzyskania pełnego dostępu do zasobów Event Hubs.
 - [Nadawca danych usługi Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) dla dostępu do wysyłania.
 - [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) dla dostępu do odbioru.
+
+Aby uzyskać wbudowane role rejestru schematu, zobacz [role rejestru schematu](schema-registry-overview.md#role-based-access-control).
 
 ### <a name="resource-scopes"></a>Zakresy zasobów
 - **Grupa konsumentów**: w tym zakresie przypisanie roli ma zastosowanie tylko do tej jednostki. Obecnie Azure Portal nie obsługuje przypisywania roli platformy Azure do podmiotu zabezpieczeń na tym poziomie. 

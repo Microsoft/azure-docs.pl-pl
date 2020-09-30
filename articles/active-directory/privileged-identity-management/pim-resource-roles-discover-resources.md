@@ -11,21 +11,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743715"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568084"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Odnajdywanie zasobów platformy Azure w celu zarządzania nimi w Privileged Identity Management
 
-Za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management (PIM) można poprawić ochronę zasobów platformy Azure. Jest to przydatne w przypadku organizacji, które już używają Privileged Identity Management do ochrony ról usługi Azure AD oraz do grup zarządzania i właścicieli subskrypcji, którzy chcą zabezpieczyć zasoby produkcyjne.
+Za pomocą usługi Azure Active Directory (Azure AD) Privileged Identity Management (PIM) można poprawić ochronę zasobów platformy Azure. Jest to przydatne w przypadku:
 
-Podczas pierwszego konfigurowania Privileged Identity Management dla zasobów platformy Azure należy odnaleźć i wybrać zasoby, które mają być chronione przez Privileged Identity Management. Nie ma limitu liczby zasobów, którymi można zarządzać za pomocą Privileged Identity Management. Zalecamy jednak rozpoczęcie od najbardziej krytycznych zasobów (produkcyjnych).
+- Organizacje, które już używają Privileged Identity Management do ochrony ról usługi Azure AD
+- Grupa zarządzania i właściciele subskrypcji, którzy próbują zabezpieczyć zasoby produkcyjne
+
+Podczas pierwszego konfigurowania Privileged Identity Management dla zasobów platformy Azure należy odnaleźć i wybrać zasoby, które mają być chronione przez Privileged Identity Management. Nie ma limitu liczby zasobów, którymi można zarządzać za pomocą Privileged Identity Management. Zalecamy jednak rozpoczęcie od najbardziej krytycznych zasobów produkcyjnych.
 
 ## <a name="discover-resources"></a>Odnajdywanie zasobów
 
@@ -45,13 +48,16 @@ Podczas pierwszego konfigurowania Privileged Identity Management dla zasobów pl
 
 1. Wybierz pozycję **odkryj zasoby** , aby uruchomić środowisko odnajdywania.
 
-    ![Okienko odnajdywania zawierające listę zasobów, którymi można zarządzać, takich jak subskrypcje i grupy zarządzania](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Okienko odnajdywania zawiera listę zasobów, którymi można zarządzać, takich jak subskrypcje i grupy zarządzania](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. Na stronie **odnajdywanie** Użyj **filtru stanu zasobów** i **Wybierz typ zasobu** , aby odfiltrować grupy zarządzania lub subskrypcje, do których masz uprawnienia do zapisu. Prawdopodobnie najłatwiej **zacząć od początku** .
 
-    Za pomocą Privileged Identity Management można wyszukiwać i wybierać tylko zasoby grupy zarządzania lub subskrypcji. W przypadku zarządzania grupą zarządzania lub subskrypcją w programie Privileged Identity Management można także zarządzać swoimi zasobami podrzędnymi.
+   Możesz wyszukać i wybrać zasoby grupy zarządzania lub subskrypcji do zarządzania w Privileged Identity Management. W przypadku zarządzania grupą zarządzania lub subskrypcją w programie Privileged Identity Management można także zarządzać swoimi zasobami podrzędnymi.
 
-1. Zaznacz pole wyboru obok wszystkich niezarządzanych zasobów, którymi chcesz zarządzać.
+   > [!Note]
+   > Po dodaniu nowego podrzędnego zasobu platformy Azure do grupy zarządzania zarządzanego przez program PIM można przenieść zasób podrzędny do zarządzania, wyszukując go w usłudze PIM.
+
+1. Wybierz wszystkie niezarządzane zasoby, którymi chcesz zarządzać.
 
 1. Wybierz pozycję **Zarządzaj zasobem** , aby rozpocząć zarządzanie wybranymi zasobami.
 

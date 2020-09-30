@@ -1,23 +1,24 @@
 ---
-title: Usługa Azure Schema Registry w Event Hubs (wersja zapoznawcza)
+title: Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
 description: Ten artykuł zawiera omówienie obsługi rejestru schematu w usłudze Azure Event Hubs (wersja zapoznawcza).
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 225b36262ccb21b4942e17239b978d3ba595147e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91349148"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568373"
 ---
-# <a name="azure-schema-registry-in-event-hubs-preview"></a>Usługa Azure Schema Registry w Event Hubs (wersja zapoznawcza)
+# <a name="azure-schema-registry-in-event-hubs-preview"></a>Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
 W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komunikatów zdarzenie lub komunikat zawiera dane strukturalne, które są serializowane lub deserializowane przy użyciu formatu opartego na schemacie, takiego jak Apache Avro. Zarówno nadawcy, jak i odbiorcy mogą chcieć sprawdzić integralność danych za pomocą dokumentu schematu, jak w schemacie JSON. W przypadku formatów opartych na schemacie udostępnianie schematu dla konsumenta wiadomości jest wymagane przez odbiorcę do deserializacji danych. 
 
 **Usługa Azure Schema Registry** jest funkcją Event Hubs, która udostępnia centralne repozytorium dla dokumentów schematów dla aplikacji opartych na zdarzeniach i obsługujących komunikaty. Zapewnia ona elastyczność dla aplikacji producentów i konsumentów do wymiany danych bez konieczności zarządzania i udostępniania schematu między nimi, a także do rozwijania z różnymi stawkami. Rejestr schematu udostępnia także prostą strukturę ładu dla schematów wielokrotnego użytku i definiuje relację między schematami za pomocą konstrukcji grupującej (grup schematów).
 
 > [!NOTE]
-> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej** i jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
+> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej**i nie jest zalecana w przypadku obciążeń produkcyjnych.
+> - Funkcja jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
 > - Ta wersja zapoznawcza jest obecnie dostępna tylko w regionie **zachodnie stany USA** . 
 
 W przypadku platform serializacji opartych na schemacie, takich jak Apache Avro, metadane serializacji eksternalizacji do współużytkowanych schematów mogą również pomóc w znaczącym zmniejszeniu obciążenia dla poszczególnych komunikatów typu i nazw pól zawartych w każdym zestawie danych, tak jak w przypadku formatów oznakowanych, takich jak JSON. Schematy przechowywane wraz ze zdarzeniami i wewnątrz infrastruktury zdarzeń zapewniają, że metadane wymagane do serializacji/deserializacji są zawsze dostępne, a schematy nie mogą być umieszczane. 
@@ -55,8 +56,10 @@ W przypadku programistycznego uzyskiwania dostępu do rejestru schematu należy 
 
 | Rola | Opis | 
 | ---- | ----------- | 
-| Czytnik rejestru schematu (wersja zapoznawcza) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. |
-| Współautor rejestru schematu (wersja zapoznawcza) | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
+| Właściciel | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
+| Współautor | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
+| [Czytnik rejestru schematu (wersja zapoznawcza)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. |
+| [Współautor rejestru schematu (wersja zapoznawcza)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
 
 Aby uzyskać instrukcje dotyczące tworzenia rejestrowania aplikacji przy użyciu Azure Portal, zobacz [Rejestrowanie aplikacji w usłudze Azure AD](../active-directory/develop/quickstart-register-app.md). Zanotuj identyfikator klienta (Identyfikator aplikacji), identyfikator dzierżawy i klucz tajny do użycia w kodzie. 
 

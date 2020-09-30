@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/21/2020
-ms.openlocfilehash: b8fe32a079358fda48c6f5ee0c7eec9894a543a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 9/29/2020
+ms.openlocfilehash: cadd384bc7d3222cbc5d1179271f7b4624c9224a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295910"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565891"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Skonfiguruj i uzyskaj dostęp do dzienników inspekcji dla Azure Database for MySQL-elastyczny serwer przy użyciu Azure Portal
 
@@ -35,40 +35,37 @@ Włącz i skonfiguruj rejestrowanie inspekcji.
 1. Wybierz swój elastyczny serwer.
 
 1. W sekcji **Ustawienia** na pasku bocznym wybierz opcję **parametry serwera**.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Server parameters":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/server-parameters.png" alt-text="Parametry serwera":::
 
 1. Zaktualizuj parametr **audit_log_enabled** na wartość on.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Enable audit logs":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Parametry serwera":::
 
 1. Wybierz [typy zdarzeń](concepts-audit-logs.md#configure-audit-logging) , które mają być rejestrowane, aktualizując parametr **audit_log_events** .
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-events.png" alt-text="Parametry serwera":::
 
-1. Dodaj wszystkich użytkowników programu MySQL, które mają zostać wykluczone z rejestrowania przez zaktualizowanie parametru **audit_log_exclude_users** . Określ użytkowników, podając ich nazwę użytkownika MySQL.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::-->
+1. Należy dodać wszystkich użytkowników programu MySQL, którzy mają zostać dołączeni lub wykluczeni z rejestrowania przez aktualizację parametrów **audit_log_exclude_users** i **audit_log_include_users** . Określ użytkowników, podając ich nazwę użytkownika MySQL.
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Parametry serwera":::
 
 1. Po zmianie parametrów możesz kliknąć przycisk **Zapisz**. Możesz też **odrzucić** zmiany.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-parameters.png" alt-text="Parametry serwera":::
 
 ## <a name="set-up-diagnostics"></a>Konfigurowanie diagnostyki
-
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
 
 Dzienniki inspekcji są zintegrowane z Azure Monitor ustawień diagnostycznych, aby umożliwić potokom dzienników Azure Monitor dzienników, Event Hubs lub Azure Storage.
 
 1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**.
 
-1. Kliknij pozycję "+ Dodaj ustawienie diagnostyczne"  <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::-->
+1. Kliknij pozycję "+ Dodaj ustawienie diagnostyczne"  :::image type="content" source="./media/how-to-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Parametry serwera":::
 
 1. Podaj nazwę ustawienia diagnostycznego.
 
 1. Określ, które miejsca docelowe mają wysyłać dzienniki inspekcji (konto magazynu, centrum zdarzeń i/lub Log Analytics obszar roboczy).
 
 1. W polu Typ dziennika wybierz pozycję **MySqlAuditLogs** .
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting"::: -->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Parametry serwera":::
 
 1. Po skonfigurowaniu ujścia danych do potoków dzienników inspekcji do programu można kliknąć przycisk **Zapisz**.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Parametry serwera":::
 
 1. Uzyskaj dostęp do dzienników inspekcji, przepoznając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 

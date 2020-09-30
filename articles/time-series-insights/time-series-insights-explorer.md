@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487304"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568634"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Explorer Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano funkcje i opcje dla [aplikacji sieci Web](https://insights.timeseries.azure.com/)programu Azure Time Series Insights Gen1 Explorer. W Eksploratorze Azure Time Series Insights przedstawiono zaawansowane możliwości wizualizacji danych zapewniane przez usługę i można uzyskać do nich dostęp w ramach własnego środowiska.
 
@@ -108,7 +111,7 @@ W ciągu kilku minut od podłączenia źródła zdarzeń do środowiska Azure Ti
 
 1. Użyj **mapę cieplną** , aby szybko wyszukiwać unikatowe lub nietypowe serie danych w danym zapytaniu. Tylko jeden termin wyszukiwania może być wizualny jako mapę cieplną.
 
-    [![Tworzenie wykresów programu Time Series Insights Explorer mapę cieplną ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Wykresy programu Time Series Insights Explorer mapę cieplną](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (Media/Time-Series-Insights-Explorer/tsi-ga-example-heatmap-charting.png # element lightbox)
 
 1. Gdy eksplorujesz zdarzenia, zaznaczając lub klikając prawym przyciskiem myszy, panel **zdarzenia** jest dostępny. W tym miejscu możesz przejrzeć wszystkie zdarzenia pierwotne i wyeksportować zdarzenia jako pliki JSON lub CSV. Azure Time Series Insights przechowuje wszystkie nieprzetworzone dane.
 

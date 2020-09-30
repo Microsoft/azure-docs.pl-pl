@@ -1,5 +1,5 @@
 ---
-title: Skalowanie obliczeń dla puli SQL Synapse (Azure PowerShell)
+title: 'Szybki Start: skalowanie zasobów obliczeniowych dla puli SQL Synapse (Azure PowerShell)'
 description: Obliczenia można skalować dla puli SQL Synapse (magazyn danych) przy użyciu Azure PowerShell.
 services: synapse-analytics
 author: Antvgski
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 044b1b145f95e81b2aa2474950d4961131c3c88a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079731"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566146"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Szybki Start: skalowanie zasobów obliczeniowych dla puli SQL Synapse za pomocą Azure PowerShell
 

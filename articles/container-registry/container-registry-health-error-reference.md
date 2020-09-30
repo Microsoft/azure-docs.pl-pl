@@ -1,14 +1,14 @@
 ---
-title: Informacje o błędzie dotyczące kontroli kondycji
+title: Informacje o błędzie dotyczące kontroli kondycji rejestru
 description: Kody błędów i możliwe rozwiązania problemów odnalezionych przez uruchomienie polecenia AZ ACR Check-Health Diagnostic w Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978318"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565602"
 ---
 # <a name="health-check-error-reference"></a>Informacje o błędach sprawdzania kondycji
 
@@ -90,7 +90,7 @@ Ten błąd oznacza, że serwer logowania do rejestru nie odpowiedział z tokenem
 
 Ten błąd oznacza, że klient nie mógł nawiązać bezpiecznego połączenia z rejestrem kontenerów. Ten błąd występuje na ogół w przypadku korzystania z serwera proxy lub korzystania z niego.
 
-*Potencjalne rozwiązania*: więcej informacji na temat pracy za serwerem proxy można [znaleźć tutaj](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Potencjalne rozwiązania*: więcej informacji na temat pracy za serwerem proxy można [znaleźć tutaj](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

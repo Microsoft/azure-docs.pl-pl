@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76900185"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568661"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurowanie dystrybucji globalnej usługi Azure Cosmos DB przy użyciu interfejsu API tabel
 
@@ -34,7 +34,7 @@ Zestaw SDK Azure Cosmos DB interfejs API tabel automatycznie wybiera najlepszy p
 
 * **Żądania odczytu:** Wszystkie żądania odczytu są wysyłane do skonfigurowanego `CurrentRegion` . W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
 
-* **Żądania zapisu:** Zestaw SDK automatycznie wysyła wszystkie żądania zapisu do bieżącego regionu zapisu. W przypadku konta z wieloma wzorcami bieżący region będzie również obsługiwał żądania zapisu. W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
+* **Żądania zapisu:** Zestaw SDK automatycznie wysyła wszystkie żądania zapisu do bieżącego regionu zapisu. Na koncie z zapisami w ramach wieloregionu bieżący region będzie również obsługiwał żądania zapisu. W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
 
 Jeśli nie określisz `CurrentRegion` właściwości, zestaw SDK używa bieżącego regionu zapisu dla wszystkich operacji.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483749"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566996"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jak mogę generalize SQL Server na maszynie wirtualnej platformy Azure i używać jej do wdrażania nowych maszyn wirtualnych?**
 
-   Możesz wdrożyć maszynę wirtualną z systemem Windows Server (bez zainstalowanego SQL Server) i użyć procesu [Sysprep programu SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) do uogólnienia SQL Server na maszynie wirtualnej platformy Azure (Windows) przy użyciu nośnika instalacyjnego programu SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej z odpowiednią wersją.
+   Możesz wdrożyć maszynę wirtualną z systemem Windows Server (bez zainstalowanego SQL Server) i użyć procesu [Sysprep programu SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep) do uogólnienia SQL Server na maszynie wirtualnej platformy Azure (Windows) przy użyciu nośnika instalacyjnego programu SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej z odpowiednią wersją.
 
    Alternatywnie możesz użyć jednego z SQL Server obrazów z witryny Azure Marketplace, aby uogólnić SQL Server na maszynie wirtualnej platformy Azure. Należy pamiętać, że przed utworzeniem własnego obrazu należy usunąć następujący klucz rejestru z obrazu źródłowego. Niewykonanie tej czynności może skutkować SQL Server przeładowania folderu Bootstrap Instalatora i/lub rozszerzenia IaaS SQL w stanie Niepowodzenie.
 
@@ -179,13 +179,21 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
    
    Tak, jeśli nazwane wystąpienie jest jedynym wystąpieniem w SQL Server i jeśli oryginalne wystąpienie domyślne zostało [odinstalowane prawidłowo](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Jeśli nie ma wystąpienia domyślnego i istnieje wiele wystąpień nazwanych na jednej maszynie wirtualnej SQL Server, instalacja rozszerzenia agenta SQL Server IaaS nie powiedzie się. 
 
-1. **Czy mogę usunąć całkowicie program SQL Server z maszyny wirtualnej z programem SQL Server?**
+1. **Czy mogę usunąć SQL Server i powiązane z nimi rozliczanie licencji z poziomu maszyny wirtualnej SQL Server?**
 
-   Tak, ale nadal będzie naliczana opłata za maszynę wirtualną SQL Server, zgodnie z opisem w temacie [wskazówki dotyczące cen dla SQL Server maszyn wirtualnych platformy Azure](pricing-guidance.md). Jeśli program SQL Server nie jest już potrzebny, można wdrożyć nową maszynę wirtualną, a następnie migrować dane i aplikacje do nowej maszyny wirtualnej. Następnie można usunąć maszynę wirtualną z programem SQL Server.
+   Tak, ale musisz podjąć dodatkowe kroki, aby uniknąć naliczania opłat za wystąpienie SQL Server zgodnie z opisem w temacie [wskazówki dotyczące cen](pricing-guidance.md). Jeśli chcesz całkowicie usunąć wystąpienie SQL Server, możesz przeprowadzić migrację do innej maszyny wirtualnej platformy Azure bez SQL Server wstępnie zainstalowanej na maszynie wirtualnej i usunąć bieżącą SQL Server maszynę wirtualną. Jeśli chcesz zachować maszynę wirtualną, ale zatrzymać SQL Server rozliczeń, wykonaj następujące kroki: 
+
+   1. Wykonaj kopię zapasową wszystkich danych, w tym systemowych baz danych, w razie potrzeby. 
+   1. Odinstaluj SQL Server całkowicie, łącznie z rozszerzeniem SQL IaaS (jeśli istnieje).
+   1. Zainstaluj bezpłatną [wersję programu SQL Express](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Zarejestruj się w [trybie uproszczonym](sql-vm-resource-provider-register.md)przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
+   1. obowiązkowe Wyłącz usługę Express SQL Server, wyłączając uruchamianie usługi. 
 
 1. **Czy mogę używać witryny Azure Portal do zarządzania wieloma wystąpieniami na tej samej maszynie wirtualnej?**
+
    Nie. Zarządzanie portalem jest udostępniane przez dostawcę zasobów maszyny wirtualnej SQL, który opiera się na rozszerzeniu SQL Server agenta IaaS. W związku z tym te same ograniczenia dotyczą dostawcy zasobów jako rozszerzenie. Portal może zarządzać tylko jednym wystąpieniem domyślnym lub jednym wystąpieniem nazwanym, dopóki jego konfiguracja jest prawidłowa. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
 
 1. **Jak mogę zmienić na inną wersję/wydanie SQL Server na maszynie wirtualnej platformy Azure?**

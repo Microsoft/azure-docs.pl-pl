@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090335"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565263"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększanie bezpieczeństwa wiadomości B2B przy użyciu certyfikatów
 
@@ -47,15 +47,15 @@ Aby używać *publicznego certyfikatu* w usłudze Logic Apps z możliwościami B
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "publicCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Publiczny | Typ certyfikatu |
+   | **Typ certyfikatu** | Public | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . |
    ||||
 
-   ![Wybierz pozycję "Dodaj", podaj szczegóły certyfikatu](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Zrzut ekranu pokazuje, gdzie wybrać opcję Dodaj, aby podać szczegóły certyfikatu.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    Po sprawdzeniu wyboru przez platformę Azure usługa Azure przekazuje certyfikat.
 
-   ![Na platformie Azure jest wyświetlany nowy certyfikat](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Zrzut ekranu pokazujący, gdzie platforma Azure wyświetla nowy certyfikat.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Przekaż certyfikat prywatny
 
@@ -86,7 +86,7 @@ Po zdefiniowaniu właściwości w tworzonych [umowach](logic-apps-enterprise-int
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "privateCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Prywatne | Typ certyfikatu |
+   | **Typ certyfikatu** | Private | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . W przypadku korzystania z magazynu kluczy dla klucza prywatnego przekazany plik będzie certyfikatem publicznym. | 
    | **Grupa zasobów** | <*Integracja — konto-Grupa zasobów*> | Grupa zasobów konta integracji, która jest w tym przykładzie "grupą zasobów" | 
    | **Usługa Key Vault** | <*Nazwa magazynu kluczy*> | Nazwa magazynu kluczy platformy Azure |

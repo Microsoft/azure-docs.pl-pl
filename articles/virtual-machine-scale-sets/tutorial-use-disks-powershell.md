@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0334b13fa73eb2fd648184f44bf0856c0d2a9ed9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076807"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565092"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
 
@@ -87,6 +87,8 @@ W powyższej tabeli podano maksymalną liczbę operacji wejścia/wyjścia na sek
 
 ## <a name="create-and-attach-disks"></a>Tworzenie i dołączanie dysków
 Dyski można tworzyć i dołączać podczas tworzenia zestawu skalowania lub w ramach modyfikacji istniejącego zestawu skalowania.
+
+Począwszy od wersji interfejsu API `2019-07-01` , można ustawić rozmiar dysku systemu operacyjnego w zestawie skalowania maszyn wirtualnych za pomocą właściwości [obszarze storageprofile. OsDisk. diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Po zainicjowaniu obsługi może być konieczne rozwinięcie lub ponowne partycjonowanie dysku, aby wykorzystać całe miejsce. Dowiedz się więcej [na temat rozszerzania dysku w tym miejscu](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Dołączanie dysków podczas tworzenia zestawu skalowania
 Utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [New-AzVmss](/powershell/module/az.compute/new-azvmss). Po wyświetleniu monitu podaj nazwę użytkownika i hasło dla wystąpień maszyn wirtualnych. Musisz również utworzyć moduł równoważenia obciążenia, który umożliwia kierowanie ruchu do poszczególnych wystąpień maszyn wirtualnych. Moduł równoważenia obciążenia zawiera reguły, które pozwalają kierować ruchem na porcie TCP 80 oraz korzystać z ruchu pulpitu zdalnego na porcie TCP 3389 i komunikacji zdalnej programu PowerShell na porcie TCP 5985.

@@ -1,5 +1,5 @@
 ---
-title: Przydziały i limity usługi Speech
+title: Przydziały i limity usługi Mowa
 titleSuffix: Azure Cognitive Services
 description: Krótki przewodnik, szczegółowy opis i najlepsze rozwiązania dotyczące przydziałów i limitów związanych z usługą Azure poznawcze usługi rozpoznawania mowy
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690140"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567166"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Speech
+# <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
 Ten artykuł zawiera krótkie informacje i **szczegółowy opis** przydziałów i limitów związanych z usługą Azure poznawcze usługi rozpoznawania mowy dla wszystkich [warstw cenowych](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Zawiera również kilka najlepszych rozwiązań, aby uniknąć ograniczania żądań. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Przydziały i limity — Krótki przewodnik
 Przechodzenie do [przydziałów i ograniczeń zamiany tekstu na mowę](#text-to-speech-quotas-and-limits-per-speech-resource)
-### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Przydziały zamiany mowy na tekst i limity dla zasobu mowy
+### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Przydziały i limity funkcji zamiany mowy na tekst dla zasobu usługi Mowa
 W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywany do wszystkich warstw cenowych.
 
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
@@ -36,6 +36,7 @@ W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywa
 | **Maksymalny rozmiar wejściowego obiektu BLOB dla transkrypcji partii** | Nie dotyczy | 2,5 GB |
 | **Maksymalny rozmiar kontenera obiektów BLOB dla transkrypcji partii** | Nie dotyczy | 5 GB |
 | **Maksymalna liczba obiektów BLOB na kontener na potrzeby transkrypcji partii** | Nie dotyczy | 10 000 |
+| **Maksymalna liczba plików na żądanie transkrypcji dla transkrypcji partii (w przypadku używania wielu adresów URL zawartości jako dane wejściowe)** | Nie dotyczy | 1000  |
 | **Maksymalna liczba jednocześnie uruchomionych zadań dla transkrypcji partii** | Nie dotyczy | 2000  |
 
 <sup>1</sup> dla warstwy cenowej **bezpłatna (F0)** Zobacz również miesięczne diety na [stronie cennika](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

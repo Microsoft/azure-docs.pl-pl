@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400064"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567557"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -154,11 +154,11 @@ Azure Cosmos DB obsługuje [operacje CRUD i zapytań](/rest/api/cosmos-db/) wobe
 
 Gdy operacja, taka jak zapytanie osiągnie limit czasu wykonania lub wartość ograniczenia rozmiaru, zwraca stronę wyników i token kontynuacji klientowi, aby wznowić wykonywanie. Nie ma praktycznego limitu czasu trwania pojedynczego zapytania, które można uruchomić na stronach/kontynuacji.
 
-Cosmos DB używa algorytmu HMAC do autoryzacji. Możesz użyć klucza głównego lub [tokenów zasobów](secure-access-to-data.md) do precyzyjnej kontroli dostępu do zasobów, takich jak kontenery, klucze partycji lub elementy. W poniższej tabeli wymieniono limity tokenów autoryzacji w Cosmos DB.
+Cosmos DB używa algorytmu HMAC do autoryzacji. Można użyć klucza podstawowego lub [tokenów zasobów](secure-access-to-data.md) do precyzyjnej kontroli dostępu do zasobów, takich jak kontenery, klucze partycji lub elementy. W poniższej tabeli wymieniono limity tokenów autoryzacji w Cosmos DB.
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Maksymalny czas wygaśnięcia tokenu głównego | 15 minut  |
+| Maksymalny czas wygaśnięcia tokenu podstawowego | 15 minut  |
 | Minimalny czas wygaśnięcia tokenu zasobów | 10 min  |
 | Maksymalny czas wygaśnięcia tokenu zasobu | Domyślnie 24 h. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md)|
 | Maksymalne przechylenie zegara na potrzeby autoryzacji tokenu| 15 minut |
@@ -171,7 +171,7 @@ Azure Cosmos DB przechowuje metadane systemowe dla każdego konta. Te metadane u
 
 | Zasób | Limit domyślny |
 | --- | --- |
-|Maksymalna szybkość tworzenia kolekcji RER minuta| 5|
+|Maksymalna stawka tworzenia kolekcji na minutę| 5|
 |Maksymalna stawka tworzenia bazy danych na minutę|   5|
 |Maksymalna liczba zainicjowanych przepływności na minutę| 5|
 

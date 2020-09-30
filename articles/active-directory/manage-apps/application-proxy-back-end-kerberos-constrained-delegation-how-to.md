@@ -2,26 +2,21 @@
 title: Rozwiązywanie problemów z ograniczonym delegowaniem protokołu Kerberos — serwer proxy aplikacji
 description: Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760443"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568726"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 
@@ -165,7 +160,7 @@ Jeśli nadal nie możesz wykonać tego postępu, pomoc techniczna firmy Microsof
 
 ## <a name="other-scenarios"></a>Inne scenariusze
 
-- Usługa Azure Application proxy żąda biletu protokołu Kerberos przed wysłaniem żądania do aplikacji. Niektóre aplikacje innych firm nie są podobne do tej metody uwierzytelniania. Aplikacje te oczekują bardziej konwencjonalnych negocjacji. Pierwsze żądanie jest anonimowe, co umożliwia aplikacji reagowanie na typy uwierzytelniania obsługiwane przez 401.
+- Usługa Azure Application proxy żąda biletu protokołu Kerberos przed wysłaniem żądania do aplikacji. Niektóre aplikacje innych firm nie są podobne do tej metody uwierzytelniania. Aplikacje te oczekują bardziej konwencjonalnych negocjacji. Pierwsze żądanie jest anonimowe, co umożliwia aplikacji reagowanie na typy uwierzytelniania obsługiwane przez 401. Ten typ negocjacji Kerberos można włączyć, wykonując czynności opisane w tym dokumencie: [ograniczone delegowanie protokołu Kerberos na potrzeby logowania](application-proxy-configure-single-sign-on-with-kcd.md)jednokrotnego.
 - Uwierzytelnianie z użyciem wieloskładnikowym jest często używane w scenariuszach, w których aplikacja jest warstwowa, z zapleczem i frontonem, gdzie oba wymagają uwierzytelniania, takie jak SQL Server Reporting Services. Aby skonfigurować scenariusz wielodostępny, zobacz artykuł pomocy technicznej [ograniczone delegowanie protokołu Kerberos może wymagać przejścia do protokołu w scenariuszach z przeskokiem](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Następne kroki

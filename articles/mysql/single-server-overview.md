@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947545"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564786"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Usługa Azure Database for MySQL — pojedynczy serwer
 
@@ -20,7 +20,7 @@ ms.locfileid: "90947545"
 - Pojedynczy serwer 
 - Serwer elastyczny (wersja zapoznawcza)
 
-Ten artykuł zawiera omówienie i wprowadzenie do podstawowych pojęć związanych z modelem wdrażania na jednym serwerze. Aby dowiedzieć się więcej o elastycznym trybie wdrażania serwera, zobacz [elastyczny serwer — Omówienie](flexible-server/index.yml)
+Ten artykuł zawiera omówienie i wprowadzenie do podstawowych pojęć związanych z modelem wdrażania na jednym serwerze. Aby dowiedzieć się więcej o elastycznym trybie wdrażania serwera, zapoznaj się z tematem [elastyczne Omówienie serwera](flexible-server/index.yml). Aby uzyskać informacje na temat decydowania o opcji wdrożenia odpowiedniej dla obciążenia, zobacz [Wybieranie odpowiedniego serwera MySQL na platformie Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Omówienie
 

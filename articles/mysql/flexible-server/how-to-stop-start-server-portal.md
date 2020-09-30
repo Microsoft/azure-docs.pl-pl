@@ -5,16 +5,15 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: b9f406035d32a9af9ba2f5b085bcaca1b51e9d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/29/2020
+ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937281"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567505"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Zatrzymywanie/uruchamianie Azure Database for MySQL-elastyczny serwer (wersja zapoznawcza)
-
 
 > [!IMPORTANT]
 > Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
@@ -32,6 +31,12 @@ Aby ukończyć ten przewodnik, musisz:
 1.  W [Azure Portal](https://portal.azure.com/)wybierz elastyczny serwer, który ma zostać zatrzymany.
 
 2.  Na stronie **Przegląd** kliknij przycisk **Zatrzymaj** na pasku narzędzi.
+    
+    :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Zatrzymaj elastyczny serwer."::: 
+
+3.  Kliknij przycisk **tak** , aby potwierdzić zatrzymywanie serwera.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Zatrzymaj elastyczny serwer."::: 
 
 > [!NOTE]
 > Po zatrzymaniu serwera inne operacje zarządzania nie są dostępne dla serwera elastycznego.
@@ -40,7 +45,9 @@ Aby ukończyć ten przewodnik, musisz:
 
 1.  W [Azure Portal](https://portal.azure.com/)wybierz elastyczny serwer, który chcesz uruchomić.
 
-2.  Na stronie **Przegląd** kliknij przycisk **Zatrzymaj** na pasku narzędzi.
+2.  Na stronie **Przegląd** kliknij przycisk **Start** na pasku narzędzi.
+
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Zatrzymaj elastyczny serwer.":::  
 
 > [!NOTE]
 > Po uruchomieniu serwera wszystkie operacje zarządzania będą teraz dostępne dla serwera elastycznego.

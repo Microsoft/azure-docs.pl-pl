@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 25f3b1e6a01ba190dffaa8c43534a5e23b7d9b23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299123"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565126"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,27 +34,24 @@ Automatyczna kopia zapasowa automatycznie konfiguruje [zarządzaną kopię zapas
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby korzystać z zautomatyzowanej kopii zapasowej, należy wziąć pod uwagę następujące wymagania wstępne:
 
+
 **System operacyjny**:
 
-- Windows Server 2012
-- Windows Server 2012 z dodatkiem R2
-- Windows Server 2016
+- System Windows Server 2012 i nowsze 
 
 **Wersja SQL Server/Edition**:
 
 - Standard SQL Server 2014
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> Automatyczne kopie zapasowe działają z SQL Server 2014. Jeśli używasz SQL Server 2016/2017, możesz użyć zautomatyzowanej kopii zapasowej v2, aby utworzyć kopię zapasową baz danych. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych v2 dla SQL Server 2016 Azure Virtual Machines](automated-backup.md).
+> [!NOTE]
+> Aby uzyskać więcej niż SQL 2016 i więcej, zobacz [Automatyczne tworzenie kopii zapasowych dla SQL Server 2016](automated-backup.md).
 
 **Konfiguracja bazy danych**:
 
-- Docelowe bazy danych muszą używać modelu odzyskiwania pełnego. Aby uzyskać więcej informacji o wpływie modelu odzyskiwania pełnego na kopie zapasowe, zobacz [kopia zapasowa w ramach modelu odzyskiwania pełnego](https://technet.microsoft.com/library/ms190217.aspx).
-- Docelowe bazy danych muszą znajdować się w domyślnym wystąpieniu SQL Server. Rozszerzenie agenta IaaS SQL Server nie obsługuje nazwanych wystąpień.
-
-> [!NOTE]
-> Automatyczna kopia zapasowa opiera się na rozszerzeniu SQL Server IaaS Agent. Bieżące obrazy galerii maszyn wirtualnych SQL Domyślnie Dodaj to rozszerzenie. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
+- Docelowe bazy danych _użytkowników_ muszą używać modelu odzyskiwania pełnego. Systemowe bazy danych nie muszą korzystać z modelu odzyskiwania pełnego. Jeśli jednak wymagane jest wykonanie kopii zapasowych dzienników dla modelu lub MSDB, należy użyć modelu odzyskiwania pełnego. Aby uzyskać więcej informacji o wpływie modelu odzyskiwania pełnego na kopie zapasowe, zobacz [kopia zapasowa w ramach modelu odzyskiwania pełnego](https://technet.microsoft.com/library/ms190217.aspx). 
+- Maszyna wirtualna SQL Server została zarejestrowana w ramach dostawcy zasobów maszyny wirtualnej SQL w [trybie zarządzania pełnego](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Automatyczne kopie zapasowe opierają SQL Server się na [rozszerzeniu IaaS agenta](sql-server-iaas-agent-extension-automate-management.md). W związku z tym automatyczne kopie zapasowe są obsługiwane tylko w docelowych bazach danych z wystąpienia domyślnego lub z pojedynczym nazwanym wystąpieniem. Jeśli nie ma wystąpienia domyślnego i wiele wystąpień nazwanych, rozszerzenie SQL IaaS zakończy się niepowodzeniem, a automatyczne wykonywanie kopii zapasowej nie będzie działać. 
 
 ## <a name="settings"></a>Ustawienia
 

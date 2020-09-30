@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529943"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565330"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
 
@@ -28,16 +28,6 @@ HIB upraszcza skomplikowane konfiguracje uwierzytelniania w następujących scen
 
 HIB zapewnia infrastrukturę uwierzytelniania, która umożliwia przejście protokołu z uwierzytelniania OAuth (nowoczesnego) do protokołu Kerberos (starsza wersja) bez konieczności synchronizowania skrótów haseł z usługą AAD-DS. Ta infrastruktura obejmuje składniki działające na maszynie wirtualnej z systemem Windows Server (węzłem brokera identyfikatorów) wraz z węzłami bramy klastra.
 
-Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatorów:
-
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
-
-Na tym diagramie klient (tj. przeglądarka lub aplikacje) musi najpierw uzyskać token OAuth, a następnie przedstawić token do bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego (SSO).
-
-Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (tj. nazwa użytkownika/hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Federacji (punkt końcowy usług AD FS), aby zapewnić bezpośrednią linię wglądu z węzłów bramy.
-
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
-
 Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniania w zależności od potrzeb organizacji:
 
 |Opcje uwierzytelniania |Konfiguracja usługi HDInsight | Czynniki, które należy wziąć pod uwagę |
@@ -45,6 +35,18 @@ Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniani
 | Pełny protokół OAuth | ESP + HIB | 1. najbezpieczniejsza opcja (MFA jest obsługiwana) 2.    Przekazanie synchronizacji skrótu nie jest wymagane. 3.  Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont on-Premium, które nie mają skrótu hasła w usłudze AAD-DS. 4.   Konta w chmurze mogą nadal być SSH/narzędzie kinit/plik KEYTAB. 5. Dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth 6.  Wymaga aktualizacji starszych aplikacji (JDBC/ODBC itp.) w celu obsługi uwierzytelniania OAuth.|
 | Uwierzytelnianie OAuth + podstawowa | ESP + HIB | 1. dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth 2. Starsze aplikacje nadal używają uwierzytelniania podstawowego. 3. Uwierzytelnianie wieloskładnikowe musi być wyłączone dla podstawowego dostępu do uwierzytelniania. 4. Przekazanie synchronizacji skrótu nie jest wymagane. 5. Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont on-Premium, które nie mają skrótu hasła w usłudze AAD-DS. 6. Konta w chmurze mogą nadal być SSH/narzędzie kinit. |
 | Uwierzytelnianie w pełni podstawowe | ESP | 1. najbardziej podobne do konfiguracji Premium. 2. Wymagana jest synchronizacja skrótów haseł w usłudze AAD — DS. 3. Konta Premium mogą korzystać z protokołu SSH/narzędzie kinit lub plik KEYTAB. 4. Jeśli magazyn zapasowy jest ADLS Gen2, należy wyłączyć usługę MFA |
+
+Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatorów:
+
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
+
+Na tym diagramie klient (tj. przeglądarka lub aplikacje) musi najpierw uzyskać token OAuth, a następnie przedstawić token do bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego (SSO).
+
+Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (tj. nazwa użytkownika/hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Federacji (AD FS Endpoint), aby zapewnić bezpośrednią linię wglądu z węzłów bramy. 
+
+Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) i w przypadku braku skrótów haseł synchronizowanych z usługą Azure AD, a następnie powróci do odnajdywania punktu końcowego AD FS i dokończyć uwierzytelnianie, uzyskując dostęp do punktu końcowego AD FS.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Włącz brokera identyfikatorów usługi HDInsight

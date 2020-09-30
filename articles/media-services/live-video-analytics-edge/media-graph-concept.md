@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567943"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567082"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -41,7 +41,7 @@ Wartości parametrów w topologii są określane podczas tworzenia wystąpień g
 Cykl życia topologii wykresu i wystąpienia grafu są wyświetlane na poniższym diagramie stanu.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Cykl życia topologii wykresu i wystąpienia grafu":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graf multimedialny":::
 
 Zaczynasz od [tworzenia topologii wykresu](direct-methods.md#graphtopologyset). Następnie dla każdego na żywo kanału informacyjnego wideo, który chcesz przetworzyć z tą topologią, [utworzysz wystąpienie grafu](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ Usługa Analiza filmów wideo na żywo na IoT Edge obsługuje następujące typy
 
 #### <a name="rtsp-source"></a>Źródło RTSP 
 
-Węzeł źródłowy RTSP umożliwia pozyskiwanie multimediów z [RTSP] ( https://tools.ietf.org/html/rfc2326 serwer. Aparaty nadzoru i kamery IP przesyłają swoje dane do protokołu o nazwie RTSP (przesyłania strumieniowego w czasie rzeczywistym), który różni się od innych typów urządzeń, takich jak telefony i kamery wideo. Ten protokół służy do ustanawiania i kontrolowania sesji multimedialnych między serwerem (kamerą) a klientem. Węzeł źródłowy RTSP na wykresie multimedialnym pełni rolę klienta i może ustanowić sesję z serwerem RTSP. Wiele urządzeń, takich jak większość [kamer IP](https://en.wikipedia.org/wiki/IP_camera) , ma wbudowany serwer RTSP. [ONVIF](https://www.onvif.org/) zezwala na obsługiwanie RTSP w swojej definicji [profilów G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) zgodnych urządzeń. Węzeł źródłowy RTSP wymaga określenia adresu URL protokołu RTSP wraz z poświadczeniami w celu włączenia połączenia uwierzytelnionego.
+Węzeł źródłowy RTSP umożliwia pozyskiwanie multimediów z protokołu [RTSP](https://tools.ietf.org/html/rfc2326 server). Aparaty nadzoru i kamery IP przesyłają swoje dane do protokołu o nazwie RTSP (przesyłania strumieniowego w czasie rzeczywistym), który różni się od innych typów urządzeń, takich jak telefony i kamery wideo. Ten protokół służy do ustanawiania i kontrolowania sesji multimedialnych między serwerem (kamerą) a klientem. Węzeł źródłowy RTSP na wykresie multimedialnym pełni rolę klienta i może ustanowić sesję z serwerem RTSP. Wiele urządzeń, takich jak większość [kamer IP](https://en.wikipedia.org/wiki/IP_camera) , ma wbudowany serwer RTSP. [ONVIF](https://www.onvif.org/) zezwala na obsługiwanie RTSP w swojej definicji [profilów G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) zgodnych urządzeń. Węzeł źródłowy RTSP wymaga określenia adresu URL protokołu RTSP wraz z poświadczeniami w celu włączenia połączenia uwierzytelnionego.
 
 #### <a name="iot-hub-message-source"></a>IoT Hub źródło komunikatu 
 

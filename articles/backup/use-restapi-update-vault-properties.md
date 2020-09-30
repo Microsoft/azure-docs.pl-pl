@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zaktualizować konfigurację magaz
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007115"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567829"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -30,13 +30,13 @@ Domyślnie stan usuwania nietrwałego zostanie włączony dla nowo utworzonego m
 Aby pobrać bieżący stan usuwania nietrwałego dla magazynu, użyj następującej operacji *Get*
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 Identyfikator URI Get zawiera `{subscriptionId}` `{vaultName}` `{vaultresourceGroupName}` parametry. W tym przykładzie `{vaultName}` jest to "testVault" i `{vaultresourceGroupName}` ma wartość "testVaultRG". Ponieważ wszystkie wymagane parametry są określone w identyfikatorze URI, nie ma potrzeby oddzielnej treści żądania.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Odpowiedzi
@@ -65,16 +65,16 @@ Po przesłaniu żądania "GET" zostanie zwrócona odpowiedź 200 (powodzenie).
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Zaktualizuj stan usuwania nietrwałego za pomocą interfejsu API REST
 
-Aby zaktualizować stan nietrwałego usuwania magazynu Recovery Services przy użyciu interfejsu API REST, należy użyć następującej operacji *patch*
+Aby zaktualizować stan nietrwałego usuwania magazynu Recovery Services przy użyciu interfejsu API REST, należy użyć następującej operacji *Put*
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-Identyfikator URI poprawki ma wartość `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parametr. W tym przykładzie `{vaultName}` jest to "testVault" i `{vaultresourceGroupName}` ma wartość "testVaultRG". Jeśli zamienimy identyfikator URI o powyższe wartości, identyfikator URI będzie wyglądać następująco.
+Identyfikator URI Put ma wartość `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parametr. W tym przykładzie `{vaultName}` jest to "testVault" i `{vaultresourceGroupName}` ma wartość "testVaultRG". Jeśli zamienimy identyfikator URI o powyższe wartości, identyfikator URI będzie wyglądać następująco.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Tworzenie treści żądania
@@ -127,7 +127,7 @@ Po przesłaniu żądania "Poprawka" zostanie zwrócona odpowiedź 200 (powodzeni
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Utwórz zasady tworzenia kopii zapasowej dla tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w tym magazynie](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

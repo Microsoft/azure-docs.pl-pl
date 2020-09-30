@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c4021fbf87cc7cff8dde8e759423eb52c705cf97
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986365"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568339"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
 
@@ -26,7 +26,7 @@ Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w 
 1. Uzyskaj dostęp do ustawień subskrypcji zgodnie z opisem w temacie [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md).
 1. W ramach subskrypcji dla **dostawców zasobów**Sprawdź, czy dostawca **Microsoft. Network** wskazuje **zarejestrowany** stan. Jeśli dostawcy zasobów Microsoft. Network nie ma na liście zarejestrowanych dostawców, Dodaj go.
 
-## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Utwórz ExpressRoute bezpośrednie
+## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Utwórz ExpressRoute bezpośrednie
 
 1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
 
@@ -47,7 +47,7 @@ Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w 
 
 1. Następnie wypełnij pola na stronie **Konfiguracja** .
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Strona konfiguracji":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Strona Podstawy":::
 
     * **Lokalizacja komunikacji równorzędnej**: Lokalizacja komunikacji równorzędnej, w której zostanie nawiązane połączenie z zasobem Direct ExpressRoute. Aby uzyskać więcej informacji na temat lokalizacji komunikacji równorzędnej, przejrzyj [lokalizacje ExpressRoute](expressroute-locations-providers.md).
    * **Przepustowość**: przepustowość pary portów, która ma zostać zarezerwowana. Program ExpressRoute Direct obsługuje opcje przepustowości 10 GB i 100 GB. Jeśli żądana przepustowość nie jest dostępna w określonej lokalizacji komunikacji równorzędnej, [Otwórz żądanie obsługi w Azure Portal](https://aka.ms/azsupt).
@@ -61,21 +61,25 @@ Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w 
 
 1. Określ wszystkie Tagi zasobów, a następnie wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność ustawień zasobów bezpośrednich ExpressRoute.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Przegląd i tworzenie":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Strona Podstawy":::
 
-1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
-## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Zmień stan administratora linków
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generuj list autoryzacji (DOWANIU)
+
+W tej chwili generowanie listy autoryzacji jest niedostępne w portalu. Użyj **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** lub **[interfejsu wiersza polecenia platformy Azure](expressroute-howto-expressroute-direct-cli.md#authorization)** w celu uzyskania listy autoryzacji.
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Zmień stan administratora linków
 
 Ten proces powinien służyć do przeprowadzenia testu warstwy 1, co gwarantuje, że każde połączenie krzyżowe jest prawidłowo poprawione na każdy router dla podstawowego i pomocniczego.
 
 1. Na stronie **Przegląd** zasobów bezpośrednich ExpressRoute w sekcji **linki** wybierz pozycję **link1**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Link 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Strona Podstawy" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Przełącz ustawienie **stanu administratora** na **włączone**, a następnie wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Stan administratora":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Strona Podstawy":::
 
     >[!IMPORTANT]
     >Rozliczanie rozpocznie się po włączeniu stanu administratora dla dowolnego linku.
@@ -83,7 +87,7 @@ Ten proces powinien służyć do przeprowadzenia testu warstwy 1, co gwarantuje,
 
 1. Powtórz ten sam proces dla **Link2**.
 
-## <a name="3-create-a-circuit"></a><a name="circuit"></a>3. Tworzenie obwodu
+## <a name="create-a-circuit"></a><a name="circuit"></a>Tworzenie obwodu
 
 Domyślnie można utworzyć 10 obwodów w ramach subskrypcji, w której znajduje się zasób ExpressRoute Direct. Tę liczbę można zwiększyć przez pomoc techniczną. Użytkownik jest odpowiedzialny za śledzenie zarówno alokowanej, jak i wykorzystywanej przepustowości. Przystosowana przepustowość to suma przepustowości wszystkich obwodów w zasobie ExpressRoute Direct. Wykorzystanie przepustowości jest fizycznym użyciem podstawowych interfejsów fizycznych.
 
@@ -97,17 +101,17 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
 1. W sekcji **Ustawienia** bezpośrednie ExpressRoute wybierz pozycję **obwody**, a następnie wybierz pozycję **+ Dodaj**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Zrzut ekranu przedstawia ustawienia ExpressRoute z wybranymi obwodami i Dodaj wyróżnione." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Strona Podstawy" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Skonfiguruj ustawienia na stronie **Konfiguracja** .
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Strona konfiguracji":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Strona Podstawy":::
 
 1. Aby sprawdzić poprawność wartości przed **Review + Create** utworzeniem zasobu, określ wszelkie Tagi zasobów.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Przegląd i tworzenie":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Strona Podstawy":::
 
-1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

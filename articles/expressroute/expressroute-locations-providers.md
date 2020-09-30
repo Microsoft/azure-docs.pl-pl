@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: fe16dbf756016150c86b4d0131b8750b46bacfaa
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 66b11a10e59ca0525c7836553a08a515ab4dc602
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448722"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568254"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -118,7 +118,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Mumbaj2** | Airtel | 2 | Indie Zachodnie | ° | Airtel, Sify, Vodafone Idea |
 | **Monachium** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | nie dotyczy | ° | DE-CIX |
 | **Nowy Jork** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | nie dotyczy | 10G, 100G | CenturyLink Cloud Connect, Colt, CoreSite, DE-CIX, Equinix, incloud, Megaport, Packet, Zayo |
-| **Newport (Walia)** | [Dane nowej generacji](https://www.nextgenerationdata.co.uk) | 1 | Zachodnie Zjednoczone Królestwo | nie dotyczy | Brytyjskie Telecom telekomunikacyjne, Colt, Level 3, dane nowej generacji |
+| **Newport (Walia)** | [Dane nowej generacji](https://www.nextgenerationdata.co.uk) | 1 | Zachodnie Zjednoczone Królestwo | nie dotyczy | Brytyjskie Telecom telekomunikacyjne, Colt, JISC, Level 3, dane nowej generacji |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Japonia Zachodnia | 10G, 100G | NA Tokio, Colt, Equinix, Internet Initiative Japonia Inc.-IIJ, Megaport, NTT Communications, NTT SmartConnect, Softbank |
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Norwegia Wschodnia | 10G, 100G | Połączenie globalne, Megaport, firma Telenor, Telia |
 | **Paryż** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Francja Środkowa | 10G, 100G | Kolumbia Telecom, CenturyLink Cloud Connect, Colt, Equinix, międzychmurowy, Interxion, pomarańczowy, Telia Carrier, Zayo |

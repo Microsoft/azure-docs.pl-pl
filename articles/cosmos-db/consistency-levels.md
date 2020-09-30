@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445329"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567206"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Jakie są poziomy spójności w Azure Cosmos DB?
 
@@ -52,10 +52,10 @@ Ograniczone nieaktualność oferuje całkowitą kolejność globalną poza oknem
 
 W oknie nieodświeżone, powiązana nieaktualność zapewnia następujące gwarancje spójności:
 
-- Spójność klientów w tym samym regionie dla pojedynczego konta głównego = Strong
-- Spójność klientów w różnych regionach dla pojedynczego konta głównego = spójny prefiks
-- Spójność zapisywania klientów w jednym regionie dla konta z wieloma wzorcami = spójny prefiks
-- Spójność w przypadku klientów, którzy zapisują w różnych regionach dla konta z wieloma głównymi:
+- Spójność klientów w tym samym regionie dla konta z pojedynczym regionem zapisu = Strong
+- Spójność klientów w różnych regionach dla konta z pojedynczym regionem zapisu = spójny prefiks
+- Spójność zapisywania klientów w jednym regionie dla konta z wieloma regionami zapisu = spójny prefiks
+- Spójność w przypadku klientów, którzy zapisują w różnych regionach dla konta z wieloma regionami zapisu = ostatecznie
 
   Ograniczone nieodświeżoności są często wybierane przez aplikacje rozproszone globalnie, które oczekują niskich opóźnień zapisu, ale wymagają całkowitej gwarancji zamówienia globalnego. Powiązana nieaktualność jest doskonałe dla aplikacji, które udostępniają współpracę i udostępnianie grup, taktowanie, publikowanie/subskrybowanie/kolejkowanie itp. Poniższa ilustracja ilustruje ograniczone niezgodność ze spójnością z notatkami muzycznymi. Po zapisaniu danych w regionie "zachodnie stany USA 2" regiony "Wschodnie stany USA 2" i "Australia Wschodnia" odczytaj wartość zapisaną na podstawie skonfigurowanego maksymalnego czasu zwłoki lub maksymalnej liczby operacji:
 
@@ -63,10 +63,10 @@ W oknie nieodświeżone, powiązana nieaktualność zapewnia następujące gwara
 
 Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące gwarancje:
 
-- Spójność klientów w tym samym regionie dla pojedynczego konta głównego = spójny prefiks
-- Spójność klientów w różnych regionach dla pojedynczego konta głównego = spójny prefiks
-- Spójność zapisywania klientów w jednym regionie dla konta z wieloma wzorcami = spójny prefiks
-- Spójność w przypadku klientów, którzy zapisują w wielu regionach dla konta z wieloma głównymi:
+- Spójność klientów w tym samym regionie dla konta z pojedynczym regionem zapisu = spójny prefiks
+- Spójność klientów w różnych regionach dla konta z pojedynczym regionem zapisu = spójny prefiks
+- Spójność zapisywania klientów w jednym regionie dla konta z wieloma regionami zapisu = spójny prefiks
+- Spójność w przypadku klientów, którzy zapisują w wielu regionach dla konta z wieloma regionami zapisu = ostatecznie
 
   Spójność sesji to najczęściej używany poziom spójności dla jednego regionu, a także aplikacje rozproszone globalnie. Zapewnia ona opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej samej spójności ostatecznej, ale również zapewnia gwarancje spójności, które odpowiadają potrzebom aplikacji napisanych w kontekście użytkownika. Poniższa ilustracja ilustruje spójność sesji z notatkami muzycznymi. Moduł zapisujący "zachodnie stany USA 2" i "zachodnie stany USA 2" używają tej samej sesji (sesji A), tak aby jednocześnie odczytywać te same dane w tym samym czasie. Natomiast region "Australia Wschodnia" używa "Session B", więc otrzymuje dane później, ale w tej samej kolejności jak zapisy.
 
@@ -78,10 +78,10 @@ Jeśli operacje zapisu zostały wykonane w podanej kolejności `A, B, C` , klien
 
 Poniżej przedstawiono gwarancje spójności dla spójnego prefiksu:
 
-- Spójność klientów w tym samym regionie dla pojedynczego konta głównego = spójny prefiks
-- Spójność klientów w różnych regionach dla pojedynczego konta głównego = spójny prefiks
-- Spójność zapisywania klientów w jednym regionie dla konta z wieloma wzorcami = spójny prefiks
-- Spójność w przypadku klientów, którzy zapisują w wielu regionach dla konta z wieloma głównymi:
+- Spójność klientów w tym samym regionie dla konta z pojedynczym regionem zapisu = spójny prefiks
+- Spójność klientów w różnych regionach dla konta z pojedynczym regionem zapisu = spójny prefiks
+- Spójność zapisywania klientów w jednym regionie dla konta z wieloma regionami zapisu = spójny prefiks
+- Spójność w przypadku klientów, którzy zapisują w wielu regionach dla konta z wieloma regionami zapisu = ostatecznie
 
 Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzycznymi. We wszystkich regionach odczyty nigdy nie są wyświetlane w kolejności zapisu:
 

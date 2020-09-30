@@ -4,18 +4,19 @@ description: W tym artykule pokazano, jak utworzyć rejestr schematu w przestrze
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 691279ea4fbadf5a905de4bab0304a1ad526146d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347646"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566367"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Tworzenie rejestru schematu usługi Azure Event Hubs (wersja zapoznawcza)
 W tym artykule pokazano, jak utworzyć grupę schematów ze schematami w rejestrze schematu hostowanym przez usługę Azure Event Hubs. Aby zapoznać się z omówieniem funkcji rejestru schematu platformy Azure Event Hubs, zobacz [usługa Azure Schema Registry w Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
-> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej** i jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
+> - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej**i nie jest zalecana w przypadku obciążeń produkcyjnych.
+> - Funkcja jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
 > - Ta wersja zapoznawcza jest obecnie dostępna tylko w regionie **zachodnie stany USA** . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -33,10 +34,10 @@ W tym artykule pokazano, jak utworzyć grupę schematów ze schematami w rejestr
     1. Następnie wybierz pozycję **Utwórz** , aby utworzyć grupę schematów. 
 1. Wybierz nazwę **grupy schematów** na liście grup schematów.
 
-    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Wybierz grupę schematów na liście":::    
+    :::image type="content" source="./media/create-schema-registry/select-schema-group.png" alt-text="Strona rejestr schematu":::    
 1. Zostanie wyświetlona strona **grupy schematów** dla grupy.
 
-    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Strona grupy schematów":::
+    :::image type="content" source="./media/create-schema-registry/schema-group-page.png" alt-text="Strona rejestr schematu":::
     
 
 ## <a name="add-a-schema-to-the-schema-group"></a>Dodaj schemat do grupy schematów
@@ -64,30 +65,30 @@ W tej sekcji dodasz schemat do grupy schematów przy użyciu Azure Portal.
             ]
         }
         ```
-    1. Wybierz przycisk **Utwórz**. 
+    1. Wybierz pozycję **Utwórz**. 
 1. Wybierz **schemat** z listy schematów. 
 
-    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Wybierz schemat":::
+    :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Strona rejestr schematu":::
 1. Zostanie wyświetlona strona **Przegląd schematu** dla schematu. 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Strona przegląd schematu":::    
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Strona rejestr schematu":::    
 1. Jeśli istnieje wiele wersji schematu, zobaczysz je na liście rozwijanej **wersje** . Wybierz wersję do przełączenia do tego schematu wersji. 
 
 ## <a name="create-a-new-version-of-schema"></a>Utwórz nową wersję schematu
 
 1. Zaktualizuj schemat w polu tekstowym, a następnie wybierz pozycję **Weryfikuj**. W poniższym przykładzie dodano nowe pole `id` do schematu. 
 
-    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Aktualizuj schemat":::    
+    :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Strona rejestr schematu":::    
     
 1. Przejrzyj stan sprawdzania poprawności i zmiany, a następnie wybierz pozycję **Zapisz**. 
 
-    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Przejrzyj stan walidacji, zmiany i Zapisz":::     
+    :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Strona rejestr schematu":::     
 1. Zobaczysz, że `2` wybrano **wersję** na stronie **Przegląd schematu** . 
 
-    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Nowa wersja schematu":::    
+    :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Strona rejestr schematu":::    
 1. Wybierz, `1` Aby zobaczyć wersję 1 schematu. 
 
-    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Wybierz wersję":::    
+    :::image type="content" source="./media/create-schema-registry/select-version.png" alt-text="Strona rejestr schematu":::    
 
 
 ## <a name="next-steps"></a>Następne kroki

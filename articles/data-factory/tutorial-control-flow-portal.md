@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b491c63e141389f1a53a884623f1c054ff2b8b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276901"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568535"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Rozgałęzianie działań i łączenie łańcuchów w potoku Azure Data Factory przy użyciu Azure Portal
 
@@ -184,7 +184,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
    ![Przeciąganie i upuszczanie działania kopiowania](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. W oknie **Właściwości** dla działania **Kopiowanie** znajdującego się na dole przejdź do karty **Źródło**, a następnie kliknij pozycję **+ Nowy**. W tym kroku utworzysz zestaw danych źródłowych dla działania kopiowania.
 
-   ![Zestaw danych źródłowych](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Zrzut ekranu pokazujący sposób tworzenia źródłowego zestawu danych dla działania kopiowania.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. W oknie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage** i kliknij przycisk **Zakończ**.
 
    ![Wybieranie pozycji Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
         ![Ustawienia dla drugiego działania internetowego](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Wybierz działanie **Kopiowanie** w projektancie potoku, a następnie kliknij przycisk **+->** i zaznacz pozycję **Błąd**.  
 
-    ![Ustawienia dla drugiego działania internetowego](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Zrzut ekranu pokazujący sposób wybierania błędu w działaniu kopiowania w projektancie potoku.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Przeciągnij **czerwony** przycisk znajdujący się obok działania kopiowania do drugiego działania internetowego **SendFailureEmailActivity**. Działania można przenosić, tak aby potok wyglądał jak na poniższym obrazie:
 
     ![Pełny potok ze wszystkimi działaniami](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
     ![Pomyślne uruchomienie potoku](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Aby **wyświetlić uruchomienia działań** skojarzone z tym uruchomieniem potoku, kliknij pierwszy link w kolumnie **Akcje**. Do poprzedniego widoku można wrócić, klikając pozycję **Potoki** u góry. Kliknij przycisk **Odśwież**, aby odświeżyć listę.
 
-    ![Uruchomienia działania](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Zrzut ekranu pokazujący sposób wyświetlania listy uruchomień działania.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Wyzwalanie niepomyślnego uruchomienia potoku
 1. Przejdź do karty **Edycja** po lewej stronie.

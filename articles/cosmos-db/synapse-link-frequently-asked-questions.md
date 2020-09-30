@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398805"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568601"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
@@ -25,7 +25,7 @@ W publicznej wersji zapoznawczej link Synapse jest obsługiwany dla interfejsu A
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Czy link Synapse jest obsługiwany dla wieloregionowych kont Azure Cosmos?
 
-Tak, w przypadku kont usługi Azure Cosmos na wiele regionów dane przechowywane w magazynie analitycznym są również dystrybuowane globalnie. Niezależnie od pojedynczego regionu zapisu (pojedynczego wzorca) lub wielu regionów zapisu (znanych również jako wiele wzorców) zapytania analityczne wykonywane z usługi Azure Synapse Analytics mogą być obsługiwane w najbliższym regionie lokalnym.
+Tak, w przypadku kont usługi Azure Cosmos na wiele regionów dane przechowywane w magazynie analitycznym są również dystrybuowane globalnie. Niezależnie czy chodzi o pojedynczy region zapisu, czy wiele regionów zapisu, analityczne zapytania wykonywane z usługi Azure Synapse Analytics mogą być obsługiwane z najbliższego lokalnego regionu.
 
 Podczas planowania konfigurowania wieloregionowego konta platformy Azure Cosmos z obsługą magazynu analitycznego zaleca się, aby wszystkie wymagane regiony zostały dodane podczas tworzenia konta.
 
@@ -120,7 +120,7 @@ Wszystkie aktualizacje i usunięcia transakcyjne są kopiowane do magazynu anali
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Jakie są sposoby uwierzytelniania w magazynie analitycznym?
 
-Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypadku magazynu transakcyjnego. Dla danej bazy danych można uwierzytelnić się za pomocą klucza głównego lub tylko do odczytu. Możesz użyć połączonej usługi w programie Synapse Studio, aby zapobiec wklejaniu kluczy Azure Cosmos DB w notesach platformy Spark. Dostęp do tej połączonej usługi jest dostępny dla wszystkich użytkowników, którzy mają dostęp do obszaru roboczego.
+Uwierzytelnianie za pomocą magazynu analitycznego jest takie samo jak w przypadku magazynu transakcyjnego. Dla danej bazy danych można uwierzytelniać się za pomocą klucza podstawowego lub tylko do odczytu. Możesz użyć połączonej usługi w programie Synapse Studio, aby zapobiec wklejaniu kluczy Azure Cosmos DB w notesach platformy Spark. Dostęp do tej połączonej usługi jest dostępny dla wszystkich użytkowników, którzy mają dostęp do obszaru roboczego.
 
 ## <a name="synapse-run-times"></a>Synapse czasu wykonywania
 
@@ -150,7 +150,7 @@ Kontener Azure Cosmos DB włączony z magazynem analitycznym ma następującą i
 
 Kontener magazynu transakcyjnego będzie reprezentowany z następującą ikoną:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB kontenera włączonym za pomocą ikony magazynu transakcyjnego":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Kontener Azure Cosmos DB włączony z magazynem analitycznym — ikona":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Jak przekazać poświadczenia Azure Cosmos DB z programu Synapse Studio?
 

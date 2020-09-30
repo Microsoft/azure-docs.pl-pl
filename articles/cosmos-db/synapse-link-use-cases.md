@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319240"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568050"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
 
@@ -70,7 +70,7 @@ Poniżej przedstawiono kilka wskazówek dotyczących integracji danych na potrze
 
 Sprzedawcy detaliczni muszą tworzyć bezpieczne i skalowalne rozwiązania do obsługi handlu elektronicznego, które spełniają wymagania klientów i firmy. Te rozwiązania z zakresu handlu elektronicznego muszą angażować klientów za pośrednictwem dostosowanych produktów i ofert, szybko i bezpiecznie przetwarzać transakcje oraz skupić się na realizacji usługi klienta. Azure Cosmos DB wraz z najnowszym linkiem Synapse dla Azure Cosmos DB umożliwia detalistom generowanie spersonalizowanych zaleceń dla klientów w czasie rzeczywistym. Używają one ustawień spójności o małym opóźnieniu i możliwość dostosowania na potrzeby natychmiastowego wglądu w dane, jak pokazano w następującej architekturze:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Link usługi Azure Synapse dla Azure Cosmos DB w trybie personalizacji w czasie rzeczywistym" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Link Synapse platformy Azure dla Azure Cosmos DB w analizie łańcucha dostaw " border="false":::
 
 Azure Cosmos DB Synapse:
 
@@ -82,7 +82,7 @@ Innowacje przemysłowe mają znacząco zmniejszone przestoje maszyn i zwiększon
 
 Poniżej przedstawiono architekturę wykorzystującą natywne możliwości HTAP w chmurze w usłudze Azure Synapse link Azure Cosmos DB w ramach konserwacji predykcyjnej IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Link Synapse na platformie Azure dla Azure Cosmos DB w usłudze IOT — konserwacja predykcyjna" border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Link Synapse platformy Azure dla Azure Cosmos DB w analizie łańcucha dostaw " border="false" :::
 
 Link Synapse dla przypadków użycia Azure Cosmos DB:
 
@@ -92,7 +92,7 @@ Link Synapse dla przypadków użycia Azure Cosmos DB:
 
 ## <a name="sample-scenario-htap-for-azure-cosmos-db"></a>Przykładowy scenariusz: HTAP dla Azure Cosmos DB
 
-Prawie dekada Azure Cosmos DB była wykorzystywana przez tysiące klientów dla aplikacji o znaczeniu strategicznym, które wymagają elastycznej skali, dystrybucji globalnej gotowe, replikacji wielu wzorców w przypadku małych opóźnień i wysokiej dostępności obydwu odczytów & zapisów w ich transakcyjnych obciążeniach.
+W przypadku niemal dekady Azure Cosmos DB był używany przez tysiące klientów dla aplikacji o znaczeniu strategicznym, które wymagają elastycznej skali, globalnej dystrybucji gotowe, wieloregionowej replikacji zapisu w przypadku małych opóźnień i wysokiej dostępności obydwu odczytów & zapisów w ich transakcyjnych obciążeniach.
  
 Na poniższej liście przedstawiono omówienie różnych wzorców obciążeń, które są obsługiwane w przypadku danych operacyjnych przy użyciu Azure Cosmos DB:
 
@@ -104,17 +104,17 @@ Na poniższej liście przedstawiono omówienie różnych wzorców obciążeń, k
 
 Usługa Azure Synapse Link umożliwia Azure Cosmos DB nie tylko w przypadku obciążeń transakcyjnych, ale również umożliwia wykonywanie obciążeń analitycznych niemal w czasie rzeczywistym za pośrednictwem historycznych danych operacyjnych. Ma to miejsce bez wymagań ETL i gwarantowanej izolacji wydajności z obciążeń transakcyjnych.
 
-Na poniższej ilustracji przedstawiono wzorce obciążeń przy użyciu Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="link Azure Synapse dla wzorców obciążenia Azure Cosmos DB" border="false":::
+Na poniższej ilustracji przedstawiono wzorce obciążeń przy użyciu Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Link Synapse platformy Azure dla Azure Cosmos DB w analizie łańcucha dostaw " border="false":::
 
 Poinformuj nas o tym, że CompanyXYZ firmy handlu elektronicznego z operacjami globalnymi w 20 krajach/regionach, aby zilustrować korzyści wynikające z wyboru Azure Cosmos DB jako pojedynczej bazy danych w czasie rzeczywistym, co pozwala na globalne i analityczne wymagania dotyczące platformy zarządzania zapasami.
 
 * Podstawowa firma CompanyXYZ zależy od systemu zarządzania spisem, dlatego dostępność & niezawodność to wymagania podstawowe filar. Zalety korzystania z Azure Cosmos DB:
 
-  * Dzięki głębokiej integracji z infrastrukturą platformy Azure i niejawną międzygłówną replikacją globalną, Azure Cosmos DB zapewnia wiodącą w branży [99,999% wysoką dostępność](high-availability.md) na poziomie regionalnym.
+  * Dzięki głębokiej integracji z infrastrukturą platformy Azure i niewidocznym wieloregionowym zapisem, replikacja globalna Azure Cosmos DB zapewnia wiodącą w branży [99,999% wysoką dostępność](high-availability.md) na poziomie regionalnym.
 
 * Partnerzy łańcucha dostaw w CompanyXYZ mogą znajdować się w różnych lokalizacjach geograficznych, ale mogą mieć jeden widok spisu produktów na całym świecie w celu obsługi ich operacji lokalnych. Obejmuje to konieczność odczytywania aktualizacji dokonanych przez innych partnerów łańcucha dostaw w czasie rzeczywistym. Jak również można wprowadzać aktualizacje bez obaw o konflikty z innymi partnerami przy dużej przepływności. Zalety korzystania z Azure Cosmos DB:
 
-  * Przy użyciu unikatowego, wieloskładnikowego protokołu replikacji i samodzielnego, zoptymalizowanego pod kątem zapisu magazynu transakcyjnego, Azure Cosmos DB gwarantuje mniej niż 10 ms opóźnień zarówno dla indeksowanych odczytów, jak i zapisów w 99 percentylu globalnie.
+  * W przypadku unikatowego wieloregionowego zapisu protokołu replikacji i niezawolnych, zoptymalizowanych pod kątem zapisu magazyn transakcyjny, Azure Cosmos DB gwarantuje mniej niż 10 ms opóźnień zarówno dla indeksowanych odczytów, jak i zapisów w 99 percentylu globalnie.
 
   * Wysoką przepływność w przypadku przesyłania strumieniowego danych w [czasie rzeczywistym](index-policy.md) w magazynie transakcyjnym w usłudze Batch, w której przesyłane są dane &.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891336"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568356"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Rozwiązywanie problemów z błędami certyfikatów
 
@@ -30,7 +30,6 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 |---|---|
 | CertificateManagement_UntrustedCertificate | Certyfikat z nazwą podmiotu {0} ma przerwany łańcuch certyfikatów. Przekaż certyfikat łańcucha podpisywania przed przekazaniem tego certyfikatu.|
 | CertificateManagement_DeviceNotRegistered| Urządzenie nie zostało aktywowane. Certyfikat pomocy technicznej można przekazać dopiero po aktywacji.|
-| CertificateManagement_EmptySAN | Certyfikat z nazwą podmiotu nie {0} ma alternatywnej nazwy podmiotu. Sprawdź właściwości certyfikatu i wprowadź nowy certyfikat.|
 | CertificateManagement_ExpiredCertificate | Certyfikat z typem {0} wygasł lub wkrótce wygaśnie. Sprawdź ważność certyfikatu i w razie konieczności wprowadź nowy certyfikat.|
 | CertificateManagement_FormatMismatch | Format certyfikatu nie jest obsługiwany. Sprawdź format certyfikatu i w razie konieczności wprowadź nowy certyfikat.  Oczekiwano {0} , znaleziono {1} . |
 | CertificateManagement_GenericError | Nie można wykonać operacji zarządzania certyfikatami. Spróbuj ponownie wykonać tę operację za kilka minut. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
@@ -42,7 +41,6 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 | CertificateManagement_KeySizeNotSufficient | Certyfikat z nazwą podmiotu {0} ma niewystarczający rozmiar klucza {1} . Minimalny rozmiar klucza to 4096.|
 | CertificateManagement_MissingClientOid | Certyfikat z nazwą podmiotu nie {0} ma identyfikatora OID uwierzytelniania klienta. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | Certyfikat z nazwą podmiotu nie {0} ma podpisu cyfrowego w użyciu klucza. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat. |
-| CertificateManagement_MissingEntryInSAN | Certyfikat z nazwą podmiotu nie {0} zawiera wpisu nazwy podmiotu w alternatywnej nazwie podmiotu. Sprawdź właściwości certyfikatu i wprowadź nowy certyfikat. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | Certyfikat z nazwą podmiotu {0} nie ma certyfikatu do podpisywania przy użyciu klucza. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | Certyfikat z nazwą podmiotu nie {0} ma klucza szyfrowania kluczy w użyciu klucza. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat. |
 | CertificateManagement_MissingServerOid | Certyfikat z nazwą podmiotu {0} nie ma identyfikatora OID uwierzytelniania serwera. Sprawdź właściwości certyfikatu i w razie konieczności wprowadź nowy certyfikat.|
@@ -55,6 +53,10 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 | CertificateManagement_SubjectNamesInvalid | Certyfikat z nazwą podmiotu nie {0} ma poprawnej nazwy podmiotu lub alternatywnej nazwy podmiotu dla {1} certyfikatu. Sprawdź przekazany certyfikat i w razie konieczności Przenieś nowy certyfikat. Należy również sprawdzić nazwę DNS, aby dopasować nazwy sieci SAN.|
 | CertificateManagement_UnreadableCertificate | {0}Nie można odczytać certyfikatu z typem. Ten błąd występuje, gdy certyfikat jest nieczytelny lub uszkodzony. Wprowadź nowy certyfikat.|
 | CertificateSubjectNotFound | Nie można odnaleźć certyfikatu o nazwie podmiotu {0} . Wprowadź nowy certyfikat.|
+| CertificateRotationGenericFailure | Nie można obrócić co najmniej jednego certyfikatu. Spróbuj ponownie za kilka minut. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft.|
+| CertificateImportFailure | Certyfikat z odciskiem palca {0} nie został zaimportowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
+| CertificateApplyFailure | Certyfikat z odciskiem palca {0} nie został zastosowany w węźle {1} . Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft.|
+| NodeNotReachable | Nie można zweryfikować certyfikatu {0} . Sprawdź kondycję sprzętu i oprogramowania systemu.|
 
 ## <a name="next-steps"></a>Następne kroki
 

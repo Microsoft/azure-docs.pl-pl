@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e1121f1d1217ebd48c744135c976587545323f44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179236"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565171"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -62,75 +62,13 @@ Zarządzane tożsamości umożliwiają magazynowi tworzenie i używanie prywatny
     >[!NOTE]
     >Po włączeniu **nie** można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
 
-## <a name="dns-changes"></a>Zmiany w systemie DNS
-
-Używanie prywatnych punktów końcowych wymaga, aby Prywatna strefa DNS strefy, aby umożliwić rozszerzeniu kopii zapasowych rozpoznawanie prywatnych nazw FQDN do prywatnych adresów IP. Wszystkie trzy prywatne strefy DNS są wymagane. Chociaż dwie z tych stref muszą być mandatorily utworzone, trzeci można wybrać do zintegrowania z prywatnym punktem końcowym (podczas tworzenia prywatnego punktu końcowego) lub można go utworzyć osobno.
-
-Możesz również użyć niestandardowych serwerów DNS. Aby uzyskać szczegółowe informacje na temat korzystania z niestandardowych serwerów DNS, zobacz [zmiany w systemie DNS dotyczące niestandardowych serwerów DNS](#dns-changes-for-custom-dns-servers) .
-
-### <a name="creating-mandatory-dns-zones"></a>Tworzenie obowiązkowych stref DNS
-
-Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
-
-- `privatelink.blob.core.windows.net` (w przypadku kopii zapasowej/przywracania danych)
-- `privatelink.queue.core.windows.net` (na potrzeby komunikacji z usługą)
-
-1. Wyszukaj **strefę prywatna strefa DNS** na pasku wyszukiwania **wszystkie usługi** i wybierz opcję **strefa prywatna strefa DNS** z listy rozwijanej.
-
-    ![Wybierz strefę Prywatna strefa DNS](./media/private-endpoints/private-dns-zone.png)
-
-1. W okienku **strefy prywatna strefa DNS** wybierz przycisk **+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
-
-1. W okienku **Utwórz prywatną strefę DNS** wprowadź wymagane szczegóły. Subskrypcja musi być taka sama jak lokalizacja, w której zostanie utworzony prywatny punkt końcowy.
-
-    Strefy muszą być nazwane jako:
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Strefa**                           | **Usługa** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Obiekt blob        | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy  **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
-    | `privatelink.queue.core.windows.net` | Kolejka       | **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
-
-    ![Utwórz strefę Prywatna strefa DNS](./media/private-endpoints/create-private-dns-zone.png)
-
-1. Po wykonaniu tych czynności Przejrzyj i Utwórz strefę DNS.
-
-### <a name="optional-dns-zone"></a>Opcjonalna strefa DNS
-
-Możesz zintegrować prywatne punkty końcowe ze prywatnymi strefami DNS dla Azure Backup (omówione w sekcji [Tworzenie i używanie prywatnych punktów końcowych w celu tworzenia kopii zapasowych](#creating-and-using-private-endpoints-for-backup)) na potrzeby komunikacji z usługą. Jeśli nie chcesz zintegrować z prywatną strefą DNS, możesz wybrać opcję użycia własnego serwera DNS lub oddzielnie utworzyć prywatną strefę DNS. Jest to uzupełnienie dwóch obowiązkowych prywatnych stref DNS omówionych w poprzedniej sekcji.
-
-Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, możesz to zrobić przy użyciu tych samych kroków, które są używane do tworzenia obowiązkowych stref DNS. Szczegóły nazewnictwa i subskrypcji są udostępniane poniżej:
-
-| **Strefa**                                                     | **Usługa** | **Szczegóły subskrypcji i grupy zasobów**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Uwaga**: Lokalizacja *geograficzna* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna. | Backup      | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy  **RG**: dowolny RG w ramach subskrypcji |
-
-Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów.
-
-W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
-
-- [Chiny](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Niemcy](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Łączenie prywatnych stref DNS z siecią wirtualną
-
-Strefy DNS utworzone powyżej muszą teraz być połączone z siecią wirtualną, w której znajdują się kopie zapasowe serwerów. Należy to zrobić dla wszystkich utworzonych stref DNS.
-
-1. Przejdź do strefy DNS (utworzonej w poprzednim kroku) i przejdź do pozycji **linki sieci wirtualnej** na pasku po lewej stronie. Następnie wybierz przycisk **+ Dodaj**
-1. Wprowadź wymagane szczegóły. Pola **subskrypcja** i **Sieć wirtualna** muszą zawierać odpowiednie szczegóły dotyczące sieci wirtualnej, w której znajdują się serwery. Pozostałe pola muszą pozostać w postaci, w jakiej jest.
-
-    ![Dodaj łącze sieci wirtualnej](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>Udziel uprawnień do magazynu w celu utworzenia wymaganych prywatnych punktów końcowych
 
 Aby można było utworzyć wymagane prywatne punkty końcowe dla Azure Backup, magazyn (zarządzana tożsamość magazynu) musi mieć uprawnienia do następujących grup zasobów:
 
 - Grupa zasobów, która zawiera docelową sieć wirtualną
 - Grupa zasobów, w której mają zostać utworzone prywatne punkty końcowe
-- Grupa zasobów zawierająca Prywatna strefa DNS strefy
+- Grupa zasobów zawierająca Prywatna strefa DNS strefy, jak opisano szczegółowo w [tym miejscu](#creating-private-endpoints-for-backup)
 
 Zalecamy przyznanie roli **współautor** dla tych trzech grup zasobów do magazynu (tożsamość zarządzana). W poniższych krokach opisano, jak to zrobić dla określonej grupy zasobów (należy to zrobić dla każdej z trzech grup zasobów):
 
@@ -173,6 +111,8 @@ W tej sekcji opisano proces tworzenia prywatnego punktu końcowego dla magazynu.
 
         ![Wypełnij kartę Konfiguracja](./media/private-endpoints/configuration-tab.png)
 
+        Zapoznaj się z [tą sekcją](#dns-changes-for-custom-dns-servers) , jeśli chcesz używać niestandardowych serwerów DNS zamiast integrować je z usługą Azure prywatna strefa DNS Zones.  
+
     1. Opcjonalnie możesz dodać **Tagi** dla prywatnego punktu końcowego.
 
     1. Kontynuuj **przeglądanie i tworzenie** po zakończeniu wprowadzania szczegółów. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
@@ -189,51 +129,6 @@ Zobacz [Ręczne zatwierdzanie prywatnych punktów końcowych przy użyciu klient
 
     ![Zatwierdzanie prywatnych punktów końcowych](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>Dodawanie rekordów DNS
-
->[!NOTE]
-> Ten krok nie jest wymagany, jeśli używana jest zintegrowana strefa DNS. Jeśli jednak utworzono własną strefę usługi Azure Prywatna strefa DNS lub używamy niestandardowej prywatnej strefy DNS, upewnij się, że wpisy zostały wprowadzone zgodnie z opisem w tej sekcji.
-
-Po utworzeniu opcjonalnej prywatnej strefy DNS i prywatnych punktów końcowych magazynu należy dodać rekordy DNS do strefy DNS. Można to zrobić ręcznie lub za pomocą skryptu programu PowerShell. Należy to zrobić tylko dla strefy DNS tworzenia kopii zapasowych, a te dla obiektów blob i kolejek zostaną automatycznie zaktualizowane.
-
-### <a name="add-records-manually"></a>Ręczne dodawanie rekordów
-
-Wymaga to wprowadzenia wpisów dla każdej nazwy FQDN w prywatnym punkcie końcowym do strefy Prywatna strefa DNS.
-
-1. Przejdź do **prywatnej strefy DNS** i przejdź do opcji **Przegląd** na pasku po lewej stronie. W tym miejscu wybierz pozycję **+ zestaw rekordów** , aby rozpocząć Dodawanie rekordów.
-
-    ![Wybierz pozycję + zestaw rekordów, aby dodać rekordy](./media/private-endpoints/select-record-set.png)
-
-1. W otwartym okienku **Dodaj zestaw rekordów** Dodaj jeden wpis dla każdej nazwy FQDN i prywatnego adresu IP jako rekord **typu** . Listę nazw FQDN i adresów IP można uzyskać z prywatnego punktu końcowego (w obszarze **Przegląd**). Jak pokazano w poniższym przykładzie, Pierwsza nazwa FQDN z prywatnego punktu końcowego jest dodawana do zestawu rekordów w prywatnej strefie DNS.
-
-    ![Lista nazw FQDN i adresów IP](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Dodawanie zestawu rekordów](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>Dodawanie rekordów przy użyciu skryptu programu PowerShell
-
-1. Uruchom **Cloud Shell** w Azure Portal i wybierz polecenie **Przekaż plik** w oknie programu PowerShell.
-
-    ![Wybierz opcję Przekaż plik w oknie programu PowerShell](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Przekaż ten skrypt: [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Przejdź do folderu macierzystego (na przykład: `cd /home/user` )
-
-1. Uruchom poniższy skrypt:
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    Są to następujące parametry:
-
-    - **subskrypcja**: subskrypcja, w której znajduje się zasoby (prywatny punkt końcowy magazynu i prywatna strefa DNS)
-    - **vaultPEName**: Nazwa prywatnego punktu końcowego utworzonego dla magazynu
-    - **vaultPEResourceGroup**: Grupa zasobów zawierająca prywatny punkt końcowy magazynu
-    - **dnsResourceGroup**: Grupa zasobów zawierająca prywatne strefy DNS
-    - **Privatezone**: Nazwa prywatnej strefy DNS
-
 ## <a name="using-private-endpoints-for-backup"></a>Używanie prywatnych punktów końcowych do tworzenia kopii zapasowych
 
 Gdy prywatne punkty końcowe utworzone dla magazynu w sieci wirtualnej zostaną zatwierdzone, możesz zacząć ich używać do wykonywania kopii zapasowych i przywracania.
@@ -243,12 +138,9 @@ Gdy prywatne punkty końcowe utworzone dla magazynu w sieci wirtualnej zostaną 
 >
 >1. Utworzono magazyn Recovery Services (nowy)
 >1. Włączono magazyn do korzystania z tożsamości zarządzanej przypisanej przez system
->1. Utworzono trzy strefy Prywatna strefa DNS (dwa Jeśli przy użyciu zintegrowanej strefy DNS na potrzeby tworzenia kopii zapasowych)
->1. Połączono strefy Prywatna strefa DNS z platformą Azure Virtual Network
 >1. Przypisano odpowiednie uprawnienia do zarządzanej tożsamości magazynu
 >1. Utworzono prywatny punkt końcowy dla magazynu
 >1. Zatwierdzono prywatny punkt końcowy (jeśli nie został on zaakceptowany)
->1. Dodano wymagane rekordy DNS do prywatnej strefy DNS w celu utworzenia kopii zapasowej (dotyczy tylko sytuacji, gdy nie korzysta ona ze zintegrowanej prywatnej strefy DNS)
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Tworzenie kopii zapasowych i przywracanie obciążeń na maszynie wirtualnej platformy Azure (SQL, SAP HANA)
 
@@ -504,7 +396,11 @@ Należy utworzyć trzy prywatne strefy DNS i połączyć je z siecią wirtualną
 >[!NOTE]
 >W powyższym tekście *geograficznym* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna.
 
-Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów.
+Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów. Poniżej znajdują się linki do konwencji nazewnictwa adresów URL w regionach narodowych:
+
+- [Chiny](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Niemcy](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>Dodawanie rekordów DNS dla niestandardowych serwerów DNS
 

@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85254977"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566605"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Samouczek: tworzenie pierwszej fabryki danych przy użyciu witryny Azure Portal
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
-> * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+> * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Szablon usługi Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Szablon Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
@@ -76,7 +76,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia Data Factory, musisz być członkiem roli [współautor Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
@@ -171,7 +171,7 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
 
 1. Upewnij się, że w widoku drzewa po lewej stronie wyświetlane są obie pozycje **AzureStorageLinkedService** oraz **HDInsightOnDemandLinkedService**.
 
-    ![Widok drzewa z połączonymi usługami](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Zrzut ekranu pokazujący, że AzureStorageLinkedService i HDInsightOnDemandLinkedService są połączone ze sobą.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejściowych i wyjściowych na potrzeby przetwarzania przy użyciu programu Hive. Te zestawy danych dotyczą elementu AzureStorageLinkedService utworzonego wcześniej w tym samouczku. Połączona usługa wskazuje konto magazynu. Zestawy danych określają kontener, folder i nazwę pliku w magazynie, który przechowuje dane wejściowe i wyjściowe.   
@@ -434,10 +434,10 @@ W tym samouczku opisano tworzenie fabryki danych do przetwarzania danych przez u
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule opisano tworzenie potoku za pomocą działania przekształcenia (działanie usługi HDInsight), które uruchamia skrypt programu Hive w klastrze usługi HDInsight na żądanie. Aby dowiedzieć się, jak używać działania kopiowania do kopiowania danych z magazynu obiektów BLOB do Azure SQL Database, zobacz [Samouczek: kopiowanie danych z magazynu obiektów BLOB do SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Data Factory oraz ze sposobem konstruowania za ich pomocą kompletnych przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
+| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Data Factory oraz ze sposobem konstruowania za ich pomocą kompletnych przepływów pracy opartych na danych na potrzeby scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Data Factory. |
 | [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Data Factory. |
 | [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji Monitorowanie i zarządzanie](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji Monitorowanie i zarządzanie. |

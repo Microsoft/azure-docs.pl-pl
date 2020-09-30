@@ -4,12 +4,12 @@ description: Skalowanie automatyczne w Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073483"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567268"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Omówienie automatycznego skalowania w Microsoft Azure
 W tym artykule opisano, co Microsoft Azure automatyczne skalowanie, jego zalety oraz jak rozpocząć korzystanie z niego.  
@@ -38,7 +38,7 @@ Zestawy skalowania maszyn wirtualnych wykorzystują dane telemetryczne z agentó
 ## <a name="custom-metrics"></a>Metryki niestandardowe
 Możesz również wykorzystać własne metryki niestandardowe, które mogą emitować aplikacje. Jeśli skonfigurowano aplikacje do wysyłania metryk do Application Insights można wykorzystać te metryki, aby podejmować decyzje dotyczące tego, czy skalowanie ma być skalowane, czy nie.
 
-## <a name="time"></a>Czas
+## <a name="time"></a>Godzina
 Reguły oparte na harmonogramie są oparte na formacie UTC. W przypadku konfigurowania reguł należy odpowiednio ustawić strefę czasową.  
 
 ## <a name="rules"></a>Reguły
@@ -102,11 +102,14 @@ Można skonfigurować Skalowanie automatyczne za pomocą
 | Virtual Machines: klasyczny |[Skalowanie klasycznych zestawów dostępności maszyn wirtualnych](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: zestawy skalowania systemu Windows |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: zestawy skalowania systemu Linux |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: przykład systemu Windows |[Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: przykład systemu Windows |[Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Azure App Service |[Skalowanie aplikacji w górę w usłudze Azure App Service](../../app-service/manage-scale-up.md)|
 | Usługa API Management|[Automatyczne skalowanie wystąpienia usługi Azure API Management](../../api-management/api-management-howto-autoscale.md)
 | Klastry usługi Azure Eksplorator danych|[Zarządzaj skalowaniem klastrów Eksplorator danych platformy Azure w celu uwzględnienia zmiany popytu](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Skalowanie aplikacji w górę w usłudze Azure App Service](../../app-service/manage-scale-up.md)|
 | Logic Apps |[Dodawanie pojemności usługi Integration Service Environment (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Konfigurowanie autoskalowania dla aplikacji mikrousług](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Service Bus |[Automatycznie Aktualizuj jednostki obsługi komunikatów Azure Service Bus przestrzeni nazw](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat automatycznego skalowania, użyj wymienionych wcześniej przewodników skalowania automatycznego lub zapoznaj się z następującymi zasobami:
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792439"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565075"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Dodawanie partnerów handlowych do kont integracji dla usługi Azure Logic Apps
 
@@ -47,7 +47,7 @@ W umowie należy określić szczegóły dotyczące obsługi komunikatów przycho
 
 1. Wybierz kafelek **partnerzy** .
 
-   ![Wybierz kafelek "partnerzy"](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Zrzut ekranu przedstawiający kafelek partnerów.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. W obszarze **partnerzy**wybierz pozycję **Dodaj**. W obszarze **Dodawanie partnera**Podaj szczegóły partnera zgodnie z opisem w poniższej tabeli.
 
@@ -100,7 +100,7 @@ Wybierz kafelek **partnerzy** .
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoje konto integracji. Wybierz kafelek **partnerzy** .
 
-   ![Wybierz kafelek "partnerzy"](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Zrzut ekranu przedstawiający kafelek partnerzy wybierany podczas usuwania partnera.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. W obszarze **partnerzy**wybierz partnera, który chcesz usunąć. Wybierz przycisk **Usuń**.
 

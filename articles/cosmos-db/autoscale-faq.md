@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708006"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567591"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Dzięki funkcji automatycznego skalowania system skaluje przepływność (RU/s) 
 Każda godzina zostanie naliczona za najwyższą przepływność `T` , którą system przeskaluje do godziny. Jeśli zasób nie ma żadnych żądań w ciągu godziny lub nie przekroczy skalowania `0.1 * Tmax` , zostanie naliczona stawka za minimum `0.1 * Tmax` . Aby uzyskać szczegółowe informacje, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) Azure Cosmos DB. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Jak automatyczne skalowanie jest widoczne na rachunku?
-W przypadku kont z jednym serwerem głównym stawka skalowania automatycznego na 100 RU/s ma wartość 1,5 x według stawki standardowej (ręcznej). Na rachunku zostanie wyświetlony istniejący standardowy licznik przepływności. Ilość tego licznika zostanie pomnożona przez 1,5. Na przykład jeśli najwyższego poziomu RU/s system przeskalowany do godziny wynosił 6000 RU/s, opłaty są naliczane 60 * 1,5 = 90 jednostki gazomierza dla tej godziny.
+W przypadku kont w jednym regionie zapisu częstotliwość skalowania automatycznego na 100 RU/s jest 1,5 x częstotliwością (ręcznie) zainicjowanej przepływności. Na rachunku zostanie wyświetlony istniejący standardowy licznik przepływności. Ilość tego licznika zostanie pomnożona przez 1,5. Na przykład jeśli najwyższego poziomu RU/s system przeskalowany do godziny wynosił 6000 RU/s, opłaty są naliczane 60 * 1,5 = 90 jednostki gazomierza dla tej godziny.
 
-W przypadku kont z wieloma wzorcami częstotliwość skalowania automatycznego na 100 RU/s jest taka sama jak stawka standardowej (ręcznej) obsługiwanej przepływności wielu wzorców. Na rachunku zobaczysz istniejący miernik wielu wzorców. Ponieważ stawki są takie same, w przypadku korzystania z funkcji automatycznego skalowania będzie wyświetlana taka sama ilość jak w przypadku standardowej przepływności.
+W przypadku kont z wieloma regionami zapisu częstotliwość skalowania automatycznego na 100 RU/s jest taka sama jak stawka standardowa (ręczna), dla której zainicjowano obsługę wielu regionów zapisu. Na rachunku zobaczysz istniejący licznik wielu regionów zapisu. Ponieważ stawki są takie same, w przypadku korzystania z funkcji automatycznego skalowania będzie wyświetlana taka sama ilość jak w przypadku standardowej przepływności.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Czy automatyczne skalowanie jest wykonywane z użyciem zarezerwowanej pojemności?
-Tak. W przypadku zakupu zarezerwowanej do jednego wzorca pojemności rabat rezerwacji dla zasobów automatycznego skalowania jest stosowany do użycia licznika przy współczynniku wynoszącym 1,5 * [stosunek określonego regionu](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Tak. W przypadku zakupu zarezerwowanej pojemności dla kont z wieloma regionami zapisu rabat rezerwacji dla zasobów automatycznego skalowania jest stosowany do użycia licznika przy współczynniku wynoszącym 1,5 * [stosunek określonego regionu](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-Zarezerwowana dla wielu wzorców pojemność jest taka sama w przypadku automatycznie skalowanej i standardowej (ręcznej) przepływności. Zobacz [Azure Cosmos DB zarezerwowana pojemność](cosmos-db-reserved-capacity.md)
+Zarezerwowana pojemność regionu wielokrotnego zapisu działa w taki sam sposób, jak w przypadku przepływności z obsługą skalowania automatycznego i standardowego (ręcznie). Zobacz [Azure Cosmos DB zarezerwowana pojemność](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>Czy automatyczne skalowanie jest wykonywane w ramach warstwy Bezpłatna?
 Tak. W warstwie Bezpłatna można używać funkcji automatycznego skalowania w kontenerze. Obsługa udostępnionych baz danych przepływności automatycznego skalowania przy użyciu niestandardowych maksymalnych wartości RU/s nie jest jeszcze dostępna. Zobacz, jak [rozliczanie w warstwie Bezpłatna działa z automatycznym skalowaniem](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Tak. W warstwie Bezpłatna można używać funkcji automatycznego skalowania w k
 ### <a name="is-autoscale-supported-for-all-apis"></a>Czy automatyczne skalowanie jest obsługiwane dla wszystkich interfejsów API?
 Tak, automatyczne skalowanie jest obsługiwane dla wszystkich interfejsów API: Core (SQL), Gremlin, Table, Cassandra i API for MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>Czy automatyczne skalowanie jest obsługiwane w przypadku kont z wieloma wzorcami?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>Czy automatyczne skalowanie jest obsługiwane dla wieloregionowych kont zapisu?
 Tak. Maksymalna liczba RU/s jest dostępna w każdym regionie, który jest dodawany do konta Azure Cosmos DB. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Jak mogę włączyć skalowanie automatyczne dla nowych baz danych lub kontenerów?
