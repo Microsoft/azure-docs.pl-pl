@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541156"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurowanie serwera SMT dla systemu SUSE Linux
 Duże wystąpienia SAP HANA nie mają bezpośredniej łączności z Internetem. Nie jest to prosty proces rejestracji takiej jednostki u dostawcy systemu operacyjnego oraz pobierania i stosowania aktualizacji. Rozwiązaniem dla systemu SUSE Linux jest skonfigurowanie serwera w postaci SMT na maszynie wirtualnej platformy Azure. Hostowanie maszyny wirtualnej w sieci wirtualnej platformy Azure, która jest połączona z dużym wystąpieniem HANA. Dzięki takiemu serwerowi o rozmiarze SMT duże wystąpienie wystąpienia HANA może rejestrować i pobierać aktualizacje. 
@@ -44,7 +44,7 @@ Wdrożona maszyna wirtualna jest mniejsza i ma wewnętrzny adres IP w sieci wirt
 
 Dodaj dysk do maszyny wirtualnej. Ten dysk jest używany do przechowywania aktualizacji, a dysk rozruchowy może być za mały. W tym miejscu dysk został zainstalowany do/SRV/www/htdocs, jak pokazano na poniższym zrzucie ekranu. Wystarczy dysk 100 GB.
 
-![Zrzut ekranu wdrożenia maszyny wirtualnej na serwerze SMT](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![Zrzut ekranu przedstawia dodany dysk w oknie.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 Zaloguj się do jednostki lub jednostek dużego wystąpienia HANA, Zachowaj/etc/hosts i sprawdź, czy możesz dotrzeć do maszyny wirtualnej platformy Azure, która ma uruchamiać serwer SMT przez sieć.
 

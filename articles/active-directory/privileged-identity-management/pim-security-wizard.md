@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335888"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534441"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Odnajdywanie i szczegółowe informacje (wersja zapoznawcza) dla ról usługi Azure AD (dawniej Kreator zabezpieczeń)
 
@@ -45,7 +45,7 @@ Ponadto należy zachować stałe przypisania ról, jeśli użytkownik ma konto M
 
 1. Wybierz pozycję **Zmniejsz administratorów globalnych**.
 
-    ![Zmniejsz liczbę administratorów globalnych — okienko roli pokazujące wszystkich członków](./media/pim-security-wizard/new-preview-page.png)
+    ![Zrzut ekranu pokazujący "odnajdywanie i szczegółowe informacje (wersja zapoznawcza)" z wybraną akcją "Zmniejsz administratorów globalnych".](./media/pim-security-wizard/new-preview-page.png)
 
 1. Przejrzyj listę przypisań roli administratora globalnego.
 

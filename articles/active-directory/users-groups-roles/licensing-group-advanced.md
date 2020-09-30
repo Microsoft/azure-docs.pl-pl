@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538844"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
@@ -112,7 +112,7 @@ Oto przykład tego, jak ten proces może wyglądać następująco:
 
 3. Przejdź do okna [**Azure Active Directory licencje > > wszystkie produkty**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) i wybierz pozycję *Office 365 Enterprise E5*, a następnie wybierz pozycję **licencjonowane grupy** , aby wyświetlić listę wszystkich grup z tym produktem.
 
-4. Kliknij grupę, którą chcesz przejrzeć (w tym przypadku jest to usługa *O365 E5-Exchange*). Spowoduje to otwarcie karty **licencje** . kliknięcie licencji E5 spowoduje otwarcie bloku zawierającego listę wszystkich włączonych usług.
+4. Kliknij grupę, którą chcesz przejrzeć (w tym przypadku jest to usługa *O365 E5-Exchange*). Spowoduje to otwarcie karty **licencje** . Kliknięcie licencji E5 spowoduje otwarcie bloku zawierającego listę wszystkich włączonych usług.
    > [!NOTE]
    > Usługa *Microsoft Stream* została automatycznie dodana i włączona w tej grupie, oprócz usługi *Exchange Online* :
 
@@ -157,7 +157,7 @@ Za pomocą [dzienników inspekcji usługi Azure AD](../reports-monitoring/concep
 
 Oto przykład ostatnich zmian licencji grupowych, z uwzględnieniem szczegółów:
 
-![Zrzut ekranu — zmiany licencji grupy](./media/licensing-group-advanced/audit-group-license-change.png)
+![Zrzut ekranu pokazujący stronę "dzienniki inspekcji" z wybranym elementem listy i otwartym okienkiem "dziennik inspekcji szczegółów działania".](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Dowiedz się, kiedy zmiany grupy zostały rozpoczęte i zakończone przetwarzaniem
 

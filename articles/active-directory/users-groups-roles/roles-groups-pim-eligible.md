@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971171"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539898"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Przypisywanie roli do grupy przy użyciu Privileged Identity Management
 
@@ -35,7 +35,7 @@ W tym artykule opisano sposób przypisywania roli Azure Active Directory (Azure 
 
 1. Wybierz rolę, a następnie wybierz grupę. Wyświetlane są tylko grupy kwalifikujące się do przypisywania ról (grupy z możliwością przypisywania ról), a nie wszystkie grupy.
 
-    ![Wybierz użytkownika, do którego przypiszesz rolę](./media/roles-groups-pim-eligible/select-member.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodawanie przydziałów" z wyróżnionymi sekcjami "Wybieranie roli" i "Wybieranie członków".](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Wybierz odpowiednie ustawienie członkostwa. W przypadku ról wymagających aktywacji wybierz pozycję **kwalifikujące się**. Domyślnie użytkownik będzie ostatecznie uprawniony, ale można również ustawić godzinę rozpoczęcia i zakończenia dla uprawnień użytkownika. Po zakończeniu kliknij przycisk Zapisz i Dodaj, aby zakończyć przypisanie roli.
 

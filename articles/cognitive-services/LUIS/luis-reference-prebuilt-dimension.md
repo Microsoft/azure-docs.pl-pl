@@ -4,19 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera informacje o jednostkach wstępnie skompilowanych wymiarów w Language Understanding (LUIS).
 services: cognitive-services
 ms.custom: seodec18
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b5f081dc8c0bc203ccafde4a513371d11e36879
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270630"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538351"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka dla aplikacji LUIS
 Wstępnie utworzona jednostka wymiaru wykrywa różne typy wymiarów, niezależnie od kultury aplikacji LUIS. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowych wyrażenia długości zawierających wymiary do intencji aplikacji. Jednostka wymiaru jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
@@ -33,7 +31,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

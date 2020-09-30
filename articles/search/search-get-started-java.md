@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400659"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540357"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91400659"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,7 +37,7 @@ Do utworzenia i przetestowania tego przewodnika Szybki Start użyto następując
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Zestaw SDK języka Java 11](/java/azure/jdk/?view=azure-java-stable)
++ [Zestaw SDK języka Java 11](/java/azure/jdk/)
 
 + [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start.
 
@@ -67,7 +67,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 1. Wybierz pozycję **Maven**.
 1. Na liście **zestaw SDK projektu** wybierz zestaw SDK języka Java 11.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Tworzenie projektu Maven" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 1. Dla **identyfikatora GroupID** i **ArtifactId**wprowadź `AzureSearchQuickstart` .
 1. Zaakceptuj pozostałe wartości domyślne, aby otworzyć projekt.
@@ -78,7 +78,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji**wdrożenia  >  **Maven**  >  **Importowanie**.
 1. Zaznacz pole wyboru  **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven opcji importowania w ustawieniach IntelliJ" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 1. Otwórz plik pom.xml i Zastąp jego zawartość następującymi szczegółami konfiguracji Maven. Obejmują one odwołania do [wtyczki exec Maven](https://www.mojohaus.org/exec-maven-plugin/) oraz interfejsu [API interfejsu JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
     Gdy skończysz, drzewo projektu powinno wyglądać jak na poniższej ilustracji.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Struktura katalogu projektu" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 1. Kliknij przycisk **OK**, aby zamknąć okno.
 
@@ -148,7 +148,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `app` folderu, a następnie Dodaj `config.properties` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
 
-1. Skopiuj następujące ustawienia do nowego pliku i zastąp je `<YOUR-SEARCH-SERVICE-NAME>` `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` nazwą i kluczami usługi. Jeśli punkt końcowy usługi to `https://mydemo.search.windows.net` , nazwa usługi to "Moja demonstracja".
+1. Skopiuj następujące ustawienia do nowego pliku i zastąp je `<YOUR-SEARCH-SERVICE-NAME>` `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` nazwą i kluczami usługi. Jeśli punkt końcowy usługi ma wartość `https://mydemo.search.windows.net` , nazwą usługi będzie `"mydemo"` .
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -373,10 +373,10 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 1. Sprawdź, czy projekt ma następującą strukturę.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Struktura katalogów i klasy projektu" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java` 
- :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Wykonaj Maven cel: Verify exec: Java" border="false":::
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Po zakończeniu przetwarzania Wyszukaj komunikat o POWODZENIU kompilacji, po którym następuje kod zakończenia równy zero (0).
 

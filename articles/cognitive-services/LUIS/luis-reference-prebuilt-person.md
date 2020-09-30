@@ -3,20 +3,18 @@ title: Osoba — wstępnie utworzona jednostka — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostce PersonName w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/07/2019
-ms.author: diberry
-ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b0153d79aaf7b88fea958ab36183e57b41af204
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273431"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535427"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Osoba z wbudowaną jednostką dla aplikacji LUIS
 Przedbudowana jednostka PersonName wykrywa nazwiska osób. Ponieważ ta jednostka jest już przeszkolony, nie trzeba dodawać przykładowej wyrażenia długości zawierającej nazwisko osoby do zamiaru aplikacji. Jednostka PersonName jest obsługiwana w [kulturze](luis-reference-prebuilt-entities.md)angielskiej i chińskiej.
@@ -31,7 +29,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -41,7 +39,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

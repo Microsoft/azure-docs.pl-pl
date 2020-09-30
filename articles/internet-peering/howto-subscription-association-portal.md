@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710851"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540272"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu
 
@@ -70,12 +70,12 @@ Jako usługodawca internetowy lub internetowy dostawca programu Exchange można 
 1. Następnie kliknij pozycję **Przegląd + Utwórz** i obserwuj, że w portalu jest uruchamiana podstawowa weryfikacja wprowadzonych informacji. Ten element jest wyświetlany na Wstążce u góry, jak *trwa sprawdzanie poprawności końcowej...*
 
     > [!div class="mx-imgBorder"]
-    > ![Karta przegląd PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Zrzut ekranu przedstawia kartę skojarzenie równorzędne A S N.](./media/peerasn-review-tab-validation.png)
 
 1. Gdy komunikat na Wstążce *przejdzie do walidacji*, sprawdź informacje i prześlij żądanie, klikając pozycję **Utwórz**. Jeśli sprawdzanie poprawności nie zostanie zakończone, kliknij przycisk **Wstecz** i powtórz powyższe kroki w celu zmodyfikowania żądania i upewnienia się, że wprowadzone wartości nie mają żadnych błędów.
 
     > [!div class="mx-imgBorder"]
-    > ![Karta przegląd PeerAsn](./media/peerasn-review-tab.png)
+    > ![Zrzut ekranu przedstawia kartę skojarzenie równorzędne A S N z zakończono walidacją.](./media/peerasn-review-tab.png)
 
 1. Po przesłaniu żądania poczekaj na zakończenie wdrożenia. Jeśli wdrożenie nie powiedzie się, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peering@microsoft.com). Pomyślne wdrożenie zostanie wyświetlone poniżej.
 
@@ -101,6 +101,6 @@ Usuwanie elementu PeerAsn nie jest obecnie obsługiwane. Jeśli musisz usunąć 
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](howto-exchange-portal.md)
 * [Konwertowanie starszej komunikacji równorzędnej z punktem wymiany na zasób platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md)

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 6825627b77e3ea227cad88e347dbbabd5e6f5d0c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230980"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540340"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Wizualizuj dane z Azure Time Series Insights w Power BI
 
@@ -69,7 +69,7 @@ Aby rozpocząć:
        > [!NOTE]
        > Istnieje limit liczby zdarzeń 250 000 dla danych na poziomie nieprzetworzonych zdarzeń.
 
-       [![Connect](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Łączone](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Jeśli środowisko Azure Time Series Insights nie zostało skonfigurowane z **magazynem ciepłym**, zostanie wyświetlone ostrzeżenie.
 
@@ -110,13 +110,13 @@ Teraz, gdy dane zostały zaimportowane do Power BI, można utworzyć raport z wi
 
 1. Upewnij się, że wybrano widok **raport** po lewej stronie okna.
 
-    [![Wybierz widok raportu](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Zrzut ekranu przedstawia ikonę widok raportu.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
 1. W kolumnie **wizualizacje** wybierz swoją wizualizację. Na przykład wybierz pozycję **Wykres liniowy**. Spowoduje to dodanie pustego wykresu liniowego do kanwy.
 
 1. Na liście **pola** wybierz pozycję **_Timestamp** i przeciągnij ją do pola **oś** , aby wyświetlić elementy wzdłuż osi X. Upewnij się, że **_Timestamp** jako wartość **osi** (domyślnie **Hierarchia dat**).
 
-    [![Wybierz widok raportu](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![Zrzut ekranu przedstawia menu sygnatur czasowych z wybranym _Timestamp.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
 1. Na liście **pola** wybierz pozycję **TimeSeriesId** i przeciągnij ją do pola **wartości** , aby wyświetlić elementy wzdłuż osi Y.
 

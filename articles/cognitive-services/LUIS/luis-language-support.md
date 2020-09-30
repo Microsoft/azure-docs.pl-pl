@@ -3,20 +3,18 @@ title: Obsługa języków — LUIS
 titleSuffix: Azure Cognitive Services
 description: Usługa LUIS oferuje wiele funkcji. Nie wszystkie funkcje są równoważne w każdym języku. Upewnij się, że interesujące Cię funkcje są obsługiwane w Twojej docelowej kulturze językowej. Aplikacja LUIS jest specyficzna dla kultury i nie można jej zmienić po jej ustawieniu.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.author: diberry
-ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588026"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541394"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -96,7 +94,7 @@ Aby wykonać Uczenie maszynowe, LUIS dzieli wypowiedź na [tokeny](luis-glossary
 |Gudżarati|✔|||
 |Hindi|✔|||
 |Włoski|✔|||
-|Japoński|||✔
+|japoński|||✔
 |Koreański||✔||
 |Marathi|✔|||
 |Portugalski (Brazylia)|✔|||

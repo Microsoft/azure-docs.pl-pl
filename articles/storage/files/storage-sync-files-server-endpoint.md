@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541496"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Dodawanie/Usuwanie punktu końcowego serwera Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Robi to poprzez transformowanie serwerów z systemem Windows do szybkiej pamięci podręcznej udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
 
-*Punkt końcowy serwera* reprezentuje konkretną lokalizację na *zarejestrowanym serwerze*, na przykład folder na woluminie serwera lub w katalogu głównym woluminu. Wiele punktów końcowych serwera może istnieć na tym samym woluminie, jeśli ich przestrzenie nazw nie nakładają się na siebie (na przykład F:\sync1 i F:\sync2). Zasady dotyczące warstw chmurowych można skonfigurować osobno dla każdego punktu końcowego serwera. W przypadku dodania lokalizacji serwera z istniejącym zestawem plików jako punktu końcowego serwera do grupy synchronizacji te pliki zostaną scalone z innymi plikami znajdującymi się już w innych punktach końcowych w grupie synchronizacji.
+*Punkt końcowy serwera* reprezentuje konkretną lokalizację na *zarejestrowanym serwerze*, na przykład folder na woluminie serwera lub w katalogu głównym woluminu. Wiele punktów końcowych serwera może istnieć na tym samym woluminie, jeśli ich przestrzenie nazw nie nakładają się na siebie (na przykład F:\sync1 i F:\sync2), a każdy punkt końcowy jest synchronizowany z unikatową grupą synchronizacji. Zasady dotyczące warstw chmurowych można skonfigurować osobno dla każdego punktu końcowego serwera. W przypadku dodania lokalizacji serwera z istniejącym zestawem plików jako punktu końcowego serwera do grupy synchronizacji te pliki zostaną scalone z innymi plikami znajdującymi się już w innych punktach końcowych w grupie synchronizacji.
 
 Zapoznaj się z artykułem [jak wdrożyć Azure File Sync](storage-sync-files-deployment-guide.md) , aby uzyskać informacje na temat sposobu wdrażania Azure File Sync na końcu.
 
@@ -56,7 +56,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 ```
 Określenie `-Order CloudTieringPolicy` spowoduje, że najpierw zostanie przywoływany ostatnio zmodyfikowane pliki.
 Inne opcjonalne, ale przydatne parametry, które należy wziąć pod uwagę:
-* `-ThreadCount`Określa, ile plików można wielokrotnie odwoływać.
+* `-ThreadCount` Określa, ile plików można wielokrotnie odwoływać.
 * `-PerFileRetryCount`Określa, jak często zostanie podjęta próba odwołania pliku, który jest aktualnie zablokowany.
 * `-PerFileRetryDelaySeconds`Określa czas (w sekundach) między ponownymi próbami odwołania i powinna być zawsze używana w połączeniu z poprzednim parametrem.
 

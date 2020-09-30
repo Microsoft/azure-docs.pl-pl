@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810381"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540469"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji HoloLens Unity wykorzystującej kotwice przestrzenne platformy Azure
 
@@ -80,7 +80,12 @@ Włącz urządzenie HoloLens, zaloguj się i podłącz urządzenie do komputera 
 
 Wybierz kolejno opcje **Debuguj**  >  **Rozpocznij debugowanie** , aby wdrożyć aplikację i rozpocząć debugowanie.
 
-Postępuj zgodnie z instrukcjami w aplikacji, aby umieścić i przywołać kotwicę.
+W aplikacji wybierz pozycję **BasicDemo** za pomocą strzałek, a następnie naciśnij pozycję **Przejdź!** przycisk służący do uruchamiania demonstracji. Postępuj zgodnie z instrukcjami, aby umieścić i odwołać kotwicę.
+
+![Zrzut ekranu 1 zrzut ekranu 2 zrzut ekranu ](./media/get-started-unity-hololens/screenshot-1.jpg)
+ ![ ](./media/get-started-unity-hololens/screenshot-2.jpg)
+ ![ 3 zrzut ](./media/get-started-unity-hololens/screenshot-3.jpg)
+ ![ ekranu 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 W programie Visual Studio Zatrzymaj aplikację, wybierając pozycję **Zatrzymaj debugowanie** lub naciśnij klawisze Shift + F5.
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640971"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537705"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ręczne uruchamianie funkcji niewyzwalanej przez protokół HTTP
 
@@ -43,11 +43,11 @@ Ta lokalizacja żądania w narzędziu Postman wraz z kluczem głównym funkcji w
 
 1. W sekcji **Edytuj klucz** skopiuj wartość klucza do schowka, a następnie wybierz przycisk **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Skopiuj klucz główny do Schowka." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
 1. Po skopiowaniu klucza *_master* wybierz pozycję **Kod + test**, a następnie wybierz pozycję **dzienniki**. Zostaną wyświetlone komunikaty z funkcji rejestrowane w tym miejscu po ręcznym uruchomieniu funkcji z narzędzia Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Wyświetl dzienniki, aby wyświetlić wyniki testu klucza głównego." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
 > [!CAUTION]  
 > Ze względu na podwyższony poziom uprawnień w aplikacji funkcji przyznany przez klucz główny nie należy udostępniać tego klucza osobom trzecim ani rozpowszechniać go w aplikacji. Klucz powinien być wysyłany tylko do punktu końcowego HTTPS.
@@ -62,22 +62,22 @@ Otwórz narzędzie Postman i wykonaj następujące kroki:
 1. Wpisz **x-Functions-Key** jako pierwszy klucz i Wklej klucz główny (ze schowka) jako wartość.
 1. Wpisz typ **Content-Type** jako drugi klucz i wpisz wartość w polu **Application/JSON** .
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Ustawienia nagłówków wpisów." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
 1. Wybierz kartę **Treść**.
 1. Wpisz **{"Input": "test"}** jako treść żądania.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Ustawienia treści wpisu." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
-1. Wybierz pozycję **Send** (Wyślij).
+1. Wybierz pozycję **Wyślij**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Wyślij żądanie przy użyciu programu Poster." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
     Narzędzie Postman zgłosi stan **202 Zaakceptowano**.
 
 1. Następnie wróć do swojej funkcji w witrynie Azure Portal. Przejrzyj dzienniki i zobaczysz komunikaty pochodzące z ręcznego wywołania funkcji.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Wyświetl dzienniki, aby wyświetlić wyniki testu klucza głównego." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

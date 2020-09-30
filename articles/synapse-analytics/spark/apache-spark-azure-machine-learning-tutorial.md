@@ -1,22 +1,22 @@
 ---
-title: Uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure
-description: Uruchamianie eksperymentów uczenia maszynowego przy użyciu Apache Spark i zautomatyzowanej platformy Azure
+title: 'Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure'
+description: Samouczek dotyczący sposobu uruchamiania eksperymentów uczenia maszynowego przy użyciu Apache Spark i zautomatyzowanej sieci platformy Azure
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033578"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540510"
 ---
-# <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Uruchamiaj eksperymenty przy użyciu zautomatyzowanych i Apache Spark platformy Azure
+# <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure i Apache Spark
 
 Azure Machine Learning to środowisko oparte na chmurze, które umożliwia uczenie, wdrażanie, Automatyzowanie i śledzenie modeli uczenia maszynowego oraz zarządzanie nimi. 
 

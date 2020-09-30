@@ -3,20 +3,18 @@ title: Migracja interfejsu API w wersji od 1 do v2
 titleSuffix: Azure Cognitive Services
 description: Program Endpoints i interfejsy API tworzenia Language Understanding w wersji 1 są przestarzałe. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do punktu końcowego w wersji 2 i interfejsów API tworzenia.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344751"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541326"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Przewodnik migracji interfejsu API V1 do wersji 2 dla aplikacji LUIS
 [Punkt końcowy](https://aka.ms/v1-endpoint-api-docs) w wersji 1 i interfejsy API [tworzenia](https://aka.ms/v1-authoring-api-docs) są przestarzałe. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) w wersji 2 i interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) .
@@ -28,7 +26,7 @@ LUIS zawiera nowe [regiony](https://aka.ms/LUIS-regions) dla interfejsów API Lu
 Trasa interfejsu API tworzenia została zmieniona z używania **trasy usługi** do korzystania z trasy **interfejsu API** .
 
 
-| version | trasa |
+| Wersja | route |
 |--|--|
 |1|/Luis/v1.0/**/Apps**|
 |2|**interfejs API**/Luis//v2.0/Apps|
@@ -37,7 +35,7 @@ Trasa interfejsu API tworzenia została zmieniona z używania **trasy usługi** 
 ## <a name="endpoint-route-changes"></a>Zmiany trasy punktu końcowego
 Interfejs API punktu końcowego ma nowe parametry ciągu zapytania, a także inną odpowiedź. Jeśli flaga verbose ma wartość true, wszystkie intencje, niezależnie od wyniku, są zwracane w tablicy o nazwie intencje (oprócz topScoringIntent).
 
-| version | Pobierz trasę |
+| Wersja | Pobierz trasę |
 |--|--|
 |1|/Luis/V1/Application? ID = {appId} &q = {q}|
 |2|/luis/v2.0/apps/{appId}? q = {q} [&timezoneOffset] [&verbose] [&sprawdzanie pisowni] [&przemieszczanie] [&Bing-pisownia-Check-Subscription-Key] [&log]|
@@ -107,7 +105,7 @@ odpowiedź na powodzenie punktu końcowego w wersji 2:
 ## <a name="key-management-no-longer-in-api"></a>Zarządzanie kluczami nie jest już w interfejsie API
 Interfejsy API klucza punktu końcowego subskrypcji są przestarzałe, zwracając 410.
 
-| version | trasa |
+| Wersja | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -117,7 +115,7 @@ Interfejsy API klucza punktu końcowego subskrypcji są przestarzałe, zwracają
 ## <a name="new-versioning-route"></a>Nowa trasa obsługi wersji
 Model V2 jest teraz zawarty w [wersji](luis-how-to-manage-versions.md). Nazwa wersji zawiera 10 znaków w marszrucie. Domyślna wersja to "0,1".
 
-| version | trasa |
+| Wersja | route |
 |--|--|
 |1|/Luis/v1.0/**/Apps/{AppID}/Entities**|
 |2|/Luis/**API**/v2.0/Apps/{AppID}/**wersje**/{versionId}/Entities|
@@ -136,7 +134,7 @@ Kilka interfejsów API, które zwracają metadane LUIS, mają nowe nazwy.
 ## <a name="sample-renamed-to-suggest"></a>"Przykładowa" została zmieniona na "sugerował"
 LUIS sugeruje wyrażenia długości z istniejącego [punktu końcowego wyrażenia długości](luis-how-to-review-endpoint-utterances.md) , który może wzmocnić model. W poprzedniej wersji ta nazwa była **Przykładowa**. W nowej wersji nazwa jest zmieniana z przykładu, aby **sugerował**. Jest to tzw. **[Przegląd punktu końcowego wyrażenia długości](luis-how-to-review-endpoint-utterances.md)** w witrynie sieci Web Luis.
 
-| version | trasa |
+| Wersja | route |
 |--|--|
 |1|przykład **/Luis/v1.0/**/Apps/{AppID}/Entities/{EntityId}/**sample**|
 |1|przykład **/Luis/v1.0/**/Apps/{AppID}/Intents/{intentId}/**sample**|

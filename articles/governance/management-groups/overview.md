@@ -4,14 +4,14 @@ description: Dowiedz się więcej na temat grup zarządzania, sposobu działania
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e0404cdc934771f8ebc0125ce9e21559739aee35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334161"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533810"
 ---
-# <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
+# <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania platformy Azure?
 
 Jeśli Twoja organizacja ma wiele subskrypcji, możesz potrzebować sposobu na wydajne zarządzanie dostępem, zasadami i zgodnością dla tych subskrypcji. Grupy zarządzania platformy Azure zapewniają poziom zakresu powyżej subskrypcji. Subskrypcje są organizowane w kontenerach nazywanych „grupami zarządzania”, do których należy zastosować swoje warunki nadzoru. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą warunki zastosowane do tej grupy zarządzania. Grupy zarządzania umożliwiają zarządzanie klasy korporacyjnej na dużą skalę niezależnie od typu subskrypcji.
 Wszystkie subskrypcje w ramach jednej grupy zarządzania muszą ufać tej samej dzierżawie usługi Azure Active Directory.
@@ -26,9 +26,9 @@ Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w celu o
    Diagram głównej grupy zarządzania przechowującej zarówno grupy zarządzania, jak i subskrypcje. W przypadku niektórych podrzędnych grup zarządzania są przechowywane grupy zarządzania, pewne subskrypcje i pewne. Jednym z przykładów w hierarchii przykładowej są cztery poziomy grup zarządzania z poziomem podrzędnym wszystkich subskrypcji.
 :::image-end:::
 
-Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lokalizacje maszyn wirtualnych do regionu Zachodnie stany USA w grupie o nazwie „Produkcja”. Te zasady będą dziedziczyły wszystkie subskrypcje Umowa Enterprise (EA), które są elementami podrzędnymi tej grupy zarządzania i będą miały zastosowanie do wszystkich maszyn wirtualnych w ramach tych subskrypcji. Te zasady zabezpieczeń nie mogą zostać zmienione przez właściciela zasobu lub subskrypcji, co zapewnia ulepszony nadzór.
+Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lokalizacje maszyn wirtualnych do regionu Zachodnie stany USA w grupie o nazwie „Produkcja”. Te zasady będą dziedziczone przez wszystkie subskrypcje umowy Enterprise Agreement (EA), które są elementami podrzędnymi tej grupy zarządzania i będą stosowane do wszystkich maszyn wirtualnych w ramach tych subskrypcji. Te zasady zabezpieczeń nie mogą zostać zmienione przez właściciela zasobu lub subskrypcji, co zapewnia ulepszony nadzór.
 
-Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie użytkownikom dostępu do wielu subskrypcji. Przenosząc wiele subskrypcji w ramach tej grupy zarządzania, można utworzyć jedno [przypisanie roli platformy Azure](../../role-based-access-control/overview.md) w grupie zarządzania, co spowoduje dziedziczenie dostępu do wszystkich subskrypcji. Jedno przypisanie grupy zarządzania może zapewnić użytkownikom dostęp do wszystkiego, czego potrzebują, bez konieczności tworzenia skryptów RBAC dla wielu subskrypcji.
+Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie użytkownikom dostępu do wielu subskrypcji. Przenosząc wiele subskrypcji w ramach tej grupy zarządzania, można utworzyć jedno [przypisanie roli platformy Azure](../../role-based-access-control/overview.md) w grupie zarządzania, co spowoduje dziedziczenie dostępu do wszystkich subskrypcji. Jednym przypisaniem w grupie zarządzania może być umożliwienie użytkownikom dostępu do wszystkiego, czego potrzebują, zamiast tworzenia skryptów RBAC na platformie Azure w różnych subskrypcjach.
 
 ### <a name="important-facts-about-management-groups"></a>Ważne fakty dotyczące grup zarządzania
 
@@ -150,7 +150,7 @@ Definicje ról są przypisywane w dowolnym miejscu w hierarchii grupy zarządzan
 
 Na przykład przyjrzyjmy się małej sekcji hierarchii dla wizualizacji.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagram podzestawu przykładowej hierarchii grup zarządzania." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
    Diagram koncentruje się na głównej grupie zarządzania z grupami zarządzania i marketingu. Grupa zarządzania I T ma jedną podrzędną grupę zarządzania o nazwie produkcja, podczas gdy grupa zarządzania Marketing ma dwie bezpłatne subskrypcje podrzędne w wersji próbnej.
 :::image-end:::
 
@@ -169,7 +169,7 @@ Istnieje kilka różnych opcji umożliwiających rozwiązanie tego scenariusza:
 Istnieją ograniczenia, które istnieją podczas korzystania z ról niestandardowych w grupach zarządzania. 
 
  - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Taka sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli przenosi się do innego elementu nadrzędnego, który nie ma definicji roli.  
- - Akcje płaszczyzny danych RBAC nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku, gdy występuje problem z opóźnieniami akcji RBAC aktualizujących dostawców zasobów płaszczyzny danych.
+ - Akcje płaszczyzny danych dostawcy zasobów nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku problemów z opóźnieniem w przypadku aktualizowania dostawców zasobów płaszczyzny danych.
    Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
  - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.  
 
@@ -194,7 +194,7 @@ Jeśli rola właściciela w subskrypcji jest dziedziczona z bieżącej grupy zar
 
 Grupy zarządzania są obsługiwane w [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md). Możesz wyszukiwać wszystkie zdarzenia, które wystąpiły w grupie zarządzania w tej samej lokalizacji centralnej co inne zasoby platformy Azure. Na przykład widoczne są wszystkie przypisania ról i zmiany przypisań zasad w określonej grupie zarządzania.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Zrzut ekranu dzienników aktywności i operacji związanych z wybraną grupą zarządzania." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
 
 Jeśli chcesz wykonać zapytanie dotyczące grup zarządzania spoza witryny Azure Portal, zakres docelowy grup zarządzania wygląda tak: **„/providers/Microsoft.Management/managementGroups/{identyfikator_grupy_zarządzania}”**.
 

@@ -4,12 +4,12 @@ description: Odpowiedzi na niektóre często zadawane pytania i scenariusze doty
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385912"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538062"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w Azure Functions
 
@@ -27,7 +27,7 @@ Dostęp do Internetu można ograniczyć na kilka sposobów:
     * W obszarze Ograniczenia adresów IP można również skonfigurować [punkty końcowe usługi](../virtual-network/virtual-network-service-endpoints-overview.md), które ograniczają funkcję do akceptowania ruchu przychodzącego z określonej sieci wirtualnej.
 * Usuwanie wszystkich wyzwalaczy HTTP. W przypadku niektórych aplikacji wystarczy uniknąć wyzwalacza protokołu HTTP i użyć innych źródeł zdarzeń do wyzwolenia funkcji.
 
-Należy pamiętać, że Edytor Azure Portal wymaga bezpośredniego dostępu do uruchomionej funkcji. Wszelkie zmiany kodu za pośrednictwem Azure Portal będą wymagały, aby urządzenie używane do przeglądania portalu miało listy dozwolonych IP. Można jednak nadal korzystać ze wszystkich elementów na karcie funkcje platformy z ograniczeniami sieci.
+Należy pamiętać, że Edytor Azure Portal wymaga bezpośredniego dostępu do uruchomionej funkcji. Wszelkie zmiany kodu za pośrednictwem Azure Portal będą wymagały urządzenia, którego używasz do przeglądania portalu w celu dodania adresu IP do zatwierdzonej listy. Można jednak nadal korzystać ze wszystkich elementów na karcie funkcje platformy z ograniczeniami sieci.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Jak mogę ograniczyć moją aplikację funkcji do sieci wirtualnej?
 

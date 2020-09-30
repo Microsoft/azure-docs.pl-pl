@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906659"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535073"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Samouczek: uczenie modeli klasyfikacji obrazów przy użyciu MNIST ręcznie danych i scikit — uczenie się 
 
@@ -37,7 +37,7 @@ Tego, jak wybrać i wdrożyć model, dowiesz się z [drugiej części tego samou
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
 >[!NOTE]
-> Kod w tym artykule został przetestowany przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 1.0.83.
+> Kod w tym artykule został przetestowany przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 1.13.0.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -117,7 +117,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -223,7 +223,7 @@ Teraz wiesz już, jak wyglądają te obrazy i jakie są oczekiwane wyniki przewi
 W przypadku tego zadania można przesłać zadanie do uruchomienia na wcześniej skonfigurowanym klastrze szkoleniowym.  W celu przesłania zadania wykonywane są następujące czynności:
 * Tworzenie katalogu
 * Tworzenie skryptu uczenia
-* Tworzenie obiektu narzędzia do szacowania
+* Utwórz konfigurację uruchamiania skryptu
 * Przesyłanie zadania
 
 ### <a name="create-a-directory"></a>Tworzenie katalogu
@@ -307,19 +307,19 @@ Zwróć uwagę, jak skrypt pobiera dane i zapisuje modele:
   shutil.copy('utils.py', script_folder)
   ```
 
-### <a name="create-an-estimator"></a>Tworzenie narzędzia do szacowania
+### <a name="configure-the-training-job"></a>Konfigurowanie zadania szkoleniowego
 
-Obiekt narzędzia do szacowania służy do przesyłania przebiegu. Azure Machine Learning wstępnie skonfigurowany szacowania dla popularnych platform uczenia maszynowego, a także ogólny szacowania. Utwórz element szacowania, określając
+Utwórz obiekt [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) , aby określić szczegóły konfiguracji zadania szkoleniowego, w tym skrypt szkoleniowy, środowisko, które ma być używane, oraz miejsce docelowe obliczeń do uruchomienia. Skonfiguruj ScriptRunConfig, określając:
 
-
-* Nazwa obiektu narzędzia do szacowania, `est`.
 * Katalog zawierający Twoje skrypty. Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania.
 * Docelowy zasób obliczeniowy. W tym przypadku użyjesz utworzonego klastra obliczeniowego usługi Azure Machine Learning.
 * Nazwa skryptu uczenia, **train.py**.
 * Środowisko, które zawiera biblioteki, które są konieczne do uruchomienia skryptu.
-* Wymagane parametry skryptu uczenia.
+* Argumenty wymagane ze skryptu szkoleniowego.
 
-W tym samouczku elementem docelowym jest usługa AmlCompute. Wszystkie pliki w folderze skryptów są przekazywane do węzłów klastra w celu uruchomienia. **Data_folder** jest ustawiony do korzystania z zestawu danych. "Najpierw Utwórz środowisko, które zawiera: Biblioteka scikit-Dowiedz się, jest wymagana do uzyskania dostępu do zestawu danych i platformy Azure — wartości domyślne, które zawierają zależności dotyczące rejestrowania metryk. Wartość domyślna platformy Azure zawiera również zależności wymagane do wdrożenia modelu jako usługi sieci Web w dalszej części tego samouczka.
+W tym samouczku elementem docelowym jest usługa AmlCompute. Wszystkie pliki w folderze skryptów są przekazywane do węzłów klastra w celu uruchomienia. **Data_folder** jest ustawiony do korzystania z zestawu danych.
+
+Najpierw Utwórz środowisko, które zawiera: Biblioteka scikit-Dowiedz się, która jest wymagana do uzyskania dostępu do zestawu danych, i wartość domyślna platformy Azure, która zawiera zależności dotyczące rejestrowania metryk. Wartość domyślna platformy Azure zawiera również zależności wymagane do wdrożenia modelu jako usługi sieci Web w dalszej części tego samouczka.
 
 Po zdefiniowaniu środowiska zarejestruj je w obszarze roboczym, aby ponownie użyć go w części 2 samouczka.
 
@@ -329,38 +329,34 @@ from azureml.core.conda_dependencies import CondaDependencies
 
 # to install required packages
 env = Environment('tutorial-env')
-cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
 
 env.python.conda_dependencies = cd
 
 # Register environment to re-use later
-env.register(workspace = ws)
+env.register(workspace=ws)
 ```
 
-Następnie utwórz szacowania z poniższym kodem.
+Następnie utwórz ScriptRunConfig przez określenie skryptu szkoleniowego, celu i środowiska obliczeniowego.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    # to mount files referenced by mnist dataset
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = Estimator(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env,
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>Przesyłanie zadania do klastra
 
-Uruchom eksperyment, przesyłając obiekt narzędzia do szacowania:
+Uruchom eksperyment, przesyłając obiekt ScriptRunConfig:
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -372,7 +368,7 @@ Ponieważ wywołanie jest asynchroniczne, zwraca ono stan **Przygotowywanie** lu
 
 Co się dzieje podczas oczekiwania:
 
-- **Tworzenie obrazu**: tworzony jest obraz platformy Docker, który jest zgodny ze środowiskiem Python określonym przez szacowania. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
+- **Tworzenie obrazu**: tworzony jest obraz platformy Docker, który jest zgodny ze środowiskiem Python określonym w środowisku usługi Azure ml. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
 
   Ten etap jest wykonywany tylko raz dla każdego środowiska Python, ponieważ kontener jest buforowany dla kolejnych przebiegów. Podczas tworzenia obrazu dzienniki są przesyłane strumieniowo do historii uruchamiania. Postęp tworzenia obrazu możesz monitorować przy użyciu tych dzienników.
 
@@ -440,7 +436,7 @@ model = run.register_model(model_name='sklearn_mnist',
 print(model.name, model.id, model.version, sep='\t')
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

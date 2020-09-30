@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723745"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540629"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 * Musisz mieć plik kubeconfig, aby uzyskać dostęp do roli klastra i klastra w klastrze w celu wdrożenia agentów Kubernetes z włączonym łukiem.
 * Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters". Rola "klaster Kubernetes — dołączanie do usługi Azure ARC" ma te uprawnienia i może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi.
 * Do dołączania klastra przy użyciu rozszerzenia connectedk8s jest wymagany Helm 3. [Zainstaluj najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install) , aby spełnić to wymaganie.
-* Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
+* Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
 * Zainstaluj rozszerzenia Kubernetes CLI z włączonym łukiem:
   
   Zainstaluj `connectedk8s` rozszerzenie, które ułatwia łączenie klastrów Kubernetes z platformą Azure:
@@ -179,27 +179,16 @@ Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza p
 
 1. Sprawdź wersję `connectedk8s` rozszerzenia zainstalowanego na komputerze, uruchamiając następujące polecenie:
 
-    ```bash
+    ```console
     az -v
     ```
 
     Wymagana `connectedk8s` wersja rozszerzenia >= 0.2.3, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
 
-2. Ustaw zmienne środowiskowe, które są zbędne dla interfejsu wiersza polecenia platformy Azure:
+2. Uruchom polecenie Connect z określonymi parametrami serwera proxy:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
-
-3. Uruchom polecenie Connect z określonymi parametrami serwera proxy:
-
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
     ```
 
 > [!NOTE]

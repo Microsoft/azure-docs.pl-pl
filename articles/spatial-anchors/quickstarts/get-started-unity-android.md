@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7e92da72e8125c22655a7eb9986f0554963aefeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280906"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538149"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji dla systemu Android w środowisku Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -58,9 +58,11 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 
 Wybierz urządzenie w obszarze **Uruchom urządzenie** , a następnie wybierz opcję **Kompiluj i uruchom**. Zostanie wyświetlony monit o zapisanie `.apk` pliku, dla którego można wybrać dowolną nazwę.
 
-Po uruchomieniu aplikacji powinien zostać wyświetlony ekran, który wygląda następująco:
+W aplikacji wybierz pozycję **BasicDemo** za pomocą strzałek, a następnie naciśnij pozycję **Przejdź!** przycisk służący do uruchamiania demonstracji. Postępuj zgodnie z instrukcjami, aby umieścić i odwołać kotwicę.
 
-![Ekran aplikacji](./media/get-started-unity-android/demo-app-screen.png)
+![Zrzut ekranu 1 zrzut ekranu ](./media/get-started-unity-android/screenshot-1.jpg)
+ ![ 2 ](./media/get-started-unity-android/screenshot-2.jpg)
+ ![ zrzut ekranu 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Postępuj zgodnie z instrukcjami w aplikacji, aby umieścić i przywołać kotwicę.
 

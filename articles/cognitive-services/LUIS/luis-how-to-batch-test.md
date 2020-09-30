@@ -3,20 +3,18 @@ title: Jak wykonać test wsadowy — LUIS
 titleSuffix: Azure Cognitive Services
 description: Użyj zestawów testów wsadowych Language Understanding (LUIS), aby znaleźć wyrażenia długości z nieprawidłowymi intencjami i jednostkami.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: ee15d08c820492cfa2c0701dfe3b682d57e00187
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344411"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540952"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
 
@@ -36,7 +34,7 @@ ms.locfileid: "84344411"
 
 3. W polu **Nazwa zestawu danych** wprowadź nazwę pliku zestawu danych. Plik zestawu danych zawiera **tablicę wyrażenia długości** , włącznie z *zamiarem* i *obiektami*z etykietą. Przejrzyj [przykładowy plik wsadowy](luis-concept-batch-test.md#batch-file-format) pod kątem składni.
 
-4. Wybierz pozycję **Done** (Gotowe). Plik zestawu danych zostanie dodany.
+4. Wybierz pozycję **Gotowe**. Plik zestawu danych zostanie dodany.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Uruchamianie, zmiana nazwy, eksport lub usuwanie zestawu danych
 

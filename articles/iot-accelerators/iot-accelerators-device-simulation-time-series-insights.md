@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889345"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540578"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Użyj Time Series Insights, aby wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzenia
 
@@ -72,7 +72,7 @@ Poniższe kroki używają interfejsu wiersza polecenia platformy Azure w Azure C
     | SKU |**S1** |
     | Pojemność | **1** |
 
-    ![Utwórz Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
+    ![Tworzenie usługi Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
 
     > [!NOTE]
     > Dodanie środowiska Time Series Insights do tej samej grupy zasobów co Akcelerator rozwiązania oznacza, że jest usuwany po usunięciu akceleratora rozwiązania.
@@ -106,7 +106,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
     | Klucz zasad Centrum IoT | To pole jest wypełniane automatycznie. |
     | Grupa użytkowników IoT Hub | **devicesimulationtsi** |
     | Format serializacji zdarzeń | **JSON** |
-    | Nazwa właściwości znacznika czasu | Pozostaw puste |
+    | Nazwa właściwości znacznika czasu | Pozostaw puste. |
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -137,7 +137,7 @@ Eksplorator Time Series Insights jest aplikacją internetową, której można u�
 
 1. Na panelu warunki po lewej stronie wybierz pozycję **temperatura** jako **miarę** i iothub- **Connection-ID** jako wartość **Split by** :
 
-    ![Zapytanie Eksploratora Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Zrzut ekranu przedstawiający panel "warunki" Time Series Insights z wyróżnionymi wartościami "Measure" i "Split by".](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Kliknij prawym przyciskiem myszy wykres i wybierz polecenie **Eksploruj zdarzenia**:
 

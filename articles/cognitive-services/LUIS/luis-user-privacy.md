@@ -3,20 +3,18 @@ title: Eksportuj & Usuń dane — LUIS
 titleSuffix: Azure Cognitive Services
 description: Masz pełną kontrolę nad przeglądaniem, eksportowaniem i usuwaniem swoich danych. Usuwanie danych klienta w celu zapewnienia prywatności i zgodności.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273364"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541010"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Eksportuj i usuwaj dane klientów w Language Understanding (LUIS) w Cognitive Services
 
@@ -32,7 +30,7 @@ Zawartość klienta jest zaszyfrowana w ramach regionalnej usługi Microsoft Azu
 - Zawartość konta użytkownika zebrana podczas rejestracji
 - Dane szkoleniowe wymagane do skompilowania modeli
 - Zarejestrowane zapytania użytkownika używane przez [aktywną naukę](luis-concept-review-endpoint-utterances.md) w celu ulepszania modelu
-  - Użytkownicy mogą wyłączyć rejestrowanie zapytań, dołączając `&log=false` do żądania szczegółowe dane [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+  - Użytkownicy mogą wyłączyć rejestrowanie zapytań `&log=false` , dołączając do żądania szczegółowe dane [here](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Usuwanie danych klienta
 Użytkownicy LUIS mają pełną kontrolę w zakresie usuwania dowolnej zawartości użytkownika, za pomocą portalu sieci Web LUIS lub interfejsu API LUIS Authoring (nazywanego również programistycznymi). W poniższej tabeli przedstawiono linki pomagające w obu:
@@ -66,7 +64,7 @@ Portal [eu.Luis.AI](https://eu.luis.ai) i tworzenie do Europy (nazywane równie�
 
 * Europa
 * Francja
-* Wielka Brytania
+* Zjednoczone Królestwo
 
 W przypadku wdrażania w usłudze Azure lokalizacje geograficzne, wyrażenia długości odebrane przez punkt końcowy od użytkowników końcowych aplikacji będą przechowywane w obszarze geograficznym platformy Azure na potrzeby aktywnego uczenia się. Aktywną naukę można wyłączyć, zobacz temat [wyłączanie aktywnego uczenia](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Aby zarządzać przechowywanymi wyrażenia długości, zobacz [delete wypowiedź](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 

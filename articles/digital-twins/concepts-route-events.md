@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541360"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -55,7 +55,9 @@ Aby zdefiniować trasę zdarzeń, deweloperzy najpierw muszą definiować punkty
 * Centrum zdarzeń
 * Service Bus
 
-Punkty końcowe są konfigurowane przy użyciu interfejsów API płaszczyzny kontroli (obsługiwane przez [interfejs wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)lub za pośrednictwem Azure Portal. Definicja punktu końcowego daje:
+Aby utworzyć punkt końcowy, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+Podczas definiowania punktu końcowego należy podać:
 * Nazwa punktu końcowego
 * Typ punktu końcowego (Event Grid, centrum zdarzeń lub Service Bus)
 * Podstawowe parametry połączenia i pomocnicze parametry połączenia do uwierzytelniania 
@@ -69,7 +71,9 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
 
 ## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
  
-Trasy zdarzeń są tworzone w aplikacji klienckiej. Jednym ze sposobów wykonania tej czynności jest wywołanie `CreateEventRoute` [zestawu SDK platformy .NET (C#)](how-to-use-apis-sdks.md) : 
+Aby utworzyć trasę zdarzeń, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateEventRoute` wywołania [zestawu SDK platformy .NET (C#)](how-to-use-apis-sdks.md) : 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

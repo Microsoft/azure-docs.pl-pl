@@ -15,20 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214007"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537348"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management
 Możliwość ograniczania żądań przychodzących jest kluczową rolą usługi Azure API Management. Kontrolując częstotliwość żądań lub łączne żądania/przesyłane dane, API Management umożliwia dostawcom interfejsu API ochronę swoich interfejsów API przed nadużyciami i tworzenie wartości dla różnych warstw produktu interfejsu API.
 
+## <a name="rate-limits-and-quotas"></a>Limity szybkości i przydziały
+Limity szybkości i przydziały są używane do różnych celów.
+
+### <a name="rate-limits"></a>Limity szybkości
+Limity szybkości są zwykle używane do ochrony przed krótkimi i intensywnymi seriami woluminów. Na przykład jeśli wiesz, że usługa zaplecza ma wąskie gardło w bazie danych z dużą ilością wywołań, możesz ustawić `rate-limit-by-key` zasady, aby nie zezwalać na duże użycie woluminu za pomocą tego ustawienia.
+
+### <a name="quotas"></a>Przydziały
+Przydziały są zwykle używane do kontrolowania stawek wywołań w dłuższym okresie. Na przykład mogą ustawiać łączną liczbę wywołań, które może wykonać konkretny subskrybent w danym miesiącu. W przypadku zarabiając interfejsu API limity przydziału można także ustawiać inaczej w przypadku subskrypcji opartych na warstwach. Na przykład subskrypcja warstwy Podstawowa może być w stanie nie więcej niż 10 000 wywołań w miesiącu, ale warstwa Premium może być dołączana do 100 000 000 wywołań każdego miesiąca.
+
+W ramach usługi Azure API Management limity szybkości są zwykle propagowane szybciej w węzłach, aby chronić je przed skokami. Z kolei informacje o limicie przydziału użycia są używane w dłuższym okresie i dlatego jego implementacja jest inna.
+
+> [!CAUTION]
+> Ze względu na rozproszoną naturę architektury ograniczanie szybkości nie jest nigdy całkowicie dokładne. Różnica między skonfigurowaną i rzeczywistą liczbą dozwolonych żądań różni się w zależności od ilości żądania, liczby opóźnień zaplecza i innych czynników.
+
 ## <a name="product-based-throttling"></a>Ograniczanie na podstawie produktu
 Do tej pory możliwości ograniczania przepustowości zostały ograniczone do zakresu określonej subskrypcji produktu zdefiniowanej w Azure Portal. Jest to przydatne w przypadku, gdy dostawca interfejsu API stosuje limity dla deweloperów, którzy zarejestrowali się w celu korzystania z interfejsu API, ale nie jest to pomocne, na przykład w przypadku ograniczania indywidualnych użytkowników końcowych interfejsu API. Istnieje możliwość, że dla jednego użytkownika aplikacji dewelopera będzie można wykorzystać cały przydział, a następnie uniemożliwić innym klientom dewelopera korzystanie z aplikacji. Ponadto kilku klientów, którzy mogą generować duże ilości żądań, mogą ograniczyć dostęp do użytkowników okazjonalnych.
 
-## <a name="custom-key-based-throttling"></a>Ograniczanie oparte na kluczach niestandardowych
+## <a name="custom-key-based-throttling"></a>Ograniczanie oparte na kluczach
 
 > [!NOTE]
 > `rate-limit-by-key`Zasady i `quota-by-key` nie są dostępne w ramach warstwy zużycia usługi Azure API Management. 

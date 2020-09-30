@@ -3,12 +3,12 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469783"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533983"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -16,9 +16,9 @@ Zasoby, grupy zasobów, subskrypcje, grupy zarządzania i dzierżawcę zbiorowo 
 
 Grupy zarządzania mają teraz ustawienia hierarchii, które umożliwiają administratorowi dzierżawy sterowanie tymi zachowaniami. W tym artykule opisano wszystkie dostępne ustawienia hierarchii oraz sposób ich konfigurowania.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Uprawnienia RBAC dla ustawień hierarchii
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Uprawnienia kontroli RBAC platformy Azure dla ustawień hierarchii
 
-Skonfigurowanie dowolnych ustawień hierarchii wymaga dwóch operacji RBAC w głównej grupie zarządzania:
+Skonfigurowanie dowolnych ustawień hierarchii wymaga dwóch następujących operacji dostawcy zasobów w głównej grupie zarządzania:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Te operacje umożliwiają użytkownikowi odczytywanie i aktualizowanie ustawień
 
 ## <a name="setting---default-management-group"></a>Ustawienie — domyślna grupa zarządzania
 
-Domyślnie Nowa subskrypcja dodana w ramach dzierżawy jest dodawana jako członek głównej grupy zarządzania. Jeśli przydziały zasad, kontroli dostępu opartej na rolach (RBAC) i inne konstrukcje ładu są przypisane do głównej grupy zarządzania, natychmiast wpływają na te nowe subskrypcje. Z tego powodu wiele organizacji nie stosuje tych konstrukcji w głównej grupie zarządzania, nawet jeśli jest to wymagane miejsce do przypisywania. W innych przypadkach bardziej restrykcyjny zestaw kontrolek jest wymagany w przypadku nowych subskrypcji, ale nie powinien być przypisany do wszystkich subskrypcji. To ustawienie obsługuje oba przypadki użycia.
+Domyślnie Nowa subskrypcja dodana w ramach dzierżawy jest dodawana jako członek głównej grupy zarządzania. Jeśli przydziały zasad, kontrola dostępu oparta na rolach (Azure RBAC) i inne konstrukcje ładu są przypisane do głównej grupy zarządzania, natychmiast wpływają na te nowe subskrypcje. Z tego powodu wiele organizacji nie stosuje tych konstrukcji w głównej grupie zarządzania, nawet jeśli jest to wymagane miejsce do przypisywania. W innych przypadkach bardziej restrykcyjny zestaw kontrolek jest wymagany w przypadku nowych subskrypcji, ale nie powinien być przypisany do wszystkich subskrypcji. To ustawienie obsługuje oba przypadki użycia.
 
 Zezwalając na zdefiniowanie domyślnej grupy zarządzania dla nowych subskrypcji, można zastosować konstrukcje ładu dla całej organizacji w głównej grupie zarządzania, a także oddzielną grupę zarządzania z przypisaniami zasad lub przypisaniami ról platformy Azure bardziej przystosowanymi do nowej subskrypcji.
 

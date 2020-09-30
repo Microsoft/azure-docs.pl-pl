@@ -3,21 +3,18 @@ title: Tworzenie alertów Resource Health przy użyciu witryny Azure Portal
 description: Utwórz alert przy użyciu Azure Portal, który powiadomi Cię, gdy zasoby platformy Azure staną się niedostępne.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091576"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540680"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu witryny Azure Portal
 
 W tym artykule opisano sposób konfigurowania alertów dziennika aktywności dla powiadomień o kondycji zasobów przy użyciu Azure Portal.
 
 Azure Resource Health informuje o aktualnym i historycznym stanie kondycji zasobów platformy Azure. Alerty Azure Resource Health mogą powiadamiać niemal w czasie rzeczywistym o zmianie stanu kondycji tych zasobów. Tworzenie alertów Resource Health programowo pozwala użytkownikom na tworzenie i dostosowywanie alertów zbiorczo.
-
-> [!NOTE]
-> Alerty Resource Health są obecnie dostępne w wersji zapoznawczej.
 
 Powiadomienia o kondycji zasobów są przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md) z uwzględnieniem prawdopodobnie dużej ilości informacji przechowywanych w dzienniku aktywności, istnieje oddzielny interfejs użytkownika, który ułatwia wyświetlanie i Konfigurowanie alertów dotyczących powiadomień o kondycji zasobów.
 Możesz otrzymać Alert, gdy zasób platformy Azure wyśle powiadomienia o kondycji zasobów do subskrypcji platformy Azure. Alert można skonfigurować na podstawie:

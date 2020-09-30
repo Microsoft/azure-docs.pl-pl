@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534067"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -71,10 +71,9 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |japoński|  `ja`    |
 |Kannada|`kn`|
 |Kazachski|`kk`|
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
-|koreański |`ko`   |
+|Koreański |`ko`   |
 |Kurdyjski (środkowe)  |`ku`   |
 |Kurdyjski (północny) |`kmr`  |
 |Łotewski|   `lv`    |
@@ -102,6 +101,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Słowacki|    `sk`    |
 |Słoweński| `sl`    |
 |Hiszpański|   `es`    |
+|Suahili|   `sw`    |
 |Szwedzki|   `sv`    |
 |Tahitian|  `ty`    |
 |Tamilski| `ta`    |
@@ -152,9 +152,8 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 |Irlandzki | `ga`|
 |Włoski|   `it`    |
 |japoński|  `ja`    |
-|Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
-|koreański |`ko`   |
+|Koreański |`ko`   |
 |Kurdyjski (środkowe)  |`ku-Arab`  |
 |Łotewski|   `lv`    |
 |Litewski|    `lt`    |
@@ -173,6 +172,7 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 |Słowacki|    `sk`    |
 |Słoweński| `sl`    |
 |Hiszpański|   `es`    |
+|Suahili|   `sw`    |
 |Szwedzki|   `sv`    |
 |Tahitian|  `ty`    |
 |Tajlandzki|  `th`    |
@@ -246,9 +246,8 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Indonezyjski      | `id`          |
 | Włoski      | `it`          |
 | japoński      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
-| koreański      | `ko`          |
+| Koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Malajski      | `ms`          |
@@ -263,6 +262,7 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Słowacki     | `sk`          |
 | Słoweński      | `sl`          |
 | Hiszpański      | `es`          |
+| Suahili      | `sw`          |
 | Szwedzki      | `sv`          |
 | Tamilski      | `ta`          |
 | Tajlandzki      | `th`          |
@@ -314,8 +314,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Włoski      | `it`          |
 | japoński      | `ja`          |
 |Kannada|`kn`|
-| Kiswahili|    `sw`    |
-| koreański      | `ko`          |
+| Koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Madagaskaru| `mg`    |
@@ -335,6 +334,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Słowacki     | `sk`          |
 | Słoweński      | `sl`          |
 | Hiszpański      | `es`          |
+| Suahili|  `sw`    |
 | Szwedzki      | `sv`          |
 |Tahitian|  `ty`    |
 | Tajlandzki      | `th`          |
@@ -363,12 +363,12 @@ Konwertuj mowę na tekst, aby przetłumaczyć na wybrany język tekstu. Funkcja 
 |Angielski|
 |Fiński|
 |Francuski|
-|niemiecki|
+|Niemiecki|
 |Gudżarati|
 |Hindi|
 |Włoski|
 |japoński|
-|koreański|
+|Koreański|
 |Marathi|
 |Norweski|
 |polski|
@@ -408,7 +408,7 @@ Konwertuj tekst na mowę. Funkcja zamiany tekstu na mowę służy do dodawania d
 |Indonezyjski|
 |Włoski|
 |japoński|
-|koreański|
+|Koreański|
 |Malajski|
 |Norweski|
 |polski|

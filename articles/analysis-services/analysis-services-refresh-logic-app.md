@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448586"
+ms.locfileid: "91540731"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
 
@@ -27,7 +27,7 @@ Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure
 ## <a name="design-the-logic-app"></a>Projektowanie aplikacji logiki
 
 > [!IMPORTANT]
-> W poniższych przykładach założono, że Zapora Azure Analysis Services jest wyłączona. Jeśli Zapora jest włączona, publiczny adres IP inicjatora żądania musi być listy dozwolonych w zaporze Azure Analysis Services. Aby dowiedzieć się więcej o Azure Logic Apps zakresach adresów IP na region, zobacz [Informacje o limitach i konfiguracji Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
+> W poniższych przykładach założono, że Zapora Azure Analysis Services jest wyłączona. Jeśli Zapora jest włączona, publiczny adres IP inicjatora żądania należy dodać do listy zatwierdzonych w zaporze Azure Analysis Services. Aby dowiedzieć się więcej o Azure Logic Apps zakresach adresów IP na region, zobacz [Informacje o limitach i konfiguracji Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 

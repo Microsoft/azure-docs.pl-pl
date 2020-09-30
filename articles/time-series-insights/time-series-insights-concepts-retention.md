@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059421"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535693"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Informacje o przechowywaniu danych w Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano dwa podstawowe ustawienia, które mają wpływ na przechowywanie danych w środowisku Azure Time Series Insightsu.
 
@@ -37,7 +40,8 @@ Ponadto środowisko Azure Time Series Insights ma ustawienie **zachowania przekr
 
 > [!NOTE]
 > Domyślnie podczas tworzenia nowego środowiska przechowywanie jest skonfigurowane do **przeczyszczania starych danych**. To ustawienie może być przełączane w razie konieczności po czasie tworzenia przy użyciu Azure Portal na stronie **Konfigurowanie** środowiska Azure Time Series Insights.
-> * Informacje o sposobie konfigurowania zasad przechowywania można znaleźć w artykule [Konfigurowanie przechowywania w Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Informacje o sposobie konfigurowania zasad przechowywania można znaleźć w artykule [Konfigurowanie przechowywania w Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Zasady przechowywania danych są szczegółowo opisane poniżej.
 
@@ -69,8 +73,8 @@ Za każdym razem, gdy dzienny wskaźnik transferu danych w danym środowisku prz
 - Pomaga ona w ochronie przed utratą danych, ale może utworzyć okazję do utraty najnowszych danych, jeśli ruch przychodzący zostanie wstrzymany poza okresem przechowywania źródła zdarzenia.
 - Jednak po osiągnięciu maksymalnej wydajności środowiska środowisko wstrzymuje ruch przychodzący do momentu wykonania następujących dodatkowych akcji:
 
-   - Maksymalną pojemność środowiska można zwiększyć, aby dodać więcej jednostek skalowania, zgodnie z opisem w temacie [Jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - Zostanie osiągnięty okres przechowywania danych, a dane zostaną przeczyszczone, przez zwiększenie środowiska poniżej jego maksymalnej wydajności.
+  - Maksymalną pojemność środowiska można zwiększyć, aby dodać więcej jednostek skalowania, zgodnie z opisem w temacie [Jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+  - Zostanie osiągnięty okres przechowywania danych, a dane zostaną przeczyszczone, przez zwiększenie środowiska poniżej jego maksymalnej wydajności.
 
 ### <a name="example-three"></a>Przykład trzy
 

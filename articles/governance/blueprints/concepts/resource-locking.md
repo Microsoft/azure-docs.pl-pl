@@ -3,12 +3,12 @@ title: Zrozumienie blokowania zasobów
 description: Dowiedz się więcej na temat opcji blokowania w planach platformy Azure w celu ochrony zasobów podczas przypisywania planu.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534866"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
@@ -33,7 +33,7 @@ Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **nie z
 
 ## <a name="overriding-locking-states"></a>Zastępowanie Stanów blokowania
 
-Jest to zwykle możliwe dla kogoś z odpowiednią [rolą kontroli dostępu opartej na rolach](../../../role-based-access-control/overview.md) (RBAC) w ramach subskrypcji, takiej jak rola "właściciel", aby umożliwić zmianę lub usunięcie dowolnego zasobu. Ten dostęp nie jest dozwolony w przypadku, gdy plany platformy Azure stosują blokowanie w ramach wdrożonego przypisania. Jeśli przypisanie zostało ustawione przy użyciu opcji **tylko do odczytu** lub **nie usuwaj** , a właściciel subskrypcji może wykonać zablokowaną akcję dla chronionego zasobu.
+Jest to zwykle możliwe dla kogoś, kto ma odpowiednią [kontrolę dostępu opartą na rolach (Azure RBAC)](../../../role-based-access-control/overview.md) w ramach subskrypcji, taką jak rola "właściciel", aby umożliwić zmianę lub usunięcie dowolnego zasobu. Ten dostęp nie jest dozwolony w przypadku, gdy plany platformy Azure stosują blokowanie w ramach wdrożonego przypisania. Jeśli przypisanie zostało ustawione przy użyciu opcji **tylko do odczytu** lub **nie usuwaj** , a właściciel subskrypcji może wykonać zablokowaną akcję dla chronionego zasobu.
 
 Ten środek zabezpieczeń chroni spójność zdefiniowanego planu i środowiska, które zostało zaprojektowane do tworzenia z przypadkowego lub programowego usunięcia lub zmiany.
 
@@ -101,7 +101,7 @@ Po usunięciu przypisania blokady utworzone przez plany platformy Azure są usuw
 
 ## <a name="how-blueprint-locks-work"></a>Jak działają blokowane plany
 
-Akcja Odmów [przypisania](../../../role-based-access-control/deny-assignments.md) kontroli RBAC jest stosowana do zasobów artefaktu podczas przypisywania planu, jeśli przypisanie zabrało opcję **tylko do odczytu** lub **nie usuwaj** . Akcja Odmów jest dodawana przez zarządzaną tożsamość przypisania planu i może zostać usunięta tylko z zasobów artefaktów przez tę samą tożsamość zarządzaną. Ta miara zabezpieczeń wymusza mechanizm blokowania i uniemożliwia usunięcie blokady planu poza planami platformy Azure.
+Akcja Odmów [przypisywania Odmów dostępu](../../../role-based-access-control/deny-assignments.md) RBAC na platformie Azure jest stosowana do zasobów artefaktów podczas przypisywania planu, jeśli przypisanie zabrało opcję **tylko do odczytu** lub **nie usuwaj** . Akcja Odmów jest dodawana przez zarządzaną tożsamość przypisania planu i może zostać usunięta tylko z zasobów artefaktów przez tę samą tożsamość zarządzaną. Ta miara zabezpieczeń wymusza mechanizm blokowania i uniemożliwia usunięcie blokady planu poza planami platformy Azure.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Zrzut ekranu przedstawiający stronę kontroli dostępu (I M) oraz kartę Odmów przypisań dla grupy zasobów." border="false":::
 
@@ -161,7 +161,7 @@ W niektórych scenariuszach projektowych lub zabezpieczających może być konie
 
 ## <a name="exclude-an-action-from-a-deny-assignment"></a>Wyklucz akcję z przypisania odmowy
 
-Podobnie jak w przypadku [wykluczenia podmiotu zabezpieczeń](#exclude-a-principal-from-a-deny-assignment) [w przypisaniu planu](../../../role-based-access-control/deny-assignments.md) , można wykluczyć określone [operacje RBAC](../../../role-based-access-control/resource-provider-operations.md). W bloku **właściwości. blokady** w tym samym miejscu, w którym znajduje się **excludedPrincipals** , można dodać **excludedActions** :
+Podobnie jak w przypadku [wykluczenia podmiotu zabezpieczeń](#exclude-a-principal-from-a-deny-assignment) [w przypisaniu planu](../../../role-based-access-control/deny-assignments.md) , można wykluczyć określone [operacje dostawcy zasobów platformy Azure](../../../role-based-access-control/resource-provider-operations.md). W bloku **właściwości. blokady** w tym samym miejscu, w którym znajduje się **excludedPrincipals** , można dodać **excludedActions** :
 
 ```json
 "locks": {
@@ -177,7 +177,7 @@ Podobnie jak w przypadku [wykluczenia podmiotu zabezpieczeń](#exclude-a-princip
 },
 ```
 
-Chociaż **excludedPrincipals** musi być jawne, wpisy **excludedActions** mogą używać `*` do dopasowania symboli wieloznacznych operacji RBAC.
+Mimo że **excludedPrincipals** musi być jawne, wpisy **excludedActions** mogą używać `*` do dopasowania symboli wieloznacznych w ramach operacji dostawcy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
