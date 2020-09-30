@@ -4,6 +4,8 @@
   items:
     - name: Informacje o usłudze Azure Cache for Redis
       href: cache-overview.md
+    - name: Co nowego
+      href: cache-whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

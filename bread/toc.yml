@@ -598,12 +598,9 @@
         - name: Maszyna wirtualna do analizy danych
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Klient witryny Marketplace
-      tocHref: /azure/marketplace-consumer/
+    - name: Komercyjna platforma handlowa
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Publikowanie w witrynie Marketplace
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/

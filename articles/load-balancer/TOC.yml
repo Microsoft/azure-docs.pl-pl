@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
       href: load-balancer-standard-availability-zones.md
-    - name: Wbudowane mechanizmy zabezpieczeń
-      href: load-balancer-security-controls.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Zarządzanie pulą zaplecza
       href: backend-pool-management.md
     - name: Usługa Load Balancer w warstwie Standardowa i usługa Virtual Machine Scale Sets
