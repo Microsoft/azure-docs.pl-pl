@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie dla Azure Database for PostgreSQL grup serwerów w ramach skalowania
-description: Tworzenie kopii zapasowych i przywracanie dla Azure Database for PostgreSQL grup serwerów w ramach skalowania
+title: Tworzenie kopii zapasowej i przywracanie grup serwerów usługi Azure Database for PostgreSQL — hiperskala
+description: Tworzenie kopii zapasowej i przywracanie grup serwerów usługi Azure Database for PostgreSQL — hiperskala
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939787"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569706"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Tworzenie kopii zapasowych i przywracanie dla usługi Azure ARC z włączonymi grupami serwerów PostgreSQL
 
@@ -52,7 +52,7 @@ Zapoznaj się z sekcją magazyn danych wyjściowych:
     }
 ...
 ```
-Jeśli zostanie wyświetlona sekcja "kopie zapasowe", oznacza to, że Grupa serwerów została skonfigurowana do korzystania z klasy magazynu kopii zapasowej i jest gotowa do wykonywania kopii zapasowych i przywracania. Jeśli nie widzisz sekcji "kopie zapasowe", musisz usunąć i utworzyć ponownie grupę serwerów, aby skonfigurować klasę magazynu kopii zapasowych. W tym momencie nie można jeszcze konfigurować klasy magazynu kopii zapasowej po utworzeniu grupy serwerów.
+Jeśli zobaczysz nazwę klasy magazynu wskazanej w sekcji "kopie zapasowe" danych wyjściowych tego polecenia, oznacza to, że Grupa serwerów została skonfigurowana do używania klasy magazynu kopii zapasowych i jest gotowa do wykonania kopii zapasowych i przywrócenia. Jeśli nie widzisz sekcji "kopie zapasowe", musisz usunąć i utworzyć ponownie grupę serwerów, aby skonfigurować klasę magazynu kopii zapasowych. W tym momencie nie można jeszcze konfigurować klasy magazynu kopii zapasowej po utworzeniu grupy serwerów.
 
 >[!IMPORTANT]
 >Jeśli Grupa serwerów jest już skonfigurowana do używania klasy magazynu kopii zapasowych, Pomiń następny krok i przejdź bezpośrednio do kroku "wykonaj ręczną pełną kopię zapasową".
@@ -98,12 +98,12 @@ Gdzie:
 
 To polecenie służy do koordynowania rozproszonej pełnej kopii zapasowej we wszystkich węzłach, które stanowią grupę serwerów z funkcją Azure Arc PostgreSQL. Innymi słowy, będzie tworzyć kopie zapasowe wszystkich danych w koordynatorze i węzłach procesu roboczego.
 
-Przykład:
+Na przykład:
 ```console
 azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
 ```
 
-Po zakończeniu wykonywania kopii zapasowej zostanie zwrócony identyfikator, nazwa i stan kopii zapasowej. Przykład:
+Po zakończeniu wykonywania kopii zapasowej zostanie zwrócony identyfikator, nazwa i stan kopii zapasowej. Na przykład:
 ```console
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
@@ -117,7 +117,7 @@ Po zakończeniu wykonywania kopii zapasowej zostanie zwrócony identyfikator, na
 > - Zaplanuj automatyczne kopie zapasowe
 > - Pokaż postęp tworzenia kopii zapasowej podczas jej wykonywania
 
-## <a name="list-backups"></a>Utwórz listę kopii zapasowych
+## <a name="list-backups"></a>Wyświetlenie listy kopii zapasowych
 
 Utwórz listę kopii zapasowych, które są dostępne do przywrócenia.
 
@@ -127,17 +127,19 @@ Aby wyświetlić listę kopii zapasowych, które są dostępne do przywrócenia,
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-Przykład:
+Na przykład:
 ```console
 azdata arc postgres backup list --server-name postgres01
 ```
 
 Zwróci dane wyjściowe podobne do:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Sygnatura czasowa wskazuje punkt w czasie UTC, w którym wykonano kopię zapasową.
 
 ## <a name="restore-a-backup"></a>Przywracanie kopii zapasowej
 
@@ -151,7 +153,7 @@ Gdzie:
 - __Backup-ID__ to identyfikator kopii zapasowej pokazanej w poleceniu list Backup (zobacz krok 3).
 Spowoduje to skoordynowanie rozproszonego pełnego przywracania we wszystkich węzłach, które stanowią grupę serwerów PostgreSQL z funkcją Azure Arc. Innymi słowy, spowoduje to przywrócenie wszystkich danych z koordynatora i węzłów procesu roboczego.
 
-Przykład:
+Na przykład:
 ```console
 azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```

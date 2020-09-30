@@ -6,32 +6,32 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72753318"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570195"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów korzystania z wielu regionów w usłudze Azure Cosmos DB
 
 W dowolnym momencie możesz dodawać i usuwać regiony do konta usługi Azure Cosmos. Przepływność skonfigurowana dla różnych baz danych i kontenerów usługi Azure Cosmos jest zarezerwowana w każdym regionie skojarzonym z Twoim kontem. Jeśli przepustowość zainicjowana na godzinę jest sumą jednostek RU/s skonfigurowanych dla wszystkich baz danych i kontenerów dla konta usługi Azure Cosmos, `T` a liczba regionów platformy Azure skojarzonych z kontem bazy danych to `N` , łączna przepływność przyznanych dla konta Cosmos dla danej godziny jest równa:
 
-1. `T x N RU/s`Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane z jednym regionem zapisu. 
+1. `T x N RU/s` Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane z jednym regionem zapisu. 
 
-1. `T x (N+1) RU/s`Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane ze wszystkimi regionami, które mogą przetwarzać operacje zapisu. 
+1. `T x (N+1) RU/s` Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane ze wszystkimi regionami, które mogą przetwarzać operacje zapisu. 
 
 Aprowizowana przepływność z pojedynczym regionem zapisu kosztuje 0,008 USD/godz. na każde 100 RU/s, natomiast aprowizowana przepływność z wieloma regionami zapisu kosztuje 0,016 USD/godz. na każde 100 RU/s. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Koszt wielu regionów zapisu
 
-W systemie z wieloma wzorcami, Sieć dostępna jednostek ru dla operacji zapisu zwiększa `N` się, gdzie `N` jest liczbą regionów zapisu. W przeciwieństwie do zapisu w pojedynczym regionie, każdy region jest teraz zapisywalny i powinien obsługiwać rozwiązywanie konfliktów. Zwiększona ilość obciążeń dla autorów. W punkcie planowania kosztów w celu przeprowadzenia `M` operacji zapisu na całym świecie należy udostępnić `RUs` element M na poziomie kontenera lub bazy danych. Następnie można dodać dowolną liczbę regionów i użyć ich do zapisu w celu przeprowadzenia operacji `M` zapisu ru na całym świecie. 
+W systemie zapisów w wielu regionach sieć dostępna jednostek ru dla operacji zapisu zwiększa się, `N` gdzie `N` jest liczbą regionów zapisu. W przeciwieństwie do zapisu w pojedynczym regionie, każdy region jest teraz zapisywalny i powinien obsługiwać rozwiązywanie konfliktów. Zwiększona ilość obciążeń dla autorów. W punkcie planowania kosztów w celu przeprowadzenia `M` operacji zapisu na całym świecie należy udostępnić `RUs` element M na poziomie kontenera lub bazy danych. Następnie można dodać dowolną liczbę regionów i użyć ich do zapisu w celu przeprowadzenia operacji `M` zapisu ru na całym świecie. 
 
 ### <a name="example"></a>Przykład
 
 Rozważmy, że masz kontener w regionie zachodnie stany USA o przepływności 10 000 jednostek RU/s i przechowujesz 1 TB danych w tym miesiącu. Załóżmy, że dodasz trzy regiony — Wschodnie stany USA, Europa Północna i Azja Wschodnia, z których każdy ma ten sam magazyn i przepływność, i chcesz mieć możliwość zapisu w kontenerach we wszystkich czterech regionach z aplikacji rozproszonej globalnie. Łączny rachunek miesięczny (przy założeniu 31 dni) w miesiącu jest następujący:
 
-|**Element**|**Użycie (co miesiąc)**|**Stawka**|**Koszt miesięczny**|
+|**Element**|**Użycie (co miesiąc)**|**Częstotliwość**|**Koszt miesięczny**|
 |----|----|----|----|
 |Opłaty za przepływność dla kontenera w regionie zachodnie stany USA (wiele regionów zapisu) |10 000 jednostek RU/s * 24 * 31 |$0,016 za 100 RU/s na godzinę |$1 190,40 |
 |Rachunek przepływności dla 3 dodatkowych regionów — Wschodnie stany USA, Europa Północna i Azja Wschodnia (wiele regionów zapisu) |(3 + 1) * 10 000 jednostek RU/s * 24 * 31 |$0,016 za 100 RU/s na godzinę |$4 761,60 |

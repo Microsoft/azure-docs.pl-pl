@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213095"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570360"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Wypróbuj Azure Cosmos DB subskrypcje pojawiają się w obszarze Azure Portal da
 
 Aby wypróbować subskrypcje Azure Cosmos DB, mają zastosowanie następujące warunki:
 
-* Dostęp do konta można udzielić do osobistych kont Microsoft (MSA). Unikaj używania kont usługi Active Directory (AAD) lub kont należących do firmowych dzierżawców usługi AAD, które mogą mieć ograniczenia na miejscu, które mogą blokować udzielanie dostępu.
+* Dostęp do konta można udzielić do osobistych kont Microsoft (MSA). Unikaj używania kont usługi Azure Active Directory (Azure AD) lub kont należących do firmowych dzierżawców usługi Azure AD, które mogą mieć ograniczenia na miejscu, które mogą blokować udzielanie dostępu.
 * Jeden [kontener aprowizacji o przepływności](./set-throughput.md#set-throughput-on-a-container) na subskrypcję usług SQL, Gremlin API i Table accounts.
 * Maksymalnie trzy [kolekcje inicjowane przez przepływność](./set-throughput.md#set-throughput-on-a-container) na subskrypcję dla kont usługi MongoDB.
 * Jedna [baza danych z obsługą przepływności](./set-throughput.md#set-throughput-on-a-database) na subskrypcję. Bazy danych z obsługą przepływności mogą zawierać dowolną liczbę kontenerów wewnątrz.
@@ -102,9 +102,9 @@ Aby wypróbować subskrypcje Azure Cosmos DB, mają zastosowanie następujące w
 
 Azure Cosmos DB jest dostępna w Azure Portal. Najpierw Zarejestruj się, aby uzyskać subskrypcję platformy Azure. Po zarejestrowaniu możesz dodać konto Azure Cosmos DB do subskrypcji platformy Azure.
 
-### <a name="what-is-a-master-key"></a>Co to jest klucz główny?
+### <a name="what-is-a-primary-key"></a>Co to jest klucz podstawowy?
 
-Klucz główny jest tokenem zabezpieczającym dostęp do wszystkich zasobów dla konta. Osoby z kluczem mają dostęp do odczytu i zapisu do wszystkich zasobów na koncie bazy danych. Podczas dystrybucji kluczy głównych należy zachować ostrożność. Podstawowy klucz główny i pomocniczy klucz główny są dostępne w bloku **klucze** [Azure Portal][azure-portal]. Aby uzyskać więcej informacji na temat kluczy, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu](manage-with-cli.md#list-account-keys).
+Klucz podstawowy to token zabezpieczający służący do uzyskiwania dostępu do wszystkich zasobów dla konta. Osoby z kluczem mają dostęp do odczytu i zapisu do wszystkich zasobów na koncie bazy danych. Należy zachować ostrożność podczas dystrybucji kluczy podstawowych. Podstawowy klucz podstawowy i pomocniczy klucz podstawowy są dostępne w bloku **klucze** [Azure Portal][azure-portal]. Aby uzyskać więcej informacji na temat kluczy, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Do jakich regionów można ustawić PreferredLocations?
 

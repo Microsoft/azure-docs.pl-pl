@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846898"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570080"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Możesz kliknąć okno działania, aby wyświetlić jego szczegóły w oknie **W
 
 W okienku po prawej stronie przejdź do karty **Eksplorator okna działania** , aby wyświetlić więcej szczegółów.
 
-![Eksplorator okna działania](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Zrzut ekranu pokazujący, jak uzyskać dostęp do karty Eksploratora okna działania.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 Wyświetlane są również **zmienne rozpoznane** dla każdej próby uruchomienia dla działania w sekcji **próby** .
 
@@ -217,7 +217,7 @@ Okna działania mogą mieć jeden z następujących stanów:
 
 Po kliknięciu okna działania na liście zostaną wyświetlone szczegółowe informacje o nim w **Eksploratorze Windows działania** lub oknie **Właściwości** po prawej stronie.
 
-![Eksplorator okna działania](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Zrzut ekranu pokazujący sposób wyświetlania szczegółowych informacji o oknie działania.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Odśwież okna działania
 Szczegóły nie są odświeżane automatycznie, więc Użyj przycisku Odśwież (drugi przycisk) na pasku poleceń, aby ręcznie odświeżyć listę okien działania.  

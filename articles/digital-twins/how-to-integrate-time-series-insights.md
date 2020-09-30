@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c5c9b00ec3309638a7c5618e5995c8c5f07b11
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64e959536b4abea4f2facb5ae3238b4843e4611
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564375"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569953"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -65,7 +65,7 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
-4. Utwórz [punkt końcowy](concepts-route-events.md#create-an-endpoint) usługi Azure Digital bliźniaczych reprezentacji, który łączy temat siatki zdarzeń z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
+4. Utwórz [punkt końcowy](concepts-route-events.md#create-an-endpoint) usługi Azure Digital bliźniaczych reprezentacji, który łączy centrum zdarzeń z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
 
     ```azurecli
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
@@ -203,11 +203,11 @@ Następnie skonfigurujesz wystąpienie Time Series Insights, aby otrzymywać dan
     1. Wybierz warstwę cenową **PAYG (wersja zapoznawcza)** .
     2. Konieczne będzie wybranie **identyfikatora szeregów czasowych** dla tego środowiska. Identyfikator szeregów czasowych może zawierać maksymalnie trzy wartości, które będą używane do wyszukiwania danych w Time Series Insights. W tym samouczku można użyć **$dtId**. Przeczytaj więcej na temat wybierania wartości identyfikatora w [*najlepszych rozwiązaniach dotyczących wybierania identyfikatora szeregów czasowych*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Interfejs użytkownika portalu tworzenia dla środowiska Time Series Insightsowego. Wybrana jest warstwa cenowa PAYG (wersja zapoznawcza), a nazwa właściwości identyfikatora szeregów czasowych to $dtId":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 2. Wybierz pozycję **Dalej: Źródło zdarzenia** i wybierz z powyższych informacje Event Hubs. Należy również utworzyć nową grupę konsumentów Event Hubs.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="ŚRODOWISKO użytkownika portalu tworzenia dla źródła zdarzeń środowiska Time Series Insights. Tworzysz źródło zdarzeń z informacjami o centrum zdarzeń z powyższych. Tworzysz również nową grupę odbiorców.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Rozpocznij wysyłanie danych IoT do usługi Azure Digital bliźniaczych reprezentacji
 
@@ -223,19 +223,19 @@ Teraz dane powinny być przepływane do wystąpienia Time Series Insights, gotow
 
 1. Otwórz wystąpienie Time Series Insights w [Azure Portal](https://portal.azure.com) (możesz wyszukać nazwę wystąpienia na pasku wyszukiwania portalu). Odwiedź *adres URL eksploratora Time Series Insights* widoczny w przeglądzie wystąpienia.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Wybierz adres URL Eksploratora Time Series Insights na karcie Przegląd środowiska Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 2. W Eksploratorze zobaczysz trzy bliźniaczych reprezentacji z usługi Azure Digital bliźniaczych reprezentacji wyświetlonej po lewej stronie. Wybierz pozycję _**thermostat67**_, wybierz pozycję **temperatura**i przycisk **Dodaj**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="SELECT * * thermostat67 * *, Select * * temperatura * * i naciśnij przycisk * * Dodaj * *":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 3. Teraz należy zapoznać się z początkowymi odczytami temperatury z termostatu, jak pokazano poniżej. Ten sam odczyt temperatury jest aktualizowany dla *room21* i *floor1*i można wizualizować te strumienie danych wspólnie.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Początkowe dane temperatury są przedstawiane w Eksploratorze TSI. Jest to wiersz losowych wartości z zakresu od 68 do 85":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 4. Aby symulacja działała dłużej, Wizualizacja będzie wyglądać następująco:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Dane temperatury dla każdej z nich są przedstawiane w trzech równoległych wierszach różnych kolorów.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie Time Series Insights":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078208"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568893"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -258,13 +258,13 @@ Jeśli dołączysz Azure-SSIS IR do sieci wirtualnej, zobaczysz kafelek **Weryfi
 
 Na kafelku **Diagnostyka łączności** na stronie monitorowania Azure-SSIS IR możesz wybrać link **Test connection** , aby wypróbować okno, w którym można sprawdzić połączenia między Azure-SSIS IR i odpowiednimi pakietami/konfiguracjami/magazynami danych, a także usługami zarządzania, za pośrednictwem ich w pełni kwalifikowanej nazwy domeny (FQDN)/IP i wystawionego portu (zobacz [Testowanie połączeń z Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Zrzut ekranu pokazujący, gdzie można testować połączenia między Azure-SSIS IR i odpowiednim pakietem/konfiguracją/magazynami danych.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Kafelek statyczne publiczne adresy IP
 
 W przypadku wprowadzenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR zobaczysz kafelek **statyczne publiczne adresy IP** na stronie monitorowania Azure-SSIS IR (zobacz temat Przenoszenie [własnych statycznych adresów IP dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). Na tym kafelku można wybrać linki wyznaczające pierwsze/drugie statyczne publiczne adresy IP dla Azure-SSIS IR, aby wyskakujące okno, w którym można skopiować swój identyfikator zasobu ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) z pola tekstowego. W oknie podręcznym możesz również wybrać łącze **Zobacz ustawienia pierwszego/drugiego statycznego publicznego adresu IP** , aby zarządzać pierwszym/drugim statycznym publicznym adresem ip w Azure Portal.
 
-![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Zrzut ekranu pokazujący, gdzie można wyznaczyć pierwsze/drugie statyczne publiczne adresy IP.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Kafelek MAGAZYNów pakietów
 

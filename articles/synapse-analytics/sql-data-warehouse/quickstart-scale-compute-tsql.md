@@ -1,5 +1,5 @@
 ---
-title: Skalowanie obliczeniowe w usłudze Azure Synapse Analytics — T-SQL
+title: 'Szybki Start: skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics — T-SQL'
 description: Skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). Skalowanie zasobów obliczeniowych w poziomie zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
 services: synapse-analytics
 author: Antvgski
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cb813c9a30b644459f3e586ed4313ca070b5a746
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d11474a3f3b5d8c314f67260fddbbe0a98fe5196
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212925"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569895"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Szybki Start: skalowanie zasobów obliczeniowych w usłudze Azure Synapse Analytics przy użyciu języka T-SQL
 
 Skalowanie obliczeniowe w usłudze Azure Synapse Analytics (dawniej SQL DW) przy użyciu języka T-SQL i SQL Server Management Studio (SSMS). [Skalowanie zasobów obliczeniowych w poziomie](sql-data-warehouse-manage-compute-overview.md) zapewnia lepszą wydajność, a zmniejszenie ich skali pozwala ograniczyć koszty.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -50,7 +50,7 @@ W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/down
 
     ![Połącz z serwerem](./media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-3. Kliknij pozycję **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów.
+3. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów.
 
 4. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**. Następnie rozwiń węzeł **mySampleDataWarehouse** , aby wyświetlić obiekty w nowej bazie danych.
 
@@ -63,7 +63,7 @@ Ustawienie dotyczące celu usługi zawiera liczbę jednostek magazynu danych dla
 Aby wyświetlić bieżące jednostki magazynu danych dla magazynu danych:
 
 1. W obszarze połączenie z usługą **mySampleDataWarehouseservername.Database.Windows.NET**rozwiń pozycję **systemowe bazy danych**.
-2. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
+2. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **New Query** (Nowe zapytanie). Otworzy się okno nowego zapytania.
 3. Uruchom następujące zapytanie, aby wybrać odpowiedni element z dynamicznego widoku zarządzania sys.database_service_objectives.
 
     ```sql
@@ -89,7 +89,7 @@ W usłudze Azure Synapse można zwiększyć lub zmniejszyć zasoby obliczeniowe 
 
 Aby zmienić liczbę jednostek magazynu danych:
 
-1. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **Nowe zapytanie**.
+1. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **New Query** (Nowe zapytanie).
 2. Użyj instrukcji języka T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), aby zmodyfikować cel usługi. Uruchom następujące zapytanie, aby zmienić celu usługi na wartość DW300.
 
     ```Sql
@@ -103,7 +103,7 @@ Aby wyświetlić postęp poprzedniego żądania zmiany, możesz użyć składni 
 
 Aby sondować stan zmiany obiektu usługi:
 
-1. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **Nowe zapytanie**.
+1. Kliknij prawym przyciskiem myszy pozycję **master**, a następnie wybierz pozycję **New Query** (Nowe zapytanie).
 2. Uruchom następujące zapytanie, aby sondować widok DMV sys.dm_operation_status.
 
     ```sql
@@ -132,7 +132,7 @@ Aby sondować stan zmiany obiektu usługi:
 
 ## <a name="check-data-warehouse-state"></a>Sprawdzanie stanu magazynu danych
 
-Gdy magazyn danych jest wstrzymany, nawiązanie z nim połączenia za pomocą języka T-SQL nie jest możliwe. Aby wyświetlić bieżący stan magazynu danych, można użyć polecenia cmdlet programu PowerShell. Przykład zawiera sekcja [Sprawdzanie stanu magazynu danych — program Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
+Gdy magazyn danych jest wstrzymany, nawiązanie z nim połączenia za pomocą języka T-SQL nie jest możliwe. Aby wyświetlić bieżący stan magazynu danych, można użyć polecenia cmdlet programu PowerShell. Aby zapoznać się z przykładem, zobacz [Sprawdzanie stanu magazynu danych — PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state).
 
 ## <a name="check-operation-status"></a>Sprawdzanie stanu operacji
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450191"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569846"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Jak skonfigurować ExpressRoute Direct
 
@@ -166,9 +166,12 @@ Odwołuje się do ostatnio utworzonego zasobu ExpressRoute Direct, wprowadź naz
 
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
-1. Get ExpressRoute Direct details.
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Zmień stan administratora linków
+   
+Ten proces powinien służyć do przeprowadzenia testu warstwy 1, co gwarantuje, że każde połączenie krzyżowe jest prawidłowo poprawione na każdy router dla podstawowego i pomocniczego.
+1. Pobierz szczegóły ExpressRoute bezpośredniego.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName

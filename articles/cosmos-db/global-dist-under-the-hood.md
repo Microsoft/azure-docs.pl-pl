@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955917"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570449"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globalna dystrybucja danych z Azure Cosmos DBą pod okapem
 
@@ -30,7 +30,7 @@ Gdy aplikacja używająca Cosmos DB elastycznie skaluje przepływność na konte
 
 Jak pokazano na poniższej ilustracji, dane w kontenerze są dystrybuowane w dwóch wymiarach — w regionie i w różnych regionach, na całym świecie:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="partycje fizyczne" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia systemu" border="false":::
 
 Partycja fizyczna jest implementowana przez grupę replik nazywaną *zestawem replik*. Każdy komputer obsługuje setki replik odpowiadających różnym partycjom fizycznym w ramach ustalonego zestawu procesów, jak pokazano na powyższym obrazie. Repliki odpowiadające partycjom fizycznym są dynamicznie umieszczane i ładowane na maszynach w klastrze i w centrach danych w danym regionie.  
 
@@ -52,7 +52,7 @@ Partycja fizyczna jest przeznaczona do użycia przez samodzielną i dynamiczną 
 
 Grupa partycji fizycznych, jedna ze wszystkich skonfigurowanych za pomocą regionów bazy danych Cosmos, składa się z tego samego zestawu kluczy replikowanych we wszystkich skonfigurowanych regionach. Ta wyższa wartość pierwotna koordynacji jest nazywana rozłożoną w sposób dynamiczny rozłożeniem *partycji fizycznych* , która zarządza danym zestawem kluczy. Chociaż dana partycja fizyczna (zestaw replik) jest objęta zakresem klastra, zestaw partycji może obejmować klastry, centra danych i regiony geograficzne, jak pokazano na poniższej ilustracji:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Zestawy partycji" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologia systemu" border="false":::
 
 Można traktować zestaw partycji jako geograficznie rozproszony "zestaw" Super Replica ", który składa się z wielu replik i ma ten sam zestaw kluczy. Podobnie jak w przypadku zestawu replik, członkostwo w zestawie partycji jest również dynamiczne — zmienia się w zależności od niejawnych operacji zarządzania partycjami fizycznymi w celu dodania/usunięcia nowych partycji do/z danego zestawu partycji (na przykład w przypadku skalowania przepływności w kontenerze, dodania/usunięcia regionu do bazy danych Cosmos lub w przypadku wystąpienia błędów). Ze względu na to, że każda partycja (zestawu partycji) zarządza członkostwem w zestawie partycji w ramach własnego zestawu replik, członkostwo jest w pełni zdecentralizowane i wysoce dostępne. Podczas ponownej konfiguracji zestawu partycji zostaje także ustanowiona topologia nakładki między partycjami fizycznymi. Topologia jest dynamicznie wybierana na podstawie poziomu spójności, odległości geograficznej i dostępnej przepustowości sieci między źródłową i docelową partycją fizyczną.  
 
@@ -62,7 +62,7 @@ Usługa umożliwia konfigurowanie baz danych Cosmos z jednym regionem zapisu lub
 
 Nasz projekt dotyczący propagacji aktualizacji, rozwiązywania konfliktów i śledzenia związku przyczynowego jest inspirowany od wcześniejszej pracy w ramach [algorytmów epidemii](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) i systemu [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) . Chociaż jądro pomysłów zostało przeformułowane i zapewniają wygodną ramkę odniesienia do komunikowania się z projektem systemu Cosmos DB, również zostały poddane znaczącej transformacji po zastosowaniu ich do systemu Cosmos DB. Jest to konieczne, ponieważ w poprzednich systemach nie zaprojektowano ani nie jest to zarządzanie zasobami ani ze skalą, w której Cosmos DB ma działać, ani w celu zapewnienia możliwości (na przykład ograniczenia niezgodności) oraz rygorystycznej i kompleksowej umowy SLA, która Cosmos DB dostarcza klientom.  
 
-Należy odwołać się, że zestaw partycji jest dystrybuowany w wielu regionach i jest zgodny z protokołem replikacji Cosmos baz danych (z wieloma wzorcami), aby replikować dane między partycjami fizycznymi zawierającymi dany zestaw partycji. Każda partycja fizyczna (zestawu partycji) akceptuje operacje zapisu i umożliwia zazwyczaj odczyty na klientach lokalnych dla danego regionu. Zapisy akceptowane przez partycję fizyczną w regionie są trwale zatwierdzone i są wysoce dostępne na partycji fizycznej przed ich potwierdzeniem do klienta. Są to wstępnie zaakceptowane zapisy i są propagowane do innych partycji fizycznych w ramach zestawu partycji przy użyciu kanału antyentropii. Klienci mogą żądać zaakceptowania lub zatwierdzić zapisy przez przekazanie nagłówka żądania. Propagacja anty-entropii (łącznie z częstotliwością propagacji) jest dynamiczna, na podstawie topologii zestawu partycji, regionalnej bliskości partycji fizycznych i skonfigurowanego poziomu spójności. W ramach zestawu partycji Cosmos DB następuje główny schemat zatwierdzania z dynamicznie wybraną partycją arbiter. Wybór arbiter jest dynamiczny i jest integralną częścią ponownej konfiguracji zestawu partycji na podstawie topologii nakładki. Zatwierdzone zapisy (w tym aktualizacje wielowierszowe/wsadowe) są gwarantowane. 
+Odwołaj, że zestaw partycji jest dystrybuowany do wielu regionów i postępuj zgodnie z Cosmos baz danych (zapisy wieloregionowe), aby replikować dane między partycjami fizycznymi zawierającymi dany zestaw partycji. Każda partycja fizyczna (zestawu partycji) akceptuje operacje zapisu i umożliwia zazwyczaj odczyty na klientach lokalnych dla danego regionu. Zapisy akceptowane przez partycję fizyczną w regionie są trwale zatwierdzone i są wysoce dostępne na partycji fizycznej przed ich potwierdzeniem do klienta. Są to wstępnie zaakceptowane zapisy i są propagowane do innych partycji fizycznych w ramach zestawu partycji przy użyciu kanału antyentropii. Klienci mogą żądać zaakceptowania lub zatwierdzić zapisy przez przekazanie nagłówka żądania. Propagacja anty-entropii (łącznie z częstotliwością propagacji) jest dynamiczna, na podstawie topologii zestawu partycji, regionalnej bliskości partycji fizycznych i skonfigurowanego poziomu spójności. W ramach zestawu partycji Cosmos DB następuje główny schemat zatwierdzania z dynamicznie wybraną partycją arbiter. Wybór arbiter jest dynamiczny i jest integralną częścią ponownej konfiguracji zestawu partycji na podstawie topologii nakładki. Zatwierdzone zapisy (w tym aktualizacje wielowierszowe/wsadowe) są gwarantowane. 
 
 Stosujemy zakodowane zegary wektorowe (zawierające Identyfikator regionu i zegary logiczne odpowiadające każdemu poziomowi konsensusu odpowiednio w zestawie replik i zestawie partycji) w celu wykrywania i rozwiązywania konfliktów aktualizacji. Algorytm wyboru topologii i elementów równorzędnych został zaprojektowany w celu zapewnienia stałej i minimalnej ilości miejsca w magazynie oraz minimalnego obciążenia sieci w wektorach wersji. Algorytm gwarantuje Właściwość Strict zbieżność.  
 

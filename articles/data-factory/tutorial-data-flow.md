@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418681"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569887"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu mapowania przepływów danych
 
@@ -80,10 +80,10 @@ W tym kroku utworzysz potok zawierający działanie przepływu danych.
     ![Działanie przepływu danych](media/tutorial-data-flow/dataflow1.png)
 1. W okienku **działania** rozwiń pozycję **Przenieś i Przekształć** . Przeciągnij i upuść działanie **przepływu danych** z okienka do kanwy potoku.
 
-    ![Działanie przepływu danych](media/tutorial-data-flow/activity1.png)
+    ![Zrzut ekranu przedstawiający kanwę potoku, w której można usunąć działanie przepływu danych.](media/tutorial-data-flow/activity1.png)
 1. W oknie podręcznym **Dodawanie przepływu danych** wybierz pozycję **Utwórz nowy przepływ danych** , a następnie nadaj nazwę przepływowi danych **TransformMovies**. Po zakończeniu kliknij przycisk Zakończ.
 
-    ![Działanie przepływu danych](media/tutorial-data-flow/activity2.png)
+    ![Zrzut ekranu pokazujący lokalizację przepływu danych podczas tworzenia nowego przepływu danych.](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logika transformacji kompilacji na kanwie przepływu danych
 
@@ -91,19 +91,19 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
 1. Na kanwie przepływu danych Dodaj źródło, klikając je w polu **Dodaj źródło** .
 
-    ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow2.png)
+    ![Zrzut ekranu przedstawiający pole Dodaj źródło.](media/tutorial-data-flow/dataflow2.png)
 1. Nadaj nazwę źródłową **MoviesDB**. Kliknij pozycję **Nowy** , aby utworzyć nowy źródłowy zestaw danych.
 
-    ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow3.png)
+    ![Zrzut ekranu pokazujący, gdzie wybierać nowe po nazwie źródła.](media/tutorial-data-flow/dataflow3.png)
 1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Zrzut ekranu przedstawiający kafelek Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Zrzut ekranu przedstawiający kafelek DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Nazwij zestaw danych **MoviesDB**. Z listy rozwijanej połączona usługa wybierz pozycję **Nowy**.
 
-    ![Dataset](media/tutorial-data-flow/dataset3.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną połączonej usługi.](media/tutorial-data-flow/dataset3.png)
 1. Na ekranie Tworzenie połączonej usługi Nadaj nazwę ADLS Gen2 połączonej usłudze **ADLSGen2** i Określ metodę uwierzytelniania. Następnie wprowadź poświadczenia połączenia. W tym samouczku używamy klucza konta do nawiązywania połączenia z naszym kontem magazynu. Możesz kliknąć przycisk **Test connection** , aby sprawdzić, czy poświadczenia zostały wprowadzone poprawnie. Po zakończeniu kliknij przycisk Utwórz.
 
     ![Połączona usługa](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
     ![Zestawy danych](media/tutorial-data-flow/dataset4.png)
 1. Jeśli klaster debugowania został uruchomiony, przejdź do karty **Podgląd danych** transformacji źródłowej i kliknij przycisk **Odśwież** , aby uzyskać migawkę danych. Możesz użyć podglądu danych, aby sprawdzić, czy transformacja została prawidłowo skonfigurowana.
 
-    ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow4.png)
+    ![Zrzut ekranu pokazujący, gdzie można wyświetlić podgląd danych, aby sprawdzić, czy transformacja została prawidłowo skonfigurowana.](media/tutorial-data-flow/dataflow4.png)
 1. Kliknij ikonę znaku plus, aby dodać nową transformację obok węzła źródłowego na kanwie przepływu danych. Pierwszy dodawany przekształcenie to **Filtr**.
 
     ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow5.png)
 1. Nazwij transformację filtru **FilterYears**. Kliknij pole wyrażenia obok pola **Filtr** , aby otworzyć Konstruktora wyrażeń. W tym miejscu określisz warunek filtrowania.
 
-    ![Filtruj](media/tutorial-data-flow/filter1.png)
+    ![Zrzut ekranu pokazujący pole filtr dla wyrażenia.](media/tutorial-data-flow/filter1.png)
 1. Konstruktor wyrażeń przepływu danych umożliwia interaktywną kompilację wyrażeń do użycia w różnych przekształceniach. Wyrażenia mogą zawierać wbudowane funkcje, kolumny ze schematu wejściowego i parametry zdefiniowane przez użytkownika. Aby uzyskać więcej informacji na temat sposobu kompilowania wyrażeń, zobacz [Data Flow Expression Builder](concepts-data-flow-expression-builder.md).
 
     W tym samouczku zawarto filtrowanie filmów z gatunku komedia, które zostały dostarczone między latami 1910 i 2000. Jako rok jest obecnie ciągiem, należy przekonwertować go na liczbę całkowitą przy użyciu ```toInteger()``` funkcji. Użyj opcji "większe niż lub równe" (>=) i mniejszej niż lub równej operatorowi (<=) do porównania z wartościami w postaci literału Year 1910 i 200-. Sumuj te wyrażenia razem z operatorem i (&&). Wyrażenie jest dostępne jako:
@@ -131,44 +131,44 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
     Jeśli klaster debugowania jest aktywny, można sprawdzić logikę, klikając przycisk **Odśwież** , aby wyświetlić dane wyjściowe wyrażenia w porównaniu z używanymi danymi wejściowymi. Istnieje więcej niż jedna odpowiedź, na którą można wykonać tę logikę przy użyciu języka wyrażeń przepływu danych.
 
-    ![Filtruj](media/tutorial-data-flow/filter2.png)
+    ![Filtr](media/tutorial-data-flow/filter2.png)
 
     Kliknij przycisk **Zapisz i Zakończ,** gdy skończysz pracę z wyrażeniem.
 
 1. Pobierz **Podgląd danych** , aby sprawdzić, czy filtr działa poprawnie.
 
-    ![Filtruj](media/tutorial-data-flow/filter3.png)
+    ![Zrzut ekranu przedstawiający pobraną wersję zapoznawczą danych.](media/tutorial-data-flow/filter3.png)
 1. Kolejną przekształceniem, który dodasz, jest transformacja **zagregowana** w obszarze **modyfikator schematu**.
 
-    ![Agregacja](media/tutorial-data-flow/agg1.png)
+    ![Zrzut ekranu pokazujący modyfikator schematu agregacji.](media/tutorial-data-flow/agg1.png)
 1. Nazwij **AggregateComedyRatings**przekształcenia agregacji. Na karcie **Grupuj według** wybierz z listy rozwijanej pozycję **Year** , aby grupować agregacje według roku, w którym znajduje się film.
 
-    ![Agregacja](media/tutorial-data-flow/agg2.png)
+    ![Zrzut ekranu pokazujący opcję Year w karcie Grupuj według w obszarze Ustawienia agregacji.](media/tutorial-data-flow/agg2.png)
 1. Przejdź do karty **agregaty** . W lewym polu tekstowym nadaj kolumnie agregującej **AverageComedyRating**. Kliknij pole wyrażenia z prawej strony, aby wprowadzić wyrażenie agregujące za pośrednictwem konstruktora wyrażeń.
 
-    ![Agregacja](media/tutorial-data-flow/agg3.png)
+    ![Zrzut ekranu pokazujący opcję Year na karcie agregacje w obszarze Ustawienia agregacji.](media/tutorial-data-flow/agg3.png)
 1. Aby uzyskać średnią **klasyfikację**kolumn, użyj ```avg()``` funkcji agregującej. Ponieważ **Klasyfikacja** jest ciągiem i ```avg()``` przyjmuje numeryczne dane wejściowe, należy przekonwertować wartość na liczbę za pośrednictwem ```toInteger()``` funkcji. To wyrażenie wygląda następująco:
 
     ```avg(toInteger(Rating))```
 
     Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
 
-    ![Agregacja](media/tutorial-data-flow/agg4.png)
+    ![Zrzut ekranu, który pokazuje zapisane wyrażenie.](media/tutorial-data-flow/agg4.png)
 1. Przejdź do karty **Podgląd danych** , aby wyświetlić dane wyjściowe transformacji. Zwróć uwagę na to, że w tym miejscu są dostępne tylko dwie kolumny — **Year** i **AverageComedyRating**.
 
     ![Agregacja](media/tutorial-data-flow/agg3.png)
 1. Następnie chcesz dodać transformację **ujścia** w **miejscu docelowym**.
 
-    ![Ujście](media/tutorial-data-flow/sink1.png)
+    ![Zrzut ekranu pokazujący, gdzie dodać transformację ujścia w miejscu docelowym.](media/tutorial-data-flow/sink1.png)
 1. Nazwij **ujścia**ujścia. Kliknij pozycję **Nowy** , aby utworzyć zestaw danych ujścia.
 
-    ![Ujście](media/tutorial-data-flow/sink2.png)
+    ![Zrzut ekranu pokazujący, gdzie można nazwać ujścia i utworzyć nowy zestaw danych ujścia.](media/tutorial-data-flow/sink2.png)
 1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Zrzut ekranu przedstawiający kafelek Azure Data Lake Storage Gen2, który można wybrać.](media/tutorial-data-flow/dataset1.png)
 1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Zestaw danych](media/tutorial-data-flow/dataset2.png)
 1. Nazwij swój zestaw danych ujścia **MoviesSink**. W polu połączona usługa wybierz połączoną usługę ADLS Gen2 utworzoną w kroku 6. Wprowadź folder wyjściowy, w którym mają zostać zapisane dane. W tym samouczku zapisujemy do folderu "output" w kontenerze "przykładowe dane". Folder nie musi istnieć wcześniej i może być tworzony dynamicznie. Ustaw **pierwszy wiersz jako nagłówek** jako wartość true, a następnie wybierz pozycję **Brak** dla **schematu importowania**. Kliknij przycisk Zakończ.
 
     ![Ujście](media/tutorial-data-flow/sink3.png)
@@ -181,13 +181,13 @@ Można debugować potok przed jego opublikowaniem. W tym kroku wywołajesz przeb
 
 1. Przejdź do kanwy potoku. Kliknij pozycję **Debuguj** , aby wyzwolić uruchomienie debugowania.
 
-    ![Potok](media/tutorial-data-flow/pipeline1.png)
+    ![Zrzut ekranu pokazujący kanwę potoku z wyróżnioną pozycją Debuguj.](media/tutorial-data-flow/pipeline1.png)
 1. Debugowanie potoku działań przepływu danych korzysta z aktywnego klastra debugowania, ale nadal trwa co najmniej minutę. Postęp można śledzić za pomocą karty **dane wyjściowe** . Po pomyślnym uruchomieniu kliknij ikonę okularów, aby otworzyć okienko monitorowanie.
 
     ![Potok](media/tutorial-data-flow/pipeline2.png)
 1. W okienku Monitorowanie można zobaczyć liczbę wierszy i czas spędzony w każdym kroku transformacji.
 
-    ![Monitorowanie](media/tutorial-data-flow/pipeline3.png)
+    ![Zrzut ekranu przedstawiający okienko monitorowanie, w którym można zobaczyć liczbę wierszy i czas spędzony w każdym kroku transformacji.](media/tutorial-data-flow/pipeline3.png)
 1. Kliknij transformację, aby uzyskać szczegółowe informacje na temat kolumn i partycjonowania danych.
 
     ![Monitorowanie](media/tutorial-data-flow/pipeline4.png)

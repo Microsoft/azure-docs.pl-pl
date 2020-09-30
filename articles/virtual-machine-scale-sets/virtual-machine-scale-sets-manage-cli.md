@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502906"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570528"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Zarządzanie zestawem skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 W całym cyklu życia zestawu skalowania maszyn wirtualnych konieczne może być uruchomienie jednego lub większej liczby zadań zarządzania. Ponadto może pojawić się potrzeba tworzenia skryptów automatyzujących różne zadania cyklu życia. Ten artykuł zawiera szczegółowe informacje na temat typowych poleceń interfejsu wiersza polecenia platformy Azure, które umożliwiają wykonywanie tych zadań.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+Można również uzyskać szczegółowe informacje *instanceView* dla wszystkich wystąpień w jednym wywołaniu interfejsu API, co może pomóc w uniknięciu ograniczenia przepustowości interfejsu API w przypadku dużych instalacji. Podaj własne wartości dla `--resource-group` , `--subscription` i `--name` .
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>Wyświetl informacje o połączeniu dla maszyn wirtualnych
 Aby nawiązać połączenie z maszynami wirtualnymi w zestawie skalowania, Użyj protokołu SSH lub RDP do przypisanego publicznego adresu IP i numeru portu. Domyślnie reguły translacji adresów sieciowych (NAT) są dodawane do modułu równoważenia obciążenia platformy Azure, który przekazuje ruch połączeń zdalnych do każdej maszyny wirtualnej. Aby wyświetlić listę adresów i portów, które mają być połączone z wystąpieniami maszyn wirtualnych w zestawie skalowania, użyj [AZ VMSS list-instance-Connection-Info](/cli/azure/vmss). Poniższy przykład zawiera listę informacji o połączeniu dla wystąpień maszyn wirtualnych w zestawie skalowania o nazwie *myScaleSet* i w *grupie zasobów zasobu* . Podaj własne wartości dla tych nazw:

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396012"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570066"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Wady dotyczące opóźnień, dostępności i wydajności z różnymi Azure Cosmos DB poziomów spójności
 
@@ -76,9 +76,9 @@ W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałoś
 
 *T* = przedział czasu *"T"* od momentu ostatniej aktualizacji.
 
-## <a name="strong-consistency-and-multi-master"></a>Silna spójność i wiele wzorców
+## <a name="strong-consistency-and-multiple-write-regions"></a>Silna spójność i wiele regionów zapisu
 
-Kont Cosmos skonfigurowanych dla wielu wzorców nie można skonfigurować pod kątem silnej spójności, ponieważ nie jest to możliwe w systemie rozproszonym, aby zapewnić cel punktu odzyskiwania równy zero i RTO równy zero. Ponadto nie ma korzyści z opóźnienia zapisu w przypadku używania silnej spójności z wieloma wzorcami, ponieważ każdy zapis w dowolnym regionie musi być replikowany i zatwierdzony do wszystkich skonfigurowanych regionów w ramach konta. Powoduje to takie samo opóźnienie zapisu jak pojedyncze konto główne.
+Kont Cosmos skonfigurowanych z wieloma regionami zapisu nie można skonfigurować pod kątem silnej spójności, ponieważ nie jest to możliwe w systemie rozproszonym do zapewnienia punktu odzyskiwania równego zero i RTO równego zero. Ponadto nie ma korzyści z opóźnienia zapisu w przypadku korzystania z mocnej spójności z wieloma regionami zapisu, ponieważ żądanie zapisu do każdego regionu musi być zreplikowane i zatwierdzone dla wszystkich skonfigurowanych regionów w ramach konta. Powoduje to takie samo opóźnienie zapisu jak jedno konto regionu zapisu.
 
 ## <a name="next-steps"></a>Następne kroki
 

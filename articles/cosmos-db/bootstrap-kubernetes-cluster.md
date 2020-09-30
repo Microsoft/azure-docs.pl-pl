@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497764"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570127"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Jak używać usługi Azure Kubernetes z Azure Cosmos DB (wersja zapoznawcza)
 
-Interfejs API etcd w Azure Cosmos DB umożliwia korzystanie z Azure Cosmos DB jako magazynu zaplecza dla usługi Azure Kubernetes. Azure Cosmos DB implementuje protokół sieci szkieletowej etcd, który umożliwia serwerom interfejsu API węzła głównego użycie Azure Cosmos DB podobnie jak w przypadku dostępu do lokalnie zainstalowanego etcd. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Gdy korzystasz z interfejsu API usługi Azure Cosmos etcd jako magazynu zapasowego dla Kubernetes, uzyskasz następujące korzyści: 
+Interfejs API etcd w Azure Cosmos DB umożliwia korzystanie z Azure Cosmos DB jako magazynu zaplecza dla usługi Azure Kubernetes. Azure Cosmos DB implementuje protokół sieci szkieletowej etcd, który umożliwia serwerom interfejsu API węzła podstawowego korzystanie z Azure Cosmos DB podobnie jak w przypadku dostępu do lokalnie zainstalowanej etcd. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Gdy korzystasz z interfejsu API usługi Azure Cosmos etcd jako magazynu zapasowego dla Kubernetes, uzyskasz następujące korzyści: 
 
 * Nie trzeba ręcznie konfigurować etcd i zarządzać nimi.
 * Wysoka dostępność etcd, gwarantowana przez Cosmos (99,99% w jednym regionie, 99,999% w wielu regionach).
@@ -27,7 +27,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Interfejs wiersza polecenia platformy Azure można pobrać dla danego systemu operacyjnego i zainstalować program.
+1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Interfejs wiersza polecenia platformy Azure można pobrać dla danego systemu operacyjnego i zainstalować program.
 
 1. Zainstaluj [najnowszą wersję](https://github.com/Azure/aks-engine/releases) aparatu Azure Kubernetes. Instrukcje dotyczące instalacji dla różnych systemów operacyjnych są dostępne na stronie [aparatu usługi Azure Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) . Wystarczy wykonać kroki opisane w sekcji **Instalowanie aparatu AKS** w połączonym dokumencie. Po pobraniu pliku zip wyodrębnij go.
 

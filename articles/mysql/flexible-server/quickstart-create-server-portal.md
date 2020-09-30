@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/21/2020
-ms.openlocfilehash: 4d4d65f9ad04ca6bf99375647684a75e8662bb4d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/29/2020
+ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947599"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569627"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Szybki Start: Użyj Azure Portal, aby utworzyć Azure Database for MySQL elastyczny serwer
 
@@ -36,18 +36,15 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
 
 2. Wybierz pozycję **bazy danych**  >  **Azure Database for MySQL**. Możesz również wprowadzić **MySQL** w polu wyszukiwania, aby znaleźć usługę.
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Opcja Azure Database for MySQL":::
 
 3. Wybierz pozycję **elastyczny serwer** jako opcję wdrożenia.
      
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Wybierz opcję wdrożenia":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Opcja Azure Database for MySQL":::    
 
 4. Wypełnij formularz **podstawy** przy użyciu następujących informacji: 
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Tworzenie formularza serwera"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Opcja Azure Database for MySQL"::: 
                                     
     |**Ustawienie**|**Sugerowana wartość**|**Opis**|
     |---|---|---|
@@ -56,12 +53,11 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     Nazwa serwera |*mydemoserver*|Unikatowa nazwa identyfikująca elastyczny serwer. Nazwa domeny *MySQL.Database.Azure.com* jest dołączana do podania nazwy serwera. Serwer może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.|
     Nazwa użytkownika administratora |*mydemouser*| Własne konto logowania do użycia podczas łączenia z serwerem. Nazwa logowania administratora nie może być **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public**.|
     Hasło |Twoje hasło| Nowe hasło do konta administratora serwera. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (od 0 do 9) i znaki inne niż alfanumeryczne (!, $, #, % itp.).|
-    Region|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.|
+    Region (Region)|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.|
     Wersja|5.7| Wersja główna programu MySQL.|
     Obliczenia i magazyn | **Burstable** **Standard_B1ms**, **10** **dni** | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Wartości domyślne dla **warstwy obliczeniowej**, **rozmiaru obliczeń**, **magazynu**i **okresu przechowywania kopii zapasowej**mogą być przełączone *,* *Standard_B1ms*, *10 GIB*i *7 dni* . Możesz pozostawić te suwaki jako lub dostosować je. Aby zapisać ten wybór obliczeń i magazynu, wybierz pozycję **Zapisz** , aby kontynuować konfigurację. Poniższy zrzut ekranu przedstawia opcje obliczeń i magazynu.|
     
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Obliczenia i magazyn":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Opcja Azure Database for MySQL":::
 
 5. Konfigurowanie opcji sieciowych
 
@@ -70,10 +66,7 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     > [!NOTE]
     > Nie można zmienić metody łączności po utworzeniu serwera. Na przykład jeśli wybrano opcję *dostęp publiczny (dozwolone adresy IP)* podczas tworzenia, nie można zmienić *dostępu prywatnego (Integracja z siecią wirtualną)* po utworzeniu. Zdecydowanie zalecamy utworzenie serwera z dostępem prywatnym, aby bezpiecznie uzyskać dostęp do serwera przy użyciu integracji sieci wirtualnej. Dowiedz się więcej o prywatnym dostępie w [artykule pojęcia](./concepts-networking.md).
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Konfigurowanie sieci":::  
-
-    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Opcja Azure Database for MySQL":::  
 
 6. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć konfigurację elastycznego serwera.
 
@@ -99,7 +92,7 @@ W mysql.exe Połącz się przy użyciu poniższego polecenia. Zastąp wartości 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 W grupie zasobów został pomyślnie utworzony Azure Database for MySQL elastyczny serwer.  Jeśli nie chcesz potrzebować tych zasobów w przyszłości, możesz je usunąć przez usunięcie grupy zasobów lub usunięcie serwera MySQL. Aby usunąć grupę zasobów, wykonaj następujące kroki:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **grupy zasobów**.
@@ -110,7 +103,7 @@ W grupie zasobów został pomyślnie utworzony Azure Database for MySQL elastycz
 Aby usunąć serwer, możesz kliknąć przycisk **Usuń** na stronie **Przegląd** serwera, jak pokazano poniżej:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Usuwanie zasobów":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Opcja Azure Database for MySQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 

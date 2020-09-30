@@ -12,27 +12,39 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/17/2020
+ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7aa71062c86d57cabe8579e13011956137804f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079795"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569804"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupy umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP
 Aplikacje SAP oparte na architekturze SAP NetWeaver lub SAP S/4HANA są wrażliwe na opóźnienie sieci między warstwą aplikacji SAP a warstwą bazy danych SAP. Ta czułość jest wynikiem większości logiki biznesowej działającej w warstwie aplikacji. Ze względu na to, że warstwa aplikacji SAP uruchamia logikę biznesową, wystawia zapytania do warstwy bazy danych z dużą częstotliwością, a liczba tysięcy lub dziesiątki tysięcy na sekundę. W większości przypadków charakter tych zapytań jest prosty. Często można je uruchamiać w warstwie bazy danych w 500 mikrosekundach lub mniej.
 
-Czas spędzony na sieci do wysłania takiego zapytania z warstwy aplikacji do warstwy bazy danych i otrzymania z powrotem zestawu wyników ma znaczny wpływ na czas potrzebny na uruchomienie procesów firmy. Ta czułość na opóźnienie sieci polega na tym, że należy osiągnąć optymalne opóźnienie sieci w projektach wdrażania SAP. Zobacz [uwagi dotyczące oprogramowania SAP #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , aby uzyskać wskazówki dotyczące klasyfikowania opóźnienia sieci.
+Czas spędzony na sieci do wysłania takiego zapytania z warstwy aplikacji do warstwy bazy danych i otrzymania z powrotem zestawu wyników ma znaczny wpływ na czas potrzebny na uruchomienie procesów firmy. Ta czułość na opóźnienie sieci polega na tym, że warto uzyskać pewne maksymalne opóźnienie sieci w projektach wdrożenia SAP. Zobacz [uwagi dotyczące oprogramowania SAP #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , aby uzyskać wskazówki dotyczące klasyfikowania opóźnienia sieci.
 
-W wielu regionach świadczenia usługi Azure liczba centrów danych wzrosła. Ten wzrost został również wyzwolony przez wprowadzenie Strefy dostępności. W tym samym czasie klienci, szczególnie w przypadku systemów SAP, korzystają z bardziej specjalnych jednostek SKU maszyny wirtualnej w rodzinie serii M lub w dużych wystąpieniach platformy HANA. Te typy maszyn wirtualnych platformy Azure nie są dostępne we wszystkich centrach danych w określonym regionie platformy Azure. Ze względu na te dwie Tendencies klienci napotykali opóźnienia sieci, które nie znajdują się w optymalnym zakresie. W niektórych przypadkach to opóźnienie powoduje nieoptymalną wydajność systemów SAP.
+W wielu regionach świadczenia usługi Azure liczba centrów danych wzrosła. W tym samym czasie klienci, szczególnie w przypadku systemów SAP wysokiej klasy, korzystają z bardziej specjalnych jednostek SKU maszyn wirtualnych w rodzinie M lub Mv2 lub w dużych wystąpieniach platformy HANA. Te typy maszyn wirtualnych platformy Azure nie są zawsze dostępne we wszystkich centrach danych, które stanowią uzupełnienie regionu platformy Azure. Te fakty mogą tworzyć szanse na zoptymalizowanie opóźnień sieci między warstwą aplikacji SAP i warstwą SAP DBMS.
 
-Aby uniknąć tych problemów, platforma Azure oferuje [grupy umieszczania sąsiedztwa](../../linux/co-location.md). Ta nowa funkcja została już użyta do wdrożenia różnych systemów SAP. Aby uzyskać ograniczenia dotyczące grup umieszczania w sąsiedztwie, zapoznaj się z artykułem wymienionym na początku tego akapitu. W tym artykule omówiono scenariusze SAP, w których mogą lub powinny być używane grupy umieszczania usługi Azure zbliżeniowe.
+Aby zapewnić możliwość optymalizacji opóźnienia sieci, platforma Azure oferuje [grupy umieszczania sąsiedztwa](../../linux/co-location.md). Grupy umieszczania w sąsiedztwie mogą służyć do wymuszania grupowania różnych typów maszyn wirtualnych w jednym centrum danych platformy Azure w celu zoptymalizowania opóźnień sieci między różnymi typami maszyn wirtualnych. W procesie wdrażania pierwszej maszyny wirtualnej w takiej grupie umieszczania w sąsiedztwie maszyna wirtualna jest powiązana z określonym centrum danych. Jako odnoszące się do tych dźwięków, użycie konstrukcji wprowadza pewne ograniczenia:
+
+- Nie można założyć, że wszystkie typy maszyn wirtualnych platformy Azure są dostępne w każdym i wszystkich centrach danych platformy Azure. W związku z tym kombinacja różnych typów maszyn wirtualnych w jednej grupie umieszczania sąsiedztwa może być ograniczona. Te ograniczenia występują, ponieważ sprzęt hosta, który jest wymagany do uruchomienia określonego typu maszyny wirtualnej, może nie być obecny w centrum danych, w którym wdrożono grupę umieszczania
+- Podczas zmiany rozmiaru części maszyn wirtualnych znajdujących się w jednej grupie umieszczania sąsiedztwa nie można automatycznie założyć, że we wszystkich przypadkach nowy typ maszyny wirtualnej jest dostępny w tym samym centrum danych co inne maszyny wirtualne, które są częścią grupy umieszczania sąsiedztwa
+- Ponieważ usługa Azure recommissioning sprzęt może wymusić pewne maszyny wirtualne grupy umieszczania sąsiedztwa w innym centrum danych platformy Azure. Aby zapoznać się ze szczegółami dotyczącymi tego przypadku, zapoznaj się z dokumentem [Lokalizowanie zasobów w celu zwiększenia opóźnienia](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+
+> [!IMPORTANT]
+> W wyniku potencjalnych ograniczeń należy użyć grup umieszczania sąsiedztwa:
+>
+> - Tylko w razie potrzeby
+> - Tylko na poziomie szczegółowości pojedynczego systemu SAP, a nie całego systemu
+> - W celu zachowania różnych typów maszyn wirtualnych i liczby maszyn wirtualnych w grupie umieszczania zbliżeniowego do minimum
+
 
 ## <a name="what-are-proximity-placement-groups"></a>Co to są grupy umieszczania zbliżeniowe? 
-Grupa umieszczania bliskości platformy Azure jest konstrukcyjną logiczną. Jeśli jest zdefiniowany, jest on powiązany z regionem świadczenia usługi Azure i grupą zasobów platformy Azure. Po wdrożeniu maszyn wirtualnych odwołuje się do niej Grupa umieszczania:
+Grupa umieszczania bliskości platformy Azure jest konstrukcyjną logiczną. Po zdefiniowaniu grupy umieszczania bliskości jest ona powiązana z regionem świadczenia usługi Azure i grupą zasobów platformy Azure. Po wdrożeniu maszyn wirtualnych odwołuje się do niej Grupa umieszczania:
 
 - Pierwsza maszyna wirtualna platformy Azure wdrożona w centrum danych. Pierwszą maszynę wirtualną można traktować jako "zakres maszyn wirtualnych", która jest wdrażana w centrum danych w oparciu o algorytmy alokacji platformy Azure, które ostatecznie łączą się z definicjami użytkowników dla określonej strefy dostępności.
 - Wszystkie kolejne wdrożone maszyny wirtualne odwołujące się do grupy położenia zbliżeniowe, aby umieścić wszystkie następnie wdrożone maszyny wirtualne platformy Azure w tym samym centrum danych co pierwsza maszyna wirtualna.
@@ -42,18 +54,13 @@ Grupa umieszczania bliskości platformy Azure jest konstrukcyjną logiczną. Je�
 
 Jedna [Grupa zasobów platformy Azure](../../../azure-resource-manager/management/manage-resources-portal.md) może mieć wiele przypisanych grup umieszczania sąsiedztwa. Jednak grupę umieszczania sąsiedztwa można przypisać tylko do jednej grupy zasobów platformy Azure.
 
-W przypadku korzystania z grup umieszczania zbliżeniowe należy pamiętać o następujących kwestiach:
-
-- Aby zapewnić optymalną wydajność systemu SAP i ograniczyć się do jednego centrum danych platformy Azure dla systemu przy użyciu grup umieszczania w sąsiedztwie, może nie być możliwe łączenie wszystkich typów rodzin maszyn wirtualnych w grupie umieszczania. Te ograniczenia występują, ponieważ sprzęt hosta, który jest niezbędny do uruchomienia określonego typu maszyny wirtualnej, może nie być obecny w centrum danych, do którego wdrożono "maszynę wirtualną w zakresie" w grupie umieszczania.
-- W cyklu życia takiego systemu SAP można wymusić przeniesienie systemu do innego centrum danych. To przeniesienie może być wymagane, jeśli zdecydujesz, że warstwa systemu DBMS w poziomie nie powinna być na przykład przeniesiona z czterech węzłów do 16 węzłów i nie ma wystarczającej wydajności, aby uzyskać dodatkowe 12 maszyn wirtualnych typu używanego w centrum danych.
-- Ze względu na likwidowanie sprzętu firma Microsoft może tworzyć pojemności dla typu maszyny wirtualnej, który został użyty w innym centrum danych, a nie z początkowo używanym programem. W tym scenariuszu może być konieczne przeniesienie wszystkich maszyn wirtualnych z grupy położenia zbliżeniowe do innego centrum danych.
 
 ## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Grupy umieszczania zbliżeniowe z systemami SAP, które używają tylko maszyn wirtualnych platformy Azure
 Większość wdrożeń systemu SAP NetWeaver i S/4HANA na platformie Azure nie używa [dużych wystąpień platformy Hana](./hana-overview-architecture.md). W przypadku wdrożeń, które nie korzystają z dużych wystąpień usługi HANA, ważne jest zapewnienie optymalnej wydajności między warstwą aplikacji SAP i warstwą DBMS. W tym celu należy zdefiniować grupę umieszczania bliskości platformy Azure tylko dla systemu.
 
 W większości wdrożeń klientów klienci tworzą jedną [grupę zasobów platformy Azure](../../../azure-resource-manager/management/manage-resources-portal.md) dla systemów SAP. W takim przypadku istnieje relacja jeden do jednego między, na przykład grupa zasobów systemowej usługi ERP i jej Grupa umieszczania sąsiedztwa. W innych przypadkach klienci organizują grupy zasobów w poziomie i zbierają wszystkie systemy produkcyjne w jednej grupie zasobów. W takim przypadku istnieje relacja jeden do wielu między grupą zasobów dla produkcyjnych systemów SAP oraz kilka grup umieszczenia sąsiedztwa dla produkcji SAP ERP, SAP BW i tak dalej.
 
-Należy unikać grupowania kilku systemów produkcyjnych lub nieprodukcyjnych SAP w pojedynczej grupie położenia sąsiedztwa. W przypadku niewielkiej liczby systemów SAP lub systemu SAP i niektórych otaczających aplikacji musi być dostępna komunikacja sieciowa o małym opóźnieniu, dlatego warto rozważyć przeniesienie tych systemów do jednej grupy umieszczania sąsiedztwa. Należy unikać pakietów systemów, ponieważ więcej systemów należy grupować w grupie umieszczania bliskości, im im większa szansa:
+Należy unikać grupowania kilku systemów produkcyjnych lub nieprodukcyjnych SAP w pojedynczej grupie położenia sąsiedztwa. W przypadku niewielkiej liczby systemów SAP lub systemu SAP i niektórych otaczających aplikacji musi być dostępna komunikacja sieciowa o małym opóźnieniu, dlatego warto rozważyć przeniesienie tych systemów do jednej grupy umieszczania sąsiedztwa. Unikaj pakietów systemów, ponieważ więcej systemów należy grupować w grupie umieszczania bliskości, im im większa szansa:
 
 - Wymagany jest typ maszyny wirtualnej, który nie może zostać uruchomiony w konkretnym centrum danych, do którego zakresem jest Grupa położenia sąsiedztwa.
 - Zasoby nietypowej maszyny wirtualnej, takie jak maszyny wirtualne z serii M, mogą zostać ostatecznie niewykorzystane, gdy potrzeba więcej, ponieważ dodajesz oprogramowanie do grupy umieszczania sąsiedztwa w czasie.
@@ -108,7 +115,7 @@ Wdróż pierwszą maszynę wirtualną w grupie położenia sąsiedztwa przy uży
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-Poprzednie polecenie wdraża maszynę wirtualną z systemem Windows. Po pomyślnym wdrożeniu maszyny wirtualnej w regionie platformy Azure zostanie zdefiniowany zakres centrum danych grupy umieszczania sąsiedztwa. Wszystkie kolejne wdrożenia maszyn wirtualnych odwołujące się do grupy umieszczania bliskości, jak pokazano w poprzednim poleceniu, zostaną wdrożone w tym samym centrum danych platformy Azure, o ile typ maszyny wirtualnej może być hostowany na sprzęcie umieszczonym w tym centrum danych i pojemności dla tego typu maszyn wirtualnych.
+Poprzednie polecenie wdraża maszynę wirtualną z systemem Windows. Po pomyślnym wdrożeniu maszyny wirtualnej w regionie platformy Azure zostanie zdefiniowany zakres centrum danych grupy umieszczania sąsiedztwa. Wszystkie kolejne wdrożenia maszyn wirtualnych odwołujące się do grupy umieszczania bliskości, jak pokazano w poprzednim poleceniu, zostaną wdrożone w tym samym centrum danych platformy Azure, o ile typ maszyny wirtualnej może być hostowany na sprzęcie umieszczonym w tym centrum danych, a pojemność dla tego typu maszyny wirtualnej jest dostępna.
 
 ## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Łączenie zestawów dostępności i Strefy dostępności z grupami umieszczania zbliżeniowe
 Jedną z wad korzystania z Strefy dostępności dla wdrożeń systemu SAP jest to, że nie można wdrożyć warstwy aplikacji SAP przy użyciu zestawów dostępności w ramach określonej strefy. Chcesz, aby warstwa aplikacji SAP była wdrożona w tych samych strefach co warstwa DBMS. Odwoływanie się do strefy dostępności i zestawu dostępności podczas wdrażania pojedynczej maszyny wirtualnej nie jest obsługiwane. Dlatego wcześniej wymuszono wdrożenie warstwy aplikacji przez odwołanie do strefy. Utracono możliwość upewnienia się, że maszyny wirtualne warstwy aplikacji zostały rozłożone w różnych domenach aktualizacji i niepowodzeń.
@@ -130,7 +137,7 @@ Pomyślne wdrożenie tej maszyny wirtualnej będzie hostować wystąpienie bazy 
 
 Przyjęto założenie, że maszyny wirtualne usług centralnych są wdrażane w taki sam sposób, jak maszyny wirtualne systemu DBMS, odwołujące się do tej samej strefy lub stref i tych samych grup umieszczania W następnym kroku należy utworzyć zestawy dostępności, które mają być używane dla warstwy aplikacji systemu SAP.
 
-Należy zdefiniować i utworzyć grupę umieszczania sąsiedztwa. Polecenie do tworzenia zestawu dostępności wymaga dodatkowego odwołania do identyfikatora grupy położenia zbliżeniowe (nie nazwy). Możesz uzyskać identyfikator grupy położenia zbliżeniowe przy użyciu tego polecenia:
+Zdefiniuj i Utwórz grupę umieszczania sąsiedztwa. Polecenie do tworzenia zestawu dostępności wymaga dodatkowego odwołania do identyfikatora grupy położenia zbliżeniowe (nie nazwy). Możesz uzyskać identyfikator grupy położenia zbliżeniowe przy użyciu tego polecenia:
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
@@ -156,7 +163,7 @@ Wynikiem tego wdrożenia jest:
 > Ze względu na to, że po wdrożeniu jednej maszyny wirtualnej DBMS w jednej strefie i drugiej maszynie wirtualnej DBMS do innej strefy w celu utworzenia konfiguracji wysokiej dostępności potrzebna jest inna grupa umieszczania bliskości dla każdej z tych stref. Ta sama wartość dotyczy wszystkich używanych zestawów dostępności.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Przenieś istniejący system do grup umieszczania w sąsiedztwie
-Jeśli masz już wdrożone systemy SAP, możesz chcieć zoptymalizować opóźnienie sieci niektórych krytycznych systemów i zlokalizować warstwę aplikacji i warstwę DBMS w tym samym centrum danych. Aby przenieść maszyny wirtualne kompletnego zestawu dostępności platformy Azure do istniejącej grupy umieszczenia bliskości, która ma już zakres, należy zamknąć wszystkie maszyny wirtualne zestawu dostępności i przypisać zestaw dostępności do istniejącej grupy umieszczania sąsiedztwa za pośrednictwem Azure Portal, programu PowerShell lub interfejsu wiersza polecenia. Jeśli chcesz przenieść maszynę wirtualną, która nie jest częścią zestawu dostępności do istniejącej grupy położenia bliskości, wystarczy zamknąć maszynę wirtualną i przypisać ją do istniejącej grupy umieszczania sąsiedztwa. 
+Jeśli masz już wdrożone systemy SAP, możesz chcieć zoptymalizować opóźnienie sieci niektórych krytycznych systemów i zlokalizować warstwę aplikacji i warstwę DBMS w tym samym centrum danych. Aby przenieść maszyny wirtualne kompletnego zestawu dostępności platformy Azure do istniejącej grupy położenia bliskości, która ma już zakres, należy zamknąć wszystkie maszyny wirtualne zestawu dostępności i przypisać zestaw dostępności do istniejącej grupy umieszczania sąsiedztwa za pośrednictwem Azure Portal, programu PowerShell lub interfejsu wiersza polecenia. Jeśli chcesz przenieść maszynę wirtualną, która nie jest częścią zestawu dostępności do istniejącej grupy położenia bliskości, wystarczy zamknąć maszynę wirtualną i przypisać ją do istniejącej grupy umieszczania sąsiedztwa. 
 
 
 ## <a name="next-steps"></a>Następne kroki

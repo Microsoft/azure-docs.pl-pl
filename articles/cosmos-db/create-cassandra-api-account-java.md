@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: fa25d07ff034cec50da515341bd9ca604ee28577
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319188"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570048"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Samouczek: Tworzenie konta interfejs API Cassandra w Azure Cosmos DB przy użyciu aplikacji Java do przechowywania danych klucza/wartości
 
@@ -33,7 +33,7 @@ Ten samouczek obejmuje następujące zadania:
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 
-* Pobierz najnowszą wersję [zestawu Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable). 
+* Pobierz najnowszą wersję [zestawu Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true). 
 
 * [Pobierz](https://maven.apache.org/download.cgi) i [Zainstaluj](https://maven.apache.org/install.html) archiwum binarne [Maven](https://maven.apache.org/) . 
   - W systemie Ubuntu możesz uruchomić polecenie `apt-get install maven`, aby zainstalować narzędzie Maven. 
@@ -49,14 +49,14 @@ Ten samouczek obejmuje następujące zadania:
    |Ustawienie   |Sugerowana wartość  |Opis  |
    |---------|---------|---------|
    |ID   |   Wprowadź unikatową nazwę    | Wprowadź unikatową nazwę do identyfikacji tego konta usługi Azure Cosmos. <br/><br/>Ponieważ adres cassandra.cosmosdb.azure.com jest dołączany do podanego identyfikatora w celu utworzenia punktu kontaktowego, użyty identyfikator powinien być unikatowy, ale rozpoznawalny.         |
-   |Interfejs API    |  Cassandra   |  Interfejs API określa typ konta do utworzenia. <br/> Wybierz pozycję **Cassandra**, ponieważ w tym artykule utworzysz bazę danych z szeroką kolumną, którą można zbadać przy użyciu składni Cassandra Query Language (CQL).  |
+   |interfejs API    |  Cassandra   |  Interfejs API określa typ konta do utworzenia. <br/> Wybierz pozycję **Cassandra**, ponieważ w tym artykule utworzysz bazę danych z szeroką kolumną, którą można zbadać przy użyciu składni Cassandra Query Language (CQL).  |
    |Subskrypcja    |  Twoja subskrypcja        |  Wybierz subskrypcję platformy Azure, która ma być używana dla tego konta usługi Azure Cosmos.        |
    |Grupa zasobów   | Wprowadź nazwę    |  Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta. Dla uproszczenia można użyć takiej samej nazwy jak identyfikator.    |
-   |Location    |  Wybierz region najbliżej Twoich użytkowników    |  Wybierz lokalizację geograficzną, w której będzie hostowane Twoje konto usługi Azure Cosmos. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.    |
+   |Lokalizacja    |  Wybierz region najbliżej Twoich użytkowników    |  Wybierz lokalizację geograficzną, w której będzie hostowane Twoje konto usługi Azure Cosmos. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Tworzenie konta za pomocą portalu":::
 
-4. Wybierz przycisk **Utwórz**. <br/>Tworzenie konta potrwa kilka minut. Po utworzeniu zasobu możesz zobaczyć powiadomienie **Wdrażanie zakończyło się pomyślnie** z prawej strony portalu.
+4. Wybierz pozycję **Utwórz**. <br/>Tworzenie konta potrwa kilka minut. Po utworzeniu zasobu możesz zobaczyć powiadomienie **Wdrażanie zakończyło się pomyślnie** z prawej strony portalu.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Pobieranie szczegółów połączenia konta  
 

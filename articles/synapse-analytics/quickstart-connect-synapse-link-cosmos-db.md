@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: ed717c2423b5336824bccd256bf43654c31a4c8a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274326"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568947"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse dla Azure Cosmos DB
+# <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Szybki Start: łączenie z linkiem usługi Azure Synapse dla Azure Cosmos DB
 
 W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z usługi Azure Synapse Analytics Studio przy użyciu linku Synapse. 
 
@@ -44,7 +44,7 @@ Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośred
 1. Wybierz ***+*** ikonę obok danych
 2. Wybierz pozycję **Połącz z danymi zewnętrznymi**
 3. Wybierz interfejs API, z którym chcesz nawiązać połączenie: SQL lub MongoDB
-4. Wybierz pozycję ***Kontynuuj***
+4. Wybierz przycisk ***Kontynuuj***
 5. Nazwij połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów i użyta przez Synapse Run-Times do łączenia się z bazą danych i kontenerami. Zalecamy używanie przyjaznej nazwy.
 6. Wybierz **nazwę konta Cosmos DB** i **nazwę bazy danych**
 7. Obowiązkowe Jeśli region nie zostanie określony, operacje czasu wykonywania Synapse będą kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można jednak ręcznie ustawić region, do którego użytkownicy mają uzyskiwać dostęp Cosmos DB do magazynu analitycznego. Wybierz opcję **dodatkowe właściwości połączenia** , a następnie pozycję **nowe**. W obszarze **Nazwa właściwości**wpisz ***PreferredRegions*** i ustaw **wartość** na żądany region (przykład: WestUS2, nie ma spacji między wyrazami i liczbami).

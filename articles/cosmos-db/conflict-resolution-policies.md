@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395842"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570104"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Typy konfliktów i zasady rozwiązywania w przypadku korzystania z wielu regionów zapisu
 
@@ -50,6 +50,6 @@ Azure Cosmos DB oferuje elastyczny mechanizm oparty na zasadach do rozwiązywani
 
 Dowiedz się, jak skonfigurować zasady rozwiązywania konfliktów:
 
-* [Jak skonfigurować wiele wzorców w aplikacjach](how-to-multi-master.md)
+* [Jak skonfigurować wiele regionów zapisu dla aplikacji](how-to-multi-master.md)
 * [Jak zarządzać zasadami rozwiązywania konfliktów](how-to-manage-conflicts.md)
 * [Jak czytać ze źródła konfliktów](how-to-manage-conflicts.md#read-from-conflict-feed)

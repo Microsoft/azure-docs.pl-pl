@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531886"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569777"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Akcje Aparatu reguł usługi Azure Front Door
 
-W [aparacie reguł AFD](front-door-rules-engine.md) reguła składa się z zero lub więcej pasujących warunków i akcji. Ten artykuł zawiera szczegółowe opisy akcji, których można użyć w aparacie reguł AFD.
+W [aparacie reguł AFD](front-door-rules-engine.md)reguła składa się z zero lub więcej pasujących warunków i akcji. Ten artykuł zawiera szczegółowe opisy akcji, których można użyć w aparacie reguł AFD.
 
-Akcja definiuje zachowanie stosowane do typu żądania, który identyfikuje warunek dopasowania lub zestaw warunków zgodności. W aparacie reguł AFD reguła może zawierać maksymalnie pięć akcji, tylko jedną z nich może być akcja przesłonięcia konfiguracji trasy (do przodu lub przekierowania).
+Akcja definiuje zachowanie stosowane do typu żądania, który identyfikuje warunek dopasowania lub zestaw warunków zgodności. W aparacie reguł AFD reguła może zawierać maksymalnie pięć akcji. Tylko jedna z nich może być akcją przesłaniania konfiguracji trasy (do przodu lub przekierowania).
 
 Następujące akcje są dostępne do użycia w aparacie reguł dla drzwi platformy Azure.  
 
@@ -35,9 +35,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w żądaniach w
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
-Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
+Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona z pasującymi regułami, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
 
 ## <a name="modify-response-header"></a>Modyfikuj nagłówek odpowiedzi
 
@@ -47,9 +47,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w odpowiedziach
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
 Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | Ciąg
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
+Usuń | Gdy ta opcja jest zaznaczona, a reguła pasuje do nagłówka określonego w regule, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
 
 ## <a name="route-configuration-overrides"></a>Przesłonięcia konfiguracji trasy 
 
@@ -75,10 +75,10 @@ Ta akcja umożliwia przekazanie klientom nowego adresu URL. Ta akcja zawiera ró
 
 Pole | Opis 
 ------|------------
-Pula zaplecza | Wybierz pulę zaplecza, aby przesłonić i obpisać żądania z programu. Spowoduje to wyświetlenie wszystkich wstępnie skonfigurowanych pul zaplecza, które są obecnie w profilu frontonu. 
+Pula zaplecza | Wybierz pulę zaplecza, aby przesłonić i obsłużyć żądania, spowoduje to również wyświetlenie wszystkich wstępnie skonfigurowanych pul zaplecza w profilu frontonu. 
 Protokół przekazywania | Żądanie dopasowania, HTTP i HTTPS.
-Regenerowanie adresów URL | Użyj tej akcji, aby ponownie napisać ścieżkę żądania, które jest trasy do źródła. Jeśli ta funkcja jest włączona, poniżej znajdują się dodatkowe wymagane pola
-Buforowanie | Enabled (Włączone), Disabled (Wyłączone). Poniżej znajdują się dodatkowe pola wymagane, jeśli są włączone. 
+Regenerowanie adresów URL | Użyj tej akcji, aby ponownie napisać ścieżkę żądania, które jest trasy do źródła. Jeśli ta funkcja jest włączona, zobacz następujące dodatkowe pola wymagane
+Buforowanie | Enabled (Włączone), Disabled (Wyłączone). Zobacz następujące dodatkowe pola wymagane, jeśli są włączone. 
 
 #### <a name="url-rewrite"></a>Regenerowanie adresów URL
 
@@ -90,11 +90,11 @@ Pole | Opis
 
 #### <a name="caching"></a>Buforowanie
 
-Te ustawienia służą do kontrolowania, w jaki sposób pliki są buforowane dla żądań zawierających ciągi zapytań i czy zawartość jest buforowana na podstawie wszystkich parametrów lub wybranych parametrów. Możesz użyć dodatkowych ustawień, aby zastąpić wartość czasu wygaśnięcia (TTL), aby określić, jak długo zawartość pozostaje w pamięci podręcznej dla żądań, które są zgodne z warunkami określonymi przez reguły. Aby wymusić buforowanie jako akcję, ustaw dla pola buforowanie wartość "włączone". Po wykonaniu tej czynności zostaną wyświetlone następujące opcje: 
+Te ustawienia służą do kontrolowania sposobu, w jaki pliki są buforowane dla żądań zawierających ciągi zapytań. Określa, czy zawartość jest buforowana na podstawie wszystkich parametrów, czy też dla wybranych parametrów. Możesz użyć dodatkowych ustawień, aby zastąpić wartość czasu wygaśnięcia (TTL), aby określić, jak długo zawartość pozostaje w pamięci podręcznej. Aby wymusić buforowanie jako akcję, ustaw dla pola buforowanie wartość "włączone". Po wymuszeniu buforowania są wyświetlane następujące opcje: 
 
 Zachowanie pamięci podręcznej |  Opis              
 ---------------|----------------
-Ignoruj ciągi zapytań | Gdy zasób zostanie zapisany w pamięci podręcznej, wszystkie kolejne żądania zignorują ciągi zapytania do momentu wygaśnięcia pamięci podręcznej.
+Ignoruj ciągi zapytań | Gdy element zawartości zostanie zbuforowany, wszystkie żądania, które zostaną zignorowane, zignorują ciągi zapytania do momentu wygaśnięcia pamięci podręcznej.
 Buforuj każdy unikatowy adres URL | Każde żądanie z unikatowym adresem URL, w tym ciąg zapytania, jest traktowane jako unikatowy element zawartości z własną pamięcią podręczną.
 Ignoruj określone ciągi zapytań | Ciągi zapytania adresu URL żądania wymienione w ustawieniu "parametry zapytania" są ignorowane dla buforowania.
 Dołącz określone ciągi zapytań | Ciągi zapytania adresu URL żądania wymienione w ustawieniu "parametry zapytania" są używane do buforowania.
@@ -107,6 +107,6 @@ Czas trwania pamięci podręcznej | Czas wygaśnięcia pamięci podręcznej w dn
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak skonfigurować pierwszą [konfigurację aparatu reguł](front-door-tutorial-rules-engine.md). 
+- Dowiedz się, jak skonfigurować pierwszy [aparat reguł](front-door-tutorial-rules-engine.md). 
 - Dowiedz się więcej na temat [warunków dopasowania aparatu](front-door-rules-engine-match-conditions.md)
 - Dowiedz się więcej o [aparacie reguł dla drzwi platformy Azure](front-door-rules-engine.md)

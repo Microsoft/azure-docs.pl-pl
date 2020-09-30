@@ -1,21 +1,21 @@
 ---
 title: Dystrybuuj dane globalnie za pomocą Azure Cosmos DB
-description: Dowiedz się więcej na temat replikacji geograficznej globalnej, wielu wzorców, trybu failover i odzyskiwania danych przy użyciu globalnych baz danych z Azure Cosmos DB — globalnie dystrybuowanej, wielomodelowej usługi bazy danych.
+description: Dowiedz się więcej o globalnej replikacji geograficznej, zapisie wieloregionowym, przejściu do trybu failover i odzyskiwaniu danych przy użyciu globalnych baz danych z Azure Cosmos DB, globalnie dystrybuowanej, wielomodelowej usługi bazy danych.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399469"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570188"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Globalna dystrybucja danych przy użyciu usługi Azure Cosmos DB
 
-Współczesne aplikacje muszą być wysoce reagujące i zawsze w trybie online. Aby zapewnić małe opóźnienia i wysoką dostępność, wystąpienia tych aplikacji powinny być wdrażane w centrach danych, które są blisko ich użytkowników. Te aplikacje są zwykle wdrażane w wielu centrach danych i są nazywane globalnie dystrybuowanymi. Globalnie dystrybuowane aplikacje muszą mieć globalnie dystrybuowaną bazę danych, która może w sposób przezroczysty replikować dane w dowolnym miejscu na świecie, aby umożliwić aplikacjom działanie na kopii danych znajdującej się blisko użytkowników. 
+Współczesne aplikacje muszą zapewniać szybki czas reakcji i zawsze działać w trybie online. Aby zapewnić małe opóźnienia i wysoką dostępność, wystąpienia tych aplikacji powinny być wdrażane w centrach danych, które są blisko ich użytkowników. Te aplikacje są zwykle wdrażane w wielu centrach danych i są nazywane globalnie dystrybuowanymi. Globalnie dystrybuowane aplikacje muszą mieć globalnie dystrybuowaną bazę danych, która może w sposób przezroczysty replikować dane w dowolnym miejscu na świecie, aby umożliwić aplikacjom działanie na kopii danych znajdującej się blisko użytkowników. 
 
 Azure Cosmos DB to globalnie dystrybuowana usługa bazy danych, która została zaprojektowana w celu zapewnienia małych opóźnień, elastycznej skalowalności, dobrze zdefiniowanej semantyki pod kątem spójności danych i wysokiej dostępności. W krótkim czasie, jeśli aplikacja wymaga zagwarantowania szybkiego czasu odpowiedzi w dowolnym miejscu na świecie, jeśli wymagane jest zawsze w trybie online i wymaga nieograniczonej i elastycznej skalowalności przepływności i magazynu, należy skompilować aplikację na Azure Cosmos DB.
 
@@ -27,7 +27,7 @@ Za pomocą Azure Cosmos DB możesz w dowolnym momencie dodać lub usunąć regio
 
 ## <a name="key-benefits-of-global-distribution"></a>Najważniejsze zalety dystrybucji globalnej
 
-**Twórz globalne aplikacje aktywne-aktywne.** Przy użyciu nowej usługi replikacji wielu wzorców każdy region obsługuje zarówno zapis, jak i odczyt. Możliwości wielu wzorców umożliwiają również:
+**Twórz globalne aplikacje aktywne-aktywne.** W przypadku korzystania z nowej wieloregionowej protokołu replikacji zapisów każdy region obsługuje zarówno zapis, jak i odczyt. Funkcja zapisów w wielu regionach umożliwia również:
 
 - Nieograniczone elastyczne zapisywanie i skalowalność. 
 - 99,999% dostępności odczytu i zapisu na całym świecie.
@@ -50,7 +50,7 @@ Korzystając z Azure Cosmos DB interfejsów API multihostingu, aplikacja rozpozn
 Więcej informacji na temat dystrybucji globalnej można znaleźć w następujących artykułach:
 
 * [Dystrybucja globalna — szczegóły działania](global-dist-under-the-hood.md)
-* [Jak skonfigurować wiele wzorców w aplikacjach](how-to-multi-master.md)
+* [Jak skonfigurować wieloregionowe operacje zapisu w aplikacjach](how-to-multi-master.md)
 * [Konfigurowanie klientów dla usługi wieloadresowości](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Utwórz niestandardowe zasady rozwiązywania konfliktów dla kont interfejsu API SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

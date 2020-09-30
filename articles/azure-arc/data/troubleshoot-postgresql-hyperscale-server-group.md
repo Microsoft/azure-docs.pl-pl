@@ -9,15 +9,15 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531959"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570005"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Rozwiązywanie problemów z grupami serwerów PostgreSQL
-W tym artykule opisano niektóre techniki, których można użyć do rozwiązywania problemów z grupą serwerów. Oprócz tego artykułu warto zapoznać się z tematem jak używać [Kibana](monitor-grafana-kibana.md) do wyszukiwanie dzienników lub użyć [Grafana](monitor-grafana-kibana.md) do wizualizacji metryk dotyczących grupy serwerów. 
+W tym artykule opisano niektóre techniki, których można użyć do rozwiązywania problemów z grupą serwerów. Oprócz tego artykułu warto zapoznać się z tematem jak używać [Kibana](monitor-grafana-kibana.md) do wyszukiwania dzienników lub używania [Grafana](monitor-grafana-kibana.md) do wizualizacji metryk dotyczących grupy serwerów. 
 
 ## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Więcej szczegółowych informacji na temat wykonywania polecenia azdata
 Można dodać parametr **--Debug** do dowolnego polecenia azdata, które wykonujesz. Spowoduje to wyświetlenie w konsoli dodatkowych informacji na temat wykonywania tego polecenia. Warto uzyskać szczegółowe informacje ułatwiające zrozumienie zachowania tego polecenia.

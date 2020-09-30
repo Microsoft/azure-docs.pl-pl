@@ -2,13 +2,13 @@
 title: Azure Service Bus — wygaśnięcie komunikatu
 description: W tym artykule wyjaśniono, jak wygasa i czas na żywo komunikatów Azure Service Bus. Po upływie tego terminu wiadomość nie zostanie już dostarczona.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064727"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569912"
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcie komunikatu (czas wygaśnięcia)
 
@@ -29,7 +29,7 @@ Wszystkie komunikaty wysyłane do kolejki lub tematu podlegają domyślnym wyga�
 > [!NOTE]
 > Domyślna wartość [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) dla komunikatu obsługiwanego przez brokera to [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) , jeśli nie określono inaczej.
 >
-> W przypadku jednostek obsługi komunikatów (kolejek i tematów) domyślny czas wygaśnięcia jest określany jako [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) dla warstw Service Bus Standard i Premium.  W przypadku warstwy Podstawowa domyślny czas wygaśnięcia wynosi 14 dni.
+> W przypadku jednostek obsługi komunikatów (kolejek i tematów) domyślny czas wygaśnięcia jest określany jako [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) dla warstw Service Bus Standard i Premium. W przypadku warstwy **podstawowa** domyślny czas wygaśnięcia (również maksymalny) to **14 dni**.
 
 Wygasłe komunikaty można opcjonalnie przenieść do [kolejki utraconych wiadomości](service-bus-dead-letter-queues.md) , ustawiając właściwość [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) lub zaznaczając odpowiednie pole w portalu. Jeśli opcja jest wyłączona, wygasłe komunikaty są usuwane. Wygasłe komunikaty przeniesione do kolejki utraconych wiadomości można odróżnić od innych utraconych wiadomości, oceniając Właściwość [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) , która jest przechowywana przez brokera w sekcji właściwości użytkownika; w tym przypadku wartość jest [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) .
 

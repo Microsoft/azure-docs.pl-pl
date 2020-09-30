@@ -3,12 +3,12 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017587"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569588"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
 
@@ -218,7 +218,30 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | VolumeFriendlyName             | Tekst          | Przyjazna nazwa woluminu magazynu                          |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="valid-operation-names-for-each-table"></a>Prawidłowe nazwy operacji dla każdej tabeli
+
+Każdy rekord w powyższych tabelach ma skojarzoną **nazwę operacji**. Nazwa operacji opisuje typ rekordu (a także wskazuje, które pola w tabeli są wypełnione dla tego rekordu). Każda tabela (kategoria) obsługuje jedną lub więcej unikatowych nazw operacji. Poniżej znajduje się podsumowanie obsługiwanych nazw operacji dla każdej z powyższych tabel.
+
+| **Nazwa/Kategoria tabeli**                   | **Obsługiwane nazwy operacji** | **Opis**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | Reprezentuje rekord zawierający wszystkie szczegóły danego elementu kopii zapasowej, takie jak ID, Name, Type itd. |
+| CoreAzureBackup | BackupItemAssociation | Reprezentuje mapowanie między elementem kopii zapasowej i skojarzonym z nim kontenerem chronionym (jeśli dotyczy). |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | Reprezentuje mapowanie między elementem kopii zapasowej a jego rozmiarem frontonu. |
+| CoreAzureBackup | ProtectedContainer | Reprezentuje rekord zawierający wszystkie szczegóły danego chronionego kontenera, takie jak ID, Name, Type itd. |
+| CoreAzureBackup | ProtectedContainerAssociation | Reprezentuje mapowanie między chronionym kontenerem i magazynem używanym do jego tworzenia kopii zapasowych. |
+| CoreAzureBackup | Magazyn | Reprezentuje rekord zawierający wszystkie szczegóły danego magazynu, np. Identyfikator, nazwa, Tagi, lokalizacja itd. |
+| CoreAzureBackup | RecoveryPoint | Reprezentuje rekord zawierający najstarszy i najnowszy punkt odzyskiwania dla danego elementu kopii zapasowej. |
+| AddonAzureBackupJobs | Zadanie |  Reprezentuje rekord zawierający wszystkie szczegóły danego zadania. Na przykład operacja zadania, czas rozpoczęcia, stan itd. |
+| AddonAzureBackupAlerts | Alerty | Reprezentuje rekord zawierający wszystkie szczegóły danego alertu. Na przykład czas utworzenia alertu, ważność, stan itd.  |
+| AddonAzureBackupStorage | Storage | Reprezentuje rekord zawierający wszystkie szczegóły danej jednostki magazynu. Na przykład nazwa magazynu, typ itp. |
+| AddonAzureBackupStorage | StorageAssociation | Reprezentuje mapowanie między elementem kopii zapasowej a łącznym magazynem w chmurze zużywanym przez element kopii zapasowej. |
+| AddonAzureBackupProtectedInstance | ProtectedInstance | Reprezentuje rekord zawierający liczbę chronionych wystąpień dla każdego kontenera lub elementu kopii zapasowej. W przypadku kopii zapasowej maszyny wirtualnej platformy Azure liczba chronionych wystąpień jest dostępna na poziomie elementu kopii zapasowej dla innych obciążeń, które są dostępne na chronionym poziomie kontenera. |
+| AddonAzureBackupPolicy | Zasady |  Reprezentuje rekord zawierający wszystkie szczegóły zasad tworzenia kopii zapasowej i przechowywania. Na przykład identyfikator, nazwa, ustawienia przechowywania itp. |
+| AddonAzureBackupPolicy | PolicyAssociation | Reprezentuje mapowanie między elementem kopii zapasowej a zastosowanymi do niego zasadami tworzenia kopii zapasowych. |   
+
+Często należy wykonać sprzężenia między różnymi tabelami, a także różne zestawy rekordów, które są częścią tej samej tabeli (różnią się nazwami operacji), aby uzyskać wszystkie pola wymagane do analizy. Zapoznaj się z [przykładowymi zapytaniami](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) , aby rozpocząć pracę. 
+
+## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się, jak wysyłać dane diagnostyczne do Log Analytics](./backup-azure-diagnostic-events.md)
 - [Dowiedz się, jak pisać zapytania w tabelach specyficznych dla zasobów](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

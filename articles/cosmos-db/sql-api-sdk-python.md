@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585988"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569820"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK dla interfejsu API SQL: informacje o wersji i zasoby
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585988"
 | |  |
 |---|---|
 |**Pobierz zestaw SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instrukcje dotyczące instalacji zestawu SDK**|[Instrukcje dotyczące instalacji zestawu SDK języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu SDK języka Python](create-sql-api-python.md)|
 |**Bieżąca obsługiwana platforma**|[Python 2,7](https://www.python.org/downloads/) i [Python 3.5.3 +](https://www.python.org/downloads/)|
@@ -113,7 +113,7 @@ ms.locfileid: "88585988"
 
 * Wersja 4.0.0 B2 to druga iteracja w naszych wysiłkach w celu skompilowania biblioteki klienckiej, która odpowiada najlepszym praktykom języka Python.
 
-**Istotne zmiany**
+**Zmiany powodujące niezgodność**
 
 * Połączenie klienta zostało dostosowane do korzystania z potoku HTTP zdefiniowanego w `azure.core.pipeline` .
 
@@ -126,7 +126,7 @@ ms.locfileid: "88585988"
 
 * Konstruktor programu `CosmosClient` został zaktualizowany:
 
-  * `auth`Nazwa parametru została zmieniona na `credential` i teraz będzie można bezpośrednio zastosować typ uwierzytelniania. Oznacza to, że wartość klucza głównego, słownik tokenów zasobów lub listę uprawnień można przekazywać. Jednak stary format słownika jest nadal obsługiwany.
+  * `auth`Nazwa parametru została zmieniona na `credential` i teraz będzie można bezpośrednio zastosować typ uwierzytelniania. Oznacza to, że wartość klucza podstawowego, słownik tokenów zasobów lub lista uprawnień może zostać przeniesiona. Jednak stary format słownika jest nadal obsługiwany.
 
   * `connection_policy`Parametr został wykonany jako parametr tylko dla słowa kluczowego, a mimo to jest obsługiwany, każdy z poszczególnych atrybutów zasad może teraz zostać przekazano jako argumenty jawnie zdefiniowanego słowa kluczowego:
 

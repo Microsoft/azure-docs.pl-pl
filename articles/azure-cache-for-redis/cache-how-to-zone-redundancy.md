@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 3c396d6d5b9da9a48e0d68a2d7d49561d6f688de
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33c346fa2e4572799ad6341bd5115cdd6e3b9ec9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569991"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Włącz nadmiarowość strefy dla usługi Azure cache for Redis (wersja zapoznawcza)
 W tym artykule dowiesz się, jak skonfigurować strefowo nadmiarowe wystąpienie pamięci podręcznej platformy Azure przy użyciu Azure Portal.
@@ -38,21 +38,25 @@ Aby utworzyć pamięć podręczną, wykonaj następujące kroki:
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
    
-1. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia dla nowej pamięci podręcznej.
+1. Na stronie **podstawowe** Skonfiguruj ustawienia nowej pamięci podręcznej.
    
     | Ustawienie      | Sugerowana wartość  | Opis |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Subskrypcja** | Wybierz subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
+    | **Grupa zasobów** | Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
     | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to * \<DNS name> . Redis.cache.Windows.NET*. | 
-    | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
-    | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
-    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
-    | **Warstwa cenowa** | Lista rozwijana i wybierz pamięć podręczną [warstwy Premium](https://azure.microsoft.com/pricing/details/cache/) . |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
-    | **Liczba replik** | Przesuń, aby wybrać liczbę replik. | Domyślna wartość wynosi 1. |
-    | **Strefy dostępności** | Lista rozwijana i wybierz strefy, które mają być używane. | Maszyny wirtualne dla pamięci podręcznej będą dystrybuowane w wybranych strefach tak jak to możliwe. Na przykład jeśli pamięć podręczna ma trzy repliki i korzysta z dwóch stref, w każdej strefie będą znajdować się dwie maszyny wirtualne. |
+    | **Lokalizacja** | Wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
+    | **Typ pamięci podręcznej** | Wybierz pamięć podręczną [warstwy Premium](https://azure.microsoft.com/pricing/details/cache/) . |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
    
-1. Po wybraniu pamięci podręcznej warstwy Premium zostanie wyświetlony monit z pytaniem, czy włączyć klastrowanie Redis. Pozostaw opcję **klaster** jako *wyłączony*. 
+1. Na stronie **Zaawansowane** wybierz pozycję **Liczba replik**.
    
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Skonfiguruj klaster Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
+
+1. Wybierz pozycję **strefy dostępności**. 
+   
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
+
+1. Zostaw inne opcje w ustawieniach domyślnych. 
 
     > [!NOTE]
     > Obsługa nadmiarowości stref działa tylko z pamięciami podręcznymi nieklastrowanymi i replikowanymi geograficznie. Ponadto nie obsługuje prywatnego linku, skalowania, trwałości danych ani importowania/eksportowania.
@@ -60,10 +64,8 @@ Aby utworzyć pamięć podręczną, wykonaj następujące kroki:
 
 1. Kliknij pozycję **Utwórz**. 
    
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Utwórz pamięć podręczną platformy Azure dla Redis.":::
-   
     Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia.
-
+   
     > [!NOTE]
     > Stref dostępności nie można zmienić po utworzeniu pamięci podręcznej.
     >

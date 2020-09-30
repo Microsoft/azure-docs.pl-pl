@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dadf523c5d17ffb91f4fefa71b52d1d1855c978
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070092"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570247"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Jak skalować Azure Time Series Insights środowisko Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano sposób zmiany pojemności środowiska Azure Time Series Insights przy użyciu [Azure Portal](https://portal.azure.com). Pojemność to mnożnik stosowany do szybkości transferu danych przychodzących, pojemności magazynu i kosztu związanego z wybraną jednostką SKU.
 

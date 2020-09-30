@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851994"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570639"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centrum zarządzania w Azure Data Factory
 
@@ -56,7 +56,7 @@ Aby zastąpić wygenerowane parametry szablonu Menedżer zasobów podczas publik
 
 Wyzwalacze określają, kiedy przebieg potoku powinien zostać wyłączony. Obecnie wyzwalacze mogą być w harmonogramie zegara ściany, działać w regularnych odstępach czasu lub zależeć od zdarzenia. Aby uzyskać więcej informacji, zapoznaj się z tematem [wykonywanie wyzwalacza](concepts-pipeline-execution-triggers.md#trigger-execution). W centrum zarządzania można utworzyć, edytować, usunąć lub wyświetlić bieżący stan wyzwalacza.
 
-![Zarządzaj niestandardowymi paramsmi](media/author-management-hub/management-hub-triggers.png)
+![Zrzut ekranu pokazujący, gdzie można tworzyć, edytować, usuwać i wyświetlać bieżący stan wyzwalacza.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Parametry globalne
 

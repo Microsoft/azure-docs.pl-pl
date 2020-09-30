@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947786"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569656"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -20,7 +20,7 @@ Azure Database for MySQL obsługiwane przez program MySQL Community Edition jest
 - Pojedynczy serwer 
 - Serwer elastyczny (wersja zapoznawcza)
 
-Ten artykuł zawiera omówienie i wprowadzenie do podstawowych pojęć związanych z elastycznym modelem wdrażania serwera. 
+Ten artykuł zawiera omówienie i wprowadzenie do podstawowych pojęć związanych z elastycznym modelem wdrażania serwera. Aby uzyskać informacje na temat decydowania o opcji wdrożenia odpowiedniej dla obciążenia, zobacz [Wybieranie odpowiedniego serwera MySQL na platformie Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Omówienie
 
@@ -50,7 +50,7 @@ Jeśli skonfigurowano nadmiarową wysoką dostępność strefy, usługa inicjuje
 
 Zobacz [pojęcia wysokiej dostępności](concepts-high-availability.md) , aby uzyskać więcej szczegółów.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram koncepcyjny nadmiarowej strefy wysokiej dostępności"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram koncepcyjny wysokiej dostępności pojedynczej strefy"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatyczne stosowanie poprawek za pomocą zarządzanego okna obsługi
 
@@ -112,6 +112,15 @@ Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność a
 
 - **Zrzuć i Przywróć** — w przypadku migracji w trybie offline, w których użytkownicy mogą uzyskać pewien przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak mysqldump/Dumper, mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje, zobacz Migrowanie przy użyciu zrzutów i przywracania. 
 - **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) można wykorzystać. 
+
+## <a name="contacts"></a>Kontakty
+Aby dowiedzieć się więcej na temat pytań lub sugestii dotyczących pracy z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL ([ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Ten adres e-mail nie jest aliasem pomocy technicznej.
+
+Ponadto, w zależności od potrzeb, należy wziąć pod uwagę następujące punkty kontaktowe:
+
+- Aby skontaktować się z pomocą techniczną platformy Azure, [wyślij zgłoszenie z witryny Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.
+- Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for MySQL trybu wdrożenia pojedynczego serwera, możesz:

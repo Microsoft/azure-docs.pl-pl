@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3dcadd77866a6c57542a43657a1942791cc4d179
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027782"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570837"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Wizualizowanie danych usługi Azure Cosmos DB przy użyciu łącznika usługi Power BI
 
@@ -82,7 +82,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 4. Kliknij pozycję **Azure**, wybierz pozycję **Azure Cosmos dB (beta)**, a następnie kliknij pozycję **Połącz**. 
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop pobrać łącznika Power BI danych":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 5. Na stronie **łącznik w wersji zapoznawczej** kliknij pozycję **Kontynuuj**. Zostanie wyświetlone okno **Azure Cosmos DB** .
 
@@ -90,7 +90,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
    
 7. Jeśli łączysz się z tym punktem końcowym po raz pierwszy, zostanie wyświetlony monit o podanie klucza konta. W przypadku własnego konta Pobierz klucz z pola **klucz podstawowy** w bloku **klucze tylko do odczytu** w Azure Portal. Wprowadź odpowiedni klucz, a następnie kliknij przycisk **Połącz**.
    
-   Podczas kompilowania raportów zalecamy użycie klucza tylko do odczytu. Zapobiega to niepotrzebnemu narażeniu klucza głównego na potencjalne zagrożenia bezpieczeństwa. Klucz tylko do odczytu jest dostępny w bloku **klucze** Azure Portal. 
+   Podczas kompilowania raportów zalecamy użycie klucza tylko do odczytu. Zapobiega to niepotrzebnemu narażeniu klucza podstawowego na potencjalne zagrożenia bezpieczeństwa. Klucz tylko do odczytu jest dostępny w bloku **klucze** Azure Portal. 
     
 8. Po pomyślnym nawiązaniu połączenia zostanie wyświetlone okienko **Nawigator** . **Nawigator** pokazuje listę baz danych w ramach konta.
 
@@ -100,34 +100,34 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
     
     W okienku podglądu zostanie wyświetlona lista elementów **rekordów** .  Dokument jest reprezentowany jako typ **rekordu** w Power BI. Podobnie zagnieżdżony blok JSON wewnątrz dokumentu jest również **rekordem**.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Samouczek Power BI łącznika Azure Cosmos DB Power BI — okno nawigatora":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 12. Kliknij przycisk **Edytuj** , aby uruchomić Edytor zapytań w nowym oknie, aby przekształcić dane.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Spłaszczanie i transformowanie dokumentów JSON
 1. Przejdź do okna edytora zapytań Power BI, w którym kolumna **dokument** znajduje się w środkowym okienku.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Edytor zapytań programu Power BI Desktop":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. Kliknij Ekspander w prawej części nagłówka kolumny **dokumentu** .  Zostanie wyświetlone menu kontekstowe z listą pól.  Wybierz pola, które są potrzebne do raportu, na przykład Volcano, nazwa, kraj, region, lokalizacja, podniesienie, typ, stan i Ostatnia znana wartość. Usuń zaznaczenie pola **Użyj oryginalnej nazwy kolumny jako prefiksu** , a następnie kliknij przycisk **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Samouczek Power BI łącznika Azure Cosmos DB Power BI — rozwiń węzeł dokumenty":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. W środkowym okienku zostanie wyświetlony podgląd wyniku z wybranymi polami.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Samouczek Power BI dla łącznika Azure Cosmos DB Power BI — Spłaszcz wyniki":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. W naszym przykładzie właściwość Location jest blokiem GEOJSON w dokumencie.  Jak widać, lokalizacja jest reprezentowana jako typ **rekordu** w Power BI Desktop.  
 
 1. Kliknij Ekspander znajdujący się po prawej stronie nagłówka kolumny Document. Location.  Menu kontekstowe z polami Type i współrzędne pojawia się.  Wybierzmy pole współrzędne, upewnij się, że **nazwa oryginalnej kolumny** nie jest zaznaczona, a następnie kliknij przycisk **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Samouczek Power BI dotyczący łącznika Azure Cosmos DB Power BI — rekord lokalizacji":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. W środkowym okienku zostanie wyświetlona kolumna współrzędne typu **listy** .  Jak pokazano na początku samouczka, dane GEOJSON w tym samouczku są typu punkt z wartościami szerokości geograficznej i długością geograficzną zarejestrowanymi w tablicy współrzędnych.
    
    Element współrzędne [0] reprezentuje wartość długości geograficznej, podczas gdy współrzędne [1] reprezentuje wartość szerokości geograficznej.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Samouczek Power BI dla łącznika Azure Cosmos DB Power BI — Lista współrzędnych":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. Aby spłaszczyć tablicę współrzędnych, Utwórz **kolumnę niestandardową** o nazwie latlong.  Wybierz Wstążkę **Dodaj kolumnę** i kliknij **kolumnę niestandardową**.  Zostanie wyświetlone okno **kolumna niestandardowa** .
 
@@ -137,21 +137,21 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
    
    Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Samouczek Power BI łącznika Azure Cosmos DB Power BI — Dodawanie kolumny niestandardowej":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 1. Teraz w środkowym okienku wyświetlane są nowe kolumny LatLong wypełnione wartościami.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Samouczek Power BI dla łącznika Azure Cosmos DB Power BI — niestandardowa kolumna LatLong":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
     
     Jeśli w nowej kolumnie pojawia się błąd, upewnij się, że zastosowane kroki w obszarze Ustawienia zapytania są zgodne z następującą ilustracją:
     
-    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Zastosowane kroki powinny być źródła, nawigacji, rozwinięte dokumenty, rozwinięte dokumenty. lokalizacja, dodano niestandardowe":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
     
     Jeśli czynności są różne, Usuń dodatkowe kroki i spróbuj ponownie dodać kolumnę niestandardową. 
 
 1. Kliknij przycisk **Zamknij i Zastosuj** , aby zapisać model danych.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Samouczek Power BI łącznika Azure Cosmos DB Power BI — Zamknij & Zastosuj":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 <a id="build-the-reports"></a>
 ## <a name="build-the-reports"></a>Tworzenie raportów
@@ -186,18 +186,18 @@ Aby udostępnić raport, musisz mieć konto w usłudze PowerBI.com.
 1. Gdy poświadczenie zostanie uwierzytelnione, raport zostanie opublikowany w wybranym miejscu docelowym.
 1. Kliknij pozycję **Otwórz plik "PowerBITutorial. pbix" w Power BI** , aby zobaczyć i udostępnić raport w witrynie PowerBI.com.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Publikowanie w celu Power BI pomyślne! Otwórz samouczek w Power BI":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>Utworzenie pulpitu nawigacyjnego w usłudze PowerBI.com
 Teraz, gdy masz raport, możesz go udostępnić w witrynie PowerBI.com
 
 Po opublikowaniu raportu z Power BI Desktop do PowerBI.com generuje on **raport** i **zestaw danych** w dzierżawie PowerBI.com. Na przykład po opublikowaniu raportu o nazwie **PowerBITutorial** do PowerBI.com zobaczysz PowerBITutorial w sekcjach **raporty** i **zestawy danych** na PowerBI.com.
 
-   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 Aby utworzyć udostępniony pulpit nawigacyjny, kliknij przycisk **Przypnij stronę dynamiczną** w raporcie PowerBI.com.
 
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 Następnie postępuj zgodnie z instrukcjami w temacie [Przypinanie kafelka z raportu](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) , aby utworzyć nowy pulpit nawigacyjny. 
 
@@ -208,13 +208,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

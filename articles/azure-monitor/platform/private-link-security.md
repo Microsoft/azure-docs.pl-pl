@@ -1,19 +1,19 @@
 ---
-title: Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
-description: Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
+title: Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
+description: Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077183"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570409"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Używanie usługi Azure Private Link do bezpiecznego łączenia sieci z usługą Azure Monitor
 
 > [!IMPORTANT]
 > W tej chwili należy **zażądać dostępu** do korzystania z tej funkcji. W celu uzyskania dostępu można zastosować [formularz rejestracji](https://aka.ms/AzMonPrivateLinkSignup).
@@ -31,7 +31,7 @@ Za pomocą linku prywatnego można:
 - Bezpieczne łączenie prywatnej sieci lokalnej w celu Azure Monitor przy użyciu linku ExpressRoute i prywatnego
 - Zachowaj cały ruch w sieci szkieletowej Microsoft Azure
 
-Aby uzyskać więcej informacji, zobacz [najważniejsze zalety linku prywatnego](../../private-link/private-link-overview.md#key-benefits).
+Aby uzyskać więcej informacji, zobacz  [najważniejsze zalety linku prywatnego](../../private-link/private-link-overview.md#key-benefits).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -76,13 +76,13 @@ Istnieje szereg ograniczeń, które należy wziąć pod uwagę podczas planowani
 
 * Sieć wirtualna może łączyć się tylko z 1 AMPLS obiektem. Oznacza to, że obiekt AMPLS musi zapewnić dostęp do wszystkich zasobów Azure Monitor, do których sieć wirtualna powinna mieć dostęp.
 * Zasób Azure Monitor (składnik obszaru roboczego lub Application Insights) może łączyć się z 5 AMPLSs.
-* Obiekt AMPLS może jednocześnie łączyć się z 20 Azure Monitor zasobami.
+* Obiekt AMPLS może łączyć się z zasobami 50 Azure Monitor.
 * Obiekt AMPLS może łączyć się z 10 prywatnymi punktami końcowymi.
 
 W poniższej topologii:
 * Każda sieć wirtualna nawiązuje połączenie z 1 AMPLS obiektem, dlatego nie może nawiązać połączenia z innymi AMPLSs.
 * AMPLS B nawiązuje połączenie z 2 sieci wirtualnych: przy użyciu 2/10 z możliwych połączeń prywatnych punktów końcowych.
-* AMPLS nawiązuje połączenie z 2 obszarami roboczymi i 1 składnik usługi Application Insight: przy użyciu 3/20 możliwych zasobów Azure Monitor.
+* AMPLS nawiązuje połączenie z 2 obszarami roboczymi i 1 składnik usługi Application Insight: przy użyciu 3/50 możliwych zasobów Azure Monitor.
 * Obszar roboczy 2 nawiązuje połączenie z AMPLS a i AMPLS B: przy użyciu 2/5 możliwych połączeń AMPLS.
 
 ![Diagram limitów AMPLS](./media/private-link-security/ampls-limits.png)
@@ -108,7 +108,7 @@ Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 
 Możesz połączyć AMPLS najpierw z prywatnymi punktami końcowymi, a następnie w celu Azure Monitor zasobów lub na odwrót, ale proces połączenia przebiega szybciej, jeśli zaczniesz od zasobów Azure Monitor. Poniżej przedstawiono sposób łączenia Azure Monitor Log Analytics obszarów roboczych i składników Application Insights z AMPLS
 
-1. W zakresie prywatnego łącza Azure Monitor kliknij pozycję **zasoby Azure monitor** w menu po lewej stronie. Kliknij przycisk **Dodaj**.
+1. W zakresie prywatnego łącza Azure Monitor kliknij pozycję **zasoby Azure monitor** w menu po lewej stronie. Kliknij przycisk **Dodaj** .
 2. Dodaj obszar roboczy lub składnik. Kliknięcie przycisku **Dodaj** powoduje wyświetlenie okna dialogowego, w którym można wybrać Azure monitor zasoby. Możesz przeglądać subskrypcje i grupy zasobów lub wpisywać ich nazwy, aby filtrować do nich. Wybierz obszar roboczy lub składnik, a następnie kliknij przycisk **Zastosuj** , aby dodać je do zakresu.
 
     ![Zrzut ekranu przedstawiający środowisko Select a Scope](./media/private-link-security/ampls-select-2.png)
@@ -152,7 +152,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
 
 Utworzono nowy prywatny punkt końcowy, który jest połączony z tym Azure Monitor zakresem linków prywatnych.
 
-## <a name="configure-log-analytics"></a>Konfigurowanie Log Analytics
+## <a name="configure-log-analytics"></a>Konfigurowanie usługi Log Analytics
 
 Przejdź do witryny Azure Portal. W obszarze Log Analytics zasobów obszaru roboczego istnieje **izolacja sieciowa** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany. 
 
@@ -162,10 +162,23 @@ Najpierw można połączyć ten zasób Log Analytics z dowolnymi Azure Monitor p
 
 Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
 
-Ograniczanie dostępu w ten sposób ma zastosowanie tylko do danych w obszarze roboczym. Zmiany konfiguracji, w tym Włączanie lub wyłączanie ustawień dostępu, są zarządzane przez Azure Resource Manager. Ogranicz dostęp do Menedżer zasobów przy użyciu odpowiednich ról, uprawnień, kontroli sieci i inspekcji. Aby uzyskać więcej informacji, zobacz [Azure monitor role, uprawnienia i zabezpieczenia](roles-permissions-security.md).
+Ograniczanie dostępu w ten sposób nie ma zastosowania do Azure Resource Manager i dlatego ma następujące ograniczenia:
+* Dostęp do danych — podczas blokowania zapytań z sieci publicznych stosuje się do większości Log Analyticsych środowisk, ale niektóre środowiska wykonują zapytania dotyczące danych za pośrednictwem Azure Resource Manager i w związku z tym nie będą mogły wykonywać zapytań dotyczących danych, chyba że prywatne ustawienia linku są stosowane również do Menedżer zasobów (funkcja jest dostępna wkrótce). Dotyczy to na przykład Azure Monitor rozwiązań, skoroszytów i szczegółowych informacji oraz łącznika LogicApp.
+* Zarządzanie obszarem roboczym — ustawienia obszaru roboczego i zmiany konfiguracji (w tym Włączanie lub wyłączanie tych ustawień dostępu) są zarządzane przez Azure Resource Manager. Ogranicz dostęp do zarządzania obszarami roboczymi przy użyciu odpowiednich ról, uprawnień, kontroli sieci i inspekcji. Aby uzyskać więcej informacji, zobacz [Azure monitor role, uprawnienia i zabezpieczenia](roles-permissions-security.md).
 
 > [!NOTE]
 > Dzienniki i metryki przekazane do obszaru roboczego za pośrednictwem [ustawień diagnostycznych](diagnostic-settings.md) korzystają z bezpiecznego prywatnego kanału firmy Microsoft i nie są kontrolowane przez te ustawienia.
+
+### <a name="log-analytics-solution-packs-download"></a>Pobieranie pakietów rozwiązań Log Analytics
+
+Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj odpowiednie nazwy FQDN do listy dozwolonych zapór. 
+
+
+| Środowisko chmury | Zasób agenta | Porty | Kierunek |
+|:--|:--|:--|:--|
+|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
+|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ## <a name="configure-application-insights"></a>Konfigurowanie Application Insights
 
@@ -221,7 +234,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj do zapory [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**i **AzureFrontDoor** .
 
@@ -234,17 +247,6 @@ Dodanie tych tagów umożliwia wykonywanie akcji, takich jak wykonywanie zapyta�
 ### <a name="application-insights-sdk-downloads-from-a-content-delivery-network"></a>Application Insights pobierania zestawu SDK z usługi Content Delivery Network
 
 W skrypcie należy powiązać kod JavaScript w taki sposób, aby przeglądarka nie próbowała pobrać kodu z sieci CDN. Przykład jest dostępny w witrynie [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
-
-### <a name="log-analytics-solution-download"></a>Pobieranie rozwiązania Log Analytics
-
-Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj odpowiednie nazwy FQDN do listy dozwolonych zapór. 
-
-
-| Środowisko chmury | Zasób agenta | Porty | Kierunek |
-|:--|:--|:--|:--|
-|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Wychodzący
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
-|Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 
 ### <a name="browser-dns-settings"></a>Ustawienia usługi DNS przeglądarki
 

@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442353"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570329"
 ---
 # <a name="wildcard-domains"></a>Domeny wieloznaczne
 
-Poza domenami i domenami w języku Apex można zamapować wieloznaczną nazwę domeny na listę hostów frontonu lub domen niestandardowych w profilu z systemem Azure. Posiadanie wieloznacznych domen w konfiguracji drzwi platformy Azure upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę osobno. Można na przykład zdefiniować Routing dla `customer1.contoso.com` , `customer2.contoso.com` i za `customerN.contoso.com` pomocą tej samej reguły routingu i dodać domenę wieloznaczną `*.contoso.com` .
+Oprócz domen wierzchołków i poddomen można także zmapować domenę symboli wieloznacznych na hosty frontonu lub domeny niestandardowe dla profilu drzwi platformy Azure. Posiadanie wieloznacznych domen w konfiguracji drzwi platformy Azure upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę osobno. Można na przykład zdefiniować Routing dla `customer1.contoso.com` , `customer2.contoso.com` i za `customerN.contoso.com` pomocą tej samej reguły routingu i dodać domenę wieloznaczną `*.contoso.com` .
 
 Najważniejsze scenariusze, które zostały ulepszone z obsługą domen symboli wieloznacznych, to m.in.:
 
@@ -31,7 +31,7 @@ Najważniejsze scenariusze, które zostały ulepszone z obsługą domen symboli 
 
 ## <a name="adding-wildcard-domains"></a>Dodawanie domen wieloznacznych
 
-W sekcji dla hostów lub domen frontonu można dodać domenę symboli wieloznacznych. Podobnie jak w przypadku poddomen, drzwi frontonu platformy Azure sprawdzają, czy istnieje mapowanie rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim mapowaniem rekordu CNAME, takiego jak `*.contoso.com` mapowany do `contoso.azurefd.net` . Można też użyć tymczasowego mapowania afdverify. Na przykład `afdverify.contoso.com` mapowane do `afdverify.contoso.azurefd.net` walidacji mapy rekordów CNAME dla symbolu wieloznacznego.
+W sekcji dla hostów lub domen frontonu można dodać domenę symboli wieloznacznych. Podobnie jak w przypadku poddomen, drzwiczki platformy Azure sprawdzają, czy istnieją mapowania rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim mapowaniem rekordu CNAME, takiego jak `*.contoso.com` mapowany do `contoso.azurefd.net` . Można też użyć tymczasowego mapowania afdverify. Na przykład `afdverify.contoso.com` mapowane do `afdverify.contoso.azurefd.net` walidacji mapy rekordów CNAME dla symbolu wieloznacznego.
 
 > [!NOTE]
 > Usługa DNS platformy Azure obsługuje rekordy z użyciem symboli wieloznacznych.
@@ -47,7 +47,7 @@ Można dodawać symbole wieloznaczne i ich poddomeny z pewnymi ograniczeniami:
 - Jeśli domena z symbolami wieloznacznymi zostanie dodana do profilu usługi Azure front-drzwi:
   - Nie można dodać domeny z symbolami wieloznacznymi do żadnego profilu usługi Azure front-drzwi.
   - Nie można dodać poddomen pierwszego poziomu domeny z symbolami wieloznacznymi do innego profilu platformy Azure z systemem lub profilu usługi Azure Content Delivery Network.
-- Jeśli poddomena domeny z symbolem wieloznacznym zostanie dodana do profilu usługi Azure Front-drzwiczk lub profilu usługi Azure Content Delivery Network, nie można dodać domeny z symbolami wieloznacznymi do innych profilów systemu Azure.
+- Jeśli poddomena domeny z symbolem wieloznacznym została już dodana do profilu usługi Azure front-drzwi lub profilu Content Delivery Network platformy Azure, nie można używać domeny z symbolami wieloznacznymi dla innych profilów platformy Azure.
 - Jeśli dwa profile (z przodu platformy Azure lub na platformie Azure Content Delivery Network) mają różne poddomeny domeny głównej, nie można dodać domen symboli wieloznacznych do jednego z tych profilów.
 
 ## <a name="certificate-binding"></a>Powiązanie certyfikatu

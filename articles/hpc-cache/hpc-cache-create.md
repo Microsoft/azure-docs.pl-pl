@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 5e17c55f8321ba0ad9a9686ada41413d64879d6c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612065"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570881"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Tworzenie pamięci podręcznej platformy Azure HPC
 
@@ -188,6 +188,97 @@ Komunikat zawiera pewne przydatne informacje, w tym następujące elementy:
 
 * Adresy instalacji klienta — Użyj tych adresów IP, gdy wszystko jest gotowe do łączenia klientów z pamięcią podręczną. Przeczytaj temat [Instalowanie pamięci podręcznej platformy Azure HPC,](hpc-cache-mount.md) aby dowiedzieć się więcej.
 * Stan uaktualnienia — po wydaniu aktualizacji oprogramowania ten komunikat zostanie zmieniony. [Oprogramowanie pamięci podręcznej można uaktualnić](hpc-cache-manage.md#upgrade-cache-software) ręcznie w dogodnym czasie lub będzie stosowane automatycznie po kilku dniach.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!CAUTION]
+> Moduł programu PowerShell AZ. HPCCache jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług. Nie jest to zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane lub mogą mieć ograniczone możliwości. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="requirements"></a>Wymagania
+
+Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps). Jeśli zdecydujesz się używać Cloud Shell, zobacz [omówienie Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) , aby uzyskać więcej informacji.
+
+> [!IMPORTANT]
+> Mimo że moduł **AZ. HPCCache** PowerShell jest w wersji zapoznawczej, należy go zainstalować oddzielnie przy użyciu `Install-Module` polecenia cmdlet. Po ogólnym udostępnieniu tego modułu programu PowerShell będzie on częścią przyszłych wydań modułu AZ PowerShell i dostępne natywnie z poziomu Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.HPCCache
+```
+
+## <a name="create-the-cache-with-azure-powershell"></a>Tworzenie pamięci podręcznej za pomocą Azure PowerShell
+
+> [!NOTE]
+> Azure PowerShell obecnie nie obsługuje tworzenia pamięci podręcznej z użyciem kluczy szyfrowania zarządzanych przez klienta. Użyj Azure Portal.
+
+Użyj polecenia cmdlet [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) , aby utworzyć nową pamięć podręczną platformy Azure HPC.
+
+Podaj następujące wartości:
+
+* Nazwa grupy zasobów pamięci podręcznej
+* Nazwa pamięci podręcznej
+* Region platformy Azure
+* Podsieć pamięci podręcznej w tym formacie:
+
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"`
+
+  Podsieć pamięci podręcznej wymaga co najmniej 64 adresów IP (/24) i nie może być żadnym z innych zasobów.
+
+* Pojemność pamięci podręcznej. Dwie wartości ustawiają maksymalną przepływność pamięci podręcznej platformy Azure HPC:
+
+  * Rozmiar pamięci podręcznej (w GB)
+  * Jednostka SKU maszyn wirtualnych używanych w infrastrukturze pamięci podręcznej
+
+  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) wyświetla dostępne jednostki SKU i prawidłowe opcje rozmiaru pamięci podręcznej dla każdego z nich. Opcje rozmiaru pamięci podręcznej mieszczą się w zakresie od 3 TB do 48 TB, ale obsługiwane są tylko niektóre wartości.
+
+  Ten wykres pokazuje, który rozmiar pamięci podręcznej i kombinacje jednostek SKU są prawidłowe w momencie przygotowywania tego dokumentu (lipiec 2020).
+
+  | Rozmiar pamięci podręcznej | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | tak         | nie          | nie          |
+  | 6144 GB    | tak         | tak         | nie          |
+  | 12 288 GB   | tak         | tak         | tak         |
+  | 24 576 GB   | nie          | tak         | tak         |
+  | 49 152 GB   | nie          | nie          | tak         |
+
+  Zapoznaj się z sekcją **Ustawianie pojemności pamięci podręcznej** na karcie instrukcje portalu, aby uzyskać ważne informacje o cenach, przepływności i sposobie odpowiedniej wielkości pamięci podręcznej dla przepływu pracy.
+
+Przykład tworzenia pamięci podręcznej:
+
+```azurepowershell-interactive
+$cacheParams = @{
+  ResourceGroupName = 'doc-demo-rg'
+  CacheName = 'my-cache-0619'
+  Location = 'eastus'
+  cacheSize = '3072'
+  SubnetUri = "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default"
+  Sku = 'Standard_2G'
+}
+New-AzHpcCache @cacheParams
+```
+
+Tworzenie pamięci podręcznej trwa kilka minut. Po powodzeniu polecenie CREATE zwróci następujące dane wyjściowe:
+
+```Output
+cacheSizeGb       : 3072
+health            : @{state=Healthy; statusDescription=The cache is in Running state}
+id                : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619
+location          : eastus
+mountAddresses    : {10.3.0.17, 10.3.0.18, 10.3.0.19}
+name              : my-cache-0619
+provisioningState : Succeeded
+resourceGroup     : doc-demo-rg
+sku               : @{name=Standard_2G}
+subnet            : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default
+tags              :
+type              : Microsoft.StorageCache/caches
+upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
+```
+
+Komunikat zawiera pewne przydatne informacje, w tym następujące elementy:
+
+* Adresy instalacji klienta — Użyj tych adresów IP, gdy wszystko jest gotowe do łączenia klientów z pamięcią podręczną. Przeczytaj temat [Instalowanie pamięci podręcznej platformy Azure HPC,](hpc-cache-mount.md) aby dowiedzieć się więcej.
+* Stan uaktualnienia — po wydaniu aktualizacji oprogramowania ten komunikat zostanie zmieniony. [Oprogramowanie pamięci podręcznej można uaktualnić](hpc-cache-manage.md#upgrade-cache-software) ręcznie w dogodnym czasie lub jest stosowane automatycznie po kilku dniach.
 
 ---
 

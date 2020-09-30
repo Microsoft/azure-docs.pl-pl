@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791150"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570740"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Tworzenie kontenerów i baz danych usługi Azure Cosmos przy użyciu przepływności automatycznego skalowania
 
@@ -61,7 +61,7 @@ Punkt wejścia dla maksymalnej przepływności skalowania automatycznego `Tmax` 
 
 Użyj [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) , aby włączyć automatyczne skalowanie dla istniejącej bazy danych lub kontenera. W dowolnym momencie można przełączać się między funkcją automatycznego skalowania i standardową (ręczną). Aby uzyskać więcej informacji, zobacz tę [dokumentację](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) . Obecnie w przypadku wszystkich interfejsów API można użyć Azure Portal, aby włączyć automatyczne skalowanie dla istniejących zasobów.
 
-## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Limity przepływności i magazynu dla automatycznego skalowania
+## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limity przepływności i magazynu dla automatycznego skalowania
 
 Dla każdej wartości `Tmax` , baza danych lub kontener może przechowywać łącznie `0.01 * Tmax GB` . Po osiągnięciu tej ilości miejsca do magazynowania maksymalna wartość RU/s zostanie automatycznie zwiększona na podstawie nowej wartości miejsca do magazynowania, bez wpływu na aplikację. 
 
@@ -77,7 +77,7 @@ Więcej szczegółów można znaleźć w tej [dokumentacji](how-to-choose-offer.
 | **Elastyczna przepływność (RU/s)** | Ręcznie zainicjowany. | Automatycznie i chwilowo skalowane na podstawie wzorców użycia obciążeń. |
 | **Szybkość ograniczania żądań/operacji (429)**  | Może się tak zdarzyć, jeśli zużycie przekracza przypuszczalną pojemność. | Nie nastąpi w przypadku używania RU/s w określonym zakresie przepływności skalowania automatycznego.    |
 | **Planowanie pojemności** |  Trzeba przeprowadzić planowanie pojemności i zapewnić dokładną przepływność. |    System automatycznie zajmuje się planowaniem pojemności i zarządzaniem pojemnością. |
-| **Cennik** | Płacisz za ręcznie zainicjowaną jednostkę RU/s na godzinę przy użyciu [standardowej (ręcznej) jednostki ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). | Opłata jest naliczana za godzinę dla największej liczby jednostek RU na sekundę, w której system jest skalowany do godziny. <br/><br/> W przypadku kont z jednym regionem zapisu opłata jest naliczana za użycie jednostek RU/s w godzinie, przy użyciu [skali ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>W przypadku kont z wieloma regionami zapisu nie ma dodatkowej opłaty za automatyczne skalowanie. Opłata jest naliczana za przepływność użyta co godzinę przy użyciu tego samego [kursu wieloskładnikowego ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Cennik** | Płacisz za ręcznie zainicjowaną jednostkę RU/s na godzinę przy użyciu [standardowej (ręcznej) jednostki ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). | Opłata jest naliczana za godzinę dla największej liczby jednostek RU na sekundę, w której system jest skalowany do godziny. <br/><br/> W przypadku kont z jednym regionem zapisu opłata jest naliczana za użycie jednostek RU/s w godzinie, przy użyciu [skali ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>W przypadku kont z wieloma regionami zapisu nie ma dodatkowej opłaty za automatyczne skalowanie. Opłata jest naliczana za przepływność użyta co godzinę przy użyciu tego samego [wieloregionowego zapisu ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Najlepiej dopasowane do typów obciążeń** |  Przewidywalne i stabilne obciążenia|   Nieprzewidywalne obciążenia i zmienne  |
 
 ## <a name="next-steps"></a>Następne kroki

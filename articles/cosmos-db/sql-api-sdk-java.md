@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 406690eb1303a25002d3d787e746bd091dd83fc6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586134"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569934"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -49,12 +49,12 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
+|**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* Rozwiązuje problem z pamięcią podręczną partycji głównej w zapytaniu documentcollection.
+* Rozwiązuje problem z pamięcią podręczną partycji podstawowej w zapytaniu documentcollection.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
 * Dodano obsługę niestandardowej konfiguracji ponowień 449.
@@ -102,7 +102,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Naprawiono usterkę w programie Global Endpoint Manager, aby wymusić odświeżanie.
 * Stała usterka dla upserts z warunkiem wstępnym w trybie bezpośrednim.
 
-### <a name="211"></a><a name="2.1.1"></a>2.1.1
+### <a name="211"></a><a name="2.1.1"></a>pkt
 * Naprawiono usterkę w pamięci podręcznej adresów bramy.
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
@@ -285,7 +285,7 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
 | [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
-| [2.1.1](#2.1.1) |13 grudnia 2018 |--- |
+| [pkt](#2.1.1) |13 grudnia 2018 |--- |
 | [2.1.0](#2.1.0) |20 listopada 2018 |--- |
 | [2.0.0](#2.0.0) |Września 21, 2018 |--- |
 | [1.16.4](#1.16.4) |Września 10, 2018 |30 maja 2020 |

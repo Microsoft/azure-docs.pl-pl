@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890758"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569430"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
 
@@ -61,7 +61,7 @@ Te certyfikaty mogą być certyfikatami głównymi lub pośrednimi certyfikatami
 - Certyfikatami głównymi powinny być podpisywane certyfikaty łańcucha.
 - Certyfikaty główne można przekazać na urządzeniu w następującym formacie: 
     - **Der** — są one dostępne jako `.cer` rozszerzenie pliku.
-    - **Base-64 encoded lub PEM** — są one dostępne jako `.cer` rozszerzenie.
+    - **Zakodowane w formacie Base-64** — są one dostępne jako `.cer` rozszerzenie pliku.
     - **P7b** — ten format jest używany tylko w przypadku podpisywania certyfikatów łańcucha, które obejmują certyfikaty główne i pośrednie.
 - Certyfikaty łańcucha podpisywania są zawsze przekazywane przed przekazaniem innych certyfikatów.
 
@@ -275,11 +275,11 @@ Certyfikaty utworzone dla urządzenia domyślnie znajdują się w **magazynie os
 
     1. Najpierw przekaż certyfikaty główne. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **certyfikaty > + Dodaj certyfikat**.
 
-        ![Dodaj certyfikat łańcucha podpisywania](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![Dodaj certyfikat łańcucha podpisywania 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. Następnie Przekaż certyfikaty punktów końcowych. 
 
-        ![Dodaj certyfikat łańcucha podpisywania](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![Dodaj certyfikat łańcucha podpisywania 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         Wybierz pliki certyfikatów w formacie *PFX* i wprowadź hasło podane podczas eksportowania certyfikatu. Zastosowanie certyfikatu Azure Resource Manager może potrwać kilka minut.
 
@@ -383,20 +383,20 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
 1. W osobistym magazynie certyfikatów wybierz certyfikat główny. Kliknij prawym przyciskiem myszy i wybierz pozycję **wszystkie zadania > Eksportuj...**
 
-    ![Eksportuj certyfikat 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Eksportowanie certyfikatu DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. Zostanie otwarty Kreator certyfikatów. Wybierz format formacie **X. 509 szyfrowany binarnie algorytmem DER (CER)**. Wybierz pozycję **Dalej**.
 
-    ![Eksportuj certyfikat 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Eksportowanie certyfikatu DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Przeglądaj i wybierz lokalizację, w której chcesz wyeksportować plik. cer.
 
-    ![Eksportuj certyfikat 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
+    ![Eksportowanie certyfikatu DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 
 4. Wybierz pozycję **Zakończ**.
 
-    ![Eksportowanie certyfikatu 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Eksportowanie certyfikatu DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="supported-certificate-algorithms"></a>Obsługiwane algorytmy certyfikatów
@@ -410,11 +410,11 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
 Jeśli wprowadzisz własne certyfikaty, certyfikaty wygasną zwykle w ciągu 1 roku lub 6 miesięcy. Aby wyświetlić datę wygaśnięcia certyfikatu, przejdź do strony **Certyfikaty** w lokalnym interfejsie użytkownika sieci Web urządzenia. W przypadku wybrania określonego certyfikatu można wyświetlić datę wygaśnięcia certyfikatu.
 
-## <a name="rotate-certificates"></a>Wymiana certyfikatów
+<!--## Rotate certificates
 
-Rotacja certyfikatów nie jest zaimplementowana w tej wersji. Użytkownik nie ma również powiadomienia o oczekującej dacie wygaśnięcia certyfikatu. 
+Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-Wyświetlanie daty wygaśnięcia certyfikatu na stronie **Certyfikaty** w lokalnym interfejsie użytkownika sieci Web urządzenia. Po zbliżaniu się wygaśnięcia certyfikatu Utwórz i przekaż nowe certyfikaty zgodnie ze szczegółowymi instrukcjami w temacie [Tworzenie i przekazywanie certyfikatów](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## <a name="next-steps"></a>Następne kroki
 

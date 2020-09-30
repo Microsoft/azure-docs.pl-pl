@@ -1,19 +1,19 @@
 ---
-title: Skrypt programu PowerShell umożliwiający zmianę priorytetu trybu failover dla jednego głównego konta usługi Azure Cosmos
-description: Przykładowy skrypt Azure PowerShell — zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla konta z jednym wzorcem Azure Cosmos DB
+title: Skrypt programu PowerShell umożliwiający zmianę priorytetu trybu failover dla konta usługi Azure Cosmos z jednym regionem zapisu
+description: Przykładowy skrypt Azure PowerShell — zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla konta usługi Azure Cosmos z jednym regionem zapisu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506796"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570602"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla Azure Cosmos DB konta z jednym wzorcem przy użyciu programu PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Zmiana priorytetu trybu failover lub wyzwolenie trybu failover dla konta usługi Azure Cosmos z jednym regionem zapisu przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

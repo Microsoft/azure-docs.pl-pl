@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072652"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570781"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Przekształć kod XML przy użyciu map w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
@@ -69,7 +69,7 @@ Nie potrzebujesz aplikacji logiki podczas tworzenia i dodawania map. Jednak aby 
 
 1. Po otwarciu strony **zestawy** wybierz pozycję **Dodaj**.
 
-   ![Wybierz pozycję "Dodaj"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Zrzut ekranu, który podświetla przycisk Dodaj na stronie zestawy.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Na podstawie rozmiaru pliku zestawu wykonaj kroki przekazywania zestawu, który jest [do 2 MB](#smaller-assembly) lub [więcej niż 2 MB, ale tylko do 8 MB](#larger-assembly).
 Aby uzyskać limity dotyczące liczby zestawów na kontach integracji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).

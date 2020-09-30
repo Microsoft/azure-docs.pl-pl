@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046417"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569444"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planowanie środowiska Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano sposób planowania środowiska Azure Time Series Insights Gen1 w oparciu o oczekiwany współczynnik ruchu przychodzącego i wymagania dotyczące przechowywania danych.
 
@@ -48,12 +51,12 @@ Domyślnie Azure Time Series Insights zachowuje dane na podstawie ilości udost�
 
 ## <a name="data-retention"></a>Przechowywanie danych
 
-Można zmienić ustawienie **czas przechowywania danych** w środowisku Azure Time Series Insights. Możesz włączyć do 400 dni przechowywania. 
+Można zmienić ustawienie **czas przechowywania danych** w środowisku Azure Time Series Insights. Możesz włączyć do 400 dni przechowywania.
 
 Azure Time Series Insights ma dwa tryby:
 
-* Jeden tryb optymalizuje najbardziej aktualne dane. Wymusza zasady umożliwiające **przeczyszczenie starych danych** z ostatnich dostępnych danych z wystąpieniem. Ten tryb jest domyślnie włączony. 
-* Druga optymalizuje dane, aby pozostawały poniżej skonfigurowanych limitów przechowywania. **Wstrzymaj** ruch przychodzący uniemożliwia ingressed nowych danych, gdy zostanie ono wybrane jako **zachowanie limitu magazynu**.
+- Jeden tryb optymalizuje najbardziej aktualne dane. Wymusza zasady umożliwiające **przeczyszczenie starych danych** z ostatnich dostępnych danych z wystąpieniem. Ten tryb jest domyślnie włączony.
+- Druga optymalizuje dane, aby pozostawały poniżej skonfigurowanych limitów przechowywania. **Wstrzymaj** ruch przychodzący uniemożliwia ingressed nowych danych, gdy zostanie ono wybrane jako **zachowanie limitu magazynu**.
 
 Można dostosować przechowywanie i przełączać się między dwoma trybami na stronie konfiguracji środowiska w Azure Portal.
 
@@ -83,7 +86,7 @@ Drugim obszarem, na którym należy skoncentrować się na potrzeby planowania �
 
 Można zwiększyć pojemność jednostki SKU S1 lub S2 do 10 jednostek w jednym środowisku. Nie można migrować ze środowiska S1 do warstwy S2. Nie można migrować ze środowiska S2 do warstwy S1.
 
-W przypadku pojemności związanych z transferem danych przychodzących należy najpierw określić łączną liczbę transferów przychodzących wymaganych w ciągu miesiąca. Następnie ustal, co to są potrzeby na minutę. 
+W przypadku pojemności związanych z transferem danych przychodzących należy najpierw określić łączną liczbę transferów przychodzących wymaganych w ciągu miesiąca. Następnie ustal, co to są potrzeby na minutę.
 
 Ograniczanie i opóźnienie odgrywają rolę w wydajności na minutę. Jeśli Twoje dane wejściowe są dostępne przez czas krótszy niż 24 godziny, Azure Time Series Insights może "wychwycić" w tempie przychodzącym wielokrotne wynoszącym dwie częstotliwości wymienione w powyższej tabeli.
 

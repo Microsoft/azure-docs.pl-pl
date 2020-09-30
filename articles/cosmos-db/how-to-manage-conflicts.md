@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330518"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570680"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Poznaj następujące pojęcia dotyczące usługi Azure Cosmos DB:
 
 - [Dystrybucja globalna — szczegóły działania](global-dist-under-the-hood.md)
-- [Jak skonfigurować wiele wzorców w aplikacjach](how-to-multi-master.md)
+- [Jak skonfigurować wieloregionowe operacje zapisu w aplikacjach](how-to-multi-master.md)
 - [Konfigurowanie klientów dla usługi wieloadresowości](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Dodawanie lub usuwanie regionów z konta usługi Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [How to configure multi-master in your applications (Jak skonfigurować wielowzorcowość w aplikacji)](how-to-multi-master.md).
+- [Jak configuremulti zapisy w aplikacjach](how-to-multi-master.md).
 - [Partycjonowanie i dystrybucja danych](partition-data.md)
 - [Indeksowanie w usłudze Azure Cosmos DB](indexing-policies.md)

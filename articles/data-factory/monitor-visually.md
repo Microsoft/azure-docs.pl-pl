@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801538"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570139"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Wizualne monitorowanie fabryk danych platformy Azure
 
@@ -136,7 +136,7 @@ Możesz również wyświetlić historię ponownego uruchamiania dla określonego
 
 Możesz zobaczyć zasoby używane przez uruchomienie potoku, klikając ikonę użycie obok przebiegu. 
 
-![Monitorowanie użycia](media/monitor-visually/monitor-consumption-1.png)
+![Zrzut ekranu pokazujący, gdzie można zobaczyć zasoby używane przez potok.](media/monitor-visually/monitor-consumption-1.png)
 
 Kliknięcie ikony powoduje otwarcie raportu o zużyciu zasobów używanych przez to uruchomienie potoku. 
 
@@ -190,7 +190,7 @@ Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji,
 
     ![Pole dla kryteriów docelowych](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista kryteriów](media/monitor-visually/add-criteria-2.png)
+    ![Zrzut ekranu pokazujący, gdzie wybierasz jedną metrykę, aby skonfigurować warunek alertu.](media/monitor-visually/add-criteria-2.png)
 
     ![Lista kryteriów](media/monitor-visually/add-criteria-3.png)
 

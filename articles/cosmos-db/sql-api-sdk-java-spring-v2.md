@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069128"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570757"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v2 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 > * [Gremlin danych wiosennych z Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Chcesz szybko zacząć?
-> 1. Zainstaluj [minimalny obsługiwany środowisko uruchomieniowe Java, JDK 8](/java/azure/jdk/?view=azure-java-stable), aby można było użyć zestawu SDK.
+> 1. Zainstaluj [minimalny obsługiwany środowisko uruchomieniowe Java, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), aby można było użyć zestawu SDK.
 > 2. Utwórz aplikację ze sprężyną danych Azure Cosmos DB przy użyciu [Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). To proste!
 > 3. Zapoznaj się z [przewodnikiem po programie dla danych sprężyny Azure Cosmos DB deweloperem](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), który przeprowadzi Cię przez podstawowe żądania Azure Cosmos DB.
 >

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4590a881fbc42467d55c3440d09f4770f447e97f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563390"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570025"
 ---
 # <a name="what-is-azure-files"></a>Co to jest usługa Azure Files?
 Azure Files oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem [protokołu Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) lub [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System). Udziały plików platformy Azure można instalować współbieżnie przy użyciu wdrożeń w chmurze lub lokalnych. Azure Files udziały plików SMB są dostępne z klientów systemów Windows, Linux i macOS. Azure Files udziały plików NFS są dostępne z poziomu klientów z systemem Linux lub macOS. Ponadto Azure Files udziały plików SMB mogą być buforowane na serwerach z systemem Windows z Azure File Sync, aby uzyskać szybki dostęp w sąsiedztwie miejsca, w którym są używane dane.
@@ -56,6 +56,7 @@ Udziały plików platformy Azure mogą być używane w następujących celach:
 * **Znajomy sposób programowania**. Aplikacje działające na platformie Azure mogą uzyskiwać dostęp do danych udziału za pomocą [interfejsów API We/Wy systemu plików](https://msdn.microsoft.com/library/system.io.file.aspx). Dzięki temu programiści mogą wykorzystać istniejący kod i własne umiejętności, aby zmigrować istniejące aplikacje. Oprócz systemowych interfejsów API We/Wy można używać [bibliotek klienckich usługi Azure Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx) lub [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Następne kroki
+* [Więcej informacji na temat dostępnych protokołów udziałów plików](storage-files-compare-protocols.md)
 * [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md)
 * [Łączenie i Instalowanie udziału SMB w systemie Windows](storage-how-to-use-files-windows.md)
 * [Łączenie i Instalowanie udziału SMB w systemie Linux](storage-how-to-use-files-linux.md)

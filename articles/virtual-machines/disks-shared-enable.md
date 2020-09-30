@@ -4,16 +4,16 @@ description: Skonfiguruj dysk zarządzany przez platformę Azure z dyskami udost
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 447380c7aed7e765695ea5389f0b3f2973a16b0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82d482cd0a1b3a5b6028b9249030b7b1a093d22d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328143"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570545"
 ---
 # <a name="enable-shared-disk"></a>Włączanie dysku udostępnionego
 
