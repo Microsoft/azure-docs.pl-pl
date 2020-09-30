@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84872701"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530222"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Samouczek: Tworzenie połączenia usługi Komunikacja równorzędna
 
@@ -43,13 +43,13 @@ W tym samouczku pokazano, jak utworzyć zasób usługi komunikacji równorzędne
 
 1. Wybierz pozycję **klucz prefiksu** i Dodaj klucz prefiksu, który został udzielony przez dostawcę (ISP lub IXP). Ten klucz umożliwia firmie Microsoft sprawdzenie poprawności prefiksu i dostawcy, którym przydzielono prefiks IP.
 
-    ![Karta Konfiguracja usługi Komunikacja równorzędna](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![Zrzut ekranu przedstawia kartę Konfiguracja strony Tworzenie połączenia z usługą komunikacji równorzędnej, w której można wprowadzić klucz prefiksu.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Wybierz przycisk **Recenzja + Utwórz** w lewym dolnym rogu strony. Zostanie wyświetlona strona **Recenzja + tworzenie** , a platforma Azure weryfikuje konfigurację.
 
  1. Gdy zostanie wyświetlony komunikat **zweryfikowano** , jak pokazano, wybierz pozycję **Utwórz**.
 
-> ![Karta Konfiguracja usługi Komunikacja równorzędna](./media/peering-service-portal/peering-service-prefix.png)
+> ![Zrzut ekranu przedstawia kartę Przegląd + tworzenie na stronie Tworzenie połączenia z usługą komunikacji równorzędnej.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Po zarejestrowaniu połączenia z usługą komunikacji równorzędnej zostanie przeprowadzone dodatkowe sprawdzanie poprawności zawartych prefiksów. Stan sprawdzania poprawności można sprawdzić w sekcji **prefiksy** nazwy zasobu. Jeśli sprawdzanie poprawności nie powiedzie się, zostanie wyświetlony jeden z następujących komunikatów o błędach:
 

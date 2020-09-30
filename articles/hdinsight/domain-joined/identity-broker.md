@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251919"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529943"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
 
@@ -30,11 +30,13 @@ HIB zapewnia infrastrukturę uwierzytelniania, która umożliwia przejście prot
 
 Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatorów:
 
-![Przepływ uwierzytelniania z brokerem identyfikatorów](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
 
 Na tym diagramie klient (tj. przeglądarka lub aplikacje) musi najpierw uzyskać token OAuth, a następnie przedstawić token do bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego (SSO).
 
 Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (tj. nazwa użytkownika/hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Federacji (punkt końcowy usług AD FS), aby zapewnić bezpośrednią linię wglądu z węzłów bramy.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
 
 Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniania w zależności od potrzeb organizacji:
 

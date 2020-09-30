@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532157"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrowanie zadań usługi Azure Scheduler do usługi Azure Logic Apps
 
@@ -96,7 +96,7 @@ Można uruchomić wiele jednorazowych zadań, tworząc tylko jedną aplikację l
 
    Można na przykład dołączyć akcję HTTP, która wysyła żądanie do adresu URL, lub akcje, które działają z kolejkami magazynu, kolejkami Service Bus lub tematami Service Bus:
 
-   ![Akcja HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Zrzut ekranu pokazuje opóźnienie do akcji, po której następuje akcja H T T P z metodą POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Gdy skończysz, Zapisz aplikację logiki.
 
@@ -127,9 +127,9 @@ Po wysłaniu wywołania odpowiedź z aplikacji logiki zostanie wyświetlona w po
 
 > [!IMPORTANT]
 >
-> Jeśli chcesz później anulować zadanie, wybierz kartę **nagłówki** . Znajdź i skopiuj wartość nagłówka **x-MS-Workflow-Run-ID** w odpowiedzi. 
+> Jeśli chcesz anulować zadanie później, wybierz kartę **nagłówki** . Znajdź i skopiuj wartość nagłówka **x-MS-Workflow-Run-ID** w odpowiedzi. 
 >
-> ![Odpowiedź](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![Reakcja](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>Anulowanie zadania jednorazowego
 
@@ -155,7 +155,7 @@ W Logic Apps każde zadanie jednorazowe wykonuje jako pojedyncze wystąpienie ur
 
    Można na przykład dołączyć akcję HTTP, która wysyła żądanie do adresu URL, lub akcje, które działają z kolejkami magazynu, kolejkami Service Bus lub tematami Service Bus:
 
-   ![Akcja HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Zrzut ekranu przedstawia akcję H T T P z metodą POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Gdy skończysz, Zapisz aplikację logiki.
 
@@ -220,7 +220,7 @@ Odp.: każde zadanie usługi Scheduler jest unikatowe, dlatego nie istnieje **Na
 **P**: gdzie mogę uzyskać pomoc techniczną dotyczącą migrowania moich zadań harmonogramu? <br>
 Odp.: Oto kilka **sposobów, aby**uzyskać pomoc techniczną:
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, możesz utworzyć żądanie pomocy technicznej w Azure Portal. W przeciwnym razie możesz wybrać inną opcję pomocy technicznej.
 
@@ -237,7 +237,7 @@ Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, mo�
 
 1. Wybierz żądaną opcję pomocy technicznej. Jeśli masz płatny Plan pomocy technicznej, wybierz pozycję **dalej**.
 
-**Społeczność**
+**We**
 
 * [Strona pytania&pytań Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)

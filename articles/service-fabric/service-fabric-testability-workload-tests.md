@@ -1,17 +1,15 @@
 ---
 title: Symulowanie błędów w aplikacjach Service Fabric platformy Azure
 description: Dowiedz się więcej na temat zabezpieczania usług Service Fabric platformy Azure przed błędami i niepowodzeniem.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c193ef00d56b2d2fc7ad806cc795dcbe360db548
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c714ae30c64ea073cbac521eac5e15a8d968b7ea
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022109"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531314"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Symulowanie błędów podczas obciążeń usług
 Scenariusze testowania na platformie Azure Service Fabric umożliwiają deweloperom nie martwić się o poszczególnymi usterkami. Istnieją jednak scenariusze, w których może być konieczne jawne odchodzenie między obciążeniem klienta i niepowodzeń. Odłączanie obciążenia i błędów klienta zapewnia, że usługa rzeczywiście wykonuje pewne działania w przypadku wystąpienia awarii. Uwzględniając poziom kontroli, który zapewnia możliwości testowania, mogą one być precyzyjnymi punktami wykonywania obciążenia. Takie zapełnienie błędów w różnych stanach aplikacji może znaleźć błędy i poprawić jakość.

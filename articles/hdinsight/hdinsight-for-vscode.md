@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876788"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530157"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -29,7 +29,7 @@ Aby wykonać kroki opisane w tym artykule, wymagane są następujące elementy:
 - [Program Visual Studio Code](https://code.visualstudio.com/)
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Narzędzie mono jest wymagane tylko dla systemów Linux i macOS.
 - [Środowisko interaktywne PySpark dla Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- Katalog lokalny. W tym artykule jest używanych **C:\HD\HDexample**.
+- Katalog lokalny. W tym artykule jest używanych  **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Instalowanie narzędzi Hive & platformy Spark
 
@@ -199,11 +199,11 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
 4. Monit o zainstalowanie jądra PySpark jest wyświetlany w prawym dolnym rogu okna. Możesz kliknąć przycisk **Instaluj** , aby rozpocząć instalację PySpark. lub kliknij przycisk **Pomiń** , aby pominąć ten krok.
 
-   ![Zainstaluj jądro pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Zrzut ekranu przedstawia opcję pomijania instalacji PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Jeśli chcesz zainstalować ją później, możesz przejść do **File**  >  **Preference**  >  pozycji**Ustawienia**preferencji plików, a następnie odznaczyć pozycję **HDInsight: Włącz opcję Pomiń instalację Pyspark** w ustawieniach. 
     
-    ![Zainstaluj jądro pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Zrzut ekranu przedstawia opcję włączenia instalacji pomijania Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Jeśli instalacja zakończy się pomyślnie w kroku 4, w prawym dolnym rogu okna zostanie wyświetlone okno komunikatu "PySpark zainstalowany pomyślnie". Kliknij przycisk **Załaduj ponownie** , aby ponownie załadować okno.
     ![pomyślnie zainstalowano pyspark](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -214,7 +214,7 @@ Aby przesłać zapytania przy użyciu polecenia PySpark Interactive, wykonaj nas
 
     ![interakcyjne menu kontekstowe pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. kliknij pozycję PySpark, aby przełączyć jądro do **PySpark**, a kod zostanie uruchomiony pomyślnie. Narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
+9. Wybierz klaster, jeśli nie został określony domyślny klaster. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **PySpark**, a kod zostanie uruchomiony pomyślnie. Narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
 
    ![interaktywne okno interaktywnego środowiska Python pyspark](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -331,7 +331,7 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
 
     **Opublikuj/Batches** Treść żądania
 
-    | name | description (opis) | typ |
+    | name | description | typ |
     | --- | --- | --- |
     |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
     | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
@@ -352,13 +352,13 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
 
     Treść odpowiedzi utworzonego obiektu wsadowego.
 
-    | name | description (opis) | typ |
+    | name | description | typ |
     | --- | ---| --- |
     | ID | Identyfikator sesji | int |
     | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
     | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
     | Dziennik | Wiersze dziennika | Lista ciągów |
-    | state |Stan partii | Ciąg |
+    | stan |Stan partii | Ciąg |
 
     > [!NOTE]
     > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.

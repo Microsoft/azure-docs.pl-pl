@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742270"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530123"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Wyświetlanie historii inspekcji dla ról usługi Azure AD w Privileged Identity Management
 
@@ -32,7 +32,7 @@ Od listopada 2019 część Privileged Identity Management ról usługi Azure AD 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika, który znajduje się w roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Otwórz **Azure AD Privileged Identity Management**. Jeśli masz baner w górnej części strony przegląd, postępuj zgodnie z instrukcjami wyświetlanymi na karcie **Nowa wersja** tego artykułu. W przeciwnym razie postępuj zgodnie z instrukcjami podanymi w **poprzedniej wersji** karty.
 
-    [![Nowa wersja ról usługi Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Wybierz kartę dla swojej wersji")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Zrzut ekranu przedstawiający stronę "role usługi Azure AD — Historia inspekcji ról katalogu".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Wybierz kartę dla swojej wersji")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nowa wersja](#tab/new)
 
@@ -123,11 +123,11 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla ról usłu
     - Zobacz przyczynę zdarzenia inspekcji w kolumnie **Przyczyna stanu** .
     - Zobacz osobę zatwierdzającą w kolumnie **zainicjowane przez (aktor)** dla zdarzenia "Dodaj członka do żądania roli zatwierdzonego".
 
-    [![Nowa wersja ról usługi Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrowanie dziennika inspekcji usługi PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Zrzut ekranu przedstawiający stronę "dzienniki inspekcji" z wybranym menu "zainicjowane przez (aktor)" otwartego i "PIM".](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrowanie dziennika inspekcji usługi PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Wybierz zdarzenie dziennika inspekcji, aby wyświetlić numer biletu na karcie **działanie** w okienku **szczegółów** .
   
-    [![Nowa wersja ról usługi Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Sprawdź numer biletu dla zdarzenia inspekcji")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Zrzut ekranu przedstawiający stronę "dzienniki inspekcji" z numerem biletu wyróżnionym w okienku "Szczegóły".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Sprawdź numer biletu dla zdarzenia inspekcji")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. Obiekt żądający (osoba, który uaktywnia rolę) można wyświetlić na karcie **targets** okienka **szczegółów** zdarzenia inspekcji. Istnieją dwa typy docelowe dla ról usługi Azure AD:
 

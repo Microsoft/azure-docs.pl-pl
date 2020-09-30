@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738646"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530344"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurowanie aplikacji uwierzytelniania jako metody weryfikacji dwuskładnikowej
 
@@ -33,7 +33,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
 
 2. Wybierz pozycję **Otrzymuj powiadomienia, aby przeprowadzić weryfikację** , w obszarze **jak chcesz korzystać z aplikacji mobilnej** , a następnie wybierz pozycję **Konfiguruj**.
 
-    ![Strona dodatkowej weryfikacji zabezpieczeń z opcją aplikacji mobilnych i powiadomień](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodatkowa weryfikacja zabezpieczeń" z wybraną opcją "aplikacja mobilna" i "otrzymywanie powiadomień o weryfikacji".](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Zostanie wyświetlona strona **Konfigurowanie aplikacji mobilnej** .
 
@@ -48,7 +48,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
 
 5. Wróć do komputera i **dodatkowej weryfikacji zabezpieczeń** , upewnij się, że otrzymujesz komunikat informujący, że konfiguracja zakończyła się pomyślnie, a następnie wybierz przycisk **dalej**.
 
-    ![Dodatkowa strona weryfikacji zabezpieczeń z komunikatem o powodzeniu](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodatkowa weryfikacja zabezpieczeń" z konfiguracją "aplikacja mobilna". wyróżniono komunikat o powodzeniu.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     Aplikacja Authenticator wyśle powiadomienie do urządzenia przenośnego w celu przetestowania.
 

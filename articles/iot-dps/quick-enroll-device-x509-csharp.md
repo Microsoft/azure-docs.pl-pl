@@ -3,18 +3,18 @@ title: 'Szybki Start — rejestrowanie urządzenia X. 509 w usłudze Azure Devic
 description: W tym przewodniku Szybki start używane są rejestracje grupowe. W tym przewodniku szybki start Zarejestruj urządzenia X. 509 w usłudze Azure IoT Hub Device Provisioning Service (DPS) przy użyciu języka C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: d8d6c9e2276b2368e09cdb0697a37e34dcf487b5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330268"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532588"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Przewodnik Szybki start: rejestrowanie urządzeń X.509 w usłudze Device Provisioning Service przy użyciu języka C#
 
@@ -159,12 +159,15 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core, kt�
    }
    ```
 
-1. Na koniec Zastąp treść `Main` metody następującymi wierszami:
+1. Na koniec Zastąp `Main` metodę następującymi wierszami:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Skompiluj rozwiązanie.

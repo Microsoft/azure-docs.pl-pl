@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830285"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530922"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorowanie wydajności za pomocą magazynu zapytań
 
@@ -88,7 +88,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakresu**|
+| **Parametr** | **Opis** | **Wartooć** | **Zakresu**|
 |---|---|---|---|
 | pg_qs. query_capture_mode | Ustawia, które instrukcje są śledzone. | brak | Brak, Góra, wszystkie |
 | pg_qs. max_query_text_length | Ustawia maksymalną długość zapytania, którą można zapisać. Dłuższe zapytania zostaną obcięte. | 6000 | 100 – 10 tys. |
@@ -97,7 +97,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakresu**|
+| **Parametr** | **Opis** | **Wartooć** | **Zakresu**|
 |---|---|---|---|
 | pgms_wait_sampling. query_capture_mode | Ustawia, które instrukcje są śledzone pod kątem statystyk oczekiwania. | brak | Brak, wszystkie|
 | Pgms_wait_sampling. history_period | Ustaw częstotliwość próbkowania zdarzeń oczekiwania (w milisekundach). | 100 | 1-600000 |
@@ -164,17 +164,17 @@ Ten widok zwraca dane zdarzeń oczekiwania w magazynie zapytań. Istnieje jeden 
 |query_id   |bigint     ||Wewnętrzny kod skrótu obliczony na podstawie drzewa analizy instrukcji|
 |event_type |tekst       ||Typ zdarzenia, dla którego zaplecze oczekuje|
 |event  |tekst       ||Nazwa zdarzenia oczekiwania, jeśli obecnie trwa oczekiwanie na zaplecze|
-|Rozmowa  |Integer        ||Liczba przechwyconych zdarzeń|
+|Rozmowa  |Liczba całkowita        ||Liczba przechwyconych zdarzeń|
 
 
 ### <a name="functions"></a>Funkcje
 Query_store. qs_reset () zwraca wartość void
 
-`qs_reset`odrzuca wszystkie dane statystyczne zebrane do tej pory przez magazyn zapytań. Tę funkcję można wykonać tylko przez rolę administratora serwera.
+`qs_reset` odrzuca wszystkie dane statystyczne zebrane do tej pory przez magazyn zapytań. Tę funkcję można wykonać tylko przez rolę administratora serwera.
 
 Query_store. staging_data_reset () zwraca wartość void
 
-`staging_data_reset`odrzuca wszystkie dane statystyczne zebrane w pamięci przez magazyn zapytań (czyli dane w pamięci, które nie zostały jeszcze opróżnione do bazy danych). Tę funkcję można wykonać tylko przez rolę administratora serwera.
+`staging_data_reset` odrzuca wszystkie dane statystyczne zebrane w pamięci przez magazyn zapytań (czyli dane w pamięci, które nie zostały jeszcze opróżnione do bazy danych). Tę funkcję można wykonać tylko przez rolę administratora serwera.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -250,7 +250,7 @@ W poniższych tabelach opisano pola dla dwóch typów dzienników. W zależnośc
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 - Jeśli serwer PostgreSQL ma parametr default_transaction_read_only on, magazyn zapytań nie może przechwycić danych.
 - Funkcja magazynu zapytań może zostać przerwana, jeśli napotka długie zapytania Unicode (>= 6000 bajtów).
-- [Odczyt replik](concepts-read-replicas.md) replikuje dane z magazynu zapytań z serwera głównego. Oznacza to, że magazyn zapytań odczytu repliki nie dostarcza statystyk dotyczących zapytań uruchomionych w replice odczytu.
+- [Odczyt replik](concepts-read-replicas.md) replikuje dane z magazynu zapytań z serwera podstawowego. Oznacza to, że magazyn zapytań odczytu repliki nie dostarcza statystyk dotyczących zapytań uruchomionych w replice odczytu.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735994"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530259"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Konfigurowanie urządzenia przenośnego jako metody weryfikacji dwuskładnikowej
 
@@ -30,7 +30,7 @@ Można skonfigurować urządzenie przenośne do działania jako metoda weryfikac
 
 2. W obszarze **Metoda** wybierz opcję **Wyślij do mnie kod przez wiadomość tekstową** , a następnie wybierz przycisk **dalej**.
 
-    ![Strona dodatkowej weryfikacji zabezpieczeń z telefonem uwierzytelniania i wiadomością SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodatkowa weryfikacja zabezpieczeń" z wybraną pozycją "telefon uwierzytelniania" i "Wyślij do mnie kod przez wiadomość tekstową".](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Wpisz kod weryfikacyjny z wiadomości tekstowej wysyłanej przez firmę Microsoft do **kroku 2: wysłaliśmy wiadomość SMS na Twój obszar telefonu** , a następnie wybierz pozycję **Weryfikuj**.
 

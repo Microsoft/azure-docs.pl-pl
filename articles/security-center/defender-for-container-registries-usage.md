@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449125"
+ms.locfileid: "91532605"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach
 
@@ -127,7 +127,7 @@ Gdy wyszukiwanie jest zgodne z kryteriami zdefiniowanymi w regułach wyłączani
 > [!IMPORTANT]
 > Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.
 >
-> Więcej informacji znajduje się w [uprawnieniach RBAC w Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
+> Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 Można użyć dowolnego z następujących kryteriów: 
 

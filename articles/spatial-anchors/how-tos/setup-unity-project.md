@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57ead9636b7218ecfc7d72bb605b469d6a7d1ac6
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530424"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Konfigurowanie kotwic przestrzennych platformy Azure w projekcie środowiska Unity
 
@@ -57,7 +57,7 @@ Kotwice przestrzenne platformy Azure dla aparatu Unity są obecnie dystrybuowane
 1. Przejdź do pozycji **Edytuj**  >  **Ustawienia projektu**  >  **odtwarzacz**.
 2. W **panelu Inspektora** **Ustawienia odtwarzacza**wybierz ikonę **systemu Android** .
 3. W sekcji **kompilacja** zaznacz pole wyboru **niestandardowy główny szablon Gradle** , aby wygenerować niestandardowy szablon Gradle w lokalizacji `Assets\Plugins\Android\mainTemplate.gradle` .
-4. Otwórz `mainTemplate.gradle` plik w edytorze tekstu. 
+4. Otwórz `mainTemplate.gradle` plik w edytorze tekstu.
 5. W `dependencies` sekcji Wklej następujące zależności:
 
     ```gradle
@@ -72,10 +72,10 @@ Gdy wszystko będzie gotowe, Twoja `dependencies` sekcja powinna wyglądać nast
 ### <a name="import-the-asset-package"></a>[Importuj pakiet zasobów](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> Dystrybucja pakietu zasobów środowiska Unity zestawu Azure przestrzenny kotwice zostanie zaniechana po 2.5.0 wersji zestawu SDK.
+> Dystrybucja pakietu zasobów środowiska Unity zestawu Azure przestrzenny zakotwiczenia jest przestarzała w wersji 2.5.0 i nie jest już dostępna w 2.6.0.
 
-1. Pobierz `AzureSpatialAnchors.unitypackage` plik dla wersji, która ma być docelowa z [wydań usługi GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). 
-2. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.unity3d.com/Manual/AssetPackagesImport.html) , aby zaimportować pakiet zasobów aparatu Unity do projektu.    
+1. Pobierz `AzureSpatialAnchors.unitypackage` plik dla wersji, która ma być docelowa z [wydań usługi GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases).
+2. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.unity3d.com/Manual/AssetPackagesImport.html) , aby zaimportować pakiet zasobów aparatu Unity do projektu.
 
 ---
 

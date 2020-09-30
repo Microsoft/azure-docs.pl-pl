@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bee3d265554367b816c744ed892975ed60712f8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d4696f2e7d181783d62df2e414329eaa246dce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318113"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529861"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -68,7 +68,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 | Azure IoT Hub | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | WSCHODNIE STANY USA, POŁUDNIOWO-ŚRODKOWE STANY USA,<br/>ZACHODNIe stany USA 2, wszystkie regiony Chin      |  | Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | ŚRODKOWE STANY USA, PÓŁNOCNO-ŚRODKOWE STANY USA, POŁUDNIOWO-ŚRODKOWE STANY USA, ZACHODNIO-ŚRODKOWE STANY USA, WSCHODNIE STANY USA, WSCHODNIE STANY USA 2, ZACHODNIE STANY USA, ZACHODNIE STANY USA 2, AZJA WSCHODNIA, FRANCJA ŚRODKOWA, POŁUDNIOWE ZJEDNOCZONE KRÓLESTWO, EUROPA ZACHODNIA, JAPONIA WSCHODNIA I JAPONIA ZACHODNIA <br/> Wszystkie regiony rządowe  | | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | Wszystkie regiony publiczne z wyjątkiem: Niemcy środkowe, Niemcy PÓŁNOCno-Wschodnie <br/> Wszystkie regiony rządowe  | | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | Poświadczenia muszą być przechowywane w magazynie kluczy platformy Azure| Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
 
 
@@ -81,7 +81,7 @@ Połączenie prywatne platformy Azure ma integrację z usługą Azure Monitor. T
 
  - Archiwizowanie dzienników na koncie magazynu.
  - Przesyłanie strumieniowe zdarzeń do centrum zdarzeń.
- - Rejestrowanie Azure Monitor.
+ - Rejestrowanie usługi Azure Monitor
 
 Na Azure Monitor można uzyskać dostęp do następujących informacji: 
 - **Prywatny punkt końcowy**: 

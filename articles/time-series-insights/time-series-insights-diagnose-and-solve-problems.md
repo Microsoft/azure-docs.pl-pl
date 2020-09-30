@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046453"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530140"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnozowanie i rozwiązywanie problemów w Azure Time Series Insights środowisku Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano problemy, które mogą wystąpić w środowisku Azure Time Series Insightsu. Artykuł zawiera potencjalne przyczyny i rozwiązania do rozwiązania.
 
@@ -66,8 +69,8 @@ Jeśli na przykład w źródle zdarzeń znajdują się zdarzenia 5 000 000 w prz
 
 Jeśli masz stare zdarzenia w źródle zdarzeń, możesz przyejść do ograniczania na jeden z dwóch sposobów:
 
-- Zmień limity przechowywania źródła zdarzeń, aby pomóc w usunięciu starych zdarzeń, które nie mają być wyświetlane w Azure Time Series Insights.
-- Zapewnij większy rozmiar środowiska (liczbę jednostek), aby zwiększyć przepływność starych zdarzeń. W poprzednim przykładzie, jeśli zwiększy się to samo środowisko S1 do pięciu jednostek przez jeden dzień, środowisko powinno przechwycić w ciągu dnia. Jeśli produkcja zdarzeń o stałym stanie wynosi 1 000 000 lub mniej zdarzeń dziennie, można zmniejszyć wydajność zdarzenia do jednej jednostki po Azure Time Series Insights przechwycić.
+* Zmień limity przechowywania źródła zdarzeń, aby pomóc w usunięciu starych zdarzeń, które nie mają być wyświetlane w Azure Time Series Insights.
+* Zapewnij większy rozmiar środowiska (liczbę jednostek), aby zwiększyć przepływność starych zdarzeń. W poprzednim przykładzie, jeśli zwiększy się to samo środowisko S1 do pięciu jednostek przez jeden dzień, środowisko powinno przechwycić w ciągu dnia. Jeśli produkcja zdarzeń o stałym stanie wynosi 1 000 000 lub mniej zdarzeń dziennie, można zmniejszyć wydajność zdarzenia do jednej jednostki po Azure Time Series Insights przechwycić.
 
 Limit wymuszonego ograniczania jest oparty na typie i pojemności jednostki SKU środowiska. Wszystkie źródła zdarzeń w środowisku współużytkują tę pojemność. Jeśli źródło zdarzeń dla Centrum IoT Hub lub centrum zdarzeń wypycha dane poza wymuszonymi limitami, nastąpi ograniczenie przepustowości i opóźnienia.
 
@@ -128,12 +131,12 @@ Pierwszy nagłówek kolumny powinien być nazwą właściwości sygnatury czasow
 
 Następujące wartości nie będą wyświetlane:
 
-- *(ABC)*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako ciągi.
-- *Ikona kalendarza*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako wartości DateTime.
-- *#*: Wskazuje, że Azure Time Series Insights odczytuje wartości danych jako liczby całkowite.
+* *(ABC)*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako ciągi.
+* *Ikona kalendarza*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako wartości DateTime.
+* *#*: Wskazuje, że Azure Time Series Insights odczytuje wartości danych jako liczby całkowite.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [, jak ograniczyć opóźnienia w Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Przeczytaj [, jak ograniczyć opóźnienia w Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Dowiedz się [, jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+* Dowiedz się [, jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

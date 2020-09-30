@@ -1,21 +1,19 @@
 ---
 title: Omówienie usługi analizy błędów
 description: W tym artykule opisano usługę analizy błędów w Service Fabric, aby wzbudzać błędy i uruchamiać scenariusze testów dla usług.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
-ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75465573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531381"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Wprowadzenie do usługi analizy błędów
 Usługa błędów analizy jest przeznaczona do testowania usług, które są oparte na Microsoft Azure Service Fabric. Za pomocą usługi błędów analizy można wywołać znaczące błędy i uruchamiać kompletne scenariusze testów dla aplikacji. Te usterki i scenariusze wykonują działania oraz weryfikują liczne Stany i przejścia, które usługa będzie w całym okresie istnienia, w sposób kontrolowany, bezpieczny i spójny.
 
-Akcje to indywidualne błędy ukierunkowane na usługę na potrzeby testowania. Deweloperzy usług mogą używać ich jako bloków konstrukcyjnych do pisania skomplikowanych scenariuszy. Przykład:
+Akcje to indywidualne błędy ukierunkowane na usługę na potrzeby testowania. Deweloperzy usług mogą używać ich jako bloków konstrukcyjnych do pisania skomplikowanych scenariuszy. Na przykład:
 
 * Uruchom ponownie węzeł, aby symulować dowolną liczbę sytuacji, w których maszyna lub maszyna wirtualna jest uruchamiana ponownym uruchomieniu.
 * Przenieś replikę usługi stanowej w celu zasymulowania równoważenia obciążenia, pracy w trybie failover lub uaktualnienia aplikacji.

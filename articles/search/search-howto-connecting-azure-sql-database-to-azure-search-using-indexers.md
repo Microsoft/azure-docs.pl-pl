@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331645"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530565"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
 
@@ -39,7 +39,7 @@ Pojedynczy indeksator może korzystać tylko z jednej tabeli lub widoku, ale mo�
 Można skonfigurować i skonfigurować indeksator usługi Azure SQL przy użyciu:
 
 * Kreator importu danych w [Azure Portal](https://portal.azure.com)
-* Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * [Interfejs API REST](/rest/api/searchservice/indexer-operations) usługi Azure wyszukiwanie poznawcze
 
 W tym artykule będziemy używać interfejsu API REST do tworzenia **indeksatorów** i **źródeł danych**.

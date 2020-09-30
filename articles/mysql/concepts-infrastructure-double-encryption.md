@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919713"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531030"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL podwójne szyfrowanie infrastruktury
-
-> [!NOTE]
-> W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się z firmą AskAzureDBforMySQL@service.microsoft.com .
 
 Azure Database for MySQL korzysta [z szyfrowania magazynu danych w usłudze REST](concepts-security.md#at-rest) dla danych przy użyciu kluczy zarządzanych przez firmę Microsoft. Dane, w tym kopie zapasowe, są szyfrowane na dysku, a szyfrowanie jest zawsze włączone i nie można go wyłączyć. Szyfrowanie używa zatwierdzonego modułu kryptograficznego FIPS 140-2 i szyfru AES 256-bit dla szyfrowania usługi Azure Storage.
 

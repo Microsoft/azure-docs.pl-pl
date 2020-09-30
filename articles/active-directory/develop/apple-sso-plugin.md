@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561350"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530701"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
@@ -93,7 +93,7 @@ Nie musisz dodawać do tej listy aplikacji, które używają MSAL lub ASWebAuthe
 
 Domyślnie wtyczka Microsoft Enterprise SSO umożliwia logowanie jednokrotne do autoryzowanych aplikacji tylko wtedy, gdy wtyczka logowania jednokrotnego ma już udostępnione poświadczenia. Wtyczka logowania jednokrotnego w przedsiębiorstwie firmy Microsoft może uzyskać udostępnione poświadczenie, gdy jest wywoływana przez inną aplikację ADAL lub MSAL podczas pozyskiwania tokenu. Większość aplikacji firmy Microsoft korzysta z wtyczki Microsoft Authenticator lub logowania jednokrotnego. Oznacza to, że domyślnie Logowanie jednokrotne poza natywnymi przepływami aplikacji jest najlepszym rozwiązaniem.  
 
-Włączenie `browser_sso_interaction_enabled` flagi umożliwia aplikacjom MSAL i przeglądarce Safari wykonywanie początkowego uruchamiania i uzyskiwanie poświadczeń udostępnionych. Jeśli wtyczka Microsoft Enterprise SSO nie ma jeszcze udostępnionego poświadczenia, spróbuje je pobrać za każdym razem, gdy zażądano logowania z adresu URL usługi Azure AD w przeglądarce Safari, ASWebAuthenticationSession, SafariViewController lub innej aplikacji listy dozwolonych Native.  
+Włączenie `browser_sso_interaction_enabled` flagi umożliwia aplikacjom MSAL i przeglądarce Safari wykonywanie początkowego uruchamiania i uzyskiwanie poświadczeń udostępnionych. Jeśli wtyczka Microsoft Enterprise SSO nie ma jeszcze udostępnionego poświadczenia, spróbuje je pobrać za każdym razem, gdy zażądano logowania z adresu URL usługi Azure AD w przeglądarce Safari, ASWebAuthenticationSession, SafariViewController lub innej dozwolonej aplikacji natywnej.  
 
 - **Klucz**: `browser_sso_interaction_enabled`
 - **Typ**: `Integer`

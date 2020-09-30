@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052719"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531279"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -61,7 +61,7 @@ Zdefiniowane są następujące opcje zasad haseł:
 
 ## <a name="administrator-reset-policy-differences"></a>Administrator reset policy differences (Różnice zasad resetowania administratora)
 
-Firma Microsoft wymusza silne domyślne zasady *dwubramowego* resetowania hasła dla dowolnej roli administratora platformy Azure. Te zasady mogą być inne niż te, które zostały zdefiniowane dla użytkowników i nie można zmienić tych zasad. Należy zawsze testować funkcję resetowania hasła jako użytkownik bez przypisanych ról administratora platformy Azure.
+Domyślnie konta administratorów mają włączoną funkcję samoobsługowego resetowania hasła i wymuszane są *silne domyślne zasady* resetowania hasła. Te zasady mogą być inne niż te, które zostały zdefiniowane dla użytkowników i nie można zmienić tych zasad. Należy zawsze testować funkcję resetowania hasła jako użytkownik bez przypisanych ról administratora platformy Azure.
 
 W przypadku zasad dwubramowych Administratorzy nie mogą korzystać z pytań zabezpieczających.
 
@@ -93,6 +93,8 @@ Zasady dwóch bram wymagają dwóch danych uwierzytelniania, takich jak adres e-
 * W przypadku upływu 30 dni od subskrypcji próbnej oraz
 * Skonfigurowano domenę niestandardową dla dzierżawy usługi Azure AD, np. *contoso.com*; oraz
 * Azure AD Connect synchronizuje tożsamości z katalogu lokalnego
+
+Można wyłączyć korzystanie z SSPR dla kont administratorów za pomocą polecenia cmdlet [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) programu PowerShell. `-SelfServePasswordResetEnabled $False`Parametr wyłącza SSPR dla administratorów.
 
 ### <a name="exceptions"></a>Wyjątki
 

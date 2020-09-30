@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399977"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530735"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
@@ -116,7 +116,7 @@ Jeśli użytkownicy potrzebują dodatkowej pomocy dotyczącej procesu SSPR, moż
 Po włączeniu i skonfigurowaniu SSPR Przetestuj proces SSPR przy użyciu użytkownika, który należy do grupy wybranej w poprzedniej sekcji, takiej jak *test-SSPR-Group*. W poniższym przykładzie używane jest konto *Użytkownik testowy* . Podaj własne konto użytkownika, które jest częścią grupy włączonej dla SSPR w pierwszej sekcji tego samouczka.
 
 > [!NOTE]
-> Podczas testowania funkcji samoobsługowego resetowania hasła należy użyć konta niebędącego administratorem. Administratorzy są zawsze włączani do samoobsługowego resetowania hasła i muszą używać dwóch metod uwierzytelniania do resetowania hasła.
+> Podczas testowania funkcji samoobsługowego resetowania hasła należy użyć konta niebędącego administratorem. Domyślnie Administratorzy są włączeni do samoobsługowego resetowania hasła i muszą używać dwóch metod uwierzytelniania do resetowania hasła. Aby uzyskać więcej informacji, zobacz temat [różnice w zasadach resetowania ustawień administratora](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Aby wyświetlić proces ręcznego rejestrowania, Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito, a następnie przejdź do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Użytkownicy powinni być kierowani do tego portalu rejestracji po następnym zalogowaniu.
 1. Zaloguj się przy użyciu użytkownika testowego, takiego jak *Użytkownik testowy*, i zarejestruj swoje metody uwierzytelniania.

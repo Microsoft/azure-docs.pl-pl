@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325376"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531194"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -38,7 +38,7 @@ Jeśli żadna z tych kroków nie zadziałała, dostępne są również następuj
 
  Kategoria | Lokalizacja pliku
  ----- | -----
- Dziennik systemu | `/etc/syslog-ng/syslog-ng.conf`lub `/etc/rsyslog.conf` lub`/etc/rsyslog.d/95-omsagent.conf`
+ Dziennik systemu | `/etc/syslog-ng/syslog-ng.conf` lub `/etc/rsyslog.conf` lub `/etc/rsyslog.d/95-omsagent.conf`
  Performance, Nagios, Zabbix, Log Analytics Output and General Agent | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  Dodatkowe konfiguracje | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
@@ -150,7 +150,7 @@ W przypadku wtyczki wyjściowej Usuń komentarz z poniższej sekcji, usuwając z
 
 ### <a name="probable-causes"></a>Prawdopodobne przyczyny
 * Serwer proxy określony podczas dołączania był nieprawidłowy
-* Punkty końcowe usługi Azure Monitor i Azure Automation nie są listy dozwolonych w centrum danych 
+* Punkty końcowe usługi Azure Monitor i Azure Automation nie są uwzględnione na liście zatwierdzonych w centrum danych 
 
 ### <a name="resolution"></a>Rozwiązanie
 1. Reonboard Azure Monitor z agentem Log Analytics dla systemu Linux przy użyciu następującego polecenia z `-v` włączoną opcją. Umożliwia pełne dane wyjściowe agenta łączącego się za pomocą serwera proxy w celu Azure Monitor. 
@@ -211,7 +211,7 @@ Błędy związane z wydajnością nie zachodzą przez cały czas i są bardzo tr
 - Kopia zapasowa danych agenta Log Analytics dla systemu Linux
 
 ### <a name="resolution"></a>Rozwiązanie
-1. Sprawdź, czy Azure Monitor dołączania zakończyło się pomyślnie, sprawdzając, czy istnieje następujący plik:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Sprawdź, czy Azure Monitor dołączania zakończyło się pomyślnie, sprawdzając, czy istnieje następujący plik: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Reonboard przy użyciu `omsadmin.sh` instrukcji wiersza polecenia
 3. W przypadku korzystania z serwera proxy zapoznaj się z podanymi wcześniej krokami rozpoznawania serwera proxy.
 4. W niektórych przypadkach, gdy Agent Log Analytics dla systemu Linux nie może komunikować się z usługą, dane w agencie są umieszczane w kolejce do pełnego rozmiaru buforu, czyli 50 MB. Agent należy uruchomić ponownie, uruchamiając następujące polecenie: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` . 
@@ -394,13 +394,13 @@ Ten błąd oznacza, że rozszerzenie diagnostyczne systemu Linux (LAD) jest zain
 
 **Tło:** Zamiast agenta Log Analytics dla systemu Linux działającego jako użytkownik uprzywilejowany `root` , agent działa jako `omsagent` użytkownik. W większości przypadków jawne uprawnienia muszą zostać przyznane temu użytkownikowi w celu odczytania niektórych plików. Aby udzielić uprawnienia `omsagent` użytkownikowi, uruchom następujące polecenia:
 
-1. Dodaj `omsagent` użytkownika do konkretnej grupy`sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Udzielanie uniwersalnego dostępu do odczytu do wymaganego pliku`sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Dodaj `omsagent` użytkownika do konkretnej grupy `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. Udzielanie uniwersalnego dostępu do odczytu do wymaganego pliku `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Istnieje znany problem z sytuacją Log Analytics wyścigu z 1.1.0 agentem dla systemu Linux w wersji starszej niż 217. Po zaktualizowaniu do najnowszego agenta Uruchom następujące polecenie, aby uzyskać najnowszą wersję wtyczki danych wyjściowych `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` .
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problem: próbujesz reonboard z nowym obszarem roboczym
-Podczas próby reonboard agenta do nowego obszaru roboczego przed reonboarding należy oczyścić konfigurację agenta Log Analytics. Aby wyczyścić starą konfigurację z agenta, Uruchom pakiet powłoki z`--purge`
+Podczas próby reonboard agenta do nowego obszaru roboczego przed reonboarding należy oczyścić konfigurację agenta Log Analytics. Aby wyczyścić starą konfigurację z agenta, Uruchom pakiet powłoki z `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
@@ -444,4 +444,3 @@ Aby rozwiązać ten problem, wykonaj następujące czynności.
     ```
 
 3. Uaktualnij pakiety przez wykonanie `sudo sh ./omsagent-*.universal.x64.sh --upgrade` .
-

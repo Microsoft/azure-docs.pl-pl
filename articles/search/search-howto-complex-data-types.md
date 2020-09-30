@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917860"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530858"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Jak modelować złożone typy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -62,7 +62,7 @@ Poniższy dokument JSON składa się z pól prostych i złożonych. Złożone po
 
 ## <a name="creating-complex-fields"></a>Tworzenie pól złożonych
 
-Podobnie jak w przypadku dowolnej definicji indeksu, można użyć portalu, [interfejsu API REST](/rest/api/searchservice/create-index)lub [zestawu .NET SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) , aby utworzyć schemat zawierający typy złożone. 
+Podobnie jak w przypadku dowolnej definicji indeksu, można użyć portalu, [interfejsu API REST](/rest/api/searchservice/create-index)lub [zestawu .NET SDK](/dotnet/api/microsoft.azure.search.models.index) , aby utworzyć schemat zawierający typy złożone. 
 
 Poniższy przykład przedstawia schemat indeksu JSON z prostymi polami, kolekcjami i typami złożonymi. Zwróć uwagę, że w ramach typu złożonego każde pole podrzędne ma typ i może mieć atrybuty, tak jak pola najwyższego poziomu. Schemat odnosi się do przykładowych danych powyżej. `Address` to złożone pole, które nie jest kolekcją (Hotel ma jeden adres). `Rooms` to złożone pole kolekcji (Hotel ma wiele pokojów).
 

@@ -1,17 +1,15 @@
 ---
 title: Konfigurowanie Jenkins dla aplikacji Java na Service Fabric na platformie Azure
 description: W tym samouczku przedstawiono sposób konfigurowania ciągłej integracji przy użyciu narzędzia Jenkins w celu wdrożenia aplikacji Java usługi Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320718"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531976"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Samouczek: konfigurowanie środowiska Jenkins w celu włączenia ciągłej integracji/ciągłego wdrażania dla aplikacji Java w usłudze Service Fabric
 
@@ -109,7 +107,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
     Możesz także podać dodatkowe szczegóły dotyczące używane podczas wdrażania aplikacji. Na poniższym zrzucie ekranu przedstawiono przykład szczegółów aplikacji:
 
-    ![Akcja kompilacji narzędzia Jenkins w usłudze Service Fabric](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Okno dialogowe akcje po kompilacji z dodatkowymi opcjami wdrażania projektu Service Fabric](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
@@ -178,7 +176,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
     ![Uaktualnianie w toku](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Jeśli masz dostęp do **http:// \<Host-IP> : 8080** , aplikacja do głosowania z pełną funkcjonalnością jest teraz w pełni uruchomiona.
+1. Jeśli masz dostęp do **http:// \<Host-IP> : 8080**  , aplikacja do głosowania z pełną funkcjonalnością jest teraz w pełni uruchomiona.
 
     ![Lokalna aplikacja do głosowania](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

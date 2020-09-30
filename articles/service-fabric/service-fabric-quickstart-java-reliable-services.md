@@ -1,17 +1,15 @@
 ---
 title: 'Szybki Start: Tworzenie aplikacji Java na platformie Azure Service Fabric'
 description: W ramach tego przewodnika Szybki start utworzysz aplikację Java dla platformy Azure za pomocą aplikacji przykładowej niezawodnych usług usługi Service Fabric.
-author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
-ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320429"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529866"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Szybki Start: wdrażanie aplikacji Java na platformie Azure Service Fabric w systemie Linux
 
@@ -24,7 +22,7 @@ Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiając
 - [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Zaćmienie (4.6) +](https://www.eclipse.org/downloads/packages/) i [zaćmienie plug-in dla Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
 - [Service Fabric zestawu SDK i interfejsu wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
-- [Narzędzia](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 

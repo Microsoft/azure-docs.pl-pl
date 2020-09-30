@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267262"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529987"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Konfigurowanie Ustawienia eksportu i Konfigurowanie konta magazynu
 
@@ -26,7 +26,7 @@ W celu skonfigurowania eksportu w interfejsie API platformy Azure dla FHIR nale�
 
 ## <a name="enabling-managed-identity-on-azure-api-for-fhir"></a>Włączanie zarządzanej tożsamości w interfejsie API platformy Azure dla usługi FHIR
 
-Pierwszym krokiem podczas konfigurowania interfejsu API platformy Azure dla usługi FHIR na potrzeby eksportu jest włączenie w usłudze tożsamości zarządzanej przez system. Wszystkie zarządzane tożsamości na platformie Azure można przeczytać [tutaj](../active-directory/managed-identities-azure-resources/overview.md).
+Pierwszym krokiem konfigurowania usługi Azure API for FHIR na potrzeby eksportu jest włączenie w usłudze tożsamości zarządzanej przez system. Wszystkie zarządzane tożsamości na platformie Azure można przeczytać [tutaj](../active-directory/managed-identities-azure-resources/overview.md).
 
 Aby to zrobić, przejdź do usługi Azure API for FHIR i wybierz pozycję blok tożsamości. Zmiana stanu na włączone spowoduje włączenie tożsamości zarządzanej w interfejsie API platformy Azure dla usługi FHIR.
 
@@ -40,11 +40,11 @@ Następny krok eksportowania polega na przypisaniu uprawnienia do usługi Azure 
 
 Po utworzeniu konta magazynu przejdź do bloku Access Control (IAM) na koncie magazynu i wybierz pozycję Dodaj przypisania ról
 
-![Włącz tożsamość zarządzaną](media/export-data/fhir-export-role-assignment.png)
+![Eksportowanie przypisania roli](media/export-data/fhir-export-role-assignment.png)
 
 Teraz dodamy współautor danych obiektu blob magazynu ról do naszej nazwy usługi.
 
-![Włącz tożsamość zarządzaną](media/export-data/fhir-export-role-add.png)
+![Dodaj rolę](media/export-data/fhir-export-role-add.png)
 
 Teraz jesteśmy gotowi do następnego kroku, w którym można wybrać konto magazynu w usłudze Azure API for FHIR jako domyślne konto magazynu dla $export.
 
@@ -52,7 +52,7 @@ Teraz jesteśmy gotowi do następnego kroku, w którym można wybrać konto maga
 
 Ostatnim krokiem jest przypisanie konta usługi Azure Storage, które będzie używane przez usługę Azure API for FHIR do eksportowania danych do programu. W tym celu przejdź do bloku integracja w interfejsie API platformy Azure dla usługi FHIR w Azure Portal i wybierz konto magazynu
 
-![Włącz tożsamość zarządzaną](media/export-data/fhir-export-storage.png)
+![Magazyn eksportu FHIR](media/export-data/fhir-export-storage.png)
 
 Gdy wszystko będzie gotowe do eksportowania danych przy użyciu polecenia $export.
 

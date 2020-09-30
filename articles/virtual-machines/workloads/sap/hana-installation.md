@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507849"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529834"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem instalacji platformy HANA Sprawdź poprawność następując
 - [Jednostki:/s](#validate-the-hana-large-instance-units)
 - [Konfiguracja systemu operacyjnego](#operating-system)
 - [Konfiguracja sieci](#networking)
-- [Konfiguracja magazynu](#storage)
+- [Konfiguracja usługi Storage](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Sprawdź poprawność jednostek dużych wystąpień platformy HANA
@@ -124,7 +124,7 @@ W przypadku SAP HANA na platformie Azure (duże wystąpienia) synchronizacja cza
 W związku z tym należy skonfigurować oddzielny serwer czasu, który może być używany przez serwery aplikacji SAP działające na maszynach wirtualnych platformy Azure oraz wystąpienia bazy danych SAP HANA, które działają w dużych wystąpieniach HANA. Infrastruktura magazynu w sygnaturach dużych wystąpień jest synchronizowana z serwerami NTP.
 
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Przyjęto założenie, że wykonano zalecenia dotyczące projektowania sieci wirtualnych platformy Azure oraz łączenia tych sieci wirtualnych z dużymi wystąpieniami HANA, zgodnie z opisem w następujących dokumentach:
 
 - [Omówienie i architektura SAP HANA (duże wystąpienie) na platformie Azure](./hana-overview-architecture.md)
@@ -134,7 +134,7 @@ Istnieją pewne szczegóły dotyczące sieci pojedynczych jednostek. Każda jedn
 
 Aby uzyskać więcej informacji na temat informacji o architekturze sieci Ethernet dla architektury, zobacz [obsługiwane scenariusze](hana-supported-scenario.md)dotyczące usługi HLI.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie Azure `service management` za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
 
@@ -179,7 +179,7 @@ Te punkty instalacji są konfigurowane w/etc/fstab, jak pokazano na poniższej g
 
 Dane wyjściowe polecenia DF-h w jednostce dużej instancji S72m HANA wyglądają następująco:
 
-![fstab woluminów zainstalowanych w jednostce dużego wystąpienia platformy HANA](./media/hana-installation/image2_df_output.PNG)
+![Zrzut ekranu przedstawia dane wyjściowe polecenia dla jednostki dużego wystąpienia HANA.](./media/hana-installation/image2_df_output.PNG)
 
 
 Kontroler magazynu i węzły w sygnaturach dużych wystąpień są synchronizowane z serwerami NTP. W przypadku synchronizacji SAP HANA na platformie Azure (duże wystąpienia) i maszynach wirtualnych platformy Azure z serwerem NTP nie powinno być znaczącego odróżnienia czasu między infrastrukturą a jednostkami obliczeniowymi na platformie Azure lub w sygnaturach dużych wystąpień.

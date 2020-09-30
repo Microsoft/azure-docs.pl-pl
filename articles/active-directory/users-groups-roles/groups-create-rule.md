@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531534"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Utwórz lub Zaktualizuj grupę dynamiczną w Azure Active Directory
 
@@ -40,7 +40,7 @@ Poniżej przedstawiono kilka przykładów zaawansowanych reguł lub składni, dl
 > [!NOTE]
 > Konstruktor reguł może nie być w stanie wyświetlić niektórych reguł skonstruowanych w polu tekstowym. Gdy Konstruktor reguł nie może wyświetlić reguły, może zostać wyświetlony komunikat. Konstruktor reguł nie zmienia obsługiwanej składni, walidacji lub przetwarzania reguł grupy dynamicznej w dowolny sposób.
 
-![Dodawanie reguły członkostwa dla grupy dynamicznej](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Zrzut ekranu przedstawiający stronę "reguły członkostwa dynamicznego" z akcją "Dodaj wyrażenie" na karcie "Konfigurowanie reguł".](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Przykłady składni, obsługiwane właściwości, operatory i wartości dla reguły członkostwa można znaleźć w temacie [dynamiczne reguły członkostwa dla grup w Azure Active Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Przykłady składni, obsługiwane właściwości, operatory i wartości dla regu
 
 1. Na stronie **Grupa** wprowadź nazwę i opis dla nowej grupy. Wybierz **Typ członkostwa** dla użytkowników lub urządzeń, a następnie wybierz pozycję **Dodaj zapytanie dynamiczne**. Konstruktor reguł obsługuje maksymalnie pięć wyrażeń. Aby dodać więcej niż pięć wyrażeń, należy użyć pola tekstowego.
 
-   ![Dodawanie reguły członkostwa dla grupy dynamicznej](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Zrzut ekranu pokazujący stronę "wszystkie grupy" z wybraną akcją "Nowa grupa".](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Aby wyświetlić niestandardowe właściwości rozszerzenia dostępne dla kwerendy dotyczącej członkostwa:
    1. Wybierz pozycję **Pobierz niestandardowe właściwości rozszerzenia**

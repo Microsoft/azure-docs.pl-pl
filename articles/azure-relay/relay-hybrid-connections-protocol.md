@@ -3,12 +3,12 @@ title: Przewodnik po protokole Połączenia hybrydowe Azure Relay | Microsoft Do
 description: W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272013"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531449"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
 
@@ -55,7 +55,7 @@ Zakodowane informacje są prawidłowe tylko przez krótki czas, głównie w przy
 
 Oprócz połączeń protokołu WebSocket odbiornik może również odbierać ramki żądań HTTP od nadawcy, jeśli ta funkcja jest jawnie włączona w połączeniu hybrydowym.
 
-Odbiorniki, które dołączają do Połączenia hybrydowe z obsługą protokołu HTTP, muszą obsługiwać `request` gest. Odbiornik, który nie obsługuje `request` i w związku z tym powoduje powtarzające się błędy przekroczenia limitu czasu, gdy jest on połączony przez usługę w przyszłości.
+Odbiorniki, które dołączają do Połączenia hybrydowe z obsługą protokołu HTTP, muszą obsługiwać `request` gest. Odbiornik, który nie obsługuje `request` i w związku z tym powoduje, że powtarzające się błędy przekroczenia limitu czasu podczas połączenia mogą zostać zablokowane przez usługę w przyszłości.
 
 Metadane nagłówka ramki HTTP są tłumaczone na format JSON w celu uproszczenia obsługi przez platformę odbiornika, również ponieważ biblioteki analizy nagłówków HTTP są rzadkie niż analizatory JSON. Metadane HTTP, które mają zastosowanie tylko do relacji między nadawcą i bramą protokołu HTTP przekaźnika, w tym informacje o autoryzacji, nie są przekazywane. Treść żądania HTTP jest w niewidoczny sposób transferowana jako binarne ramki protokołu WebSocket.
 
@@ -136,8 +136,8 @@ Opcje parametrów ciągu zapytania są następujące.
 | Parametr        | Wymagane | Opis
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Tak      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
-| `{path}`         | Yes      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
-| `sb-hc-token`    | Yes\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
+| `{path}`         | Tak      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
+| `sb-hc-token`    | Tak\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
 | `sb-hc-id`       | Nie       | Ten opcjonalny identyfikator dostarczony przez klienta umożliwia kompleksowe śledzenie diagnostyczne.
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego lub nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
@@ -196,7 +196,7 @@ Adres URL musi być używany jako — służy do ustanawiania gniazda akceptują
 | Parametr      | Wymagane | Opis
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być `sb-hc-action=accept`
-| `{path}`       | Yes      | (zobacz poniższy akapit)
+| `{path}`       | Tak      | (zobacz poniższy akapit)
 | `sb-hc-id`     | Nie       | Zobacz poprzedni opis **identyfikatora**.
 
 `{path}` jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
@@ -232,8 +232,8 @@ Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
 | Param                   | Wymagane | Opis                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-HC-statusCode        | Yes      | Liczbowy kod stanu HTTP.                |
-| SB-HC-statusDescription | Yes      | Powód odczytania przez człowieka. |
+| SB-HC-statusCode        | Tak      | Liczbowy kod stanu HTTP.                |
+| SB-HC-statusDescription | Tak      | Powód odczytania przez człowieka. |
 
 Otrzymany identyfikator URI jest następnie używany do nawiązywania połączenia z użyciem protokołu WebSocket.
 
@@ -326,7 +326,7 @@ Zawartość JSON dla programu `request` jest następująca:
 
 ##### <a name="responding-to-requests"></a>Odpowiadanie na żądania
 
-Odbiorca musi odpowiedzieć. Powtarzający się błąd odpowiedzi na żądania podczas utrzymywania połączenia może spowodować, że odbiornik zostanie zabroniony.
+Odbiorca musi odpowiedzieć. Powtarzający się błąd odpowiedzi na żądania podczas utrzymywania połączenia może spowodować zablokowanie odbiornika.
 
 Odpowiedzi mogą być wysyłane w dowolnej kolejności, ale każde żądanie musi być odpowiedziane w ciągu 60 sekund, a dostarczenie zostanie zgłoszone jako zakończone niepowodzeniem. Termin 60 sekund jest liczony do momentu `response` otrzymania ramki przez usługę. Ciągła odpowiedź z wieloma ramkami binarnymi nie może stać się bezczynna przez ponad 60 sekund lub została przerwana.
 
@@ -426,8 +426,8 @@ Opcje parametrów ciągu zapytania są następujące:
 | Param          | Wymagane? | Opis
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Tak       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
-| `{path}`       | Yes       | (zobacz poniższy akapit)
-| `sb-hc-token`  | Yes\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `{path}`       | Tak       | (zobacz poniższy akapit)
+| `sb-hc-token`  | Tak\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 | `sb-hc-id`     | Nie        | Opcjonalny identyfikator, który umożliwia kompleksowe śledzenie diagnostyczne i jest udostępniany odbiornikowi podczas uzgadniania akceptacji.
 
  `{path}`Jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. `path`Wyrażenie można rozszerzyć za pomocą sufiksu i wyrażenia ciągu zapytania w celu dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowane pod ścieżką `hyco` , `path` po wyrażeniu mogą występować `hyco/suffix?param=value&...` parametry ciągu zapytania zdefiniowane w tym miejscu. Kompletne wyrażenie może następnie być następujące:

@@ -3,20 +3,18 @@ title: Wstępnie skonstruowana jednostka wieku — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostce wiekowej w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: 1607b80276a9c35bf0ac2f0a00bd2226e2c07f97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4e1a6b1b6fb99a2786de06e89960e8480a5e1338
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270793"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532928"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka wieku dla aplikacji LUIS
 Przedbudowana jednostka wiekowa przechwytuje wartość wieku w liczbie i w postaci dni, tygodni, miesięcy i lat. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej wiek do intencji aplikacji. Jednostka wieku jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
@@ -30,7 +28,7 @@ Wiek jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.co
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -43,7 +41,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

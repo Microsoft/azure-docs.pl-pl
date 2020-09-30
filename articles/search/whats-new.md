@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403674"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532231"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -77,7 +77,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [**Wykrywanie przez dane OSOBowe (wersja zapoznawcza)**](cognitive-search-skill-pii-detection.md) | Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która jest używana podczas indeksowania, która wyodrębnia dane osobowe z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
+| [**Wykrywanie przez dane OSOBowe (wersja zapoznawcza)**](cognitive-search-skill-pii-detection.md) | Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która jest używana podczas indeksowania, która wyodrębnia informacje osobiste z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 | [**Wyszukiwanie jednostek niestandardowych (wersja zapoznawcza)**](cognitive-search-skill-custom-entity-lookup.md )| Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie dokładnie. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 
 ## <a name="january-2020"></a>Styczeń 2020 r.

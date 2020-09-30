@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 4bb713b3d50fa92728baf7b1fff1e6e65c48ed92
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368740"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530480"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -67,7 +67,7 @@ Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespó�
 
 Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
 
-## <a name="compute-network-and-storage"></a>Obliczenia, Sieć i magazyn
+## <a name="compute-network-storage-and-backup"></a>Obliczenia, Sieć, magazyn i kopia zapasowa
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>Czy jest dostępny więcej niż jeden typ hosta?
 
@@ -92,6 +92,14 @@ Każdy host ESXi ma rozwiązanie Azure VMware, które jest skonfigurowane z kart
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>Czy dane są przechowywane w magazynach danych sieci vSAN szyfrowanych w spoczynku?
 
 Tak, wszystkie dane sieci vSAN są szyfrowane domyślnie przy użyciu kluczy przechowywanych w Azure Key Vault.
+
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>W ten sposób można udokumentować swoje rozwiązania tworzenia kopii zapasowych, które umożliwiają współpracę z rozwiązaniem VMware platformy Azure. Co z innymi rozwiązaniami do tworzenia kopii zapasowych niezależnych dostawców oprogramowania (ISV)?
+
+O ile wiemy, każde rozwiązanie do tworzenia kopii zapasowych, które korzysta z oprogramowania VMware VADP z trybem transportu HotAdd, powinno funkcjonować bezpośrednio na platformie Azure VMware.
+
+#### <a name="what-about-support-for-isv-backup-solutions"></a>Co o obsłudze rozwiązań do tworzenia kopii zapasowych niezależnych dostawców oprogramowania?
+
+Ponieważ te rozwiązania do tworzenia kopii zapasowych są instalowane i zarządzane przez klientów, mogą skontaktować się z odpowiednim dostawcą oprogramowania, aby uzyskać pomoc techniczną. 
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosty, klastry i chmury prywatne
 

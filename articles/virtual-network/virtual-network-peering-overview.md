@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531874"
 ---
 # <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
-Komunikacja równorzędna sieci wirtualnych umożliwia bezproblemowe łączenie sieci w [usłudze Azure Virtual Network](virtual-networks-overview.md). Sieci wirtualne są wyświetlane jako jedna na potrzeby łączności. Ruch między maszynami wirtualnymi odbywa się za pomocą infrastruktury sieci szkieletowej firmy Microsoft. Podobnie jak ruch między maszynami wirtualnymi w tej samej sieci, ruch jest kierowany przez sieć *prywatną* firmy Microsoft.
+Wirtualne sieci równorzędne umożliwiają bezproblemowe łączenie dwóch lub większej liczby [sieci wirtualnych](virtual-networks-overview.md) na platformie Azure. Sieci wirtualne są wyświetlane jako jedna na potrzeby łączności. Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych używa infrastruktury sieci szkieletowej firmy Microsoft. Podobnie jak ruch między maszynami wirtualnymi w tej samej sieci, ruch jest kierowany przez sieć *prywatną* firmy Microsoft.
 
 Platforma Azure obsługuje następujące typy komunikacji równorzędnej:
 

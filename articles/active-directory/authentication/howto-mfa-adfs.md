@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706323"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531245"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
 
@@ -38,12 +38,12 @@ Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby u
 
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
 
-   ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfa-adfs/trustedip3.png)
+   ![Zrzut ekranu przedstawia Kreatora dodawania reguły przekształcania roszczeń, w którym można wybrać szablon reguł dla roszczeń.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Nadaj regule nazwę. 
 7. Wybierz wartość **Odwołania metod uwierzytelniania** jako typ oświadczenia przychodzącego.
 8. Wybierz pozycję **Przekazuj wszystkie wartości oświadczeń**.
-    ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfa-adfs/configurewizard.png)
+    ![Zrzut ekranu przedstawia Kreatora dodawania reguły przekształcania roszczeń, w którym wybiera się opcję Przekazuj wszystkie wartości.](./media/howto-mfa-adfs/configurewizard.png)
 9. Kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Zaufane adresy IP dla użytkowników federacyjnych
@@ -63,7 +63,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 4. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę.** 
     ![ Dodawanie reguły dotyczącej roszczeń](./media/howto-mfa-adfs/trustedip2.png)
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
-   ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfa-adfs/trustedip3.png)
+   ![Zrzut ekranu przedstawia Kreatora dodawania reguły przekształcania roszczeń, w którym można wybrać przekazywanie lub filtrowanie zgłoszenia przychodzącego.](./media/howto-mfa-adfs/trustedip3.png)
 6. W polu Nazwa reguły oświadczenia wpisz nazwę reguły, np. WewnSiećFirm.
 7. Dla pola Typ oświadczenia przychodzącego wybierz z listy rozwijanej pozycję **Wewnątrz sieci firmowej**.
    ![Dodawanie wewnątrz roszczeń sieci firmowej](./media/howto-mfa-adfs/trustedip4.png)

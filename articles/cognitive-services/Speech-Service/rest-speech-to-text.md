@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934586"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532521"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
 Jako alternatywę dla [zestawu Speech SDK](speech-sdk.md)usługa mowy umożliwia konwertowanie zamiany mowy na tekst za pomocą interfejsu API REST. Każdy dostępny punkt końcowy jest skojarzony z regionem. Aplikacja wymaga klucza subskrypcji dla punktu końcowego, który ma być używany. Interfejs API REST jest bardzo ograniczony i powinien być używany tylko w przypadkach, gdy nie można użyć [zestawu Speech SDK](speech-sdk.md) .
 
-Przed użyciem interfejsu API REST zamiany mowy na tekst należy zrozumieć następujące informacje:
+Przed użyciem interfejsu API REST zamiany mowy na tekst należy wziąć pod uwagę następujące kwestie:
 
 * Żądania korzystające z interfejsu API REST i bezpośredniego przesyłania dźwięku mogą zawierać maksymalnie 60 sekund audio.
 * Interfejs API REST zamiany mowy na tekst zwraca tylko końcowe wyniki. Nie podano częściowych wyników.
 
 Jeśli wysyłanie dłuższego dźwięku jest wymagane dla aplikacji, należy rozważyć użycie [zestawu Speech SDK](speech-sdk.md) lub interfejsu API REST opartego na plikach, takiego jak [transkrypcja partii](batch-transcription.md).
+
+> [!TIP]
+> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: Migrowanie z kontenera odczytu v2 do wersji v3
+title: Migrowanie do kontenerów OCR odczytu v3. x
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak przeprowadzić migrację do kontenera odczytu v3
+description: Dowiedz się, jak przeprowadzić migrację do kontenerów OCR odczytu v3
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,16 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 7f701af86f2bca856169f6dcf0689d59930306f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91349131"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530463"
 ---
-# <a name="migrate-to-the-read-v3x-container"></a>Migrowanie do kontenera Read v3. x
+# <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrowanie do kontenerów OCR odczytu v3. x
 
-Jeśli korzystasz z wersji 2 przetwarzanie obrazów kontenera odczytu, Skorzystaj z tego artykułu, aby dowiedzieć się więcej na temat uaktualniania aplikacji do korzystania z wersji 3. x kontenera. 
-
+Jeśli używasz wersji 2 przetwarzanie obrazów kontenera OCR do odczytu, Skorzystaj z tego artykułu, aby dowiedzieć się więcej na temat uaktualniania aplikacji do korzystania z wersji 3. x kontenera. 
 
 
 ## <a name="configuration-changes"></a>Zmiany konfiguracji

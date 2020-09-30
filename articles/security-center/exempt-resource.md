@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301537"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532554"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Zwalnianie zasobu z rekomendacji i bezpiecznego oceny
 
@@ -32,7 +32,7 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza|
 |Wpisaną|Jest to funkcja Premium platformy Azure oferowana dla klientów usługi Azure Defender bez dodatkowych kosztów. W przypadku innych użytkowników opłaty mogą być stosowane w przyszłości.|
-|Wymagane role i uprawnienia:|**Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Więcej informacji znajduje się w [uprawnieniach RBAC w Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
+|Wymagane role i uprawnienia:|**Właściciel subskrypcji** lub **współautor zasad** , aby utworzyć wykluczenie<br>Aby utworzyć regułę, musisz mieć uprawnienia do edytowania zasad w Azure Policy.<br>Dowiedz się więcej na temat [uprawnień kontroli RBAC platformy Azure w Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
@@ -45,7 +45,7 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
 
     Zostanie otwarte okienko Utwórz wykluczenie.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Utwórz okienko wykluczenia":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
 
 1. Wprowadź kryteria i wybierz kryteria, dla których ten zasób powinien być wykluczony:
     - **Skorygowane** — ten problem nie dotyczy zasobu, ponieważ został obsłużony przez inne narzędzie lub proces niż ten, który jest sugerowany
@@ -56,11 +56,11 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
     - Zasób jest wymieniony na karcie **nie dotyczy** na stronie szczegółów rekomendacji
     - Pasek informacji w górnej części strony Szczegóły rekomendacji zawiera liczbę wykluczonych zasobów:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Liczba wykluczonych zasobów":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
 
 1. Aby przejrzeć wykluczone zasoby, Otwórz kartę **nie dotyczy** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modyfikowanie wykluczenia":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
 
     Przyczyną każdego wykluczenia jest dołączenie do tabeli (1).
 
@@ -73,7 +73,7 @@ Reguły wykluczania używają zasad platformy Azure, aby utworzyć wykluczenie d
 
 Za pomocą Azure Policy można śledzić wszystkie wykluczenia na stronie **zwolnienia** :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Strona wykluczenia Azure Policy":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Utwórz opcję wykluczenia z menu kontekstowego":::
 
 
 

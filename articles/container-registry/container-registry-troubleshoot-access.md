@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227465"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532452"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
@@ -32,7 +32,7 @@ Może zawierać co najmniej jedną z następujących czynności:
 * Zapora klienta lub serwer proxy uniemożliwiają [rozwiązanie](#configure-client-firewall-access) dostępu
 * Reguły dostępu do sieci publicznej w rejestrze uniemożliwiają dostęp do [rozwiązania](#configure-public-access-to-registry)
 * Konfiguracja sieci wirtualnej uniemożliwia dostęp do [rozwiązania](#configure-vnet-access)
-* Podjęto próbę zintegrowania Azure Security Center z rejestrem, który ma prywatny punkt końcowy lub punkt końcowy usługi — [rozwiązanie](#configure-image-scanning-solution)
+* Podjęto próbę zintegrowania Azure Security Center lub niektórych innych usług platformy Azure z rejestrem, który ma prywatny punkt końcowy, punkt końcowy usługi lub reguły dostępu do publicznego adresu IP — [rozwiązanie](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Przeprowadzenia dalszej diagnostyki 
 
@@ -96,17 +96,22 @@ Powiązane linki:
 * [Kubernetes: debugowanie rozpoznawania nazw DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Tagi usługi sieci wirtualnej](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Skonfiguruj rozwiązanie do skanowania obrazu
+### <a name="configure-service-access"></a>Konfigurowanie dostępu do usługi
 
-Jeśli rejestr jest skonfigurowany za pomocą prywatnego punktu końcowego lub punktu końcowego usługi, nie można obecnie zintegrować z Azure Security Center na potrzeby skanowania obrazu. Opcjonalnie możesz skonfigurować inne rozwiązania do skanowania obrazów dostępne w witrynie Azure Marketplace, w tym:
+Obecnie Azure Security Center nie można przeprowadzić [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. Ponadto zasoby następujących usług nie są w stanie uzyskać dostępu do rejestru kontenerów z ograniczeniami sieci:
 
-* [Natywna platforma zabezpieczeń w chmurze akwamaryna](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [TwistLock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Usługa Azure DevOps Services 
+* Azure Container Instances
+* Usługa Azure Container Registry Tasks
+
+Jeśli wymagany jest dostęp lub integracja tych usług platformy Azure z rejestrem kontenerów, Usuń ograniczenie sieci. Na przykład Usuń prywatne punkty końcowe rejestru lub Usuń lub zmodyfikuj reguły dostępu publicznego rejestru.
 
 Powiązane linki:
 
 * [Azure Container Registry skanowania obrazów przez Security Center](../security-center/azure-container-registry-integration.md)
 * Prześlij [opinię](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Konfigurowanie reguł sieci publicznych adresów IP](container-registry-access-selected-networks.md)
+* [Połącz się prywatnie z usługą Azure Container Registry przy użyciu prywatnego linku platformy Azure](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Zaawansowane rozwiązywanie problemów

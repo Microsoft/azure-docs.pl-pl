@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
 ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f2de6ce52870417eab1c74333dfce2905317e73d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798537"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531690"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -59,7 +59,7 @@ Po pierwsze, aby poznać szczegółowe informacje dotyczące operacji i funkcji,
 
 ## <a name="permissions-in-azure-resource-graph"></a>Uprawnienia w usłudze Azure Resource Graph
 
-Aby użyć usługi Resource Graph, musisz mieć odpowiednie prawa w [kontroli dostępu na podstawie ról](../../role-based-access-control/overview.md) (RBAC) dające co najmniej dostęp do odczytu do zasobów, które chcesz zbadać. Bez uprawnień do obiektu lub grupy obiektów platformy Azure na poziomie co najmniej `read` wyniki nie będą zwracane.
+Aby korzystać z grafu zasobów, musisz dysponować odpowiednimi prawami w [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) z co najmniej dostępem do odczytu do zasobów, które chcesz zbadać. Bez uprawnień do obiektu lub grupy obiektów platformy Azure na poziomie co najmniej `read` wyniki nie będą zwracane.
 
 > [!NOTE]
 > Wykres zasobów używa subskrypcji dostępnych dla podmiotu zabezpieczeń podczas logowania. Aby wyświetlić zasoby nowej subskrypcji dodane podczas aktywnej sesji, podmiot zabezpieczeń musi odświeżyć kontekst. Ta akcja odbywa się automatycznie podczas wylogowywania się i z powrotem.

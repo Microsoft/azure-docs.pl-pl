@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540285"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530072"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
@@ -73,7 +73,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
 1. Wybierz kartę _Sieć_ i wybierz pozycję **Utwórz nową** , aby skonfigurować nową sieć wirtualną.
 
     >[!div class="mx-imgBorder"]
-    >![Utwórz nową sieć wirtualną dla nowej maszyny wirtualnej](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Zrzut ekranu pokazujący kartę "Sieć" z akcją "Utwórz nowy" wyróżnioną w sekcji "Sieć wirtualna".](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. W obszarze _Utwórz sieć wirtualną_Użyj ustawień w tabeli poniżej obrazu:
 
@@ -195,7 +195,7 @@ Następnym krokiem w tym samouczku jest utworzenie funkcji platformy Azure wyzwa
 1. Wykonaj jeden z następujących przewodników Szybki Start, aby utworzyć i wdrożyć aplikację Azure Functions.
 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
-    * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
+    * [Program Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Wiersz polecenia](./functions-create-first-azure-function-azure-cli.md)
     * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
 
