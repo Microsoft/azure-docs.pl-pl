@@ -1,7 +1,7 @@
 ---
-title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API odczytu przetwarzanie obrazów
+title: Zainstaluj kontenery Docker OCR z przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Użyj kontenera Docker dla przetwarzanie obrazów odczytywania interfejsu API do wykrywania i wyodrębniania tekstu z obrazów, lokalnie.
+description: Używanie kontenerów platformy Docker OCR z przetwarzanie obrazów do wyodrębniania tekstu z obrazów i douments lokalnych.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: lokalna, OCR, Docker, kontener
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460445"
+ms.locfileid: "91536379"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API odczytu (wersja zapoznawcza) 
+# <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w Twoim własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener przetwarzania obrazów.
+Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w Twoim własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobierać, instalować i uruchamiać kontenery przetwarzanie obrazów.
 
-Kontener *Odczyt* umożliwia wykrywanie i wyodrębnianie *drukowanych tekstu* z obrazów różnych obiektów z różnymi powierzchniami i tłem, takimi jak paragony, plakaty i karty biznesowe. Ponadto kontener *Odczytaj* wykrywa *Tekst odręczny* w obrazach i zapewnia obsługę plików PDF, TIFF i wielostronicowych. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](concept-recognizing-text.md#read-api).
+Kontener OCR do *odczytu* umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](concept-recognizing-text.md#read-api).
 
+## <a name="read-3x-containers"></a>Odczytywanie kontenerów 3. x
 Istnieją dwie wersje kontenerów 3. x dostępnych w wersji zapoznawczej. Obie wersje zapewniają dodatkową dokładność i funkcje w poprzednim kontenerze.
 
 Kontener Read 3,0-Preview zawiera następujące informacje:

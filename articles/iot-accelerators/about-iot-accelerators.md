@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71309515"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542499"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Co to są akceleratory rozwiązań Azure IoT?
 
@@ -46,7 +46,7 @@ Za pomocą pulpitu nawigacyjnego zdalnego monitorowania można wyświetlać dane
 
 Pulpit nawigacyjny połączonej fabryki umożliwia monitorowanie urządzeń przemysłowych i zarządzanie nimi:
 
-[![Pulpit nawigacyjny rozwiązania połączonej fabryki](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Zrzut ekranu przedstawiający pulpit nawigacyjny rozwiązania połączonej fabryki." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### <a name="predictive-maintenance"></a>Konserwacja zapobiegawcza
 
@@ -54,7 +54,7 @@ Pulpit nawigacyjny połączonej fabryki umożliwia monitorowanie urządzeń prze
 
 Za pomocą pulpitu nawigacyjnego konserwacji predykcyjnej można wyświetlać analizę konserwacji predykcyjnej:
 
-[![Pulpit nawigacyjny rozwiązania połączonej fabryki](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Zrzut ekranu przedstawiający pulpit nawigacyjny rozwiązania połączonej fabryki." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### <a name="device-simulation"></a>Symulacja urządzenia
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747243"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537037"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Konfigurowanie wiadomości tekstowych jako metody weryfikacji
 
@@ -52,7 +52,7 @@ W zależności od ustawień organizacji może być możliwe użycie wiadomości 
 
 4. Na stronie **telefon** wpisz numer telefonu dla urządzenia przenośnego, wybierz pozycję **tekst ja kod**, a następnie wybierz przycisk **dalej**.
 
-    ![Dodawanie numeru telefonu i wybieranie wiadomości SMS](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Zrzut ekranu przedstawiający stronę "Phone" z wybraną pozycją "tekst ja kod".](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Wpisz kod wysłany przez wiadomość SMS na urządzenie przenośne, a następnie wybierz przycisk **dalej**.
 

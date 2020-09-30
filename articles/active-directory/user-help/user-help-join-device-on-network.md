@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333413"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536974"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji
 Dołącz do sieci swojej organizacji swoje urządzenie z systemem Windows 10, aby uzyskać dostęp do zasobów, które mogą być ograniczone.
@@ -48,7 +48,7 @@ Jeśli urządzenie jest marki nowe i nie zostało jeszcze skonfigurowane, możes
 
 4. Na urządzeniu przenośnym Zatwierdź urządzenie, aby umożliwić mu dostęp do Twojego konta. 
 
-    ![Ekran powiadomień mobilnych](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Zrzut ekranu przedstawiający ekran powiadomienia "wprowadź hasło".](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Ukończ proces OOBE, w tym ustawienia prywatności i Konfigurowanie systemu Windows Hello (jeśli to konieczne).
 
@@ -63,7 +63,7 @@ Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
 2. Wybierz pozycję **dostęp do**zasobów służbowych i upewnij się, że widzisz tekst podobny do tego, **połączony z *\<your_organization>* usługą Azure AD**.
 
-    ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Zrzut ekranu przedstawiający okno "dostęp do pracy lub nauki" z wybranym kontem "Połączono do (Twoja organizacja") usługi Azure AD.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Aby dołączyć już skonfigurowane urządzenie z systemem Windows 10

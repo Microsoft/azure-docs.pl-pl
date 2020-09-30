@@ -2,13 +2,13 @@
 title: Importowanie obrazów kontenerów
 description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry za pomocą interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/18/2020
+ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660499"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541581"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
 
@@ -18,7 +18,7 @@ Azure Container Registry obsługuje wiele typowych scenariuszy kopiowania obraz�
 
 * Importuj z rejestru publicznego
 
-* Importuj z innego rejestru kontenera platformy Azure, w ramach tej samej lub innej subskrypcji platformy Azure
+* Importuj z innego rejestru kontenera platformy Azure, w ramach tej samej lub innej subskrypcji lub dzierżawy platformy Azure
 
 * Importuj z rejestru kontenerów prywatnych spoza platformy Azure
 
@@ -28,7 +28,7 @@ Importowanie obrazów do usługi Azure Container Registry ma następujące zalet
 
 * Podczas importowania obrazów wieloarchitekturowych (takich jak oficjalne obrazy platformy Docker) obrazy wszystkich architektur i platform określonych na liście manifestów zostaną skopiowane.
 
-* Dostęp do rejestrów źródłowych i docelowych nie musi używać publicznych punktów końcowych rejestrów.
+* Dostęp do rejestru docelowego nie ma konieczności używania publicznego punktu końcowego rejestru.
 
 Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w Azure Cloud Shell lub lokalnie (zalecane jest w wersji 2.0.55 lub nowszej). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
@@ -83,9 +83,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importuj z innego rejestru kontenerów platformy Azure
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importowanie z usługi Azure Container Registry w ramach tej samej dzierżawy usługi AD
 
-Możesz zaimportować obraz z innego rejestru kontenera platformy Azure przy użyciu zintegrowanych uprawnień Azure Active Directory.
+Możesz zaimportować obraz z usługi Azure Container Registry w tej samej dzierżawie usługi AD przy użyciu zintegrowanych uprawnień Azure Active Directory.
 
 * Twoja tożsamość musi mieć uprawnienia Azure Active Directory do odczytu z rejestru źródłowego (roli czytelnika) oraz do importowania do rejestru docelowego (rola współautora lub [rola niestandardowa](container-registry-roles.md#custom-roles) , która umożliwia działanie importImage).
 
@@ -136,7 +136,20 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importowanie z rejestru przy użyciu poświadczeń jednostki usługi
 
-Aby zaimportować z rejestru, do którego nie można uzyskać dostępu przy użyciu uprawnień Active Directory, można użyć poświadczeń jednostki usługi (jeśli są dostępne). Podaj identyfikator appID i hasło [nazwy głównej usługi](container-registry-auth-service-principal.md) Active Directory, która ma dostęp ACRPull do rejestru źródłowego. Użycie jednostki usługi jest przydatne w przypadku systemów kompilacji i innych systemów nienadzorowanych, które muszą importować obrazy do rejestru.
+Aby zaimportować z rejestru, do którego nie można uzyskać dostępu za pomocą uprawnień zintegrowanych Active Directory, można użyć poświadczeń jednostki usługi (jeśli są dostępne) w rejestrze źródłowym. Podaj identyfikator appID i hasło [nazwy głównej usługi](container-registry-auth-service-principal.md) Active Directory, która ma dostęp ACRPull do rejestru źródłowego. Użycie jednostki usługi jest przydatne w przypadku systemów kompilacji i innych systemów nienadzorowanych, które muszą importować obrazy do rejestru.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
+```
+
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importowanie z usługi Azure Container Registry w innej dzierżawie usługi AD
+
+Aby zaimportować dane z rejestru kontenerów platformy Azure w innej dzierżawie Azure Active Directory, określ rejestr źródłowy według nazwy serwera logowania i podaj poświadczenia nazwy użytkownika i hasła, które umożliwiają uzyskanie dostępu do rejestru. Można na przykład użyć tokenu i hasła w [zakresie repozytorium](container-registry-repository-scoped-permissions.md) lub identyfikatora AppID i hasła jednostki [usługi](container-registry-auth-service-principal.md) Active Directory, która ma dostęp ACRPull do rejestru źródłowego. 
 
 ```azurecli
 az acr import \
@@ -149,7 +162,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importuj z rejestru kontenerów prywatnych spoza platformy Azure
 
-Zaimportuj obraz z rejestru prywatnego przez określenie poświadczeń umożliwiających uzyskanie dostępu ściągania do rejestru. Na przykład Pobierz obraz z prywatnego rejestru platformy Docker: 
+Zaimportuj obraz z rejestru prywatnego niepochodzącego od platformy Azure, określając poświadczenia umożliwiające dostęp ściągający do rejestru. Na przykład Pobierz obraz z prywatnego rejestru platformy Docker: 
 
 ```azurecli
 az acr import \

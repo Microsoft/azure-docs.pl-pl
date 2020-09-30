@@ -3,19 +3,17 @@ title: Wzorzec. dowolny typ jednostki — LUIS
 titleSuffix: Azure Cognitive Services
 description: Wzorzec. any jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75979176"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542210"
 ---
 # <a name="patternany-entity"></a>Jednostka Pattern.any
 
@@ -27,9 +25,9 @@ Wzorzec. wszystkie jednostki muszą być oznaczone jako przykłady szablonu [wzo
 
 * Koniec jednostki można pomylić z pozostałym tekstem wypowiedź.
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
-Dana aplikacja kliencka, która wyszukuje książki na podstawie tytułu, wzorca. wszystkie wyodrębnia pełny tytuł. Szablon wypowiedź przy użyciu wzorca. wszystkie te wyszukiwania są `Was {BookTitle} written by an American this year[?]`następujące.
+Dana aplikacja kliencka, która wyszukuje książki na podstawie tytułu, wzorca. wszystkie wyodrębnia pełny tytuł. Szablon wypowiedź przy użyciu wzorca. wszystkie te wyszukiwania są następujące `Was {BookTitle} written by an American this year[?]` .
 
 W poniższej tabeli każdy wiersz ma dwie wersje wypowiedź. Górna wypowiedź to sposób, w jaki LUIS początkowo widzi wypowiedź. Nie jest jasne, gdzie rozpoczyna się i kończą tytuł książki. Dolna wypowiedź używa wzorca. Każda jednostka do oznaczenia początku i końca jednostki.
 
@@ -69,7 +67,7 @@ Z osadzoną nazwą formularza do wyodrębnienia jako wzorzec. any:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -79,7 +77,7 @@ Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 }
 ```
 
-Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {

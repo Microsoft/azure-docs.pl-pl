@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296675"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542159"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -170,6 +170,6 @@ Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia 
 
 * [Przykładowy krok po kroku szkolenia z TabularDatasets i zautomatyzowane Uczenie maszynowe](tutorial-first-experiment-automated-ml.md).
 
-* [Uczenie modelu](how-to-train-ml-models.md).
+* [Uczenie modelu](how-to-set-up-training-targets.md).
 
 * Aby uzyskać więcej przykładów szkoleniowych dotyczących zestawu danych, zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

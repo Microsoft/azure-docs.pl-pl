@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 6fab092b0467228fd4fcdbcf95f99fd0981fb1e4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079229"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541751"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Przyrostowe ładowanie danych z Azure SQL Database do platformy Azure Blob Storage przy użyciu informacji o śledzeniu zmian przy użyciu programu PowerShell
 
@@ -453,10 +453,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![Kafelek Monitorowanie i zarządzanie](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. **Aplikacja integracji danych** zostanie uruchomiona na osobnej karcie. Można zobaczyć wszystkie **uruchomienia potoku** i ich Stany. Zwróć uwagę, że w poniższym przykładzie stan uruchomienia potoku to **Powodzenie**. Klikając link w kolumnie **Parametry**, można sprawdzić parametry przekazywane do potoku. Jeśli wystąpił błąd, w kolumnie **Błąd** zostanie wyświetlony link. Kliknij link w kolumnie **Akcje**.
 
-    ![Uruchomienia potoków](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Po kliknięciu linków w kolumnie **Akcje** zostanie wyświetlona następująca strona, na której będą się znajdować wszystkie **uruchomienia działań** dla potoku.
 
-    ![Uruchomienia działania](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![Zrzut ekranu przedstawia uruchomienia działań dla fabryki danych z łączem potoki o nazwie out.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Aby powrócić do widoku **Uruchomienia potoków**, kliknij pozycję **Potoki** w sposób przedstawiony na powyższym obrazie.
 
 
@@ -632,10 +632,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorowanie potoku kopiowania przyrostowego
 1. Na karcie **aplikacja Integracja danych** odśwież widok **Uruchomienia potoków**. Upewnij się, że na liście widoczny jest potok IncrementalCopyPipeline. Kliknij link w kolumnie **Akcje**.  
 
-    ![Uruchomienia potoków](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych, w tym potoku.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Po kliknięciu linków w kolumnie **Akcje** zostanie wyświetlona następująca strona, na której będą się znajdować wszystkie **uruchomienia działań** dla potoku.
 
-    ![Uruchomienia działania](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych z kilkoma oznaczonymi jako zakończone powodzeniem.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Aby powrócić do widoku **Uruchomienia potoków**, kliknij pozycję **Potoki** w sposób przedstawiony na powyższym obrazie.
 
 ### <a name="review-the-results"></a>Sprawdzanie wyników

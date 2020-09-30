@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a13ecbb5bed65de9ab8a52258d1f22b9f3520c9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498943"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542363"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MariaDB przy użyciu programu PowerShell
 
@@ -38,12 +38,12 @@ Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z k
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer główny znajduje się w jednej z tych warstw cenowych.
+> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer źródłowy znajduje się w jednej z tych warstw cenowych.
 
-### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+### <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 
 > [!IMPORTANT]
-> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
+> Podczas tworzenia repliki dla źródła, które nie ma istniejących replik, źródło zostanie najpierw ponownie uruchomione w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
 
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 
@@ -68,14 +68,14 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md).
 
-Domyślnie repliki odczytu są tworzone z tą samą konfiguracją serwera co wzorzec, chyba że określono parametr **SKU** .
+Domyślnie repliki odczytu są tworzone z tą samą konfiguracją serwera co źródło, chyba że określono parametr **jednostki SKU** .
 
 > [!NOTE]
-> Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
-### <a name="list-replicas-for-a-master-server"></a>Wyświetlanie listy replik dla serwera głównego
+### <a name="list-replicas-for-a-source-server"></a>Wyświetlanie listy replik dla serwera źródłowego
 
-Aby wyświetlić wszystkie repliki dla danego serwera głównego, uruchom następujące polecenie:
+Aby wyświetlić wszystkie repliki dla danego serwera źródłowego, uruchom następujące polecenie:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -86,7 +86,7 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
-| ServerName | mydemoserver | Nazwa lub identyfikator serwera głównego. |
+| ServerName | mydemoserver | Nazwa lub identyfikator serwera źródłowego. |
 
 ### <a name="delete-a-replica-server"></a>Usuwanie serwera repliki
 
@@ -96,12 +96,12 @@ Usuwanie serwera repliki odczytu można wykonać, uruchamiając `Remove-AzMariaD
 Remove-AzMariaDbServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Usuwanie serwera głównego
+### <a name="delete-a-source-server"></a>Usuwanie serwera źródłowego
 
 > [!IMPORTANT]
-> Usunięcie serwera głównego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera głównego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
+> Usunięcie serwera źródłowego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera źródłowego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
 
-Aby usunąć serwer główny, można uruchomić `Remove-AzMariaDbServer` polecenie cmdlet.
+Aby usunąć serwer źródłowy, można uruchomić `Remove-AzMariaDbServer` polecenie cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup

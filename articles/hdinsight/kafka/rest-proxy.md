@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 508d054bc4eed88867bb6e3282edbafaae9a5247
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298049"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541734"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Korzystanie z klastrów Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST
 
@@ -23,7 +23,7 @@ Serwer proxy REST Kafka umożliwia współdziałanie z klastrem Kafka za pośred
 
 Aby uzyskać operacje obsługiwane przez interfejs API REST Kafka, zobacz [Dokumentacja interfejsu API REST usługi HDInsight Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-## <a name="background"></a>Informacje dodatkowe
+## <a name="background"></a>Tło
 
 ![Projekt serwera proxy REST Kafka](./media/rest-proxy/rest-proxy-architecture.png)
 
@@ -63,11 +63,11 @@ Poniższe kroki używają Azure Portal. Przykład użycia interfejsu wiersza pol
 
 1. Podczas przepływu pracy tworzenia klastra Kafka na karcie **zabezpieczenia i sieć** zaznacz opcję **Włącz serwer proxy REST Kafka** .
 
-     ![Włącz serwer proxy REST Kafka i wybierz grupę zabezpieczeń](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![Zrzut ekranu przedstawia stronę Tworzenie klastra usługi H Insights z wybraną opcją zabezpieczenia i sieć.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Kliknij pozycję **Wybierz grupę zabezpieczeń**. Z listy grup zabezpieczeń wybierz grupę zabezpieczeń, która ma mieć dostęp do serwera proxy REST. Możesz użyć pola wyszukiwania, aby znaleźć odpowiednią grupę zabezpieczeń. Kliknij przycisk **Wybierz** u dołu.
 
-     ![Włącz serwer proxy REST Kafka i wybierz grupę zabezpieczeń](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Zrzut ekranu przedstawia stronę Tworzenie klastra usługi H Insights z opcją wyboru grupy zabezpieczeń.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Wykonaj pozostałe kroki w celu utworzenia klastra zgodnie z opisem w temacie [Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu Azure Portal](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 

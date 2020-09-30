@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505863"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536991"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Zatwierdzanie żądań aktywacji dla członków i właścicieli grupy uprzywilejowanego dostępu (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ W przypadku delegowanej osoby zatwierdzającej otrzymasz powiadomienie e-mail, g
 
 1. Znajdź i wybierz żądanie, które chcesz zatwierdzić, a następnie wybierz pozycję **Zatwierdź**.
 
-    ![Okienko zatwierdzanie żądań — zatwierdzanie lub odrzucanie z użyciem pola szczegóły i uzasadnienia](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Zrzut ekranu pokazujący stronę "Zatwierdź żądania" z wyróżnionymi przyciskami "Zatwierdź" i "Potwierdź".](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. W polu **uzasadnienie** wprowadź uzasadnienie biznesowe.
 

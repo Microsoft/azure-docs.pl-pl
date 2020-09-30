@@ -1,22 +1,16 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
-services: cognitive-services
-author: diberry
-manager: nitinme
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.date: 02/14/2020
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: 4d6bc91345e8b46a234f4fa7ca0f4277dd8cac42
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f9749c9e283a9b0c3c726856d51c49d2efc6743f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "87374700"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91544868"
 ---
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy aplikacja LUIS nie będzie już potrzebna, usuń ją. Aby to zrobić, wybierz pozycję **My apps** (Moje aplikacje) z menu w lewym górnym rogu. Wybierz wielokropek (***...***) z prawej strony nazwy aplikacji na liście aplikacji, a następnie wybierz pozycję **Usuń**. W wyskakującym oknie dialogowym **Delete app?** (Usunąć aplikację?) wybierz pozycję **OK**.
+Gdy aplikacja LUIS nie będzie już potrzebna, usuń ją. Aby to zrobić, wybierz pozycję **Moje aplikacje** w menu u góry z lewej strony. Wybierz wielokropek (***...***) z prawej strony nazwy aplikacji na liście aplikacji, a następnie wybierz pozycję **Usuń**. W wyskakującym oknie dialogowym **Delete app?** (Usunąć aplikację?) wybierz pozycję **OK**.

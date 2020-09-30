@@ -1,21 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
 ms.custom: include file, devx-track-js
-ms.author: diberry
-ms.openlocfilehash: ef26e104f1541583e2349386a15b43af02070b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7fd44bd6feb5ee256b2a6b723fc684ea8c9ed736
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327295"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545515"
 ---
 ## <a name="code-examples"></a>Przykłady kodu
 

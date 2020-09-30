@@ -3,15 +3,15 @@ title: Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 description: Dowiedz się, jak utworzyć pulę bez publicznych adresów IP
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541904"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 
@@ -24,7 +24,7 @@ Domyślnie wszystkie węzły obliczeniowe w puli konfiguracji Azure Batch maszyn
 Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węzłów z Internetu, można zainicjować obsługę administracyjną puli bez publicznych adresów IP.
 
 > [!IMPORTANT]
-> Obsługa pul bez publicznych adresów IP w Azure Batch jest obecnie publiczną wersją zapoznawczą dla wszystkich regionów z wyjątkiem Chiny Wschodnie, Chiny Wschodnie 2, Chiny Północne i Chiny Północne 2.
+> Obsługa pul bez publicznych adresów IP w programie Azure Batch jest obecnie w publicznej wersji zapoznawczej dla następujących regionów: Francja środkowa, Azja Wschodnia, zachodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Europa Północna, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902134"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542125"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
@@ -79,7 +79,7 @@ W przypadku korzystania z szyfrowania danych przy użyciu klucza zarządzanego p
 * Upewnij się, że Key Vault i Azure Database for PostgreSQL pojedynczy serwer znajduje się w tym samym regionie, aby zapewnić szybszy dostęp do zawijania danych i odpakowywanie operacji.
 * Zablokuj Magazyn kluczy platformy Azure tylko do **prywatnego punktu końcowego i wybranych sieci** i Zezwalaj tylko *zaufanym usługom firmy Microsoft* na Zabezpieczanie zasobów.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Trusted-Service-with-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram przedstawiający przegląd Bring Your Own Key":::
 
 Poniżej przedstawiono zalecenia dotyczące konfigurowania klucza zarządzanego przez klienta:
 
@@ -121,9 +121,9 @@ Aby monitorować stan bazy danych i włączyć alerty na potrzeby utraty dostęp
 
 Po zaszyfrowaniu pojedynczego serwera Azure Database for PostgreSQL z kluczem zarządzanym przez klienta przechowywanego w Key Vault, nowo utworzona kopia serwera zostanie również zaszyfrowana. Tę nową kopię można wykonać za pomocą operacji w trybie lokalnym lub z możliwością przywracania geograficznego albo za pomocą replik odczytu. Jednak kopię można zmienić w celu odzwierciedlenia klucza zarządzanego nowego klienta na potrzeby szyfrowania. Gdy klucz zarządzany przez klienta zostanie zmieniony, stare kopie zapasowe serwera zaczynają korzystać z najnowszego klucza.
 
-Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych przez klienta podczas przywracania lub tworzenia repliki odczytu, należy wykonać następujące kroki na serwerach głównych i przywróconych/replice:
+Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych przez klienta podczas przywracania lub tworzenia repliki odczytu, należy wykonać następujące kroki na serwerach podstawowych i przywróconych/repliki:
 
-* Zainicjuj proces przywracania lub odczytywania repliki z głównego Azure Database for PostgreSQL jednego serwera.
+* Zainicjuj proces przywracania lub odczytywania repliki z podstawowego Azure Database for PostgreSQL jednego serwera.
 * Zachowaj nowo utworzony serwer (przywrócony/Replica) w stanie niedostępnym, ponieważ jego unikatowa tożsamość nie otrzymała jeszcze uprawnień do Key Vault.
 * Na serwerze przywrócenia/repliki ponownie sprawdź poprawność klucza zarządzanego przez klienta w ustawieniach szyfrowania danych. Gwarantuje to, że nowo utworzony serwer ma uprawnienia zawijania i odwinięcia klucza przechowywanego w Key Vault.
 

@@ -2,20 +2,18 @@
 title: 'Pobierz prognozowanie za pomocą wywołania REST w języku C #'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
-ms.author: diberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63ee7932448c92393299d0ff8bf3094910653133
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5042321f5601709a8cc57966f8b55e947c7570d3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316369"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545459"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/csharp-predict-with-rest/Program.cs)
 

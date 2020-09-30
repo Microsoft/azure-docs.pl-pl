@@ -3,23 +3,21 @@ title: Procent wstępnie skompilowanej jednostki — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera procent wstępnie utworzonych informacji o jednostkach w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb64a32e2bdd3976fba3ce63433b13eb4891afc7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270515"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541700"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Procent wstępnie skompilowanej jednostki dla aplikacji LUIS
-Liczby procentowe mogą być wyświetlane jako ułamki, `3 1/2`lub jako procentowe. `2%` Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej procent do intencji aplikacji. Jednostka procentowa jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
+Liczby procentowe mogą być wyświetlane jako ułamki, `3 1/2` lub jako procentowe `2%` . Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej procent do intencji aplikacji. Jednostka procentowa jest obsługiwana w [wielu kulturach](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-percentage"></a>Typy wartości procentowych
 Wartość procentowa jest zarządzana przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) repozytorium GitHub
@@ -32,7 +30,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

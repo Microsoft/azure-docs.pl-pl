@@ -1,7 +1,7 @@
 ---
 title: Model DenseNet
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model klasyfikacji obrazów przy użyciu algorytmu densenet.
+description: Dowiedz się, jak utworzyć model klasyfikacji obrazów przy użyciu algorytmu DenseNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450096"
+ms.locfileid: "91536634"
 ---
 # <a name="densenet"></a>Model DenseNet
 
@@ -29,17 +29,17 @@ Możesz nauczyć model, dostarczając model i katalog obrazu z etykietą jako da
 
 ### <a name="more-about-densenet"></a>Więcej informacji na temat DenseNet
 
-Aby uzyskać więcej informacji, zobacz [gęsto połączone sieci splotowych](https://arxiv.org/abs/1608.06993) .
+Aby uzyskać więcej informacji na temat DenseNet, zobacz dokument dotyczący badań, [gęsto podłączone sieci splotowych](https://arxiv.org/abs/1608.06993).
 
 ## <a name="how-to-configure-densenet"></a>Jak skonfigurować DenseNet
 
 1.  Dodaj moduł **DenseNet** do potoku w projektancie.  
 
-2.  W przypadku **nazwy modelu**należy określić nazwę pewnej struktury densenet, a można wybrać opcję z obsługiwanej densenet: "densenet121", "densenet161", "densenet169", "densenet201".
+2.  W przypadku **nazwy modelu**należy określić nazwę pewnej struktury DenseNet, a można wybrać opcję z obsługiwanej DenseNet: "densenet121", "densenet161", "densenet169", "densenet201".
 
-3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dopasować model na podstawie wybranego wstępnie nauczonego modelu; w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
+3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
 
-4.  W celu **zapewnienia wydajnej pamięci**należy określić, czy należy używać punktów kontrolnych, które są znacznie bardziej wydajne, ale wolniejsze. Aby uzyskać więcej informacji, zobacz https://arxiv.org/pdf/1707.06990.pdf.
+4.  W celu **zapewnienia wydajnej pamięci**należy określić, czy należy używać punktów kontrolnych, które są znacznie bardziej wydajne, ale wolniejsze. Aby uzyskać więcej informacji, zobacz dokument dotyczący badań, [wydajna implementacja DenseNets w pamięci](https://arxiv.org/pdf/1707.06990.pdf).
 
 5.  Połącz dane wyjściowe modułu **DenseNet** module, szkoleń i walidacji zestawu danych obrazu z [modelem uczenie Pytorch](train-pytorch-model.md). 
 
@@ -56,7 +56,7 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 | Nazwa             | Zakres | Typ    | Domyślny     | Opis                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Nazwa modelu       | Dowolne   | Tryb    | densenet201 | Nazwa pewnej struktury densenet     |
+| Nazwa modelu       | Dowolne   | Tryb    | densenet201 | Nazwa pewnej struktury DenseNet     |
 | Przeduczenie       | Dowolne   | Boolean | Prawda        | Czy używać modelu wstępnie nauczonego na ImageNet |
 | Wydajna pamięć | Dowolne   | Wartość logiczna | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
 
@@ -64,7 +64,7 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 | Nazwa            | Typ                    | Opis                              |
 | --------------- | ----------------------- | ---------------------------------------- |
-| Nieuczenie modelu | UntrainedModelDirectory | Nieuczenie modelu densenet, który może być połączony z modelem uczenia Pytorch. |
+| Nieuczenie modelu | UntrainedModelDirectory | Nieuczenie modelu DenseNet, który może być połączony z modelem uczenia Pytorch. |
 
 ## <a name="next-steps"></a>Następne kroki
 

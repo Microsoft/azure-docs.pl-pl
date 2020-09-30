@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898600"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536736"
 ---
 # <a name="convert-word-to-vector-module"></a>Konwertuj słowo na moduł Vector
 
@@ -27,9 +27,9 @@ Ten moduł używa biblioteki Gensim. Aby uzyskać więcej informacji na temat Ge
 
 ### <a name="more-about-converting-words-to-vectors"></a>Więcej informacji o konwertowaniu wyrazów na wektory
 
-Ogólnie mówiąc, konwertowanie wyrazów na wektory lub Word wektoryzacji jest procesem przetwarzania języka naturalnego (NLP). Proces używa modeli języka lub technik do mapowania wyrazów na przestrzeń wektorową, czyli do reprezentowania każdego wyrazu przez wektor liczb rzeczywistych. W tym czasie słowa mające podobne znaczenie mają podobne reprezentacje.
+Konwersja wyrazów na wektors lub Word wektoryzacji jest procesem przetwarzania języka naturalnego (NLP). Proces używa modeli języka do mapowania słów na przestrzeń wektorową. Przestrzeń wektorowa reprezentuje każdy wyraz według wektora liczb rzeczywistych. Pozwala również wyrazom podobnym do oznaczania podobnej reprezentacji.
 
-Osadzania słów mogą służyć jako początkowe dane wejściowe dla zadań podrzędnych NLP, takich jak Klasyfikacja tekstu i analiza tonacji.
+Używaj osadzania słów jako początkowych danych wejściowych dla zadań podrzędnych NLP, takich jak Klasyfikacja tekstu i analiza tonacji.
 
 Między różnymi technologiami osadzania wyrazów w tym module wprowadziliśmy trzy powszechnie używane metody. Dwa, Word2Vec i FastText są modelami szkoleń online. Druga to wstępnie przemieszczony model, dokładne-wiki-gigaword-100. 
 
@@ -37,9 +37,9 @@ Online — modele szkoleń są przeszkolone na danych wejściowych. Modele przed
 
 Oto kilka informacji na temat metod:
 
-+ Word2Vec to jedna z najpopularniejszych technik, które umożliwiają naukę osadzania wyrazów za pomocą płytki sieci neuronowych. Teoretyczne rozwiązanie jest omówione w tym dokumencie, dostępne jako pliki PDF do pobrania: [wydajne oszacowanie wyrazów w przestrzeni wektorowej, przez Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). Implementacja w tym module jest oparta na [bibliotece Gensim dla Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
++ Word2Vec to jedna z najpopularniejszych technik, które umożliwiają naukę osadzania wyrazów za pomocą płytki sieci neuronowych. Teoretyczne rozwiązanie jest omówione w tym dokumencie, dostępne jako pliki PDF do pobrania: [wydajne oszacowanie wyrazów w obszarze wektora](https://arxiv.org/pdf/1301.3781.pdf). Implementacja w tym module jest oparta na [bibliotece Gensim dla Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
 
-+ Teoretyczne FastText zostało wyjaśnione w tym dokumencie, dostępne jako pliki PDF do pobrania: [wzbogacanie wektorów wyrazów za pomocą informacji o podwyrazie, według Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). Implementacja w tym module jest oparta na [bibliotece Gensim dla FastText](https://radimrehurek.com/gensim/models/fasttext.html).
++ Teoretycznie FastText jest wyjaśnione w tym dokumencie, dostępne jako pliki PDF do pobrania: [wzbogacanie wektorów wyrazów za pomocą informacji o podwyrazie](https://arxiv.org/pdf/1607.04606.pdf). Implementacja w tym module jest oparta na [bibliotece Gensim dla FastText](https://radimrehurek.com/gensim/models/fasttext.html).
 
 + Wstępnie przemieszczony model dokładne to dokładne-wiki-gigaword-100. Jest to kolekcja premieszczonych wektorów oparta na korpus tekstowym witryny Wikipedia, która zawiera 5 600 000 000 tokeny i 400 000 wyrazy słownictwa. Dostępne jest pobieranie plików PDF: [dokładne: globalne wektory dla reprezentacji programu Word](https://nlp.stanford.edu/pubs/glove.pdf).
 
@@ -71,13 +71,13 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu. Wstępnie prze
 
         Domyślny rozmiar okna to 5.
 
-    + W przypadku **liczby epok**należy określić liczbę epok (iteracji) w korpus. To ustawienie odpowiada `iter` parametrowi w Gensim.
+    + W przypadku **liczby epok**należy określić liczbę epok (iteracji) w korpus. Odpowiada `iter` parametrowi w Gensim.
 
         Domyślny numer epoki to 5.
 
 6. W polu **Maksymalny rozmiar słownika**Określ maksymalną liczbę słów w wygenerowanym słownictwie.
 
-    Jeśli nie ma więcej unikatowych słów, Oczyść rzadko używane.
+    Jeśli jest więcej unikatowych słów niż maksymalny rozmiar, Oczyść rzadko używane.
 
     Domyślny rozmiar słownika to 10 000.
 
@@ -93,11 +93,11 @@ Moduł ma jedno wyjście:
 
 + **Słownictwo z osadzaniem**: zawiera wygenerowany słownictwo wraz z osadzaniem każdego wyrazu. Jeden wymiar zajmuje jedną kolumnę.
 
-Poniższy przykład ilustruje, jak działa Konwertuj wyraz na wektor. Stosuje ten moduł z ustawieniami domyślnymi wstępnie przetworzony zestaw danych programu Wikipedia SP 500 podany w Azure Machine Learning.
+Poniższy przykład pokazuje, jak działa Konwertuj wyraz na wektor. Używa funkcji Convert Word do wektora z ustawieniami domyślnymi wstępnie przetworzonym zestawem danych programu Wikipedia SP 500.
 
 ### <a name="source-dataset"></a>Zestaw danych źródłowych
 
-Zestaw danych zawiera kolumnę kategorii wraz z pełnym tekstem pobieranym z witryny Wikipedia. W tej tabeli przedstawiono tylko kilka reprezentatywnych przykładów.
+Zestaw danych zawiera kolumnę kategorii wraz z pełnym tekstem pobieranym z witryny Wikipedia. W poniższej tabeli przedstawiono kilka reprezentatywnych przykładów.
 
 |Tekst|
 |----------|
@@ -136,13 +136,13 @@ Ta sekcja zawiera porady i odpowiedzi na często zadawane pytania.
 
     W tym przypadku konwersja wyrazu do modułu Vector zapewnia trzy różne strategie: dwa modele szkoleń online i jeden wstępnie przeszkolony model. Modele szkoleń online wykorzystują wejściowy zestaw danych jako dane szkoleniowe i generują słownictwo i wektory wyrazów podczas szkoleń. Wcześniej przemieszczony model jest już szkolony przez znacznie większy korpus tekstu, taki jak Wikipedia lub Twitter. Model przeddany jest w rzeczywistości kolekcją par wyrazów/osadzania.  
 
-    Jeśli model dokładne preszkolony jest wybierany jako strategia programu Word wektoryzacji, podsumowuje słownictwo z wejściowego zestawu danych i generuje wektor osadzania dla każdego wyrazu ze wstępnie przemieszczonego modelu. Bez uczenia online korzystanie z preszkolonych modeli może zaoszczędzić czas uczenia. Zapewnia lepszą wydajność, zwłaszcza gdy rozmiar wejściowego zestawu danych jest stosunkowo mały.
+    Dokładne wstępnie szkolony model podsumowuje słownictwo z wejściowego zestawu danych i generuje wektor osadzania dla każdego wyrazu ze wstępnie przemieszczonego modelu. Bez uczenia online korzystanie z preszkolonych modeli może zaoszczędzić czas uczenia. Zapewnia lepszą wydajność, zwłaszcza gdy rozmiar wejściowego zestawu danych jest stosunkowo mały.
 
 + Rozmiar osadzania:
 
-    Ogólnie rzecz biorąc, Długość osadzania wyrazów jest ustawiana na kilka setek (na przykład 100, 200, 300) w celu uzyskania dobrej wydajności. Przyczyną jest to, że mały rozmiar osadzania oznacza małą przestrzeń wektorową, co może spowodować kolizje programu Word.  
+    Ogólnie rzecz biorąc, Długość osadzania wyrazów jest ustawiona na kilka setek. Na przykład 100, 200, 300. Mały rozmiar osadzania oznacza małą przestrzeń wektorową, co może spowodować kolizje programu Word.  
 
-    W przypadku modeli z prefiksem, Długość osadzania wyrazów jest stała. W tej implementacji rozmiar osadzania dokładne-wiki-gigaword-100 to 100.
+    Długość osadzania wyrazów jest stała dla modeli przedszkolowych. W tym przykładzie rozmiar osadzania dokładne-wiki-gigaword-100 to 100.
 
 
 ## <a name="next-steps"></a>Następne kroki

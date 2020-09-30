@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e63fe76c5ab5fe77f0dcb7f4903ee77dff208fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542414"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 
@@ -24,15 +24,15 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 - [Instalowanie interfejsu wiersza polecenia platformy Azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) , który będzie używany jako serwer główny. 
+- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) , który będzie używany jako serwer źródłowy. 
 
 > [!IMPORTANT]
-> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer główny znajduje się w jednej z tych warstw cenowych.
+> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer źródłowy znajduje się w jednej z tych warstw cenowych.
 
-### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+### <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 
 > [!IMPORTANT]
-> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
+> Podczas tworzenia repliki dla źródła, które nie ma istniejących replik, źródło zostanie najpierw ponownie uruchomione w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
 
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 
@@ -46,7 +46,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
 | name | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
-| source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera głównego, z którego ma być wykonywana replikacja. |
+| source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera źródłowego do replikacji. |
 
 Aby utworzyć replikę odczytu między regionami, użyj `--location` parametru. 
 
@@ -60,11 +60,11 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 > Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
-### <a name="list-replicas-for-a-master-server"></a>Wyświetlanie listy replik dla serwera głównego
+### <a name="list-replicas-for-a-source-server"></a>Wyświetlanie listy replik dla serwera źródłowego
 
-Aby wyświetlić wszystkie repliki dla danego serwera głównego, uruchom następujące polecenie: 
+Aby wyświetlić wszystkie repliki dla danego serwera źródłowego, uruchom następujące polecenie: 
 
 ```azurecli-interactive
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
@@ -75,12 +75,12 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
-| nazwa-serwera | mydemoserver | Nazwa lub identyfikator serwera głównego. |
+| nazwa-serwera | mydemoserver | Nazwa lub identyfikator serwera źródłowego. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
 
 > [!IMPORTANT]
-> Zatrzymywanie replikacji na serwerze jest nieodwracalne. Po zatrzymaniu replikacji między serwerem głównym a repliką nie można jej cofnąć. Serwer repliki stał się serwerem autonomicznym i obsługuje teraz zarówno odczyt, jak i zapis. Nie można ponownie wykonać tego serwera w replice.
+> Zatrzymywanie replikacji na serwerze jest nieodwracalne. Po zatrzymaniu replikacji między źródłem a repliką nie można jej cofnąć. Serwer repliki stał się serwerem autonomicznym i obsługuje teraz zarówno odczyt, jak i zapis. Nie można ponownie wykonać tego serwera w replice.
 
 Replikację na serwer repliki odczytu można zatrzymać przy użyciu następującego polecenia:
 
@@ -103,12 +103,12 @@ Usuwanie serwera repliki odczytu można wykonać, uruchamiając polecenie **[AZ 
 az mariadb server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-### <a name="delete-a-master-server"></a>Usuwanie serwera głównego
+### <a name="delete-a-source-server"></a>Usuwanie serwera źródłowego
 
 > [!IMPORTANT]
-> Usunięcie serwera głównego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera głównego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
+> Usunięcie serwera źródłowego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera źródłowego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
 
-Aby usunąć serwer główny, można uruchomić polecenie **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
+Aby usunąć serwer źródłowy, można uruchomić polecenie **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
@@ -117,7 +117,7 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="rest-api"></a>Interfejs API REST
 Można tworzyć repliki odczytu i zarządzać nimi za pomocą [interfejsu API REST platformy Azure](/rest/api/azure/).
 
-### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+### <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 Replikę odczytu można utworzyć przy użyciu [interfejsu API tworzenia](/rest/api/mariadb/servers/create):
 
 ```http
@@ -137,25 +137,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md). 
 
-Jeśli nie ustawisz `azure.replication_support` parametru na **replikę** na serwerze głównym ogólnego przeznaczenia lub zoptymalizowanym pod kątem pamięci i ponownie uruchomiono serwer, zostanie wyświetlony komunikat o błędzie. Przed utworzeniem repliki wykonaj te dwa kroki.
+Jeśli nie ustawisz `azure.replication_support` parametru na **replikę** na serwerze źródłowym ogólnego przeznaczenia lub zoptymalizowanym pod kątem pamięci i ponownie uruchomiono serwer, zostanie wyświetlony komunikat o błędzie. Przed utworzeniem repliki wykonaj te dwa kroki.
 
-Replika jest tworzona przy użyciu tych samych ustawień obliczeniowych i magazynu co główny. Po utworzeniu repliki można zmienić kilka ustawień niezależnie od serwera głównego: generowanie obliczeń, rdzeni wirtualnych, magazyn i okres przechowywania zapasowego. Warstwę cenową można także zmienić niezależnie, z wyjątkiem warstwy Podstawowa lub z niej.
+Replika jest tworzona przy użyciu tych samych ustawień obliczeniowych i magazynu co główny. Po utworzeniu repliki kilka ustawień można zmienić niezależnie od serwera źródłowego: generowanie obliczeń, rdzeni wirtualnych, magazyn i okres przechowywania zapasowego. Warstwę cenową można także zmienić niezależnie, z wyjątkiem warstwy Podstawowa lub z niej.
 
 
 > [!IMPORTANT]
-> Przed zaktualizowaniem ustawienia serwera głównego do nowej wartości należy zaktualizować ustawienie repliki na wartość równą lub większą. Ta akcja ułatwia przeprowadzenie replikacji ze wszystkimi zmianami wprowadzonymi do wzorca.
+> Przed zaktualizowaniem ustawienia serwera źródłowego do nowej wartości należy zaktualizować ustawienie repliki na wartość równą lub większą. Ta akcja ułatwia przeprowadzenie replikacji ze wszystkimi zmianami wprowadzonymi do wzorca.
 
 ### <a name="list-replicas"></a>Wyświetlanie listy replik
-Listę replik serwera głównego można wyświetlić za pomocą [interfejsu API listy replik](/rest/api/mariadb/replicas/listbyserver):
+Listę replik serwera źródłowego można wyświetlić za pomocą [interfejsu API listy replik](/rest/api/mariadb/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
-Można zatrzymać replikację między serwerem głównym a repliką odczytu przy użyciu [interfejsu API aktualizacji](/rest/api/mariadb/servers/update).
+Można zatrzymać replikację między serwerem źródłowym a repliką odczytu przy użyciu [interfejsu API aktualizacji](/rest/api/mariadb/servers/update).
 
-Po zatrzymaniu replikacji na serwer główny i replikę odczytu nie można jej cofnąć. Replika odczytu jest autonomicznym serwerem, który obsługuje zarówno operacje odczytu, jak i zapisu. Serwer autonomiczny nie może zostać ponownie utworzony w replice.
+Po zatrzymaniu replikacji na serwer źródłowy i replikę odczytu nie można jej cofnąć. Replika odczytu jest autonomicznym serwerem, który obsługuje zarówno operacje odczytu, jak i zapisu. Serwer autonomiczny nie może zostać ponownie utworzony w replice.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}?api-version=2017-12-01
@@ -169,10 +169,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Usuwanie serwera głównego lub repliki
-Aby usunąć serwer główny lub serwera repliki, należy użyć [interfejsu API usuwania](/rest/api/mariadb/servers/delete):
+### <a name="delete-a-source-or-replica-server"></a>Usuwanie serwera źródłowego lub repliki
+Aby usunąć serwer źródłowy lub replikę, należy użyć [interfejsu API usuwania](/rest/api/mariadb/servers/delete):
 
-Po usunięciu serwera głównego replikacja do wszystkich replik odczytu zostanie zatrzymana. Repliki odczytu stają się autonomicznymi serwerami, które teraz obsługują operacje odczytu i zapisu.
+Po usunięciu serwera źródłowego replikacja do wszystkich replik odczytu zostanie zatrzymana. Repliki odczytu stają się autonomicznymi serwerami, które teraz obsługują operacje odczytu i zapisu.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}?api-version=2017-12-01

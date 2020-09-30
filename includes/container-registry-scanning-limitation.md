@@ -1,19 +1,19 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1ad9630c69e06066e9edc12441d5a42b84b15804
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e3234289fe56286cb5ff0791d983dee6ec2aa4d8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545433"
 ---
 > [!NOTE]
-> Azure Security Center nie może obecnie wykonać [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP.
+> Azure Security Center nie może obecnie wykonać [skanowania w poszukiwaniu luk w zabezpieczeniach obrazów](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) w rejestrze, który ogranicza dostęp do prywatnych punktów końcowych, wybranych podsieci lub adresów IP. Wystąpienia niektórych usług platformy Azure, w tym Azure DevOps Services i Azure Container Instances, nie są również w stanie uzyskać dostępu do rejestru kontenerów z ograniczeniami w sieci.
