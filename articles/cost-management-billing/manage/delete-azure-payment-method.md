@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: b26958037cf7fd752c6cf07078b4a627fed64b2b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a579dd22aa814340b4b72d74907739c942570c23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91003113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270706"
 ---
 # <a name="delete-an-azure-billing-payment-method-preview"></a>Usuwanie metody płatności dla rozliczeń na platformie Azure (wersja zapoznawcza)
 
@@ -39,10 +39,10 @@ Aby usunąć formę płatności dla Umowy z Klientem Microsoft, wykonaj następu
 1. Z listy menu po lewej stronie w obszarze **Rozliczenia** wybierz pozycję **Profile rozliczeniowe**.  
     :::image type="content" source="./media/delete-azure-payment-method/billing-profiles.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" lightbox="./media/delete-azure-payment-method/billing-profiles.png" :::
 1. Z listy profilów rozliczeniowych wybierz ten, który używa formy płatności.  
-    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Przykładowy obraz przedstawiający listę profilów rozliczeniowych" :::
+    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 1. Z listy menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **Formy płatności**.
 1. Na stronie form płatności dla profilu rozliczeniowego w sekcji **Twoje karty kredytowe** zostanie wyświetlona tabela form płatności. Znajdź kartę kredytową, którą chcesz usunąć, wybierz wielokropek ( **…** ), a następnie wybierz pozycję **Usuń**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Przykład przedstawiający miejsce usunięcia karty kredytowej" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 1. Zostanie wyświetlona strona Usuwanie formy płatności. Platforma Azure sprawdza, czy forma płatności jest używana.
     - Gdy forma płatności nie jest używana, opcja **Usuń** jest włączona. Wybierz ją, aby usunąć dane karty kredytowej.
     - Jeśli metoda płatności jest używana, należy ją zamienić lub odłączyć. Kontynuuj odczytywanie następujących sekcji. Wyjaśniono w nich, jak **odłączyć** formy płatności używane przez subskrypcję.
@@ -51,7 +51,7 @@ Aby usunąć formę płatności dla Umowy z Klientem Microsoft, wykonaj następu
 
 Jeśli Twoja forma płatności jest używana przez profil rozliczeniowy dla umowy MCA, zobaczysz komunikat podobny do poniższego przykładu.
 
-:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Przykładowy obraz pokazujący, że forma płatności jest używana w ramach Umowy z Klientem Microsoft" :::
+:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 
 Aby odłączyć formę płatności, należy spełnić warunki podane na liście. Jeśli jakiekolwiek warunki nie zostaną spełnione, pojawią się instrukcje objaśniające, jak spełnić warunek. Zostanie również wyświetlony link do lokalizacji, w której można rozwiązać problem z warunkiem.
 
@@ -65,7 +65,7 @@ Gdy wszystkie warunki zostaną spełnione, można odłączyć formę płatności
 1. W obszarze Usuwanie formy płatności wybierz link **Odłącz bieżącą formę płatności**.
 1. Jeśli spełnione są wszystkie warunki, wybierz pozycję **Odłącz**. W przeciwnym razie przejdź do następnego kroku.
 1. Jeśli przycisk Odłącz jest niedostępny, zostanie wyświetlona lista warunków. Wykonaj działania wymienione na liście. Wybierz link widoczny w obszarze Odłączanie domyślnej formy płatności. Oto przykład akcji naprawczej objaśniający działania, które należy wykonać.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Przykład pokazujący akcję naprawczą, która jest wymagana do odłączenia formy płatności dla umowy MCA" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 1. Po wybraniu linku do działania naprawczego nastąpi przekierowanie do strony platformy Azure, na której zostanie podjęta akcja. Wykonaj odpowiednią akcję naprawczą.
 1. W razie potrzeby wykonaj wszystkie pozostałe akcje naprawcze.
 1. Przejdź z powrotem do strony **Zarządzanie kosztami i rozliczenia**  >  **Profile rozliczeniowe**  >  **Formy płatności**. Wybierz pozycję **Odłącz**. W dolnej części strony Odłączanie domyślnej formy płatności wybierz pozycję **Odłącz**.
@@ -86,10 +86,10 @@ Jeśli Twoja forma płatności jest używana przez subskrypcję programu subskry
 1. Z listy menu po lewej stronie w obszarze **Rozliczenia** wybierz pozycję **Formy płatności**.
 1. W obszarze Formy płatności wybierz _wiersz_ Twojej formy płatności. Nie wybieraj linku formy płatności. Może nie być wizualnego potwierdzenia, że wybrano formę płatności.
 1. Wybierz pozycję **Usuń**.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Przykład pokazujący akcję naprawczą, która jest wymagana do odłączenia formy płatności dla programu subskrypcji usług online firmy Microsoft" :::
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 1. W obszarze Usuwanie formy płatności wybierz pozycję **Usuń**, jeśli zostaną spełnione wszystkie warunki. Jeśli polecenie Usuń jest niedostępne, przejdź do następnego kroku.
 1. Zostanie wyświetlona lista warunków. Wykonaj działania wymienione na liście. Wybierz link widoczny w obszarze Usuwanie formy płatności.  
-    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Przykładowy obraz pokazujący, że forma płatności jest używana w ramach subskrypcji programu subskrypcji usług online firmy Microsoft" :::
+    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Przykładowy zrzut ekranu przedstawiający profile rozliczeniowe w witrynie Azure Portal" :::
 1. Po wybraniu linku do działania naprawczego nastąpi przekierowanie do strony platformy Azure, na której zostanie podjęta akcja. Wykonaj odpowiednią akcję naprawczą.
 1. W razie potrzeby wykonaj wszystkie pozostałe akcje naprawcze.
 1. Przejdź z powrotem do strony **Zarządzanie kosztami i rozliczenia**  >  **Profile rozliczeniowe**  >  **Formy płatności** i usuń formę płatności.

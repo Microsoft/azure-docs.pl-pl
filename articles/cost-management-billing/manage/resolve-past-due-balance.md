@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8c792ae1b6ac43ead15fd4f27d2468c517153354
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297588"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Rozwiązywanie problemu z zaległym saldem za subskrypcję platformy Azure
 
 Ten artykuł dotyczy klientów, którzy zarejestrowali się w usłudze Azure Online przy użyciu karty kredytowej i mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli masz konto rozliczeniowe dla umowy klienta firmy Microsoft, zapoznaj się z tematem [Opłacanie rachunku za korzystanie z platformy Microsoft Azure](../understand/pay-bill.md).
 
-Jeśli nie otrzymamy Twojej płatności lub jeśli nie będziemy mogli jej przetworzyć, otrzymasz wiadomość e-mail i zobaczysz alert w witrynie Azure Portal z informacją o tym, że Twoja subskrypcja ma zaległe opłaty. Jeśli domyślną formą płatności jest karta kredytowa, [administrator konta](billing-subscription-transfer.md#whoisaa) może uregulować zaległe opłaty w witrynie Azure Portal. W przypadku płatności na podstawie faktury (czekiem lub przelewem) wyślij płatność do lokalizacji wskazanej na dole faktury.
+Jeśli nie otrzymamy Twojej płatności lub jeśli nie będziemy mogli jej przetworzyć, otrzymasz wiadomość e-mail i zobaczysz alert w witrynie Azure Portal z informacją o tym, że Twoja subskrypcja ma zaległe opłaty. Jeśli domyślną formą płatności jest karta kredytowa, [administrator konta](../understand/subscription-transfer.md#whoisaa) może uregulować zaległe opłaty w witrynie Azure Portal. W przypadku płatności na podstawie faktury (czekiem lub przelewem) wyślij płatność do lokalizacji wskazanej na dole faktury.
 
 > [!IMPORTANT]
 > * Jeśli masz wiele subskrypcji korzystających z tej samej karty kredytowej i za wszystkie z nich masz zaległe płatności, musisz jednorazowo uregulować całe należne saldo.

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a91f3781b490ee6f724e7d28a6be9a96c853426f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270529"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za korzystanie z platformy Azure
 
@@ -22,7 +22,7 @@ Ten artykuł pomaga zinterpretować i przejrzeć rachunek za korzystanie z platf
 
 Ten samouczek dotyczy tylko klientów platformy Azure mających pojedynczą subskrypcję. Pojedyncze subskrypcje są najczęściej subskrypcjami ze stawkami płatności zgodnie z rzeczywistym użyciem kupowanymi bezpośrednio w witrynie internetowej platformy Azure.
 
-Jeśli potrzebujesz pomocy przy zrozumieniu nieoczekiwanych opłat, zobacz [Analizowanie nieoczekiwanych opłat](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Jeśli musisz anulować subskrypcję platformy Azure, zobacz [Anulowanie subskrypcji platformy Azure](../manage/cancel-azure-subscription.md).
+Jeśli potrzebujesz pomocy przy zrozumieniu nieoczekiwanych opłat, zobacz [Analizowanie nieoczekiwanych opłat](analyze-unexpected-charges.md). Jeśli musisz anulować subskrypcję platformy Azure, zobacz [Anulowanie subskrypcji platformy Azure](../manage/cancel-azure-subscription.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
