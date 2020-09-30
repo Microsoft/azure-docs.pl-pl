@@ -2,7 +2,6 @@
 title: Zwiększ limit przydziału punktu końcowego — LUIS
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) oferuje możliwość zwiększenia limitu przydziału żądania punktu końcowego poza limit przydziału pojedynczego klucza. W tym celu należy utworzyć więcej kluczy dla LUIS i dodać je do aplikacji LUIS na stronie **publikowania** w sekcji **zasoby i klucze** .
-author: diberry
 manager: nitinme
 ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
@@ -10,13 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.author: diberry
-ms.openlocfilehash: 827dec47fa6ea3925513b2b3aadfb103a2b58c72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298392"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541122"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Użyj Microsoft Azure Traffic Manager, aby zarządzać limitem punktów końcowych między kluczami
 Language Understanding (LUIS) oferuje możliwość zwiększenia limitu przydziału żądania punktu końcowego poza limit przydziału pojedynczego klucza. W tym celu należy utworzyć więcej kluczy dla LUIS i dodać je do aplikacji LUIS na stronie **publikowania** w sekcji **zasoby i klucze** .

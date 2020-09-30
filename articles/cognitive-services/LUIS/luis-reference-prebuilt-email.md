@@ -3,20 +3,18 @@ title: LUIS wstępnie utworzonych jednostek — dokumentacja poczty e-mail
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostce poczty e-mail w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 806357670bead54658f0b501ca20473293275d58
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273479"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533370"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka poczty e-mail dla aplikacji LUIS
 Wyodrębnianie wiadomości e-mail obejmuje cały adres e-mail z wypowiedź. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości zawierającej wiadomości e-mail do intencji aplikacji. Jednostka poczty e-mail jest obsługiwana `en-us` tylko w kulturze.
@@ -29,7 +27,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

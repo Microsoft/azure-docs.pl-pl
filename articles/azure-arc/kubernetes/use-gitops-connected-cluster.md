@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049970"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541632"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 
@@ -29,11 +29,13 @@ Ten sam wzorzec może służyć do zarządzania większą kolekcją klastrów, k
 
 Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu konfiguracji z zakresem administratora klastra.
 
+## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+W tym artykule przyjęto założenie, że masz istniejący Kubernetes połączony klaster usługi Azure Arc. Jeśli potrzebny jest podłączony klaster, zobacz temat [łączenie się z klastrem szybki start](./connect-cluster.md).
+
 ## <a name="create-a-configuration"></a>Utwórz konfigurację
 
-- Przykładowe repozytorium:<https://github.com/Azure/arc-k8s-demo>
-
-Przykładowe repozytorium jest strukturalne wokół osoby będącej operatorem klastra, który chce udostępnić kilka przestrzeni nazw, wdrożyć typowe obciążenie i udostępnić konfigurację specyficzną dla zespołu. Użycie tego repozytorium powoduje utworzenie następujących zasobów w klastrze:
+[Przykładowe repozytorium](https://github.com/Azure/arc-k8s-demo) używane w tym dokumencie jest strukturalne wokół osoby będącej operatorem klastra, który chce udostępnić kilka przestrzeni nazw, wdrożyć typowe obciążenie i zapewnić konfigurację specyficzną dla zespołu. Użycie tego repozytorium powoduje utworzenie następujących zasobów w klastrze:
 
 **Przestrzenie nazw:** `cluster-config` , `team-a` , `team-b` 
  **wdrożenie:** `cluster-config/azure-vote` 
@@ -47,12 +49,7 @@ W przypadku kojarzenia repozytorium prywatnego z programem `sourceControlConfigu
 Za pomocą rozszerzenia interfejsu wiersza polecenia platformy Azure dla programu `k8sconfiguration` Połączmy nasz połączony klaster z [przykładowym repozytorium git](https://github.com/Azure/arc-k8s-demo). Ta konfiguracja zostanie nadana nazwie `cluster-config` , nakazuje agentowi wdrożenie operatora w `cluster-config` przestrzeni nazw i nadanie `cluster-admin` uprawnień operatora.
 
 ```console
-az k8sconfiguration create \
-    --name cluster-config \
-    --cluster-name AzureArcTest1 --resource-group AzureArcTest \
-    --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url https://github.com/Azure/arc-k8s-demo \
-    --scope cluster --cluster-type connectedClusters
+az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
 **Rozdzielczości**
@@ -102,7 +99,7 @@ Oto obsługiwane scenariusze dla wartości parametru--Repository-URL.
 | Scenariusz | Format | Opis |
 | ------------- | ------------- | ------------- |
 | Prywatne repozytorium GitHub — SSH | git@github.com:username/repo | Para kluczy SSH wygenerowana przez strumień.  Użytkownik musi dodać klucz publiczny do konta usługi GitHub jako klucz wdrożenia. |
-| Publiczne repozytorium GitHub | `http://github.com/username/repo`lub git://github.com/username/repo   | Publiczne repozytorium git  |
+| Publiczne repozytorium GitHub | `http://github.com/username/repo` lub git://github.com/username/repo   | Publiczne repozytorium git  |
 
 Te scenariusze są obsługiwane przez strumień, ale nie przez sourceControlConfiguration jeszcze. 
 
@@ -117,15 +114,15 @@ Te scenariusze są obsługiwane przez strumień, ale nie przez sourceControlConf
 
 Aby dostosować Tworzenie konfiguracji, poniżej przedstawiono kilka dodatkowych parametrów:
 
-`--enable-helm-operator`: *Opcjonalny* przełącznik umożliwiający włączenie obsługi wdrożeń wykresów Helm.
+`--enable-helm-operator` : *Opcjonalny* przełącznik umożliwiający włączenie obsługi wdrożeń wykresów Helm.
 
-`--helm-operator-chart-values`: *Opcjonalne* wartości wykresu dla operatora Helm (jeśli włączone).  Na przykład '--Set Helm. Versions = v3 '.
+`--helm-operator-chart-values` : *Opcjonalne* wartości wykresu dla operatora Helm (jeśli włączone).  Na przykład '--Set Helm. Versions = v3 '.
 
-`--helm-operator-chart-version`: *Opcjonalna* wersja wykresu dla operatora Helm (jeśli jest włączona). Wartość domyślna: "0.6.0".
+`--helm-operator-chart-version` : *Opcjonalna* wersja wykresu dla operatora Helm (jeśli jest włączona). Wartość domyślna: "0.6.0".
 
-`--operator-namespace`: *Opcjonalna* nazwa przestrzeni nazw operatora. Wartość domyślna: "default"
+`--operator-namespace` : *Opcjonalna* nazwa przestrzeni nazw operatora. Wartość domyślna: "default"
 
-`--operator-params`: Parametry *opcjonalne* dla operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład: ```--operator-params='--git-readonly --git-path=releases' ```
+`--operator-params` : Parametry *opcjonalne* dla operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład ```--operator-params='--git-readonly --git-path=releases' ```
 
 Opcje obsługiwane w--operator-params
 
@@ -159,7 +156,7 @@ Aby uzyskać więcej informacji, zobacz [Dokumentacja strumienia](https://aka.ms
 Za pomocą interfejsu wiersza polecenia platformy Azure Sprawdź, czy `sourceControlConfiguration` został pomyślnie utworzony.
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 Należy pamiętać, że `sourceControlConfiguration` zasób jest aktualizowany ze stanem zgodności, komunikatami i informacjami o debugowaniu.
@@ -193,13 +190,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 Gdy `sourceControlConfiguration` jest tworzony, kilka rzeczy odbywa się pod okapem:
 
 1. Monitory usługi Azure Arc `config-agent` Azure Resource Manager dla nowych lub zaktualizowanych konfiguracji ( `Microsoft.KubernetesConfiguration/sourceControlConfiguration` )
-1. `config-agent`Zauważ nową `Pending` konfigurację
-1. `config-agent`Odczytuje właściwości konfiguracji i przygotowuje się do wdrożenia zarządzanego wystąpienia programu`flux`
-    * `config-agent`tworzy docelowy obszar nazw
-    * `config-agent`przygotowuje konto usługi Kubernetes z odpowiednimi uprawnieniami ( `cluster` lub `namespace` zakresem)
-    * `config-agent`wdraża wystąpienie programu`flux`
-    * `flux`generuje klucz SSH i rejestruje klucz publiczny
-1. `config-agent`raportuje stan z powrotem do`sourceControlConfiguration`
+1. `config-agent` Zauważ nową `Pending` konfigurację
+1. `config-agent` Odczytuje właściwości konfiguracji i przygotowuje się do wdrożenia zarządzanego wystąpienia programu `flux`
+    * `config-agent` tworzy docelowy obszar nazw
+    * `config-agent` przygotowuje konto usługi Kubernetes z odpowiednimi uprawnieniami ( `cluster` lub `namespace` zakresem)
+    * `config-agent` wdraża wystąpienie programu `flux`
+    * `flux` generuje klucz SSH i rejestruje klucz publiczny
+1. `config-agent` raportuje stan z powrotem do `sourceControlConfiguration`
 
 Podczas procesu aprowizacji `sourceControlConfiguration` wystąpią pewne zmiany stanu. Monitoruj postęp przy użyciu `az k8sconfiguration show ...` powyższego polecenia:
 
@@ -229,7 +226,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 **Dodaj klucz publiczny jako klucz wdrożenia do repozytorium git**
 
 1. Otwórz witrynę GitHub, przejdź do swojego rozwidlenia, wybierz pozycję **Ustawienia**, a następnie pozycję **Wdróż klucze** .
-2. Kliknij pozycję **Dodaj klucz wdrożenia**
+2. Kliknij pozycję  **Dodaj klucz wdrożenia**
 3. Podaj tytuł
 4. Sprawdź **Zezwalanie na dostęp do zapisu**
 5. Wklej klucz publiczny (bez cudzysłowów)
@@ -240,7 +237,7 @@ Zobacz dokumentację usługi GitHub, aby uzyskać więcej informacji na temat za
 **Jeśli używasz repozytorium usługi Azure DevOps, Dodaj klucz do kluczy SSH**
 
 1. W obszarze **Ustawienia użytkownika** w prawym górnym rogu (obok obrazu profilu) kliknij pozycję **klucze publiczne SSH**
-1. Wybierz pozycję **+ nowy klucz**
+1. Wybierz pozycję  **+ nowy klucz**
 1. Podaj nazwę
 1. Wklej klucz publiczny bez żadnych otaczających cudzysłowów
 1. Kliknij przycisk **Dodaj**
@@ -284,7 +281,7 @@ cluster-config   1/1     1            1           3h    flux         docker.io/f
 memcached        1/1     1            1           3h    memcached    memcached:1.5.15               name=memcached
 ```
 
-## <a name="further-exploration"></a>Dalsze eksploracje
+## <a name="further-exploration"></a>Dalsza eksploracja
 
 Inne zasoby wdrożone w ramach repozytorium konfiguracji można eksplorować:
 
@@ -302,7 +299,7 @@ Usuń `sourceControlConfiguration` przy użyciu interfejsu wiersza polecenia pla
 > Wszelkie zmiany w klastrze, które były wynikiem wdrożeń z śledzonego repozytorium git, nie są usuwane po `sourceControlConfiguration` usunięciu.
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **Rozdzielczości**

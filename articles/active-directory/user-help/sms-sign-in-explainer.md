@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423001"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536889"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Użyj swojego numeru telefonu jako nazwy użytkownika (wersja zapoznawcza)
 
@@ -52,7 +52,7 @@ Jeśli używasz już numeru telefonu w organizacji i używasz numeru telefonu ja
 
 1. Gdy logowanie za pomocą programu SMS jest dostępne, na transparencie zostanie wyświetlony monit z pytaniem, czy chcesz włączyć numer telefonu na potrzeby logowania do programu SMS:
 
-    [![Baner, aby włączyć logowanie do programu SMS w ramach numeru telefonu.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Zrzut ekranu, który pokazuje baner, aby włączyć logowanie za pomocą programu SMS dla numeru telefonu z wybraną akcją &quot;Włącz&quot;." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Ponadto przycisk **Włącz** jest wyświetlany, jeśli wybierzesz karetkę na kafelku metody telefonu:
 

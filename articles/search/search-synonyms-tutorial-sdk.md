@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250236"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538810"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #
 
@@ -23,8 +23,8 @@ Synonimy rozszerzają zapytanie, dopasowując wyrażenia uznane za semantycznie 
 Na platformie Azure Wyszukiwanie poznawcze synonimy są zdefiniowane w formie *synonimu*, za pomocą *reguł mapowania* , które kojarzą równoważne warunki. Ten przykład obejmuje podstawowe kroki umożliwiające dodawanie i używanie synonimów z istniejącym indeksem. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Utwórz mapę synonimów przy użyciu klasy  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Ustaw właściwość [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) dla pól, które powinny obsługiwać rozszerzanie zapytań za pomocą synonimów.
+> * Utwórz mapę synonimów przy użyciu klasy  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) . 
+> * Ustaw właściwość [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) dla pól, które powinny obsługiwać rozszerzanie zapytań za pomocą synonimów.
 
 Można wysyłać zapytania do pola z włączonym synonimem, jak zwykle. Brak dodatkowej składni zapytania wymaganej do uzyskania dostępu do synonimów.
 
@@ -37,7 +37,7 @@ Możesz utworzyć wiele map synonimów, opublikować je jako zasób obejmujący 
 
 Wymagania samouczka obejmują poniższe elementy:
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
+* [Program Visual Studio](https://www.visualstudio.com/downloads/)
 * [Usługa Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md)
 * [Biblioteka Microsoft.Azure.Search .NET](/dotnet/api/overview/azure/search)
 * [Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET](./search-howto-dotnet-sdk.md)

@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448693"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541190"
 ---
-# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Wyświetlanie i przypisywanie ról administratorów w Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Wyświetlanie i przypisywanie ról administratora w usłudze Azure Active Directory
 
 Teraz można wyświetlać wszystkich członków ról administratorów w portalu Azure Active Directory i zarządzać nimi. Jeśli często zarządzasz przypisaniami ról, prawdopodobnie wolisz skorzystać z tego środowiska. A jeśli kiedykolwiek zastanawiasz się, że "czego dotyczy ta rola"? ", możesz wyświetlić szczegółową listę uprawnień dla każdej roli administratora usługi Azure AD.
 
@@ -55,7 +55,7 @@ Jeśli jesteś administratorem globalnym lub administratorem roli uprzywilejowan
 
 Gdy przeglądasz członków roli, wybierz pozycję **Opis** , aby wyświetlić pełną listę uprawnień przyznanych przez przypisanie roli. Strona zawiera linki do odpowiedniej dokumentacji ułatwiające zarządzanie rolami w katalogu.
 
-![Lista uprawnień dla roli administratora](./media/directory-manage-roles-portal/role-description.png)
+![Zrzut ekranu przedstawiający stronę "Global administrator-Description".](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Pobieranie przypisań ról
 
@@ -71,7 +71,7 @@ Aby pobrać wszystkie przypisania dla określonej roli, na stronie **role i Admi
 
 1. Wybierz rolę, aby wyświetlić jej przypisania.
 
-    ![Lista uprawnień dla roli administratora](./media/directory-manage-roles-portal/member-list.png)
+    ![Zrzut ekranu przedstawiający stronę "przydziały administratora użytkownika" z wybraną akcją "Zarządzaj w usłudze PIM".](./media/directory-manage-roles-portal/member-list.png)
 
 1. Wybierz pozycję **Dodaj przypisania** i wybierz role, które chcesz przypisać. Możesz wybrać pozycję **Zarządzaj w usłudze PIM** , aby uzyskać dodatkowe możliwości zarządzania. Jeśli widzisz coś innego od poniższej ilustracji, zapoznaj się z uwagami w temacie [Wyświetlanie przypisań dla ról uprzywilejowanych](#view-assignments-for-privileged-roles) , aby sprawdzić, czy jesteś w usłudze PIM.
 

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 41dddd677b2060c6d5d605867adde3eb27a9a5eb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369862"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540408"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -120,6 +120,12 @@ Upewnij się, że oba przepływy są zapisane i że wszystko jest gotowe!
 
 Wypróbuj nowo utworzoną aplikację logiki lub rozwiązanie do automatyzowania, dodając wideo do kontenera obiektów blob platformy Azure i wróć kilka minut później, aby zobaczyć, że szczegółowe dane pojawiają się w folderze docelowym. 
 
+## <a name="generate-captions"></a>Generuj podpisy
+
+Zapoznaj się z poniższym blogiem dotyczącym kroków, które pokazują, [jak generować podpisy z video Indexer i Logic Apps](https://techcommunity.microsoft.com/t5/azure-media-services/generating-captions-with-video-indexer-and-logic-apps/ba-p/1672198). 
+
+W tym artykule pokazano również, jak indeksować wideo automatycznie, kopiując je do usługi OneDrive i jak przechowywać podpisy generowane przez Video Indexer w usłudze OneDrive.
+ 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem możesz korzystać z tej aplikacji logiki lub rozwiązania do automatyzowania i działania w razie potrzeby. Jeśli jednak nie chcesz zachować tego działania i nie chcesz otrzymywać opłat, Wyłącz oba przepływy, jeśli używasz automatyzacji. Wyłącz oba przepływy, jeśli używasz Logic Apps. 

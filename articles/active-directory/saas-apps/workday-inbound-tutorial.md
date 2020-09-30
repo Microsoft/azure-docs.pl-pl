@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974373"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541292"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -129,7 +129,7 @@ W tym kroku utworzysz nieograniczeń lub ograniczone grupy zabezpieczeń systemu
 1. W polu wyszukiwania wprowadź Utwórz grupę zabezpieczeń, a następnie kliknij pozycję **Utwórz grupę zabezpieczeń**.
 
    > [!div class="mx-imgBorder"]
-   > ![Grupa zabezpieczeń](./media/workday-inbound-tutorial/wd_isu_03.png "Grupa zabezpieczeń")
+   > ![Zrzut ekranu pokazujący, że w polu wyszukiwania została wprowadzona wartość "Utwórz grupę zabezpieczeń" i "Utwórz grupę zabezpieczeń — zadanie" wyświetlaną w wynikach wyszukiwania.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Ukończ zadanie **tworzenia grupy zabezpieczeń** . 
 
    * W programie Workday istnieją dwa typy grup zabezpieczeń:
@@ -154,7 +154,7 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
 
 1. W polu wyszukiwania wprowadź **konfigurację zabezpieczeń domeny** , a następnie kliknij pozycję **raport Konfiguracja zabezpieczeń domeny**łącza.  
    >[!div class="mx-imgBorder"]
-   >![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_06.png "Zasady zabezpieczeń domeny")  
+   >![Zrzut ekranu pokazujący "Konfiguracja zabezpieczeń domeny" w polu wyszukiwania z opcją "Konfiguracja zabezpieczeń domeny-raport" wyświetlany w wynikach.](./media/workday-inbound-tutorial/wd_isu_06.png "Zasady zabezpieczeń domeny")  
 2. W polu tekstowym **domena** Wyszukaj następujące domeny i Dodaj je do filtru jeden według jednego.  
    * *Inicjowanie obsługi konta zewnętrznego*
    * *Dane procesu roboczego: procesy robocze*
@@ -166,10 +166,10 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
    * *Konta Workday*
    
      >[!div class="mx-imgBorder"]
-     >![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_07.png "Zasady zabezpieczeń domeny")  
+     >![Zrzut ekranu przedstawiający raport konfiguracji zabezpieczeń domeny z "kontem zewnętrznym" w polu tekstowym "domena".](./media/workday-inbound-tutorial/wd_isu_07.png "Zasady zabezpieczeń domeny")  
 
      >[!div class="mx-imgBorder"]
-     >![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_08.png "Zasady zabezpieczeń domeny") 
+     >![Zrzut ekranu przedstawiający raport Konfiguracja zabezpieczeń domeny z wybraną listą domen.](./media/workday-inbound-tutorial/wd_isu_08.png "Zasady zabezpieczeń domeny") 
 
      Kliknij przycisk **OK**.
 
@@ -179,7 +179,7 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
 
 4. Na stronie **Edytowanie uprawnień zasad zabezpieczeń domeny** przewiń w dół do sekcji **uprawnienia integracji**. Kliknij znak "+", aby dodać grupę system Integration do listy grup zabezpieczeń z uprawnieniami do **pobierania** i **umieszczania** integracji.
    >[!div class="mx-imgBorder"]
-   >![Edytuj uprawnienie](./media/workday-inbound-tutorial/wd_isu_10.png "Edytuj uprawnienie")  
+   >![Zrzut ekranu pokazujący podświetloną sekcję "Integration uprawnień".](./media/workday-inbound-tutorial/wd_isu_10.png "Edytuj uprawnienie")  
 
 5. Kliknij znak "+", aby dodać grupę system Integration do listy grup zabezpieczeń z uprawnieniami do **pobierania** i **umieszczania** integracji.
 
@@ -210,12 +210,12 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia procesu biznesowego" 
 1. W polu wyszukiwania wprowadź **zasady procesu biznesowego** , a następnie kliknij przycisk Edytuj zadanie **zasad zabezpieczeń procesu biznesowego** .  
 
    >[!div class="mx-imgBorder"]
-   >![Zasady zabezpieczeń procesów firmy](./media/workday-inbound-tutorial/wd_isu_12.png "Zasady zabezpieczeń procesów firmy")  
+   >![Zrzut ekranu pokazujący "zasady procesu biznesowego" w polu wyszukiwania i wybrane ustawienie "Edytuj zasady zabezpieczeń procesów firmy" — zadanie.](./media/workday-inbound-tutorial/wd_isu_12.png "Zasady zabezpieczeń procesów firmy")  
 
 2. W polu tekstowym **Typ procesu biznesowego** Wyszukaj *kontakty* i wybierz pozycję **kontakt służbowy Zmień** proces biznesowy i kliknij przycisk **OK**.
 
    >[!div class="mx-imgBorder"]
-   >![Zasady zabezpieczeń procesów firmy](./media/workday-inbound-tutorial/wd_isu_13.png "Zasady zabezpieczeń procesów firmy")  
+   >![Zrzut ekranu przedstawiający stronę "Edytowanie zasad zabezpieczeń procesów firmy" oraz "zmiana kontaktu służbowego" wybraną w menu "typ procesu biznesowego".](./media/workday-inbound-tutorial/wd_isu_13.png "Zasady zabezpieczeń procesów firmy")  
 
 3. Na stronie **Edytowanie zasad zabezpieczeń procesu biznesowego** przewiń do sekcji **zmiana informacji o kontakcie służbowym (usługa sieci Web)** .
     
@@ -415,7 +415,7 @@ W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Az
    * Kliknij przycisk **Testuj połączenie** . Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia dla produktu Workday i poświadczenia usługi AD skonfigurowane w instalatorze agenta są prawidłowe.
 
      >[!div class="mx-imgBorder"]
-     >![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![Zrzut ekranu przedstawiający stronę "Inicjowanie obsługi" z wprowadzonymi poświadczeniami.](./media/workday-inbound-tutorial/wd_1.png)
 
    * Po pomyślnym zapisaniu poświadczeń w sekcji **mapowania** zostanie wyświetlone mapowanie domyślne **Synchronizacja procesów roboczych programu Workday do lokalnego Active Directory**
 
@@ -480,7 +480,7 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 
 1. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Mapowanie atrybutów.
    >[!div class="mx-imgBorder"]
-   >![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   >![Zrzut ekranu przedstawiający stronę "Mapowanie atrybutów" z wybraną akcją "Zapisz".](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Poniżej przedstawiono przykładowe mapowania atrybutów między dniem Workday i Active Directory przy użyciu niektórych typowych wyrażeń
 
@@ -942,11 +942,11 @@ Po kliknięciu dowolnego z rekordów dziennika inspekcji zostanie otwarta strona
 
   Wyszukaj rekord HTTP POST odpowiadający sygnatury czasowej operacji eksportu z *identyfikatorem zdarzenia = 2*. Ten rekord będzie zawierać wartości atrybutów wysyłane przez usługę aprowizacji do agenta aprowizacji.
 
-  [![Standard scim Dodaj](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Zrzut ekranu pokazujący rekord &quot;HTTP POST&quot; w dzienniku &quot;Agent aprowizacji&quot;." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Bezpośrednio po powyższym zdarzeniu powinno być inne zdarzenie, które przechwytuje odpowiedź na operację tworzenia konta usługi AD. To zdarzenie zwraca nowy objectGuid utworzony w usłudze AD i jest ustawiony jako atrybut TargetAnchor w usłudze aprowizacji.
 
-  [![Standard scim Dodaj](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Zrzut ekranu pokazujący rekord &quot;HTTP POST&quot; w dzienniku &quot;Agent aprowizacji&quot;." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Omówienie dzienników dla operacji aktualizacji Menedżera
 
@@ -1040,14 +1040,14 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
 5. Wybierz pozycję **zewnętrzny**, a następnie wybierz plik Human_Resources WSDL pobrany w kroku 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Zrzut ekranu pokazujący plik "Human_Resources" otwarty w programie Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. W polu **Lokalizacja** Określ wartość `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources` , ale Zastąp ciąg "Impl-CC" rzeczywistym typem wystąpienia i "dzierżawca" nazwą swojej rzeczywistej dzierżawy.
 
 7. Ustaw **operację** na **Get_Workers**
 
 8.    Kliknij łącze małe **Konfigurowanie** poniżej okienka żądanie/odpowiedź, aby ustawić poświadczenia dla produktu Workday. Sprawdź pozycję **uwierzytelnianie**, a następnie wprowadź nazwę użytkownika i hasło do konta systemu integracji z programem Workday. Upewnij się, że nazwa użytkownika jest sformatowana jako \@ dzierżawca, i pozostaw wybraną opcję **WS-Security UsernameToken** .
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Zrzut ekranu pokazujący kartę "zabezpieczenia" z wprowadzonym parametrem "username" i "Password" oraz "WS-Security Username token".](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Wybierz przycisk **OK**.
 
@@ -1086,7 +1086,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
 13. Na pasku poleceń programu Workday Studio wybierz pozycję **plik > Otwórz plik...** i otwórz zapisany plik XML. Ta akcja spowoduje otwarcie pliku w edytorze XML programu Workday Studio.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Zrzut ekranu przedstawiający plik X M L otwarty w edytorze "Workday Studio X M L".](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. W drzewie plików Przejdź przez **/env: koperta > env: Body > WD: Get_Workers_Response > WD: Response_Data > WD: proces roboczy** , aby znaleźć dane użytkownika.
 
@@ -1112,7 +1112,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
 5. Wybierz pozycję **Edytuj listę atrybutów dla produktu Workday**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Zrzut ekranu przedstawiający stronę "Inicjowanie obsługi administracyjnej użytkowników w usłudze Azure A D" z wyróżnioną akcją "Edytuj listę atrybutów dla produktu Workday".](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Przewiń w dół listy atrybutów do miejsca, w którym znajdują się pola wejściowe.
 

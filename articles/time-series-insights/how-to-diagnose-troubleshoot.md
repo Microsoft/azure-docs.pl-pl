@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540306"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska Azure Time Series Insights Gen2
 
@@ -81,11 +81,11 @@ Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia n
 
 Aby zaktualizować Time Series Insights środowisko Gen2 przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu TSI i kliknij pozycję źródła zdarzeń. 
 
-   [![Zaktualizuj klucz.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Zrzut ekranu przedstawia element T S I zasób ze źródłami zdarzeń o nazwie "out".](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Wybierz źródła zdarzeń, z których zostało zatrzymane pozyskiwanie, wklej nowy klucz i kliknij przycisk Zapisz.
 
-   [![Zaktualizuj klucz.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Zrzut ekranu przedstawia zasób T S I z wprowadzonym kluczem zasad centrum.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: Nazwa właściwości sygnatury czasowej źródła zdarzenia nie działa
 
@@ -129,7 +129,7 @@ Ten problem może wystąpić, jeśli środowisko nie ma zdefiniowanej hierarchii
 
 Ten problem może wystąpić, jeśli nie używasz najnowszej wersji łącznika Power BI w programie Power BI Desktop.
 
-[![W wystąpieniach nienadrzędnych zostanie wyświetlone ostrzeżenie.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Zrzut ekranu przedstawia okno dialogowe nie można nawiązać połączenia.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Sprawdź wersję Power BI Desktop i upewnij się, że korzystasz z wersji 2020 lipca. W przeciwnym razie zaktualizuj Power BI Desktop i ponownie uruchom łącznik. 
 

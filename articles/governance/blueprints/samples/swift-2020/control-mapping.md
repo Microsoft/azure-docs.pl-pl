@@ -3,12 +3,12 @@ title: SWIFT dostawcy CSP — przykładowe kontrolki planu CSCF V2020
 description: Kontrolowanie mapowania SWIFT przykładowego planu CSP-CSCF V2020. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: 06a334ff05db1cfc7ad1fb09e370963486ee1515
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 868971b0523e077f0f76c0340a87df550448913a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297421"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540816"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Sterowanie mapowaniem SWIFT programu CSP-CSCF V2020 plan
 
@@ -31,7 +31,7 @@ Ten plan ułatwia przeglądanie kont, które mogą nie być zgodne z wymaganiami
 
 ## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2,6, 5,1, 6,4 i 6.5 Zarządzanie kontami | Schematy oparte na rolach
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../../../../role-based-access-control/overview.md) (RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje również definicje [Azure Policy](../../../policy/overview.md) do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ponadto ten plan przypisuje definicję Azure Policy do inspekcji użycia niestandardowych reguł RBAC. Zrozumienie, gdzie są zaimplementowane niestandardowe reguły RBAC, może pomóc w sprawdzeniu potrzeby i właściwej implementacji, ponieważ niestandardowe reguły RBAC są podatne na błędy.
+[Kontrola dostępu oparta na rolach](../../../../role-based-access-control/overview.md) (Azure RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje również definicje [Azure Policy](../../../policy/overview.md) do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ponadto ten plan przypisuje definicję Azure Policy, aby przeprowadzić inspekcję użycia niestandardowych reguł RBAC platformy Azure. Informacje o tym, gdzie są zaimplementowane niestandardowe reguły RBAC platformy Azure, mogą pomóc w sprawdzeniu potrzeby i poprawnej implementacji, ponieważ niestandardowe reguły RBAC platformy Azure są podatne na błędy.
 
 - Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory
 - Inspekcja maszyn wirtualnych, które nie korzystają z dysków zarządzanych
@@ -54,7 +54,7 @@ Posiadanie tylko jednego właściciela subskrypcji platformy Azure nie pozwala n
 
 ## <a name="13-51-and-64-least-privilege--review-of-user-privileges"></a>1,3, 5,1 i 6,4 — najniższe uprawnienia | Przegląd uprawnień użytkownika
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../../../../role-based-access-control/overview.md) (RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) do kont inspekcji, dla których należy określić priorytety. Przejrzenie tych wskaźników konta może pomóc w zapewnieniu implementacji najniższych uprawnień.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) do kont inspekcji, dla których należy określić priorytety. Przejrzenie tych wskaźników konta może pomóc w zapewnieniu implementacji najniższych uprawnień.
 
 - Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli
 - Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie są przyłączone do określonej domeny

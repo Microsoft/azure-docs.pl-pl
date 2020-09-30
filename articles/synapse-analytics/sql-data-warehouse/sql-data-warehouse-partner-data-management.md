@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6214174cbec0b784ec0167c59f952478b2a14625
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 8f2e41779e72d565e24b67fd8b18afd87a112e62
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425668"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542103"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Partnerzy zarządzania danymi usługi Azure Synapse Analytics
 
@@ -25,6 +25,7 @@ W tym artykule przedstawiono firmy partnerskie firmy Microsoft z narzędziami do
 ## <a name="data-management-partners"></a>Partnerzy zarządzania danymi
 | Partner | Opis | Link do witryny sieci Web/produktu |
 | ------- | ----------- | -------------------- |
+| ![Aginity](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginity**<br>Aginity to narzędzie do tworzenia analiz, które oferuje pełną moc platformy Synapse firmy Microsoft w ramach analityków i inżynierów. Bogate i intuicyjne środowisko deweloperskie SQL umożliwia członkom zespołu łączenie się z wieloma wiodącymi platformami analitycznymi, pozyskiwanie danych w różnych formatach i szybkie tworzenie złożonych obliczeń w firmie w celu umożliwienia wyników analizy biznesowej i Machine Learning przypadków użycia. Cała aplikacja jest oparta na katalogu Centralnym, który sprawia, że współpraca przez zespół analityczny ma rzeczywistość, a zaawansowane możliwości zarządzania i szczegółowe zabezpieczenia sprawiają, że Breeze. |[Strona produktu](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Alation](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Alation**<br>Alation Data Catalog znacznie zwiększa produktywność, zwiększa dokładność i zapewnia bezpieczeństwo podejmowania decyzji opartych na danych dla analityków. Dzięki usłudze Alation Data Catalog wszyscy użytkownicy w organizacji mogą znajdować i zrozumieć dane oraz zarządzać nimi. |[Strona produktu](https://www.alation.com/product/data-catalog/)<br> |
 | ![Magazynowanie danych w ramach COFF](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Magazynowanie danych w ramach COFF**<br>Magazynowanie danych w języku COFF oferuje Nexus Chameleon, narzędzie z 10-letnim projektem przeznaczonym do wykonywania zapytań w systemach. Nexus jest dostępny jako narzędzie zapytania dla puli SQL usługi Azure Synapse. Użyj Nexus do wysyłania zapytań do komputerów wewnętrznych i w chmurze oraz sprzęgania danych na różnych platformach. Punkt-kliknij-raport. |[Strona produktu](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>Inbrein MicroERD zawiera narzędzia, które są potrzebne do utworzenia precyzyjnego modelu danych, zmniejszenia nadmiarowości danych, poprawy produktywności i przestrzegania standardów. Korzystając z interfejsu użytkownika, który został opracowany w oparciu o rozległe środowiska użytkownika, Modelarz może łatwo i wygodnie pracować z modelami bazy danych. Możesz ciągle korzystać z nowych i ulepszonych funkcji MicroERD poprzez monitowanie i aktualizowanie funkcjonalne. |[Strona produktu](http://microerd.com/)<br> |

@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324879"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541825"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Najlepsze rozwiązania dotyczące tworzenia aplikacji do interpretacji języka (LUIS)
 Tworzenie aplikacji LUIS za pomocą procesu tworzenia aplikacji:

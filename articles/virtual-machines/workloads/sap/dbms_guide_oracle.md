@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279012"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540714"
 ---
-# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
+# <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines wdrożenie Oracle DBMS dla obciążeń SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -409,7 +409,7 @@ Jeśli w przypadku usługi Azure Premium Storage wymagane są więcej IOPS, zale
 W przypadku maszyn wirtualnych serii M opóźnienie zapisywane w dziennikach ponownego wykonywania w trybie online można zmniejszyć o czynniki w porównaniu do usługi Azure Premium Storage. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md). Lub Użyj usługi Azure Ultra Disk w przypadku woluminu dziennika ponownego wykonywania w trybie online.
 
 
-### <a name="backuprestore"></a>Tworzenie kopii zapasowej/przywracanie
+### <a name="backuprestore"></a>Tworzenie/przywracanie kopii zapasowych
 W przypadku funkcji tworzenia kopii zapasowej/przywracania narzędzia SAP BR * Tools for Oracle są obsługiwane w taki sam sposób, jak w standardowych systemach operacyjnych Windows Server. Oracle Recovery Manager (RMAN) jest również obsługiwany w przypadku tworzenia kopii zapasowych na dysku i przywracania z dysku.
 
 Za pomocą Azure Backup można również uruchamiać kopie zapasowe maszyny wirtualnej spójnej na poziomie aplikacji. Artykuł [Planowanie infrastruktury kopii zapasowych maszyny wirtualnej na platformie Azure](../../../backup/backup-azure-vms-introduction.md) wyjaśnia, jak Azure Backup używa funkcji VSS systemu Windows do wykonywania kopii zapasowych spójnych na poziomie aplikacji. Wersje systemu Oracle DBMS obsługiwane przez system Azure przez SAP mogą korzystać z funkcji usługi VSS dla kopii zapasowych. Aby uzyskać więcej informacji, zobacz dokumentację programu Oracle — [podstawowe pojęcia związane z tworzeniem kopii zapasowych i odzyskiwaniem bazy danych za pomocą usługi VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
@@ -505,7 +505,7 @@ Jeśli podczas korzystania z usługi Azure Premium Storage wymagane są więcej 
 W przypadku maszyn wirtualnych z serii M platformy Azure w przypadku korzystania z usługi Azure akcelerator zapisu czas oczekiwania na zapis w dziennikach wykonywania w trybie online można zmniejszyć o czynniki używane w przypadku korzystania z usługi Azure Premium Storage. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md). Lub Użyj usługi Azure Ultra Disk w przypadku woluminu dziennika ponownego wykonywania w trybie online.
 
 
-### <a name="backuprestore"></a>Tworzenie kopii zapasowej/przywracanie
+### <a name="backuprestore"></a>Tworzenie/przywracanie kopii zapasowych
 W przypadku funkcji tworzenia kopii zapasowej/przywracania narzędzia SAP BR * Tools for Oracle są obsługiwane w taki sam sposób, jak na komputerach bez systemu operacyjnego i funkcji Hyper-V. Oracle Recovery Manager (RMAN) jest również obsługiwany w przypadku tworzenia kopii zapasowych na dysku i przywracania z dysku.
 
 Aby uzyskać więcej informacji na temat korzystania z usług Azure Backup i Recovery Services na potrzeby tworzenia kopii zapasowych i odzyskiwania baz danych Oracle, zobacz [Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej platformy Azure z systemem Linux](../oracle/oracle-backup-recovery.md).

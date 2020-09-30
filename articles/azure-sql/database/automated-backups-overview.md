@@ -7,16 +7,16 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
 ms.date: 09/25/2020
-ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444273"
+ms.locfileid: "91535104"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -415,6 +415,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 Aby uzyskać szczegółowe informacje, zobacz [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
+> [!NOTE]
+> Aby użyć parametru-BackupStorageRedundancy w przypadku przywracania bazy danych, kopiowania bazy danych lub tworzenia operacji dodatkowych, użyj Azure PowerShell w wersji AZ. SQL 2.11.0. 
+
 
 #### <a name="sql-managed-instance"></a>[Wystąpienie zarządzane SQL](#tab/managed-instance)
 
@@ -425,6 +428,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Użyj Azure Policy, aby wymusić nadmiarowość magazynu kopii zapasowych
 
@@ -440,11 +445,13 @@ Dodawane są następujące nowe zasady wbudowane, które mogą być przypisywane
 
 Pełną listę wbudowanych definicji zasad dla SQL Database i wystąpienia zarządzanego można znaleźć [tutaj](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-Aby wymusić wymagania dotyczące miejsca zamieszkania danych na poziomie organizacji, te zasady można przypisać do subskrypcji. Po przypisaniu tych użytkowników na poziomie subskrypcji użytkownicy w danej subskrypcji nie będą mogli utworzyć bazy danych ani wystąpienia zarządzanego z magazynem kopii zapasowych nadmiarowym geograficznie za pośrednictwem Azure Portal lub Azure PowerShell. Należy pamiętać, że zasady platformy Azure nie są wymuszane podczas tworzenia bazy danych przy użyciu języka T-SQL. 
+Aby wymusić wymagania dotyczące miejsca zamieszkania danych na poziomie organizacji, te zasady można przypisać do subskrypcji. Po przypisaniu tych użytkowników na poziomie subskrypcji użytkownicy w danej subskrypcji nie będą mogli utworzyć bazy danych ani wystąpienia zarządzanego z magazynem kopii zapasowych nadmiarowym geograficznie za pośrednictwem Azure Portal lub Azure PowerShell. 
+
+> [!IMPORTANT]
+> Zasady platformy Azure nie są wymuszane podczas tworzenia bazy danych przy użyciu języka T-SQL. Aby wymusić zamiejscowe dane podczas tworzenia bazy danych przy użyciu języka T-SQL, [należy użyć elementu "Local" lub "Zone" jako danych wejściowych do BACKUP_STORAGE_REDUNDANCY parametr w instrukcji CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
 Dowiedz się, jak przypisywać zasady przy użyciu [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) lub [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
----
 
 ## <a name="next-steps"></a>Następne kroki
 

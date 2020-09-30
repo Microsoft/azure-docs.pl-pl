@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449588"
+ms.locfileid: "91535614"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -28,8 +28,8 @@ Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korp
 Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
-### <a name="llap-cluster-auto-scale-general-available"></a>Automatyczne skalowanie klastra LLAP jest dostępne ogólnie
-Funkcja automatycznego skalowania dla typu klastra LLAP jest teraz ogólnie dostępna (GA). Wszystkie klastry LLAP utworzone po 27 sierpnia 2020 będą miały rozmyślną obsługę skalowania automatycznego.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>Funkcja automatycznego skalowania dla interakcyjnych zapytań z usługą HDInsight 4,0 jest teraz ogólnie dostępna
+Funkcja automatycznego skalowania dla typu klastra interakcyjnego zapytania jest teraz ogólnie dostępna (GA) dla usługi HDInsight 4,0. Wszystkie klastry interakcyjnych zapytań 4,0 utworzone po 27 sierpnia 2020 będą miały rozmyślną obsługę skalowania automatycznego.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Klaster HBase obsługuje ADLS Gen2 Premium
 Usługa HDInsight obsługuje teraz ADLS Gen2 Premium jako konto magazynu podstawowego dla klastrów HDInsight HBase 3,6 i 4,0. Wraz z [przyspieszeniem zapisu](./hbase/apache-hbase-accelerated-writes.md)można uzyskać lepszą wydajność klastrów HBase.

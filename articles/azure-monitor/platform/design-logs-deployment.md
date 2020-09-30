@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317127"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534203"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projektowanie wdrożenia dzienników usługi Azure Monitor
 
@@ -26,6 +26,8 @@ Obszar roboczy Log Analytics zawiera następujące informacje:
 * Lokalizacja geograficzna magazynu danych.
 * Izolacja danych przez przyznanie różnym użytkownikom praw dostępu zgodnie z naszymi zalecanymi strategiami projektowania.
 * Zakres konfiguracji ustawień, takich jak [warstwa cenowa](./manage-cost-storage.md#changing-pricing-tier), [przechowywanie](./manage-cost-storage.md#change-the-data-retention-period)i [pułapy danych](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Obszary robocze są hostowane w klastrach fizycznych. Domyślnie system tworzy te klastry i zarządza nimi. Klienci, którzy pozyskali ponad 4 TB/dzień, mogą tworzyć własne dedykowane klastry dla swoich obszarów roboczych — umożliwią im lepszą kontrolę i wyższą szybkość pozyskiwania.
 
 Ten artykuł zawiera szczegółowe omówienie zagadnień dotyczących projektowania i migracji, Omówienie kontroli dostępu oraz zrozumienie implementacji projektu, które zalecamy dla organizacji IT.
 
@@ -125,37 +127,16 @@ Poniższa tabela zawiera podsumowanie trybów dostępu:
 
 Aby dowiedzieć się, jak zmienić tryb kontroli dostępu w portalu przy użyciu programu PowerShell lub szablonu Menedżer zasobów, zobacz [Konfigurowanie trybu kontroli dostępu](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Limit ilości woluminu pozyskiwania
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Limit liczby woluminów skalowania i pozyskiwania
 
-Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Limit liczby woluminów umożliwia odizolowanie Azure Monitor klientów od nagłych wzrostów pozyskiwania w środowisku wielodostępnym. Domyślny próg współczynnika wolumenu pozyskiwania wynoszący 500 MB (skompresowany) jest zdefiniowany w obszarze roboczym, co jest tłumaczone na około **6 GB/min** nieskompresowane — rzeczywisty rozmiar może się różnić między typami danych, zależnie od długości dziennika i jego stosunku kompresji. Limit liczby woluminów dotyczy wszystkich danych pobieranych, niezależnie od tego, czy są wysyłane z zasobów platformy Azure przy użyciu [ustawień diagnostycznych](diagnostic-settings.md), [interfejsu API modułu zbierającego dane](data-collector-api.md) czy agentów.
+Azure Monitor to usługa danych o dużej skali, która obsługuje tysiące klientów wysyłających petabajtów danych co miesiąc w coraz większej tempie. Obszary robocze nie są ograniczone do miejsca do magazynowania i mogą rosnąć do petabajtów danych. Nie ma potrzeby dzielenia obszarów roboczych ze względu na skalę.
 
-W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go, otwierając żądanie pomocy technicznej. 
+Aby chronić i izolować Azure Monitor klientów i infrastrukturę zaplecza, istnieje domyślny limit szybkości pozyskiwania, który jest przeznaczony do ochrony przed skokami i zalewania. Limit szybkości wynosi około **6 GB/minutę** i został zaprojektowany z myślą o umożliwieniu normalnego pozyskiwania. Aby uzyskać więcej informacji na temat pomiaru limitu ilości woluminu, zobacz [Azure monitor limitów usługi](../service-limits.md#data-ingestion-volume-rate).
 
-Aby otrzymywać powiadomienia o zbliżaniu się lub osiągnięciu limitu ilości woluminu pozyskiwania w obszarze roboczym, należy utworzyć [regułę alertu dziennika](alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników większym niż zero, okres próbny wynoszący 5 minut i częstotliwość 5 minut.
+Klienci, którzy pobierają mniej niż 4 TB/dzień, zazwyczaj nie spełnią tych limitów. Klienci, którzy pobierają wyższe woluminy lub które zostały wprowadzone w ramach ich zwykłych operacji, rozważą przeniesienie do [dedykowanych klastrów](../log-query/logs-dedicated-clusters.md) , w których można było podnieść Limit szybkości pozyskiwania.
 
-Współczynnik wolumenu pozyskiwania przekroczył próg
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+Po aktywowaniu limitu szybkości pozyskiwania lub otrzymaniu do 80% progu zostanie dodane zdarzenie do tabeli *operacji* w obszarze roboczym. Zalecane jest monitorowanie go i tworzenie alertu. Zobacz więcej szczegółów o [współczynniku ilości woluminu](../service-limits.md#data-ingestion-volume-rate)pozyskiwania danych.
 
-Współczynnik objętości pozyskiwania przekraczający 80% wartości progowej
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-Współczynnik objętości pozyskiwania przekraczający 70% wartości progowej
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## <a name="recommendations"></a>Zalecenia
 

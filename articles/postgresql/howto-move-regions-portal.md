@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c095aa710d97292afc7d2d8f633058c21fa4d0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539235"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Przenoszenie bazy danych platformy Azure dla Azure Database for PostgreSQL-pojedynczego serwera do innego regionu przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ Do przechodzenia do innego regionu można użyć Azure Database for PostgreSQL [
 
 Aby przygotować serwer źródłowy do replikacji przy użyciu Azure Portal, wykonaj następujące czynności: 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Wybierz istniejący serwer Azure Database for PostgreSQL, który ma być używany jako serwer źródłowy. Ta akcja powoduje otwarcie strony **Przegląd** .
 1. Z menu serwer wybierz pozycję **replikacja**. Jeśli Obsługa replikacji platformy Azure została ustawiona na co najmniej **replikę**, można utworzyć repliki odczytu. 
 1. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę**, ustaw ją. Wybierz pozycję **Zapisz**.
@@ -47,11 +47,11 @@ Aby utworzyć serwer repliki odczytu między regionami w regionie docelowym przy
 1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 1. Wybierz pozycję **Dodaj replikę**.
 1. Wprowadź nazwę serwera repliki.
-1. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera głównego. Sprawdź, czy została wybrana lokalizacja docelowa, w której ma zostać wdrożona replika.
+1. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak na serwerze podstawowym. Sprawdź, czy została wybrana lokalizacja docelowa, w której ma zostać wdrożona replika.
 1. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki. Podczas tworzenia repliki dane są kopiowane z serwera źródłowego do repliki. Czas utworzenia może trwać kilka minut lub dłużej, proporcjonalnie do rozmiaru serwera źródłowego.
 
 >[!NOTE]
-> Podczas tworzenia repliki nie są dziedziczone reguły zapory i punkty końcowe usługi sieci wirtualnej serwera głównego. Te reguły należy skonfigurować niezależnie dla repliki.
+> Podczas tworzenia repliki nie są dziedziczone reguły zapory i punkty końcowe usługi sieci wirtualnej na serwerze podstawowym. Te reguły należy skonfigurować niezależnie dla repliki.
 
 ## <a name="move"></a>Move
 
@@ -69,7 +69,7 @@ Aby zatrzymać replikację do repliki z Azure Portal, wykonaj następujące czyn
 
 ## <a name="clean-up-source-server"></a>Oczyść serwer źródłowy
 
-Możesz chcieć usunąć źródłowy serwer Azure Database for PostgreSQL. Aby to zrobić, wykonaj następujące kroki:
+Możesz chcieć usunąć źródłowy serwer Azure Database for PostgreSQL. Aby to zrobić, skorzystaj z poniższych instrukcji:
 
 1. Po utworzeniu repliki Znajdź i wybierz serwer źródłowy Azure Database for PostgreSQL.
 1. W oknie **Przegląd** wybierz pozycję **Usuń**.

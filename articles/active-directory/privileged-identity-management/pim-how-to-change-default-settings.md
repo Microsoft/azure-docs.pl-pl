@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055490"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541139"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -196,7 +196,7 @@ Jeśli chcesz delegować wymagane zatwierdzenie w celu aktywowania roli, wykonaj
 
 1. Ustaw przełącznik **Wymagaj zatwierdzenia** na **włączony**. Okienko rozwija się z opcjami wyboru osób zatwierdzających.
 
-    ![Role usługi Azure AD — ustawienia — wymaga zatwierdzenia](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Zrzut ekranu pokazujący, że opcja "Wymagaj zatwierdzenia" zostanie zaznaczona z opcją "Włącz".](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Jeśli nie określisz żadnych osób zatwierdzających, administrator ról uprzywilejowanych będzie domyślną osobą zatwierdzającą i jest wymagany do zatwierdzenia wszystkich żądań aktywacji dla tej roli.
 

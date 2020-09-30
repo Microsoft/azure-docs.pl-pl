@@ -3,26 +3,24 @@ title: Wstępnie utworzone jednostki numeru telefonu — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostce numeru telefonu w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 598ecaddbab3b70297a460521c7ec3386b390a8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270466"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535393"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka numeru telefonu dla aplikacji LUIS
-`phonenumber` Jednostka wyodrębnia różne numery telefonów, w tym kod kraju. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości do aplikacji. `phonenumber` Jednostka jest obsługiwana tylko w `en-us` kulturze.
+`phonenumber`Jednostka wyodrębnia różne numery telefonów, w tym kod kraju. Ponieważ ta jednostka jest już przeszkolone, nie trzeba dodawać przykładowej wyrażenia długości do aplikacji. `phonenumber`Jednostka jest obsługiwana tylko w `en-us` kulturze.
 
 ## <a name="types-of-a-phone-number"></a>Typy numerów telefonów
-`Phonenumber`jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repozytorium GitHub
+`Phonenumber` jest zarządzany przez [Aparaty rozpoznawania tekstu —](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repozytorium GitHub
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Rozwiązanie dla tej prekompilowanej jednostki
 
@@ -32,7 +30,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 92975251955b608d9dd888328b54a4b40f4592d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: how-to, contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: e593cfa06b160539a0d830b9149c9aa9a069a984
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275834"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542074"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -67,7 +67,7 @@ W tej sekcji dowiesz się, jak zabezpieczyć konto usługi Azure Storage za pomo
 >
 > Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
 >
-> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
+> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
 
 Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
 
@@ -217,7 +217,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
     > [!IMPORTANT]
     > Twoje konto magazynu, klaster obliczeniowy i Azure Container Registry muszą znajdować się w tej samej podsieci sieci wirtualnej.
     
-    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
+    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
 
 1. Zastosuj następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR.
 

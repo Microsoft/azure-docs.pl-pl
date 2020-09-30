@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744534"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537094"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegowanie zarządzania użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -104,7 +104,7 @@ Jeśli w organizacji jest włączona funkcja logowania przy użyciu numeru telef
 
 1. Po zakończeniu wybierz **przycisk OK** .
 
-    ![Usuwanie służbowego numeru telefonu członka personelu](media/my-staff-team-manager/enableforms2.png)
+    ![Zrzut ekranu pokazujący "Włączanie numeru telefonu do logowania?" okno z wybranym przyciskiem "OK".](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Usuń numer telefonu
 

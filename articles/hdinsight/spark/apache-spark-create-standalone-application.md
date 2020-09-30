@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: cfdb02b0a5942536a608fbc957ed69d1efd97e8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: deda7644d29fce5deb8d6c76f93da0caf0b22ff8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756898"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536923"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ
 
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
 5. Z listy Archetypes wybierz pozycję **`org.scala-tools.archetypes:scala-archetype-simple`** . Ten archetyp pozwala utworzyć prawidłową strukturę katalogów i pobrać wymagane zależności domyślne, umożliwiające napisanie programu w języku Scala.
 
-    !["IntelliJ pomysł Create Maven Project"](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![Zrzut ekranu przedstawia wybrany Archetype w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Wybierz pozycję **Dalej**.
 
@@ -107,7 +107,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
     - **GroupId:** com.microsoft.spark.example
     - **ArtifactId:** SparkSimpleApp
 
-    !["IntelliJ pomysł Create Maven Project"](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![Zrzut ekranu przedstawia opcję współrzędne artefaktu w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Wybierz pozycję **Dalej**.
 
@@ -179,7 +179,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
     Zapisz zmiany w pliku pom.xml.
 
-22. Utwórz plik jar. Środowisko IntelliJ IDEA umożliwia tworzenie plików JAR jako artefaktów projektu. Wykonaj następujące czynności.
+22. Utwórz plik jar. Środowisko IntelliJ IDEA umożliwia tworzenie plików JAR jako artefaktów projektu. Wykonaj poniższe kroki.
 
     1. W menu **File** (Plik) wybierz pozycję **Project Structure...** (Struktura projektu...).
 
@@ -215,7 +215,7 @@ Aplikację można uruchomić w klastrze przy użyciu następujących metod:
 
 * **Użyj usługi Apache Livy, aby zdalnie przesłać zadanie aplikacji** do klastra Spark. Klastry Spark w usłudze HDInsight zawierają usługę Livy, która udostępnia punkty końcowe REST umożliwiające zdalne przesyłanie zadań Spark. Aby uzyskać więcej informacji, zobacz [Submit Apache Spark jobs remotely using Apache Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md) (Zdalne przesyłanie zadań Apache Spark przy użyciu usługi Apache Livy udostępnianej w klastrach Spark w usłudze HDInsight).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który został utworzony, wykonując następujące czynności:
 

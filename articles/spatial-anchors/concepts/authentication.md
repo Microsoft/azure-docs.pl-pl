@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997170"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538249"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -22,7 +22,7 @@ W tej sekcji omówiono różne sposoby uwierzytelniania w zakotwiczeniach przest
 
 ## <a name="overview"></a>Omówienie
 
-![Omówienie uwierzytelniania w kotwicach przestrzennych platformy Azure](./media/spatial-anchors-authentication-overview.png)
+![Diagram przedstawiający Omówienie uwierzytelniania w zakotwiczeniach przestrzennych platformy Azure.](./media/spatial-anchors-authentication-overview.png)
 
 Aby uzyskać dostęp do danego konta zakotwiczeń przestrzennych platformy Azure, klienci muszą najpierw uzyskać token dostępu z usługi Azure Mixed Reality Security Token Service (STS). Tokeny uzyskane z usługi STS Live przez 24 godziny i zawierają informacje dotyczące usług kotwic przestrzennych w celu podejmowania decyzji dotyczących autoryzacji na koncie i zapewniają, że tylko autoryzowane podmioty zabezpieczeń mogą uzyskiwać dostęp do tego konta.
 
@@ -39,7 +39,7 @@ Tokeny uwierzytelniania usługi Azure AD można uzyskać na dwa sposoby:
 
 Korzystanie z kluczy konta do uzyskiwania dostępu do konta zakotwiczeń przestrzennych platformy Azure jest najprostszym sposobem na rozpoczęcie pracy. Klucze kont znajdziesz na Azure Portal. Przejdź do swojego konta i wybierz kartę "klucze".
 
-![Omówienie uwierzytelniania w kotwicach przestrzennych platformy Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Zrzut ekranu przedstawiający stronę "klucze" z przyciskiem "Kopiuj" dla wyróżnionego "klucza podstawowego".](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Dostępne są dwa klucze, które jednocześnie są prawidłowe w celu uzyskania dostępu do konta kotwice przestrzenne. Zalecane jest regularne aktualizowanie klucza używanego do uzyskiwania dostępu do konta. posiadanie dwóch oddzielnych prawidłowych kluczy pozwala na takie aktualizacje bez przestojów. musisz tylko zaktualizować klucz podstawowy i klucz pomocniczy.
 
@@ -260,7 +260,7 @@ Aby ułatwić kontrolę poziomu dostępu udzielonego aplikacjom, usługom lub u�
 - **Współautor konta kotwic przestrzenny**: aplikacje lub Użytkownicy, którzy mają tę rolę, mogą tworzyć kotwice przestrzenne, wysyłać do nich zapytania, ale nie mogą ich usuwać.
 - **Czytnik kont kotwic przestrzenny**: aplikacje lub Użytkownicy, którzy mają tę rolę, mogą wykonywać zapytania dotyczące kotwic przestrzennych, ale nie mogą tworzyć nowych, usuwać istniejących ani aktualizować metadanych w kotwicach przestrzennych. Jest to zwykle używane w przypadku aplikacji, w których niektórzy użytkownicy nadzorują środowisko, a inne mogą odwoływać kotwice wcześniej umieszczone w tym środowisku.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Utwórz swoją pierwszą aplikację z zakotwiczeniami przestrzennymi platformy Azure.
 

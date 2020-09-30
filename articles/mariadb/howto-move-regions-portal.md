@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: abb692f71a3ed69c6779b6141c9098dc94c75c4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568765"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542431"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Przenoszenie serwera Azure Database for MariaDB do innego regionu przy użyciu Azure Portal
 
@@ -33,16 +33,16 @@ Do przechodzenia do innego regionu można użyć Azure Database for MariaDB [rep
 
 Aby utworzyć serwer repliki odczytu między regionami w regionie docelowym przy użyciu Azure Portal, wykonaj następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Wybierz istniejący serwer Azure Database for MariaDB, który ma być używany jako serwer źródłowy. Ta akcja powoduje otwarcie strony **Przegląd** .
 1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 1. Wybierz pozycję **Dodaj replikę**.
 1. Wprowadź nazwę serwera repliki.
-1. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera głównego. Sprawdź, czy została wybrana lokalizacja docelowa, w której ma zostać wdrożona replika.
+1. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera źródłowego. Sprawdź, czy została wybrana lokalizacja docelowa, w której ma zostać wdrożona replika.
 1. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki. Podczas tworzenia repliki dane są kopiowane z serwera źródłowego do repliki. Czas utworzenia może trwać kilka minut lub dłużej, proporcjonalnie do rozmiaru serwera źródłowego.
 
 >[!NOTE]
-> Podczas tworzenia repliki nie są dziedziczone punkty końcowe usługi sieci wirtualnej serwera głównego. Te reguły należy skonfigurować niezależnie dla repliki.
+> Podczas tworzenia repliki nie są dziedziczone punkty końcowe usługi sieci wirtualnej serwera źródłowego. Te reguły należy skonfigurować niezależnie dla repliki.
 
 ## <a name="move"></a>Move
 
@@ -60,7 +60,7 @@ Zatrzymywanie replikacji na serwerze repliki powoduje, że staje się ona serwer
 
 ## <a name="clean-up-source-server"></a>Oczyść serwer źródłowy
 
-Możesz chcieć usunąć źródłowy serwer Azure Database for MariaDB. Aby to zrobić, wykonaj następujące kroki:
+Możesz chcieć usunąć źródłowy serwer Azure Database for MariaDB. Aby to zrobić, skorzystaj z poniższych instrukcji:
 
 1. Po utworzeniu repliki Znajdź i wybierz serwer źródłowy Azure Database for MariaDB.
 1. W oknie **Przegląd** wybierz pozycję **Usuń**.

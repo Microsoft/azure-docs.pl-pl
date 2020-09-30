@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f5072c90a699270a92af317976c8f56bd3e2cb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616704"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536532"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 W tym artykule opisano sposób wdrażania systemu SAP środowisk IDE z systemem SQL Server i systemem operacyjnym Windows na platformie Azure za pośrednictwem biblioteki urządzeń SAP w chmurze (SAP CAL) 3,0. Zrzuty ekranu przedstawiają proces krok po kroku. Aby wdrożyć inne rozwiązanie, wykonaj te same czynności.
@@ -54,11 +54,11 @@ Po zalogowaniu się do licencji SAP CAL pierwsza strona zwykle prowadzi do stron
 
     b. **Microsoft Azure** jest nowym Menedżer zasobów modelem wdrażania.
 
-    ![Konta SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![Zrzut ekranu przedstawia konta A P CAL z Microsoft Azure o nazwie.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     Aby wdrożyć w modelu Menedżer zasobów, wybierz pozycję **Microsoft Azure**.
 
-    ![Konta SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![Zrzut ekranu przedstawia konta A P CAL.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Wprowadź **Identyfikator subskrypcji** platformy Azure, który można znaleźć na Azure Portal. 
 

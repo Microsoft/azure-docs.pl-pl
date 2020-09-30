@@ -1,14 +1,14 @@
 ---
 title: Przykłady planów obciążeń ISO 27001 ASE/SQL
-description: Sterowanie mapowaniem przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database do Azure Policy i RBAC.
+description: Sterowanie mapowaniem przykładowego planu obciążeń ISO 27001 App Service Environment/SQL Database do Azure Policy i kontroli RBAC na platformie Azure.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920742"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541224"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Sterowanie mapowaniem przykładowego planu obciążeń ISO 27001 ASE/SQL
 
@@ -47,10 +47,10 @@ Informacje o zasobach, które naruszają te zasady, mogą pomóc w podejmowaniu 
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A. 9.2.3 Zarządzanie prawami dostępu uprzywilejowanego
 
-Ten plan pomaga ograniczyć i kontrolować prawa dostępu uprzywilejowanego, przypisując cztery [Azure Policy](../../../policy/overview.md) definicje do inspekcji kont zewnętrznych z uprawnieniami właściciela i/lub zapisu oraz konta z uprawnieniami właściciela i/lub zapisu, dla których nie włączono usługi uwierzytelniania wieloskładnikowego. Platforma Azure implementuje funkcję kontroli dostępu opartej na rolach (RBAC) w celu zarządzania dostępem do zasobów platformy Azure. Ten plan przypisuje również trzy definicje Azure Policy do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ten plan przypisuje również definicję Azure Policy do inspekcji użycia niestandardowych reguł RBAC. Zrozumienie, gdzie są zaimplementowane niestandardowe reguły RBAC, może pomóc w sprawdzeniu potrzeby i właściwej implementacji, ponieważ niestandardowe reguły RBAC są podatne na błędy.
+Ten plan pomaga ograniczyć i kontrolować prawa dostępu uprzywilejowanego, przypisując cztery [Azure Policy](../../../policy/overview.md) definicje do inspekcji kont zewnętrznych z uprawnieniami właściciela i/lub zapisu oraz konta z uprawnieniami właściciela i/lub zapisu, dla których nie włączono usługi uwierzytelniania wieloskładnikowego. Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Ten plan przypisuje również trzy definicje Azure Policy do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ten plan przypisuje również definicję Azure Policy do inspekcji użycia niestandardowych reguł RBAC platformy Azure. Informacje o tym, gdzie są zaimplementowane niestandardowe reguły RBAC platformy Azure, mogą pomóc w sprawdzeniu potrzeby i poprawnej implementacji, ponieważ niestandardowe reguły RBAC platformy Azure są podatne na błędy.
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 - Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do zapisu powinny zostać usunięte z subskrypcji
 - Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory
@@ -63,7 +63,7 @@ Ten plan przypisuje trzy definicje [Azure Policy](../../../policy/overview.md) d
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 - Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
 - Wdróż wymagania wstępne, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
 
@@ -78,7 +78,7 @@ Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azur
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A. 9.2.6 usunięcie lub dostosowanie praw dostępu
 
-Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure, która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Korzystając z [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) i RBAC, można aktualizować role użytkowników, aby odzwierciedlały zmiany organizacyjne. W razie potrzeby konta mogą być blokowane przed zalogowaniem (lub usunięciem), które natychmiast usuwa prawa dostępu do zasobów platformy Azure. Ten plan przypisuje dwie [Azure Policy](../../../policy/overview.md) definicje do inspekcji konta amortyzowanego, które należy wziąć pod uwagę podczas usuwania.
+Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure, która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Przy użyciu [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) i kontroli RBAC platformy Azure można aktualizować role użytkowników, aby odzwierciedlały zmiany organizacyjne. W razie potrzeby konta mogą być blokowane przed zalogowaniem (lub usunięciem), które natychmiast usuwa prawa dostępu do zasobów platformy Azure. Ten plan przypisuje dwie [Azure Policy](../../../policy/overview.md) definicje do inspekcji konta amortyzowanego, które należy wziąć pod uwagę podczas usuwania.
 
 - Przestarzałe konta powinny zostać usunięte z subskrypcji
 - Przestarzałe konta z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
@@ -89,7 +89,7 @@ Ten plan przypisuje trzy definicje Azure Policy do kont inspekcji, dla których 
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 
 ## <a name="a943-password-management-system"></a>System zarządzania hasłami. 9.4.3
 

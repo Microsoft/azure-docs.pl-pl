@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: e990d122367581c785b411f3f6d3c39b334a14fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3d683ada6401c4ba4f2e232948e9712643339fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998581"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533472"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Rozpoczynanie pracy z modułem IoT Hub Identity and module (.NET)
 
@@ -70,7 +70,7 @@ Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witry
 
 1. Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices. Client**, a następnie wybierz pozycję **Zainstaluj**.
 
-    ![Zainstaluj bieżącą wersję zestawu SDK usługi .NET IoT Hub platformy Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    ![Zrzut ekranu pokazujący wybraną wartość "Microsoft. Azure. Devices. Client" i wyróżniony przycisk "Zainstaluj".](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
 1. Dodaj następujące `using` instrukcje w górnej części pliku **program.cs** :
 
@@ -175,7 +175,7 @@ Teraz możesz uruchamiać aplikacje.
 
 1. Naciśnij klawisz **F5** , aby uruchomić aplikacje.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 

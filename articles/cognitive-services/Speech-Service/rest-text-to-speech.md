@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056809"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534985"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -33,6 +33,9 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 * Interfejs API REST zamiany tekstu na mowę wymaga nagłówka autoryzacji. Oznacza to, że należy zakończyć wymianę tokenów, aby uzyskać dostęp do usługi. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie).
 
+> [!TIP]
+> Zobacz punkty końcowe dla systemu [Azure dla instytucji rządowych](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) (FairFax).
+
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="get-a-list-of-voices"></a>Pobieranie listy głosów
@@ -41,12 +44,12 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 ### <a name="regions-and-endpoints"></a>Regiony i punkty końcowe
 
-| Region | Punkt końcowy |
+| Region (Region) | Punkt końcowy |
 |--------|----------|
 | Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Środkowe stany USA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -233,7 +236,7 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 | 400 | Nieprawidłowe żądanie | Brak wymaganego parametru, jest on pusty lub ma wartość null. Lub wartość przeniesiona do wymaganego lub opcjonalnego parametru jest nieprawidłowa. Typowy problem to nagłówek, który jest zbyt długi. |
 | 401 | Brak autoryzacji | Żądanie nie ma autoryzacji. Upewnij się, że klucz subskrypcji lub token jest prawidłowy i znajduje się w prawidłowym regionie. |
 | 413 | Jednostka żądania jest zbyt duża | Wartość wejściowa SSML jest dłuższa niż 1024 znaków. |
-| 415 | Nieobsługiwany typ nośnika | Możliwe, że `Content-Type` podano nieprawidłowy. `Content-Type`powinien być ustawiony na `application/ssml+xml` . |
+| 415 | Nieobsługiwany typ nośnika | Możliwe, że `Content-Type` podano nieprawidłowy. `Content-Type` powinien być ustawiony na `application/ssml+xml` . |
 | 429 | Zbyt wiele żądań | Przekroczono limit przydziału lub częstotliwość żądań dozwolonych dla Twojej subskrypcji. |
 | 502 | Zła brama    | Problem z siecią lub po stronie serwera. Może także wskazywać nieprawidłowe nagłówki. |
 

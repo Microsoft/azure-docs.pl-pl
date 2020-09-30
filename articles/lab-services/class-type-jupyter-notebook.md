@@ -3,14 +3,14 @@ title: Skonfiguruj laboratorium, aby nauczyć się analizy danych za pomocą not
 description: Dowiedz się, jak skonfigurować środowisko laboratoryjne do uczenia danych przy użyciu notesów Python i Jupyter.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445019"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533524"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurowanie laboratorium do uczenia się danych za pomocą notesów Python i Jupyter
 W tym artykule opisano, jak skonfigurować maszynę wirtualną szablonu (VM) w usłudze laboratoryjnej z narzędziami, które są konieczne do nauki uczniów, jak korzystać z [notesów Jupyter](http://jupyter-notebook.readthedocs.io/)oraz jak uczniowie mogą łączyć się z notesami na ich maszynach wirtualnych.
@@ -112,7 +112,7 @@ Obraz **Data Science Virtual Machine – Ubuntu** został już zainicjowany z se
 4. Po uzyskaniu tych informacji Otwórz aplikację kliencką X2Go i Utwórz nową sesję. 
 5.  Wypełnij następujące wartości w okienku **Preferencje sesji** :
     - **Nazwa sesji**: może to być dowolne, ale zalecamy użycie nazwy maszyny wirtualnej laboratorium.
-     - **Host**:`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
+     - **Host**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
      - **Logowanie**: Student
      - **Port SSH**: 12345
      - **Typ sesji**: pulpit Xfce

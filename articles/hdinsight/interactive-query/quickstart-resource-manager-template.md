@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 19bf43cfd305e74aadaf16dddc7bce318e193c84
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: f08b7a49d961c3408af6e5360344bdf500a8ac07
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640246"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542329"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Szybki Start: Tworzenie klastra zapytań interaktywnych w usłudze Azure HDInsight przy użyciu szablonu ARM
 
@@ -67,13 +67,13 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 Po utworzeniu klastra otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pomocą linku **Przejdź do zasobu** . Strona Grupa zasobów będzie zawierać listę nowego klastra usługi HDInsight oraz domyślny magazyn skojarzony z klastrem. Każdy klaster ma konto [usługi Azure Storage](../hdinsight-hadoop-use-blob-storage.md) lub [Azure Data Lake Storage zależności konta](../hdinsight-hadoop-use-data-lake-store.md) . Jest ono określane jako domyślne konto magazynu. Klaster usługi HDInsight i jego domyślne konto magazynu muszą znajdować się w tym samym regionie platformy Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 
 W Azure Portal przejdź do klastra, a następnie wybierz pozycję **Usuń**.
 
-![HBase szablonu Menedżer zasobów](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
+![Zrzut ekranu przedstawia klaster usługi H Insight z grupą zasobów do usunięcia.](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
 
 Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usuwając grupę zasobów, należy usunąć zarówno klaster usługi HDInsight, jak i domyślne konto magazynu.
 

@@ -3,14 +3,14 @@ title: Uruchamianie równoległego obciążenia przy użyciu interfejsu API plat
 description: Samouczek — Równoległe transkodowanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 84870970977a6907759bf5219c1feed57af77d8c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461107"
+ms.locfileid: "91537586"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 

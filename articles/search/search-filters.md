@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002423"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534798"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtry na platformie Azure Wyszukiwanie poznawcze 
 
@@ -138,7 +138,7 @@ Zapoznaj się z następującymi artykułami, aby uzyskać kompleksowe wskazówki
 
 W interfejsie API REST filtrowanie jest domyślnie *włączone* w przypadku pól prostych. Pola z możliwością filtrowania zwiększają rozmiar indeksu; Upewnij się `"filterable": false` , że ustawiono pola, które nie są planowane do użycia w filtrze. Aby uzyskać więcej informacji na temat ustawień definicji pól, zobacz [create index](/rest/api/searchservice/create-index).
 
-W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole jako możliwe do filtrowania, ustawiając [Właściwość IsFiltered](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) obiektu [pola](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) na `true` . Można to również zrobić deklaratywnie przy użyciu [atrybutu IsFiltered](/dotnet/api/microsoft.azure.search.isfilterableattribute). W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
+W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole jako możliwe do filtrowania, ustawiając [Właściwość IsFiltered](/dotnet/api/microsoft.azure.search.models.field.isfilterable) obiektu [pola](/dotnet/api/microsoft.azure.search.models.field) na `true` . Można to również zrobić deklaratywnie przy użyciu [atrybutu IsFiltered](/dotnet/api/microsoft.azure.search.isfilterableattribute). W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -169,7 +169,7 @@ Pola liczbowe nie znajdują się `searchable` w kontekście wyszukiwania pełnot
 
 Dokumenty zawierające pola liczbowe (Cena, rozmiar, jednostka SKU, identyfikator) udostępniają te wartości w wynikach wyszukiwania, jeśli pole jest oznaczone `retrievable` . W tym miejscu jest to, że wyszukiwanie pełnotekstowe nie ma zastosowania do typów pól liczbowych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Najpierw wypróbuj **Eksploratora wyszukiwania** w portalu, aby przesłać zapytania z parametrami **$Filter** . [Indeks z przykładem liczby rzeczywistej](search-get-started-portal.md) zawiera interesujące wyniki dla następujących filtrowanych zapytań, które są wklejane do paska wyszukiwania:
 

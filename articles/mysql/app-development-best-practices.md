@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794203"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538912"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Najlepsze rozwiązania dotyczące kompilowania aplikacji za pomocą Azure Database for MySQL 
 
@@ -69,9 +69,9 @@ W aplikacji mogą występować [Błędy przejściowe](https://docs.microsoft.com
 Dobrym sposobem jest odczekanie 5 sekund przed pierwszym ponowieniem próby. Następnie postępuj zgodnie z poszczególnymi ponowień, zwiększając czas oczekiwania, aż do 60 sekund. Ogranicz maksymalną liczbę ponownych prób, w których aplikacja uważa, że operacja nie powiodła się, więc możesz kontynuować badanie. Zobacz [, jak rozwiązywać problemy z błędami połączenia](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) , aby dowiedzieć się więcej. 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Włącz replikację odczytu w celu ograniczenia trybu failover
-Możesz użyć [replikacja typu Data-in](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) w scenariuszach pracy awaryjnej. W przypadku korzystania z replik odczytu nie są wykonywane żadne automatyczne tryb failover między serwerami głównymi i repliki. 
+Możesz użyć [replikacja typu Data-in](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) w scenariuszach pracy awaryjnej. W przypadku korzystania z replik odczytu nie są wykonywane żadne automatyczne tryb failover między serwerami źródłowym i repliki. 
 
-Zauważysz zwłokę między serwerem głównym a repliką, ponieważ replikacja jest asynchroniczna. Opóźnienie sieci może mieć wpływ na wiele czynników, takich jak rozmiar obciążenia uruchomionego na serwerze głównym i opóźnienie między centrami danych. W większości przypadków opóźnienie replik z kilku sekund do kilku minut.
+Zauważysz zwłokę między źródłem a repliką, ponieważ replikacja jest asynchroniczna. Opóźnienie sieci może mieć wpływ na wiele czynników, takich jak rozmiar obciążenia uruchomionego na serwerze źródłowym i opóźnienie między centrami danych. W większości przypadków opóźnienie replik z kilku sekund do kilku minut.
 
 ## <a name="database-deployment"></a>Wdrażanie bazy danych 
 

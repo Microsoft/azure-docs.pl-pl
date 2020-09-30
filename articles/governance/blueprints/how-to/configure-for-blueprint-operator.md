@@ -3,18 +3,18 @@ title: Konfigurowanie środowiska dla operatora tworzenia planów
 description: Dowiedz się, jak skonfigurować środowisko platformy Azure do użycia z wbudowaną rolą Azure Operatorion.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051461"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535785"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurowanie środowiska dla operatora strategii
 
 Zarządzanie definicjami planów i przypisaniami planów można przypisać do różnych zespołów. Jest ona wspólna dla architekta lub zespołu zarządzającego odpowiedzialnego za Zarządzanie definicjami planów, gdy zespół operacyjny jest odpowiedzialny za zarządzanie przypisaniami tych definicji centralnie kontrolowanych strategii.
 
-Wbudowana kontrola dostępu **oparta na rolach** (RBAC) jest zaprojektowana specjalnie do użycia w scenariuszu tego typu. Rola umożliwia zespołom typu operacje zarządzanie przypisaniem definicji planów organizacji, ale nie pozwala na ich modyfikowanie. Wymaga to pewnej konfiguracji w środowisku platformy Azure, a w tym artykule opisano niezbędne kroki.
+Wbudowana rola **operatora** strategii została zaprojektowana specjalnie do użycia w scenariuszu tego typu. Rola umożliwia zespołom typu operacje zarządzanie przypisaniem definicji planów organizacji, ale nie pozwala na ich modyfikowanie. Wymaga to pewnej konfiguracji w środowisku platformy Azure, a w tym artykule opisano niezbędne kroki.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Udziel uprawnienia do operatora strategii
 

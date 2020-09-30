@@ -1,17 +1,15 @@
 ---
 title: Debugowanie aplikacji w programie zaćmienie
 description: Zwiększ niezawodność i wydajność usług, opracowując i debugując je w programie w ramach programu w przypadku lokalnego klastra projektowego.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: 32472c6caafe62d629ee3a5ffb8c758624228efd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316617"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534113"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Debugowanie aplikacji Java Service Fabric przy użyciu programu zaćmienie
 > [!div class="op_single_selector"]

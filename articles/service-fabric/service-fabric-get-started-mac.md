@@ -1,17 +1,15 @@
 ---
 title: Konfigurowanie środowiska deweloperskiego w systemie macOS
 description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji będziesz gotowy do kompilowania aplikacji w witrynie macOS.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
-ms.author: suhuruli
 ms.custom: devx-track-js
-ms.openlocfilehash: a0c9b552947f2a9dc0f3fee3d39829efdcea1b68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539864"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]

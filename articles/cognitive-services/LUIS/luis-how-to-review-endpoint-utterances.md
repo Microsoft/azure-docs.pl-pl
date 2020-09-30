@@ -3,24 +3,22 @@ title: Przeglądanie użytkownika wyrażenia długości — LUIS
 titleSuffix: Azure Cognitive Services
 description: Przejrzyj wyrażenia długości przechwycone przez aktywną naukę, aby wybrać pozycję zamierzenia i oznaczyć jednostki do odczytu-World wyrażenia długości; Akceptowanie zmian, uczenie i publikowanie.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055617"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541462"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Jak ulepszyć aplikację LUIS, przeglądając punkt końcowy wyrażenia długości
 
-Proces recenzowania punktów końcowych wyrażenia długości pod kątem prawidłowych prognoz jest nazywany [aktywną nauką](luis-concept-review-endpoint-utterances.md). Usługa Active Learning przechwytuje zapytania punktów końcowych i wybiera punkt końcowy użytkownika wyrażenia długości, że nie ma pewności. Te wyrażenia długości są przeglądane w celu wybrania zamiar i oznaczenie jednostek dla rzeczywistych wyrażenia długości. Zaakceptuj te zmiany w przykładzie wyrażenia długości, a następnie Wyszkol i Opublikuj. LUIS następnie identyfikuje wyrażenia długości dokładniej.
+Proces recenzowania punktów końcowych wyrażenia długości pod kątem prawidłowych prognoz jest nazywany [aktywną nauką](luis-concept-review-endpoint-utterances.md). Usługa Active Learning przechwytuje zapytania punktów końcowych i wybiera punkt końcowy użytkownika wyrażenia długości, że nie ma pewności. Te wyrażenia długości są przeglądane w celu wybrania zamiar i oznaczenie jednostek dla rzeczywistych wyrażenia długości. Zaakceptuj zmiany w przykładowych wypowiedziach, a następnie wytrenuj i opublikuj aplikację. LUIS następnie identyfikuje wyrażenia długości dokładniej.
 
 ## <a name="enable-active-learning"></a>Włącz aktywną naukę
 
@@ -34,7 +32,7 @@ Użyj portalu LUIS, aby utworzyć poprawną kwerendę punktu końcowego.
 1. Dla przypisanego zasobu przewidywania wybierz pozycję **Zmień parametry zapytania**.
 
     > [!div class="mx-imgBorder"]
-    > ![Użyj portalu LUIS do zapisania dzienników, które są wymagane do aktywnego uczenia.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Zrzut ekranu przedstawia łącze Zmień parametry zapytania.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Przełącz pozycję **Zapisz dzienniki** i Zapisz, wybierając pozycję **gotowe**.
 

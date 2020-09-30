@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: a687bcbaff56fa1229794b6977e3565070c56e2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541768"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -78,7 +78,7 @@ Do istniejącej subskrypcji można przypisać każdą **opublikowaną** **wersj�
 
 ## <a name="permissions-in-azure-blueprints"></a>Uprawnienia w usłudze Azure Blueprints
 
-Aby móc korzystać ze strategii, użytkownik musi mieć udzielone uprawnienia za pośrednictwem [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md). Aby odczytać lub wyświetlić plan w Azure Portal, Twoje konto musi mieć dostęp do odczytu do zakresu, w którym znajduje się definicja planu.
+Aby korzystać z planów, należy przyznać uprawnienia za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md). Aby odczytać lub wyświetlić plan w Azure Portal, Twoje konto musi mieć dostęp do odczytu do zakresu, w którym znajduje się definicja planu.
 
 Aby użytkownik mógł tworzyć strategie, jego konto musi mieć następujące uprawnienia:
 

@@ -3,20 +3,18 @@ title: Pulpit nawigacyjny — Language Understanding — LUIS
 titleSuffix: Azure Cognitive Services
 description: Popraw intencje i jednostki za pomocą pulpitu nawigacyjnego swojej aplikacji. Na pulpicie nawigacyjnym są wyświetlane ogólne informacje o aplikacji z wyróżnionymi intencjami, które powinny zostać naprawione.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345244"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541411"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Jak ulepszyć aplikację przy użyciu pulpitu nawigacyjnego
 
@@ -30,11 +28,11 @@ Ta strona nie będzie miała odpowiedniej analizy dla aplikacji, które nie maj�
 
 Trzy problemy rozkierowane na pulpicie nawigacyjnym są następujące:
 
-|Problem|Kolor wykresu|Wyjaśnienie|
+|Problem|Kolor wykresu|Objaśnienie|
 |--|--|--|
 |Nierównoważność danych|-|Dzieje się tak, gdy liczba przykładowych wyrażenia długości znacznie się różni. Wszystkie intencje muszą mieć w _przybliżeniu_ tę samą liczbę przykładowych wyrażenia długości — z wyjątkiem zamiaru none. Powinna ona mieć 10%-15% łącznej liczby wyrażenia długości w aplikacji.<br><br> Jeśli dane są niezrównoważone, ale dokładność przeznaczenie jest wyższa od pewnej wartości progowej, to nierównowaga nie jest raportowana jako problem.<br><br>**Rozpocznij od tego problemu — może to być główna przyczyna innych problemów.**|
 |Niejasne przewidywania|Orange|Dzieje się tak, gdy najlepsze zamierzenie i wyniki następnego celu są wystarczająco zbliżone, że mogą przerzucać kolejne szkolenia, z powodu [próbkowania negatywnego](luis-how-to-train.md#train-with-all-data) lub więcej przykładowych wyrażenia długości dodanych do intencji. |
-|Nieprawidłowe przewidywania|Red|Dzieje się tak, gdy przykład wypowiedź nie jest przewidziany dla zamiaru oznaczonego etykietą (zamiar, w której znajduje się).|
+|Nieprawidłowe przewidywania|Red (Czerwony)|Dzieje się tak, gdy przykład wypowiedź nie jest przewidziany dla zamiaru oznaczonego etykietą (zamiar, w której znajduje się).|
 
 Poprawne przewidywania są reprezentowane kolorem niebieskim.
 
@@ -130,11 +128,11 @@ Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która n
 
 Na poniższym wykresie przedstawiono niewłaściwie zrównoważoną aplikację z wieloma problemami, które należy naprawić.
 
-![Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Zrzut ekranu przedstawia prognozy na cel z kilkoma niejasnymi lub nieprawidłowo przewidywanymi wynikami.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Umieść kursor nad każdym paskiem intencji, aby uzyskać informacje na temat zamiaru.
 
-![Na poniższym wykresie przedstawiono dobrze zrównoważoną aplikację, która nie rozwiązuje problemów.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Zrzut ekranu przedstawia prognozy na intencje ze szczegółami niejasnych lub nieprawidłowo przewidywanych wyników.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Użyj funkcji **Sortuj według** , aby rozmieścić intencje według typu problemu, aby skoncentrować się na najbardziej problematycznych intencjach tego problemu.
 

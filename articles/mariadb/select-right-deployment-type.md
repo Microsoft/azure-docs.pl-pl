@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d3b65558a12fb6b20f449f5386c0ce7e598433b6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110304"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542397"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Wybierz odpowiednią opcję serwera MariaDB na platformie Azure
 
@@ -38,7 +38,7 @@ Główne różnice między tymi opcjami są wymienione w poniższej tabeli:
 | Stosowanie poprawek MariaDB     | Automatyczny  | Zarządzane przez klientów |
 | Wysoka dostępność | Model wysokiej dostępności (HA) jest oparty na wbudowanych mechanizmach trybu failover w przypadku wystąpienia przerwy na poziomie węzła. W takich przypadkach usługa automatycznie tworzy nowe wystąpienie i dołącza magazyn do tego wystąpienia. | Klienci mogą korzystać z architektów, implementować, testować i obsługiwać wysoką dostępność. Możliwości mogą obejmować zawsze włączone klaster trybu failover, zawsze włączone replikacje grupowe, wysyłanie dziennika lub replikację transakcyjną.|
 | Nadmiarowość stref | Obecnie nieobsługiwane | Maszyny wirtualne platformy Azure można skonfigurować do uruchamiania w różnych strefach dostępności. W przypadku rozwiązania lokalnego klienci muszą tworzyć i obsługiwać własne pomocnicze centrum danych oraz zarządzać nimi.|
-| Scenariusze hybrydowe | Za pomocą [replikacja typu Data-in](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)można synchronizować dane z zewnętrznego serwera MariaDB do usługi Azure Database for MariaDB. Serwer zewnętrzny może być lokalny, w maszynach wirtualnych lub w usłudze bazy danych hostowanej przez innych dostawców chmury.<br/><br/> Funkcja [Read Replica](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) umożliwia replikowanie danych z serwera głównego Azure Database for MariaDB do maksymalnie pięciu serwerów repliki tylko do odczytu. Repliki są w tym samym regionie świadczenia usługi Azure lub w różnych regionach. Repliki tylko do odczytu są asynchronicznie aktualizowane przy użyciu technologii replikacji binlog.<br/><br/>Replikacja odczytu między regionami jest obecnie dostępna w publicznej wersji zapoznawczej.| Zarządzane przez klientów
+| Scenariusze hybrydowe | Za pomocą [replikacja typu Data-in](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)można synchronizować dane z zewnętrznego serwera MariaDB do usługi Azure Database for MariaDB. Serwer zewnętrzny może być lokalny, w maszynach wirtualnych lub w usłudze bazy danych hostowanej przez innych dostawców chmury.<br/><br/> Funkcja [Read Replica](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) umożliwia replikowanie danych z serwera źródłowego Azure Database for MariaDB do pięciu serwerów repliki tylko do odczytu. Repliki są w tym samym regionie świadczenia usługi Azure lub w różnych regionach. Repliki tylko do odczytu są asynchronicznie aktualizowane przy użyciu technologii replikacji binlog.<br/><br/>Replikacja odczytu między regionami jest obecnie dostępna w publicznej wersji zapoznawczej.| Zarządzane przez klientów
 | Tworzenie kopii zapasowej i przywracanie | Program automatycznie tworzy [kopie zapasowe serwera](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) i przechowuje je w magazynie skonfigurowanym przez użytkownika, który jest lokalnie nadmiarowy lub geograficznie nadmiarowy. Usługa przyjmuje kopie zapasowe z pełnymi, różnicami i dziennikami transakcji | Zarządzane przez klientów |
 | Operacje monitorowania bazy danych | Oferuje klientom możliwość [ustawiania alertów](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) w ramach operacji bazy danych i działania po osiągnięciu progów. | Zarządzane przez klientów |
 | Zaawansowana ochrona przed zagrożeniami | Zapewnia [zaawansowaną ochronę przed zagrożeniami](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Ta ochrona wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.<br/><br/>Zaawansowana ochrona przed zagrożeniami jest obecnie w publicznej wersji zapoznawczej.| Klienci muszą samodzielnie skompilować tę ochronę.
@@ -49,7 +49,7 @@ Główne różnice między tymi opcjami są wymienione w poniższej tabeli:
 
 Istnieje kilka czynników, które mogą mieć wpływ na decyzję o wyborze PaaS lub IaaS do hostowania baz danych MariaDB.
 
-### <a name="cost"></a>Koszty
+### <a name="cost"></a>Cost (Koszt)
 
 Ograniczone finansowanie jest często podstawowym zagadnieniem, które określa najlepsze rozwiązanie do hostowania baz danych. Jest to prawdziwe, niezależnie od tego, czy jesteś w trakcie uruchamiania z małym środkiem pieniężnym czy zespołem w firmie, który działa w ramach ścisłych ograniczeń budżetowych. W tej sekcji opisano podstawowe informacje dotyczące rozliczeń i licencjonowania na platformie Azure, które mają zastosowanie do Azure Database for MariaDB i MariaDB na maszynach wirtualnych platformy Azure.
 

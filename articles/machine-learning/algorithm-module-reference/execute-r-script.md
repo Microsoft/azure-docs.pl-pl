@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908007"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542292"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
 W tym artykule opisano, jak używać modułu skryptu języka R do uruchamiania kodu języka R w potoku programu Azure Machine Learning Designer.
 
-Za pomocą języka R można wykonywać zadania, które aktualnie nie obsługują istniejące moduły, na przykład: 
+Za pomocą języka R można wykonywać zadania, które nie są obsługiwane przez istniejące moduły, takie jak: 
 - Tworzenie niestandardowych transformacji danych
 - Używanie własnych metryk do szacowania prognoz
 - Tworzenie modeli przy użyciu algorytmów, które nie są zaimplementowane jako moduły autonomiczne w projektancie
@@ -137,7 +137,7 @@ Aby [uzyskać dostęp do zarejestrowanych zestawów danych](https://docs.microso
 
 ## <a name="how-to-configure-execute-r-script"></a>Jak skonfigurować skrypt wykonywania skryptu języka R
 
-Moduł wykonywania skryptu języka R zawiera przykładowy kod, którego można użyć jako punktu wyjścia. Aby skonfigurować moduł wykonywania skryptu języka R, podaj zestaw wejść i kod do uruchomienia.
+Moduł wykonywania skryptu języka R zawiera przykładowy kod jako punkt wyjścia.
 
 ![Diagram danych wejściowych dla modułu języka R](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
     > [!NOTE]
     > Istniejący kod języka R może wymagać drobnych zmian do uruchomienia w potoku projektanta. Na przykład dane wejściowe, które podano w formacie CSV, powinny być jawnie konwertowane na zestaw danych, zanim będzie można używać go w kodzie. Typy danych i kolumn używane w języku R również różnią się w zależności od typu danych i kolumn używanych w projektancie.
 
-    Jeśli skrypt jest większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
+    Jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
     
-    Należy powiązać skrypt i inne zasoby niestandardowe z plikiem ZIP, a następnie przekazać plik zip jako **plik DataSet** do programu Studio. Następnie można przeciągnąć moduł DataSet z listy *moje zbiory* danych w okienku po lewej stronie, który jest stroną tworzenie projektanta. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
+    1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
+    1. Przekaż plik zip jako **zestaw danych pliku** do Studio. 
+    1. Przeciągnij moduł DataSet z listy *MOJE ZESTAWY* danych w lewym okienku modułu na stronie Tworzenie projektanta. 
+    1. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
     
     Poniżej znajduje się przykładowy kod służący do użycia skryptu w pakiecie skryptu:
 
@@ -219,7 +222,7 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
 
 ## <a name="results"></a>Wyniki
 
-Moduły wykonywania skryptu języka R mogą zwracać wiele danych wyjściowych, ale muszą być one dostarczane jako ramki z danymi języka R. Ramki danych są automatycznie konwertowane na zestawy DataSet w projektancie w celu zapewnienia zgodności z innymi modułami.
+Moduły wykonywania skryptu języka R mogą zwracać wiele danych wyjściowych, ale muszą być one dostarczane jako ramki z danymi języka R. Projektant automatycznie konwertuje ramki danych na zestawy DataSet, aby zapewnić zgodność z innymi modułami.
 
 Standardowe komunikaty i błędy w języku R są zwracane do dziennika modułu.
 
@@ -236,7 +239,7 @@ Moduł wykonywania skryptu języka R obsługuje dowolne pliki skryptów języka 
 
 1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych**, a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
 
-1. Sprawdź, czy spakowany plik jest dostępny na liście **Moje zestawy danych** w kategorii **zestawy danych** w lewym drzewie modułu.
+1. Sprawdź, czy spakowany plik jest wyświetlany w obszarze **Moje zestawy danych** w kategorii **zestawy danych** w lewym drzewie modułu.
 
 1.  Połącz zestaw danych z portem wejściowym **pakietu skryptu** .
 

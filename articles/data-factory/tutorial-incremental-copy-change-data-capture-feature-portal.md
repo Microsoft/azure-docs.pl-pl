@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86085722"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537460"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Przyrostowe ładowanie danych z wystąpienia zarządzanego usługi Azure SQL do usługi Azure Storage przy użyciu funkcji przechwytywania zmian danych
 
@@ -124,13 +124,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Usuń zaznaczenie opcji **Włącz git**.     
-7. Kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **Utwórz**.
 8. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** .
 
-   ![Strona główna fabryki danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![Zrzut ekranu przedstawia komunikat informujący, że wdrożenie zostało ukończone, i opcję przejścia do zasobów.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
 
-   ![Strona główna fabryki danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![Zrzut ekranu przedstawia wdrożoną fabrykę danych.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory.
 11. Na stronie **Wprowadzenie** przejdź do karty **Edycja** w lewym panelu, jak pokazano na poniższej ilustracji:
 
@@ -221,7 +221,7 @@ W tym kroku utworzysz zestaw danych reprezentujący dane skopiowane z magazynu d
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>Tworzenie potoku w celu skopiowania zmienionych danych
 W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekordów znajdujących się w tabeli zmian za pomocą **działania Lookup**. Działanie warunku IF sprawdza, czy liczba zmienionych rekordów jest większa od zera i uruchamia **działanie kopiowania** , aby skopiować wstawione/zaktualizowane/usunięte dane z Azure SQL Database do platformy Azure Blob Storage. Na koniec zostaje skonfigurowany wyzwalacz okna wirowania i godziny rozpoczęcia i zakończenia zostaną przesłane do działań jako parametry okna początkowego i końcowego. 
 
-1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok**.
+1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok**.
 
     ![Menu Nowy potok](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
 2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline**.
@@ -289,10 +289,10 @@ W tym kroku utworzysz potok, który najpierw sprawdza liczbę zmienionych rekord
 
 11. Kliknij przycisk Podgląd, aby sprawdzić, czy kwerenda zwróci prawidłowo zmienione wiersze.
 
-    ![Działanie Copy (Kopiowanie) — ustawienia ujścia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![Zrzut ekranu przedstawia Podgląd do sprawdzenia zapytania.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Przejdź do karty **ujścia** i określ zestaw danych usługi Azure Storage dla pola **zestaw danych ujścia** .
 
-    ![Działanie Copy (Kopiowanie) — ustawienia ujścia](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![Zrzut ekranu przedstawia kartę ujścia.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Kliknij przycisk z powrotem do głównej kanwy potoku i Połącz działanie **Lookup** z działaniem **warunku if** . Przeciągnij **zielony** przycisk dołączony do działania **odnośnik** do działania **Jeśli warunek** .
 
     ![Łączenie działań Lookup (Wyszukiwanie) i Copy (Kopiowanie)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -322,7 +322,7 @@ W tym kroku utworzysz wyzwalacz okna wirowania, aby uruchomić zadanie zgodnie z
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
-3. Przejdź do działania **kopiowania** w prawdziwym przypadku działania **warunku if** i kliknij kartę **Źródło** . Skopiuj następujące polecenie do zapytania:
+3. Przejdź do działania **kopiowania** w prawdziwym przypadku działania **warunkowego if** i kliknij kartę **Źródło** . Skopiuj następujący do zapytania:
     ```sql
     @concat('DECLARE @begin_time datetime, @end_time datetime, @from_lsn binary(10), @to_lsn binary(10); 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
@@ -333,7 +333,7 @@ W tym kroku utworzysz wyzwalacz okna wirowania, aby uruchomić zadanie zgodnie z
     ```
 4. Kliknij kartę **ujścia** działania **kopiowania** , a następnie kliknij przycisk **Otwórz** , aby edytować właściwości zestawu danych. Kliknij kartę **Parametry** i Dodaj nowy parametr o nazwie **triggerStart**    
 
-    ![Konfiguracja zestawu danych ujścia — 3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![Zrzut ekranu przedstawia Dodawanie nowego parametru do karty parametry.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Następnie skonfiguruj właściwości zestawu danych w celu przechowywania danych w podkatalogu **klienci/przyrostowy** z partycjami opartymi na dacie.
    1. Kliknij kartę **połączenie** we właściwościach zestawu danych i Dodaj zawartość dynamiczną zarówno dla **katalogu** , jak i **plików** . 
    2. W sekcji **katalog** wprowadź następujące wyrażenie, klikając link zawartość dynamiczna w obszarze pola tekstowego:

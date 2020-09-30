@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie kontenerów — przetwarzanie obrazów
+title: Konfigurowanie kontenerów OCR do odczytu — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: W tym artykule opisano sposób konfigurowania ustawień wymaganych i opcjonalnych dla kontenerów Rozpoznawanie tekstu w przetwarzanie obrazów.
+description: W tym artykule opisano sposób konfigurowania ustawień wymaganych i opcjonalnych dla kontenerów OCR odczytu w przetwarzanie obrazów.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397134"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536243"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Konfigurowanie przetwarzanie obrazów kontenerów platformy Docker
+# <a name="configure-read-ocr-docker-containers"></a>Konfigurowanie kontenerów platformy Docker OCR
 
-Środowisko uruchomieniowe kontenera przetwarzanie obrazów można skonfigurować za pomocą `docker run` argumentów polecenia. Ten kontener ma kilka wymaganych ustawień oraz kilka opcjonalnych ustawień. Kilka [przykładów](#example-docker-run-commands) polecenia jest dostępnych. Ustawienia dotyczące rozliczeń dotyczą tylko kontenera. 
+Należy skonfigurować środowisko uruchomieniowe kontenera OCR przetwarzanie obrazów Read przy użyciu `docker run` argumentów polecenia. Ten kontener ma kilka wymaganych ustawień oraz kilka opcjonalnych ustawień. Kilka [przykładów](#example-docker-run-commands) polecenia jest dostępnych. Ustawienia dotyczące rozliczeń dotyczą tylko kontenera. 
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
@@ -92,8 +92,8 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 
 |Opcjonalne| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Niedozwolone| `Input` | String | Kontenery przetwarzanie obrazów nie używają tego.|
-|Opcjonalne| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niedozwolone| `Input` | Ciąg | Kontenery przetwarzanie obrazów nie używają tego.|
+|Opcjonalne| `Output` | Ciąg | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker
 

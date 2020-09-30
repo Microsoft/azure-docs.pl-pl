@@ -3,20 +3,18 @@ title: Wszystkie wstępnie skompilowane jednostki — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera listy wstępnie utworzonych jednostek, które znajdują się w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: diberry
-ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337980"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542006"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
 
@@ -33,13 +31,13 @@ O ile nie wskazano inaczej, wstępnie skompilowane jednostki są dostępne we ws
 |Kultura|Podkultury|Uwagi|
 |--|--|--|
 |Chiński|[zh-CN](#chinese-entity-support)||
-|Niderlandzki|[nl-NL](#dutch-entity-support)||
-|Polski|[EN-US (American)](#english-american-entity-support)||
+|Niderlandzki|[NL-NL](#dutch-entity-support)||
+|Angielski|[EN-US (American)](#english-american-entity-support)||
 |Francuski|[fr — CA (Kanada)](#french-canadian-entity-support), [fr-fr (Francja)](#french-france-entity-support), ||
 |Niemiecki|[de-DE](#german-entity-support)||
 |Włoski|[IT](#italian-entity-support)||
-|Japoński|[ja-JP](#japanese-entity-support)||
-|Koreański|[ko-KR](#korean-entity-support)||
+|japoński|[ja-JP](#japanese-entity-support)||
+|Koreański|[Ko — KR](#korean-entity-support)||
 |Portugalski|[pt-BR (Brazylia)](#portuguese-brazil-entity-support)||
 |Hiszpański|[ES-es (Hiszpania)](#spanish-spain-entity-support), [es-MX (Meksyk)](#spanish-mexico-entity-support)||
 |Turecki|[Turecki](#turkish-entity-support)|Brak wstępnie skompilowanych jednostek obsługiwanych w języku tureckim|
@@ -62,7 +60,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
@@ -84,7 +82,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -106,7 +104,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    V2, V3   |
@@ -128,7 +126,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |   -   |
@@ -150,7 +148,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -172,7 +170,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -196,7 +194,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -218,7 +216,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2,-   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2,-   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -240,7 +238,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    -   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -262,7 +260,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -284,7 +282,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |
@@ -306,7 +304,7 @@ Obsługiwane są następujące jednostki:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Liczba](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Liczbą](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Liczba porządkowa](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Procent](luis-reference-prebuilt-percentage.md)   |    -   |
 [Nazwisko osoby](luis-reference-prebuilt-person.md)   |    -   |

@@ -2,7 +2,6 @@
 title: Testowanie aplikacji LUIS
 titleSuffix: Azure Cognitive Services
 description: Testowanie jest procesem zapewniania przykładowej wyrażenia długości do LUIS i uzyskiwania odpowiedzi na LUIS, które są uznawane za intencje i jednostki.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
@@ -10,13 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316413"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535852"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Przykład testowania wyrażenia długości w LUIS
 
