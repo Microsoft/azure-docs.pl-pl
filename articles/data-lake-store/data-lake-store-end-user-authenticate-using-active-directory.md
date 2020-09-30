@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511317"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578550"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 > [!div class="op_single_selector"]
@@ -97,15 +97,15 @@ Aby pobrać identyfikator URI przekierowania, wykonaj następujące czynności.
 
 2. W bloku **Ustawienia** aplikacji kliknij pozycję **wymagane uprawnienia**, a następnie kliknij przycisk **Dodaj**.
 
-    ![Identyfikator klienta](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![Zrzut ekranu przedstawiający blok ustawień z opcją redirect p R I o nazwie wywoływanej i przekierowania U R I z rzeczywistą p R I wywołałą.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. W bloku **Dodaj dostęp do interfejsu API** kliknij pozycję **Wybierz interfejs API**, kliknij pozycję **Azure Data Lake**, a następnie kliknij pozycję **Wybierz**.
 
-    ![Identyfikator klienta](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![Zrzut ekranu przedstawiający blok Dodaj dostęp do interfejsu API z opcją wybierz interfejs API o nazwie out i blokiem wybierz interfejs API z opcją Azure Data Lake i opcją SELECT.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
 
 4.  W bloku **Dodaj dostęp do interfejsu API** kliknij pozycję **Wybierz uprawnienia**, zaznacz pole wyboru, aby zapewnić **pełny dostęp do Data Lake Store**, a następnie kliknij przycisk **Wybierz**.
 
-    ![Identyfikator klienta](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![Zrzut ekranu przedstawiający blok Dodawanie dostępu do interfejsu API z opcją wyboru uprawnień o nazwie "out" i bloku Włącz dostęp z opcją ma pełny dostęp do usługi Azure Data Lake, a opcja Select została wywołana.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     Kliknij pozycję **Gotowe**.
 

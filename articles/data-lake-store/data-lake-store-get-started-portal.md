@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509204"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578584"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
@@ -50,7 +50,7 @@ Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mi
      * **Użyj kluczy zarządzanych przez Data Lake Storage Gen1**, jeśli chcesz, aby Data Lake Storage Gen1 do zarządzania kluczami szyfrowania.
      * **Użyj kluczy z własnej usługi Key Vault**. Możesz wybrać istniejącą usługę Azure Key Vault lub utworzyć nową usługę Key Vault. Aby użyć kluczy z Key Vault, należy przypisać uprawnienia do konta Data Lake Storage Gen1, aby uzyskać dostęp do Azure Key Vault. Aby uzyskać instrukcje, zobacz [Przypisywanie uprawnień do usługi Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Szyfrowanie Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Szyfrowanie Data Lake Storage Gen1")
+        ![Zrzut ekranu przedstawiający nowy blok Data Lake Storage Gen 1 i blok ustawienia szyfrowania.](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Szyfrowanie Data Lake Storage Gen1")
 
         Kliknij przycisk **OK** w bloku **Ustawienia szyfrowania**.
 
@@ -64,10 +64,10 @@ W przypadku użycia kluczy z Azure Key Vault w celu skonfigurowania szyfrowania 
 
 1. Jeśli użyto kluczy z Azure Key Vault, w bloku dla konta Data Lake Storage Gen1 zostanie wyświetlone ostrzeżenie u góry. Kliknij ostrzeżenie, aby otworzyć obszar **Szyfrowanie**.
 
-    ![Szyfrowanie Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Szyfrowanie Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający blok konta Data Lake Storage Gen1, w którym znajduje się ostrzeżenie informujące o tym, że wymagana jest konfiguracja uprawnień magazynu kluczy. Kliknij tutaj, aby skonfigurować.](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Szyfrowanie Data Lake Storage Gen1")
 2. Blok zawiera dwie opcje umożliwiające skonfigurowanie dostępu.
 
-    ![Szyfrowanie Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Szyfrowanie Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający blok szyfrowania.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Szyfrowanie Data Lake Storage Gen1")
 
    * W pierwszej opcji kliknij pozycję **Udziel uprawnień** w celu skonfigurowania dostępu. Pierwsza opcja jest włączona tylko wtedy, gdy użytkownik, który utworzył konto Data Lake Storage Gen1, jest również administratorem dla Azure Key Vault.
    * Druga opcja polega na uruchomieniu polecenia cmdlet programu PowerShell wyświetlonego w bloku. Musisz być właścicielem usługi Azure Key Vault lub mieć możliwość udzielania uprawnień w usłudze Azure Key Vault. Po uruchomieniu polecenia cmdlet wróć do bloku i kliknij przycisk **Włącz**, aby skonfigurować dostęp.
@@ -87,10 +87,10 @@ Możesz tworzyć foldery na koncie Data Lake Storage Gen1, aby zarządzać danym
 1. Otwórz utworzone konto Data Lake Storage Gen1. W okienku po lewej stronie kliknij pozycję **wszystkie zasoby**, a następnie w bloku **wszystkie zasoby** kliknij nazwę konta, pod którym chcesz utworzyć foldery. Jeśli konto jest przypięte do tablicy startowej, kliknij kafelek konta.
 2. W bloku konta Data Lake Storage Gen1 kliknij pozycję **Eksplorator danych**.
 
-    ![Tworzenie folderów na koncie Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Tworzenie folderów na koncie Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający blok konta Data Lake Storage generacji 1 z opcją Eksplorator danych o nazwie out.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Tworzenie folderów na koncie Data Lake Storage Gen1")
 3. W bloku Eksplorator danych kliknij pozycję **Nowy folder**, wprowadź nazwę nowego folderu, a następnie kliknij przycisk **OK**.
 
-    ![Tworzenie folderów na koncie Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Tworzenie folderów na koncie Data Lake Storage Gen1")
+    ![Zrzut ekranu przedstawiający blok Eksplorator danych z opcją nowy folder i pole tekstowe Utwórz nowy folder o nazwie wychodzące.](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Tworzenie folderów na koncie Data Lake Storage Gen1")
 
     Nowo utworzony folder jest widoczny na liście w bloku **Eksplorator danych**. Foldery zagnieżdżone można tworzyć na dowolnym poziomie.
 

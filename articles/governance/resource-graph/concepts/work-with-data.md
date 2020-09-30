@@ -1,15 +1,15 @@
 ---
 title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005942"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578499"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -48,7 +48,7 @@ Formant, który jest _najbardziej restrykcyjny_ , zostanie wygrany. Na przykład
 Następną opcją pracy z dużymi zestawami danych jest kontrolka **pomijania** . Ta kontrolka umożliwia kwerendy przeskoczenie lub pominięcie zdefiniowanej liczby rekordów przed zwróceniem wyników. **Pomijanie** jest przydatne w przypadku zapytań, które sortują wyniki w zrozumiały sposób, gdy celem jest uzyskanie rekordów w środku zestawu wyników. Jeśli wyniki są konieczne na końcu zwracanego zestawu danych, bardziej wydajne jest użycie innej konfiguracji sortowania i pobranie wyników z góry zestawu danych.
 
 > [!NOTE]
-> W przypadku korzystania z funkcji **Skip**zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
+> W przypadku korzystania z funkcji **Skip**zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać. Jeśli `limit` lub `take` są używane w zapytaniu, **Skip** jest ignorowane.
 
 W poniższych przykładach pokazano, jak pominąć pierwsze _10_ rekordów, a zamiast tego zostanie wyświetlony zwrócony zestaw wyników z 11 rekordu:
 
@@ -168,7 +168,7 @@ request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, opt
 response = client.resources(request)
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
 - Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).

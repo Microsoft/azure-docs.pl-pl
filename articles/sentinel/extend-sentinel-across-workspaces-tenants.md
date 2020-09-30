@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905416"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578482"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -27,23 +27,23 @@ ms.locfileid: "90905416"
 
 Platforma Azure — Wskaźnikowanie jest tworzona na podstawie obszaru roboczego Log Analytics. Należy zauważyć, że pierwszym krokiem w celu dołączenia do platformy Azure wskaźnikowej jest wybranie obszaru roboczego Log Analytics, który ma być używany w tym celu.
 
-W przypadku korzystania z jednego obszaru roboczego możesz uzyskać pełną korzyść środowiska kontrolnego platformy Azure. Nawet Dlatego istnieją pewne okoliczności, które mogą wymagać posiadania wielu obszarów roboczych. W poniższej tabeli wymieniono niektóre z tych sytuacji i, jeśli to możliwe, zawarto sugestie dotyczące spełnienia wymagań z jednym obszarem roboczym:
+Korzystając z jednego obszaru roboczego, można w pełni wykorzystać możliwości usługi Azure Sentinel. Nawet Dlatego istnieją pewne okoliczności, które mogą wymagać posiadania wielu obszarów roboczych. W poniższej tabeli wymieniono niektóre z tych sytuacji i, jeśli to możliwe, zawarto sugestie dotyczące spełnienia wymagań z jednym obszarem roboczym:
 
-| Wymaganie | Opis | Sposoby zmniejszenia liczby obszarów roboczych |
+| Wymaganie | Opis | Sposoby zmniejszania liczby obszarów roboczych |
 |-------------|-------------|--------------------------------|
 | Jurysdykcja i zgodność z przepisami | Obszar roboczy jest powiązany z określonym regionem. Jeśli dane muszą być przechowywane w różnych [lokalizacje geograficzneach platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) w celu spełnienia wymagań prawnych, należy podzielić je na osobne obszary robocze. |  |
 | Własność danych | Granice własności danych, na przykład przez podmioty zależne lub firmy stowarzyszone, są lepiej nakreślone przy użyciu oddzielnych obszarów roboczych. |  |
-| Wiele dzierżawców platformy Azure | Usługa Azure — wskaźnik wiedzy obsługuje zbieranie danych z zasobów firmy Microsoft i platformy Azure SaaS tylko w ramach Azure Active Directory własnej granicy dzierżawy usługi Azure AD. W związku z tym każda dzierżawa usługi Azure AD wymaga oddzielnego obszaru roboczego. |  |
-| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Wiele dzierżawców platformy Azure | Usługa Azure — wskaźnik wiedzy obsługuje zbieranie danych z zasobów firmy Microsoft i platformy Azure SaaS tylko w ramach Azure Active Directory własnej granicy dzierżawy usługi Azure AD. Zatem każda dzierżawa usługi Azure AD wymaga oddzielnego obszaru roboczego. |  |
+| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Na przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Ustawienia przechowywania szczegółowego | W przeszłości wiele obszarów roboczych była jedynym sposobem ustawiania różnych okresów przechowywania dla różnych typów danych. Nie jest to już potrzebne w wielu przypadkach dzięki wprowadzeniu ustawień przechowywania poziomu tabeli. | Korzystanie z [ustawień przechowywania na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) lub Automatyzowanie [usuwania danych](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
-| Podziel rozliczenia | Umieszczając obszary robocze w osobnych subskrypcjach, można je rozliczać na różne strony. | Raportowanie użycia i naliczanie krzyżowe |
-| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralne wybranie projektu, które można zmodyfikować, aby lepiej uwzględnić platformę Azure.<br><br>Przykłady:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Obszary robocze ponownej architektury |
+| Podział rozliczeń | Umieszczając obszary robocze w osobnych subskrypcjach, można je rozliczać na różne strony. | Raportowanie użycia i naliczanie krzyżowe |
+| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralna decyzja projektowa, którą można zmienić, aby lepiej dostosować się do wymagań usługi Azure Sentinel.<br><br>Przykłady:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Zmiana architektury obszarów roboczych |
 
 ### <a name="managed-security-service-provider-mssp"></a>Dostawca zarządzanej usługi zabezpieczeń (MSSP)
 
 Szczególnym przypadkiem użycia, który stanowi upoważnienie wielu obszarów roboczych, jest MSSP usługi Azure wskaźnikowej. W takim przypadku wiele sytuacji, w których nie wszystkie powyższe wymagania, mają zastosowanie w przypadku wielu obszarów roboczych, między dzierżawcami, najlepszych rozwiązań. MSSP może korzystać z [usługi Azure Lighthouse](../lighthouse/overview.md) w celu rozbudowy funkcji obejmujących wiele obszarów roboczych platformy Azure.
 
-## <a name="azure-sentinel-multiple-workspace-architecture"></a>Architektura z wieloma obszarami roboczymi platformy Azure
+## <a name="azure-sentinel-multiple-workspace-architecture"></a>Architektura usługi Azure Sentinel z wieloma obszarami roboczymi
 
 Jak wynika z powyższych wymagań, istnieją przypadki, w których wiele obszarów roboczych usługi Azure wskaźnikowych, potencjalnie w ramach dzierżaw Azure Active Directory (Azure AD), musi być centralnie monitorowane i zarządzane przez pojedynczy SOC.
 
@@ -63,7 +63,7 @@ Ten model oferuje znaczące korzyści w stosunku do w pełni scentralizowanego m
 
 - Mniejsze wyzwania dotyczące własności danych, prywatności danych i zgodności z przepisami.
 
-- Minimalne opóźnienia sieci i opłaty.
+- Minimalne opóźnienia sieci i koszty.
 
 - Łatwe dołączanie i odłączanie nowych podmiotów zależnych lub klientów.
 
@@ -131,7 +131,7 @@ Zobacz również [wdrażanie platformy Azure i zarządzanie nią jako kodu](http
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Zarządzanie obszarami roboczymi w dzierżawach przy użyciu usługi Azure Lighthouse
 
-Jak wspomniano powyżej, w wielu scenariuszach różne obszary robocze Azure wskaźnikowego mogą znajdować się w różnych dzierżawach usługi Azure AD. Możesz użyć [usługi Azure Lighthouse](../lighthouse/overview.md) , aby rozłożyć wszystkie działania między obszarami roboczymi między granicami dzierżawy, dzięki czemu użytkownicy w dzierżawie zarządzającej pracują nad obszarami roboczymi usługi Azure wskaźnikami we wszystkich dzierżawców. Po dołączeniu usługi Azure Lighthouse należy użyć [selektora katalogów i subskrypcji](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) w [Azure Portal, aby](../lighthouse/how-to/onboard-customer.md)wybrać wszystkie subskrypcje zawierające obszary robocze, którymi chcesz zarządzać, aby upewnić się, że będą one dostępne w różnych selektorach obszarów roboczych w portalu.
+Jak wspomniano powyżej, w wielu scenariuszach różne obszary robocze Azure wskaźnikowego mogą znajdować się w różnych dzierżawach usługi Azure AD. Możesz użyć [usługi Azure Lighthouse](../lighthouse/overview.md) , aby rozłożyć wszystkie działania między obszarami roboczymi między granicami dzierżawy, dzięki czemu użytkownicy w dzierżawie zarządzającej pracują nad obszarami roboczymi usługi Azure wskaźnikami we wszystkich dzierżawców. Po dołączeniu usługi Azure Lighthouse należy użyć [selektora katalogów i subskrypcji](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) w [Azure Portal, aby](../lighthouse/how-to/onboard-customer.md)wybrać wszystkie subskrypcje zawierające obszary robocze, którymi chcesz zarządzać, aby upewnić się, że będą one dostępne w różnych selektorach obszarów roboczych w portalu.
 
 W przypadku korzystania z usługi Azure Lighthouse zaleca się utworzenie grupy dla każdej roli wskaźnikowej platformy Azure i delegowanie uprawnień z poszczególnych dzierżawców do tych grup.
 
