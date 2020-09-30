@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869663"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534424"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Przypisywanie uprawnień do uprzywilejowanej grupy dostępu (wersja zapoznawcza) w Privileged Identity Management
 
@@ -48,7 +48,7 @@ Wykonaj następujące kroki, aby użytkownik mógł być członkiem lub właści
 
 1. Wybierz członków lub właścicieli, którzy mają być uprawnieni do uprzywilejowanej grupy dostępu.
 
-    ![Wybierz okienko elementu członkowskiego lub grupy](./media/groups-assign-member-owner/add-assignments.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodawanie przydziałów" z otwartym okienkiem "Wybierz członka lub grupę" i wyróżnioną przyciskiem "Select".](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Wybierz pozycję **dalej** , aby ustawić czas trwania członkostwa lub własności.
 

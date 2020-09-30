@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300218"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536226"
 ---
 # <a name="configure-network-access-control"></a>Konfigurowanie kontroli dostępu do sieci
 
@@ -48,7 +48,7 @@ Za pomocą Azure Portal można zarządzać kontrolą dostępu do sieci dla usłu
 1. Aby edytować akcję domyślną, przełącz przycisk **Zezwalaj/Odmów** .
 
     > [!TIP]
-    > Akcja domyślna to Akcja podejmowana w przypadku braku dopasowania reguły listy ACL. Na przykład jeśli akcja domyślna to **Odmów**, wówczas typy żądań, które nie są jawnie listy dozwolonych poniżej, będą odrzucane.
+    > Akcja domyślna to Akcja podejmowana w przypadku braku dopasowania reguły listy ACL. Na przykład jeśli akcja domyślna to **Odmów**, wówczas typy żądań, które nie są jawnie zatwierdzone poniżej, będą odrzucane.
 
 1. Aby edytować regułę sieci publicznej, wybierz pozycję dozwolone typy żądań w obszarze **Sieć publiczna**.
 

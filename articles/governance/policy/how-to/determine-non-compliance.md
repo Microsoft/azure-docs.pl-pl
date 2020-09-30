@@ -1,14 +1,14 @@
 ---
 title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541275"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 
@@ -36,11 +36,11 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
 
 1. Na karcie **zgodność zasobów** na stronie **zgodność z zasadami** kliknij prawym przyciskiem myszy lub wybierz wielokropek zasobu w **stanie zgodności** , który jest _niezgodny_. Następnie wybierz pozycję **Wyświetl szczegóły zgodności**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link Wyświetl szczegóły zgodności na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 1. W okienku **szczegóły zgodności** są wyświetlane informacje z najnowszej wersji ewaluacyjnej zasobu do bieżącego przypisania zasad. W tym przykładzie można znaleźć wartość pola **Microsoft. SQL/Server/version** na _12,0_ , gdy oczekiwano definicji zasad _14,0_. Jeśli zasób nie jest zgodny z wieloma przyczynami, każda z nich jest wymieniona w tym okienku.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności oraz przyczyny braku zgodności, których bieżąca wartość wynosi 12, a wartość docelowa to czternaście." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
    W przypadku definicji zasad **auditIfNotExists** lub **deployIfNotExists** szczegóły obejmują Właściwość **details. Type** i wszelkie opcjonalne właściwości. Aby uzyskać listę, zobacz [Właściwości auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) i [deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ostatni szacowany zasób** jest powiązanym zasobem z sekcji **szczegółów** definicji.
 
@@ -69,7 +69,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności dla ifNotExists, w tym ocenianą liczbę zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 > [!NOTE]
 > Aby chronić dane, gdy wartość właściwości jest _tajna_ , bieżąca wartość Wyświetla gwiazdki.
@@ -104,17 +104,17 @@ Poniższa macierz odwzorowuje każdy możliwy _powód_ do [warunku](../concepts/
 |Bieżąca wartość nie może uwzględniać wielkości liter odpowiadającej wartości docelowej. |notMatchInsensitively lub **nie** matchInsensitively |
 |Żadne powiązane zasoby nie pasują do szczegółów efektu w definicji zasad. |Zasób typu zdefiniowanego w elemencie **then. details. Type** i powiązany z zasobem zdefiniowanym w instrukcji **if** w regule zasad nie istnieje. |
 
+## <a name="component-details-for-resource-provider-modes"></a>Szczegóły składnika dla trybów dostawcy zasobów
+
+W przypadku przypisań z [trybem dostawcy zasobów](../concepts/definition-structure.md#resource-manager-modes)wybierz _niezgodny_ zasób, aby otworzyć widok bardziej szczegółowy. Na karcie **zgodność składników** są dodatkowe informacje specyficzne dla trybu dostawcy zasobów dla przypisanych zasad, które pokazują _niezgodny_ **składnik** i **Identyfikator składnika**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>Szczegóły zgodności dla konfiguracji gościa
 
 W przypadku zasad _auditIfNotExistsymi_ w kategorii _Konfiguracja gościa_ może istnieć wiele ustawień ocenianych wewnątrz maszyny wirtualnej i konieczne będzie wyświetlenie szczegółowych informacji na temat ustawień. Na przykład jeśli przeprowadzasz inspekcję listy zasad haseł, a tylko jeden z nich ma stan _niezgodny_, musisz wiedzieć, które zasady haseł nie są zgodne i dlaczego.
 
 Użytkownik może również nie mieć dostępu do bezpośredniego logowania się do maszyny wirtualnej, ale należy zgłosić, dlaczego maszyna wirtualna _nie jest zgodna_.
-
-## <a name="compliance-details-for-resource-provider-modes"></a>Szczegóły zgodności dla trybów dostawcy zasobów
-
-W przypadku przypisań z [trybem dostawcy zasobów](../concepts/definition-structure.md#resource-manager-modes)wybierz _niezgodny_ zasób, aby otworzyć widok bardziej szczegółowy. Na karcie **zgodność składników** są dodatkowe informacje specyficzne dla trybu dostawcy zasobów dla przypisanych zasad, które pokazują _niezgodny_ **składnik** i **Identyfikator składnika**.
-
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający kartę zgodność składników i szczegóły zgodności dla przypisania trybu dostawcy zasobów." border="false":::
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -122,11 +122,11 @@ Zacznij od wykonania tych samych kroków w powyższej sekcji, aby wyświetlić s
 
 W widoku Szczegóły zgodności wybierz pozycję **ostatni szacowany zasób**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Zrzut ekranu przedstawiający wyświetlanie szczegółów zgodności definicji auditIfNotExists." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 Na stronie **przypisanie gościa** są wyświetlane wszystkie dostępne szczegóły zgodności. Każdy wiersz w widoku reprezentuje ocenę, która została wykonana w ramach maszyny. W kolumnie **Przyczyna** zostanie wyświetlona fraza opisująca, dlaczego przypisanie gościa _nie jest zgodne_. Na przykład w przypadku inspekcji zasad haseł w kolumnie **Przyczyna** zostanie wyświetlony tekst zawierający bieżącą wartość dla każdego ustawienia.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności przypisania gościa." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -205,11 +205,11 @@ W ramach nowej **publicznej wersji zapoznawczej**historia zmian jest dostępna d
 
 1. Na stronie **zgodność zasobów** wybierz kartę **historia zmian (wersja zapoznawcza)** . Zostanie wyświetlona lista wykrytych zmian (jeśli istnieją).
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Zrzut ekranu karty Historia zmian i wykryto zmiany czasu na stronie Zgodność zasobu." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 1. Wybierz jedną z wykrytych zmian. _Różnica wizualna_ dla zasobu jest wyświetlana na stronie **historia zmian** .
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Zrzut ekranu przedstawiający wizualną różnicę między Stanami i po nim właściwości na stronie historii zmian." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
 
 _Wizualna różnica_ aides w identyfikacji zmian w zasobie. Wykryte zmiany mogą nie być powiązane z bieżącym stanem zgodności zasobu.
 

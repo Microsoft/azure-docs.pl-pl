@@ -3,12 +3,12 @@ title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905965"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538960"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
@@ -57,15 +57,15 @@ Poniższe omówienie usługi Azure Policy dotyczy kompilacji 2018. Aby pobrać s
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-### <a name="azure-policy-and-rbac"></a>Azure Policy i RBAC
+### <a name="azure-policy-and-azure-rbac"></a>Azure Policy i kontrola RBAC na platformie Azure
 
-Istnieje kilka najważniejszych różnic między Azure Policy i kontroli dostępu opartej na rolach (RBAC). Azure Policy szacuje stan, sprawdzając właściwości zasobów, które są reprezentowane w Menedżer zasobów i właściwościach niektórych dostawców zasobów. Azure Policy nie ogranicza akcji (nazywanych również _operacjami_). Azure Policy zapewnia, że stan zasobów jest zgodny z regułami biznesowymi bez obaw dla użytkowników, którzy wprowadzili zmianę lub którzy mają uprawnienia do wprowadzania zmian.
+Istnieje kilka najważniejszych różnic między Azure Policy i kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Azure Policy szacuje stan, sprawdzając właściwości zasobów, które są reprezentowane w Menedżer zasobów i właściwościach niektórych dostawców zasobów. Azure Policy nie ogranicza akcji (nazywanych również _operacjami_). Azure Policy zapewnia, że stan zasobów jest zgodny z regułami biznesowymi bez obaw dla użytkowników, którzy wprowadzili zmianę lub którzy mają uprawnienia do wprowadzania zmian.
 
-RBAC skupia się na zarządzaniu [akcjami](../../role-based-access-control/resource-provider-operations.md) użytkownika w różnych zakresach. Jeśli wymagana jest kontrola nad akcją, funkcja RBAC jest poprawnym narzędziem do użycia. Nawet jeśli osoba ma dostęp do wykonywania akcji, jeśli wynik jest niezgodnym zasobem, Azure Policy nadal blokuje Tworzenie lub aktualizowanie.
+Usługi Azure RBAC koncentrują się na zarządzaniu [akcjami](../../role-based-access-control/resource-provider-operations.md) użytkownika w różnych zakresach. Jeśli wymagana jest kontrola nad akcją, funkcja RBAC platformy Azure jest poprawnym narzędziem do użycia. Nawet jeśli osoba ma dostęp do wykonywania akcji, jeśli wynik jest niezgodnym zasobem, Azure Policy nadal blokuje Tworzenie lub aktualizowanie.
 
-Kombinacja RBAC i Azure Policy zapewniają pełną kontrolę zakresu na platformie Azure.
+Kombinacja RBAC i Azure Policy na platformie Azure zapewnia pełną kontrolę zakresu na platformie Azure.
 
-### <a name="rbac-permissions-in-azure-policy"></a>Uprawnienia RBAC w usłudze Azure Policy
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Uprawnienia usługi Azure RBAC w Azure Policy
 
 Usługa Azure Policy ma kilka uprawnień, znanych jako operacje, w ramach dwóch dostawców zasobów:
 
@@ -105,7 +105,7 @@ Poniżej przedstawiono kilka wskazówek i porad, które warto uwzględnić:
 
 Proces tworzenia i implementowania zasad w usłudze Azure Policy rozpoczyna się od utworzenia definicji zasad. Każda definicja zasad zawiera warunki, w jakich zasady są wymuszane. Zawiera także zdefiniowany efekt, który występuje w przypadku spełnienia warunków.
 
-Usługa Azure Policy oferuje kilka wbudowanych zasad, które są domyślnie dostępne. Przykład:
+Usługa Azure Policy oferuje kilka wbudowanych zasad, które są domyślnie dostępne. Na przykład:
 
 - **Dozwolone jednostki SKU konta magazynu** (odmowa): określa, czy wdrożone konto magazynu znajduje się w zestawie rozmiarów jednostki SKU. Jej efektem jest odrzucanie wszystkich kont magazynu, które nie są zgodne z zestawem zdefiniowanych rozmiarów SKU.
 - **Dozwolony typ zasobu** (Odmów): określa typy zasobów, które można wdrożyć. Jej efektem jest odrzucanie wszystkich zasobów, które nie należą do tej zdefiniowanej listy.

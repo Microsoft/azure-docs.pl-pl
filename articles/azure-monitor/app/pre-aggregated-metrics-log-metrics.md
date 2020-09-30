@@ -6,20 +6,20 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516944"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539133"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metryki oparte na dzienniku i metryki wstępnie zagregowane w usłudze Application Insights
 
-W tym artykule opisano różnicę między "tradycyjnymi" Application Insights metrykami opartymi na dziennikach i wstępnie zagregowanymi metrykami, które są obecnie dostępne w publicznej wersji zapoznawczej. Oba typy metryk są dostępne dla użytkowników Application Insights, a każda z nich ma unikatową wartość monitorowania kondycji aplikacji, diagnostyki i analizy. Deweloperzy, którzy tworzą instrumentację aplikacji, mogą zdecydować, który typ metryki jest najlepiej dostosowany do określonego scenariusza, w zależności od rozmiaru aplikacji, oczekiwanej ilości danych telemetrycznych i wymagań firmy dotyczących dokładności metryk i alertów.
+W tym artykule opisano różnicę między "tradycyjnymi" Application Insights metrykami opartymi na dziennikach i metrykami wstępnie zagregowanymi. Oba typy metryk są dostępne dla użytkowników Application Insights, a każda z nich ma unikatową wartość monitorowania kondycji aplikacji, diagnostyki i analizy. Deweloperzy, którzy tworzą instrumentację aplikacji, mogą zdecydować, który typ metryki jest najlepiej dostosowany do określonego scenariusza, w zależności od rozmiaru aplikacji, oczekiwanej ilości danych telemetrycznych i wymagań firmy dotyczących dokładności metryk i alertów.
 
 ## <a name="log-based-metrics"></a>Metryki oparte na dzienniku
 
-Przede wszystkim model danych telemetrii monitorowania aplikacji w Application Insights dotyczył wyłącznie niewielkiej liczby wstępnie zdefiniowanych typów zdarzeń, takich jak żądania, wyjątki, wywołania zależności, wyświetlenia stron itd. Deweloperzy mogą użyć zestawu SDK do emisji tych zdarzeń ręcznie (przez napisanie kodu, który jawnie wywołuje zestaw SDK), lub może polegać na automatycznym zbieraniu zdarzeń z automatycznej Instrumentacji. W obu przypadkach Application Insights zaplecza przechowuje wszystkie zebrane zdarzenia jako dzienniki i Application Insightse w Azure Portal działa jako narzędzie analityczne i diagnostyczne służące do wizualizacji danych opartych na zdarzeniach z dzienników.
+W przeszłości model danych telemetrii monitorowania aplikacji w Application Insights dotyczył wyłącznie niewielkiej liczby wstępnie zdefiniowanych typów zdarzeń, takich jak żądania, wyjątki, wywołania zależności, wyświetlenia stron itd. Deweloperzy mogą użyć zestawu SDK do emisji tych zdarzeń ręcznie (przez napisanie kodu, który jawnie wywołuje zestaw SDK), lub może polegać na automatycznym zbieraniu zdarzeń z automatycznej Instrumentacji. W obu przypadkach Application Insights zaplecza przechowuje wszystkie zebrane zdarzenia jako dzienniki i Application Insightse w Azure Portal działa jako narzędzie analityczne i diagnostyczne służące do wizualizacji danych opartych na zdarzeniach z dzienników.
 
 Korzystanie z dzienników w celu zachowania kompletnego zestawu zdarzeń może przynieść dobrą wartość analityczną i diagnostykę. Na przykład można uzyskać dokładną liczbę żądań do określonego adresu URL z liczbą różnych użytkowników, którzy wykonali te wywołania. Można też uzyskać szczegółowe dane śledzenia diagnostyczne, w tym wyjątki i wywołania zależności dla każdej sesji użytkownika. Informacje tego typu mogą znacząco poprawić widoczność kondycji i użycia aplikacji, co pozwala skrócić czas potrzebny na zdiagnozowanie problemów z aplikacją.
 
@@ -35,7 +35,7 @@ Oprócz metryk opartych na dziennikach w późnej 2018 zespół Application Insi
 > [!IMPORTANT]
 > Zarówno metryki oparte na dzienniku, jak i wstępnie zagregowane współistnieją w Application Insights. Aby odróżnić te dwa, w Application Insights środowisku użytkownika metryki wstępnie zagregowane są teraz nazywane "metrykami standardowymi (wersja zapoznawcza)", podczas gdy tradycyjne metryki ze zdarzeń zostały zmienione na "metryki oparte na dziennikach".
 
-Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK lub nowsze dla platformy .NET) wstępnie zagregowane metryki podczas zbierania przed rozpoczęciem technik zmniejszenia ilości danych telemetrii. Oznacza to, że dokładność nowych metryk nie ma wpływ na próbkowanie i filtrowanie przy użyciu najnowszych zestawów SDK Application Insights.
+Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK lub nowsze dla platformy .NET) wstępnie zagregowane metryki podczas zbierania. Dotyczy to  [standardowych metryk wysyłanych domyślnie](../platform/metrics-supported.md#microsoftinsightscomponents) , tak aby dokładność nie dotyczyła pobierania próbek ani filtrowania. Ma również zastosowanie do metryk niestandardowych wysyłanych przy użyciu funkcji [GetMetric](./api-custom-events-metrics.md#getmetric) , co zmniejsza wzrost ilości danych i obniża koszty.
 
 W przypadku zestawów SDK, które nie implementują wstępnej agregacji (to jest starsze wersje zestawów SDK Application Insights lub dla Instrumentacji przeglądarki), Application Insights zaplecza nadal wypełnia nowe metryki, agregowanie zdarzeń odebranych przez punkt końcowy zbierania zdarzeń Application Insights. Oznacza to, że chociaż nie korzystasz ze zmniejszonej ilości danych przesyłanych za pośrednictwem sieci, nadal możesz użyć wstępnie zagregowanych metryk i zapewnić lepszą wydajność i obsługę alertów w czasie rzeczywistym, korzystając z zestawów SDK, które nie agregują wstępnie metryk podczas zbierania.
 
@@ -45,7 +45,7 @@ Warto zauważyć, że punkt końcowy kolekcji wstępnie agreguje zdarzenia przed
 
 Można użyć wstępnej agregacji z metrykami niestandardowymi. Dwie główne korzyści to możliwość konfiguracji i alertu na wymiarze metryki niestandardowej oraz zmniejszenia ilości danych wysyłanych z zestawu SDK do punktu końcowego kolekcji Application Insights.
 
-Istnieje kilka [sposobów wysyłania niestandardowych metryk z zestawu SDK Application Insights](./api-custom-events-metrics.md). Jeśli Twoja wersja zestawu SDK oferuje metody [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric) , jest to preferowany sposób wysyłania metryk niestandardowych, ponieważ w tym przypadku wstępne agregacja występuje w ramach zestawu SDK, nie tylko zmniejszenie ilości danych przechowywanych na platformie Azure, ale także ilości danych przesyłanych z zestawu sdk do Application Insights. W przeciwnym razie użyj metody [trackMetric](./api-custom-events-metrics.md#trackmetric) , która spowoduje wstępne agregowanie zdarzeń metryk podczas pozyskiwania danych.
+Istnieje kilka [sposobów wysyłania niestandardowych metryk z zestawu SDK Application Insights](./api-custom-events-metrics.md). Jeśli Twoja wersja zestawu SDK oferuje metody [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric) , jest to preferowany sposób wysyłania metryk niestandardowych, ponieważ w tym przypadku wstępne agregacja występuje w ramach zestawu SDK, nie tylko zmniejszenie ilości danych przechowywanych na platformie Azure, ale także ilości danych przesyłanych z zestawu sdk do Application Insights. W przeciwnym razie użyj metody [trackMetric](./api-custom-events-metrics.md#trackmetric)  , która spowoduje wstępne agregowanie zdarzeń metryk podczas pozyskiwania danych.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Niestandardowe wymiary metryk i wstępne agregacja
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 919eef113b1a44b84aacf306426ac4f82baa2423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321088"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542023"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do platformy Azure Blob Storage przy użyciu informacji o śledzeniu zmian przy użyciu Azure Portal
 
@@ -285,10 +285,10 @@ W tym kroku utworzysz potok z działaniem kopiowania, które kopiuje wszystkie d
 
 1. Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **Potok**.
 
-    ![Menu Nowy potok](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![Zrzut ekranu przedstawia opcję potoku dla fabryki danych.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **FullCopyPipeline**.
 
-    ![Menu Nowy potok](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![Zrzut ekranu przedstawia potok o podanej nazwie.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. W przyborniku **Działania** rozwiń pozycję **Przepływ danych**, a następnie przeciągnij i upuść działanie **Copy** (Kopiowanie) do powierzchni projektanta potoku i ustaw nazwę **FullCopyActivity**.
 
     ![Nazwa pełnego działania Copy (Kopiowanie)](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ W tym kroku utworzysz potok z działaniem kopiowania, które kopiuje wszystkie d
     ![Weryfikowanie potoku](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Aby opublikować jednostki (połączone usługi, zestawy danych i potoki), kliknij pozycję **Opublikuj**. Poczekaj na pomyślne zakończenie publikowania.
 
-    ![Przycisk Publikuj](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![Zrzut ekranu przedstawia fabrykę danych za pomocą przycisku Opublikuj wszystko o nazwie.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**.
 
     ![Publikowanie powiodło się](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ W tym kroku utworzysz potok z działaniem kopiowania, które kopiuje wszystkie d
 ### <a name="run-the-full-copy-pipeline"></a>Uruchamianie potoku pełnego kopiowania
 Kliknij pozycję **Wyzwól** na pasku narzędzi dla potoku, a następnie kliknij pozycję **Wyzwól teraz**.
 
-![Menu Wyzwól teraz](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![Zrzut ekranu przedstawia opcję Wyzwól teraz wybraną z menu wyzwalacza.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorowanie potoku pełnego kopiowania
 
 1. Kliknij kartę **Monitorowanie** po lewej stronie. Na liście zostanie wyświetlone uruchomienie potoku i jego stan. Aby odświeżyć listę, kliknij pozycję **Odśwież**. Linki w kolumnie Działania umożliwiają wyświetlanie uruchomień działań skojarzonych z uruchomieniem potoku oraz ponowne uruchamianie potoku.
 
-    ![Uruchomienia potoków](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, kliknij link **Wyświetl uruchomienia działań** w kolumnie **Akcje**. W potoku jest tylko jedno działanie, dlatego na liście jest wyświetlana tylko jedna pozycja. Aby powrócić do widoku Uruchomienia potoku, kliknij link **Potoki** u góry strony.
 
-    ![Uruchomienia działania](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![Zrzut ekranu przedstawia uruchomienia działań dla fabryki danych z łączem potoki o nazwie out.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Sprawdzanie wyników
 Zostanie wyświetlony plik o nazwie `incremental-<GUID>.txt` w folderze `incchgtracking` kontenera `adftutorial`.
@@ -362,19 +362,19 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
 
 1. W interfejsie użytkownika Data Factory przejdź do karty **Edycja** . Kliknij pozycję **+ (plus)** w lewym okienku, a następnie kliknij pozycję **potok**.
 
-    ![Menu Nowy potok](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![Zrzut ekranu pokazuje, jak utworzyć potok w fabryce danych.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Zostanie wyświetlona nowa karta służąca do konfigurowania potoku. Potok powinien być też widoczny w widoku drzewa. W oknie **Właściwości** zmień nazwę potoku na **IncrementalCopyPipeline**.
 
     ![Nazwa potoku](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Ustaw nazwę działania na **LookupLastChangeTrackingVersionActivity**. To działanie pobiera wersję rozwiązania Change Tracking używaną podczas ostatniej operacji kopiowania, które jest przechowywana w tabeli **wersja_rozwiązania_ChangeTracking_magazynu_tabel**.
 
-    ![Działanie Lookup (Wyszukiwanie) — nazwa](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![Zrzut ekranu przedstawia potok z działaniem Lookup.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Przejdź do obszaru **Ustawienia** w oknie **Właściwości** i wybierz pozycję **ChangeTrackingDataset** w polu **Źródłowy zestaw danych**.
 
-    ![Działanie Lookup (Wyszukiwanie) — ustawienia](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![Zrzut ekranu przedstawia kartę Ustawienia w okno Właściwości.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Przeciągnij działanie **Lookup** (Wyszukiwanie) z przybornika **Działania** do powierzchni projektanta potoku. Ustaw nazwę działania na **LookupCurrentChangeTrackingVersionActivity**. To działanie pobiera bieżącą wersję rozwiązania Change Tracking.
 
-    ![Działanie Lookup (Wyszukiwanie) — nazwa](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![Zrzut ekranu przedstawia potok z dwoma działaniami wyszukiwania.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Przejdź do karty **Ustawienia** w oknie **Właściwości** i wykonaj następujące czynności:
 
    1. Wybierz pozycję **SourceDataset** dla pola **Zestaw danych będący źródłem**.
@@ -385,7 +385,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Działanie Lookup (Wyszukiwanie) — ustawienia](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Zrzut ekranu przedstawia zapytanie dodane do karty Ustawienia w okno Właściwości.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. W przyborniku **Działania** rozwiń pozycję **Przepływ danych**, a następnie przeciągnij i upuść działanie **Copy** (Kopiowanie) do powierzchni projektanta potoku. Ustaw nazwę działania na **IncrementalCopyActivity**. To działanie kopiuje dane między ostatnią i bieżącą wersją rozwiązania Change Tracking w docelowym magazynie danych.
 
     ![Działanie Copy (Kopiowanie) — nazwa](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -421,7 +421,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | Ciąg | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Działanie Stored Procedure (Procedura składowana) — parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Połącz działanie Copy z działaniem procedury składowanej**. Przeciągnij i upuść **zielony** przycisk dołączony do działania Copy (Kopiowanie) w obszarze działania Stored Procedure (Procedura składowana).
@@ -432,21 +432,21 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
     ![Przycisk Weryfikuj](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Data Factory, klikając przycisk **Opublikuj wszystko**. Poczekaj na wyświetlenie komunikatu **Publikowanie powiodło się**.
 
-       ![Przycisk Publikuj](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Zrzut ekranu przedstawia przycisk Opublikuj wszystko dla fabryki danych.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Uruchamianie potoku kopiowania przyrostowego
 1. Kliknij pozycję **Wyzwól** na pasku narzędzi dla potoku, a następnie kliknij pozycję **Wyzwól teraz**.
 
-    ![Menu Wyzwól teraz](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Zrzut ekranu przedstawia potok z działaniami i opcję Wyzwól teraz wybraną z menu wyzwalacza.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. W oknie **Uruchomienie potoku** wybierz pozycję **Zakończ**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorowanie potoku kopiowania przyrostowego
 1. Kliknij kartę **Monitorowanie** po lewej stronie. Na liście zostanie wyświetlone uruchomienie potoku i jego stan. Aby odświeżyć listę, kliknij pozycję **Odśwież**. Linki w kolumnie **Działania** umożliwiają wyświetlanie uruchomień działań skojarzonych z uruchomieniem potoku oraz ponowne uruchamianie potoku.
 
-    ![Uruchomienia potoków](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych, w tym potoku.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, kliknij link **Wyświetl uruchomienia działań** w kolumnie **Akcje**. W potoku jest tylko jedno działanie, dlatego na liście jest wyświetlana tylko jedna pozycja. Aby powrócić do widoku Uruchomienia potoku, kliknij link **Potoki** u góry strony.
 
-    ![Uruchomienia działania](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![Zrzut ekranu przedstawia uruchomienia potoków dla fabryki danych z kilkoma oznaczonymi jako zakończone powodzeniem.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Sprawdzanie wyników

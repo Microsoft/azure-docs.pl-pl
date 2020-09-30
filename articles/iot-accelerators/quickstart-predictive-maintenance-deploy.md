@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "62106817"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541853"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Szybki start: testowanie opartego na chmurze rozwiązania pod kątem przeprowadzania analizy konserwacji predykcyjnej na połączonych urządzeniach
 
@@ -26,7 +26,7 @@ Silniki samolotów linii Fabrikam są wyposażone w czujniki, które monitorują
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
@@ -52,7 +52,7 @@ Po zakończeniu wdrożenia w Twojej subskrypcji platformy Azure na kafelku rozwi
 
 Na stronie **Aprowizowane rozwiązania** kliknij nowy akcelerator rozwiązań do konserwacji predykcyjnej.
 
-![Panel rozwiązania](./media/quickstart-predictive-maintenance-deploy/solution.png)
+![Zrzut ekranu przedstawiający stronę "rozwiązania aprowizacji" z wyróżnionym akceleratorem rozwiązania "Konserwacja predykcyjna".](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
  Na wyświetlonej stronie możesz przejrzeć informacje o akceleratorze rozwiązań. Wybierz pozycję **Przejdź do własnego akceleratora rozwiązań**, aby wyświetlić swój akcelerator rozwiązań konserwacji predykcyjnej:
 
@@ -76,7 +76,7 @@ W trakcie symulacji obejmującej 148 cykli jest przetwarzany pełny zestaw danyc
 
 Symulację można zatrzymać w dowolnym momencie, ale kliknięcie przycisku **Rozpocznij symulację** powoduje ponowne uruchomienie symulacji od początku zestawu danych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz dalsze działanie, akcelerator rozwiązań do konserwacji predykcyjnej powinien pozostać wdrożony.
 
@@ -91,4 +91,4 @@ W tym przewodniku Szybki start wdrożono akcelerator rozwiązań do konserwacji 
 Aby dowiedzieć się więcej na temat akceleratora rozwiązań i symulowanych silników samolotów, przejdź do następującego artykułu.
 
 > [!div class="nextstepaction"]
-> [Omówienie akceleratora rozwiązań do konserwacji zapobiegawczej](iot-accelerators-predictive-walkthrough.md)
+> [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](iot-accelerators-predictive-walkthrough.md)

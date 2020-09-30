@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422049"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538451"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Konfigurowanie ról niestandardowych usługi Azure AD w Privileged Identity Management
 
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby otworzyć ustawienia roli usługi Azure AD.
 1. Wybierz pozycję **ustawienie** , aby otworzyć stronę **Ustawienia** . Wybierz rolę dla ustawień, które chcesz skonfigurować.
 1. Wybierz pozycję **Edytuj** , aby otworzyć stronę **Ustawienia roli** .
 
-    ![Otwórz rolę niestandardową usługi Azure AD, aby edytować ustawienia](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Zrzut ekranu przedstawiający stronę "Szczegóły ustawienia roli" z wybraną akcją "Edytuj".](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## <a name="role-settings"></a>Ustawienia roli
 

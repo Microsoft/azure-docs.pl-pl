@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: c32e1bc6e219ff645223cc34cf78991e229b86f0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935929"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537637"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Dodawanie profilów oceniania do indeksu usługi Azure Cognitive Search
 
@@ -281,6 +281,6 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 
 ## <a name="see-also"></a>Zobacz też  
 
-+ [Dokumentacja interfejsu API REST](/rest/api/searchservice/)   
-+ [Tworzenie interfejsu API indeksu](/rest/api/searchservice/create-index)   
-+ [Azure Wyszukiwanie poznawcze .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
++ [Dokumentacja interfejsu API REST](/rest/api/searchservice/)
++ [Tworzenie interfejsu API indeksu](/rest/api/searchservice/create-index)
++ [Azure Wyszukiwanie poznawcze .NET SDK](/dotnet/api/overview/azure/search?)

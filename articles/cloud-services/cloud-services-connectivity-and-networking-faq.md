@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77019404"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533421"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z łącznością i siecią dla platformy Azure Cloud Services: często zadawane pytania
 
@@ -99,7 +99,7 @@ Ponieważ to powiązanie nagłówka hosta jest wymuszane za pośrednictwem pliku
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Jak upewnić się, że publiczny adres IP usługi w chmurze nigdy nie ulega zmianie?
 
-Aby upewnić się, że publiczny adres IP usługi w chmurze (znany również jako adres VIP) nigdy nie zmienia się, dzięki czemu może być zwykle listy dozwolonych przez kilku konkretnych klientów, zalecamy, aby z nim skojarzony był zastrzeżony adres IP. W przeciwnym razie wirtualny adres IP dostarczony przez platformę Azure zostanie cofnięty po usunięciu wdrożenia. W przypadku pomyślnej operacji zamiany adresu VIP wymagane są indywidualne zastrzeżone adresy IP dla miejsc produkcyjnych i przejściowych. Bez nich operacja zamiany kończy się niepowodzeniem. Aby zarezerwować adres IP i skojarzyć go z usługą w chmurze, zobacz następujące artykuły:
+Aby upewnić się, że publiczny adres IP usługi w chmurze (znany również jako adres VIP) nigdy nie zmienia się, tak aby można go było zwyczajowo zatwierdzić przez kilku konkretnych klientów, zalecamy zastrzeżony adres IP. W przeciwnym razie wirtualny adres IP dostarczony przez platformę Azure zostanie cofnięty po usunięciu wdrożenia. W przypadku pomyślnej operacji zamiany adresu VIP wymagane są indywidualne zastrzeżone adresy IP dla miejsc produkcyjnych i przejściowych. Bez nich operacja zamiany kończy się niepowodzeniem. Aby zarezerwować adres IP i skojarzyć go z usługą w chmurze, zobacz następujące artykuły:
 
 - [Zarezerwuj adres IP istniejącej usługi w chmurze](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Kojarzenie zastrzeżonego adresu IP z usługą w chmurze przy użyciu pliku konfiguracji usługi](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

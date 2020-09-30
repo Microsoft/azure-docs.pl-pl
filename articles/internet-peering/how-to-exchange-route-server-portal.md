@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700672"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537195"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange z serwerem tras w Azure Portal
 
@@ -74,7 +74,7 @@ Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikac
 1.  W obszarze **bezpośrednie połączenie komunikacji równorzędnej**wypełnij następujące szczegóły sesji BGP:
 
     > [!div class="mx-imgBorder"]
-    > ![Skonfiguruj bezpośredni serwer tras komunikacji równorzędnej](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Zrzut ekranu przedstawia okienko bezpośrednie połączenie komunikacji równorzędnej z dodatkowymi informacjami.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Funkcja komunikacji równorzędnej, wybierz odpowiednią lokalizację fizyczną dla komunikacji równorzędnej
@@ -99,19 +99,19 @@ Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikac
 1. Wybierz pozycję **zarejestrowany WPW** w sekcji Ustawienia.
 
     > [!div class="mx-imgBorder"]
-    > ![Skonfiguruj bezpośredni serwer tras komunikacji równorzędnej](./media/setup-exchange-registered-asn.png)
+    > ![Zrzut ekranu przedstawia okienko komunikacji równorzędnej z zarejestrowanym elementem menu S NS o nazwie out.](./media/setup-exchange-registered-asn.png)
 
 1. Wybierz pozycję **Dodaj zarejestrowany numer ASN** , aby utworzyć nowy numer ASN klienta w ramach subskrypcji programu Exchange.
 
     > [!div class="mx-imgBorder"]
-    > ![Skonfiguruj bezpośredni serwer tras komunikacji równorzędnej](./media/setup-exchange-register-new-asn.png)
+    > ![Zrzut ekranu przedstawia okienko rejestr A N z polami tekstowym Nazwa i S N.](./media/setup-exchange-register-new-asn.png)
 
 1. W obszarze zarejestruj numer ASN wybierz nazwę i wypełnij klienta, a następnie kliknij przycisk Zapisz.
 
 1. W obszarze zarejestrowane WPW otrzymasz skojarzony klucz prefiksu przypisany do każdego numeru ASN. Jako dostawca usługi Exchange musisz podać ten klucz prefiksu klientowi, aby mógł zarejestrować usługę komunikacji równorzędnej w ramach swojej subskrypcji.
 
     > [!div class="mx-imgBorder"]
-    > ![Skonfiguruj bezpośredni serwer tras komunikacji równorzędnej](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Zrzut ekranu przedstawia okienko zarejestrowane S NS z kluczami prefiksów.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 
@@ -130,6 +130,6 @@ Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikac
 * [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu](howto-direct-portal.md)
 * [Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](howto-legacy-direct-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 1d816a84dc8062890633661716cf78aa5ba58527
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a04657463808a3df3634102c0295f4b79a7b4579
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888842"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537858"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Szybki Start: Tworzenie klastra Apache Spark w usłudze Azure HDInsight przy użyciu Azure Portal
 
@@ -40,7 +40,7 @@ Użyj Azure Portal, aby utworzyć klaster usługi HDInsight, który korzysta z o
 
     ![Azure Portal utworzyć zasobu](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png "Tworzenie zasobu w witrynie Azure Portal")
 
-1. Wybierz pozycję **Analiza** > **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
+1. Wybierz pozycję **Analiza**  >  **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
 
 1. Na karcie **podstawowe** podaj następujące informacje:
 
@@ -49,14 +49,14 @@ Użyj Azure Portal, aby utworzyć klaster usługi HDInsight, który korzysta z o
     |Subskrypcja  | Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra. |
     |Grupa zasobów | Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
     |Nazwa klastra | Podaj globalnie unikatową nazwę.|
-    |Region   | Z listy rozwijanej wybierz region, w którym tworzony jest klaster. |
+    |Region (Region)   | Z listy rozwijanej wybierz region, w którym tworzony jest klaster. |
     |Typ klastra| Wybierz pozycję Wybierz typ klastra, aby otworzyć listę. Z listy wybierz pozycję **Spark**.|
     |Wersja klastra|Po wybraniu typu klastra pole zostanie automatycznie wypełnione przy użyciu domyślnej wersji.|
     |Nazwa użytkownika logowania klastra| Wprowadź nazwę użytkownika logowania klastra.  Nazwa domyślna to **admin**. To konto jest używane do logowania się do notesu Jupyter w dalszej części przewodnika Szybki Start. |
     |Hasło logowania klastra| Wprowadź hasło logowania klastra. |
     |Nazwa użytkownika protokołu SSH (Secure Shell)| Wprowadź nazwę użytkownika protokołu SSH. Nazwą użytkownika protokołu SSH używaną w tym przewodniku Szybki start jest **sshuser**. Domyślnie to konto współdzieli hasło z kontem *Nazwa użytkownika logowania klastra*. |
 
-    ![Tworzenie podstawowych konfiguracji klastra usługi HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Tworzenie klastra Spark w usłudze HDInsight konfiguracje podstawowe")
+    ![Zrzut ekranu przedstawia tworzenie klastra usługi H Insights z wybraną kartą podstawowe.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Tworzenie klastra Spark w usłudze HDInsight konfiguracje podstawowe")
 
     Wybierz pozycję **Dalej: magazyn >>** , aby kontynuować na stronie **Magazyn** .
 
@@ -69,7 +69,7 @@ Użyj Azure Portal, aby utworzyć klaster usługi HDInsight, który korzysta z o
     |Konto magazynu podstawowego|Użyj automatycznie wypełnionej wartości.|
     |Kontener|Użyj automatycznie wypełnionej wartości.|
 
-    ![Tworzenie podstawowych konfiguracji klastra usługi HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Tworzenie klastra Spark w usłudze HDInsight konfiguracje podstawowe")
+    ![Zrzut ekranu przedstawia tworzenie klastra usługi H Insights z wybraną kartą magazyn.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Tworzenie klastra Spark w usłudze HDInsight konfiguracje podstawowe")
 
     Wybierz pozycję **Recenzja + Utwórz** , aby kontynuować.
 
@@ -81,9 +81,9 @@ Jeśli wystąpi problem z tworzeniem klastrów usługi HDInsight, może to oznac
 
 Jupyter Notebook to interakcyjne środowisko notesu, które obsługuje różne języki programowania. Notes pozwala na interakcję z danymi, łączenie kodu z tekstem markdown i wykonywanie prostych wizualizacji.
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/jupyter` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla klastra.
 
-1. Wybierz pozycję **New** > **PySpark** , aby utworzyć Notes.
+1. Wybierz pozycję **New**  >  **PySpark** , aby utworzyć Notes.
 
    ![Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL")
 
@@ -95,7 +95,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
 
 1. Sprawdź, czy jądro jest gotowe. Gotowość jądra jest sygnalizowana pustym okręgiem obok nazwy jądra w notesie. Pełne kółko oznacza, że jądro jest zajęte.
 
-    ![Zapytanie Apache Hive w usłudze HDInsight](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Zapytanie programu Hive w usłudze HDInsight")
+    ![Zrzut ekranu przedstawia okno Jupyter ze wskaźnikiem PySpark.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Zapytanie programu Hive w usłudze HDInsight")
 
     Podczas pierwszego uruchamiania notesu jądro wykonuje pewne zadania w tle. Poczekaj, aż jądro będzie gotowe.
 
@@ -106,9 +106,9 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
     SHOW TABLES
     ```
 
-    W przypadku korzystania z Jupyter Notebook z klastrem usługi HDInsight zostanie wyświetlone ustawienie wstępne `sqlContext` , za pomocą którego można uruchamiać zapytania Hive przy użyciu platformy Spark SQL. Wyrażenie `%%sql` informuje notes Jupyter o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania programu Hive. Zapytanie pobiera pierwszych 10 wierszy z tabeli programu Hive (**hivesampletable**), która jest dostępna domyślnie na wszystkich klastrach usługi HDInsight. Uzyskanie wyników zajmuje około 30 sekund. Dane wyjściowe wyglądają następująco:
+    W przypadku korzystania z Jupyter Notebook z klastrem usługi HDInsight zostanie wyświetlone ustawienie wstępne, `sqlContext` za pomocą którego można uruchamiać zapytania Hive przy użyciu platformy Spark SQL. Wyrażenie `%%sql` informuje notes Jupyter o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania programu Hive. Zapytanie pobiera pierwszych 10 wierszy z tabeli programu Hive (**hivesampletable**), która jest dostępna domyślnie na wszystkich klastrach usługi HDInsight. Uzyskanie wyników zajmuje około 30 sekund. Dane wyjściowe wyglądają następująco:
 
-    ![Zapytanie Apache Hive w usłudze HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Zapytanie programu Hive w usłudze HDInsight")
+    ![Zrzut ekranu przedstawia okno Jupyter dla notesu utworzonego w tym przewodniku Szybki Start.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Zapytanie programu Hive w usłudze HDInsight")
 
     Podczas każdego uruchomienia zapytania w programie Jupyter w tytule okna przeglądarki internetowej wyświetlany jest stan **(Busy)** (Zajęty) wraz z tytułem notesu. Widoczne jest także pełne kółko obok tekstu **PySpark** w prawym górnym rogu.
 
@@ -125,7 +125,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
 
 1. W menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Zamknięcie notesu spowoduje zwolnienie zasobów klastra.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usługa HDInsight zapisuje dane w usłudze Azure Storage lub Azure Data Lake Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane. Jeśli planujesz natychmiastowe rozpoczęcie pracy z samouczkiem z listy [Następne kroki](#next-steps), warto zachować klaster.
 

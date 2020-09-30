@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536617"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikowanie danych do Azure Database for MariaDB
 
@@ -26,18 +26,18 @@ Główne scenariusze, które należy wziąć pod uwagę przy użyciu replikacja 
 ## <a name="limitations-and-considerations"></a>Ograniczenia i istotne zagadnienia
 
 ### <a name="data-not-replicated"></a>Dane nie zostały zreplikowane
-[*Baza danych systemu MySQL*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) na serwerze głównym nie jest replikowana. Zmiany kont i uprawnień na serwerze głównym nie są replikowane. Jeśli utworzysz konto na serwerze głównym, a to konto musi uzyskać dostęp do serwera repliki, utwórz je ręcznie na stronie serwera repliki. Aby zrozumieć, jakie tabele są zawarte w systemowej bazie danych, zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+[*Baza danych systemu MySQL*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) na serwerze źródłowym nie jest replikowana. Zmiany kont i uprawnień na serwerze źródłowym nie są replikowane. Jeśli utworzysz konto na serwerze źródłowym, a to konto musi uzyskać dostęp do serwera repliki, utwórz je ręcznie na stronie serwera repliki. Aby zrozumieć, jakie tabele są zawarte w systemowej bazie danych, zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Wymagania
-- Wersja serwera głównego musi mieć co najmniej MariaDB w wersji 10,2.
-- Wersje serwerów głównych i replik muszą być takie same. Na przykład obydwie muszą być MariaDB w wersji 10,2.
+- Wersja serwera źródłowego musi mieć co najmniej MariaDB w wersji 10,2.
+- Wersja serwera źródłowego i repliki musi być taka sama. Na przykład obydwie muszą być MariaDB w wersji 10,2.
 - Każda tabela musi mieć klucz podstawowy.
-- Serwer główny powinien używać aparatu InnoDB.
-- Użytkownik musi mieć uprawnienia do konfigurowania rejestrowania plików binarnych i tworzenia nowych użytkowników na serwerze głównym.
-- Jeśli na serwerze głównym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mariadb.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
-- Upewnij się, że adres IP serwera głównego został dodany do reguł zapory serwera repliki usługi Azure Database for MariaDB. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
-- Upewnij się, że maszyna hostująca serwer główny zezwala na ruch przychodzący i wychodzący na porcie 3306.
-- Upewnij się, że serwer główny ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
+- Serwer źródłowy powinien używać aparatu InnoDB.
+- Użytkownik musi mieć uprawnienia do konfigurowania rejestrowania plików binarnych i tworzenia nowych użytkowników na serwerze źródłowym.
+- Jeśli na serwerze źródłowym jest włączony protokół SSL, upewnij się, że certyfikat urzędu certyfikacji SSL podany dla domeny został uwzględniony w `mariadb.az_replication_change_master` procedurze składowanej. Zapoznaj się z poniższymi [przykładami](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) i `master_ssl_ca` parametrem.
+- Upewnij się, że adres IP serwera źródłowego został dodany do reguł zapory serwera repliki Azure Database for MariaDB. Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Upewnij się, że komputer obsługujący serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306.
+- Upewnij się, że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN).
 
 ### <a name="other"></a>Inne
 - Replikacja danych jest obsługiwana tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.

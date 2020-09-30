@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090386"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542380"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Odbieraj i potwierdzaj wiadomości AS2 B2B przy użyciu Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
 
@@ -111,7 +111,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
    Teraz zostanie wyświetlony kształt warunku, w tym ścieżki dotyczące tego, czy warunek jest spełniony, czy nie.
 
-   ![Kształt warunku z ścieżkami decyzji](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Zrzut ekranu przedstawia kształt warunku z pustymi ścieżkami.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Teraz Określ warunek do obliczenia. W polu **Wybierz wartość** wprowadź następujące wyrażenie:
 
@@ -119,7 +119,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
    W środkowym polu upewnij się, że operacja porównywania jest ustawiona na `is equal to` . W polu po prawej stronie Wprowadź wartość `Expected` . Aby uzyskać wyrażenie do rozpoznania jako ten token, przełączać się między projektantem a widokiem kodu.
 
-   ![Kształt warunku z ścieżkami decyzji](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Zrzut ekranu przedstawia kształt warunku z dodanym warunkiem.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Teraz Określ odpowiedzi, aby zwrócić, czy Akcja **dekodowania AS2** powiodła się.
 

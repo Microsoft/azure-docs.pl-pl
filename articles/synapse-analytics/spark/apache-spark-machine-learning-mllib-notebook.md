@@ -1,22 +1,22 @@
 ---
-title: Tworzenie aplikacji Machine Learning przy użyciu Apache Spark MLlib
-description: Dowiedz się, jak za pomocą Apache Spark MLlib utworzyć aplikację uczenia maszynowego, która analizuje zestaw danych przy użyciu klasyfikacji logistycznej.
+title: 'Samouczek: Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib'
+description: Samouczek dotyczący sposobu korzystania z programu Apache Spark MLlib do tworzenia aplikacji usługi Machine Learning, która analizuje zestaw danych przy użyciu klasyfikacji logistycznej.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259989"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540323"
 ---
-# <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
+# <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Samouczek: Tworzenie aplikacji usługi Machine Learning przy użyciu usług Apache Spark MLlib i Azure Synapse Analytics
 
 W tym artykule dowiesz się, jak za pomocą programu Apache Spark [MLlib](https://spark.apache.org/mllib/) utworzyć aplikację uczenia maszynowego, która wykonuje prostą analizę predykcyjną w otwartym zestawie danych platformy Azure. Platforma Spark udostępnia wbudowane biblioteki uczenia maszynowego. W tym przykładzie stosowana jest *Klasyfikacja* przy użyciu regresji logistycznej.
 

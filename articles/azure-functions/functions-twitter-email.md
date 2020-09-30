@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208556"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537756"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzenie funkcji integrującej się z usługą Azure Logic Apps
 
@@ -182,7 +182,7 @@ Teraz aplikacja jest połączona z usługą Twitter. Następnie należy połącz
 
 2. W obszarze **Wybierz akcję** wpisz **Analiza tekstu**, a następnie kliknij akcję **Wykryj tonację**.
     
-    ![Nowy krok, a następnie pozycja Dodaj akcję](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Zrzut ekranu przedstawiający sekcję "Wybieranie akcji" z "analiza tekstu" w polu wyszukiwania oraz wybraną akcję "Wykryj tonacji". ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Wpisz nazwę połączenia, taką jak `MyCognitiveServicesConnection`, wklej klucz interfejsu API usług Cognitive Services i punkt końcowy usług Cognitive Services zapisane w edytorze tekstów, a następnie kliknij pozycję **Utwórz**.
 
@@ -202,7 +202,7 @@ Skonfigurowano już wykrywanie tonacji, więc można dodać połączenie z funkc
   
 4. Wybierz aplikację funkcji, która została utworzona wcześniej.
 
-    ![Wybieranie funkcji](media/functions-twitter-email/15-select-function.png)
+    ![Zrzut ekranu pokazujący sekcję "Wybieranie akcji" z wybraną aplikacją funkcji.](media/functions-twitter-email/15-select-function.png)
 
 5. Wybierz funkcję, która została utworzona na potrzeby tego samouczka.
 
@@ -228,7 +228,7 @@ Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy 
 
 3. W obszarze **Jeśli prawda** kliknij pozycję **Dodaj akcję**, wyszukaj `outlook.com`, kliknij pozycję **Wyślij wiadomość e-mail** i zaloguj się na koncie w usłudze Outlook.com.
 
-    ![Skonfiguruj wiadomość e-mail do wysłania oraz akcję jej wysyłania.](media/functions-twitter-email/20-add-outlook.png)
+    ![Zrzut ekranu przedstawiający sekcję "Jeśli prawda" z "outlook.com" wprowadzoną w polu wyszukiwania i wybraną akcję "Wyślij wiadomość e-mail".](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Jeśli nie masz konta usługi Outlook.com, możesz wybrać inny łącznik, taki jak usługi Gmail lub programu Outlook w usłudze Office 365.
@@ -239,7 +239,7 @@ Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy 
     
 | Ustawienie      |  Sugerowana wartość   | Opis  |
 | ----------------- | ------------ | ------------- |
-| **Do** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
+| **Działanie** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
 | **Temat** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
 | **Treść** | Tekst tweetu, lokalizacja | Kliknij parametry **Tekst tweetu** i **Lokalizacja**. |
 

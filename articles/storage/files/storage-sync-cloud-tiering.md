@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329316"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538184"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -40,7 +40,7 @@ Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatn
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?
 
-W przypadku agenta w wersji 12 i nowszej minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. Minimalny rozmiar pliku kwalifikującego się do obsługi warstw w chmurze jest obliczany przez 2. rozmiar klastra i co najmniej 8 KB. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
+W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. Minimalny rozmiar pliku kwalifikującego się do obsługi warstw w chmurze jest obliczany przez 2. rozmiar klastra i co najmniej 8 KB. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
 
 |Rozmiar klastra objętościowego (w bajtach) |Pliki o tym rozmiarze lub większe mogą być warstwowe  |
 |----------------------------|---------|
@@ -50,7 +50,7 @@ W przypadku agenta w wersji 12 i nowszej minimalny rozmiar pliku do warstwy jest
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536) i większych    | 128 KB  |
 
-W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 i nowszej obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów nawet do 64 KB, ale nie działają.
+W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 (przyszła wersja agenta) obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów nawet do 64 KB, ale nie działają.
 
 Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Gdy rozmiary plików nie są dostępne nawet dla wielu rozmiarów klastra, należy użyć dodatkowego miejsca do przechowywania plików do kolejnej wielokrotności rozmiaru klastra.
 

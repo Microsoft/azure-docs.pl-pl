@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712517"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539405"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Samouczek: wykrywanie problemów z urządzeniami połączonymi z rozwiązaniem do monitorowania
 
@@ -122,7 +122,7 @@ Możesz włączać i wyłączać wiele reguł jednocześnie, wybierając wiele r
 
 Aby trwale usunąć regułę, możesz usunąć ją na liście reguł. Wybierz regułę, którą chcesz usunąć, a następnie wybierz polecenie **Usuń**.
 
-[![Usuń regułę](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Zrzut ekranu przedstawiający stronę "reguły" z wyróżnionym oknem "Usuń regułę".](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 Po potwierdzeniu, że chcesz usunąć regułę, istnieje możliwość usunięcia wszelkich alertów skojarzonych z tą regułą ze strony **Konserwacja**.
 

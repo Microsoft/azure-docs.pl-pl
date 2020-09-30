@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399019"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534951"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Zarejestruj usługę komunikacji równorzędnej przy użyciu Azure Portal
 
@@ -72,14 +72,14 @@ W przeglądarce przejdź do Azure Portal i zaloguj się przy użyciu konta platf
 1. Wybierz pozycję **Utwórz nowy prefiks** u dołu sekcji **prefiksy** , a następnie Wyświetl pola tekstowe. Teraz wprowadź nazwę zasobu prefiksu i prefiksy, które są skojarzone z dostawcą usług.
 
 1. Wybierz pozycję **klucz prefiksu** i Dodaj klucz prefiksu, który został udzielony przez dostawcę (ISP lub IXP). Ten klucz umożliwia firmie Microsoft sprawdzenie poprawności prefiksu i dostawcy, którym przydzielono prefiks IP.
-   > ![Karta Konfiguracja usługi Komunikacja równorzędna](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![Zrzut ekranu przedstawia kartę Konfiguracja strony Tworzenie połączenia z usługą komunikacji równorzędnej, w której można wprowadzić klucz prefiksu.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Wybierz przycisk **Recenzja + Utwórz** w lewym dolnym rogu strony. Zostanie wyświetlona strona **Recenzja + tworzenie** , a platforma Azure weryfikuje konfigurację.
     
 
 1. Gdy zostanie wyświetlony komunikat **zweryfikowano** , jak pokazano, wybierz pozycję **Utwórz**.
 
-   > ![Karta Konfiguracja usługi Komunikacja równorzędna](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Zrzut ekranu przedstawia kartę Przegląd + tworzenie na stronie Tworzenie połączenia z usługą komunikacji równorzędnej.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. Po zarejestrowaniu połączenia z usługą komunikacji równorzędnej zostanie przeprowadzone dodatkowe sprawdzanie poprawności zawartych prefiksów. Stan sprawdzania poprawności można sprawdzić w sekcji **prefiksy** nazwy zasobu. Jeśli sprawdzanie poprawności nie powiedzie się, zostanie wyświetlony jeden z następujących komunikatów o błędach:

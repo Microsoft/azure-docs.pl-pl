@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898886"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536770"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
 
@@ -22,11 +22,11 @@ W tym artykule opisano moduł programu Azure Machine Learning Designer.
 
 Użyj operacji stosowania matematycznego, aby utworzyć obliczenia, które są stosowane do kolumn liczbowych w wejściowym zestawie danych. 
 
-Obsługiwane operacje matematyczne obejmują typowe funkcje arytmetyczne, takie jak mnożenie i dzielenie, funkcje trygonometryczne, różne funkcje zaokrąglania oraz specjalne funkcje używane w nauce danych, takie jak gamma i funkcje błędów.  
+Operacje matematyczne obejmują funkcje arytmetyczne, funkcje trygonometryczne, funkcje zaokrąglania i funkcje specjalne używane w nauce danych, takie jak gamma i funkcje błędów.  
 
 Po zdefiniowaniu operacji i uruchomieniu potoku wartości są dodawane do zestawu danych. W zależności od sposobu konfigurowania modułu można:
 
-+ Dołącz wyniki do zestawu danych. Jest to szczególnie przydatne podczas weryfikowania wyniku operacji.
++ Dołącz wyniki do zestawu danych (przydatne podczas weryfikowania wyniku operacji).
 + Zamień wartości kolumn na nowe, obliczone wartości.
 + Wygeneruj nową kolumnę dla wyników i nie wyświetlaj oryginalnych danych. 
 
@@ -55,7 +55,7 @@ Poszukaj potrzebnych operacji w następujących kategoriach:
 -   [Trygonometrycznych](#trigonometric-functions)  
   
      Kategoria **trygonometryczna** zawiera wszystkie standardowe funkcje trygonometryczne. Na przykład można skonwertować radiany na stopnie lub funkcje obliczeniowe, takie jak tangens w radianach lub stopniach.
-     Te funkcje są jednoargumentowe, co oznacza, że przyjmują jedną kolumnę wartości jako dane wejściowe, stosują funkcję trygonometryczną i zwracają kolumnę wartości jako wynik.  W związku z tym musisz upewnić się, że kolumna wejściowa jest odpowiednim typem i zawiera odpowiedni rodzaj wartości dla określonej operacji.   
+     Te funkcje są jednoargumentowe, co oznacza, że przyjmują jedną kolumnę wartości jako dane wejściowe, stosują funkcję trygonometryczną i zwracają kolumnę wartości jako wynik. Upewnij się, że kolumna wejściowa jest odpowiednim typem i zawiera poprawny typ wartości dla określonej operacji.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Jak skonfigurować stosowanie operacji matematycznych  
 
@@ -74,7 +74,7 @@ Każde wystąpienie tego modułu może wykonywać tylko jeden typ operacji jedno
     - Każda wybrana kolumna musi być typem danych liczbowych. 
     - Zakres danych musi być prawidłowy dla wybranej operacji matematycznej. W przeciwnym razie może wystąpić błąd lub NaN (nie liczba). Na przykład ln (-1,0) jest nieprawidłową operacją, a wynikiem jest wartość `NaN` .
   
-1.  Kliknij pozycję **Kategoria** , aby wybrać **Typ** operacji matematycznej do wykonania.
+1.  Wybierz **kategorię** , aby wybrać **Typ** operacji matematycznej do wykonania.
     
 1. Wybierz określoną operację z listy w tej kategorii.
   
@@ -95,7 +95,7 @@ W przypadku generowania wyników przy użyciu opcji **Dołącz** lub **ResultOnl
 -   **Równa się (Col2_Col1)**, co oznacza, że przetestowano Col2 z Kol1.  
 -   **Równa się (Col2_ $10)**, wskazujący, że kolumna 2 została porównana z stałą 10.  
 
-Nawet jeśli używasz opcji **InPlace** , dane źródłowe nie zostaną usunięte ani zmienione; kolumna w oryginalnym zestawie danych jest nadal dostępna w projektancie. Aby wyświetlić oryginalne dane, można połączyć moduł [Dodaj kolumny](add-columns.md) i dołączyć go do danych wyjściowych **operacji Zastosuj matematyczne**.  
+Nawet jeśli używasz opcji **w miejscu** , dane źródłowe nie zostaną usunięte ani zmienione; kolumna w oryginalnym zestawie danych jest nadal dostępna w projektancie. Aby wyświetlić oryginalne dane, można połączyć moduł [Dodaj kolumny](add-columns.md) i dołączyć go do danych wyjściowych **operacji Zastosuj matematyczne**.  
     
 ## <a name="basic-math-operations"></a>Podstawowe operacje matematyczne 
 
@@ -113,7 +113,7 @@ Zwraca arcus tangens z czterema ćwiartkami.
 
 Wybierz kolumny zawierające współrzędne punktu. Dla drugiego argumentu, który odnosi się do współrzędnej x, można również określić stałą.  
 
-Odnosi się do funkcji ATAN2 w programie Matlab.  
+Odnosi się do funkcji ATAN2 w programie MATLAB.  
 
 ### <a name="conj"></a>Conj
 
@@ -124,15 +124,15 @@ Zwraca wartość koniugat dla wartości z zaznaczonej kolumny.
 Oblicza pierwiastek modułu dla wartości z zaznaczonej kolumny.  
 
 ### <a name="doublefactorial"></a>DoubleFactorial  
- Oblicza podwójną silnię dla wartości w zaznaczonej kolumnie. Podwójna silnia jest rozszerzeniem normalnej funkcji silnia i jest oznaczona jako x!!.  
+ Oblicza podwójną silnię dla wartości w zaznaczonej kolumnie. Podwójna silnia jest rozszerzeniem normalnej funkcji silni i jest oznaczona jako `x!!` .  
 
 ### <a name="eps"></a>Formacie
 
-Zwraca rozmiar przerwy między bieżącą wartością a numerem następnego lub podwójnej precyzji. Odnosi się do funkcji EPS w programie Matlab.  
+Zwraca rozmiar przerwy między bieżącą wartością a numerem następnego lub podwójnej precyzji. Odnosi się do funkcji EPS w programie MATLAB.  
   
 ### <a name="exp"></a>Exp
 
-Zwraca liczbę e podniesioną do potęgi wartości z zaznaczonej kolumny. Jest to taka sama jak funkcja EXP programu Excel.  
+Zwraca liczbę e podniesioną do potęgi wartości z zaznaczonej kolumny. Ta funkcja jest taka sama jak funkcja EXP programu Excel.  
 
 ### <a name="exp2"></a>Exp2 —
 
@@ -170,11 +170,11 @@ Można określić wartość bazową (drugi argument) jako stałą lub wybierają
 
 ### <a name="log10"></a>Log10
 
-Zwraca wartości logarytmu podstawowego 10 dla zaznaczonej kolumny.  
+Zwraca podstawowe wartości 10-logarytmu dla zaznaczonej kolumny.  
 
 ### <a name="log2"></a>Log2 —
 
-Zwraca wartości logarytmu podstawowego 2 dla zaznaczonej kolumny.  
+Zwraca podstawowe 2-wartości logarytmu dla zaznaczonej kolumny.  
 
 ### <a name="nthroot"></a>NthRoot
 Zwraca n-ty z wartości przy użyciu określonej n.  
@@ -360,7 +360,7 @@ Funkcja Error (nazywana również funkcją błędu Gaussa) jest specjalną funkc
 
 Zwraca wartość komplementarnej funkcji błędu.  
 
-ERFC — jest definiowana jako 1 – ERF (x).  
+`Erfc` jest definiowana jako 1 – ERF (x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ Przeskalowana wersja funkcji Error może służyć do uniknięcia niedopełnieni
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Zwraca wartość funkcji odwrotnej ERF.  
+Zwraca wartość funkcji odwrotnej `erf` .  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 

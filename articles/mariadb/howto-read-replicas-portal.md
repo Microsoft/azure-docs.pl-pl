@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fc435194975c0b043e74a47632d6e38f12d04c2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121201"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542533"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -19,19 +19,19 @@ W tym artykule przedstawiono sposób tworzenia replik odczytu i zarządzania nim
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) , który będzie używany jako serwer główny.
+- [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) , który będzie używany jako serwer źródłowy.
 
 > [!IMPORTANT]
-> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer główny znajduje się w jednej z tych warstw cenowych.
+> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer źródłowy znajduje się w jednej z tych warstw cenowych.
 
-## <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+## <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 
 > [!IMPORTANT]
-> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
+> Podczas tworzenia repliki dla źródła, które nie ma istniejących replik, źródło zostanie najpierw ponownie uruchomione w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
 
 Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
 2. Wybierz istniejący serwer Azure Database for MariaDB, który ma być używany jako główny. Ta akcja powoduje otwarcie strony **Przegląd** .
 
@@ -45,14 +45,14 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
     ![Azure Database for MariaDB — nazwa repliki](./media/howto-read-replica-portal/replica-name.png)
 
-6. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera głównego.
+6. Wybierz lokalizację serwera repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera źródłowego.
 
     ![Azure Database for MariaDB — lokalizacja repliki](./media/howto-read-replica-portal/replica-location.png)
 
 7. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki.
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż źródło, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
 Po utworzeniu serwera repliki można go wyświetlić w bloku **replikacja** .
 
@@ -61,11 +61,11 @@ Po utworzeniu serwera repliki można go wyświetlić w bloku **replikacja** .
 ## <a name="stop-replication-to-a-replica-server"></a>Zatrzymaj replikację do serwera repliki
 
 > [!IMPORTANT]
-> Zatrzymywanie replikacji na serwerze jest nieodwracalne. Po zatrzymaniu replikacji między serwerem głównym a repliką nie można jej cofnąć. Serwer repliki stał się serwerem autonomicznym i obsługuje teraz zarówno odczyt, jak i zapis. Nie można ponownie wykonać tego serwera w replice.
+> Zatrzymywanie replikacji na serwerze jest nieodwracalne. Po zatrzymaniu replikacji między źródłem a repliką nie można jej cofnąć. Serwer repliki stał się serwerem autonomicznym i obsługuje teraz zarówno odczyt, jak i zapis. Nie można ponownie wykonać tego serwera w replice.
 
-Aby zatrzymać replikację między wzorcem i serwerem repliki z Azure Portal, wykonaj następujące czynności:
+Aby zatrzymać replikację między źródłem a serwerem repliki z Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal wybierz serwer główny Azure Database for MariaDB. 
+1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MariaDB. 
 
 2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 
@@ -85,7 +85,7 @@ Aby zatrzymać replikację między wzorcem i serwerem repliki z Azure Portal, wy
 
 Aby usunąć serwer repliki odczytu z Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal wybierz serwer główny Azure Database for MariaDB.
+1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MariaDB.
 
 2. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 
@@ -101,20 +101,20 @@ Aby usunąć serwer repliki odczytu z Azure Portal, wykonaj następujące czynno
 
    ![Potwierdzenie usunięcia repliki Azure Database for MariaDB](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
-## <a name="delete-a-master-server"></a>Usuwanie serwera głównego
+## <a name="delete-a-source-server"></a>Usuwanie serwera źródłowego
 
 > [!IMPORTANT]
-> Usunięcie serwera głównego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera głównego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
+> Usunięcie serwera źródłowego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera źródłowego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
 
-Aby usunąć serwer główny z Azure Portal, wykonaj następujące czynności:
+Aby usunąć serwer źródłowy z Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal wybierz serwer główny Azure Database for MariaDB.
+1. W Azure Portal wybierz swój źródłowy serwer Azure Database for MariaDB.
 
 2. W obszarze **Przegląd**wybierz pozycję **Usuń**.
 
    ![Azure Database for MariaDB-Usuń wzorzec](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Wpisz nazwę serwera głównego, a następnie kliknij przycisk **Usuń** , aby potwierdzić usunięcie serwera głównego.  
+3. Wpisz nazwę serwera źródłowego, a następnie kliknij przycisk **Usuń** , aby potwierdzić usunięcie serwera źródłowego.  
 
    ![Azure Database for MariaDB-Usuń wzorzec](./media/howto-read-replica-portal/delete-master-confirm.png)
 

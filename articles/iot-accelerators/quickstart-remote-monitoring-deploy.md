@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60890164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540238"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Szybki start: testowanie opartego na chmurze rozwiązania do monitorowania zdalnego
 
@@ -26,7 +26,7 @@ W tym przewodniku Szybki Start jest wdrażana **podstawowa** wersja akceleratora
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
@@ -127,13 +127,13 @@ Aby zamknąć zdarzenie, przejdź do strony **Konserwacja**, wybierz alert i ust
 
 Wartość w kolumnie stanu zmieni się na **Zamknięto**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do samouczków, nie usuwaj wdrożenia akceleratora rozwiązania do monitorowania zdalnego.
 
 Jeśli akcelerator rozwiązania nie jest już potrzebny, usuń go ze strony [wstępnie zainicjowanych rozwiązań](https://www.azureiotsolutions.com/Accelerators#dashboard) , wybierając ją, a następnie klikając pozycję **Usuń rozwiązanie**:
 
-![Usuwanie rozwiązania](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Zrzut ekranu przedstawiający stronę "rozwiązania udostępnione" z wyróżnionym akceleratorem rozwiązania.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Usuwanie rozwiązania](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

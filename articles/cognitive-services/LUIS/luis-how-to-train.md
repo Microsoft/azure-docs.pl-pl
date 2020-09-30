@@ -3,26 +3,24 @@ title: Uczenie aplikacji — LUIS
 titleSuffix: Azure Cognitive Services
 description: Szkolenie to proces uczenia wersji aplikacji Language Understanding (LUIS) w celu usprawnienia jej interpretacji języka naturalnego. Uczenie aplikacji LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencje lub wyrażenia długości.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: diberry
-ms.openlocfilehash: 7511d7379e7b51b19e3436ed7cef53fb914b80ac
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343075"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541377"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Uczenie aktywnej wersji aplikacji LUIS
 
 Szkolenie to proces uczenia aplikacji Language Understanding (LUIS) w celu usprawnienia jej interpretacji języka naturalnego. Uczenie aplikacji LUIS po aktualizacji modelu, takich jak dodawanie, edytowanie, etykietowanie lub usuwanie jednostek, intencje lub wyrażenia długości.
 
-Szkolenie i [testowanie](luis-concept-test.md) aplikacji jest procesem iteracyjnym. Po przejściu do aplikacji LUIS przetestuj ją za pomocą przykładowej wyrażenia długości, aby sprawdzić, czy intencje i jednostki są rozpoznawane poprawnie. Jeśli tak nie jest, wprowadź ponownie aktualizacje aplikacji LUIS, uczenia i testowania.
+Szkolenie i [testowanie](luis-concept-test.md) aplikacji jest procesem iteracyjnym. Po wytrenowaniu aplikacji usługi LUIS należy ją przetestować przy użyciu przykładowych wypowiedzi, aby zobaczyć, czy intencje i jednostki są prawidłowo rozpoznawane. Jeśli tak nie jest, wprowadź ponownie aktualizacje aplikacji LUIS, uczenia i testowania.
 
 Szkolenia są stosowane do aktywnej wersji portalu LUIS.
 

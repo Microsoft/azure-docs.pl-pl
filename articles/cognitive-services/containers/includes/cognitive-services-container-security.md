@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876836"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545655"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Zabezpieczenia kontenera Cognitive Services platformy Azure
 
@@ -27,7 +27,7 @@ Na poniższym diagramie przedstawiono domyślne i **niebezpieczne** podejście:
 
 ![Zabezpieczenia kontenerów](../media/container-security.svg)
 
-Jako alternatywne i *bezpieczne* podejście, odbiorcy Cognitive Services kontenerów mogą rozszerzyć kontener z składnikiem czołowym, utrzymując punkt końcowy kontenera jako prywatny. Rozważmy scenariusz, w którym korzystamy z [Istio][istio] jako bramy transferu danych przychodzących. Istio obsługuje uwierzytelnianie za pośrednictwem protokołu HTTPS/TLS i certyfikatu klienta. W tym scenariuszu fronton Istio uwidacznia dostęp do kontenera, który przedstawia certyfikat klienta, który jest listy dozwolonych wcześniej z Istio.
+Jako alternatywne i *bezpieczne* podejście, odbiorcy Cognitive Services kontenerów mogą rozszerzyć kontener z składnikiem czołowym, utrzymując punkt końcowy kontenera jako prywatny. Rozważmy scenariusz, w którym korzystamy z [Istio][istio] jako bramy transferu danych przychodzących. Istio obsługuje uwierzytelnianie za pośrednictwem protokołu HTTPS/TLS i certyfikatu klienta. W tym scenariuszu fronton Istio ujawnia dostęp do kontenera, który przedstawia certyfikat klienta zatwierdzony wcześniej z Istio.
 
 [Nginx][nginx] jest innym popularnym wyborem w tej samej kategorii. Zarówno Istio, jak i Nginx działają jako siatka usługi i oferują dodatkowe funkcje, takie jak równoważenie obciążenia, Routing i sterowanie szybkością.
 

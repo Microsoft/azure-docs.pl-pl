@@ -2,20 +2,18 @@
 title: Dodawanie jednostek — LUIS
 description: Utwórz jednostki, aby wyodrębnić dane z wyrażenia długości użytkownika w aplikacjach Language Understanding (LUIS). Wyodrębnione dane jednostki są używane przez aplikację kliencką do fullfil żądań klientów.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344479"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540969"
 ---
 # <a name="add-entities-to-extract-data"></a>Dodawanie jednostek do wyodrębniania danych
 
@@ -118,9 +116,9 @@ Na poniższej liście pokazano kanoniczną nazwę i synonimy.
 
 |Nazwa elementu listy kolorów|Kolory — synonimy|
 |--|--|
-|Red|Użycie Crismon, krew, Apple, ogień|
-|Blue|, kobalt|
-|Zielony|Kelly, limonowa|
+|Red (Czerwony)|Użycie Crismon, krew, Apple, ogień|
+|Blue (Niebieski)|, kobalt|
+|Green (Zielony)|Kelly, limonowa|
 
 Użyj procedury, aby utworzyć jednostkę listy. Po utworzeniu jednostki listy nie musisz oznaczać przykładu wyrażenia długości w zamiarze. Elementy listy i synonimy są dopasowywane przy użyciu dokładnego tekstu.
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
@@ -179,14 +177,14 @@ W tej procedurze Dodaj `origin` role i `destination` do wstępnie skompilowanej 
 1. Aby oznaczyć rolę, wybierz etykietę jednostki (linię ciągłą w obszarze tekst) w przykładzie wypowiedź, a następnie wybierz pozycję **Wyświetl w okienku jednostki** z listy rozwijanej.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/add-entities/view-in-entity-pane.png)
+    > ![Zrzut ekranu pokazuje wybrany element menu okienko jednostki.](media/add-entities/view-in-entity-pane.png)
 
     Paleta jednostek zostanie otwarta po prawej stronie.
 
 1. Wybierz jednostkę, a następnie przejdź do dolnej części palety i wybierz rolę.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/add-entities/select-role-in-entity-palette.png)
+    > ![Zrzut ekranu przedstawia lokalizację, w której ma zostać wybrana rola.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>
@@ -207,7 +205,7 @@ LUIS nie pozwala na zmianę typu jednostki, ponieważ nie wie, co należy dodać
 > [!div class="nextstepaction"]
 > [Korzystanie ze wstępnie utworzonych modeli](howto-add-prebuilt-models.md)
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 * Jak [nauczyć](luis-how-to-train.md) się
 * [Testowanie](luis-interactive-test.md)
 * Jak [opublikować](luis-how-to-publish-app.md)

@@ -3,23 +3,21 @@ title: Wstępnie utworzona jednostka porządkowa v2 — LUIS
 titleSuffix: Azure Cognitive Services
 description: Ten artykuł zawiera wstępnie skompilowane informacje o jednostkach w wersji 2 w Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fd80389dfa54cb8386c13e0e05a1e71ac4bd956
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270485"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541938"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Wstępnie utworzona jednostka porządkowa v2 dla aplikacji LUIS
-Numer porządkowy v2 rozszerza liczbę [porządkową](luis-reference-prebuilt-ordinal.md) , aby zapewnić odwołania `next`względne, takie jak, `last`, i `previous`. Nie są one wyodrębniane przy użyciu wstępnie skompilowanej jednostki.
+Numer porządkowy v2 rozszerza liczbę [porządkową](luis-reference-prebuilt-ordinal.md) , aby zapewnić odwołania względne, takie jak `next` , `last` , i `previous` . Nie są one wyodrębniane przy użyciu wstępnie skompilowanej jednostki.
 
 ## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Rozwiązanie dla wstępnie skompilowanej liczby porządkowej v2
 
@@ -29,7 +27,7 @@ Następujące obiekty jednostki są zwracane dla zapytania:
 
 #### <a name="v3-response"></a>[Odpowiedź v3](#tab/V3)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `false` :
 
 ```json
 "entities": {
@@ -44,7 +42,7 @@ Poniższy kod JSON jest z `verbose` parametrem ustawionym `false`na:
 
 #### <a name="v3-verbose-response"></a>[Pełna odpowiedź w wersji 3](#tab/V3-verbose)
 
-Poniższy kod JSON jest z `verbose` parametrem ustawionym `true`na:
+Poniższy kod JSON jest z `verbose` parametrem ustawionym na `true` :
 
 ```json
 "entities": {

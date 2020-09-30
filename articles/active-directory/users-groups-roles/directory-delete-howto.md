@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056306"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541258"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
 
@@ -123,19 +123,19 @@ Możesz utworzyć samoobsługowe produkty do rejestracji, takie jak Microsoft Po
 
 2. Wybierz pozycję **licencje**, a następnie wybierz pozycję **produkty do rejestracji**samoobsługowej. Wszystkie produkty do samodzielnej rejestracji można zobaczyć niezależnie od subskrypcji opartych na miejscu. Wybierz produkt, który chcesz trwale usunąć. Oto przykład w programie Microsoft Power BI:
 
-    ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/licenses-page.png)
+    ![Zrzut ekranu przedstawiający stronę "licencje-samoobsługowe produkty do rejestracji".](./media/directory-delete-howto/licenses-page.png)
 
 3. Wybierz pozycję **Usuń** , aby usunąć produkt i zaakceptować warunki, że dane są usuwane natychmiast i nieodwołalnie. Spowoduje to usunięcie wszystkich użytkowników i usunięcie dostępu organizacji do produktu. Kliknij przycisk tak, aby przejść do przodu z usunięciem.  
 
-    ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/delete-product.png)
+    ![Zrzut ekranu przedstawiający stronę "licencje — produkty samoobsługowego tworzenia konta" z otwartym oknem "Usuń produkt samoobsługowego tworzenia nowego konta".](./media/directory-delete-howto/delete-product.png)
 
 4. Wybranie **opcji tak**spowoduje zainicjowanie usuwania produktu samoobsługi. Istnieje powiadomienie informujące o tym, że usuwanie jest w toku.  
 
-    ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/progress-message.png)
+    ![Zrzut ekranu przedstawiający stronę "licencje — produkty samoobsługowego tworzenia konta" z wyświetlonym powiadomieniem "Usuwanie w toku".](./media/directory-delete-howto/progress-message.png)
 
 5. Teraz stan produktu samoobsługowego rejestrowania został zmieniony na **usunięty**. Po odświeżeniu strony produkt powinien zostać usunięty z poziomu strony **samoobsługowego rejestrowania produktów** .  
 
-    ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/product-deleted.png)
+    ![Zrzut ekranu przedstawiający stronę "licencje — produkty samoobsługowego tworzenia konta" z okienkiem "usunięto produkt samoobsługowego tworzenia konta" po prawej stronie.](./media/directory-delete-howto/product-deleted.png)
 
 6. Po usunięciu wszystkich produktów możesz ponownie zalogować się do centrum administracyjnego usługi Azure AD, a nie powinna istnieć żadna wymagana akcja, a żadne produkty nie blokują usuwania w organizacji. Należy mieć możliwość pomyślnego usunięcia organizacji usługi Azure AD.
 

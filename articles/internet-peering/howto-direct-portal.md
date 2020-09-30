@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: e49462612b58163c2ac51b78584761d0d8b8bd06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700569"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537212"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu Azure Portal
 
@@ -37,7 +37,7 @@ Jako usługodawca internetowy lub internetowy Dostawca usługi Exchange można u
 1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **podstawowe** Wypełnij pola, tak jak pokazano poniżej:
 
 
-    ![Rejestrowanie usługi Peering Service](./media/setup-basics-tab.png)
+    ![Zrzut ekranu przedstawia kartę Tworzenie strony równorzędnej z podstawą tworzenia nowego linku.](./media/setup-basics-tab.png)
 
 2. Wybierz swoją subskrypcję platformy Azure.
 
@@ -59,7 +59,7 @@ Jako usługodawca internetowy lub internetowy Dostawca usługi Exchange można u
 
 
 
-    ![Rejestrowanie usługi Peering Service](./media/setup-direct-basics-filled-tab.png)
+    ![Zrzut ekranu przedstawia kartę tworzenie podstawy komunikacji równorzędnej ze wszystkimi wprowadzonymi wartościami.](./media/setup-direct-basics-filled-tab.png)
 
 
 #### <a name="configure-connections-and-submit"></a>Konfigurowanie połączeń i przesyłanie
@@ -79,6 +79,6 @@ Jako usługodawca internetowy lub internetowy Dostawca usługi Exchange można u
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](howto-exchange-portal.md)
 * [Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).

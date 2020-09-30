@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0caa8e2911046e18e63748fe5bde4b4c965eb965
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502544"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539456"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL przy użyciu programu PowerShell
 
@@ -38,9 +38,9 @@ Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z k
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for PostgreSQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer główny znajduje się w jednej z tych warstw cenowych.
+> Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for PostgreSQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer podstawowy znajduje się w jednej z tych warstw cenowych.
 
-### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+### <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 
@@ -65,14 +65,14 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md).
 
-Domyślnie repliki odczytu są tworzone z tą samą konfiguracją serwera co wzorzec, chyba że określono parametr **SKU** .
+Domyślnie repliki odczytu są tworzone z tą samą konfiguracją serwera co podstawowa, chyba że określono parametr **jednostki SKU** .
 
 > [!NOTE]
-> Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż podstawowy, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
-### <a name="list-replicas-for-a-master-server"></a>Wyświetlanie listy replik dla serwera głównego
+### <a name="list-replicas-for-a-primary-server"></a>Wyświetlanie listy replik dla serwera podstawowego
 
-Aby wyświetlić wszystkie repliki dla danego serwera głównego, uruchom następujące polecenie:
+Aby wyświetlić wszystkie repliki dla danego serwera podstawowego, uruchom następujące polecenie:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -83,7 +83,7 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Grupa zasobów, w której zostanie utworzony serwer repliki.  |
-| ServerName | mydemoserver | Nazwa lub identyfikator serwera głównego. |
+| ServerName | mydemoserver | Nazwa lub identyfikator serwera podstawowego. |
 
 ### <a name="delete-a-replica-server"></a>Usuwanie serwera repliki
 
@@ -93,12 +93,12 @@ Usuwanie serwera repliki odczytu można wykonać, uruchamiając `Remove-AzPostgr
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Usuwanie serwera głównego
+### <a name="delete-a-primary-server"></a>Usuwanie serwera podstawowego
 
 > [!IMPORTANT]
-> Usunięcie serwera głównego powoduje zatrzymanie replikacji do wszystkich serwerów repliki i usunięcie samego serwera głównego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
+> Usunięcie serwera podstawowego powoduje zatrzymanie replikacji na wszystkich serwerach repliki i usunięcie samego serwera podstawowego. Serwery repliki stają się serwerami autonomicznymi, które teraz obsługują zarówno odczyt, jak i zapis.
 
-Aby usunąć serwer główny, można uruchomić `Remove-AzPostgreSqlServer` polecenie cmdlet.
+Aby usunąć serwer podstawowy, można uruchomić `Remove-AzPostgreSqlServer` polecenie cmdlet.
 
 ```azurepowershell-interactive
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

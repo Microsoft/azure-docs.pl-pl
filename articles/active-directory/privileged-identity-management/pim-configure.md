@@ -10,20 +10,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 08/08/2020
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe22d25be7f98bfb1d9f867b2081cd0489ce17c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018553"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540833"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest usługa Azure AD Privileged Identity Management?
 
- Privileged Identity Management (PIM) to usługa w usłudze Azure Active Directory (Azure AD), która umożliwia zarządzanie, kontrolowanie i monitorowanie dostępu do ważnych zasobów w organizacji. Te zasoby obejmują zasoby w usłudze Azure AD, na platformie Azure oraz w innych usługach online firmy Microsoft, takich jak Microsoft 365 lub Microsoft Intune.
+ Privileged Identity Management (PIM) to usługa w usłudze Azure Active Directory (Azure AD), która umożliwia zarządzanie, kontrolowanie i monitorowanie dostępu do ważnych zasobów w organizacji. Te zasoby obejmują zasoby w usłudze Azure AD, na platformie Azure oraz w innych usługach online firmy Microsoft, takich jak Microsoft 365 lub Microsoft Intune. Poniższy film wideo przedstawia ważne koncepcje i funkcje programu PIM.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## <a name="reasons-to-use"></a>Przyczyny użycia
 

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987841"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539082"
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
 Funkcja tworzenia kopii zapasowych i przywracania w [Azure App Service](overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji ręcznie lub zgodnie z harmonogramem. Kopie zapasowe można skonfigurować tak, aby były przechowywane przez czas nieokreślony. Możesz przywrócić aplikację do migawki poprzedniego stanu, zastępując istniejącą aplikację lub przywracając ją do innej aplikacji.
@@ -70,13 +70,13 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 
 3. Na stronie **Konfiguracja kopii zapasowej** kliknij pozycję **Magazyn nie jest skonfigurowany** do konfigurowania konta magazynu.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Zrzut ekranu przedstawiający sekcję magazyn kopii zapasowych z wybranym ustawieniem magazyn nie skonfigurowany.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Zrzut ekranu przedstawiający baner z komunikatem, aby uaktualnić plan App Service, aby uzyskać dostęp do funkcji tworzenia kopii zapasowych i przywracania.":::
 
 4. Wybierz miejsce docelowe kopii zapasowej, wybierając **konto magazynu** i **kontener**. Konto magazynu musi należeć do tej samej subskrypcji co aplikacja, dla której ma zostać utworzona kopia zapasowa. Jeśli chcesz, możesz utworzyć nowe konto magazynu lub nowy kontener na odpowiednich stronach. Gdy skończysz, kliknij przycisk **Wybierz**.
 
 5. Na stronie **Konfiguracja kopii zapasowej** , która pozostaje otwarta, można skonfigurować **bazę danych kopii zapasowej**, a następnie wybrać bazy danych, które mają zostać uwzględnione w kopiach zapasowych (SQL Database lub MySQL), a następnie kliknąć przycisk **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Zrzut ekranu przedstawiający sekcję Tworzenie kopii zapasowej w przypadku zaznaczenia opcji Dołącz do kopii zapasowej.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Zrzut ekranu przedstawiający baner z komunikatem, aby uaktualnić plan App Service, aby uzyskać dostęp do funkcji tworzenia kopii zapasowych i przywracania.":::
 
     > [!NOTE]
     > Aby baza danych była wyświetlana na tej liście, jej parametry połączenia muszą znajdować się w sekcji **Parametry połączenia** na stronie **Ustawienia aplikacji** dla aplikacji. 
@@ -141,7 +141,7 @@ Uruchom kopie zapasowe w taki sam sposób, jak zwykle, [ręcznie](#create-a-manu
 > [!NOTE]
 > Przywracasz częściowe kopie zapasowe witryny w taki sam sposób, w jaki [przywracasz zwykłe kopie zapasowe](web-sites-restore.md). Proces przywracania wykonuje odpowiednie czynności.
 > 
-> Po przywróceniu pełnej kopii zapasowej cała zawartość w lokacji zostanie zamieniona na kopię zapasową. Jeśli plik znajduje się w witrynie, ale nie w kopii zapasowej, zostanie usunięty. Jednak po przywróceniu częściowej kopii zapasowej każda zawartość znajdująca się w jednym z katalogów zabronionych lub dowolny plik zabroniony jest pozostawiony jako.
+> Po przywróceniu pełnej kopii zapasowej cała zawartość w lokacji zostanie zamieniona na kopię zapasową. Jeśli plik znajduje się w witrynie, ale nie w kopii zapasowej, zostanie usunięty. Jednak po przywróceniu częściowej kopii zapasowej każda zawartość znajdująca się w jednym z tych katalogów z ograniczeniami lub w dowolnym pliku z ograniczeniami jest pozostawiana jako.
 > 
 
 

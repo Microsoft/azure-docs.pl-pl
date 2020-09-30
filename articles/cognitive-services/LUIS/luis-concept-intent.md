@@ -3,20 +3,18 @@ title: Intencje i jednostki — LUIS
 titleSuffix: Azure Cognitive Services
 description: Pojedynczy cel reprezentuje zadanie lub akcję, które użytkownik chce wykonać. Jest to cel lub zamierzenie wyrażone w wypowiedzi użytkownika. Zdefiniuj zestaw intencji, który odnosi się do akcji, które użytkownicy chcą wykonać w aplikacji.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101080"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536107"
 ---
 # <a name="intents-in-your-luis-app"></a>Intencje w aplikacji LUIS
 
@@ -53,10 +51,10 @@ Cel reprezentuje akcję, którą aplikacja powinna wykonać dla użytkownika i o
 
 Utwórz cel, gdy _zamiaru_ użytkownika wywoła akcję w aplikacji klienckiej, taką jak wywołanie funkcji checkweather (). Następnie Utwórz jednostki do reprezentowania parametrów wymaganych do wykonania akcji.
 
-|Intencja   | Jednostka | Przykładowa wypowiedź   |
+|Zamiar   | Jednostka | Przykładowa wypowiedź   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {"Type": "Location", "Entity": "Seattle"}<br>{"Type": "wbudowane. datetimeV2. Date", "Entity": "jutro", "Solution": "2018 r-05-23"} | Jak wygląda `Seattle` `tomorrow`Pogoda? |
-| CheckWeather | {"Type": "date_range", "Entity": "weekend"} | Pokaż mi prognozę dla`this weekend` |
+| CheckWeather | {"Type": "Location", "Entity": "Seattle"}<br>{"Type": "wbudowane. datetimeV2. Date", "Entity": "jutro", "Solution": "2018 r-05-23"} | Jak wygląda Pogoda `Seattle` `tomorrow` ? |
+| CheckWeather | {"Type": "date_range", "Entity": "weekend"} | Pokaż mi prognozę dla `this weekend` |
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>Prebudowane intencje domeny

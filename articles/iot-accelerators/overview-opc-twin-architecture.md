@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 2504ba6262ba281d4049d89b03d2b3bc60061669
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 602d2f77564709294d28b797ff3f03f12b3b32d8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281800"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533387"
 ---
 # <a name="opc-twin-architecture"></a>Architektura OPC bliźniaczy
 
@@ -26,17 +26,17 @@ Na poniższych diagramach przedstawiono architekturę OPC z przędzą.
 
 1. Operator włącza funkcję skanowania sieci w module lub wykonuje jednorazowe odnajdywanie przy użyciu adresu URL odnajdowania. Wykryte punkty końcowe i informacje o aplikacji są wysyłane przez telemetrię do agenta dołączania w celu przetworzenia.  Agent dołączania urządzenia OPC UA przetwarza zdarzenia odnajdowania serwera OPC UA wysyłane przez IoT Edgee w ramach modułu w trybie odnajdywania lub skanowania. Zdarzenia odnajdywania powodują rejestrowanie i aktualizowanie aplikacji w rejestrze urządzeń OPC UA.
 
-   ![Jak działa OPCa](media/overview-opc-twin-architecture/opc-twin1.png)
+   ![Diagram przedstawiający architekturę OPC z przędzą za pomocą modułu OPC bliźniaczy IoT Edge w trybie odnajdywania lub skanowania.](media/overview-opc-twin-architecture/opc-twin1.png)
 
 1. Operator sprawdza certyfikat odnalezionego punktu końcowego i aktywuje zarejestrowany sznury punkt końcowego w celu uzyskania dostępu. 
 
-   ![Jak działa OPCa](media/overview-opc-twin-architecture/opc-twin2.png)
+   ![Diagram przedstawiający architekturę OPC bliźniaczym z IoT Edge "bliźniaczym tożsamością".](media/overview-opc-twin-architecture/opc-twin2.png)
 
 ## <a name="browse-and-monitor"></a>Przeglądaj i monitoruj
 
 1. Po aktywowaniu operator może użyć interfejsu API REST usługi Bliźniaczyej, aby przejrzeć lub sprawdzić model informacji o serwerze, zmienne obiektów odczytu/zapisu i metody wywołań.  Użytkownik używa uproszczonego interfejsu API OPC UA wyrażonego w pełni w protokołach HTTP i JSON.
 
-   ![Jak działa OPCa](media/overview-opc-twin-architecture/opc-twin3.png)
+   ![Diagram przedstawiający konfigurację wieloosiowej architektury OPC do przeglądania i sprawdzania modelu informacji o serwerze.](media/overview-opc-twin-architecture/opc-twin3.png)
 
 1. Interfejs REST usługi bliźniaczyej może również służyć do tworzenia monitorowanych elementów i subskrypcji w wydawcy OPC. Wydawca OPC umożliwia wysyłanie danych telemetrycznych z systemów OPC UA do IoT Hub. Aby uzyskać więcej informacji na temat wydawcy OPC, zobacz [co to jest OPC Publisher](overview-opc-publisher.md).
 

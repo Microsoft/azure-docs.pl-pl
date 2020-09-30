@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
-ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736575"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533761"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych plików na podstawie nazwy pliku podzielonego na partycje przy użyciu narzędzia Kopiowanie danych
 
@@ -39,7 +39,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Konto usługi Azure Storage**: Użyj magazynu obiektów BLOB jako magazynu danych _źródłowych_ i _ujścia_ . Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
+* **Konto usługi Azure Storage**: Użyj magazynu obiektów BLOB jako magazynu danych _źródłowych_  i _ujścia_ . Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Tworzenie dwóch kontenerów w usłudze BLOB Storage
 
@@ -122,13 +122,13 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
     a. Przeglądaj i wybierz kontener **źródłowy** , a następnie wybierz pozycję **Wybierz**.
 
-    ![Wybieranie pliku lub folderu wejściowego](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie pliku wejściowego lub folderu.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. W obszarze **zachowanie ładowania plików**wybierz pozycję **obciążenie przyrostowe: nazwy folderów/plików z podziałem na partycje**.
 
     c. Zapisz ścieżkę folderu dynamicznego jako **Źródło/{Year}/{Month}/{Day}/{Hour}/**, a następnie Zmień format, jak pokazano na poniższym zrzucie ekranu. Sprawdź **kopię binarną** i kliknij przycisk **dalej**.
 
-    ![Wybieranie pliku lub folderu wejściowego](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie pliku wejściowego lub folderu z wybranym folderem.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. Na stronie **docelowy magazyn danych** wybierz **AzureBlobStorage**, który jest tym samym kontem magazynu co magazyn źródła danych, a następnie kliknij przycisk **dalej**.
 
@@ -139,11 +139,11 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
     b. Zapisz ścieżkę do folderu dynamicznego jako **lokalizację docelową/{Year}/{Month}/{Day}/{Hour}/**, a następnie Zmień format w następujący sposób:
 
-    ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie pliku wyjściowego lub folderu.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Kliknij przycisk **Dalej**.
 
-    ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie pliku wyjściowego lub folderu z wybranym przyciskiem dalej.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
 
 8. Na stronie **Podsumowanie** sprawdź ustawienia, a następnie kliknij przycisk **Dalej**.
@@ -155,14 +155,14 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
 10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana.  Musisz poczekać na uruchomienie potoku, gdy zostanie on wyzwolony automatycznie (około godzinę). Gdy jest uruchomiona, kliknij link Nazwa potoku **DeltaCopyFromBlobPipeline** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
 
-    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
-11. W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Dostosuj szerokość kolumny **źródłowej** i **docelowej** (w razie potrzeby), aby wyświetlić więcej szczegółów, plik źródłowy (file1.txt) został skopiowany ze *źródła/2020/03/17/03/* do *lokalizacji docelowej/2020/03/17/03/* o tej samej nazwie pliku. 
+    ![Zrzut ekranu przedstawia okienko uruchomienia potoku.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Dostosuj szerokość kolumny **źródłowej** i **docelowej** (w razie potrzeby), aby wyświetlić więcej szczegółów, plik źródłowy (file1.txt) został skopiowany ze  *źródła/2020/03/17/03/* do *lokalizacji docelowej/2020/03/17/03/* o tej samej nazwie pliku. 
 
-    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![Zrzut ekranu przedstawia szczegóły uruchomienia potoku.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage ( https://storageexplorer.com/) Aby skanować pliki.
 
-    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Zrzut ekranu przedstawia szczegóły uruchomienia potoku dla miejsca docelowego.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
 12. Utwórz kolejny pusty plik tekstowy o nowej nazwie jako **file2.txt**. Przekaż plik file2.txt do ścieżki folderu **Source/2020/03/17/04** na koncie magazynu. Do wykonania tych zadań możesz użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
@@ -171,9 +171,9 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
 13. Aby powrócić do widoku **uruchomienia potoków** , wybierz pozycję **wszystkie uruchomienia**, a następnie poczekaj na automatyczne wyzwolenie tego samego potoku po upływie kolejnej godziny.  
 
-    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Zrzut ekranu przedstawia link wszystkie uruchomienia potoku, aby powrócić do tej strony.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Wybierz łącze Nowy **DeltaCopyFromBlobPipeline** dla drugiego przebiegu potoku, a następnie wykonaj te same czynności, aby przejrzeć szczegóły. Zostanie wyświetlony plik źródłowy (file2.txt) skopiowany ze **źródła/2020/03/17/04/** do **lokalizacji docelowej/2020/03/17/04/** o tej samej nazwie pliku. Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage ( https://storageexplorer.com/) do skanowania plików w kontenerze **docelowym** .
+14. Wybierz łącze Nowy **DeltaCopyFromBlobPipeline** dla drugiego przebiegu potoku, a następnie wykonaj te same czynności, aby przejrzeć szczegóły. Zostanie wyświetlony plik źródłowy (file2.txt) skopiowany ze  **źródła/2020/03/17/04/**  do **lokalizacji docelowej/2020/03/17/04/** o tej samej nazwie pliku. Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage ( https://storageexplorer.com/) do skanowania plików w kontenerze **docelowym** .
 
 
 ## <a name="next-steps"></a>Następne kroki

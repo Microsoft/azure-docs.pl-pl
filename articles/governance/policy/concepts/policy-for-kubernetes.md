@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369998"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540255"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -56,7 +56,7 @@ Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dl
 - Maksymalna liczba niezgodnych rekordów na subskrypcję: **1 000 000**
 - Instalacje strażnika poza dodatkiem Azure Policy nie są obsługiwane. Przed włączeniem dodatku Azure Policy Odinstaluj wszystkie składniki zainstalowane przez poprzednią instalację strażnika.
 - [Przyczyny niezgodności](../how-to/determine-non-compliance.md#compliance-reasons) nie są dostępne dla `Microsoft.Kubernetes.Data` 
-   [trybu dostawcy zasobów](./definition-structure.md#resource-provider-modes)
+   [trybu dostawcy zasobów](./definition-structure.md#resource-provider-modes). Użyj [szczegółów składnika](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
 
@@ -209,7 +209,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
 1. Otwórz port dla dodatku. Dodatek Azure Policy używa tych domen i portów do pobierania definicji zasad i przypisań i raportowania zgodności klastra z powrotem do Azure Policy.
 
-   |Domena |Port |
+   |Obszar |Port |
    |---|---|
    |`gov-prod-policy-data.trafficmanager.net` |`443` |
    |`raw.githubusercontent.com` |`443` |
@@ -379,7 +379,7 @@ W ramach właściwości _szczegóły. constraintTemplate_ i _szczegóły. ograni
 
 ## <a name="assign-a-built-in-policy-definition"></a>Przypisywanie wbudowanej definicji zasad
 
-Aby przypisać definicję zasad do klastra Kubernetes, należy przypisać odpowiednie operacje przypisania zasad kontroli dostępu opartej na rolach (RBAC). Współautor i **właściciel** **zasad zasobów** wbudowanej platformy Azure mają te operacje. Aby dowiedzieć się więcej, zobacz [uprawnienia RBAC w Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+Aby przypisać definicję zasad do klastra Kubernetes, należy przypisać odpowiednie operacje przypisania zasad kontroli dostępu opartej na rolach (Azure RBAC). Współautor i **właściciel** **zasad zasobów** wbudowanej platformy Azure mają te operacje. Aby dowiedzieć się więcej, zobacz [uprawnienia usługi Azure RBAC w Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą Azure Portal, wykonując następujące czynności:
 
@@ -404,7 +404,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Ustaw **wartości parametrów**
 
@@ -430,7 +430,7 @@ W klastrze Kubernetes, jeśli przestrzeń nazw ma jedną z następujących etyki
 > [!NOTE]
 > Administrator klastra może mieć uprawnienia do tworzenia i aktualizowania szablonów ograniczeń oraz zasobów ograniczeń instalowanych przez dodatek Azure Policy, ale nie są to obsługiwane scenariusze, ponieważ ręczne aktualizacje są zastępowane. Strażnik kontynuuje ocenę zasad, które istniały przed zainstalowaniem dodatku i przypisanie definicji zasad Azure Policy.
 
-Co 15 minut, dodatek wywołuje pełne skanowanie klastra. Po zebraniu szczegółowych informacji o pełnym skanowaniu i wszystkich ocenach w czasie rzeczywistym przez strażnika podjętych zmian w klastrze dodatek zgłasza wyniki z powrotem do Azure Policy w celu uwzględnienia informacji o [zgodności](../how-to/get-compliance-data.md) , takich jak wszystkie Azure Policy przypisania. W cyklu inspekcji są zwracane tylko wyniki aktywnych przypisań zasad. Wyniki inspekcji mogą być również widoczne jako [naruszenia](https://github.com/open-policy-agent/gatekeeper#audit) wymienione w polu Stan niepowodzenia ograniczenia. Aby uzyskać szczegółowe informacje dotyczące _niezgodnych_ zasobów, zobacz [szczegóły zgodności dla trybów dostawcy zasobów](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+Co 15 minut, dodatek wywołuje pełne skanowanie klastra. Po zebraniu szczegółowych informacji o pełnym skanowaniu i wszystkich ocenach w czasie rzeczywistym przez strażnika podjętych zmian w klastrze dodatek zgłasza wyniki z powrotem do Azure Policy w celu uwzględnienia informacji o [zgodności](../how-to/get-compliance-data.md) , takich jak wszystkie Azure Policy przypisania. W cyklu inspekcji są zwracane tylko wyniki aktywnych przypisań zasad. Wyniki inspekcji mogą być również widoczne jako [naruszenia](https://github.com/open-policy-agent/gatekeeper#audit) wymienione w polu Stan niepowodzenia ograniczenia. Aby uzyskać szczegółowe informacje dotyczące _niezgodnych_ zasobów, zobacz [szczegóły składnika dla trybu dostawcy zasobów](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Każdy raport zgodności w Azure Policy dla klastrów Kubernetes obejmuje wszystkie naruszenia w ciągu ostatnich 45 minut. Sygnatura czasowa wskazuje, kiedy wystąpiło naruszenie.

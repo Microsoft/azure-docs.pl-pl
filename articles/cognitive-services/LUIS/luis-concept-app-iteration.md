@@ -3,20 +3,18 @@ title: Projekt aplikacji iteracyjnej — LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS uczy się najlepiej w iteracyjnym cyklu zmian modelu, wypowiedź przykładów, publikowaniu i zbieraniu danych z zapytań punktów końcowych.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: diberry
-ms.openlocfilehash: 560a7d9106b9eaef0f82766615253715deb9238a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 753d214b520affb59722bc29dbabc50c6e5968f6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057878"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538725"
 ---
 # <a name="iterative-app-design-for-luis"></a>Projekt aplikacji iteracyjnej dla LUIS
 
@@ -72,7 +70,7 @@ Każdy przykład wypowiedź musi mieć **wymagane dane do wyodrębnienia** zapro
 
 |Element klucza|Przeznaczenie|
 |--|--|
-|Intencja|**Klasyfikowanie** wyrażenia długości użytkowników w ramach jednego zamiaru lub akcji. Przykłady obejmują `BookFlight` i `GetWeather` .|
+|Zamiar|**Klasyfikowanie** wyrażenia długości użytkowników w ramach jednego zamiaru lub akcji. Przykłady obejmują `BookFlight` i `GetWeather` .|
 |Jednostka|**Wyodrębnij** dane z wypowiedź wymagane do ukończenia zamiaru. Przykłady obejmują datę i godzinę podróży oraz lokalizację.|
 
 Aplikacja LUIS może być zaprojektowana w celu ignorowania wyrażenia długości, które nie są istotne dla domeny aplikacji przez przypisanie wypowiedź do zamiaru **Brak** .

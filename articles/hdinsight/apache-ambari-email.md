@@ -7,18 +7,18 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80082314"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541666"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
 
 W tym samouczku skonfigurujesz powiadomienia e-mail Apache Ambari za pomocą usługi SendGrid. Usługa [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) upraszcza zarządzanie klastrem usługi HDInsight i ich monitorowanie, zapewniając łatwy w użyciu interfejs użytkownika sieci Web i interfejs API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight i służy do monitorowania klastra i wprowadzania zmian w konfiguracji. [SendGrid](https://sendgrid.com/solutions/) to bezpłatna usługa poczty e-mail oparta na chmurze, która zapewnia niezawodne dostarczanie transakcyjnych wiadomości e-mail, skalowalność i analizę w czasie rzeczywistym oraz elastyczne interfejsy API, które ułatwiają integrację niestandardową. W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uzyskaj nazwę użytkownika SendGrid
@@ -54,7 +54,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 1. W oknie **Zarządzanie powiadomieniami o alertach** wybierz **+** ikonę.
 
-    ![Ambari — powiadomienie o utworzeniu alertu](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie powiadomieniami o alertach.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. W oknie dialogowym **Tworzenie powiadomienia o alercie** podaj następujące informacje:
 
@@ -75,7 +75,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
     |Potwierdzenie hasła|Ponownie wprowadź hasło.|
     |Uruchom protokół TLS|Zaznacz to pole wyboru|
 
-    ![Ambari — powiadomienie o utworzeniu alertu](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie powiadomienia o alertach.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Wybierz pozycję **Zapisz**. Powrócisz do okna **Zarządzanie powiadomieniami o alertach** .
 
