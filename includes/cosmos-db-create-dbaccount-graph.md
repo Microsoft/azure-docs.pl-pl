@@ -8,23 +8,26 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a6cfafd41d1632d99b7ca03bce2316ec679d7579
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f36f2f26b65fc6078b99a43b6f0bae9a8a8e9f5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77061844"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578391"
 ---
 1. W nowym oknie przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**.
    
-   ![Utwórz zasób w Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-0.png)
+   ![Tworzenie zasobu w witrynie Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-0.png)
    
-3. Na stronie **Nowy** wybierz pozycję **bazy danych** > **Azure Cosmos DB**.
+3. Na stronie **Nowy** wybierz pozycję **bazy danych**  >  **Azure Cosmos DB**.
    
    ![Okienko Bazy danych w witrynie Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
    
+   > [!TIP]
+   > Jeśli na liście nie widzisz Azure Cosmos DB, po prostu wpisz ją w polu wyszukiwania w górnej części strony, a następnie naciśnij klawisz _Enter_ . 
+
 3. Na stronie **Tworzenie konta Azure Cosmos DB** wprowadź ustawienia dla nowego konta Azure Cosmos DB. 
  
     Ustawienie|Wartość|Opis

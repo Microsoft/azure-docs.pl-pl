@@ -48,7 +48,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    |**Pole**  |**Opis**  |
    |---------|---------|
    |Subskrypcja  |  Subskrypcja platformy Azure, w ramach której utworzono IoT Hub |
-   |Usługa IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
+   |IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
    |Nazwa urządzenia IoT Edge  |  Nazwa urządzenia IoT Edgeego, na którym zostanie wdrożona Przeglądarka SQL Edge |
 
 4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge**modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 
