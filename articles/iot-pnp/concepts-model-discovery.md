@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032031"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577717"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Używanie modeli Plug and Play IoT w rozwiązaniu IoT
 
@@ -26,7 +26,7 @@ Istnieją dwie szerokie kategorie rozwiązania IoT:
 
 Aby korzystać z modelu IoT Plug and Play, rozwiązanie IoT:
 
-1. Identyfikuje identyfikator modelu zaimplementowanego przez urządzenie Plug and Play IoT podłączone do rozwiązania.
+1. Identyfikuje identyfikator modelu zaimplementowanego przez urządzenie Plug and Play IoT, moduł lub moduł IoT Edge podłączony do rozwiązania.
 
 1. Używa identyfikatora modelu do pobrania definicji modelu podłączonego urządzenia z repozytorium modelu lub magazynu niestandardowego.
 
@@ -40,7 +40,10 @@ Rozwiązanie może uzyskać identyfikator modelu urządzenia Plug and Play IoT, 
 
 ### <a name="get-device-twin-api"></a>Pobierz interfejs API z urządzeniami bliźniaczymi
 
-Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
+Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
+
+> [!TIP]
+> W przypadku modułów i modułów IoT Edge Użyj [ModuleClient. getsplot](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 W poniższym fragmencie kodu odpowiedzi z urządzeń z sznurem `modelId` zawiera identyfikator modelu urządzenia Plug and Play IoT:
 

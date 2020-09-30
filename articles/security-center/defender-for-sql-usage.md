@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ea0df1fb68697ceee55614510cc0295c73fec00e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301656"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577853"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
 
@@ -48,7 +48,7 @@ Oba te elementy zostały opisane poniżej.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:
 
-- **SQL Server na maszynie wirtualnej platformy Azure** — Jeśli maszyna SQL jest hostowana na maszynie wirtualnej platformy Azure, można [zainicjować obsługę administracyjną log Analytics agenta](security-center-enable-data-collection.md#workspace-configuration). Alternatywnie można wykonać procedurę ręczną [dodawania maszyn Azure Stack](quickstart-onboard-machines.md#add-non-azure-computers).
+- **SQL Server na maszynie wirtualnej platformy Azure** — Jeśli maszyna SQL jest hostowana na maszynie wirtualnej platformy Azure, można [zainicjować obsługę administracyjną log Analytics agenta](security-center-enable-data-collection.md#workspace-configuration). Alternatywnie można wykonać procedurę ręczną, aby [dołączyć Azure Stack maszyn wirtualnych](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
 - **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest hostowana na maszynie [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie można wykonać procedurę ręczną w [dokumentacji usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 - **SQL Server Premium** — Jeśli SQL Server jest hostowana na lokalnym komputerze z systemem Windows bez usługi Azure ARC, dostępne są dwie opcje połączenia z platformą Azure:
@@ -97,7 +97,7 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
 
     Zostanie wyświetlony szczegółowy widok tego zalecenia.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Szczegółowy widok rekomendacji":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)":::
 
 1. Aby uzyskać więcej informacji, przechodzenie do szczegółów:
 

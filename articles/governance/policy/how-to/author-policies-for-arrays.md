@@ -1,14 +1,14 @@
 ---
 title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048486"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576901"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -194,12 +194,24 @@ Poniższe wyniki są wynikiem kombinacji warunku i przykładową regułę zasad 
 |`{<field>,"Equals":"127.0.0.1"}` |Nothing |Wszystkie dopasowania |Jeden element tablicy ma wartość true (127.0.0.1 = = 127.0.0.1) i jeden jako wartość false (127.0.0.1 = = 192.168.1.1), więc warunek **równości** ma _wartość false_ , a efekt nie jest wyzwalany. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nothing |Wszystkie dopasowania |Oba elementy tablicy są oceniane jako false (10.0.4.1 = = 127.0.0.1 i 10.0.4.1 = = 192.168.1.1), więc warunek **równości** ma _wartość false_ , a efekt nie jest wyzwalany. |
 
-## <a name="the-append-effect-and-arrays"></a>Efekt dołączania i tablice
+## <a name="modifying-arrays"></a>Modyfikowanie tablic
 
-[Efekt dołączania](../concepts/effects.md#append) zachowuje się inaczej w zależności od tego, czy **pole Details** jest **\[\*\]** aliasem, czy nie.
+[Dołączanie](../concepts/effects.md#append) i [Modyfikowanie](../concepts/effects.md#modify) zmian właściwości zasobu podczas tworzenia lub aktualizowania. Podczas pracy z właściwościami tablicy zachowanie tych efektów zależy od tego, czy operacja próbuje zmodyfikować alias, czy  **\[\*\]** nie:
 
-- Gdy nie jest **\[\*\]** alias, Dołącz zastępuje całą tablicę właściwością **Value**
-- Gdy **\[\*\]** alias, Append dodaje właściwość **Value** do istniejącej tablicy lub tworzy nową tablicę
+> [!NOTE]
+> Używanie `modify` efektu z aliasami jest obecnie w **wersji zapoznawczej**.
+
+|Alias |Efekt | Wynik |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | W razie braku Azure Policy dołącza całą tablicę określoną w szczegółach efektu. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` z `add` operacją | W razie braku Azure Policy dołącza całą tablicę określoną w szczegółach efektu. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` z `addOrReplace` operacją | Azure Policy dołącza całą tablicę określoną w szczegółach efektu, jeśli brakuje lub zastąpi istniejącą tablicę. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy dołącza element członkowski tablicy określony w szczegółach efektu. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` z `add` operacją | Azure Policy dołącza element członkowski tablicy określony w szczegółach efektu. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` z `addOrReplace` operacją | Azure Policy usuwa wszystkie istniejące elementy członkowskie tablicy i dołącza element członkowski tablicy określony w szczegółach efektu. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy dołącza wartość do `action` właściwości każdego elementu członkowskiego tablicy. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` z `add` operacją | Azure Policy dołącza wartość do `action` właściwości każdego elementu członkowskiego tablicy. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` z `addOrReplace` operacją | Azure Policy dołącza lub zastępuje istniejącą `action` Właściwość każdego elementu członkowskiego tablicy. |
 
 Aby uzyskać więcej informacji, zobacz [przykłady dołączania](../concepts/effects.md#append-examples).
 

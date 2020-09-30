@@ -1,28 +1,28 @@
 ---
-title: Połącz Plug and Play IoT wersja zapoznawcza przykładowy kod urządzenia składnika w języku Python do IoT Hub | Microsoft Docs
-description: Kompilowanie i uruchamianie programu IoT Plug and Play Podgląd przykładowego kodu urządzenia w języku Python, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
+title: Połącz Plug and Play IoT przykład kod urządzenia składnika Python do IoT Hub | Microsoft Docs
+description: Kompiluj i uruchamiaj Plug and Play IoT przykład kod urządzenia w języku Python, który używa wielu składników i łączy się z usługą IoT Hub. Użyj narzędzia Azure IoT Explorer, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 084ba93baa35790da58e7765750bb79de27ed69c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905860"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578023"
 ---
-# <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Samouczek: łączenie przykładowej aplikacji IoT Plug and Play w wersji zapoznawczej do IoT Hub (Python)
+# <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Samouczek: łączenie przykładu IoT Plug and Play wielu aplikacji urządzeń składników IoT Hub (Python)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
-W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami i interfejsem głównym, nawiązywania połączenia z usługą IoT Hub oraz przy użyciu narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku Python i jest zawarta w zestawie SDK urządzeń Azure IoT dla języka Python. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+W tym samouczku przedstawiono sposób tworzenia przykładowej aplikacji urządzenia IoT Plug and Play ze składnikami, łączenia jej z usługą IoT Hub i używania narzędzia Azure IoT Explorer do wyświetlania informacji wysyłanych do centrum. Przykładowa aplikacja jest zapisywana w języku Python i jest zawarta w zestawie SDK urządzeń Azure IoT dla języka Python. Konstruktor rozwiązań może używać narzędzia Azure IoT Explorer do poznania możliwości urządzenia Plug and Play IoT bez konieczności wyświetlania kodu urządzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Do ukończenia tego samouczka potrzebne jest środowisko Python 3,7 na komputerze deweloperskim. Najnowszą zalecaną wersję można pobrać dla wielu platform z [Python.org](https://www.python.org/). Możesz sprawdzić wersję języka Python za pomocą następującego polecenia:  
 
@@ -32,40 +32,19 @@ python --version
 
 Najnowszą zalecaną wersję można pobrać dla wielu platform z [Python.org](https://www.python.org/).
 
-### <a name="azure-iot-explorer"></a>Eksplorator IoT Azure
+## <a name="download-the-code"></a>Pobieranie kodu
 
-Aby można było korzystać z przykładowego urządzenia w drugiej części tego samouczka, należy użyć narzędzia **Azure IoT Explorer** . [Pobierz i zainstaluj najnowszą wersję programu Azure IoT Explorer](./howto-use-iot-explorer.md) dla danego systemu operacyjnego.
+Pakiet **Azure-IoT-Device** jest publikowany jako PIP.
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Uruchom następujące polecenie, aby pobrać _Parametry połączenia usługi IoT Hub_ dla centrum. Zanotuj te parametry połączenia w dalszej części tego samouczka:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Możesz również użyć narzędzia Azure IoT Explorer, aby znaleźć parametry połączenia usługi IoT Hub.
-
-Uruchom następujące polecenie, aby pobrać _Parametry połączenia urządzenia_ dla urządzenia dodanego do centrum. Zanotuj te parametry połączenia w dalszej części tego samouczka:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
-## <a name="set-up-your-environment"></a>Konfigurowanie środowiska
-
-Ten pakiet jest publikowany jako PIP dla publicznej wersji zapoznawczej. Wersja pakietu powinna być Najnowsza lub`2.1.4`
-
-W lokalnym środowisku języka Python Zainstaluj plik w następujący sposób:
+W lokalnym środowisku języka Python Zainstaluj pakiet w następujący sposób:
 
 ```cmd/sh
 pip install azure-iot-device
 ```
 
-Sklonuj repozytorium IoT SDK środowiska Python i sprawdź wyjście **PnP-Preview-Refresh**:
+Jeśli zakończysz [Przewodnik Szybki Start: Podłącz przykładową aplikację urządzenia IoT Plug and Play działającą w systemie Windows do IoT Hub (Python)](quickstart-connect-device-python.md), masz już Sklonowane repozytorium.
+
+Klonuj repozytorium IoT zestawu SDK języka Python:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -77,57 +56,61 @@ Ten przykład implementuje urządzenie kontrolera temperatury Plug and Play IoT.
 
 Folder *Azure-IoT-SDK-python\azure-IoT-device\samples\pnp* zawiera przykładowy kod dla urządzenia IoT Plug and Play. Pliki dla przykładowego kontrolera temperatury są następujące:
 
-- pnp_temp_controller_with_thermostats. PR
+- temp_controller_with_thermostats. PR
 - pnp_helper_preview_refresh. PR
 
-Kontroler temperatury ma wiele składników i interfejs główny w oparciu o model DTDL kontrolera temperatury.
+Kontroler temperatury ma wiele składników i składnik domyślny, na podstawie modelu DTDL kontrolera temperatury.
 
-Otwórz plik *pnp_temp_controller_with_thermostats. PR* w wybranym edytorze. Kod w tym pliku:
+Otwórz plik *temp_controller_with_thermostats. PR* w wybranym edytorze. Kod w tym pliku:
 
 1. Importy `pnp_helper_preview_refresh.py` , aby uzyskać dostęp do metod pomocnika.
 
-2. Definiuje dwa identyfikatory modelu cyfrowej przędzy (DTMIs), które jednoznacznie reprezentują dwa różne interfejsy zdefiniowane w modelu DTDL. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. Te DTMIs muszą być znane użytkownikowi i różnią się w zależności od scenariusza implementacji urządzenia. W przypadku bieżącego przykładu te dwa interfejsy reprezentują:
+1. Definiuje dwa identyfikatory modelu cyfrowej przędzy (DTMIs), które jednoznacznie reprezentują dwa różne interfejsy zdefiniowane w modelu DTDL. Składniki w kontrolerze temperatury rzeczywistej powinny implementować te dwa interfejsy. Te dwa interfejsy zostały już opublikowane w centralnym repozytorium. Te DTMIs muszą być znane użytkownikowi i różnią się w zależności od scenariusza implementacji urządzenia. W przypadku bieżącego przykładu te dwa interfejsy reprezentują:
 
-  - Termostat
-  - Informacje o urządzeniu opracowane przez platformę Azure.
+    - Termostat
+    - Informacje o urządzeniu opracowane przez platformę Azure.
 
-3. Definiuje DTMI `model_id` dla zaimplementowanego urządzenia. DTMI jest zdefiniowany przez użytkownika i musi być zgodny z DTMI w pliku modelu DTDL.
+1. Definiuje DTMI `model_id` dla zaimplementowanego urządzenia. DTMI jest zdefiniowany przez użytkownika i musi być zgodny z DTMI w pliku modelu DTDL.
 
-4. Definiuje nazwy nadawane składnikom w pliku DTDL. W DTDL i jednym składniku informacji o urządzeniu znajdują się dwa termostaty. Stała wywołana `serial_number` jest również zdefiniowana w interfejsie głównym. `serial_number`Nie można zmienić urządzenia.
+1. Definiuje nazwy nadawane składnikom w pliku DTDL. W DTDL i jednym składniku informacji o urządzeniu znajdują się dwa termostaty. Stała wywołana `serial_number` jest również zdefiniowana w składniku domyślnym. `serial_number`Nie można zmienić urządzenia.
 
-5. Definiuje implementacje programu obsługi poleceń. Definiują to, jakie urządzenie ma wykonać po odebraniu żądania polecenia.
+1. Definiuje implementacje programu obsługi poleceń. Definiują to, jakie urządzenie ma wykonać po odebraniu żądania polecenia.
 
-6. Definiuje funkcje do tworzenia odpowiedzi polecenia. Określają one, jak urządzenie reaguje na żądania polecenia. Tworzysz funkcje odpowiedzi polecenia, jeśli polecenie musi wysłać odpowiedź niestandardową z powrotem do centrum IoT Hub. Jeśli nie podano funkcji odpowiedzi dla polecenia, zostanie wysłana ogólna odpowiedź. W tym przykładzie tylko polecenie **getMaxMinReport** ma niestandardową odpowiedź.
+1. Definiuje funkcje do tworzenia odpowiedzi polecenia. Określają one, jak urządzenie reaguje na żądania polecenia. Tworzysz funkcje odpowiedzi polecenia, jeśli polecenie musi wysłać odpowiedź niestandardową z powrotem do centrum IoT Hub. Jeśli nie podano funkcji odpowiedzi dla polecenia, zostanie wysłana ogólna odpowiedź. W tym przykładzie tylko polecenie **getMaxMinReport** ma niestandardową odpowiedź.
 
-7. Definiuje funkcję do wysyłania danych telemetrycznych z tego urządzenia. Zarówno termostaty, jak i interfejs główny wysyłają dane telemetryczne. Ta funkcja przyjmuje opcjonalny parametr nazwy składnika, aby umożliwić mu zidentyfikowanie składnika, który wysłał dane telemetryczne.
+1. Definiuje funkcję do wysyłania danych telemetrycznych z tego urządzenia. Zarówno termostaty, jak i domyślny składnik wysyłają dane telemetryczne. Ta funkcja przyjmuje opcjonalny parametr nazwy składnika, aby umożliwić mu zidentyfikowanie składnika, który wysłał dane telemetryczne.
 
-8. Definiuje odbiornik dla żądań poleceń.
+1. Definiuje odbiornik dla żądań poleceń.
 
-9. Definiuje odbiornik do aktualizowania żądanych właściwości.
+1. Definiuje odbiornik do aktualizowania żądanych właściwości.
 
-10. Zawiera `main` funkcję, która:
+1. Zawiera `main` funkcję, która:
 
-    1. Program używa zestawu SDK urządzenia do utworzenia klienta urządzenia i nawiązania połączenia z Centrum IoT Hub. Urządzenie wysyła do programu, `model_id` że Centrum IoT może identyfikować urządzenie jako urządzenie Plug and Play IoT.
+    - Program używa zestawu SDK urządzenia do utworzenia klienta urządzenia i nawiązania połączenia z Centrum IoT Hub. Urządzenie wysyła do programu, `model_id` że Centrum IoT może identyfikować urządzenie jako urządzenie Plug and Play IoT.
 
-    1. Używa `create_reported_properties` funkcji w pliku pomocnika do tworzenia właściwości. Przekaż nazwę składnika i właściwości jako pary klucz wartość do tej funkcji.
+    - Używa `create_reported_properties` funkcji w pliku pomocnika do tworzenia właściwości. Przekaż nazwę składnika i właściwości jako pary klucz wartość do tej funkcji.
 
-    1. Aktualizuje właściwości, które można odczytać dla jego składników przez wywołanie `patch_twin_reported_properties` .
+    - Aktualizuje właściwości, które można odczytać dla jego składników przez wywołanie `patch_twin_reported_properties` .
 
-    1. Zaczyna nasłuchiwanie żądań poleceń przy użyciu `execute_command_listener` funkcji. Funkcja konfiguruje odbiornik dla żądań poleceń z usługi. Podczas konfigurowania odbiornika, który podajesz `method_name` , `user_command_handler` i opcjonalnie `create_user_response_handler` jako parametry.
+    - Zaczyna nasłuchiwanie żądań poleceń przy użyciu `execute_command_listener` funkcji. Funkcja konfiguruje odbiornik dla żądań poleceń z usługi. Podczas konfigurowania odbiornika, który podajesz `method_name` , `user_command_handler` i opcjonalnie `create_user_response_handler` jako parametry.
         - `method_name`Definiuje żądanie polecenia. W tym przykładzie model definiuje **ponowny rozruch**poleceń i **getMaxMinReport**.
         - `user_command_handler`Funkcja definiuje, jakie urządzenie ma wykonać po odebraniu polecenia.
         - `create_user_response_handler`Funkcja tworzy odpowiedź do wysłania do centrum IoT Hub, gdy polecenie zostanie wykonane pomyślnie. Tę odpowiedź można wyświetlić w portalu. Jeśli ta funkcja nie zostanie podana, do usługi jest wysyłana ogólna odpowiedź.
 
-    1. Używa `execute_property_listener` do nasłuchiwania aktualizacji właściwości.
+    - Używa `execute_property_listener` do nasłuchiwania aktualizacji właściwości.
 
-    1. Zaczyna wysyłać dane telemetryczne za pomocą `send_telemetry` . Przykładowy kod używa pętli, aby wywołać trzy funkcje wysyłania danych telemetrycznych. Każdy z nich jest wywoływany co osiem sekund
+    - Zaczyna wysyłać dane telemetryczne za pomocą `send_telemetry` . Przykładowy kod używa pętli, aby wywołać trzy funkcje wysyłania danych telemetrycznych. Każdy z nich jest wywoływany co osiem sekund
 
-    1. Wyłącza wszystkie detektory i zadania i zamyka pętlę po naciśnięciu przycisku **q** lub **q**.
+    - Wyłącza wszystkie detektory i zadania i zamyka pętlę po naciśnięciu przycisku **q** lub **q**.
 
-Teraz, gdy kod został wyświetlony, Utwórz zmienną środowiskową o nazwie **IOTHUB_DEVICE_CONNECTION_STRING** do przechowywania parametrów połączenia urządzenia, które zostały wcześniej wykonane przez użytkownika. Użyj następującego polecenia, aby uruchomić przykład:
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Aby dowiedzieć się więcej na temat konfiguracji przykładowej, zobacz [przykład pliku Readme](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/pnp/README.md).
+
+Użyj następującego polecenia, aby uruchomić przykład:
 
 ```cmd/sh
-python pnp_temp_controller_with_thermostats.py
+python temp_controller_with_thermostats.py
 ```
 
 Przykładowe urządzenie wysyła komunikaty telemetryczne co kilka sekund do centrum IoT.
@@ -144,11 +127,9 @@ Po rozpoczęciu próby klienta urządzenia Użyj narzędzia Azure IoT Explorer, 
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku dowiesz się, jak połączyć urządzenie z usługą IoT Plug and Play ze składnikami do centrum IoT. Aby dowiedzieć się więcej na temat modeli urządzeń IoT Plug and Play, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przewodnik dla deweloperów modelu IoT Plug and Play w wersji zapoznawczej](concepts-developer-guide.md)
+> [Przewodnik dewelopera modelowania Plug and Play IoT](concepts-developer-guide-device-csharp.md)

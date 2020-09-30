@@ -1,24 +1,24 @@
 ---
 title: Jak zarządzać usługą IoT Plug and Play Digital bliźniaczych reprezentacji
-description: Jak zarządzać urządzeniem usługi IoT Plug and Play w wersji zapoznawczej przy użyciu interfejsów API Digital bliźniaczy
+description: Jak zarządzać urządzeniem Plug and Play IoT za pomocą interfejsów API cyfrowych przędzy
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352373"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577598"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie usługą IoT Plug and Play Digital bliźniaczych reprezentacji
 
 Plug and Play IoT obsługuje **szybkie** i **Aktualizowanie** wieloosiowych operacji na potrzeby zarządzania cyfrowymi bliźniaczych reprezentacji. Można użyć [interfejsów API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) lub jednego z [zestawów SDK usługi](libraries-sdks.md).
 
-W momencie pisania wersja interfejsu API Digital przędzy w publicznej wersji zapoznawczej to `2020-05-31-preview` .
+W momencie pisania wersja interfejsu API Digital przędzy to `2020-09-30` .
 
 ## <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
 
@@ -72,7 +72,7 @@ Na przykład można zaktualizować `targetTemperature` Właściwość w następu
 ]
 ```
 
-Poprzednia aktualizacja ustawia żądaną wartość właściwości w odpowiadającym jej poziomie głównym lub poziomie składnika `$metadata` , jak pokazano w poniższym fragmencie kodu. IoT Hub aktualizuje żądaną wersję właściwości:
+Poprzednia aktualizacja ustawia żądaną wartość właściwości na poziomie odpowiedniego składnika `$metadata` , jak pokazano w poniższym fragmencie kodu. IoT Hub aktualizuje żądaną wersję właściwości:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć 
 
 Operacja dodawania lub zamieniania ustawia żądaną wartość właściwości. Urządzenie może synchronizować stan i zgłaszać aktualizację wartości wraz z `ack` kodem, wersją i opisem.
 
-Usunięcie właściwości czyści żądaną wartość właściwości, jeśli jest ustawiona. Następnie urządzenie może zatrzymać raportowanie tej właściwości i zostanie usunięte z poziomu głównego lub składnika. Jeśli ta właściwość jest ostatnią z nich w składniku, składnik zostanie również usunięty.
+Usunięcie właściwości czyści żądaną wartość właściwości, jeśli jest ustawiona. Następnie urządzenie może zatrzymać raportowanie tej właściwości i zostanie usunięte ze składnika. Jeśli ta właściwość jest ostatnią z nich w składniku, składnik zostanie również usunięty.
 
 Poniższy przykład poprawek JSON pokazuje, jak dodać, zastąpić lub usunąć właściwość w składniku:
 
@@ -193,6 +193,6 @@ Aktualizacje mogą zakończyć się niepowodzeniem, jeśli raportowane wartości
 
 Teraz, kiedy już wiesz o programie Digital bliźniaczych reprezentacji, Oto kilka dodatkowych zasobów:
 
-- [Korzystanie z urządzenia z rozwiązania](quickstart-service-node.md)
+- [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
 - [Interfejs API REST cyfrowego przędzy IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

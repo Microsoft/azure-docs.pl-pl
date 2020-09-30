@@ -1,23 +1,23 @@
 ---
 title: Instalowanie i używanie programu Azure IoT Explorer | Microsoft Docs
-description: Zainstaluj narzędzie Azure IoT Explorer i użyj go do współpracy z urządzeniami z programem IoT Plug and Play w wersji zapoznawczej podłączonym do usługi IoT Hub.
+description: Zainstaluj narzędzie Azure IoT Explorer i użyj go do współpracy z urządzeniami Plug and Play IoT podłączonymi do usługi IoT Hub.
 author: rido-min
 ms.author: rmpablos
-ms.date: 05/06/2020
+ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 083dcde44e56af34f17d952c46e554b234818f27
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352364"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577581"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalowanie i korzystanie z programu Azure IoT Explorer
 
-Program Azure IoT Explorer jest graficznym narzędziem do współdziałania z urządzeniami w wersji zapoznawczej IoT Plug and Play i testowania. Po zainstalowaniu narzędzia na komputerze lokalnym można używać go do nawiązywania połączenia z koncentratorem. Można użyć narzędzia, aby wyświetlić dane telemetryczne wysyłane przez urządzenia, korzystać z właściwości urządzenia i wywoływać polecenia.
+Program Azure IoT Explorer jest graficznym narzędziem do współdziałania z urządzeniami Plug and Play IoT i ich testowania. Po zainstalowaniu narzędzia na komputerze lokalnym można używać go do nawiązywania połączenia z koncentratorem. Można użyć narzędzia, aby wyświetlić dane telemetryczne wysyłane przez urządzenia, korzystać z właściwości urządzenia i wywoływać polecenia.
 
 W tym artykule wyjaśniono, jak:
 
@@ -29,22 +29,18 @@ W tym artykule wyjaśniono, jak:
 Aby korzystać z narzędzia Azure IoT Explorer, potrzebne są:
 
 - Usługa Azure IoT Hub. Istnieje wiele sposobów dodawania usługi IoT Hub do subskrypcji platformy Azure, takich jak [Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-hub/iot-hub-create-using-cli.md). Do uruchomienia narzędzia Azure IoT Explorer potrzebne są parametry połączenia z usługą IoT Hub. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Urządzenie zarejestrowane w usłudze IoT Hub. Aby zarejestrować urządzenie, można użyć poniższego polecenia interfejsu CLI platformy Azure. Pamiętaj, aby zastąpić `{YourIoTHubName}` `{YourDeviceID}` symbole zastępcze i wartościami:
-
-    ```azurecli-interactive
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
-    ```
+- Urządzenie zarejestrowane w usłudze IoT Hub. Za pomocą programu IoT Explorer można tworzyć rejestracje urządzeń i zarządzać nimi w IoT Hub.
 
 ## <a name="install-azure-iot-explorer"></a>Instalowanie programu Azure IoT Explorer
 
 Przejdź do [wersji programu Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) i rozwiń listę zasobów dla najnowszej wersji. Pobierz i zainstaluj najnowszą wersję aplikacji.
 
 >[!Important]
->Z wersji 0.11.0 IoT Explorer obsługuje tylko Plug and Play IoT 2020 — wersja zapoznawcza. Aby skorzystać z funkcji dostępnych w poprzedniej wersji zapoznawczej — wydanie z sierpnia 2019, należy zainstalować wersję 0.10. x.
+>Z wersji 0.11.0 IoT Explorer obsługuje tylko Plug and Play IoT (od września 2020). Aby skorzystać z funkcji dostępnych w poprzedniej wersji zapoznawczej — wydanie z sierpnia sie 2019, Zainstaluj wersję 0.10. x.
 
 ## <a name="use-azure-iot-explorer"></a>Korzystanie z programu Azure IoT Explorer
 
-W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. Wykonaj [te instrukcje](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) , aby uruchomić przykład symulowanego urządzenia.
+W przypadku urządzenia można podłączyć własne urządzenie lub użyć jednego z przykładowych symulowanych urządzeń. Wykonaj [te instrukcje](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) , aby uruchomić przykład symulowanego urządzenia.
 
 ### <a name="connect-to-your-hub"></a>Nawiązywanie połączenia z centrum
 
@@ -65,7 +61,7 @@ Aby usunąć Źródło:
 
 Zmień priorytety źródłowe:
 
-Możesz przeciągać i upuszczać jeden ze źródeł definicji modelu do innej klasyfikacji na liście. 
+Możesz przeciągać i upuszczać jeden ze źródeł definicji modelu do innej klasyfikacji na liście.
 
 ### <a name="view-devices"></a>Wyświetlanie urządzeń
 
@@ -82,7 +78,7 @@ Na stronie lista **urządzeń** wybierz wartość w kolumnie **Identyfikator urz
 
 ### <a name="device"></a>Urządzenie
 
-Ta sekcja obejmuje **tożsamość urządzenia**, **sznurki urządzenia**, **dane telemetryczne**, **metodę bezpośrednią**, **komunikat z chmury do urządzenia**, karty **tożsamości modułów** .
+Ta sekcja obejmuje **tożsamość urządzenia**,  **sznurki urządzenia**, **dane telemetryczne**, **metodę bezpośrednią**, **komunikat z chmury do urządzenia**, karty **tożsamości modułów**  .
 
 - Informacje o [tożsamości urządzenia](../iot-hub/iot-hub-devguide-identity-registry.md) można wyświetlić i zaktualizować na karcie **tożsamość urządzenia** .
 - Dostęp do informacji o [bliźniaczych urządzeniach](../iot-hub/iot-hub-devguide-device-twins.md) można uzyskać na karcie **sznurki urządzenia** .
@@ -103,7 +99,7 @@ Na stronie **składnik** można wyświetlić właściwości tylko do odczytu, za
 
 #### <a name="properties"></a>Właściwości
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Wyświetlanie właściwości w programie Azure IoT Explorer":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Wyświetlanie składników w programie Azure IoT Explorer":::
 
 Właściwości tylko do odczytu zdefiniowane w interfejsie można wyświetlić na karcie **właściwości (tylko do odczytu)** . Można zaktualizować zapisywalne właściwości zdefiniowane w interfejsie na karcie **właściwości (zapisywalne)** :
 
@@ -124,9 +120,19 @@ Aby wysłać polecenie do urządzenia, przejdź do karty **polecenia** :
 1. Wyświetlenie podglądu ładunku do wysłania na urządzenie.
 1. Prześlij polecenie.
 
-#### <a name="telemetry"></a>Telemetry
+#### <a name="telemetry"></a>Telemetria
 
 Aby wyświetlić dane telemetryczne dla wybranego interfejsu, przejdź do karty **telemetrii** .
+
+#### <a name="known-issues"></a>Znane problemy
+
+- Obsługa IoT Edge: bieżąca wersja nie pokazuje urządzeń IoT Edge na liście urządzeń.
+- Funkcje języka DTDL: program IoT Explorer 0.12. x nie jest w pełni zgodny z protokołem v2, ale funkcje nie są obsługiwane:
+  - Dziedziczenie interfejsu za pomocą `extends`
+  - Mapowanie w mapie (mapa zagnieżdżona)
+  - Typ tablicy
+  - Schematy niestandardowe
+  - Niestandardowe typy semantyczne
 
 ## <a name="next-steps"></a>Następne kroki
 

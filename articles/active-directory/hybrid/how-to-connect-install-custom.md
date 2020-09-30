@@ -10,38 +10,44 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db10f53033e305aa2306bce230e7880140f35189
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295349"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578290"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
-Opcja **Ustawienia niestandardowe** programu Azure AD Connect umożliwia skorzystanie z większej liczby opcji instalacji. Jest używana w przypadku występowania wielu lasów lub w celu skonfigurowania funkcji opcjonalnych, których nie obejmuje instalacja ekspresowa. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
+Azure AD Connect **Ustawienia niestandardowe** są używane, gdy chcesz uzyskać więcej opcji instalacji.  Na przykład jeśli masz wiele lasów lub chcesz skonfigurować funkcje opcjonalne. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
 
 Przed rozpoczęciem instalacji należy [pobrać program Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) i wykonać czynności związane z wymaganiami wstępnymi opisane w temacie [Azure AD Connect: sprzęt i wymagania wstępne](how-to-connect-install-prerequisites.md). Sprawdź także, czy dostępne są wymagane konta, zgodnie z opisem w temacie [Konta i uprawnienia w programie Azure AD Connect](reference-connect-accounts-permissions.md).
 
-Jeśli ustawienia niestandardowe nie odpowiadają wymaganiom topologii, np. w przypadku uaktualniania narzędzia DirSync, możesz znaleźć inne scenariusze w powiązanej dokumentacji.
-
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalacja programu Azure AD Connect z ustawieniami niestandardowymi
+
 ### <a name="express-settings"></a>Ustawienia ekspresowe
-Na tej stronie kliknij opcję **Dostosuj**, aby rozpocząć instalację z ustawieniami niestandardowymi.
+Na tej stronie kliknij opcję **Dostosuj**, aby rozpocząć instalację z ustawieniami niestandardowymi.  Pozostała część tego dokumentu przeprowadzi Cię przez poszczególne ekrany kreatora instalacji niestandardowej.  Poniższe linki umożliwiają szybkie przechodzenie do informacji o konkretnym ekranie kreatora.
+
+- [Instalacja wymaganych składników](#install-required-components)
+- [Logowanie użytkowników](#user-sign-in)
+- [Łączenie z usługą Azure AD](#connect-to-azure-ad)
+- [Strony w sekcji Synchronizacja](#pages-under-the-sync-section)
 
 ### <a name="install-required-components"></a>Instalacja wymaganych składników
-Podczas instalowania usług synchronizacji sekcja konfiguracji opcjonalnej może pozostać niezaznaczona, a wszystkie ustawienia zostaną automatycznie skonfigurowane w programie Azure AD Connect. Obejmuje to skonfigurowanie wystąpienia bazy danych SQL Server 2012 Express LocalDB, utworzenie odpowiednich grup i przypisanie uprawnień. Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z dostępnymi wariantami konfiguracji opcjonalnej przedstawionymi w poniższej tabeli.
+Podczas instalowania usług synchronizacji sekcja konfiguracji opcjonalnej może pozostać niezaznaczona, a wszystkie ustawienia zostaną automatycznie skonfigurowane w programie Azure AD Connect. Konfiguruje wystąpienie SQL Server 2012 Express LocalDB, tworzy odpowiednie grupy i przypisuje uprawnienia. Jeśli chcesz zmienić ustawienia domyślne, możesz użyć do tego celu, zaznaczając odpowiednie pola.  Poniższa tabela zawiera podsumowanie tych opcji i linki do dodatkowych informacji. 
 
 ![Wymagane składniki](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
 | Konfiguracja opcjonalna | Opis |
 | --- | --- |
+|Określ niestandardową lokalizację instalacji| Umożliwia zmianę domyślnej ścieżki instalacji Azure AD Connect.|
 | Użyj istniejącego serwera SQL Server |Pozwala określić nazwę serwera SQL Server i nazwę wystąpienia. Wybierz tę opcję, jeśli masz już serwer baz danych, którego chcesz użyć. Wprowadź nazwę wystąpienia, a następnie przecinek i numer portu w polu **Nazwa wystąpienia**, jeśli na serwerze SQL Server jest wyłączona funkcja przeglądania.  Następnie określ nazwę bazy danych Azure AD Connect.  Twoje uprawnienia SQL określają, czy zostanie utworzona nowa baza danych, czy administrator SQL musi najpierw utworzyć bazę danych.  Jeśli masz uprawnienia SQL SA, zobacz [jak zainstalować program przy użyciu istniejącej bazy danych](how-to-connect-install-existing-database.md).  Jeśli masz uprawnienia delegowane (DBO), zobacz [instalowanie Azure AD Connect z uprawnieniami administratora delegowanego SQL](how-to-connect-install-sql-delegation.md). |
 | Użyj istniejącego konta usługi |Domyślnie program Azure AD Connect korzysta z wirtualnego konta usługi na potrzeby usług synchronizacji. Jeśli używasz zdalnego serwera SQL lub serwera proxy wymagającego uwierzytelnienia, musisz użyć **zarządzanego konta usługi** lub konta usługi w domenie, do którego znasz hasło. W takich przypadkach wprowadź konto do użycia. Upewnij się, że użytkownik wykonujący instalację jest administratorem systemu na serwerze SQL, aby można było utworzyć identyfikator logowania dla konta usługi.  Zobacz [konta i uprawnienia Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Od ostatniej kompilacji aprowizowanie bazy danych może wykonać poza pasmem administrator usługi SQL, a jej instalację może następnie przeprowadzić administrator programu Azure AD Connect z uprawnieniami właściciela bazy danych.  Aby uzyskać więcej informacji, zobacz temat [Install Azure AD Connect using SQL delegated administrator permissions (Instalowanie programu Azure AD Connect za pomocą delegowanych uprawnień administratora usługi SQL)](how-to-connect-install-sql-delegation.md).|
 | Określ niestandardowe grupy synchronizacji |Domyślnie program Azure AD Connect tworzy cztery grupy lokalne na serwerze podczas instalowania usług synchronizacji. Są to: grupa administratorów, grupa operatorów, grupa przeglądania i grupa resetowanie hasła. Możesz tu określić własne grupy. Grupy muszą być lokalne na serwerze i nie mogą znajdować się w domenie. |
+|Importuj ustawienia synchronizacji (wersja zapoznawcza)|Umożliwia importowanie ustawień z innych wersji Azure AD Connect.  Aby uzyskać więcej informacji [, zobacz Importowanie i eksportowanie ustawień konfiguracji Azure AD Connect](how-to-connect-import-export-config.md).|
 
 ### <a name="user-sign-in"></a>Logowanie użytkowników
 Po zainstalowaniu wymaganych składników zostanie wyświetlony monit o wybranie metody logowania jednokrotnego dla użytkowników. Poniższa tabela zawiera krótki opis dostępnych opcji. Pełny opis metod logowania znajduje się w temacie [Logowanie użytkowników](plan-connect-user-signin.md).
@@ -167,7 +173,7 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 >
 >Aby pobrać najnowszą wersję programu Azure AD Connect, kliknij [tutaj](https://www.microsoft.com/download/details.aspx?id=47594).
 
-![Funkcje opcjonalne](./media/how-to-connect-install-custom/optional2.png)
+ ![Funkcje opcjonalne](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
 > Jeśli narzędzie DirSync lub program Azure AD Sync są obecnie aktywne, nie należy aktywować żadnych funkcji zapisywania zwrotnego w programie Azure AD Connect.
@@ -406,7 +412,7 @@ Następnie zaleca się utworzenie kopii zapasowej bazy danych przed jej usunięc
 
 Na koniec należy usunąć bazę danych.  Możesz to zrobić, używając programu **Microsoft SQL Server Management Studio** i nawiązując połączenie z wystąpieniem SQL. Znajdź bazę danych **ADSync**, kliknij ją prawym przyciskiem myszy, a następnie wybierz polecenie **Usuń** z menu kontekstowego.  Następnie kliknij przycisk **OK**, aby usunąć bazę danych.
 
-![Error](./media/how-to-connect-install-custom/error2.png)
+![Błąd](./media/how-to-connect-install-custom/error2.png)
 
 Po usunięciu bazy danych **ADSync** możesz kliknąć przycisk **Zainstaluj**, aby ponowić próbę instalacji.
 

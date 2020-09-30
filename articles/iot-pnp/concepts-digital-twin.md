@@ -1,18 +1,18 @@
 ---
 title: Informacje o usłudze IoT Plug and Play Digital bliźniaczych reprezentacji
-description: Dowiedz się, jak wersja zapoznawcza Plug and Play IoT używa cyfrowego bliźniaczych reprezentacji
+description: Zrozumienie, jak Plug and Play IoT używa cyfrowego bliźniaczych reprezentacji
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352414"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578057"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Informacje o usłudze IoT Plug and Play Digital bliźniaczych reprezentacji
 
@@ -34,7 +34,7 @@ Interfejsy API Digital bliźniaczy działają na konstrukcjach wysokiego poziomu
 
 W przypadku sznurka urządzenia stan właściwości z możliwością zapisu jest podzielony na odpowiednie i raportowane sekcje. Wszystkie właściwości tylko do odczytu są dostępne w sekcji zgłoszone.
 
-W formie dwucyfrowej dwuosiowej istnieje ujednolicony widok bieżącego i żądanego stanu właściwości. Stan synchronizacji danej właściwości jest przechowywany w odpowiedniej sekcji poziomu głównego lub składnika `$metadata` .
+W formie dwucyfrowej dwuosiowej istnieje ujednolicony widok bieżącego i żądanego stanu właściwości. Stan synchronizacji danej właściwości jest przechowywany w odpowiedniej sekcji składnika domyślnego `$metadata` .
 
 ### <a name="digital-twin-json-format"></a>Format JSON cyfrowego przędzy
 
@@ -48,12 +48,12 @@ Gdy jest reprezentowany jako obiekt JSON, dwuosiowa cyfra obejmuje następujące
 | `$metadata.{propertyName}.desiredValue` | [Tylko do zapisu właściwości] Wymagana wartość określonej właściwości |
 | `$metadata.{propertyName}.desiredVersion` | [Tylko do zapisu właściwości] Wersja żądanej wartości utrzymywanej przez IoT Hub|
 | `$metadata.{propertyName}.ackVersion` | [Wymagane tylko dla właściwości z możliwością zapisu] Wersja potwierdzona przez urządzenie implementujące dwuosiową cyfrę, musi być większa lub równa żądanej wersji |
-| `$metadata.{propertyName}.ackCode` | [Wymagane tylko dla właściwości z możliwością zapisu] `ack`Kod zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
-| `$metadata.{propertyName}.ackDescription` | [Opcjonalne, tylko dla właściwości z możliwością zapisu] `ack`Opis zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
+| `$metadata.{propertyName}.ackCode` | [Wymagane tylko dla właściwości z możliwością zapisu] `ack` Kod zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
+| `$metadata.{propertyName}.ackDescription` | [Opcjonalne, tylko dla właściwości z możliwością zapisu] `ack` Opis zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji właściwości przez urządzenie. Sygnatury czasowe są zakodowane w formacie UTC, a ISO8601 format RRRR-MM-DDTgg: MM: SS. mmmZ |
-| `{componentName}` | Obiekt JSON zawierający wartości właściwości i metadanych składnika, podobny do obiektu głównego. |
+| `{componentName}` | Obiekt JSON zawierający wartości właściwości i metadanych składnika. |
 | `{componentName}.{propertyName}` | Wartość właściwości składnika w formacie JSON |
-| `{componentName}.$metadata` | Informacje o metadanych składnika, podobne do poziomu głównego`$metadata` |
+| `{componentName}.$metadata` | Informacje o metadanych składnika. |
 
 #### <a name="device-twin-sample"></a>Przykładowa dwuosiowa urządzenia
 
@@ -131,7 +131,7 @@ Właściwości to pola danych, które reprezentują stan jednostki (na przykład
 
 #### <a name="read-only-property"></a>Właściwość tylko do odczytu
 
-Schematy
+Schemat:
 
 ```json
 {
@@ -171,7 +171,7 @@ Poniższe fragmenty kodu pokazują reprezentację w formacie JSON obok siebie `s
 
 #### <a name="writable-property"></a>Modyfikowalna Właściwość
 
-Załóżmy, że urządzenie miało również następującą modyfikowalną właściwość na poziomie głównym:
+Załóżmy, że urządzenie miało również następującą modyfikowalną właściwość w składniku domyślnym:
 
 ```json
 {
@@ -228,7 +228,7 @@ Załóżmy, że urządzenie miało również następującą modyfikowalną wła�
    :::column-end:::
 :::row-end:::
 
-W tym przykładzie `3.0` jest bieżącą wartością `fanSpeed` Właściwości raportowanej przez urządzenie. `2.0`jest pożądaną wartością ustawioną przez rozwiązanie. Wymagana wartość i stan synchronizacji właściwości na poziomie głównym są ustawiane na poziomie głównym `$metadata` dla dwuosiowej sieci. Gdy urządzenie przejdzie w tryb online, może zastosować tę aktualizację i zgłosić zaktualizowaną wartość.
+W tym przykładzie `3.0` jest bieżącą wartością `fanSpeed` Właściwości raportowanej przez urządzenie. `2.0` jest pożądaną wartością ustawioną przez rozwiązanie. Wymagana wartość i stan synchronizacji właściwości na poziomie głównym są ustawiane na poziomie głównym `$metadata` dla dwuosiowej sieci. Gdy urządzenie przejdzie w tryb online, może zastosować tę aktualizację i zgłosić zaktualizowaną wartość.
 
 ### <a name="components"></a>Składniki
 
@@ -240,8 +240,8 @@ W przypadku urządzeń z oznaczeniem składnik jest identyfikowany przez `{ "__t
 
 W tym przykładzie `thermostat1` jest składnikiem z dwiema właściwościami:
 
-- `maxTempSinceLastReboot`jest właściwością tylko do odczytu.
-- `targetTemperature`jest modyfikowalną właściwością, która została pomyślnie zsynchronizowana przez urządzenie. Wymagana wartość i stan synchronizacji tych właściwości znajdują się w składniku `$metadata` .
+- `maxTempSinceLastReboot` jest właściwością tylko do odczytu.
+- `targetTemperature` jest modyfikowalną właściwością, która została pomyślnie zsynchronizowana przez urządzenie. Wymagana wartość i stan synchronizacji tych właściwości znajdują się w składniku `$metadata` .
 
 Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1` składnika:
 
@@ -374,11 +374,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> Komunikaty powiadomień o zmianach przędzy są podwójnie włączone w przypadku powiadomienia o zmianach urządzenia i cyfrowych sznurów.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, kiedy już wiesz o programie Digital bliźniaczych reprezentacji, Oto kilka dodatkowych zasobów:
 
 - [Jak używać interfejsów API cyfrowych bliźniaczych Plug and Play IoT](howto-manage-digital-twin.md)
-- [Korzystanie z urządzenia z rozwiązania](quickstart-service-node.md)
+- [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
 - [Interfejs API REST cyfrowego przędzy IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

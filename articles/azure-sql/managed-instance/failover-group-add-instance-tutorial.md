@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325253"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578567"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL do grupy trybu failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Tworzenie grupy zasobów i podstawowego wystąpienia zarządzanego
 
 W tym kroku utworzysz grupę zasobów i podstawowe wystąpienie zarządzane dla grupy trybu failover przy użyciu Azure Portal lub programu PowerShell. 
+
+Wdróż oba wystąpienia zarządzane do [sparowanych regionów](../../best-practices-availability-paired-regions.md) ze względu na wydajność. Wystąpienia zarządzane znajdujące się w regionach z parą geograficzną mają znacznie lepszą wydajność w porównaniu z niesparowanymi regionami. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
@@ -740,6 +742,8 @@ W przypadku dwóch wystąpień zarządzanych, które mają być uwzględnione w 
 
 Ten artykuł zawiera instrukcje tworzenia dwóch bram sieci VPN i łączenia ich, ale można przejść do tworzenia grupy trybu failover, jeśli zamiast tego została skonfigurowana ExpressRoute. 
 
+> [!NOTE]
+> Jednostka SKU bramy wpływa na wydajność przepływności. Ten samouczek służy do wdrażania bramy z największą podstawową jednostką SKU ( `HwGw1` ). Wdróż wyższą jednostkę SKU (przykład: `VpnGw3` ), aby uzyskać większą przepływność. Aby uzyskać wszystkie dostępne opcje, zobacz [jednostki SKU bramy](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

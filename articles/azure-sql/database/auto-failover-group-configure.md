@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444379"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577513"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym temacie przedstawiono sposób konfigurowania [grupy autotrybu failover](auto-failover-group-overview.md) dla Azure SQL Database i wystąpienia zarządzanego Azure SQL.
 
-## <a name="single-database-in-azure-sql-database"></a>Pojedyncza baza danych w Azure SQL Database
+## <a name="single-database"></a>Pojedyncza baza danych
 
 Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy użyciu Azure Portal lub programu PowerShell.
 
@@ -192,7 +192,7 @@ Przywróć grupę trybu failover z powrotem do serwera podstawowego:
 > [!IMPORTANT]
 > Jeśli musisz usunąć pomocniczą bazę danych, usuń ją z grupy trybu failover przed jej usunięciem. Usunięcie pomocniczej bazy danych przed jej usunięciem z grupy trybu failover może spowodować nieprzewidywalne zachowanie.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Pule elastyczne w Azure SQL Database
+## <a name="elastic-pool"></a>Pula elastyczna
 
 Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu Azure Portal lub programu PowerShell.  
 
@@ -346,7 +346,9 @@ Przejdź do trybu failover na serwerze pomocniczym:
 
 Utwórz grupę trybu failover między dwoma wystąpieniami zarządzanymi w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Portal lub programu PowerShell.
 
-Należy skonfigurować [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub utworzyć bramę dla sieci wirtualnej dla każdego wystąpienia zarządzanego SQL, połączyć dwie bramy, a następnie utworzyć grupę trybu failover.
+Należy skonfigurować [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub utworzyć bramę dla sieci wirtualnej dla każdego wystąpienia zarządzanego SQL, połączyć dwie bramy, a następnie utworzyć grupę trybu failover. 
+
+Wdróż oba wystąpienia zarządzane do [sparowanych regionów](../../best-practices-availability-paired-regions.md) ze względu na wydajność. Wystąpienia zarządzane znajdujące się w regionach z parą geograficzną mają znacznie lepszą wydajność w porównaniu z niesparowanymi regionami. 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -360,6 +362,9 @@ Należy wziąć pod uwagę następujące wymagania wstępne:
 ### <a name="create-primary-virtual-network-gateway"></a>Utwórz bramę podstawowej sieci wirtualnej
 
 Jeśli nie skonfigurowano [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), można utworzyć podstawową bramę sieci wirtualnej za pomocą Azure Portal lub PowerShell.
+
+> [!NOTE]
+> Jednostka SKU bramy wpływa na wydajność przepływności. W tym artykule opisano bramę z największą podstawową jednostką SKU ( `HwGw1` ). Wdróż wyższą jednostkę SKU (przykład: `VpnGw3` ), aby uzyskać większą przepływność. Aby uzyskać wszystkie dostępne opcje, zobacz [jednostki SKU bramy](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

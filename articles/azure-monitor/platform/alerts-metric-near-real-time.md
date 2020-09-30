@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/20/2020
+ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595584"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578108"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -37,7 +37,9 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 |Microsoft. Automation/automationAccounts | Tak| Nie | [Konta automatyzacji](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. Automatyczna synchronizacja/privateClouds | Nie | Nie | |
 |Microsoft.Batch/batchAccounts | Tak | Nie | [Konta usługi Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft. cache/Redis | Tak | Nie | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft. cache/Redis | Tak | Tak | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft. ClassicCompute/domainNames/gniazda/role | Nie | Nie | [Cloud Services klasyczny](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
+|Microsoft. ClassicCompute/virtualMachines | Nie | Nie | [Virtual Machines klasyczny](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft. ClassicStorage/storageAccounts | Tak | Nie | [Konta magazynu (klasyczne)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft. ClassicStorage/storageAccounts/blobServices | Tak | Nie | |
 |Microsoft. ClassicStorage/storageAccounts/fileServices | Tak | Nie | |
@@ -74,7 +76,7 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 |Microsoft. Kusto/klastry | Tak |Nie |[Klastry Eksplorator danych](./metrics-supported.md#microsoftkustoclusters)|
 |Microsoft. Logic/integrationServiceEnvironments | Tak | Nie |[Środowiska usługi integracji](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft. Logic/przepływy pracy | Nie | Nie |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft. MachineLearningServices/obszary robocze | Tak | Nie | [Usługa Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft. MachineLearningServices/obszary robocze | Tak | Nie | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft. Maps/konta | Tak | Nie | [Mapuje konta](./metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft. Media/MediaServices | Nie | Nie | [Media Services](./metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft. Media/MediaServices/streamingEndpoints | Tak | Nie | [Media Services punkty końcowe przesyłania strumieniowego](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |

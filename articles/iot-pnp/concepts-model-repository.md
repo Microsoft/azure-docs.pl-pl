@@ -7,22 +7,25 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475502"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577802"
 ---
 # <a name="azure-iot-model-repository"></a>Repozytorium modeli usługi Azure IoT
 
 Repozytorium modeli usługi Azure IoT umożliwia konstruktorom urządzeń zarządzanie i udostępnianie modeli urządzeń Plug and Play IoT. Modele urządzeń to JSON LD dokumenty zdefiniowane przy użyciu [języka Digital bliźniaczych reprezentacji Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Modele przechowywane w usłudze repozytorium modeli mogą być udostępniane deweloperom rozwiązań prywatnie poprzez kontrolę dostępu lub publicznie bez konieczności uwierzytelniania i opracowywania rozwiązania IoT Plug and Play w chmurze.
 
+> [!NOTE]
+> Konstruktory urządzeń mogą zdecydować się na wdrożenie modeli urządzeń Plug and Play IoT bezpośrednio na urządzeniu, użycie modułów lub w module IoT Edge.
+
 Dostęp do repozytorium modelu można uzyskać przy użyciu:
 
 - Portal [repozytorium modelu usługi Azure IoT](https://aka.ms/iotmodelrepo)
 - [Interfejs API REST repozytorium modelu usługi Azure IoT](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
-- [Polecenia repozytorium modelu IoT w interfejsie Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
+- [Polecenia repozytorium modelu IoT w interfejsie Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="public-models"></a>Modele publiczne
 
@@ -45,10 +48,10 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Aby wyświetlić model publiczny za pomocą interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) interfejsu wiersza poleceń platformy Azure.
+Aby wyświetlić model publiczny za pomocą interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) interfejsu wiersza poleceń platformy Azure.
 
 ## <a name="company-models"></a>Modele firmy
 
@@ -115,10 +118,10 @@ Aby wyświetlić firmę lub model współużytkowany przy użyciu interfejsu API
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Aby wyświetlić model firmy lub model współużytkowany przy użyciu interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) interfejsu wiersza poleceń platformy Azure.
+Aby wyświetlić model firmy lub model współużytkowany przy użyciu interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) interfejsu wiersza poleceń platformy Azure.
 
 ### <a name="manage-roles"></a>Zarządzanie rolami
 
@@ -161,10 +164,10 @@ Aby przekazać model przy użyciu interfejsu API REST, zobacz [Create a model](h
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
 ```
 
-Aby przekazać model przy użyciu interfejsu wiersza polecenia, zobacz Create The [model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) CLI platformy Azure.
+Aby przekazać model przy użyciu interfejsu wiersza polecenia, zobacz Create The [model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) CLI platformy Azure.
 
 ### <a name="publish-a-model"></a>Publikowanie modelu
 
@@ -189,7 +192,10 @@ Aby opublikować model przy użyciu portalu:
 
 Aby opublikować model przy użyciu interfejsu API REST, zapoznaj się z dokumentacją interfejsu API REST [publikacji](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) . Podaj parametr ciągu zapytania, `update-metadata=true` Aby opublikować model przy użyciu interfejsu API REST. Zobacz [przekazywanie tokenu zabezpieczającego podczas uzyskiwania dostępu do modeli firmy przy użyciu interfejsu API REST](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) , aby uzyskać informacje o sposobach przekazywania do nagłówka autoryzacji JWT w żądaniu HTTP.
 
-Aby opublikować model przy użyciu interfejsu wiersza polecenia, zobacz temat polecenie [publikowania modelu](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) platformy Azure.
+Aby opublikować model przy użyciu interfejsu wiersza polecenia, zobacz temat polecenie [publikowania modelu](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) platformy Azure.
+
+> [!NOTE]
+> Aby można było uruchomić testy certyfikacji, modele należy opublikować w repozytorium modeli. Aby dowiedzieć się więcej, zobacz [jak certyfikowanie urządzeń Plug and Play IoT](howto-certify-device.md).
 
 ### <a name="share-a-model"></a>Udostępnianie modelu
 

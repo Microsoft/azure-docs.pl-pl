@@ -1,31 +1,28 @@
 ---
 title: Omówienie usługi Azure Defender i dostępnych planów
-description: Dowiedz się więcej na temat planów, ochrony i alertów usługi Azure Defender. Następnie Włącz usługę Azure Defender w Twoich subskrypcjach.
+description: Dowiedz się więcej na temat planów, ochrony i alertów usługi Azure Defender. Następnie Włącz usługę Azure Defender w ramach subskrypcji, aby uzyskać zaawansowane zabezpieczenia.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5a5b96d5a9ea6aa05da30238690b8f5fa745b3f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448422"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576862"
 ---
 # <a name="introduction-to-azure-defender"></a>Wprowadzenie do usługi Azure Defender
 
 Funkcje Azure Security Center obejmują dwa szerokie filary zabezpieczeń w chmurze:
 
-- **Cloud Security stan Management (CSPM)**
-- **Ochrona obciążenia w chmurze (CWP)**
+- **Cloud Security stan Management (CSPM)** — Security Center jest dostępna **bezpłatnie** dla wszystkich użytkowników platformy Azure. Bezpłatne środowisko obejmuje funkcje CSPM, takie jak bezpieczny wynik, wykrywanie błędnej konfiguracji zabezpieczeń na maszynach platformy Azure, spis zasobów i wiele innych. Korzystaj z tych funkcji CSPM, aby wzmocnić stan chmury hybrydowej i śledzić zgodność z wbudowanymi zasadami.
 
-Funkcje CSPM Security Center, takie jak bezpieczeństwo oceny, wykrywanie niezwiązanych z konfiguracją zabezpieczeń na maszynach z systemem Windows i Linux, są częścią bezpłatnego środowiska Security Center dostępnego dla wszystkich użytkowników platformy Azure. Korzystaj z tych funkcji CSPM, aby wzmocnić stan i zapewnić zgodność z przepisami.
+- **Ochrona obciążenia w chmurze (CWP)** — Security Center Zintegrowana platforma ochrony obciążeń w chmurze (CWPP), **Azure Defender**, zapewnia zaawansowane, inteligentne, ochronę zasobów platformy Azure i hybrydowych oraz obciążeń. Włączenie usługi Azure Defender umożliwia korzystanie z szeregu dodatkowych funkcji zabezpieczeń, zgodnie z opisem na tej stronie. Oprócz wbudowanych zasad, po włączeniu dowolnego planu usługi Azure Defender można dodać zasady niestandardowe i inicjatywy. Możesz dodać standardy prawne, takie jak NIST i Azure CIS, jak również test porównawczy zabezpieczeń platformy Azure, aby uzyskać naprawdę dostosowany widok zgodności.
 
-**Usługa Azure Defender** to platforma ochrony obciążeń w chmurze (CWPP) zintegrowana w ramach Security Center na potrzeby zaawansowanej, inteligentnej, chronionej platformy Azure i obciążeń hybrydowych.
-
-Ten pulpit nawigacyjny usługi Azure Defender znajduje się w Azure Security Center:
+Pulpit nawigacyjny usługi Azure Defender w Security Center zapewnia widoczność i kontrolę funkcji CWP w środowisku:
 
 :::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="Przykład pulpitu nawigacyjnego usługi Azure Defender" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
@@ -55,11 +52,13 @@ Oprócz obrony środowiska platformy Azure można dodać możliwości usługi Az
 - Ochrona maszyn wirtualnych w innych chmurach (takich jak AWS i GCP)
 - Ochrona urządzeń IoT
 
-Będziesz otrzymywać dostosowane analizy zagrożeń i alerty z priorytetami zgodnie z określonym środowiskiem, dzięki czemu możesz skupić się na tym, co najważniejsze
+Będziesz otrzymywać dostosowane analizy zagrożeń i alerty z priorytetami zgodnie z określonym środowiskiem, dzięki czemu możesz skupić się na tym, co najważniejsze.
 
-Wdróż [usługę Azure Arc](https://azure.microsoft.com/services/azure-arc/) i Włącz usługę Azure Defender, aby zwiększyć ochronę do lokalnych i wielochmurowych maszyn wirtualnych i baz danych SQL. Usługa Azure ARC dla serwerów jest bezpłatną usługą, ale usługi, które są używane na serwerach z obsługą łuku, na przykład Azure Defender, będą obciążane opłatami za ceny za usługę.
+Aby zwiększyć ochronę do maszyn wirtualnych i baz danych SQL, które znajdują się w innych chmurach lub lokalnie, wdróż [usługę Azure Arc](https://azure.microsoft.com/services/azure-arc/) i Włącz usługę Azure Defender. Usługa Azure ARC dla serwerów jest bezpłatną usługą, ale usługi, które są używane na serwerach z obsługą łuku, na przykład Azure Defender, będą obciążane opłatami za ceny za usługę. Dowiedz się więcej na temat [dodawania maszyn spoza platformy Azure przy użyciu usługi Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-[Dowiedz się więcej o usłudze Azure Arc](https://docs.microsoft.com/azure/azure-arc/overview).
+> [!TIP]
+> Łącznik natywny dla AWS w sposób przezroczysty obsługuje wdrożenie usługi Azure Arc. Dowiedz się więcej w temacie [Łączenie kont AWS z Azure Security Center](quickstart-onboard-aws.md).
+
 
 
 ## <a name="azure-defender-alerts"></a>Alerty usługi Azure Defender 

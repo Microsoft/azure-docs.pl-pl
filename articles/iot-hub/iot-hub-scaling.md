@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033646"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577768"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
 
@@ -52,7 +52,7 @@ Na IoT Hub można wybrać tylko jeden typ [wersji](https://azure.microsoft.com/p
 | [Bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md), [moduł bliźniaczych reprezentacji](iot-hub-devguide-module-twins.md)i [Zarządzanie urządzeniami](iot-hub-device-management-overview.md) |   | Tak |
 | [Strumienie urządzeń (wersja zapoznawcza)](iot-hub-device-streams-overview.md) |   | Tak |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Tak |
-| [Podgląd Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md) |   | Tak |
+| [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Tak |
 
 IoT Hub oferuje również bezpłatną warstwę, która jest przeznaczona do testowania i oceny. Ma ona wszystkie możliwości warstwy Standard, ale ograniczone są ograniczenia obsługi komunikatów. Nie można przeprowadzić uaktualnienia z warstwy Bezpłatna do wersji podstawowa lub standardowa.
 
@@ -75,7 +75,7 @@ Konfiguracja partycji pozostaje niezmieniona podczas migracji z warstwy Podstawo
 
 Różnica w obsługiwanych możliwościach między warstwami podstawowa i Standardowa IoT Hub oznacza, że niektóre wywołania interfejsu API nie działają w przypadku centrów warstwy Podstawowa. W poniższej tabeli przedstawiono dostępne interfejsy API:
 
-| Interfejs API | Warstwa Podstawowa | Warstwa Bezpłatna/standardowa |
+| interfejs API | Warstwa Podstawowa | Warstwa Bezpłatna/standardowa |
 | --- | ---------- | ------------- |
 | [Usuń urządzenie](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Tak | Tak |
 | [Pobierz urządzenie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Tak | Tak |

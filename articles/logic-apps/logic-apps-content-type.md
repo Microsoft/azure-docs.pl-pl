@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269101"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578192"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Obsługa typów zawartości w Azure Logic Apps
 
@@ -61,7 +61,7 @@ Logic Apps oferuje możliwość generowania tokenów przyjaznych dla użytkownik
   
   2. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**Podaj przykładowy ładunek, a następnie wybierz pozycję **gotowe**. Na przykład: 
 
-     ![Zrzut ekranu przedstawiający okno "po odebraniu żądania HTTP" z przykładowym ładunkiem JSON.](./media/logic-apps-content-type/request-trigger.png)
+     ![Zrzut ekranu przedstawiający akcję "po odebraniu żądania HTTP" z przykładowym ładunkiem JSON.](./media/logic-apps-content-type/request-trigger.png)
 
      Wygenerowany schemat zostanie wyświetlony w wyzwalaczu.
 

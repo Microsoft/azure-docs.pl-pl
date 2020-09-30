@@ -7,16 +7,16 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77046063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578187"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Technologie i usługi platformy Azure służące do tworzenia rozwiązań IoT
 
-Technologie i usługi Azure IoT umożliwiają tworzenie różnorodnych rozwiązań IoT, które umożliwiają transformację cyfrową w organizacji. Można na przykład:
+Technologie i usługi Azure IoT umożliwiają tworzenie różnorodnych rozwiązań IoT, które umożliwiają transformację cyfrową w organizacji. Możesz na przykład:
 
 - Za pomocą [usługi Azure IoT Central](https://apps.azureiotcentral.com), zarządzanej platformy aplikacji IoT, można tworzyć i wdrażać bezpieczne rozwiązanie IoT klasy korporacyjnej. IoT Central funkcje kolekcji szablonów aplikacji specyficznych dla branż, takich jak handel detaliczny i opieka medyczna, w celu przyspieszenia procesu tworzenia rozwiązań.
 - Rozwiń bazę kodu typu open source dla [akceleratora rozwiązania](https://www.azureiotsolutions.com) Azure IoT, aby zaimplementować wspólny scenariusz IoT, taki jak zdalne monitorowanie lub konserwacja predykcyjna.
@@ -55,9 +55,9 @@ Aby skompilować rozwiązanie IoT od podstaw lub zwiększyć rozwiązanie utworz
 
 ### <a name="devices"></a>Urządzenia
 
-Opracowuj swoje urządzenia IoT przy użyciu jednej z [zestawów startowych usługi Azure IoT](https://catalog.azureiotsolutions.com/kits) lub wybierz urządzenie, które ma być używane z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://catalog.azureiotsolutions.com). Zaimplementuj kod osadzony przy użyciu [zestawów SDK urządzeń](../iot-hub/iot-hub-devguide-sdks.md)Open Source. Zestawy SDK urządzeń obsługują wiele systemów operacyjnych, takich jak Linux, Windows i systemy operacyjne w czasie rzeczywistym. Istnieją zestawy SDK dla wielu języków programowania, takich jak [C](https://github.com/Azure/azure-iot-sdk-c), [Node. js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp)i [Python](https://github.com/Azure/azure-iot-sdk-python).
+Opracowuj swoje urządzenia IoT przy użyciu jednej z [zestawów startowych usługi Azure IoT](https://catalog.azureiotsolutions.com/kits) lub wybierz urządzenie, które ma być używane z [wykazu urządzeń z certyfikatem platformy Azure dla IoT](https://catalog.azureiotsolutions.com). Zaimplementuj kod osadzony przy użyciu [zestawów SDK urządzeń](../iot-hub/iot-hub-devguide-sdks.md)Open Source. Zestawy SDK urządzeń obsługują wiele systemów operacyjnych, takich jak Linux, Windows i systemy operacyjne w czasie rzeczywistym. Istnieją zestawy SDK dla wielu języków programowania, takich jak [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp)i [Python](https://github.com/Azure/azure-iot-sdk-python).
 
-Możesz bardziej uprościć sposób tworzenia kodu osadzonego dla urządzeń za pomocą usługi [IoT Plug and Play w wersji zapoznawczej](../iot-pnp/overview-iot-plug-and-play.md) . Plug and Play IoT umożliwia deweloperom rozwiązań integrację urządzeń z ich rozwiązaniami bez konieczności pisania kodu osadzonego. Na początku Plug and Play IoT jest schemat _modelu możliwości urządzenia_ , który opisuje możliwości urządzeń. Użyj modelu możliwości urządzenia, aby wygenerować osadzony kod urządzenia i skonfigurować rozwiązanie oparte na chmurze, takie jak aplikacja IoT Central.
+Możesz bardziej uprościć sposób tworzenia kodu osadzonego dla urządzeń za pomocą usługi [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) . Plug and Play IoT umożliwia deweloperom rozwiązań integrację urządzeń z ich rozwiązaniami bez konieczności pisania kodu osadzonego. Na początku Plug and Play IoT jest schemat _modelu możliwości urządzenia_ , który opisuje możliwości urządzeń. Użyj modelu możliwości urządzenia, aby wygenerować osadzony kod urządzenia i skonfigurować rozwiązanie oparte na chmurze, takie jak aplikacja IoT Central.
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) pozwala odciążać części obciążenia IoT z usług w chmurze platformy Azure na urządzeniach. IoT Edge może ograniczyć opóźnienia w rozwiązaniu, zmniejszyć ilość danych wymienianych przez urządzenia z chmurą i włączyć scenariusze międzywierszowe. Urządzeniami IoT Edge można zarządzać z poziomu IoT Central i niektórych akceleratorów rozwiązań.
 
@@ -90,6 +90,6 @@ Urządzenia IoT zazwyczaj generują duże ilości danych szeregów czasowych, ta
 
 Aby uzyskać praktyczne środowisko, wypróbuj jeden z przewodników szybki start:
 
-- [Tworzenie aplikacji usługi Azure IoT Central](../iot-central/core/quick-deploy-iot-central.md)
+- [Tworzenie aplikacji IoT Central platformy Azure](../iot-central/core/quick-deploy-iot-central.md)
 - [Wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md)
 - [Testowanie opartego na chmurze rozwiązania do monitorowania zdalnego](../iot-accelerators/quickstart-remote-monitoring-deploy.md)

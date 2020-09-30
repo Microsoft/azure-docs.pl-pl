@@ -1,20 +1,20 @@
 ---
-title: Słownik terminów — IoT Plug and Play Preview | Microsoft Docs
-description: Pojęcia — słownik typowych terminów dotyczących programu IoT Plug and Play w wersji zapoznawczej.
+title: Słownik terminów — IoT Plug and Play | Microsoft Docs
+description: Pojęcia — słownik typowych terminów dotyczących Plug and Play IoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854213"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577343"
 ---
-# <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Słownik terminów dotyczących usługi IoT Plug and Play w wersji zapoznawczej
+# <a name="glossary-of-terms-for-iot-plug-and-play"></a>Słownik terminów dotyczących usługi IoT Plug and Play
 
 Definicje typowych terminów używanych w artykułach Plug and Play IoT.
 
@@ -38,7 +38,7 @@ Usługa IoT Hub jest usługą zarządzaną, hostowaną w chmurze, która działa
 
 ## <a name="azure-iot-device-sdk"></a>Zestaw SDK urządzeń usługi Azure IoT
 
-Istnieją zestawy SDK urządzeń dla wielu języków, których można użyć do tworzenia aplikacji klienckich urządzenia IoT Plug and Play.
+Istnieją zestawy SDK urządzeń dla wielu języków, których można użyć do tworzenia aplikacji klienckich urządzenia IoT Plug and Play. Użyj **DeviceClient** dla urządzeń i **ModuleClient** dla modułów i modułów IoT Edge.
 
 ## <a name="commands"></a>Polecenia
 
@@ -55,13 +55,19 @@ Parametry połączenia hermetyzują informacje wymagane do nawiązania połącze
 - Parametry połączenia urządzeń umożliwiają [urządzeniom Plug and Play IoT](#iot-plug-and-play-device) łączenie się z punktami końcowymi dostępnymi dla urządzeń w centrum IoT. Kod klienta na urządzeniu używa parametrów połączenia w celu nawiązania bezpiecznego połączenia z usługą IoT Hub.
 - IoT Hub parametry połączenia umożliwiają bezpieczne łączenie rozwiązań i narzędzi zaplecza z punktami końcowymi dostępnymi do usługi w usłudze IoT Hub. Te rozwiązania i narzędzia umożliwiają zarządzanie usługą IoT Hub i podłączonymi do niej urządzeniami.
 
+## <a name="default-component"></a>Składnik domyślny
+
+Wszystkie [modele urządzeń](#device-model) mają składnik domyślny. Prosty model urządzenia ma tylko domyślny składnik — taki model jest również znany jako urządzenie składnik. Bardziej skomplikowany model ma wiele składników zagnieżdżonych pod składnikiem domyślnym.
+
 ## <a name="device-certification"></a>Certyfikacja urządzenia
 
 Program certyfikacji urządzenia Plug and Play IoT sprawdza, czy urządzenie spełnia wymagania certyfikacji Plug and Play IoT. Można dodać certyfikowane urządzenie do [wykazu urządzeń usługi Azure IoT z certyfikatem](https://aka.ms/devicecatalog)publicznym.
 
 ## <a name="device-model"></a>Model urządzenia
 
-Model urządzenia opisuje [urządzenie Plug and Play IoT](#iot-plug-and-play-device) i definiuje [składniki](#component) tworzące urządzenie. Prosty model urządzenia nie ma oddzielnych składników i zawiera definicję dla jednego interfejsu poziomu głównego. Bardziej skomplikowany model urządzeń zawiera wiele składników. Model urządzenia zazwyczaj odpowiada urządzeniu fizycznemu, produktowi lub jednostce SKU. Używasz [języka Digital bliźniaczych reprezentacji Definition Language w wersji 2](#digital-twins-definition-language) do definiowania modelu urządzenia.
+Model urządzenia opisuje [urządzenie Plug and Play IoT](#iot-plug-and-play-device) i definiuje [składniki](#component) tworzące urządzenie. Prosty model urządzenia nie ma oddzielnych składników i zawiera definicję dla jednego interfejsu. Narzędzie Azure IoT Explorer pokazuje prosty model jako zawierający pojedynczy [składnik domyślny](#default-component).
+
+Bardziej skomplikowany model urządzeń zawiera wiele składników. Model urządzenia zazwyczaj odpowiada urządzeniu fizycznemu, produktowi lub jednostce SKU. Używasz [języka Digital bliźniaczych reprezentacji Definition Language w wersji 2](#digital-twins-definition-language) do definiowania modelu urządzenia.
 
 ## <a name="device-builder"></a>Konstruktor urządzeń
 
@@ -69,7 +75,7 @@ Konstruktor urządzeń korzysta z [modelu](#device-model) i [interfejsów](#inte
 
 ## <a name="device-modeling"></a>Modelowanie urządzeń
 
-[Konstruktor urządzeń](#device-builder) używa [języka definicji Digital bliźniaczych reprezentacji](#digital-twins-definition-language) do modelowania możliwości [urządzenia Plug and Play IoT](#iot-plug-and-play-device). [Konstruktor rozwiązań](#solution-builder) może skonfigurować rozwiązanie IoT na podstawie modelu.
+[Konstruktor urządzeń](#device-builder) lub [Konstruktor modułów](#module-builder)używa [języka definicji Digital bliźniaczych reprezentacji](#digital-twins-definition-language) do modelowania możliwości [urządzenia Plug and Play IoT](#iot-plug-and-play-device). [Konstruktor rozwiązań](#solution-builder) może skonfigurować rozwiązanie IoT na podstawie modelu.
 
 ## <a name="digital-twin"></a>Cyfrowe sznurki
 
@@ -89,15 +95,19 @@ Trasa skonfigurowana w [Centrum IoT Hub](#azure-iot-hub) w celu dostarczania [cy
 
 ## <a name="interface"></a>Interfejs
 
-Interfejs opisuje powiązane funkcje, które są implementowane przez [urządzenie IoT Plug and Play](#iot-plug-and-play-device) lub pojedyncze [sznurki cyfrowe](#digital-twin). Można ponownie użyć interfejsów dla różnych [modeli urządzeń](#device-model). Gdy interfejs jest używany w modelu urządzenia, definiuje [składnik](#component) urządzenia.
+Interfejs opisuje powiązane funkcje, które są implementowane przez [urządzenie IoT Plug and Play](#iot-plug-and-play-device) lub pojedyncze [sznurki cyfrowe](#digital-twin). Można ponownie użyć interfejsów dla różnych [modeli urządzeń](#device-model). Gdy interfejs jest używany w modelu urządzenia, definiuje [składnik](#component) urządzenia. Proste urządzenie zawiera tylko domyślny interfejs.
 
 ## <a name="iot-hub-query-language"></a>Język zapytań IoT Hub
 
 Język zapytań IoT Hub jest używany w wielu celach. Można na przykład użyć języka do wyszukania urządzeń zarejestrowanych w centrum IoT Hub lub zawęzić zachowanie [routingu cyfrowego przędzy](#digital-twin-route) .
 
+## <a name="iot-plug-and-play-bridge"></a>Mostek Plug and Play IoT
+
+IoT Plug and Play Bridge to aplikacja Open Source, która umożliwia istniejące czujniki i urządzenia peryferyjne podłączone do bram systemu Windows lub Linux do łączenia się z [urządzeniami Plug and Play IoT](#iot-plug-and-play-device).
+
 ## <a name="iot-plug-and-play-device"></a>Urządzenie Plug and Play IoT
 
-Urządzenie IoT Plug and Play jest zazwyczaj niewielką skalowalnym urządzeniem komputerowym, które zbiera dane lub steruje innymi urządzeniami, a także uruchamia oprogramowanie lub oprogramowanie układowe implementujące [model urządzenia](#device-model).  Na przykład urządzenie IoT Plug and Play może być urządzeniem monitorującym środowisko lub kontrolerem systemu nawadniania inteligentnego. Możesz napisać rozwiązanie IoT hostowane w chmurze, aby móc polecenie, kontrolować i odbierać dane z urządzeń Plug and Play IoT.
+Urządzenie IoT Plug and Play jest zazwyczaj niewielką skalowalnym urządzeniem komputerowym, które zbiera dane lub steruje innymi urządzeniami, a także uruchamia oprogramowanie lub oprogramowanie układowe implementujące [model urządzenia](#device-model).  Na przykład urządzenie IoT Plug and Play może być urządzeniem monitorującym środowisko lub kontrolerem systemu nawadniania inteligentnego. Urządzenie Plug and Play IoT może być implementowane bezpośrednio lub jako moduł IoT Edge. Możesz napisać rozwiązanie IoT hostowane w chmurze, aby móc polecenie, kontrolować i odbierać dane z urządzeń Plug and Play IoT.
 
 ## <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
@@ -114,6 +124,10 @@ Gdy urządzenie IoT Plug and Play nawiązuje połączenie z IoT Hub wysyła **Id
 ## <a name="model-repository-rest-api"></a>Interfejs API REST repozytorium modelu
 
 Interfejs API służący do zarządzania repozytorium modelu i korzystania z niego. Można na przykład użyć interfejsu API do dodawania i wyszukiwania [modeli urządzeń](#device-model).
+
+## <a name="module-builder"></a>Konstruktor modułów
+
+Konstruktor modułów korzysta z [modelu](#device-model) i [interfejsów](#interface) urządzeń podczas implementowania kodu do uruchamiania na [urządzeniu Plug and Play IoT](#iot-plug-and-play-device). Konstruktory modułów implementują kod jako moduł lub moduł IoT Edge do wdrożenia w środowisku uruchomieniowym IoT Edge na urządzeniu.
 
 ## <a name="properties"></a>Właściwości
 

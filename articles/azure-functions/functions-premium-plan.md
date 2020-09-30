@@ -5,13 +5,15 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions
-ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom:
+- references_regions
+- fasttrack-edit
+ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372225"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578040"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -43,7 +45,7 @@ Jeśli w planie zużycia nie wystąpiły żadne zdarzenia i wykonania, aplikacja
 W planie Premium aplikacja zawsze będzie gotowa na określoną liczbę wystąpień.  Maksymalna liczba wystąpień zawsze gotowe jest równa 20.  Gdy zdarzenia rozpoczną wyzwalanie aplikacji, są one najpierw kierowane do zawsze przygotowanych wystąpień.  Gdy funkcja zostanie uaktywniona, kolejne wystąpienia zostaną rozgrzane jako bufor.  Ten bufor zapobiega zimnemu uruchomieniu dla nowych wystąpień wymaganych podczas skalowania.  Te buforowane wystąpienia są nazywane [wstępnie rozgrzanymi wystąpieniami](#pre-warmed-instances).  Wraz z kombinacją zawsze przygotowanych wystąpień i wstępnie wygrzanego buforu aplikacja może skutecznie wyeliminować zimne uruchomienie.
 
 > [!NOTE]
-> Każdy plan Premium będzie miał wszystkie aktywne i rozliczane wystąpienia przez cały czas.
+> Każdy plan Premium będzie miał co najmniej jedno aktywne (rozliczane) wystąpienie przez cały czas.
 
 Liczbę zawsze przygotowanych wystąpień można skonfigurować w Azure Portal przez wybranie **aplikacja funkcji**, przejście na kartę **funkcje platformy** i wybranie opcji **skalowania w poziomie** . W oknie Edycja aplikacji funkcji zawsze gotowe wystąpienia są specyficzne dla tej aplikacji.
 
@@ -59,9 +61,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Wystąpienia z góry to liczba wystąpień rozgrzanych jako bufor podczas zdarzeń skalowania i aktywacji.  Wystąpienia przed osiągnięciem maksymalnego limitu skalowania są nadal buforowane.  Domyślna liczba wystąpień wstępnie rozgrzanych to 1, a w przypadku większości scenariuszy powinna pozostać jako 1.  Jeśli aplikacja ma długotrwałą rozgrzewanie (na przykład niestandardowy obraz kontenera), warto zwiększyć ten bufor.  Wystąpienie preinstalowane stanie się aktywne dopiero po wystarczająco wykorzystaniu wszystkich aktywnych wystąpień.
 
-Rozważmy ten przykład, jak zawsze gotowe wystąpienia i wstępnie rozgrzane wystąpienia współpracują ze sobą.  Aplikacja funkcji w warstwie Premium ma skonfigurowane pięć zawsze gotowych wystąpień i domyślnie jedno wystąpienie przedgrzane.  Gdy aplikacja jest bezczynna i żadne zdarzenia nie są wyzwalane, aplikacja zostanie zainicjowana i uruchomiona na pięciu wystąpieniach.  
+Rozważmy ten przykład, jak zawsze gotowe wystąpienia i wstępnie rozgrzane wystąpienia współpracują ze sobą.  Aplikacja funkcji Premium ma skonfigurowane pięć zawsze przygotowanych wystąpień i domyślnie jedno wystąpienie wstępne.  Gdy aplikacja jest bezczynna i żadne zdarzenia nie są wyzwalane, aplikacja zostanie zainicjowana i uruchomiona na pięciu wystąpieniach.  W tej chwili nie będą naliczane opłaty za wystąpienie z góry, ponieważ zawsze gotowe wystąpienia nie są używane, a żadne wystąpienie z góry nie jest jeszcze przydzielono.
 
-Zaraz po otrzymaniu pierwszego wyzwalacza, pięć zawsze gotowych wystąpień staje się aktywny i przydzielono dodatkowe wystąpienie z góry.  Aplikacja działa teraz z sześcioma zainicjowanymi wystąpieniami: pięć teraz — aktywne zawsze gotowe wystąpienia i szósty, wstępnie rozgrzany i nieaktywny bufor.  Jeśli szybkość wykonywania nadal rośnie, zostaną ostatecznie wykorzystane pięć aktywnych wystąpień.  Gdy Platforma zdecyduje się na skalowanie ponad pięciu wystąpień, zostanie przeskalowana do wystąpienia sprzed wykonania.  Gdy tak się stanie, będą teraz dostępne sześć aktywnych wystąpień, a siódme wystąpienie zostanie natychmiast zainicjowane i wypełnianie buforu z prefiksem.  Ta sekwencja skalowania i wstępnego rozgrzewania będzie kontynuowana do momentu osiągnięcia maksymalnej liczby wystąpień aplikacji.  Żadne wystąpienia nie zostaną wstępnie rozgrzane lub aktywowane poza wartością maksymalną.
+Po powrocie pierwszego wyzwalacza, pięć zawsze gotowych wystąpień staje się aktywny, a wystąpienie jest przydzieloną.  Aplikacja działa teraz z sześcioma zainicjowanymi wystąpieniami: pięć teraz — aktywne zawsze gotowe wystąpienia i szósty, wstępnie rozgrzany i nieaktywny bufor.  Jeśli szybkość wykonywania nadal rośnie, zostaną ostatecznie wykorzystane pięć aktywnych wystąpień.  Gdy Platforma zdecyduje się na skalowanie ponad pięciu wystąpień, zostanie przeskalowana do wystąpienia sprzed wykonania.  Gdy tak się stanie, będą teraz dostępne sześć aktywnych wystąpień, a siódme wystąpienie zostanie natychmiast zainicjowane i wypełnianie buforu z prefiksem.  Ta sekwencja skalowania i wstępnego rozgrzewania będzie kontynuowana do momentu osiągnięcia maksymalnej liczby wystąpień aplikacji.  Żadne wystąpienia nie zostaną wstępnie rozgrzane lub aktywowane poza wartością maksymalną.
 
 Liczbę wstępnie rozgrzanych wystąpień aplikacji można zmodyfikować przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -95,7 +97,7 @@ Azure Functions w planie zużycia są ograniczone do 10 minut w przypadku pojedy
 
 Podczas tworzenia planu dostępne są dwa ustawienia rozmiaru planu: minimalna liczba wystąpień (lub rozmiar planu) i maksymalny limit.
 
-Jeśli aplikacja wymaga wystąpień poza zawsze gotowymi wystąpieniami, można nadal skalować w poziomie, dopóki liczba wystąpień osiągnie maksymalny limit.  Opłaty są naliczane za wystąpienia poza rozmiarem planu, gdy są one uruchomione i dzierżawione.  W celu skalowania aplikacji do zdefiniowanego maksymalnego limitu zostanie osiągnięty najlepszy nakład pracy.
+Jeśli aplikacja wymaga wystąpień poza zawsze gotowymi wystąpieniami, można nadal skalować w poziomie, dopóki liczba wystąpień osiągnie maksymalny limit.  Opłaty są naliczane za wystąpienia poza rozmiarem planu, tylko wtedy, gdy są uruchomione i przyliczane do Ciebie, co sekundę.  W celu skalowania aplikacji do zdefiniowanego maksymalnego limitu zostanie osiągnięty najlepszy nakład pracy.
 
 Rozmiar planu i maksymalne wartości można skonfigurować w Azure Portal, wybierając opcje **skalowania w poziomie** w ramach planu lub aplikacji funkcji wdrożonej w ramach tego planu (w obszarze **funkcje platformy**).
 
@@ -120,9 +122,9 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### <a name="available-instance-skus"></a>Dostępne jednostki SKU wystąpienia
 
-Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty zostaną naliczone za łączną liczbę rdzeni i zużywaną pamięć na sekundę.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
+Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|SKU|Rdzenie|Pamięć|Storage|
+|Jednostka SKU|Rdzenie|Pamięć|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -139,7 +141,7 @@ Poniżej znajdują się obecnie obsługiwane maksymalne wartości skalowania w p
 
 Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Region (Region)| Windows | Linux |
 |--| -- | -- |
 |Australia Środkowa| 100 | Niedostępny |
 |Australia Środkowa 2| 100 | Niedostępny |

@@ -1,15 +1,15 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595567"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578074"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -143,6 +143,7 @@ Ta funkcja jest obecnie obsługiwana w przypadku metryk platformy (nie metryk ni
 | Pule pojemności plików NetApp | **Tak** | **Tak** | **Tak** |
 | Woluminy plików NetApp | **Tak** | **Tak** | **Tak** |
 | Magazyny kluczy | **Tak** | **Tak** | **Tak** |
+| Azure Cache for Redis | **Tak** | **Tak** | **Tak** |
 | Urządzenia brzegowe pola danych | **Tak** | **Tak** | **Tak** |
 
 <sup>1</sup> nie są obsługiwane przez metryki sieci maszyny wirtualnej (łącznie z siecią, łączny czas, przepływy przychodzące, przepływy wychodzące, maksymalna szybkość tworzenia przepływów przychodzących, maksymalna szybkość tworzenia przepływów wychodzących).

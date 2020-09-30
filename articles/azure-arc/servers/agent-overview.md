@@ -1,18 +1,21 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255047"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577224"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
 Agent połączonego komputera z usługą Azure Arc umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
+
+>[!NOTE]
+>Począwszy od ogólnej wersji serwerów z obsługą usługi Azure Arc we wrześniu 2020, wszystkie wersje wstępne agenta maszyny połączonej z platformą Azure (agenci z wersjami mniejszą niż 1,0) są **przestarzałe** w dniu **2 lutego 2021**.  Ten przedział czasu umożliwia uaktualnienie do wersji 1,0 lub nowszej przed niewykorzystanymi agentami, którzy nie będą już mogli komunikować się z usługą serwera z włączonym łukiem Azure.
 
 ## <a name="agent-component-details"></a>Szczegóły składnika agenta
 
@@ -44,7 +47,7 @@ Agenta połączonego z platformą Azure dla systemów Windows i Linux można uak
 
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsługiwane dla agenta połączonego z platformą Azure: 
+Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsługiwane dla agenta połączonego z platformą Azure:
 
 - Windows Server 2012 R2 lub nowszy (w tym Windows Server Core)
 - Ubuntu 16,04 i 18,04 LTS (x64)

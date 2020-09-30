@@ -1,6 +1,7 @@
 ---
-title: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web ASP.NET | Azure
-description: Dowiedz się, jak zaimplementować logowanie firmy Microsoft w aplikacji sieci Web ASP.NET za pomocą usługi OpenID Connect Connect.
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web ASP.NET | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak zaimplementować logowanie firmy Microsoft w aplikacji sieci Web ASP.NET za pomocą usługi OpenID Connect Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,16 +12,22 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: ada6e36e03f326ab3161306b0f5da2e097e57e0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369675"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576969"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET może logować się do kont osobistych (hotmail.com, outlook.com, inne) oraz kont służbowych z dowolnego Azure Active Directory (Azure AD).  (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Wymagania wstępne
+>
+> * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.NET Framework 4.7.2 +](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
 > Istnieją dwie opcje uruchamiania aplikacji Szybki start:
 > * [Ekspresowe] [Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -69,7 +76,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Twój projekt został skonfigurowany z wartościami właściwości aplikacji. 
+> Twój projekt został skonfigurowany z wartościami właściwości aplikacji.
 
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Krok 3. uruchamianie projektu programu Visual Studio
@@ -114,7 +121,7 @@ Potok uwierzytelniania można skonfigurować przy użyciu uwierzytelniania na po
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="owin-startup-class"></a>Klasa początkowa OWIN
@@ -195,13 +202,11 @@ public void SignIn()
 
 Kontroler lub akcje kontrolera można chronić za pomocą atrybutu `[Authorize]`. Ten atrybut ogranicza dostęp do kontrolera lub akcji, zezwalając na dostęp do akcji w kontrolerze tylko uwierzytelnionym użytkownikom, co oznacza, że żądanie uwierzytelnienia zostanie wysłane automatycznie, gdy *nieuwierzytelniony* użytkownik podejmie próbę uzyskania dostępu do jednej z akcji lub kontrolera oznaczonego za pomocą atrybutu `[Authorize]`.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
 Wypróbuj samouczek platformy ASP.NET, aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji i nowych funkcji, w tym pełne objaśnienie informacji zawartych w tym przewodniku Szybki start.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Dowiedz się więcej na temat czynności, które są wymagane to utworzenia aplikacji użytej w tym przewodniku Szybki start
-
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący logowania](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Dodawanie logowania do aplikacji sieci Web ASP.NET](tutorial-v2-asp-webapp.md)
