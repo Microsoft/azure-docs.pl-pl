@@ -3,17 +3,17 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316141"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -162,20 +162,6 @@ Zapoznaj się z [usługami platformy Azure](https://azure.microsoft.com/services
 ### <a name="enterprise-agreement-units-of-measure"></a>Jednostki miary dotyczące umowy Enterprise Agreement
 
 Jednostki miary w przypadku umowy Enterprise Agreement są często inne niż w przypadku innych programów, takich jak Microsoft Online Services Agreement (MOSA). Te różnice oznaczają, że dla pewnej liczby usług jednostka miary jest agregowana w celu zapewnienia znormalizowanych cen. Jednostka miary wyświetlana w widoku Podsumowanie użycia w witrynie Enterprise Portal jest zawsze miarą dla umowy Enterprise. Pełna lista bieżących jednostek miary i konwersji dla każdej usługi jest podana w pliku programu Excel [przyjaznych nazw usług](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
-
-### <a name="rounding-rules"></a>Reguły zaokrąglania
-
-Zaokrąglenia w witrynie Azure Enterprise Portal są wykonywane przy użyciu standardowej logiki zaokrąglania bankierskiego, czyli gaussowskiego, zgodnej z normą organizacji IEEE. W jej przypadku wartości połówkowe są zaokrąglane do najbliższej cyfry parzystej. Popularniejsze zaokrąglanie od połowy w górę zawsze zaokrągla wartość połówkową w górę do pełnej cyfry. Ta stosowana w witrynie Azure Enterprise Portal metoda daje dokładniejszą sumę łączną dla grupy w porównaniu ze standardową logiką programu Excel.
-
-W celu zilustrowania: gdy pierwsza odrzucana cyfra to 5 i nie ma po niej cyfr lub są to zera, zaokrągla się do najbliższej parzystej cyfry. Na przykład liczby 2,315 i 2,325 po zaokrągleniu do najbliższej setnej to 2,32.
-
-W poniższej tabeli przedstawiono formuły programu Excel, których można użyć do modelowania reguł witryny Azure Enterprise Portal na potrzeby zaokrąglania i konwersji:
-
-| Scenariusz | Wzór dla logiki bankierskiej |
-| --- | --- |
-| Użycie zaokrąglania | =MROUND({_source_}, 0.0002) |
-| Ceny zaokrąglone (2 miejsca dziesiętne) | =MROUND({_source_}, 0.02) |
-| Ceny zaokrąglone (0 miejsc dziesiętnych) | =MROUND({_source_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Konwersja między raportem Szczegóły użycia a stroną Podsumowanie użycia
 
