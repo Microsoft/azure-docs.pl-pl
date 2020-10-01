@@ -418,6 +418,8 @@
               href: id-tokens.md
             - name: Tokeny dostępu
               href: access-tokens.md
+            - name: Konfigurowanie okresów istnienia tokenu
+              href: active-directory-configurable-token-lifetimes.md
             - name: Punkt końcowy informacji o użytkowniku
               href: userinfo.md
             - name: Poświadczenia certyfikatu
@@ -522,7 +524,7 @@
         - name: Używanie atrybutów rozszerzeń schematów katalogów w oświadczeniach
           href: active-directory-schema-extensions.md
         - name: Konfigurowanie okresów istnienia tokenu
-          href: active-directory-configurable-token-lifetimes.md
+          href: configure-token-lifetimes.md
         - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Obsługa funkcji ITP w przeglądarce Safari
