@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2ee20035fbb7b417897290caba4500f2c3862fee
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440693"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611813"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalowanie i używanie emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -131,7 +131,7 @@ Emulator Azure Cosmos można uruchomić w kontenerze platformy Docker systemu Wi
    ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
-   Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Primary Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    Exporting SSL Certificate
    You can import the SSL certificate from an administrator command prompt on the host by running:
    cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert

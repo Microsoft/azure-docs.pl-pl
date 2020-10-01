@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity platform Windows platformy UWP — Szybki Start | Azure
-description: Dowiedz się, w jaki sposób aplikacja platforma uniwersalna systemu Windows (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft.
+title: 'Szybki Start: Logowanie użytkowników i wywoływanie Microsoft Graph w aplikacji platforma uniwersalna systemu Windows | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja platforma uniwersalna systemu Windows (platformy UWP) może uzyskać token dostępu i wywołać interfejs API chroniony przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 996c3f5bd6781d35f9ce55da0766712c53e7cb7a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553867"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613292"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 

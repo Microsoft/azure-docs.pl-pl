@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c696d8834c24a792432469bf7b1adffc87f718ba
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373668"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611475"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Samouczek: Tworzenie aplikacji serwera Blazor, która używa platformy tożsamości firmy Microsoft do uwierzytelniania
 
@@ -40,7 +40,7 @@ Każda aplikacja, która używa Azure Active Directory (Azure AD) do uwierzyteln
 
 W obszarze **uwierzytelnianie**  >  **niejawnie Udziel**zaznacz pola wyboru dla **tokenów dostępu** i **tokenów identyfikatorów**, a następnie wybierz przycisk **Zapisz** .
 
-Na koniec, ponieważ aplikacja wywołuje chroniony interfejs API (w tym przypadku Microsoft Graph), wymaga klucza tajnego klienta, aby zweryfikować jego tożsamość, gdy żąda tokenu dostępu do wywołania tego interfejsu API. 
+Na koniec, ponieważ aplikacja wywołuje chroniony interfejs API (w tym przypadku Microsoft Graph), wymaga klucza tajnego klienta, aby zweryfikować jego tożsamość, gdy żąda tokenu dostępu do wywołania tego interfejsu API.
 
 1. W ramach tej samej rejestracji aplikacji w obszarze **Zarządzaj**wybierz pozycję **Certyfikaty & wpisy tajne**.
 2. Utwórz **nowy klucz tajny klienta** , który nigdy nie wygaśnie.
@@ -48,7 +48,7 @@ Na koniec, ponieważ aplikacja wywołuje chroniony interfejs API (w tym przypadk
 
 ## <a name="create-the-app-using-the-net-cli"></a>Tworzenie aplikacji przy użyciu interfejsu wiersza polecenia platformy .NET
 
-Uruchom następujące polecenie, aby pobrać szablony dla elementu Microsoft. Identity. Web, które zostaną użyte w tym samouczku. 
+Uruchom następujące polecenie, aby pobrać szablony dla elementu Microsoft. Identity. Web, które zostaną użyte w tym samouczku.
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -74,19 +74,19 @@ Teraz przejdź do nowej aplikacji Blazor w edytorze i Dodaj klucz tajny klienta 
 
 ## <a name="test-the-app"></a>Testowanie aplikacji
 
-Teraz możesz skompilować i uruchomić aplikację. Po uruchomieniu tej aplikacji szablonu należy określić strukturę do uruchomienia za pomocą--Framework. W tym samouczku jest wykorzystywany zestaw .NET Core 3,1 SDK. 
+Teraz możesz skompilować i uruchomić aplikację. Po uruchomieniu tej aplikacji szablonu należy określić strukturę do uruchomienia za pomocą--Framework. W tym samouczku jest wykorzystywany zestaw .NET Core 3,1 SDK.
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-W przeglądarce przejdź do `https://localhost:5001` i zaloguj się przy użyciu konta użytkownika usługi Azure AD, aby wyświetlić uruchomioną aplikację. 
+W przeglądarce przejdź do `https://localhost:5001` i zaloguj się przy użyciu konta użytkownika usługi Azure AD, aby wyświetlić uruchomioną aplikację.
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Pobieranie danych z Microsoft Graph
 
 [Microsoft Graph](/graph/overview) oferuje szereg interfejsów API, które zapewniają dostęp do danych Microsoft 365 użytkownika. Korzystając z platformy tożsamości firmy Microsoft jako dostawcy tożsamości dla aplikacji, możesz łatwiej uzyskać dostęp do tych informacji, ponieważ Microsoft Graph bezpośrednio obsługiwać tokeny wystawione przez platformę tożsamości firmy Microsoft. W tej sekcji dodasz kod, który umożliwia wyświetlenie wiadomości e-mail zalogowanego użytkownika na stronie "pobieranie danych" aplikacji.
 
-Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu. 
+Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu.
 
 Teraz zaktualizujesz rejestrację i kod aplikacji w celu ściągnięcia wiadomości e-mail użytkownika i wyświetlenia komunikatów w aplikacji. Aby to osiągnąć, najpierw Zwiększ uprawnienia rejestracji aplikacji w usłudze Azure AD, aby umożliwić dostęp do danych poczty e-mail. Następnie Dodaj kod do aplikacji Blazor, aby pobrać i wyświetlić te dane na jednej z stron.
 
@@ -201,5 +201,7 @@ Po udzieleniu zgody przejdź na stronę "pobieranie danych", aby odczytać wiado
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft](./identity-platform-integration-checklist.md)
-- [Microsoft Identity Web — podstawy](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+Dowiedz się więcej na temat wywoływania tworzenia aplikacji sieci Web, które logują użytkowników w naszej wieloczęściowej serii scenariuszy:
+
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja sieci Web, która loguje użytkowników](scenario-web-app-sign-user-overview.md)

@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a9f4f165f457dfb902a4c0ecce3f4a9b13e2ec8
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511844"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611541"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Learn how to deploy modules and establish routes in IoT Edge (Dowiedz się, jak wdrażać moduły i ustanawiać trasy w usłudze IoT Edge).
 
@@ -38,7 +38,7 @@ Na wysokim poziomie manifest wdrożenia jest listą bliźniaczych reprezentacji 
 
 W każdym manifeście wdrożenia są wymagane dwa moduły: `$edgeAgent` , i `$edgeHub` . Te moduły są częścią środowiska uruchomieniowego IoT Edge, które zarządza urządzeniem IoT Edge i uruchomionymi na nim modułami. Aby uzyskać więcej informacji o tych modułach, zobacz [Omówienie środowiska uruchomieniowego IoT Edge i jego architektury](iot-edge-runtime.md).
 
-Oprócz dwóch modułów środowiska uruchomieniowego można dodać do 30 modułów, które będą uruchamiane na urządzeniu IoT Edge.
+Oprócz dwóch modułów środowiska uruchomieniowego można dodać do 50 modułów do uruchomienia na urządzeniu IoT Edge.
 
 Manifest wdrożenia zawierający tylko środowisko uruchomieniowe IoT Edge (edgeAgent i edgeHub) jest prawidłowy.
 
@@ -159,9 +159,9 @@ Komunikaty przekazywane między modułami w IoT Edge są sformatowane tak samo j
 
 Można tworzyć zapytania dotyczące każdego z trzech parametrów z następującą składnią:
 
-* Właściwości systemu: `$<propertyName>` lub`{$<propertyName>}`
-* Właściwości aplikacji:`<propertyName>`
-* Właściwości treści:`$body.<propertyName>`
+* Właściwości systemu: `$<propertyName>` lub `{$<propertyName>}`
+* Właściwości aplikacji: `<propertyName>`
+* Właściwości treści: `$body.<propertyName>`
 
 Aby zapoznać się z przykładami dotyczącymi tworzenia zapytań dotyczących właściwości wiadomości, zobacz [wyrażenia zapytania dotyczącego urządzenia do chmury](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 

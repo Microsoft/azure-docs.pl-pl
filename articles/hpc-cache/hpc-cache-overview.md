@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: b51cd938747c1cfa82b397160f077474e176b2f5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611754"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612969"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Co to jest usługa Azure HPC Cache?
 
@@ -64,12 +64,6 @@ Odwiedź stronę [globalne infrastruktury platformy Azure według regionów](htt
 * Europa Zachodnia
 * US Gov Arizona
 * US Gov Wirginia
-
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
 
 ## <a name="next-steps"></a>Następne kroki
 

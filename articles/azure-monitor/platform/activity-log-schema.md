@@ -4,15 +4,15 @@ description: Opisuje schemat zdarzeń dla każdej kategorii w dzienniku aktywno�
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 06/09/2020
+ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829513"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612765"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
 [Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
@@ -23,6 +23,17 @@ Schemat będzie się różnić w zależności od sposobu uzyskania dostępu do d
 - [Aby wysłać](diagnostic-settings.md) dziennik aktywności do usługi Azure Storage lub Azure Event Hubs, zobacz ostatni [schemat sekcji z konta magazynu i centrów zdarzeń](#schema-from-storage-account-and-event-hubs) dla schematu.
 - W przypadku korzystania z [ustawień diagnostycznych](diagnostic-settings.md) do wysyłania dziennika aktywności do log Analytics obszaru roboczego zobacz [Azure monitor odwołanie do danych](/azure/azure-monitor/reference/) schematu.
 
+## <a name="severity-level"></a>Poziom ważności
+Każdy wpis w dzienniku aktywności ma poziom ważności. Poziom ważności może mieć jedną z następujących wartości:  
+
+| Ważność | Opis |
+|:---|:---|
+| Krytyczny | Zdarzenia, które wymagają natychmiastowej uwagi administratora systemu. Może wskazywać, że aplikacja lub system nie przestaną działać lub nie odpowiada.
+| Błąd | Zdarzenia, które wskazują na problem, ale nie wymagają natychmiastowej uwagi.
+| Ostrzeżenie | Zdarzenia, które zapewniają forewarning potencjalnych problemów, chociaż nie jest to rzeczywisty błąd. Wskazuje, że zasób nie jest w stanie idealnym i może ulec obniżeniu w przyszłości w celu pokazywania błędów lub zdarzeń krytycznych.  
+| Informacyjne | Zdarzenia, które przekazują administratorowi informacje o niekrytycznej kondycji. Podobnie jak na przykład: "informacje". 
+
+Developers każdego dostawcy zasobów wybiera poziomy ważności ich wpisów zasobów. W związku z tym rzeczywista ważność może się różnić w zależności od sposobu, w jaki aplikacja została skompilowana. Na przykład elementy, które są "krytyczne" do określonego zasobu pobranego w isloation, mogą nie być ważne jako "błędy" w typie zasobu, który jest centralną aplikacją platformy Azure. Pamiętaj, aby wziąć pod uwagę ten fakt przy wyborze zdarzeń, które mają być wyzwalane.  
 
 ## <a name="categories"></a>Kategorie
 Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która została opisana w poniższej tabeli. Zapoznaj się z poniższymi sekcjami, aby uzyskać więcej szczegółów na temat każdej kategorii i jej schematu podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](./resource-logs.md#send-to-azure-event-hubs). Mapowanie właściwości do [schematu dzienników zasobów](./resource-logs-schema.md) znajduje się w ostatniej sekcji artykułu.
@@ -35,8 +46,8 @@ Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która zosta
 | [Alert](#alert-category) | Zawiera rekord aktywacji dla alertów platformy Azure. Przykładem zdarzenia alertu jest _użycie procesora CPU w systemie 80 myVM w ciągu ostatnich 5 minut_.|
 | [Automatyczne skalowanie](#autoscale-category) | Zawiera rekord wszystkich zdarzeń związanych z działaniem aparatu skalowania automatycznego na podstawie wszelkich ustawień automatycznego skalowania zdefiniowanych w ramach subskrypcji. Przykładem zdarzenia automatycznego skalowania jest _Akcja skalowania automatycznego w górę_. |
 | [Zalecenie](#recommendation-category) | Zawiera zdarzenia rekomendacji z Azure Advisor. |
-| [Bezpieczeństwo](#security-category) | Zawiera rekord wszystkich alertów wygenerowanych przez Azure Security Center. Przykład zdarzenia zabezpieczeń to _podejrzany plik o podwójnym rozszerzeniu_. |
-| [Zasady](#policy-category) | Zawiera rekordy wszystkich operacji akcji wykonywanych przez Azure Policy. Przykłady zdarzeń zasad obejmują _inspekcję_ i _odmowę_. Wszystkie akcje podejmowane przez zasady są modelowane jako operacje na zasobach. |
+| [Zabezpieczenia](#security-category) | Zawiera rekord wszystkich alertów wygenerowanych przez Azure Security Center. Przykład zdarzenia zabezpieczeń to _podejrzany plik o podwójnym rozszerzeniu_. |
+| [Zasada](#policy-category) | Zawiera rekordy wszystkich operacji akcji wykonywanych przez Azure Policy. Przykłady zdarzeń zasad obejmują _inspekcję_ i _odmowę_. Wszystkie akcje podejmowane przez zasady są modelowane jako operacje na zasobach. |
 
 ## <a name="administrative-category"></a>Kategoria administracyjna
 Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwania i akcji wykonywanych za pomocą Menedżer zasobów. Przykłady typów zdarzeń widocznych w tej kategorii obejmują "Tworzenie maszyny wirtualnej" i "Usuwanie sieciowej grupy zabezpieczeń" Każda Akcja podejmowana przez użytkownika lub aplikację przy użyciu Menedżer zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest zapis, usuwanie lub Akcja, rekordy zarówno rozpoczęcia, jak i sukcesu lub niepowodzenia tej operacji są rejestrowane w kategorii administracyjnej. Kategoria administracyjna zawiera również wszelkie zmiany w ramach kontroli dostępu opartej na rolach w ramach subskrypcji.
@@ -137,7 +148,7 @@ Ta kategoria zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwa
 | dyplomatyczn |Jedna z następujących wartości: "admin", "Operation" |
 | oświadczenia |Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
 | correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
-| description (opis) |Tekst statyczny opisu zdarzenia. |
+| description |Tekst statyczny opisu zdarzenia. |
 | eventDataId |Unikatowy identyfikator zdarzenia. |
 | eventName | Przyjazna nazwa zdarzenia administracyjnego. |
 | category | Zawsze "administracyjne" |
@@ -281,7 +292,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów
 | --- | --- |
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description (opis) |Opis tekstu statycznego zdarzenia alertu. |
+| description |Opis tekstu statycznego zdarzenia alertu. |
 | eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "ResourceHealth" |
 | eventTimestamp |Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
@@ -376,7 +387,7 @@ Ta kategoria zawiera rekord wszystkich aktywacji klasycznych alertów platformy 
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu alertów. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description (opis) |Opis tekstu statycznego zdarzenia alertu. |
+| description |Opis tekstu statycznego zdarzenia alertu. |
 | eventDataId |Unikatowy identyfikator zdarzenia alertu. |
 | category | Zawsze "Alert" |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
@@ -486,7 +497,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z działaniem aparat
 | dyplomatyczn | Zawsze "administrator, operacja" |
 | oświadczenia | Obiekt BLOB JSON z nazwą SPN (główna nazwa usługi) lub typem zasobu aparatu skalowania automatycznego. |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description (opis) |Tekst statyczny opisu zdarzenia skalowania automatycznego. |
+| description |Tekst statyczny opisu zdarzenia skalowania automatycznego. |
 | eventDataId |Unikatowy identyfikator zdarzenia skalowania automatycznego. |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "Error", "Warning" i "informacyjny" |
 | resourceGroupName |Nazwa grupy zasobów dla ustawienia skalowania automatycznego. |
@@ -574,7 +585,7 @@ Ta kategoria zawiera rekordy wszystkich alertów wygenerowanych przez Azure Secu
 | --- | --- |
 | dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description (opis) |Statyczny opis zdarzenia zabezpieczeń. |
+| description |Statyczny opis zdarzenia zabezpieczeń. |
 | eventDataId |Unikatowy identyfikator zdarzenia zabezpieczeń. |
 | eventName |Przyjazna nazwa zdarzenia zabezpieczeń. |
 | category | Zawsze "zabezpieczenia" |
@@ -655,7 +666,7 @@ Ta kategoria zawiera rejestr wszelkich nowych zaleceń, które są generowane dl
 | --- | --- |
 | dyplomatyczn | Zawsze "operacja" |
 | correlationId | Identyfikator GUID w formacie ciągu. |
-| description (opis) |Tekst statyczny opisu zdarzenia rekomendacji |
+| description |Tekst statyczny opisu zdarzenia rekomendacji |
 | eventDataId | Unikatowy identyfikator zdarzenia rekomendacji. |
 | category | Zawsze "rekomendacja" |
 | ID |Unikatowy identyfikator zasobu zdarzenia rekomendacji. |
@@ -768,7 +779,7 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 | dyplomatyczn | Zdarzenia zasad używają tylko kanału operacji. |
 | oświadczenia | Token JWT używany przez Active Directory do uwierzytelniania użytkownika lub aplikacji w celu wykonania tej operacji w Menedżer zasobów. |
 | correlationId | Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia, które współużytkują identyfikator korelacji, należy do tej samej akcji Uber. |
-| description (opis) | To pole jest puste dla zdarzeń zasad. |
+| description | To pole jest puste dla zdarzeń zasad. |
 | eventDataId | Unikatowy identyfikator zdarzenia. |
 | eventName | "BeginRequest" lub "EndRequest". "BeginRequest" jest używany w przypadku opóźnionych ocen auditIfNotExists i deployIfNotExists oraz kiedy efekt deployIfNotExists uruchamia wdrożenie szablonu. Wszystkie inne operacje zwracają wartość "EndRequest". |
 | category | Deklaruje zdarzenie dziennika aktywności jako należące do "zasad". |
@@ -807,13 +818,13 @@ Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do kon
 | category | Część nazwy operacji | Zagadnień typu operacji — "Write"/"Delete"/"Action" |
 | resultType | status. Value | |
 | resultSignature | Substatus. wartość | |
-| resultDescription | description (opis) |  |
-| durationMs | Brak | Zawsze 0 |
+| resultDescription | description |  |
+| durationMs | Nie dotyczy | Zawsze 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | Właściwości oświadczeń i autoryzacji |  |
 | Poziom | Poziom |  |
-| location | Brak | Lokalizacja, w której zdarzenie zostało przetworzone. *Nie jest to lokalizacja zasobu, ale zamiast tego, gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
+| location | Nie dotyczy | Lokalizacja, w której zdarzenie zostało przetworzone. *Nie jest to lokalizacja zasobu, ale zamiast tego, gdzie zdarzenie zostało przetworzone. Ta właściwość zostanie usunięta w przyszłej aktualizacji.* |
 | Właściwości | Właściwości. eventProperties |  |
 | Właściwości. eventCategory | category | Jeśli właściwość. eventCategory nie istnieje, kategoria ma wartość "Administrative" |
 | Właściwości. EventName | eventName |  |

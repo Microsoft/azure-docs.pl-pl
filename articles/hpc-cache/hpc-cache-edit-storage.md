@@ -4,18 +4,30 @@ description: Jak edytować cele magazynu pamięci podręcznej platformy Azure HP
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: f11e12c4f30977514e04b09c7e1c3012eb7888a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092460"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613121"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
-Możesz usunąć lub zmodyfikować miejsce docelowe magazynu z poziomu strony portalu **magazynu obiektów docelowych** pamięci podręcznej lub za pomocą interfejsu wiersza polecenia platformy Azure.
+Możesz usunąć lub zmodyfikować cele magazynu za pomocą Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+W zależności od typu magazynu można modyfikować te wartości docelowe magazynu:
+
+* W przypadku obiektów docelowych usługi BLOB Storage można zmienić ścieżkę przestrzeni nazw.
+
+* W przypadku docelowych magazynów NFS można zmienić następujące wartości:
+
+  * Ścieżki przestrzeni nazw
+  * Podkatalog eksportu lub eksportu magazynu skojarzony ze ścieżką przestrzeni nazw
+  * Model użycia
+
+Nie można edytować nazwy, typu lub systemu magazynu zaplecza magazynu (kontenera obiektów blob lub nazwy hosta lub adresu IP systemu plików NFS). Aby zmienić te właściwości, należy usunąć miejsce docelowe magazynu i utworzyć zamiennik z nową wartością.
 
 > [!TIP]
 > W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) pokazano, jak edytować miejsce docelowe magazynu w Azure Portal.
@@ -24,7 +36,7 @@ Możesz usunąć lub zmodyfikować miejsce docelowe magazynu z poziomu strony po
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby usunąć miejsce docelowe magazynu, wybierz je z listy i kliknij przycisk **Usuń** .
+Aby usunąć miejsce docelowe magazynu, Otwórz stronę **miejsca do magazynowania** . Wybierz docelowy magazyn z listy i kliknij przycisk **Usuń** .
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -45,41 +57,23 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-Ta akcja powoduje usunięcie skojarzenia obiektu docelowego magazynu z tym systemem pamięci podręcznej platformy Azure HPC, ale nie powoduje zmiany systemu magazynu zaplecza. Na przykład jeśli użyto kontenera magazynu obiektów blob platformy Azure, kontener i jego zawartość nadal istnieją po usunięciu z pamięci podręcznej. Możesz dodać kontener do innej pamięci podręcznej platformy Azure HPC, dodać go ponownie do tej pamięci podręcznej lub usunąć za pomocą Azure Portal.
+Usunięcie obiektu docelowego magazynu spowoduje usunięcie skojarzenia systemu magazynu z tym systemem pamięci podręcznej platformy Azure HPC, ale nie powoduje zmiany systemu magazynu zaplecza. Na przykład jeśli użyto kontenera magazynu obiektów blob platformy Azure, kontener i jego zawartość nadal istnieją po usunięciu z pamięci podręcznej. Możesz dodać kontener do innej pamięci podręcznej platformy Azure HPC, dodać go ponownie do tej pamięci podręcznej lub usunąć za pomocą Azure Portal.
 
 Wszelkie zmiany plików przechowywane w pamięci podręcznej są zapisywane w systemie magazynu zaplecza przed usunięciem miejsca docelowego magazynu. Ten proces może potrwać godzinę lub dłużej, jeśli wiele zmienionych danych znajduje się w pamięci podręcznej.
 
-## <a name="update-storage-targets"></a>Aktualizuj cele magazynu
+## <a name="change-a-blob-storage-targets-namespace-path"></a>Zmiana ścieżki przestrzeni nazw docelowego magazynu obiektów BLOB
 
-Można edytować cele magazynu w celu zmodyfikowania niektórych ich właściwości. Różne właściwości można edytować w przypadku różnych typów magazynu:
+Ścieżki przestrzeni nazw to ścieżki używane przez klientów do instalowania tego miejsca docelowego magazynu. (Aby dowiedzieć się więcej, przeczytaj temat [Planowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md) i [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md)).
 
-* W przypadku obiektów docelowych usługi BLOB Storage można zmienić ścieżkę przestrzeni nazw.
-
-* W przypadku obiektów docelowych magazynu NFS można zmienić następujące właściwości:
-
-  * Ścieżka przestrzeni nazw
-  * Model użycia
-  * Eksportowanie
-  * Eksportuj podkatalog
-
-Nie można edytować nazwy, typu lub systemu magazynu zaplecza magazynu (kontenera obiektów blob lub nazwy hosta lub adresu IP systemu plików NFS). Aby zmienić te właściwości, należy usunąć miejsce docelowe magazynu i utworzyć zamiennik z nową wartością.
-
-W Azure Portal można zobaczyć, które pola są edytowalne, klikając nazwę obiektu docelowego magazynu i otwierając jego stronę szczegółów. Możesz również modyfikować cele magazynu za pomocą interfejsu wiersza polecenia platformy Azure.
-
-![zrzut ekranu przedstawiający stronę Edytowanie miejsca docelowego magazynu NFS](media/hpc-cache-edit-storage-nfs.png)
-
-## <a name="update-an-nfs-storage-target"></a>Aktualizowanie miejsca docelowego magazynu NFS
-
-W przypadku miejsca docelowego magazynu NFS można zaktualizować kilka właściwości. (Skorzystaj z powyższego zrzutu ekranu, aby zapoznać się z przykładową stroną Edytuj).
-
-* **Model użycia** — model użycia ma wpływ na sposób przechowywania danych w pamięci podręcznej. Aby dowiedzieć się więcej, zapoznaj się z tematem [Wybieranie modelu użycia](hpc-cache-add-storage.md#choose-a-usage-model) .
-* **Ścieżka wirtualnej przestrzeni nazw** — ścieżka używana przez klientów do instalowania tego miejsca docelowego magazynu. Zapoznaj [się z tematem planowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md) w celu uzyskania szczegółów.
-* **Ścieżka eksportu NFS** — eksport systemu magazynu do użycia dla tej ścieżki przestrzeni nazw.
-* **Ścieżka podkatalogu** — podkatalog (w ramach eksportu) do skojarzenia z tą ścieżką przestrzeni nazw. Pozostaw to pole puste, jeśli nie musisz określać podkatalogu.
-
-Każda ścieżka przestrzeni nazw musi mieć unikatową kombinację eksportu i podkatalogu. Oznacza to, że nie można wykonać dwóch różnych ścieżek związanych z klientem do dokładnie tego samego katalogu w systemie magazynu zaplecza.
+Ścieżka przestrzeni nazw jest jedyną aktualizacją, którą można utworzyć na serwerze docelowym usługi Azure Blob Storage. Użyj Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby go zmienić.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Użyj strony **przestrzeni nazw** dla swojej pamięci podręcznej platformy Azure HPC. Strona przestrzeni nazw została szczegółowo opisana w artykule [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md).
+
+Kliknij nazwę ścieżki, którą chcesz zmienić, i Utwórz nową ścieżkę w wyświetlonym oknie edycji.
+
+![Zrzut ekranu strony przestrzeni nazw po kliknięciu ścieżki przestrzeni nazw obiektów BLOB — pola edycji są wyświetlane w okienku po prawej stronie](media/edit-namespace-blob.png)
 
 Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
 
@@ -87,57 +81,95 @@ Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować miejsce docel
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Użyj polecenia [AZ NFS-Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) , aby zmienić model użycia, ścieżkę wirtualnej przestrzeni nazw oraz wartości eksportowania lub podkatalogów systemu plików NFS dla miejsca docelowego magazynu.
+Aby zmienić przestrzeń nazw obiektu docelowego magazynu obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ HPC-cache BLOB-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). `--virtual-namespace-path`Można zmienić tylko wartość.
 
-* Aby zmienić model użycia, użyj ``--nfs3-usage-model`` opcji. Przykład: ``--nfs3-usage-model WRITE_WORKLOAD_15``
-
-* Aby zmienić ścieżkę przestrzeni nazw, wyeksportować lub wyeksportować podkatalog, użyj ``--junction`` opcji.
-
-  ``--junction``Parametr używa tych wartości:
-
-  * ``namespace-path``-Ścieżka pliku wirtualnego po stronie klienta
-  * ``nfs-export``— Eksport systemu magazynu w celu skojarzenia ze ścieżką skierowaną do klienta
-  * ``target-path``(opcjonalnie) — podkatalog eksportu, w razie konieczności
-
-  Przykład: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
-
-Wszystkie polecenia aktualizacji wymagają nazwy pamięci podręcznej, nazwy docelowej magazynu i grupy zasobów.
-
-Przykład polecenia: <!-- having problem testing this -->
-
-```azurecli
-az hpc-cache nfs-storage-target update --cache-name mycache \
-    --name rivernfs0 --resource-group doc-rg0619 \
-    --nfs3-usage-model READ_HEAVY_INFREQ
-```
-
-Jeśli pamięć podręczna jest zatrzymana lub nie jest w dobrej kondycji, aktualizacja ma zastosowanie, gdy pamięć podręczna jest w dobrej kondycji.
+  ```azurecli
+  az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
+    --resource-group rg --virtual-namespace-path "/new-path"
+  ```
 
 ---
 
-## <a name="update-an-azure-blob-storage-target"></a>Aktualizowanie celu usługi Azure Blob Storage
+## <a name="update-an-nfs-storage-target"></a>Aktualizowanie miejsca docelowego magazynu NFS
 
-Dla obiektu docelowego usługi BLOB Storage można zmodyfikować ścieżkę przestrzeni nazw wirtualnej.
+W przypadku obiektów docelowych magazynu NFS można zmienić lub dodać ścieżki wirtualnego obszaru nazw, zmienić wartości eksportowania lub podkatalogów systemu plików NFS, na które wskazuje ścieżka przestrzeni nazw, i zmienić model użycia.
+
+Poniżej znajdują się szczegóły:
+
+* [Zmień zagregowane wartości przestrzeni nazw](#change-aggregated-namespace-values) (ścieżka wirtualnej przestrzeni nazw, eksport i katalog podkatalogu eksportu)
+* [Zmień model użycia](#change-the-usage-model)
+
+### <a name="change-aggregated-namespace-values"></a>Zmień wartości zagregowanych przestrzeni nazw
+
+Za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure można zmienić ścieżkę przestrzeni nazw klienta, eksport magazynu i podkatalog eksportu (jeśli jest używany).
+
+Zapoznaj się z instrukcjami w temacie [Dodawanie ścieżek przestrzeni nazw systemu plików NFS](add-namespace-paths.md#nfs-namespace-paths) , jeśli potrzebujesz przypomnienia o sposobie tworzenia wielu prawidłowych ścieżek w jednym miejscu docelowym magazynu.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Strona szczegóły obiektu docelowego usługi BLOB Storage umożliwia modyfikowanie ścieżki wirtualnej przestrzeni nazw.
+Użyj strony **przestrzeni nazw** dla pamięci podręcznej platformy Azure HPC, aby zaktualizować wartości przestrzeni nazw. Ta strona została szczegółowo opisana w artykule [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md).
 
-![zrzut ekranu przedstawiający stronę Edytowanie elementu docelowego usługi BLOB Storage](media/hpc-cache-edit-storage-blob.png)
+![zrzut ekranu strony przestrzeni nazw portalu z otwartą stroną aktualizacji NFS z prawej strony](media/update-namespace-nfs.png)
 
-Po zakończeniu kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
+1. Kliknij nazwę ścieżki, którą chcesz zmienić.
+1. Użyj okna Edycja, aby wpisać nową ścieżkę wirtualną, eksport lub wartości podkatalogów.
+1. Po wprowadzeniu zmian kliknij przycisk **OK** , aby zaktualizować obiekt docelowy magazynu, lub przycisk **Anuluj** , aby odrzucić zmiany.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Użyj [AZ HPC-cache BLOB-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) , aby zaktualizować ścieżkę przestrzeni nazw obiektu docelowego.
+``--junction``Aby zmienić ścieżkę przestrzeni nazw, eksport systemu plików NFS lub podkatalog eksportu, użyj opcji w poleceniem [AZ HPC-cache NFS-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) .
+
+``--junction``Parametr używa tych wartości:
+
+* ``namespace-path`` -Ścieżka pliku wirtualnego po stronie klienta
+* ``nfs-export`` — Eksport systemu magazynu w celu skojarzenia ze ścieżką skierowaną do klienta
+* ``target-path`` (opcjonalnie) — podkatalog eksportu, w razie konieczności
+
+Przykład: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
+
+Należy podać wszystkie trzy wartości dla każdej ścieżki w ``--junction`` instrukcji. Użyj istniejących wartości dla dowolnych wartości, które nie mają być zmieniane.
+
+Wszystkie polecenia aktualizacji wymagają również nazwy pamięci podręcznej, nazwy docelowej magazynu i grupy zasobów.
+
+Przykładowe polecenie:
 
 ```azurecli
-az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
-    --resource-group rg --storage-account "/subscriptions/<subscription_ID>/resourceGroups/erinazcli/providers/Microsoft.Storage/storageAccounts/rg"  \
-    --container-name "container-name" --virtual-namespace-path "/new-path"
+az hpc-cache nfs-storage-target update --cache-name mycache \
+  --name st-name --resource-group doc-rg0619 \
+  --junction namespace-path="/new-path" nfs-export="/my-export" target-path="my-subdirectory"
 ```
+
+---
+
+### <a name="change-the-usage-model"></a>Zmień model użycia
+
+Model użycia ma wpływ na sposób przechowywania danych w pamięci podręcznej. Aby dowiedzieć się więcej, zapoznaj się z tematem [Wybieranie modelu użycia](hpc-cache-add-storage.md#choose-a-usage-model) .
+
+Aby zmienić model użycia dla miejsca docelowego magazynu NFS, użyj jednej z tych metod.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Zmień model użycia na stronie **miejsce docelowe magazynu** w Azure Portal. Kliknij nazwę docelowego magazynu do zmiany.
+
+![zrzut ekranu przedstawiający stronę Edytowanie miejsca docelowego magazynu NFS](media/edit-storage-nfs.png)
+
+Użyj selektora listy rozwijanej, aby wybrać nowy model użycia. Kliknij przycisk **OK** , aby zaktualizować miejsce docelowe magazynu, lub kliknij przycisk **Anuluj** , aby odrzucić zmiany.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Użyj polecenia [AZ HPC-cache NFS-Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) .
+
+Polecenie Update jest niemal identyczne z poleceniem, które służy do dodawania miejsca docelowego magazynu NFS. Aby uzyskać szczegółowe informacje i przykłady, zapoznaj się z tematem [Tworzenie docelowego magazynu NFS](hpc-cache-add-storage.md#create-an-nfs-storage-target) .
+
+Aby zmienić model użycia, zaktualizuj ``--nfs3-usage-model`` opcję. Przykład: ``--nfs3-usage-model WRITE_WORKLOAD_15``
+
+Wymagane są również wartości Nazwa pamięci podręcznej, nazwa obiektu docelowego magazynu i grupy zasobów.
+
+Jeśli chcesz sprawdzić nazwy modeli użycia, użyj polecenia [AZ HPC-cache-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
 
 Jeśli pamięć podręczna jest zatrzymana lub nie jest w dobrej kondycji, aktualizacja zostanie zastosowana, gdy pamięć podręczna będzie w dobrej kondycji.
 

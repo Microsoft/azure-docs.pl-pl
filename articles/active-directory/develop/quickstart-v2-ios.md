@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity platform iOS i macOS — Szybki Start | Azure
-description: Dowiedz się, jak logować użytkowników i Microsoft Graph zapytań w aplikacji dla systemu iOS lub macOS.
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji systemu iOS lub macOS | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja systemu iOS lub macOS może zalogować użytkowników, uzyskać token dostępu z platformy tożsamości firmy Microsoft i wywołać interfejs API Microsoft Graph.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115258"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613462"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -25,13 +26,16 @@ Ten przewodnik Szybki Start zawiera przykładowy kod, który pokazuje, jak Natyw
 
 Ten przewodnik Szybki Start dotyczy zarówno aplikacji iOS, jak i macOS. Niektóre kroki są wymagane tylko w przypadku aplikacji dla systemu iOS. Te kroki wywołują, że są tylko dla systemu iOS.
 
-![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!NOTE]
-> **Wymagania wstępne**
-> * XCode 10 +
-> * System iOS 10 +
-> * macOS 10.12+
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* XCode 10 +
+* System iOS 10 +
+* macOS 10.12+
+
+## <a name="how-the-sample-works"></a>Jak działa przykład
+
+![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
@@ -70,16 +74,16 @@ Ten przewodnik Szybki Start dotyczy zarówno aplikacji iOS, jak i macOS. Niektó
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) (Już skonfigurowano) Twoja aplikacja została skonfigurowana za pomocą tych atrybutów
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>Krok 2. Pobieranie przykładowego projektu
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Pobierz przykład kodu dla systemu iOS]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Pobierz przykładowy kod dla macOS]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>Krok 2. Pobieranie przykładowego projektu
-> 
+>
 > - [Pobierz przykład kodu dla systemu iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Pobierz przykładowy kod dla macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -260,15 +264,13 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > |Gdzie: | Opis |
 > |---------|---------|
 > | `scopes` | Zawiera żądane zakresy (czyli `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web ( `api://<Application ID>/access_as_user` ) |
-> | `account` | Konto, dla którego jest żądany token. Ten przewodnik Szybki Start dotyczy aplikacji o pojedynczym koncie. Jeśli chcesz utworzyć aplikację obejmującą wiele kont, musisz zdefiniować logikę, aby zidentyfikować konto, które będzie używane w żądaniach tokenów używające `accountsFromDeviceForParameters:completionBlock:` i przekazując poprawne`accountIdentifier` |
+> | `account` | Konto, dla którego jest żądany token. Ten przewodnik Szybki Start dotyczy aplikacji o pojedynczym koncie. Jeśli chcesz utworzyć aplikację obejmującą wiele kont, musisz zdefiniować logikę, aby zidentyfikować konto, które będzie używane w żądaniach tokenów używające `accountsFromDeviceForParameters:completionBlock:` i przekazując poprawne `accountIdentifier` |
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wypróbuj samouczek dla systemów iOS i macOS, aby uzyskać kompletny przewodnik krok po kroku dotyczący tworzenia aplikacji, w tym kompletny opis tego przewodnika Szybki Start.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Dowiedz się, jak utworzyć aplikację używaną w tym przewodniku Szybki Start
+Przejdź do samouczka krok po kroku, w którym tworzysz aplikację dla systemu iOS lub macOS, która pobiera token dostępu z platformy tożsamości firmy Microsoft i używa jej do wywoływania interfejsu API Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Samouczek interfejs API programu Graph wywołań dla systemów iOS i macOS](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS](tutorial-v2-ios.md)

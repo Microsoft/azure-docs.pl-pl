@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 53176114e8236ac8d8d38b1cf4c7472b0c18c08d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305600"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611365"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie synchronizacji adresatów Cofense na potrzeby automatycznej aprowizacji użytkowników
 
@@ -53,7 +53,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
     ![Recepient synchronizacji TNC](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Skopiuj wartości z pól **adresu URL** i **tokenu**.
+3. Skopiuj wartości z pól **adresu URL** i **tokenu** .
 
     ![Recepient synchronizacji](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
@@ -116,35 +116,35 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |Nazwa. sformatowana|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Name. honorificSuffix|String|
-   |numer telefonu [typ EQ "Work"]. wartość|String|
-   |numer telefonu [typ EQ "Home"]. Value|String|
-   |braky [Type EQ "Other"]. Value|String|
-   |numer telefonu [typ EQ "pager"]. wartość|String|
-   |numer telefonu [typ EQ "Mobile"]. Value|String|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
-   |adresy [Type EQ "Other"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |Name. honorificSuffix|Ciąg|
+   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |numer telefonu [typ EQ "Home"]. Value|Ciąg|
+   |braky [Type EQ "Other"]. Value|Ciąg|
+   |numer telefonu [typ EQ "pager"]. wartość|Ciąg|
+   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
    |addresss [Type EQ "Work"]. Country|Ciąg|
    |title|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |wiadomości e-mail [Type EQ "Home"]. Value|String|
-   |wiadomości e-mail [Type EQ "Other"]. Value|String|
+   |wiadomości e-mail [Type EQ "Home"]. Value|Ciąg|
+   |wiadomości e-mail [Type EQ "Other"]. Value|Ciąg|
    |preferredLanguage|Ciąg|
    |nickName|Ciąg|
    |userType|Ciąg|
    |locale|Ciąg|
    |timezone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -169,7 +169,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

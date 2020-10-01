@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166318"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612816"
 ---
 # <a name="confidential-client-assertions"></a>Poufne potwierdzenia klienta
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Oświadczenia oczekiwane przez usługę Azure AD to:
+[Oświadczenia oczekiwane przez usługę Azure AD](active-directory-certificate-credentials.md) to:
 
 Typ oświadczenia | Wartość | Opis
 ---------- | ---------- | ----------
-AUD | `https://login.microsoftonline.com/{tenantId}/v2.0` | Deklaracja "AUD" (odbiorcy) identyfikuje odbiorców, dla których jest przeznaczony token JWT (w tym przypadku usługa Azure AD), zobacz [RFC 7519, sekcja 4.1.3]
-exp | Czwartek Jun 27 2019 15:04:17 GMT + 0200 (czas letni) | Wartość "EXP" (czas wygaśnięcia) określa czas wygaśnięcia w dniu lub, po którym nie można zaakceptować tokenu JWT do przetworzenia. Patrz [RFC 7519, sekcja 4.1.4]
-ISS | ClientID | Wartość "ISS" (wystawca) identyfikuje podmiot zabezpieczeń, który wystawił token JWT. Przetwarzanie tego żądania jest specyficzne dla aplikacji. Wartość "ISS" jest ciągiem z uwzględnieniem wielkości liter, zawierającym wartość StringOrURI. [RFC 7519, sekcja 4.1.1]
-jti | (identyfikator GUID) | Wartość "JTI" (identyfikator JWT) zapewnia unikatowy identyfikator dla tokenu JWT. Wartość identyfikatora musi być przypisana w sposób, który gwarantuje, że istnieje niewielkie prawdopodobieństwo, że ta sama wartość zostanie przypadkowo przypisana do innego obiektu danych; Jeśli aplikacja używa wielu wystawców, kolizje muszą być blokowane między wartościami wyprodukowanymi przez różne wystawcy. Można użyć roszczeń "JTI", aby uniemożliwić odtwarzanie tokenu JWT. Wartość "JTI" jest ciągiem z uwzględnieniem wielkości liter. [RFC 7519, sekcja 4.1.7]
-NBF | Czwartek Jun 27 2019 14:54:17 GMT + 0200 (czas letni) | Wartość "NBF" (nie wcześniej) określa czas, po którym nie można zatwierdzić tokenu JWT do przetwarzania. [RFC 7519, sekcja 4.1.5]
-Sub | ClientID | Wartość "Sub" (podmiot) służy do identyfikowania tematu tokenu JWT. Oświadczenia w tokenie JWT są zwykle instrukcjami dotyczącymi tematu. Wartość podmiotu musi być objęta zakresem lokalnym unikatowym w kontekście wystawcy lub być globalnie unikatowa. Patrz [RFC 7519, sekcja 4.1.2]
+AUD | `https://login.microsoftonline.com/{tenantId}/v2.0` | Deklaracja "AUD" (odbiorcy) identyfikuje odbiorców, dla których jest przeznaczony token JWT (w tym przypadku usługa Azure AD) [, zobacz RFC 7519, sekcja 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  W takim przypadku odbiorcą jest serwer logowania (login.microsoftonline.com).
+exp | 1601519414 | Wartość "EXP" (czas wygaśnięcia) określa czas wygaśnięcia w dniu lub, po którym nie można zaakceptować tokenu JWT do przetworzenia. Zobacz [dokument RFC 7519, sekcja 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Pozwala to na użycie potwierdzenia do momentu, dlatego należy zachować jego wartość krótko-5-10 min `nbf` .  Usługa Azure AD nie nakłada obecnie ograniczeń na `exp` czas. 
+ISS | ClientID | Wniosek "ISS" (wystawca) identyfikuje podmiot zabezpieczeń, który wystawił token JWT, w tym przypadku aplikację kliencką.  Użyj identyfikatora aplikacji identyfikatora GUID.
+jti | (identyfikator GUID) | Wartość "JTI" (identyfikator JWT) zapewnia unikatowy identyfikator dla tokenu JWT. Wartość identyfikatora musi być przypisana w sposób, który gwarantuje, że istnieje niewielkie prawdopodobieństwo, że ta sama wartość zostanie przypadkowo przypisana do innego obiektu danych; Jeśli aplikacja używa wielu wystawców, kolizje muszą być blokowane między wartościami wyprodukowanymi przez różne wystawcy. Wartość "JTI" jest ciągiem z uwzględnieniem wielkości liter. [RFC 7519, sekcja 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+NBF | 1601519114 | Wartość "NBF" (nie wcześniej) określa czas, po którym nie można zatwierdzić tokenu JWT do przetwarzania. [RFC 7519, sekcja 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Korzystanie z bieżącego czasu jest odpowiednie. 
+Sub | ClientID | Element "Sub" (podmiot) identyfikuje podmiot JWT, w tym przypadku również aplikację. Użyj tej samej wartości co `iss` . 
 
 Oto przykład sposobu przedstawiania tych oświadczeń:
 
@@ -181,7 +181,7 @@ Po potwierdzeniu podpisanego klienta można użyć go z interfejsami API MSAL, j
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`Domyślnie program będzie generował podpisane potwierdzenie zawierające oświadczenia oczekiwane przez usługę Azure AD i dodatkowe oświadczenia klienta, które mają zostać wysłane. Oto fragment kodu dotyczący tego, jak to zrobić.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` Domyślnie program będzie generował podpisane potwierdzenie zawierające oświadczenia oczekiwane przez usługę Azure AD i dodatkowe oświadczenia klienta, które mają zostać wysłane. Oto fragment kodu dotyczący tego, jak to zrobić.
 
 ```csharp
 string ipAddress = "192.168.1.2";

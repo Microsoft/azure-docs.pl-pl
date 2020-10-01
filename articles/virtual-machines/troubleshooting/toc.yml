@@ -224,6 +224,8 @@
           href: troubleshoot-performance-virtual-machine-linux-windows.md
         - name: Performance Diagnostics
           href: performance-diagnostics.md
+        - name: Rozwiązywanie problemów z wysokim obciążeniem procesora CPU maszyny wirtualnej z systemem Windows na platformie Azure
+          href: troubleshoot-high-cpu-issues-azure-windows-vm.md
     - name: PerfInsights
       items:
         - name: Windows
@@ -232,8 +234,6 @@
               href: how-to-use-perfinsights.md
             - name: Rozszerzenie do diagnostyki wydajności
               href: performance-diagnostics-vm-extension.md
-            - name: Rozwiązywanie problemów z wysokim obciążeniem procesora CPU maszyny wirtualnej z systemem Windows na platformie Azure
-              href: troubleshoot-high-cpu-issues-azure-windows-vm.md
         - name: Linux
           items:
             - name: Korzystanie z narzędzia PerfInsights

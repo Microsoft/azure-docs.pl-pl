@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577598"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613394"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie usługą IoT Plug and Play Digital bliźniaczych reprezentacji
 
@@ -179,11 +179,11 @@ Wszystkie klucze mapowania powinny być Prawidłowymi nazwami DTDL v2.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Rozwiązywanie problemów z aktualizacją interfejsów API cyfrowych przędzy
 
-W publicznej wersji zapoznawczej interfejs API Digital przędzy, który generuje następujący ogólny komunikat o błędzie:
+Interfejs API Digital bliźniaczy zgłasza następujący ogólny komunikat o błędzie:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Upewnij się, że poprawka aktualizacji jest zgodna z [regułami dotyczącymi ustawiania żądanej wartości właściwości dwuosiowej](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+Jeśli widzisz ten błąd, upewnij się, że poprawka aktualizacji jest zgodna z [regułami dotyczącymi ustawiania żądanej wartości właściwości dwuosiowej](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 Podczas aktualizowania składnika upewnij się, że jest ustawiony [znacznik $Metadata pustego obiektu](#add-replace-or-remove-a-component) .
 

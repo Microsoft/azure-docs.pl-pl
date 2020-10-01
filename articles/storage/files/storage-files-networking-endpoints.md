@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4e08c74e1fbc3da1ed11d6a2f7faeb26780d2a37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333549"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612833"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
 
@@ -32,7 +32,7 @@ Zalecamy zapoznanie się z [zagadnieniami dotyczącymi sieci Azure Files](storag
 - W tym artykule przyjęto założenie, że utworzono już subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - W tym artykule założono, że masz już utworzony udział plików platformy Azure na koncie magazynu, z którym chcesz nawiązać połączenie ze środowiska lokalnego. Aby dowiedzieć się, jak utworzyć udział plików platformy Azure, zobacz [Tworzenie udziału plików platformy Azure](storage-how-to-create-file-share.md).
 - Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Konfiguracje punktów końcowych
 
@@ -164,7 +164,7 @@ W przypadku ograniczenia konta magazynu do określonych sieci wirtualnych można
 
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
 - [Konfigurowanie przekazywania DNS dla usługi Azure Files](storage-files-networking-dns.md)

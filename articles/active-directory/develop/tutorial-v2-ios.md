@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: Biblioteka Microsoft Authentication Library (MSAL) dla systemu iOS & macOS | Azure'
+title: 'Samouczek: Tworzenie aplikacji dla systemu iOS lub macOS używającej platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, w jaki sposób aplikacje dla systemów iOS i macOS (SWIFT) mogą wywołać interfejs API, który wymaga tokenów dostępu przy użyciu platformy tożsamości firmy Microsoft
+description: W tym samouczku utworzysz aplikację dla systemu iOS lub macOS, która korzysta z platformy tożsamości firmy Microsoft do logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph w ich imieniu.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,20 +13,33 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 238f8426ae51bec64dfdb5edaa3107ca1f430914
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256912"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611116"
 ---
-# <a name="sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
+# <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
 W tym samouczku dowiesz się, jak zintegrować aplikację z systemem iOS lub macOS za pomocą platformy tożsamości firmy Microsoft. Aplikacja zarejestruje użytkownika, uzyska token dostępu do wywołania interfejsu API Microsoft Graph i wyśle żądanie do interfejsu API Microsoft Graph.
 
-Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobistych kont Microsoft (w tym outlook.com, live.com i innych) oraz kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory.
+Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobistych kont Microsoft (w tym outlook.com, live.com i innych) oraz kont służbowych z dowolnej firmy lub organizacji korzystającej z Azure Active Directory. Ten samouczek dotyczy zarówno aplikacji dla systemu iOS, jak i macOS. Niektóre kroki są różne dla obu platform.
 
-## <a name="how-this-tutorial-works"></a>Jak działa ten samouczek
+W tym samouczku:
+
+> [!div class="checklist"]
+> * Tworzenie projektu aplikacji dla systemu iOS lub macOS w usłudze *Xcode*
+> * Zarejestruj aplikację w Azure Portal
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Dodawanie kodu do wywoływania interfejsu API Microsoft Graph
+> * Testowanie aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- [Xcode 11. x +](https://developer.apple.com/xcode/)
+
+## <a name="how-tutorial-app-works"></a>Jak działa aplikacja samouczków
 
 ![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten samouczek](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
@@ -42,16 +55,10 @@ Więcej szczegółów:
 
 Ten przykład używa biblioteki uwierzytelniania firmy Microsoft (MSAL) w celu zaimplementowania uwierzytelniania. Usługa MSAL automatycznie odnawia tokeny, dostarcza Logowanie jednokrotne między innymi aplikacjami na urządzeniu i zarządza kontami.
 
-Ten samouczek dotyczy zarówno aplikacji dla systemu iOS, jak i macOS. Niektóre kroki różnią się między tymi dwiema platformami.
+Jeśli chcesz pobrać kompletną wersję aplikacji skompilowanej w ramach tego samouczka, możesz znaleźć obie wersje w witrynie GitHub:
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-- Do skompilowania aplikacji w tym przewodniku jest wymagane XCode w wersji 11. x lub nowszej. XCode można pobrać ze [sklepu Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Adres URL pobierania XCode").
-- Biblioteka uwierzytelniania firmy Microsoft ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Można użyć Menedżera zależności lub ręcznie dodać bibliotekę. W poniższych instrukcjach pokazano, jak to zrobić.
-
-Ten samouczek spowoduje utworzenie nowego projektu. Jeśli chcesz zamiast tego pobrać ukończony samouczek, Pobierz kod:
-- [przykładowy kod dla systemu iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [przykładowy kod macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+- [przykład kodu dla systemu iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/) (GitHub)
+- [przykład kodu macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/) (GitHub)
 
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
@@ -64,7 +71,7 @@ Ten samouczek spowoduje utworzenie nowego projektu. Jeśli chcesz zamiast tego p
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 
-1. Przejdź do [Azure Portal](https://aka.ms/MobileAppReg)
+1. Przejdź do witryny [Azure Portal](https://aka.ms/MobileAppReg).
 2. Otwórz blok Rejestracje aplikacji i wybierz pozycję **+ Nowa rejestracja**.
 3. Wprowadź **nazwę** aplikacji, a następnie, bez ustawienia identyfikatora URI przekierowania.
 4. Wybierz **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)** w obszarze **obsługiwane typy kont**
@@ -159,7 +166,7 @@ Dodaj nową grupę łańcucha kluczy do **możliwości & podpisywania**projektu.
 
 W tym kroku zostanie zarejestrowane, `CFBundleURLSchemes` Aby użytkownik mógł zostać przekierowany z powrotem do aplikacji po zalogowaniu się. Dzięki temu `LSApplicationQueriesSchemes` aplikacja może również używać Microsoft Authenticator.
 
-W Xcode Otwórz `Info.plist` jako plik kodu źródłowego i Dodaj następujący element w `<dict>` sekcji. Zamień na `[BUNDLE_ID]` wartość użytą w Azure Portal, w przypadku której pobrano kod, to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
+W Xcode Otwórz `Info.plist` jako plik kodu źródłowego i Dodaj następujący element w `<dict>` sekcji. Zamień na `[BUNDLE_ID]` wartość użytą w Azure Portal. Jeśli pobrano kod, identyfikator pakietu to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -509,7 +516,7 @@ Dodaj następujący kod do `ViewController` klasy:
 
 #### <a name="get-a-token-interactively"></a>Interaktywnie Uzyskaj token
 
-Poniższy kod pobiera token po raz pierwszy przez utworzenie `MSALInteractiveTokenParameters` obiektu i wywołanie `acquireToken` . Następnie dodasz kod, który:
+Poniższy fragment kodu pobiera token po raz pierwszy przez utworzenie `MSALInteractiveTokenParameters` obiektu i wywołanie `acquireToken` . Następnie dodasz kod, który:
 
 1. Tworzy `MSALInteractiveTokenParameters` z zakresami.
 2. Wywołania `acquireToken()` z utworzonymi parametrami.
@@ -628,7 +635,7 @@ Aby uzyskać zaktualizowany token w trybie dyskretnym, Dodaj następujący kod d
 
 Gdy masz token, aplikacja może używać go w nagłówku HTTP w celu uzyskania autoryzowanego żądania do Microsoft Graph:
 
-| klucz nagłówka    | wartość                 |
+| klucz nagłówka    | value                 |
 | ------------- | --------------------- |
 | Autoryzacja | Elementu nośnego \<access-token> |
 
@@ -847,4 +854,7 @@ Po zalogowaniu aplikacja będzie wyświetlać dane zwrócone z `/me` punktu koń
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli musisz obsługiwać Firstline procesy robocze, które współużytkują urządzenia między zmianami, zobacz [tryb udostępnionego urządzenia dla urządzeń z systemem iOS](msal-ios-shared-devices.md).
+Dowiedz się więcej o tworzeniu aplikacji mobilnych, które wywołują chronione interfejsy API sieci Web w naszej wieloczęściowej serii scenariuszy.
+
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja mobilna, która wywołuje interfejsy API sieci Web](scenario-mobile-overview.md)

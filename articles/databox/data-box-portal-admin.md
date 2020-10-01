@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 2fc869448bac8303acee902b5d8819fdd3f26138
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258520"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611660"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Użyj Azure Portal, aby administrować Azure Data Box i Azure Data Box Heavy
 
@@ -202,7 +202,7 @@ Aby pobrać historię zamówienia, wykonaj poniższe kroki.
 
 Możesz również wyświetlić łańcuch dzienników nadzoru, które zawierają dzienniki inspekcji oraz pliki BOM.
 
-![Dzienniki w ramach kont magazynu](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Dzienniki na kontach magazynu 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## <a name="view-order-status"></a>Wyświetlanie stanu zamówienia
 

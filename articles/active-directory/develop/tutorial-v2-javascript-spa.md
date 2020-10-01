@@ -1,7 +1,7 @@
 ---
-title: Samouczek dotyczący jednostronicowej aplikacji JavaScript | Azure
+title: 'Samouczek: Tworzenie jednostronicowej aplikacji JavaScript korzystającej z platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: W tym samouczku dowiesz się, jak aplikacje jednostronicowe języka JavaScript (aplikacji jednostronicowych) mogą wywołać interfejs API, który wymaga tokenów dostępu wystawionych przez platformę tożsamości firmy Microsoft.
+description: W tym samouczku utworzysz aplikację jednostronicową języka JavaScript, która używa platformy tożsamości firmy Microsoft do logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph w ich imieniu.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fca1ab61c4c07d8c619719d79872470626137249
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256828"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611184"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji JavaScript jednostronicowej (SPA)
 
-W tym przewodniku przedstawiono sposób, w jaki aplikacja obsługująca skrypty JavaScript (single-page) może:
-- Zaloguj się do kont osobistych, a także kont służbowych
-- Uzyskiwanie tokenu dostępu
-- Wywołaj interfejs API Microsoft Graph lub inne interfejsy API, które wymagają tokenów dostępu z *punktu końcowego platformy tożsamości firmy Microsoft*
+W tym samouczku utworzysz aplikację jednostronicową (SPA) w języku JavaScript, która może zalogować użytkowników przy użyciu osobistych kont Microsoft lub kont służbowych, a następnie uzyskać token dostępu służący do wywoływania interfejsu API Microsoft Graph.
+
+W tym samouczku:
+
+> [!div class="checklist"]
+> * Tworzenie projektu JavaScript z `npm`
+> * Zarejestruj aplikację w Azure Portal
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Dodawanie kodu do wywołania interfejsu API Microsoft Graph
+> * Testowanie aplikacji
 
 >[!TIP]
 > W tym samouczku użyto MSAL.js v1. x, które jest ograniczone do użycia niejawnego przepływu dotacji dla aplikacji jednostronicowych. Zalecamy używanie wszystkich nowych aplikacji zamiast [MSAL.js 2. x i przepływu kodu autoryzacji z obsługą PKCE i CORS](tutorial-v2-javascript-auth-code.md) .
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Node.js](https://nodejs.org/en/download/) na potrzeby uruchamiania lokalnego serwera sieci Web.
+* [Visual Studio Code](https://code.visualstudio.com/download) lub inny edytor do modyfikowania plików projektu.
+* Nowoczesnej przeglądarki sieci Web. Program **Internet Explorer** **nie jest obsługiwany** przez aplikację utworzoną w tym samouczku ze względu na użycie konwencji [ES6](http://www.ecma-international.org/ecma-262/6.0/) przez aplikację.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Jak działa Przykładowa aplikacja generowana przez ten przewodnik
 
 ![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten samouczek](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>Więcej informacji
+Przykładowa aplikacja utworzona przez ten przewodnik umożliwia wykonywanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu zostanie zaproszony i dodany do żądań HTTP za pośrednictwem nagłówka autoryzacji. Ten token będzie używany do uzyskiwania profilu użytkownika i wiadomości e-mail za pośrednictwem **MS interfejs API programu Graph**.
 
-Przykładowa aplikacja utworzona przez ten przewodnik umożliwia wykonywanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu zostanie zaproszony i dodany do żądań HTTP za pośrednictwem nagłówka autoryzacji. Ten token będzie używany do uzyskiwania profilu użytkownika i wiadomości e-mail za pośrednictwem **MS interfejs API programu Graph**. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez **bibliotekę uwierzytelniania firmy Microsoft (MSAL) dla języka JavaScript**.
-
-### <a name="libraries"></a>Biblioteki
-
-W tym przewodniku jest stosowana następująca Biblioteka:
-
-|Biblioteka|Opis|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript|
+Pozyskiwanie i odnawianie tokenów jest obsługiwane przez [bibliotekę uwierzytelniania firmy Microsoft (MSAL) dla języka JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## <a name="set-up-your-web-server-or-project"></a>Konfigurowanie serwera lub projektu sieci Web
 
 > Wolisz pobrać projekt tego przykładu? [Pobierz pliki projektu](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > Aby skonfigurować przykładowy kod przed jego wykonaniem, przejdź do [kroku konfiguracji](#register-your-application).
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* Aby uruchomić ten samouczek, musisz mieć lokalny serwer sieci Web, taki jak [Node.js](https://nodejs.org/en/download/), [.net core](https://www.microsoft.com/net/core)lub IIS Express integrację z programem [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-
-* Instrukcje zawarte w tym przewodniku są oparte na serwerze sieci Web skompilowanym w Node.js. Zalecamy używanie [Visual Studio Code](https://code.visualstudio.com/download) jako zintegrowanego środowiska programistycznego (IDE).
-
-* Nowoczesnej przeglądarki sieci Web. Ten przykładowy kod JavaScript używa konwencji [ES6](http://www.ecma-international.org/ecma-262/6.0/) , w związku z czym nie **obsługuje** programu **Internet Explorer**.
 
 ## <a name="create-your-project"></a>Tworzenie projektu
 
@@ -486,8 +482,6 @@ W przykładowej aplikacji utworzonej przez ten przewodnik `callMSGraph()` Metoda
    ```
 1. W przeglądarce wpisz **http://localhost:3000** lub **http://localhost:{port}** , gdzie *port* jest portem, z którym nasłuchuje serwer sieci Web. Powinna zostać wyświetlona zawartość pliku *index.html* i przycisku **Zaloguj** .
 
-## <a name="test-your-application"></a>Testowanie aplikacji
-
 Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
 
 ![Okno logowania do konta SPA w języku JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,10 @@ Interfejs API Microsoft Graph wymaga, aby *użytkownik. Read* miał zakres do od
 > Użytkownik może zostać poproszony o dodatkowe przesłanie w miarę zwiększania liczby zakresów.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+Zajrzyj do aplikacji jednostronicowej (SPA) na platformie tożsamości firmy Microsoft w naszej serii scenariuszy wieloczęściowych.
+
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja jednostronicowa](scenario-spa-overview.md)

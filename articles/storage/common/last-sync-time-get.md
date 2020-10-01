@@ -10,13 +10,13 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cad80a554db0424ad8635e81cbfb4225705e9c89
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 242700c05053aa9d07e3a561a21986c8451a46c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073016"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612448"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 
@@ -61,7 +61,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

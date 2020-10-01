@@ -1,6 +1,7 @@
 ---
-title: Używanie trybu udostępnionego urządzenia z systemem MSAL Android | Azure
-description: Dowiedz się, jak przygotować urządzenie z systemem Android do działania w trybie udostępnionym i uruchomić aplikację Firstline Worker.
+title: 'Samouczek: Używanie trybu udostępnionego urządzenia z biblioteką uwierzytelniania firmy Microsoft (MSAL) dla systemu Android | Azure'
+titleSuffix: Microsoft identity platform
+description: W ramach tego samouczka nauczysz się, jak przygotować urządzenie z systemem Android do działania w trybie współdzielonym i uruchomić aplikację z pierwszym wierszem.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,23 +13,35 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4bbcf73654d7f588c63a9bf81ab6a689360ec978
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 2aa786f78d3e730bb351d1fa84b0c7fbb32d6786
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355061"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611235"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Samouczek: korzystanie z trybu udostępnionego urządzenia w aplikacji systemu Android
 
-> [!NOTE]
-> Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Ten samouczek zawiera wskazówki dla deweloperów i administratorów dzierżaw w konfigurowaniu i obsłudze trybu udostępnionego urządzenia dla aplikacji systemu Android.
+
+W tym samouczku:
+
+> [!div class="checklist"]
+> * Pobierz przykład kodu
+> * Włączanie i wykrywanie trybu udostępnionego urządzenia
+> * Wykryj tryb pojedynczego lub wielu kont
+> * Wykrywaj przełącznik użytkownika i włączaj logowanie globalne i wylogowanie
+> * Skonfiguruj dzierżawcę i zarejestruj aplikację w Azure Portal
+> * Konfigurowanie urządzenia z systemem Android w trybie Shared-Device
+> * Uruchamianie przykładowej aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="developer-guide"></a>Przewodnik dla deweloperów
 
-Ten przewodnik zawiera wskazówki dla deweloperów dotyczące wdrażania trybu udostępnionego urządzenia w aplikacji systemu Android przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Zapoznaj się z [samouczkiem MSAL dla systemu Android](./tutorial-v2-android.md) , aby dowiedzieć się, jak zintegrować MSAL z aplikacją systemu Android, zalogować użytkownika, wywołać program Microsoft Graph i wylogować użytkownika.
+W tej części samouczka przedstawiono wskazówki dla deweloperów dotyczące implementowania trybu udostępnionego urządzenia w aplikacji systemu Android przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Zapoznaj się z [samouczkiem MSAL dla systemu Android](./tutorial-v2-android.md) , aby dowiedzieć się, jak zintegrować MSAL z aplikacją systemu Android, zalogować użytkownika, wywołać program Microsoft Graph i wylogować użytkownika.
 
 ### <a name="download-the-sample"></a>Pobieranie przykładu
 
@@ -111,7 +124,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Wykryj tryb Single a Multiple Account
 
-Jeśli piszesz aplikację, która będzie używana tylko dla procesów roboczych Firstline na urządzeniu udostępnionym, zalecamy zapisanie aplikacji w celu zapewnienia obsługi tylko trybu jednego konta. Obejmuje to większość aplikacji, które są zadaniami, takimi jak aplikacje do rekordów medycznych, aplikacje fakturowania i większość aplikacji biznesowych. Upraszcza to programowanie, ponieważ nie będzie trzeba domieścić wielu funkcji zestawu SDK.
+Jeśli piszesz aplikację, która będzie używana tylko przez pracowników w pierwszej kolejności na udostępnionym urządzeniu, zalecamy zapisanie aplikacji w celu zapewnienia obsługi tylko trybu jednego konta. Obejmuje to większość aplikacji, które są zadaniami, takimi jak aplikacje do rekordów medycznych, aplikacje fakturowania i większość aplikacji biznesowych. Upraszcza to programowanie, ponieważ nie będzie trzeba domieścić wielu funkcji zestawu SDK.
 
 Jeśli aplikacja obsługuje wiele kont, a także tryb udostępnionego urządzenia, należy wykonać sprawdzanie typu i rzutować na odpowiedni interfejs, jak pokazano poniżej.
 
@@ -209,9 +222,11 @@ Aby uzyskać więcej informacji na ten temat, zobacz [Rejestrowanie aplikacji](.
 > [!NOTE]
 > Po zarejestrowaniu aplikacji Skorzystaj z przewodnika Szybki Start po lewej stronie, a następnie wybierz pozycję **Android**. Spowoduje to wyświetlenie strony, na której zostanie wyświetlony monit o podanie **nazwy pakietu** i **skrótu podpisu** dla aplikacji. Są one bardzo ważne, aby mieć pewność, że konfiguracja aplikacji będzie działać. Następnie otrzymasz obiekt konfiguracji, którego możesz użyć dla aplikacji, która zostanie wycięta i wklejona do auth_config.jspliku.
 
-![Ekran rejestracji aplikacji należy ](media/tutorial-v2-shared-device-mode/register-app.png) wybrać opcję **wprowadź tę zmianę dla mnie** , a następnie podać wartości z monitem szybki start dla Azure Portal. Gdy wszystko będzie gotowe, wygenerujemy wszystkie potrzebne pliki konfiguracji.
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
-![Ekran informacji o konfiguracji aplikacji](media/tutorial-v2-shared-device-mode/config-info.png)
+Należy zaznaczyć pole wyboru **wprowadź tę zmianę dla mnie** , a następnie podać wartości, z których będzie pytał przewodnik szybkiego startu w Azure Portal. Gdy wszystko będzie gotowe, wygenerujemy wszystkie potrzebne pliki konfiguracji.
+
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
 ## <a name="set-up-a-tenant"></a>Konfigurowanie dzierżawy
 
@@ -227,25 +242,25 @@ Pobierz aplikację Microsoft Authenticator ze sklepu Google Play. Jeśli aplikac
 
 Uruchom aplikację Authenticator i przejdź do strony konta głównego. Po wyświetleniu strony **Dodawanie konta** możesz przystąpić do udostępnienia urządzenia.
 
-![Ekran Dodawanie konta uwierzytelniającego](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
- Przejdź do okienka **Ustawienia** przy użyciu paska menu z prawej strony. Wybierz pozycję **Rejestracja urządzenia** w obszarze **służbowe konta szkolne &**.
+Przejdź do okienka **Ustawienia** przy użyciu paska menu z prawej strony. Wybierz pozycję **Rejestracja urządzenia** w obszarze **służbowe konta szkolne &**.
 
- ![Ekran Dodawanie konta uwierzytelniającego](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
- Po kliknięciu tego przycisku zostanie wyświetlony monit z prośbą o autoryzację dostępu do kontaktów urządzeń. Jest to spowodowane integracją konta systemu Android na urządzeniu. Wybierz pozycję **Zezwalaj**.
+Po kliknięciu tego przycisku zostanie wyświetlony monit z prośbą o autoryzację dostępu do kontaktów urządzeń. Jest to spowodowane integracją konta systemu Android na urządzeniu. Wybierz pozycję **Zezwalaj**.
 
- ![Ekran Dodawanie konta uwierzytelniającego](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
 Administrator urządzenia w chmurze powinien wprowadzić swoją organizacyjną wiadomość e-mail **lub zarejestrować ją jako urządzenie udostępnione**. Następnie kliknij przycisk **zarejestruj jako urządzenie udostępnione** , a następnie wprowadź swoje poświadczenia.
 
-![Rejestrowanie — ekran urządzenia](media/tutorial-v2-shared-device-mode/register-device.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
-![Zrzut ekranu przedstawia stronę logowania.](media/tutorial-v2-shared-device-mode/sign-in.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
 Urządzenie jest teraz w trybie udostępnionym.
 
-![Rejestrowanie — ekran urządzenia](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
  Wszelkie logowania i wylogowania na urządzeniu będą globalne, co oznacza, że mają zastosowanie do wszystkich aplikacji zintegrowanych z MSAL i Microsoft Authenticator na urządzeniu. Teraz można wdrażać aplikacje na urządzeniu, które korzysta z funkcji trybu udostępnionego urządzenia.
 
@@ -253,14 +268,17 @@ Urządzenie jest teraz w trybie udostępnionym.
 
 Gdy urządzenie zostanie umieszczone w trybie udostępnionym, jest ono znane organizacji i śledzone w dzierżawie organizacyjnej. Możesz wyświetlić udostępnione urządzenia, przeglądając **Typ sprzężenia** w bloku Azure Active Directory Azure Portal.
 
-![Blok wszystkie urządzenia w Azure Portal](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
 ## <a name="running-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
 Przykładowa aplikacja to prosta aplikacja, która wywoła interfejs API programu Graph organizacji. Przy pierwszym uruchomieniu zostanie wyświetlony monit o zgodę, ponieważ aplikacja jest nowa dla konta pracownika.
 
-![Ekran informacji o konfiguracji aplikacji](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Konfigurowanie strony aplikacji systemu Android w Azure Portal Szybki Start":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o trybie udostępniania w [trybie udostępnionego urządzenia dla urządzeń z systemem Android](msal-android-shared-devices.md)
+Dowiedz się więcej o pracy z biblioteką uwierzytelniania firmy Microsoft i trybem udostępnionego urządzenia na urządzeniach z systemem Android:
+
+> [!div class="nextstepaction"]
+> [Tryb udostępnionego urządzenia dla urządzeń z systemem Android](msal-android-shared-devices.md)

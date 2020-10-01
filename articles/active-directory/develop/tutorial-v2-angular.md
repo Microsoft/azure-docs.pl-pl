@@ -1,7 +1,7 @@
 ---
-title: Samouczek aplikacji jednostronicowej ze skośnością — Azure
+title: 'Samouczek: Tworzenie aplikacji kątowej korzystającej z platformy tożsamości firmy Microsoft do uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, w jaki sposób aplikacje SPA mogą wywołać interfejs API, który wymaga tokenów dostępu z punktu końcowego platformy tożsamości firmy Microsoft.
+description: W tym samouczku utworzysz aplikację jednostronicową (SPA), która używa platformy tożsamości firmy Microsoft do logowania użytkowników i uzyskiwania tokenu dostępu w celu wywołania interfejsu API Microsoft Graph w ich imieniu.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -12,30 +12,36 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256929"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611252"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
-W tym samouczku przedstawiono sposób, w jaki aplikacja jednostronicowa (SPA) może:
-- Zaloguj się do kont osobistych, kont służbowych lub szkolnych.
-- Uzyskaj token dostępu.
-- Wywołaj interfejs API Microsoft Graph lub inne interfejsy API, które wymagają tokenów dostępu z *punktu końcowego platformy tożsamości firmy Microsoft*.
+Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji jednostronicowych (SPA), które mogą logować użytkowników przy użyciu osobistych kont Microsoft i kont służbowych, a także wywoływać interfejs API Microsoft Graph w ich imieniu.
 
->[!NOTE]
->Ten samouczek przeprowadzi Cię przez proces tworzenia nowego hasła kątowego za pomocą biblioteki uwierzytelniania firmy Microsoft (MSAL). Jeśli chcesz pobrać przykładową aplikację, zapoznaj się z [przewodnikiem Szybki Start](quickstart-v2-angular.md).
+W tym samouczku:
+
+> [!div class="checklist"]
+> * Utwórz projekt kątowy za pomocą `npm`
+> * Zarejestruj aplikację w Azure Portal
+> * Dodawanie kodu do obsługi logowania i wylogowywania użytkowników
+> * Dodawanie kodu do wywołania interfejsu API Microsoft Graph
+> * Testowanie aplikacji
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Node.js](https://nodejs.org/en/download/) na potrzeby uruchamiania lokalnego serwera sieci Web.
+* [Visual Studio Code](https://code.visualstudio.com/download) lub inny edytor do modyfikowania plików projektu.
 
 ## <a name="how-the-sample-app-works"></a>Jak działa Przykładowa aplikacja
 
 ![Diagram przedstawiający sposób działania przykładowej aplikacji wygenerowanej w tym samouczku](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>Więcej informacji
-
-Przykładowa aplikacja utworzona w tym samouczku umożliwia pojedynczemu SPAu Wysyłanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. MSAL dla biblioteki kątowej jest otoką podstawowej biblioteki MSAL.js. Umożliwia aplikacjom skośnym (6 +) uwierzytelnianie użytkowników w przedsiębiorstwach za pomocą Microsoft Azure Active Directory, konto Microsoft użytkowników i użytkowników tożsamości społecznościowych (takich jak Facebook, Google i LinkedIn). Biblioteka umożliwia również aplikacjom uzyskiwanie dostępu do usług w chmurze firmy Microsoft lub Microsoft Graph.
+Przykładowa aplikacja utworzona w tym samouczku umożliwia pojedynczemu SPAu Wysyłanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny wystawione przez platformę tożsamości firmy Microsoft. Używa biblioteki Microsoft Authentication Library (MSAL) dla kątowego i otoki podstawowej biblioteki MSAL.js. MSAL kątowy umożliwia stosowanie skośnie 6 + aplikacji w celu uwierzytelniania użytkowników w przedsiębiorstwach za pomocą Azure Active Directory (Azure AD), a także użytkowników z kontami Microsoft i tożsamościami społecznościowymi, takimi jak Facebook, Google i LinkedIn. Biblioteka umożliwia również aplikacjom uzyskiwanie dostępu do usług w chmurze firmy Microsoft i Microsoft Graph.
 
 W tym scenariuszu po zalogowaniu się użytkownika token dostępu zostanie zaproszony i dodany do żądań HTTP za pośrednictwem nagłówka autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez MSAL.
 
@@ -48,13 +54,6 @@ W tym samouczku jest stosowana następująca Biblioteka:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteka uwierzytelniania firmy Microsoft dla otoki języka JavaScript|
 
 Kod źródłowy biblioteki MSAL.js można znaleźć w repozytorium [AzureAD/Microsoft-Authentication-Library-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w witrynie GitHub.
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Aby uruchomić ten samouczek, potrzebne są:
-
-* Lokalny serwer sieci Web, taki jak [Node.js](https://nodejs.org/en/download/). Instrukcje zawarte w tym samouczku są oparte na Node.js.
-* Zintegrowane środowisko programistyczne (IDE), takie jak [Visual Studio Code](https://code.visualstudio.com/download), do edytowania plików projektu.
 
 ## <a name="create-your-project"></a>Tworzenie projektu
 
@@ -343,6 +342,7 @@ Jeśli interfejs API zaplecza nie wymaga zakresu (niezalecane), można użyć *c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jesteś nowym programem do zarządzania tożsamościami i dostępem, mamy kilka artykułów, które pomogą Ci poznać nowoczesne koncepcje dotyczące uwierzytelniania, rozpoczynając od [uwierzytelniania a autoryzacją](authentication-vs-authorization.md).
+Zajrzyj do aplikacji jednostronicowej (SPA) na platformie tożsamości firmy Microsoft w naszej serii artykułów wieloczęściowych.
 
-Jeśli chcesz szczegółowe więcej na temat tworzenia aplikacji jednostronicowych na platformie tożsamości firmy Microsoft, scenariusz wieloetapowy [: jednostronicowa seria aplikacji](scenario-spa-overview.md) może pomóc Ci rozpocząć pracę.
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja jednostronicowa](scenario-spa-overview.md)

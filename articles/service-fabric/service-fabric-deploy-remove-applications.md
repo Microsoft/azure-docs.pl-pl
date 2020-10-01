@@ -3,12 +3,12 @@ title: Wdrażanie Service Fabric platformy Azure za pomocą programu PowerShell
 description: Dowiedz się więcej o usuwaniu i wdrażaniu aplikacji na platformie Azure Service Fabric i sposobach wykonywania tych akcji w programie PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699842"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611456"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell
 
@@ -347,7 +347,7 @@ Zobacz [opis parametrów połączenia magazynu obrazu](service-fabric-image-stor
 ### <a name="deploy-large-application-package"></a>Wdróż pakiet dużej aplikacji
 
 Problem: [ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) dla dużego pakietu aplikacji (kolejność GB).
-Spróbował
+Spróbuj:
 - Określ większy limit czasu dla polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) z `TimeoutSec` parametrem. Domyślnie limit czasu to 30 minut.
 - Sprawdź połączenie sieciowe między maszyną źródłową a klastrem. Jeśli połączenie jest powolne, rozważ użycie komputera z lepszym połączeniem sieciowym.
 Jeśli komputer kliencki znajduje się w innym regionie niż klaster, rozważ użycie komputera klienckiego w tym samym lub tym samym regionie co klaster.
@@ -373,7 +373,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ### <a name="deploy-application-package-with-many-files"></a>Wdróż pakiet aplikacji z wieloma plikami
 
 Problem: [ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) limit czasu dla pakietu aplikacji z wieloma plikami (kolejność tysięcy).
-Spróbował
+Spróbuj:
 - [Kompresuj pakiet](service-fabric-package-apps.md#compress-a-package) przed skopiowaniem do magazynu obrazów. Kompresja zmniejsza liczbę plików.
 - Określ większy limit czasu dla elementu [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) z `TimeoutSec` parametrem.
 - Określ `Async` przełącznik dla elementu [register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Polecenie zwraca wartość, gdy klaster akceptuje polecenie, a rejestracja typu aplikacji jest kontynuowana asynchronicznie.

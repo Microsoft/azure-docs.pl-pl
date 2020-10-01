@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853382"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612124"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń na potrzeby uwierzytelniania, na przykład w przepływie  [przydzielenia poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 i przepływie [w imieniu](v2-oauth2-on-behalf-of-flow.md) (OBO).
+Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń do uwierzytelniania w dowolnym miejscu, w którym można użyć klucza tajnego klienta, na przykład w przepływie  [przydzielenia poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 i przepływie [w imieniu](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, jest potwierdzenie [tokenu sieci Web JSON](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) podpisane przy użyciu certyfikatu, którego właścicielem jest aplikacja.
 
 ## <a name="assertion-format"></a>Format potwierdzenia
 
-Aby obliczyć potwierdzenie, można użyć jednej z wielu bibliotek JWT w wybranym języku. Informacje są przewożone przez token w jego [nagłówku](#header), [oświadczeniach](#claims-payload)i [podpisie](#signature).
+Aby obliczyć potwierdzenie, można użyć jednej z wielu bibliotek JWT w wybranym języku — [MSAL obsługuje tę `.WithCertificate()` funkcję ](msal-net-client-assertions.md). Informacje są przewożone przez token w jego [nagłówku](#header), [oświadczeniach](#claims-payload)i [podpisie](#signature).
 
 ### <a name="header"></a>Header
 
@@ -40,14 +40,14 @@ Aby obliczyć potwierdzenie, można użyć jednej z wielu bibliotek JWT w wybran
 
 ### <a name="claims-payload"></a>Oświadczenia (ładunek)
 
-| Parametr |  Uwagi |
-| --- | --- |
-| `aud` | Odbiorcy: powinien być `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wygaśnięcia ważności tokenu. Zalecamy użycie krótkiego czasu wygaśnięcia — 10 minut na godzinę.|
-| `iss` | Wystawca: powinien być client_id (*Identyfikator klienta)* usługi klienta. |
-| `jti` | GUID: Identyfikator JWT |
-| `nbf` | Nie przed: Data, przed upływem którego nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu utworzenia potwierdzenia. |
-| `sub` | Podmiot: jako dla `iss` , powinien być client_id (*Identyfikator aplikacji)* usługi klienta) |
+Typ oświadczenia | Wartość | Opis
+---------- | ---------- | ----------
+AUD | `https://login.microsoftonline.com/{tenantId}/v2.0` | Deklaracja "AUD" (odbiorcy) identyfikuje odbiorców, dla których jest przeznaczony token JWT (w tym przypadku usługa Azure AD) [, zobacz RFC 7519, sekcja 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  W takim przypadku odbiorcą jest serwer logowania (login.microsoftonline.com).
+exp | 1601519414 | Wartość "EXP" (czas wygaśnięcia) określa czas wygaśnięcia w dniu lub, po którym nie można zaakceptować tokenu JWT do przetworzenia. Zobacz [dokument RFC 7519, sekcja 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Pozwala to na użycie potwierdzenia do momentu, dlatego należy zachować jego wartość krótko-5-10 min `nbf` .  Usługa Azure AD nie nakłada obecnie ograniczeń na `exp` czas. 
+ISS | ClientID | Wniosek "ISS" (wystawca) identyfikuje podmiot zabezpieczeń, który wystawił token JWT, w tym przypadku aplikację kliencką.  Użyj identyfikatora aplikacji identyfikatora GUID.
+jti | (identyfikator GUID) | Wartość "JTI" (identyfikator JWT) zapewnia unikatowy identyfikator dla tokenu JWT. Wartość identyfikatora musi być przypisana w sposób, który gwarantuje, że istnieje niewielkie prawdopodobieństwo, że ta sama wartość zostanie przypadkowo przypisana do innego obiektu danych; Jeśli aplikacja używa wielu wystawców, kolizje muszą być blokowane między wartościami wyprodukowanymi przez różne wystawcy. Wartość "JTI" jest ciągiem z uwzględnieniem wielkości liter. [RFC 7519, sekcja 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+NBF | 1601519114 | Wartość "NBF" (nie wcześniej) określa czas, po którym nie można zatwierdzić tokenu JWT do przetwarzania. [RFC 7519, sekcja 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Korzystanie z bieżącego czasu jest odpowiednie. 
+Sub | ClientID | Element "Sub" (podmiot) identyfikuje podmiot JWT, w tym przypadku również aplikację. Użyj tej samej wartości co `iss` . 
 
 ### <a name="signature"></a>Podpis
 
@@ -126,7 +126,18 @@ W usłudze Azure App Registration dla aplikacji klienckiej:
 3. Zapisz zmiany w manifeście aplikacji, a następnie Przekaż manifest do platformy tożsamości firmy Microsoft.
 
    `keyCredentials`Właściwość jest wielowartościowa, więc można przekazać wiele certyfikatów do rozbudowanego zarządzania kluczami.
+   
+## <a name="using-a-client-assertion"></a>Korzystanie z potwierdzenia klienta
+
+Potwierdzeń klientów można używać wszędzie tam, gdzie zostanie użyty klucz tajny klienta.  Na przykład w [przepływie kodu autoryzacji](v2-oauth2-auth-code-flow.md)można przekazać w `client_secret` celu potwierdzenia, że żądanie pochodzi z aplikacji. Można je zastąpić za pomocą `client_assertion` `client_assertion_type` parametrów i. 
+
+| Parametr | Wartość | Opis|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Jest to stała wartość, wskazująca, że używane jest poświadczenie certyfikatu. |
+|`client_assertion`| JWT |Jest to token JWT utworzony powyżej. |
 
 ## <a name="next-steps"></a>Następne kroki
+
+[Biblioteka MSAL.NET obsługuje ten scenariusz](msal-net-client-assertions.md) w jednym wierszu kodu.
 
 [Aplikacja konsolowa demona .NET Core używająca przykładu kodu platformy Microsoft Identity](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) w witrynie GitHub pokazuje, w jaki sposób aplikacja korzysta z własnych poświadczeń do uwierzytelniania. Przedstawiono w nim również, jak [utworzyć certyfikat z](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) podpisem własnym za pomocą `New-SelfSignedCertificate` polecenia cmdlet programu PowerShell. Możesz również użyć [skryptów tworzenia aplikacji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) w przykładowym repozytorium do tworzenia certyfikatów, obliczania odcisku palca i tak dalej.

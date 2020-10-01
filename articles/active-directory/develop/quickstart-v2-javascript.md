@@ -1,7 +1,7 @@
 ---
-title: Logowanie użytkowników w JavaScript aplikacje jednostronicowe | Azure
+title: 'Szybki Start: Logowanie użytkowników w języku JavaScript aplikacje jednostronicowe | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, w jaki sposób aplikacja JavaScript może wywołać interfejs API, który wymaga tokenów dostępu przy użyciu platformy tożsamości firmy Microsoft.
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja JavaScript może wywołać interfejs API, który wymaga tokenów dostępu wystawionych przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257932"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613326"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
-W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych. SPA może również uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API. (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
+W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych. SPA może również uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz bezpłatnie subskrypcję platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (Aby edytować pliki projektu)
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Rejestrowanie i pobieranie aplikacji Szybki start
@@ -300,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzenia aplikacji dla tego samouczka szybkiego startu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek umożliwiający zalogowanie się i Wywołaj program MS Graph](./tutorial-v2-javascript-spa.md)
-
-Aby przejrzeć repozytorium MSAL w celu uzyskania dokumentacji, często zadawane pytania i problemów, zobacz:
-
-> [!div class="nextstepaction"]
-> [MSAL.js repozytorium GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z jednostronicowej aplikacji (SPA) języka JavaScript](tutorial-v2-javascript-spa.md)

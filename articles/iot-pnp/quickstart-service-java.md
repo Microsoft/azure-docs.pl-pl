@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: cd618cf5f2f82b9c87981e961ed401f3409ec9d4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 0ed5ebf316c80d7fc560b11e1f784dd1b91b170d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583570"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612578"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Java)
 
@@ -76,7 +76,7 @@ W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki
 W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT, które zostało zapisanie w języku Java, aby można było korzystać z właśnie skonfigurowanego przykładowego urządzenia.
 
 > [!NOTE]
-> Ten przykład używa przestrzeni nazw **com. Microsoft. Azure. Sdk. IoT. Service. *;** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat pobierania identyfikatora modelu, zobacz [przewodnik dewelopera](concepts-developer-guide-device-csharp.md).
+> Ten przykład używa przestrzeni nazw **com. Microsoft. Azure. Sdk. IoT. Service. *;** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat pobierania identyfikatora modelu, zobacz [przewodnik dewelopera](concepts-developer-guide-service.md).
 
 1. Otwórz inne okno terminalu, które ma być używane jako terminal **usługi** .
 

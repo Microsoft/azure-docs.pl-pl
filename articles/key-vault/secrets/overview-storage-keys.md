@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20418dbc7432000116dcbe73a64987d83f38419d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585070"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612187"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,6 @@ Korzystając z funkcji zarządzanego klucza konta magazynu, należy rozważyć n
 - Wartości klucza nigdy nie są zwracane w odpowiedzi na obiekt wywołujący.
 - Tylko Key Vault powinny zarządzać kluczami konta magazynu. Nie Zarządzaj kluczami samodzielnie i unikaj zakłócania procesów Key Vault.
 - Tylko jeden obiekt Key Vault powinien zarządzać kluczami konta magazynu. Nie Zezwalaj na zarządzanie kluczami z wielu obiektów.
-- Możesz zażądać Key Vault, aby zarządzać kontem magazynu za pomocą podmiotu zabezpieczeń użytkownika, ale nie z jednostką usługi.
 - Wygeneruj ponownie klucze, używając tylko Key Vault. Nie należy ręcznie generować ponownie kluczy konta magazynu.
 
 Zalecamy korzystanie z integracji usługi Azure Storage z usługą Azure Active Directory (Azure AD), opartą na chmurze firmą Microsoft do zarządzania tożsamościami i dostępem. Integracja z usługą Azure AD jest dostępna dla [obiektów blob i kolejek platformy Azure](../../storage/common/storage-auth-aad.md)oraz zapewnia dostęp oparty na tokenach OAuth2 do usługi Azure Storage (podobnie jak Azure Key Vault).

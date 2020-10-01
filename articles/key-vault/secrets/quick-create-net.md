@@ -3,17 +3,17 @@ title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla platformy .NET 
 description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej platformy .NET (v4)
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/12/2020
+ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf9c34dc2dde5c41edb7991451aebf5d90104196
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cc5aa7f10d83edc757e99820b9591a953df72062
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003256"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612255"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla platformy .NET (SDK v4)
 
@@ -31,69 +31,70 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
+* [.NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/)
 
-W tym przewodniku szybki start założono, że korzystasz z systemu `dotnet` , [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)i poleceń systemu Windows w terminalu z systemem Windows (na przykład [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)lub [Azure Cloud Shell](https://shell.azure.com/)).
+## <a name="setup"></a>Konfigurowanie
 
-## <a name="setting-up"></a>Konfigurowanie
+### <a name="create-a-new-console-app"></a>Tworzenie nowej aplikacji konsolowej
 
-### <a name="create-new-net-console-app"></a>Utwórz nową aplikację konsolową platformy .NET
+Wykonaj następujące kroki, aby utworzyć i skompilować aplikację konsolową .NET Core.
 
-W oknie konsoli Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową .NET o nazwie `key-vault-console-app` .
+1. W powłoce poleceń Uruchom następujące polecenie, aby utworzyć projekt o nazwie `key-vault-console-app` :
 
-```console
-dotnet new console -n key-vault-console-app
-```
+    ```dotnetcli
+    dotnet new console --name key-vault-console-app
+    ```
 
-Zmień katalog na nowo utworzony folder aplikacji. Aplikację można skompilować przy użyciu:
+1. Przejdź do nowo utworzonego katalogu *Key-magazyn-Console-App* i uruchom następujące polecenie, aby skompilować projekt:
 
-```console
-dotnet build
-```
+    ```dotnetcli
+    dotnet build
+    ```
 
-Dane wyjściowe kompilacji nie powinny zawierać ostrzeżeń ani błędów.
+    Dane wyjściowe kompilacji nie powinny zawierać ostrzeżeń ani błędów.
+    
+    ```console
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ```
 
-```console
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-```
+### <a name="install-the-packages"></a>Zainstaluj pakiety
 
-### <a name="install-the-package"></a>Zainstaluj pakiet
+W powłoce poleceń Zainstaluj Azure Key Vaultą bibliotekę kliencką dla platformy .NET:
 
-W oknie konsoli programu Zainstaluj Azure Key Vaultą bibliotekę kliencką dla platformy .NET:
-
-```console
+```dotnetcli
 dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
-W tym przewodniku szybki start konieczne będzie zainstalowanie następujących pakietów:
+W tym przewodniku Szybki Start należy również zainstalować bibliotekę klienta zestawu Azure SDK dla tożsamości platformy Azure:
 
-```console
+```dotnetcli
 dotnet add package Azure.Identity
 ```
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE[Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+[!INCLUDE[Create a service principal](../../../includes/key-vault-sp-creation.md)]
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Przyznaj jednostce usługi dostęp do magazynu kluczy
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+<!-- TODO: need to pass -g myResourceGroup to this command too -->
+[!INCLUDE[Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
-#### <a name="set-environmental-variables"></a>Ustaw zmienne środowiskowe
+#### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE[Set environment variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## <a name="object-model"></a>Model obiektów
 
-Biblioteka klienta Azure Key Vault dla platformy .NET umożliwia zarządzanie kluczami i powiązanymi zasobami, takimi jak certyfikaty i wpisy tajne. Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić wpis tajny, pobrać klucz tajny i usunąć wpis tajny.
+Biblioteka klienta Azure Key Vault dla platformy .NET umożliwia zarządzanie kluczami i powiązanymi zasobami. Przykłady powiązanych zasobów obejmują certyfikaty i wpisy tajne. Sekcja [przykłady kodu](#code-examples) przedstawia sposób tworzenia klienta, ustawiania wpisu tajnego, pobierania klucza tajnego i usuwania klucza tajnego.
 
 Cała Aplikacja konsolowa jest dostępna pod adresem https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app .
 
@@ -101,21 +102,21 @@ Cała Aplikacja konsolowa jest dostępna pod adresem https://github.com/Azure-Sa
 
 ### <a name="add-directives"></a>Dodaj dyrektywy
 
-Dodaj następujące dyrektywy na początku kodu:
+Dodaj następujące dyrektywy na początku *program.cs*:
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
+[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-Uwierzytelnianie w magazynie kluczy i tworzenie klienta magazynu kluczy zależy od zmiennych środowiskowych w powyższym kroku [Ustaw zmienne środowiskowe](#set-environmental-variables) . Nazwa magazynu kluczy jest rozszerzana na identyfikator URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". Poniższy kod używa  [elementu "DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) do uwierzytelniania w magazynie kluczy, który odczytuje zmienne środowiskowe w celu pobrania tokenu dostępu. 
+Uwierzytelnianie magazynu kluczy i tworzenie klienta zależą od zmiennych środowiskowych w kroku [Ustawianie zmiennych środowiskowych](#set-environment-variables) . Nazwa magazynu kluczy jest rozszerzana na identyfikator URI magazynu kluczy w formacie `https://<your-key-vault-name>.vault.azure.net` . Poniższy kod używa [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) do uwierzytelniania w magazynie kluczy, który odczytuje zmienne środowiskowe w celu pobrania tokenu dostępu.
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
+[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
 ### <a name="save-a-secret"></a>Zapisz klucz tajny
 
-Teraz, gdy aplikacja jest uwierzytelniana, możesz umieścić klucz tajny w magazynie kluczy przy użyciu [klienta. Setsecret — Metoda](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) wymaga nazwy wpisu tajnego — w tym przykładzie jest używana wartość "My Secret".  
+Teraz, gdy aplikacja konsoli jest uwierzytelniana, należy dodać wpis tajny do magazynu kluczy. W przypadku tego zadania Użyj [klienta programu. Metoda setsecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) . Pierwszy parametr metody akceptuje nazwę wpisu tajnego "tajemnicy" &mdash; w tym przykładzie.
 
-[!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=setsecret)]
+[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=setsecret)]
 
 Można sprawdzić, czy wpis tajny został ustawiony za pomocą polecenia [AZ The Secret show klucza tajnego](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
 
@@ -129,17 +130,17 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### <a name="retrieve-a-secret"></a>Pobierz klucz tajny
 
-Teraz można pobrać wcześniej ustawioną wartość za pomocą [klienta. Metoda getsecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Teraz można pobrać wcześniej ustawioną wartość za pomocą [klienta. Metoda getsecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync) .
 
-[!code-csharp[Get secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=getsecret)]
+[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=getsecret)]
 
 Wpis tajny jest teraz zapisywany jako `secret.Value` .
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
 
-Na koniec Usuń wpis tajny z magazynu kluczy z [klientem programu. DeleteSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Na koniec Usuń wpis tajny z magazynu kluczy z [klientem programu. DeleteSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync) .
 
-[!code-csharp[Delete secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=deletesecret)]
+[!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=deletesecret)]
 
 Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ The Secret show klucza tajnego](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) :
 
@@ -156,20 +157,22 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 
 ### <a name="delete-a-key-vault"></a>Usuwanie Key Vault
+
 ```azurecli
 az keyvault delete --name <your-unique-keyvault-name>
 ```
 
-```powershell
+```azurepowershell
 Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
 ```
 
 ### <a name="purge-a-key-vault"></a>Przeczyszczanie Key Vault
+
 ```azurecli
 az keyvault purge --location eastus --name <your-unique-keyvault-name>
 ```
 
-```powershell
+```azurepowershell
 Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
 ```
 
@@ -185,61 +188,76 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-```csharp
-using System;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
+Zmodyfikuj aplikację konsolową .NET Core, aby móc korzystać z Key Vault, wykonując następujące czynności:
 
-namespace key_vault_console_app
-{
-    class Program
+1. Zastąp kod w pliku *Program.cs* następującym kodem:
+
+    ```csharp
+    using System;
+    using Azure.Identity;
+    using Azure.Security.KeyVault.Secrets;
+    
+    namespace key_vault_console_app
     {
-        static void Main(string[] args)
+        class Program
         {
-            string secretName = "mySecret";
-
-            string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-
-            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-
-            Console.Write("Input the value of your secret > ");
-            string secretValue = Console.ReadLine();
-
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-
-            client.SetSecret(secretName, secretValue);
-
-            Console.WriteLine(" done.");
-
-            Console.WriteLine("Forgetting your secret.");
-            secretValue = "";
-            Console.WriteLine("Your secret is '" + secretValue + "'.");
-
-            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
-
-            KeyVaultSecret secret = client.GetSecret(secretName);
-
-            Console.WriteLine("Your secret is '" + secret.Value + "'.");
-
-            Console.Write("Deleting your secret from " + keyVaultName + " ...");
-
-            client.StartDeleteSecret(secretName);
-
-            System.Threading.Thread.Sleep(5000);
-            Console.WriteLine(" done.");
-
+            static void Main(string[] args)
+            {
+                const string secretName = "mySecret";
+                var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+                var kvUri = $"https://{keyVaultName}.vault.azure.net";
+    
+                var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+    
+                Console.Write("Input the value of your secret > ");
+                var secretValue = Console.ReadLine();
+    
+                Console.Write($"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}' ...");
+                client.SetSecret(secretName, secretValue);
+                Console.WriteLine(" done.");
+    
+                Console.WriteLine("Forgetting your secret.");
+                secretValue = string.Empty;
+                Console.WriteLine($"Your secret is '{secretValue}'.");
+    
+                Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
+                KeyVaultSecret secret = client.GetSecret(secretName);
+                Console.WriteLine($"Your secret is '{secret.Value}'.");
+    
+                Console.Write($"Deleting your secret from {keyVaultName} ...");
+                client.StartDeleteSecret(secretName);
+                System.Threading.Thread.Sleep(5000);
+                Console.WriteLine(" done.");
+            }
         }
     }
-}
-```
+    ```
 
+1. Wykonaj następujące polecenie, aby uruchomić aplikację.
 
-## <a name="next-steps"></a>Kolejne kroki
+    ```dotnetcli
+    dotnet run
+    ```
+
+1. Po wyświetleniu monitu wprowadź wartość klucza tajnego. Na przykład mySecretPassword.
+
+    Zostanie wyświetlona odmiana następujących danych wyjściowych:
+
+    ```console
+    Input the value of your secret > mySecretPassword
+    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+    Forgetting your secret.
+    Your secret is ''.
+    Retrieving your secret from <your-unique-keyvault-name>.
+    Your secret is 'mySecretPassword'.
+    Deleting your secret from <your-unique-keyvault-name> ... done.    
+    ```
+
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano wpis tajny i pobrano ten klucz tajny. Zobacz [całą aplikację konsolową w](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app)serwisie GitHub.
 
-Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
+Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, zobacz następujące artykuły:
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)

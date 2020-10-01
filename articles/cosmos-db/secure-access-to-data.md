@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569585"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611643"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 
@@ -22,21 +22,21 @@ Azure Cosmos DB używa dwóch typów kluczy do uwierzytelniania użytkowników i
 
 |Typ klucza|Zasoby|
 |---|---|
-|[Klucze główne](#primary-keys) |Używany do zasobów administracyjnych: konta bazy danych, bazy danych, użytkownicy i uprawnienia|
+|[Klucze podstawowe](#primary-keys) |Używany do zasobów administracyjnych: konta bazy danych, bazy danych, użytkownicy i uprawnienia|
 |[Tokeny zasobów](#resource-tokens)|Używany do zasobów aplikacji: kontenery, dokumenty, załączniki, procedury składowane, wyzwalacze i UDF|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Klucze główne
+## <a name="primary-keys"></a>Klucze podstawowe
 
-Klucze główne zapewniają dostęp do wszystkich zasobów administracyjnych dla konta bazy danych. Klucze główne:
+Klucze podstawowe zapewniają dostęp do wszystkich zasobów administracyjnych dla konta bazy danych. Klucze podstawowe:
 
 - Zapewnianie dostępu do kont, baz danych, użytkowników i uprawnień. 
 - Nie można użyć, aby zapewnić szczegółowy dostęp do kontenerów i dokumentów.
 - Są tworzone podczas tworzenia konta.
 - Można ją wygenerować w dowolnym momencie.
 
-Każde konto składa się z dwóch kluczy głównych: klucza podstawowego i klucza pomocniczego. Dwa klucze polega na tym, że można generować lub przetwarzać klucze, zapewniając ciągły dostęp do konta i danych.
+Każde konto zawiera dwa klucze podstawowe: klucz podstawowy i klucz pomocniczy. Dwa klucze polega na tym, że można generować lub przetwarzać klucze, zapewniając ciągły dostęp do konta i danych.
 
 Oprócz dwóch kluczy podstawowych dla konta Cosmos DB istnieją dwa klucze tylko do odczytu. Te klucze tylko do odczytu zezwalają na operacje odczytu tylko na tym koncie. Klucze tylko do odczytu nie zapewniają dostępu do uprawnień do odczytu zasobów.
 
@@ -108,7 +108,7 @@ Generowanie tokenów zasobów i zarządzanie nimi jest obsługiwane przez natywn
 
 Przykład usługi warstwy środkowej używanej do generowania lub brokera tokenów zasobów można znaleźć w [aplikacji ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## <a name="users"></a>Użytkownicy<a id="users"></a>
+## <a name="users"></a>Użytkownikowi<a id="users"></a>
 
 Azure Cosmos DB użytkownicy są skojarzeni z bazą danych Cosmos.  Każda baza danych może zawierać co najmniej zero Cosmos DB użytkowników. Poniższy przykład kodu pokazuje, jak utworzyć użytkownika Cosmos DB przy użyciu [zestawu Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 

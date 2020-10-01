@@ -1,6 +1,7 @@
 ---
-title: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak usunąć aplikację zarejestrowaną za pomocą platformy tożsamości firmy Microsoft.
+title: 'Szybki Start: usuwanie zarejestrowanej aplikacji z platformy tożsamości firmy Microsoft | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak usunąć aplikację zarejestrowaną na platformie tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115326"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612391"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Szybki Start: Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft
 
@@ -30,22 +31,19 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wymagana jest dzierżawa z zarejestrowanymi aplikacjami. Aby dowiedzieć się, jak dodawać i rejestrować aplikacje, zobacz [Rejestrowanie aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md).
+* Kończenie [szybkiego startu: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Usuwanie aplikacji utworzonej przez Ciebie lub Twoją organizację
 
 Aplikacje zarejestrowane przez Ciebie lub Twoją aplikację są reprezentowane przez obiekt aplikacji i obiekt jednostki usługi w dzierżawie. Aby uzyskać więcej informacji, zobacz [Obiekty aplikacji i obiekty jednostki usługi](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Usuwanie aplikacji
+Aby usunąć aplikację, musisz być właścicielem aplikacji lub mieć uprawnienia administratora.
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
-2. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-3. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**. Znajdź i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
-4. Na stronie **Przegląd** wybierz pozycję **Usuń**.
-5. Wybierz pozycję **Tak**, aby potwierdzić, że chcesz usunąć aplikację.
-
-   > [!NOTE]
-   > Aby usunąć aplikację, musisz być właścicielem aplikacji lub mieć uprawnienia administratora.
+1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**. Znajdź i wybierz aplikację, którą chcesz skonfigurować. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji.
+1. Na stronie **Przegląd** wybierz pozycję **Usuń**.
+1. Wybierz pozycję **Tak**, aby potwierdzić, że chcesz usunąć aplikację.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Usuwanie aplikacji utworzonej przez inną organizację
 
@@ -55,9 +53,7 @@ Aby usunąć dostęp aplikacji do Twojego katalogu (po wcześniejszym udzieleniu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat innych powiązanych przewodników Szybki start dotyczących zarządzania aplikacjami:
+Dowiedz się więcej o obiektach głównych aplikacji i usług na platformie tożsamości firmy Microsoft:
 
-* [Rejestrowanie aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md)
-* [Konfigurowanie aplikacji klienckiej na potrzeby uzyskiwania dostępu do internetowych interfejsów API](quickstart-configure-app-access-web-apis.md)
-* [Konfigurowanie aplikacji w celu uwidocznienia internetowych interfejsów API](quickstart-configure-app-expose-web-apis.md)
-* [Modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory](app-objects-and-service-principals.md)

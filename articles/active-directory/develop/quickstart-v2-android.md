@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity platform Android — szybki start | Azure
-description: Dowiedz się, jak aplikacje dla systemu Android mogą wywołać interfejs API, który wymaga tokenów dostępu w punkcie końcowym platformy tożsamości firmy Microsoft.
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji systemu Android | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak aplikacje systemu Android mogą wywołać interfejs API, który wymaga tokenów dostępu wystawionych przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 37859a8571355dcd61175d7b1b4d9888e058bf3a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115275"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612901"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Szybki start: logowanie użytkowników i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji dla systemu Android
 
@@ -24,17 +25,14 @@ Ten przewodnik Szybki Start używa przykładu kodu, aby zademonstrować, jak apl
 
 Aplikacje muszą być reprezentowane przez obiekt aplikacji w Azure Active Directory, aby platforma tożsamości firmy Microsoft mogła udostępniać tokeny aplikacji.
 
-> [!div renderon="docs"]
-> Jako wygoda, przykładowy kod zawiera domyślne `redirect_uri` wstępnie skonfigurowane w `AndroidManifest.xml` pliku, aby nie trzeba było najpierw zarejestrować własnego obiektu aplikacji. `redirect_uri`Jest częściowo oparta na kluczu podpisywania Twojej aplikacji. Przykładowy projekt jest wstępnie skonfigurowany przy użyciu klucza podpisywania, aby zapewnić, że dane `redirect_uri` będą działały. Aby dowiedzieć się więcej na temat rejestrowania obiektu aplikacji i integrowania go z aplikacją, zapoznaj się z samouczkiem [Logowanie użytkowników i Wywołaj Microsoft Graph z aplikacji dla systemu Android](tutorial-v2-android.md) .
+## <a name="prerequisites"></a>Wymagania wstępne
 
-
-> [!NOTE]
-> **Wymagania wstępne**
-> * Android Studio 
-> * System Android 16 +
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Android Studio
+* System Android 16 +
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal 
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 >  Aby przykład kodu dla tego przewodnika Szybki Start działał, należy dodać identyfikator URI przekierowania zgodny z brokerem uwierzytelniania.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
@@ -42,15 +40,15 @@ Aplikacje muszą być reprezentowane przez obiekt aplikacji w Azure Active Direc
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-android/green-check.png) (Już skonfigurowano) Twoja aplikacja została skonfigurowana za pomocą tych atrybutów
 >
-> ### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu 
+> ### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
 > [!div class="sxs-lookup" renderon="portal"]
 > Uruchom projekt przy użyciu Android Studio.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Twój projekt został skonfigurowany z wartościami właściwości aplikacji i jest gotowy do uruchomienia. 
+> Twój projekt został skonfigurowany z wartościami właściwości aplikacji i jest gotowy do uruchomienia.
 > Przykładowa aplikacja zostanie uruchomiona na ekranie **trybu pojedynczego konta** . Domyślny zakres, **User. Read**, jest dostarczany domyślnie, który jest używany podczas odczytywania własnych danych profilu podczas wywołania interfejsu API Microsoft Graph. Adres URL wywołania interfejsu API Microsoft Graph jest udostępniany domyślnie. Jeśli chcesz, możesz zmienić oba te elementy.
 >
 > ![Przykładowa aplikacja MSAL przedstawiająca użycie jednego i wielu kont](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -112,7 +110,7 @@ Teraz będziemy bardziej szczegółowo przeglądać te pliki i wywoływać kod s
 
 MSAL ([com. Microsoft. Identity. Client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) to biblioteka służąca do logowania użytkowników i żądania tokenów używanych w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Gradle 3.0 + instaluje bibliotekę po dodaniu następującej do **Gradle skryptów**  >  **Build. Gradle (module: App)** w obszarze **zależności**:
 
-```gradle  
+```gradle
 implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
@@ -169,7 +167,7 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
 
 W programie `SingleAccountModeFragment.java` kod służący do logowania użytkownika znajduje się w programie `initializeUI()` `signInButton` obsługi kliknij.
 
-Wywołaj `signIn()` przed próbą uzyskania tokenów. `signIn()`zachowuje się tak `acquireToken()` , jakby jest wywoływana, co spowoduje wyświetlenie interakcyjnego monitu użytkownika o zalogowanie się.
+Wywołaj `signIn()` przed próbą uzyskania tokenów. `signIn()` zachowuje się tak `acquireToken()` , jakby jest wywoływana, co spowoduje wyświetlenie interakcyjnego monitu użytkownika o zalogowanie się.
 
 Logowanie użytkownika jest operacją asynchroniczną. Jest przesyłane wywołanie zwrotne, które wywołuje interfejs API Microsoft Graph i aktualizuje interfejs użytkownika po zalogowaniu się użytkownika:
 
@@ -209,7 +207,7 @@ Niektóre sytuacje, w których użytkownik może zostać poproszony o wybranie k
 * Gdy aplikacja żąda dostępu do zasobu po raz pierwszy
 * Gdy wymagane jest uwierzytelnianie wieloskładnikowe lub inne zasady dostępu warunkowego
 
-Kod umożliwiający interaktywny dostęp do tokenu, który jest z INTERFEJSem użytkownika, który będzie obejmował użytkownika, znajduje się w `SingleAccountModeFragment.java` , w `initializeUI()` , w, w programie `callGraphApiInteractiveButton` obsługi kliknij:
+Kod umożliwiający interaktywny dostęp do tokenu, który jest z INTERFEJSem użytkownika, który będzie obejmował użytkownika, znajduje się w  `SingleAccountModeFragment.java` , w `initializeUI()` , w, w programie `callGraphApiInteractiveButton` obsługi kliknij:
 
 ```java
 /**
@@ -294,11 +292,11 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 
 Jest to plik konfiguracji aplikacji MSAL, który używa jednego konta.
 
-Wyjaśnienie tych pól można znaleźć w temacie [Omówienie pliku konfiguracji MSAL systemu Android](msal-configuration.md) .
+Wyjaśnienie tych pól można znaleźć w temacie [Omówienie pliku konfiguracji MSAL systemu Android ](msal-configuration.md) .
 
 Zanotuj obecność `"account_mode" : "SINGLE"` , która konfiguruje tę aplikację w taki sposób, aby korzystała z jednego konta.
 
-`"client_id"`jest wstępnie skonfigurowana do korzystania z rejestracji obiektu aplikacji obsługiwanej przez firmę Microsoft.
+`"client_id"` jest wstępnie skonfigurowana do korzystania z rejestracji obiektu aplikacji obsługiwanej przez firmę Microsoft.
 `"redirect_uri"`jest wstępnie skonfigurowany do korzystania z klucza podpisywania dostarczonego z przykładem kodu.
 
 ```json
@@ -352,7 +350,7 @@ Utworzony `MultipleAccountPublicClientApplication` obiekt jest przechowywany w z
 
 #### <a name="load-an-account"></a>Załaduj konto
 
-Aplikacje z wieloma kontami zwykle są wywoływane `getAccounts()` w celu wybrania konta do użycia dla operacji MSAL. Kod do załadowania konta znajduje się w `MultipleAccountModeFragment.java` pliku `loadAccounts()` .  Ładowanie konta użytkownika jest operacją asynchroniczną. Wywołanie zwrotne obsługuje sytuacje, w których konto jest załadowane, zmienia się lub występuje błąd.
+Aplikacje z wieloma kontami zwykle są wywoływane `getAccounts()` w celu wybrania konta do użycia dla operacji MSAL. Kod do załadowania konta znajduje się w `MultipleAccountModeFragment.java` pliku  `loadAccounts()` .  Ładowanie konta użytkownika jest operacją asynchroniczną. Wywołanie zwrotne obsługuje sytuacje, w których konto jest załadowane, zmienia się lub występuje błąd.
 
 ```java
 /**
@@ -384,9 +382,9 @@ private void loadAccounts() {
 Niektóre sytuacje, w których użytkownik może zostać poproszony o wybranie konta, wprowadzenie ich poświadczeń lub zgoda na uprawnienia wymagane przez aplikację:
 
 * Gdy nowi użytkownicy logują się do aplikacji po raz pierwszy.
-* Jeśli użytkownik resetuje hasło, musi wprowadzić swoje poświadczenia 
-* Jeśli wyrażanie zgody zostało odwołane 
-* Jeśli aplikacja jawnie wymaga zgody 
+* Jeśli użytkownik resetuje hasło, musi wprowadzić swoje poświadczenia
+* Jeśli wyrażanie zgody zostało odwołane
+* Jeśli aplikacja jawnie wymaga zgody
 * Gdy aplikacja żąda dostępu do zasobu po raz pierwszy
 * Gdy wymagane jest uwierzytelnianie wieloskładnikowe lub inne zasady dostępu warunkowego
 
@@ -450,11 +448,11 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 
 Jest to plik konfiguracji aplikacji MSAL, który używa wielu kont.
 
-Aby uzyskać wyjaśnienie różnych pól, zobacz [Opis pliku konfiguracji MSAL systemu Android](msal-configuration.md) .
+Aby uzyskać wyjaśnienie różnych pól, zobacz [Opis pliku konfiguracji MSAL systemu Android ](msal-configuration.md) .
 
 W przeciwieństwie do [auth_config_single_account.jsw](#auth_config_single_accountjson) pliku konfiguracyjnym, ten plik konfiguracji jest w przeciwieństwie do `"account_mode" : "MULTIPLE"` aplikacji z `"account_mode" : "SINGLE"` wieloma kontami.
 
-`"client_id"`jest wstępnie skonfigurowana do korzystania z rejestracji obiektu aplikacji obsługiwanej przez firmę Microsoft.
+`"client_id"` jest wstępnie skonfigurowana do korzystania z rejestracji obiektu aplikacji obsługiwanej przez firmę Microsoft.
 `"redirect_uri"`jest wstępnie skonfigurowany do korzystania z klucza podpisywania dostarczonego z przykładem kodu.
 
 ```json
@@ -476,20 +474,11 @@ W przeciwieństwie do [auth_config_single_account.jsw](#auth_config_single_accou
 }
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Dowiedz się więcej na temat czynności, które są wymagane to utworzenia aplikacji użytej w tym przewodniku Szybki start
-
-Wypróbuj [użytkowników logowania i Wywołaj Microsoft Graph z samouczka aplikacji dla systemu Android](tutorial-v2-android.md) , aby zapoznać się z przewodnikiem krok po kroku tworzenia aplikacji systemu Android, która pobiera token dostępu i używa jej do wywoływania interfejsu API Microsoft Graph.
+Przejdź do samouczka systemu Android, w którym tworzysz aplikację dla systemu Android, która pobiera token dostępu z platformy tożsamości firmy Microsoft i używa jej do wywoływania interfejsu API Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Samouczek: wywołanie interfejsu API programu Graph dla systemu Android](./tutorial-v2-android.md)
-
-### <a name="msal-for-android-library-wiki"></a>Strona typu wiki: biblioteka MSAL dla systemu Android
-
-Przeczytaj więcej informacji na temat biblioteki MSAL dla systemu Android:
-
-> [!div class="nextstepaction"]
-> [Strona typu wiki: biblioteka MSAL dla systemu Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji systemu Android](tutorial-v2-android.md)

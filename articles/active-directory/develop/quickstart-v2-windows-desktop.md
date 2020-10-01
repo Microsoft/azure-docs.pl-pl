@@ -1,6 +1,6 @@
 ---
-title: Microsoft Identity platform — szybki start dla systemu Windows Desktop
-description: Dowiedz się, w jaki sposób aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft
+title: 'Szybki Start: Logowanie użytkowników i wywoływanie Microsoft Graph w aplikacji klasycznej platforma uniwersalna systemu Windows | Azure'
+description: W tym przewodniku szybki start dowiesz się, w jaki sposób aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,22 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114561"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613275"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows
 
 W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną .NET (WPF) w systemie Windows umożliwiającą logowanie się na kontach osobistych i służbowych, uzyskiwanie tokenów dostępu i wywoływanie interfejsu API programu Microsoft Graph. (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Wymagania wstępne
+>
+> * [Program Visual Studio 2019](https://visualstudio.microsoft.com/vs/) z zainstalowanym obciążeniem [programowania platforma uniwersalna systemu Windows](/windows/uwp/get-started/get-set-up)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
 > Istnieją dwie opcje uruchamiania aplikacji Szybki start:
 > * [Ekspresowe] [Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)

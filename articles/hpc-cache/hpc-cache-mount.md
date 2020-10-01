@@ -4,14 +4,14 @@ description: Jak połączyć klientów z usługą Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232682"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613014"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej usługi Azure HPC Cache
 
@@ -20,7 +20,7 @@ Po utworzeniu pamięci podręcznej klienci systemu plików NFS mogą uzyskać do
 Polecenie instalacji składa się z następujących elementów:
 
 * Jeden z adresów pamięci podręcznej (na liście na stronie Przegląd pamięci podręcznej)
-* Ścieżka wirtualnej przestrzeni nazw ustawiana podczas tworzenia miejsca docelowego magazynu
+* Ścieżka wirtualnej przestrzeni nazw ustawiona dla miejsca docelowego magazynu (na liście na stronie przestrzeni nazw pamięci podręcznej)
 * Ścieżka lokalna do użycia na kliencie
 * Parametry polecenia, które optymalizują powodzenie tego rodzaju instalacji systemu plików NFS
 
@@ -40,8 +40,8 @@ Można na przykład utworzyć maszyny wirtualne klienta w tej samej sieci wirtua
 
 Zainstaluj odpowiednie oprogramowanie z systemem Linux, aby umożliwić obsługę polecenia instalacji systemu plików NFS:
 
-* W przypadku Red Hat Enterprise Linux lub SuSE:`sudo yum install -y nfs-utils`
-* Dla Ubuntu lub Debian:`sudo apt-get install nfs-common`
+* W przypadku Red Hat Enterprise Linux lub SuSE: `sudo yum install -y nfs-utils`
+* Dla Ubuntu lub Debian: `sudo apt-get install nfs-common`
 
 ### <a name="create-a-local-path"></a>Utwórz ścieżkę lokalną
 
@@ -65,7 +65,7 @@ Postępuj zgodnie z tą procedurą, aby utworzyć polecenie instalacji.
 
 1. Dostosuj pole **ścieżka klienta** . To pole zawiera przykładowe polecenie, za pomocą którego można utworzyć ścieżkę lokalną na kliencie. Klient uzyskuje dostęp do zawartości z pamięci podręcznej platformy Azure HPC lokalnie w tym katalogu.
 
-   Kliknij pole i zmodyfikuj polecenie, aby zawierało żądaną nazwę katalogu. Nazwa pojawia się na końcu ciągu po`sudo mkdir -p`
+   Kliknij pole i zmodyfikuj polecenie, aby zawierało żądaną nazwę katalogu. Nazwa pojawia się na końcu ciągu po `sudo mkdir -p`
 
    ![zrzut ekranu przedstawiający pole ścieżki klienta z kursorem umieszczonym na końcu](media/mount-edit-client.png)
 
@@ -81,7 +81,7 @@ Postępuj zgodnie z tą procedurą, aby utworzyć polecenie instalacji.
 
    ![zrzut ekranu przedstawiający pole ścieżki przestrzeni nazw z otwartym selektorem](media/mount-select-target.png)
 
-   Ścieżki wirtualnych przestrzeni nazw można wyświetlać i zmieniać na stronie portalu miejsca docelowe magazynu. Przeczytaj temat [Dodawanie elementów docelowych magazynu](hpc-cache-add-storage.md) , aby zobaczyć, jak.
+   Ścieżki wirtualnych przestrzeni nazw można wyświetlać i zmieniać na stronie portalu **przestrzeni nazw** . Przeczytaj temat [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md) , aby zobaczyć, jak.
 
    Aby dowiedzieć się więcej o funkcji zagregowanej przestrzeni nazw pamięci podręcznej platformy Azure HPC, przeczytaj temat [Planowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md).
 
@@ -89,7 +89,7 @@ Postępuj zgodnie z tą procedurą, aby utworzyć polecenie instalacji.
 
    Kliknij symbol kopiowania po prawej stronie pola, aby automatycznie skopiować go do Schowka.
 
-   ![zrzut ekranu przedstawiający pole ścieżki przestrzeni nazw z otwartym selektorem](media/mount-command-copy.png)
+   ![zrzut ekranu przedstawiający pole polecenia instalacji prototypowej, pokazujący tekst aktywowany przycisku "Kopiuj do schowka"](media/mount-command-copy.png)
 
 1. Użyj skopiowanego polecenia mount na komputerze klienckim, aby połączyć go z pamięcią podręczną platformy Azure HPC. Można wydać polecenie bezpośrednio z wiersza polecenia klienta lub dodać polecenie instalacji w skrypcie lub szablonie instalacji klienta.
 
@@ -124,16 +124,16 @@ W przypadku niezawodnego instalowania klienta należy przekazać te ustawienia i
 
 ### <a name="find-mount-command-components"></a>Znajdź składniki poleceń instalacji
 
-Jeśli chcesz utworzyć polecenie instalacji bez używania strony z **instrukcjami instalacji** , możesz znaleźć adresy instalacji na stronie **Przegląd** pamięci podręcznej i ścieżki wirtualnego obszaru nazw na stronie **Target Storage** .
+Jeśli chcesz utworzyć polecenie instalacji bez używania strony z **instrukcjami instalacji** , możesz znaleźć adresy instalacji na stronie **Przegląd** pamięci podręcznej i ścieżki wirtualnego obszaru nazw na stronie **przestrzeni nazw** .
 
 ![zrzut ekranu strony Przegląd wystąpienia pamięci podręcznej platformy Azure HPC z wyróżnionym polem wyboru na liście adresy instalacji w prawym dolnym rogu](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > Adresy instalacji pamięci podręcznej są zgodne z interfejsami sieciowymi w podsieci pamięci podręcznej. W grupie zasobów te karty sieciowe są wyświetlane z nazwami kończącymi się na `-cluster-nic-` i numerami. Nie zmieniaj ani nie usuwaj tych interfejsów lub pamięć podręczna stanie się niedostępna.
 
-Ścieżki wirtualnych przestrzeni nazw są wyświetlane na stronie szczegółów każdego miejsca docelowego magazynu. Kliknij nazwę obiektu docelowego magazynu, aby wyświetlić jego szczegóły, w tym zagregowane ścieżki przestrzeni nazw, z którymi są skojarzone.
+Ścieżki wirtualnych przestrzeni nazw są wyświetlane na stronie ustawień **przestrzeni nazw** pamięci podręcznej.
 
-![zrzut ekranu przedstawiający stronę szczegółów miejsca docelowego magazynu (nagłówek "Update Storage Target"). Istnieje pole wyróżnione wokół wpisu w kolumnie ścieżka wirtualnej przestrzeni nazw tabeli.](media/hpc-cache-view-namespace-paths.png)
+![zrzut ekranu przedstawiający stronę Ustawienia portalu > obszaru nazw z wyróżnionym polem dookoła pierwszej kolumny tabeli: "ścieżka przestrzeni nazw"](media/view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

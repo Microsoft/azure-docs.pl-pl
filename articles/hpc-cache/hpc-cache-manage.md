@@ -4,14 +4,14 @@ description: Jak zarządzać i aktualizować pamięć podręczną Azure HPC przy
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497231"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613059"
 ---
 # <a name="manage-your-cache"></a>Zarządzanie pamięcią podręczną
 
@@ -28,6 +28,7 @@ Przyciski w górnej części strony mogą pomóc w zarządzaniu pamięcią podr�
 * **Uruchamianie** i [**Zatrzymywanie**](#stop-the-cache) — wznawianie lub wstrzymywanie operacji pamięci podręcznej
 * [**Opróżnianie**](#flush-cached-data) — zapisuje zmienione dane w celu przechowywania
 * [**Upgrade**](#upgrade-cache-software) — aktualizuje oprogramowanie pamięci podręcznej
+* [**Zbieranie danych diagnostycznych**](#collect-diagnostics) — przekazywanie informacji debugowania
 * **Refresh** -ponownie ładuje stronę przeglądu
 * [**Usuń**](#delete-the-cache) — trwale niszczy pamięć podręczną
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>Zbieranie danych diagnostycznych
+
+Przycisk **Zbierz diagnostykę** ręcznie uruchamia proces zbierania informacji o systemie i przekazywania go do usługi firmy Microsoft i pomocy technicznej w celu rozwiązywania problemów. Pamięć podręczna zbiera i przekazuje te same informacje diagnostyczne w przypadku wystąpienia poważnego problemu z pamięcią podręczną.
+
+Użyj tej kontrolki, jeśli usługa i pomoc techniczna firmy Microsoft żądają tego formantu.
+
+Po kliknięciu przycisku kliknij przycisk **tak** , aby potwierdzić przekazywanie.
+
+![zrzut ekranu przedstawiający podręczny komunikat potwierdzający rozpoczęcie zbierania danych diagnostycznych. Przycisk domyślny "tak" jest wyróżniony.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>Usuń pamięć podręczną
 

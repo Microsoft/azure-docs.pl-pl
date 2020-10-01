@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: HT
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362114"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -29,7 +29,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Klucz subskrypcji platformy Azure dla usługi Mowa: [Pobierz bezpłatnie](get-started.md) lub utwórz go w witrynie [Azure Portal](https://portal.azure.com)
+> * Klucz subskrypcji platformy Azure dla usługi Mowa: [Pobierz bezpłatnie](overview.md#try-the-speech-service-for-free) lub utwórz go w witrynie [Azure Portal](https://portal.azure.com)
 > * [Utworzona wcześniej aplikacja Polecenia niestandardowe](quickstart-custom-commands-application.md)
 > * Aplikacja kliencka z włączonym zestawem SDK usługi Mowa: [Instrukcje: wysyłanie działania do aplikacji klienckiej](./how-to-custom-commands-setup-speech-sdk.md)
 

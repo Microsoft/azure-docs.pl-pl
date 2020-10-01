@@ -1,5 +1,6 @@
 ---
-title: Tworzenie wielodostępnego demona korzystającego z punktu końcowego platformy tożsamości firmy Microsoft
+title: 'Samouczek: Tworzenie demona z wieloma dzierżawcami, która uzyskuje dostęp do danych firmowych Microsoft Graph | Azure'
+titleSuffix: Microsoft identity platform
 description: W tym samouczku dowiesz się, jak wywoływać interfejs API sieci Web ASP.NET chroniony przez Azure Active Directory z aplikacji klasycznej systemu Windows (WPF). Klient WPF uwierzytelnia użytkownika, żąda tokenu dostępu i wywołuje internetowy interfejs API.
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982859"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611099"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Samouczek: Tworzenie demona wielodostępnego, która używa punktu końcowego platformy tożsamości firmy Microsoft
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Samouczek: Tworzenie demona z wieloma dzierżawcami korzystającą z platformy tożsamości firmy Microsoft
 
 W ramach tego samouczka nauczysz się używać platformy tożsamości firmy Microsoft do uzyskiwania dostępu do danych klientów firmy Microsoft w długotrwałym, nieinteraktywnym procesie. Demona Przykładowa używa [przydzielenia poświadczeń klienta OAuth2](v2-oauth2-client-creds-grant-flow.md) w celu uzyskania tokenu dostępu. Demon używa tokenu do wywoływania [Microsoft Graph](https://graph.microsoft.io) i dostępu do danych organizacji.
 
@@ -30,28 +31,23 @@ W ramach tego samouczka nauczysz się używać platformy tożsamości firmy Micr
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- [Program Visual Studio 2017 lub 2019](https://visualstudio.microsoft.com/downloads/).
+- Dzierżawa usługi Azure AD. Aby uzyskać więcej informacji, zobacz [jak uzyskać dzierżawę usługi Azure AD](quickstart-create-new-tenant.md).
+- Co najmniej jedno konto użytkownika w dzierżawie usługi Azure AD. Ten przykład nie będzie działał z konto Microsoft. Jeśli zalogowano się do [Azure Portal](https://portal.azure.com) za pomocą konto Microsoft i nigdy nie utworzono konta użytkownika w katalogu, zrób to teraz.
+
+## <a name="scenario"></a>Scenariusz
+
 Aplikacja została skompilowana jako aplikacja ASP.NET MVC. Używa ona oprogramowania OWIN OpenID Connect Connecter do logowania użytkowników.
 
 Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs` . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs` jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
 
->[!NOTE]
-> Jeśli dopiero zaczynasz pracę z platformą tożsamości firmy Microsoft, zalecamy rozpoczęcie pracy z programem [.NET Core DAEMON — szybki](quickstart-v2-netcore-daemon.md)Start.
-
-## <a name="scenario"></a>Scenariusz
-
-Ponieważ aplikacja jest aplikacją wielodostępnymi dla klientów firmy Microsoft, musi zapewnić klientom możliwość "rejestracji" lub "łączenia" aplikacji z danymi firmowymi. Podczas przepływu połączenia administrator firmy najpierw przyznaje *uprawnienia aplikacji* bezpośrednio do aplikacji, dzięki czemu może uzyskiwać dostęp do danych firmowych w sposób nieinteraktywny, bez obecności zalogowanego użytkownika. Większość logiki w tym przykładzie przedstawia sposób osiągnięcia tego przepływu połączenia przy użyciu punktu końcowego [zgody](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) na platformę tożsamości.
+Ponieważ aplikacja jest aplikacją z wieloma dzierżawcami dla klientów firmy Microsoft, musi zapewnić klientom możliwość "rejestracji" lub "łączenia" aplikacji z danymi firmowymi. Podczas przepływu połączenia administrator firmy najpierw przyznaje *uprawnienia aplikacji* bezpośrednio do aplikacji, dzięki czemu może uzyskiwać dostęp do danych firmowych w sposób nieinteraktywny, bez obecności zalogowanego użytkownika. Większość logiki w tym przykładzie przedstawia sposób osiągnięcia tego przepływu połączenia przy użyciu punktu końcowego [zgody](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) na platformę tożsamości.
 
 ![Diagram przedstawia aplikację UserSync z trzema elementami lokalnymi, które łączą się z platformą Azure, z uwierzytelnianiem typu "Uruchom jako" w sposób interaktywny, aby połączyć się z platformą Azure A D, elementu AccountController otrzymywanie zgody administratora na łączenie się z platformą Azure A D i SyncController odczytywanie użytkownika w celu połączenia z Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Aby uzyskać więcej informacji na temat pojęć użytych w tym przykładzie, Przeczytaj [dokumentację protokołu poświadczeń klienta dla punktu końcowego platformy tożsamości](v2-oauth2-client-creds-grant-flow.md).
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Aby uruchomić przykład w tym przewodniku Szybki Start, potrzebne są:
-
-- [Program Visual Studio 2017 lub 2019](https://visualstudio.microsoft.com/downloads/).
-- Dzierżawa usługi Azure AD. Aby uzyskać więcej informacji, zobacz [jak uzyskać dzierżawę usługi Azure AD](quickstart-create-new-tenant.md).
-- Co najmniej jedno konto użytkownika w dzierżawie usługi Azure AD. Ten przykład nie będzie działał z konto Microsoft (dawniej konto usługi Windows Live). Jeśli zalogowano się do [Azure Portal](https://portal.azure.com) za pomocą konto Microsoft i nigdy nie utworzono konta użytkownika w katalogu, należy to zrobić teraz.
 
 ## <a name="clone-or-download-this-repository"></a>Klonuj lub pobrać to repozytorium
 
@@ -224,7 +220,7 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
    1. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań, a następnie wybierz pozycję **Publikuj**.
    1. Wybierz pozycję **Importuj profil** na dolnym pasku i zaimportuj wcześniej pobrany profil publikacji.
 1. Wybierz pozycję **Konfiguruj**.
-1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz pozycję **Dalej**.
+1. Na karcie **połączenie** zaktualizuj docelowy adres URL w taki sposób, aby korzystał z protokołu HTTPS. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Wybierz opcję **Dalej**.
 1. Na karcie **Ustawienia** upewnij się, że pole wyboru **Włącz uwierzytelnianie organizacyjne** jest wyczyszczone.
 1. Wybierz pozycję **Zapisz**. Wybierz pozycję **Publikuj** na ekranie głównym.
 
@@ -240,7 +236,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Zapisz konfigurację.
 1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu**identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .  Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [usuwanie aplikacji napisanej przez Ciebie lub w organizacji](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
 
 ## <a name="get-help"></a>Uzyskaj pomoc
@@ -256,17 +252,8 @@ Jeśli znajdziesz błąd w MSAL.NET, zgłoś problem w usłudze [MSAL.NET GitHub
 Aby uzyskać zalecenie, przejdź do [strony głos użytkownika](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej na temat różnych [przepływów uwierzytelniania i scenariuszy aplikacji](authentication-flows-app-scenarios.md) obsługiwanych przez platformę tożsamości firmy Microsoft.
 
-Aby uzyskać więcej informacji, zobacz następującą dokumentację koncepcyjną:
+Dowiedz się więcej na temat tworzenia aplikacji demona, które używają platformy tożsamości firmy Microsoft do uzyskiwania dostępu do chronionych interfejsów API sieci Web:
 
-- [Dzierżawa w Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Opis środowisk zgody dla aplikacji usługi Azure AD](application-consent-experience.md)
-- [Zaloguj dowolnego użytkownika Azure Active Directory przy użyciu wzorca aplikacji wielodostępnej](howto-convert-app-to-be-multi-tenant.md)
-- [Zrozumienie zgody użytkownika i administratora](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory](app-objects-and-service-principals.md)
-- [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
-- [Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskiwania dostępu do interfejsów API sieci Web](quickstart-configure-app-access-web-apis.md)
-- [Uzyskiwanie tokenu dla aplikacji za pomocą przepływów poświadczeń klienta](msal-client-applications.md)
-
-Aby uzyskać prostszy dostęp do wielodostępnej aplikacji demona konsoli, zobacz [prestart demona platformy .NET Core](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web](scenario-daemon-overview.md)

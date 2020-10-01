@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297675"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613513"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -79,11 +79,11 @@ Wywołanie operacji [usuwania obiektu BLOB](/rest/api/storageservices/delete-blo
 
 Na poniższym diagramie przedstawiono efekt operacji usuwania na serwerze obiektów blob z wersjami:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram przedstawiający Usuwanie wersji obiektu BLOB z wersjami.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 Zapisanie nowych danych do obiektu BLOB powoduje utworzenie nowej wersji obiektu BLOB. Nie ma to żadnego skutku, jak pokazano na poniższym diagramie.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram przedstawiający ponowne tworzenie wersji obiektu BLOB po usunięciu.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 ### <a name="blob-types"></a>Typy obiektów blob
 
@@ -122,7 +122,7 @@ Można odczytywać lub usuwać wersje przy użyciu identyfikatora wersji po wył
 
 Na poniższym diagramie przedstawiono sposób modyfikowania obiektu BLOB po wykorzystaniu wersji, który tworzy obiekt BLOB, który nie ma wersji. Wszystkie istniejące wersje skojarzone z obiektem BLOB są utrwalane.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram przedstawiający podstawowy obiekt BLOB zmodyfikowany po wyjściu z wyłączonej wersji.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Przechowywanie wersji obiektów blob i usuwanie nietrwałe
 
@@ -138,7 +138,7 @@ Aby usunąć poprzednią wersję obiektu BLOB, usuń go jawnie, określając ide
 
 Na poniższym diagramie pokazano, co się dzieje po usunięciu obiektu BLOB lub wersji obiektu BLOB.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram przedstawiający Usuwanie wersji z włączoną opcją usuwania nietrwałego.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 Jeśli na koncie magazynu są włączone zarówno przechowywanie wersji, jak i usuwanie nietrwałe, nie zostanie utworzona migawka nietrwała, gdy zostanie zmodyfikowana lub usunięta wersja obiektu BLOB lub obiektu BLOB.
 
@@ -150,7 +150,7 @@ Przywracanie nieusuniętych wersji z użyciem operacji **usuwania obiektów BLOB
 
 Na poniższym diagramie pokazano, jak przywrócić nieusunięte wersje obiektów BLOB przy użyciu operacji **usuwania obiektów** BLOB oraz jak przywrócić bieżącą wersję obiektu BLOB za pomocą operacji **kopiowania obiektu BLOB** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram przedstawiający sposób przywracania wersji nieusuniętych.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 Po upływie okresu przechowywania danych nietrwałych wszystkie nietrwałe wersje obiektów BLOB są trwale usuwane.
 
@@ -169,7 +169,7 @@ Po utworzeniu migawki obiektu BLOB z uruchomioną wersją zostanie utworzona now
 
 Na poniższym diagramie przedstawiono działania wykonywane po utworzeniu migawki obiektu BLOB z wersjami. Na diagramie wersje obiektów blob i migawki z IDENTYFIKATORem wersji 2 i 3 zawierają identyczne dane.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram przedstawiający migawki obiektu BLOB z wersjami.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autoryzuj operacje na wersjach obiektów BLOB
 
@@ -188,7 +188,7 @@ W poniższej tabeli przedstawiono akcje RBAC obsługujące usuwanie obiektu BLOB
 | Opis | Operacja Blob service | Wymagana jest akcja danych RBAC | Wbudowana rola RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob usługi Storage |
-| Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektów blob magazynu |
+| Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektu blob usługi Storage |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametry sygnatury dostępu współdzielonego (SAS)
 
@@ -269,7 +269,7 @@ W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB lu
 
 Na poniższym diagramie pokazano, w jaki sposób obiekty są rozliczane, gdy obiekt BLOB z uruchomioną wersją jest przenoszony do innej warstwy.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram przedstawiający sposób, w jaki obiekty są rozliczane w przypadku jawnego warstwowego obiektu BLOB.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram przedstawiający sposób, w jaki operacje zapisu wpływają na obiekty blob z wersjami.":::
 
 Jawnie Ustawianie warstwy dla obiektu BLOB, wersji lub migawki nie można cofnąć. Jeśli przeniesiesz obiekt BLOB do nowej warstwy, a następnie przeniesiesz go z powrotem do jego oryginalnej warstwy, naliczona zostanie opłata za pełną długość zawartości obiektu nawet wtedy, gdy współużytkuje bloki z innymi obiektami w pierwotnej warstwie.
 

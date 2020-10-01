@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b952c2663750c055ec6838bf66df31fec5a0d730
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580416"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613479"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Jak podłączyć przykład IoT Plug and Play Bridge działającego w systemie Linux lub Windows do IoT Hub
 
@@ -88,7 +88,7 @@ Po pobraniu kodu w kroku poniżej zawiera przykładowe pliki modelu w `pnpbridge
 Otwórz wiersz polecenia w wybranym katalogu. Wykonaj następujące polecenie, aby sklonować repozytorium usługi [IoT Plug and Play Bridge](https://aka.ms/iotplugandplaybridge) w tej lokalizacji:
 
 ```cmd
-git clone https://github.com/Azure/AzurePnPBridgePreview.git
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 ```
 
 Po sklonowaniu repozytorium usługi IoT Plug and Play do maszyny Otwórz wiersz polecenia administracyjne i przejdź do katalogu sklonowanego repozytorium:

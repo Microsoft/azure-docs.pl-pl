@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6d25eb2965e31211c0d30ec8d5e3e376176147c0
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e4c2969db560ff20cae2ed7b9ffbe0cea206c7a1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590051"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611575"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
@@ -40,7 +40,7 @@ ms.locfileid: "88590051"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu .NET SDK procesora źródła zmian](change-feed.md)|
 |**Bieżąca obsługiwana platforma**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET rdzeń](https://www.microsoft.com/net/download/core) |
 
@@ -51,18 +51,18 @@ ms.locfileid: "88590051"
 
 ### <a name="v2-builds"></a>2 kompilacje
 
-### <a name="232"></a><a name="2.3.2"/>2.3.2
-* Dodano zgodność magazynu dzierżawy z [zestawem SDK v3](sql-api-sdk-dotnet-standard.md) umożliwiającym ścieżki migracji dynamicznej. Aplikacja może migrować do wersji v3 SDK i przeprowadzić migrację z powrotem do biblioteki procesora kanału informacyjnego zmiany bez utraty żadnego stanu.
+### <a name="232"></a><a id="2.3.2"></a>2.3.2
+* Dodano zgodność magazynu dzierżawy z programem [v3 SDK, który umożliwia ścieżki migracji dynamicznej. Aplikacja może migrować do wersji v3 SDK i przeprowadzić migrację z powrotem do biblioteki procesora kanału informacyjnego zmiany bez utraty żadnego stanu.
 
-### <a name="231"></a><a name="2.3.1"/>ppkt
+### <a name="231"></a><a id="2.3.1"></a>ppkt
 * Poprawiono przypadek, gdy `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` powód zamknięcia został wysłany do `FeedProcessing.IChangeFeedObserver.CloseAsync` , jeśli nie można odnaleźć partycji lub jeśli replika docelowa nie jest aktualna w sesji odczytu. W tych przypadkach `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` są teraz używane bliskie powody.
 * Dodano nowy powód zamknięcia `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` , który jest wysyłany w celu zamknięcia obserwatora źródła zmian, gdy replika docelowa nie jest aktualna w czasie sesji odczytu.
 
-### <a name="230"></a><a name="2.3.0"/>2.3.0
+### <a name="230"></a><a id="2.3.0"></a>2.3.0
 * Dodano nową metodę `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` i odpowiedni interfejs publiczny `ICheckpointPartitionProcessorFactory` . Umożliwia to implementację `IPartitionProcessor` interfejsu przy użyciu wbudowanego mechanizmu tworzenia punktów kontrolnych. Nowa fabryka jest podobna do istniejącej `IPartitionProcessorFactory` , z tą różnicą, że jej `Create` Metoda pobiera również `ILeaseCheckpointer` parametr.
 * Tylko jedna z dwóch metod (lub) `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` może być używana dla tego samego `ChangeFeedProcessorBuilder` wystąpienia.
 
-### <a name="228"></a><a name="2.2.8"></a>2.2.8
+### <a name="228"></a><a id="2.2.8"></a>2.2.8
 * Ulepszenia stabilności i diagnostyki:
   * Dodano obsługę wykrywania źródła zmian odczytywania przez dłuższy czas. Gdy trwa dłużej niż wartość określona przez `ChangeFeedProcessorOptions.ChangeFeedTimeout` Właściwość, zostaną wykonane następujące kroki:
     * Operacja odczytu źródła zmian na problematycznej partycji została przerwana.
@@ -71,56 +71,56 @@ ms.locfileid: "88590051"
   * Dodano nową właściwość publiczną: `ChangeFeedProcessorOptions.ChangeFeedTimeout` . Wartość domyślna tej właściwości to 10 minut.
   * Dodano nową publiczną wartość wyliczenia: `Monitoring.MonitoredOperation.ReadChangeFeed` . Gdy wartość `HealthMonitoringRecord.Operation` jest ustawiona na `Monitoring.MonitoredOperation.ReadChangeFeed` , wskazuje, że problem z kondycją jest związany ze źródłem zmian odczytywania.
 
-### <a name="227"></a><a name="2.2.7"></a>2.2.7
+### <a name="227"></a><a id="2.2.7"></a>2.2.7
 * Ulepszona strategia równoważenia obciążenia dla scenariusza, w którym wszystkie dzierżawy zajmują czas dłuższy niż interwał wygaśnięcia dzierżawy, na przykład z powodu problemów z siecią:
   * W tym scenariuszu algorytm równoważenia obciążenia używany do fałszywego traktowania dzierżaw jako wygasłych, co powoduje kradzież dzierżaw od aktywnych właścicieli. Może to spowodować niepotrzebne ponowne zrównoważenie wielu dzierżaw.
   * Ten problem został rozwiązany w tej wersji przez uniknięcie ponowienia konfliktu podczas uzyskiwania wygasłej dzierżawy, która nie zmieniła się, i odroczono pobieranie wygasłej dzierżawy do następnej iteracji równoważenia obciążenia.
 
-### <a name="226"></a><a name="2.2.6"></a>2.2.6
+### <a name="226"></a><a id="2.2.6"></a>2.2.6
 * Ulepszona obsługa wyjątków obserwatorów.
 * Bogatsze informacje dotyczące błędów obserwatora:
   * Gdy obserwator zostanie zamknięty z powodu wyjątku zgłoszonego przez ProcessChangesAsync obserwatora, CloseAsync otrzyma teraz parametr przyczyny ustawiony na ChangeFeedObserverCloseReason. ObserverError.
   * Dodano ślady do identyfikowania błędów w kodzie użytkownika w obserwatorze.
 
-### <a name="225"></a><a name="2.2.5"></a>2.2.5
+### <a name="225"></a><a id="2.2.5"></a>2.2.5
 * Dodano obsługę funkcji Split w kolekcjach, które używają przepływności udostępnionej bazy danych.
-  * W tej wersji rozwiązano problem, który może wystąpić podczas dzielenia w kolekcje przy użyciu przepływności udostępnionej bazy danych w przypadku podzielenia wyniku na ponowne równoważenie partycji z tylko jednym utworzonym zakresem kluczy partycji podrzędnej, a nie dwoma. W takim przypadku procesor źródła zmian może spowodować zatrzymanie usuwania dzierżawy dla starego zakresu kluczy partycji i nie tworzenia nowych dzierżaw. Problem został rozwiązany w tej wersji.
+  * W tej wersji rozwiązano problem, który może wystąpić podczas podzielonej kolekcji przy użyciu przepływności udostępnionej bazy danych, gdy zostanie podzielony wynik na ponowne równoważenie partycji z tylko jednym utworzonym zakresem kluczy partycji podrzędnej, a nie dwoma. W takim przypadku procesor źródła zmian może spowodować zatrzymanie usuwania dzierżawy dla starego zakresu kluczy partycji i nie tworzenia nowych dzierżaw. Problem został rozwiązany w tej wersji.
 
-### <a name="224"></a><a name="2.2.4"></a>2.2.4
+### <a name="224"></a><a id="2.2.4"></a>2.2.4
 * Dodano nową właściwość ChangeFeedProcessorOptions. StartContinuation, aby można było obsługiwać uruchamianie źródła zmian z tokenu kontynuacji żądania. Ta wartość jest używana tylko wtedy, gdy kolekcja dzierżawcy jest pusta lub dzierżawa nie ma ustawionego zestawu ContinuationToken. W przypadku dzierżaw w kolekcji dzierżawy, które mają ustawioną ContinuationToken, używany jest ContinuationToken i ChangeFeedProcessorOptions. StartContinuation jest ignorowana.
 
-### <a name="223"></a><a name="2.2.3"></a>Regulamin
+### <a name="223"></a><a id="2.2.3"></a>Regulamin
 * Dodano obsługę używania magazynu niestandardowego do utrwalania tokenów kontynuacji na partycję.
   * Na przykład niestandardowa magazyn dzierżawy może być Azure Cosmos DB kolekcje dzierżawy w dowolny sposób.
   * Niestandardowe magazyny dzierżaw mogą korzystać z nowej rozszerzalności ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) i interfejsu publicznego ILeaseStoreManager.
   * Refaktoryzacja interfejsu ILeaseManager w wielu interfejsach roli.
 * Drobna zmiana podziału: Usunięto punkt rozszerzalności ChangeFeedProcessorBuilder. WithLeaseManager (ILeaseManager), zamiast tego należy użyć ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager).
 
-### <a name="222"></a><a name="2.2.2"></a>ppkt
+### <a name="222"></a><a id="2.2.2"></a>ppkt
 * W tej wersji rozwiązano problem występujący podczas przetwarzania podziału w monitorowanej kolekcji i używania kolekcji dzierżaw z podziałem na partycje. Podczas przetwarzania dzierżawy dla partycji dzielonej nie można usunąć dzierżawy odpowiadającej tej partycji. Problem został rozwiązany w tej wersji.
 
-### <a name="221"></a><a name="2.2.1"></a>2.2.1
-* Stałe obliczanie szacowania dla kont z wieloma wzorcami i nowy format tokenu sesji.
+### <a name="221"></a><a id="2.2.1"></a>2.2.1
+* Stałe obliczanie szacowania dla kont z wieloma regionami zapisu i nowym formatem tokenu sesji.
 
-### <a name="220"></a><a name="2.2.0"></a>2.2.0
+### <a name="220"></a><a id="2.2.0"></a>2.2.0
 * Dodano obsługę partycjonowanych kolekcji dzierżaw. Klucz partycji musi być zdefiniowany jako/ID.
-* Drobna zmiana podziału: metody interfejsu IChangeFeedDocumentClient i klasy ChangeFeedDocumentClient zostały zmienione w taki sposób, aby zawierały parametry RequestOptions i CancellationToken. IChangeFeedDocumentClient to zaawansowany punkt rozszerzalności, który umożliwia udostępnianie niestandardowej implementacji klienta dokumentu do użycia z procesorem kanału informacyjnego zmiany, np. dekorować DocumentClient i przechwycenie wszystkich wywołań do niego w celu dodatkowego śledzenia, obsługi błędów itp. W przypadku tej aktualizacji kod implementujący IChangeFeedDocumentClient należy zmienić, aby uwzględnić nowe parametry w implementacji.
+* Drobna zmiana podziału: metody interfejsu IChangeFeedDocumentClient i klasy ChangeFeedDocumentClient zostały zmienione w taki sposób, aby zawierały parametry RequestOptions i CancellationToken. IChangeFeedDocumentClient to zaawansowany punkt rozszerzalności, który umożliwia udostępnianie niestandardowej implementacji klienta dokumentu do użycia z procesorem kanału informacyjnego zmiany, na przykład dekorować DocumentClient i przechwycenie wszystkich wywołań do niego w celu dodatkowego śledzenia, obsługi błędów itp. W przypadku tej aktualizacji kod implementujący IChangeFeedDocumentClient należy zmienić, aby uwzględnić nowe parametry w implementacji.
 * Ulepszenia diagnostyki pomocniczej.
 
-### <a name="210"></a><a name="2.1.0"></a>2.1.0
+### <a name="210"></a><a id="2.1.0"></a>2.1.0
 * Dodano nowy interfejs API, zadanie &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Może to służyć do uzyskania szacowanej pracy dla każdej partycji.
 * Obsługuje Microsoft.Azure.DocumentDB SDK 2,0. Wymaga Microsoft.Azure.DocumentDB 2,0 lub nowszego.
 
-### <a name="206"></a><a name="2.0.6"></a>2.0.6
+### <a name="206"></a><a id="2.0.6"></a>2.0.6
 * Dodano Właściwość publiczną ChangeFeedEventHost. HostName w celu zapewnienia zgodności z v1.
 
-### <a name="205"></a><a name="2.0.5"></a>2.0.5
+### <a name="205"></a><a id="2.0.5"></a>2.0.5
 * Naprawiono sytuację wyścigu, która występuje podczas dzielenia partycji. Sytuacja wyścigu może prowadzić do uzyskania dzierżawy i natychmiastowej utraty jej podczas dzielenia partycji i powodowania rywalizacji. Problem z warunkiem wyścigu jest rozwiązywany w tej wersji.
 
-### <a name="204"></a><a name="2.0.4"></a>2.0.4
+### <a name="204"></a><a id="2.0.4"></a>2.0.4
 * ZESTAW SDK GA
 
-### <a name="203-prerelease"></a><a name="2.0.3-prerelease"></a>2.0.3 — wydanie wstępne
+### <a name="203-prerelease"></a><a id="2.0.3-prerelease"></a>2.0.3 — wydanie wstępne
 * Rozwiązano następujące problemy:
   * Po rozdzieleniu partycji może istnieć zduplikowane przetwarzanie dokumentów zmodyfikowane przed podziałem.
   * Interfejs API GetEstimatedRemainingWork zwrócił wartość 0, gdy w kolekcji dzierżawy nie ma żadnych dzierżaw.
@@ -131,11 +131,11 @@ ms.locfileid: "88590051"
   * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
   * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
 
-### <a name="202-prerelease"></a><a name="2.0.2-prerelease"></a>2.0.2 — wydanie wstępne
+### <a name="202-prerelease"></a><a id="2.0.2-prerelease"></a>2.0.2 — wydanie wstępne
 * Drobne zmiany interfejsu API:
   * Usunięto ChangeFeedProcessorOptions. IsAutoCheckpointEnabled, który został oznaczony jako przestarzały.
 
-### <a name="201-prerelease"></a><a name="2.0.1-prerelease"></a>2.0.1 — wersja wstępna
+### <a name="201-prerelease"></a><a id="2.0.1-prerelease"></a>2.0.1 — wersja wstępna
 * Ulepszenia stabilności:
   * Lepsza obsługa inicjowania magazynu dzierżawy. Gdy magazyn dzierżawy jest pusty, można zainicjować tylko jedno wystąpienie procesora, a pozostałe będą oczekiwać.
   * Bardziej stabilne/wydajne odnowienie/wydanie dzierżawy. Odnawianie i zwalnianie dzierżawy jedna partycja nie jest zależna od odnawiania innych. W wersji 1, która została wykonana sekwencyjnie dla wszystkich partycji.
@@ -156,33 +156,33 @@ ms.locfileid: "88590051"
 
 ### <a name="v1-builds"></a>kompilacje w wersji 1
 
-### <a name="133"></a><a name="1.3.3"></a>1.3.3
+### <a name="133"></a><a id="1.3.3"></a>1.3.3
 * Dodano więcej rejestrowania.
 * Naprawiono wyciek DocumentClient podczas wywołania szacowanej pracy w toku wiele razy.
 
-### <a name="132"></a><a name="1.3.2"></a>1.3.2
+### <a name="132"></a><a id="1.3.2"></a>1.3.2
 * Poprawki w szacowaniu oczekujących zadań.
 
-### <a name="131"></a><a name="1.3.1"></a>1.3.1
+### <a name="131"></a><a id="1.3.1"></a>1.3.1
 * Ulepszenia stabilności.
   * Poprawka dotycząca problemu z zadaniami anulowanymi, które mogą prowadzić do zatrzymania obserwatorów na niektórych partycjach.
 * Obsługa ręcznego tworzenia punktów kontrolnych.
 * Zgodne z [zestawem SDK programu SQL .NET](sql-api-sdk-dotnet.md) w wersji 1,21 lub nowszej.
 
-### <a name="120"></a><a name="1.2.0"></a>1.2.0
+### <a name="120"></a><a id="1.2.0"></a>1.2.0
 * Dodaje obsługę .NET Standard 2,0. Pakiet obsługuje teraz `netstandard2.0` `net451` monikery struktury.
 * Zgodne z [zestawami SDK programu SQL .NET](sql-api-sdk-dotnet.md) 1.17.0 i nowszymi wersjami.
 * Zgodne z programem [SQL zestaw .NET Core SDK](sql-api-sdk-dotnet-core.md) w wersji 1.5.1 i nowszych.
 
-### <a name="111"></a><a name="1.1.1"></a>ppkt
+### <a name="111"></a><a id="1.1.1"></a>ppkt
 * Rozwiązuje problem z obliczeniem oszacowania liczby pozostałej pracy, gdy źródło zmian jest puste lub nie oczekuje pracy.
 * Zgodne z [zestawami SDK programu SQL .NET](sql-api-sdk-dotnet.md) 1.13.2 i nowszymi wersjami.
 
-### <a name="110"></a><a name="1.1.0"></a>1.1.0
+### <a name="110"></a><a id="1.1.0"></a>1.1.0
 * Dodano metodę w celu uzyskania oszacowania pozostałej pracy, która ma zostać przetworzona w źródle zmian.
 * Zgodne z [zestawami SDK programu SQL .NET](sql-api-sdk-dotnet.md) 1.13.2 i nowszymi wersjami.
 
-### <a name="100"></a><a name="1.0.0"></a>1.0.0
+### <a name="100"></a><a id="1.0.0"></a>1.0.0
 * ZESTAW SDK GA
 * Zgodne z wersjami [zestawu SDK programu SQL .NET](sql-api-sdk-dotnet.md) 1.14.1 i poniżej.
 
@@ -220,6 +220,6 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .

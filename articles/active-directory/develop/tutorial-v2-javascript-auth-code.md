@@ -1,7 +1,7 @@
 ---
-title: Samouczek dotyczący jednostronicowej aplikacji JavaScript — przepływ kodu uwierzytelniania | Azure
+title: 'Samouczek: Tworzenie jednostronicowej aplikacji JavaScript używającej przepływu kodu uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: Jak aplikacje SPA w języku JavaScript mogą używać przepływu kodu uwierzytelniania do wywoływania interfejsu API wymagającego tokenów dostępu przez punkt końcowy Azure Active Directory v 2.0
+description: W tym samouczku utworzysz SPA JavaScript, który może zalogować użytkowników i użyć przepływu kodu uwierzytelniania do uzyskania tokenu dostępu z platformy tożsamości firmy Microsoft i wywoływać interfejs API Microsoft Graph.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256810"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611167"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -32,6 +32,11 @@ W tym samouczku pokazano, jak utworzyć aplikację jednostronicową języka Java
 MSAL.js 2,0 usprawnia MSAL.js 1,0 przez obsługę przepływu kodu autoryzacji w przeglądarce zamiast niejawnego przepływu dotacji. MSAL.js 2,0 nie **obsługuje przepływu** niejawnego.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Node.js](https://nodejs.org/en/download/) uruchamiania lokalnego serwera WebServer
+* [Visual Studio Code](https://code.visualstudio.com/download) lub inny edytor kodu
 
 ## <a name="how-the-tutorial-app-works"></a>Jak działa aplikacja samouczka
 
@@ -52,11 +57,6 @@ Wolisz pobrać zakończono przykładowego projektu w tym samouczku? Aby uruchomi
 Następnie aby skonfigurować przykładowy kod przed jego wykonaniem, przejdź do [kroku konfiguracji](#register-your-application).
 
 Aby kontynuować pracę z samouczkiem i samodzielnie skompilować aplikację, przejdź do następnej sekcji, [wymagania wstępne](#prerequisites).
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* [Node.js](https://nodejs.org/en/download/) uruchamiania lokalnego serwera WebServer
-* [Visual Studio Code](https://code.visualstudio.com/download) lub inny edytor kodu
 
 ## <a name="create-your-project"></a>Tworzenie projektu
 
@@ -619,23 +619,23 @@ Ukończono tworzenie aplikacji i teraz można jej użyć do uruchomienia serwera
 
 Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Okno dialogowe logowania w przeglądarce sieci Web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
 ### <a name="provide-consent-for-application-access"></a>Wyrażanie zgody na dostęp do aplikacji
 
 Po pierwszym zalogowaniu się do aplikacji zostanie wyświetlony monit o udzielenie dostępu do Twojego profilu i zalogowanie się w:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Okno dialogowe zawartości wyświetlane w przeglądarce internetowej":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
 Jeśli użytkownik wyraża zgodę na żądane uprawnienia, w aplikacjach sieci Web zostanie wyświetlona nazwa użytkownika, co oznacza pomyślne zalogowanie:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Wyniki pomyślnego logowania w przeglądarce sieci Web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
 ### <a name="call-the-graph-api"></a>Wywołaj interfejs API programu Graph
 
 Po zalogowaniu wybierz pozycję **Zobacz Profil** , aby wyświetlić informacje o profilu użytkownika zwrócone w odpowiedzi z wywołania do interfejsu API Microsoft Graph:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informacje o profilu z Microsoft Graph wyświetlane w przeglądarce":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Więcej informacji na temat zakresów i uprawnień delegowanych
 
@@ -649,14 +649,7 @@ Jeśli interfejs API zaplecza nie wymaga zakresu, co nie jest zalecane, można u
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono aplikację jednostronicową języka JavaScript, która używa biblioteki Microsoft Authentication Library (MSAL) dla języka JavaScript 2.0 w celu:
+Aby dowiedzieć się więcej na temat programowania aplikacji jednostronicowych w języku JavaScript na platformie tożsamości firmy Microsoft, zapoznaj się z naszą wieloczęściową serią scenariuszy:
 
-> [!div class="checklist"]
-> * Wykonywanie przepływu kodu autoryzacji OAuth 2,0 przy użyciu PKCE
-> * Zaloguj się do osobistych kont Microsoft, a także kont służbowych
-> * Uzyskiwanie tokenu dostępu
-> * Wywołaj Microsoft Graph lub własny interfejs API wymagający tokenów dostępu uzyskanych z punktu końcowego platformy tożsamości firmy Microsoft
-
-Aby dowiedzieć się więcej na temat przepływu kodu autoryzacji, w tym różnic między przepływami kodu niejawnego i uwierzytelniania, zobacz [przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0](v2-oauth2-auth-code-flow.md).
-
-Jeśli chcesz szczegółowe bardziej szczegółowe Programowanie aplikacji w języku JavaScript na platformie tożsamości firmy Microsoft, scenariusz wieloetapowy [: jednostronicowa seria aplikacji](scenario-spa-overview.md) może pomóc Ci rozpocząć pracę.
+> [!div class="nextstepaction"]
+> [Scenariusz: aplikacja jednostronicowa](scenario-spa-overview.md)

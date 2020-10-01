@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d42fd298a4bc6c6f0c0d27bdeae1999d6474f75
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905784"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612000"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Samouczek: wizualizacja anomalii przy użyciu wykrywania partii i Power BI
 
@@ -56,7 +56,7 @@ Power BI spowoduje przekonwertowanie sygnatur czasowych w pierwszej kolumnie na 
 
 Kliknij Wstążkę **Przekształć** w edytorze Power Query. W grupie **dowolna kolumna** Otwórz **Typ danych:** menu rozwijane i wybierz pozycję **tekst**.
 
-![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/data-type-drop-down.png)
+![Obraz przedstawiający listę rozwijaną typ danych](../media/tutorials/data-type-drop-down.png)
 
 Po otrzymaniu powiadomienia o zmianie typu kolumny kliknij pozycję **Zamień bieżący**. Następnie kliknij przycisk **zamknij & Zastosuj** lub **Zastosuj** na Wstążce **Narzędzia główne** .
 
@@ -66,7 +66,7 @@ Aby sformatować i wysłać plik danych do interfejsu API wykrywania anomalii, m
 
 Upewnij się, że nowe zapytanie jest zaznaczone, a następnie kliknij przycisk **Edytor zaawansowany**.
 
-![Obraz przycisku "Edytor zaawansowany" w Power BI](../media/tutorials/advanced-editor-screen.png)
+![Obraz ekranu "Edytor zaawansowany"](../media/tutorials/advanced-editor-screen.png)
 
 W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębnić kolumny z tabeli i wysłać je do interfejsu API. Następnie zapytanie utworzy tabelę z odpowiedzi JSON i zwróci ją. Zastąp `apiKey` zmienną prawidłowym kluczem interfejsu API wykrywania anomalii i `endpoint` z punktem końcowym. Po wprowadzeniu zapytania do Edytor zaawansowany kliknij przycisk **gotowe**.
 
@@ -114,7 +114,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
 
 Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**.
 
-![Obraz przycisku "Edytor zaawansowany"](../media/tutorials/invoke-function-screenshot.png)
+![Obraz funkcji Invoke](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Prywatność i uwierzytelnianie źródła danych
 
@@ -148,11 +148,11 @@ Dodaj następujące pola z **wywoływanej funkcji** do pola **wartości** wykres
 * LowerMargins
 * ExpectedValues
 
-![Obraz nowego ekranu szybkiej miary](../media/tutorials/chart-settings.png)
+![Obraz ustawień wykresu](../media/tutorials/chart-settings.png)
 
 Po dodaniu pól kliknij wykres i zmień jego rozmiar, aby pokazać wszystkie punkty danych. Wykres będzie wyglądać podobnie do poniższego zrzutu ekranu:
 
-![Obraz nowego ekranu szybkiej miary](../media/tutorials/chart-visualization.png)
+![Obraz wizualizacji wykresu](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Wyświetlanie nietypowych punktów danych
 
@@ -162,15 +162,15 @@ Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przy
 
 Na wyświetlonym ekranie wybierz pozycję **przefiltrowana wartość** jako obliczenie. Ustaw **wartość bazową** na `Sum of Value` . Następnie przeciągnij `IsAnomaly` z pól **wywoływanej funkcji** , aby **przefiltrować**. Wybierz `True` z menu rozwijanego **Filtr** .
 
-![Obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure-2.png)
+![Drugi obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure-2.png)
 
 Po kliknięciu przycisku **OK** `Value for True` w dolnej części listy pól pojawi się pole. Kliknij go prawym przyciskiem myszy i zmień jego nazwę na **anomalie**. Dodaj go do **wartości**wykresu. Następnie wybierz narzędzie **Format** i ustaw typ osi X na **kategorii**.
 
-![Obraz nowego ekranu szybkiej miary](../media/tutorials/format-x-axis.png)
+![Obraz formatu osi x](../media/tutorials/format-x-axis.png)
 
 Zastosuj kolory do wykresu, klikając narzędzie **Format** i **kolory danych**. Wykres powinien wyglądać podobnie do poniższego:
 
-![Obraz nowego ekranu szybkiej miary](../media/tutorials/final-chart.png)
+![Obraz wykresu końcowego](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

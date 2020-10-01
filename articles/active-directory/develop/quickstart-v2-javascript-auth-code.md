@@ -1,7 +1,7 @@
 ---
-title: Logowanie użytkowników w języku JavaScript aplikacje jednostronicowe (SPA) z kodem uwierzytelniania | Azure
+title: 'Szybki Start: Logowanie użytkowników w języku JavaScript aplikacje jednostronicowe (SPA) z kodem uwierzytelniania | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji.
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257983"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613445"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 

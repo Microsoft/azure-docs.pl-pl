@@ -1,27 +1,23 @@
 ---
-title: Ochrona interfejsu API przy użyciu protokołu OAuth 2,0 z usługą AAD i API Management
+title: Ochrona zaplecza interfejsu API w API Management przy użyciu protokołu OAuth 2,0 i usługi Azure AD
 titleSuffix: Azure API Management
-description: Dowiedz się, jak chronić zaplecze interfejsu API sieci Web przy użyciu Azure Active Directory i API Management.
+description: Dowiedz się, jak zabezpieczyć dostęp do zaplecza interfejsu API sieci Web na platformie Azure API Management z autoryzacją użytkownika OAuth 2,0 i Azure Active Directory
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243413"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612340"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Ochrona interfejsu API przy użyciu protokołu OAuth 2.0 za pomocą usługi Azure Active Directory i usługi API Management
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Ochrona zaplecza interfejsu API sieci Web w usłudze Azure API Management przy użyciu autoryzacji OAuth 2,0 z usługą Azure AD 
 
-W tym przewodniku opisano sposób konfigurowania wystąpienia API Management platformy Azure w celu ochrony interfejsu API przy użyciu protokołu OAuth 2,0 z usługą Azure Active Directory (Azure AD). 
+W tym przewodniku opisano sposób konfigurowania wystąpienia [API Management platformy Azure](api-management-key-concepts.md) w celu ochrony interfejsu API przy użyciu [protokołu OAuth 2,0 z usługą Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > Ta funkcja jest dostępna w warstwach **Developer**, **Basic**, **Standard**i **Premium** API Management.
@@ -46,9 +42,9 @@ Poniżej przedstawiono krótkie omówienie kroków:
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Rejestrowanie aplikacji w usłudze Azure AD do reprezentowania interfejsu API
 
-Aby chronić interfejs API za pomocą usługi Azure AD, należy najpierw zarejestrować aplikację w usłudze Azure AD, która reprezentuje interfejs API. 
+Aby chronić interfejs API za pomocą usługi Azure AD, należy najpierw zarejestrować aplikację w usłudze Azure AD, która reprezentuje interfejs API. Poniższe kroki używają Azure Portal do zarejestrowania aplikacji. Aby uzyskać szczegółowe informacje na temat rejestracji aplikacji, zobacz [Szybki Start: Konfigurowanie aplikacji w celu udostępnienia internetowego interfejsu API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarejestrować aplikację. Wyszukaj i wybierz pozycję **rejestracje aplikacji**.
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarejestrować aplikację. Wyszukaj i wybierz **rejestracje aplikacji**.
 
 1. Wybierz pozycję **Nowa rejestracja**. 
 
@@ -79,7 +75,7 @@ Aby zarejestrować inną aplikację w usłudze Azure AD do reprezentowania konso
 
 1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarejestrować aplikację.
 
-1.  Wyszukaj i wybierz pozycję **rejestracje aplikacji**.
+1. Wyszukaj i wybierz **rejestracje aplikacji**.
 
 1. Wybierz pozycję **Nowa rejestracja**.
 
@@ -106,7 +102,7 @@ Po utworzeniu wpisu tajnego należy zwrócić uwagę na wartość klucza do uży
 
 Po zarejestrowaniu dwóch aplikacji do reprezentowania interfejsu API i konsoli dewelopera Udziel uprawnień umożliwiających aplikacji klienta wywoływanie zaplecza — aplikacji.  
 
-1. Przejdź do [Azure Portal](https://portal.azure.com) , aby udzielić uprawnień do aplikacji klienckiej. Wyszukaj i wybierz pozycję **rejestracje aplikacji**.
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby udzielić uprawnień do aplikacji klienckiej. Wyszukaj i wybierz **rejestracje aplikacji**.
 
 1. Wybierz aplikację kliencką. Następnie na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**.
 
@@ -156,7 +152,7 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Bezpośrednio po kluczu tajnym klienta jest **redirect_url** dla typu przydzielenia kodu autoryzacji. Zanotuj ten adres URL.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Wróć do rejestracji aplikacji klienta w Azure Active Directory i wybierz pozycję **uwierzytelnianie**.
 

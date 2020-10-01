@@ -4,14 +4,14 @@ description: Jak zdefiniować cele magazynu, aby pamięć podręczna platformy A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826708"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611302"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -19,65 +19,21 @@ ms.locfileid: "87826708"
 
 Można zdefiniować do dziesięciu różnych miejsc docelowych magazynu dla jednej pamięci podręcznej. Pamięć podręczna przedstawia wszystkie cele magazynu w jednej zagregowanej przestrzeni nazw.
 
+Ścieżki przestrzeni nazw są konfigurowane oddzielnie po dodaniu miejsc docelowych magazynu. Ogólnie rzecz biorąc, miejsce docelowe magazynu NFS może mieć do dziesięciu ścieżek przestrzeni nazw lub wiele wielu dużych konfiguracji. Aby uzyskać szczegółowe informacje, Przeczytaj [ścieżki przestrzeni nazw systemu plików NFS](add-namespace-paths.md#nfs-namespace-paths) .
+
 Należy pamiętać, że eksporty magazynu muszą być dostępne z sieci wirtualnej pamięci podręcznej. W przypadku lokalnego magazynu sprzętu może być konieczne skonfigurowanie serwera DNS, który może rozpoznawać nazwy hostów dla dostępu do magazynu NFS. Więcej informacji można znaleźć w temacie [dostęp do usługi DNS](hpc-cache-prerequisites.md#dns-access).
 
-Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej. Procedura jest nieco inna w zależności od tego, czy dodawana jest usługa Azure Blob Storage, czy eksport systemu plików NFS. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich.
+Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej. Wykonaj następujące czynności:
+
+1. [Tworzenie pamięci podręcznej](hpc-cache-create.md)
+1. Zdefiniuj miejsce docelowe magazynu (informacje w tym artykule)
+1. [Tworzenie ścieżek związanych z klientem](add-namespace-paths.md) (dla [zagregowanej przestrzeni nazw](hpc-cache-namespace.md))
+
+Procedura dodawania miejsca docelowego magazynu jest nieco inna w zależności od tego, czy dodawana jest usługa Azure Blob Storage czy eksportowanie plików NFS. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich.
 
 Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) przedstawiający tworzenie pamięci podręcznej i Dodawanie miejsca docelowego magazynu z Azure Portal.
 
 [![Miniatura wideo: Azure HPC cache: Setup (kliknij, aby odwiedzić stronę wideo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
-
-## <a name="view-storage-targets"></a>Wyświetl cele magazynu
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-W Azure Portal Otwórz wystąpienie pamięci podręcznej, a następnie kliknij pozycję **cele magazynu** na lewym pasku bocznym. Na stronie miejsce docelowe magazynu są wyświetlane wszystkie istniejące elementy docelowe i nadające się do dodania łącze.
-
-![zrzut ekranu przedstawiający link miejsca do magazynowania na pasku bocznym w obszarze Konfigurowanie nagłówka, który jest między ustawieniami nagłówków kategorii i monitorowaniem](media/hpc-cache-storage-targets-sidebar.png)
-
-### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
-Użyj opcji [AZ HPC-cache Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) , aby wyświetlić istniejące cele magazynu dla pamięci podręcznej. Podaj nazwę pamięci podręcznej i grupę zasobów (chyba że została ustawiona globalnie).
-
-```azurecli
-az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
-```
-
-Użyj [AZ HPC-cache Storage-Target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) , aby wyświetlić szczegóły dotyczące określonego miejsca docelowego magazynu. (Określ miejsce docelowe magazynu według nazwy).
-
-Przykład:
-
-```azurecli
-$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
-
-{
-  "clfs": null,
-  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
-  "junctions": [
-    {
-      "namespacePath": "/nfs1/data1",
-      "nfsExport": "/datadisk1",
-      "targetPath": ""
-    }
-  ],
-  "location": "eastus",
-  "name": "nfsd1",
-  "nfs3": {
-    "target": "10.0.0.4",
-    "usageModel": "WRITE_WORKLOAD_15"
-  },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "scgroup",
-  "targetType": "nfs3",
-  "type": "Microsoft.StorageCache/caches/storageTargets",
-  "unknown": null
-}
-$
-```
-
----
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Dodaj nowy element docelowy usługi Azure Blob Storage
 
@@ -86,6 +42,14 @@ Nowy obiekt docelowy magazynu obiektów BLOB wymaga pustego kontenera obiektów 
 Strona Azure Portal **dodawania miejsca docelowego magazynu** zawiera opcję utworzenia nowego kontenera obiektów BLOB przed dodaniem go.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+W Azure Portal Otwórz wystąpienie pamięci podręcznej, a następnie kliknij pozycję **cele magazynu** na lewym pasku bocznym.
+
+![zrzut ekranu przedstawiający stronę Ustawienia > miejsce docelowe magazynu z dwoma istniejącymi obiektami docelowymi magazynu w tabeli oraz wyróżnieniem wokół przycisku + Dodaj miejsce docelowe magazynu powyżej tabeli](media/add-storage-target-button.png)
+
+Na stronie **miejsce docelowe magazynu** są wyświetlane wszystkie istniejące elementy docelowe i nadające się do dodania łącze.
+
+Kliknij przycisk **Dodaj cel magazynu** .
 
 ![zrzut ekranu przedstawiający stronę Dodawanie miejsca docelowego magazynu, wypełniony informacjami o nowym obiekcie docelowym usługi Azure Blob Storage](media/hpc-cache-add-blob.png)
 
@@ -102,8 +66,6 @@ Aby zdefiniować kontener obiektów blob platformy Azure, wprowadź te informacj
 * **Kontener magazynu** — wybierz kontener obiektów BLOB dla tego obiektu docelowego lub kliknij pozycję **Utwórz nowy**.
 
   ![zrzut ekranu przedstawiający okno dialogowe, w którym można określić poziom nazw i dostępu (prywatny) dla nowego kontenera](media/add-blob-new-container.png)
-
-* **Ścieżka do wirtualnej przestrzeni nazw** — Ustaw ścieżkę pliku dla klienta dla tego miejsca docelowego magazynu. Przeczytaj temat [Konfigurowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md) , aby dowiedzieć się więcej o funkcji wirtualnej przestrzeni nazw.
 
 Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
 
@@ -163,17 +125,20 @@ Sprawdź również ustawienia zapory dla konta magazynu. Jeśli Zapora jest usta
 
 Aby zdefiniować obiekt docelowy usługi Azure Blob Storage, użyj [AZ HPC-cache BLOB-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) Interface.
 
+> [!NOTE]
+> Polecenie interfejsu wiersza polecenia platformy Azure wymaga obecnie utworzenia ścieżki przestrzeni nazw podczas dodawania miejsca docelowego magazynu. Różni się to od procesu używanego z interfejsem Azure Portal.
+
 Oprócz standardowej grupy zasobów i parametrów nazwy pamięci podręcznej, należy podać następujące opcje dla miejsca docelowego magazynu:
 
-* ``--name``-Ustaw nazwę identyfikującą ten element docelowy magazynu w pamięci podręcznej platformy Azure HPC.
+* ``--name`` -Ustaw nazwę identyfikującą ten element docelowy magazynu w pamięci podręcznej platformy Azure HPC.
 
-* ``--storage-account``— Identyfikator konta w tej formie:/subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/Providers/Microsoft.Storage/storageAccounts/*<account_name>*
+* ``--storage-account`` — Identyfikator konta w tej formie:/subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/Providers/Microsoft.Storage/storageAccounts/*<account_name>*
 
   Aby uzyskać informacje o rodzaju konta magazynu, którego można użyć, przeczytaj temat [wymagania dotyczące usługi BLOB Storage](hpc-cache-prerequisites.md#blob-storage-requirements).
 
-* ``--container-name``-Określ nazwę kontenera, który ma być używany dla tego miejsca docelowego magazynu.
+* ``--container-name`` -Określ nazwę kontenera, który ma być używany dla tego miejsca docelowego magazynu.
 
-* ``--virtual-namespace-path``-Ustaw ścieżkę pliku dla klienta dla tego miejsca docelowego magazynu. Ujmij ścieżki w znaki cudzysłowu. Przeczytaj temat [Planowanie zagregowanej przestrzeni nazw,](hpc-cache-namespace.md) aby dowiedzieć się więcej o funkcji wirtualnej przestrzeni nazw.
+* ``--virtual-namespace-path`` -Ustaw ścieżkę pliku dla klienta dla tego miejsca docelowego magazynu. Ujmij ścieżki w znaki cudzysłowu. Przeczytaj temat [Planowanie zagregowanej przestrzeni nazw,](hpc-cache-namespace.md) aby dowiedzieć się więcej o funkcji wirtualnej przestrzeni nazw.
 
 Przykładowe polecenie:
 
@@ -188,7 +153,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Dodaj nowy element docelowy magazynu NFS
 
-Obiekt docelowy magazynu NFS ma więcej pól niż obiekt docelowy magazynu obiektów BLOB. Te pola określają sposób osiągnięcia eksportu magazynu i wydajnej pamięci podręcznej danych. Ponadto obiekt docelowy magazynu NFS umożliwia utworzenie wielu ścieżek przestrzeni nazw, Jeśli host NFS ma więcej niż jeden dostępny eksport.
+Obiekt docelowy magazynu NFS ma inne ustawienia niż obiekt docelowy magazynu obiektów BLOB. Ustawienie model użycia pomaga pamięci podręcznej w celu wydajnej pamięci podręcznej danych z tego systemu magazynu.
 
 ![Zrzut ekranu przedstawiający stronę Dodawanie miejsca docelowego magazynu z zdefiniowanym elementem docelowym NFS](media/add-nfs-target.png)
 
@@ -228,6 +193,14 @@ Ta tabela zawiera podsumowanie różnic między modelami użycia:
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
+W Azure Portal Otwórz wystąpienie pamięci podręcznej, a następnie kliknij pozycję **cele magazynu** na lewym pasku bocznym.
+
+![zrzut ekranu przedstawiający stronę Ustawienia > miejsce docelowe magazynu z dwoma istniejącymi obiektami docelowymi magazynu w tabeli oraz wyróżnieniem wokół przycisku + Dodaj miejsce docelowe magazynu powyżej tabeli](media/add-storage-target-button.png)
+
+Na stronie **miejsce docelowe magazynu** są wyświetlane wszystkie istniejące elementy docelowe i nadające się do dodania łącze.
+
+Kliknij przycisk **Dodaj cel magazynu** .
+
 ![Zrzut ekranu przedstawiający stronę Dodawanie miejsca docelowego magazynu z zdefiniowanym elementem docelowym NFS](media/add-nfs-target.png)
 
 Podaj te informacje dla miejsca docelowego magazynu z kopią zapasową NFS:
@@ -240,47 +213,36 @@ Podaj te informacje dla miejsca docelowego magazynu z kopią zapasową NFS:
 
 * **Model użycia** — wybierz jeden z profili buforowania danych opartych na przepływie pracy, zgodnie z opisem w temacie [Wybierz model użycia](#choose-a-usage-model) powyżej.
 
-### <a name="nfs-namespace-paths"></a>Ścieżki przestrzeni nazw NFS
-
-Obiekt docelowy magazynu NFS może mieć wiele ścieżek wirtualnych, o ile każda ścieżka reprezentuje inny eksport lub podkatalog w tym samym systemie magazynu.
-
-Utwórz wszystkie ścieżki z jednego miejsca docelowego magazynu.
-
-[Ścieżki przestrzeni nazw można dodawać i edytować](hpc-cache-edit-storage.md) w miejscu docelowym magazynu w dowolnym momencie.
-
-Wypełnij te wartości dla każdej ścieżki przestrzeni nazw:
-
-* **Ścieżka do wirtualnej przestrzeni nazw** — Ustaw ścieżkę pliku dla klienta dla tego miejsca docelowego magazynu. Przeczytaj temat [Konfigurowanie zagregowanej przestrzeni nazw](hpc-cache-namespace.md) , aby dowiedzieć się więcej o funkcji wirtualnej przestrzeni nazw.
-
-* **Ścieżka eksportowania NFS** — wprowadź ścieżkę do eksportu systemu plików NFS.
-
-* **Ścieżka podkatalogu** — Jeśli chcesz zainstalować określony podkatalog eksportu, wprowadź go tutaj. Jeśli nie, pozostaw to pole puste.
-
 Po zakończeniu kliknij przycisk **OK** , aby dodać miejsce docelowe magazynu.
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Użycie interfejsu wiersza polecenia platformy Azure [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) w celu utworzenia miejsca docelowego magazynu. Podaj te wartości oprócz nazwy pamięci podręcznej i grupy zasobów pamięci podręcznej:
+Użycie interfejsu wiersza polecenia platformy Azure [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) w celu utworzenia miejsca docelowego magazynu.
 
-* ``--name``-Ustaw nazwę identyfikującą ten element docelowy magazynu w pamięci podręcznej platformy Azure HPC.
-* ``--nfs3-target``— Adres IP systemu magazynu NFS. (W tym miejscu możesz użyć w pełni kwalifikowanej nazwy domeny, jeśli pamięć podręczna ma dostęp do serwera DNS, który może rozpoznać nazwę).
-* ``--nfs3-usage-model``-Jeden z profili buforowania danych opisany w temacie [Wybierz model użycia](#choose-a-usage-model)powyżej.
+> [!NOTE]
+> Polecenie interfejsu wiersza polecenia platformy Azure wymaga obecnie utworzenia ścieżki przestrzeni nazw podczas dodawania miejsca docelowego magazynu. Różni się to od procesu używanego z interfejsem Azure Portal.
+
+Podaj te wartości oprócz nazwy pamięci podręcznej i grupy zasobów pamięci podręcznej:
+
+* ``--name`` -Ustaw nazwę identyfikującą ten element docelowy magazynu w pamięci podręcznej platformy Azure HPC.
+* ``--nfs3-target`` — Adres IP systemu magazynu NFS. (W tym miejscu możesz użyć w pełni kwalifikowanej nazwy domeny, jeśli pamięć podręczna ma dostęp do serwera DNS, który może rozpoznać nazwę).
+* ``--nfs3-usage-model`` -Jeden z profili buforowania danych opisany w temacie [Wybierz model użycia](#choose-a-usage-model)powyżej.
 
   Sprawdź nazwy modeli użycia za pomocą polecenia [AZ HPC-cache-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
 
-* ``--junction``-Parametr połączenia łączy ścieżkę pliku wirtualnego po stronie klienta ze ścieżką eksportu w systemie magazynu.
+* ``--junction`` -Parametr połączenia łączy ścieżkę pliku wirtualnego po stronie klienta ze ścieżką eksportu w systemie magazynu.
 
   Obiekt docelowy magazynu NFS może mieć wiele ścieżek wirtualnych, o ile każda ścieżka reprezentuje inny eksport lub podkatalog w tym samym systemie magazynu. Utwórz wszystkie ścieżki dla jednego systemu magazynu w jednym miejscu docelowym magazynu.
 
-  [Ścieżki przestrzeni nazw można dodawać i edytować](hpc-cache-edit-storage.md) w miejscu docelowym magazynu w dowolnym momencie.
+  [Ścieżki przestrzeni nazw można dodawać i edytować](add-namespace-paths.md) w miejscu docelowym magazynu w dowolnym momencie.
 
   ``--junction``Parametr używa tych wartości:
 
-  * ``namespace-path``-Ścieżka pliku wirtualnego po stronie klienta
-  * ``nfs-export``— Eksport systemu magazynu w celu skojarzenia ze ścieżką skierowaną do klienta
-  * ``target-path``(opcjonalnie) — podkatalog eksportu, w razie konieczności
+  * ``namespace-path`` -Ścieżka pliku wirtualnego po stronie klienta
+  * ``nfs-export`` — Eksport systemu magazynu w celu skojarzenia ze ścieżką skierowaną do klienta
+  * ``target-path`` (opcjonalnie) — podkatalog eksportu, w razie konieczności
 
   Przykład: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
@@ -325,10 +287,67 @@ Dane wyjściowe:
 
 ---
 
+## <a name="view-storage-targets"></a>Wyświetl cele magazynu
+
+Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby pokazać cele magazynu zdefiniowane już dla pamięci podręcznej.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+W Azure Portal Otwórz wystąpienie pamięci podręcznej, a następnie kliknij pozycję **cele magazynu**, która znajduje się poniżej nagłówka ustawienia na lewym pasku bocznym. Na stronie miejsce docelowe magazynu są wyświetlane wszystkie istniejące elementy docelowe i kontrolki umożliwiające ich dodanie lub usunięcie.
+
+Kliknij nazwę docelowego magazynu, aby otworzyć jego stronę szczegółów.
+
+Aby dowiedzieć się więcej, przeczytaj artykuł [Edycja miejsc docelowych](hpc-cache-edit-storage.md) .
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Użyj opcji [AZ HPC-cache Storage-Target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) , aby wyświetlić istniejące cele magazynu dla pamięci podręcznej. Podaj nazwę pamięci podręcznej i grupę zasobów (chyba że została ustawiona globalnie).
+
+```azurecli
+az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
+```
+
+Użyj [AZ HPC-cache Storage-Target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) , aby wyświetlić szczegóły dotyczące określonego miejsca docelowego magazynu. (Określ miejsce docelowe magazynu według nazwy).
+
+Przykład:
+
+```azurecli
+$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
+
+{
+  "clfs": null,
+  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "scgroup",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+$
+```
+
+---
+
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu obiektów docelowych magazynu należy wziąć pod uwagę jedno z następujących zadań:
+Po utworzeniu obiektów docelowych magazynu wykonaj te zadania w celu przygotowania pamięci podręcznej do użycia:
 
+* [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md)
 * [Instalowanie pamięci podręcznej usługi Azure HPC Cache](hpc-cache-mount.md)
 * [Przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md)
 

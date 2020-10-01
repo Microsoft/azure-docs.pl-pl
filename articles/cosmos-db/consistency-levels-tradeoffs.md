@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570066"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613530"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Wady dotyczące opóźnień, dostępności i wydajności z różnymi Azure Cosmos DB poziomów spójności
 
@@ -65,12 +65,12 @@ W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałoś
 
 |**Regiony**|**Tryb replikacji**|**Poziom spójności**|**Cel punktu odzyskiwania**|**Cel czasu odzyskiwania**|
 |---------|---------|---------|---------|---------|
-|1|Jeden lub wiele wzorców|Dowolny poziom spójności|< 240 minut|<1 tydzień|
-|>1|Pojedynczy wzorzec|Sesja, spójny prefiks, ostateczna|< 15 minut|< 15 minut|
-|>1|Pojedynczy wzorzec|Powiązana nieaktualność|*K*  &  *T*|< 15 minut|
-|>1|Pojedynczy wzorzec|Silna|0|< 15 minut|
-|>1|Wiele wzorców|Sesja, spójny prefiks, ostateczna|< 15 minut|0|
-|>1|Wiele wzorców|Powiązana nieaktualność|*K*  &  *T*|0|
+|1|Jeden lub wiele regionów zapisu|Dowolny poziom spójności|< 240 minut|<1 tydzień|
+|>1|Pojedynczy region zapisu|Sesja, spójny prefiks, ostateczna|< 15 minut|< 15 minut|
+|>1|Pojedynczy region zapisu|Powiązana nieaktualność|*K*  &  *T*|< 15 minut|
+|>1|Pojedynczy region zapisu|Silna|0|< 15 minut|
+|>1|Wiele regionów zapisu|Sesja, spójny prefiks, ostateczna|< 15 minut|0|
+|>1|Wiele regionów zapisu|Powiązana nieaktualność|*K*  &  *T*|0|
 
 *K* = liczba wersji *"K"* (tj. aktualizacji) elementu.
 

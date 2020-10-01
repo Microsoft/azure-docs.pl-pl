@@ -1,7 +1,7 @@
 ---
-title: Dodaj logowanie do firmy Microsoft, aby ASP.NET Core aplikacje sieci Web | Azure
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak zaimplementować logowanie firmy Microsoft w aplikacji internetowej ASP.NET Core przy użyciu połączenia OpenID Connect
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja implementuje logowanie firmy Microsoft w aplikacji internetowej ASP.NET Core przy użyciu połączenia OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902366"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613496"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 
 W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET Core może się zalogować na kontach osobistych (hotmail.com, outlook.com, inne) i służbowych z dowolnego wystąpienia Azure Active Directory (Azure AD). (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Wymagania wstępne
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) lub [Visual Studio Code](https://code.visualstudio.com/)
+> * [Zestaw .NET Core SDK 3.1 +](https://dotnet.microsoft.com/download)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
 > Istnieją dwie opcje uruchamiania aplikacji Szybki start:
 > * [Ekspresowe] [Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -108,7 +113,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >
 > Po zapoznaniu się z żądanymi uprawnieniami aplikacja wyświetli komunikat, że użytkownik zalogował się pomyślnie przy użyciu poświadczeń Azure Active Directory.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Przeglądarka sieci Web wyświetlająca uruchomioną aplikację sieci Web i zalogowany użytkownik":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Okno dialogowe zgody zawierające uprawnienia, które aplikacja żąda od użytkownika >":::
 
 ## <a name="more-information"></a>Więcej informacji
 

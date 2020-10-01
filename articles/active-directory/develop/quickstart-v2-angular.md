@@ -1,7 +1,7 @@
 ---
-title: Logowanie użytkowników w aplikacjach ze skośnymi aplikacjami jednostronicowymi — Azure
+title: 'Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych na platformie Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, w jaki sposób aplikacja kątowa może wywołać interfejs API, który wymaga tokenów dostępu przy użyciu platformy tożsamości firmy Microsoft.
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja kątowa może wywołać interfejs API, który wymaga tokenów dostępu wystawionych przez platformę tożsamości firmy Microsoft.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 23b25340906ddb4501492b048740f590c13654c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258034"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613428"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 

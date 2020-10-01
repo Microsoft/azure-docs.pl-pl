@@ -1,6 +1,7 @@
 ---
-title: Dodawanie OIDC Zaloguj się do aplikacji internetowej Node.js — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zaimplementować uwierzytelnianie w aplikacji sieci Web Node.js przy użyciu programu OpenID Connect Connect.
+title: 'Szybki Start: Dodawanie logowania użytkownika do aplikacji internetowej Node.js | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak zaimplementować uwierzytelnianie w aplikacji sieci Web Node.js za pomocą OpenID Connect Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257694"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613309"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
@@ -24,11 +25,8 @@ W tym przewodniku szybki start dowiesz się, jak skonfigurować uwierzytelnianie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do uruchomienia tego przykładu potrzebne są:
-
-* Zainstaluj Node.js z http://nodejs.org/
-
-* [Konto Microsoft](https://www.outlook.com) lub [Microsoft 365 programu dla deweloperów](/office/developer-program/office-365-developer-program)
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta służbowego lub konto Microsoft prywatnego.

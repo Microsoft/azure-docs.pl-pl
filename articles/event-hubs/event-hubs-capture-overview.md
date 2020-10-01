@@ -3,12 +3,12 @@ title: Przechwytywanie zdarzeń przesyłania strumieniowego — Azure Event Hubs
 description: Ten artykuł zawiera omówienie funkcji przechwytywania, która umożliwia przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667442"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613411"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage
 Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesyłanych strumieniowo w Event Hubs w usłudze [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub w ramach wybranego konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) , z dodatkową elastycznością określania interwału czasu lub rozmiaru. Konfigurowanie przechwytywania jest szybkie, nie ma kosztów administracyjnych do uruchomienia i jest automatycznie skalowane przy użyciu [jednostek przepływności](event-hubs-scalability.md#throughput-units)Event Hubs. Przechwytywanie Event Hubs jest najprostszym sposobem ładowania danych przesyłanych strumieniowo na platformę Azure i umożliwia skoncentrowanie się na przetwarzaniu danych, a nie na przechwytywaniu danych.
@@ -18,6 +18,8 @@ Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesył
 
 Przechwytywanie Event Hubs umożliwia przetwarzanie potoków w czasie rzeczywistym i opartych na partiach w tym samym strumieniu. Oznacza to, że można tworzyć rozwiązania, które zwiększają się wraz z potrzebami. Bez względu na to, czy tworzysz systemy oparte na partiach, z uwzględnieniem przyszłego przetwarzania w czasie rzeczywistym, czy chcesz dodać wydajną ścieżkę zimną do istniejącego rozwiązania w czasie rzeczywistym, Event Hubs przechwytywanie ułatwia pracę z danymi przesyłanymi strumieniowo.
 
+> [!IMPORTANT]
+> Konto magazynu docelowego (Azure Storage lub Azure Data Lake Storage) musi znajdować się w tej samej subskrypcji co centrum zdarzeń. 
 
 ## <a name="how-event-hubs-capture-works"></a>Jak działa przechwytywanie Event Hubs
 

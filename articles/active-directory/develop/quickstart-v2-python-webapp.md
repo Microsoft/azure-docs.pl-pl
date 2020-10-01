@@ -1,6 +1,7 @@
 ---
-title: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web platformy Microsoft Identity platform Python | Azure
-description: Dowiedz się, jak zaimplementować logowanie firmy Microsoft w aplikacji sieci Web w języku Python za pomocą OAuth2
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak aplikacja sieci Web w języku Python może zalogować użytkowników, uzyskać token dostępu z platformy tożsamości firmy Microsoft i wywołać interfejs API Microsoft Graph.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120324"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613343"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 
@@ -26,8 +27,7 @@ Po ukończeniu tego przewodnika aplikacja będzie akceptować logowania do osobi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do uruchomienia tego przykładu potrzebne są:
-
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) lub [Python 3 +](https://www.python.org/downloads/release/python-364/)
 - [Kolba](http://flask.pocoo.org/), [podsesja](https://pypi.org/project/Flask-Session/), [żądania](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -57,7 +57,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `python-webapp`.
 >      - W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
->      - Wybierz pozycję **Rejestruj**.
+>      - Wybierz pozycję **Zarejestruj**.
 >      - Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web** . Dodaj `http://localhost:5000/getAToken` jako **identyfikatory URI przekierowania**.
@@ -97,7 +97,7 @@ Do uruchomienia tego przykładu potrzebne są:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Pobierz projekt i wyodrębnij plik zip do folderu lokalnego bliżej folderu głównego — na przykład **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -119,8 +119,8 @@ Do uruchomienia tego przykładu potrzebne są:
 > Gdzie:
 >
 > - `Enter_the_Application_Id_here` jest identyfikatorem dla zarejestrowanej aplikacji.
-> - `Enter_the_Client_Secret_Here`-jest **kluczem tajnym klienta** utworzonym w **certyfikatach & wpisy tajne** dla zarejestrowanej aplikacji.
-> - `Enter_the_Tenant_Name_Here`-jest wartością **identyfikatora katalogu (dzierżawcy)** zarejestrowanej aplikacji.
+> - `Enter_the_Client_Secret_Here` -jest **kluczem tajnym klienta** utworzonym w **certyfikatach & wpisy tajne**  dla zarejestrowanej aplikacji.
+> - `Enter_the_Tenant_Name_Here` -jest wartością **identyfikatora katalogu (dzierżawcy)** zarejestrowanej aplikacji.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>Krok 3. Uruchamianie przykładu kodu
@@ -162,11 +162,11 @@ Można dodać odwołanie do MSAL Python, dodając następujący kod na początku
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat aplikacji sieci Web, które logują użytkowników, a następnie wywołujących interfejsy API sieci Web:
+Dowiedz się więcej na temat aplikacji sieci Web, które logują użytkowników w naszej wieloczęściowej serii scenariuszy.
 
 > [!div class="nextstepaction"]
-> [Scenariusz: aplikacje sieci Web, które logują użytkowników](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenariusz: aplikacja sieci Web, która loguje użytkowników](scenario-web-app-sign-user-overview.md)

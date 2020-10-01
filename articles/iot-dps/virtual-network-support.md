@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534604"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612782"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Obsługa usługi Azure IoT Hub Device Provisioning Service (DPS) dla sieci wirtualnych
 
@@ -69,13 +69,13 @@ Należy zwrócić uwagę na następujące bieżące ograniczenia dotyczące usł
 
 Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
 
-1. W [Azure Portal](https://portal.azure.com/)Otwórz zasób DPS i kliknij kartę **Sieć** . kliknij pozycję **połączenia prywatne punktów końcowych** i **+ prywatny punkt końcowy**.
+1. W [Azure Portal](https://portal.azure.com/)Otwórz zasób DPS i kliknij kartę **Sieć** . Kliknij pozycję **połączenia prywatne punktów końcowych** i **+ prywatny punkt końcowy**.
 
     ![Dodawanie nowego prywatnego punktu końcowego dla usługi DPS](./media/virtual-network-support/networking-tab-add-private-endpoint.png)
 
 2. Na stronie _Tworzenie podstawy prywatnego punktu końcowego_ wprowadź informacje wymienione w poniższej tabeli.
 
-    ![Skonfiguruj zasób, na który są mapowane nowe prywatne punkty końcowe](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Podstawowe informacje o tworzeniu prywatnych punktów końcowych](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Pole | Wartość |
     | :---- | :-----|
@@ -88,7 +88,7 @@ Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
 
 3. Na stronie _Utwórz zasób prywatnego punktu końcowego_ wprowadź informacje wymienione w poniższej tabeli.
 
-    ![Skonfiguruj zasób, na który są mapowane nowe prywatne punkty końcowe](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Utwórz zasób prywatnego punktu końcowego](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Pole | Wartość |
     | :---- | :-----|
@@ -107,7 +107,7 @@ Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
  
     Kliknij przycisk **Dalej: Tagi**i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
 
-    ![Skonfiguruj zasób, na który są mapowane nowe prywatne punkty końcowe](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Skonfiguruj prywatny punkt końcowy](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć prywatny zasób punktu końcowego.
 
@@ -141,7 +141,7 @@ Możesz zażądać prywatnego punktu końcowego do zasobu DPS według identyfika
 
 5. Właściciel DPS będzie widział żądanie prywatnego punktu końcowego na liście **połączeń prywatnych punktów końcowych** na karcie Sieć DPS. Na tej stronie właściciel może **zatwierdzić** lub **odrzucić** prywatne żądanie punktu końcowego, jak pokazano poniżej.
 
-    ![Karta właściwości DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![Zatwierdzenie DPS](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## <a name="pricing-private-endpoints"></a>Cennik — punkty końcowe
@@ -154,5 +154,5 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o funkcjach zabezpieczeń DPS:
 
-* [Bezpieczeństwo](concepts-security.md)
+* [Zabezpieczenia](concepts-security.md)
 * [Obsługa protokołu TLS 1,2](tls-support.md)
