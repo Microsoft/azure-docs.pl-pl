@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441939"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619920"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
 
@@ -142,7 +142,7 @@ Na poniższych ilustracjach przedstawiono użycie bramy Zarządzanie danymi do p
 
 ![IPSec VPN z bramą](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Konfiguracje zapory i listy dozwolonych adres IP bramy
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Konfiguracje zapory i filtrowanie adresów IP bramy
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej  
 W przedsiębiorstwie **firmowa Zapora** jest uruchamiana na centralnym routerze organizacji. Ponadto **Zapora systemu Windows** jest uruchamiana jako demon na komputerze lokalnym, na którym zainstalowano bramę. 
@@ -158,7 +158,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących**
 | `*.azuredatalakestore.net` | 443 | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Magazyn Azure Data Lake | 
 
 > [!NOTE] 
-> Może być konieczne zarządzanie portami/domeną listy dozwolonych na poziomie zapory firmowej, zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database usługi Azure Synapse Analytics, Azure Data Lake Store jako przykłady.   
+> Może być konieczne zarządzanie portami/filtrowanie domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database usługi Azure Synapse Analytics, Azure Data Lake Store jako przykłady.   
 
 W poniższej tabeli przedstawiono wymagania dotyczące **portów ruchu przychodzącego** dla **zapory systemu Windows**.
 
@@ -168,10 +168,10 @@ W poniższej tabeli przedstawiono wymagania dotyczące **portów ruchu przychodz
 
 ![Wymagania dotyczące portów bramy](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>Konfiguracje IP/listy dozwolonych w magazynie danych
-Niektóre magazyny danych w chmurze wymagają również listy dozwolonych z adresem IP komputera, na którym uzyskują do nich dostęp. Upewnij się, że adres IP komputera bramy jest odpowiednio listy dozwolonych/skonfigurowany w zaporze.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>Konfiguracje/filtrowanie adresów IP w magazynie danych
+Niektóre magazyny danych w chmurze wymagają również zatwierdzenia adresu IP komputera, do którego uzyskuje dostęp. Upewnij się, że adres IP komputera bramy jest odpowiednio zatwierdzony/skonfigurowany w zaporze.
 
-Następujące magazyny danych w chmurze wymagają listy dozwolonych adresu IP maszyny bramy. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych adresów IP. 
+Następujące magazyny danych w chmurze wymagają zatwierdzenia adresu IP maszyny bramy. Niektóre z tych magazynów danych domyślnie mogą nie wymagać zatwierdzania adresu IP. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Następujące magazyny danych w chmurze wymagają listy dozwolonych adresu IP ma
 **Odpowiedź:** Ta funkcja nie jest jeszcze obsługiwana. Aktywnie nad nią pracujemy.
 
 **Pytanie:** Jakie są wymagania dotyczące portów, które mają być wykonywane przez bramę?
-**Odpowiedź:** Brama umożliwia nawiązywanie połączeń z Internetem przy użyciu protokołu HTTP. **Porty wychodzące 443 i 80** muszą zostać otwarte dla bramy w celu nawiązania połączenia. Otwórz **port Przychodzący 8050** tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub usługa Azure Synapse Analytics jest używana jako źródło/miejsce docelowe, należy również otworzyć port **1433** . Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i listy dozwolonych adresy IP](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
+**Odpowiedź:** Brama umożliwia nawiązywanie połączeń z Internetem przy użyciu protokołu HTTP. **Porty wychodzące 443 i 80** muszą zostać otwarte dla bramy w celu nawiązania połączenia. Otwórz **port Przychodzący 8050** tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub usługa Azure Synapse Analytics jest używana jako źródło/miejsce docelowe, należy również otworzyć port **1433** . Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i filtrowanie adresów IP](#firewall-configurations-and-filtering-ip-address-of gateway) . 
 
 **Pytanie:** Jakie są wymagania dotyczące certyfikatów dla bramy?
 **Odpowiedź:** Bieżąca Brama wymaga certyfikatu, który jest używany przez aplikację Menedżer poświadczeń do bezpiecznego ustawiania poświadczeń magazynu danych. Ten certyfikat jest certyfikatem z podpisem własnym utworzonym i skonfigurowanym przez Instalatora bramy. Zamiast tego możesz użyć własnego certyfikatu TLS/SSL. Aby uzyskać więcej informacji, zobacz sekcję kliknij jednokrotne [polecenie aplikacji Menedżer poświadczeń](#click-once-credentials-manager-app) . 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o wydajności działania kopiowania, zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](data-factory-copy-activity-performance.md).
-
- 

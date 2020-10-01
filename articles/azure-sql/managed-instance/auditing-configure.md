@@ -6,19 +6,19 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 213a4fdb0e064e1c36a04f7190f14fab80cb4daa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117348"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620362"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Wprowadzenie do inspekcji wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
         ![Przycisk właściwości kontenera obiektów BLOB](./media/auditing-configure/4_container_properties_button.png)
 
-     1. Skopiuj adres URL kontenera, klikając ikonę kopiowania i zapisując adres URL (na przykład w Notatniku) do użytku w przyszłości. Format adresu URL kontenera powinien być`https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Skopiuj adres URL kontenera, klikając ikonę kopiowania i zapisując adres URL (na przykład w Notatniku) do użytku w przyszłości. Format adresu URL kontenera powinien być `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![Adres URL kopiowania kontenera obiektów BLOB](./media/auditing-configure/5_container_copy_name.png)
 
@@ -242,7 +242,7 @@ Kluczowe różnice w `CREATE AUDIT` składni inspekcji usługi Azure Blob Storag
 - Podano nową składnię `TO EXTERNAL MONITOR` umożliwiającą włączenie Event Hubs i Azure monitor celów dzienników.
 - Składnia `TO FILE` nie jest **obsługiwana** , ponieważ wystąpienie zarządzane SQL platformy Azure nie może uzyskać dostępu do udziałów plików systemu Windows.
 - Opcja zamykania **nie jest obsługiwana**.
-- `queue_delay`wartość 0 **nie jest obsługiwana**.
+- `queue_delay` wartość 0 **nie jest obsługiwana**.
 
 ## <a name="next-steps"></a>Następne kroki
 

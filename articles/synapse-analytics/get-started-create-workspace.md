@@ -8,23 +8,23 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300109"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620073"
 ---
-# <a name="prerequisites"></a>Wymagania wstępne
-
-Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
-
-## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
+# <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
 W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, pulę SQL i pulę Apache Spark. 
 
-## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
+
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Tworzenie obszaru roboczego usługi Synapse w witrynie Azure Portal
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.

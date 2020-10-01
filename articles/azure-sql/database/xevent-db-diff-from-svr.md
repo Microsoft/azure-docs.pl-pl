@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046957"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619818"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Zdarzenia rozszerzone w Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Tematy pokrewne zawierają dwa przykłady kodu:
 - Gdy wykonujesz polecenie [Utwórz sesję zdarzenia](/sql/t-sql/statements/create-event-session-transact-sql) na SQL Server, użyj klauzuli **on serwera** . Ale na Azure SQL Database zamiast tego używasz klauzuli **on Database** .
 - Klauzula for **Database** dotyczy również poleceń [ALTER Event Session](/sql/t-sql/statements/alter-event-session-transact-sql) i [Drop Event](/sql/t-sql/statements/drop-event-session-transact-sql) .
 
-- Najlepszym rozwiązaniem jest dołączenie opcji sesji zdarzeń **STARTUP_STATE = on** w instrukcji **Create Event Session** lub **ALTER Event Session** .
+- Najlepszym rozwiązaniem jest dołączenie opcji sesji zdarzeń **STARTUP_STATE = on** w instrukcji **Create Event Session**  lub **ALTER Event Session** .
   - Wartość **= on** obsługuje automatyczne ponowne uruchamianie po ponownym skonfigurowaniu logicznej bazy danych z powodu przejścia w tryb failover.
 
 ## <a name="new-catalog-views"></a>Nowe widoki wykazu

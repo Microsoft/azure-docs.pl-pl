@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310091"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619648"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Wdrażanie i eksplorowanie aplikacji podzielonej na fragmenty z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -200,7 +200,7 @@ Następnie oferujemy inną dzierżawcę, tym razem z własną bazą danych:
 
    ![Strona zdarzeń Salix Salsa](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
-   - Przewiń w dół strony. Na banerze zobaczysz nazwę bazy danych, w której są przechowywane dane dzierżawy.
+   - Przewiń stronę do dołu. Na banerze zobaczysz nazwę bazy danych, w której są przechowywane dane dzierżawy.
 
 3. Odśwież **centrum zdarzeń** , a na liście zostaną wyświetlone dwa nowe dzierżawy.
 
@@ -244,7 +244,7 @@ Czasami baza danych z wieloma dzierżawcami wymaga większej ilości zasobów, n
 
 Obciążenia generowane przez skrypt generatora obciążenia są przeznaczone tylko do celów ilustracyjnych.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Aby dowiedzieć się więcej o wielodostępnych aplikacjach SaaS, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS](saas-tenancy-app-design-patterns.md).
 

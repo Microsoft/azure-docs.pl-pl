@@ -2,13 +2,13 @@
 title: Konfigurowanie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób konfigurowania monitorowania za pomocą Azure Monitor dla kontenerów w klastrach Kubernetes z obsługą usługi Azure Arc.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977530"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620294"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Włącz monitorowanie klastra Kubernetes z obsługą usługi Azure Arc
 
@@ -21,8 +21,6 @@ Azure Monitor dla kontenerów można włączyć dla co najmniej jednego istniej�
 Azure Monitor dla kontenerów obsługuje monitorowanie Kubernetes usługi Azure ARC (wersja zapoznawcza) zgodnie z opisem w artykule [Omówienie](container-insights-overview.md) , z wyjątkiem następujących funkcji:
 
 - Dane dynamiczne (wersja zapoznawcza)
-
-- [Zbieranie metryk](container-insights-update-metrics.md) z węzłów klastra i z magazynów oraz przechowywanie ich w bazie danych metryk Azure monitor
 
 Następujące elementy są oficjalnie obsługiwane w Azure Monitor dla kontenerów:
 
@@ -106,7 +104,7 @@ Aby włączyć monitorowanie klastra przy użyciu pobranego wcześniej skryptu P
 1. Pobierz i Zapisz skrypt do folderu lokalnego, który konfiguruje klaster przy użyciu dodatku do monitorowania za pomocą następujących poleceń:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Skonfiguruj `$azureArcClusterResourceId` zmienną ustawiając odpowiednie wartości dla `subscriptionId` `resourceGroupName` i `clusterName` reprezentującą identyfikator zasobu dla zasobu klastra Kubernetes z obsługą usługi Azure Arc.
@@ -156,7 +154,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-Przykład:
+Na przykład:
 
 ```powershell
 .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
@@ -241,7 +239,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-Przykład:
+Na przykład:
 
 ```bash
 bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
@@ -270,7 +268,7 @@ W przypadku określenia protokołu jako **http**żądania HTTP są tworzone przy
 
 ### <a name="configure-using-powershell"></a>Konfigurowanie przy użyciu programu PowerShell
 
-Określ nazwę użytkownika i hasło, adres IP lub nazwę FQDN i numer portu serwera proxy. Przykład:
+Określ nazwę użytkownika i hasło, adres IP lub nazwę FQDN i numer portu serwera proxy. Na przykład:
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
@@ -278,7 +276,7 @@ $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
 
 ### <a name="configure-using-bash"></a>Konfigurowanie przy użyciu bash
 
-Określ nazwę użytkownika i hasło, adres IP lub nazwę FQDN i numer portu serwera proxy. Przykład:
+Określ nazwę użytkownika i hasło, adres IP lub nazwę FQDN i numer portu serwera proxy. Na przykład:
 
 ```bash
 export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>

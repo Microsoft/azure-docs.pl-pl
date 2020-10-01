@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
-ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221391"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619785"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database słownik terminów
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -27,11 +27,11 @@ ms.locfileid: "84221391"
 |Kontekst|Termin|Więcej informacji|
 |:---|:---|:---|
 |Usługa platformy Azure|Azure SQL Database lub SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
-|Model zakupu|Model zakupu oparty na jednostkach DTU|[Model zakupu oparty na jednostkach DTU](database/service-tiers-dtu.md)|
+|Model zakupów|Model zakupu oparty na jednostkach DTU|[Model zakupu oparty na jednostkach DTU](database/service-tiers-dtu.md)|
 ||Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
 |Opcja wdrażania |Pojedyncza baza danych|[Pojedyncze bazy danych](database/single-database-overview.md)|
-||Elastyczna pula|[Pula elastyczna](database/elastic-pool-overview.md)|
-|Warstwa usług|Basic, standard, Premium, Ogólnego przeznaczenia, skalowanie Krytyczne dla działania firmy|Aby uzyskać warstwy usług w modelu rdzeń wirtualny, zobacz [SQL Database warstwy usług](database/service-tiers-vcore.md#service-tiers). Aby uzyskać warstwy usług w modelu DTU, zobacz [model DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+||Pula elastyczna|[Pula elastyczna](database/elastic-pool-overview.md)|
+|Warstwa usługi|Basic, standard, Premium, Ogólnego przeznaczenia, skalowanie Krytyczne dla działania firmy|Aby uzyskać warstwy usług w modelu rdzeń wirtualny, zobacz [SQL Database warstwy usług](database/service-tiers-vcore.md#service-tiers). Aby uzyskać warstwy usług w modelu DTU, zobacz [model DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Warstwa obliczeniowa|Bezserwerowe usługi obliczeniowe|[Bezserwerowe usługi obliczeniowe](database/service-tiers-vcore.md#compute-tiers)
 ||Zainicjowane obliczenie|[Zainicjowane obliczenie](database/service-tiers-vcore.md#compute-tiers)
 |Generowanie obliczeń|Seria 5 rdzeń, Seria M, Fsv2|[Generacja sprzętu](database/service-tiers-vcore.md#hardware-generations)
@@ -44,10 +44,10 @@ ms.locfileid: "84221391"
 |Kontekst|Termin|Więcej informacji|
 |:---|:---|:---|
 |Usługa platformy Azure|Wystąpienie zarządzane Azure SQL|[Wystąpienie zarządzane SQL](managed-instance/sql-managed-instance-paas-overview.md)|
-|Model zakupu|Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
+|Model zakupów|Model zakupów oparty na rdzeniach wirtualnych|[Model zakupów oparty na rdzeniach wirtualnych](database/service-tiers-vcore.md)|
 |Opcja wdrażania |Jedno wystąpienie|[Pojedyncze wystąpienie](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pula wystąpień (wersja zapoznawcza)|[Pule wystąpień](managed-instance/instance-pools-overview.md)|
-|Warstwa usług|Ogólnego przeznaczenia, Krytyczne dla działania firmy|[Warstwy usługi wystąpienia zarządzanego SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
+|Warstwa usługi|Ogólnego przeznaczenia, Krytyczne dla działania firmy|[Warstwy usługi wystąpienia zarządzanego SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Warstwa obliczeniowa|Zainicjowane obliczenie|[Zainicjowane obliczenie](database/service-tiers-vcore.md#compute-tiers)|
 |Generowanie obliczeń|5 rdzeń|[Generacja sprzętu](database/service-tiers-vcore.md#hardware-generations)
 |Jednostka serwera|Wystąpienie zarządzane lub wystąpienie| Nie dotyczy, ponieważ wystąpienie zarządzane SQL należy do serwera |

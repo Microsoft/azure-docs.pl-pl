@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620090"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -68,20 +68,20 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 > [!Important]
 > Funkcja automatycznego skalowania usługi Azure HDInsight została ogólnie udostępniona 7 listopada 2019 r. dla klastrów Spark i Hadoop. Zawiera ona ulepszenia niedostępne w wersji zapoznawczej tej funkcji. Jeśli chcesz korzystać z funkcji automatycznego skalowania w klastrze Spark utworzonym przed 7 listopada 2019 r., zalecaną ścieżką jest utworzenie nowego klastra i włączenie automatycznego skalowania w nowym klastrze.
 >
-> Funkcja automatycznego skalowania dla zapytania interaktywnego (LLAP) została udostępniona do ogólnej dostępności na 2020 sierpnia 27. Klastry HBase są nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
+> Funkcja automatycznego skalowania dla zapytania interaktywnego (LLAP) została udostępniona do ogólnej dostępności dla HDI 4,0 w sierpniu 27, 2020. Klastry HBase są nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
-| Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Wersja | Spark | Hive | Zapytanie interakcyjne | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 bez ESP | Yes | Yes | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 bez ESP | Yes | Yes | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 3,6 z ESP | Yes | Yes | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 z ESP | Yes | Yes | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 
 \* Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 
@@ -251,7 +251,7 @@ Ukończenie operacji skalowania może potrwać od 10 do 20 minut. Podczas konfig
 
 ### <a name="prepare-for-scaling-down"></a>Przygotowanie do skalowania w dół
 
-Podczas skalowania klastra w dół automatyczne skalowanie powoduje zlikwidowanie węzłów w celu spełnienia rozmiaru docelowego. Jeśli zadania są uruchomione w tych węzłach, automatyczne skalowanie czeka na ukończenie zadań. Ponieważ każdy węzeł roboczy również pełni rolę w systemie plików HDFS, dane tymczasowe są przesunięte do pozostałych węzłów. Upewnij się, że jest wystarczająca ilość miejsca na pozostałych węzłach do hostowania wszystkich danych tymczasowych.
+Podczas skalowania klastra w dół automatyczne skalowanie powoduje zlikwidowanie węzłów w celu spełnienia rozmiaru docelowego. Jeśli zadania są uruchomione w tych węzłach, automatyczne skalowanie czeka na ukończenie zadań dla klastrów Spark i Hadoop. Ponieważ każdy węzeł roboczy również pełni rolę w systemie plików HDFS, dane tymczasowe są przesunięte do pozostałych węzłów. Upewnij się, że jest wystarczająca ilość miejsca na pozostałych węzłach do hostowania wszystkich danych tymczasowych.
 
 Uruchomione zadania będą kontynuowane. Oczekujące zadania będą oczekiwać na planowanie z mniejszą liczbą dostępnych węzłów procesu roboczego.
 
@@ -265,7 +265,7 @@ Automatyczne skalowanie klastrów usługi Hadoop również monitoruje użycie sy
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Ustaw maksymalną łączną liczbę równoczesnych zapytań dla scenariusza użycia szczytowego
 
-Zdarzenia automatycznego skalowania nie zmieniają maksymalnej liczby *równoczesnych zapytań* w usłudze Hive w Ambari. Oznacza to, że usługa programu Hive Server 2 Interactive może obsłużyć tylko daną liczbę współbieżnych zapytań w dowolnym momencie, nawet jeśli licznik demonów LLAP jest skalowany w górę i w dół w oparciu o obciążenie i harmonogram. Ogólnym zaleceniem jest ustawienie tej konfiguracji dla scenariusza użycia szczytowego, aby uniknąć ręcznej interwencji.
+Zdarzenia automatycznego skalowania nie zmieniają maksymalnej liczby *równoczesnych zapytań* w usłudze Hive w Ambari. Oznacza to, że usługa programu Hive Server 2 Interactive może obsłużyć tylko daną liczbę współbieżnych zapytań w dowolnym momencie, nawet jeśli liczba demonów interakcyjnych zapytań jest skalowana w górę i w dół na podstawie obciążenia i harmonogramu. Ogólnym zaleceniem jest ustawienie tej konfiguracji dla scenariusza użycia szczytowego, aby uniknąć ręcznej interwencji.
 
 Niemniej jednak może wystąpić błąd ponownego uruchomienia serwera Hive, jeśli istnieje tylko niewielka liczba węzłów procesu roboczego, a wartość maksymalna łączna liczba współbieżnych zapytań jest zbyt wysoka. Minimalnym wymaganiem jest minimalna liczba węzłów procesu roboczego, które mogą uwzględniać daną liczbę tez AMS (równą maksymalnej całkowitej łącznej konfiguracji współbieżnych zapytań). 
 
@@ -275,11 +275,11 @@ Niemniej jednak może wystąpić błąd ponownego uruchomienia serwera Hive, je�
 
 Automatyczne skalowanie usługi HDInsight używa pliku etykiet węzła, aby określić, czy węzeł jest gotowy do wykonywania zadań. Plik etykiet węzła jest przechowywany w systemie plików HDFS z trzema replikami. Jeśli rozmiar klastra jest znacznie skalowany i istnieje duża ilość danych tymczasowych, istnieje mała szansa, że wszystkie trzy repliki mogą zostać porzucone. W takim przypadku klaster przechodzi do stanu błędu.
 
-### <a name="llap-daemons-count"></a>Liczba demonów LLAP
+### <a name="interactive-query-daemons-count"></a>Liczba interaktywnych demonów zapytań
 
-W przypadku klastrów LLAP z obsługą autoscae, zdarzenie skalowania w górę/w dół również skaluje się w górę/w dół do liczby demonów LLAP do liczby aktywnych węzłów procesu roboczego. Zmiana liczby demonów nie jest utrwalana w `num_llap_nodes` konfiguracji w Ambari. Jeśli usługi Hive są ponownie uruchamiane ręcznie, liczba demonów LLAP zostanie zresetowana zgodnie z konfiguracją w Ambari.
+W przypadku klastrów zapytań interaktywnych z włączoną funkcją automatycznego skalowania zdarzenie skalowania w górę/w dół umożliwia również skalowanie w górę/w dół liczby interaktywnych demonów zapytań do liczby aktywnych węzłów procesu roboczego. Zmiana liczby demonów nie jest utrwalana w `num_llap_nodes` konfiguracji w Ambari. Jeśli usługi Hive są ponownie uruchamiane ręcznie, liczba interaktywnych demonów zapytań jest resetowana zgodnie z konfiguracją w Ambari.
 
-Jeśli usługa LLAP jest ponownie uruchamiana ręcznie, należy ręcznie zmienić `num_llap_node` konfigurację (liczbę węzłów potrzebną do uruchomienia demona Hive LLAP) w obszarze *Advanced Hive-Interactive-ENV* , aby dopasować bieżącą liczbę węzłów procesu roboczego.
+Jeśli usługa interakcyjnego zapytania zostanie ręcznie uruchomiona ponownie, należy ręcznie zmienić `num_llap_node` konfigurację (liczbę węzłów potrzebną do uruchomienia demona interakcyjnego zapytania programu Hive) w obszarze *Advanced Hive-Interactive-ENV* , aby dopasować bieżącą liczbę węzłów procesu roboczego.
 
 ## <a name="next-steps"></a>Następne kroki
 

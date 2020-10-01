@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284114"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619767"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w Azure SQL Database
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w usłudze Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Próbując rozwiązać wąskie gardła wydajności, Zacznij od określenia, czy wąskie gardło występuje, gdy zapytanie jest w stanie uruchomienia lub w stanie oczekiwania. Różne rozdzielczości są stosowane w zależności od tego ustalenia. Na poniższym diagramie przedstawiono informacje o czynnikach, które mogą spowodować problemy związane z działaniem lub problem związany z oczekiwaniem. Problemy i rozwiązania dotyczące poszczególnych typów problemów zostały omówione w tym artykule.

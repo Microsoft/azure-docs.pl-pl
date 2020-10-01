@@ -1,18 +1,18 @@
 ---
-title: Alerty metryk z Azure Monitor dla kontenerów | Microsoft Docs
+title: Alerty metryk z Azure Monitor dla kontenerów
 description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.date: 09/24/2020
+ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019890"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619954"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
 
-Aby otrzymywać alerty dotyczące problemów z zasobami systemu, gdy występują szczytowe zapotrzebowanie i działają blisko pojemności, z Azure Monitor dla kontenerów utworzysz alert dziennika na podstawie danych wydajności przechowywanych w dziennikach Azure Monitor. Azure Monitor dla kontenerów zawiera teraz wstępnie skonfigurowane reguły alertów metryk dla klastra AKS, które są w publicznej wersji zapoznawczej.
+Aby otrzymywać alerty dotyczące problemów z zasobami systemu, gdy występują szczytowe zapotrzebowanie i działają blisko pojemności, z Azure Monitor dla kontenerów utworzysz alert dziennika na podstawie danych wydajności przechowywanych w dziennikach Azure Monitor. Azure Monitor dla kontenerów zawiera teraz wstępnie skonfigurowane reguły alertów metryk dla klastra Kubernetes z obsługą usługi Azure ARC, który jest w publicznej wersji zapoznawczej.
 
 W tym artykule omówiono środowisko i przedstawiono wskazówki dotyczące konfigurowania tych reguł alertów i zarządzania nimi.
 
@@ -22,22 +22,22 @@ Jeśli nie masz doświadczenia w Azure Monitor alertów, zobacz [Omówienie aler
 
 Przed rozpoczęciem Potwierdź następujące kwestie:
 
-* Metryki niestandardowe są dostępne tylko w ramach podzestawów regionów świadczenia usługi Azure. Lista obsługiwanych regionów jest udokumentowana [tutaj](../platform/metrics-custom-overview.md#supported-regions).
+* Metryki niestandardowe są dostępne tylko w ramach podzestawów regionów świadczenia usługi Azure. Lista obsługiwanych regionów jest udokumentowana w [obsługiwanych regionach](../platform/metrics-custom-overview.md#supported-regions).
 
-* Aby zapewnić obsługę alertów dotyczących metryk i wprowadzenia dodatkowych metryk, wymagana minimalna wersja agenta to **Microsoft/OMS: ciprod05262020**.
+* Aby zapewnić obsługę alertów dotyczących metryk i wprowadzenia dodatkowych metryk, wymagana minimalna wersja agenta to **Microsoft/OMS: ciprod05262020** for AKS i **Microsoft/OMS: Ciprod09252020** for Azure ARC z włączonym klastrem Kubernetes.
 
     Aby sprawdzić, czy w klastrze działa nowsza wersja agenta, możesz wykonać następujące działania:
 
     * Uruchom polecenie: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . W wyświetlonym stanie Zwróć uwagę na wartość w obszarze **obraz** dla omsagent w sekcji *kontenery* w danych wyjściowych. 
     * Na karcie **węzły** wybierz węzeł klastra i w okienku **Właściwości** po prawej stronie Sprawdź wartość w obszarze **tag obrazu agenta**.
 
-    Wyświetlana wartość powinna być wersją późniejszą niż **ciprod05262020**. Jeśli klaster ma starszą wersję, postępuj zgodnie z instrukcjami w obszarze [AKS Cluster Agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby uzyskać najnowszą wersję.
-    
+    Wartość pokazana dla AKS powinna być w wersji **ciprod05262020** lub nowszej. Wartość pokazana dla klastra Kubernetes z obsługą usługi Azure Arc powinna być w wersji **ciprod09252020** lub nowszej. Jeśli klaster ma starszą wersję, zapoznaj się z tematem [jak uaktualnić agenta Azure monitor for Containers](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby poznać procedurę pobierania najnowszej wersji.
+
     Aby uzyskać więcej informacji dotyczących wydania agenta, zobacz [Historia wydania agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Aby sprawdzić, czy metryki są zbierane, możesz użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** znajduje się lista **szczegółowych** informacji. Jeśli tak jest, możesz rozpocząć Konfigurowanie alertów. Jeśli nie widzisz żadnych zebranych metryk, nazwa główna usługi klastra lub plik MSI nie ma wystarczających uprawnień. Aby sprawdzić, czy nazwa SPN lub plik MSI jest członkiem roli **wydawcy metryk monitorowania** , wykonaj kroki opisane w sekcji [uaktualnianie dla klastra za pomocą interfejsu wiersza polecenia platformy Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) , aby potwierdzić i ustawić przypisanie roli.
 
 ## <a name="alert-rules-overview"></a>Przegląd reguł alertów
 
-Aby otrzymywać alerty dotyczące zagadnień, Azure Monitor dla kontenerów obejmują następujące alerty metryk dla klastrów AKS:
+Aby otrzymywać alerty dotyczące tego, co się stało, Azure Monitor dla kontenerów obejmują następujące alerty metryk dla klastrów Kubernetes z włączonym AKS i Azure ARC:
 
 |Nazwa| Opis |Domyślny próg |
 |----|-------------|------------------|
@@ -146,7 +146,7 @@ Podstawowe kroki są następujące:
 
 3. Wyszukaj **szablon**, a następnie wybierz pozycję **Template Deployment**.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Zobaczysz kilka opcji tworzenia szablonu, wybierz opcję **Kompiluj własny szablon w edytorze**.
 
