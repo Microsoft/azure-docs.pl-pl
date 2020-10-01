@@ -4,6 +4,8 @@
   items:
     - name: Co to jest Azure DB dla PostgreSQL?
       href: overview.md
+    - name: Którą opcję wdrożenia PostgreSQL wybrać?
+      href: overview-postgres-choose-server-options.md
     - name: Aktualizacje usług
       items:
         - name: Certyfikat główny SSL wygasa

@@ -78,6 +78,8 @@
                   href: security-baseline.md
                 - name: Przegląd zabezpieczeń
                   href: data-box-security.md
+            - name: Transfer list kontroli dostępu i metadanych
+              href: data-box-file-acls-preservation.md
             - name: Często zadawane pytania
               href: data-box-faq.md
         - name: Instrukcje

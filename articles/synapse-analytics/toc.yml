@@ -10,34 +10,24 @@
       items:
         - name: Wprowadzenie
           href: get-started.md
-          displayName: 'get, started'
-        - name: 1. Tworzenie obszaru roboczego
+        - name: 1. Tworzenie obszaru roboczego usługi Synapse
           href: get-started-create-workspace.md
-          displayName: 'get, started'
-        - name: 2. Korzystanie z pul SQL
+        - name: 2. Analizowanie przy użyciu puli SQL
           href: get-started-analyze-sql-pool.md
-          displayName: 'get, started'
-        - name: 3. Korzystanie z platformy Spark
+        - name: 3. Analizowanie przy użyciu platformy Spark
           href: get-started-analyze-spark.md
-          displayName: 'get, started'
-        - name: 4. Korzystanie z bazy danych SQL na żądanie
+        - name: 4. Analizowanie przy użyciu usługi SQL na żądanie
           href: get-started-analyze-sql-on-demand.md
-          displayName: 'get, started'
         - name: 5. Analizowanie danych na koncie magazynu
           href: get-started-analyze-storage.md
-          displayName: 'get, started'
         - name: 6. Orkiestracja przy użyciu potoków
           href: get-started-pipelines.md
-          displayName: 'get, started'
         - name: 7. Wizualizowanie przy użyciu usługi Power BI
           href: get-started-visualize-power-bi.md
-          displayName: 'get, started'
         - name: 8. Monitorowanie
           href: get-started-monitor.md
-          displayName: 'get, started'
         - name: 9. Eksplorowanie Centrum wiedzy
           href: get-started-knowledge-center.md
-          displayName: 'get, started'
     - name: Ściągawka
       href: overview-cheat-sheet.md
     - name: Często zadawane pytania
@@ -58,16 +48,16 @@
       href: quickstart-power-bi.md
     - name: Tworzenie pul
       items:
-        - name: Tworzenie puli SQL przy użyciu programu Synapse Studio
-          href: quickstart-create-sql-pool-studio.md
+        - name: Tworzenie notesu platformy Apache Spark przy użyciu narzędzi internetowych
+          href: quickstart-apache-spark-notebook.md
+        - name: Tworzenie puli platformy Apache Spark przy użyciu witryny Azure Portal
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Tworzenie puli platformy Apache Spark za pomocą programu Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
         - name: Tworzenie puli SQL przy użyciu witryny Azure Portal
           href: quickstart-create-sql-pool-portal.md
-        - name: Tworzenie notesu
-          href: quickstart-apache-spark-notebook.md
-        - name: Tworzenie puli zadań platformy Spark za pomocą witryny Azure Portal
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Tworzenie puli zadań platformy Spark za pomocą programu Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Tworzenie puli SQL przy użyciu programu Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Ładowanie danych przy użyciu pul SQL
       items:
         - name: Instrukcja COPY
@@ -84,16 +74,12 @@
   items:
     - name: Uruchamianie aplikacji platformy Apache Spark
       href: ./spark/intellij-tool-synapse.md
-    - name: Uruchamianie aplikacji PySpark na potrzeby pul zadań platformy Spark
-      href: ./spark/vscode-tool-synapse.md
     - name: Definicje zadań platformy Spark
       href: ./spark/apache-spark-job-definitions.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Analityk danych
       items:
-        - name: Uruchamianie eksperymentu regresji przy użyciu usługi Azure AutoML
-          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
         - name: Tworzenie modelu klasyfikacji przy użyciu biblioteki Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Analityk danych
@@ -212,8 +198,8 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Język wyrażeń
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Różnice w stosunku do usługi Azure Data Factory
-              href: ./data-integration/concepts-data-factory-differences.md
+        - name: Różnice w stosunku do usługi Azure Data Factory
+          href: ./data-integration/concepts-data-factory-differences.md
     - name: platforma Spark
       items:
         - name: Omówienie
@@ -386,6 +372,22 @@
           href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Przypadki użycia usługi Synapse Link
           href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Machine Learning
+      items:
+        - name: Omówienie
+          items:
+            - name: Co to jest uczenie maszynowe w usłudze Synapse Analytics?
+              href: machine-learning/what-is-machine-learning.md
+        - name: Przewodniki Szybki start
+          items:
+            - name: Tworzenie nowej połączonej usługi Azure Machine Learning
+              href: machine-learning/quickstart-integrate-azure-machine-learning.md
+        - name: Samouczki
+          items:
+            - name: Kreator oceniania modeli dla pul SQL
+              href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+            - name: Uruchamianie eksperymentu regresji przy użyciu usługi Azure AutoML (ocenianie w magazynie danych)
+              href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Integracja narzędzi (AI, ETL, BI)'
       items:
         - name: Rozwiązywanie problemów z programem Synapse Studio
@@ -478,31 +480,27 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Wykonywanie zapytań dotyczących magazynu analitycznego usługi Azure Cosmos DB przy użyciu platformy Apache Spark
+            - name: Wykonywanie zapytań dotyczących magazynu analitycznego usługi Azure Cosmos DB przy użyciu platformy Apache Spark dla usługi Azure Synapse Analytics
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Kopiowanie danych z usługi Synapse Link do puli SQL przy użyciu platformy Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md
-            - name: Wykonywanie zapytań dotyczących magazynu analitycznego usługi Azure Cosmos DB przy użyciu usługi SQL na żądanie
-              href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse SQL
           items:
-            - name: Wykonywanie zapytań o dane zewnętrzne
+            - name: Wykonywanie zapytań względem danych w magazynie
               items:
                 - name: Omówienie
                   href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Wykonywanie zapytań o pliki CSV
+                - name: Wykonywanie zapytań względem pliku CSV
                   href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Wykonywanie zapytań względem plików Parquet
                   href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Wykonywanie zapytań względem typów zagnieżdżonych Parquet
+                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Wykonywanie zapytań względem plików JSON
                   href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Wykonywanie zapytań do bazy danych Azure Cosmos DB
-                  href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Zagnieżdżone typy zapytań
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Wykonywanie zapytań względem folderów i wielu plików
                   href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Wykonywanie zapytań dotyczących partycjonowanych plików za pomocą metadanych plików
+                - name: Korzystanie z metadanych pliku
                   href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Tworzenie widoków i korzystanie z nich
                   href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -738,7 +736,7 @@
               href: ../data-factory/connector-shopify.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Snowflake
               href: ../data-factory/connector-snowflake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: platforma Spark
+            - name: Spark
               href: ../data-factory/connector-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: SQL Server
               href: ../data-factory/connector-sql-server.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

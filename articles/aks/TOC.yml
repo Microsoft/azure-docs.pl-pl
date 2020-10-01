@@ -4,6 +4,8 @@
   items:
     - name: Informacje o usłudze AKS
       href: intro-kubernetes.md
+    - name: Architektury rozwiązań
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -82,7 +84,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md

@@ -26,7 +26,7 @@
       href: delete-application-portal.md
 - name: Samouczki
   items:
-    - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
+    - name: Lista wstępnie skonfigurowanych aplikacji
       href: /azure/active-directory/saas-apps/
     - name: Dodawanie aplikacji lokalnej za pomocą serwera proxy aplikacji
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Zasoby dotyczące migracji
           href: migration-resources.md
-        - name: Migrowanie aplikacji usług ADFS na platformę Azure
+        - name: Migrowanie aplikacji AD FS na platformę Azure
           href: migrate-adfs-apps-to-azure.md
         - name: Korzystanie z raportu aktywności aplikacji usługi AD FS (wersja zapoznawcza)
           href: migrate-adfs-application-activity.md

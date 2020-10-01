@@ -96,6 +96,8 @@
       href: hana-vm-operations.md
     - name: Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
       href: hana-vm-operations-storage.md
+    - name: Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA
+      href: hana-vm-operations-netapp.md
     - name: Dostępność rozwiązania SAP HANA w usłudze Azure Virtual Machines
       items:
         - name: Przegląd dostępności rozwiązania SAP HANA na platformie Azure
