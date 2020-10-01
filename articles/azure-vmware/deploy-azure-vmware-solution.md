@@ -3,12 +3,12 @@ title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 08d2d48820505dad9bba74fe3ac84f45525f4525
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583343"
+ms.locfileid: "91598161"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -40,7 +40,7 @@ Skorzystaj z informacji zebranych w artykule [Planowanie rozwiązania Azure VMwa
 Po wdrożeniu rozwiązania Azure VMware można utworzyć pole skoku sieci wirtualnej łączące się z programem vCenter i NSX. Po skonfigurowaniu obwodów usługi ExpressRoute i ExpressRoute Global Reach pole skoku nie jest potrzebne.  Ale warto uzyskać dostęp do programu vCenter i NSX w rozwiązaniu VMware platformy Azure.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 Aby utworzyć maszynę wirtualną w sieci wirtualnej, która została [zidentyfikowana lub utworzona w ramach procesu wdrażania](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), wykonaj następujące instrukcje: 
 
@@ -60,7 +60,7 @@ Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware
 
 Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) w [kroku wdrożenia](#deploy-azure-vmware-solution) wcześniej w tym artykule.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 W tym przykładzie sieć 10.74.72.0/22 została wprowadzona podczas wdrażania w sieci/24.  Jeśli zobaczysz coś podobnego, możesz połączyć się z programem vCenter w rozwiązaniu VMware platformy Azure.
 

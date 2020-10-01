@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409854"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597786"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe lub bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -135,7 +135,7 @@ W przypadku tej publicznej wersji zapoznawczej te funkcje nie są dostępne lub 
    >
    > ![Zrzut ekranu pokazujący emulator usługi Azure Storage z systemem.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
-### <a name="tools"></a>narzędzia
+### <a name="tools"></a>Narzędzia
 
 * [Visual Studio Code 1.30.1 (styczeń 2019) lub nowszy](https://code.visualstudio.com/), który jest bezpłatny. Ponadto Pobierz i zainstaluj te dodatkowe narzędzia dla Visual Studio Code, jeśli nie są jeszcze:
 
@@ -389,9 +389,11 @@ W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i nas
 
 1. Jeśli musisz usunąć element z projektanta, wykonaj następujące kroki:
 
-   1. W Projektancie wybierz element.
+   1. W Projektancie wybierz element, który powoduje otwarcie okienka szczegółów elementu po prawej stronie.
 
-   1. W okienku szczegółów elementu, które jest otwierane po prawej stronie, wybierz przycisk wielokropka (**...**), aby **>** **usunąć**. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
+   1. Rozwiń okno Visual Studio Code wystarczająco często, aby obok wyzwalacza lub nazwy akcji w prawym górnym rogu pojawił się przycisk wielokropka (**...**). 
+
+   1. Otwórz menu wielokropka (**...**), a następnie wybierz pozycję **Usuń**. Aby potwierdzić usunięcie, wybierz **przycisk OK**.
 
       ![Zrzut ekranu pokazujący wybrany element w Projektancie z otwartym okienkiem szczegółów i z wybranym przyciskiem wielokropka i opcją "Usuń".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 

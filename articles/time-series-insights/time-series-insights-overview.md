@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020529"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597818"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Co to jest Azure Time Series Insights Gen1?
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 Azure Time Series Insights jest zbudowana do przechowywania, wizualizowania i wykonywania zapytań dotyczących dużych ilości danych szeregów czasowych, takich jak te wygenerowane przez urządzenia IoT. Jeśli chcesz przechowywać dane szeregów czasowych, zarządzać nimi i wizualizować je w chmurze, Azure Time Series Insights prawdopodobnie są dla Ciebie odpowiednie.
 
@@ -75,7 +78,7 @@ Azure Time Series Insights przechwytuje i zapisuje każde nowe zdarzenie jako wi
 
 - **Skalowalność**: Azure Time Series Insights jest zaprojektowana do obsługi IoT na dużą skalę. Umożliwia pozyskiwanie od 1 miliona do 100 milionów zdarzeń dziennie, które domyślnie są przechowywane przez 31 dni. Możesz wizualizować i analizować strumienie danych na żywo niemal w czasie rzeczywistym, obok danych historycznych.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Aby rozpocząć, wykonaj następujące kroki.
 

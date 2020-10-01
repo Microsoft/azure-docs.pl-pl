@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: c7fbe46d378d45f49a8510f9fdd01a9cae665d0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074388"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595944"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Naprawianie maszyny wirtualnej z systemem Linux za pomocą poleceń naprawiania maszyny wirtualnej platformy Azure
 
@@ -42,7 +42,7 @@ Wykonaj następujące kroki, aby rozwiązać problem z maszyną wirtualną:
 1. Uruchamianie usługi Azure Cloud Shell
 2. Uruchom AZ Extension Add/Update
 3. Uruchom AZ VM Repair Create
-4. Wykonaj kroki zaradcze
+4. Uruchom polecenie AZ VM Repair Run lub wykonaj kroki zaradcze.
 5. Uruchom AZ VM Repair Restore
 
 Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -59,7 +59,7 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/a
 
    Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie ``az --version``, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić interfejs wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
    
-   Jeśli musisz zalogować się do Cloud Shell przy użyciu innego konta niż aktualnie zalogowano się w witrynie Azure Portal, możesz użyć ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Aby przełączać się między subskrypcjami skojarzonymi z Twoim kontem, możesz użyć ``az account set --subscription`` [AZ Account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Jeśli musisz zalogować się do Cloud Shell przy użyciu innego konta niż aktualnie zalogowano się w witrynie Azure Portal, możesz użyć ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Aby przełączać się między subskrypcjami skojarzonymi z Twoim kontem, możesz użyć ``az account set --subscription`` [AZ Account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Jeśli używasz poleceń po raz pierwszy `az vm repair` , Dodaj rozszerzenie interfejsu wiersza polecenia maszyny wirtualnej do naprawy.
 
@@ -79,7 +79,13 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/a
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Wykonaj wszystkie wymagane kroki zaradcze na utworzonej maszynie wirtualnej naprawy, a następnie przejdź do kroku 5.
+4. Uruchom polecenie `az vm repair run`. To polecenie spowoduje uruchomienie określonego skryptu naprawy na dołączonym dysku za pośrednictwem maszyny wirtualnej naprawy. Jeśli używasz przewodnika rozwiązywania problemów z określonym identyfikatorem uruchomienia, użyj go tutaj. w przeciwnym razie możesz użyć polecenia AZ VM Repair list-scripts, aby wyświetlić dostępne skrypty naprawcze. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3. Dodatkowe informacje o skryptach naprawczych można znaleźć w [bibliotece skryptów naprawy](https://github.com/Azure/repair-script-library).
+
+   ```azurecli-interactive
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
+   ```
+
+   Opcjonalnie można wykonać wszystkie wymagane kroki zaradcze ręcznie przy użyciu maszyny wirtualnej naprawy, a następnie przejść do kroku 5.
 
 5. Uruchom polecenie `az vm repair restore`. To polecenie spowoduje zamianę naprawionego dysku systemu operacyjnego na oryginalny dysk systemu operacyjnego maszyny wirtualnej. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3.
 

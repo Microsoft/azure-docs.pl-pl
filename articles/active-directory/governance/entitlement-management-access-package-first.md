@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306518"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597510"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
 Zarządzanie dostępem do wszystkich zasobów wymaganych przez pracowników, takich jak grupy, aplikacje i lokacje, jest ważną funkcją dla organizacji. Aby udzielić pracownikom odpowiedniego poziomu dostępu, muszą one być produktywne i usuwać ich dostęp, gdy nie są już potrzebne.
 
-W tym samouczku będziesz używać banku Woodgrove jako administrator IT. Zażądano utworzenia pakietu zasobów dla kampanii marketingowej, którą użytkownicy wewnętrzni mogą zażądać samoobsługi. Żądania nie wymagają zatwierdzenia i dostęp użytkownika wygaśnie po upływie 30 dni. W tym samouczku zasoby kampanii marketingowej są tylko członkostwem w pojedynczej grupie, ale może to być Kolekcja grup, aplikacji lub witryn usługi SharePoint Online.
+W tym samouczku będziesz używać banku Woodgrove jako administrator IT. Zażądano utworzenia pakietu zasobów dla kampanii marketingowej, której mogą używać użytkownicy wewnętrzni do żądania samoobsługi. Żądania nie wymagają zatwierdzenia i dostęp użytkownika wygaśnie po upływie 30 dni. W tym samouczku zasoby kampanii marketingowej są tylko członkostwem w pojedynczej grupie, ale może to być Kolekcja grup, aplikacji lub witryn usługi SharePoint Online.
 
 ![Diagram przedstawiający Omówienie scenariusza.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -117,10 +117,14 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 11. Z listy rozwijanej **rola** wybierz **element członkowski**.
 
     ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles.png)
+    >[!IMPORTANT]
+    >Grupy przypisane do ról dodane do pakietu dostępu będą wskazywane przy użyciu podtypu, który można **przypisać do ról**. Aby uzyskać więcej informacji na temat grup, które można przypisać do ról usługi Azure AD, zapoznaj się z tematem [Tworzenie grupy umożliwiającej przypisanie roli](../users-groups-roles/roles-groups-create-eligible.md) w Azure Active Directory. Jeśli nie widzisz grupy, którą można przypisać, którą chcesz dodać, lub nie możesz jej dodać, upewnij się, że masz wymaganą rolę usługi Azure AD i rolę zarządzania uprawnieniami, aby wykonać tę operację. Może być konieczne poproszenie kogoś o wymagane role Dodaj zasób do katalogu. Aby uzyskać więcej informacji, zobacz [wymagane role do dodawania zasobów do wykazu](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > W przypadku korzystania z [grup dynamicznych](../users-groups-roles/groups-create-rule.md) nie będą widoczne żadne inne role, które nie są dostępne poza właścicielem. Jest to celowe.
     > ![Omówienie scenariusza](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    
+
 
 12. Kliknij przycisk **dalej** , aby otworzyć kartę **żądania** .
 

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 030677276fa077c06a95e7c677fec956b9c2a947
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556403"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598073"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
 
@@ -232,7 +232,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
         1.  Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.32.0.10**).
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
         1.  Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
     1.  Następnie Utwórz pulę zaplecza:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
@@ -245,7 +245,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
         1.  Wybierz pozycję TCP jako protokół i port 625**03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
     1.  Następnie utwórz reguły równoważenia obciążenia:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład **Hana-lb**).
@@ -253,7 +253,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Wybierz pozycję **porty ha**.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
 
 > [!NOTE] 
 > Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
@@ -263,7 +263,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **Hana-fronton**).
         1.  Ustaw **przypisanie** na **static** i wprowadź adres IP (na przykład **10.32.0.10**).
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
         1.  Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
     1.  Następnie Utwórz pulę zaplecza:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **Pule zaplecza**, a następnie wybierz pozycję **Dodaj**.
@@ -271,12 +271,12 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Wybierz pozycję **Dodaj maszynę wirtualną**.
         1.  Wybierz zestaw dostępności utworzony w kroku 3.
         1.  Wybierz Maszyny wirtualne klastra SAP HANA.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
     1.  Następnie utwórz sondę kondycji:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **sondy kondycji**, a następnie wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej sondy kondycji (na przykład **Hana-HP**).
         1.  Wybierz pozycję **TCP** jako protokół i port 625**03**. Pozostaw wartość **interwału** ustawioną na 5, a wartość **progowa złej kondycji** równa 2.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
     1.  W przypadku SAP HANA 1,0 Utwórz reguły równoważenia obciążenia:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
         1.  Wprowadź nazwę nowej reguły modułu równoważenia obciążenia (na przykład Hana-lb-3**03**15).
@@ -284,7 +284,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**15.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portu 3**03**17.
     1.  W przypadku SAP HANA 2,0 Utwórz reguły równoważenia obciążenia dla systemowej bazy danych:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
@@ -293,7 +293,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**13.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portu 3**03**14.
     1.  W przypadku SAP HANA 2,0 najpierw utwórz reguły równoważenia obciążenia dla bazy danych dzierżawcy:
         1.  Otwórz moduł równoważenia obciążenia, wybierz pozycję **reguły równoważenia obciążenia**i wybierz pozycję **Dodaj**.
@@ -302,7 +302,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
         1.  Pozostaw **Protokół** ustawiony na **TCP**i wprowadź port 3**03**40.
         1.  Zwiększ **limit czasu bezczynności** do 30 minut.
         1.  Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
-        1.  Kliknij przycisk **OK**.
+        1.  Wybierz przycisk **OK**.
         1.  Powtórz te kroki dla portów 3**03**41 i 3**03**42.
 
 Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapoznaj się z rozdziałem [połączenia z bazami danych dzierżawy](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) w Przewodniku obsługi [bazy danych dzierżaw SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub Uwaga [2388694](https://launchpad.support.sap.com/#/notes/2388694).
@@ -548,13 +548,18 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
 
     ```
     pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 7.x
     pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 8.x
+    pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     # Take the cluster out of maintenance mode
     sudo pcs property set maintenance-mode=false
     ```
 
    Sprawdź stan klastra i wszystkich zasobów
-
+   > [!NOTE]
+   > Ten artykuł zawiera odwołania do warunku *podrzędnego*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
+   
     ```
     sudo pcs status
     

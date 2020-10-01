@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333090"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596972"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,16 @@ Aby monitorować wydajność bazy danych w Azure SQL Database i wystąpieniu zar
 
 Azure SQL Database udostępnia wiele klasyfikatorów baz danych, które zapewniają inteligentne zalecenia dotyczące dostrajania wydajności i dostrajania automatycznego, aby zwiększyć wydajność. Ponadto w Szczegółowe informacje o wydajności zapytań przedstawiono szczegółowe informacje o zapytaniach odpowiedzialnych za większość użycia procesora CPU i we/wy dla baz danych z pojedynczym i w puli.
 
-Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewniają zaawansowane możliwości monitorowania i dostrajania obsługiwane przez sztuczną inteligencję, aby pomóc w rozwiązywaniu problemów i maksymalizacji wydajności baz danych i rozwiązań. Można skonfigurować [eksport przesyłania strumieniowego](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) tych [Intelligent Insights](intelligent-insights-overview.md) i innych dzienników zasobów bazy danych oraz metryki do jednego z kilku miejsc docelowych na potrzeby użycia i analizy, zwłaszcza przy użyciu [analizy SQL](../../azure-monitor/insights/azure-sql.md)). Azure SQL Analytics to zaawansowane rozwiązanie do monitorowania chmurowego do monitorowania wydajności wszystkich baz danych na dużą skalę i w wielu subskrypcjach w jednym widoku. Aby uzyskać listę dzienników i metryk, które można eksportować, zobacz dane [telemetryczne diagnostyki na potrzeby eksportu](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
+Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewniają zaawansowane możliwości monitorowania i dostrajania obsługiwane przez sztuczną inteligencję, aby pomóc w rozwiązywaniu problemów i maksymalizacji wydajności baz danych i rozwiązań. Można skonfigurować [eksport przesyłania strumieniowego](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) tych [Intelligent Insights](intelligent-insights-overview.md) i innych dzienników zasobów bazy danych oraz metryki do jednego z kilku miejsc docelowych na potrzeby użycia i analizy, zwłaszcza przy użyciu [analizy SQL](../../azure-monitor/insights/azure-sql.md). Azure SQL Analytics to zaawansowane rozwiązanie do monitorowania chmurowego do monitorowania wydajności wszystkich baz danych na dużą skalę i w wielu subskrypcjach w jednym widoku. Aby uzyskać listę dzienników i metryk, które można eksportować, zobacz dane [telemetryczne diagnostyki na potrzeby eksportu](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Na koniec SQL Server ma własne możliwości monitorowania i diagnostyki, które SQL Database i wykorzystanie wystąpienia zarządzanego przez SQL, takie jak [Magazyn zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) i [dynamiczne widoki zarządzania (widoków DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Aby monitorować wiele problemów z wydajnością, zobacz [monitorowanie za pomocą widoków DMV](monitoring-with-dmvs.md) .
+SQL Server ma własne możliwości monitorowania i diagnostyki, które SQL Database i wykorzystanie wystąpienia zarządzanego przez SQL, takie jak [Magazyn zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) i [dynamiczne widoki zarządzania (widoków DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Aby monitorować wiele problemów z wydajnością, zobacz [monitorowanie za pomocą widoków DMV](monitoring-with-dmvs.md) .
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Możliwości monitorowania i dostrajania w Azure Portal
 
-W Azure Portal, Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewniają monitorowanie metryk zasobów. Ponadto Azure SQL Database dostarcza klasyfikatorów baz danych, a Szczegółowe informacje o wydajności zapytań udostępnia zalecenia dotyczące dostrajania zapytań i analizy wydajności zapytań. Na koniec Azure Portal można włączyć automatyczne dla [logicznych serwerów SQL](logical-servers.md) i ich baz danych w puli.
+W Azure Portal, Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewniają monitorowanie metryk zasobów. Azure SQL Database zapewnia klasyfikatory baz danych, a Szczegółowe informacje o wydajności zapytań udostępnia zalecenia dotyczące dostrajania zapytań i analizy wydajności zapytań. W Azure Portal można włączyć dostrajanie automatyczne dla [logicznych serwerów SQL](logical-servers.md) i ich pojedyncze i w puli baz danych.
+
+> [!NOTE]
+> Bazy danych z bardzo niskim użyciem mogą być widoczne w portalu z mniejszą ilością niż rzeczywiste użycie. Ze względu na sposób, w jaki dane telemetryczne są emitowane podczas konwersji wartości podwójnej do najbliższej liczby całkowitej, niektóre wartości użycia mniejsze niż 0,5 będą zaokrąglane do 0, co powoduje utratę stopnia szczegółowości emitowanych danych telemetrycznych. Aby uzyskać szczegółowe informacje, zobacz [metryki niska baza danych i Pula elastyczna zaokrąglanie do zera](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Azure SQL Database i monitorowanie zasobów wystąpienia zarządzanego usługi Azure SQL
 
@@ -46,6 +49,33 @@ Azure SQL Database obejmuje [klasyfikatory baz danych](database-advisor-implemen
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Szczegółowe informacje o wydajności zapytań w Azure SQL Database
 
 [Szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md) przedstawia wydajność w Azure Portal z góry i najdłuższych uruchomionych zapytań dla baz danych w jednej i w puli.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Metryki niskiej bazy danych i puli elastycznej zaokrąglania do zera
+
+Począwszy od września 2020, bazy danych o bardzo niskim wykorzystaniu mogą być widoczne w portalu i mniejsze niż rzeczywiste użycie. Ze względu na sposób, w jaki dane telemetryczne są emitowane podczas konwersji wartości podwójnej do najbliższej liczby całkowitej, niektóre wartości użycia mniejsze niż 0,5 będą zaokrąglane do 0, co powoduje utratę stopnia szczegółowości emitowanych danych telemetrycznych.
+
+Na przykład: należy wziąć pod uwagę 1-minutowy okno z następującymi czterema punktami danych: 0,1, 0,1, 0,1, 0,1, te niskie wartości są zaokrąglane w dół do 0, 0, 0, 0, i stanowią średnią 0. Jeśli którykolwiek z punktów danych jest większy niż 0,5, na przykład: 0,1, 0,1, 0,9, 0,1, są zaokrąglane do 0, 0, 1, 0 i Pokaż średnią z 0,25.
+
+Metryki bazy danych, których to dotyczy:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Metryki elastycznej puli, których to dotyczy:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Generuj inteligentne oceny problemów z wydajnością
 

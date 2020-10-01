@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019737"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596937"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -35,6 +35,9 @@ Ten scentralizowany model wdrożenia ma następujące zalety:
 - Dane ze wszystkich źródeł danych i łączników danych, które są zintegrowane z platformą Azure (np. dzienniki aktywności usługi Azure AD, dzienniki pakietu Office 365 lub alerty ochrony przed zagrożeniami firmy Microsoft), pozostaną w ramach każdej dzierżawy klienta.
 - Zmniejsza opóźnienia sieci.
 - Łatwe dodawanie lub usuwanie nowych podmiotów zależnych lub klientów.
+
+> [!NOTE]
+> Można zarządzać delegowanymi zasobami, które znajdują się w różnych [regionach](../../availability-zones/az-overview.md#regions). Jednak delegowanie subskrypcji w [chmurze krajowej](../../active-directory/develop/authentication-national-cloud.md) oraz w chmurze publicznej platformy Azure lub w dwóch oddzielnych chmurach narodowych nie jest obsługiwane.
 
 ## <a name="granular-role-based-access-control-rbac"></a>Szczegółowa kontrola dostępu oparta na rolach (RBAC)
 

@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
-ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461142"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598263"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: korzystanie z programu SSMS do nawiązywania połączenia z usługą i zapytań Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="connect-to-your-database"></a>Nawiązywanie połączenia z bazą danych
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 W programie SSMS Połącz się z serwerem.
 
 > [!IMPORTANT]
@@ -85,7 +87,7 @@ W programie SSMS Połącz się z serwerem.
    ![łączenie z serwerem](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> W tym samouczku użyto uwierzytelniania SQL Server.  Jednak w celu nawiązania połączenia za pośrednictwem Azure Active Directory z usługą MFA upewnij się, że korzystasz z programu [SSMS 18,6 lub nowszego](https://aka.ms/ssms). 
+> W tym samouczku użyto uwierzytelniania SQL Server.
 
 3. Wybierz pozycję **Opcje** w oknie dialogowym **Połącz z serwerem**. Z menu rozwijanego **Połącz z bazą danych** wybierz pozycję **mojaPrzykladowaBazaDanych**. Ukończenie szybkiego startu w [sekcji wymagania wstępne](#prerequisites) powoduje utworzenie bazy danych AdventureWorksLT o nazwie mySampleDatabase. Jeśli robocza kopia bazy danych AdventureWorks ma inną nazwę niż mySampleDatabase, zaznacz ją.
 

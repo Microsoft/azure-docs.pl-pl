@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336041"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597709"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Naprawianie maszyny wirtualnej z systemem Windows za pomocą poleceń naprawiania maszyny wirtualnej platformy Azure
 
@@ -43,7 +43,7 @@ Wykonaj następujące kroki, aby rozwiązać problem z maszyną wirtualną:
 1. Uruchamianie usługi Azure Cloud Shell
 2. Uruchom AZ Extension Add/Update.
 3. Uruchom AZ VM Repair Create.
-4. Uruchom AZ VM Repair Run.
+4. Uruchom polecenie AZ VM Repair Run lub wykonaj kroki zaradcze.
 5. Uruchom AZ VM Repair Restore.
 
 Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -60,7 +60,7 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/a
 
    Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie ``az --version``, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić interfejs wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
    
-   Jeśli zachodzi potrzeba zalogowania się do Cloud Shell przy użyciu innego konta niż obecnie zalogowano się do Azure Portal za pomocą programu ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Aby przełączać się między subskrypcjami skojarzonymi z Twoim kontem, możesz użyć ``az account set --subscription`` [AZ Account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Jeśli zachodzi potrzeba zalogowania się do Cloud Shell przy użyciu innego konta niż obecnie zalogowano się do Azure Portal za pomocą programu ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Aby przełączać się między subskrypcjami skojarzonymi z Twoim kontem, możesz użyć ``az account set --subscription`` [AZ Account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Jeśli używasz poleceń po raz pierwszy `az vm repair` , Dodaj rozszerzenie interfejsu wiersza polecenia maszyny wirtualnej do naprawy.
 
@@ -80,11 +80,13 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](/cli/a
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. Uruchom polecenie `az vm repair run`. To polecenie spowoduje uruchomienie określonego skryptu naprawy na dołączonym dysku za pośrednictwem maszyny wirtualnej naprawy. Jeśli używasz przewodnika rozwiązywania problemów z określonym identyfikatorem uruchomienia, użyj go tutaj. w przeciwnym razie możesz użyć, `az vm repair list-scripts` Aby zobaczyć dostępne skrypty naprawy. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3.
+4. Uruchom polecenie `az vm repair run`. To polecenie spowoduje uruchomienie określonego skryptu naprawy na dołączonym dysku za pośrednictwem maszyny wirtualnej naprawy. Jeśli używasz przewodnika rozwiązywania problemów z określonym identyfikatorem uruchomienia, użyj go tutaj. w przeciwnym razie możesz użyć, `az vm repair list-scripts` Aby zobaczyć dostępne skrypty naprawy. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3. Dodatkowe informacje o skryptach naprawczych można znaleźć w [bibliotece skryptów naprawy](https://github.com/Azure/repair-script-library).
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   Opcjonalnie można wykonać wszystkie wymagane kroki zaradcze ręcznie przy użyciu maszyny wirtualnej naprawy, a następnie przejść do kroku 5.
 
 5. Uruchom polecenie `az vm repair restore`. To polecenie spowoduje zamianę naprawionego dysku systemu operacyjnego na oryginalny dysk systemu operacyjnego maszyny wirtualnej. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3.
 

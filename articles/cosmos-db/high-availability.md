@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak Azure Cosmos DB zapewnia wysoką dostę
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570793"
+ms.locfileid: "91597283"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność? 
 
@@ -81,9 +81,6 @@ Podczas konfigurowania wieloregionowych zapisów dla konta usługi Azure Cosmos 
 
 Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, zachodnie stany USA 2, Japonia Wschodnia, Europa Północna, Francja środkowa, Australia Wschodnia, Wschodnie stany USA 2 — euap* regiony.
 
-> [!NOTE]
-> Włączenie Strefy dostępności dla jednego regionu konta platformy Azure Cosmos spowoduje naliczenie opłat, które są równoznaczne z dodaniem dodatkowego regionu do konta. Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) oraz [Koszt dla wieloregionu w](optimize-cost-regions.md) artykułach Azure Cosmos DB.
-
 Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różnych konfiguracji konta:
 
 |KPI  |Pojedynczy region bez Strefy dostępności (nie AZ)  |Pojedynczy region z Strefy dostępności (AZ)  |Zapisy w wielu regionach z Strefy dostępności (AZ, 2 regiony) — najbardziej zalecanym ustawieniem |
@@ -97,7 +94,7 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |Opóźnienie zapisu | Między regionami | Między regionami | Niski |
 |Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Utrata danych <br/><br/> W przypadku używania ograniczonej spójności niezgodności z wieloma regionami zapisu i więcej niż jednym regionem utrata danych jest ograniczona do ograniczenia nieaktualnego skonfigurowanego na Twoim koncie. <br /><br />Można uniknąć utraty danych podczas regionalnej awarii, konfigurując silną spójność z wieloma regionami. Ta opcja ma wpływ na dostępność i wydajność. Można ją skonfigurować tylko na kontach, które są skonfigurowane do zapisu w jednym regionie. |
 |Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności |
-|Przepływność | X RU/s zainicjowana przepływność | X RU/s zainicjowana przepływność | przepustowość z obsługą jednostki RU/s <br/><br/> Ten tryb konfiguracji wymaga dwukrotnej ilości przepływności w porównaniu do jednego regionu z Strefy dostępności, ponieważ istnieją dwa regiony. |
+|Przepływność | X RU/s zainicjowana przepływność | X RU/s alokowanej przepływności * 1,25 | przepustowość z obsługą jednostki RU/s <br/><br/> Ten tryb konfiguracji wymaga dwukrotnej ilości przepływności w porównaniu do jednego regionu z Strefy dostępności, ponieważ istnieją dwa regiony. |
 
 > [!NOTE]
 > Aby włączyć obsługę strefy dostępności dla konta usługi Azure Cosmos dla regionu wieloregionowego, konto musi mieć włączone zapisywanie zapisów w ramach wieloregionu.

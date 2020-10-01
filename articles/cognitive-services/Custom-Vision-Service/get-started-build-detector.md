@@ -1,25 +1,27 @@
 ---
-title: Przewodnik Szybki Start dotyczący tworzenia detektora obiektów — Custom Vision Service
+title: 'Szybki Start: Tworzenie detektora obiektów przy użyciu witryny sieci Web Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć model czujnika obiektów przy użyciu witryny sieci Web Custom Vision.
+description: W tym przewodniku szybki start dowiesz się, jak używać witryny sieci Web Custom Vision do tworzenia, uczenia i testowania modelu czujnika obiektów.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: cog-serv-seo-aug-2020
+keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602867"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596887"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Szybki Start: jak utworzyć detektor obiektów przy użyciu Custom Vision
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Szybki Start: Tworzenie detektora obiektów przy użyciu witryny sieci Web Custom Vision
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć detektor obiektów za pomocą witryny sieci Web Custom Vision. Po skompilowaniu modelu można testować za pomocą nowych obrazów i po pewnym czasie zintegrować go z własnym oprogramowaniem do rozpoznawania obrazu.
+W tym przewodniku szybki start dowiesz się, jak utworzyć model czujnika obiektów przy użyciu witryny sieci Web Custom Vision. Po skompilowaniu modelu można przetestować go przy użyciu nowych obrazów i ostatecznie zintegrować go z własną aplikacją rozpoznawania obrazu.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -51,7 +53,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 
 1. Następnie wybierz jedną z dostępnych domen. Każda domena optymalizuje detektor dla określonych typów obrazów, zgodnie z opisem w poniższej tabeli. Jeśli chcesz, będziesz mieć możliwość późniejszej zmiany domeny.
 
-    |Domena|Przeznaczenie|
+    |Obszar|Przeznaczenie|
     |---|---|
     |__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań wykrywania obiektów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną. |
     |__Logo__|Optymalizacja pod kątem znajdowania logo marki w obrazach.|

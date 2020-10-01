@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b636c1b01bb3b4a8a4ab285c812d04dedfcc966
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 450bd87c6dd1f55c58f4c8a620dbddcfdf42ec7f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536328"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596543"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -82,6 +82,7 @@ W tej sekcji znajdują się informacje dotyczące konfigurowania logowania jedno
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 09/30/2020: zmiana [wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure w systemie RHEL](./sap-hana-high-availability-rhel.md), [ha dla SAP HANA skalowanie w górę z ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) i [Konfigurowanie Pacemaker na RHEL na platformie Azure w](./high-availability-guide-rhel-pacemaker.md) celu dostosowania instrukcji dla RHEL 8,1
 - 09/28/2020: Dodawanie nowego przewodnika operacji magazynu dla SAP HANA przy użyciu Azure NetApp Files z dokumentami [systemu plików NFS v 4.1 w Azure NetApp Files dla SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 09/23/2020: Dodaj nowe certyfikowane jednostki SKU dla elementu HLI w dostępnych jednostkach [SKU dla elementu HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/20/2020: zmiany w dokumentach [dotyczące wdrażania systemu azure Virtual Machines DBMS dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), [SQL Server Azure Virtual Machines DBMS wdrożenia dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver), [Azure Virtual Machines wdrożenia Oracle DBMS dla obciążenia SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle), programu [IBM DB2 Azure Virtual Machines wdrożenia systemu DBMS dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) , aby dostosować do nowej sugestii konfiguracyjnej, która zaleca rozdzielenie plików binarnych DBMS i plików binarnych oprogramowania SAP na różne dyski platformy Azure. Należy również dodać zalecenia dotyczące programu Ultra Disk do różnych przewodników.

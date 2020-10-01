@@ -3,12 +3,12 @@ title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537954"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596036"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -46,7 +46,37 @@ Oceny przypisanych zasad i inicjatyw odbywają się w wyniku różnych zdarzeń:
 
 ### <a name="on-demand-evaluation-scan"></a>Skanowanie oceny na żądanie
 
-Skanowanie w celu oceny subskrypcji lub grupy zasobów można rozpocząć przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub wywołania interfejsu API REST. To skanowanie jest procesem asynchronicznym.
+Skanowanie w celu oceny subskrypcji lub grupy zasobów można rozpocząć przy użyciu interfejsu wiersza polecenia platformy Azure, Azure PowerShell, wywołania interfejsu API REST lub za pomocą [akcji GitHub skanowania zgodności Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+To skanowanie jest procesem asynchronicznym.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>Skanowanie oceny na żądanie — akcja GitHub
+
+[Akcja skanowania zgodności Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) służy do wyzwalania skanowania oceny na żądanie z [przepływu pracy](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) w usłudze GitHub w przypadku jednego lub wielu zasobów, grup zasobów lub subskrypcji, a także Brama przepływu pracy na podstawie stanu zgodności zasobów. Możesz również skonfigurować przepływ pracy do uruchamiania w zaplanowanym czasie, aby uzyskać najnowszy stan zgodności w dogodnym czasie. Opcjonalnie ta akcja usługi GitHub może generować raport dotyczący stanu zgodności skanowanych zasobów na potrzeby dalszej analizy lub do archiwizacji.
+
+W poniższym przykładzie uruchomiono skanowanie zgodności dla subskrypcji. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Aby uzyskać więcej informacji i przykładów przepływu pracy, zobacz [akcję GitHub dla repozytorium skanowania zgodności Azure Policy](https://github.com/Azure/policy-compliance-scan).
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Skanowanie oceny na żądanie — interfejs wiersza polecenia platformy Azure
 

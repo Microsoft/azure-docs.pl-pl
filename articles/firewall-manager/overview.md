@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 09/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399452"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596688"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -89,6 +89,7 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Reguły aplikacji nie działają w bezpiecznym centrum z skonfigurowanym niestandardowym systemem DNS (wersja zapoznawcza).|Niestandardowy system DNS (wersja zapoznawcza) nie działa w ramach bezpiecznych wdrożeń centrum i wdrożeń sieci wirtualnych centrum, w których włączono tunelowanie wymuszone.|Rozwiązywanie problemu.|
 |Standard DDoS Protection nie jest obsługiwany z bezpiecznymi centrami wirtualnymi|Standard DDoS Protection nie jest zintegrowany z vWANs.|Badanie|
 |Dzienniki aktywności nie są w pełni obsługiwane|Zasady zapory nie obsługują obecnie dzienników aktywności.|Badanie|
+|Konfigurowanie zakresów prywatnych adresów IP współdziałania|[Ustawienia prywatnych zakresów adresów IP](../firewall/snat-private-range.md) są ignorowane, jeśli skonfigurowano zasady zapory platformy Azure. Używane jest domyślne zachowanie zapory platformy Azure, w którym nie są stosowane reguły sieciowe dotyczące protokołu IPSec, gdy docelowy adres IP należy do prywatnego zakresu adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Badanie
 
 ## <a name="next-steps"></a>Następne kroki
 

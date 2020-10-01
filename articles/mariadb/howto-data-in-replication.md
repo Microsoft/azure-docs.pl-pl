@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 6836461e9f1d4f14bc39161a99ad9d151caafaa5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540799"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598205"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
@@ -54,9 +54,40 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
 1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera głównego](concepts-data-in-replication.md#requirements) . 
 
-   Na przykład upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 i że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
+2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
    
    Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dostępnego w Azure Portal.
+
+   Jeśli Twoja organizacja ma rygorystyczne zasady zabezpieczeń i nie zezwoli na wszystkie adresy IP na serwerze źródłowym, aby umożliwić komunikację z platformą Azure z serwerem źródłowym, możesz użyć poniższego polecenia, aby określić adres IP serwera Azure Database for MariaDB.
+    
+   1. Zaloguj się do Azure Database for MariaDB przy użyciu narzędzia, takiego jak MySQL Command-line.
+   2. Wykonaj poniższe zapytanie.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Poniżej przedstawiono przykładowe dane wyjściowe:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Wyjdź z wiersza polecenia MySQL.
+   4. Wykonaj poniższe czynności w narzędziu ping, aby uzyskać adres IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Na przykład: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Skonfiguruj reguły zapory serwera źródłowego w taki sposób, aby obejmowały adres IP przedniego poprzedniego kroku w porcie 3306.
+
+   > [!NOTE]
+   > Ten adres IP może ulec zmianie z powodu operacji konserwacji/wdrażania. Ta metoda łączności jest tylko dla klientów, którzy nie mogą udzielić zezwolenia na wszystkie adresy IP na porcie 3306.
 
 2. Włącz rejestrowanie plików binarnych.
     

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener, Kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461210"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597446"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
@@ -58,9 +58,9 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 | Usługa | Obsługiwana warstwa cenowa | Kontener | Opis |
 |--|--|--|--|
 | [Wykrywacz anomalii][ad-containers] | F0, S0 | **Anomalia — detektor** ([obraz](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych przy użyciu uczenia maszynowego.<br>[Żądanie dostępu][request-access] |
-| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Przeczytaj** | Wyodrębnia drukowany tekst z obrazów różnych obiektów z różnymi powierzchniami i tłem, takimi jak paragony, plakaty i wizytówki. Kontener odczytu wykrywa także *Tekst odręczny* w obrazach i zapewnia obsługę formatu PDF/TIFF/wielostronicowej.<br/><br/>**Ważne:** Kontener odczytu jest obecnie stosowany tylko w języku angielskim. |
-| [Rozpoznawanie twarzy][fa-containers] | F0, S0 | **Rozpoznawanie twarzy** | Wykrywa ludzkie twarze w obrazach i identyfikuje atrybuty, w tym dzielnice twarzy (takie jak nos i oczy), płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny pewności, czy też można porównać twarze z bazą danych, aby zobaczyć, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.<br>[Żądanie dostępu][request-access] |
-| [Aparat rozpoznawania formularzy][fr-containers] | F0, S0 | **Rozpoznawanie formularzy** | Zrozumienie formularza stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy.<br>[Żądanie dostępu][request-access] |
+| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Przeczytaj** OCR ([obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Kontener OCR do odczytu umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](./computer-vision/concept-recognizing-text.md).<br>[Żądanie dostępu][request-access] |
+| [Rozpoznawanie twarzy][fa-containers] | F0, S0 | **Rozpoznawanie twarzy** | Wykrywa ludzkie twarze w obrazach i identyfikuje atrybuty, w tym dzielnice twarzy (takie jak nos i oczy), płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny pewności, czy też można porównać twarze z bazą danych, aby zobaczyć, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych. |
+| [Aparat rozpoznawania formularzy][fr-containers] | F0, S0 | **Rozpoznawanie formularzy** | Zrozumienie formularza stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy. |
 | [LUIS][lu-containers] | F0, S0 | **Luis** ([obraz](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Ładuje przeszkolony lub opublikowany model Language Understanding, znany również jako aplikacja LUIS, do kontenera Docker i zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera. Można zebrać dzienniki zapytań z kontenera i przekazać je z powrotem do [portalu Luis](https://www.luis.ai) , aby zwiększyć dokładność przewidywania aplikacji. |
 | [Interfejs API usługi rozpoznawania mowy][sp-containers-stt] | F0, S0 | **Zamiana mowy na tekst** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Przekształca w czasie rzeczywistym ciągłą mowę na tekst. |
 | [Interfejs API usługi rozpoznawania mowy][sp-containers-cstt] | F0, S0 | **Custom Speech do tekstu** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Przekształca ciągłe używanie mowy w czasie rzeczywistym do tekstu przy użyciu modelu niestandardowego. |

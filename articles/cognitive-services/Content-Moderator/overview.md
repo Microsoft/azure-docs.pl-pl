@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-keywords: Content moderator, Azure Content moderator, moderator online, oprogramowanie do filtrowania zawartości, usługa Content moderatoring
-ms.openlocfilehash: d502f41a79500b80e1891219b54bde30eb3cd8ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: Content moderator, Azure Content moderator, moderator online, oprogramowanie do filtrowania zawartości, usługa moderowania treści, moderowanie zawartości
+ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309658"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596855"
 ---
 # <a name="what-is-azure-content-moderator"></a>Czym jest usługa Azure Content Moderator?
 

@@ -11,42 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 79399d0890f61d723f371528408d226f6a192ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336500"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595643"
 ---
 # <a name="outbound-connections"></a>Połączenia wychodzące
 
 Azure Load Balancer zapewnia łączność wychodzącą za pośrednictwem różnych mechanizmów. W tym artykule opisano scenariusze i sposoby zarządzania nimi. 
 
-## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Omówienie scenariusza połączeń wychodzących
 
-Terminy używane w tych scenariuszach. Aby uzyskać więcej informacji, zobacz [terminologia](#terms):
+## <a name="scenarios"></a>Scenariusze
 
-* [Translator adresów sieciowych (Resources)](#snat)
-* [Zamaskowane portów](#pat)
-* Transmission Control Protocol (TCP)
-* User Datagram Protocol (UDP)
-* Translator adresów sieciowych
-* Protokół komunikatów kontroli Internetu
-* Hermetyzacja protokołu zabezpieczeń
+* Maszyna wirtualna z publicznym adresem IP.
+* Maszyna wirtualna bez publicznego adresu IP.
+* Maszyna wirtualna bez publicznego adresu IP i bez standardowej usługi równoważenia obciążenia.
 
-### <a name="scenarios"></a>Scenariusze
-
-* [Scenariusz 1](#scenario1) — maszyna wirtualna z publicznym adresem IP.
-* [Scenariusz 2](#scenario2) — maszyna wirtualna bez publicznego adresu IP.
-* [Scenariusz 3](#scenario3) — maszyna wirtualna bez publicznego adresu IP i bez standardowej usługi równoważenia obciążenia.
-
-### <a name="scenario-1---virtual-machine-with-public-ip"></a><a name="scenario1"></a>Scenariusz 1 — maszyna wirtualna z publicznym adresem IP
+### <a name="virtual-machine-with-public-ip"></a><a name="scenario1"></a>Maszyna wirtualna z publicznym adresem IP
 
 | Związku | Metoda | Protokoły IP |
 | ---------- | ------ | ------------ |
-| Publiczny moduł równoważenia obciążenia lub autonomiczny | [SNAT](#snat) </br> Nie użyto [zamaskowanego portu](#pat) . | TCP </br> UDP </br> ICMP </br> ESP |
+| Publiczny moduł równoważenia obciążenia lub autonomiczny | [Resourceer (translator adresów sieciowych)](#snat) </br> Niepoprawna [(obiekt maskujący)](#pat) nie jest używany. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Hermetyzowanie ładunku zabezpieczeń) |
 
 #### <a name="description"></a>Opis
 
@@ -54,11 +43,11 @@ Platforma Azure używa publicznego adresu IP przypisanego do konfiguracji protok
 
 Publiczny adres IP przypisany do maszyny wirtualnej jest relacją 1:1 (a nie 1: wiele) i zaimplementowaną jako bezstanowe urządzenie NAT 1:1.
 
-### <a name="scenario-2---virtual-machine-without-public-ip"></a><a name="scenario2"></a>Scenariusz 2 — maszyna wirtualna bez publicznego adresu IP
+### <a name="virtual-machine-without-public-ip"></a><a name="scenario2"></a>Maszyna wirtualna bez publicznego adresu IP
 
 | Związku | Metoda | Protokoły IP |
 | ------------ | ------ | ------------ |
-| Publiczny moduł równoważenia obciążenia | Użycie usługi równoważenia obciążenia frontonu dla [elementu](#snat) [reportowego z zamaskowanem portu (Binding)](#pat).| TCP </br> UDP |
+| Publiczny moduł równoważenia obciążenia | Korzystanie z frontonu modułu równoważenia obciążenia [dla](#snat) elementu [reportowego z magazynem (podszywającanie portów)](#pat).| TCP </br> UDP |
 
 #### <a name="description"></a>Opis
 
@@ -74,7 +63,7 @@ Porty tymczasowe publicznego adresu IP frontonu modułu równoważenia obciąże
 
 W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Porty przydziałów adresów sieciowych są wstępnie przydzielone zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
 
-### <a name="scenario-3---virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a> Scenariusz 3 — maszyna wirtualna bez publicznego adresu IP i bez usługi równoważenia obciążenia w warstwie Standardowa
+### <a name="virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a>Maszyna wirtualna bez publicznego adresu IP i bez usługi równoważenia obciążenia w warstwie Standardowa
 
 | Związku | Metoda | Protokoły IP |
 | ------------ | ------ | ------------ |
@@ -82,7 +71,7 @@ W tym kontekście porty, które są używane do przystawcy adresów sieciowych, 
 
 #### <a name="description"></a>Opis
 
-Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy źródłowy adres IP przepływu wychodzącego na publiczny źródłowy adres IP. Ten publiczny adres IP **nie jest konfigurowalny** i nie można go zarezerwować. Ten adres nie jest liczony pod względem limitu zasobów publicznego adresu IP subskrypcji. 
+Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy źródłowy adres IP na publiczny adres IP. Ten publiczny adres IP **nie jest konfigurowalny** i nie można go zarezerwować. Ten adres nie jest liczony pod względem limitu zasobów publicznego adresu IP subskrypcji. 
 
 Publiczny adres IP zostanie wywnioskowany, a w przypadku ponownego wdrożenia: 
 
@@ -136,7 +125,7 @@ Zmiana rozmiaru puli zaplecza może mieć wpływ na niektóre ustanowione przep�
 > [!NOTE]
 > **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych w sieci wirtualnej.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
 
-Masz pełną kontrolę deklaratywną nad łącznością wychodzącą, która umożliwia skalowanie i dostosowanie tej możliwości do Twoich potrzeb. Ta sekcja rozwija scenariusz 2, jak opisano powyżej.
+Masz pełną kontrolę deklaratywną nad łącznością wychodzącą, która umożliwia skalowanie i dostosowanie tej możliwości do Twoich potrzeb.
 
 ![Reguły ruchu wychodzącego modułu równoważenia obciążenia](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -196,24 +185,20 @@ Czasami jest niepożądane, aby maszyna wirtualna mogła utworzyć przepływ wyc
 
 Po zastosowaniu sieciowej grupy zabezpieczeń do maszyny wirtualnej z równoważeniem obciążenia należy zwrócić uwagę na [Tagi usługi](../virtual-network/security-overview.md#service-tags) i [domyślne reguły zabezpieczeń](../virtual-network/security-overview.md#default-security-rules). Upewnij się, że maszyna wirtualna może odbierać żądania sondowania kondycji z Azure Load Balancer.
 
-Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyślnego tagu AZURE_LOADBALANCER, sonda kondycji maszyny wirtualnej kończy się niepowodzeniem, a maszyna wirtualna jest oznaczona jako wyłączona. Load Balancer przestaje wysyłać Nowe przepływy do tej maszyny wirtualnej.
+Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyślnego tagu AZURE_LOADBALANCER, sonda kondycji maszyny wirtualnej kończy się niepowodzeniem, a maszyna wirtualna zostanie oznaczona jako niedostępna. Load Balancer przestaje wysyłać Nowe przepływy do tej maszyny wirtualnej.
 
 ## <a name="scenarios-with-outbound-rules"></a>Scenariusze z regułami ruchu wychodzącego
 
 ### <a name="outbound-rules-scenarios"></a>Scenariusze reguł ruchu wychodzącego
 
-* [Scenariusz 1](#scenario1out) — Konfigurowanie połączeń wychodzących do określonego zestawu publicznych adresów IP lub prefiksu.
-* [Scenariusz 2](#scenario2out) — modyfikowanie alokacji portów podrzędnego kodu [źródłowego](#snat) .
-* [Scenariusz 3](#scenario3out) — Włącz tylko wychodzące.
-* [Scenariusz 4](#scenario4out) — wychodzące NAT dla maszyn wirtualnych (bez ruchu przychodzącego).
-* [Scenariusz 5](#scenario5out) — wychodzące NAT dla wewnętrznego modułu równoważenia obciążenia.
-* [Scenariusz 6](#scenario6out) — włączenie protokołów UDP & TCP dla ruchu wychodzącego NAT za pomocą publicznego standardowego modułu równoważenia obciążenia.
+* Skonfiguruj połączenia wychodzące do określonego zestawu publicznych adresów IP lub prefiksu.
+* Modyfikowanie [alokacji](#snat) portów dla tego obiektu.
+* Włącz tylko ruch wychodzący.
+* Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego).
+* Wychodzące NAT dla wewnętrznego modułu równoważenia obciążenia.
+* Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT przy użyciu publicznego standardowego modułu równoważenia obciążenia.
 
-### <a name="scenario-1"></a><a name="scenario1out"></a>Scenariusz 1
-
-| Scenariusz |
-| -------- |
-| Konfigurowanie połączeń wychodzących do określonego zestawu publicznych adresów IP lub prefiksu|
+### <a name="configure-outbound-connections-to-a-specific-set-of-public-ips-or-prefix"></a><a name="scenario1out"></a>Konfigurowanie połączeń wychodzących do określonego zestawu publicznych adresów IP lub prefiksu
 
 #### <a name="details"></a>Szczegóły
 
@@ -229,11 +214,7 @@ Aby użyć innego publicznego adresu IP lub prefiksu niż używany przez reguł�
 4. Ponowne użycie puli zaplecza lub utworzenie puli zaplecza i umieszczenie maszyn wirtualnych w puli zaplecza publicznego modułu równoważenia obciążenia
 5. Skonfiguruj regułę ruchu wychodzącego w publicznym module równoważenia obciążenia, aby włączyć wychodzące NAT dla maszyn wirtualnych przy użyciu frontonu. Jeśli nie chcesz, aby reguła równoważenia obciążenia była używana dla ruchu wychodzącego, wyłącz wychodzący program do odczytu z reguły równoważenia obciążenia.
 
-### <a name="scenario-2"></a><a name="scenario2out"></a>Scenariusz 2
-
-| Scenariusz |
-| -------- |
-| Modyfikuj [przydział](#snat) portu dla współdzielonego |
+### <a name="modify-snat-port-allocation"></a><a name="scenario2out"></a>Modyfikuj [przydział](#snat) portu dla współdzielonego
 
 #### <a name="details"></a>Szczegóły
 
@@ -251,26 +232,18 @@ Jeśli podjęto próbę przyznania [więcej portów](#snat) protokołu reportowe
 
 W przypadku nadania 10 000 portów na maszynę wirtualną i siedmiu maszyn wirtualnych w puli zaplecza mają jeden publiczny adres IP, konfiguracja zostanie odrzucona. Siedem pomnożone przez 10 000 przekracza limit portów 64 000. Dodaj więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego, aby włączyć scenariusz. 
 
-Przywróć [domyślną alokację portu](load-balancer-outbound-connections.md#preallocatedports) , określając wartość 0 dla liczby portów. Pierwsze wystąpienie maszyny wirtualnej 50 spowoduje uzyskanie portów 1024 51-100, a w przypadku wystąpienia maszyn wirtualnych zostanie 512 wyświetlonych co najwyżej Maksymalna liczba wystąpień.  Aby uzyskać więcej informacji na temat domyślnej alokacji portów podrzędnego adresów sieciowych, zobacz [powyżej](#snatporttable).
+Przywróć [domyślną alokację portu](load-balancer-outbound-connections.md#preallocatedports) , określając wartość 0 dla liczby portów. Pierwsze wystąpienie maszyny wirtualnej 50 spowoduje uzyskanie portów 1024 51-100, a w przypadku wystąpienia maszyn wirtualnych zostanie 512 wyświetlonych co najwyżej Maksymalna liczba wystąpień.  Aby uzyskać więcej informacji na temat domyślnego przydzielania portów adresów sieciowych, zobacz [tabela alokacji portów przydziałów](#snatporttable).
 
-### <a name="scenario-3"></a><a name="scenario3out"></a>Scenariusz 3
-
-| Scenariusz |
-| -------- |
-| Włącz tylko wychodzące |
+### <a name="enable-outbound-only"></a><a name="scenario3out"></a>Włącz tylko wychodzące
 
 #### <a name="details"></a>Szczegóły
 
-Możesz użyć publicznego, standardowego modułu równoważenia obciążenia, aby zapewnić wychodzące NAT dla grupy maszyn wirtualnych. W tym scenariuszu należy użyć reguły ruchu wychodzącego, bez konieczności stosowania dodatkowych reguł.
+Użyj publicznego, standardowego modułu równoważenia obciążenia, aby zapewnić wychodzące NAT dla grupy maszyn wirtualnych. W tym scenariuszu należy użyć reguły ruchu wychodzącego, bez konieczności stosowania dodatkowych reguł.
 
 > [!NOTE]
 > **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych bez potrzeby modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
 
-### <a name="scenario-4"></a><a name="scenario4out"></a>Scenariusz 4
-
-| Scenariusz |
-| -------- |
-| Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego) |
+### <a name="outbound-nat-for-vms-only-no-inbound"></a><a name="scenario4out"></a>Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego)
 
 > [!NOTE]
 > **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych bez potrzeby modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
@@ -288,11 +261,7 @@ W tym scenariuszu:
 
 Użyj prefiksu lub publicznego adresu IP do [skalowania](#snat) portów. Dodaj źródło połączeń wychodzących do listy dozwolonych lub zablokowanych.
 
-### <a name="scenario-5"></a><a name="scenario5out"></a>Scenariusz 5
-
-| Scenariusz |
-| -------- |
-| Wychodzące NAT dla wewnętrznej usługi równoważenia obciążenia w warstwie Standardowa |
+### <a name="outbound-nat-for-internal-standard-load-balancer"></a><a name="scenario5out"></a>Wychodzące NAT dla wewnętrznej usługi równoważenia obciążenia w warstwie Standardowa
 
 > [!NOTE]
 > **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych korzystających z wewnętrznego, standardowego modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
@@ -304,11 +273,7 @@ Użyj prefiksu lub publicznego adresu IP do [skalowania](#snat) portów. Dodaj �
 Aby uzyskać więcej informacji, zobacz [Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/egress-only).
 
 
-### <a name="scenario-6"></a><a name="scenario6out"></a>Scenariusz 6
-
-| Scenariusz |
-| -------- |
-| Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT z publicznym standardowym modułem równoważenia obciążenia |
+### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a><a name="scenario6out"></a>Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT z publicznym standardowym modułem równoważenia obciążenia
 
 #### <a name="details"></a>Szczegóły
 
@@ -360,7 +325,7 @@ Gdy publiczny moduł równoważenia obciążenia jest skojarzony z maszynami wir
 
 Źródło jest ponownie zapisywane z prywatnego adresu IP sieci wirtualnej do publicznego adresu IP frontonu modułu równoważenia obciążenia. 
 
-W publicznej przestrzeni adresów IP pięć krotek poniższego przepływu musi być unikatowa:
+W publicznej przestrzeni adresów IP pięć krotek przepływu musi być unikatowa:
 
 * Źródłowy adres IP
 * Port źródłowy

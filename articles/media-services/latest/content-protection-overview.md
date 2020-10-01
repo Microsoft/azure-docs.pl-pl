@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401388"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595965"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Użyj Azure Media Services, aby pomóc w zabezpieczeniu nośnika od momentu, gdy komputer przejdzie przez cały proces w ramach magazynu, przetwarzania i dostarczania. Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Jeśli zawartość jest zaszyfrowana przy użyciu klucza Clear AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest to jasne, dopóki nie osiągnie klienta. 
+Użyj Azure Media Services, aby pomóc w zabezpieczeniu nośnika od momentu, gdy komputer przejdzie przez cały proces w ramach magazynu, przetwarzania i dostarczania. Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Jeśli zawartość jest zaszyfrowana przy użyciu klucza Clear AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest to jasne, dopóki nie osiągnie klienta.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 W Media Services v3 klucz zawartości jest skojarzony z lokalizatorem przesyłania strumieniowego (patrz [ten przykład](protect-with-aes128.md)). Jeśli korzystasz z usługi Media Services Key Delivery, możesz Azure Media Services wygenerować klucz zawartości. Klucz zawartości powinien zostać wygenerowany samodzielnie, jeśli używasz własnej usługi dostarczania kluczy lub jeśli musisz obsługiwać scenariusz wysokiej dostępności, w którym musisz mieć ten sam klucz zawartości w dwóch centrach danych.
 
@@ -136,7 +138,7 @@ HLS/CMAF + FairPlay (w tym HEVC/H. 265) są obsługiwane na następujących urz�
 
 * System iOS 11 lub nowszy.
 * iPhone 8 lub nowszy.
-* MacOS wysoka firma Sierra z procesorem Intel siódmej generacji.
+* macOS wysoka firma Sierra z procesorem Intel siódmej generacji.
 
 ### <a name="mpeg-dash"></a>MPEG-KRESKA
 

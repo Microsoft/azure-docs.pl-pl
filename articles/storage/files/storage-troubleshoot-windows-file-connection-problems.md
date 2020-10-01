@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707615"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598032"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
-W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w obszarze [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , które udostępniają kroki ułatwiające rozwiązywanie problemów z połączeniem/mapowaniem/instalowaniem udziałów Azure Files.
+W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności.
 
 > [!IMPORTANT]
 > Zawartość tego artykułu dotyczy tylko udziałów SMB. Aby uzyskać szczegółowe informacje o udziałach NFS, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).
@@ -343,7 +343,7 @@ Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyc
 1. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2. Jeśli hasło jest niepoprawne, można uruchomić polecenie [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) w celu zresetowania hasła. 
 2. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi). Jeśli nazwa SPN nie została prawidłowo skonfigurowana, uruchom polecenie cmdlet Set-AD zwrócone w poleceniu cmdlet Debug, aby skonfigurować nazwę SPN.
 3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
-4. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB. Jeśli wymagany port nie jest otwarty, Skorzystaj z narzędzia do rozwiązywania problemów [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) w przypadku problemów z łącznością z Azure Files.
+4. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB. Jeśli wymagany port nie jest otwarty, Skorzystaj z narzędzia do rozwiązywania problemów [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) w przypadku problemów z łącznością z Azure Files.
 5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
 6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.
 7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) , aby włączyć uwierzytelnianie AD DS w Azure Files. 

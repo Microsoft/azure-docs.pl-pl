@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086780"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597976"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Tworzenie definicji SAS i pobieranie tokenów sygnatury dostępu współdzielonego w kodzie
 
@@ -42,6 +42,9 @@ Po utworzeniu definicji sygnatury dostępu współdzielonego można pobrać toke
 Jeśli token sygnatury dostępu współdzielonego niedługo wygaśnie, możesz pobrać ten sam klucz tajny, aby wygenerować nowy.
 
 Aby uzyskać informacje na temat używania pobranego z Key Vault token SAS do uzyskiwania dostępu do usług Azure Storage, zobacz [używanie sygnatury dostępu współdzielonego konta w celu BLOB Service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> Aplikacja musi być gotowa do odświeżenia sygnatury dostępu współdzielonego, jeśli otrzymuje 403 z magazynu, dzięki czemu można obsłużyć przypadek, w którym klucz został złamany, i należy go obrócić szybciej niż normalny okres rotacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [udzielić ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).

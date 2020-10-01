@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 83cf8ca47774713ca8dbfd493d7aa16bf65fb6b7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286465"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597675"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
 
@@ -123,7 +123,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
 
    [![Skonfiguruj utworzone Centrum IoT Hub jako źródło zdarzenia.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     [![Przejrzyj i Utwórz stronę przy użyciu przycisku Utwórz.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -288,8 +288,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | --- | --- |
         | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
         | **Kraj** | Wprowadź **Stan USA** |
-        | **Miasto** | Wprowadź **Seattle** |
-        | **Building** | Wprowadź **wskazówkę miejsca** |
+        | **City (Miasto)** | Wprowadź **Seattle** |
+        | **Budowaniu** | Wprowadź **wskazówkę miejsca** |
 
     1. Wybierz pozycję **Zapisz**.
 
@@ -304,8 +304,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
     | **Kraj** | Wprowadź **Stan USA** |
-    | **Miasto** | Wprowadź **Seattle** |
-    | **Building** | Wprowadź **centrum nauki Pacyfiku** |
+    | **City (Miasto)** | Wprowadź **Seattle** |
+    | **Budowaniu** | Wprowadź **centrum nauki Pacyfiku** |
 
     **Dla windy 3:**
 
@@ -316,8 +316,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
     | **Kraj** | Wprowadź **Stan USA** |
-    | **Miasto** | Wprowadź **Nowy Jork** |
-    | **Building** | Wprowadź **kompilację stanu Empire** |
+    | **City (Miasto)** | Wprowadź **Nowy Jork** |
+    | **Budowaniu** | Wprowadź **kompilację stanu Empire** |
 
     [![Wyświetl zaktualizowane wystąpienia.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)
 
@@ -333,7 +333,7 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
 
     [![Wizualizuje windę 2 z hierarchią i danymi.](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu samouczka Wyczyść utworzone zasoby:
 

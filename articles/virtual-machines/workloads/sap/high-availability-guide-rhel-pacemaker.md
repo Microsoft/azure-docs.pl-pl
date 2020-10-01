@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800266"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598307"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurowanie Pacemaker Red Hat Enterprise Linux na platformie Azure
 
@@ -66,6 +66,7 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 * Dokumentacja RHEL specyficzna dla platformy Azure:
   * [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra](https://access.redhat.com/articles/3131341)
   * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) klastra o wysokiej dostępności na Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Zagadnienia dotyczące wdrażania RHEL 8 — wysoka dostępność i klastry](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Konfigurowanie protokołu SAP S/4HANA ASCS/wykres WYWOŁUJĄCYCH przy użyciu autonomicznej kolejki serwer 2 (ENSA2) w Pacemaker na RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalacja klastra
@@ -78,7 +79,7 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 
 Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]** — dotyczy tylko węzła 1 lub **[2]** — dotyczy tylko węzła 2.
 
-1. Rejestr **[A]**
+1. **[A]** Zarejestruj się. Ten krok nie jest wymagany, jeśli używany jest obraz RHEL 8. x z obsługą wysokiej dostępności.  
 
    Zarejestruj maszyny wirtualne i Dołącz je do puli zawierającej repozytoria dla RHEL 7.
 
@@ -88,9 +89,9 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Należy pamiętać, że przez dołączenie puli do obrazu programu RHEL z witryny Azure Marketplace w witrynie PAYG, opłaty są naliczane dwukrotnie za użycie RHEL: jeden dla obrazu PAYG i jeden raz dla uprawnienia RHEL w puli, którą dołączysz. Aby rozwiązać ten problem, platforma Azure udostępnia teraz obrazy BYOS RHEL. Więcej informacji można znaleźć [tutaj](../redhat/byos.md).
+   Po dołączeniu puli do obrazu programu RHEL z witryny Azure Marketplace w witrynie PAYG będzie można efektywnie obciążać użycie RHEL: jeden dla obrazu PAYG i jeden raz dla uprawnienia RHEL w puli, którą dołączysz. Aby rozwiązać ten problem, platforma Azure udostępnia teraz obrazy BYOS RHEL. Więcej informacji jest dostępnych [tutaj](../redhat/byos.md).
 
-1. **[A]** Włącz RHEL dla REPOZYTORIów SAP
+1. **[A]** Włącz RHEL dla repozytoriów SAP. Ten krok nie jest wymagany, jeśli używany jest obraz RHEL 8. x z obsługą wysokiej dostępności.  
 
    Aby zainstalować wymagane pakiety, należy włączyć następujące repozytoria.
 
@@ -108,6 +109,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
 
    > [!IMPORTANT]
    > Firma Microsoft zaleca, aby klienci korzystali z szybszych czasów pracy awaryjnej (lub nowszych), jeśli zakończy się niepowodzeniem, lub węzły klastra nie mogą komunikować się, które są już takie:  
+   > RHEL 7,7 lub nowszy Użyj najnowszej dostępnej wersji pakietu "Horyzonty" agentów  
    > RHEL 7,6: ogrodzeni-Agents-4.2.1-11. el7_6.8  
    > RHEL 7,5: ogrodzeni-Agents-4.0.11-86. el7_5.8  
    > RHEL 7,4: ogrodzeni-Agents-4.0.11-66. el7_4.12  
@@ -165,15 +167,23 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
 
 1. **[1]** Utwórz klaster Pacemaker
 
-   Uruchom następujące polecenia, aby uwierzytelnić węzły i utworzyć klaster. Ustaw token na 30000, aby zezwalać na konserwację pamięci. Aby uzyskać więcej informacji, zobacz [ten artykuł dla systemu Linux][virtual-machines-linux-maintenance].
-
+   Uruchom następujące polecenia, aby uwierzytelnić węzły i utworzyć klaster. Ustaw token na 30000, aby zezwalać na konserwację pamięci. Aby uzyskać więcej informacji, zobacz [ten artykuł dla systemu Linux][virtual-machines-linux-maintenance].  
+   
+   Jeśli tworzysz klaster na **RHEL 7. x**, użyj następujących poleceń:  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
+   </code></pre>
 
-   # Run the following command until the status of both nodes is online
+   Jeśli tworzysz klaster na **RHEL 8. X**, użyj następujących poleceń:  
+   <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
+   sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
+   sudo pcs cluster start --all
+   </code></pre>
+
+   Sprawdź stan klastra, wykonując następujące polecenie:  
+   <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
-
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -188,17 +198,22 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    #
    # No resources
    #
-   #
    # Daemon Status:
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** Ustaw oczekiwane głosy
-
-   <pre><code>sudo pcs quorum expected-votes 2
+1. **[A]** Ustaw oczekiwane głosy. 
+   
+   <pre><code># Check the quorum votes 
+    pcs quorum status
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
    </code></pre>
+
+   >[!TIP]
+   > Jeśli tworzysz klaster z wieloma węzłami, który jest klastrem z więcej niż dwoma węzłami, nie ustawiaj głosów na 2.    
 
 1. **[1]** Zezwalaj na akcje współbieżnych ogrodzenia
 
@@ -211,7 +226,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 1. Przejdź do strony <https://portal.azure.com>
 1. Otwórz blok Azure Active Directory  
-   Przejdź do pozycji właściwości i Zapisz identyfikator katalogu. To jest **Identyfikator dzierżawy**.
+   Przejdź do pozycji właściwości i zanotuj identyfikator katalogu. To jest **Identyfikator dzierżawy**.
 1. Kliknij Rejestracje aplikacji
 1. Kliknij pozycję Nowa rejestracja
 1. Wprowadź nazwę, wybierz pozycję "konta tylko w tym katalogu organizacji". 
@@ -219,8 +234,8 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
    Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL
 1. Wybierz pozycję Certyfikaty i wpisy tajne, a następnie kliknij pozycję Nowy wpis tajny klienta.
 1. Wprowadź opis nowego klucza, wybierz pozycję "nigdy nie wygasa" i kliknij przycisk Dodaj.
-1. Zapisz wartość. Służy jako **hasło** dla nazwy głównej usługi
-1. Wybierz pozycję Omówienie. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
+1. Ustaw wartość w węźle. Służy jako **hasło** dla nazwy głównej usługi
+1. Wybierz pozycję Omówienie. Zanotuj identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -276,12 +291,17 @@ Po edytowaniu uprawnień dla maszyn wirtualnych można skonfigurować urządzeni
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Użyj następującego polecenia, aby skonfigurować urządzenie ogrodzenia.
-
 > [!NOTE]
 > Opcja "pcmk_host_map" jest wymagana tylko w poleceniu, jeśli nazwy hosta RHEL i nazwy węzłów platformy Azure nie są identyczne. Zapoznaj się z sekcją pogrubienie w poleceniu.
 
+Dla RHEL **7. X**Użyj następującego polecenia, aby skonfigurować urządzenie ogrodzenia:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+W przypadku RHEL **8. X**Użyj następującego polecenia, aby skonfigurować urządzenie ogrodzenia:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

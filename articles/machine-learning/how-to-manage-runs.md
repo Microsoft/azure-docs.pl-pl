@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 5a38aa5200ac8d498d2bc296a46b4b98357ab0b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322295"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596440"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
-
 
 [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
 
@@ -49,151 +48,160 @@ Potrzebne będą następujące elementy:
 
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) i [rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
-## <a name="start-a-run-and-its-logging-process"></a>Rozpocznij przebieg i proces rejestrowania
+## <a name="monitor-run-performance"></a>Monitorowanie wydajności przebiegu
 
-### <a name="using-the-sdk"></a>Używanie zestawu SDK
+* Rozpocznij przebieg i proces rejestrowania
 
-Skonfiguruj eksperyment przez zaimportowanie klas [obszaru roboczego](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [eksperymentu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [uruchamiania](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)i [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) z pakietu [Azure. Core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) .
-
-```python
-import azureml.core
-from azureml.core import Workspace, Experiment, Run
-from azureml.core import ScriptRunConfig
-
-ws = Workspace.from_config()
-exp = Experiment(workspace=ws, name="explore-runs")
-```
-
-Rozpocznij przebieg i proces rejestrowania przy użyciu [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) metody.
-
-```python
-notebook_run = exp.start_logging()
-notebook_run.log(name="message", value="Hello from run!")
-```
-
-### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
-
-Aby rozpocząć wykonywanie eksperymentu, wykonaj następujące czynności:
-
-1. Z poziomu powłoki lub wiersza polecenia Użyj interfejsu wiersza poleceń platformy Azure do uwierzytelniania w ramach subskrypcji platformy Azure:
-
-    ```azurecli-interactive
-    az login
-    ```
+    # <a name="python"></a>[Python](#tab/python)
     
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    1. Skonfiguruj eksperyment przez zaimportowanie klas [obszaru roboczego](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [eksperymentu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [uruchamiania](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)i [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) z pakietu [Azure. Core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true) .
+    
+        ```python
+        import azureml.core
+        from azureml.core import Workspace, Experiment, Run
+        from azureml.core import ScriptRunConfig
+        
+        ws = Workspace.from_config()
+        exp = Experiment(workspace=ws, name="explore-runs")
+        ```
+    
+    1. Rozpocznij przebieg i proces rejestrowania przy użyciu [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) metody.
+    
+        ```python
+        notebook_run = exp.start_logging()
+        notebook_run.log(name="message", value="Hello from run!")
+        ```
+        
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    Aby rozpocząć wykonywanie eksperymentu, wykonaj następujące czynności:
+    
+    1. Z poziomu powłoki lub wiersza polecenia Użyj interfejsu wiersza poleceń platformy Azure do uwierzytelniania w ramach subskrypcji platformy Azure:
+    
+        ```azurecli-interactive
+        az login
+        ```
+        
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    
+    1. Dołącz konfigurację obszaru roboczego do folderu, który zawiera skrypt szkoleniowy. Zamień `myworkspace` na obszar roboczy Azure Machine Learning. Zamień `myresourcegroup` na grupę zasobów platformy Azure, która zawiera obszar roboczy:
+    
+        ```azurecli-interactive
+        az ml folder attach -w myworkspace -g myresourcegroup
+        ```
+    
+        To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i Conda. Zawiera również `config.json` plik, który jest używany do komunikowania się z obszarem roboczym Azure Machine Learning.
+    
+        Aby uzyskać więcej informacji, zobacz [AZ ml folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach).
+    
+    2. Aby uruchomić przebieg, użyj następującego polecenia. Korzystając z tego polecenia, należy określić nazwę pliku runconfig (tekst przed \* . runconfig, Jeśli przeglądasz system plików) z parametrem-c.
+    
+        ```azurecli-interactive
+        az ml run submit-script -c sklearn -e testexperiment train.py
+        ```
+    
+        > [!TIP]
+        > `az ml folder attach`Polecenie utworzyło `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig.
+        >
+        > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
+        >
+        > Więcej przykładowych plików runconfig można znaleźć w temacie [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
+    
+        Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Aby rozpocząć przesyłanie potoku w projektancie, wykonaj następujące czynności:
+    
+    1. Ustaw domyślny element docelowy obliczeń dla potoku.
+    
+    1. Wybierz pozycję **Uruchom** w górnej części kanwy potoku.
+    
+    1. Wybierz eksperyment, aby zgrupować uruchomienia potoku.
+    
+    ---
 
-1. Dołącz konfigurację obszaru roboczego do folderu, który zawiera skrypt szkoleniowy. Zamień `myworkspace` na obszar roboczy Azure Machine Learning. Zamień `myresourcegroup` na grupę zasobów platformy Azure, która zawiera obszar roboczy:
+* Monitorowanie stanu przebiegu
 
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
-
-    To polecenie tworzy `.azureml` podkatalog zawierający przykładowe pliki środowiska runconfig i Conda. Zawiera również `config.json` plik, który jest używany do komunikowania się z obszarem roboczym Azure Machine Learning.
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-folder-attach).
-
-2. Aby uruchomić przebieg, użyj następującego polecenia. Korzystając z tego polecenia, należy określić nazwę pliku runconfig (tekst przed \* . runconfig, Jeśli przeglądasz system plików) z parametrem-c.
-
-    ```azurecli-interactive
-    az ml run submit-script -c sklearn -e testexperiment train.py
-    ```
-
-    > [!TIP]
-    > `az ml folder attach`Polecenie utworzyło `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig.
-    >
-    > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
-    >
-    > Więcej przykładowych plików runconfig można znaleźć w temacie [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-submit-script).
-
-### <a name="using-azure-machine-learning-studio"></a>Korzystanie z programu Azure Machine Learning Studio
-
-Aby rozpocząć przesyłanie potoku w projektancie, wykonaj następujące czynności:
-
-1. Ustaw domyślny element docelowy obliczeń dla potoku.
-
-1. Wybierz pozycję **Uruchom** w górnej części kanwy potoku.
-
-1. Wybierz eksperyment, aby zgrupować uruchomienia potoku.
-
-## <a name="monitor-the-status-of-a-run"></a>Monitorowanie stanu przebiegu
-
-### <a name="using-the-sdk"></a>Używanie zestawu SDK
-
-Pobierz stan uruchomienia za pomocą [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) metody.
-
-```python
-print(notebook_run.get_status())
-```
-
-Aby uzyskać identyfikator uruchomienia, czas wykonywania i dodatkowe szczegóły dotyczące przebiegu, użyj [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) metody.
-
-```python
-print(notebook_run.get_details())
-```
-
-Po pomyślnym zakończeniu przebiegu Użyj [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) metody, aby oznaczyć ją jako zakończoną.
-
-```python
-notebook_run.complete()
-print(notebook_run.get_status())
-```
-
-Jeśli używasz `with...as` wzorca projektowego Python, przebieg zostanie automatycznie oznaczony jako wykonany, gdy przebieg jest poza zakresem. Nie musisz ręcznie oznaczyć przebiegu jako zakończony.
-
-```python
-with exp.start_logging() as notebook_run:
-    notebook_run.log(name="message", value="Hello from run!")
-    print(notebook_run.get_status())
-
-print(notebook_run.get_status())
-```
-
-### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
-
-1. Aby wyświetlić listę przebiegów eksperymentu, użyj następującego polecenia. Zamień na `experiment` nazwę eksperymentu:
-
-    ```azurecli-interactive
-    az ml run list --experiment-name experiment
-    ```
-
-    To polecenie zwraca dokument JSON zawierający informacje o przebiegach dla tego eksperymentu.
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml eksperyment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
-
-2. Aby wyświetlić informacje dotyczące określonego przebiegu, użyj następującego polecenia. Zamień na `runid` Identyfikator przebiegu:
-
-    ```azurecli-interactive
-    az ml run show -r runid
-    ```
-
-    To polecenie zwraca dokument JSON, który zawiera listę informacji o przebiegu.
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml Run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show).
-
-
-### <a name="using-azure-machine-learning-studio"></a>Korzystanie z programu Azure Machine Learning Studio
-
-Aby wyświetlić liczbę aktywnych przebiegów eksperymentu w programie Studio.
-
-1. Przejdź do sekcji **eksperymenty** . 
-
-1. Wybierz eksperyment.
-
-    Na stronie eksperymentów można zobaczyć liczbę aktywnych elementów docelowych obliczeń i czas trwania każdego uruchomienia. 
-
-1. Wybierz konkretny numer uruchomienia.
-
-1. Na karcie **dzienniki** można znaleźć dzienniki diagnostyczne i błędy dla uruchomienia potoku.
-
-
+    # <a name="python"></a>[Python](#tab/python)
+    
+    * Pobierz stan uruchomienia za pomocą [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-status--) metody.
+    
+        ```python
+        print(notebook_run.get_status())
+        ```
+    
+    * Aby uzyskać identyfikator uruchomienia, czas wykonywania i dodatkowe szczegóły dotyczące przebiegu, użyj [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) metody.
+    
+        ```python
+        print(notebook_run.get_details())
+        ```
+    
+    * Po pomyślnym zakończeniu przebiegu Użyj [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) metody, aby oznaczyć ją jako zakończoną.
+    
+        ```python
+        notebook_run.complete()
+        print(notebook_run.get_status())
+        ```
+    
+    * Jeśli używasz `with...as` wzorca projektowego Python, przebieg zostanie automatycznie oznaczony jako wykonany, gdy przebieg jest poza zakresem. Nie musisz ręcznie oznaczyć przebiegu jako zakończony.
+        
+        ```python
+        with exp.start_logging() as notebook_run:
+            notebook_run.log(name="message", value="Hello from run!")
+            print(notebook_run.get_status())
+        
+        print(notebook_run.get_status())
+        ```
+    
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    * Aby wyświetlić listę przebiegów eksperymentu, użyj następującego polecenia. Zamień na `experiment` nazwę eksperymentu:
+    
+        ```azurecli-interactive
+        az ml run list --experiment-name experiment
+        ```
+    
+        To polecenie zwraca dokument JSON zawierający informacje o przebiegach dla tego eksperymentu.
+    
+        Aby uzyskać więcej informacji, zobacz [AZ ml eksperyment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-experiment-list).
+    
+    * Aby wyświetlić informacje dotyczące określonego przebiegu, użyj następującego polecenia. Zamień na `runid` Identyfikator przebiegu:
+    
+        ```azurecli-interactive
+        az ml run show -r runid
+        ```
+    
+        To polecenie zwraca dokument JSON, który zawiera listę informacji o przebiegu.
+    
+        Aby uzyskać więcej informacji, zobacz [AZ ml Run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-show).
+    
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Aby wyświetlić liczbę aktywnych przebiegów eksperymentu w programie Studio.
+    
+    1. Przejdź do sekcji **eksperymenty** .
+    
+    1. Wybierz eksperyment.
+    
+        Na stronie eksperymentów można zobaczyć liczbę aktywnych elementów docelowych obliczeń i czas trwania każdego uruchomienia. 
+    
+    1. Dodawaj do eksperymentu, wybierając pozycję uruchomienia do porównania, dodając wykresy lub stosując filtry. Te zmiany można zapisać jako **widok niestandardowy** , aby można było łatwo wrócić do swojej pracy. Użytkownicy z uprawnieniami obszaru roboczego mogą edytować lub wyświetlać widok niestandardowy. Ponadto udostępnianie widoku niestandardowego innym osobom przez kopiowanie i wklejanie adresu URL w przeglądarce.  
+    
+        :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Zrzut ekranu: Tworzenie widoku niestandardowego":::
+    
+    1. Wybierz konkretny numer uruchomienia.
+    
+    1. Na karcie **dzienniki** można znaleźć dzienniki diagnostyczne i błędy dla uruchomienia potoku.
+    
+    ---
+    
 ## <a name="cancel-or-fail-runs"></a>Anulowanie lub niepowodzenie przebiegów
 
 Jeśli zauważysz błąd lub jeśli wykonywanie przebiegu trwa zbyt długo, możesz anulować przebieg.
 
-### <a name="using-the-sdk"></a>Używanie zestawu SDK
+# <a name="python"></a>[Python](#tab/python)
 
 Aby anulować przebieg przy użyciu zestawu SDK, użyj [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecancel--) metody:
 
@@ -214,7 +222,7 @@ local_run.fail()
 print(local_run.get_status())
 ```
 
-### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby anulować uruchomienie przy użyciu interfejsu wiersza polecenia, należy użyć następujące polecenie. Zamień na `runid` Identyfikator przebiegu
 
@@ -224,7 +232,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 
 Aby uzyskać więcej informacji, zobacz [AZ ml Run Cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-cancel).
 
-### <a name="using-azure-machine-learning-studio"></a>Korzystanie z programu Azure Machine Learning Studio
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Aby anulować uruchomienie w programie Studio, wykonaj następujące czynności:
 
@@ -234,6 +242,7 @@ Aby anulować uruchomienie w programie Studio, wykonaj następujące czynności:
 
 1. Na pasku narzędzi wybierz pozycję **Anuluj** .
 
+---
 
 ## <a name="create-child-runs"></a>Tworzenie przebiegów podrzędnych
 
@@ -319,87 +328,95 @@ print(parent_run.get_children())
 
 W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić organizowanie i wykonywanie zapytań dotyczących przebiegów w celu uzyskania ważnych informacji.
 
-### <a name="add-properties-and-tags"></a>Dodaj właściwości i Tagi
+* Dodaj właściwości i Tagi
 
-#### <a name="using-the-sdk"></a>Używanie zestawu SDK
+    # <a name="python"></a>[Python](#tab/python)
+    
+    Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    Właściwości są niezmienne, więc tworzą stałe rekordy do celów inspekcji. Poniższy przykład kodu powoduje błąd, ponieważ został już dodany `"azureml-user"` jako `"author"` wartość właściwości w poprzednim kodzie:
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) metody.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    Możesz również dodać proste Tagi ciągu. Gdy Tagi są wyświetlane w słowniku tagów jako klucze, mają one wartość `None` .
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    > [!NOTE]
+    > Za pomocą interfejsu wiersza polecenia można dodawać i aktualizować tylko Tagi.
+    
+    Aby dodać lub zaktualizować tag, użyj następującego polecenia:
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Możesz wyświetlić właściwości i Tagi w programie Studio, ale nie można ich modyfikować.
+    
+    ---
 
-Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
+* Właściwości zapytania i Tagi
 
-```Python
-local_run.add_properties({"author":"azureml-user"})
-print(local_run.get_properties())
-```
+    Możesz wykonywać zapytania w ramach eksperymentu, aby zwrócić listę przebiegów zgodnych z określonymi właściwościami i tagami.
 
-Właściwości są niezmienne, więc tworzą stałe rekordy do celów inspekcji. Poniższy przykład kodu powoduje błąd, ponieważ został już dodany `"azureml-user"` jako `"author"` wartość właściwości w poprzednim kodzie:
-
-```Python
-try:
-    local_run.add_properties({"author":"different-user"})
-except Exception as e:
-    print(e)
-```
-
-W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truetag-key--value-none-) metody.
-
-```Python
-local_run.tag("quality", "great run")
-print(local_run.get_tags())
-
-local_run.tag("quality", "fantastic run")
-print(local_run.get_tags())
-```
-
-Możesz również dodać proste Tagi ciągu. Gdy Tagi są wyświetlane w słowniku tagów jako klucze, mają one wartość `None` .
-
-```Python
-local_run.tag("worth another look")
-print(local_run.get_tags())
-```
-
-#### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
-
-> [!NOTE]
-> Za pomocą interfejsu wiersza polecenia można dodawać i aktualizować tylko Tagi.
-
-Aby dodać lub zaktualizować tag, użyj następującego polecenia:
-
-```azurecli-interactive
-az ml run update -r runid --add-tag quality='fantastic run'
-```
-
-Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-run-update).
-
-### <a name="query-properties-and-tags"></a>Właściwości zapytania i Tagi
-
-Możesz wykonywać zapytania w ramach eksperymentu, aby zwrócić listę przebiegów zgodnych z określonymi właściwościami i tagami.
-
-#### <a name="using-the-sdk"></a>Używanie zestawu SDK
-
-```Python
-list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-```
-
-#### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
-
-Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. Poniższe przykłady przedstawiają niektóre zapytania przy użyciu właściwości i tagów:
-
-```azurecli-interactive
-# list runs where the author property = 'azureml-user'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-# list runs where the tag contains a key that starts with 'worth another look'
-az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-```
-
-Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true).
-
-### <a name="using-azure-machine-learning-studio"></a>Korzystanie z programu Azure Machine Learning Studio
-
-1. Przejdź do sekcji **potoki** .
-
-1. Korzystając z paska wyszukiwania, można filtrować potoki przy użyciu tagów, opisów, nazw eksperymentów i nazwiska osoby przesyłającej.
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. Poniższe przykłady przedstawiają niektóre zapytania przy użyciu właściwości i tagów:
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest&preserve-view=true).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    1. Przejdź do sekcji **potoki** .
+    
+    1. Korzystając z paska wyszukiwania, można filtrować potoki przy użyciu tagów, opisów, nazw eksperymentów i nazwiska osoby przesyłającej.
+    
+    ---
 
 ## <a name="example-notebooks"></a>Przykładowe notesy
 

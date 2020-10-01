@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870837"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596562"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics dane wyjściowe do Azure Cosmos DB  
 Azure Stream Analytics może kierować [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) do danych wyjściowych JSON, co umożliwia archiwizowanie danych i uruchamianie zapytań o małym opóźnieniu na dane JSON bez struktury. W tym dokumencie opisano najlepsze rozwiązania dotyczące wdrażania tej konfiguracji.
@@ -72,7 +72,9 @@ W zależności od wybranego klucza partycji mogą pojawić się następujące _O
 
 Ważne jest, aby wybrać właściwość klucza partycji, która ma wiele różnych wartości i która umożliwia równomierne dystrybuowanie obciążeń między tymi wartościami. Naturalnym artefaktem partycjonowania żądania, które obejmują ten sam klucz partycji, są ograniczone przez maksymalną przepływność pojedynczej partycji. 
 
-Rozmiar magazynu dla dokumentów należących do tego samego klucza partycji jest ograniczony do 20 GB. Idealnym kluczem partycji jest ten, który pojawia się często jako filtr w zapytaniach i ma wystarczającą Kardynalność, aby zapewnić skalowalność rozwiązania.
+Rozmiar magazynu dla dokumentów należących do tej samej wartości klucza partycji jest ograniczony do 20 GB ( [limit rozmiaru partycji fizycznej](../cosmos-db/partition-data.md) wynosi 50 GB). [Idealnym kluczem partycji](../cosmos-db/partitioning-overview.md#choose-partitionkey) jest ten, który pojawia się często jako filtr w zapytaniach i ma wystarczającą Kardynalność, aby zapewnić skalowalność rozwiązania.
+
+Klucze partycji używane na potrzeby zapytań Stream Analytics i Cosmos DB nie muszą być identyczne. W pełni równoległe topologie zaleca się użycie *klucza partycji wejściowej*, `PartitionId` jako klucza partycji zapytania Stream Analytics, ale może to nie być zalecany wybór klucza partycji Cosmos DB kontenera.
 
 Klucz partycji jest również granicą dla transakcji w procedurach składowanych i wyzwalaczy dla Azure Cosmos DB. Należy wybrać klucz partycji, aby dokumenty, które występują razem w transakcjach miały tę samą wartość klucza partycji. [Partycjonowanie artykułu w Azure Cosmos DB](../cosmos-db/partitioning-overview.md) zawiera więcej szczegółów na temat wybierania klucza partycji.
 

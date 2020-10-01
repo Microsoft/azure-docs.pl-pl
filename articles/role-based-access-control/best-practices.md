@@ -2,23 +2,19 @@
 title: Najlepsze rozwiązania dotyczące usługi Azure RBAC
 description: Najlepsze rozwiązania dotyczące korzystania z kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735338"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595480"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Najlepsze rozwiązania dotyczące usługi Azure RBAC
 
@@ -28,7 +24,9 @@ W tym artykule opisano niektóre najlepsze rozwiązania dotyczące korzystania z
 
 Przy użyciu kontroli RBAC na platformie Azure można przeprowadzać segregowanie zadań w ramach zespołu i nadawać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Zamiast przydzielać wszystkim użytkownikom nieograniczone uprawnienia do subskrypcji lub zasobów platformy Azure możesz zezwolić na wykonywanie w określonym zakresie tylko wybranych czynności.
 
-Najlepszym rozwiązaniem podczas planowania strategii kontroli dostępu jest przyznanie użytkownikom najniższego uprawnienia, które muszą mieć, aby wykonać swoją pracę. Na poniższym diagramie przedstawiono sugerowany wzorzec używania funkcji RBAC platformy Azure.
+Najlepszym rozwiązaniem podczas planowania strategii kontroli dostępu jest przyznanie użytkownikom najniższego uprawnienia, które muszą mieć, aby wykonać swoją pracę. Należy unikać przypisywania szerszych ról w szerszych zakresach, nawet jeśli początkowo wydaje się to lepiej wygodniejsze. Ograniczając role i zakresy ograniczają, jakie zasoby są zagrożone w przypadku naruszenia zabezpieczeń podmiotu zabezpieczeń.
+
+Na poniższym diagramie przedstawiono sugerowany wzorzec używania funkcji RBAC platformy Azure.
 
 ![Kontrola RBAC i najniższych uprawnień platformy Azure](./media/best-practices/rbac-least-privilege.png)
 

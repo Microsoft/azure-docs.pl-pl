@@ -1,19 +1,20 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: 2707523947cae77dd800dd5f560ebe1c47f3893a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905984"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605927"
 ---
-Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zakres_ oznacza subskrypcję lub [grupę zarządzania](../articles/governance/management-groups/overview.md).
+Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. W przypadku definicji wpis _zakresu_ oznacza grupę lub subskrypcję [zarządzania](../articles/governance/management-groups/overview.md) .
+W przypadku przypisań i wykluczeń, wpis _zakresu_ oznacza [grupę zarządzania](../articles/governance/management-groups/overview.md), subskrypcję, grupę zasobów lub pojedynczy zasób.
 
 | Lokalizacja | Co | Maksymalna liczba |
 |---|---|---|

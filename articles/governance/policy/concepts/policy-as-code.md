@@ -1,14 +1,14 @@
 ---
 title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651885"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598208"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
@@ -38,6 +38,8 @@ Przykłady tych formatów plików są dostępne w [repozytorium Azure Policy Git
 
 - Definicja zasad: [Dodawanie znacznika do zasobów](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definicja inicjatywy: [Tagi rozliczeń](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Zapoznaj się również z tematem [eksportowanie Azure Policy zasobów](../how-to/export-resources.md) , aby uzyskać istniejące definicje i przypisania do środowiska zarządzania kodem źródłowym w serwisie [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 

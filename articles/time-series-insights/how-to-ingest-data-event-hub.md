@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: ee94a36ea27a15067cbcbab22b10629bc4b37634
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099559"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596248"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Dodawanie źródła zdarzeń centrum zdarzeń do środowiska Azure Time Series Insights
 
@@ -27,7 +27,7 @@ W tym artykule opisano, jak za pomocą Azure Portal dodać Źródło zdarzenia, 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Utwórz środowisko Azure Time Series Insights, zgodnie z opisem w artykule [Tworzenie środowiska Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Utwórz środowisko Azure Time Series Insights zgodnie z opisem w artykule [Tworzenie środowiska Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 - Utwórz centrum zdarzeń. Przeczytaj temat [Tworzenie przestrzeni nazw Event Hubs i centrum zdarzeń przy użyciu Azure Portal](../event-hubs/event-hubs-create.md).
 - Centrum zdarzeń musi mieć wysłane aktywne zdarzenia komunikatów. Dowiedz się [, jak wysyłać zdarzenia do usługi Azure Event Hubs przy użyciu .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Utwórz dedykowaną grupę odbiorców w centrum zdarzeń, z której może korzystać środowisko Azure Time Series Insights. Każde źródło zdarzeń Azure Time Series Insights musi mieć własną dedykowaną grupę odbiorców, która nie jest współużytkowana z żadnym innym klientem. Jeśli wielu czytników zużywa zdarzenia z tej samej grupy odbiorców, wszystkie czytelnicy mogą wykazywać błędy. Istnieje limit 20 grup odbiorców dla centrum zdarzeń. Aby uzyskać szczegółowe informacje, Przeczytaj [Przewodnik programowania w Event Hubs](../event-hubs/event-hubs-programming-guide.md).
@@ -42,7 +42,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
     [![Otwórz przestrzeń nazw centrum zdarzeń](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. W wystąpieniu centrum zdarzeń wybierz pozycję **jednostki > grupy konsumentów**. Następnie wybierz pozycję **+ Grupa konsumentów** , aby dodać nową grupę odbiorców. 
+1. W wystąpieniu centrum zdarzeń wybierz pozycję **jednostki > grupy konsumentów**. Następnie wybierz pozycję **+ Grupa konsumentów** , aby dodać nową grupę odbiorców.
 
    [![Centrum zdarzeń — Dodaj grupę odbiorców](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -68,11 +68,11 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 1. Wybierz odpowiednie wartości **opcji importowania**:
 
-   * Jeśli masz istniejące centrum zdarzeń w jednej z subskrypcji, wybierz pozycję **Użyj centrum zdarzeń z dostępnych subskrypcji**. Ta opcja jest najprostszym podejściem.
+   - Jeśli masz istniejące centrum zdarzeń w jednej z subskrypcji, wybierz pozycję **Użyj centrum zdarzeń z dostępnych subskrypcji**. Ta opcja jest najprostszym podejściem.
 
      [![Wybierz opcję importowania źródła zdarzeń](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  W poniższej tabeli opisano wymagane właściwości opcji **Użyj centrum zdarzeń z dostępnych subskrypcji** :
+   - W poniższej tabeli opisano wymagane właściwości opcji **Użyj centrum zdarzeń z dostępnych subskrypcji** :
 
        [![Szczegóły subskrypcji i centrum zdarzeń](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -84,10 +84,10 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
        | Wartość zasad centrum zdarzeń | Wybierz odpowiednie zasady dostępu współdzielonego. Zasady dostępu współdzielonego można utworzyć na karcie **Konfiguracja** centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *muszą* mieć uprawnienia do **odczytu** . |
        | Klucz zasad centrum zdarzeń | Wstępnie wypełnione z wybranej wartości zasad centrum zdarzeń. |
 
-    * Jeśli centrum zdarzeń jest zewnętrzne dla subskrypcji lub jeśli chcesz wybrać opcje zaawansowane, wybierz opcję **Podaj ustawienia centrum zdarzeń ręcznie**.
+   - Jeśli centrum zdarzeń jest zewnętrzne dla subskrypcji lub jeśli chcesz wybrać opcje zaawansowane, wybierz opcję **Podaj ustawienia centrum zdarzeń ręcznie**.
 
        W poniższej tabeli opisano wymagane właściwości opcji **Podaj ręcznie ustawienia centrum zdarzeń** :
- 
+
        | Właściwość | Opis |
        | --- | --- |
        | Identyfikator subskrypcji | Subskrypcja, do której należy wymagane wystąpienie centrum zdarzeń i przestrzeń nazw. |
@@ -97,7 +97,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
        | Wartość zasad centrum zdarzeń | Wybierz odpowiednie zasady dostępu współdzielonego. Zasady dostępu współdzielonego można utworzyć na karcie **Konfiguracja** centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. Zasady dostępu współdzielonego dla źródła zdarzeń *muszą* mieć uprawnienia do **odczytu** . |
        | Klucz zasad centrum zdarzeń | Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. Wprowadź tutaj klucz podstawowy lub pomocniczy. |
 
-    * Obie opcje udostępniają następujące opcje konfiguracji:
+   - Obie opcje udostępniają następujące opcje konfiguracji:
 
        | Właściwość | Opis |
        | --- | --- |
@@ -113,8 +113,8 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zdefiniuj zasady dostępu do danych](time-series-insights-data-access.md) w celu zabezpieczenia danych.
+- [Zdefiniuj zasady dostępu do danych](time-series-insights-data-access.md) w celu zabezpieczenia danych.
 
-* [Wyślij zdarzenia](time-series-insights-send-events.md) do źródła zdarzeń.
+- [Wyślij zdarzenia](time-series-insights-send-events.md) do źródła zdarzeń.
 
-* Dostęp do środowiska w [eksploratorze Azure Time Series Insights](https://insights.timeseries.azure.com).
+- Dostęp do środowiska w [eksploratorze Azure Time Series Insights](https://insights.timeseries.azure.com).

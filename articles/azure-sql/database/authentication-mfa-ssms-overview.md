@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461159"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596149"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -27,14 +27,12 @@ Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługa Azure S
 
 **Pobierz najnowszy program SSMS** — na komputerze klienckim Pobierz najnowszą wersję programu ssms z [SQL Server Management Studio pobierania (SSMS)](https://aka.ms/ssms). 
 
-> [!Note]
-> W grudniu 2021 wersje programu SSMS przed 18,6 nie będą już uwierzytelniane za pomocą Azure Active Directory za pomocą usługi MFA. Aby nadal korzystać z uwierzytelniania Azure Active Directory za pomocą usługi MFA, Zainstaluj lub zaktualizuj program SSMS 18,6 lub nowszy.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 Aby zapoznać się ze wszystkimi funkcjami omówionymi w tym artykule, należy użyć co najmniej 2017 lipca w wersji 17,2. Ostatnie połączenie okno dialogowe powinno wyglądać podobnie do poniższej ilustracji:
 
   ![Zrzut ekranu okna dialogowego Łączenie z serwerem w SQL Server Management Studio, pokazujący ustawienia Typ serwera, nazwa serwera i uwierzytelnianie.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## <a name="authentication-options"></a>Opcje uwierzytelniania
 

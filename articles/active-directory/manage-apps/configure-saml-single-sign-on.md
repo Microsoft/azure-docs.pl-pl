@@ -1,31 +1,31 @@
 ---
-title: Konfigurowanie logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD
-description: Konfigurowanie logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD
+title: Informacje na temat logowania jednokrotnego opartego na protokole SAML dla aplikacji w Azure Active Directory
+description: Informacje na temat logowania jednokrotnego opartego na protokole SAML dla aplikacji w Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605145"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597908"
 ---
-# <a name="configure-saml-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na języku SAML
+# <a name="understand-saml-based-single-sign-on"></a>Omówienie logowania jednokrotnego opartego na protokole SAML
 
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano opcję opartą na protokole SAML do logowania jednokrotnego. 
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać szczegółowe instrukcje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
+Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 
 W [serii szybkiego startu](add-application-portal-setup-sso.md)znajduje się artykuł dotyczący konfigurowania logowania jednokrotnego. W tym temacie dowiesz się, jak uzyskać dostęp do strony konfiguracji protokołu SAML dla aplikacji. Strona konfiguracja protokołu SAML zawiera pięć sekcji. Te sekcje zostały szczegółowo omówione w tym artykule.
 
@@ -42,7 +42,7 @@ W [serii szybkiego startu](add-application-portal-setup-sso.md)znajduje się art
 Należy uzyskać wartości od dostawcy aplikacji. Można ręcznie wprowadzić wartości lub przekazać plik metadanych w celu wyodrębnienia wartości pól.
 
 > [!TIP]
-> Wiele aplikacji jest już wstępnie skonfigurowanych do pracy z usługą Azure AD. Te aplikacje są wymienione w galerii aplikacji, które można przeglądać po dodaniu aplikacji do dzierżawy usługi Azure AD. [Seria szybkiego startu](add-application-portal-setup-sso.md) przeprowadzi Cię przez proces. Aby uzyskać szczegółowe informacje na temat aplikacji w galerii, należy skonfigurować instrukcje krok po kroku. Aby uzyskać dostęp do tych czynności, możesz kliknąć link na stronie Konfiguracja protokołu SAML dla aplikacji zgodnie z opisem w serii szybkiego startu lub przejrzeć listę wszystkich samouczków konfiguracji aplikacji w [samouczkach konfiguracji aplikacji SaaS](../saas-apps/tutorial-list.md).
+> Wiele aplikacji jest już wstępnie skonfigurowanych do pracy z usługą Azure AD. Te aplikacje są wymienione w galerii aplikacji, które można przeglądać po dodaniu aplikacji do dzierżawy usługi Azure AD. [Seria szybkiego startu](add-application-portal-setup-sso.md) przeprowadzi Cię przez proces. W przypadku aplikacji w galerii znajdziesz szczegółowe instrukcje krok po kroku. Aby uzyskać dostęp do tych czynności, możesz kliknąć link na stronie Konfiguracja protokołu SAML dla aplikacji zgodnie z opisem w serii szybkiego startu lub przejrzeć listę wszystkich samouczków konfiguracji aplikacji w [samouczkach konfiguracji aplikacji SaaS](../saas-apps/tutorial-list.md).
 
 | Podstawowe ustawienia konfiguracji SAML | Zainicjowane przez dostawcę usługi | Zainicjowane przez dostawcę tożsamości | Opis |
 |:--|:--|:--|:--|
@@ -99,7 +99,7 @@ Aby wprowadzić zmiany w certyfikatach, wybierz przycisk Edytuj. Na stronie **ce
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Konfigurowanie aplikacji do korzystania z usługi Azure AD
 
-Sekcja **Konfigurowanie \<applicationName> ** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Należy ustawić wartości na stronie konfiguracji w witrynie sieci Web aplikacji. Na przykład jeśli konfigurujesz usługi GitHub, przejdź do witryny github.com i ustaw wartości. Jeśli aplikacja została już wstępnie skonfigurowana i w galerii usługi Azure AD, znajdziesz link umożliwiający **wyświetlenie instrukcji krok po kroku**. W przeciwnym razie należy znaleźć dokumentację aplikacji, którą konfigurujesz. 
+Sekcja **Konfigurowanie \<applicationName> ** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Należy ustawić wartości na stronie konfiguracji w witrynie sieci Web aplikacji. Na przykład jeśli konfigurujesz usługi GitHub, przejdź do witryny github.com i ustaw wartości. Jeśli aplikacja została już wstępnie skonfigurowana i w galerii usługi Azure AD, znajdziesz link umożliwiający **wyświetlenie instrukcji krok po kroku**. W przeciwnym razie należy znaleźć dokumentację dla konfigurowanej aplikacji. 
 
 Wartości **adresu URL logowania** i **wylogowania** są rozpoznawane w tym samym punkcie końcowym, który jest punktem końcowym obsługi żądania SAML dla dzierżawy usługi Azure AD. 
 

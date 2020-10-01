@@ -1,31 +1,34 @@
 ---
-title: 'Szybki Start: Wypróbuj Content Moderator w sieci Web — Content Moderator'
+title: 'Szybki Start: Wypróbuj Content Moderator w sieci Web'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu.
+description: Użyj narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: cog-serv-seo-aug-2020
+keywords: Content moderator, moderowanie zawartości
+ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332631"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596802"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki Start: Wypróbuj Content Moderator w sieci Web
 
-W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu. Jeśli chcesz szybciej zintegrować tę usługę z aplikacją, zobacz inne Przewodniki Szybki Start w sekcji [następne kroki](#next-steps) .
+W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu. Jeśli chcesz szybciej zintegrować tę usługę z aplikacją moderowania zawartości, zobacz inne Przewodniki Szybki Start w sekcji [następne kroki](#next-steps) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Przeglądarka sieci Web
 
 ## <a name="set-up-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
+
 Narzędzie do przeglądu Content Moderator jest narzędziem opartym na sieci Web, które pozwala recenzentom ludzkim ułatwić korzystanie z usługi poznawczej w podejmowaniu decyzji. W tym przewodniku przedstawiono krótki proces konfigurowania narzędzia do przeglądu, dzięki któremu można zobaczyć, jak działa usługa Content Moderator. Przejdź do witryny [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i Utwórz konto.
 
 ![Strona główna Content Moderator](images/homepage.PNG)
@@ -82,6 +85,6 @@ Lub przejdź do następnych kroków, aby rozpocząć korzystanie z interfejsów 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak używać interfejsów API moderowania w aplikacji.
-- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z [przewodnikiem Szybki Start zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
-- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub Użyj [przewodnika Szybki Start zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby skanować zawartość tekstową w celu uzyskania potencjalnej wulgarności, niepotrzebnej do użycia maszynowo klasyfikacji tekstu (wersja zapoznawcza) i danych osobowych.
+- Implementowanie moderowania obrazu. Użyj [konsoli interfejsu API](try-image-api.md) lub postępuj zgodnie z poniższą [biblioteką klienta](client-libraries.md) , aby skanować obrazy i wykrywać potencjalną zawartość dla dorosłych i erotycznej przy użyciu tagów, wyników pewności i innych wyodrębnionych informacji.
+- Implementowanie moderowania tekstu. Użyj [konsoli interfejsu API](try-text-api.md) lub Użyj [przewodnika Szybki Start biblioteki klienta](client-libraries.md) , aby skanować zawartość tekstową w celu uzyskania potencjalnej wulgarności, niepotrzebnej do użycia maszynowo klasyfikacji tekstu (wersja zapoznawcza) i danych osobowych.
 - Implementowanie moderowania wideo. Postępuj zgodnie z [przewodnikiem dotyczącym moderowania wideo dla języka C#](video-moderation-api.md) , aby skanować wideo i wykrywać potencjalną zawartość dla dorosłych i erotycznej. 

@@ -2,13 +2,13 @@
 title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320442"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598126"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
@@ -93,7 +93,7 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Aktywne połączenia|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Aktywne połączenia|Liczba aktywnych połączeń w przestrzeni nazw, jak również dla jednostki w przestrzeni nazw. Wartość tej metryki to wartość wskazywana przez punkt w czasie. Połączenia, które były aktywne natychmiast po tym punkcie w czasie, mogą nie być odzwierciedlone w metryce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 |Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 |Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 

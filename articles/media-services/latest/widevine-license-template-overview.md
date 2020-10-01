@@ -14,21 +14,22 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8cc24722832fac9b2d353a6d87772ffce6c0a4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527126"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598147"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Omówienie szablonu licencji Media Services v3 with Widevine
 
 Azure Media Services umożliwia zaszyfrowanie zawartości za pomocą usługi **Google Widevine**. Media Services udostępnia również usługę do dostarczania licencji Widevine. Za pomocą Azure Media Services interfejsów API można konfigurować licencje Widevine. Gdy gracz podejmie próbę odtworzenia zawartości chronionej przez Widevine, żądanie jest wysyłane do usługi dostarczania licencji w celu uzyskania licencji. Jeśli usługa licencji zatwierdzi żądanie, usługa wystawia licencję. Jest on wysyłany do klienta i jest używany do odszyfrowywania i odtwarzania określonej zawartości.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 Żądanie licencji Widevine jest sformatowane jako komunikat JSON.  
 
->[!NOTE]
-> Można utworzyć pusty komunikat bez wartości, tylko " {} ." Następnie tworzony jest szablon licencji z wartościami domyślnymi. Wartość domyślna działa w większości przypadków. W przypadku scenariuszy dostarczania licencji na podstawie firmy Microsoft należy zawsze używać wartości domyślnych. Jeśli musisz ustawić wartości "Provider" i "content_id", dostawca musi być zgodny z poświadczeniami Widevine.
+
 
 ```json
 {  
@@ -60,6 +61,9 @@ Azure Media Services umożliwia zaszyfrowanie zawartości za pomocą usługi **G
     }
 }
 ```
+
+>[!NOTE]
+> Można utworzyć pusty komunikat bez wartości, tylko " {} ." Następnie tworzony jest szablon licencji z wartościami domyślnymi. Wartość domyślna działa w większości przypadków. W przypadku scenariuszy dostarczania licencji na podstawie firmy Microsoft należy zawsze używać wartości domyślnych. Jeśli musisz ustawić wartości "Provider" i "content_id", dostawca musi być zgodny z poświadczeniami Widevine.
 
 ## <a name="json-message"></a>Komunikat JSON
 

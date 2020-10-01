@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289877"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595532"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Najlepsze rozwiązania dotyczące wybierania identyfikatora szeregu czasowego
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono podsumowanie znaczenia identyfikatora szeregów cza
 
 ## <a name="choose-a-time-series-id"></a>Wybieranie identyfikatora szeregów czasowych
 
-Wybór odpowiedniego identyfikatora szeregów czasowych ma krytyczne znaczenie. Wybór identyfikatora szeregów czasowych jest taki sam jak wybór klucza partycji dla bazy danych. Jest to wymagane w przypadku tworzenia środowiska Azure Time Series Insights Gen2. 
+Wybór odpowiedniego identyfikatora szeregów czasowych ma krytyczne znaczenie. Wybór identyfikatora szeregów czasowych jest taki sam jak wybór klucza partycji dla bazy danych. Jest to wymagane w przypadku tworzenia środowiska Azure Time Series Insights Gen2.
 
 > [!IMPORTANT]
 > Identyfikatory szeregów czasowych:
@@ -40,7 +40,7 @@ Najważniejsze wskazówki dotyczące najważniejszych rozwiązań:
 * Identyfikator szeregów czasowych musi być unikatowy na poziomie węzła liścia [modelu szeregów czasowych](./concepts-model-overview.md).
 * Limit znaków dla ciągu nazwy właściwości identyfikatora szeregów czasowych to 128. W przypadku wartości właściwości identyfikator szeregów czasowych limit znaków to 1 024.
 * Jeśli brakuje unikatowej wartości właściwości identyfikatora szeregów czasowych, jest ona traktowana jako wartość null i zgodna z tą samą regułą ograniczenia unikatowości.
-* Jeśli identyfikator szeregów czasowych jest zagnieżdżony w złożonym obiekcie JSON, należy postępować zgodnie z [regułami spłaszczania](./concepts-json-flattening-escaping-rules.md) danych przychodzących podczas podawania nazwy właściwości. Zapoznaj się z przykładem [B](concepts-json-flattening-escaping-rules.md#example-b). 
+* Jeśli identyfikator szeregów czasowych jest zagnieżdżony w złożonym obiekcie JSON, należy postępować zgodnie z [regułami spłaszczania](./concepts-json-flattening-escaping-rules.md) danych przychodzących podczas podawania nazwy właściwości. Zapoznaj się z przykładem [B](concepts-json-flattening-escaping-rules.md#example-b).
 * Możesz również wybrać do *trzech* właściwości klucza jako identyfikator szeregów czasowych. Ich kombinacje będą kluczem złożonym, który reprezentuje identyfikator szeregów czasowych.  
   > [!NOTE]
   > Twoje trzy właściwości klucza muszą być ciągami.
@@ -75,7 +75,7 @@ Przykładowe zdarzenie pierwotne:
 ```
 
 W Azure Portal można następnie wprowadzić klucz złożony w następujący sposób:
- 
+
 [![Skonfiguruj identyfikator szeregów czasowych dla środowiska.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

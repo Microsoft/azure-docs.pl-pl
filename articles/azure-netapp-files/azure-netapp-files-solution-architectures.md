@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 9b44b27730fff888685ef7e0ad06d35e7bdc88c7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439744"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595900"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -34,6 +34,7 @@ Ta sekcja zawiera odwołania do rozwiązań dla aplikacji OSS systemu Linux i ba
 
 ### <a name="oracle"></a>Oracle
 
+* [Wydajność bazy danych Oracle na Azure NetApp Files pojedynczych woluminów](performance-oracle-single-volumes.md)
 * [Wskazówki dotyczące najlepszych rozwiązań firmy Oracle na platformie Azure przy użyciu Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure: opcje konfiguracji magazynu udostępnionego](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)

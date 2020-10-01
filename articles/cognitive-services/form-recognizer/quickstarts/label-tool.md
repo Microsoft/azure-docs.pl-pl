@@ -1,24 +1,26 @@
 ---
-title: 'Szybki Start: formularze etykiet, uczenie modelu i analizowanie formularza przy użyciu narzędzia do etykietowania przykładowego'
+title: 'Szybki Start: formularze etykiet, uczenie modelu i analizowanie formularzy przy użyciu narzędzia do etykietowania przykładowego'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start będziesz używać narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do ręcznego etykietowania dokumentów. Następnie nauczysz model niestandardowy z oznaczonymi dokumentami i użyjesz modelu, aby wyodrębnić pary klucz/wartość.
+description: W tym przewodniku szybki start będziesz używać narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do ręcznego etykietowania dokumentów. Następnie nauczysz model przetwarzania dokumentu niestandardowego z oznaczonymi dokumentami i użyj modelu, aby wyodrębnić pary klucz/wartość.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: Przetwarzanie dokumentu
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418963"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597733"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
-W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy z przykładowym narzędziem do etykietowania do uczenia modelu niestandardowego z ręcznie oznaczonymi danymi. Aby dowiedzieć się więcej na temat tej funkcji, zobacz sekcję [uczenie z etykietami](../overview.md#train-with-labels) .
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy z przykładowym narzędziem do etykietowania do uczenia niestandardowego modelu przetwarzania dokumentów z ręcznie oznaczonymi danymi. Zapoznaj się z sekcją [uczenie z etykietami](../overview.md#train-with-labels) , aby dowiedzieć się więcej na temat nadzorowanej nauki z aparatem rozpoznawania formularzy.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -93,7 +95,7 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
 
 ## <a name="set-up-input-data"></a>Konfigurowanie danych wejściowych
 
-Najpierw upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, zorganizuj je w podfolderach w oparciu o wspólny format. Podczas uczenia należy skierować interfejs API do podfolderu.
+Najpierw upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, podziel je na podfoldery w oparciu o wspólny format. Podczas szkolenia będziesz kierować interfejs API do podfolderu.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Konfigurowanie udostępniania zasobów między domenami (CORS)
 
@@ -120,7 +122,7 @@ Wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana połączenia.
 * **Opis** — opis projektu.
-* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na jakiś czas po użyciu usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
@@ -137,7 +139,7 @@ W przykładowym narzędziu do etykietowania projekty przechowują konfiguracje i
 * **Klucz interfejsu API** — klucz subskrypcji aparatu rozpoznawania formularza.
 * **Opis** — opcjonalnie — opis projektu
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nowa strona projektu na przykładowym narzędziu do etykietowania.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
 ## <a name="label-your-forms"></a>Etykiety formularzy
 
@@ -153,7 +155,7 @@ Kliknij przycisk **Uruchom OCR dla wszystkich plików** w okienku po lewej stron
 
 Zostaną również wyświetlone tabele, które zostały wyodrębnione automatycznie. Kliknij ikonę tabela/siatka po lewej stronie dokumentu, aby wyświetlić wyodrębnioną tabelę. W tym przewodniku Szybki Start, ponieważ zawartość tabeli jest wyodrębniana automatycznie, nie będziemy etykietować zawartości tabeli, ale raczej polegają na zautomatyzowanej ekstrakcji.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Wizualizacja tabeli w przykładowym narzędziu do etykietowania.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
 ### <a name="apply-labels-to-text"></a>Zastosuj etykiety do tekstu
 
@@ -199,7 +201,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Główne okno edytora przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
 
 Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formularzy.
@@ -254,7 +256,7 @@ Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkol
 * Lista tagów i Szacowana dokładność na tag.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Widok szkoleń.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
 Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśli jest to niska, należy dodać więcej dokumentów wejściowych i powtórz powyższe kroki. Dokumenty, które zostały już oznaczone etykietami, pozostaną w indeksie projektu.
 
@@ -269,11 +271,11 @@ Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania.
 
 # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
 
-Dzięki redagowaniu modelu można utworzyć do 100 modeli w ramach jednego identyfikatora modelu. Gdy wywołasz analizowanie z tym IDENTYFIKATORem modelu złożonego, aparat rozpoznawania formularzy najpierw klasyfikuje przesłany formularz, dopasowuje go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
+Funkcja Redagowanie modelu umożliwia utworzenie nawet 100 modeli w ramach jednego identyfikatora modelu. Po wywołaniu funkcji analizy z tym utworzonym identyfikatorem modelu usługa Rozpoznawanie formularzy najpierw sklasyfikuje przesłany formularz, dopasowując go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
 
 Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
 ---
 
@@ -306,7 +308,10 @@ Na koniec przejdź do strony głównej (ikona domu), a następnie kliknij pozycj
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób użycia narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do uczenia modelu z ręcznymi etykietami danych. Jeśli chcesz zintegrować narzędzie do etykietowania z własną aplikacją, Użyj interfejsów API REST, które zajmują się szkoleniem dotyczącym danych z etykietami.
+W tym przewodniku szybki start przedstawiono sposób użycia narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do uczenia modelu z ręcznymi etykietami danych. Jeśli chcesz utworzyć własne narzędzie do etykietowania danych szkoleniowych, Użyj interfejsów API REST, które zajmują się szkoleniem dotyczącym danych z etykietami.
 
 > [!div class="nextstepaction"]
 > [Uczenie z etykietami przy użyciu języka Python](./python-labeled-data.md)
+
+* [Co to jest rozpoznawanie formularzy?](../overview.md)
+* [Przewodnik Szybki Start dotyczący biblioteki klienta aparatu rozpoznawania formularzy](client-library.md)

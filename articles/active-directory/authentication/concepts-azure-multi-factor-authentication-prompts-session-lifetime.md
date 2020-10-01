@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ab36eb9d5c66f61fbb320c91087659cc811eca85
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052668"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595540"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
 
@@ -121,7 +121,7 @@ Aby skonfigurować zasady dostępu warunkowego w celu uzyskania częstotliwości
 1. Wybierz pozycję **zabezpieczenia**, a następnie **dostęp warunkowy**.
 1. Skonfiguruj zasady przy użyciu zalecanych opcji zarządzania sesją opisanych w tym artykule.
 
-Aby przejrzeć okresy istnienia tokenów, [Użyj programu Azure AD PowerShell, aby wykonać zapytanie dotyczące dowolnych zasad usługi Azure AD](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Wyłącz wszystkie zasady, które są stosowane.
+Aby przejrzeć okresy istnienia tokenów, [Użyj programu Azure AD PowerShell, aby wykonać zapytanie dotyczące dowolnych zasad usługi Azure AD](../develop/configure-token-lifetimes.md#prerequisites). Wyłącz wszystkie zasady, które są stosowane.
 
 Jeśli w dzierżawie jest włączona więcej niż jedno ustawienie, Zalecamy zaktualizowanie ustawień na podstawie dostępnych licencji. Jeśli na przykład masz licencje usługi Azure AD Premium, należy używać tylko zasad dostępu warunkowego z *częstotliwością logowania* i *trwałą sesją przeglądarki*. Jeśli masz Microsoft 365 aplikacje lub bezpłatne licencje usługi Azure AD, musisz użyć konfiguracji *"zalogować się"?*
 

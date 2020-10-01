@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287422"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598117"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planowanie środowiska Azure Time Series Insights Gen2
 
@@ -36,7 +36,6 @@ Azure Time Series Insights wykorzystuje model biznesowy z płatność zgodnie z 
 ## <a name="the-gen2-environment"></a>Środowisko Gen2
 
 Po udostępnieniu środowiska Azure Time Series Insights Gen2 należy utworzyć dwa zasoby platformy Azure:
-
 
 * Azure Time Series Insights środowisko Gen2
 * Konto usługi Azure Storage
@@ -94,8 +93,8 @@ Aby uzyskać więcej informacji i zrozumieć, jak zdarzenia mają być spłaszcz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj [Azure Advisor](../advisor/advisor-overview.md) , aby zaplanować opcje konfiguracji odzyskiwania firmy.
-- Przejrzyj [Azure Advisor](../advisor/advisor-overview.md) , aby zaplanować opcje konfiguracji odzyskiwania firmy.
-- Przeczytaj więcej na temat pozyskiwania [danych](./concepts-ingestion-overview.md) w Azure Time Series Insights Gen2.
-- Zapoznaj się z artykułem dotyczącym [magazynu danych](./concepts-storage.md) w Azure Time Series Insights Gen2.
-- Dowiedz się więcej na temat [modelowania danych](./concepts-model-overview.md) w Azure Time Series Insights Gen2.
+* Przejrzyj [Azure Advisor](../advisor/advisor-overview.md) , aby zaplanować opcje konfiguracji odzyskiwania firmy.
+* Przejrzyj [Azure Advisor](../advisor/advisor-overview.md) , aby zaplanować opcje konfiguracji odzyskiwania firmy.
+* Przeczytaj więcej na temat pozyskiwania [danych](./concepts-ingestion-overview.md) w Azure Time Series Insights Gen2.
+* Zapoznaj się z artykułem dotyczącym [magazynu danych](./concepts-storage.md) w Azure Time Series Insights Gen2.
+* Dowiedz się więcej na temat [modelowania danych](./concepts-model-overview.md) w Azure Time Series Insights Gen2.

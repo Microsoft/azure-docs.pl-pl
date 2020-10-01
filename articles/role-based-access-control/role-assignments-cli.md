@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 17a32b27fba4fcde2e148e44e9db768cc9270e01
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441992"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597661"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji, zobacz [lista definicji ról platformy Azure](r
  
 ### <a name="step-3-identify-the-needed-scope"></a>Krok 3. identyfikowanie wymaganego zakresu
 
-Platforma Azure udostępnia cztery poziomy zakresu: zasobu, [grupy zasobów](../azure-resource-manager/management/overview.md#resource-groups), subskrypcji i [grupy zarządzania](../governance/management-groups/overview.md). Najlepszym rozwiązaniem jest przyznanie dostępu z najniższymi potrzebami, dlatego nie należy przypisywać roli w szerszym zakresie.
+Platforma Azure udostępnia cztery poziomy zakresu: zasobu, [grupy zasobów](../azure-resource-manager/management/overview.md#resource-groups), subskrypcji i [grupy zarządzania](../governance/management-groups/overview.md). Najlepszym rozwiązaniem jest przyznanie dostępu z najniższymi potrzebami, dlatego nie należy przypisywać roli w szerszym zakresie. Aby uzyskać więcej informacji na temat zakresu, zobacz [Opis zakresu](scope-overview.md).
 
 **Zakres zasobu**
 

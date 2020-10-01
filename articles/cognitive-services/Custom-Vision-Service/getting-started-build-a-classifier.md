@@ -1,26 +1,27 @@
 ---
-title: Przewodnik Szybki Start dotyczący tworzenia klasyfikatora Custom Vision Service
+title: 'Szybki Start: Tworzenie klasyfikatora przy użyciu witryny sieci Web Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć model klasyfikacji obrazów przy użyciu witryny sieci Web Custom Vision.
+description: W tym przewodniku szybki start dowiesz się, jak używać witryny sieci Web Custom Vision do tworzenia, uczenia i testowania modelu klasyfikacji obrazów.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
+ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277346"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596880"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Szybki Start: jak utworzyć klasyfikator przy użyciu Custom Vision
+# <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Szybki Start: Tworzenie klasyfikatora przy użyciu witryny sieci Web Custom Vision
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć klasyfikator obrazu za pomocą witryny sieci Web Custom Vision. Po skompilowaniu modelu można testować za pomocą nowych obrazów i po pewnym czasie zintegrować go z własnym oprogramowaniem do rozpoznawania obrazu.
+W tym przewodniku szybki start dowiesz się, jak utworzyć model klasyfikacji obrazów przy użyciu witryny sieci Web Custom Vision. Po skompilowaniu modelu można przetestować go przy użyciu nowych obrazów i ostatecznie zintegrować go z własną aplikacją rozpoznawania obrazu.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -52,7 +53,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 
 1. Następnie wybierz jedną z dostępnych domen. Każda domena optymalizuje klasyfikatora dla określonych typów obrazów, zgodnie z opisem w poniższej tabeli. Jeśli chcesz, będziesz mieć możliwość późniejszej zmiany domeny.
 
-    |Domena|Przeznaczenie|
+    |Obszar|Przeznaczenie|
     |---|---|
     |__Ogólny__| Optymalizacja pod kątem szerokiego zakresu zadań klasyfikacji obrazów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę generyczną. |
     |__Żywności__|Optymalizacja pod kątem zdjęć naczyń w postaci widocznej w menu restauracji. Jeśli chcesz sklasyfikować fotografie poszczególnych owoców lub warzyw, użyj domeny żywności.|

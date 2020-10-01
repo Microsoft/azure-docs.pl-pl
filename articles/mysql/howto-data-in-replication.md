@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/7/2020
-ms.openlocfilehash: f745e5e8b611271be9dff2131a2079abc609cf91
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539065"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596502"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -51,10 +51,41 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
 1. Przed kontynuowaniem Przejrzyj [wymagania dotyczące serwera głównego](concepts-data-in-replication.md#requirements) . 
 
-   Na przykład upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 i że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
+2. Upewnij się, że serwer źródłowy zezwala na ruch przychodzący i wychodzący na porcie 3306 oraz że serwer źródłowy ma **publiczny adres IP**, usługa DNS jest publicznie dostępna lub ma w pełni kwalifikowaną nazwę domeny (FQDN). 
    
    Przetestuj łączność z serwerem źródłowym, próbując nawiązać połączenie za pomocą narzędzia, takiego jak wiersz polecenia MySQL hostowany na innym komputerze lub z [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dostępnego w Azure Portal.
 
+   Jeśli Twoja organizacja ma rygorystyczne zasady zabezpieczeń i nie zezwoli na wszystkie adresy IP na serwerze źródłowym, aby umożliwić komunikację z platformą Azure z serwerem źródłowym, możesz użyć poniższego polecenia, aby określić adres IP serwera MySQL.
+
+   1. Zaloguj się do Azure Database for MySQL przy użyciu narzędzia, takiego jak MySQL Command-line.
+   2. Wykonaj poniższe zapytanie.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Poniżej przedstawiono przykładowe dane wyjściowe:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Wyjdź z wiersza polecenia MySQL.
+   4. Wykonaj poniższe czynności w narzędziu ping, aby uzyskać adres IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Na przykład: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Skonfiguruj reguły zapory serwera źródłowego w taki sposób, aby obejmowały adres IP przedniego poprzedniego kroku w porcie 3306.
+
+   > [!NOTE]
+   > Ten adres IP może ulec zmianie z powodu operacji konserwacji/wdrażania. Ta metoda łączności jest tylko dla klientów, którzy nie mogą udzielić zezwolenia na wszystkie adresy IP na porcie 3306.
+   
 1. Włącz rejestrowanie binarne
 
    Sprawdź, czy w źródle jest włączone rejestrowanie binarne, uruchamiając następujące polecenie: 
@@ -126,7 +157,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
 1. Pobieranie binarnej nazwy pliku dziennika i przesunięcia
 
-   Uruchom [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) polecenie, aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia.
+   Uruchom [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) polecenie, aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia.
     
    ```sql
     show master status;

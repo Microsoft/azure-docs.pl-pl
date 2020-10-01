@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c64c376e8f283336573500e69ac31989b5947961
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069632"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598245"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -524,13 +524,12 @@ Zalecane kroki do dołączenia na Azure File Sync w pierwszej kolejności bez pr
 Jeśli nie masz dodatkowego magazynu do wstępnego dołączenia i chcesz dołączyć do istniejących udziałów, możesz wstępnie wypełniać dane w udziałach plików platformy Azure. To podejście jest sugerowane, jeśli i tylko wtedy, gdy można zaakceptować przestoje i bezwzględnie zagwarantować brak zmian danych w udziałach serwera podczas początkowego procesu dołączania. 
  
 1. Upewnij się, że dane na żadnym z serwerów nie mogą ulec zmianie podczas procesu dołączania.
-2. Wstępne udziały plików platformy Azure z danymi serwera przy użyciu dowolnego narzędzia transferu danych za pośrednictwem protokołu SMB na przykład Robocopy, Direct Copy SMB. Ponieważ AzCopy nie przekazuje danych za pośrednictwem protokołu SMB, dlatego nie można go użyć do wstępnego umieszczania.
+2. Wstępne udziały plików platformy Azure z danymi serwera przy użyciu dowolnego narzędzia do transferu danych za pośrednictwem protokołu SMB. Robocopy, na przykład. Możesz również użyć AzCopy przez REST. Upewnij się, że używasz AzCopy z odpowiednimi przełącznikami, aby zachować sygnatury czasowe i atrybuty dla list ACL.
 3. Utwórz topologię Azure File Sync z żądanymi punktami końcowymi serwera wskazującymi istniejące udziały.
 4. Pozwól, aby synchronizacja zakończyła się na wszystkich punktach końcowych. 
 5. Po zakończeniu uzgadniania można otworzyć udziały dla zmian.
  
 Obecnie podejście poprzedzające Określanie wartości zawiera kilka ograniczeń — 
-- Pełna wierność plików nie jest zachowywana. Na przykład pliki tracą listy ACL i sygnatury czasowe.
 - Zmiany danych na serwerze przed pełnym uruchomieniem topologii synchronizacji mogą spowodować konflikty w punktach końcowych serwera.  
 - Po utworzeniu punktu końcowego w chmurze Program Azure File Sync uruchamia proces wykrywania plików w chmurze przed rozpoczęciem synchronizacji początkowej. Czas potrzebny do ukończenia tego procesu zależy od różnych czynników, takich jak szybkość sieci, dostępna przepustowość i liczba plików i folderów. W przypadku przybliżonej oceny w wersji zapoznawczej proces wykrywania jest uruchamiany około 10 plików na sekundę.  W związku z tym nawet jeśli wstępne umieszczanie jest uruchamiane szybko, całkowity czas, w którym w pełni uruchomiony system, może być znacznie dłuższy, gdy dane są wstępnie umieszczane w chmurze.
 

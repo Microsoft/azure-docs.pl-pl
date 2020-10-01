@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: v-myoung
-ms.openlocfilehash: 3607ecb7d1ef01b968b67c704e12136cc1888b69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.author: inhenkel
+ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296233"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598285"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -56,6 +56,9 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+> [!NOTE]
+> W poprzednich wytycznych firmy Apple zaleca się, aby rezerwa dla sieci o niskiej przepustowości zapewniała strumień tylko audio.  W tej chwili koder Media Services automatycznie generuje śledzenie tylko audio.  Wytyczne firmy Apple teraz stwierdzają, że *nie* należy uwzględniać ścieżki tylko audio, szczególnie w przypadku dystrybucji TV firmy Apple.  Aby uniemożliwić odtwarzaczowi domyślne śledzenie tylko audio, zalecamy użycie tagu "audio-Only = false" w adresie URL, który usuwa tylko odwzorowanie tylko audio w HLS, lub po prostu używa HLS-v3. Na przykład `http://host/locator/asset.ism/manifest(format=m3u8-aapl,audio-only=false)`.
 
 ### <a name="mpeg-dash-protocol"></a>Protokół MPEG-KRESKOWANY
 

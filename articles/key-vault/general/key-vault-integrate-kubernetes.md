@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061805"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597894"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 

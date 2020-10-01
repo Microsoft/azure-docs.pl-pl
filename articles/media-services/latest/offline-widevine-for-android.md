@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 609c06eedb5c28e31c19df1595c8e4b3b0a59956
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532226"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597082"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
 
@@ -30,6 +30,8 @@ Oprócz ochrony zawartości w ramach przesyłania strumieniowego online, subskry
 
 - Niektórzy dostawcy zawartości mogą nie zezwalać na dostarczanie licencji DRM poza granicami kraju/regionu. Jeśli użytkownik chce obserwować zawartość w trakcie podróży, konieczne jest pobranie plików w trybie offline.
 - W niektórych krajach/regionach dostępność i/lub przepustowość Internetu są ograniczone. Użytkownicy mogą zdecydować się na pobranie zawartości, aby mogli ją obejrzeć w wysokiej rozdzielczości.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 W tym artykule omówiono sposób wdrażania odtwarzania w trybie offline dla zawartości PAUZy chronionej przez Widevine na urządzeniach z systemem Android. Usługa DRM w trybie offline umożliwia udostępnianie modeli subskrypcji, dzierżaw i zakupów dla zawartości, dzięki czemu klienci usług mogą łatwo z nich korzystać po rozłączeniu z Internetem.
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377577"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596369"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -75,6 +75,14 @@ Możesz zmniejszyć narażenie swoich magazynów, określając adresy IP, które
 Gdy reguły zapory są stosowane, użytkownicy mogą odczytywać dane z Key Vault tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu do Key Vault z Azure Portal. Mimo że użytkownicy mogą przechodzić do magazynu kluczy z Azure Portal, mogą nie być w stanie wyświetlać kluczy, wpisów tajnych ani certyfikatów, jeśli ich maszyny klienckie nie znajdują się na liście dozwolonych. Ma to również wpływ na wybór Key Vault przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie listy kluczy, jeśli reguły zapory uniemożliwiają ich komputerom klienckim.
 
 Aby uzyskać więcej informacji na temat Azure Key Vault adresów sieciowych Sprawdź [punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md))
+
+### <a name="tls-and-https"></a>Protokoły TLS i HTTPS
+
+*   Fronton Key Vault (płaszczyzna danych) to serwer z wieloma dzierżawami. Oznacza to, że magazyny kluczy pochodzące od różnych klientów mogą współużytkować ten sam publiczny adres IP. W celu uzyskania izolacji każde żądanie HTTP jest uwierzytelniane i autoryzowane niezależnie od innych żądań.
+*   Można zidentyfikować starsze wersje protokołu TLS w celu zgłaszania luk w zabezpieczeniach, ale ponieważ publiczny adres IP jest współużytkowany, nie jest możliwe, aby zespół usługi magazynu kluczy mógł wyłączyć stare wersje protokołu TLS dla poszczególnych magazynów kluczy na poziomie transportu.
+*   Protokół HTTPS pozwala klientowi uczestniczyć w negocjacji protokołu TLS. **Klienci mogą wymusić najnowszą wersję protokołu TLS**i zawsze, gdy klient wykonuje takie działania, całe połączenie będzie używać odpowiedniej ochrony na poziomie. Fakt, że Key Vault nadal obsługuje starsze wersje protokołu TLS, nie będzie zakłócać bezpieczeństwa połączeń przy użyciu nowszych wersji protokołu TLS.
+*   Pomimo znanych luk w zabezpieczeniach protokołu TLS nie ma znanego ataku, który zezwoli złośliwemu agentowi na Wyodrębnienie informacji z magazynu kluczy, gdy atakujący inicjuje połączenie z wersją protokołu TLS, która ma luki w zabezpieczeniach. Osoba atakująca nadal musi uwierzytelnić się i autoryzować siebie i tak długo, jak legalni klienci zawsze łączą się z najnowszymi wersjami protokołu TLS, nie ma żadnego sposobu, aby poświadczenia mogły zostać ujawnione w przypadku luk w zabezpieczeniach w starych wersjach protokołu TLS.
+
 
 ## <a name="monitoring"></a>Monitorowanie
 
