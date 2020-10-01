@@ -28,15 +28,17 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy u
 
 W obszarze Android Studio wybierz pozycję Rozpocznij nowy Android Studio projekt.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk Rozpocznij nowy projekt Android Studio wybrany w Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
 
-Wybierz szablon projektu "puste działanie" w obszarze "telefon i tablet".
+Wybierz szablon projektu &quot;puste działanie" w obszarze "telefon i tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję puste działanie wybraną na ekranie szablonu projektu.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
 
-Wybierz minimalną bibliotekę klienta "API 26: Android 8,0 (OREO)" lub większą.
+Wybierz szablon projektu &quot;puste działanie" lub większą.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję puste działanie wybraną na ekranie szablonu projektu 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
+
+Wybierz szablon projektu &quot;puste działanie":::
 
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
@@ -313,7 +315,9 @@ private void startCall() {
 
 Aplikację można teraz uruchomić przy użyciu przycisku "Uruchom aplikację" na pasku narzędzi (Shift + F10). Sprawdź, czy masz możliwość nawiązywania wywołań przez wywołanie metody `8:echo123` . Zostanie odtworzony wstępnie zarejestrowany komunikat, a następnie powtórzony komunikat z powrotem.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
+
+Wybierz szablon projektu &quot;puste działanie":::
 
 ## <a name="sample-code"></a>Przykładowy kod
 
