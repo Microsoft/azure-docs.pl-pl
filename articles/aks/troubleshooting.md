@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068833"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614023"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -184,6 +184,14 @@ Wykonaj następujące obejścia tego problemu:
 
 Zwykle jest to spowodowane wygaśnięciem poświadczeń jednostki usługi. [Zaktualizuj poświadczenia dla klastra AKS.](update-credentials.md)
 
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Nie można uzyskać dostępu do interfejsu API klastra z mojej maszyny/usługi Automation/narzędzia deweloperskiego, gdy używane są autoryzowane zakresy adresów IP serwera interfejsu API. Jak mogę rozwiązać ten problem?
+
+Wymaga to `--api-server-authorized-ip-ranges` uwzględnienia adresów IP lub zakresów adresów IP automatyzacji/deweloperów/narzędzi, które są używane. Zapoznaj się z sekcją "jak znaleźć mój adres IP" w [bezpiecznym dostępie do serwera interfejsu API przy użyciu zakresów autoryzowanych adresów IP](api-server-authorized-ip-ranges.md).
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Nie mogę wyświetlić zasobów w programie Kubernetes Resource Viewer w Azure Portal dla mojego klastra skonfigurowanego przy użyciu zakresów adresów IP autoryzowanych serwerów interfejsu API. Jak mogę rozwiązać ten problem?
+
+[Podgląd zasobów Kubernetes](kubernetes-portal.md) wymaga `--api-server-authorized-ip-ranges` uwzględnienia dostępu do lokalnego komputera klienckiego lub zakresu adresów IP (z którego portalu jest przeglądany). Zapoznaj się z sekcją "jak znaleźć mój adres IP" w [bezpiecznym dostępie do serwera interfejsu API przy użyciu zakresów autoryzowanych adresów IP](api-server-authorized-ip-ranges.md).
+
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Otrzymuję błędy po ograniczeniu ruchu wychodzącego
 
 W przypadku ograniczania ruchu wychodzącego z klastra AKS są [wymagane i opcjonalne zalecane](limit-egress-traffic.md) porty wyjściowe/reguły sieci oraz nazwy FQDN/aplikacji dla AKS. Jeśli ustawienia są w konflikcie z dowolną z tych reguł, niektóre `kubectl` polecenia nie będą działały prawidłowo. Podczas tworzenia klastra AKS mogą pojawić się także błędy.
@@ -225,7 +233,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Brak |
+| 1,12 i nowsze | Nie dotyczy |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
@@ -282,7 +290,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a Twój węzeł ma przestarzałą listę dysków, możesz rozwiązać problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
@@ -301,7 +309,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a stan węzła jest w stanie niepowodzenia, możesz rozwiązać problem, ręcznie aktualizując status maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
@@ -410,7 +418,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Brak |
+| 1,14 i nowsze | Nie dotyczy |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Instalacja Azure Files nie powiodła się z powodu zmiany klucza konta magazynu
 

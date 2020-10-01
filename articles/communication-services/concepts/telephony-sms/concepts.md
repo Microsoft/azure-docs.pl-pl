@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e5cfc1e27bae10a1c67e4506afe9db825664785f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5598726726ecca1467b2c82c8ea7f947af033bb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947409"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614040"
 ---
-# <a name="sms-concepts"></a>Pojęcia dotyczące programu SMS
+# <a name="sms-concepts"></a>Pojęcia dotyczące wiadomości SMS
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -29,10 +29,11 @@ Najważniejsze funkcje bibliotek klienckich programu SMS usługi Azure Communica
 - **Dwukierunkowe** konwersacje obsługujące scenariusze, takie jak obsługa klienta, alerty i przypomnienia o terminie.
 - **Niezawodne dostarczanie** dzięki raportom dostarczania w czasie rzeczywistym dla komunikatów wysyłanych z aplikacji.
 - **Analiza** umożliwiająca śledzenie wzorców użycia i zaangażowania klientów.
-- **Wycofaj** obsługę techniczną, aby automatycznie wykrywać i uwzględniać rezygnację dla numerów bezpłatnych. Usługi komunikacyjne wykrywają komunikaty zatrzymania i uruchamiania oraz wysyłają następujące domyślne odpowiedzi do użytkowników końcowych: 
-  - STOP — *"pomyślnie Anulowano subskrypcję komunikatów z tej liczby. Odpowiedz na PONOWNą subskrypcję. "*
-  - START — *"pomyślnie zasubskrybowano ponownie komunikaty z tej liczby. Odpowiedz na anulowanie subskrypcji ".*
-  - Komunikaty zatrzymania i uruchamiania będą przekazywane z powrotem do użytkownika. Usługi komunikacyjne platformy Azure zachęcają do monitorowania i wdrażania tych postanowień, aby upewnić się, że żadne dalsze komunikaty nie są wysyłane do adresatów, którzy wybiorą powiadomienie o komunikacji.
+- **Wycofaj** obsługę techniczną, aby automatycznie wykrywać i uwzględniać rezygnację dla numerów bezpłatnych. Opłaty za bezpłatne numery telefonów US są narzucane i wymuszane przez przewoźników Stanów Zjednoczonych.
+  - Zatrzymaj — Jeśli odbiorca wiadomości tekstowej chce zrezygnować z akceptacji, może wysłać element "STOP" do numeru bezpłatnego. Przewoźnik wysyła następującą odpowiedź domyślną dla zatrzymywania: *"Network MSG: odpowiedź na słowo" Stop ", która blokuje wszystkie teksty wysyłane z tego numeru. Wróć do tyłu tekst "Cofnij zatrzymanie", aby ponownie otrzymywać komunikaty ".*
+  - Uruchom/Cofnij — Jeśli odbiorca chce ponownie subskrybować wiadomości SMS za pośrednictwem numeru bezpłatnego, może wysłać wiadomość "Rozpocznij" lub "odtrzymywać do numeru bezpłatnego. Przewoźnik wysyła następującą domyślną odpowiedź dotyczącą uruchamiania/odtrzymywania: *"komunikat sieciowy: odpowiedź" nie zatrzyma "i rozpocznie otrzymywanie komunikatów ponownie z tej liczby".*
+  - Usługa Azure Communication Services wykryje komunikat zatrzymania i zablokuje wszystkie dalsze komunikaty odbiorcy. Raport dostarczania wskaże dostarczenie zakończone niepowodzeniem z komunikatem o stanie jako "zablokowany nadawca dla danego odbiorcy".
+  - Komunikaty zatrzymania, cofania i uruchamiania będą przekazywane z powrotem do użytkownika. Usługi komunikacyjne platformy Azure zachęcają do monitorowania i wdrażania tych postanowień w celu zapewnienia, że nie będą podejmowane dalsze próby wysłania komunikatów do adresatów, którzy wybiorą powiadomienie z Twojej komunikacji.
 
 
 ## <a name="next-steps"></a>Następne kroki

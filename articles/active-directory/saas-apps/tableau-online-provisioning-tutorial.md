@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533443"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613932"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Tableau online w celu automatycznego aprowizacji użytkowników
 
@@ -86,11 +86,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Link Tableau online na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
     ![Inicjowanie obsługi Tableau online](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Tableau tryb aprowizacji online](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -133,7 +133,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Tableau online w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania kont użytkowników w usłudze Tableau online dla operacji aktualizacji. Aby zapisać zmiany, wybierz pozycję **Zapisz**.
 
-    ![Tableau w trybie online pasujące atrybuty użytkownika](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau w trybie online pasujące atrybuty użytkownika](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do Tableau**.
 
@@ -163,14 +163,17 @@ Możesz użyć sekcji Szczegóły synchronizacji, aby monitorować postęp i pos
 
 Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="change-log"></a>Dziennik zmian
+* 09/30/2020 — dodano obsługę atrybutu "authSetting" dla użytkowników.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

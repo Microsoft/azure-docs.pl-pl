@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 5dbe5061253fb18222a476a88a1ec94a5ce4b0fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299667"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613734"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API za pomocą zakresów autoryzowanych adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -129,6 +129,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Jak znaleźć mój adres IP do uwzględnienia `--api-server-authorized-ip-ranges` ?
+
+Należy dodać maszyny deweloperskie, narzędzia lub adresy IP usługi Automation do listy klastrów AKS zatwierdzonych zakresów adresów IP w celu uzyskania dostępu do serwera interfejsu API. 
+
+Innym rozwiązaniem jest skonfigurowanie serwera przesiadkowego z wymaganymi narzędziami w ramach oddzielnej podsieci w sieci wirtualnej zapory. Przyjęto założenie, że środowisko ma zaporę z odpowiednią siecią i dodano adresy IP zapory do autoryzowanych zakresów. Podobnie, jeśli wymuszono tunelowanie z podsieci AKS do podsieci zapory, niż w przypadku braku serwera przesiadkowego w podsieci klastra.
+
+Dodaj inny adres IP do zatwierdzonych zakresów przy użyciu poniższego polecenia.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> Powyższy przykład dołącza zakresy adresów IP autoryzowanych serwerów interfejsu API w klastrze. Aby wyłączyć autoryzowane zakresy adresów IP, użyj AZ AKS Update i określ pusty zakres "". 
+
+Innym rozwiązaniem jest użycie poniższego polecenia w systemach Windows w celu uzyskania publicznego adresu IPv4 lub wykonanie kroków opisanych w sekcji [Znajdowanie adresu IP](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+Możesz również znaleźć ten adres, wyszukując pozycję "co to jest mój adres IP" w przeglądarce internetowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

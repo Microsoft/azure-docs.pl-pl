@@ -5,13 +5,13 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5e662380c57d20a2e372669dce1bb4c44e75b067
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: ''
+ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496325"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614397"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Samouczek: Tworzenie wielu wystąpień zasobów przy użyciu szablonów ARM
 
@@ -24,7 +24,7 @@ Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie szablonu
-> * Wdrożenie szablonu
+> * Wdrażanie szablonu
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -111,7 +111,7 @@ Ukończony szablon wygląda następująco:
 
 Aby uzyskać więcej informacji na temat tworzenia wielu wystąpień, zobacz [wdrażanie wielu wystąpień zasobu lub właściwości w szablonach ARM](./copy-resources.md)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
@@ -160,7 +160,7 @@ az storage account list --resource-group $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"

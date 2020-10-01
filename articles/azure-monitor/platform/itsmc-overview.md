@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325763"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613768"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -112,6 +112,10 @@ Po utworzeniu połączenia z usługą narzędzia ITSM można tworzyć elementy r
 
 Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcji dla alertów platformy Azure. Za pomocą grup akcji można korzystać z alertów metryk, alertów dziennika aktywności i alertów usługi Azure Log Analytics w programie Azure Portal.
 
+> [!NOTE]
+> Po utworzeniu połączenia narzędzia ITSM istnieje potrzeba odczekania 30 minut od momentu utworzenia łącznika do procesu synchronizacji
+> 
+
 Postępuj zgodnie z następującą procedurą:
 
 1. W Azure Portal kliknij pozycję  **Monitoruj**.
@@ -182,7 +186,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 
 - ServiceDeskConnectionName
 - Identyfikator działu obsługi
-- State
+- Stan
 - Pilność
 - Wpływ
 - Priorytet
@@ -216,7 +220,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Tytuł
 - Typ
 - Kategoria
-- State
+- Stan
 - Eskalacja
 - Stan konfliktu
 - Pilność
@@ -240,7 +244,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Pole Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
-| IncidentState_s | State |
+| IncidentState_s | Stan |
 | Urgency_s |Pilność |
 | Impact_s |Wpływ|
 | Priority_s | Priorytet |
@@ -268,7 +272,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Title_s|  Krótki opis |
 | Type_s|  Typ |
 | Category_s|  Kategoria |
-| CRState_s|  State|
+| CRState_s|  Stan|
 | Urgency_s|  Pilność |
 | Priority_s| Priorytet|
 | Risk_s| Ryzyko|

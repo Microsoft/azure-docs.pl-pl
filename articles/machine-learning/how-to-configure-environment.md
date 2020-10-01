@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 54c607ebac02a9d7e534d24656a8687e9ff39725
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533183"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613717"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 
@@ -228,7 +228,7 @@ Użyj następujących ustawień:
 | Ustawienie |Dotyczy| Wartość |
 |----|---|---|
 | Nazwa klastra |zawsze| yourclustername |
-| Środowisko uruchomieniowe usługi Databricks |zawsze|Środowisko uruchomieniowe inne niż ML 6,5 (Scala 2,11, Spark 2.4.3) |
+| Środowisko uruchomieniowe usługi Databricks |zawsze|Środowisko uruchomieniowe inne niż ML 7,1 (Scala 2,21, Spark 3.0.0) |
 | Wersja języka Python |zawsze| 3 |
 | Ochotnik |zawsze| 2 lub nowszy |
 | Typy maszyn wirtualnych węzła procesu roboczego <br>(określa maksymalną liczbę współbieżnych iteracji) |Zautomatyzowane uczenie maszynowe<br>jedyn| Preferowana maszyna wirtualna zoptymalizowana pod kątem pamięci |
@@ -238,19 +238,18 @@ Przed kontynuowaniem Zaczekaj, aż klaster zostanie uruchomiony.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Zainstaluj poprawny zestaw SDK w bibliotece datakostks
 
-Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-guide/libraries.html#create-a-library) , aby dołączyć odpowiedni pakiet Azure Machine Learning SDK do klastra.
+Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-guide/libraries.html#create-a-library) , aby dołączyć odpowiedni pakiet Azure Machine Learning SDK do klastra. W przypadku zautomatyzowanej ML przejdź do [zestawu SDK dla kostek datakostków z automatyczną nauką uczenia maszynowego](#sdk-for-databricks-with-automated-machine-learning).
 
 1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz**  >  **bibliotekę**.
 
-1. Wybierz **tylko jedną** opcję (nie jest obsługiwana żadna inna instalacja zestawu SDK)
+1. Wybierz następującą opcję (nie są obsługiwane żadne inne instalacje zestawu SDK)
 
    |&nbsp;Dodatki do pakietu SDK &nbsp;|Element źródłowy|&nbsp;Nazwa PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Dla kostek datakostki| Przekaż Język Python lub PyPI | Azure-SDK [datakostki]|
-   |Dla kostek datakostks — with-<br> możliwości zautomatyzowanej ML| Przekaż Język Python lub PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > Nie można zainstalować żadnych innych rozszerzeń zestawu SDK. Wybierz tylko jedną z powyższych opcji [ `databricks` ] lub [ `automl` ].
+   > Nie można zainstalować żadnych innych rozszerzeń zestawu SDK. Wybierz tylko opcję [ `databricks` ].
 
    * Nie wybieraj opcji **Dołącz automatycznie do wszystkich klastrów**.
    * Wybierz pozycję  **Dołącz** obok nazwy klastra.
@@ -270,9 +269,17 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
 
 Jeśli instalacja zakończyła się pomyślnie, zaimportowana biblioteka powinna wyglądać następująco:
 
-Zestaw SDK dla datakostek **_bez_** ZAUTOMATYZOWANEGO zestawu SDK usługi machine Learning ![ Azure Machine Learning dla datakostki](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+#### <a name="sdk-for-databricks"></a>Zestaw SDK dla datakostki
+![Zestaw Azure Machine Learning SDK dla datakostki](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Zestaw SDK dla zestawów datakostks **z** automatycznym ![ zestawem SDK usługi Machine Learning z automatyczną nauką maszynową zainstalowaną w kostkach](./media/how-to-configure-environment/automlonadb.png)
+#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>Zestaw SDK dla kostek datakostks z automatycznym uczeniem maszynowym
+Jeśli klaster został utworzony z użyciem elementów datakostks o wartości innej niż środowisko uruchomieniowe 7,1 lub nowszy, uruchom następujące polecenie w pierwszej komórce notesu, aby zainstalować zestaw SDK AML.
+
+```
+%pip install -r https://aka.ms/automl_linux_requirements.txt
+```
+W przypadku datarangs nie ML Runtime 7,0 i Lower Zainstaluj zestaw AML SDK przy użyciu [skryptu init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+
 
 ### <a name="start-exploring"></a>Rozpocznij eksplorację
 

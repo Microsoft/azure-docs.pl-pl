@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541768"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614261"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -45,7 +45,7 @@ Zasady mogą być dołączane jako jeden z wielu _artefaktów_ w definicji strat
 
 ## <a name="blueprint-definition"></a>Definicja strategii
 
-Strategia składa się z _artefaktów_. Plany platformy Azure obsługują obecnie następujące zasoby jako artefakty:
+Plan składa się z _artefaktów_. Plany platformy Azure obsługują obecnie następujące zasoby jako artefakty:
 
 |Zasób  | Opcje hierarchii| Opis  |
 |---------|---------|---------|
@@ -74,7 +74,10 @@ Kiedy strategia jest tworzona po raz pierwszy, przyjmuje się, że jest w trybie
 
 ## <a name="blueprint-assignment"></a>Przypisywanie strategii
 
-Do istniejącej subskrypcji można przypisać każdą **opublikowaną** **wersję** planu (z maksymalną długością nazwy wynoszącą 90 znaków). W portalu domyślną **wersją** strategii jest ta, która została **opublikowana** jako ostatnia. Jeśli istnieją parametry artefaktów (lub parametry strategii), są one definiowane w procesie przypisania.
+Każdą **opublikowaną** **wersję** planu można przypisać (z maksymalną długością 90 znaków) do istniejącej grupy zarządzania lub subskrypcji. W portalu domyślną **wersją** strategii jest ta, która została **opublikowana** jako ostatnia. Jeśli istnieją parametry artefaktów lub parametry planu, parametry są definiowane podczas procesu przypisywania.
+
+> [!NOTE]
+> Przypisanie definicji planu do grupy zarządzania oznacza, że obiekt przypisania istnieje w grupie zarządzania. Wdrożenie artefaktów nadal odwołuje się do subskrypcji. Aby można było wykonać przypisanie grupy zarządzania, należy użyć [interfejsu API Rest tworzenia lub aktualizacji](/rest/api/blueprints/assignments/createorupdate) , a treść żądania musi zawierać wartość określającą `properties.scope` , aby zdefiniować subskrypcję docelową.
 
 ## <a name="permissions-in-azure-blueprints"></a>Uprawnienia w usłudze Azure Blueprints
 

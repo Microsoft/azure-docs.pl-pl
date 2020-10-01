@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906379"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613649"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Często zadawane pytania dotyczące klientów korzystających już z dzienników Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ Rozwiązanie Security Center jest instalowane w obszarze roboczym wybranym na ek
 Gdy Security Center określa, że maszyna wirtualna jest już połączona z utworzonym obszarem roboczym, Security Center umożliwia korzystanie z rozwiązań w tym obszarze roboczym zgodnie z konfiguracją cennika. Rozwiązania są stosowane tylko do odpowiednich maszyn wirtualnych platformy Azure, za pośrednictwem [określania wartości docelowej rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md), więc rozliczenia pozostają takie same.
 
 - **Usługa Azure Defender wyłączona** — Security Center instaluje rozwiązanie "SecurityCenterFree" w obszarze roboczym. Opłata nie zostanie naliczona.
-- 
 - **Azure Defender on** — Security Center instaluje rozwiązanie "zabezpieczenia" w obszarze roboczym.
 
    ![Rozwiązania w domyślnym obszarze roboczym](./media/security-center-platform-migration-faq/solutions.png)

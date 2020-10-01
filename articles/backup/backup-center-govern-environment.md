@@ -3,18 +3,20 @@ title: Zarządzanie niektórymi kopiami zapasowymi przy użyciu centrum kopii za
 description: Dowiedz się, jak zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych z centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997662"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614345"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Zarządzanie niektórymi kopiami zapasowymi przy użyciu centrum kopii zapasowych
 
 Centrum kopii zapasowych pomaga zarządzać środowiskiem platformy Azure, aby upewnić się, że wszystkie zasoby są zgodne z perspektywą tworzenia kopii zapasowych. Poniżej wymieniono niektóre funkcje ładu centrum kopii zapasowych:
 
 * Wyświetlanie i przypisywanie zasad platformy Azure na potrzeby tworzenia kopii zapasowych
+
+* Sprawdź zgodność zasobów ze wszystkimi wbudowanymi zasadami platformy Azure na potrzeby tworzenia kopii zapasowych.
 
 * Wyświetl wszystkie źródła danych, które nie zostały skonfigurowane do tworzenia kopii zapasowej.
 
@@ -29,6 +31,12 @@ Aby wyświetlić wszystkie [Zasady platformy Azure](https://docs.microsoft.com/a
 Wybranie dowolnej definicji umożliwia [przypisanie zasad](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) do zakresu.
 
 ![Wybierz definicje Azure Policy](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Zgodność kopii zapasowych
+
+Kliknięcie elementu menu zgodność kopii zapasowej ułatwia wyświetlanie [zgodności](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) zasobów zgodnie z różnymi wbudowanymi zasadami, które zostały przypisane do środowiska platformy Azure. Można wyświetlić procent zasobów, które są zgodne ze wszystkimi zasadami, a także zasady, które mają co najmniej jeden niezgodny zasób.
+
+![Wyświetl zgodność kopii zapasowych](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Chronione źródła danych
 

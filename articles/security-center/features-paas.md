@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449964"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613632"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Pokrycie funkcji dla usług Azure PaaS Services <a name="paas-services"></a>
 
@@ -36,9 +36,9 @@ W poniższej tabeli przedstawiono dostępność Azure Security Center funkcji dl
 |Azure Container Registry|-|-|✔|
 |Azure Cosmos DB *|-|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Azure Database for MySQL *|✔|✔|-|
-|Azure Database for PostgreSQL *|✔|✔|-|
+|Azure Data Lake Storage|✔|✔|-|
+|Azure Database for MySQL *|-|✔|-|
+|Azure Database for PostgreSQL *|-|✔|-|
 |Przestrzeń nazw usługi Azure Event Hubs|✔|-|-|
 |Aplikacja usługi Azure Functions|✔|-|-|
 |W usłudze Azure Key Vault|✔|✔|-|
@@ -49,7 +49,7 @@ W poniższej tabeli przedstawiono dostępność Azure Security Center funkcji dl
 |Wystąpienie zarządzane Azure SQL|✔|✔|✔|
 |Azure Service Bus przestrzeń nazw|✔|-|-|
 |Konto usługi Azure Service Fabric|✔|-|-|
-|Konta usługi Azure Storage|✔|-|-|
+|Konta usługi Azure Storage|✔|✔|-|
 |Usługa Azure Stream Analytics|✔|-|-|
 |Subskrypcja platformy Azure|✔ **|✔|-|
 |Azure Virtual Network</br> (w tym podsieci, karty sieciowe i sieciowe grupy zabezpieczeń)|✔|-|-|

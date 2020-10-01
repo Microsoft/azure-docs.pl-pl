@@ -1,6 +1,6 @@
 ---
-title: Samouczek odpowiedzi na zdarzenia — Azure Security Center
-description: W tym samouczku dowiesz się, jak Klasyfikacja alerty zabezpieczeń, określić przyczynę główną & zakres zdarzenia i przeszukać dane zabezpieczeń.
+title: Samouczek odpowiedzi na alerty — Azure Security Center
+description: W tym samouczku dowiesz się, jak Klasyfikacja alerty zabezpieczeń i określić główną przyczynę & zakresu alertu.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,115 +12,115 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336279"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614166"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Samouczek: Reagowanie na zdarzenia związane z zabezpieczeniami
-Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydowej i ostrzega o złośliwych działaniach, używając zaawansowanych funkcji analitycznych oraz funkcji analizy zagrożeń. Ponadto można integrować alerty z innymi produktami i usługami zabezpieczeń w usłudze Security Center oraz tworzyć niestandardowe alerty bazujące na własnych wskaźnikach lub źródłach analiz. Po wygenerowaniu alertu potrzebne jest sprawne działanie w celu zbadania i skorygowania jego przyczyny. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikacja, badanie i reagowanie na alerty zabezpieczeń
+Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydowej i ostrzega o złośliwych działaniach, używając zaawansowanych funkcji analitycznych oraz funkcji analizy zagrożeń. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center i tworzyć niestandardowe alerty na podstawie własnych wskaźników lub źródeł analizy. Po wygenerowaniu alertu potrzebne jest sprawne działanie w celu zbadania i skorygowania jego przyczyny. 
+
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Klasyfikacja alertów zabezpieczeń
-> * Dalsze badanie w celu ustalenia głównej przyczyny i zakresu zdarzenia zabezpieczeń
-> * Wyszukiwanie danych zabezpieczeń pomocnych w badaniu
+> * Zbadaj alert zabezpieczeń, aby określić główną przyczynę
+> * Odpowiadanie na alert zabezpieczeń i eliminowanie przyczyny głównej
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć włączoną usługę Azure Defender. Możesz bezpłatnie wypróbować usługę Azure Defender. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik Szybki Start [dotyczący rozpoczynania pracy z Security Center](security-center-get-started.md) przeprowadzi Cię przez proces uaktualniania.
 
-## <a name="scenario"></a>Scenariusz
-Firma Contoso dokonała ostatnio migracji niektórych lokalnych zasobów na platformę Azure. Dotyczyło to niektórych obciążeń biznesowych na maszynach wirtualnych i baz danych SQL. Obecnie zespół reagowania na zdarzenia zabezpieczeń firmy Contoso (CSIRT, Computer Security Incident Response Team) ma kłopot ze zbadaniem problemów dotyczących zabezpieczeń. Jest to spowodowane brakiem integracji funkcji analizy zabezpieczeń z ich obecnymi narzędziami do reagowania na zdarzenia. Ten brak integracji powoduje problem na etapach wykrywania (za dużo fałszywych alarmów), oceniania i diagnozowania. W ramach tej migracji zespół postanowił skorzystać z usługi Security Center, aby rozwiązać ten problem.
-
-Pierwsza faza migracji zakończyła się po wprowadzeniu wszystkich zasobów i zastosowaniu się do wszystkich zaleceń dotyczących bezpieczeństwa z usłudze Security Center. Zespół Contoso CSIRT stanowi centralny punkt rozwiązywania problemów związanych ze zdarzeniami bezpieczeństwa komputerowego. Zespół składa się z grupy osób odpowiedzialnych za zajmowanie się wszystkimi zdarzeniami zabezpieczeń. Członkowie zespołu mają jasno określone obowiązki obejmujące wszystkie obszary reagowania.
-
-Na potrzeby tego scenariusza skoncentrujemy się na rolach następujących członków zespołu Contoso CSIRT:
-
-![Cykl życia reakcji na zdarzenie](./media/tutorial-security-incident/security-center-incident-response.png)
-
-Magda zajmuje się operacjami zabezpieczeń. Ich obowiązki obejmują:
-
-* Stałe monitorowanie zagrożeń bezpieczeństwa i reagowanie na nie.
-* W razie potrzeby eskalację problemu do właściciela obciążeń chmurowych lub analityka zabezpieczeń.
-
-Sam jest analitykiem zabezpieczeń, a ich obowiązki obejmują:
-
-* Badanie ataków.
-* Korygowanie działań na podstawie alertów.
-* Współpraca z właścicielami obciążeń w celu określania i stosowania rozwiązań.
-
-Jak widać, Magda i Szymon mają różne obowiązki i muszą współpracować, dzieląc się informacjami z usługi Security Center.
 
 ## <a name="triage-security-alerts"></a>Klasyfikacja alertów zabezpieczeń
-Usługa Security Center zapewnia spójny widok wszystkich alertów zabezpieczeń. Alerty zabezpieczeń są klasyfikowane na podstawie ich ważności i możliwości połączenia powiązanych alertów w zdarzenia zabezpieczeń. Klasyfikując alerty i zdarzenia, wykonaj następujące czynności:
+Usługa Security Center zapewnia spójny widok wszystkich alertów zabezpieczeń. Alerty zabezpieczeń są klasyfikowane w oparciu o ważność wykrytego działania. 
 
-- Odrzuć alerty, w przypadku których nie jest wymagane żadne dodatkowe działanie, na przykład gdy alert jest fałszywie dodatni
-- Wykonaj czynności korygujące znane ataki, na przykład blokując ruch sieciowy ze złośliwego adresu IP
-- Określ alerty, które wymagają dalszych badań
+Klasyfikacja swoje alerty na stronie **alertów zabezpieczeń** :
+
+:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Strona listy alertów zabezpieczeń" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+
+Ta strona służy do przeglądania aktywnych alertów zabezpieczeń w środowisku, aby zdecydować, który alert należy zbadać jako pierwszy.
+
+W przypadku alertów zabezpieczeń segregowania należy określić priorytety alertów na podstawie ważności alertu przez adresowanie alertów o wyższej ważności. Dowiedz się więcej o ważności alertów w [przypadku sklasyfikowania alertów?](security-center-alerts-overview.md#how-are-alerts-classified)
+
+> [!TIP]
+> Możesz połączyć Azure Security Center z najpopularniejszymi rozwiązaniami SIEM, w tym z platformą Azure, i korzystać z alertów z wybranego narzędzia. Dowiedz się więcej w temacie [Eksportowanie alertów do Siem](continuous-export.md).
 
 
-1. W menu głównym usługi Security Center w sekcji **WYKRYWANIE** wybierz pozycję **Alerty zabezpieczeń**:
+## <a name="investigate-a-security-alert"></a>Badanie alertu zabezpieczeń
 
-   ![Alerty zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
+Po podjęciu decyzji o tym, który alert należy zbadać jako pierwszy:
 
-2. Na liście alertów wybierz zdarzenie zabezpieczeń, które jest kolekcją alertów, aby dowiedzieć się więcej o tym zdarzeniu. Zostanie otwarte okno **Wykryto zdarzenie zabezpieczeń**.
+1. Wybierz żądany alert.
+1. Na stronie Przegląd alertów wybierz zasób do zbadania jako pierwszy.
+1. Rozpocznij badanie z okienka po lewej stronie, które pokazuje ogólne informacje dotyczące alertu zabezpieczeń.
 
-   ![Wykryto zdarzenie zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Strona listy alertów zabezpieczeń":::
 
-3. U góry tego ekranu znajduje się opis zdarzenia zabezpieczeń, a poniżej lista alertów będących częścią tego zdarzenia. Kliknij alert, który chcesz zbadać dokładniej, aby uzyskać więcej informacji.
+    W tym okienku są wyświetlane:
+    - Ważność alertu, stan i czas działania
+    - Opis objaśniający dokładną aktywność, która została wykryta
+    - Zasoby, których to dotyczy
+    - Zabicia przeznaczenie łańcucha działania w macierzy MITRE ATT&
 
-   ![Szczegóły alertu ze zdarzenia](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+1. Aby uzyskać bardziej szczegółowe informacje, które mogą pomóc w zbadaniu podejrzanych działań, sprawdź kartę **szczegóły alertu** .
 
-   Typy alertów mogą być różne. Aby uzyskać więcej szczegółowych informacji na temat typu alertu i możliwych czynności korygujących, przeczytaj [Informacje o alertach zabezpieczeń w usłudze Azure Security Center](security-center-alerts-type.md). W przypadku alertów, które można bezpiecznie odrzucić, możesz kliknąć alert prawym przyciskiem myszy i wybrać pozycję **Odrzuć**:
+1. Po przejrzeniu informacji na tej stronie może być wystarczające przeprowadzenie odpowiedzi. Jeśli potrzebujesz dalszych szczegółów:
 
-   ![Alerty](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+    - Skontaktuj się z właścicielem zasobu, aby sprawdzić, czy wykryta czynność jest fałszywie dodatnia.
+    - Zbadaj dzienniki pierwotne wygenerowane przez zaatakowany zasób
 
-4. Jeśli główna przyczyna i zakres złośliwych działań są nieznane, przejdź do następnego kroku, aby zbadać problem dokładniej.
+## <a name="respond-to-a-security-alert"></a>Odpowiedz na alert zabezpieczeń
+Po zbadaniu alertu i zrozumieniu jego zakresu można odpowiedzieć na alert zabezpieczeń z poziomu Azure Security Center:
 
-## <a name="investigate-an-alert-or-incident"></a>Badanie alertu lub zdarzenia
-1. Na stronie **Alert zabezpieczeń** kliknij przycisk **Rozpocznij badanie** (jeśli badanie jest już rozpoczęte, nazwa przycisku zmienia się na **Kontynuuj badanie**).
+1.  Otwórz kartę **podejmij działanie** , aby wyświetlić zalecane odpowiedzi.
 
-   ![Badanie](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Strona listy alertów zabezpieczeń" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
-   Mapa badania jest graficzną reprezentacją obiektów związanych z tym alertem lub zdarzeniem zabezpieczeń. Kliknięcie obiektu na mapie powoduje, że w informacjach o tym obiekcie są wyświetlane nowe obiekty, a mapy są rozwijane. Właściwości obiektu zaznaczonego na mapie są wyróżnione w okienku po prawej stronie. Informacje dostępne na poszczególnych kartach różnią się w zależności od wybranego obiektu. Podczas procesu badania zapoznaj się ze wszystkimi odpowiednimi informacjami, aby lepiej zrozumieć przenoszenie osoby atakującej.
+1.  Zapoznaj się z sekcją **ograniczanie zagrożenia** , aby zapoznać się z ręcznymi krokami w celu rozwiązania problemu.
+1.  W celu zabezpieczenia zasobów i zapobiegania przyszłym atakom tego rodzaju należy skorygować zalecenia dotyczące zabezpieczeń w sekcji **zapobieganie atakom w przyszłości** .
+1.  Aby wyzwolić aplikację logiki z zautomatyzowanymi krokami odpowiedzi, użyj sekcji **wyzwalanie automatycznej odpowiedzi** .
+1.  Jeśli wykryte działanie *nie jest* złośliwe, możesz pominąć przyszłe alerty tego rodzaju za pomocą sekcji **Pomiń podobne alerty** .
 
-2. Jeśli potrzebujesz więcej dowodów lub musisz dokładniej zbadać obiekty, które zostały znalezione w trakcie badania, przejdź do następnego kroku.
+1.  Po zakończeniu badania do alertu i odpowiedziano w odpowiedni sposób, Zmień stan na **odrzucony**.
 
-## <a name="search-data-for-investigation"></a>Wyszukiwanie danych do badania
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Strona listy alertów zabezpieczeń":::
 
-Aby znaleźć więcej dowodów na naruszenie zabezpieczeń systemów i uzyskać więcej informacji na temat obiektów, które są częścią dochodzenia, możesz skorzystać z funkcji wyszukiwania w usłudze Security Center.
+    Spowoduje to usunięcie alertu z głównej listy alertów. Możesz użyć filtru na stronie listy alertów, aby wyświetlić wszystkie alerty z **odrzuconym** stanem.
 
-Aby przeprowadzić wyszukiwanie, otwórz pulpit nawigacyjny usługi **Security Center**, kliknij pozycję **Wyszukaj** w lewym okienku nawigacji, wybierz obszar roboczy zawierający obiekty, które chcesz wyszukać, wpisz zapytanie wyszukiwania i kliknij przycisk wyszukiwania.
+1.  Opcjonalnie Prześlij opinię na temat alertu do firmy Microsoft:
+    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego** i dostarczającego
+    1. Wybierz przyczynę i Dodaj komentarz.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Strona listy alertów zabezpieczeń":::
 
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Zachowaj automatyczną obsługę administracyjną i usługę Azure Defender. Jeśli nie planujesz kontynuować ani wyłączyć usługi Azure Defender:
+    > [!TIP]
+    > Przeglądamy Twoją opinię, aby ulepszyć nasze algorytmy i zapewnić lepsze alerty zabezpieczeń.
+
+## <a name="end-the-tutorial"></a>Zakończ samouczek
+
+Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Zachowaj automatyczną obsługę administracyjną i usługę Azure Defender. 
+
+Jeśli nie planujesz kontynuować pracy lub chcesz wyłączyć jedną z następujących funkcji:
 
 1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia**.
-1. Wybierz subskrypcję, którą chcesz obniżyć.
-1. Ustaw **usługę Azure Defender** na off.
-1. Wybierz pozycję **Zapisz**.
-
-Jeśli chcesz wyłączyć automatyczną aprowizację:
-
-1. Wróć do menu głównego Security Center i wybierz pozycję **zasady zabezpieczeń**.
-2. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację.
-3. W sekcji **Zasady zabezpieczeń — zbieranie danych** wybierz pozycję **Wyłącz** w obszarze **Dołączanie**, aby wyłączyć automatyczną aprowizację.
+1. Wybierz odpowiednią subskrypcję.
+1. Aby zmienić wersję, wybierz pozycję **Azure Defender off**.
+1. Aby **wyłączyć automatyczne**Inicjowanie obsługi, Otwórz stronę **zbieranie danych** i ustaw **Automatyczne Inicjowanie obsługi** .
 4. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
-> Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
+> Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, które już mają agenta. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
 >
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono funkcje usługi Security Center, z których należy korzystać, podczas reagowania na zdarzenia zabezpieczeń, takie jak:
+W tym samouczku przedstawiono informacje o Security Center funkcjach, które będą używane podczas odpowiadania na alert zabezpieczeń. W przypadku pokrewnego materiału Zobacz:
 
-> [!div class="checklist"]
-> * Zdarzenie zabezpieczeń będące agregacją powiązanych alertów dla zasobu
-> * Mapa badania, która jest graficzną reprezentacją obiektów związanych z alertem lub zdarzeniem zabezpieczeń
-> * Funkcje wyszukiwania umożliwiające znajdowanie dodatkowych dowodów na naruszenie zabezpieczeń systemów
+- [Reagowanie na alerty usługi Azure Defender dla usługi Key Vault](defender-for-key-vault-usage.md)
+- [Alerty zabezpieczeń — Podręcznik referencyjny](alerts-reference.md)
+- [Wprowadzenie do usługi Azure Defender](azure-defender.md)

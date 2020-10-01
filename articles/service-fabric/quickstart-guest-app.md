@@ -4,12 +4,12 @@ description: Użyj klastra usługi Azure Service Fabric do hostowania istniejąc
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314287"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614108"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostowanie aplikacji w technologii Node.js w usłudze Azure Service Fabric
 
@@ -31,7 +31,7 @@ Tworzenie projektu przy użyciu klawiszy `CTRL`+`SHIFT`+`N`
 
 W oknie dialogowym **Nowy projekt** wybierz kolejno pozycje **Chmura > Aplikacja usługi Service Fabric**.
 
-Nazwij aplikację **MyGuestApp** i naciśnij przycisk **OK**.
+Nazwij aplikację **MyGuestApp** i naciśnij przycisk **Create (Utwórz**).
 
 >[!IMPORTANT]
 >W technologii Node.js można łatwo obejść limit systemu Windows 260 znaków dla ścieżek. Użyj krótkiej ścieżki dla samego projektu, takiej jak **c:\code\svc1**. Opcjonalnie można wykonać **[te instrukcje](https://stackoverflow.com/a/41687101/1664231)** , aby włączyć długie ścieżki plików w systemie Windows 10.

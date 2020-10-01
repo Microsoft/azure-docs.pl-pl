@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bb8a413f2e2a3aa4a8facd533d822312bb61fa0e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920436"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613564"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Poziomy spójności i interfejsy API usługi Azure Cosmos DB
 
@@ -49,11 +49,11 @@ Podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
 * Azure Cosmos DB dynamicznie mapuje problem odczytu określony przez sterownik klienta MongoDB na jeden z Azure Cosmos DB poziomów spójności skonfigurowanych dynamicznie na żądanie odczytu.  
 
-* Można dodać adnotacje do określonego regionu skojarzonego z kontem usługi Azure Cosmos jako "Master", tworząc region jako pierwszy zapisywalny region. 
+* Można dodać adnotacje do określonego regionu skojarzonego z kontem usługi Azure Cosmos jako "podstawowe", tworząc region jako pierwszy zapisywalny region. 
 
 W poniższej tabeli pokazano, w jaki sposób natywne zagadnienia dotyczące zapisu/odczytu MongoDB są mapowane na poziomy spójności usługi Azure Cosmos w przypadku korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
-:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapowanie modelu spójności MongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapowanie modelu spójności Cassandra" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

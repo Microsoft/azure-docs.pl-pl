@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281254"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613904"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -38,7 +38,7 @@ W tym artykule opisano, jak osiągnąć te cele przy użyciu [prywatnego linku p
 
 Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą którego jest dostępny zasób platformy Azure. Za pomocą linku prywatnego platformy Azure można skonfigurować prywatny punkt końcowy dla Centrum IoT Hub, aby umożliwić usługom w sieci wirtualnej dostęp do IoT Hub bez konieczności wysyłania ruchu do publicznego punktu końcowego IoT Hub. Podobnie urządzenia lokalne mogą używać [wirtualnej sieci prywatnej (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w celu uzyskania łączności z siecią wirtualną i IoT Hub (za pośrednictwem prywatnego punktu końcowego). W związku z tym możesz ograniczyć lub całkowicie zablokować łączność z publicznymi punktami końcowymi usługi IoT Hub przy użyciu [IoT Hub filtr IP](./iot-hub-ip-filtering.md) i [skonfigurować Routing, aby nie wysyłał żadnych danych do wbudowanego punktu końcowego](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Takie podejście utrzymuje łączność z koncentratorem przy użyciu prywatnego punktu końcowego dla urządzeń. Głównym fokusem tego Instalatora są urządzenia znajdujące się w sieci lokalnej. Ta konfiguracja nie jest zalecana w przypadku urządzeń wdrożonych w sieci rozległej.
 
-![IoT Hub publiczny punkt końcowy](./media/virtual-network-support/virtual-network-ingress.png)
+![IoT Hub engress sieci wirtualnej](./media/virtual-network-support/virtual-network-ingress.png)
 
 Przed kontynuowaniem upewnij się, że spełniono następujące wymagania wstępne:
 
@@ -92,7 +92,7 @@ Aby zezwolić innym usługom na znalezienie Centrum IoT jako zaufanej usługi fi
 
 1. W obszarze **stan**wybierz pozycję **włączone**, a następnie kliknij pozycję **Zapisz**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Zrzut ekranu przedstawiający sposób włączania tożsamości zarządzanej dla IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Zrzut ekranu przedstawiający miejsce dodania prywatnego punktu końcowego dla IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Przypisywanie tożsamości zarządzanej do IoT Hub podczas tworzenia przy użyciu szablonu ARM
 

@@ -3,12 +3,12 @@ title: Event Hubs — przechwytywanie zdarzeń przesyłania strumieniowego przy 
 description: W tym artykule opisano, jak włączyć przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs przy użyciu witryny Azure Portal.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315728"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613581"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Włączanie przechwytywania zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs
 
@@ -17,6 +17,9 @@ ms.locfileid: "85315728"
 Przy użyciu witryny [Azure Portal](https://portal.azure.com) można skonfigurować funkcję przechwytywania podczas tworzenia centrum zdarzeń. Możesz przechwytywać dane do kontenera usługi Azure [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) lub do konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) .
 
 Aby uzyskać więcej informacji, zobacz [omówienie funkcji przechwytywania usługi Event Hubs][capture-overview].
+
+> [!IMPORTANT]
+> Konto magazynu docelowego (Azure Storage lub Azure Data Lake Storage) musi znajdować się w tej samej subskrypcji co centrum zdarzeń.
 
 ## <a name="capture-data-to-azure-storage"></a>Przechwytywanie danych do usługi Azure Storage
 

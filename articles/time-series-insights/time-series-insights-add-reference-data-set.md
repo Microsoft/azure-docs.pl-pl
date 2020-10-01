@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168188"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614244"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Utwórz zestaw danych referencyjnych dla środowiska Azure Time Series Insights Gen1 przy użyciu Azure Portal
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 W tym artykule opisano sposób dodawania zestawu danych referencyjnych do środowiska Azure Time Series Insightsowego. Dane referencyjne są przydatne do łączenia się z danymi źródłowymi w celu rozszerzenia wartości.
 
@@ -38,7 +41,7 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
 1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko Azure Time Series Insights.
 
-1. Wybierz stronę **Overview** (Przegląd). Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
+1. Wybierz stronę **Przegląd**. Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
 
    [![Rozwiń sekcję podstawowe informacje](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 

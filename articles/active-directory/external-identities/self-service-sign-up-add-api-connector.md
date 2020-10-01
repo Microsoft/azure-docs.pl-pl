@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165179"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613989"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -37,14 +37,14 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 
    - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
-   ![Dodawanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+   ![Konfigurowanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Wybierz pozycję **Zapisz**.
 
 > [!IMPORTANT]
 > Wcześniej trzeba było skonfigurować atrybuty użytkownika do wysłania do interfejsu API ("oświadczenia do wysłania") oraz atrybuty użytkownika akceptowane z interfejsu API ("oświadczenia do odebrania"). Teraz wszystkie atrybuty użytkownika są domyślnie wysyłane, jeśli mają wartość i dowolny atrybut użytkownika może być zwracany przez interfejs API w odpowiedzi "kontynuacja".
 
 ## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
-Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) właściwości użytkownika. 
+Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) właściwości użytkownika. 
 
 **Przykładowe żądanie**
 ```http
@@ -77,7 +77,7 @@ Content-type: application/json
 
 W żądaniu są dostępne tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure Active Directory**  >  **tożsamości zewnętrznych**  >  **niestandardowe środowisko atrybutów użytkownika** .
 
-Atrybuty niestandardowe istnieją w formacie **extension_ \<extensions-app-id> _AttributeName** w katalogu. Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Aby uzyskać więcej informacji na temat atrybutów niestandardowych, zobacz [Definiowanie atrybutów niestandardowych dla przepływów rejestracji samoobsługowej](user-flow-add-custom-attributes.md).
+Atrybuty niestandardowe istnieją w formacie **extension_ \<extensions-app-id> _AttributeName**  w katalogu. Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Aby uzyskać więcej informacji na temat atrybutów niestandardowych, zobacz [Definiowanie atrybutów niestandardowych dla przepływów rejestracji samoobsługowej](user-flow-add-custom-attributes.md).
 
 Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **ustawień regionalnych interfejsu użytkownika ("ui_locales")** . Udostępnia ustawienia regionalne użytkownika skonfigurowane na urządzeniu, które mogą być używane przez interfejs API do zwracania międzynarodowych odpowiedzi.
 
@@ -85,7 +85,7 @@ Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **us
 > Jeśli nie ma wartości w momencie wywołania punktu końcowego interfejsu API, nie zostanie ono wysłane do interfejsu API. Interfejs API powinien zostać zaprojektowany w celu jawnego sprawdzenia dla oczekiwanej wartości.
 
 > [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
+> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
@@ -246,7 +246,7 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
 | akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
@@ -268,8 +268,8 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | Ciąg | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
+| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
 | userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
@@ -294,7 +294,7 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
+| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
 | akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
 | status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
 | userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
@@ -304,11 +304,29 @@ Content-type: application/json
 
 ![Przykładowa strona walidacji](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## <a name="using-azure-functions"></a>Korzystanie z usługi Azure Functions
-Wyzwalacza HTTP można użyć w Azure Functions jako prosty sposób utworzenia punktu końcowego interfejsu API do użycia z łącznikiem interfejsu API. Funkcja platformy Azure służy do, [na przykład](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), wykonywania logiki walidacji i ograniczania logowania do określonych domen. Możesz również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze w ramach funkcji platformy Azure w celu uzyskania obszernych scenariuszy.
+
+## <a name="best-practices-and-how-to-troubleshoot"></a>Najlepsze rozwiązania i sposoby rozwiązywania problemów
+
+### <a name="using-serverless-cloud-functions"></a>Korzystanie z funkcji w chmurze bezserwerowej
+Funkcje bezserwerowe, takie jak wyzwalacze HTTP w Azure Functions, zapewniają prostą metodę tworzenia punktów końcowych interfejsu API do użycia z łącznikiem interfejsu API. Za pomocą funkcji chmury bezserwerowej można na [przykład](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)wykonać logikę walidacji i ograniczyć logowanie do określonych domen. Funkcja chmury bezserwerowej może również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze w celu uzyskania bardziej złożonych scenariuszy.
+
+### <a name="best-practices"></a>Najlepsze rozwiązania
+Upewnij się, że:
+* Interfejs API jest następujący po żądaniu interfejsu API i kontraktów odpowiedzi, jak opisano powyżej. 
+* **Adres URL punktu końcowego** łącznika interfejsu API wskazuje na prawidłowy punkt końcowy interfejsu API.
+* Interfejs API jawnie sprawdza wartości null odebranych oświadczeń.
+* Interfejs API reaguje tak szybko, jak to możliwe, aby zapewnić środowisko użytkownika systemu.
+    * Jeśli używana jest funkcja bezserwerowa lub skalowalna usługa sieci Web, należy użyć planu hostingu, który utrzymuje interfejs API "w stanie" lub "grzane". Aby uzyskać Azure Functions, zaleca się korzystanie z [planu Premium](../../azure-functions/functions-scale.md#premium-plan). 
+
+
+### <a name="use-logging"></a>Korzystanie z rejestrowania
+Ogólnie rzecz biorąc, warto użyć narzędzi rejestrowania włączonych przez usługę internetowego interfejsu API, takich jak [Application Insights](../../azure-functions/functions-monitoring.md), aby monitorować interfejs API pod kątem nieoczekiwanych kodów błędów, wyjątków i niskiej wydajności.
+* Monitoruj kody stanu HTTP, które nie są HTTP 200 lub 400.
+* Kod stanu HTTP 401 lub 403 zazwyczaj wskazuje, że występuje problem z uwierzytelnianiem. Sprawdź dwukrotnie warstwę uwierzytelniania interfejsu API i odpowiednią konfigurację w łączniku interfejsu API.
+* W razie konieczności używaj bardziej agresywnych poziomów rejestrowania (np. "Trace" lub "debug").
+* Monitoruj interfejs API przez długi czas odpowiedzi.
 
 ## <a name="next-steps"></a>Następne kroki
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Dowiedz się, jak [dodać niestandardowy przepływ pracy zatwierdzania do rejestracji](self-service-sign-up-add-approvals.md) samoobsługowej
 - Rozpocznij pracę z naszymi [przykładami szybkiego startu usługi Azure Functions](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

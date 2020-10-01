@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 742d7122c60b383e8ab7aa73f73b11b47843a9d5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575949"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613830"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Korelacja inteligentnego alertu w chmurze w Azure Security Center (zdarzenia)
 
@@ -39,7 +39,8 @@ Podczas badania zdarzenia analitykowie często potrzebują dodatkowego kontekstu
 > [!TIP]
 > Aby uzyskać listę alertów dotyczących zdarzeń zabezpieczeń, które mogą być tworzone przez usługę Fusion Analytics, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-fusion).
 
-![Zrzut ekranu przedstawiający raport wykrytych zdarzeń zabezpieczeń](./media/security-center-alerts-cloud-smart/security-incident.png)
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Zrzut ekranu przedstawiający raport wykrytych zdarzeń zabezpieczeń":::
 
-Aby lepiej zrozumieć zdarzenia związane z zabezpieczeniami, zobacz [jak obsłużyć zdarzenia zabezpieczeń w Azure Security Center](security-center-incident.md).
+
+Aby lepiej zrozumieć zdarzenia związane z zabezpieczeniami, zobacz [jak zarządzać zdarzeniami zabezpieczeń w Azure Security Center](security-center-incident.md).
 

@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986483"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614006"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -35,7 +35,7 @@ Dowiedz się więcej o [możliwościach tworzenia kopii zapasowych](backup-overv
 
 ## <a name="where-is-data-backed-up"></a>Gdzie są tworzone kopie zapasowe danych?
 
-Azure Backup przechowuje kopie zapasowe danych w magazynach — Odzyskaj magazyny usług i magazyny kopii zapasowych. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
+Azure Backup przechowuje kopie zapasowe danych w magazynach — Recovery Services magazynach i magazynach kopii zapasowych. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
 
 Magazyny mają następujące funkcje:
 

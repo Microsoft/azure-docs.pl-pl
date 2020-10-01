@@ -2,13 +2,13 @@
 title: Omówienie centrum kopii zapasowych
 description: Ten artykuł zawiera omówienie centrum kopii zapasowych na platformie Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997009"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614290"
 ---
 # <a name="overview-of-backup-center"></a>Omówienie centrum kopii zapasowych
 
@@ -39,7 +39,11 @@ Na kafelku **zadania** uzyskasz podsumowanie wszystkich zadań związanych z two
 
 Na kafelku **wystąpienia kopii zapasowej** można uzyskać widok podsumowania wszystkich wystąpień kopii zapasowej w ramach kopii zapasowej. Można na przykład zobaczyć liczbę wystąpień kopii zapasowych, które są w stanie nieusuniętym, w porównaniu z liczbą wystąpień, które są nadal skonfigurowane do ochrony. Wybranie dowolnej liczby z tego kafelka umożliwia wyświetlenie dodatkowych informacji o wystąpieniach kopii zapasowych dla określonego typu źródła danych i stanu ochrony.
 
-Postępuj zgodnie z poniższymi instrukcjami, aby poznać różne możliwości udostępniane przez centrum kopii zapasowych oraz jak korzystać z tych funkcji do wydajnego zarządzania funkcją kopii zapasowej.
+Obejrzyj poniższe wideo, aby poznać możliwości centrum kopii zapasowych:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Wykonaj [kolejne kroki](#next-steps) , aby poznać różne możliwości udostępniane przez centrum kopii zapasowych oraz jak można używać tych funkcji do wydajnego zarządzania funkcją kopii zapasowej.
 
 ## <a name="next-steps"></a>Następne kroki
 
