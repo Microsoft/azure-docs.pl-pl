@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325280"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618492"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

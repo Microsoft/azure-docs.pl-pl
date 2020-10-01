@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436565"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617421"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Usuwanie funkcji ochrony Transparent Data Encryption (TDE) przy użyciu programu PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

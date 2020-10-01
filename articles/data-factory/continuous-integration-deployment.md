@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533319"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616911"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Potoki
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -461,7 +461,13 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Przykład: parametryzacja istniejący Azure Databricks interaktywny identyfikator klastra
@@ -553,7 +559,7 @@ Poniższy przykład pokazuje, jak dodać pojedynczą wartość do domyślnego sz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 -   **Skrypt przed wdrożeniem i po wdrożeniu**. Przed etapem wdrażania Menedżer zasobów w obszarze ciągłe/CD należy wykonać określone zadania, takie jak zatrzymywanie i ponowne uruchamianie wyzwalaczy i oczyszczanie. Zalecamy używanie skryptów programu PowerShell przed i po wykonaniu zadania wdrażania. Aby uzyskać więcej informacji, zobacz [Aktualizuj aktywne wyzwalacze](#updating-active-triggers). Zespół fabryki danych [dostarczył skrypt](#script) do użycia w dolnej części tej strony.
 
 -   **Środowisko Integration Runtime i udostępnianie**. Środowiska Integration Runtime nie zmieniają się często i są podobne do wszystkich etapów w ciągłej integracji/ciągłego wdrażania. Dlatego Data Factory oczekuje, że masz taką samą nazwę i typ środowiska Integration Runtime dla wszystkich etapów ciągłej integracji/ciągłego wdrażania. Jeśli chcesz udostępnić środowisko Integration Runtime na wszystkich etapach, rozważ użycie usługi Trzyelementowy Factory, aby zawierała udostępnione środowisko Integration Runtime. Tej fabryki udostępnionej można używać we wszystkich środowiskach jako połączonego typu środowiska Integration Runtime.
+
+-   **Zarządzane wdrożenie prywatnego punktu końcowego**. Jeśli prywatny punkt końcowy już istnieje w fabryce i podjęto próbę wdrożenia szablonu ARM zawierającego prywatny punkt końcowy o tej samej nazwie, ale z zmodyfikowanymi właściwościami, wdrożenie zakończy się niepowodzeniem. Innymi słowy, można pomyślnie wdrożyć prywatny punkt końcowy o ile ma on takie same właściwości jak ten, który już istnieje w fabryce. Jeśli jakakolwiek właściwość różni się między środowiskami, można ją zastąpić, parametryzacja tę właściwość i dostarczając odpowiednią wartość podczas wdrażania.
 
 -   **Key Vault**. W przypadku korzystania z połączonych usług, których informacje o połączeniu są przechowywane w Azure Key Vault, zaleca się przechowywanie oddzielnych magazynów kluczy dla różnych środowisk. Możesz również skonfigurować osobne poziomy uprawnień dla każdego magazynu kluczy. Na przykład użytkownik może nie chcieć, aby członkowie zespołu mieli uprawnienia do wpisów tajnych produkcji. W przypadku przestrzegania tego podejścia zalecamy, aby zachować te same nazwy tajnych na wszystkich etapach. Jeśli zachowasz te same nazwy tajnych, nie musisz Sparametryzuj każdego z parametrów połączenia w środowiskach ciągłej integracji/ciągłego wdrażania, ponieważ jedyną przyczyną zmiany jest nazwa magazynu kluczy, który jest osobnym parametrem.
 

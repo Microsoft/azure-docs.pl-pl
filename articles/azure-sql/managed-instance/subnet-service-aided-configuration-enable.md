@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711378"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618033"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Włączanie konfiguracji podsieci wspomaganej przez usługę dla wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Konfiguracja wspomagana usługi jest włączana automatycznie po włączeniu [de
 > Ponieważ konfiguracja podsieci wspomagana przez usługę jest istotną funkcją do utrzymania umowy SLA, począwszy od 1 maja 2020, nie będzie możliwe wdrożenie wystąpień zarządzanych w podsieciach, które nie są delegowane do dostawcy zasobów wystąpienia zarządzanego. 1 lipca 2020 wszystkie podsieci zawierające wystąpienia zarządzane zostaną automatycznie delegowane do dostawcy zasobów wystąpienia zarządzanego. 
 
 ## <a name="enabling-subnet-delegation-for-new-deployments"></a>Włączanie delegowania podsieci dla nowych wdrożeń
-Aby wdrożyć wystąpienie zarządzane w programie do pustej podsieci, musisz delegować ją do `Microsoft.Sql/managedInstances` dostawcy zasobów zgodnie z opisem w [artykule](../../virtual-network/manage-subnet-delegation.md). _Należy zwrócić uwagę na to, że przywoływany artykuł używa `Microsoft.DBforPostgreSQL/serversv2` dostawcy zasobów na przykład. `Microsoft.Sql/managedInstances`Zamiast tego należy użyć dostawcy zasobów._
+Aby wdrożyć wystąpienie zarządzane w programie do pustej podsieci, musisz delegować ją do `Microsoft.Sql/managedInstances` dostawcy zasobów zgodnie z opisem w [artykule](../../virtual-network/manage-subnet-delegation.md). _Należy zwrócić uwagę na to, że przywoływany artykuł używa `Microsoft.DBforPostgreSQL/serversv2` dostawcy zasobów na przykład. `Microsoft.Sql/managedInstances` Zamiast tego należy użyć dostawcy zasobów._
 
 ## <a name="enabling-subnet-delegation-for-existing-deployments"></a>Włączanie delegowania podsieci dla istniejących wdrożeń
 
@@ -62,7 +62,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-Po znalezieniu podsieci wystąpienia zarządzanego należy delegować ją do `Microsoft.Sql/managedInstances` dostawcy zasobów zgodnie z opisem w tym [artykule](../../virtual-network/manage-subnet-delegation.md). _Należy zwrócić uwagę na to, że przywoływany artykuł używa `Microsoft.DBforPostgreSQL/serversv2` dostawcy zasobów na przykład. `Microsoft.Sql/managedInstances`Zamiast tego należy użyć dostawcy zasobów._
+Po znalezieniu podsieci wystąpienia zarządzanego należy delegować ją do `Microsoft.Sql/managedInstances` dostawcy zasobów zgodnie z opisem w tym [artykule](../../virtual-network/manage-subnet-delegation.md). _Należy zwrócić uwagę na to, że przywoływany artykuł używa `Microsoft.DBforPostgreSQL/serversv2` dostawcy zasobów na przykład. `Microsoft.Sql/managedInstances` Zamiast tego należy użyć dostawcy zasobów._
 
 
 > [!IMPORTANT]

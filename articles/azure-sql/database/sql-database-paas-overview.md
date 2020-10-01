@@ -7,28 +7,28 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907052"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617234"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database to aparat bazy danych w pełni zarządzanej platformy jako usługi (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie bez zaangażowania użytkowników. Azure SQL Database jest zawsze uruchomiona w najnowszej stabilnej wersji aparatu bazy danych SQL Server i nawiązanej systemowi OS o dostępności 99,99%. Możliwości PaaS, które są wbudowane w Azure SQL Database umożliwiają skoncentrowanie się na działaniach związanych z administrowaniem i optymalizacją bazy danych specyficznych dla domeny, które mają kluczowe znaczenie dla Twojej firmy.
+Usługa Azure SQL Database to w pełni zarządzany aparat bazy danych typu platforma jako usługa (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie, bez zaangażowania ze strony użytkownika. Usługa Azure SQL Database zawsze uruchamia najnowszą stabilną wersję aparatu bazy danych programu SQL Server i poprawionego systemu operacyjnego z dostępnością na poziomie 99,99%. Funkcje rozwiązania PaaS wbudowane w usługę Azure SQL Database umożliwiają skoncentrowanie się na działaniach związanych z administrowaniem i optymalizacją bazy danych dla danej domeny, które mają kluczowe znaczenie dla Twojej firmy.
 
-Za pomocą Azure SQL Database można utworzyć warstwę magazynów danych o wysokiej dostępności i wysokiej wydajności dla aplikacji i rozwiązań na platformie Azure. SQL Database może być właściwym wyborem dla różnych nowoczesnych aplikacji w chmurze, ponieważ umożliwia przetwarzanie zarówno danych relacyjnych, jak i [nierelacyjnych struktur](../multi-model-features.md), takich jak wykresy, JSON, przestrzenne i XML.
+Za pomocą usługi Azure SQL Database można utworzyć warstwę magazynów danych o wysokiej dostępności i wysokiej wydajności dla aplikacji i rozwiązań na platformie Azure. SQL Database może być właściwym wyborem dla różnych nowoczesnych aplikacji w chmurze, ponieważ umożliwia przetwarzanie zarówno danych relacyjnych, jak i [nierelacyjnych struktur](../multi-model-features.md), takich jak wykresy, JSON, przestrzenne i XML.
 
-Azure SQL Database jest oparta na najnowszej stabilnej wersji [aparatu bazy danych Microsoft SQL Server Database](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Można korzystać z zaawansowanych funkcji przetwarzania zapytań, takich jak [technologie w pamięci o wysokiej wydajności](../in-memory-oltp-overview.md) i [inteligentne przetwarzanie zapytań](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). W rzeczywistości najnowsze możliwości SQL Server są najpierw wydane do SQL Database, a dopiero SQL Server. Uzyskasz najnowsze możliwości SQL Server bez narzutu na stosowanie poprawek lub uaktualnianie, przetestowane przez miliony baz danych. 
+Azure SQL Database jest oparta na najnowszej stabilnej wersji [aparatu bazy danych Microsoft SQL Server Database](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Można korzystać z zaawansowanych funkcji przetwarzania zapytań, takich jak [technologie w pamięci o wysokiej wydajności](../in-memory-oltp-overview.md) i [inteligentne przetwarzanie zapytań](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). W rzeczywistości najnowsze możliwości programu SQL Server są najpierw udostępniane w usłudze SQL Database, a dopiero potem w programie SQL Server. Uzyskasz najnowsze możliwości programu SQL Server bez wysiłków związanych z instalacją poprawek lub uaktualnianiem, po przetestowaniu ich na milionach baz danych. 
 
-SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dwóch różnych modeli zakupów: [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md) i [modelu zakupu opartego](service-tiers-dtu.md)na jednostkach DTU. SQL Database to w pełni zarządzana usługa, która ma wbudowaną wysoką dostępność, kopie zapasowe i inne typowe operacje konserwacyjne. Firma Microsoft obsługuje wszystkie poprawki i aktualizacje kodu SQL i systemu operacyjnego. Nie trzeba zarządzać podstawową infrastrukturą.
+SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dwóch różnych modeli zakupów: [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md) i [modelu zakupu opartego](service-tiers-dtu.md)na jednostkach DTU. SQL Database to w pełni zarządzana usługa, która ma wbudowaną wysoką dostępność, tworzenie kopii zapasowych i inne typowe operacje konserwacyjne. Firma Microsoft obsługuje wszystkie poprawki i aktualizacje kodu SQL i systemu operacyjnego. Nie trzeba zarządzać podstawową infrastrukturą.
 
 Jeśli dopiero zaczynasz Azure SQL Database, zapoznaj się z *omówieniem Azure SQL Database* filmów wideo z naszej szczegółowej [serii wideo usługi Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
@@ -182,7 +182,7 @@ Usługa Azure Defender for SQL to ujednolicony pakiet na potrzeby zaawansowanych
 
 Usługa SQL Database pomaga zabezpieczyć dane, zapewniając szyfrowanie. W przypadku danych w ruchu używa protokołu [Transport Layer Security](https://support.microsoft.com/kb/3135244). W przypadku danych przechowywanych przy użyciu [przezroczystego szyfrowania danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). W przypadku używanych danych używa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
-### <a name="data-discovery-and-classification"></a>Odnajdowanie i klasyfikacja danych
+### <a name="data-discovery-and-classification"></a>Odnajdywanie i klasyfikacja danych
 
 [Funkcja odnajdywania i klasyfikowania danych](data-discovery-and-classification-overview.md) udostępnia funkcje wbudowane w Azure SQL Database na potrzeby odnajdywania, klasyfikowania, etykietowania i ochrony poufnych danych w bazach danych. Zapewnia wgląd w stan klasyfikacji bazy danych i śledzi dostęp do poufnych danych w bazie danych i wykracza poza jego granice.
 

@@ -7,16 +7,19 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b5723433cca20c934d4cb5b129d77c1c6d65feef
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168239"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617115"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Shape JSON w celu zmaksymalizowania wydajności zapytań w środowisku Gen1
+
+> [!CAUTION]
+> To jest artykuł Gen1.
 
 Ten artykuł zawiera wskazówki dotyczące sposobu tworzenia kształtu JSON w celu zmaksymalizowania wydajności zapytań Azure Time Series Insights.
 
@@ -184,7 +187,7 @@ Przykładowy ładunek JSON:
 
 > - Kolumny **deviceId** i **Series. tagId** pełnią rolę nagłówków kolumn dla różnych urządzeń i tagów w flotie. Użycie każdego z nich jako własnego atrybutu ogranicza zapytanie do 594 (dla środowisk S1) lub 794 (dla środowisk S2) Łączna liczba urządzeń z innymi sześcioma kolumnami.
 > - Niepotrzebne właściwości zostały wykluczone z przyczyn podanych w pierwszym przykładzie.
-> - Dane referencyjne są używane w celu zmniejszenia liczby bajtów transferowanych przez sieć przez wprowadzenie identyfikatora **deviceId**, który jest używany dla unikatowej pary wartości **MessageID** i **deviceLocation**. Złożona seria kluczy **. tagId** jest używana dla unikatowej pary **typów** i **jednostek**. Klucz złożony umożliwia użycie pary **deviceId** i **Series. tagId** do odwoływania się do czterech wartości: **MessageID, deviceLocation, Type** i **Unit**. Te dane są przyłączone do danych telemetrycznych w czasie. Jest on następnie przechowywany w Azure Time Series Insights na potrzeby wykonywania zapytań.
+> - Dane referencyjne są używane w celu zmniejszenia liczby bajtów transferowanych przez sieć przez wprowadzenie identyfikatora **deviceId**, który jest używany dla unikatowej pary wartości **MessageID** i **deviceLocation**. Złożona seria kluczy **. tagId** jest używana dla unikatowej pary **typów** i **jednostek**. Klucz złożony umożliwia użycie pary  **deviceId** i **Series. tagId** do odwoływania się do czterech wartości: **MessageID, deviceLocation, Type** i **Unit**. Te dane są przyłączone do danych telemetrycznych w czasie. Jest on następnie przechowywany w Azure Time Series Insights na potrzeby wykonywania zapytań.
 > - Używane są dwie warstwy zagnieżdżania, z przyczyn cytowanych w pierwszym przykładzie.
 
 ### <a name="for-both-scenarios"></a>Dla obu scenariuszy

@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323111"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617643"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Określ wymagany rozmiar podsieci & zakres dla wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Liczba wystąpień zarządzanych, które można wdrożyć w podsieci sieci wirtu
 
 Podczas tworzenia wystąpienia zarządzanego platforma Azure przydziela wiele maszyn wirtualnych w zależności od wybranej warstwy podczas aprowizacji. Ponieważ te maszyny wirtualne są skojarzone z podsiecią, wymagają one adresów IP. Aby zapewnić wysoką dostępność podczas regularnych operacji i konserwacji usług, platforma Azure może przydzielić dodatkowe maszyny wirtualne. W związku z tym liczba wymaganych adresów IP w podsieci jest większa niż liczba wystąpień zarządzanych w tej podsieci.
 
-Zgodnie z projektem wystąpienie zarządzane wymaga co najmniej 32 adresów IP w podsieci. W związku z tym podczas definiowania zakresów adresów IP podsieci można użyć minimalnej maski podsieci/27. Zalecane jest staranne planowanie rozmiaru podsieci dla wdrożeń wystąpienia zarządzanego. Dane wejściowe, które należy wziąć pod uwagę podczas planowania, są następujące:
+Zgodnie z projektem wystąpienie zarządzane wymaga co najmniej 32 adresów IP w podsieci. W związku z tym podczas definiowania zakresów adresów IP podsieci można użyć minimalnej maski podsieci /27. Zalecane jest staranne zaplanowanie rozmiaru podsieci dla wdrożeń wystąpienia zarządzanego. Dane wejściowe, które należy wziąć pod uwagę podczas planowania, są następujące:
 
 - Liczba wystąpień zarządzanych, takich jak następujące parametry wystąpienia:
   - warstwa usług

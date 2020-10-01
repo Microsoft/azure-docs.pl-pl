@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984900"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616928"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure 
 
@@ -74,7 +74,7 @@ Migruj dane za pośrednictwem prywatnego linku:
 
 - W tej architekturze migracja danych odbywa się za pośrednictwem połączenia prywatnego komunikacji równorzędnej między usługą AWS Direct Connect i trasą usługi Azure Express, takich jak dane nigdy nie przechodzą przez publiczny Internet.  Wymaga korzystania z AWS VPC i usługi Azure Virtual Network. 
 - Aby osiągnąć tę architekturę, należy zainstalować środowisko Integration Runtime (samodzielne) na maszynie wirtualnej z systemem Windows w sieci wirtualnej platformy Azure.  Możesz ręcznie skalować swoje samodzielnie hostowane maszyny wirtualne IR lub skalować je do wielu maszyn wirtualnych (do 4 węzłów), aby w pełni wykorzystać możliwości operacji we/wy na sekundę w sieci i pamięci masowej. 
-- Jeśli jest akceptowalny do transferu danych za pośrednictwem protokołu HTTPS, ale chcesz zablokować dostęp do sieci do źródła S3 do określonego zakresu adresów IP, możesz wprowadzić zmianę tej architektury, usuwając AWS VPC i zastępując prywatny link przy użyciu protokołu HTTPS.  Należy zachować wirtualne i samoobsługowe środowisko IR platformy Azure na maszynie wirtualnej platformy Azure, aby można było utworzyć statyczny, publiczny adres IP z obsługą routingu do listy dozwolonych. 
+- Jeśli jest akceptowalny do transferu danych za pośrednictwem protokołu HTTPS, ale chcesz zablokować dostęp do sieci do źródła S3 do określonego zakresu adresów IP, możesz wprowadzić zmianę tej architektury, usuwając AWS VPC i zastępując prywatny link przy użyciu protokołu HTTPS.  Należy zachować wirtualne i samoobsługowe środowisko IR platformy Azure na maszynie wirtualnej platformy Azure, aby można było utworzyć statyczny, publiczny adres IP w celu filtrowania. 
 - W ramach tej architektury można osiągnąć zarówno migrację danych początkowej migawki, jak i migrację danych różnicowych. 
 
 ## <a name="implementation-best-practices"></a>Najlepsze rozwiązania w zakresie implementacji 

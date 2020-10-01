@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 53d12510c4960b16d56ee32f07ca96bc398f999a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84043156"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619155"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Wszystkie części muszą być traktowane ostrożnie, szczególnie w przypadku d
 
 * Konfigurowanie
     * Ustanów i obsługuj środowisko obrazu dublowanego w regionie odzyskiwania. Tworzenie pul elastycznych i replikowanie wszystkich baz danych w tym środowisku odzyskiwania rezerwuje pojemność w regionie odzyskiwania. Utrzymywanie tego środowiska obejmuje replikowanie nowych baz danych dzierżawy w miarę ich udostępniania.  
-* Odzyskiwanie
+* Odzyskiwania
     * W przypadku, gdy środowisko odzyskiwania skalowane w dół służy do minimalizowania codziennych kosztów, pule i bazy danych muszą być skalowane w celu uzyskania pełnej pojemności operacyjnej w regionie odzyskiwania
     * Włącz obsługę nowych dzierżawców w regionie odzyskiwania tak szybko, jak to możliwe  
     * Być zoptymalizowane pod kątem przywracania dzierżawców w kolejności priorytetów
@@ -314,6 +314,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Więcej informacji na temat technologii Azure SQL Database zapewnia możliwość zapewnienia ciągłości działania w dokumentacji usługi [Przegląd ciągłości biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

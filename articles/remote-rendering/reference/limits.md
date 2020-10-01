@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976563"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617502"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -28,10 +28,12 @@ Niektóre funkcje mają rozmiar, liczbę lub inne ograniczenia.
 
 ## <a name="geometry"></a>Geometria
 
-* Łączna liczba dozwolonych materiałów w elemencie zawartości: 65 535. Aby uzyskać więcej informacji, zobacz [materiały z deduplikacją](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* Maksymalny wymiar pojedynczej tekstury: 16 384 x 16 384. Większe tekstury źródłowe będą skalowane w dół w procesie konwersji.
+* **Animacja:** Animacje są ograniczone do animowania poszczególnych transformacji obiektów gry. Animacje szkieletowe z karnacjami lub animacjami wierzchołków nie są obsługiwane. Ścieżki animacji z pliku zasobów źródłowych nie są zachowywane. Zamiast tego animacje przekształcenia obiektów muszą być sterowane przez kod klienta.
+* **Niestandardowe programy do cieniowania:** Tworzenie niestandardowych programów do cieniowania nie jest obsługiwane. Można używać tylko wbudowanych [materiałów kolorów](../overview/features/color-materials.md) lub [materiałów](../overview/features/pbr-materials.md) .
+* **Maksymalna liczba odrębnych materiałów** w elemencie zawartości: 65 535. Aby uzyskać więcej informacji na temat automatycznego zmniejszania liczby materiałów, zobacz rozdział dotyczący [materiałów do usuwania duplikatów](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
+* **Maksymalny wymiar pojedynczej tekstury**: 16 384 x 16 384. Rozmiar większych tekstur źródłowych zostanie zmniejszony przez proces konwersji.
 
-## <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
+### <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 
 Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od rozmiaru maszyny wirtualnej, która została przeniesiona do [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md#create-a-session):
 
@@ -40,7 +42,7 @@ Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od roz
 |Standardowa| 20 000 000 |
 |tytułu| bez limitu |
 
-Aby uzyskać szczegółowe informacje na temat tego ograniczenia, zobacz rozdział dotyczący [rozmiaru serwera](../reference/vm-sizes.md) .
+Aby uzyskać szczegółowe informacje na temat tego ograniczenia, zobacz rozdział [rozmiaru serwera](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Ograniczenia dotyczące platformy
 
@@ -48,6 +50,6 @@ Aby uzyskać szczegółowe informacje na temat tego ograniczenia, zobacz rozdzia
 
 * Win32/x64 jest jedyną obsługiwaną platformą Win32. Win32/x86 nie jest obsługiwany.
 
-**Urządzenie HoloLens 2**
+**HoloLens 2**
 
 * Funkcja [renderowania z aparatu PV](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) nie jest obsługiwana.

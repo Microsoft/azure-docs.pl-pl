@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042636"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616554"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -28,8 +28,10 @@ Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane pr
 
 Usługa Azure Digital bliźniaczych reprezentacji używa **DTDL w _wersji 2_**. Aby uzyskać więcej informacji na temat tej wersji programu DTDL, zapoznaj się z dokumentacją dotyczącą specyfikacji w witrynie GitHub: [*Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Korzystanie z DTDL w _wersji 1_ z usługą Azure Digital bliźniaczych reprezentacji jest obecnie przestarzałe.
 
-> [!TIP] 
-> Nie wszystkie usługi korzystające z DTDL implementują dokładnie te same funkcje programu DTDL. Na przykład usługa IoT Plug and Play nie korzysta z funkcji DTDL, które są dostępne w przypadku wykresów, podczas gdy program Azure Digital bliźniaczych reprezentacji nie implementuje obecnie poleceń DTDL. Aby uzyskać więcej informacji na temat funkcji DTDL, które są specyficzne dla usługi Azure Digital bliźniaczych reprezentacji, zobacz sekcję w dalszej części tego artykułu dotyczącej [specyfiki implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL](#azure-digital-twins-dtdl-implementation-specifics).
+> [!NOTE] 
+> Nie wszystkie usługi korzystające z DTDL implementują dokładnie te same funkcje programu DTDL. Na przykład usługa IoT Plug and Play nie korzysta z funkcji DTDL, które są dostępne w przypadku wykresów, podczas gdy program Azure Digital bliźniaczych reprezentacji nie implementuje obecnie poleceń DTDL.
+>
+> Aby uzyskać więcej informacji na temat funkcji DTDL, które są specyficzne dla usługi Azure Digital bliźniaczych reprezentacji, zobacz sekcję w dalszej części tego artykułu dotyczącej [specyfiki implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL](#azure-digital-twins-dtdl-implementation-specifics).
 
 ## <a name="elements-of-a-model"></a>Elementy modelu
 
@@ -75,6 +77,8 @@ Aby model DTDL był zgodny z usługą Azure Digital bliźniaczych reprezentacji,
 * DTDL dla usługi Azure Digital bliźniaczych reprezentacji nie może definiować żadnych *poleceń*.
 * Usługa Azure Digital bliźniaczych reprezentacji umożliwia tylko pojedynczy poziom zagnieżdżenia składnika. Oznacza to, że interfejs używany jako składnik nie może mieć samych składników. 
 * Interfejsów nie można definiować w innych interfejsach DTDL; muszą być zdefiniowane jako osobne jednostki najwyższego poziomu z ich własnymi identyfikatorami. Następnie, gdy inny interfejs chce dołączyć ten interfejs jako składnik lub przez dziedziczenie, może odwoływać się do jego identyfikatora.
+
+Usługa Azure Digital bliźniaczych reprezentacji również nie jest zgodna z `writable` atrybutem właściwości ani relacji. Chociaż można ją ustawić zgodnie ze specyfikacją DTDL, wartość nie jest używana przez usługę Azure Digital bliźniaczych reprezentacji. Zamiast tego są one zawsze traktowane jako zapisywalne przez klientów zewnętrznych, którzy mają ogólne uprawnienia do zapisu w usłudze Azure Digital bliźniaczych reprezentacji.
 
 ## <a name="example-model-code"></a>Przykładowy kod modelu
 

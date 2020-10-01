@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920116"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617064"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Samouczek: Konfigurowanie replikacji między dwoma wystąpieniami zarządzanymi
 
@@ -61,8 +61,8 @@ Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć grupę zasobów o
 
 Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć dwa [wystąpienia zarządzane SQL](instance-create-quickstart.md) w tej samej sieci wirtualnej i podsieci. Na przykład Nazwij dwa wystąpienia zarządzane:
 
-- `sql-mi-pub`(wraz z niektórymi znakami dla losowości)
-- `sql-mi-sub`(wraz z niektórymi znakami dla losowości)
+- `sql-mi-pub` (wraz z niektórymi znakami dla losowości)
+- `sql-mi-sub` (wraz z niektórymi znakami dla losowości)
 
 Należy również [skonfigurować maszynę wirtualną platformy Azure w celu nawiązania połączenia](connect-vm-instance-configure.md) z wystąpieniami zarządzanymi. 
 
@@ -70,11 +70,11 @@ Należy również [skonfigurować maszynę wirtualną platformy Azure w celu naw
 
 [Utwórz konto usługi Azure Storage](/azure/storage/common/storage-create-storage-account#create-a-storage-account) dla katalogu roboczego, a następnie Utwórz [udział plików](../../storage/files/storage-how-to-create-file-share.md) na koncie magazynu. 
 
-Skopiuj ścieżkę udziału plików w formacie:`\\storage-account-name.file.core.windows.net\file-share-name`
+Skopiuj ścieżkę udziału plików w formacie: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Przykład: `\\replstorage.file.core.windows.net\replshare`
 
-Skopiuj klucze dostępu do magazynu w formacie:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Skopiuj klucze dostępu do magazynu w formacie: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Przykład: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 

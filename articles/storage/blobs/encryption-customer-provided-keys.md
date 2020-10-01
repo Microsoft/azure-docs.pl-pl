@@ -10,16 +10,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 587a01f8b3d366f315813b70bb2ff83eeccd5be4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996457"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618730"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB
 
 Klienci, którzy wysyłają żądania do usługi Azure Blob Storage, mają możliwość zapewnienia klucza szyfrowania dla każdego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="encrypting-read-and-write-operations"></a>Szyfrowanie operacji odczytu i zapisu
 

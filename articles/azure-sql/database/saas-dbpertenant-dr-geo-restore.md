@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356897"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619038"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Używanie przywracania geograficznego do odzyskiwania wielodostępnej aplikacji SaaS z kopii zapasowych bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -376,6 +376,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wypróbuj [odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS za pomocą samouczka replikacji geograficznej bazy danych](../../sql-database/saas-dbpertenant-dr-geo-replication.md) , aby dowiedzieć się, jak za pomocą replikacji geograficznej znacznie skrócić czas wymagany do odzyskania wielodostępnej aplikacji wielodostępnej w dużej skali.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

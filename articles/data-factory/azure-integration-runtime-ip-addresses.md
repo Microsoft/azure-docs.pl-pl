@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523336"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619053"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresy IP usługi Azure Integration Runtime
 
@@ -27,7 +27,7 @@ Adresy IP używane przez Azure Integration Runtime są zależne od regionu, w kt
 > [!IMPORTANT]  
 > Przepływy danych i Azure Integration Runtime, które włączają zarządzane Virtual Network nie obsługują używania stałych zakresów adresów IP.
 >
-> Możesz użyć tych zakresów adresów IP na potrzeby przenoszenia danych, wykonywania potoku i działań zewnętrznych. Te zakresy adresów IP mogą być używane dla listy dozwolonych w magazynach danych/sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)/zaporach na potrzeby dostępu przychodzącego z platformy Azure Integration Runtime. 
+> Możesz użyć tych zakresów adresów IP na potrzeby przenoszenia danych, wykonywania potoku i działań zewnętrznych. Te zakresy adresów IP mogą służyć do filtrowania w magazynach danych/Network Security Group (sieciowej grupy zabezpieczeń)/zaporach na potrzeby dostępu przychodzącego z platformy Azure Integration Runtime. 
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime adresy IP: określone regiony
 

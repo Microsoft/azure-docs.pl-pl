@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 690e92daa3e207864ad8de9954583970703ecd9e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570848"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618254"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista kontrolna wdrożenia dla urządzenia GPU w Azure Stack Edge  
 
@@ -48,6 +48,3 @@ Skorzystaj z poniższej listy kontrolnej, aby upewnić się, że masz te informa
 ## <a name="next-steps"></a>Następne kroki
 
 Przygotuj się do wdrożenia [urządzenia z usługą Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md).
-
-
-

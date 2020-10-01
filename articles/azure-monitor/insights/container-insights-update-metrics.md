@@ -2,18 +2,18 @@
 title: Jak aktualizować Azure Monitor kontenerów dla metryk | Microsoft Docs
 description: W tym artykule opisano sposób aktualizowania Azure Monitor dla kontenerów w celu włączenia funkcji metryk niestandardowych, która obsługuje eksplorowanie i zgłaszanie alertów dotyczących zagregowanych metryk.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499963"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618149"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Jak zaktualizować usługę Azure Monitor dla kontenerów w celu włączenia metryk
 
-Azure Monitor dla kontenerów wprowadza obsługę zbierania metryk z węzłów klastrów usługi Azure Kubernetes Services (AKS) i ich tworzenia do magazynu metryk Azure Monitor. Ta zmiana ma na celu dostarczenie ulepszonej osi czasu podczas prezentowania obliczeń agregacji (średni, Count, Max, min, sum) na wykresach wydajności, obsługę przypinania wykresów wydajności w Azure Portal pulpitów nawigacyjnych i obsługę alertów dotyczących metryk.
+Azure Monitor dla kontenerów wprowadza obsługę zbierania metryk z usług Azure Kubernetes Services (AKS) i Azure ARC z włączonymi węzłami klastrów Kubernetes i piszą je w magazynie metryk Azure Monitor. Ta zmiana ma na celu dostarczenie ulepszonej osi czasu podczas prezentowania obliczeń agregacji (średni, Count, Max, min, sum) na wykresach wydajności, obsługę przypinania wykresów wydajności w Azure Portal pulpitów nawigacyjnych i obsługę alertów dotyczących metryk.
 
 >[!NOTE]
 >Ta funkcja nie obsługuje obecnie klastrów usługi Azure Red Hat OpenShift.
@@ -27,9 +27,12 @@ Następujące metryki są włączone w ramach tej funkcji:
 | Szczegółowe informacje. kontenery/zasobniki | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Jako *metryki* są to między innymi następujące: Dimensions-ControllerName, Kubernetes Namespace, Name, faz. |
 | Szczegółowe informacje. kontenery/kontenery | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Aby zapewnić obsługę tych nowych funkcji, w wersji znajduje się nowy Agent kontenerów w wersji **Microsoft/OMS: ciprod02212019**. Nowe wdrożenia programu AKS automatycznie uwzględniają tę zmianę konfiguracji i możliwości. Aktualizowanie klastra w celu obsługi tej funkcji można wykonać z poziomu Azure Portal, Azure PowerShell lub przy użyciu interfejsu wiersza polecenia platformy Azure. Przy użyciu Azure PowerShell i interfejsu wiersza polecenia. Możesz włączyć ten klaster lub wszystkie klastry w subskrypcji.
+Aby zapewnić obsługę tych nowych funkcji, w wydaniu zostanie uwzględniony nowy Agent kontenerów w wersji **Microsoft/OMS: ciprod05262020** for AKS i Version **Microsoft/OMS: Ciprod09252020** for Azure ARC z włączonymi klastrami Kubernetes. Nowe wdrożenia programu AKS automatycznie uwzględniają tę zmianę konfiguracji i możliwości. Aktualizowanie klastra w celu obsługi tej funkcji można wykonać z poziomu Azure Portal, Azure PowerShell lub przy użyciu interfejsu wiersza polecenia platformy Azure. Przy użyciu Azure PowerShell i interfejsu wiersza polecenia. Możesz włączyć ten klaster lub wszystkie klastry w subskrypcji.
 
-Każdy proces przypisuje rolę **wydawcy metryk monitorowania** do jednostki usługi klastra lub do pliku MSI przypisanego użytkownikowi dla dodatku monitorowania, aby dane zbierane przez agenta mogły być publikowane w zasobach klastrów. Wydawca metryk monitorowania ma uprawnienia tylko do wypychania metryk do zasobu, nie może zmienić stanu, zaktualizować zasobu ani odczytać jakichkolwiek danych. Aby uzyskać więcej informacji na temat roli, zobacz [monitorowanie metryk rola wydawcy](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Każdy proces przypisuje rolę **wydawcy metryk monitorowania** do jednostki usługi klastra lub do pliku MSI przypisanego użytkownikowi dla dodatku monitorowania, aby dane zbierane przez agenta mogły być publikowane w zasobach klastrów. Wydawca metryk monitorowania ma uprawnienia tylko do wypychania metryk do zasobu, nie może zmienić stanu, zaktualizować zasobu ani odczytać jakichkolwiek danych. Aby uzyskać więcej informacji na temat roli, zobacz [monitorowanie metryk rola wydawcy](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). Wymagania roli wydawcy metryk monitorowania nie mają zastosowania do klastrów Kubernetes z obsługą usługi Azure Arc.
+
+> [!IMPORTANT]
+> Uaktualnienie nie jest wymagane dla klastrów Kubernetes z obsługą usługi Azure ARC, ponieważ ma już minimalną wymaganą wersję agenta.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +40,7 @@ Przed aktualizacją klastra Potwierdź następujące kwestie:
 
 * Metryki niestandardowe są dostępne tylko w ramach podzestawów regionów świadczenia usługi Azure. Lista obsługiwanych regionów jest udokumentowana [tutaj](../platform/metrics-custom-overview.md#supported-regions).
 
-* Musisz być członkiem roli **[właściciela](../../role-based-access-control/built-in-roles.md#owner)** w zasobie klastra AKS, aby włączyć kolekcję metryk wydajności niestandardowych węzła i pod.
+* Musisz być członkiem roli **[właściciela](../../role-based-access-control/built-in-roles.md#owner)** w zasobie klastra AKS, aby włączyć kolekcję metryk wydajności niestandardowych węzła i pod. To wymaganie nie dotyczy klastrów Kubernetes z obsługą usługi Azure Arc.
 
 Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 

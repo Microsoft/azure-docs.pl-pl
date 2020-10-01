@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437075"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617098"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 ## <a name="configure-stream-analytics-integration"></a>Konfigurowanie integracji usługi Stream Analytics
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Przejdź do bazy danych, w której chcesz pozyskać dane przesyłane strumieniowo. Wybierz pozycję **Stream Analytics (wersja zapoznawcza)**.
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)

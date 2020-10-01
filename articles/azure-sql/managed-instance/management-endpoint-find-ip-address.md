@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: e80c1ce7357feac19104c3f88764edffb0bdbfbc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9a2b904bd7526f00a8f8a5d013be0c1e42e38a8
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263219"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617370"
 ---
 # <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Określanie adresu IP punktu końcowego zarządzania — wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

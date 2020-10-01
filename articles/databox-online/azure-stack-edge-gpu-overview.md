@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320748"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617166"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Co to jest Azure Stack Edge Pro z procesorem GPU?
 
@@ -73,7 +73,7 @@ Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto m
 
 - **Dostępność zasobów** — w przypadku tej wersji zapoznawczej zasób jest dostępny w regionach Wschodnie stany USA, zachodnie UE i południowe Azja Wschodnia.
 
-- **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów, w których jest dostępne urządzenie Azure Stack EDGE Pro, przejdź do sekcji **dostępność** na karcie **Azure Stack EDGE Pro** dla pozycji [Azure Stack EDGE Pro — Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów/regionów, w których jest dostępne urządzenie Azure Stack EDGE Pro, przejdź do sekcji **dostępność** na karcie **Azure Stack EDGE Pro** dla pozycji [Azure Stack EDGE Pro — Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure. Regiony, w których przechowywane są konta magazynu Azure Stack dane brzegowe Pro, powinny znajdować się w pobliżu lokalizacji urządzenia w celu uzyskania optymalnej wydajności. Duża odległość konta magazynu od urządzenia powoduje długie opóźnienia i mniejszą wydajność.
 

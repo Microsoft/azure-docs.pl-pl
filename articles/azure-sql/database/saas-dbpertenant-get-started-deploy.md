@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356829"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618944"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wdróż i Eksploruj wielodostępną aplikację SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
 
@@ -251,7 +251,7 @@ Przejdź do serwera **tenants1-DPT- &lt; User &gt; **i wybierz pozycję **Pool1*
 
 Dwa wykresy ilustrują, że elastyczne pule i SQL Database są dobrze dopasowane do nieprzewidywalnych obciążeń aplikacji SaaS. Wykresy pokazują, że cztery bazy danych są poszczególnymi seriami do 40 jednostek eDTU, a jeszcze wszystkie bazy danych są wygodnie obsługiwane przez pulę 50-eDTU. Pula jednostek eDTU 50 może obsługiwać nawet większe obciążenia. Jeśli bazy danych są obsługiwane jako pojedyncze bazy danych, każdy z nich musi być S2 (50 jednostek DTU) do obsługi serii. Koszt czterech pojedynczych baz danych S2 jest niemal trzykrotnie większy niż cena puli. W rzeczywistych sytuacjach SQL Database klienci mają do 500 baz danych w pulach 200 jednostek eDTU. Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący monitorowania wydajności](saas-dbpertenant-performance-monitoring.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Aby uzyskać więcej informacji, zapoznaj się z dodatkowymi [samouczkami, które kompilują się na Wingtip bilety SaaS bazy danych dla dzierżawców](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Aby dowiedzieć się więcej o pulach elastycznych, zobacz [co to jest pula elastyczna usługi Azure SQL?](elastic-pool-overview.md).

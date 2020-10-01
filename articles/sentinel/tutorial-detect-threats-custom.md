@@ -1,6 +1,6 @@
 ---
 title: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń przy użyciu platformy Azure Microsoft Docs
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak tworzyć niestandardowe reguły analizy w celu wykrywania zagrożeń bezpieczeństwa przy użyciu platformy Azure.
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak tworzyć niestandardowe reguły analizy w celu wykrywania zagrożeń bezpieczeństwa przy użyciu platformy Azure. Skorzystaj z grupowania zdarzeń i grupowania alertów, a następnie zapoznaj się z wyłączoną autowyłączenie.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605881"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617183"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń
 
@@ -53,13 +53,15 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
 
       Oto przykładowe zapytanie, które może wysyłać alerty po utworzeniu nietypowej liczby zasobów w działaniu platformy Azure.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać znaku "Search \* " ani "Union \* ".
+        > [!NOTE]
+        > Długość zapytania powinna wynosić od 1 do 10 000 znaków i nie może zawierać znaku "Search \* " ani "Union \* ".
 
     1. Sekcja **Mapuj jednostki** służy do łączenia parametrów z wyników zapytania do jednostek rozpoznanych przez wskaźnik na platformie Azure. Te jednostki stanowią podstawę do dalszej analizy, w tym grupowanie alertów na zdarzenia na karcie **Ustawienia zdarzenia** .
   
@@ -69,8 +71,12 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
 
        1. Ustaw **dane wyszukiwania od czasu ostatniego** , aby określić okres danych uwzględnionych w zapytaniu — na przykład może wysyłać zapytania do ostatnich 10 minut danych lub ostatnich 6 godzin.
 
-       > [!NOTE]
-       > Te dwa ustawienia są niezależne od siebie, aż do momentu. Zapytanie można uruchomić w krótkim odstępie czasu, przez okres dłuższy niż interwał (w efekcie mającym nakładające się zapytania), ale nie można uruchomić zapytania w przedziale czasowym, który przekracza okres pokrycia, w przeciwnym razie w ogólnym zapotrzebowaniu na zapytania będą występować przerwy.
+          > [!NOTE]
+          > **Interwały zapytań i okres lookback**
+          > - Te dwa ustawienia są niezależne od siebie, aż do momentu. Zapytanie można uruchomić w krótkim odstępie czasu, przez okres dłuższy niż interwał (w efekcie mającym nakładające się zapytania), ale nie można uruchomić zapytania w przedziale czasowym, który przekracza okres pokrycia, w przeciwnym razie w ogólnym zapotrzebowaniu na zapytania będą występować przerwy.
+          >
+          > **Opóźnienie pozyskiwania**
+          > - W celu uwzględnienia **opóźnień** , które mogą wystąpić między generowaniem zdarzenia w źródle i jego pozyskaniu na platformie Azure, a w celu zapewnienia pełnego pokrycia bez duplikowania danych, wskaźnik platformy Azure będzie uruchamiać zaplanowane reguły analizy w przypadku **opóźnienia** z zaplanowanym czasem.
 
     1. Użyj sekcji **próg alertu** , aby zdefiniować linię bazową. Na przykład ustaw **Wygeneruj alert, gdy liczba wyników zapytania** **jest większa niż** i wprowadź liczbę 1000, jeśli chcesz, aby reguła wygenerowała alert tylko wtedy, gdy kwerenda zwróci więcej niż 1000 wyników przy każdym uruchomieniu. To pole jest wymagane, dlatego jeśli nie chcesz ustawiać planu bazowego — czyli jeśli chcesz, aby alert rejestrował każde zdarzenie — wprowadź wartość 0 w polu Liczba.
     
@@ -134,6 +140,43 @@ Można utworzyć niestandardowe reguły analizy, które ułatwią wyszukiwanie t
 
 > [!NOTE]
 > Alerty generowane na platformie Azure — wskaźnikiem dostępności są dostępne za pomocą [Microsoft Graph zabezpieczenia](https://aka.ms/securitygraphdocs). Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dotyczącą alertów zabezpieczeń Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Zaplanowana reguła nie została wykonana lub jest wyświetlana z opcją autowyłączenia dodaną do nazwy
+
+Jest to rzadki przypadek, w którym nie można uruchomić zaplanowanej reguły zapytania, ale może się to zdarzyć. Platforma Azure wskaźnikowego klasyfikuje błędy jako przejściowe lub stałe, na podstawie określonego typu awarii i okoliczności, które doprowadziły do niego.
+
+#### <a name="transient-failure"></a>Błąd przejściowy
+
+Przejściowy błąd występuje z powodu sytuacji, która jest tymczasowa i wkrótce wróci do normalnego, w którym momencie wykonanie reguły powiedzie się. Niektóre przykłady błędów, które klasyfikują wskaźnik platformy Azure jako przejściowe:
+
+- Uruchamianie zapytania reguły trwa zbyt długo i przekracza limit czasu.
+- Problemy z łącznością między źródłami danych a Log Analytics lub między Log Analytics i wskaźnikiem kontrolnym platformy Azure.
+- Wszelkie inne nowe i nieznane awarie są uznawane za przejściowe.
+
+W przypadku błędu przejściowego wskaźnik platformy Azure próbuje wykonać regułę ponownie po wstępnie określonym i ciągle rosnących odstępach czasu, aż do momentu. Następnie reguła zostanie uruchomiona ponownie tylko w następnym zaplanowanym czasie. Reguła nigdy nie zostanie wyłączona z powodu przejściowego błędu.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Trwały błąd — reguła została wyłączona samoobsługowo
+
+Trwały błąd występuje ze względu na zmianę warunków zezwalających na uruchomienie reguły, która bez interwencji człowieka nie powróci do poprzedniego stanu. Poniżej przedstawiono kilka przykładów niepowodzeń, które są klasyfikowane jako trwałe:
+
+- Docelowy obszar roboczy (na którym jest obsługiwana kwerenda reguły) został usunięty.
+- Tabela docelowa (na której jest obsługiwana kwerenda reguły) została usunięta.
+- Wskaźnik "Azure" został usunięty z docelowego obszaru roboczego.
+- Funkcja używana przez zapytanie reguły nie jest już prawidłowa; został on zmodyfikowany lub usunięty.
+- Zmieniono uprawnienia do jednego ze źródeł danych zapytania reguły.
+- Jedno z źródeł danych zapytania reguły zostało usunięte lub rozłączone.
+
+**W przypadku wstępnie określoną liczbę kolejnych stałych niepowodzeń tego samego typu i tej samej reguły,** Punkt kontrolny platformy Azure nie próbuje wykonać reguły, a także wykonuje następujące czynności:
+
+- Wyłącza regułę.
+- Dodaje wyrazy **"automatycznie wyłączone"** na początku nazwy reguły.
+- Dodaje przyczynę niepowodzenia (i wyłączenie) do opisu reguły.
+
+Możesz łatwo określić obecność wszystkich reguł, które są wyłączone, sortując listę reguł według nazwy. Reguły autowyłączone będą znajdować się na początku lub w górnej części listy.
+
+Menedżerów SOC powinni mieć pewność, że lista reguł ma być regularnie sprawdzana pod kątem obecności reguł, które są wyłączone.
 
 ## <a name="next-steps"></a>Następne kroki
 

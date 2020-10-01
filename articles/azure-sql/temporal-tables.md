@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: cebdbfc5bb84beb621e27725d0ec58308ba45efd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321394"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618662"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do tabel danych czasowych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

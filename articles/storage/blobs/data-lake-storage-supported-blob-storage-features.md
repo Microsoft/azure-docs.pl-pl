@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: d25a44aa70b9638017856595c7431e897d035c33
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0cba1c3a7a3b713fa5f0603ad9e116068d8df66
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576119"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618475"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -50,7 +50,7 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Blobfuse|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
 |Tryb failover konta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Lista ACL kontenera obiektów BLOB|Jeszcze nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Jeszcze nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Ustawianie listy ACL kontenerów](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
-|Klucze zarządzane przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](../common/customer-managed-keys-overview.md)|
+|Klucze dostarczone przez klienta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB](encryption-customer-provided-keys.md)|
 |Niestandardowe domeny|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)|
 |Zakresy szyfrowania|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
@@ -63,7 +63,7 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 
 <div id="preview-form"><sup>3</sup> Aby korzystać z migawek, niezmiennego magazynu lub statycznych witryn internetowych z Data Lake Storage Gen2, musisz zarejestrować się w wersji zapoznawczej, wypełniając ten <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formularz</a>.  </div>
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

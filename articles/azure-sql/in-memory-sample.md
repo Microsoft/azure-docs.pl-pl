@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345278"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616809"
 ---
 # <a name="in-memory-sample"></a>Przykład w pamięci
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -53,7 +53,7 @@ Aby uzyskać więcej uproszczony, ale bardziej atrakcyjny wizualnie pokaz wydajn
 
 3. Skopiuj [skrypt OLTP języka Transact-SQL w pamięci](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) do Schowka. Skrypt T-SQL tworzy niezbędne obiekty w pamięci w przykładowej bazie danych AdventureWorksLT, która została utworzona w kroku 1.
 
-4. Wklej skrypt T-SQL do programu SSMS, a następnie wykonaj skrypt. `MEMORY_OPTIMIZED = ON`Klauzula CREATE TABLE instrukcji jest istotna. Przykład:
+4. Wklej skrypt T-SQL do programu SSMS, a następnie wykonaj skrypt. `MEMORY_OPTIMIZED = ON`Klauzula CREATE TABLE instrukcji jest istotna. Na przykład:
 
 ```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
@@ -152,7 +152,7 @@ end
 
 Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk*. Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
 
-#### <a name="install-rml-utilities-and-ostress"></a>Zainstaluj narzędzia RML i`ostress`
+#### <a name="install-rml-utilities-and-ostress"></a>Zainstaluj narzędzia RML i `ostress`
 
 Najlepiej zaplanować uruchamianie ostress.exe na maszynie wirtualnej platformy Azure. Należy utworzyć [maszynę wirtualną platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) w tym samym regionie geograficznym platformy Azure, w którym znajduje się baza danych AdventureWorksLT. Można jednak uruchomić ostress.exe na laptopie.
 
@@ -341,7 +341,7 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 - [Monitorowanie magazynu OLTP w pamięci](in-memory-oltp-monitor-space.md) na potrzeby przetwarzania OLTP w pamięci
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 ### <a name="deeper-information"></a>Dokładniejsze informacje
 
@@ -363,9 +363,9 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 - [Używanie OLTP w pamięci w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
-#### <a name="tools"></a>narzędzia
+#### <a name="tools"></a>Narzędzia
 
-- [Azure Portal](https://portal.azure.com/)
+- [Witryna Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

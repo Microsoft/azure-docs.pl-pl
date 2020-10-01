@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484956"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616860"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
 
@@ -38,10 +38,10 @@ Ta czynność powinna działać w wielu scenariuszach. wiemy, że unikatowy stat
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Strategie dostępu do danych za poorednictwem Azure Data Factory
 
 * **[Link prywatny](https://docs.microsoft.com/azure/private-link/private-link-overview)** — można utworzyć Azure Integration Runtime w ramach Azure Data Factory zarządzanym Virtual Network i wykorzystać prywatne punkty końcowe do bezpiecznego łączenia się z obsługiwanymi magazynami danych. Ruch między zarządzanymi Virtual Networkami i źródłami danych porusza się w sieci szkieletowej firmy Microsoft i nie jest narażony na sieć publiczną.
-* **[Usługa zaufana](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** — Magazyn Azure (Blob, ADLS Gen2) obsługuje konfigurację zapory, która umożliwia bezpieczne wybieranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu. Usługi zaufane wymuszają uwierzytelnianie tożsamości zarządzanej, co gwarantuje, że żadna inna Fabryka danych nie może połączyć się z tym magazynem, chyba że listy dozwolonych się to przy użyciu tożsamości zarządzanej. Więcej szczegółów można znaleźć w **[tym blogu](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. W związku z tym jest to niezwykle bezpieczne i zalecane. 
+* **[Usługa zaufana](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** — Magazyn Azure (Blob, ADLS Gen2) obsługuje konfigurację zapory, która umożliwia bezpieczne wybieranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu. Usługi zaufane wymuszają uwierzytelnianie tożsamości zarządzanej, co gwarantuje, że żadna inna Fabryka danych nie może nawiązać połączenia z tym magazynem, chyba że zostanie zatwierdzone do tego celu przy użyciu tożsamości zarządzanej. Więcej szczegółów można znaleźć w **[tym blogu](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. W związku z tym jest to niezwykle bezpieczne i zalecane. 
 * **Unikatowy statyczny adres IP** — należy skonfigurować własne środowisko Integration Runtime, aby uzyskać statyczny adres IP dla łączników Data Factory. Dzięki temu mechanizmowi można zablokować dostęp ze wszystkich innych adresów IP. 
 * **[Statyczny zakres adresów IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** — można użyć adresów IP Azure Integration Runtime, aby zezwolić na wyświetlanie listy w magazynie (wypowiedz S3, Salesforce itp.). Na pewno ogranicza adresy IP, które mogą łączyć się z magazynami danych, ale również opierają się na regułach uwierzytelniania/autoryzacji.
-* **[Tag usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** — tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure (np. Azure Data Factory). Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Jest to przydatne, gdy listy dozwolonych dostęp do danych w hostowanych magazynach danych IaaS w Virtual Network.
+* **[Tag usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** — tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure (np. Azure Data Factory). Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Jest to przydatne podczas filtrowania dostępu do danych w hostowanych magazynach danych IaaS w Virtual Network.
 * **Zezwalaj na korzystanie z usług platformy Azure** — niektóre usługi umożliwiają nawiązywanie połączenia z usługą Azure w przypadku wybrania tej opcji. 
 
 Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpieczeń sieci w magazynach danych w Azure Integration Runtime i samoobsługowe Integration Runtime, zobacz poniżej dwóch tabel.  
@@ -85,4 +85,4 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły pokrewne:
 * [Obsługiwane magazyny danych](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
 * [Azure Key Vault "zaufanych usług"](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
 * [Usługa Azure Storage "zaufane usługi firmy Microsoft"](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Tożsamość zarządzana dla Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Tożsamość zarządzana dla usługi Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)

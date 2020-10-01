@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 17838d4a652be3a1b50da56812731e0f634a0c08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 461acc07ee2217a38f7bb59805d4c7e0de4a1e22
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323128"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617659"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurowanie istniejącej sieci wirtualnej dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +31,7 @@ W przypadku zastosowania jednego z następujących przypadków można sprawdzić
 - Należy sprawdzić, czy podsieć nadal spełnia [wymagania sieci](connectivity-architecture-overview.md#network-requirements) po wprowadzeniu zmian.
 
 > [!Note]
-> Wystąpienie zarządzane można utworzyć tylko w sieciach wirtualnych utworzonych za pomocą modelu wdrażania Azure Resource Manager. Sieci wirtualne platformy Azure utworzone za pomocą klasycznego modelu wdrażania nie są obsługiwane. Oblicz rozmiar podsieci, postępując zgodnie z wytycznymi w artykule [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md) . Nie można zmienić rozmiaru podsieci po wdrożeniu zasobów wewnątrz programu.
+> Wystąpienie zarządzane można utworzyć tylko w sieciach wirtualnych utworzonych za pomocą modelu wdrażania Azure Resource Manager. Sieci wirtualne platformy Azure utworzone za pomocą klasycznego modelu wdrażania nie są obsługiwane. Oblicz rozmiar podsieci, postępując zgodnie z wytycznymi w artykule [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md) . Nie można zmienić rozmiaru podsieci po wdrożeniu zasobów.
 >
 > Po utworzeniu wystąpienia zarządzanego przeniesienie wystąpienia lub sieci wirtualnej do innej grupy zasobów lub subskrypcji nie jest obsługiwane.
 
