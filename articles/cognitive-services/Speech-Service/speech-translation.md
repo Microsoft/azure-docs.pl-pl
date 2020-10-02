@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359804"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630074"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
@@ -36,7 +36,7 @@ Obecnie firma Microsoft używa usługi NMT do tłumaczenia na najpopularniejsze 
 * Obsługa tłumaczenia na wiele języków docelowych.
 * Tymczasowe rozpoznawanie i wyniki tłumaczenia.
 
-## <a name="get-started"></a>Rozpoczęcie pracy 
+## <a name="get-started"></a>Wprowadzenie 
 
 Zapoznaj się z [przewodnikiem Szybki Start](get-started-speech-translation.md) , aby rozpocząć tłumaczenie mowy. Usługa tłumaczenia mowy jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md) i [interfejsu wiersza polecenia mowy](spx-overview.md).
 
@@ -58,7 +58,7 @@ Jeśli Twoje aplikacje, narzędzia lub produkty używają [interfejs API tłumac
 * [Zestaw Speech Devices SDK](speech-devices-sdk.md)
 * [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 * [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)
-* [Interfejs API REST: Transkrypcja i dostosowywanie partii](https://westus.cris.ai/swagger/ui/index)
+* [Interfejs API REST: Transkrypcja i dostosowywanie partii](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Następne kroki
 

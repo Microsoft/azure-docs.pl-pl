@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705898"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631311"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
 
@@ -97,7 +97,7 @@ Ponieważ punkt końcowy/typowe nie odpowiada dzierżawcy i nie jest wystawcą, 
     https://sts.windows.net/{tenantid}/
 ```
 
-W związku z tym aplikacja wielodostępna nie może zweryfikować tokenów tylko przez dopasowanie wartości wystawcy w metadanych przy użyciu `issuer` wartości w tokenie. Aplikacja wielodostępna wymaga logiki, która decyduje o tym, które wartości wystawcy są prawidłowe i które nie są oparte na części identyfikatora dzierżawy wartości wystawcy. 
+W związku z tym aplikacja wielodostępna nie może zweryfikować tokenów tylko przez dopasowanie wartości wystawcy w metadanych przy użyciu `issuer` wartości w tokenie. Aplikacja wielodostępna wymaga logiki, która decyduje o tym, które wartości wystawcy są prawidłowe i które nie są oparte na części identyfikatora dzierżawy wartości wystawcy.
 
 Jeśli na przykład aplikacja wielodostępna zezwala tylko na logowanie się z określonych dzierżawców, którzy zarejestrowali się w celu korzystania z usługi, musi sprawdzić wartość wystawcy lub `tid` wartość żądania w tokenie, aby upewnić się, że dzierżawa znajduje się na liście subskrybentów. Jeśli aplikacja wielodostępna zajmuje się tylko osobom i nie podejmuje decyzji o dostępie na podstawie dzierżawców, może całkowicie zignorować wartość wystawcy.
 
@@ -116,7 +116,7 @@ Do tej zgody mają wpływ uprawnienia wymagane przez aplikację. Platforma tożs
 * Delegowane uprawnienie przyznaje aplikacji możliwość działania jako użytkownik zalogowany dla podzbioru rzeczy, które może wykonywać użytkownik. Na przykład można udzielić aplikacji uprawnienia delegowane do odczytu kalendarza zalogowanego użytkownika.
 * Uprawnienie tylko do aplikacji jest udzielane bezpośrednio do tożsamości aplikacji. Na przykład można udzielić aplikacji uprawnienia tylko do odczytu listy użytkowników w dzierżawie, niezależnie od tego, kto jest zalogowany do aplikacji.
 
-Niektóre uprawnienia mogą być wysyłane przez zwykłego użytkownika, a inne wymagają zgody administratora dzierżawy. 
+Niektóre uprawnienia mogą być wysyłane przez zwykłego użytkownika, a inne wymagają zgody administratora dzierżawy.
 
 ### <a name="admin-consent"></a>zgoda administratora
 
@@ -179,10 +179,6 @@ Jeśli administrator wyraża zgodę na aplikację dla wszystkich użytkowników 
 
 Aplikacje z wieloma dzierżawcami mogą również uzyskać tokeny dostępu do wywoływania interfejsów API chronionych przez usługę Azure AD. Typowym błędem podczas korzystania z Active Directory Authentication Library (ADAL) z aplikacją wielodostępną jest wstępne zażądanie tokenu dla użytkownika korzystającego z/typowe, odebranie odpowiedzi, a następnie zażądanie kolejnego tokenu dla tego samego użytkownika również przy użyciu/Common. Ponieważ odpowiedź z usługi Azure AD pochodzi z dzierżawy, a nie/typowe, biblioteka ADAL buforuje token jako pochodzący z dzierżawy. Kolejne wywołanie/typowe w celu uzyskania tokenu dostępu dla użytkownika powoduje odrzucenie wpisu pamięci podręcznej, a użytkownik jest monitowany o ponowne zalogowanie. Aby uniknąć braku pamięci podręcznej, upewnij się, że kolejne wywołania dla już zalogowanego użytkownika są nawiązywane w punkcie końcowym dzierżawy.
 
-## <a name="next-steps"></a>Następne kroki
-
-W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu logowania jednokrotnego między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takie jak Microsoft 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API w usłudze Azure AD i Microsoft 365 usług takich jak Exchange, SharePoint, OneDrive, OneNote i inne, odwiedź stronę [Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Zawartość pokrewna
 
 * [Przykład aplikacji z wieloma dzierżawcami](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogowa�
 * [Integrowanie aplikacji z usługą Azure Active Directory][AAD-Integrating-Apps]
 * [Przegląd struktury zgody][AAD-Consent-Overview]
 * [Zakresy uprawnień interfejsu API Microsoft Graph][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Następne kroki
+
+W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu logowania jednokrotnego między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takie jak Microsoft 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API w usłudze Azure AD i Microsoft 365 usług takich jak Exchange, SharePoint, OneDrive, OneNote i inne, odwiedź stronę [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogowa�
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

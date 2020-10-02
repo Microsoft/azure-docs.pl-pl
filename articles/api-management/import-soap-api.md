@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ceaa357150fe0c4d26eeedc6821761d2eb00106
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357968"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626823"
 ---
 # <a name="import-soap-api"></a>Importowanie interfejsu API protokołu SOAP
 
@@ -58,7 +58,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 
     * **Starter (początkowy)**
     * **Nieograniczona liczba**   
-8. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+8. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
 9. Wybierz przycisk **Utwórz**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testowanie nowego interfejsu API w portalu administracyjnym

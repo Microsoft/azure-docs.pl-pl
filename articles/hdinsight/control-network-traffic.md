@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400198"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631719"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrolowanie ruchu sieciowego w usłudze Azure HDInsight
 
@@ -58,7 +58,7 @@ Aby zapoznać się z przykładem konfiguracji UDR za pomocą zapory platformy Az
 
 ## <a name="required-ports"></a>Wymagane porty
 
-Jeśli planujesz używanie **zapory** i dostęp do klastra z zewnątrz na określonych portach, może być konieczne zezwolenie na ruch na tych portach wymaganych przez ten scenariusz. Domyślnie nie jest wymagana żadna specjalna listy dozwolonych portów, tak długo, jak ruch związany z zarządzaniem platformy Azure opisany w poprzedniej sekcji może dotrzeć do klastra na porcie 443.
+Jeśli planujesz używanie **zapory** i dostęp do klastra z zewnątrz na określonych portach, może być konieczne zezwolenie na ruch na tych portach wymaganych przez ten scenariusz. Domyślnie żadne specjalne filtrowanie portów nie jest konieczne, o ile ruch związany z zarządzaniem platformy Azure opisany w poprzedniej sekcji może dotrzeć do klastra na porcie 443.
 
 Aby uzyskać listę portów dla określonych usług, zobacz [porty używane przez usługi Apache Hadoop Services w usłudze HDInsight](hdinsight-hadoop-port-settings-for-services.md) .
 

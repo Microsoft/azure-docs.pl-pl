@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące urządzenia Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia Azure Migrateowego.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526565"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630495"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -42,7 +42,7 @@ Urządzenie można wdrożyć w następujący sposób:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Jak urządzenie nawiązuje połączenie z platformą Azure?
 
-Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. Upewnij się, że te [adresy URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) są listy dozwolonych, aby urządzenie łączyło się z platformą Azure.
+Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. Upewnij się, że te [adresy URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) są zatwierdzone do nawiązania połączenia z platformą Azure.
 
 - Aby można było używać usługi Azure ExpressRoute Azure Migrate do obsługi ruchu związanego z replikacją, wymagana jest Komunikacja równorzędna firmy Microsoft lub istniejąca publiczna Komunikacja równorzędna (publiczna Komunikacja równorzędna jest przestarzała w przypadku nowych tworzenia obiektów.).
 - Replikacja za pośrednictwem usługi Azure ExpressRoute z włączoną obsługą prywatnej komunikacji równorzędnej nie jest obsługiwana.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a7d7c7b7236841835866ccb7786e7e4eab767c1f
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565591"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631498"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Krok 1. wdrażanie usługi przesyłania dalej dzienników
 
@@ -71,74 +71,131 @@ Wybierz demona dziennika systemu, aby wyświetlić odpowiedni opis.
 
 1. **Pobieranie i Instalowanie agenta Log Analytics:**
 
-    - Pobiera skrypt instalacyjny dla agenta systemu Linux Log Analytics (OMS)<br>
-        `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`
+    - Pobiera skrypt instalacyjny dla agenta systemu Linux Log Analytics (OMS).
 
-    - Instaluje agenta Log Analytics<br>
-        `sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`
+        ```bash
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+            onboard_agent.sh
+        ```
+
+    - Instaluje agenta Log Analytics.
+    
+        ```bash
+        sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
+        ```
+
+1. **Ustawianie konfiguracji agenta Log Analytics do nasłuchiwania na porcie 25226 i przesyłania dalej komunikatów CEF do platformy Azure — wskaźnik:**
+
+    - Pobiera konfigurację z repozytorium usługi GitHub Agent Log Analytics.
+
+        ```bash
+        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+            https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
+            omsagent.d/security_events.conf
+        ```
 
 1. **Konfigurowanie demona dziennika systemowego:**
 
-    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/rsyslog.conf` .
+    - Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/rsyslog.conf` .
 
-    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/rsyslog.d/` .
+    - Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/rsyslog.d/` .
 
         Zawartość `security-config-omsagent.conf` pliku:
 
-        ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
         ```
 
-1. **Ponowne uruchamianie demona dziennika systemu**
+1. **Ponowne uruchamianie demona dziennika systemu i agenta Log Analytics:**
 
-    `service rsyslog restart`
+    - Uruchamia ponownie demona rsyslog.
+    
+        ```bash
+        service rsyslog restart
+        ```
 
-1. **Ustawianie konfiguracji agenta Log Analytics na nasłuchiwanie na porcie 25226 i przekazywanie komunikatów CEF do usługi Azure wskaźnikowego**
+    - Uruchamia ponownie agenta Log Analytics.
 
-    1. Pobiera konfigurację z repozytorium usługi GitHub Agent Log Analytics<br>
-        `wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/omsagent.d/security_events.conf`
+        ```bash
+        /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
+1. **Weryfikowanie mapowania pola *komputera* zgodnie z oczekiwaniami:**
 
-    1. Uruchamia ponownie agenta Log Analytics<br>
-        `/opt/microsoft/omsagent/bin/service_control restart [workspaceID]`
+    - Zapewnia, że pole *komputera* w źródle dziennika systemu jest prawidłowo mapowane w agencie log Analytics przez uruchomienie tego polecenia i ponowne uruchomienie agenta.
+
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 # <a name="syslog-ng-daemon"></a>[Demon dziennika systemu](#tab/syslogng)
 
 1. **Pobieranie i Instalowanie agenta Log Analytics:**
 
-    - Pobiera skrypt instalacyjny dla agenta systemu Linux Log Analytics (OMS)<br>`wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`
+    - Pobiera skrypt instalacyjny dla agenta systemu Linux Log Analytics (OMS).
 
-    - Instaluje agenta Log Analytics<br>`sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`
+        ```bash
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
+            onboard_agent.sh
+        ```
+
+    - Instaluje agenta Log Analytics.
+    
+        ```bash
+        sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com
+        ```
+
+1. **Ustawianie konfiguracji agenta Log Analytics do nasłuchiwania na porcie 25226 i przesyłania dalej komunikatów CEF do platformy Azure — wskaźnik:**
+
+    - Pobiera konfigurację z repozytorium usługi GitHub Agent Log Analytics.
+
+        ```bash
+        wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf
+            https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/
+            omsagent.d/security_events.conf
+        ```
 
 1. **Konfigurowanie demona dziennika systemowego:**
 
-    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/syslog-ng/syslog-ng.conf` .
+    - Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/syslog-ng/conf.d/` .
+    - Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/syslog-ng/conf.d/` .
 
         Zawartość `security-config-omsagent.conf` pliku:
 
-        ```console
+        ```bash
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
         destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
-1. **Ponowne uruchamianie demona dziennika systemu**
+1. **Ponowne uruchamianie demona dziennika systemu i agenta Log Analytics:**
 
-    `service syslog-ng restart`
+    - Uruchamia ponownie demona dziennika systemu.
+    
+        ```bash
+        service syslog-ng restart
+        ```
 
-1. **Ustawianie konfiguracji agenta Log Analytics na nasłuchiwanie na porcie 25226 i przekazywanie komunikatów CEF do usługi Azure wskaźnikowego**
+    - Uruchamia ponownie agenta Log Analytics.
 
-    1. Pobiera konfigurację z repozytorium usługi GitHub Agent Log Analytics<br>
-        `wget -o /etc/opt/microsoft/omsagent/[workspaceID]/conf/omsagent.d/security_events.conf https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/installer/conf/omsagent.d/security_events.conf`
+        ```bash
+        /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. **Weryfikowanie mapowania pola *komputera* zgodnie z oczekiwaniami:**
+
+    - Zapewnia, że pole *komputera* w źródle dziennika systemu jest prawidłowo mapowane w agencie log Analytics przez uruchomienie tego polecenia i ponowne uruchomienie agenta.
+
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 
-    1. Uruchamia ponownie agenta Log Analytics<br>
-        `/opt/microsoft/omsagent/bin/service_control restart [workspaceID]`
-
----
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób wdrażania agenta Log Analytics w celu połączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

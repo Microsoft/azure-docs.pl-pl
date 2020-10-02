@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287808"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631515"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -54,7 +54,7 @@ W obszarze [Azure App Service](/azure/app-service/app-service-value-prop-what-is
 
 Pomysłem związanym z obroną jest zarządzanie ryzykiem przy użyciu różnorodnych strategii obronnych. Zabezpieczenia warstw zabezpieczeń w aplikacji zmniejszają prawdopodobieństwo pomyślnego ataku. Zalecamy wdrożenie bezpiecznych projektów dla aplikacji przy użyciu wbudowanych funkcji platformy Azure.
 
-Na przykład ryzyko ataku zwiększa się wraz z rozmiarem (*obszar powierzchni*) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy dozwolonych, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](/azure/virtual-network/security-overview) to inny sposób zmniejszania podatności na ataki.
+Na przykład ryzyko ataku zwiększa się wraz z rozmiarem (*obszar powierzchni*) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](/azure/virtual-network/security-overview) to inny sposób zmniejszania podatności na ataki.
 Możesz użyć [tagów usługi](/azure/virtual-network/security-overview#service-tags) i [grup zabezpieczeń aplikacji](/azure/virtual-network/security-overview#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
 
 W miarę możliwości należy wdrożyć usługi platformy Azure w [sieci wirtualnej](/azure/virtual-network/virtual-networks-overview) . Dzięki temu zasoby usług mogą komunikować się za poorednictwem prywatnych adresów IP. Ruch usługi platformy Azure z sieci wirtualnej domyślnie używa publicznych adresów IP jako źródłowych adresów IP. Korzystanie z [punktów końcowych usługi](/azure/virtual-network/virtual-network-service-endpoints-overview) spowoduje przełączenie ruchu usługi w taki sposób, aby używały prywatnych adresów sieci wirtualnej jako źródłowych adresów IP podczas uzyskiwania dostępu do usługi platformy Azure z sieci wirtualnej.

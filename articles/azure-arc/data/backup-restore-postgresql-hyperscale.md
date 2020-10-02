@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569706"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630427"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Tworzenie kopii zapasowych i przywracanie dla usługi Azure ARC z włączonymi grupami serwerów PostgreSQL
 
@@ -93,8 +93,6 @@ Gdzie:
 - __Nazwa__ wskazuje nazwę kopii zapasowej
 - __Nazwa serwera__ wskazuje grupę serwerów
 - __nie — oczekiwanie__ wskazuje, że wiersz polecenia nie czeka na ukończenie tworzenia kopii zapasowej, aby móc kontynuować korzystanie z tego okna wiersza polecenia
-
->**Uwaga**: polecenie umożliwiające wyświetlenie listy kopii zapasowych, które są dostępne do przywrócenia, nie jest jeszcze wyświetlane, Data/godzina utworzenia kopii zapasowej. Dlatego zaleca się nadanie nazwy kopii zapasowej (przy użyciu parametru--name) zawierającego informacje o dacie i godzinie.
 
 To polecenie służy do koordynowania rozproszonej pełnej kopii zapasowej we wszystkich węzłach, które stanowią grupę serwerów z funkcją Azure Arc PostgreSQL. Innymi słowy, będzie tworzyć kopie zapasowe wszystkich danych w koordynatorze i węzłach procesu roboczego.
 

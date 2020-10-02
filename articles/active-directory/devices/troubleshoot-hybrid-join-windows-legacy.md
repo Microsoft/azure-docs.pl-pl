@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74379120"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627376"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu 
 
@@ -40,7 +40,6 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które roz
 
 - Hybrydowe dołączanie usługi Azure AD dla urządzeń z systemem Windows o niższych działaniach działa nieco inaczej niż w systemie Windows 10. Wielu klientów nie zakłada, że potrzebują AD FS (dla domen federacyjnych) lub bezproblemowe skonfigurowanie logowania jednokrotnego (dla domen zarządzanych).
 - W przypadku klientów z domenami federacyjnymi, jeśli punkt połączenia usługi został skonfigurowany w taki sposób, że wskazuje nazwę domeny zarządzanej (na przykład contoso.onmicrosoft.com, a nie contoso.com), to sprzężenie hybrydowe usługi Azure AD dla urządzeń z systemem Windows nie będzie działało.
-- Maksymalna liczba urządzeń dla każdego użytkownika dotyczy obecnie również urządzeń przyłączonych do hybrydowego poziomu usługi Azure AD. 
 - To samo urządzenie fizyczne pojawia się wiele razy w usłudze Azure AD, gdy wielu użytkowników domeny loguje się do hybrydowych urządzeń przyłączonych do usługi Azure AD.  Na przykład jeśli *JKowalski* i *jharnett* logowanie do urządzenia, dla każdego z nich zostanie utworzony osobna rejestracja (identyfikator urządzenia) na karcie Informacje o **użytkowniku** . 
 - Możesz również uzyskać wiele wpisów dla urządzenia na karcie Informacje o użytkowniku z powodu ponownej instalacji systemu operacyjnego lub ręcznego ponownego rejestrowania.
 - Początkowa Rejestracja/przyłączanie urządzeń jest skonfigurowany do wykonania próby zalogowania się lub zablokowania/odblokowania. Zadanie harmonogramu zadań może wystąpić z 5-minutowego opóźnienia. 
@@ -52,7 +51,7 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które roz
 
 1. Zaloguj się przy użyciu konta użytkownika, które wykonał sprzężenie hybrydowe usługi Azure AD.
 1. Otwórz wiersz polecenia 
-1. Wpisz polecenie `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
+1. Wpisz `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 To polecenie wyświetla okno dialogowe, które zawiera szczegółowe informacje o stanie sprzężenia.
 

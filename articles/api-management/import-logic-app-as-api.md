@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82202778"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626840"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importowanie aplikacji logiki jako interfejsu API
 
@@ -57,7 +57,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
     - **Starter (początkowy)**
     - **Nieograniczona liczba**
 
-7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
 8. Wybierz przycisk **Utwórz**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testowanie interfejsu API w witrynie Azure Portal

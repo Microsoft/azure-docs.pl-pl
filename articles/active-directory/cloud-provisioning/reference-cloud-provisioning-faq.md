@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658371"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628676"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Active Directory Connect — często zadawane pytania dotyczące aprowizacji w chmurze
 
@@ -83,6 +83,18 @@ Nie, Instalacja agenta na serwerze Core nie jest obsługiwana.
 **P: Czy można użyć serwera przemieszczania z agentem aprowizacji w chmurze?**
 
 Nie, serwery przejściowe nie są obsługiwane.
+
+**P: Czy można zsynchronizować konta użytkowników-Gości?**
+
+Nie, synchronizowanie kont użytkowników gościa nie jest obsługiwane.
+
+**P: czy po przeniesieniu użytkownika z jednostki organizacyjnej należącej do zakresu aprowizacji w chmurze do jednostki organizacyjnej, która ma zakres Azure AD Connect, co się dzieje?**
+
+Użytkownik zostanie usunięty i utworzony.  Przeniesienie użytkownika z jednostki organizacyjnej należącej do zakresu aprowizacji w chmurze zostanie wyświetlone jako operacja usuwania.  Jeśli użytkownik jest przenoszony do jednostki organizacyjnej, która jest zarządzana przez Azure AD Connect, zostanie ona zainicjowana w usłudze Azure AD i utworzona przez nowego użytkownika.
+
+**P: w przypadku zmiany nazwy lub przeniesienia jednostki organizacyjnej, która znajduje się w zakresie dla filtru aprowizacji w chmurze, co się dzieje z użytkownikiem, który został utworzony w usłudze Azure AD?**
+
+Nic.  Użytkownicy nie zostaną usunięci w przypadku zmiany nazwy lub przeniesienia jednostki organizacyjnej.
 
 ## <a name="next-steps"></a>Następne kroki 
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574232"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627961"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Samouczek: Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
 W tym przewodniku pokazano, jak zaimplementować logowanie do firmy Microsoft za pośrednictwem rozwiązania ASP.NET MVC przy użyciu tradycyjnej aplikacji opartej na przeglądarce sieci Web i usługi OpenID Connect Connect.
 
@@ -295,7 +295,7 @@ Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontroler
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -313,7 +313,7 @@ Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontroler
     ```
 
 ### <a name="more-information"></a>Więcej informacji
-Ze względu na użycie `[Authorize]` atrybutu wszystkie metody tego kontrolera można wykonać tylko wtedy, gdy użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp do kontrolera, OWIN inicjuje wyzwanie uwierzytelniania i wymusza uwierzytelnienie użytkownika. Poprzedni kod przegląda listę oświadczeń dla określonych atrybutów użytkownika zawartych w tokenie identyfikatora użytkownika. Te atrybuty obejmują imię i nazwisko użytkownika oraz nazwę użytkownika, a także podmiot globalnego identyfikatora. Zawiera on także *identyfikator dzierżawy*, który reprezentuje identyfikator organizacji użytkownika.
+Ze względu na użycie `[Authorize]` atrybutu wszystkie metody tego kontrolera można wykonać tylko wtedy, gdy użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp do kontrolera, OWIN inicjuje wyzwanie uwierzytelniania i wymusza uwierzytelnienie użytkownika. Poprzedni kod przegląda listę oświadczeń dla określonych atrybutów użytkownika zawartych w tokenie identyfikatora użytkownika. Te atrybuty obejmują pełną nazwę użytkownika i użytkownika, a także rolę globalnego identyfikatora użytkownika. Zawiera również *Identyfikator dzierżawy*, który reprezentuje identyfikator organizacji użytkownika.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>tworzenie widoku w celu wyświetlenia oświadczeń użytkownika
 

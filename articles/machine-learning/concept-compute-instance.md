@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
-ms.openlocfilehash: 14229af9766f6604e71713f835935d43f6c7fcc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56febc6c2a0e88b2be547c71a2f90ccfa9b78f26
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330149"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630835"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -91,6 +91,8 @@ Możesz też uzyskać dostęp do okna terminalu w dowolny z następujących spos
 * Jupyter Lab: wybierz kafelek **terminalu** pod **innym** nagłówkiem na karcie Uruchamianie.
 * Jupyter: wybierz pozycję **Nowy Terminal>** w prawym górnym rogu na karcie pliki.
 * SSH z maszyną.  Następnie zainstaluj pakiety Python w środowisku **python 3,6-Azure** .  Zainstaluj pakiety języka R w środowisku **języka r** .
+
+Podczas dostosowywania wystąpienia obliczeniowego upewnij się, że nie usuniesz środowiska azureml_py36 Conda lub języka Python 3,6 — jądra Azure. Jest to niezbędny w przypadku funkcji Jupyter/JupyterLab
 
 ### <a name="add-new-kernels"></a>Dodaj nowe jądra
 

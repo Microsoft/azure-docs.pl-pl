@@ -1,5 +1,6 @@
 ---
-title: Jak przeprowadzić integrację z platformą tożsamości firmy Microsoft
+title: Jak przeprowadzić integrację z platformą tożsamości firmy Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Poznaj zalety integracji aplikacji z platformą tożsamości firmy Microsoft i uzyskaj zasoby dla funkcji, takich jak uproszczone logowanie, zarządzanie tożsamościami, uwierzytelnianie wieloskładnikowe i kontrola dostępu.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706170"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631413"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integracja z platformą tożsamości firmy Microsoft
 
@@ -45,9 +46,9 @@ Istnieje kilka sposobów integracji aplikacji z platformą tożsamości firmy Mi
 
 **Użyj platformy tożsamości firmy Microsoft dla ról opartych na Access Control.**  Administratorzy i właściciele aplikacji mogą przypisywać użytkowników i grupy do ról zdefiniowanych podczas rejestrowania aplikacji na platformie tożsamości firmy Microsoft. Informacje o rolach są wysyłane do aplikacji w tokenach logowania i można je również odczytać przy użyciu interfejsu API Microsoft Graph. Dowiedz się więcej o [korzystaniu z platformy tożsamości firmy Microsoft na potrzeby autoryzacji](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Uzyskiwanie dostępu do profilu, kalendarza, poczty e-mail, kontaktów, plików i innych użytkowników
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Uzyskaj dostęp do profilu, kalendarza, poczty e-mail, kontaktów, plików i innych użytkowników
 
-**Platforma tożsamości firmy Microsoft to serwer autoryzacji dla Microsoft 365 i innych usług firmy Microsoft.**  Jeśli obsługujesz platformę tożsamości firmy Microsoft w celu logowania się do aplikacji lub obsłużenia połączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu do profilu użytkownika, kalendarza, wiadomości e-mail, kontaktów, plików i innych informacji. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej o [uzyskiwaniu dostępu do interfejsów api Microsoft 365](/previous-versions/office/office-365-api/).
+**Platforma tożsamości firmy Microsoft to serwer autoryzacji dla Microsoft 365 i innych usług firmy Microsoft.**  Jeśli obsługujesz platformę tożsamości firmy Microsoft w celu logowania się do aplikacji lub obsłużenia połączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu do profilu użytkownika, kalendarza, wiadomości e-mail, kontaktów, plików i innych informacji. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej [na temat Microsoft 365 interfejsów API](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promuj swoją aplikację na platformie Azure i Microsoft 365 Marketplace
 

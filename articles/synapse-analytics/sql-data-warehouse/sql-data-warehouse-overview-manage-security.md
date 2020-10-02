@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200974"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629373"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Zabezpieczanie bazy danych w usłudze Azure Synapse
 
@@ -33,7 +33,7 @@ W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania pul
 
 Zabezpieczenia połączeń dotyczą sposobu ograniczania i zabezpieczania połączeń z bazą danych przy użyciu reguł zapory i szyfrowania połączeń.
 
-Reguły zapory są używane przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) i jego bazy danych w celu odrzucania prób połączenia z adresów IP, które nie zostały jawnie listy dozwolonych. Aby zezwolić na połączenia z publicznego adresu IP aplikacji lub komputera klienckiego, należy najpierw utworzyć regułę zapory na poziomie serwera przy użyciu Azure Portal, interfejsu API REST lub programu PowerShell.
+Reguły zapory są używane przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) i jego bazy danych w celu odrzucania prób połączenia z adresów IP, które nie zostały jawnie zatwierdzone. Aby zezwolić na połączenia z publicznego adresu IP aplikacji lub komputera klienckiego, należy najpierw utworzyć regułę zapory na poziomie serwera przy użyciu Azure Portal, interfejsu API REST lub programu PowerShell.
 
 Najlepszym rozwiązaniem jest ograniczenie zakresów adresów IP dozwolonych przez zaporę na poziomie serwera, tak jak to możliwe.  Aby można było uzyskać dostęp do puli SQL z komputera lokalnego, należy upewnić się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na porcie TCP 1433.  
 

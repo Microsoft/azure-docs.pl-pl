@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115615"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631277"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach
 
@@ -35,7 +35,7 @@ Identyfikator atrybutu rozszerzenia schematu katalogu ma postać *Extension_xxxx
 Atrybuty rozszerzenia schematu katalogu mogą być rejestrowane i wypełniane na jeden z dwóch sposobów:
 
 - Konfigurując program AD Connect w celu ich tworzenia i synchronizowania danych z lokalnej usługi AD. Zobacz [Azure AD Connect rozszerzenia katalogu synchronizacji](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Przy użyciu Microsoft Graph do rejestrowania, ustawiania wartości i odczytywania z atrybutów rozszerzenia schematu katalogów [rozszerzenia schematu katalogu | Interfejs API programu Graph koncepcje](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) i/lub program PowerShell + [Zarządzanie atrybutami rozszerzenia za pomocą poleceń cmdlet programu PowerShell AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Przy użyciu Microsoft Graph do rejestrowania, ustawiania wartości i odczytywania z [rozszerzeń schematu](/graph/extensibility-overview). Dostępne są również [polecenia cmdlet programu PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) .
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emitowanie oświadczeń z danymi z atrybutów rozszerzenia schematu katalogu utworzonych przy użyciu programu AD Connect
 Atrybuty rozszerzenia schematu katalogu utworzone i zsynchronizowane przy użyciu programu AD Connect są zawsze skojarzone z IDENTYFIKATORem aplikacji używanym przez program AD Connect. Mogą one służyć jako źródło dla oświadczeń zarówno przez skonfigurowanie ich jako oświadczeń w konfiguracji **aplikacji przedsiębiorstwa** w interfejsie użytkownika portalu dla aplikacji SAML zarejestrowanych przy użyciu galerii lub środowiska konfiguracji aplikacji spoza galerii w obszarze **aplikacje dla przedsiębiorstw**, a także za pośrednictwem zasad mapowania oświadczeń dla aplikacji zarejestrowanych za pośrednictwem środowiska rejestracji aplikacji.  Gdy atrybut rozszerzenia katalogu utworzony za pośrednictwem programu AD Connect znajduje się w katalogu, zostanie wyświetlony w interfejsie użytkownika konfiguracji oświadczeń logowania jednokrotnego SAML.
@@ -58,7 +58,7 @@ Na przykład poniżej przedstawiono zasady mapowania oświadczeń do emisji poje
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Gdzie *xxxxxxx* to identyfikator aplikacji, w której zostało zarejestrowane ro
 > Parametr "ID" w schemacie oświadczeń używanym dla wbudowanych atrybutów katalogu ma wartość "ExtensionID" dla atrybutów rozszerzenia katalogu.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się [, jak dodać niestandardowe lub dodatkowe oświadczenia do tokenów tokenów sieci Web SAML 2,0 i JSON (JWT)](active-directory-optional-claims.md). 
+- Dowiedz się [, jak dodać niestandardowe lub dodatkowe oświadczenia do tokenów tokenów sieci Web SAML 2,0 i JSON (JWT)](active-directory-optional-claims.md).
 - Dowiedz się, jak [dostosować oświadczenia emitowane w tokenach dla określonej aplikacji](active-directory-claims-mapping.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939046"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631747"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Często zadawane pytania dotyczące klasyfikatora metryk
 
@@ -74,9 +74,26 @@ Na podstawie stopnia szczegółowości danych dane historyczne, które mają wyn
 
 ### <a name="more-concepts-and-technical-terms"></a>Więcej pojęć i warunków technicznych
 
-Przejdź do [słownika](glossary.md) , aby dowiedzieć się więcej.
+Zobacz też [słownik](glossary.md) , aby uzyskać więcej informacji.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Jak mogę wykryć takie rodzaje anomalii? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Jak mogę zapisać prawidłowe zapytanie na potrzeby pozyskiwania danych?  
+
+Aby móc pozyskać dane z usługi Metric Advisor, należy utworzyć zapytanie, które zwraca wymiary danych przy użyciu pojedynczej sygnatury czasowej. Doradca metryk uruchomi to zapytanie wiele razy, aby pobrać dane z każdego sygnatury czasowej. 
+
+Należy zauważyć, że zapytanie powinno zwrócić co najwyżej jeden rekord dla każdej kombinacji wymiarów w danym znaczniku czasu. Wszystkie zwrócone rekordy muszą mieć taką samą sygnaturę czasową. Zapytanie nie powinno zawierać zduplikowanych rekordów.
+
+Załóżmy na przykład, że tworzysz zapytanie poniżej, dla metryki dziennej: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Pamiętaj, aby użyć poprawnego stopnia szczegółowości dla szeregów czasowych. W przypadku metryki godzinowej można użyć: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Zwróć uwagę, że te zapytania zwracają tylko dane z pojedynczej sygnatury czasowej i zawierają wszystkie kombinacje wymiarów do pozyskiwania przez klasyfikatora metryk. 
+
+:::image type="content" source="media/query-result.png" alt-text="Komunikat, gdy istnieje już zasób F0" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Jak mogę wykryć skoki & spadnie jako anomalie?
 

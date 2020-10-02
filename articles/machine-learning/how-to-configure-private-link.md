@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie prywatnego punktu końcowego (wersja zapoznawcza)
+title: Skonfiguruj prywatny punkt końcowy
 titleSuffix: Azure Machine Learning
 description: Użyj prywatnego linku platformy Azure, aby bezpiecznie uzyskać dostęp do obszaru roboczego Azure Machine Learning z sieci wirtualnej.
 services: machine-learning
@@ -10,34 +10,17 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/21/2020
-ms.openlocfilehash: 619960238125191e7bd4e702a49016c8fd58c847
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 1a34f8ec42969cded5921d377b1fa62276a30cc7
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296658"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630393"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
-W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. Aby uzyskać informacje na temat konfigurowania sieci wirtualnej dla Azure Machine Learning, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md)
-
-> [!IMPORTANT]
-> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w następujących regionach:
->
-> * **East US**
-> * **South Central US**
-> * **Zachodnie stany USA**
-> * **Zachodnie stany USA 2**
-> * **Kanada środkowa**
-> * **Southeast Asia**
-> * **Japan East**
-> * **Europa Północna**
-> * **Australia Wschodnia**
-> * **Południowe Zjednoczone Królestwo**
->
-> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. Aby uzyskać informacje na temat tworzenia sieci wirtualnej dla Azure Machine Learning, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md)
 
 Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego tylko w przypadku prywatnych adresów IP. Link prywatny pomaga ograniczyć ryzyko związane z eksfiltracji danych. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz artykuł [prywatny link do platformy Azure](/azure/private-link/private-link-overview) .
 
@@ -46,21 +29,46 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 >
 > W przypadku korzystania z przeglądarki Mozilla Firefox mogą wystąpić problemy podczas próby uzyskania dostępu do prywatnego punktu końcowego dla obszaru roboczego. Ten problem może dotyczyć systemu DNS za pośrednictwem protokołu HTTPS w Mozilla. Zalecamy korzystanie z przeglądarki Google Chrome firmy Microsoft jako obejście problemu.
 
-> [!TIP]
-> Wystąpienie obliczeniowe Azure Machine Learning może być używane z obszarem roboczym i prywatnym punktem końcowym. Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej w regionach **Wschodnie stany USA**, **Południowo-środkowe** stany USA i **zachodnie stany USA 2** .
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli planujesz używanie obszaru roboczego z włączoną obsługą linku prywatnego z kluczem zarządzanym przez klienta, musisz zażądać tej funkcji przy użyciu biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Ograniczenia
+
+Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
+
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 
-> [!IMPORTANT]
-> Obecnie obsługujemy tylko Włączanie prywatnego punktu końcowego podczas tworzenia nowego obszaru roboczego Azure Machine Learning.
+Użyj jednej z następujących metod, aby utworzyć obszar roboczy z prywatnym punktem końcowym:
 
-Szablon w programie [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) może służyć do tworzenia obszaru roboczego z prywatnym punktem końcowym.
+> [!TIP]
+> Szablon Azure Resource Manager może utworzyć nową sieć wirtualną w razie konieczności. Pozostałe metody wymagają istniejącej sieci wirtualnej.
+
+# <a name="resource-manager-template"></a>[Szablon Menedżer zasobów](#tab/azure-resource-manager)
+
+Szablon Azure Resource Manager w programie [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) zapewnia łatwy sposób tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego i sieci wirtualnej.
 
 Aby uzyskać informacje na temat korzystania z tego szablonu, w tym prywatnych punktów końcowych, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Zestaw Azure Machine Learning Python SDK udostępnia klasę [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , która może być używana z elementem [Workspace. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) w celu utworzenia obszaru roboczego z prywatnym punktem końcowym. Ta klasa wymaga istniejącej sieci wirtualnej.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+[Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md) udostępnia polecenie [AZ ml Workspace Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_create) . Następujące parametry dla tego polecenia mogą służyć do tworzenia obszaru roboczego z siecią prywatną, ale wymaga istniejącej sieci wirtualnej:
+
+* `--pe-name`: Nazwa tworzonego prywatnego punktu końcowego.
+* `--pe-auto-approval`: Czy połączenia prywatnego punktu końcowego z obszarem roboczym powinny być automatycznie zatwierdzane.
+* `--pe-resource-group`: Grupa zasobów, w której ma zostać utworzony prywatny punkt końcowy. Musi być tą samą grupą, która zawiera sieć wirtualną.
+* `--pe-vnet-name`: Istniejąca sieć wirtualna do utworzenia prywatnego punktu końcowego w programie.
+* `--pe-subnet-name`: Nazwa podsieci, w której ma zostać utworzony prywatny punkt końcowy. Wartość domyślna to `default`.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Karta __Sieć__ w programie Azure Machine Learning Studio umożliwia skonfigurowanie prywatnego punktu końcowego. Jednak wymaga istniejącej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Tworzenie obszarów roboczych w portalu](how-to-manage-workspace.md).
+
+---
 
 ## <a name="using-a-workspace-over-a-private-endpoint"></a>Używanie obszaru roboczego w prywatnym punkcie końcowym
 

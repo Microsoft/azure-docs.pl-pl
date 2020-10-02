@@ -7,16 +7,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 2ee20035fbb7b417897290caba4500f2c3862fee
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611813"
+ms.locfileid: "91627600"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalowanie i używanie emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
-Emulator usługi Azure Cosmos udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB na potrzeby programowania. Korzystając z emulatora usługi Azure Cosmos, możesz tworzyć i testować aplikację lokalnie, bez konieczności tworzenia subskrypcji platformy Azure ani ponoszenia kosztów. Gdy aplikacja działa w emulatorze usługi Azure Cosmos, możesz przełączyć się do korzystania z konta usługi Azure Cosmos w chmurze. Aby rozpocząć, Pobierz i zainstaluj najnowszą wersję [emulatora usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator) na komputerze lokalnym. W tym artykule opisano sposób instalowania emulatora i korzystania z niego w środowiskach Windows, Linux, macOS i Windows Docker.
+Emulator usługi Azure Cosmos udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB na potrzeby programowania. Korzystając z emulatora usługi Azure Cosmos, możesz tworzyć i testować aplikację lokalnie, bez konieczności tworzenia subskrypcji platformy Azure ani ponoszenia kosztów. Gdy aplikacja działa w emulatorze usługi Azure Cosmos, możesz przełączyć się do korzystania z konta usługi Azure Cosmos w chmurze. W tym artykule opisano sposób instalowania emulatora i korzystania z niego w środowiskach Windows, Linux, macOS i Windows Docker.
+
+## <a name="download-the-emulator"></a>Pobieranie emulatora
+
+Aby rozpocząć, Pobierz i zainstaluj najnowszą wersję emulatora usługi Azure Cosmos na komputerze lokalnym. W artykule [Informacje o wersji emulatora](local-emulator-release-notes.md) znajduje się lista wszystkich dostępnych wersji i aktualizacji funkcji wprowadzonych w poszczególnych wydaniach.
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Pobieranie emulatora usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator)**
 
 Aplikacje można opracowywać przy użyciu emulatora usługi Azure Cosmos z kontami interfejsu API [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api)i [Table](local-emulator.md#table-api) . Obecnie Eksplorator danych w emulatorze w pełni obsługuje wyświetlanie danych SQL. dane utworzone za pomocą MongoDB, Gremlin/Graph i Cassandra aplikacje klienckie nie są w tej chwili widoczne. Aby dowiedzieć się więcej, zobacz [jak nawiązać połączenie z punktem końcowym emulatora](#connect-with-emulator-apis) z różnych interfejsów API.
 
@@ -38,7 +44,7 @@ Ponieważ emulator usługi Azure Cosmos udostępnia emulowane środowisko dział
 
 * Za pomocą emulatora można utworzyć konto usługi Azure Cosmos tylko w trybie [przepływności aprowizacji](set-throughput.md) . obecnie nie obsługuje trybu [bezserwerowego](serverless.md) .
 
-* Emulator nie jest skalowalną usługą i nie obsługuje dużej liczby kontenerów. W przypadku korzystania z emulatora usługi Azure Cosmos domyślnie można utworzyć maksymalnie 25 kontenerów o stałym rozmiarze o 400 RU/s (obsługiwane tylko przy użyciu zestawów SDK Azure Cosmos DB) lub 5 nieograniczoną liczbę kontenerów. Aby uzyskać więcej informacji na temat zmiany tej wartości, zobacz [Ustawianie wartości PartitionCount] emulator-Command-line-Parameters. MD # Set-PartitionCount).
+* Emulator nie jest skalowalną usługą i nie obsługuje dużej liczby kontenerów. W przypadku korzystania z emulatora usługi Azure Cosmos domyślnie można utworzyć maksymalnie 25 kontenerów o stałym rozmiarze o 400 RU/s (obsługiwane tylko przy użyciu zestawów SDK Azure Cosmos DB) lub 5 nieograniczoną liczbę kontenerów. Aby uzyskać więcej informacji na temat zmiany tej wartości, zobacz [Ustawianie artykułu wartość PartitionCount](emulator-command-line-parameters.md#set-partitioncount) .
 
 * Emulator nie oferuje różnych [Azure Cosmos DB poziomów spójności](consistency-levels.md) , takich jak usługa w chmurze.
 
@@ -64,7 +70,7 @@ Przed zainstalowaniem emulatora upewnij się, że masz następujące wymagania d
 
 Aby rozpocząć, Pobierz i zainstaluj najnowszą wersję [emulatora usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator) na komputerze lokalnym. Jeśli podczas instalacji emulatora wystąpią jakiekolwiek problemy, zapoznaj się z artykułem [Rozwiązywanie problemów z emulatorem](troubleshoot-local-emulator.md) .
 
-W zależności od wymagań systemowych można uruchomić emulator w [systemie Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux lub [macOS](#run-on-linux-macos) zgodnie z opisem w następnych sekcjach tego artykułu.
+W zależności od wymagań systemowych można uruchomić emulator w [systemie Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux lub macOS](#run-on-linux-macos) zgodnie z opisem w następnych sekcjach tego artykułu.
 
 ## <a name="check-for-emulator-updates"></a>Sprawdź dostępność aktualizacji emulatora
 

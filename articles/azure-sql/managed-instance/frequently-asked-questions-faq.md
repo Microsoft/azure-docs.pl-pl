@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325219"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627622"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ Podsieć musi mieć wystarczającą liczbę dostępnych [adresów IP](connectivi
 
 **Co zrobić, jeśli nie ma wystarczającej liczby adresów IP na potrzeby wykonywania operacji aktualizacji wystąpienia?**
 
-W przypadku braku wystarczającej liczby [adresów IP](connectivity-architecture-overview.md#network-requirements) w podsieci, w której jest inicjowane zarządzane wystąpienie, należy utworzyć nową podsieć i w niej nowe wystąpienie zarządzane. Sugerujemy również, że Nowa podsieć jest tworzona przy użyciu większej liczby adresów IP przyznanych, aby przyszłe operacje aktualizowania zastąpią podobne sytuacje. Po aprowizacji nowego wystąpienia można ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem lub wykonać [przywracanie do określonego momentu w czasie](point-in-time-restore.md?tabs=azure-powershell).
+W przypadku braku wystarczającej liczby [adresów IP](connectivity-architecture-overview.md#network-requirements) w podsieci, w której jest inicjowane zarządzane wystąpienie, należy utworzyć nową podsieć i w niej nowe wystąpienie zarządzane. Zalecamy również utworzenie nowej podsieci przy użyciu większej liczby przydzielonych adresów IP, aby uniknąć takich sytuacji w przyszłych operacjach aktualizowania. Po aprowizacji nowego wystąpienia można ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem lub wykonać [przywracanie do określonego momentu w czasie](point-in-time-restore.md?tabs=azure-powershell).
 
 **Czy muszę mieć pustą podsieć, aby utworzyć wystąpienie zarządzane?**
 
@@ -334,9 +334,12 @@ Nie, ta opcja jest niedostępna.  W przypadku prywatnego punktu końcowego danyc
 
 **Jaki jest zalecany sposób łączenia wystąpień zarządzanych umieszczonych w różnych regionach?**
 
-Komunikacja równorzędna obwodu trasy Express jest preferowanym sposobem wykonania tej czynności. Nie ma to być mieszane w przypadku komunikacji równorzędnej sieci wirtualnych między regionami, która nie jest obsługiwana z powodu [ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)dotyczącego wewnętrznego modułu równoważenia obciążenia.
+Komunikacja równorzędna obwodu trasy Express jest preferowanym sposobem wykonania tej czynności. Globalne wirtualne sieci równorzędne są obsługiwane z ograniczeniami opisanymi w poniższej uwadze.  
 
-Jeśli Komunikacja równorzędna obwodu trasy Express nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [programu PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+
+Jeśli Komunikacja równorzędna obwodu usługi Express Route i globalna komunikacja wirtualna sieci wirtualnej nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [programu PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Ograniczanie ryzyka związanego z eksfiltracji danych  
 

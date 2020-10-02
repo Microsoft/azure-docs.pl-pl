@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c6ec2be6daee931a4066ff5ce4f64fc949d497ac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243430"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627027"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importowanie aplikacji funkcji platformy Azure jako interfejsu API w usłudze Azure API Management
 
@@ -71,7 +71,7 @@ Aby utworzyć nowy interfejs API z poziomu aplikacji funkcji platformy Azure, wy
     > [!NOTE]
     > Możesz zaimportować tylko te funkcje, które są oparte na wyzwalaczu HTTP i mają ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja*.
 
-7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. Jeśli to konieczne, określ inne pola podczas tworzenia lub skonfiguruj je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. Jeśli to konieczne, określ inne pola podczas tworzenia lub skonfiguruj je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
 8. Kliknij pozycję **Utwórz**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Dołączanie aplikacji funkcji platformy Azure do istniejącego interfejsu API
@@ -108,7 +108,7 @@ Aby dołączyć aplikację funkcji platformy Azure do istniejącego interfejsu A
 
     ![Dołączanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a><a name="authorization"></a>Zgody
+## <a name="authorization"></a><a name="authorization"></a> Zgody
 
 Zaimportowanie aplikacji funkcji platformy Azure powoduje automatyczne wygenerowanie:
 
@@ -140,7 +140,7 @@ Przejdź do Twojego wystąpienia usługi Azure API Management i wybierz pozycję
 
 ![Dodawanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a> Przetestuj nowy interfejs API w Azure Portal
 
 Operacje można wywoływać bezpośrednio w witrynie Azure Portal. Witryna Azure Portal to wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 
@@ -152,7 +152,7 @@ Operacje można wywoływać bezpośrednio w witrynie Azure Portal. Witryna Azure
 
     Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jeden z nagłówków to **OCP-APIM-Subscription-Key**dla klucza subskrypcji produktu skojarzonego z tym interfejsem API. Jeśli utworzono wystąpienie API Management, oznacza to, że już jesteś administratorem, więc klucz zostanie uzupełniony automatycznie. 
 
-4. Wybierz pozycję **Send** (Wyślij).
+4. Wybierz pozycję **Wyślij**.
 
     Zaplecze odpowiada wartością **200 OK** i pewnymi danymi.
 

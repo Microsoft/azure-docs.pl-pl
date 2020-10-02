@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej dla
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329601"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627955"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
 
@@ -34,7 +34,7 @@ W tabeli zestawiono obsługiwane scenariusze odnajdywania, oceny i migracji.
 
 W tabeli przedstawiono obsługę określonego narzędzia.
 
-**Narzędzie** | **Ocena** | **Migrate** 
+**Narzędzie** | **Ocena** | **Migrate (Migracja)** 
 --- | --- | ---
 Azure Migrate oceny serwera | Oceniaj [maszyny wirtualne programu VMware](tutorial-prepare-vmware.md), [maszyny wirtualne funkcji Hyper-V](tutorial-prepare-hyper-v.md)i [serwery fizyczne](tutorial-prepare-physical.md). |  Niedostępne (NA)
 Migracja serwera usługi Azure Migrate | Nie dotyczy | Migrowanie [maszyn wirtualnych VMware](tutorial-migrate-vmware.md), [maszyn wirtualnych funkcji Hyper-V](tutorial-migrate-hyper-v.md)i [serwerów fizycznych](tutorial-migrate-physical-virtual-machines.md).
@@ -97,7 +97,7 @@ Zjednoczone Królestwo | Południowe Zjednoczone Królestwo lub Zachodnie Zjedno
 Stany Zjednoczone | Środkowe stany USA lub zachodnie stany USA 2
 
 > [!NOTE]
-> W przypadku lokalizacji geograficznej Szwajcarii Szwajcaria Zachodnia jest dostępna tylko dla użytkowników interfejsu API REST i wymaga subskrypcji listy dozwolonych.
+> W przypadku lokalizacji geograficznej Szwajcarii Szwajcaria Zachodnia są dostępne tylko dla użytkowników interfejsu API REST i wymagają zatwierdzonej subskrypcji.
 
 ## <a name="supported-geographies-azure-government"></a>Obsługiwane lokalizacje geograficzne (Azure Government)
 

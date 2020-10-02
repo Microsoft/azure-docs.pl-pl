@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654484"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631447"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
@@ -54,7 +54,9 @@ Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciąże
 
 - Jednostki SKU nie są modyfikowalne. Nie można zmienić jednostki SKU istniejącego zasobu.
 - Zasób autonomicznej maszyny wirtualnej, zasób zestawu dostępności lub zasób zestawu skalowania maszyn wirtualnych może odwoływać się do jednej jednostki SKU, nigdy nie obu.
-- [Operacje przenoszenia subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md) nie są obsługiwane w przypadku zasobów usługa Load Balancer w warstwie Standardowa i standardowych adresów IP.
+- [Operacje przenoszenia](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - Operacje przenoszenia grup zasobów (w ramach tej samej subskrypcji) **są obsługiwane** w przypadku usługa Load Balancer w warstwie Standardowa i standardowego publicznego adresu IP. 
+  - [Operacje przenoszenia grup subskrypcji](../azure-resource-manager/management/move-support-resources.md) **nie** są obsługiwane w przypadku zasobów usługa Load Balancer w warstwie Standardowa i standardowych adresów IP.
 
 ## <a name="next-steps"></a>Następne kroki
 

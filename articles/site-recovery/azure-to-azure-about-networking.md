@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361419"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631345"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -46,7 +46,7 @@ Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (si
 Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na następujące adresy URL Site Recovery:
 
 >[!NOTE]
-> W celu kontrolowania łączności wychodzącej nie należy wykonywać listy dozwolonych opartych na adresie IP.
+> Filtrowanie na podstawie adresów IP nie powinno być przeprowadzane w celu kontrolowania łączności wychodzącej.
 
 **Adres URL** | **Szczegóły**
 --- | ---

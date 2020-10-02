@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 9a36e0903945a974f73187e4799e978c32f2d961
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576274"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629646"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Samouczek: uaktualnianie rozwiązania Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -143,10 +143,7 @@ W tym samouczku uaktualniane jest rozwiązanie Kubernetes w klastrze AKS. W tym 
 > * Uaktualnianie węzłów rozwiązania Kubernetes
 > * Weryfikowanie pomyślnego uaktualnienia
 
-Skorzystaj z tego linku, aby dowiedzieć się więcej o usłudze AKS.
-
-> [!div class="nextstepaction"]
-> [Omówienie usługi AKS][aks-intro]
+Aby uzyskać więcej informacji na temat AKS, zobacz [Omówienie funkcji AKS][aks-intro]. Aby uzyskać wskazówki dotyczące tworzenia pełnych rozwiązań za pomocą AKS, zobacz [AKS wskazówki dotyczące rozwiązań][aks-solution-guidance].
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -160,3 +157,4 @@ Skorzystaj z tego linku, aby dowiedzieć się więcej o usłudze AKS.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here

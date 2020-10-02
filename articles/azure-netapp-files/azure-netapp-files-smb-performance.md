@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460453"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628500"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Często zadawane pytania dotyczące wydajności protokołu SMB dla Azure NetApp Files
 
@@ -46,7 +46,7 @@ System Windows obsługuje Wielokanałowość protokołu SMB od systemu Windows 2
 
 Aby sprawdzić, czy karty sieciowe maszyn wirtualnych platformy Azure obsługują funkcję RSS, uruchom polecenie `Get-SmbClientNetworkInterface` w następujący sposób i zaznacz pole `RSS Capable` : 
 
-![Obsługa funkcji RSS dla maszyny wirtualnej platformy Azure](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Zrzut ekranu przedstawiający dane wyjściowe RSS dla maszyny wirtualnej platformy Azure.](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## <a name="does-azure-netapp-files-support-smb-direct"></a>Czy Azure NetApp Files obsługuje protokół SMB Direct?
 
@@ -60,9 +60,9 @@ Funkcja wielokanałowego protokołu SMB umożliwia klientowi protokołu SMB3 ust
 
 Nie. Klient SMB będzie pasował do liczby kart sieciowych zwracanych przez serwer SMB.  Każdy wolumin magazynu jest dostępny z jednego i tylko jednego punktu końcowego magazynu.  Oznacza to, że tylko jedna karta sieciowa będzie używana dla danej relacji protokołu SMB.  
 
-Jak `Get-SmbClientNetworkInterace` pokazano poniżej, maszyna wirtualna ma dwa interfejsy sieciowe — 15 i 12.  Jak pokazano poniżej w poleceniu `Get-SmbMultichannelConnection` , chociaż istnieją dwie karty sieciowe z obsługą funkcji RSS, w połączeniu z udziałem SMB jest używany tylko interfejs 12, a interfejs 15 nie jest używany.
+Jak `Get-SmbClientNetworkInterace` widać na poniższej ilustracji, maszyna wirtualna ma 2 interfejsy sieciowe — 15 i 12.  Jak pokazano w poniższym poleceniu `Get-SmbMultichannelConnection` , chociaż istnieją dwie karty sieciowe z obsługą funkcji RSS, w połączeniu z udziałem SMB jest używany tylko interfejs 12, a interfejs 15 nie jest używany.
 
-![Karty sieciowe z obsługą funkcji RSS](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![Screeshot pokazujący dane wyjściowe dla kart sieciowych z obsługą funkcji RSS.](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## <a name="is-nic-teaming-supported-in-azure"></a>Czy tworzenie zespołu kart interfejsu sieciowego jest obsługiwane na platformie Azure?
 
@@ -74,25 +74,61 @@ Poniższe testy i wykresy przedstawiają moc wielokanałowe protokołu SMB w prz
 
 ### <a name="random-io"></a>Losowe we/wy  
 
-W przypadku korzystania z funkcji wielokanałowości SMB wyłączonej na kliencie czyste testy odczytu i zapisu KiB zostały wykonane przy użyciu FIO i zestawu roboczego 40-GiB.  Udział SMB został odłączony między każdym testem, z przyrostami liczby połączeń klienta SMB na ustawienia interfejsu sieciowego RSS,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testy pokazują, że ustawienie domyślne `4` jest wystarczające dla obciążeń intensywnie korzystających z operacji we/wy; zwiększa się `8` i `16` nie ma żadnego efektu. 
+W przypadku korzystania z funkcji wielokanałowości SMB wyłączonej na kliencie czyste KiB testy odczytu i zapisu zostały wykonane przy użyciu FIO i zestawu roboczego GiB 40.  Udział SMB został odłączony między każdym testem, z przyrostami liczby połączeń klienta SMB na ustawienia interfejsu sieciowego RSS,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testy pokazują, że ustawienie domyślne `4` jest wystarczające dla obciążeń intensywnie korzystających z operacji we/wy, zwiększając do `8` i `16` ma znaczący efekt. 
 
 Polecenie `netstat -na | findstr 445` udowodniono, że nastąpiło ustanowienie dodatkowych połączeń z przyrostami z `1` do `4` `8` i do `16` .  Cztery rdzenie procesora CPU zostały w pełni wykorzystane do SMB podczas każdego testu, zgodnie z potwierdzeniem przez `Per Processor Network Activity Cycles` statystykę monitora wydajności (nieuwzględnioną w tym artykule).
 
-![Losowe testy we/wy](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Wykres przedstawiający losowe porównanie operacji we/wy protokołu SMB.](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-Maszyna wirtualna platformy Azure nie ma wpływu na limity operacji we/wy magazynu SMB (ani NFS).  Jak pokazano poniżej, typ wystąpienia D16 ma ograniczoną 32 000 dla operacji wejścia/wyjścia magazynu w pamięci podręcznej i 25 600 w przypadku operacji we/wy na sekundę.  Jednak wykres powyżej pokazuje znacznie więcej operacji we/wy za pośrednictwem protokołu SMB.
+Maszyna wirtualna platformy Azure nie ma wpływu na limity operacji we/wy magazynu SMB (ani NFS).  Jak pokazano na poniższym wykresie, typ wystąpienia D32ds ma ograniczoną 308 000 dla operacji wejścia/wyjścia magazynu w pamięci podręcznej i 51 200 dla operacji we/wy na sekundę.  Jednak wykres powyżej pokazuje znacznie więcej operacji we/wy za pośrednictwem protokołu SMB.
 
-![Porównanie losowe we/wy](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Wykres pokazujący losowy test porównawczy we/wy.](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### <a name="sequential-io"></a>Sekwencyjne operacje we/wy 
 
-Testy podobne do losowych testów we/wy opisanych powyżej zostały wykonane z użyciem sekwencyjnych operacji we/wy 64 KiB. Mimo że zwiększenie liczby połączeń klientów na interfejs sieciowy RSS poza 4 "nie miało zauważalnego wpływu na losowe we/wy, to samo nie dotyczy sekwencyjnych operacji we/wy. Jak widać na poniższym wykresie, każdy wzrost jest związany z odpowiednim wzrostem przepływności odczytu. Przepustowość zapisu była płaska ze względu na ograniczenia przepustowości sieci na platformie Azure dla każdego typu/rozmiaru wystąpienia. 
+Testy podobne do losowych testów operacji we/wy opisanych wcześniej zostały wykonane z użyciem sekwencyjnych operacji we/wy 64 KiB. Mimo że zwiększenie liczby połączeń klientów na interfejs sieciowy RSS poza 4 "nie miało zauważalnego wpływu na losowe we/wy, to samo nie dotyczy sekwencyjnych operacji we/wy. Jak widać na poniższym wykresie, każdy wzrost jest związany z odpowiednim wzrostem przepływności odczytu. Przepustowość zapisu była płaska ze względu na ograniczenia przepustowości sieci na platformie Azure dla każdego typu/rozmiaru wystąpienia. 
 
-![Sekwencyjne testy we/wy](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Wykres przedstawiający porównanie testu przepływności.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Platforma Azure umieszcza limity szybkości sieci na każdym typie/rozmiarze maszyny wirtualnej. Limit szybkości jest nakładany tylko na ruch wychodzący. Liczba kart sieciowych znajdujących się na maszynie wirtualnej nie ma wpływu na łączną przepustowość dostępną dla maszyny.  Na przykład typ wystąpienia D16 ma nałożoną granicę sieci wynoszącą 8000 MB/s (1 000 MiB na sekundę).  Jak pokazano na wykresie sekwencyjnym, limit ma wpływ na ruch wychodzący (zapis), ale nie do odczytu wielokanałowego.
+Platforma Azure umieszcza limity szybkości sieci na każdym typie/rozmiarze maszyny wirtualnej. Limit szybkości jest nakładany tylko na ruch wychodzący. Liczba kart sieciowych znajdujących się na maszynie wirtualnej nie ma wpływu na łączną przepustowość dostępną dla maszyny.  Na przykład typ wystąpienia D32ds ma nałożoną granicę sieci wynoszącą 16 000 MB/s (2 000 MiB na sekundę).  Jak pokazano na wykresie sekwencyjnym, limit ma wpływ na ruch wychodzący (zapis), ale nie do odczytu wielokanałowego.
 
-![Porównanie sekwencyjne we/wy](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Wykres pokazujący sekwencyjny test operacji wejścia/wyjścia.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## <a name="what-performance-is-expected-with-a-single-instance-with-a-1-tb-dataset"></a>Jaka wydajność jest oczekiwana z pojedynczym wystąpieniem z zestawem danych o pojemności 1 TB?
+
+Aby zapewnić bardziej szczegółowy wgląd w obciążenia przy użyciu miksów odczytu i zapisu, następujące dwa wykresy przedstawiają wydajność jednego, Ultra-poziomego woluminu w chmurze wynoszącego 50 TB z zestawem danych 1 TB i ze wielokanałowością SMB 4. Użyto optymalnych IODepth 16 i elastycznych parametrów we/wy (FIO) w celu zapewnienia pełnego użycia przepustowości sieci ( `numjobs=16` ).
+
+Na poniższym wykresie przedstawiono wyniki dla losowych operacji we/wy z jednym wystąpieniem maszyny wirtualnej i mieszanie odczytu/zapisu w 10% interwałach:
+
+![Wykres przedstawiający losowy test operacji we/wy w systemie Windows 2019 w warstwie _D32ds_v4 standardowa.](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+Poniższy wykres przedstawia wyniki dla sekwencyjnych operacji we/wy:
+
+![Wykres przedstawiający standardową _D32ds_v4 systemu Windows 2019 64 KB przepływności.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## <a name="what-performance-is-expected-when-scaling-out-using-5-vms-with-a-1-tb-dataset"></a>Jaka wydajność jest oczekiwana podczas skalowania w poziomie przy użyciu 5 maszyn wirtualnych z zestawem danych o pojemności 1 TB?
+
+Te testy z 5 maszyn wirtualnych używają tego samego środowiska testowego co pojedyncze maszyny wirtualne, a każdy proces zapisuje je w osobnym pliku.
+
+Poniższy wykres przedstawia wyniki losowych operacji we/wy:
+
+![Wykres przedstawiający system Windows 2019 w warstwie Standardowa _D32ds_v4 4 k wystąpienia randio test we/wy.](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+Poniższy wykres przedstawia wyniki dla sekwencyjnych operacji we/wy:
+
+![Wykres przedstawiający system Windows 2019 w warstwie _D32ds_v4 standardowa 64 KB 5-wystąpienia sekwencyjnej przepływności.](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## <a name="how-do-you-monitor-hyper-v-ethernet-adapters-and-ensure-that-you-maximize-network-capacity"></a>Jak monitorować karty Ethernet funkcji Hyper-V i upewnić się, że pojemność sieci jest maksymalizuje?  
+
+Należy ustawić jedną strategię używaną w testowaniu z FIO `numjobs=16` . Dzięki temu każde zadanie jest wykonywane w 16 określonych wystąpieniach w celu zmaksymalizowania Microsoft Hyper-V karcie sieciowej.
+
+Aby sprawdzić działanie na poszczególnych kartach w Monitorze wydajności systemu Windows, wybierz pozycję **Monitor wydajności > Dodaj liczniki > interfejs sieciowy > Microsoft Hyper-V karcie sieciowej**.
+
+![Zrzut ekranu przedstawiający interfejs Add Counter monitora wydajności.](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+Po uruchomieniu ruchu danych w woluminach można monitorować karty w Monitorze wydajności systemu Windows. Jeśli nie korzystasz ze wszystkich tych 16 kart wirtualnych, możesz nie zmaksymalizować wydajności przepustowości sieci.
+
+![Zrzut ekranu przedstawiający dane wyjściowe monitora wydajności.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## <a name="is-accelerated-networking-recommended"></a>Czy zalecane jest przyspieszenie sieci?
 
@@ -115,7 +151,7 @@ Podpisywanie SMB jest obsługiwane przez wszystkie wersje protokołu SMB obsług
 
 Podpisywanie SMB ma szkodliwy wpływ na wydajność protokołu SMB. Między innymi potencjalnymi przyczynami obniżenia wydajności, podpisywanie cyfrowe każdego pakietu zużywa dodatkowy procesor CPU po stronie klienta, jak pokazano poniżej. W takim przypadku w przypadku protokołu SMB jest wyświetlana wartość podstawowa 0, w tym podpisywanie SMB.  Porównanie z wielokanałowymi numerami przepływności odczytu w poprzedniej sekcji pokazuje, że podpisywanie SMB zmniejsza ogólną przepływność od 875MiB do około 250MiB/s. 
 
-![Wpływ na wydajność podpisywania protokołu SMB](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Wykres pokazujący wpływ na wydajność podpisywania protokołu SMB.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## <a name="next-steps"></a>Następne kroki  

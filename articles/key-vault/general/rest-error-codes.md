@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419133"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631226"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Kody błędów interfejsu API REST Azure Key Vault
  
@@ -128,7 +128,7 @@ Jeśli można uzyskać tylko token dostępu do odpowiedzi, można zdekodować go
 HTTP 403 oznacza, że żądanie zostało uwierzytelnione (zna tożsamość żądającą), ale tożsamość nie ma uprawnień dostępu do żądanego zasobu. Istnieją dwie przyczyny:
 
 - Brak zasad dostępu dla tożsamości.
-- Adres IP zażądanego zasobu nie jest listy dozwolonych w ustawieniach zapory magazynu kluczy.
+- Adres IP zażądanego zasobu nie jest zatwierdzony w ustawieniach zapory magazynu kluczy.
 
 Protokół HTTP 403 często występuje, gdy aplikacja klienta nie korzysta z identyfikatora klienta, który uważa klient. Zazwyczaj oznacza to, że zasady dostępu nie są poprawnie skonfigurowane dla rzeczywistej tożsamości wywołującej.
 
@@ -166,5 +166,3 @@ Ograniczanie przepływności odbywa się przy użyciu następujących technik:
 - Jeśli liczba żądań nie może zostać zmniejszona przez buforowanie i wycofywania czasu nie działa, należy rozważyć rozdzielenie kluczy do wielu magazynów kluczy. Limit usługi dla pojedynczej subskrypcji to pięciokrotną limit Key Vault poszczególnych. W przypadku korzystania z więcej niż 5 magazynów kluczy należy wziąć pod uwagę używanie wielu subskrypcji. 
 
 Szczegółowe wskazówki, w tym żądanie zwiększenia limitów, można znaleźć tutaj: [Key Vault wskazówki dotyczące ograniczania przepustowości](overview-throttling.md)
-
-

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360654"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630155"
 ---
 # <a name="speech-service-for-telephony-data"></a>Usługa mowy dla danych telefonii
 
@@ -142,7 +142,7 @@ Przykładowy kod jest dostępny w witrynie GitHub dla każdej funkcji usługi Sp
 - [Zestaw Speech Devices SDK](speech-devices-sdk.md)
 - [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 - [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)
-- [Interfejs API REST: Transkrypcja i dostosowywanie partii](https://westus.cris.ai/swagger/ui/index)
+- [Interfejs API REST: Transkrypcja i dostosowywanie partii](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Następne kroki
 

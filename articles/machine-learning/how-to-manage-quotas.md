@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322380"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629594"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 
@@ -85,7 +85,7 @@ W przypadku [potoków Azure Machine Learning](concept-ml-pipelines.md)obowiązuj
 Istnieje również ograniczenie liczby wystąpień kontenerów, które można uruchomić w danym okresie (co godzinę) lub w całej subskrypcji.
 Limity można znaleźć w temacie [Container Instances limitów](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 Istnieje limit liczby kont magazynu na region, jak również w danej subskrypcji. Domyślny limit to 250 i obejmuje konta standardowe i Premium Storage. Jeśli potrzebujesz więcej niż 250 kont magazynu w danym regionie, Przekształć żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage sprawdzi swój przypadek biznesowy i może zatwierdzić do 250 kont magazynu dla danego regionu.
 
 
@@ -151,7 +151,7 @@ Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynnośc
 
     | Pole | Wybór |
     | ----- | ----- |
-    | Typ problemu | Techniczny |
+    | Typ problemu | Szczegóły techniczne |
     | Usługa | Moje usługi. Na liście rozwijanej wybierz pozycję __Machine Learning__ . |
     | Typ problemu | Konfiguracja obszaru roboczego, zestaw SDK i interfejs wiersza polecenia |
     | Podtyp problemu | Problem z aprowizacją obszaru roboczego lub zarządzaniem nim |

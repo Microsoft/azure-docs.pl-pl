@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007047"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629815"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Przenoszenie usługi Wyszukiwanie poznawcze platformy Azure do innego regionu platformy Azure
 
@@ -27,7 +27,7 @@ Czasami klienci pytają o przeniesienie usługi wyszukiwania do innego regionu. 
 
 + Upewnij się, że usługi i funkcje używane przez konto są obsługiwane w regionie docelowym.
 
-+ W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja znajduje się na liście dozwolonych elementów dla regionu docelowego.
++ W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja została zatwierdzona dla regionu docelowego.
 
 ## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
 

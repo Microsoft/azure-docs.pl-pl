@@ -5,14 +5,14 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948967"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630706"
 ---
-# <a name="networking"></a>Networking
+# <a name="networking"></a>Sieć
 
 Podczas tworzenia klastrów Service Fabric platformy Azure i zarządzania nimi można zapewnić łączność sieciową dla węzłów i aplikacji. Zasoby sieci obejmują zakresy adresów IP, sieci wirtualne, moduły równoważenia obciążenia i sieciowe grupy zabezpieczeń. W tym artykule przedstawiono najlepsze rozwiązania dotyczące tych zasobów.
 
@@ -47,7 +47,7 @@ Aby włączyć przyspieszone sieci w istniejącym klastrze Service Fabric, nale�
 
 Skalowanie w górę infrastruktury jest wymagane do włączenia przyspieszonej sieci w istniejącym klastrze, ponieważ włączenie przyspieszonej sieci spowoduje przestoje, ponieważ wymaga ono zatrzymania i cofnięcia przydziału wszystkich maszyn wirtualnych w zestawie dostępności [przed włączeniem przyspieszonej sieci na dowolnej istniejącej karcie sieciowej](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-## <a name="cluster-networking"></a>Sieć klastrów
+## <a name="cluster-networking"></a>Cluster Networking (Sieć klastrów)
 
 * Klastry Service Fabric można wdrożyć w istniejącej sieci wirtualnej, wykonując czynności opisane w temacie [Service Fabric wzorców sieci](./service-fabric-patterns-networking.md).
 
@@ -59,7 +59,7 @@ Skalowanie w górę infrastruktury jest wymagane do włączenia przyspieszonej s
 
 ## <a name="network-security-rules"></a>Reguły zabezpieczeń sieci
 
-Podstawowe reguły w tym miejscu są minimalne dla blokady zabezpieczeń w klastrze Service Fabric zarządzanym przez platformę Azure. Nie można otworzyć następujących portów lub listy dozwolonych adres IP/URL uniemożliwi prawidłowe działanie klastra i może nie być obsługiwany. W przypadku tego ustawienia reguły jest wymagana wyłącznie do korzystania z [automatycznych uaktualnień obrazu systemu operacyjnego](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). w przeciwnym razie konieczne będzie otwarcie dodatkowych portów.
+Podstawowe reguły w tym miejscu są minimalne dla blokady zabezpieczeń w klastrze Service Fabric zarządzanym przez platformę Azure. Nie można otworzyć następujących portów lub zatwierdzeniu adresu IP/adresu URL uniemożliwi prawidłowe działanie klastra i może nie być obsługiwane. W przypadku tego ustawienia reguły jest wymagana wyłącznie do korzystania z [automatycznych uaktualnień obrazu systemu operacyjnego](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). w przeciwnym razie konieczne będzie otwarcie dodatkowych portów.
 
 ### <a name="inbound"></a>Inbound 
 |Priorytet   |Nazwa               |Port        |Protokół  |Element źródłowy             |Element docelowy       |Akcja   
@@ -70,8 +70,8 @@ Podstawowe reguły w tym miejscu są minimalne dla blokady zabezpieczeń w klast
 |3930       |Rzeczywisty          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Zezwalaj
 |3940       |Aplikacja        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Zezwalaj
 |3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Zezwalaj
-|3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Deny
-|3970       |Protokół SSH                |22          |TCP       |Internet           |VirtualNetwork    |Deny
+|3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Zablokuj
+|3970       |Protokół SSH                |22          |TCP       |Internet           |VirtualNetwork    |Zablokuj
 |3980       |Niestandardowy punkt końcowy    |80          |TCP       |Internet           |VirtualNetwork    |Zezwalaj
 |4100       |Blokuj ruch przychodzący      |443         |Dowolne       |Dowolne                |Dowolne               |Zezwalaj
 
@@ -102,7 +102,7 @@ Więcej informacji na temat reguł zabezpieczeń dla ruchu przychodzącego:
 |3900       |Sieć            |Dowolne         |TCP       |VirtualNetwork     |VirtualNetwork    |Zezwalaj
 |3910       |Dostawca zasobów  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Zezwalaj
 |3920       |Uaktualnienie            |443         |TCP       |VirtualNetwork     |Internet          |Zezwalaj
-|3950       |Blokuj ruch wychodzący     |Dowolne         |Dowolne       |Dowolne                |Dowolne               |Deny
+|3950       |Blokuj ruch wychodzący     |Dowolne         |Dowolne       |Dowolne                |Dowolne               |Zablokuj
 
 Więcej informacji na temat reguł zabezpieczeń dla ruchu wychodzącego:
 
@@ -123,7 +123,7 @@ Za pomocą zapory platformy Azure z [dziennikiem przepływu sieciowej grupy zabe
 
 * W przypadku kontenerów systemu Windows hostowanych na maszynach gapped powietrznych, które nie mogą pobierać warstw podstawowych z magazynu w chmurze platformy Azure, Zastąp zachowanie warstwy obcej przy użyciu flagi [--Allow-undystrybucyjne-artefakty](/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) w demona platformy Docker.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra systemu Linux](service-fabric-cluster-creation-via-portal.md)
