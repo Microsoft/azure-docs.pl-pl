@@ -407,7 +407,7 @@
           href: ps-template.md
         - name: Łączenie z maszyną wirtualną
           href: connect-logon.md
-        - name: Nawiązywanie połączenia z maszynami wirtualnymi z systemem Linux
+        - name: Łączenie za pomocą protokołu SSH z maszynami wirtualnymi z systemem Linux
           displayName: ssh keygen ssk-key putty
           items:
             - name: W portalu
@@ -595,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Często zadawane pytania o szyfrowanie dysków
               href: disk-encryption-faq.md
-            - name: Szyfrowanie dysków — poprzednia wersja (Azure AD)
+            - name: Szyfrowanie dysków — poprzednia wersja
               items:
                 - name: Omówienie
                   href: disk-encryption-overview-aad.md

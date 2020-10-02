@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 05/04/2020
-  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
-  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+  ms.date: 09/21/2020
+  ms.openlocfilehash: 76a879f1c2c228fd509f0b0725b7ff3ddac4fa41
+  ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/22/2020
-  ms.locfileid: "88752115"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91574912"
 landingContent:
 - title: Informacje o usłudze Azure VMware Solution
   linkLists:
@@ -22,15 +22,61 @@ landingContent:
     links:
     - text: Co to jest usługa Azure VMware Solution?
       url: introduction.md
+  - linkListType: concept
+    links:
+    - text: Chmura prywatna i klastry
+      url: concepts-private-clouds-clusters.md
+    - text: Łączność i sieci w chmurze prywatnej
+      url: concepts-networking.md
+    - text: Magazynowanie w chmurach prywatnych
+      url: concepts-storage.md
+    - text: Dostęp i tożsamość w chmurach prywatnych
+      url: concepts-identity.md
+    - text: Kontrola dostępu oparta na rolach
+      url: concepts-role-based-access-control.md
+    - text: Uaktualnienia chmur prywatnych
+      url: concepts-upgrades.md
+- title: Wdrażanie usługi Azure VMware Solution
+  linkLists:
   - linkListType: get-started
     links:
-    - text: Lista kontrolna sieci
-      url: tutorial-network-checklist.md
+    - text: Proces przed wdrożeniem
+      url: production-ready-deployment-steps.md
+    - text: Lista kontrolna przed wdrożeniem
+      url: pre-deployment-checklist.md
+    - text: 1. Wdrażanie usługi Azure VMware Solution
+      url: deploy-azure-vmware-solution.md
+    - text: 2. Nawiązywanie połączenia ze środowiskiem lokalnym
+      url: azure-vmware-solution-on-premises.md
+    - text: 3. Wdrażanie i konfigurowanie usługi HCX
+      url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Tworzenie chmury prywatnej AVS
+    - text: Lista kontrolna dotycząca planowania sieci
+      url: tutorial-network-checklist.md
+    - text: Tworzenie chmury prywatnej
       url: tutorial-create-private-cloud.md
-    - text: Konfigurowanie sieci
-      url: tutorial-configure-networking.md
     - text: Uzyskiwanie dostępu do chmury prywatnej
       url: tutorial-access-private-cloud.md
+    - text: Konfigurowanie sieci
+      url: tutorial-configure-networking.md
+    - text: Tworzenie segmentu sieci NSX-T
+      url: tutorial-nsx-t-network-segment.md
+    - text: Komunikacja równorzędna środowiska lokalnego z chmurą prywatną
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: Wdrażanie i konfigurowanie usługi VMware HCX
+      url: tutorial-deploy-vmware-hcx.md
+    - text: Skalowanie chmury prywatnej
+      url: tutorial-scale-private-cloud.md
+- title: Rozszerzanie usługi Azure VMware Solution
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ocena migracji
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: Zarządzanie protokołem DHCP
+      url: manage-dhcp.md
+    - text: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
+      url: disaster-recovery-for-virtual-machines.md
+    - text: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
+      url: tutorial-deploy-vm-content-library.md

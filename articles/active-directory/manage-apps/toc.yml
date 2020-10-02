@@ -57,10 +57,16 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Logowanie jednokrotne
       items:
-        - name: Opcje logowania jednokrotnego
-          href: sso-options.md
         - name: Planowanie wdrożenia logowania jednokrotnego
           href: plan-sso-deployment.md
+        - name: Opcje logowania jednokrotnego
+          href: sso-options.md
+        - name: Logowanie jednokrotne oparte na języku SAML
+          href: configure-saml-single-sign-on.md
+        - name: Logowanie jednokrotne oparte na haśle
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Logowanie jednokrotne oparte na linkach
+          href: configure-linked-sign-on.md
         - name: Logowanie jednokrotne jednym kliknięciem
           href: one-click-sso-tutorial.md
     - name: Zabezpieczenia aplikacji
@@ -102,14 +108,6 @@
 - name: Przewodniki z instrukcjami
   expanded: false
   items:
-    - name: Konfigurowanie logowania jednokrotnego
-      items:
-        - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
-          href: configure-saml-single-sign-on.md
-        - name: Konfigurowanie logowania opartego na haśle
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Konfigurowanie połączonego logowania
-          href: configure-linked-sign-on.md
     - name: Przypisywanie użytkowników i zarządzanie dostępem do aplikacji
       items:
         - name: Konfigurowanie zgody użytkownika

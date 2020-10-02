@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: Tworzenie urządzenia WUS w koncentratorze wirtualnym
       href: How-to-nva-hub.md
+    - name: Tworzenie połączenia sieci wirtualnej między dzierżawami
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: Tworzenie połączenia usługi ExpressRoute

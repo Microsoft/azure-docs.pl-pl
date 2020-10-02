@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/31/2020
-  ms.openlocfilehash: a2d736b2706b3b0958bb544c6d0e4434c78e6791
-  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+  ms.date: 09/30/2020
+  ms.openlocfilehash: 120e020a30daf377844ad9933a067def3360a399
+  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/01/2020
-  ms.locfileid: "89231337"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91597773"
 landingContent:
 - title: Informacje o ładzie na platformie Azure
   linkLists:
@@ -39,6 +39,10 @@ landingContent:
       url: ./create-management-group-azure-cli.md
     - text: Tworzenie grupy zarządzania (Azure PowerShell)
       url: ./create-management-group-powershell.md
+    - text: Tworzenie grupy zarządzania (.NET)
+      url: ./create-management-group-dotnet.md
+    - text: Tworzenie grupy zarządzania (JavaScript)
+      url: ./create-management-group-javascript.md
     - text: Tworzenie grupy zarządzania (REST)
       url: ./create-management-group-rest-api.md
     - text: Wdrażanie zasobów w grupie zarządzania (szablony usługi ARM)

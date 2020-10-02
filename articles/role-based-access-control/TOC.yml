@@ -28,6 +28,10 @@
       href: tutorial-custom-role-cli.md
 - name: Pojęcia
   items:
+    - name: Definicje ról
+      href: role-definitions.md
+    - name: Zakres
+      href: scope-overview.md
     - name: Najlepsze rozwiązania
       href: best-practices.md
     - name: Dostęp warunkowy do zarządzania platformy Azure
@@ -40,11 +44,7 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Lista definicji ról
-      items:
-        - name: Omówienie
-          href: role-definitions.md
-        - name: Lista definicji ról
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: Lista przypisań ról
       items:
         - name: Portal
@@ -57,6 +57,8 @@
           href: role-assignments-list-rest.md
     - name: Dodawanie lub usuwanie przypisań ról
       items:
+        - name: Kroki umożliwiające dodanie przypisania roli
+          href: role-assignments-steps.md
         - name: Portal
           href: role-assignments-portal.md
         - name: Portal — użytkownicy-goście

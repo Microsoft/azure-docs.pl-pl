@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: Zabezpieczenia
       items:
+        - name: Podstawy uwierzytelniania przy użyciu usługi Key Vault
+          href: authentication-fundamentals.md
         - name: Zabezpieczenia usługi Azure Key Vault
           href: overview-security.md
         - name: Najlepsze rozwiązania w zakresie korzystania z usługi Key Vault — Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: Usuwanie nietrwałe
       items:
+        - name: Odzyskiwanie przy użyciu usługi Key Vault (usuwanie nietrwałe i ochrona przed przeczyszczeniem)
+          href: key-vault-recovery.md
         - name: Używanie usuwania nietrwałego za pomocą interfejsu wiersza polecenia
           href: soft-delete-cli.md
         - name: Używanie usuwania nietrwałego za pomocą programu PowerShell

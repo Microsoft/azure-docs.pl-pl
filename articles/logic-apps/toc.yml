@@ -69,6 +69,8 @@
           href: export-from-microsoft-flow-logic-app-template.md
         - name: Tworzenie stanowych lub bezstanowych przepływów pracy w programie Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
+        - name: Wywoływanie aplikacji logiki z usług Power Automate i Power Apps
+          href: call-logic-apps-from-power-automate-power-apps.md
         - name: Sterowanie wykonywaniem przepływu pracy
           items:
             - name: Instrukcje warunkowe

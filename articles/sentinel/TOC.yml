@@ -172,7 +172,7 @@
           href: connect-azure-stack.md
     - name: Umożliwianie analizy zachowań użytkowników i jednostek
       href: enable-entity-behavior-analytics.md
-    - name: Praca z wieloma dzierżawami (MSSP)
+    - name: Zarządzanie wieloma dzierżawami (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Praca ze zdarzeniami w wielu obszarach roboczych
       href: multiple-workspace-view.md

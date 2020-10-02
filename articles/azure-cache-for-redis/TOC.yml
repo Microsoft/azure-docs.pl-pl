@@ -68,6 +68,8 @@
       items:
         - name: Wybieranie warstwy pamięci podręcznej
           href: cache-overview.md#choosing-the-right-tier
+        - name: Ustawianie wersji bazy danych Redis
+          href: cache-how-to-version.md
         - name: Rozproszenie pamięci podręcznej przez zastosowanie klastrowania
           href: cache-how-to-premium-clustering.md
         - name: Trwałość pamięci podręcznej dzięki funkcji trwałości danych Redis

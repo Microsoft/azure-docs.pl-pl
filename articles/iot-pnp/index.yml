@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentacja technologii IoT Plug and Play (odświeżona wersja zapoznawcza)
+title: Dokumentacja technologii IoT Plug and Play
 summary: Technologia IoT Plug and Play umożliwia definiowanie modelu urządzenia, który pozwala, aby rozwiązanie w chmurze automatycznie rozumiało Twoje urządzenie i wchodziło z nim w interakcje.
 metadata:
-  title: Architektura technologii IoT Plug and Play (wersja zapoznawcza)
-  description: Technologia IoT Plug and Play (wersja zapoznawcza) pozwala konstruktorom rozwiązań na integrowanie urządzeń w rozwiązanie bez ręcznej konfiguracji. W tym artykule przedstawiono kluczowe elementy architektury, które to umożliwiają.
+  title: Architektura technologii IoT Plug and Play
+  description: Technologia IoT Plug and Play pozwala konstruktorom rozwiązań na integrowanie urządzeń w rozwiązanie bez ręcznej konfiguracji. W tym artykule przedstawiono kluczowe elementy architektury, które umożliwiają wykonanie tego zadania.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
+  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337368"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91598048"
 landingContent:
 - title: Informacje o usłudze IoT Plug and Play
   linkLists:
@@ -24,8 +24,8 @@ landingContent:
     links:
     - text: Co to jest usługa IoT Plug and Play?
       url: overview-iot-plug-and-play.md
-    - text: Aktualizacje odświeżonej wersji zapoznawczej w 2020 r.
-      url: overview-iot-plug-and-play-preview-updates.md
+    - text: Co obejmuje bieżąca wersja
+      url: overview-iot-plug-and-play-current-release.md
 - title: Tworzenie urządzeń
   linkLists:
   - linkListType: quickstart
@@ -43,11 +43,13 @@ landingContent:
   - linkListType: concept
     links:
     - text: Przewodnik dla deweloperów
-      url: concepts-developer-guide.md
-    - text: Konwencje technologii IoT Plug and Play
-      url: concepts-convention.md
+      url: concepts-developer-guide-device-csharp.md
     - text: Składniki
       url: concepts-components.md
+    - text: Konwencje technologii IoT Plug and Play
+      url: concepts-convention.md
+    - text: Mostek IoT Plug and Play
+      url: concepts-iot-pnp-bridge.md
 - title: Tworzenie rozwiązań
   linkLists:
   - linkListType: quickstart

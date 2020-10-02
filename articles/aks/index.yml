@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 98d96c36e8ec801c2a8a5a87d0075f2d9b57bd98
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 9ce4a4e20f6d33880be5dbefe49c2d1d9e6e8c5d
+  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90984964"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91568390"
 landingContent:
 - title: Informacje o usłudze Azure Kubernetes Service (AKS)
   linkLists:
@@ -26,17 +26,15 @@ landingContent:
     links:
     - text: Podstawowe pojęcia platformy Kubernetes dotyczące usługi AKS
       url: concepts-clusters-workloads.md
-    - text: Architektura punktu odniesienia dla klastra usługi AKS
-      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
     - text: Klastry i obciążenia
       url: concepts-clusters-workloads.md
     - text: Dostęp i tożsamość
       url: concepts-identity.md
     - text: Zabezpieczenia
       url: concepts-security.md
-    - text: Networking
+    - text: Sieć
       url: concepts-network.md
-    - text: Magazyn
+    - text: Storage
       url: concepts-storage.md
     - text: Skalowanie
       url: concepts-scale.md
@@ -76,6 +74,18 @@ landingContent:
       url: tutorial-kubernetes-app-update.md
     - text: 7. Uaktualnianie platformy Kubernetes w usłudze AKS
       url: tutorial-kubernetes-upgrade-cluster.md
+- title: Wskazówki dotyczące architektury
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Architektura punktu odniesienia dla klastra usługi AKS
+      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+    - text: Rozwiązania AKS
+      url: /azure/architecture/reference-architectures/containers/aks-start-here
+    - text: Najlepsze rozwiązania dla deweloperów i operatorów klastrów
+      url: best-practices.md
+    - text: Sprawdzanie najlepszych rozwiązań
+      url: kube-advisor-tool.md
 - title: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
   linkLists:
   - linkListType: learn

@@ -17,6 +17,9 @@
     - name: Przypisywanie zasad — program Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Przypisywanie zasad — platforma .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: Przypisywanie zasad — język JavaScript
       displayName: 'assign, compliance'
       href: ./assign-policy-javascript.md
@@ -139,6 +142,9 @@
     - name: Tworzenie zasad dla właściwości tablicy
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Eksportowanie zasobów usługi Azure Policy
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: Konfiguracja gościa
       items:
         - name: Tworzenie zasad konfiguracji gościa w systemie Windows
