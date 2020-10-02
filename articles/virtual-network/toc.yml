@@ -95,6 +95,8 @@
           href: public-ip-security-baseline.md
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Grupy zabezpieczeń sieci
           items:
             - name: Omówienie

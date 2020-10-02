@@ -42,8 +42,10 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Strefowo nadmiarowe bramy dla stref dostępności — informacje
       href: about-zone-redundant-vnet-gateways.md
-    - name: Wbudowane mechanizmy zabezpieczeń
-      href: vpn-gateway-security-controls.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Współdziałanie łączności z zapleczem
       items:
         - name: Wstęp i konfiguracja testu

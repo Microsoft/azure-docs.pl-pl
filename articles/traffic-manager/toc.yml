@@ -44,6 +44,10 @@
       items:
         - name: Hierarchia krajów/regionów używana przez usługę Traffic Manager
           href: traffic-manager-geographic-regions.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Zagnieżdżone profile usługi Traffic Manager
       href: traffic-manager-nested-profiles.md
     - name: Typy punktów końcowych

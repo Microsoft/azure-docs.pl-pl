@@ -50,6 +50,8 @@
       href: concepts-identity.md
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Zabezpieczenia aplikacji i klastrów
           href: concepts-security.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
@@ -57,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Storage
+    - name: Magazyn
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
