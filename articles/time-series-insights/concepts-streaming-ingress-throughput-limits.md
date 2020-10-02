@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3bc68b7f4682ff00d2b93a75e39e0e5eabe4637b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287444"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650769"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limity przepływności pozyskiwania strumieniowego
 
@@ -28,7 +28,7 @@ Poniżej opisano ograniczenia dotyczące transferu danych przychodzących w Azur
 
 Ogólnie rzecz biorąc, stawki za transfer danych przychodzących są wyświetlane jako współczynnik liczby urządzeń w organizacji, częstotliwości emisji zdarzeń i rozmiaru każdego zdarzenia:
 
-*  **Liczba urządzeń** × **częstotliwość emisji zdarzeń** × **rozmiar każdego zdarzenia**.
+* **Liczba urządzeń** × **częstotliwość emisji zdarzeń** × **rozmiar każdego zdarzenia**.
 
 Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z szybkością **do 1 megabajtów na sekundę (MB/s) na Azure Time Series Insights środowisku Gen2**. Istnieją dodatkowe ograniczenia [na partycję centrum](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
 
@@ -36,12 +36,12 @@ Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z 
 >
 > * Obsługa środowiska w celu pozyskiwania prędkości do 8 MB/s może być świadczona przez żądanie.
 > * Skontaktuj się z nami, jeśli potrzebujesz większej przepływności przez przesłanie biletu pomocy technicznej za pomocą Azure Portal.
- 
+
 * **Przykład 1:**
 
     Wysyłka firmy Contoso obejmuje 100 000 urządzeń, które emitują wydarzenie trzy razy na minutę. Rozmiar zdarzenia to 200 bajtów. Używają IoT Hub z czterema partycjami jako źródłem zdarzeń Azure Time Series Insights Gen2.
 
-    * Szybkość pozyskiwania dla środowiska Azure Time Series Insights Gen2: **100 000 urządzeń * 200 bajtów/zdarzenia * (3/60 Event/s) = 1 MB/s**.
+  * Szybkość pozyskiwania dla środowiska Azure Time Series Insights Gen2: **100 000 urządzeń * 200 bajtów/zdarzenia * (3/60 Event/s) = 1 MB/s**.
     * Przy założeniu, że zrównoważona partycja, szybkość pozyskiwania na partycję 0,25 MB/s.
     * Stawka pozyskiwania kosztów wysyłki firmy Contoso będzie w ramach ograniczeń skalowania.
 
@@ -49,13 +49,13 @@ Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z 
 
     Analiza floty firmy Contoso obejmuje 40 000 urządzeń, które emitują zdarzenia co sekundę. Korzystają one z centrum zdarzeń z liczbą partycji 2 jako źródłem zdarzenia Azure Time Series Insights Gen2. Rozmiar zdarzenia to 200 bajtów.
 
-    * Szybkość pozyskiwania środowiska: **40 000 urządzeń * 200 bajtów/zdarzenia * 1 zdarzenie/s = 8 MB/s**.
+  * Szybkość pozyskiwania środowiska: **40 000 urządzeń * 200 bajtów/zdarzenia * 1 zdarzenie/s = 8 MB/s**.
     * Przy założeniu, że zrównoważona partycja, ich stawka na partycje wynosi 4 MB/s.
     * Wskaźnik pozyskiwania danych z usługi contoso floty jest powyżej limitów środowiska i partycji. Mogą przesłać żądanie Azure Time Series Insights Gen2 przez Azure Portal, aby zwiększyć szybkość pozyskiwania dla środowiska i utworzyć centrum zdarzeń z większą liczbą partycji, które mają być objęte limitami.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partycje centrum i limity na partycję
 
-Podczas planowania środowiska Azure Time Series Insights Gen2 należy wziąć pod uwagę konfigurację źródeł zdarzeń, z którymi będziesz się łączyć Azure Time Series Insights Gen2. Zarówno IoT Hub platformy Azure, jak i Event Hubs używają partycji, aby włączyć skalowanie w poziomie na potrzeby przetwarzania zdarzeń. 
+Podczas planowania środowiska Azure Time Series Insights Gen2 należy wziąć pod uwagę konfigurację źródeł zdarzeń, z którymi będziesz się łączyć Azure Time Series Insights Gen2. Zarówno IoT Hub platformy Azure, jak i Event Hubs używają partycji, aby włączyć skalowanie w poziomie na potrzeby przetwarzania zdarzeń.
 
 *Partycja* to uporządkowana sekwencja zdarzeń przechowywanych w centrum. Liczba partycji jest ustawiana podczas fazy tworzenia centrum i nie można jej zmienić.
 
@@ -64,7 +64,7 @@ Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi partycjonowania Eve
 > [!NOTE]
 > Większość centrów IoT używanych z programem Azure Time Series Insights Gen2 potrzebuje tylko czterech partycji.
 
-Bez względu na to, czy tworzysz nowe centrum dla środowiska Azure Time Series Insights Gen2, czy korzystasz z istniejącego, musisz obliczyć współczynnik pozyskiwania partycji, aby określić, czy jest on w ramach limitów. 
+Bez względu na to, czy tworzysz nowe centrum dla środowiska Azure Time Series Insights Gen2, czy korzystasz z istniejącego, musisz obliczyć współczynnik pozyskiwania partycji, aby określić, czy jest on w ramach limitów.
 
 Azure Time Series Insights Gen2 ma obecnie limit na **partycję 0,5 MB/s**.
 

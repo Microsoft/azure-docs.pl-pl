@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021447"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650463"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering — informacje
 
@@ -20,7 +20,7 @@ ms.locfileid: "84021447"
 
 *Zdalne renderowanie na platformie Azure* (ARR) to usługa, która pozwala na renderowanie wysokiej jakości interaktywnej zawartości 3D w chmurze i przesyłanie strumieniowe w czasie rzeczywistym do urządzeń, takich jak HoloLens 2.
 
-![Przykładowy model](../media/arr-engine.png)
+![Diagram przedstawiający przykład renderowania wysokiej jakości interaktywnego aparatu 3W.](../media/arr-engine.png)
 
 Urządzenia nietetheringowe mają ograniczoną moc obliczeniową do renderowania złożonych modeli. W przypadku wielu aplikacji byłoby to nieakceptowalne, ale w celu zmniejszenia wyglądu wizualizacji w dowolny sposób. Poniższy zrzut ekranu porównuje model z pełną szczegółowością z modelem, który został Decimated przy użyciu wspólnego narzędzia do tworzenia zawartości:
 

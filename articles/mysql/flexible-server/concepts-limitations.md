@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939301"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650293"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Ograniczenia na serwerze elastycznym Azure Database for MySQL (wersja zapoznawcza)
 
@@ -26,6 +26,8 @@ W tym artykule opisano ograniczenia w Azure Database for MySQL elastycznej usłu
 > Jeśli szukasz minimalnej/maksymalnej wartości parametrów serwera, takich jak `max_connections` i `innodb_buffer_pool_size` , te informacje zostały przeniesione do pojęć związanych z parametrami serwera <!-- **[server parameters](./concepts-server-parameters.md)** --> (Jak działa usługa Azure RMS).
 
 Azure Database for MySQL obsługuje dostrajanie wartości parametrów serwera. Wartość minimalna i maksymalna niektórych parametrów (np. `max_connections`, `join_buffer_size` , `query_cache_size` ) zależy od warstwy obliczeniowej i rozmiaru obliczeniowego serwera. Zapoznaj się z pojęciami dotyczącymi parametrów serwera <!-- [server parameters](./concepts-server-parameters.md)--> Aby uzyskać więcej informacji na temat tych limitów.
+
+Wtyczki hasła, takie jak "validate_password" i "caching_sha2_password", nie są obsługiwane przez usługę.
 
 ## <a name="storage-engines"></a>Aparaty pamięci masowej
 

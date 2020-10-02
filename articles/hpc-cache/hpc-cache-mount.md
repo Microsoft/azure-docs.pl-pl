@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613014"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651432"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej usługi Azure HPC Cache
 
@@ -79,7 +79,7 @@ Postępuj zgodnie z tą procedurą, aby utworzyć polecenie instalacji.
 
 1. Wybierz **ścieżkę do wirtualnej przestrzeni nazw** , która ma być używana dla klienta. Ścieżki te łączą się z eksportami w systemie magazynu zaplecza.
 
-   ![zrzut ekranu przedstawiający pole ścieżki przestrzeni nazw z otwartym selektorem](media/mount-select-target.png)
+   ![Zrzut ekranu pokazujący pole "ścieżka wirtualnej przestrzeni nazw" z otwartym selektorem.](media/mount-select-target.png)
 
    Ścieżki wirtualnych przestrzeni nazw można wyświetlać i zmieniać na stronie portalu **przestrzeni nazw** . Przeczytaj temat [Konfigurowanie zagregowanej przestrzeni nazw](add-namespace-paths.md) , aby zobaczyć, jak.
 

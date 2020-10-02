@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619971"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651194"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -37,7 +37,6 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 > Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, wyświetlać [zasoby](assets-concept.md) v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 >
 > Aby uzyskać szczegółowe informacje, zobacz: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -264,21 +263,21 @@ Aktualizacje z wersji GA interfejsu API v3 obejmują:
 
 ## <a name="november-2018"></a>Listopad 2018 r.
 
-Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nowe polecenia
 
-- [AZ AMS Account](/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [AZ AMS — zasób](/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ AMS Asset-Filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ AMS Content-Key-Policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [zadanie AZ AMS](/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ AMS Live-Event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ AMS Live-Output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ AMS Streaming-Endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ AMS Streaming-Locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest) — umożliwia zarządzanie jednostkami zarezerwowanymi multimediów. Aby uzyskać więcej informacji, zobacz [skalowanie jednostek zarezerwowanych multimediów](media-reserved-units-cli-how-to.md).
+- [AZ AMS Account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS — zasób](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Asset-Filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Content-Key-Policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [zadanie AZ AMS](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Live-Event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Live-Output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Streaming-Endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Streaming-Locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) — umożliwia zarządzanie jednostkami zarezerwowanymi multimediów. Aby uzyskać więcej informacji, zobacz [skalowanie jednostek zarezerwowanych multimediów](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nowe funkcje i istotne zmiany
 

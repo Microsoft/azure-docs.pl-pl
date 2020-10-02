@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4ab754cacc85bc9e7c7b850270df37290ad399b6
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460071"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650165"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
 W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
@@ -24,7 +24,7 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy pr
 > [!NOTE]
 > Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej dla ograniczonych regionów. Jeśli nie masz opcji tworzenia prywatnego punktu końcowego, [skontaktuj się z nami](mailto:azurecache@microsoft.com). Aby używać prywatnych punktów końcowych, należy utworzyć wystąpienie usługi Azure cache for Redis po 28 lipca 2020.
 >
-> Regiony z dostępem do publicznej wersji zapoznawczej obecnie: zachodnio-środkowe stany USA, Północno-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Wschodnie stany USA 2, Norwegia Wschodnia, Norwegia Zachodnia, Europa Północna, Europa Zachodnia, Azja Wschodnia, japonia południowo, francja środkowa, Kanada środkowa, Korea środkowa Szwajcaria Północna Północna Republika Południowej Afryki Południowe Zjednoczone Królestwo Niemcy północne i Brazylia Południowa.
+> Regiony z dostępem do publicznej wersji zapoznawczej obecnie: zachodnio-środkowe stany USA, Północno-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, Norwegia Wschodnia, japonia zachodnia, europa Zachodnia, Europa Zachodnia, Azja Środkowa zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Szwajcaria Zachodnia Szwajcaria Północna, Azja Południowo-Wschodnia , Północna Republika Południowej Afryki, Francja Południowa, Francja środkowa, Kanada Wschodnia, Kanada środkowa, Niemcy Północne, Niemcy Środkowo-Zachodnie, Australia Środkowa, Indie Zachodnie, Indie Południowe, Australia Wschodnia, Brazylia Południowo-Wschodnia, Brazylia Południowa i Brazylia Południowa.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Tworzenie prywatnego punktu końcowego przy użyciu nowej usługi Azure cache for Redis 

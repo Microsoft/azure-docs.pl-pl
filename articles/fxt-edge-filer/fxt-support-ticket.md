@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184673"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650446"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Otwórz bilet pomocy technicznej dla usługi Azure FXT Edge
 
@@ -23,7 +23,7 @@ Użyj Azure Portal, aby otworzyć bilet pomocy technicznej z obsługą techniczn
 1. W lewym panelu przewiń w dół, a następnie kliknij pozycję **Pomoc i obsługa techniczna**.
 1. Kliknij pozycję **nowe żądanie obsługi**. 
 
-   ![Zrzut ekranu przedstawiający formularz pustego żądania obsługi](media/fxt-support-blank.png)
+   ![Zrzut ekranu przedstawiający stronę "pomoc + obsługa techniczna" z wybraną opcją "nowe żądanie obsługi".](media/fxt-support-blank.png)
 
 1. Wypełnij formularz żądania.  
     1. Na karcie **podstawy** wybierz **typ problemu** ``Technical`` . 
@@ -31,7 +31,7 @@ Użyj Azure Portal, aby otworzyć bilet pomocy technicznej z obsługą techniczn
     1. W obszarze **Usługa**wybierz pozycję **Azure FXT Edge File**. Aby go znaleźć, może być konieczne kliknięcie kontrolki filtru **wszystkie usługi** . 
     1. Wprowadź **Podsumowanie** i wybierz **typ problemu**. 
     ![Zrzut ekranu przedstawiający formularz pustego żądania obsługi](media/fxt-support-populated.png) 
-    1. Kliknij pozycję **Next** (Dalej), aby kontynuować. 
+    1. Kliknij przycisk **Dalej** , aby kontynuować. 
 1. Na karcie **szczegóły** Dodaj więcej informacji o problemie i sposobie kontaktowania się z Tobą. Można przekazać plik związany z tym problemem. 
 1. W oknie **Recenzja + tworzenie**Sprawdź informacje i kliknij przycisk **Utwórz** , aby przesłać żądanie.
 

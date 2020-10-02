@@ -3,19 +3,19 @@ title: Skonfiguruj automatyczne zamykanie maszyn wirtualnych w Azure Lab Service
 description: W tym artykule opisano sposób konfigurowania automatycznego zamykania maszyn wirtualnych na koncie laboratorium.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798452"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650038"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium
 
 Możesz włączyć kilka funkcji kontroli kosztów automatycznego zamykania, aby aktywnie uniknąć dodatkowych kosztów, gdy maszyny wirtualne nie są aktywnie używane. Kombinacja następujących trzech funkcji automatycznego zamykania i rozłączania przechwytuje większość przypadków, w których użytkownicy przypadkowo opuszczają maszyny wirtualne z systemem:
  
-- Automatyczne rozłączanie użytkowników z maszyn wirtualnych, które system operacyjny uzna za bezczynne (tylko system Windows).
-- Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników (Windows & Linux).
+- Automatyczne rozłączanie użytkowników z maszyn wirtualnych uznawanych za bezczynne przez system operacyjny.
+- Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników.
 - Automatycznie Zamykaj uruchomione maszyny wirtualne, ale użytkownicy nie łączą się.
 
 Zapoznaj się z bardziej szczegółowymi informacjami na temat funkcji automatycznego zamykania w sekcji [Maksymalizuj koszt kontroli przy użyciu ustawień automatycznego zamykania](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) .

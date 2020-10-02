@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8a6e1013c131778bacb11bd885b9280fb6c6077
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182177"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649511"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
@@ -29,15 +29,13 @@ Rozmiary serii Ev4 są uruchamiane w technologii Intel Xeon &reg; Platinum 8272C
 
 Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Esv4. Liczniki cen i rozliczeń dla rozmiarów Esv4 są takie same jak dla serii Ev4.
 
-ACU: 195 – 210
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195 – 210<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|
@@ -55,15 +53,13 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Esv4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Evs4 są wyposażone w &reg; technologię wielowątkowości Intel. Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
 
-ACU: 195-210
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|

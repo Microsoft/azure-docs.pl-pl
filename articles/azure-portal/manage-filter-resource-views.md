@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605553"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650406"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 
@@ -25,15 +25,13 @@ Artykuł koncentruje się na ekranie **wszystkie zasoby** , który został przed
 
 Rozpocznij Eksplorowanie **wszystkich zasobów** przy użyciu filtrów, aby skoncentrować się na podzbiorze zasobów. Poniższy zrzut ekranu przedstawia filtrowanie grup zasobów, wybierając dwie z sześciu grup zasobów w ramach subskrypcji.
 
-:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Widok filtru oparty na grupach zasobów":::
+:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Widok Azure Portal wszystkich zasobów" w jednej z dwóch już wybranych grup zasobów.
 
-Można łączyć filtry, w tym na podstawie wyszukiwania tekstu, jak pokazano na poniższym zrzucie ekranu. W takim przypadku wyniki są objęte zakresem zasobów, które zawierają "SimpleWinVM" w jednej z dwóch już wybranych grup zasobów.
-
-:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Widok filtru na podstawie wpisu tekstu":::
+:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 Aby zmienić kolumny, które znajdują się w widoku, wybierz pozycję **Zarządzaj widokiem** , a następnie **Edytuj kolumny**.
 
-:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Edytuj kolumny wyświetlane w widoku":::
+:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 ## <a name="save-use-and-delete-views"></a>Zapisywanie, używanie i usuwanie widoków
 
@@ -43,7 +41,7 @@ Możesz zapisać widoki, które zawierają wybrane filtry i kolumny. Aby zapisa�
 
 1. Wprowadź nazwę widoku, a następnie wybierz przycisk **OK**. Zapisany widok jest teraz wyświetlany w menu **Zarządzaj widokiem** .
 
-    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Zapisany widok":::
+    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 1. Aby użyć widoku, przełącz się między **domyślny** i jednym z własnych widoków, aby zobaczyć, jak ma to wpływ na listę wyświetlanych zasobów.
 
@@ -55,21 +53,25 @@ Aby usunąć widok:
 
 ## <a name="summarize-resources-with-visuals"></a>Podsumowywanie zasobów za pomocą wizualizacji
 
-Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać i korzystać z tych widoków tak samo jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Aby zapisać widok podsumowania i korzystać z niego:
+Oglądane przez nas widoki zostały uwzględnione w _widokach listy_, ale istnieją również _widoki podsumowania_ zawierające wizualizacje. Możesz zapisywać i korzystać z tych widoków tak samo jak w przypadku widoków listy. Filtry są utrwalane między dwoma typami widoków. Istnieją Standardowe widoki, takie jak widok **lokalizacji** przedstawiony poniżej, a także widoki, które są istotne dla określonych usług, takich jak widok **stanu** dla maszyn wirtualnych.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Widok Azure Portal wszystkich zasobów":::
+
+Aby zapisać widok podsumowania i korzystać z niego:
 
 1. Z menu Widok wybierz pozycję **Widok podsumowania**.
 
-    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Menu Widok podsumowania":::
+    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 1. Widok podsumowania umożliwia Podsumowanie według różnych atrybutów, w tym **lokalizacji** i **typu**. Wybierz opcję **Podsumowanie według** i odpowiednią wizualizację. Poniższy zrzut ekranu przedstawia **Podsumowanie typu** za pomocą wizualizacji **wykresu słupkowego** .
 
-    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Podsumowanie typu przedstawiające wykres słupkowy":::
+    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 1. Wybierz pozycję **Zarządzaj widok** i **Zapisz** , aby zapisać ten widok tak jak w widoku listy.
 
 1. W widoku Podsumowanie, w obszarze **Podsumowanie typu**, wybierz pasek na wykresie. Wybranie paska zawiera listę przefiltrowanych w dół do jednego typu zasobu.
 
-    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Wszystkie zasoby filtrowane według typu":::
+    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 ## <a name="run-queries-in-azure-resource-graph"></a>Uruchamianie zapytań na wykresie zasobów platformy Azure
 
@@ -79,11 +81,11 @@ Aby uruchomić zapytanie grafu zasobów:
 
 1. Wybierz pozycję **Otwórz zapytanie**.
 
-    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Otwórz zapytanie grafu zasobów platformy Azure":::
+    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
 1. W **Eksploratorze Azure Resource Graph**wybierz pozycję **Uruchom zapytanie** , aby zobaczyć wyniki.
 
-    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Uruchom zapytanie grafu zasobów platformy Azure":::
+    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Widok Azure Portal wszystkich zasobów":::
 
     Aby uzyskać więcej informacji, zobacz [Uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](../governance/resource-graph/first-query-portal.md).
 

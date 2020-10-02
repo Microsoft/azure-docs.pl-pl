@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81000105"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651449"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z platformy Azure IoT Central i wizualizacja szczegółowych informacji w programie Power BI
 
@@ -409,7 +409,7 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**
     * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
     * Wybierz pole **czas mieszkania 1** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime1**.
     * Wybierz pole **czas mieszkania 2** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime2**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu czasu mieszkania** wygląda jak na poniższym zrzucie ekranu: ![ Akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu czasu mieszkania** wygląda jak na poniższym zrzucie ekranu: ![ zrzut ekranu przedstawiający akcję "interfejs czasu mieszkania".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Wybierz akcję **Liczba osób** , a następnie wybierz pozycję **Dodaj akcję**.
 1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
 1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
@@ -484,7 +484,7 @@ Dodaj cztery kafelki kart, aby wyświetlić długość kolejki i czas mieszkania
 
 Zmień rozmiar i Rozmieść kafelki na pulpicie nawigacyjnym tak, aby wyglądały tak jak na poniższym zrzucie ekranu:
 
-![Pulpit nawigacyjny usługi Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny z możliwością zmiany rozmiaru i rozmieszczenia kafelków.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Możesz dodać kilka dodatkowych zasobów graficznych, aby dodatkowo dostosować pulpit nawigacyjny:
 

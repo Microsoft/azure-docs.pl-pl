@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 775b296185f9f0f0e967ada2688e24158f36360e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f95ffb662d830c432d3286eca8c935e2737f8043
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648364"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649562"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 i Easv4
 
@@ -20,15 +20,13 @@ Serie Eav4 i Easv4 wykorzystują procesor<sup>AMD 7452 z</sup> 2.35 GHz EPYC, w 
 
 ## <a name="eav4-series"></a>Seria Eav4
 
-ACU: 230 – 260
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 230 – 260<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 Rozmiary serii Eav4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 7452, który może osiągnąć podwyższaną maksymalną częstotliwość 3.35 GHz i korzystać z dysku SSD Premium. Rozmiary serii Eav4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysku SSD Premium, użyj rozmiarów serii Easv4. Liczniki cen i rozliczeń dla rozmiarów Easv4 są takie same jak dla serii Eav3.
 
@@ -46,15 +44,13 @@ Rozmiary serii Eav4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 7452
 
 ## <a name="easv4-series"></a>Seria Easv4
 
-ACU: 230 – 260
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 230 – 260<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 Rozmiary serii Easv4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 7452, który może osiągnąć podwyższaną maksymalną częstotliwość 3.35 GHz i korzystać z dysku SSD Premium. Rozmiary serii Easv4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0ba4d60b9e32a8658fa294de1b78ef4950436eb0
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 723e63d4185adb03ddccadaa2148c665665725c2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91609943"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650021"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Co znajduje się w bieżącej wersji Plug and Play IoT
 
@@ -53,7 +53,7 @@ Aby dowiedzieć się więcej na temat bibliotek i zestawów SDK, zobacz [Microso
 - Zestaw SDK urządzeń C [vcpkg 1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md)
 - Osadzony zestaw SDK urządzenia C w serwisie [GitHub](https://github.com/Azure/azure-sdk-for-c/)
 - [1.31.0 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) zestawu SDK urządzenia .NET
-- Zestaw SDK urządzeń Java [Maven 1.25.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
+- Zestaw SDK urządzeń Java [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
 - Zestaw SDK urządzenia w języku Python [2.3.0 PIP](https://pypi.org/project/azure-iot-device/)
 - Zestaw SDK urządzeń Node.js [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)
 - .NET — usługa IoT Hub [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices )
@@ -68,7 +68,7 @@ Interfejs API REST [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
 
 Aby dowiedzieć się więcej, zobacz [Przewodnik dla deweloperów Plug and Play IoT](concepts-developer-guide-service.md).
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 
 Plug and Play IoT jest obsługiwana przez IoT Hub we wszystkich regionach. Plug and Play IoT jest obsługiwana tylko przez centra IoT dla warstwy Standardowa lub bezpłatna.
 

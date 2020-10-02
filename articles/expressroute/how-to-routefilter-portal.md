@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 37f8903adbc676ae2e48e2ef5841d8f5b122842c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 468c7a0113a4603f4f47bb529145261ff50d96d4
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566249"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650548"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft: Azure Portal
 > [!div class="op_single_selector"]
@@ -88,33 +88,33 @@ Filtr trasy może mieć tylko jedną regułę, a reguła musi być typu "Zezwala
 ### <a name="1-create-a-route-filter"></a>1. Tworzenie filtru tras
 Filtr tras można utworzyć, wybierając opcję tworzenia nowego zasobu. Kliknij pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **RouteFilter**, jak pokazano na poniższej ilustracji:
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
+![Zrzut ekranu przedstawiający stronę "filtr tras".](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 Filtr trasy należy umieścić w grupie zasobów. 
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/CreateRouteFilter.png)
+![Zrzut ekranu przedstawiający stronę "Tworzenie filtru tras" z wprowadzonymi przykładowymi wartościami.](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. Utwórz regułę filtru
 
 Możesz dodawać i aktualizować reguły, wybierając kartę Zarządzanie regułami dla filtru tras.
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Zrzut ekranu pokazujący stronę "przegląd" z wyróżnioną akcją "Zarządzaj regułą".](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 Z listy rozwijanej można wybrać usługi, z którymi chcesz nawiązać połączenie, i zapisać regułę po zakończeniu.
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
+![Zrzut ekranu przedstawiający okno "Zarządzanie regułą" z usługami wybranymi na liście rozwijanej "dozwolone społeczności usług".](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Krok 3. dołączanie filtru tras do obwodu ExpressRoute
 
 Filtr tras można dołączyć do obwodu, wybierając przycisk "Dodaj obwód" i wybierając obwód ExpressRoute z listy rozwijanej.
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
+![Zrzut ekranu pokazujący stronę "przegląd" z wybraną akcją "Dodaj obwód".](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 Jeśli dostawca łączności konfiguruje komunikację równorzędną dla obwodu usługi ExpressRoute, Odśwież obwód z bloku obwodu ExpressRoute przed wybraniem przycisku "Dodaj obwód".
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
+![Zrzut ekranu pokazujący stronę "przegląd" z wybraną akcją "Odśwież".](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Typowe zadania
 
@@ -122,7 +122,7 @@ Jeśli dostawca łączności konfiguruje komunikację równorzędną dla obwodu 
 
 Właściwości filtru tras można wyświetlić po otwarciu zasobu w portalu.
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/ViewRouteFilter.png)
+![Zrzut ekranu przedstawiający stronę "przegląd".](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Aby zaktualizować właściwości filtru tras
@@ -130,16 +130,16 @@ Właściwości filtru tras można wyświetlić po otwarciu zasobu w portalu.
 Możesz zaktualizować listę wartości społeczności BGP dołączanych do obwodu, wybierając przycisk "Zarządzaj regułą".
 
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Zrzut ekranu pokazujący stronę "przegląd" z wyróżnioną akcją "Zarządzaj regułą".](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
+![Zrzut ekranu pokazujący okno "Zarządzanie regułą" z wybranymi usługami.](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Aby odłączyć filtr trasy z obwodu usługi ExpressRoute
 
 Aby odłączyć obwód od filtra trasy, kliknij prawym przyciskiem myszy obwód i kliknij pozycję "Usuń skojarzenie".
 
-![Tworzenie filtru tras](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
+![Zrzut ekranu pokazujący stronę "przegląd" z wyróżnioną akcją "Usuń skojarzenie".](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Aby usunąć filtr tras

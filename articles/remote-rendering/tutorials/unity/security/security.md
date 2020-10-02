@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021327"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650480"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Samouczek: Zabezpieczanie zdalnego renderowania i magazynu modeli na platformie Azure
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -163,7 +163,7 @@ Zmodyfikujmy **RemoteRenderingCoordinator** w celu załadowania modelu niestanda
     ```
 
     Ten kod dodaje trzy dodatkowe zmienne ciągu do składnika **RemoteRenderingCoordinator** .
-    ![Połączony model](./media/storage-account-linked-model.png)
+    ![Zrzut ekranu, który wyróżnia nazwę konta magazynu, nazwę kontenera obiektów blob i ścieżkę modelu składnika RemoteRenderingCoordinator.](./media/storage-account-linked-model.png)
 
 1. Dodaj wartości do składnika **RemoteRenderingCoordinator** . Po przeprowadzeniu [szybkiego startu do konwersji modelu](../../../quickstarts/convert-model.md)należy wykonać następujące wartości:
 
@@ -392,12 +392,13 @@ W edytorze aparatu Unity, gdy uwierzytelnianie w usłudze AAD jest aktywne, nale
     * **Identyfikator dzierżawy platformy Azure** to *Identyfikator katalogu (dzierżawy)* znaleziony w rejestracji aplikacji usługi AAD (zobacz poniższy obraz).
     * **Identyfikator konta renderowania zdalnego platformy Azure** to ten sam **Identyfikator konta** , którego użyto do **RemoteRenderingCoordinator**.
 
-    ![Składnik uwierzytelniania usługi AAD](./media/app-overview-data.png)
+    ![Zrzut ekranu, który podświetla identyfikator aplikacji (klienta) i identyfikator katalogu (dzierżawy).](./media/app-overview-data.png)
 
 1. Naciśnij przycisk Odtwórz w edytorze aparatu Unity i wyrażasz zgodę na uruchomienie sesji.
     Ze względu na to, że składnik **AADAuthentication** ma kontroler widoku, jego automatycznie podłączany do wyświetlenia monitu po modalnym panelu autoryzacji sesji.
 1. Postępuj zgodnie z instrukcjami znajdującymi się w panelu z prawej strony **AppMenu**.
-    Zobaczysz coś podobnego do tego: ![ składnik uwierzytelniania usługi AAD ](./media/device-flow-instructions.png) po wprowadzeniu podanej zakodowanej na urządzeniu pomocniczym (lub w przeglądarce na tym samym urządzeniu) i zalogowania się przy użyciu poświadczeń, token dostępu zostanie zwrócony do aplikacji żądającej, w tym przypadku edytora Unity.
+    Powinieneś zobaczyć coś podobnego do tego: ![ ilustracja przedstawiająca panel instrukcji, który pojawia się po prawej stronie AppMenu.](./media/device-flow-instructions.png)
+    Po wprowadzeniu zakodowanego na urządzeniu pomocniczym (lub w przeglądarce na tym samym urządzeniu) i zalogowaniu się przy użyciu poświadczeń token dostępu zostanie zwrócony do aplikacji żądającej, w tym przypadku edytora aparatu Unity.
 1. Po tym momencie wszystko w aplikacji powinno działać normalnie. Sprawdź, czy w konsoli aparatu Unity zostały wykryte błędy, jeśli nie postępują zgodnie z oczekiwaniami.
 
 ## <a name="build-to-device"></a>Kompiluj na urządzenie
@@ -421,7 +422,7 @@ Jeśli tworzysz aplikację przy użyciu MSAL do urządzenia, musisz dołączyć 
 
 Wykonaj kroki opisane w [przewodniku szybki start: wdrażanie przykładu aparatu Unity w celu przetworzenia](../../../quickstarts/deploy-to-hololens.md#build-the-sample-project)przykładowego projektu w celu skompilowania do programu HoloLens.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Pozostała część tego zestawu samouczka zawiera tematy dotyczące pojęć związanych z tworzeniem aplikacji gotowej do produkcji, która korzysta z zdalnego renderowania platformy Azure.
 

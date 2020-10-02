@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/2/2020
+ms.openlocfilehash: c3bef7a368c6c0f2a08acdfd8da9236899a51a27
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032683"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650990"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Ograniczenia w Azure Database for MariaDB
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych.
@@ -25,6 +25,8 @@ Azure Database for MariaDB obsługuje dostrajanie wartości parametrów serwera.
 
 Po wstępnym wdrożeniu serwer platformy Azure dla MariaDB zawiera tabele systemów dla informacji o strefie czasowej, ale te tabele nie są wypełnione. Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench. Zapoznaj się z artykułami [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) lub [interfejsem wiersza polecenia platformy Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) dotyczącymi sposobu wywoływania procedury składowanej i ustawiania stref czasowych na poziomie globalnym lub w sesji.
 
+Wtyczki hasła, takie jak "validate_password" i "caching_sha2_password", nie są obsługiwane przez usługę.
+
 ## <a name="storage-engine-support"></a>Obsługa aparatu magazynu
 
 ### <a name="supported"></a>Obsługiwane
@@ -36,21 +38,25 @@ Po wstępnym wdrożeniu serwer platformy Azure dla MariaDB zawiera tabele system
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [FOLDERU](https://mariadb.com/kb/en/library/archive/)
 
+## <a name="privileges--data-manipulation-support"></a>Uprawnienia & obsługa manipulowania danymi
+
+Wiele parametrów i ustawień serwera może przypadkowo obniżyć wydajność serwera lub właściwości negateego kwasu serwera MariaDB. Aby zachować integralność usługi i umowę SLA na poziomie produktu, ta usługa nie ujawnia wielu ról. 
+
+Usługa MariaDB nie zezwala na bezpośredni dostęp do bazowego systemu plików. Niektóre polecenia manipulowania danymi nie są obsługiwane. 
+
 ## <a name="privilege-support"></a>Obsługa uprawnień
 
 ### <a name="unsupported"></a>Nieobsługiwane
-- Rola DBA: wiele parametrów serwera i ustawień może przypadkowo obniżyć wydajność serwera lub Negate właściwości KWASów systemu DBMS. W związku z tym, aby zachować integralność usługi i umowę SLA na poziomie produktu, ta usługa nie ujawnia roli DBA. Domyślne konto użytkownika, które jest konstruowane podczas tworzenia nowego wystąpienia bazy danych, umożliwia temu użytkownikowi wykonywanie większości instrukcji języka DDL i DML w zarządzanym wystąpieniu bazy danych.
-- Uprawnienie "noprivileged": podobne [nieuprzywilejowane](https://mariadb.com/kb/en/library/grant/#global-privileges) również jest ograniczone.
-- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W przypadku importowania danych przy użyciu kopii zapasowej Usuń `CREATE DEFINER` polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
-- Systemowe bazy danych: w Azure Database for MariaDB [baza danych systemu MySQL](https://mariadb.com/kb/en/the-mysql-database-tables/) jest tylko do odczytu, ponieważ jest używana do obsługi różnych funkcji usługi PaaS. Należy pamiętać, że nie można nic zmienić w `mysql` systemowej bazie danych.
 
-## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulowania danymi
+Następujące elementy nie są obsługiwane:
+- Rola DBA: z ograniczeniami. Alternatywnie można użyć administratora (utworzonego podczas tworzenia nowego serwera), który umożliwia wykonywanie większości instrukcji DDL i DML. 
+- Najwyższe uprawnienia: analogicznie, najwyższe [uprawnienia](https://mariadb.com/kb/en/library/grant/#global-privileges) również są ograniczone.
+- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W przypadku importowania danych przy użyciu kopii zapasowej Usuń `CREATE DEFINER` polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
+- Systemowe bazy danych: [baza danych systemu MySQL](https://mariadb.com/kb/en/the-mysql-database-tables/) jest tylko do odczytu i używana do obsługi różnych funkcji PaaS. Nie można wprowadzać zmian w `mysql` systemowej bazie danych.
+- `SELECT ... INTO OUTFILE`: Nieobsługiwane w usłudze.
 
 ### <a name="supported"></a>Obsługiwane
-- `LOAD DATA INFILE`jest obsługiwane, ale `[LOCAL]` parametr musi być określony i skierowany do ścieżki UNC (magazyn platformy Azure zainstalowany za pomocą protokołu SMB).
-
-### <a name="unsupported"></a>Nieobsługiwane
-- `SELECT ... INTO OUTFILE`
+- `LOAD DATA INFILE` jest obsługiwane, ale `[LOCAL]` parametr musi być określony i skierowany do ścieżki UNC (magazyn platformy Azure zainstalowany za pomocą protokołu SMB).
 
 ## <a name="functional-limitations"></a>Ograniczenia funkcjonalne
 

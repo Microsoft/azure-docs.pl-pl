@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 11199e5a283459d7d97f649322f9d41fc7b3e11d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482593"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650798"
 ---
 # <a name="supported-data-types"></a>Obsługiwane typy danych
 

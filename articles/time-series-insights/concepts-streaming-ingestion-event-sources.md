@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485373"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650872"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 

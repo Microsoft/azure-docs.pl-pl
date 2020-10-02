@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563476"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649953"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -117,7 +117,7 @@ Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure St
 
 Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w warstwie Premium a standardowymi udziałami plików (w tym optymalizacjami transakcji, gorącą i chłodnymi udziałami plików), jednak istnieje kilka istotnych różnic:
 - **Model rozliczania**
-    - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że płacisz za ilość miejsca w magazynie, które ma zostać zainicjowane. 
+    - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że opłata jest naliczana zgodnie z ustaloną ceną za ilość miejsca w magazynie, która jest używana. Nie ma dodatkowych kosztów transakcji i metadanych w spoczynku.
     - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu, w którym faktycznie zużywa się magazyn, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek zostanie zwiększony w przypadku użycia (odczytu/zapisu/instalacji) udziału plików platformy Azure.
 - **Opcje nadmiarowości**
     - Udziały plików w warstwie Premium są dostępne tylko dla magazynu lokalnie nadmiarowego (LRS) i strefy nadmiarowego (ZRS).
@@ -126,7 +126,7 @@ Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługa
     - Udziały plików w warstwie Premium można obsługiwać nawet do 100 TiB bez żadnej dodatkowej pracy.
     - Domyślnie standardowe udziały plików mogą obejmować maksymalnie 5 TiB, chociaż limit udostępniania można zwiększyć do 100 TiB przez wypróbowanie flagi funkcji konta magazynu *dużych udziałów plików* . Standardowe udziały plików mogą obejmować maksymalnie 100 TiB w przypadku kont magazynu lokalnie nadmiarowe lub strefy nadmiarowe. Aby uzyskać więcej informacji na temat zwiększania rozmiarów udziałów plików, zobacz [Włączanie i tworzenie dużych udziałów plików](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Dostępność regionalna**
-    - Udziały plików w warstwie Premium nie są dostępne w każdym regionie, a obsługa strefy nadmiarowa jest dostępna w mniejszych podzestawach regionów. Aby dowiedzieć się, czy w Twoim regionie są obecnie dostępne udziały plików w warstwie Premium, zobacz stronę [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage) na platformie Azure. Aby dowiedzieć się, które regiony obsługują ZRS, zobacz temat [Obsługa stref dostępności platformy Azure według regionów](../../availability-zones/az-region.md). Aby ułatwić nam określanie priorytetów nowych regionów i funkcji warstwy Premium, Wypełnij tę [ankietę](https://aka.ms/pfsfeedback).
+    - Udziały plików w warstwie Premium są dostępne w większości regionów świadczenia usługi Azure z wyjątkiem kilku regionów. Obsługa strefowo nadmiarowy jest dostępna w podzestawie regionów. Aby dowiedzieć się, czy w Twoim regionie są obecnie dostępne udziały plików w warstwie Premium, zobacz stronę [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage) na platformie Azure. Aby dowiedzieć się, które regiony obsługują ZRS, zobacz [Magazyn strefowo nadmiarowy](../common/storage-redundancy.md#zone-redundant-storage). Aby ułatwić nam określanie priorytetów nowych regionów i funkcji warstwy Premium, Wypełnij tę [ankietę](https://aka.ms/pfsfeedback).
     - Standardowe udziały plików są dostępne w każdym regionie świadczenia usługi Azure.
 - Usługa Azure Kubernetes Service (AKS) obsługuje udziały plików w warstwie Premium w wersji 1,13 i nowszych.
 

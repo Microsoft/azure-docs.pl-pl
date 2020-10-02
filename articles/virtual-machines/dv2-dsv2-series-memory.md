@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e5f00695ee6f823cf36625f41b25ad9e273481e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685293"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649623"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Zoptymalizowane pod kątem pamięci Dv2 i Dsv2
 
@@ -22,15 +22,13 @@ Dv2 i Dsv2 — kolejne z serii D, które oferują bardziej wydajny procesor. Roz
 
 Rozmiary serii Dv2 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz.
 
-ACU: 210–250
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 210 – 250<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br> 
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
@@ -47,15 +45,13 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Rozmiary serii DSv2 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) lub procesora Intel® Xeon® E5-2673 v3 2,4 GHz.
 
-ACU: 210 – 250 <sup>1</sup>
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 210 – 250 <sup>1</sup><br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+<br> 
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |---|

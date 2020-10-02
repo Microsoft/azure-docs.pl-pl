@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 15a53ddaa669f0720632901edfd58eb273518867
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 5b0301a57c4223666ac612b997c87c87271fe49b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049625"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649528"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
@@ -24,15 +24,13 @@ Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinu
 
 Rozmiary serii Edv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (Kaskada Lake). Rozmiary maszyn wirtualnych Edv4 do 504 GiB pamięci RAM oprócz szybkiego i dużego lokalnego magazynu SSD (do 2 400 GiB). Te maszyny wirtualne są idealnym rozwiązaniem dla aplikacji i aplikacji przedsiębiorstwa intensywnie korzystających z pamięci, które korzystają z małych opóźnień i magazynu lokalnego o dużej szybkości. Do maszyn wirtualnych Edv4 można dołączyć standardowy magazyn dyskowy dysków SSD i standardowy HDD. 
 
-ACU: 195 – 210
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195 – 210<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
@@ -50,15 +48,13 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Rozmiary serii Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (Kaskada Lake). Rozmiary maszyn wirtualnych Edsv4 do 504 GiB pamięci RAM oprócz szybkiego i dużego lokalnego magazynu SSD (do 2 400 GiB). Te maszyny wirtualne są idealnym rozwiązaniem dla aplikacji i aplikacji przedsiębiorstwa intensywnie korzystających z pamięci, które korzystają z małych opóźnień i magazynu lokalnego o dużej szybkości.
 
-ACU: 195-210
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|

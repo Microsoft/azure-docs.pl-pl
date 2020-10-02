@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906185"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649579"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 i Esv3
 
@@ -26,15 +26,13 @@ Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny 
 
 Funkcja Hyper-Threading maszyny wirtualnej z serii EV3 firmy Intel®.
 
-ACU: 160–190
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 160 – 190<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---|---|---|---|---|---|---|
@@ -58,15 +56,13 @@ Wystąpienia serii Esv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8
 
 Funkcja Hyper-Threading maszyny wirtualnej z serii Esv3 firmy Intel®.
 
-ACU: 160–190
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s<sup>3</sup> | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę |  Przepływność dysków niebuforowanych w pamięci podręcznej: liczba IOPS/MB/s<sup>3</sup>| Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|---|

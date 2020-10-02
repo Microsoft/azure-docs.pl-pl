@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: c7e6772799d98cd2997a1fe6b48efe1c7632cfaa
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598361"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650600"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Resetowanie lokalnego hasła systemu Windows dla maszyny wirtualnej platformy Azure w trybie offline
 Możesz zresetować lokalne hasło systemu Windows maszyny wirtualnej na platformie Azure przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pod warunkiem, że zainstalowano agenta gościa platformy Azure. Ta metoda jest podstawowym sposobem resetowania hasła dla maszyny wirtualnej platformy Azure. Jeśli wystąpią problemy z agentem gościa platformy Azure, który nie odpowiada, lub instalacja nie powiedzie się po przesłaniu obrazu niestandardowego, można ręcznie zresetować hasło systemu Windows. W tym artykule szczegółowo opisano sposób resetowania hasła do konta lokalnego przez dołączenie źródłowego dysku wirtualnego systemu operacyjnego do innej maszyny wirtualnej. Kroki opisane w tym artykule nie dotyczą kontrolerów domeny systemu Windows. 
@@ -59,7 +59,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 4. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machine\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` . 
    
@@ -71,10 +71,10 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Utwórz gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Utwórz gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
    
     Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
@@ -106,31 +106,31 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
    
    * Wybierz maszynę wirtualną w Azure Portal, a następnie kliknij pozycję *Usuń*:
      
-     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 2. Dołącz dysk systemu operacyjnego źródłowej maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna rozwiązywania problemów musi znajdować się w tym samym regionie co dysk systemu operacyjnego źródłowej maszyny wirtualnej (np `West US` .):
    
    1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal. Kliknij pozycję *dyski*  |  *Dołącz istniejące*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
      
    2. Wybierz pozycję *plik VHD* , a następnie wybierz konto magazynu, które zawiera ŹRÓDŁową maszynę wirtualną:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
      
    3. Zaznacz pole wyboru *Pokaż klasyczne konta magazynu*, a następnie wybierz kontener źródłowy. Kontener źródłowy jest zazwyczaj *dyskami VHD*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
      
    4. Wybierz wirtualny dysk twardy systemu operacyjnego do dołączenia. Kliknij przycisk *Wybierz* , aby zakończyć proces:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
    5. Kliknij przycisk OK, aby dołączyć dysk
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 3. Połącz się z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny i upewnij się, że dysk systemu operacyjnego źródłowej maszyny wirtualnej jest widoczny:
 
@@ -140,7 +140,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
    3. W Eksploratorze plików Wyszukaj dołączony dysk danych. Jeśli wirtualny dysk twardy maszyny wirtualnej jest jedynym dyskiem danych dołączonym do maszyny wirtualnej rozwiązywania problemów, powinien to być dysk F:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Utwórz gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 4. Utwórz `gpt.ini` na `\Windows\System32\GroupPolicy` dysku ŹRÓDŁOWEJ maszyny wirtualnej (Jeśli `gpt.ini` istnieje, Zmień nazwę na `gpt.ini.bak` ):
    
@@ -156,7 +156,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machine\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
@@ -168,10 +168,10 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Utwórz gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Utwórz gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
    
     Podczas definiowania nowego hasła należy spełnić skonfigurowane wymagania dotyczące złożoności hasła dla maszyny wirtualnej.
 
@@ -181,17 +181,17 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
    
    2. Wybierz dysk danych dołączony w kroku 2, kliknij przycisk **Odłącz**, a następnie kliknij przycisk **OK**.
 
-     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
      
-     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 8. Utwórz maszynę wirtualną na podstawie dysku systemu operacyjnego źródłowej maszyny wirtualnej:
    
-     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Utwórz gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Zrzut ekranu pokazujący aktualizacje wprowadzone do pliku gpt.ini.":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Ukończ środowisko tworzenia maszyny wirtualnej
 

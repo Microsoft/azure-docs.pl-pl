@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: f9b5380fa219d768651703eeb9fe445fcd215332
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e9a4f7266522fc17c33e2086af6cb7367bbed39e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921773"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650684"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>Przygotowywanie danych za pomocą przepływu danych przetwarzanie
 
@@ -25,13 +25,13 @@ ms.locfileid: "85921773"
 
 Istnieją dwa sposoby tworzenia przepływu danych przetwarzanie w Azure Data Factory. Jednym ze sposobów jest kliknięcie ikony znaku plus i wybranie opcji **przepływ danych** w okienku zasoby fabryki.
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial7.png)
+![Zrzut ekranu przedstawiający przepływ danych w okienku zasoby fabryki.](media/wrangling-data-flow/tutorial7.png)
 
 Druga metoda znajduje się w okienku działania kanwy potoku. Otwórz przystawkę **Przenieś i Przekształć** i przeciągnij aktywność **przepływu danych** na kanwę.
 
 W obu metodach, w okienku bocznym, które się otworzy, wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **przepływ danych przetwarzanie**. Kliknij przycisk OK.
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial1.png)
+![Zrzut ekranu, który podświetla opcję przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial1.png)
 
 ## <a name="author-a-wrangling-data-flow"></a>Tworzenie przepływu danych przetwarzanie
 
@@ -44,21 +44,21 @@ Dodaj **źródłowy zestaw danych** dla przepływu danych przetwarzanie. Możesz
 
 Kliknij przycisk **Utwórz** , aby otworzyć Edytor zestawu połączonych Online w Power Query.
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial5.png)
+![Zrzut ekranu pokazujący przycisk Utwórz, który otwiera Edytor zestawu połączonych online Power Query.](media/wrangling-data-flow/tutorial5.png)
 
-Twórz przepływ danych przetwarzanie przy użyciu przygotowywania danych bez kodu. Aby uzyskać listę dostępnych funkcji, zobacz [funkcje transformacji](wrangling-data-flow-functions.md)/
+Twórz przepływ danych przetwarzanie przy użyciu przygotowywania danych bez kodu. Aby uzyskać listę dostępnych funkcji, zobacz [funkcje transformacji](wrangling-data-flow-functions.md).
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial6.png)
+![Zrzut ekranu pokazujący proces tworzenia przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial6.png)
 
 ## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Uruchamianie i monitorowanie przepływu danych przetwarzanie
 
 Aby wykonać przebieg debugowania potoku w przepływie danych przetwarzanie, kliknij pozycję **Debuguj** na kanwie potoku. Po opublikowaniu przepływu danych **Wyzwól teraz** wykonywane jest uruchomienie na żądanie ostatniego opublikowanego potoku. Przepływy danych przetwarzanie można zaplanować przy użyciu wszystkich istniejących wyzwalaczy Azure Data Factory.
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial3.png)
+![Zrzut ekranu pokazujący sposób dodawania przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial3.png)
 
 Przejdź do karty **monitorowanie** , aby wizualizować dane wyjściowe uruchomionego uruchomienia działania przepływu danych przetwarzanie.
 
-![Przetwarzanie](media/wrangling-data-flow/tutorial2.png)
+![Zrzut ekranu pokazujący dane wyjściowe uruchomionego uruchomienia działania przepływu danych przetwarzanie.](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
