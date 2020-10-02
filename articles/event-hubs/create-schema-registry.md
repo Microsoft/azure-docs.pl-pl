@@ -4,12 +4,12 @@ description: W tym artykule pokazano, jak utworzyć rejestr schematu w przestrze
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566367"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652197"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Tworzenie rejestru schematu usługi Azure Event Hubs (wersja zapoznawcza)
 W tym artykule pokazano, jak utworzyć grupę schematów ze schematami w rejestrze schematu hostowanym przez usługę Azure Event Hubs. Aby zapoznać się z omówieniem funkcji rejestru schematu platformy Azure Event Hubs, zobacz [usługa Azure Schema Registry w Event Hubs](schema-registry-overview.md).
@@ -17,7 +17,6 @@ W tym artykule pokazano, jak utworzyć grupę schematów ze schematami w rejestr
 > [!NOTE]
 > - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej**i nie jest zalecana w przypadku obciążeń produkcyjnych.
 > - Funkcja jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
-> - Ta wersja zapoznawcza jest obecnie dostępna tylko w regionie **zachodnie stany USA** . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 [Utwórz przestrzeń nazw Event Hubs](event-hubs-create.md#create-an-event-hubs-namespace). Możesz również użyć istniejącej przestrzeni nazw. 
@@ -65,7 +64,7 @@ W tej sekcji dodasz schemat do grupy schematów przy użyciu Azure Portal.
             ]
         }
         ```
-    1. Wybierz pozycję **Utwórz**. 
+    1. Wybierz przycisk **Utwórz**. 
 1. Wybierz **schemat** z listy schematów. 
 
     :::image type="content" source="./media/create-schema-registry/select-schema.png" alt-text="Strona rejestr schematu":::

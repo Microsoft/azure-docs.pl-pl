@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447521"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653370"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -107,7 +107,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | batchAccounts | Region (Region) | 3-24 | Małe litery i cyfry. |
+> | batchAccounts | Region | 3-24 | Małe litery i cyfry. |
 > | batchAccounts/aplikacje | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/certyfikaty | konto wsadowe | 5-45 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/pule | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
@@ -174,7 +174,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
-> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Maszyny wirtualne z systemem Windows nie mogą zawierać kropki ani kończyć się łącznikiem.<br><br>Maszyny wirtualne z systemem Linux nie mogą kończyć się kropką ani łącznikiem. |
 > | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
 
 > [!NOTE]
@@ -543,7 +543,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | rozwiązania | obszar roboczy | Nie dotyczy | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
+> | rozwiązania | obszar roboczy | Brak | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

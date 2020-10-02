@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018862"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653166"
 ---
 # <a name="tutorial-manipulating-models"></a>Samouczek: manipulowanie modelami
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -161,7 +161,7 @@ Teraz, gdy skrypt **RemoteBounds** jest dodawany do tego samego obiektu gry co *
 
 1. Uruchom ponownie aplikację. Wkrótce po załadowaniu modelu zostaną wyświetlone granice dla obiektu zdalnego. Zobaczysz coś podobne do poniższych wartości:
 
-     ![Powiązane aktualizacje](./media/updated-bounds.png)
+     ![Zrzut ekranu pokazujący przykład zdalnego powiązania obiektu.](./media/updated-bounds.png)
 
 Teraz mamy lokalną **BoxCollider** skonfigurowaną z dokładnymi granicami obiektu Unity. Granice umożliwiają wizualizację i interakcję przy użyciu tych samych strategii, które są używane dla lokalnie renderowanego obiektu. Na przykład skrypty, które zmieniają transformację, fizyką i nie tylko.
 
@@ -382,7 +382,7 @@ Ten sam proces można wykonać programowo, a pierwszy krok polega na zmodyfikowa
 
 Tworzenie wystąpienia lokalnego i automatyczne synchronizowanie to pierwszy krok w operacji manipulowania jednostkami podrzędnymi. Te same techniki, z których korzystamy do manipulowania modelem jako całości, można również użyć w jednostkach podrzędnych. Na przykład po utworzeniu zsynchronizowanego wystąpienia lokalnego jednostki można wykonać zapytanie dotyczące jego granic i dodać procedury obsługi manipulowania, aby umożliwić przeniesienie go między oddziałami użytkownika.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz można manipulować z zdalnie renderowanymi modelami i korzystać z nich. W następnym samouczku zajmiemy się modyfikowaniem materiałów, zmianami oświetlenia i zastosowaniem efektów do zdalnych renderowanych modeli.
 

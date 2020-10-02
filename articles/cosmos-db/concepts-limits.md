@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567557"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653591"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -216,7 +216,7 @@ W poniższej tabeli wymieniono limity dotyczące obsługi funkcji MongoDB. Inne 
 | Maksymalny czas wykonywania operacji MongoDB| 30 s |
 | Limit czasu bezczynności połączenia dla zamknięcia połączenia po stronie serwera * | 30 minut |
 
-\* Zalecamy, aby aplikacje klienckie ustawili limit czasu bezczynności połączenia w ustawieniach sterownika na 2-3 minut, ponieważ [domyślny limit czasu dla modułu równoważenia obciążenia Azure to 4 minuty](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Ten limit czasu pozwala zagwarantować, że bezczynne połączenia nie zostaną zamknięte przez pośredni moduł równoważenia obciążenia między komputerem klienckim a Azure Cosmos DB.
+\* Zalecamy, aby aplikacje klienckie ustawili limit czasu bezczynności połączenia w ustawieniach sterownika na 2-3 minut, ponieważ [domyślny limit czasu dla modułu równoważenia obciążenia Azure to 4 minuty](../load-balancer/load-balancer-tcp-idle-timeout.md).  Ten limit czasu pozwala zagwarantować, że bezczynne połączenia nie zostaną zamknięte przez pośredni moduł równoważenia obciążenia między komputerem klienckim a Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Wypróbuj Cosmos DB limitów bezpłatnych
 

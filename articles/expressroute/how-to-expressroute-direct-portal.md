@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: c4021fbf87cc7cff8dde8e759423eb52c705cf97
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: dac9df23209fa93b8060ad80d58fd66f7a356ecd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568339"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651483"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
 
@@ -63,7 +63,7 @@ Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w 
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Strona Podstawy":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generuj list autoryzacji (DOWANIU)
 
@@ -111,7 +111,7 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
    :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Strona Podstawy":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,13 +2,13 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284737"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652486"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
@@ -23,7 +23,7 @@ Azure Resource Manager automatycznie usuwa wdrożenia z historii, jak zbliżasz 
 
 ## <a name="when-deployments-are-deleted"></a>Po usunięciu wdrożeń
 
-Wdrożenia są usuwane z historii, gdy osiągniesz 775 lub więcej wdrożeń. Azure Resource Manager usuwa wdrożenia do momentu, aż historia zostanie wyłączona do 750. Najstarsze wdrożenia są zawsze usuwane jako pierwsze.
+Wdrożenia są usuwane z historii w przypadku przekroczenia 775 wdrożeń. Azure Resource Manager usuwa wdrożenia do momentu, aż historia zostanie wyłączona do 750. Najstarsze wdrożenia są zawsze usuwane jako pierwsze.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Usunięcia z historii wdrożenia":::
 

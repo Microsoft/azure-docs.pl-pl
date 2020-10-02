@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320085"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651637"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Rozwiązywanie problemów z błędami usuwania zasobów magazynu
 
@@ -95,7 +95,7 @@ Jeśli wirtualny dysk twardy znajduje się na dysku z danymi, odłącz wirtualny
 7. Wybierz pozycję **Edytuj** w górnej części okienka **dysków** .
 8. Kliknij przycisk **Odłącz ikonę** dysku z danymi, który ma zostać usunięty.
 
-     ![Zrzut ekranu portalu z otwartym okienkiem magazynu "metadane obiektów BLOB"](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Zrzut ekranu przedstawiający Portal z otwartym okienkiem magazynu "metadane obiektów BLOB" i wyróżnioną ikoną odłączania dysku z danymi do usunięcia.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Wybierz pozycję **Zapisz**. Dysk jest teraz odłączony od maszyny wirtualnej, a wirtualny dysk twardy nie jest już dzierżawiony. Zwolnienie dzierżawy może potrwać kilka minut. Aby sprawdzić, czy dzierżawa została wydana, przejdź do lokalizacji obiektu BLOB i w okienku **właściwości obiektu BLOB** , wartość **stanu dzierżawy** powinna być **odblokowana** lub **dostępna**.
 

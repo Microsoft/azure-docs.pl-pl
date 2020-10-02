@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654756"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652928"
 ---
 # <a name="lsv2-series"></a>Seria Lsv2
 
@@ -25,17 +25,14 @@ Funkcja serii Lsv2 ma wysoką przepływność, małe opóźnienia, bezpośrednio
 >
 > Aby dowiedzieć się więcej, zobacz Optymalizacja wydajności na maszynach wirtualnych z serii Lsv2 dla [systemu Windows](../virtual-machines/windows/storage-performance.md) lub [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-Rozrywanie: obsługiwane
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: nieobsługiwane
-
-Aktualizacje z zachowaniem pamięci: nieobsługiwane
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+Rozrywanie: obsługiwane<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć (GiB) | Dysk tymczasowy<sup>1</sup> (GIB) | Dyski interfejsu NVMe<sup>2</sup> | Przepływność dysków interfejsu NVMe<sup>3</sup> (odczyt operacji we/wy/s) | Przepływność dysku danych w pamięci podręcznej (IOPs/MB/s)<sup>4</sup> | Maksymalna przepływność dysku danych w niebuforowanej pamięci (IOPs/MB/s)<sup>5</sup>| Maksymalna liczba dysków danych | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|---|---|

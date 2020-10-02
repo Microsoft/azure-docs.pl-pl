@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1940e65fc5a9fd4aecd0b0cbcf6631e0628bda91
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020113"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653132"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Samouczek: monitorowanie i diagnozowanie aplikacji platformy ASP.NET Core w usłudze Service Fabric przy użyciu usługi Application Insights
 
@@ -191,7 +191,7 @@ Możesz kliknąć jeden ze śladów, aby wyświetlić więcej informacji o nim. 
 
 Aby przejść do mapy aplikacji przedstawiającej dwie połączone usługi, możesz również kliknąć pozycję *Mapa aplikacji* w lewym menu na stronie Przegląd lub kliknąć ikonę **Mapa aplikacji**.
 
-![Szczegóły śladu usługi AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Zrzut ekranu, który wyróżnia mapę aplikacji w menu po lewej stronie.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 Mapa aplikacji pozwala lepiej zrozumieć topologię aplikacji, szczególnie w przypadku dodawania wielu różnych współdziałających ze sobą usług. Udostępnia ona również podstawowe współczynniki powodzeń żądań i ułatwia diagnozowanie nieudanych żądań, dzięki czemu można lepiej zrozumieć błędy. Aby dowiedzieć się więcej o korzystaniu z mapy aplikacji, zobacz [Mapa aplikacji w usłudze Application Insights](../azure-monitor/app/app-map.md).
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298950"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651756"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
 
@@ -30,18 +30,17 @@ W tym artykule opisano zmiany wprowadzone w Azure Media Services v3 i przedstawi
 
 ## <a name="general-changes-from-v2"></a>Ogólne zmiany z wersji 2
 
-* W przypadku zasobów utworzonych w wersji 3 Media Services obsługuje tylko [szyfrowanie magazynu po stronie serwera usługi Azure Storage](../../storage/common/storage-service-encryption.md).
-    * Można używać interfejsów API v3 z zasobami utworzonymi przy użyciu interfejsów API v2, które mają [szyfrowanie magazynu](../previous/media-services-rest-storage-encryption.md) (AES 256) zapewniane przez Media Services.
-    * Nie można tworzyć nowych zasobów przy użyciu starszej wersji [szyfrowania pamięci](../previous/media-services-rest-storage-encryption.md) AES 256 z użyciem interfejsów API v3.
-* Właściwości [zasobu](assets-concept.md)w wersji 3 różnią się od v2, zobacz [jak mapa właściwości](#map-v3-asset-properties-to-v2).
+* Aby uzyskać zmiany dotyczące zasobów, zobacz sekcję [zmiany dotyczące zasobów](#asset-specific-changes) , która znajduje się poniżej.
 * Zestawy SDK V3 są teraz rozłączone z ZESTAWem danych magazynu, co zapewnia większą kontrolę nad wersją zestawu SDK magazynu, którego chcesz używać, oraz pozwala uniknąć problemów z przechowywaniem wersji. 
 * W przypadku interfejsów API V3 wszystkie stawki bitów kodowania są w bitach na sekundę. Różni się to od ustawień wstępnych w wersji 2 Media Encoder Standard. Na przykład szybkość transmisji bitów w v2 zostanie określona jako 128 (KB/s), ale w wersji 3 będzie 128000 (bity/s). 
 * Jednostki AssetFiles, AccessPolicies i IngestManifests nie istnieją w wersji 3.
-* Właściwość IAsset. ParentAssets nie istnieje w wersji 3.
 * ContentKeys nie jest już jednostką, jest teraz właściwością lokalizatora przesyłania strumieniowego.
 * Obsługa Event Grid zastępuje NotificationEndpoints.
 * Zmieniono nazwy następujących jednostek:
-    * Dane wyjściowe zadania zastępują zadanie i są teraz częścią zadania.
+
+   * V3 JobOutput zastępuje zadanie w wersji 2 i jest teraz częścią zadania. Dane wejściowe i wyjściowe są teraz na poziomie zadania. Aby uzyskać więcej informacji, zobacz [Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md). 
+
+       Aby uzyskać historię postępu zadania, nasłuchiwanie zdarzeń EventGrid. Aby uzyskać więcej informacji, zobacz [Obsługa zdarzeń Event Grid](reacting-to-media-services-events.md).
     * Lokalizator przesyłania strumieniowego zastępuje lokalizator.
     * Wydarzenie na żywo zastępuje kanał.<br/>Rozliczenia wydarzeń na żywo opierają się na licznikach kanału na żywo. Aby uzyskać więcej informacji, zobacz temat [rozliczenia](live-event-states-billing.md) i [Cennik](https://azure.microsoft.com/pricing/details/media-services/).
     * Wyjście na żywo zastępuje program.
@@ -89,6 +88,12 @@ Interfejs API v3 ma następujące luki w odniesieniu do interfejsu API w wersji 
 
 ## <a name="asset-specific-changes"></a>Zmiany dotyczące zasobów
 
+* W przypadku zasobów utworzonych w wersji 3 Media Services obsługuje tylko [szyfrowanie magazynu po stronie serwera usługi Azure Storage](../../storage/common/storage-service-encryption.md).
+    * Można używać interfejsów API v3 z zasobami utworzonymi przy użyciu interfejsów API v2, które mają [szyfrowanie magazynu](../previous/media-services-rest-storage-encryption.md) (AES 256) zapewniane przez Media Services.
+    * Nie można tworzyć nowych zasobów przy użyciu starszej wersji [szyfrowania pamięci](../previous/media-services-rest-storage-encryption.md) AES 256 z użyciem interfejsów API v3.
+* Właściwości [zasobu](assets-concept.md)w wersji 3 różnią się od v2, zobacz [jak mapa właściwości](#map-v3-asset-properties-to-v2).
+* Właściwość IAsset. ParentAssets nie istnieje w wersji 3.
+
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapuj właściwości zasobu v3 do wersji 2
 
 W poniższej tabeli przedstawiono sposób, w jaki właściwości [zasobu](/rest/api/media/assets/createorupdate#asset)w wersji v3 mapują się na właściwości zasobu w 2.
@@ -124,7 +129,7 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 
 W poniższej tabeli przedstawiono różnice w kodzie między wersjami 2 i V3 dla typowych scenariuszy.
 
-|Scenariusz|INTERFEJS API V2|INTERFEJS API V3|
+|Scenariusz|Interfejs API v2|Interfejs API v3|
 |---|---|---|
 |Tworzenie elementu zawartości i przekazywanie pliku |[przykład v2 .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[przykład .NET w wersji 3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Przesyłanie zadania|[przykład v2 .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[przykład .NET w wersji 3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Pokazuje, jak najpierw utworzyć transformację, a następnie przesłać zadanie.|

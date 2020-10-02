@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325576"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653625"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Przy próbie uzyskania dostępu do dwuprotokołowego woluminu za pomocą stylu zabezpieczeń NTFS w systemie UNIX próbowano użyć "root" i użytkowników lokalnych. Dlaczego występuje błąd "odmowa uprawnień"?   
 
-Dwuprotokołowy wolumin obsługuje zarówno system plików NFS, jak i protokół SMB.  W przypadku próby uzyskania dostępu do zainstalowanego woluminu w systemie UNIX system próbuje zamapować użytkownika systemu UNIX, którego używasz, do użytkownika systemu Windows. Jeśli nie zostanie znalezione żadne mapowanie, wystąpi błąd "odmowa uprawnień".  Ta sytuacja ma zastosowanie również w przypadku korzystania z użytkownika "root" w celu uzyskania dostępu.    
-
-Aby uniknąć problemu "odmowa uprawnień", należy się upewnić, że Active Directory systemu Windows zawiera `pcuser` przed uzyskaniem dostępu do punktu instalacji. Po dodaniu `pcuser` problemu "odmowa uprawnień" odczekaj 24 godziny na wyczyszczenie wpisu pamięci podręcznej, zanim spróbujesz ponownie uzyskać dostęp.
+Rozwiązania można znaleźć w artykule [Rozwiązywanie problemów z dwoma protokołami](troubleshoot-dual-protocol-volumes.md) .
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Kiedy próbuję utworzyć dwuprotokołowy wolumin, dlaczego proces tworzenia nie powiedzie się z powodu błędu "nie można zweryfikować konfiguracji LDAP, spróbuj ponownie po poprawieniu konfiguracji LDAP"?  
 
-Na serwerze DNS może brakować rekordu wskaźnika (PTR) maszyny hosta usługi AD. Należy utworzyć strefę wyszukiwania wstecznego na serwerze DNS, a następnie dodać rekord PTR maszyny hosta usługi AD w tej strefie wyszukiwania wstecznego.
-
-Załóżmy na przykład, że adres IP komputera usługi AD to, nazwa `1.1.1.1` hosta maszyny usługi AD (jak znaleziono przy użyciu `hostname` polecenia) `AD1` , a domena to `myDomain.com` .  Rekord PTR dodany do strefy wyszukiwania wstecznego powinien mieć wartość `1.1.1.1`  ->  `AD1.myDomain.com` .
+Rozwiązania można znaleźć w artykule [Rozwiązywanie problemów z dwoma protokołami](troubleshoot-dual-protocol-volumes.md) .
 
 ## <a name="capacity-management-faqs"></a>Często zadawane pytania dotyczące zarządzania pojemnością
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396679"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653642"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Usługa ExpressRoute dla dostawców rozwiązań w chmurze (CSP)
 Firma Microsoft oferuje usługi w hiperskali dla tradycyjnych odsprzedawców i dystrybutorów (CSP), dzięki czemu użytkownicy mogą szybko aprowizować nowe usługi i rozwiązania dla klientów bez konieczności inwestowania w ich opracowywanie. Aby umożliwić dostawcy rozwiązań w chmurze (CSP) bezpośrednie zarządzanie tymi nowymi usługami, firma Microsoft udostępnia programy oraz interfejsy API, które pozwalają dostawcy CSP na zarządzanie zasobami Microsoft Azure w imieniu klientów. Jednym z tych zasobów jest usługa ExpressRoute. Usługa ExpressRoute umożliwia dostawcy CSP łączenie istniejących zasobów klienta z usługami Azure. ExpressRoute to link do usług na platformie Azure o dużej szybkości. 
@@ -34,18 +34,18 @@ Firma Microsoft udostępnia dostawcom usług kryptograficznych interfejsy API do
 Umowa z klientem określa, jak będzie zarządzana subskrypcja. Dostawca CSP może bezpośrednio zarządzać tworzeniem i obsługą zasobów lub klient może zachować kontrolę nad subskrypcją Microsoft Azure i tworzyć zasoby Azure zgodnie z zapotrzebowaniem. Jeśli klient zarządza tworzeniem zasobów w ramach subskrypcji Microsoft Azure, użyje jednego z dwóch modeli: modelu "*connect-through*" lub modelu "*Direct-to*". Te modele zostały szczegółowo opisane w poniższych sekcjach.  
 
 ### <a name="connect-through-model"></a>Model typu „połącz przez”
-![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagram przedstawiający model "connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 W modelu typu „połącz przez” dostawca CSP tworzy bezpośrednie połączenie między centrum danych a subskrypcją Azure klienta. Połączenie bezpośrednie jest nawiązywane za pomocą usługi ExpressRoute i łączy sieć z platformą Azure. Klient łączy się z siecią. Ten scenariusz wymaga, aby klient w celu uzyskania dostępu do usług Azure korzystał z sieci dostawcy CSP. 
 
 Jeśli klient ma inne subskrypcje platformy Azure, które nie są zarządzane przez użytkownika, mogą korzystać z publicznej sieci Internet lub własnego połączenia prywatnego do łączenia się z tymi usługami, które są obsługiwane w ramach subskrypcji spoza dostawcy CSP. 
 
-W przypadku dostawcy CSP zarządzającego usługami platformy Azure zakłada się, że dostawca CSP ma wcześniej ustanowiony magazyn tożsamości klienta, który następnie zostanie zreplikowany do Azure Active Directory w celu zarządzania subskrypcją dostawcy usług kryptograficznych za pomocą administratora (AOBO). Kluczowe sterowniki w tym scenariuszu obejmują miejsce, w którym dany partner lub dostawca usług ma ustanowioną relację z klientem, klient korzysta obecnie z usług dostawcy lub partner chce zapewnić kombinację rozwiązań hostowanych przez dostawcę i hostowanych na platformie Azure, aby zapewnić elastyczność i sprostać wyzwaniom związanym z klientami, których nie można spełnić wyłącznie przez dostawcę usług kryptograficznych. Ten model został przedstawiony na **rysunku** poniżej.
+W przypadku dostawcy CSP zarządzającego usługami platformy Azure zakłada się, że dostawca CSP ma wcześniej ustanowiony magazyn tożsamości klienta, który następnie zostanie zreplikowany do Azure Active Directory w celu zarządzania subskrypcją dostawcy usług kryptograficznych za pomocą administratora (AOBO). Kluczowe sterowniki w tym scenariuszu obejmują miejsce, w którym dany partner lub dostawca usług ma ustanowioną relację z klientem, klient korzysta obecnie z usług dostawcy lub partner chce zapewnić kombinację rozwiązań hostowanych przez dostawcę i hostowanych na platformie Azure, aby zapewnić elastyczność i sprostać wyzwaniom związanym z klientami, których nie można spełnić wyłącznie przez dostawcę usług kryptograficznych. Ten model jest przedstawiony na poniższej **ilustracji** .
 
-![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagram przedstawiający szczegółowy scenariusz dla modelu "connect-through".](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Model typu „połącz z”
-![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagram przedstawiający model "łączenie do".](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 W modelu typu „połącz z” dostawca usług tworzy bezpośrednie połączenie między centrum danych swojego klienta a subskrypcją Azure inicjowaną przez dostawcę CSP za pomocą usługi ExpressRoute za pośrednictwem sieci klienta.
 
@@ -56,7 +56,7 @@ W modelu typu „połącz z” dostawca usług tworzy bezpośrednie połączenie
 
 Ten scenariusz łączności wymaga, aby klient łączył się bezpośrednio za pośrednictwem sieci klienta, aby uzyskać dostęp do subskrypcji platformy Azure zarządzanej przez dostawcę CSP przy użyciu bezpośredniego połączenia sieciowego, które jest tworzone, własnością i zarządzane w całości lub w części przez klienta. W przypadku tych klientów zakłada się, że dostawca nie ma obecnie ustanowionego magazynu tożsamości klienta, a dostawca pomaga klientowi w replikacji bieżącego magazynu identyfikacji do Azure Active Directory zarządzania swoją subskrypcją za pomocą usługi AOBO. Scenariusz ten jest używany przede wszystkim wtedy, gdy dany partner lub dostawca usług ma ustanowioną relację z klientem, klient obecnie używa usług dostawcy lub partner chce dostarczać usługi oparte wyłącznie na rozwiązaniach obsługiwanych przez Azure, bez potrzeby istnienia centrum danych czy infrastruktury dostawcy.
 
-![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagram przedstawiający szczegółowy scenariusz dla modelu "Connect-to".](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Opcje między tymi dwiema opcjami są zależne od potrzeb klientów i Twoich bieżących potrzeb związanych z udostępnianiem usług platformy Azure. Szczegółowe informacje dotyczące tych modeli oraz powiązanych z nimi opartych na rolach wzorów projektu kontroli dostępu, sieci i tożsamości znajdują się w artykułach, do których odwołują się poniższe linki:
 
@@ -109,7 +109,7 @@ Tabela routingu domyślnego obejmuje następujące trasy:
 * Sieć wirtualna do sieci wirtualnej przy użyciu bramy sieci VPN
 * Sieć wirtualna do sieci lokalnej przy użyciu bramy sieci VPN lub usługi ExpressRoute
 
-![tekst alternatywny](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagram przedstawiający domyślne opcje routingu.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Routing zdefiniowany przez użytkownika (UDR)
 Trasy zdefiniowane przez użytkownika umożliwiają sterowanie ruchem wychodzącym z przypisanej podsieci do innych podsieci w sieci wirtualnej lub przez jedną z innych wstępnie zdefiniowanych bram (usługę ExpressRoute, Internet lub sieć VPN). Tabelę routingu domyślnego systemu można zastąpić tabelą routingu zdefiniowanego przez użytkownika, która zastępuje tabelę routingu domyślnego trasami niestandardowymi. W przypadku routingu zdefiniowanego przez użytkownika klienci mogą tworzyć określone trasy do takich urządzeń jak zapory lub urządzenia do wykrywania włamań bądź blokować dostęp do określonych podsieci z podsieci obsługującej trasę zdefiniowaną przez użytkownika. Aby zapoznać się z omówieniem tras zdefiniowanych przez użytkownika, zobacz [tutaj](../virtual-network/virtual-networks-udr-overview.md). 

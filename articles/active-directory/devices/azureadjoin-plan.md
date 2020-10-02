@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370181"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653217"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -187,6 +187,7 @@ Podłączanie pulpitu zdalnego do urządzeń przyłączonych do usługi Azure AD
 Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą również używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure Active Directory. 
 
 ## <a name="understand-your-provisioning-options"></a>Zapoznaj się z opcjami aprowizacji
+**Uwaga**: urządzeń przyłączonych do usługi Azure AD nie można wdrażać przy użyciu narzędzia do przygotowywania systemu (Sysprep) ani podobnych narzędzi do tworzenia obrazu
 
 Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
 

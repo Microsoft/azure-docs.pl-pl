@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
-ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/01/2020
+ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535981"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653319"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
 
@@ -44,7 +44,7 @@ Poniżej znajdują się miejsca, w których generowany jest potencjalny klient:
 
 ## <a name="connect-to-your-crm-system"></a>Nawiązywanie połączenia z systemem CRM
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Links to lead configuration for different CRM systems](./includes/connect-lead-management.md)]
 
 ## <a name="understand-lead-data"></a>Informacje o potencjalnych klientach
 
@@ -94,78 +94,8 @@ Poniżej przedstawiono kilka zaleceń dotyczących prowadzenia potencjalnych kli
 - **Zaobserwuj**: nie zapomnij wykonać czynności w ciągu 24 godzin. Potencjalny klient zostanie wyświetlony w wybranym programie CRM natychmiast po wdrożeniu przez klienta dysku testowego; Wyślij je pocztą e-mail w czasie, gdy są one nadal dostępne. Żądaj zaplanowania rozmowy telefonicznej, aby lepiej zrozumieć, czy produkt jest dobrym rozwiązaniem dla swojego problemu. Należy oczekiwać, że typowa transakcja wymaga wielu kolejnych wywołań.
 - **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków. Zaewidencjonuj, ale nie Bombard. Zalecamy, aby wysłać wiadomość e-mail co najmniej kilka razy przed ich zamknięciem. Nie dodawaj po pierwszej próbie. Pamiętaj, że Ci klienci bezpośrednio zaangażowani w produkt i spędzają czas w bezpłatnej wersji próbnej. są to wspaniałe potencjalni klienci.
 
-## <a name="common-questions-about-lead-management"></a>Często zadawane pytania dotyczące zarządzania potencjalnymi klientami
-
-### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?
-
-Wykonaj kroki opisane w sekcji [łączenie z systemem CRM](#connect-to-your-crm-system)lub Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
-
-### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Czy muszę skonfigurować miejsce docelowe potencjalnego klienta w celu opublikowania oferty w portalu komercyjnym?
-
-Odpowiedź zależy od typu publikowanej oferty. Oprogramowanie jako usługa (SaaS) i Dynamics 365 Customer Engagement używają do **kontaktowania** się ze wszystkimi usługami Dynamics 365 for Finanse i operacje, wszystkie oferty usługi Dynamics 365 Business Central i wszystkie oferty usług konsultingowych. W związku z tym wymagają połączenia z miejscem docelowym potencjalnego klienta. Jeśli typu oferty nie ma na liście, połączenie z miejscem docelowym potencjalnego klienta nie jest wymagane. Zalecamy skonfigurowanie miejsca docelowego potencjalnego klienta, aby nie przegapić możliwości biznesowych.
-
-### <a name="how-can-i-find-the-test-lead"></a>Jak mogę znaleźć potencjalnego klienta testowego?
-
-Wyszukaj `"MSFT_TEST"` w miejscu docelowym potencjalnego klienta. Poniżej znajduje się przykładowy test potencjalnego klienta firmy Microsoft. Należy zauważyć, że format ołowiu testowego różni się w zależności od miejsca docelowego potencjalnego klienta.
-
-```
-{
-    "UserDetails": {
-      "FirstName": "MSFT_TEST_636573304831318844",
-      "LastName": "MSFT_TEST_636573304831318844",
-      "Email": "MSFT_TEST_636573304831318844@test.com",
-      "Phone": "1234567890",
-      "Country": "US",
-      "Company": "MSFT_TEST_636573304831318844",
-      "Title": "MSFT_TEST_636573304831318844"
-    },
-    "LeadSource": "AzureMarketplace",
-    "ActionCode": "INS",
-    "OfferTitle": "Contoso Test"
-    "Description": "MSFT_TEST_636573304831318844"
-}
-```
-
-### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Mam ofertę na żywo, ale dlaczego nie widzę żadnych potencjalnych klientów?
-
-Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest prawidłowe. Wyślemy Ci lidera testowego po wybraniu opcji **Publikuj** w ofercie w centrum partnerskim. Jeśli widzisz potencjalnego klienta testowego, połączenie jest prawidłowe. Możesz również przetestować połączenie z liderem, próbując uzyskać podgląd oferty w ramach kroku wersji zapoznawczej. Wybierz pozycję **Pobierz teraz**, **skontaktuj się z**nami lub **bezpłatną wersję próbną** na liście w portalu komercyjnym.
-
-Upewnij się również, że szukasz odpowiednich danych. Zawartość w sekcji Informacje o [potencjalnych klientach](#understand-lead-data) w tym artykule opisuje dane potencjalnych klientów wysyłanych do miejsca docelowego potencjalnego klienta.
-
-### <a name="i-configured-azure-blob-storage-as-my-lead-destination-but-why-dont-i-see-the-lead"></a>Mam skonfigurowany magazyn obiektów blob platformy Azure jako miejsce docelowe potencjalnego klienta, ale dlaczego nie widzę potencjalnego klienta?
-
-Usługa Azure Blob Storage nie jest już obsługiwana jako miejsce docelowe potencjalnego klienta, dlatego nie masz żadnych potencjalnych klientów wygenerowanych przez ofertę. Przełącz się do dowolnego z opcji innych elementów [docelowych potencjalnego klienta](./commercial-marketplace-get-customer-leads.md). 
-
-### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Z komercyjnej witryny Marketplace otrzymałem wiadomość e-mail, ale dlaczego nie mogę znaleźć potencjalnego klienta w moim programie CRM?
-
-Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy informacji osobistych z domeny. edu. Prześlij bilet pomocy technicznej, korzystając z [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport).
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Jak mogę wyświetlić potencjalnych klientów?
-
-Możesz uzyskać dostęp do danych potencjalnych klientów przechowywanych w tabeli platformy Azure z Azure Portal. Możesz również pobrać i zainstalować [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) bezpłatnie, aby wyświetlić dane tabeli dla konta usługi Azure Storage.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Czy mogę otrzymywać powiadomienia o każdym wysłaniu nowego komercyjnego lidera rynku?
-
-Tak. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie zarządzania potencjalnymi klientami przy użyciu tabeli platformy Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) w celu skonfigurowania usługi Microsoft Flow, która wysyła wiadomość e-mail, jeśli potencjalny klient zostanie dodany do tabeli platformy Azure.
-
-### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Mam skonfigurowany program Salesforce jako lokalizację docelową mojego potencjalnego klienta, ale dlaczego nie mogę znaleźć potencjalnych klientów?
-
-Sprawdź, czy formularz sieci Web do potencjalnego klienta jest polem obowiązkowym opartym na liście wyboru. Jeśli tak jest, przełącz pole do nieobowiązkowego pola tekstowego.
-
-### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Wystąpił problem z miejscem docelowym potencjalnego klienta i pominięto kilka potencjalnych klientów. Czy mogę je wysłać do mnie w wiadomości e-mail?
-
-Ze względu na zasady dotyczące informacji osobistych nie można udostępniać informacji o potencjalnych klientach za pośrednictwem niezabezpieczonej poczty e-mail.
-
-### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Ile będzie kosztować?
-
-Dane generowania potencjalnego klienta są niskie. Jest ona mniejsza niż 1 GB dla niemal wszystkich wydawców. Koszt zależy od liczby odebranych potencjalnych klientów. Jeśli na przykład w miesiącu otrzymasz 1 000 potencjalnych klientów, koszt wynosi około 50 centów. Aby uzyskać więcej informacji o cenach magazynu, zobacz [Cennik usługi Azure Storage — Omówienie](https://azure.microsoft.com/pricing/details/storage/).
-
-Jeśli Twoje pytanie nie zostało odebrane, skontaktuj się z firmą pomoc techniczna firmy Microsoft za pomocą [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
-
-### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Otrzymuję powiadomienia e-mail po odebraniu nowych potencjalnych klientów. Jak skonfigurować kogoś innego do otrzymywania tych wiadomości e-mail?
-
-Uzyskaj dostęp do oferty w centrum partnerskim i przejdź do strony **Konfiguracja oferty** > **Zarządzanie potencjalnymi klientami**  >  **Edit**. Zaktualizuj adresy e-mail w polu **kontaktowy adres e-mail** .
+Po zakończeniu instalacji technicznej należy uwzględnić te potencjalni klienci w bieżącej strategii sprzedaży i marketingu oraz procesach operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z nim w celu zapewnienia wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię [przekazywanie opinii](mailto:AzureMarketOnboard@microsoft.com) i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z komercyjnymi klientami portalu Marketplace.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zakończeniu instalacji technicznej należy uwzględnić te potencjalni klienci w bieżącej strategii sprzedaży i marketingu oraz procesach operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z nim w celu zapewnienia wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię [przekazywanie opinii](mailto:AzureMarketOnboard@microsoft.com) i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z komercyjnymi klientami portalu Marketplace.
+- [Często zadawane pytania dotyczące zarządzania liderami i rozwiązywanie problemów](../lead-management-faq.md)

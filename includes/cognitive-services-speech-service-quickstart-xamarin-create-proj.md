@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72675627"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654439"
 ---
 Aby utworzyć projekt programu Visual Studio dla wieloplatformowego programowania aplikacji mobilnych platformy .NET przy użyciu platformy Xamarin, należy:
 - Skonfiguruj opcje deweloperskie programu Visual Studio.
@@ -22,9 +22,9 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 1. Otwórz program Visual Studio 2019.
 
-1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio i wyświetlić okno dialogowe **Modyfikowanie** .
+1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio i wyświetlić okno dialogowe **Modyfikowanie** .
 
-   ![Karta obciążenia, modyfikowanie okna dialogowego, Instalator programu Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
+   ![Zrzut ekranu pokazujący kartę obciążenia, modyfikowanie okna dialogowego i Instalator programu Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
 
 1. Na karcie **obciążenia** w obszarze **Windows**Znajdź pozycję **Programowanie aplikacji mobilnych za pomocą obciążenia .NET** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 5.
 
@@ -34,15 +34,15 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-1. Na pasku menu programu Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt** , aby wyświetlić okno **Utwórz nowy projekt** .
+1. Na pasku menu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt** , aby wyświetlić okno **Utwórz nowy projekt** .
 
-   ![Tworzenie nowego projektu — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
+   ![Zrzut ekranu pokazujący sposób tworzenia nowego projektu w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
 
 1. Znajdź i wybierz pozycję **aplikacja mobilna (Xamarin. Forms)**.
 
 1. Wybierz pozycję **dalej** , aby wyświetlić ekran **Konfiguruj nowy projekt** .
 
-   ![Konfigurowanie nowego projektu — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
+   ![Zrzut ekranu pokazujący sposób konfigurowania nowego projektu w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
 1. W polu **Nazwa projektu**wprowadź *HelloWorld*.
 
@@ -50,7 +50,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 1. Wybierz pozycję **Utwórz** , aby przejść do **nowego okna projektu aplikacji mobilnej platformy Xamarin** .
 
-   ![Okno dialogowe Nowy projekt platforma uniwersalna systemu Windows — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Nowy projekt platforma uniwersalna systemu Windows w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Wybierz **pusty** szablon.
 
@@ -60,7 +60,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
    ![Projekt HelloWorld — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-helloworld.png)
 
-Teraz wybierz docelową architekturę platformy i projekt startowy. Na pasku narzędzi programu Visual Studio Znajdź pole listy rozwijanej **platformy rozwiązania** . (Jeśli nie widzisz go, wybierz pozycję **Wyświetl** > **paski narzędzi** > **Standard** , aby wyświetlić pasek narzędzi zawierający **platformy rozwiązań**). Jeśli korzystasz z 64-bitowego systemu Windows, wybierz pozycję **x64** w polu listy rozwijanej. Możesz wybrać opcję **x86** , jeśli chcesz, aby system Windows 64-bitowy mógł również uruchamiać aplikacje 32-bitowe. W polu listy rozwijanej **projekty startowe** ustaw opcję **HelloWorld. PLATFORMY UWP (uniwersalny system Windows)**.
+Teraz wybierz docelową architekturę platformy i projekt startowy. Na pasku narzędzi programu Visual Studio Znajdź pole listy rozwijanej **platformy rozwiązania** . (Jeśli go nie widzisz, wybierz pozycję **Widok**  >  **Paski narzędzi**  >  **Standard** , aby wyświetlić pasek narzędzi zawierający **platformy rozwiązań**. Jeśli korzystasz z 64-bitowego systemu Windows, wybierz pozycję **x64** w polu listy rozwijanej. Możesz wybrać opcję **x86** , jeśli chcesz, aby system Windows 64-bitowy mógł również uruchamiać aplikacje 32-bitowe. W polu listy rozwijanej **projekty startowe** ustaw opcję **HelloWorld. PLATFORMY UWP (uniwersalny system Windows)**.
 
 ### <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
@@ -70,16 +70,16 @@ Zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget)i odw
 
 1. Wybierz pozycję **Przeglądaj**.
 
-   ![Zrzut ekranu okna dialogowego Zarządzaj pakietami dla rozwiązania](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Zarządzanie pakietami dla rozwiązania podczas instalowania zestawu Speech SDK.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. W obszarze **Źródło pakietu**wybierz pozycję NuGet.org.
 
 1. W polu **wyszukiwania** wprowadź *Microsoft. CognitiveServices. Speech*. Następnie wybierz ten pakiet po pojawieniu się w wynikach wyszukiwania.
 
-   ![Zrzut ekranu okna dialogowego Zarządzaj pakietami dla rozwiązania](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   ![Zrzut ekranu, który podświetla pakiet Microsoft. CognitiveServices. Speech.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
-   > Biblioteka systemu iOS wewnątrz `Microsoft.CognitiveServices.Speech` narzędzia NuGet nie ma włączonej kodu bitowego. Jeśli potrzebujesz biblioteki kodu bitowego dla aplikacji, użyj `Microsoft.CognitiveServices.Speech.Xamarin.iOS` narzędzia NuGet dla projektu dla systemu iOS.
+   > Biblioteka systemu iOS wewnątrz narzędzia `Microsoft.CognitiveServices.Speech` NuGet nie ma włączonej kodu bitowego. Jeśli potrzebujesz biblioteki kodu bitowego dla aplikacji, użyj narzędzia `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet dla projektu dla systemu iOS.
 
 1. W okienku stan pakietu obok wyników wyszukiwania wybierz pozycję Wszystkie projekty: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS**i **HelloWorld. PLATFORMY UWP**.
 
@@ -89,4 +89,4 @@ Zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/nuget)i odw
 
 1. W oknie dialogowym **Akceptacja licencji** Wyświetl licencję, a następnie wybierz pozycję **Akceptuję**. Zainstaluj odwołanie pakietu SDK mowy do wszystkich projektów. Po pomyślnym zakończeniu instalacji może zostać wyświetlone następujące ostrzeżenie dla HelloWorld. iOS. Jest to znany problem i nie powinien wpływać na funkcjonalność aplikacji.
 
-   > Nie można rozpoznać odwołania "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.Core.a". Jeśli to odwołanie jest wymagane przez kod, mogą wystąpić błędy kompilacji.
+   > Nie można rozpoznać odwołania "C:\Users\Default \. nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.Core.a". Jeśli to odwołanie jest wymagane przez kod, mogą wystąpić błędy kompilacji.

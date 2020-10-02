@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395727"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652231"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute
 
@@ -60,7 +60,7 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
    **Obwód — stan dostawcy: nie zainicjowano obsługi administracyjnej**
 
-   [![Zrzut ekranu przedstawiający stronę przegląd obwodu demonstracyjnego ExpressRoute z czerwonym prostokątem wyróżnienie stanu dostawcy, który jest ustawiony na "nieinicjowany".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Zrzut ekranu przedstawiający stronę przegląd obwodu demonstracyjnego ExpressRoute z czerwonym prostokątem z wyróżnioną stanem dostawcy ustawionym na "nie zainicjowano obsługi".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
    **Obwód — stan dostawcy: zainicjowano**

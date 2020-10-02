@@ -3,12 +3,12 @@ title: Adresy IP w Azure Functions
 description: Dowiedz się, jak znaleźć przychodzące i wychodzące adresy IP dla aplikacji funkcji i co powoduje ich zmianę.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874082"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652469"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresy IP w Azure Functions
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Gdy aplikacja funkcji uruchamiana w ramach [planu zużycia](functions-scale.md#consumption-plan) jest skalowana, można przypisać nowy zakres wychodzących adresów IP. Po uruchomieniu planu zużycia może być konieczne dodanie całego centrum danych do listy dozwolonych.
+> W przypadku skalowania aplikacji funkcji uruchamianej zgodnie z [planem zużycia](functions-scale.md#consumption-plan) lub [planu Premium](functions-scale.md#premium-plan) można przypisać nowy zakres wychodzących adresów IP. W przypadku korzystania z jednego z tych planów może być konieczne dodanie całego centrum danych do listy dozwolonych.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Wychodzące adresy IP centrum danych
 
@@ -89,7 +89,7 @@ Adres IP ruchu przychodzącego **może** ulec zmianie, gdy:
 - Usuń ostatnią aplikację funkcji w kombinacji grupy zasobów i regionu i utwórz ją ponownie.
 - Usuń powiązanie TLS, takie jak podczas [odnawiania certyfikatu](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#consumption-plan), adres IP ruchu przychodzącego również może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
+Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#consumption-plan) lub w [planie Premium](functions-scale.md#premium-plan), adres IP ruchu przychodzącego może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Zmiany wychodzącego adresu IP
 
@@ -98,7 +98,7 @@ Zestaw dostępnych wychodzących adresów IP dla aplikacji funkcji może ulec zm
 * Wykonaj wszelkie akcje, które mogą zmienić przychodzące adresy IP.
 * Zmień warstwę cenową planu App Service. Lista wszystkich możliwych wychodzących adresów IP, które mogą być używane przez aplikację dla wszystkich warstw cenowych, znajduje się we `possibleOutboundIPAddresses` właściwości. Zobacz [Znajdź wychodzące adresy IP](#find-outbound-ip-addresses).
 
-Po uruchomieniu aplikacji funkcji w [planie zużycia](functions-scale.md#consumption-plan)wychodzący adres IP może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
+Gdy aplikacja funkcji jest uruchamiana w [planie zużycia](functions-scale.md#consumption-plan) lub w [planie Premium](functions-scale.md#premium-plan), wychodzący adres IP może ulec zmianie nawet wtedy, gdy nie wykonano żadnych akcji, takich jak [wymienione powyżej](#inbound-ip-address-changes).
 
 Aby celowo wymusić zmianę wychodzącego adresu IP:
 

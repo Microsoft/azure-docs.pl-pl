@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392674"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653047"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Zagadnienia dotyczące wydajności dla usługi Traffic Manager
 
@@ -50,7 +50,7 @@ Narzędzia w tych lokacjach mierzą opóźnienia DNS i wyświetlają rozpoznane 
 
     Jednym z najprostszych narzędzi jest WebSitePulse. Wprowadź adres URL, aby zobaczyć czas rozpoznawania nazw DNS, pierwszy bajt, ostatni bajt i inne statystyki wydajności. Można wybrać jedną z trzech różnych lokalizacji testowych. W tym przykładzie widać, że pierwsze wykonanie wskazuje, że wyszukiwanie DNS zajmuje 0,204 sek.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Zrzut ekranu pokazujący narzędzie "WebSitePulse" z wyróżnionym wynikiem wyszukiwania "DNS".](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Ponieważ wyniki są przechowywane w pamięci podręcznej, drugi test dla tego samego Traffic Managerego punktu końcowego wyszukiwanie DNS zajmie 0,002 sek.
 

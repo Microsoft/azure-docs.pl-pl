@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 2dea6ea292b4ed69d89a6e5e03c58f437446561d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654790"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653659"
 ---
 # <a name="m-series"></a>Seria M
 
@@ -20,17 +20,14 @@ Seria M oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i duż
 
 Funkcja maszyny wirtualnej serii M z &reg; technologią Intel Hyper-Threading.
 
-ACU: 160–180
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: nieobsługiwane
-
-Aktualizacje z zachowaniem pamięci: nieobsługiwane
-
-Akcelerator zapisu:  [obsługiwane](./how-to-enable-write-accelerator.md)
+[ACU](acu.md): 160-180<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+[Akcelerator zapisu](./how-to-enable-write-accelerator.md): obsługiwane<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|

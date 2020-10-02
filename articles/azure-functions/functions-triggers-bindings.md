@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252695"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652629"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Pojęcia powiązań i wyzwalaczy usługi Azure Functions
 
@@ -33,7 +33,7 @@ Rozważmy następujące przykłady sposobu implementacji różnych funkcji.
 |Event Grid jest używany do odczytywania obrazu z Blob Storage i dokumentu z Cosmos DB do wysłania wiadomości e-mail. | Event Grid | Blob Storage i Cosmos DB | SendGrid |
 | Element webhook, który używa Microsoft Graph do aktualizowania arkusza programu Excel. | HTTP | *Brak* | Microsoft Graph |
 
-<sup>\*</sup>Reprezentuje różne kolejki
+<sup>\*</sup> Reprezentuje różne kolejki
 
 Te przykłady nie są wyczerpujące, ale są dostarczane w celu zilustrowania, jak można używać wyzwalaczy i powiązań jednocześnie.
 
@@ -67,17 +67,27 @@ Inne opcje dla programu `dataType` to `stream` i `string` .
 
 Wszystkie wyzwalacze i powiązania mają `direction` Właściwość w [function.js](./functions-reference.md) w pliku:
 
-- W przypadku wyzwalaczy kierunek jest zawsze`in`
-- Powiązania danych wejściowych i wyjściowych używają `in` i`out`
+- W przypadku wyzwalaczy kierunek jest zawsze `in`
+- Powiązania danych wejściowych i wyjściowych używają `in` i `out`
 - Niektóre powiązania obsługują specjalny kierunek `inout` . Jeśli używasz programu `inout` , tylko **Edytor zaawansowany** jest dostępny za pośrednictwem karty **integracja** w portalu.
 
 W przypadku używania [atrybutów w bibliotece klas](functions-dotnet-class-library.md) do konfigurowania wyzwalaczy i powiązań, kierunek jest udostępniany w konstruktorze atrybutu lub wywnioskowany na podstawie typu parametru.
+
+## <a name="add-bindings-to-a-function"></a>Dodawanie powiązań do funkcji
+
+Możesz połączyć funkcję z innymi usługami przy użyciu powiązań wejściowych lub wyjściowych. Dodawanie powiązania przez dodanie jego określonych definicji do funkcji. Aby dowiedzieć się, jak to zrobić, zobacz [Dodawanie powiązań do istniejącej funkcji w Azure Functions](add-bindings-existing-function.md).  
 
 ## <a name="supported-bindings"></a>Obsługiwane powiązania
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Aby uzyskać informacje o tym, które powiązania są w wersji zapoznawczej lub są zatwierdzone do użycia w środowisku produkcyjnym, zobacz [obsługiwane języki](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Przykłady kodu powiązań
+
+Skorzystaj z poniższej tabeli, aby znaleźć przykłady określonych typów powiązań, które pokazują, jak korzystać z powiązań w swoich funkcjach. Najpierw wybierz kartę językową, która odpowiada Twojemu projektowi. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Zasoby
 - [Wyrażenia i wzorce powiązań](./functions-bindings-expressions-patterns.md)

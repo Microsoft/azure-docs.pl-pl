@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157929"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653336"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Zarządzaj IoT Central z Azure Portal
 
@@ -56,13 +56,13 @@ Aby rozpocząć, wybierz pozycję **wszystkie zasoby** w portalu. Wybierz pozycj
 
 Aby przejść do aplikacji, wybierz **adres URL aplikacji IoT Central**:
 
-![Portal zarządzania: zarządzanie zasobami](media/howto-manage-iot-central-from-portal/image3.png)
+![Zrzut ekranu pokazujący stronę "przegląd" z wyróżnioną "IoT Central adresem URL aplikacji".](media/howto-manage-iot-central-from-portal/image3.png)
 
 Aby przenieść aplikację do innej grupy zasobów, wybierz pozycję **Zmień** obok grupy zasobów. Na stronie **przenoszenie zasobów** wybierz grupę zasobów, do której chcesz przenieść tę aplikację:
 
-![Portal zarządzania: zarządzanie zasobami](media/howto-manage-iot-central-from-portal/image4a.png)
+![Zrzut ekranu przedstawiający stronę "przegląd" z wyróżnioną pozycją "Grupa zasobów (zmiana)".](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Aby przenieść aplikację do innej subskrypcji, wybierz pozycję **Zmień** obok subskrypcji. Na stronie **przenoszenie zasobów** wybierz subskrypcję, do której chcesz przenieść tę aplikację:
+Aby przenieść aplikację do innej subskrypcji, wybierz pozycję  **Zmień** obok subskrypcji. Na stronie **przenoszenie zasobów** wybierz subskrypcję, do której chcesz przenieść tę aplikację:
 
 ![Portal zarządzania: zarządzanie zasobami](media/howto-manage-iot-central-from-portal/image5a.png)
 

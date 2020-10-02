@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/12/2018
 ms.author: erhopf
-ms.openlocfilehash: 777b2608cf5f326556dfaea307f4f3e9346213f8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d5b95c8d71cf3d4830a2fe5eb6442ef479c9fab6
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66482445"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654392"
 ---
 1. Uruchom program Visual Studio 2019.
 
-1. Upewnij się, że jest dostępny pakiet roboczy do **tworzenia aplikacji na wiele platform dla platformy .NET**. Wybierz pozycję **Narzędzia** > **Pobierz narzędzia i funkcje** z paska menu programu Visual Studio, aby otworzyć Instalatora programu Visual Studio. Jeśli ten pakiet roboczy jest już włączony, zamknij okno dialogowe.
+1. Upewnij się, że jest dostępny pakiet roboczy do **tworzenia aplikacji na wiele platform dla platformy .NET**. Wybierz pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje** z paska menu programu Visual Studio, aby otworzyć Instalatora programu Visual Studio. Jeśli ten pakiet roboczy jest już włączony, zamknij okno dialogowe.
 
    ![Zrzut ekranu Instalatora programu Visual Studio z wyróżnioną kartą Pakiety robocze](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-net-core-workload.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "66482445"
 
 1. W prawym górnym rogu w polu **Źródło pakietu** wybierz pozycję **NuGet.org**. Wyszukaj `Microsoft.CognitiveServices.Speech` pakiet i zainstaluj go w projekcie **HelloWorld** .
 
-   ![Zrzut ekranu okna dialogowego Zarządzaj pakietami dla rozwiązania](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Zainstaluj pakiet NuGet")
+   ![Zrzut ekranu przedstawiający okno dialogowe Zarządzanie pakietami dla rozwiązania.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Zainstaluj pakiet NuGet")
 
 1. Zaakceptuj wyświetloną licencję, aby rozpocząć instalowanie pakietu NuGet.
 

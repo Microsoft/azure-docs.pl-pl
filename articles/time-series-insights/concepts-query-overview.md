@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0fb50e01e86c00ac863352118eb36f7470251435
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489157"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650905"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytania dotyczącego danych z Azure Time Series Insights Gen2
 

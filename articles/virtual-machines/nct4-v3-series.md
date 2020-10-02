@@ -8,30 +8,29 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320170"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653506"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Seria NCasT4_v3 (w wersji zapoznawczej) 
 
 Maszyny wirtualne z serii NCasT4_v3 są obsługiwane przez procesory [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU i AMD EPYC 7V12 (Rzym). Maszyny wirtualne są wyposażone w maksymalnie 4 procesory GPU T4 z 16 GB pamięci, do 64 rdzeni procesora AMD EPYC 7V12 (Rzym) i 440 GiB pamięci systemowej. Te maszyny wirtualne są idealnym rozwiązaniem do wdrażania usług AI, takich jak inferencing w czasie rzeczywistym żądań generowanych przez użytkowników, lub interaktywnych obciążeń graficznych i wizualizacji przy użyciu sterownika siatki firmy NVIDIA i technologii wirtualnej procesora GPU. Standardowe obciążenia procesora GPU oparte na CUDA, TensorRT, Caffe, ONNX i innych strukturach, a także technologiach opartych na procesorze GPU, oparte na technologii OpenGL i DirectX, można wdrożyć ekonomicznie, z bliską bliskością użytkowników w serii NCasT4_v3.
 
-Możesz [przesłać żądanie](https://aka.ms/NCT4v3Preview) , które będzie częścią programu w wersji zapoznawczej.
+> [!NOTe]
+> [Prześlij żądanie](https://aka.ms/NCT4v3Preview) do programu w wersji zapoznawczej.
 
 <br>
 
-ACU: 230-260
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: nieobsługiwane
-
-Aktualizacje z zachowaniem pamięci: nieobsługiwane
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych |
 | --- | --- | --- | --- | --- | --- | --- | --- |

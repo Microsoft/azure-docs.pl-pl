@@ -3,12 +3,12 @@ title: Przewodnik konfigurowania dla Azure Lab Services
 description: Ten przewodnik ułatwia twórcom laboratorium szybkie konfigurowanie konta laboratorium do użycia w ramach szkoły.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445580"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652214"
 ---
 # <a name="classroom-lab-setup-guide"></a>Przewodnik konfigurowania laboratorium zajęć
 
@@ -60,9 +60,6 @@ Usługi Lab Services korzystają z modelu cen z płatność zgodnie z rzeczywist
 - **Harmonogram**: harmonogram pozwala na automatyczne sterowanie, gdy maszyny wirtualne w laboratoriach są uruchamiane i zamykane.
 - **Limit przydziału**: określa liczbę godzin, przez które uczniowie będą mieli dostęp do maszyny wirtualnej poza zaplanowanymi godzinami. Jeśli przydział zostanie osiągnięty w czasie korzystania z niego, maszyna wirtualna zostanie automatycznie wyłączona. Student nie może ponownie uruchomić maszyny wirtualnej, o ile nie zwiększono limitu przydziału.
 - **Automatyczne zamykanie**: po włączeniu ustawienia automatycznego zamykania powoduje automatyczne wyłączenie maszyn wirtualnych z systemem Windows po upływie określonego czasu, gdy student odłączy się od sesji Remote Desktop Protocol (RDP). To ustawienie jest domyślnie wyłączone.  
-
-    > [!NOTE]
-    > To ustawienie obecnie istnieje tylko dla systemu Windows.
 
 ### <a name="how-will-students-save-their-work"></a>Jak uczniowie mogą zapisywać swoją służbę?
 

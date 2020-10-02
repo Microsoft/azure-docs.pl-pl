@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557182"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652452"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Szybki Start: konwertowanie modelu do renderowania
 
@@ -29,7 +29,7 @@ Omawiane tematy:
 * Kończenie [szybkiego startu: renderowanie modelu przy użyciu aparatu Unity](render-model.md)
 * Zainstaluj Azure PowerShell [(dokumentacja)](https://docs.microsoft.com/powershell/azure/)
   * Otwieranie programu PowerShell z uprawnieniami administratora
-  * Wykonane`Install-Module -Name Az -AllowClobber`
+  * Wykonane `Install-Module -Name Az -AllowClobber`
 
 ## <a name="overview"></a>Omówienie
 
@@ -188,8 +188,8 @@ Skrypt konwersji generuje identyfikator URI *sygnatury dostępu współdzieloneg
 
 Identyfikator URI sygnatury dostępu współdzielonego utworzony przez skrypt konwersji będzie prawidłowy tylko przez 24 godziny. Jednak po jego wygaśnięciu nie trzeba ponownie konwertować modelu. Zamiast tego można utworzyć nowe sygnatury dostępu współdzielonego w portalu, zgodnie z opisem w następnych krokach:
 
-1. Przejdź do [Azure Portal](https://www.portal.azure.com)
-1. Kliknij zasób **konta magazynu** : ![ dostęp do podpisu](./media/portal-storage-accounts.png)
+1. Przejdź do witryny [Azure Portal](https://www.portal.azure.com).
+1. Kliknij zasób **konta magazynu** : ![ zrzut ekranu, który wyróżnia wybrany zasób konta magazynu.](./media/portal-storage-accounts.png)
 1. Na poniższym ekranie kliknij pozycję **Eksplorator magazynu** na lewym panelu i Znajdź model wyjściowy (plik *. arrAsset* ) w kontenerze magazynu obiektów BLOB *arroutput* . Kliknij prawym przyciskiem myszy plik i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego** z menu kontekstowego: ![ dostęp do podpisu](./media/portal-storage-explorer.png)
 1. Zostanie otwarty nowy ekran, w którym można wybrać datę wygaśnięcia. Naciśnij pozycję **Utwórz**i skopiuj identyfikator URI, który jest wyświetlany w następnym oknie dialogowym. Ten nowy identyfikator URI zastępuje tymczasowy identyfikator URI utworzony przez skrypt.
 

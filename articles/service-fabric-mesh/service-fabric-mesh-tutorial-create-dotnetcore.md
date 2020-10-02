@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011213"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653115"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Samouczek: tworzenie, debugowanie, wdrażanie i aktualizowanie aplikacji usługi Service Fabric Mesh dla wielu usług
 
@@ -59,7 +59,7 @@ W polu **Nazwa** wpisz `todolistapp`, a w polu **Lokalizacja** ustaw ścieżkę 
 
 Upewnij się, że opcja **Utwórz katalog dla rozwiązania** jest zaznaczona, a następnie kliknij przycisk **OK**, aby utworzyć projekt usługi Service Fabric Mesh.
 
-![Okno dialogowe nowego projektu usługi Service Fabric Mesh w programie Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Zrzut ekranu pokazujący sposób tworzenia projektu siatki Service Fabric.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Pojawi się okno dialogowe **Nowa usługa Service Fabric**.
 
@@ -73,7 +73,7 @@ W polu **Nazwa usługi** wpisz **WebFrontEnd**. Naciśnij przycisk **OK**, aby u
 
 Zostanie wyświetlone okno dialogowe Aplikacja internetowa platformy ASP.NET Core. Wybierz pozycję **Aplikacja internetowa**, a następnie kliknij przycisk **OK**.
 
-![Nowa aplikacja platformy ASP.NET Core w programie Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Zrzut ekranu, który podświetla szablon Appliccation sieci Web.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Masz już aplikację usługi Service Fabric Mesh. Kolejnym krokiem jest utworzenie modelu z informacjami o zadaniach do wykonania.
 
@@ -383,7 +383,7 @@ Plik **service.yaml** w Twoim projekcie **WebFrontEnd** powinien wyglądać mnie
 
 Teraz możesz przystąpić do tworzenia i wdrażania obrazu aplikacji usługi Service Fabric Mesh oraz usługi internetowej zaplecza w lokalnym klastrze.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 

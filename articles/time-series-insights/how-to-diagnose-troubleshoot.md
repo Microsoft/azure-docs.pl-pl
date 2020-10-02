@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540306"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653761"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnozowanie i rozwiązywanie problemów dotyczących środowiska Azure Time Series Insights Gen2
 
@@ -43,17 +43,17 @@ Istnieje kilka typowych przyczyn, dla których dane mogą nie być wyświetlane 
 
 - Klucz źródła zdarzenia nie ma wymaganego uprawnienia.
 
-  * W przypadku usługi IoT Hub należy podać klucz, który ma uprawnienia do **połączenia z usługą** .
+  - W przypadku usługi IoT Hub należy podać klucz, który ma uprawnienia do **połączenia z usługą** .
 
     [![Sprawdź uprawnienia do centrum IoT Hub.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Zarówno zasady **iothubowner** , jak i działanie **usługi** , ponieważ mają uprawnienie do **łączenia usług** .
+    - Zarówno zasady **iothubowner** , jak i działanie **usługi** , ponieważ mają uprawnienie do **łączenia usług** .
 
-  * W przypadku centrum zdarzeń należy podać klucz, który ma uprawnienia do **nasłuchiwania** .
+  - W przypadku centrum zdarzeń należy podać klucz, który ma uprawnienia do **nasłuchiwania** .
   
     [![Przejrzyj uprawnienia centrum zdarzeń.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Zasady **odczytu** i **zarządzania** działają, ponieważ mają uprawnienia do **nasłuchiwania** .
+    - Zasady **odczytu** i **zarządzania** działają, ponieważ mają uprawnienia do **nasłuchiwania** .
 
 - Podana Grupa odbiorców nie ma wyłącznej Time Series Insights.
 
@@ -75,11 +75,11 @@ Dane mogą być wysyłane bez identyfikatora szeregów czasowych.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: dane były wyświetlane, ale teraz trwa ich pozyskiwanie
 
-- Klucz źródła zdarzeń mógł zostać wygenerowany ponownie, a środowisko Gen2 wymaga nowego klucza źródła zdarzeń.
+- Klucz źródła zdarzeń mógł zostać ponownie wygenerowany i środowisko Gen2 wymaga nowego klucza źródła zdarzeń.
 
-Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia nie jest już prawidłowy. W centrum zobaczysz dane telemetryczne, ale w Time Series Insights nie odebrano komunikatów przychodzących. Jeśli nie masz pewności, czy klucz został wygenerowany ponownie, możesz wyszukać w dzienniku aktywności "Event Hubs" utworzyć lub zaktualizować reguły autoryzacji przestrzeni nazw lub wyszukać opcję "Utwórz lub zaktualizuj zasób IotHub" dla usługi IoT Hub. 
+Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia nie jest już prawidłowy. W centrum zobaczysz dane telemetryczne, ale w Time Series Insights nie odebrano komunikatów przychodzących. Jeśli nie masz pewności, czy klucz został wygenerowany ponownie, możesz wyszukać w dzienniku aktywności "Event Hubs" utworzyć lub zaktualizować reguły autoryzacji przestrzeni nazw lub wyszukać opcję "Utwórz lub zaktualizuj zasób IotHub" dla usługi IoT Hub.
 
-Aby zaktualizować Time Series Insights środowisko Gen2 przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu TSI i kliknij pozycję źródła zdarzeń. 
+Aby zaktualizować Time Series Insights środowisko Gen2 przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu TSI i kliknij pozycję źródła zdarzeń.
 
    [![Zrzut ekranu przedstawia element T S I zasób ze źródłami zdarzeń o nazwie "out".](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
@@ -91,14 +91,14 @@ Wybierz źródła zdarzeń, z których zostało zatrzymane pozyskiwanie, wklej n
 
 Upewnij się, że nazwa i wartość są zgodne z następującymi regułami:
 
-* W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter.
-* Wartość właściwości timestamp, która pochodzi ze źródła zdarzenia jako ciąg JSON, ma format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Przykładem takiego ciągu jest `"2008-04-12T12:53Z"` .
+- W nazwie właściwości sygnatury czasowej jest uwzględniana wielkość liter.
+- Wartość właściwości timestamp, która pochodzi ze źródła zdarzenia jako ciąg JSON, ma format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Przykładem takiego ciągu jest `"2008-04-12T12:53Z"` .
 
 Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Time Series Insights Gen2. W Time Series Insights Eksploratorze Gen2 Użyj wykresu, aby wybrać okres czasu po podaniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie i wybierz opcję **Eksploruj zdarzenia** . Pierwszy nagłówek kolumny jest nazwą właściwości znacznika czasu. Powinien zawierać `($ts)` obok wyrazu `Timestamp` , a nie:
 
-* `(abc)`, co oznacza, że Time Series Insights odczytuje wartości danych jako ciągi.
-* Ikona **kalendarza** , która wskazuje, że Time Series Insights odczytuje wartość danych jako datę i godzinę.
-* `#`, co oznacza, że Time Series Insights odczytuje wartości danych jako liczbę całkowitą.
+- `(abc)`, co oznacza, że Time Series Insights odczytuje wartości danych jako ciągi.
+- Ikona **kalendarza** , która wskazuje, że Time Series Insights odczytuje wartość danych jako datę i godzinę.
+- `#`, co oznacza, że Time Series Insights odczytuje wartości danych jako liczbę całkowitą.
 
 Jeśli właściwość sygnatury czasowej nie zostanie określona jawnie, jako domyślny znacznik czasu zostanie użyta godzina zdarzenia w centrum IoT lub centrum zdarzeń.
 
@@ -131,7 +131,7 @@ Ten problem może wystąpić, jeśli nie używasz najnowszej wersji łącznika P
 
 [![Zrzut ekranu przedstawia okno dialogowe nie można nawiązać połączenia.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Sprawdź wersję Power BI Desktop i upewnij się, że korzystasz z wersji 2020 lipca. W przeciwnym razie zaktualizuj Power BI Desktop i ponownie uruchom łącznik. 
+- Sprawdź wersję Power BI Desktop i upewnij się, że korzystasz z wersji 2020 lipca. W przeciwnym razie zaktualizuj Power BI Desktop i ponownie uruchom łącznik.
 
 ## <a name="next-steps"></a>Następne kroki
 

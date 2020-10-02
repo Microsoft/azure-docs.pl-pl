@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268659"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652962"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -48,6 +48,18 @@ Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu proble
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historia wersji interfejsu API REST
 Informacje o historii wersji interfejsu API REST Media Services można znaleźć w [dokumentacji interfejsu API rest Azure Media Services].
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+Następujące właściwości w wersji 2 nie będą już wypełniane historycznymi danymi postępu zadania:
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Aby uzyskać historię zadań, należy używać powiadomień o zadaniach w wersji 2 za pośrednictwem elementów webhook lub kolejkowanie komunikatów za pomocą punktów końcowych powiadomień. Aby uzyskać więcej informacji, zobacz:
+
+* [Monitorowanie Media Services powiadomień zadań przy użyciu usługi Azure queue storage](media-services-dotnet-check-job-progress-with-queues.md)
+* [Monitorowanie powiadomień dotyczących zadań Media Services za pomocą elementów webhook platformy Azure](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>Luty 2020 r.
 
@@ -572,7 +584,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

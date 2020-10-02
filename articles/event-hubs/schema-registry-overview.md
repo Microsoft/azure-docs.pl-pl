@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie obsługi rejestru schematu w usłud
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a0cc54f6ada1a5900e817c8e22fc192cd73f6550
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568373"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653574"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
 W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komunikatów zdarzenie lub komunikat zawiera dane strukturalne, które są serializowane lub deserializowane przy użyciu formatu opartego na schemacie, takiego jak Apache Avro. Zarówno nadawcy, jak i odbiorcy mogą chcieć sprawdzić integralność danych za pomocą dokumentu schematu, jak w schemacie JSON. W przypadku formatów opartych na schemacie udostępnianie schematu dla konsumenta wiadomości jest wymagane przez odbiorcę do deserializacji danych. 
@@ -19,7 +19,6 @@ W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komuni
 > [!NOTE]
 > - Funkcja **Rejestr schematu** jest obecnie w **wersji zapoznawczej**i nie jest zalecana w przypadku obciążeń produkcyjnych.
 > - Funkcja jest dostępna tylko w warstwach **standardowa** i **dedykowana** , a nie w warstwie **podstawowa** .
-> - Ta wersja zapoznawcza jest obecnie dostępna tylko w regionie **zachodnie stany USA** . 
 
 W przypadku platform serializacji opartych na schemacie, takich jak Apache Avro, metadane serializacji eksternalizacji do współużytkowanych schematów mogą również pomóc w znaczącym zmniejszeniu obciążenia dla poszczególnych komunikatów typu i nazw pól zawartych w każdym zestawie danych, tak jak w przypadku formatów oznakowanych, takich jak JSON. Schematy przechowywane wraz ze zdarzeniami i wewnątrz infrastruktury zdarzeń zapewniają, że metadane wymagane do serializacji/deserializacji są zawsze dostępne, a schematy nie mogą być umieszczane. 
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649911"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652996"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 i Ddsv4
 
@@ -28,15 +28,13 @@ Rozmiary serii Ddv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinu
 
 Nowe rozmiary maszyn wirtualnych Ddv4 obejmują szybki i większy lokalny magazyn SSD (do 2 400 GiB) i są przeznaczone dla aplikacji, które korzystają z małych opóźnień, dużej szybkości magazynu lokalnego, takich jak aplikacje wymagające szybkiego odczytu/zapisu w magazynie tymczasowym lub wymagające tymczasowego magazynu dla pamięci podręcznej lub plików tymczasowych. Do maszyn wirtualnych Ddv4 można dołączyć standardowy magazyn dysków SSD i standardowy HDD. Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
 
-ACU: 195-210
-
-Premium Storage: nieobsługiwane
-
-Buforowanie Premium Storage: nieobsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+<br> 
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ Nowe rozmiary maszyn wirtualnych Ddsv4 obejmują szybki i większy lokalny magaz
  > [!NOTE]
  >Liczniki cen i rozliczeń dla rozmiarów Ddsv4 są takie same jak dla serii Ddv4.
 
-ACU: 195-210
-
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: obsługiwane
-
-Aktualizacje z zachowaniem pamięci: obsługiwane
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
+<br> 
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|

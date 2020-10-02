@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395234"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653387"
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
@@ -27,7 +27,7 @@ Ważne jest, aby zapewnić, że podczas używania usługi Microsoft lub publiczn
 
 Rozważmy następujący przykładowy scenariusz:
 
-![Przypadek 1 dotyczący usługi ExpressRoute — suboptymalny routing od klienta do firmy Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagram przedstawiający problem z ExpressRouteą w przypadku wystąpienia 1 — nieoptymalny Routing od klienta do firmy Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 W powyższym przykładzie, aby preferować ExpressRoute ścieżki skonfigurować preferencję lokalną w następujący sposób. 
 

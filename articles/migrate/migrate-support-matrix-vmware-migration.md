@@ -3,12 +3,12 @@ title: Obsługa migracji oprogramowania VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji maszyn wirtualnych VMware w Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442277"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651959"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi migracji VMware
 
@@ -154,7 +154,7 @@ Serwer przetwarzania | Serwer przetwarzania odbiera dane replikacji, optymalizuj
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej platformy Azure
 
-Wszystkie lokalne maszyny wirtualne replikowane na platformę Azure przy użyciu programu bez agenta lub migracji opartej na agencie muszą spełniać wymagania maszyny wirtualnej platformy Azure, które zostały podsumowane w tej tabeli. 
+Wszystkie lokalne maszyny wirtualne replikowane na platformę Azure (z obsługą agenta lub migracji opartej na agentach) muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure, które zostały podsumowane w tej tabeli. 
 
 **Składnik** | **Wymagania** 
 --- | --- | ---

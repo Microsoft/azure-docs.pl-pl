@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119644"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653234"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Punkt końcowy informacji o firmie Microsoft Identity platform
 
@@ -28,7 +28,7 @@ Punkt końcowy UserInfo jest częścią [OpenID Connect Connect Standard](https:
 
 Można programowo wykryć punkt końcowy UserInfo przy użyciu narzędzia OpenID Connect Connect Discovery w witrynie `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Jest on wymieniony w `userinfo_endpoint` polu, a ten wzorzec może być używany w różnych chmurach, aby wskazywał prawy punkt końcowy.  Nie zalecamy wstępnego kodowania punktu końcowego UserInfo w aplikacji — użyj dokumentu odnajdywania OIDC, aby znaleźć ten punkt końcowy w środowisku uruchomieniowym.
 
-W ramach specyfikacji OpenID Connect Connect punkt końcowy UserInfo jest często automatycznie wywoływany przez [biblioteki zgodne z OIDC](https://openid.net/developers/certified/) , aby uzyskać informacje o użytkowniku.  Bez obsługi takiego punktu końcowego platforma tożsamości firmy Microsoft nie będzie zgodna ze standardami, a niektóre biblioteki będą kończyć się niepowodzeniem.  Z [listy oświadczeń określonych w standardzie OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) firma Microsoft tworzy oświadczenia nazw, oświadczenia podmiotu i wiadomości e-mail, jeśli są dostępne i są zgodne z.  
+W ramach specyfikacji OpenID Connect Connect punkt końcowy UserInfo jest często automatycznie wywoływany przez [biblioteki zgodne z OIDC](https://openid.net/developers/certified/)  , aby uzyskać informacje o użytkowniku.  Bez obsługi takiego punktu końcowego platforma tożsamości firmy Microsoft nie będzie zgodna ze standardami, a niektóre biblioteki będą kończyć się niepowodzeniem.  Z [listy oświadczeń określonych w standardzie OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) firma Microsoft tworzy oświadczenia nazw, oświadczenia podmiotu i wiadomości e-mail, jeśli są dostępne i są zgodne z.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Rozważmy: zamiast tego użyj tokenu identyfikatora
 
@@ -42,7 +42,7 @@ UserInfo jest standardowym interfejsem API tokenu okaziciela OAuth nazywanym inn
 
 ### <a name="permissions"></a>Uprawnienia
 
-Aby wywołać interfejs API UserInfo, użyj następujących [uprawnień OIDC](v2-permissions-and-consent.md#openid-connect-scopes) . `openid`jest wymagana, a `profile` zakresy i `email` zapewniają, że dodatkowe informacje są podane w odpowiedzi.
+Aby wywołać interfejs API UserInfo, użyj następujących [uprawnień OIDC](v2-permissions-and-consent.md#openid-connect-scopes) . `openid` jest wymagana, a `profile` zakresy i `email` zapewniają, że dodatkowe informacje są podane w odpowiedzi.
 
 |Typ uprawnienia      | Uprawnienia    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-Oświadczenia wymienione tutaj, w tym `sub` , to te same oświadczenia, które aplikacja zobaczy w [tokenie ID](id-tokens.md) wystawionym dla aplikacji.  
+Oświadczenia wymienione w tym miejscu to wszystkie oświadczenia, które mogą zostać zwrócone przez punkt końcowy UserInfo.  Są to te same wartości, które aplikacja zobaczy w [tokenie ID](id-tokens.md) wystawionym dla aplikacji.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>Uwagi i zastrzeżenia w punkcie końcowym UserInfo
 

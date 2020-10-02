@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510353"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653251"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -119,7 +119,7 @@ Po zakończeniu fazy 1 wykonasz następujące czynności:
 
 :::row:::
     :::column:::
-        ![Obraz przedstawiający część wcześniejszego obrazu z omówieniem, który ułatwia skoncentrowanie się na tej podsekcji artykułu.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![Ilustracja przedstawiająca teraz czas udostępniania maszyny wirtualnej i Uwidacznianie klonu woluminu (lub wielu) dla tej maszyny wirtualnej za pośrednictwem protokołu iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         Po udostępnieniu początkowego klonu na urządzeniu wirtualnym z systemem StorSimple 8020 na platformie Azure czas na zainicjowanie obsługi administracyjnej maszyny wirtualnej i uwidocznienie klonu woluminu (lub wielu) dla tej maszyny wirtualnej za pośrednictwem protokołu iSCSI.
@@ -175,7 +175,7 @@ Przechodzenie do fazy 3 należy wykonać dopiero po wykonaniu tych kroków dla w
 
 :::row:::
     :::column:::
-        ![Obraz przedstawiający część wcześniejszego obrazu z omówieniem, który ułatwia skoncentrowanie się na tej podsekcji artykułu.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![Ilustracja przedstawiająca potrzebę ustalenia i aprowizacji kilku udziałów plików platformy Azure oraz utworzenia lokalnego systemu Windows Server jako StorSimple urządzenia.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         W tej fazie będzie można określić i zainicjować obsługę wielu udziałów plików platformy Azure, tworząc lokalnie system Windows Server jako zamiennik urządzenia StorSimple, a następnie skonfigurować ten serwer do Azure File Sync. 
@@ -225,7 +225,7 @@ Zarejestrowany lokalny serwer systemu Windows musi być gotowy i połączony z I
 
 :::row:::
     :::column:::
-        ![Obraz przedstawiający część wcześniejszego obrazu z omówieniem, który ułatwia skoncentrowanie się na tej podsekcji artykułu.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Ilustracja przedstawiająca sposób uzyskania maszyny wirtualnej połączonej za pośrednictwem Azure File Sync i rozpoczęcie pierwszego przenoszonego pliku z klonów woluminów StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         Ta faza dotyczy maszyny wirtualnej platformy Azure z zainstalowanym interfejsem iSCSI, a pierwsze klony woluminów. W tej fazie zostanie nawiązane połączenie z maszyną wirtualną za pośrednictwem Azure File Sync i rozpocznie się pierwsze przechodzenie plików z klonów woluminów StorSimple.
@@ -253,9 +253,9 @@ W trakcie tego procesu migracji kilka klonów woluminów zostanie zainstalowanyc
 > Aby to umożliwić, należy ustawić na serwerze klucz rejestru przed skonfigurowaniem Azure File Sync.
 
 1. Utwórz nowy katalog na dysku systemowym maszyny wirtualnej. Informacje Azure File Sync muszą zostać utrwalone w tym miejscu zamiast na woluminach klonów zainstalowanych woluminów. Na przykład: `"C:\syncmetadata"`
-2. Otwórz regedit i znajdź następującą gałąź rejestru:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
+2. Otwórz regedit i znajdź następującą gałąź rejestru: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Utwórz nowy klucz typu String o nazwie: ***MetadataRootPath***
-4. Ustaw pełną ścieżkę do katalogu utworzonego na woluminie systemowym, na przykład:`C:\syncmetadata"`
+4. Ustaw pełną ścieżkę do katalogu utworzonego na woluminie systemowym, na przykład: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Konfigurowanie Azure File Sync na maszynie wirtualnej platformy Azure
 
@@ -281,7 +281,7 @@ Ze środowiska można założyć, że przepustowość — w związku z rzeczywis
 
 :::row:::
     :::column:::
-        ![Obraz przedstawiający część wcześniejszego obrazu z omówieniem, który ułatwia skoncentrowanie się na tej podsekcji artykułu.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![Ilustracja przedstawiająca sposób minimalizowania przestojów przy użyciu wielu klonów woluminów i informujących o zakończeniu synchronizacji.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         Zgodnie z opisem w poprzedniej fazie synchronizacja początkowa może zająć dużo czasu. Użytkownicy i aplikacje nadal uzyskują dostęp do lokalnego urządzenia StorSimple 8100 lub 8600. Oznacza to, że zmiany są kumulowane i każdy dzień jest większą różnicą między danymi na żywo i początkowym klonem woluminu, obecnie migracji, formularzy. Ta sekcja zawiera informacje na temat minimalizowania przestojów przy użyciu wielu klonów woluminów i informujących o zakończeniu synchronizacji.
@@ -338,7 +338,7 @@ W tym momencie istnieją dwie różnice między lokalnym serwerem Windows i urz�
 1. Mogą istnieć pliki, które nie zostały zsynchronizowane (zobacz **PerItemErrors** z dziennika zdarzeń powyżej)
 2. Urządzenie StorSimple ma wypełnioną pamięć podręczną a w systemie Windows Server tylko przestrzeń nazw bez zawartości pliku przechowywanej lokalnie.
 
-![Obraz przedstawiający część wcześniejszego obrazu z omówieniem, który ułatwia skoncentrowanie się na tej podsekcji artykułu.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Ilustracja przedstawiająca sposób, w jaki pamięć podręczna systemu Windows Server była przenoszona do stanu urządzenia i nie gwarantuje, że żaden plik nie został pozostawiony w końcowej RoboCopy.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 Możemy przełączyć pamięć podręczną systemu Windows Server do stanu urządzenia i upewnić się, że żaden plik nie został pozostawiony w RoboCopy końcowym.
 

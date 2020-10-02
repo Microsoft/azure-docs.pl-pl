@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006469"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653676"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -76,10 +76,10 @@ Należy zmodyfikować plik `Packages/manifest.json` , który znajduje się w fol
 
 Po zmodyfikowaniu i zapisaniu manifestu aparat Unity zostanie automatycznie odświeżony. Upewnij się, że pakiety zostały załadowane w oknie *projektu* :
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Potwierdź Importy pakietów":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Nowy projekt Unity":::
 
 Jeśli pakiety nie są ładowane, sprawdź, czy w konsoli aparatu Unity występują błędy. Jeśli nie masz żadnych błędów i nadal nie widzisz żadnych pakietów w folderze **Packages** , zaznacz przycisk przełączania widoczności pakietu. \
-![Właściwości aparatu Unity](./media/unity-package-visibility.png)
+![Zrzut ekranu ze strzałką wskazującą na przycisk przełączania widoczności pakietu.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Upewnij się, że masz najnowszą wersję pakietu
 
@@ -120,7 +120,7 @@ Poniższe kroki zapewniają, że Twój projekt używa najnowszej wersji pakietu 
 
 1. Wybierz pozycję **grafika** z menu listy po lewej stronie
 1. Zmień ustawienie **potoku renderowania skryptowego** na *HybridRenderingPipeline*. \
-    ![Zmienianie ustawień grafiki projektu](./media/settings-graphics-render-pipeline.png)\
+    ![Zrzut ekranu, który wskazuje, gdzie można zmienić ustawienie potoku renderowania skryptowego na HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. W takim przypadku należy ręcznie przeciągnąć element zawartości *HybridRenderingPipeline* na pole: \
     ![Zmienianie ustawień grafiki projektu](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Aby postępować od **NotAuthorized** do **nosession**, zwykle przedstawiamy uż
 1. Przeciągnij składnik do własnego zdarzenia, aby odwołać się do samego siebie. \
 ![Obejdź uwierzytelnianie](./media/bypass-authorization-add-event.png)\
 1. Z listy rozwijanej wybierz pozycję **RemoteRenderingCoordinator-> BypassAuthorization**. \
-![Obejdź uwierzytelnianie](./media/bypass-authorization-event.png)
+![Zrzut ekranu przedstawiający wybraną opcję RemoteRenderingCoordinator. BypassAuthorization.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Tworzenie sesji zdalnej lub dołączanie do niej
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Z wymaganą podstawą jest gotowy do załadowania modelu do sesji zdalnej i rozpoczęcia otrzymywania ramek.
 
-![Stos ARR 4](./media/remote-render-stack-4.png)
+![Diagram pokazujący przepływ procesu przygotowywania do załadowania i wyświetlania modelu.](./media/remote-render-stack-4.png)
 
 Metoda **LoadModel** została zaprojektowana w celu zaakceptowania ścieżki modelu, procedury obsługi postępu i transformacji nadrzędnej. Te argumenty zostaną użyte do załadowania modelu do sesji zdalnej, zaktualizowania użytkownika na postęp ładowania i zorientowania się zdalnie renderowanego modelu na podstawie transformacji nadrzędnej.
 
@@ -839,7 +839,7 @@ Mamy teraz cały kod wymagany do wyświetlenia zdalnie renderowanego modelu, wsz
 > [!NOTE]
 > Model zdalny nigdy nie będzie widoczny w widoku sceny, tylko w widoku gry. Wynika to z faktu, że ARR renderuje ramki zdalnie, w odniesieniu do perspektywy aparatu wyświetlania gier i nie ma informacji o aparacie edytora (używanym do renderowania widoku sceny).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 ![Załadowano model](./media/test-model-rendered.png)
 

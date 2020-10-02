@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959062"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652044"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
@@ -202,7 +202,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 1. Wybierz ten sam **region** , w którym została utworzona aplikacja App Service, lub region blisko siebie.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    ![Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account.png)
 
@@ -264,13 +264,13 @@ W tej sekcji utworzysz i uruchamiasz projekt lokalnie i Wyzwalasz funkcję, twor
 
 1. Wprowadź *kolejkę* jako nazwę kolejki, a następnie wybierz przycisk **OK**.
 
-   ![Utwórz kolejkę](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Zrzut ekranu pokazujący, gdzie tworzysz kolejkę i nadaj jej nazwę "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Kliknij prawym przyciskiem myszy węzeł nowej kolejki, a następnie wybierz pozycję **Wyświetl kolejkę**.
 
 1. Wybierz ikonę **Dodaj wiadomość** .
 
-   ![Utwórz kolejkę](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Zrzut ekranu, który podświetla ikonę Dodaj wiadomość.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. W oknie dialogowym **Dodawanie wiadomości** wprowadź *Hello World!* jako **tekst komunikatu**, a następnie wybierz przycisk **OK**. W kolejce znajduje się teraz komunikat.
 
@@ -546,7 +546,7 @@ Powiązania wyjściowe upraszczają kod, który zapisuje dane. Ten przykład mod
  
 1. Sprawdź funkcję na platformie Azure, przekazując plik do kontenera obiektów blob i dodając komunikat do kolejki, która jest nazwą przekazanego pliku. Zobaczysz, że komunikat został usunięty z kolejki i kopię pliku utworzonego w kontenerze obiektów BLOB. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule pokazano, jak utworzyć, uruchomić i wdrożyć projekt WebJobs SDK 3. x.
 

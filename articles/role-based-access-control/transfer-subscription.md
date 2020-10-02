@@ -1,5 +1,5 @@
 ---
-title: Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
+title: Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 description: Dowiedz się, jak przetransferować subskrypcję platformy Azure i znane powiązane zasoby do innego katalogu Azure Active Directory (Azure AD).
 services: active-directory
 author: rolyon
@@ -10,19 +10,14 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400548"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652388"
 ---
-# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Wykonanie poniższych kroków w celu przeniesienia subskrypcji do innego katalogu usługi Azure AD jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
 Organizacje mogą mieć kilka subskrypcji platformy Azure. Każda subskrypcja jest skojarzona z określonym katalogiem Azure Active Directory (Azure AD). Aby ułatwić zarządzanie, możesz chcieć przenieść subskrypcję do innego katalogu usługi Azure AD. Gdy przesyłasz subskrypcję do innego katalogu usługi Azure AD, niektóre zasoby nie są transferowane do katalogu docelowego. Na przykład wszystkie przypisania ról i role niestandardowe w ramach kontroli dostępu opartej na rolach na platformie Azure (RBAC) są **trwale** usuwane z katalogu źródłowego i nie są transferowane do katalogu docelowego.
 
@@ -79,9 +74,9 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure File Sync | Tak | Tak |  |  |
-| Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
+| Dyski zarządzane platformy Azure | Tak | Brak |  |  |
 | Azure Container Services dla Kubernetes | Tak | Tak |  |  |
-| Usługi Azure Active Directory Domain Services | Tak | Nie |  |  |
+| Azure Active Directory Domain Services | Tak | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |
 
 > [!WARNING]
@@ -91,7 +86,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 
 Aby wykonać te kroki, potrzebne są:
 
-- [Bash w Azure Cloud Shell](/azure/cloud-shell/overview) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
+- [Bash w Azure Cloud Shell](/azure/cloud-shell/overview) lub [interfejs wiersza polecenia platformy Azure](/cli/azure)
 - Administrator konta subskrypcji, która ma zostać przetransferowana w katalogu źródłowym
 - Rola [właściciela](built-in-roles.md#owner) w katalogu docelowym
 
@@ -101,13 +96,13 @@ Aby wykonać te kroki, potrzebne są:
 
 1. Zaloguj się do platformy Azure jako administrator.
 
-1. Pobierz listę subskrypcji za pomocą polecenia [AZ Account List](/cli/azure/account#az-account-list) .
+1. Pobierz listę subskrypcji za pomocą polecenia [AZ Account List](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Użyj [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) , aby ustawić aktywną subskrypcję, którą chcesz przenieść.
+1. Użyj [AZ Account Set](/cli/azure/account#az_account_set) , aby ustawić aktywną subskrypcję, którą chcesz przenieść.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -115,9 +110,9 @@ Aby wykonać te kroki, potrzebne są:
 
 ### <a name="install-the-resource-graph-extension"></a>Instalowanie rozszerzenia grafu zasobów
 
- Rozszerzenie grafu zasobów umożliwia użycie polecenia [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
+ Rozszerzenie grafu zasobów umożliwia użycie polecenia [AZ Graph](/cli/azure/ext/resource-graph/graph) do wykonywania zapytań dotyczących zasobów zarządzanych przez Azure Resource Manager. To polecenie będzie używane w dalszych krokach.
 
-1. Użyj [AZ Extension list](https://docs.microsoft.com/cli/azure/extension#az-extension-list) , aby sprawdzić, czy masz zainstalowane rozszerzenie *grafu zasobów* .
+1. Użyj [AZ Extension list](/cli/azure/extension#az_extension_list) , aby sprawdzić, czy masz zainstalowane rozszerzenie *grafu zasobów* .
 
     ```azurecli
     az extension list
@@ -131,7 +126,7 @@ Aby wykonać te kroki, potrzebne są:
 
 ### <a name="save-all-role-assignments"></a>Zapisz wszystkie przypisania ról
 
-1. Użyj [AZ role przypisanie list](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) , aby wyświetlić listę wszystkich przypisań ról (łącznie z dziedziczonymi przypisaniami ról).
+1. Użyj [AZ role przypisanie list](/cli/azure/role/assignment#az_role_assignment_list) , aby wyświetlić listę wszystkich przypisań ról (łącznie z dziedziczonymi przypisaniami ról).
 
     Aby ułatwić zapoznanie się z listą, można wyeksportować dane wyjściowe w formacie JSON, TSV lub tabelę. Aby uzyskać więcej informacji, zobacz [Wyświetlanie listy przypisań ról przy użyciu funkcji Azure RBAC i interfejsu wiersza polecenia platformy Azure](role-assignments-list-cli.md).
 
@@ -149,7 +144,7 @@ Aby wykonać te kroki, potrzebne są:
 
 ### <a name="save-custom-roles"></a>Zapisz role niestandardowe
 
-1. Użyj [listy AZ role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) , aby wyświetlić listę ról niestandardowych. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
+1. Użyj [listy AZ role Definition](/cli/azure/role/definition#az_role_definition_list) , aby wyświetlić listę ról niestandardowych. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -193,7 +188,7 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
 1. Przejrzyj [listę usług platformy Azure, które obsługują tożsamości zarządzane,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) aby zauważyć, gdzie mogą być używane tożsamości zarządzane.
 
-1. Użyj [AZ AD Sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) , aby wyświetlić zarządzane tożsamości przypisane do systemu i przypisane przez użytkownika.
+1. Użyj [AZ AD Sp list](/cli/azure/ad/sp#az_ad_sp_list) , aby wyświetlić zarządzane tożsamości przypisane do systemu i przypisane przez użytkownika.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -207,7 +202,7 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
     | `alternativeNames` Właściwość nie zawiera `isExplicit` | Przypisane przez system |
     | `alternativeNames` Właściwość obejmuje `isExplicit=True` | Przypisane przez użytkownika |
 
-    Możesz również użyć [AZ Identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) , aby tylko wyświetlić tożsamości zarządzane przypisane przez użytkownika. Aby uzyskać więcej informacji, zobacz [Tworzenie, wyświetlanie lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    Możesz również użyć [AZ Identity list](/cli/azure/identity#az_identity_list) , aby tylko wyświetlić tożsamości zarządzane przypisane przez użytkownika. Aby uzyskać więcej informacji, zobacz [Tworzenie, wyświetlanie lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -224,7 +219,7 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 > [!WARNING]
 > Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który **nie** znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
 
-- Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz [przypisywanie zasad dostępu Key Vault](../key-vault/general/assign-access-policy-cli.md).
+- Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](/cli/azure/keyvault#az_keyvault_show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz [przypisywanie zasad dostępu Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -232,7 +227,7 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Wyświetlanie listy baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD
 
-- Użyj polecenia [AZ SQL Server AD-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) i [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension, aby sprawdzić, czy są używane bazy danych Azure SQL Database z włączoną integracją uwierzytelniania usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../azure-sql/database/authentication-aad-configure.md).
+- Użyj polecenia [AZ SQL Server AD-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) i [AZ Graph](/cli/azure/ext/resource-graph/graph) Extension, aby sprawdzić, czy są używane bazy danych Azure SQL Database z włączoną integracją uwierzytelniania usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -248,13 +243,13 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 
 ### <a name="list-other-known-resources"></a>Wyświetlanie listy innych znanych zasobów
 
-1. Użyj [AZ Account show](https://docs.microsoft.com/cli/azure/account#az-account-show) , aby uzyskać identyfikator subskrypcji.
+1. Użyj [AZ Account show](/cli/azure/account#az_account_show) , aby uzyskać identyfikator subskrypcji.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Użyj rozszerzenia [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) , aby wyświetlić listę innych zasobów platformy Azure ze znanymi zależnościami w katalogu usługi Azure AD.
+1. Użyj rozszerzenia [AZ Graph](/cli/azure/ext/resource-graph/graph) , aby wyświetlić listę innych zasobów platformy Azure ze znanymi zależnościami w katalogu usługi Azure AD.
 
     ```azurecli
     az graph query -q \
@@ -286,13 +281,13 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
 
     Tylko użytkownik na nowym koncie, który zaakceptował żądanie transferu, będzie miał dostęp do zarządzania zasobami.
 
-1. Pobierz listę subskrypcji za pomocą polecenia [AZ Account List](https://docs.microsoft.com/cli/azure/account#az-account-list) .
+1. Pobierz listę subskrypcji za pomocą polecenia [AZ Account List](/cli/azure/account#az_account_list) .
 
     ```azurecli
     az account list --output table
     ```
 
-1. Użyj [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) , aby ustawić aktywną subskrypcję, której chcesz użyć.
+1. Użyj [AZ Account Set](/cli/azure/account#az_account_set) , aby ustawić aktywną subskrypcję, której chcesz użyć.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -300,7 +295,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
 
 ### <a name="create-custom-roles"></a>Tworzenie ról niestandardowych
         
-- Użyj [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) , aby utworzyć każdą rolę niestandardową z utworzonych wcześniej plików. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
+- Użyj [AZ role Definition Create](/cli/azure/role/definition#az_role_definition_create) , aby utworzyć każdą rolę niestandardową z utworzonych wcześniej plików. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -308,7 +303,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
 
 ### <a name="create-role-assignments"></a>Tworzenie przypisań roli
 
-- Użyj [AZ role przypisanie Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) , aby utworzyć przypisania roli dla użytkowników, grup i jednostek usługi. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md).
+- Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla użytkowników, grup i jednostek usługi. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -324,7 +319,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
     | Zestawy skalowania maszyn wirtualnych | [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Inne usługi | [Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Użyj [AZ role przypisanie Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych do systemu. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych do systemu. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -340,7 +335,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
     | Zestawy skalowania maszyn wirtualnych | [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Inne usługi | [Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Użyj [AZ role przypisanie Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych przez użytkownika. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az_role_assignment_create) , aby utworzyć przypisania roli dla tożsamości zarządzanych przypisanych przez użytkownika. Aby uzyskać więcej informacji, zobacz [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

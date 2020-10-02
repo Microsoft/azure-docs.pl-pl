@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260771"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651721"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -85,7 +85,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 
     ![Widok Eksploratora magazynu danych wyjściowych](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Widok Eksploratora magazynu danych wyjściowych")
 
-    ![Widok Eksploratora magazynu danych wyjściowych](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Widok Eksploratora magazynu danych wyjściowych")
+    ![Zrzut ekranu, który podświetla domyślną > demodata > demo_df Path.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Widok Eksploratora magazynu danych wyjściowych")
 
 ## <a name="run-spark-sql-statements"></a>Uruchamianie instrukcji Spark SQL
 

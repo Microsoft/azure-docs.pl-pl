@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595643"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649800"
 ---
 # <a name="outbound-connections"></a>Połączenia wychodzące
 
@@ -160,7 +160,7 @@ Każdy adres IP w ramach publicznego prefiksu IP zapewnia dodatkowe 64 000 port�
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Limit czasu bezczynności przepływu ruchu wychodzącego i Resetowanie protokołu TCP
 
-Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji. Domyślnie wychodzące limity czasu bezczynności to 4 minuty. Aby uzyskać więcej informacji, zobacz [Konfigurowanie limitów czasu bezczynności](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji. Domyślnie wychodzące limity czasu bezczynności to 4 minuty. Aby uzyskać więcej informacji, zobacz [Konfigurowanie limitów czasu bezczynności](load-balancer-tcp-idle-timeout.md). 
 
 Domyślnym zachowaniem usługi równoważenia obciążenia jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności dla ruchu wychodzącego. `enableTCPReset`Parametr umożliwia przewidywalną kontrolę i zachowanie aplikacji. Parametr określa, czy należy wysyłać dwukierunkowe Resetowanie TCP (TCP RST) przy limicie czasu limitu czasu bezczynności ruchu wychodzącego. 
 
@@ -375,7 +375,7 @@ Jeden port źródłowego adresu IP jest używany dla każdego docelowego i każd
 
 | Odpowiednie protokoły |
 |------------------------|
-| Nie dotyczy |
+| Brak |
 
 #### <a name="details"></a>Szczegóły
 

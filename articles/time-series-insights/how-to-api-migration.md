@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: d68323bb72779ec5978c721b5258d4c8a8d4940d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 30c3fa837f84ff318e9a03a8a11ef6259890f4bb
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650804"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653744"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrowanie do nowych wersji interfejsu API Azure Time Series Insights Gen2
 
@@ -60,7 +60,7 @@ Aby ułatwić użytkownikom Migrowanie [zmiennych modelu szeregów czasowych](./
 
     [![Aktualizuj zapisane zapytania](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Kliknij przycisk **Gotowe**.
+1. Kliknij pozycję **Gotowe**.
 
     [![Zakończono migrację](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 

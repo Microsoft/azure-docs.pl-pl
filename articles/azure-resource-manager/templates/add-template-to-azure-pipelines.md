@@ -1,38 +1,36 @@
 ---
 title: Ciągłej integracji/ciągłego wdrażania za pomocą Azure Pipelines i szablonów
-description: Opisuje sposób konfigurowania ciągłej integracji w Azure Pipelines przy użyciu projektów wdrażania grupy zasobów platformy Azure w programie Visual Studio w celu wdrażania szablonów Menedżer zasobów.
+description: Opisuje sposób konfigurowania ciągłej integracji w programie Azure Pipelines przy użyciu szablonów Azure Resource Manager. Pokazano, jak używać skryptu programu PowerShell lub skopiować pliki do lokalizacji tymczasowej i wdrożyć je stamtąd.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/01/2020
+ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084655"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653404"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów ARM z Azure Pipelines
 
-Program Visual Studio udostępnia projekt grupy zasobów platformy Azure na potrzeby tworzenia szablonów Azure Resource Manager (ARM) i wdrażania ich w ramach subskrypcji platformy Azure. Można zintegrować ten projekt z Azure Pipelines na potrzeby ciągłej integracji i ciągłego wdrażania (CI/CD).
+Szablony Azure Resource Manager (szablony ARM) można zintegrować z Azure Pipelines na potrzeby ciągłej integracji i ciągłego wdrażania (CI/CD). Samouczek [ciągła integracja szablonów ARM z Azure Pipelines](deployment-tutorial-pipeline.md) pokazuje, jak za pomocą [zadania wdrażania szablonu ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) wdrożyć szablon z repozytorium GitHub. To podejście działa, gdy chcesz wdrożyć szablon bezpośrednio z repozytorium.
 
-Istnieją dwa sposoby wdrażania szablonów przy użyciu Azure Pipelines:
+W tym artykule przedstawiono dwa sposoby wdrażania szablonów przy użyciu Azure Pipelines. W tym artykule pokazano, jak:
 
-* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia, ponieważ jest używany ten sam skrypt, który jest zawarty w projekcie programu Visual Studio (Deploy-AzureResourceGroup.ps1). Etapy skryptu są artefaktami z projektu do konta magazynu, do którego Menedżer zasobów może uzyskać dostęp. Artefakty to elementy w projekcie, takie jak połączone szablony, skrypty i pliki binarne aplikacji. Następnie skrypt wdraża szablon.
+* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia programistycznego, ponieważ można użyć tego samego skryptu, który został użyty podczas uruchamiania testów lokalnych. Skrypt wdraża szablon, ale może również wykonywać inne operacje, takie jak pobieranie wartości jako parametrów.
 
-* **Dodawanie zadań do kopiowania i wdrażania zadań**. Ta opcja oferuje wygodną alternatywę dla skryptu projektu. W potoku konfiguruje się dwa zadania. Jednym etapem zadania artefakty, a inne zadanie wdraża szablon.
+   Program Visual Studio udostępnia [projekt grupy zasobów platformy Azure](create-visual-studio-deployment-project.md) , który zawiera skrypt programu PowerShell. Etapy skryptu są artefaktami z projektu do konta magazynu, do którego Menedżer zasobów może uzyskać dostęp. Artefakty to elementy w projekcie, takie jak połączone szablony, skrypty i pliki binarne aplikacji. Jeśli chcesz kontynuować używanie skryptu z projektu, Użyj zadania skryptu programu PowerShell pokazanego w tym artykule.
 
-W tym artykule przedstawiono oba podejścia.
+* **Dodawanie zadań do kopiowania i wdrażania zadań**. Ta opcja oferuje wygodną alternatywę dla skryptu projektu. W potoku konfiguruje się dwa zadania. Jedno zadanie etapuje artefakty do dostępnej lokalizacji. Inne zadanie wdraża szablon z tej lokalizacji.
 
 ## <a name="prepare-your-project"></a>Przygotowywanie projektu
 
-W tym artykule przyjęto założenie, że projekt programu Visual Studio i organizacja usługi Azure DevOps są gotowe do tworzenia potoku. W poniższych krokach pokazano, jak upewnić się, że wszystko jest gotowe:
+W tym artykule przyjęto założenie, że szablon ARM i organizacja usługi Azure DevOps są gotowe do tworzenia potoku. W poniższych krokach pokazano, jak upewnić się, że wszystko jest gotowe:
 
-* Masz organizację usługi Azure DevOps. Jeśli go nie masz, [Utwórz go bezpłatnie](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Jeśli Twój zespół ma już organizację usługi Azure DevOps, upewnij się, że jesteś administratorem projektu usługi Azure DevOps, którego chcesz użyć.
+* Masz organizację usługi Azure DevOps. Jeśli go nie masz, [Utwórz go bezpłatnie](/azure/devops/pipelines/get-started/pipelines-sign-up). Jeśli Twój zespół ma już organizację usługi Azure DevOps, upewnij się, że jesteś administratorem projektu usługi Azure DevOps, którego chcesz użyć.
 
-* Skonfigurowano [połączenie usługi](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) z subskrypcją platformy Azure. Zadania w potoku są wykonywane w ramach tożsamości nazwy głównej usługi. Aby uzyskać instrukcje dotyczące tworzenia połączenia, zobacz [Tworzenie projektu DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
+* Skonfigurowano [połączenie usługi](/azure/devops/pipelines/library/connect-to-azure) z subskrypcją platformy Azure. Zadania w potoku są wykonywane w ramach tożsamości nazwy głównej usługi. Aby uzyskać instrukcje dotyczące tworzenia połączenia, zobacz [Tworzenie projektu DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* Masz projekt programu Visual Studio, który został utworzony na podstawie początkowego szablonu **grupy zasobów platformy Azure** . Aby uzyskać informacje na temat tworzenia tego typu projektu, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](create-visual-studio-deployment-project.md).
-
-* Projekt programu Visual Studio jest [połączony z projektem usługi Azure DevOps](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Masz [szablon ARM](quickstart-create-templates-use-visual-studio-code.md) , który definiuje infrastrukturę dla projektu.
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
 
@@ -56,27 +54,32 @@ Możesz dodać zadanie Azure PowerShell lub skopiować plik i wdrożyć zadania.
 
 ## <a name="azure-powershell-task"></a>Azure PowerShell, zadanie
 
-W tej sekcji pokazano, jak skonfigurować ciągłe wdrażanie przy użyciu pojedynczego zadania, które uruchamia skrypt programu PowerShell w projekcie. Następujący plik YAML tworzy [zadanie Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+W tej sekcji pokazano, jak skonfigurować ciągłe wdrażanie przy użyciu pojedynczego zadania, które uruchamia skrypt programu PowerShell w projekcie. Jeśli potrzebujesz skryptu programu PowerShell, który wdraża szablon, zobacz [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) lub [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
-```yaml
+Następujący plik YAML tworzy [zadanie Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell):
+
+```yml
+trigger:
+- master
+
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: azureps
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@3
+- task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'demo-deploy-sp'
-    ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
-    azurePowerShellVersion: LatestVersion
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-Template.ps1'
+    ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
 ```
 
-Po ustawieniu zadania na `AzurePowerShell@3` , potok używa poleceń z modułu AzureRM do uwierzytelniania połączenia. Domyślnie skrypt programu PowerShell w projekcie programu Visual Studio używa modułu AzureRM. Jeśli skrypt został zaktualizowany tak, aby korzystał z [modułu AZ module](/powershell/azure/new-azureps-module-az), Ustaw zadanie na `AzurePowerShell@4` .
+Po ustawieniu zadania na `AzurePowerShell@5` , potok używa [AZ module](/powershell/azure/new-azureps-module-az). Jeśli używasz modułu AzureRM w skrypcie, Ustaw zadanie na `AzurePowerShell@3` .
 
 ```yaml
 steps:
-- task: AzurePowerShell@4
+- task: AzurePowerShell@3
 ```
 
 W polu `azureSubscription` Podaj nazwę utworzonego połączenia z usługą.
@@ -92,69 +95,45 @@ W przypadku `scriptPath` , podaj ścieżkę względną z pliku potoku do skryptu
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Jeśli nie musisz przemieścić artefaktów, po prostu przekaż nazwę i lokalizację grupy zasobów, która ma zostać użyta do wdrożenia. Skrypt programu Visual Studio tworzy grupę zasobów, jeśli jeszcze nie istnieje.
+W programie `ScriptArguments` Podaj wszelkie parametry potrzebne przez skrypt. W poniższym przykładzie przedstawiono niektóre parametry skryptu, ale konieczne będzie dostosowanie parametrów dla skryptu.
 
 ```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
+ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Jeśli musisz przemieścić artefakty na istniejącym koncie magazynu, użyj:
+Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
 
-```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
-```
-
-Teraz, gdy zrozumiesz, jak utworzyć zadanie, przejdźmy do instrukcji, aby przeprowadzić edycję potoku.
-
-1. Otwórz potok i Zastąp jego zawartość YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-     demands: azureps
-
-   steps:
-   - task: AzurePowerShell@3
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
-       azurePowerShellVersion: LatestVersion
-   ```
-
-1. Wybierz pozycję **Zapisz**.
-
-   ![Zapisywanie potoku](./media/add-template-to-azure-pipelines/save-pipeline.png)
-
-1. Podaj komunikat dotyczący zatwierdzenia i przekaż go bezpośrednio do serwera **głównego**.
-
-1. Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
-
-   ![Wyświetlanie wyników](./media/add-template-to-azure-pipelines/view-results.png)
+![Wyświetlanie wyników](./media/add-template-to-azure-pipelines/view-results.png)
 
 Możesz wybrać aktualnie uruchomiony potok, aby wyświetlić szczegółowe informacje o zadaniach. Po zakończeniu zobaczysz wyniki dla każdego kroku.
 
 ## <a name="copy-and-deploy-tasks"></a>Kopiowanie i wdrażanie zadań
 
-W tej sekcji pokazano, jak skonfigurować ciągłe wdrażanie przy użyciu dwóch zadań do przygotowania artefaktów i wdrożenia szablonu.
+W tej sekcji pokazano, jak skonfigurować ciągłe wdrażanie przy użyciu dwóch zadań. Pierwsze zadanie etapuje artefakty do konta magazynu, a drugie zadanie wdraża szablon.
 
-W poniższym YAML przedstawiono [zadanie kopiowania plików platformy Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+Aby skopiować pliki na konto magazynu, nazwa główna usługi dla połączenia usługi musi być przypisana jako współautor danych obiektów blob magazynu lub rolę właściciela danych obiektu blob magazynu. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
-```yaml
-- task: AzureFileCopy@3
-  displayName: 'Stage files'
+W poniższym YAML przedstawiono [zadanie kopiowania plików platformy Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy).
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
   inputs:
-    SourcePath: 'AzureResourceGroup1'
-    azureSubscription: 'demo-deploy-sp'
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
     Destination: 'AzureBlob'
-    storage: 'stage3a4176e058d34bb88cc'
-    ContainerName: 'democontainer'
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
 ```
 
-Istnieje kilka części tego zadania, które można poprawić w danym środowisku. `SourcePath`Wskazuje lokalizację artefaktów względem pliku potoku. W tym przykładzie pliki znajdują się w folderze o nazwie, `AzureResourceGroup1` która jest nazwą projektu.
+Istnieje kilka części tego zadania, które można poprawić w danym środowisku. `SourcePath`Wskazuje lokalizację artefaktów względem pliku potoku.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -173,92 +152,82 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
+Po utworzeniu zadania Kopiuj plik można dodać zadanie w celu wdrożenia przygotowanego szablonu.
+
 W poniższym YAML przedstawiono [zadanie wdrażania szablonu Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'Central US'
+    location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
 ```
 
-Istnieje kilka części tego zadania, które można poprawić w danym środowisku.
+Istnieje kilka części tego zadania, które można przejrzeć bardziej szczegółowo.
 
-- `deploymentScope`: Wybierz zakres wdrożenia z opcji: `Management Group` `Subscription` i `Resource Group` . Użyj **grupy zasobów** w tym instruktażu. Aby dowiedzieć się więcej o zakresach, zobacz sekcję [Deployment Scopes](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Wybierz zakres wdrożenia z opcji: `Management Group` , `Subscription` i `Resource Group` . Aby dowiedzieć się więcej o zakresach, zobacz sekcję [Deployment Scopes](deploy-rest.md#deployment-scope).
 
-- `ConnectedServiceName`: Podaj nazwę utworzonego połączenia z usługą.
+- `azureResourceManagerConnection`: Podaj nazwę utworzonego połączenia z usługą.
 
-    ```yaml
-    ConnectedServiceName: '<your-connection-name>'
-    ```
+- `subscriptionId`: Podaj identyfikator subskrypcji docelowej. Ta właściwość dotyczy tylko zakresu wdrożenia grupy zasobów i zakresu wdrożenia subskrypcji.
 
-- `subscriptionName`: Podaj identyfikator subskrypcji docelowej. Ta właściwość dotyczy tylko zakresu wdrożenia grupy zasobów i zakresu wdrożenia subskrypcji.
+- `resourceGroupName` i `location` : Podaj nazwę i lokalizację grupy zasobów, w której chcesz wdrożyć. Zadanie tworzy grupę zasobów, jeśli nie istnieje.
 
-- `resourceGroupName`i `location` : Podaj nazwę i lokalizację grupy zasobów, w której chcesz wdrożyć. Zadanie tworzy grupę zasobów, jeśli nie istnieje.
-
-    ```yaml
-    resourceGroupName: '<resource-group-name>'
-    location: '<location>'
-    ```
-
-Zadanie wdrażania łączy się z szablonem o nazwie `WebSite.json` i plikiem parametrów o nazwie WebSite.parameters.json. Użyj nazw szablonu i plików parametrów.
-
-Teraz, gdy zrozumiesz, jak tworzyć zadania, przejdźmy do kroków, aby edytować potok.
-
-1. Otwórz potok i Zastąp jego zawartość YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-
-   steps:
-   - task: AzureFileCopy@3
-     displayName: 'Stage files'
-     inputs:
-       SourcePath: 'AzureResourceGroup1'
-       azureSubscription: 'demo-deploy-sp'
-       Destination: 'AzureBlob'
-       storage: 'stage3a4176e058d34bb88cc'
-       ContainerName: 'democontainer'
-       outputStorageUri: 'artifactsLocation'
-       outputStorageContainerSasToken: 'artifactsLocationSasToken'
-       sasTokenTimeOutInMinutes: '240'
-    - task: AzureResourceGroupDeployment@2
-      displayName: 'Deploy template'
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: 'demo-deploy-sp'
-        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: 'demogroup'
-        location: 'Central US'
-        templateLocation: 'URL of the file'
-        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-        deploymentMode: 'Incremental'
+   ```yml
+   resourceGroupName: '<resource-group-name>'
+   location: '<location>'
    ```
 
-1. Wybierz pozycję **Zapisz**.
+- `csmFileLink`: Podaj link do przygotowanego szablonu. Podczas ustawiania wartości należy używać zmiennych zwracanych z zadania kopiowania plików. Poniższy przykład łączy do szablonu o nazwie mainTemplate.json. Folder o nazwie **templates** jest uwzględniany, ponieważ w przypadku którego zadanie kopiowania pliku skopiował plik. W potoku podaj ścieżkę do szablonu i nazwę szablonu.
 
-1. Podaj komunikat dotyczący zatwierdzenia i przekaż go bezpośrednio do serwera **głównego**.
+   ```yml
+   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   ```
 
-1. Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
+Twój potok wygląda następująco:
 
-   ![Wyświetlanie wyników](./media/add-template-to-azure-pipelines/view-results.png)
+```yml
+trigger:
+- master
 
-Możesz wybrać aktualnie uruchomiony potok, aby wyświetlić szczegółowe informacje o zadaniach. Po zakończeniu zobaczysz wyniki dla każdego kroku.
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
+    Destination: 'AzureBlob'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'demogroup'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
+```
+
+Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać instrukcje krok po kroku dotyczące korzystania z Azure Pipelines z szablonami ARM, zobacz [Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines](deployment-tutorial-pipeline.md).
+Aby dowiedzieć się więcej o korzystaniu z szablonów usługi ARM z akcjami usługi GitHub, zobacz [wdrażanie szablonów Azure Resource Manager przy użyciu akcji usługi GitHub](deploy-github-actions.md).

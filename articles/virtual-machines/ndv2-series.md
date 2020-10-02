@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286210"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653452"
 ---
 # <a name="updated-ndv2-series"></a>Zaktualizowana seria NDv2
 
@@ -24,6 +24,7 @@ Wystąpienia NDv2 zapewniają doskonałą wydajność obciążeń HPC i AI wykor
 
 Krytycznie, NDv2 jest zbudowany na potrzeby skalowania w górę i skalowalnego w górę (włącznie z 8 procesorami GPU na maszynę wirtualną) i skalowania w poziomie (z obsługą wielu maszyn wirtualnych współpracujących) obciążeń. Seria NDv2 obsługuje teraz sieci 100-Gigabit InfiniBand EDR zaplecza, podobnie jak te dostępne w serii HB maszyny wirtualnej HPC, aby umożliwić klastrowanie o wysokiej wydajności dla scenariuszy równoległych, w tym rozmieszczonych szkoleń dla AI i ML. Ta sieć zaplecza obsługuje wszystkie główne protokoły InfiniBand, włącznie z tymi, które są używane przez biblioteki NCCL2 firmy NVIDIA, umożliwiając bezproblemowe klastrowanie procesorów GPU.
 
+> [!IMPORTANT]
 > Podczas [włączania funkcji InfiniBand](./workloads/hpc/enable-infiniband.md) na maszynie wirtualnej ND40rs_v2 należy użyć sterownika 1.0.0.1 Mellanox OFED.
 >
 > Ze względu na zwiększoną ilość pamięci GPU Nowa maszyna wirtualna ND40rs_v2 wymaga użycia [maszyn wirtualnych 2. generacji](./windows/generation-2.md) i obrazów w portalu Marketplace. 
@@ -32,15 +33,13 @@ Krytycznie, NDv2 jest zbudowany na potrzeby skalowania w górę i skalowalnego w
 
 <br>
 
-Premium Storage: obsługiwane
-
-Buforowanie Premium Storage: obsługiwane
-
-Migracja na żywo: nieobsługiwane
-
-Aktualizacje z zachowaniem pamięci: nieobsługiwane
-
-InfiniBand: obsługiwane
+[Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
+[Migracja na żywo](maintenance-and-updates.md): nieobsługiwane<br>
+[Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): nieobsługiwane<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+InfiniBand: obsługiwane<br>
+<br>
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Procesory GPU | Pamięć procesora GPU: GiB | Maks. liczba dysków danych | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna przepustowość sieci | Maksymalna liczba kart sieciowych |
 |---|---|---|---|---|---|---|---|---|---|

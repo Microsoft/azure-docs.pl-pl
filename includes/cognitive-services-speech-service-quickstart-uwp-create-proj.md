@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 2dcc018c65625825436bd1050cdf7f3b9d3131e2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 134c9996690d629ad8acb348d1928904741b6b2d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375188"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654414"
 ---
 Aby utworzyć projekt programu Visual Studio na potrzeby tworzenia platforma uniwersalna systemu Windows (platformy UWP), musisz skonfigurować opcje programistyczne programu Visual Studio, utworzyć projekt, wybrać architekturę docelową, skonfigurować funkcję przechwytywania audio i zainstalować zestaw Speech SDK.
 
@@ -19,13 +19,13 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 1. Otwórz program Visual Studio 2019, aby wyświetlić okno **uruchamiania** .
 
-   ![Okno uruchamiania — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
+   ![Zrzut ekranu pokazujący okno "Start" z wyróżnioną akcją "Kontynuuj bez kodu".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
 
 1. Wybierz pozycję **Kontynuuj bez kodu** , aby przejść do środowiska IDE programu Visual Studio.
 
 1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje** , aby otworzyć Instalator programu Visual Studio i wyświetlić okno dialogowe **Modyfikowanie** .
 
-   ![Karta obciążenia, modyfikowanie okna dialogowego, Instalator programu Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
+   ![Zrzut ekranu pokazujący kartę "obciążenia" okna dialogowego "Modyfikowanie" z wyróżnioną pozycją "platforma uniwersalna systemu Windows Development".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
 1. Na karcie **obciążenia** w obszarze **systemu Windows**Znajdź **platforma uniwersalna systemu Windows obciążenie programowaniem** . Jeśli pole wyboru obok tego obciążenia jest już zaznaczone, Zamknij okno dialogowe **Modyfikowanie** i przejdź do kroku 6.
 
@@ -39,13 +39,13 @@ Następnie utwórz projekt:
 
 1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **plik**  >  **Nowy**  >  **projekt** , aby wyświetlić okno **Utwórz nowy projekt** .
 
-   ![Tworzenie nowego projektu — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
+   ![Zrzut ekranu przedstawiający okno "Tworzenie nowego projektu" z wybraną opcją "pusta aplikacja (uniwersalna system Windows)" i wyróżniony przycisk "dalej".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
 1. Znajdź i wybierz pozycję **pusta aplikacja (uniwersalna platforma Windows)**. Upewnij się, że wybrano wersję C# tego typu projektu (w przeciwieństwie do Visual Basic).
 
 1. Wybierz pozycję **dalej** , aby wyświetlić ekran **Konfiguruj nowy projekt** .
 
-   ![Konfigurowanie nowego projektu — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
+   ![Zrzut ekranu pokazujący ekran "Konfigurowanie nowego projektu" z wyróżnionymi polami "Nazwa projektu" i "lokalizacja" oraz przycisk "Utwórz".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
 1. W polu **Nazwa projektu**wprowadź `helloworld` .
 
@@ -53,7 +53,7 @@ Następnie utwórz projekt:
 
 1. Wybierz pozycję **Utwórz** , aby przejść do okna **Nowy projekt platforma uniwersalna systemu Windows** .
 
-   ![Okno dialogowe Nowy projekt platforma uniwersalna systemu Windows — Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe "nowy projekt platforma uniwersalna systemu Windows".](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
 1. W polu **minimalna wersja** (drugie pole listy rozwijanej) wybierz pozycję **Aktualizacja systemu Windows 10 dla twórców (10,0; Kompilacja 16299)**, która jest minimalnym wymaganiem dla zestawu Speech SDK.
 
@@ -90,13 +90,13 @@ Na koniec zainstaluj [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/n
 
 1. Wybierz pozycję **Przeglądaj**.
 
-   ![Zrzut ekranu okna dialogowego Zarządzaj pakietami dla rozwiązania](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe "Zarządzanie pakietami dla rozwiązania" z wyróżnioną kartą "Przeglądaj", "wyszukiwanie" i "Źródło pakietów".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. W obszarze **Źródło pakietu**wybierz pozycję **NuGet.org**.
 
 1. W polu **wyszukiwania** wpisz `Microsoft.CognitiveServices.Speech` , a następnie wybierz ten pakiet po pojawieniu się w wynikach wyszukiwania.
 
-   ![Zrzut ekranu okna dialogowego Zarządzaj pakietami dla rozwiązania](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
+   ![Zrzut ekranu pokazujący, że wybrano opcję "Microsoft. CognitiveServices. Speech" z wyróżnionym przyciskiem projekt i "Zainstaluj".](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 
 1. W okienku stan pakietu obok wyników wyszukiwania wybierz swój projekt **HelloWorld** .
 
