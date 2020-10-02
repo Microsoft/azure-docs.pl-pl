@@ -5,29 +5,32 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: c28f0edafd72794a60ef577fc3177e4436157950
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887048"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631481"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL przy użyciu Azure Portal
 
 Azure Database for MySQL obsługuje konfigurację niektórych parametrów serwera. W tym artykule opisano sposób konfigurowania tych parametrów przy użyciu Azure Portal. Nie wszystkie parametry serwera można dostosować.
 
+>[!Note]
+> Parametry serwera można aktualizować globalnie na poziomie serwera, korzystać z [interfejsu wiersza polecenia platformy Azure](./howto-configure-server-parameters-using-cli.md), [programu PowerShell](./howto-configure-server-parameters-using-powershell.md)lub [Azure Portal](./howto-server-parameters.md).
+
 ## <a name="configure-server-parameters"></a>Konfigurowanie parametrów serwera
 
-1. Zaloguj się do Azure Portal, a następnie zlokalizuj serwer Azure Database for MySQL.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie zlokalizuj serwer Azure Database for MySQL.
 2. W sekcji **Ustawienia** kliknij pozycję **parametry serwera** , aby otworzyć stronę parametry serwera dla serwera Azure Database for MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Strona parametrów serwera Azure Portal":::
 3. Znajdź wszystkie ustawienia, które należy dostosować. Przejrzyj kolumnę **Description** , aby zrozumieć przeznaczenie i dozwolone wartości.
-:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Wyliczenie listy rozwijanej":::
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Strona parametrów serwera Azure Portal":::
 4. Kliknij przycisk  **Zapisz** , aby zapisać zmiany.
-:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Zapisz lub Odrzuć zmiany":::
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Strona parametrów serwera Azure Portal":::
 5. Jeśli Zapisano nowe wartości parametrów, zawsze możesz przywrócić wszystkie elementy z powrotem do wartości domyślnych, wybierając pozycję **Zresetuj wszystkie do domyślnych**.
-:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Zresetuj wszystkie do domyślnych":::
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Strona parametrów serwera Azure Portal":::
 
 ## <a name="setting-parameters-not-listed"></a>Nie wymieniono parametrów ustawień
 
@@ -38,7 +41,7 @@ Jeśli parametr serwera, który chcesz zaktualizować, nie znajduje się na liś
 3. Dodaj parametry serwera w formacie: `SET parameter_name=YOUR_DESIRED_VALUE` wartość w kolumnie wartość.
 
     Na przykład można zmienić zestaw znaków serwera, ustawiając wartość `init_connect` na `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
-4. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+4. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
 
 >[!Note]
 > Polecenie `init_connect` może służyć do zmieniania parametrów, które nie wymagają uprawnień administratora na poziomie sesji. Aby sprawdzić, czy można ustawić parametr przy użyciu polecenia `init_connect`, wykonaj polecenie `set session parameter_name=YOUR_DESIRED_VALUE;`, a jeśli zwraca ono błąd **Odmowa dostępu; wymagane są uprawnienia administratora**, to nie można ustawić parametru przy użyciu polecenia „init_connect”.
@@ -69,7 +72,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Strefę czasową na poziomie globalnym można ustawić na stronie **parametrów serwera** w Azure Portal. Poniżej ustawia globalną strefę czasową na wartość "US/Pacyfik".
 
-:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Ustaw parametr strefy czasowej":::
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Strona parametrów serwera Azure Portal":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Ustawianie strefy czasowej na poziomie sesji
 

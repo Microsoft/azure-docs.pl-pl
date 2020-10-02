@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a61dd6c17ad4d11c6dd7294c9a4f96270748c16a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488562"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630665"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Model szeregów czasowych w Azure Time Series Insights Gen2
 

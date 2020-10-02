@@ -9,16 +9,37 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317280"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630003"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
-Monitorowanie to jedna z wielu wbudowanych funkcji, które są dostępne dla usług danych platformy Azure. 
+Okresowo można wyeksportować informacje o użyciu dotyczące rozliczeń, metryk monitorowania i dzienników, a następnie przekazać je na platformę Azure.  Eksportowanie i przekazywanie dowolnych z tych trzech typów danych spowoduje również utworzenie i zaktualizowanie zasobów grupy serwerów, wystąpienia zarządzanego SQL i PostgreSQL na platformie Azure.
+
+> [!NOTE] 
+W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Wymagany jest interfejs wiersza polecenia platformy Azure (az) i zainstalowano interfejs wiersza polecenia platformy Azure (azdata).  [Zainstaluj narzędzia](./install-client-tools.md).
+
+Przed przekazaniem danych na platformę Azure musisz upewnić się, że Twoja subskrypcja platformy Azure ma zarejestrowany dostawca zasobów Microsoft. AzureData.
+
+Można to sprawdzić, uruchamiając następujące polecenie:
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+Jeśli dostawca zasobów nie jest obecnie zarejestrowany w ramach subskrypcji, możesz go zarejestrować, uruchamiając następujące polecenie.  Wykonanie tego polecenia może potrwać minutę lub dwa.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## <a name="upload-usage-data"></a>Przekazywanie danych użycia
 

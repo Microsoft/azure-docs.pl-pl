@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319818"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630018"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -25,6 +25,29 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+Poniżej przedstawiono zmiany we wrześniu 2020:
+
+- Zoptymalizowano wydajność przez zmniejszenie opóźnienia połączenia w ramach następujących lokalizacje geograficzne Azure:
+    - Niemcy
+    - Republika Południowej Afryki (tylko w przypadku środowisk weryfikacji)
+
+Teraz możesz użyć [szacowania doświadczenia](https://azure.microsoft.com/services/virtual-desktop/assessment/) do oszacowania jakości środowiska użytkownika w tych obszarach.
+
+- Wydano wersję 1.2.1364 klienta klasycznego systemu Windows dla pulpitu wirtualnego systemu Windows. W tej aktualizacji wprowadziliśmy następujące zmiany:
+    - Rozwiązano problem polegający na tym, że logowanie jednokrotne (SSO) nie działało w systemie Windows 7.
+    - Rozwiązano problem, który spowodował, że klient rozłączył się, gdy użytkownik, który włączył optymalizację nośnika dla zespołów próbował wywołać lub dołączyć do spotkania zespołów, podczas gdy inna aplikacja ma otwarty strumień audio w trybie wyłączności.
+    - Rozwiązano problem polegający na tym, że zespoły nie wyliczają urządzeń audio lub wideo, gdy została włączona Optymalizacja multimediów dla zespołów.
+    - Dodano "potrzebna pomoc z ustawieniami?" link do strony ustawień pulpitu.
+    - Rozwiązano problem z przyciskiem "Subskrybuj", który wystąpił podczas korzystania z ciemnych motywów o wysokim kontraście.
+    
+- Dzięki ogromnej pomocy od naszych użytkowników Naprawiono dwa krytyczne problemy dotyczące klienta Pulpit zdalny Microsoft Store. Będziemy nadal przeglądać Opinie i rozwiązywać problemy, ponieważ rozszerzamy nasze etapowe wersje klienta do większej liczby użytkowników na całym świecie.
+    
+- Dodaliśmy nową funkcję, która umożliwia zmianę lokalizacji maszyny wirtualnej, obrazu, grupy zasobów, nazwy prefiksu i konfiguracji sieci w ramach przepływu pracy w celu dodania maszyny wirtualnej do wdrożenia w Azure Portal.
+
+- Specjaliści IT mogą teraz zarządzać hybrydowymi maszynami wirtualnymi z systemem Windows 10, które są przyłączone do Azure Active Directory w programie Microsoft Endpoint Manager. Aby dowiedzieć się więcej, zobacz [nasz wpis w blogu](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -144,4 +167,3 @@ Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z przyszłymi planami w [Microsoft 365 Windows Virtual Desktop plan](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7effb1592fb19f92958353a3333edf6fdf9a51af
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574266"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627894"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph z aplikacji klasycznej systemu Windows
 
 W tym przewodniku pokazano, jak Natywna aplikacja Windows Desktop .NET (XAML) używa tokenu dostępu do wywoływania interfejsu API Microsoft Graph. Aplikacja może również uzyskiwać dostęp do innych interfejsów API, które wymagają tokenów dostępu z platformy tożsamości firmy Microsoft.
 

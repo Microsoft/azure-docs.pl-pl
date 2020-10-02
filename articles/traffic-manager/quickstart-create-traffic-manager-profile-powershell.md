@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929520"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631566"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Szybki Start: Tworzenie profilu Traffic Manager dla aplikacji sieci Web o wysokiej dostępności przy użyciu Azure PowerShell
 
 W tym przewodniku Szybki start opisano tworzenie profilu usługi Traffic Manager, który zapewni wysoką dostępność aplikacji internetowej.
 
 W tym przewodniku szybki start utworzysz dwa wystąpienia aplikacji sieci Web. Każde z nich jest uruchamiane w innym regionie świadczenia usługi Azure. Utworzysz profil usługi Traffic Manager na podstawie [priorytetu punktu końcowego](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profil kieruje ruch użytkowników do lokacji głównej, w której działa aplikacja internetowa. Usługa Traffic Manager stale monitoruje aplikację internetową. Jeśli lokacja główna jest niedostępna, usługa zapewnia automatyczne przejście w tryb failover w lokacji zapasowej.
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -35,7 +37,6 @@ Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten 
 Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 756645d2df22f1222c3004a44e5a46c7a3bc1a2f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852552"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629151"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Rejestrowanie poufnej aplikacji klienckiej w Azure Active Directory
 
@@ -21,53 +21,55 @@ W tym samouczku dowiesz się, jak zarejestrować poufną aplikację kliencką w 
 
 Rejestracja aplikacji klienckiej to Azure Active Directory reprezentacja aplikacji, która może służyć do uwierzytelniania w imieniu użytkownika i żądania dostępu do [aplikacji zasobów](register-resource-azure-ad-client-app.md). Poufna aplikacja kliencka to aplikacja, która może być zaufana do przechowywania klucza tajnego i prezentować ten klucz tajny podczas żądania tokenów dostępu. Przykładami poufnych aplikacji są aplikacje po stronie serwera.
 
-Aby zarejestrować nową aplikację poufną w portalu, wykonaj poniższe kroki.
-
-## <a name="app-registrations-in-azure-portal"></a>Rejestracje aplikacji w Azure Portal
-
-1. W witrynie [Azure Portal](https://portal.azure.com) w panelu nawigacyjnym po lewej stronie kliknij pozycję **Azure Active Directory**.
-
-2. W bloku **Azure Active Directory** kliknij pozycję **rejestracje aplikacji**:
-
-    ![Azure Portal. Rejestracja nowej aplikacji.](media/how-to-aad/portal-aad-new-app-registration.png)
-
-3. Kliknij **nową rejestrację**.
+Aby zarejestrować nową aplikację poufną w portalu, wykonaj następujące kroki.
 
 ## <a name="register-a-new-application"></a>Rejestrowanie nowej aplikacji
 
+1. W [Azure Portal](https://portal.azure.com)przejdź do **Azure Active Directory**.
+
+1. Wybierz pozycję **Rejestracje aplikacji**.
+
+    ![Azure Portal. Rejestracja nowej aplikacji.](media/how-to-aad/portal-aad-new-app-registration.png)
+
+1. Wybierz pozycję **Nowa rejestracja**.
+
 1. Nadaj aplikacji nazwę wyświetlaną.
 
-2. Podaj adres URL odpowiedzi. Te szczegóły można później zmienić, ale jeśli znasz adres URL odpowiedzi aplikacji, wprowadź ją teraz.
+1. Podaj adres URL odpowiedzi. Te szczegóły można później zmienić, ale jeśli znasz adres URL odpowiedzi aplikacji, wprowadź ją teraz.
 
     ![Rejestracja nowej poufnej aplikacji klienta.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+1. Wybierz pozycję **Zarejestruj**.
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 
-Następne Dodawanie uprawnień interfejsu API:
+Po zarejestrowaniu aplikacji należy wybrać uprawnienia interfejsu API, dla których ta aplikacja powinna mieć możliwość żądania w imieniu użytkowników:
 
-1. Otwórz **uprawnienia interfejsu API**:
+1. Wybierz pozycję **uprawnienia interfejsu API**.
 
     ![Klient poufny. Uprawnienia interfejsu API](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
-2. Kliknij przycisk **Dodaj uprawnienie**
+1. Wybierz pozycję **Dodaj uprawnienie**.
 
-3. Wybierz odpowiedni interfejs API zasobów:
+    Jeśli używasz interfejsu API platformy Azure dla usługi FHIR, dodasz uprawnienie do interfejsów API usługi Azure opieki IT, wyszukując **interfejsy API usługi Azure opieki zdrowotnej** w obszarze **interfejsy API używane przez moją organizację**. 
 
-    W przypadku interfejsu API platformy Azure dla usługi FHIR (usługa zarządzana) kliknij pozycję Interfejsy API, które są **wykorzystywane przez moją organizację** , i wyszukaj ciąg "interfejsy API usługi Azure opieka W przypadku serwera FHIR "open source" na platformie Azure wybierz pozycję [Rejestracja aplikacji zasobów interfejsu API FHIR](register-resource-azure-ad-client-app.md):
+    Jeśli odwołujesz się do innej aplikacji zasobów, wybierz [rejestrację aplikacji interfejsu API FHIR](register-resource-azure-ad-client-app.md) utworzoną wcześniej w obszarze **Moje interfejsy API**.
 
-    ![Klient poufny. Moje interfejsy API](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-MyApis.png)
 
-4. Wybierz zakresy (uprawnienia), które mogą być dostępne dla aplikacji poufnej w imieniu użytkownika:
+    :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Klient poufny. Moje interfejsy API organizacji" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
+    
 
-    ![Klient poufny. Delegowane uprawnienia](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-DelegatedPermissions.png)
+3. Wybierz zakresy (uprawnienia), które mogą być dostępne dla aplikacji poufnej w imieniu użytkownika:
+
+    :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Klient poufny. Moje interfejsy API organizacji":::
 
 ## <a name="application-secret"></a>Klucz tajny aplikacji
 
-1. Utwórz klucz tajny aplikacji (klucz tajny klienta):
+1. Wybierz pozycję **certyfikaty & wpisy tajne**.
+1. Wybierz pozycję **Nowy wpis tajny klienta**. 
 
     ![Klient poufny. Wpis tajny aplikacji](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. Podaj opis i czas trwania wpisu tajnego.
+2. Podaj opis i czas trwania wpisu tajnego (1 rok, 2 lata lub nigdy).
 
 3. Po wygenerowaniu zostanie on wyświetlony w portalu tylko raz. Zanotuj ją i Zapisz bezpiecznie.
 

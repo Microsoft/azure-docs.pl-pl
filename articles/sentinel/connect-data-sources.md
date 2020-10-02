@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895801"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627146"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -45,17 +45,22 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
 
 - **Integracja między usługą a usługą**:<br> Niektóre usługi są połączone natywnie, takie jak AWS i usługi firmy Microsoft, te usługi wykorzystują platformę Azure Foundation do zintegrowanej integracji, ale następujące rozwiązania mogą być połączone za pomocą kilku kliknięć:
     - [Amazon Web Services — CloudTrail](connect-aws.md)
-    - [Aktywność platformy Azure](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) — dzienniki inspekcji i dzienniki logowania
+    - [Aktywność platformy Azure](connect-azure-activity.md)
     - [Usługa Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender for Identity](connect-azure-atp.md) (dawniej ochrona przed zagrożeniami na platformie Azure)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender for IoT](connect-asc-iot.md) (dawniej Azure Security Center for IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md) — alerty z rozwiązań usługi Azure Defender
+    - [Zapora aplikacji sieci Web platformy Azure (WAF)](connect-azure-waf.md) (dawniej Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serwer nazw domen](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) — zawiera nieprzetworzone dane MDATP
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (dawniej w przypadku zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender)
-    - [Zapora aplikacji internetowej firmy Microsoft](connect-microsoft-waf.md)
+    - [Microsoft Defender for Identity](connect-azure-atp.md) (dawniej ochrona przed zagrożeniami na platformie Azure)
+    - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (dawniej pakiet Office 365 Advanced Threat Protection)
+    - [Office 365](connect-office-365.md) (teraz z zespołami!)
     - [Zapora systemu Windows](connect-windows-firewall.md)
     - [Zdarzenia zabezpieczeń systemu Windows](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Dzienniki rozwiązania Perimeter 81](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
 
     Agent wskaźnikowy platformy Azure, który jest rzeczywiście agentem Log Analytics, konwertuje CEF dzienników w formacie, który może zostać pozyskany przez Log Analytics. W zależności od typu urządzenia Agent jest instalowany bezpośrednio na urządzeniu lub w dedykowanej usłudze przesyłania dalej dzienników opartej na systemie Linux. Agent dla systemu Linux odbiera zdarzenia z demona dziennika systemu za pośrednictwem protokołu UDP, ale jeśli oczekuje się, że maszyna z systemem Linux będzie zbierać duże ilości zdarzeń dziennika systemowego, są one wysyłane za pośrednictwem protokołu TCP z demona dziennika systemowego do agenta i z tego miejsca do Log Analytics.
 
-    - **Zapory, proxy i punkty końcowe:**
+    - **Zapory, proxy i punkty końcowe — CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [F5 ASM](connect-f5.md)
         - [Produkty firmy Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
-        - [Inne urządzenia CEF](connect-common-event-format.md)
-        - [Inne urządzenia dziennika systemu](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Inne urządzenia z systemem CEF](connect-common-event-format.md)
+    - **Zapory, proxy i punkty końcowe — dziennik systemowy:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Inne urządzenia oparte na dzienniku systemu](connect-syslog.md)
     - Rozwiązania DLP
     - [Dostawcy analizy zagrożeń](connect-threat-intelligence.md)
     - [Maszyny DNS](connect-dns.md) — Agent zainstalowany bezpośrednio na komputerze DNS
+    - [Azure Stack maszyny wirtualne](connect-azure-stack.md)
     - Serwery z systemem Linux
     - Inne chmury
     

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392730"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626398"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parametry serwera w Azure Database for MariaDB
 
@@ -28,6 +28,12 @@ Azure Database for MariaDB uwidacznia możliwość zmiany wartości różnych pa
 Lista obsługiwanych parametrów serwera stale rośnie. Użyj karty parametry serwera w Azure Portal, aby wyświetlić pełną listę i skonfigurować wartości parametrów serwera.
 
 Zapoznaj się z poniższymi sekcjami poniżej, aby dowiedzieć się więcej o limitach kilku często aktualizowanych parametrów serwera. Limity są ustalane na podstawie warstwy cenowej i rdzeni wirtualnych serwera.
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+W Azure Database for MariaDB dzienniki binarne są zawsze włączone (tj. `log_bin` jest ustawione na wartość włączone). Jeśli chcesz użyć wyzwalaczy, zostanie wyświetlony komunikat o błędzie podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (możesz chcieć użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)*.
+
+Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać zerwane, więc można bezpiecznie ustawić [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) **wartość true**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -72,7 +78,7 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/innodb-system-
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`można ją zaktualizować tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+> `innodb_file_per_table` można ją zaktualizować tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
 MariaDB przechowuje tabelę InnoDB w różnych obszarach tabel na podstawie konfiguracji podanej podczas tworzenia tabeli. Przestrzeń dyskowa [systemu](https://mariadb.com/kb/en/innodb-system-tablespaces/) jest obszarem magazynu dla słownika danych InnoDB. Obszar tabel dla [poszczególnych tabel](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) zawiera dane i indeksy dla pojedynczej tabeli InnoDB i jest przechowywany w systemie plików w osobnym pliku danych. Takie zachowanie jest kontrolowane przez `innodb_file_per_table` parametr serwer. Ustawienie `innodb_file_per_table` `OFF` powoduje, że InnoDB utworzyć tabele w obszarze obszary obszaru systemu. W przeciwnym razie InnoDB tworzy tabele w tabelach tabel w tabeli.
 
@@ -84,8 +90,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -133,8 +139,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -155,8 +161,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|* * Wartość maksymalna * *|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -175,8 +181,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -195,8 +201,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|NIE DOTYCZY|NIE DOTYCZY|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|

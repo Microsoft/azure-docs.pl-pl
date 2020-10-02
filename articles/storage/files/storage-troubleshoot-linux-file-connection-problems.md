@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249590"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629441"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Linux (SMB)
 
@@ -298,6 +298,32 @@ Ten błąd jest rejestrowany, ponieważ Azure Files [obecnie nie obsługuje wiel
 
 ### <a name="solution"></a>Rozwiązanie
 Ten błąd może zostać zignorowany.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Nie można uzyskać dostępu do folderów lub plików, których nazwa zawiera spację lub kropkę na końcu
+
+Nie można uzyskać dostępu do folderów lub plików z udziału plików platformy Azure, gdy jest on zainstalowany w systemie Linux, polecenia, takie jak du i LS i/lub aplikacje innych firm, mogą zakończyć się niepowodzeniem z powodu błędu "nie ma takiego pliku lub katalogu" podczas uzyskiwania dostępu do udziału, jednak można przekazać pliki do tych folderów za pośrednictwem portalu.
+
+### <a name="cause"></a>Przyczyna
+
+Foldery lub pliki zostały przekazane z systemu, który koduje znaki na końcu nazwy do innego znaku, pliki przekazane z komputera Macintosh mogą mieć znak "0xF028" lub "0xF029" zamiast 0x20 (Space) lub 0X2E (kropka).
+
+### <a name="solution"></a>Rozwiązanie
+
+Użyj opcji mapchars w udziale podczas instalowania udziału w systemie Linux: 
+
+Zamiast:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+używanych
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

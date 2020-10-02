@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317556"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631804"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia komercyjna dotycząca analizy Marketplace i często zadawane pytania
 
@@ -45,6 +45,7 @@ Jeśli otrzymujesz tę wiadomość, oznacza to, że masz dane analityczne, ale n
 | Typ licencji platformy Azure: Enterprise | Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę w portalu Marketplace za pomocą Umowa Enterprise podpisanej bezpośrednio w firmie Microsoft.|
 | Typ licencji platformy Azure: przedsiębiorstwo przez odsprzedawcę  | Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę portalu Marketplace przez odsprzedawcę, który ułatwia ich Umowa Enterprise firmie Microsoft.|
 | Typ licencji platformy Azure: płatność zgodnie z rzeczywistym użyciem| Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę Marketplace w ramach umowy "płatność zgodnie z rzeczywistym użyciem" podpisanej bezpośrednio z firmą Microsoft.|
+| Identyfikator konta rozliczeniowego| Klient, zamówienie, użycie| Identyfikator konta, na którym jest generowane rozliczanie. Ten atrybut służy do łączenia raportów analitycznych z raportem transakcji wypłaty.|
 | Nazwa wystąpienia chmury| Zamówienie| Microsoft Cloud, w którym wystąpiło wdrożenie maszyny wirtualnej.|
 | Nazwa wystąpienia chmury: globalna Azure| Zamówienie| Publiczna globalna chmura firmy Microsoft.|
 | Nazwa wystąpienia chmury: Azure Government | Zamówienie| Specyficzne dla instytucji rządowe chmury firmy Microsoft dla jednego z następujących rządów: Chiny, Niemcy lub Stany Zjednoczone Ameryki.| |

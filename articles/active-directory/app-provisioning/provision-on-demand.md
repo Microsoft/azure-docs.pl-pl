@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235540"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629016"
 ---
 # <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie
 Użyj aprowizacji na żądanie, aby zapewnić użytkownikowi dostęp do aplikacji w ciągu kilku sekund. Można między innymi skorzystać z tej możliwości, aby:
@@ -28,12 +28,15 @@ Użyj aprowizacji na żądanie, aby zapewnić użytkownikowi dostęp do aplikacj
 ## <a name="how-to-use-on-demand-provisioning"></a>Jak korzystać z aprowizacji na żądanie
 
 1. Zaloguj się w witrynie **Azure Portal**.
-2. Przejdź do **wszystkich usług**  >  **aplikacje dla przedsiębiorstw**.
-3. Wybierz aplikację, a następnie przejdź do strony Konfiguracja aprowizacji.
-4. Skonfiguruj udostępnianie, podając poświadczenia administratora.
-5. Wybierz pozycję **Udostępnij na żądanie**.
-6. Wyszukaj użytkownika według imienia, imienia, nazwiska, nazwy wyświetlanej, nazwy głównej użytkownika lub adresu e-mail.
-7. Wybierz pozycję **Udostępnij** w dolnej części strony.
+1. Przejdź do **wszystkich usług**  >  **aplikacje dla przedsiębiorstw**.
+1. Wybierz aplikację, a następnie przejdź do strony Konfiguracja aprowizacji.
+1. Skonfiguruj udostępnianie, podając poświadczenia administratora.
+1. Wybierz pozycję **Udostępnij na żądanie**.
+1. Wyszukaj użytkownika według imienia, imienia, nazwiska, nazwy wyświetlanej, nazwy głównej użytkownika lub adresu e-mail.
+   > [!NOTE]
+   > W przypadku aplikacji do aprowizacji w chmurze (Workday/SuccessFactors do usługi AD/Azure AD) wartość wejściowa jest różna. W przypadku scenariusza Workday Podaj "WID" użytkownika w dniach roboczych. W przypadku scenariusza SuccessFactors podaj wartość "personIdExternal" użytkownika w SuccessFactors. 
+ 
+1. Wybierz pozycję **Udostępnij** w dolnej części strony.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Zrzut ekranu przedstawiający interfejs użytkownika Azure Portal na potrzeby aprowizacji użytkownika na żądanie.":::
 
@@ -121,7 +124,7 @@ Na koniec usługa aprowizacji wykonuje akcję, taką jak tworzenie, aktualizowan
 
 Oto przykład tego, co może być widoczne po pomyślnym zainicjowaniu obsługi użytkownika na żądanie:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Zrzut ekranu pokazujący Pomyślne inicjowanie obsługi użytkownika.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Zrzut ekranu przedstawiający interfejs użytkownika Azure Portal na potrzeby aprowizacji użytkownika na żądanie.":::
 
 #### <a name="view-details"></a>Wyświetl szczegóły
 
@@ -144,7 +147,7 @@ Obecnie istnieje kilka znanych ograniczeń dotyczących aprowizacji na żądanie
 > [!NOTE]
 > Następujące ograniczenia są specyficzne dla możliwości aprowizacji na żądanie. Aby uzyskać informacje o tym, czy aplikacja obsługuje grupy aprowizacji, usunięcia lub inne możliwości, należy zapoznać się z samouczkiem dotyczącym tej aplikacji.
 
-* Aplikacje Workday, Amazon Web Services (AWS) i SuccessFactors nie obsługują aprowizacji na żądanie. 
+* Aplikacja Amazon Web Services (AWS) nie obsługuje aprowizacji na żądanie. 
 * Obsługa administracyjna grup i ról na żądanie nie jest obsługiwana.
 * Inicjowanie obsługi na żądanie obsługuje wyłączanie użytkowników, którzy zostali Nieprzypisani z aplikacji. Nie obsługuje jednak wyłączania ani usuwania użytkowników, które zostały wyłączone lub usunięte z usługi Azure AD. Ci użytkownicy nie będą wyświetlani podczas wyszukiwania użytkownika.
 

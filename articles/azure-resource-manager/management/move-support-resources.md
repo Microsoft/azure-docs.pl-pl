@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1e90a7cbc4f817f5dd6c854020e2711e8ac097b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284979"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627112"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -1416,7 +1416,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | usługi frontdoor | Nie | Nie |
 > | ipallocations | Tak | Tak |
 > | ipgroups | Tak | Tak |
-> | loadbalancers | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
+> | loadbalancers | Tak — podstawowa jednostka SKU<br> Tak — standardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
 > | localnetworkgateways | Tak | Tak |
 > | natgateways | Nie | Nie |
 > | networkexperimentprofiles | Nie | Nie |
@@ -1435,7 +1435,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privateendpointredirectmaps | Nie | Nie |
 > | privateendpoints | Tak | Tak |
 > | privatelinkservices | Nie | Nie |
-> | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
+> | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Tak — standardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
 > | publicipprefixes | Tak | Tak |
 > | routefilters | Nie | Nie |
 > | routetables | Tak | Tak |

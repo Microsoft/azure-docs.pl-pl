@@ -1,30 +1,24 @@
 ---
-title: Przekształcanie i ochrona interfejsu API za pomocą usługi Azure API Management | Microsoft Docs
-description: Dowiedz się, jak chronić interfejs API za pomocą zasad przydziałów i dławienia (ograniczania liczby wywołań).
-services: api-management
-documentationcenter: ''
+title: Samouczek — przekształcanie i ochrona interfejsu API na platformie Azure API Management | Microsoft Docs
+description: W tym samouczku dowiesz się, jak chronić interfejs API w API Management z użyciem zasad przekształcania i ograniczania przepustowości (ograniczania szybkości).
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 07efa1899ab7364615aab9d8b50437092274ae81
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371388"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627769"
 ---
-# <a name="transform-and-protect-your-api"></a>Przekształcanie i ochrona interfejsu API
+# <a name="tutorial-transform-and-protect-your-api"></a>Samouczek: przekształcanie i ochrona interfejsu API
 
-Samouczek przedstawia sposób przekształcania interfejsu API, aby nie ujawniał prywatnych informacji zaplecza. Na przykład możesz ukryć informacje dotyczące stosu technologicznego działającego w zapleczu. Możesz też ukryć oryginalne adresy URL, które są wyświetlane w treści odpowiedzi HTTP interfejsu API, a zamiast tego przekierowywać je do bramy APIM.
+W tym samouczku pokazano, jak przekształcić interfejs API, aby nie ujawniał informacji o zapleczu prywatnym. Na przykład możesz chcieć ukryć informacje o stosie technologii uruchomionym w zapleczu. Możesz również ukryć oryginalne adresy URL, które są wyświetlane w treści odpowiedzi HTTP interfejsu API, a zamiast tego przekierować je do bramy APIM.
 
-W tym samouczku przedstawiono również, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu liczby wywołań i przydziałów za pomocą usługi Azure API Management. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. Aby uzyskać więcej informacji, zobacz [Zasady zarządzania interfejsem API](api-management-policies.md)
+W tym samouczku pokazano również, jak łatwo dodać ochronę dla interfejsu API zaplecza, konfigurując Limit szybkości za pomocą usługi Azure API Management. Na przykład możesz chcieć ograniczyć szybkość wywołań interfejsu API, aby interfejs API nie był używany przez deweloperów. Aby uzyskać więcej informacji, zobacz [zasady API Management](api-management-policies.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -32,10 +26,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 >
 > -   Przekształcanie interfejsu API w celu usuwania nagłówków odpowiedzi
 > -   Zamiana oryginalnych adresów URL w treści odpowiedzi interfejsu API w adresy URL bramy APIM
-> -   Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
+> -   Ochrona interfejsu API przez dodanie zasad limitu szybkości (ograniczanie przepustowości)
 > -   Testowanie przekształceń
 
-![Zasady](./media/transform-api/api-management-management-console.png)
+:::image type="content" source="media/transform-api/api-management-management-console.png" alt-text="Zasady w portalu":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +42,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Przekształcanie interfejsu API w celu usuwania nagłówków odpowiedzi
 
-W tej sekcji przedstawiono sposób ukrywania nagłówków HTTP, które nie powinny być widoczne dla użytkowników. W tym przykładzie następujące nagłówki zostają usunięte w odpowiedzi HTTP:
+W tej sekcji pokazano, jak ukryć nagłówki HTTP, które nie mają być wyświetlane użytkownikom. Ten przykład pokazuje, jak usunąć następujące nagłówki w odpowiedzi HTTP:
 
 -   **X-Powered-By**
 -   **X-AspNet-Version**
@@ -57,79 +51,76 @@ W tej sekcji przedstawiono sposób ukrywania nagłówków HTTP, które nie powin
 
 Aby zobaczyć oryginalną odpowiedź:
 
-1. W wystąpieniu usługi APIM wybierz pozycję **Interfejsy API** (w obszarze **API MANAGEMENT**).
-2. Kliknij pozycję **Demo Conference API** (Pokazowy interfejs API konferencji) na liście interfejsów API.
-3. Kliknij kartę **Test** w górnej części ekranu.
-4. Wybierz operację **GetSpeakers**.
-5. Naciśnij przycisk **Wyślij** u dołu ekranu.
+1. W wystąpieniu usługi API Management wybierz pozycję **interfejsy API**.
+1. Wybierz pozycję **pokazowy interfejs API konferencji** z listy interfejsów API.
+1. Wybierz kartę **test** w górnej części ekranu.
+1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
-Oryginalna odpowiedź powinna wyglądać następująco:
+Oryginalna odpowiedź powinna wyglądać podobnie do następującej:
 
-![Zasady](./media/transform-api/original-response.png)
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Zasady w portalu":::
+
+Jak widać, odpowiedź obejmuje nagłówki **x-ASPNET-Version**i **X-d-by** .
 
 ### <a name="set-the-transformation-policy"></a>Ustawianie zasad przekształcania
 
-![Ustawianie zasad danych wychodzących](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
+1. Wybierz pozycję **demonstracyjny interfejs API**  >  **projektowania**  >  **wszystkie operacje**.
+4. W sekcji **Przetwarzanie wychodzące** wybierz ikonę Edytor kodu ( **</>** ).
 
-1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2. W górnej części ekranu wybierz kartę **Projektowanie**.
-3. Wybierz opcję **Wszystkie operacje**.
-4. W sekcji **Przetwarzanie wychodzące** kliknij **</>** ikonę.
-5. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** .
-6. W okienku po prawej stronie w obszarze **Zasady przekształcania** kliknij dwukrotnie opcję **+ Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Zasady w portalu" border="false":::
 
-   ![Zasady](./media/transform-api/transform-api.png)
+1. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
+1. W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz pozycję * * Ustaw nagłówek HTTP * * dwa razy (aby wstawić dwa fragmenty kodu zasad).
 
-7. Zmodyfikuj swój **\<outbound>** kod, aby wyglądać następująco:
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Zasady w portalu":::
+
+1. Zmodyfikuj swój **\<outbound>** kod, aby wyglądać następująco:
 
    ```
    <set-header name="X-Powered-By" exists-action="delete" />
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   ![Zasady](./media/transform-api/set-policy.png)
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Zasady w portalu":::
 
-8. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Zamiana oryginalnych adresów URL w treści odpowiedzi interfejsu API w adresy URL bramy APIM
 
-W tej sekcji opisano, jak ukrywać oryginalne adresy URL, które są wyświetlane w treści odpowiedzi HTTP interfejsu API, a zamiast tego przekierowywać je do bramy APIM.
+W tej sekcji przedstawiono sposób ukrywania oryginalnych adresów URL, które są wyświetlane w treści odpowiedzi HTTP interfejsu API, a zamiast tego przekierowywać je do bramy APIM.
 
 ### <a name="test-the-original-response"></a>Testowanie oryginalnej odpowiedzi
 
 Aby zobaczyć oryginalną odpowiedź:
 
-1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2. Kliknij kartę **Test** w górnej części ekranu.
-3. Wybierz operację **GetSpeakers**.
-4. Naciśnij przycisk **Wyślij** u dołu ekranu.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
-    Jak widać, oryginalna odpowiedź wygląda następująco:
+    Jak widać, odpowiedź zawiera oryginalne adresy URL zaplecza:
 
-    ![Zasady](./media/transform-api/original-response2.png)
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Zasady w portalu":::
+
 
 ### <a name="set-the-transformation-policy"></a>Ustawianie zasad przekształcania
 
-1.  Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2.  Wybierz opcję **Wszystkie operacje**.
-3.  W górnej części ekranu wybierz kartę **Projektowanie**.
-4.  W sekcji **Przetwarzanie wychodzące** kliknij **</>** ikonę.
-5.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** , a następnie kliknij przycisk **Pokaż fragmenty kodu** w prawym górnym rogu.
-6.  W oknie po prawej stronie w obszarze **zasady przekształcania**kliknij pozycję **Maskuj adresy URL w obszarze zawartość**.
+1.  Wybierz pozycję **Demonstracja interfejs API konferencji**  >  **wszystkie operacje**  >  **projektowe**.
+1.  W sekcji **Przetwarzanie wychodzące** wybierz ikonę Edytor kodu ( **</>** ).
+1.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** i wybierz pozycję **Pokaż fragmenty kodu** w prawym górnym rogu.
+1.  W oknie po prawej stronie w obszarze **zasady przekształcania**wybierz pozycję **maska adresów URL w obszarze zawartość**. 
+1.  Wybierz pozycję **Zapisz**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
 
-W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zaplecza poprzez konfigurowanie limitów szybkości. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. W tym przykładzie limit jest ustawiony na 3 wywołań na 15 sekund dla każdego identyfikatora subskrypcji. Po 15 sekundach deweloper może ponowić próbę wywołania interfejsu API.
+W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zaplecza poprzez konfigurowanie limitów szybkości. Można na przykład ograniczyć szybkość wywołań interfejsu API, tak aby interfejs API nie był używany przez deweloperów. W tym przykładzie limit jest ustawiony na 3 wywołań na 15 sekund dla każdego identyfikatora subskrypcji. Po 15 sekundach deweloper może ponowić próbę wywołania interfejsu API.
 
-![Ustawianie zasad danych przychodzących](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+1.  Wybierz pozycję **Demonstracja interfejs API konferencji**  >  **wszystkie operacje**  >  **projektowe**.
+1.  W sekcji **Przetwarzanie przychodzące** wybierz ikonę Edytor kodu ( **</>** ).
+1.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** .
 
-1.  Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2.  Wybierz opcję **Wszystkie operacje**.
-3.  W górnej części ekranu wybierz kartę **Projektowanie**.
-4.  W sekcji **Przetwarzanie danych przychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** .
-6.  W oknie po prawej stronie w obszarze **Zasady ograniczeń dostępu** kliknij opcję **+ Ogranicz liczbę wywołań na klucz**.
-7.  Zmodyfikuj kod **Rate-limit-by-Key** (w **\<inbound\>** elemencie) do następującego kodu:
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Zasady w portalu" border="false":::
+
+1.  W oknie po prawej stronie w obszarze **zasady ograniczeń dostępu**wybierz pozycję **+ Ogranicz częstotliwość wywołań na klucz**.
+1.  Zmodyfikuj kod **Rate-limit-by-Key** (w **\<inbound\>** elemencie) do następującego kodu:
 
     ```
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
@@ -137,7 +128,7 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 
 ## <a name="test-the-transformations"></a>Testowanie przekształceń
 
-Na tym etapie zasady w edytorze kodu powinny wyglądać następująco:
+W tym momencie, Jeśli zobaczysz kod w edytorze kodu, Twoje zasady wyglądają następująco:
 
    ```
    <policies>
@@ -164,42 +155,32 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
 ### <a name="test-the-stripped-response-headers"></a>Testowanie usuniętych nagłówków odpowiedzi
 
-1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2. Wybierz kartę **Test**.
-3. Kliknij operację **GetSpeakers**.
-4. Kliknij pozycję **Wyślij**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
     Jak widać, nagłówki zostały usunięte:
 
-    ![Zasady](./media/transform-api/final-response1.png)
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Zasady w portalu":::
 
 ### <a name="test-the-replaced-url"></a>Testowanie zamienionego adresu URL
 
-1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2. Wybierz kartę **Test**.
-3. Kliknij operację **GetSpeakers**.
-4. Kliknij pozycję **Wyślij**.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz operację **getgłośników** i wybierz pozycję **Wyślij**.
 
     Jak widać, adres URL został zastąpiony.
 
-    ![Zasady](./media/transform-api/final-response2.png)
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Zasady w portalu":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testowanie limitu szybkości (ograniczania przepustowości)
 
-1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
-2. Wybierz kartę **Test**.
-3. Kliknij operację **GetSpeakers**.
-4. Naciśnij przycisk **Wyślij** trzykrotnie.
+1. Wybierz **test interfejsu API konferencji demonstracyjnej**  >  **Test**.
+1. Wybierz operację **GetSpeakers**. Wybierz pozycję **Wyślij** trzy razy w wierszu.
 
-    Po trzykrotnym wysłaniu żądania otrzymasz odpowiedź **429 Zbyt wiele żądań**.
+    Po wysłaniu żądania trzy razy otrzymujesz **429 zbyt wiele** odpowiedzi na żądania.
 
-5. Poczekaj około 15 sekund i naciśnij przycisk **Wyślij** ponownie. Teraz interfejs powinien zwrócić odpowiedź **200 OK**.
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Zasady w portalu":::
 
-    ![Ograniczanie przepływności](./media/transform-api/test-throttling.png)
-
-## <a name="video"></a>Wideo
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+1. Zaczekaj 15 sekund lub, a następnie wybierz pozycję **Wyślij** ponownie. Teraz interfejs powinien zwrócić odpowiedź **200 OK**.
 
 ## <a name="next-steps"></a>Następne kroki
 

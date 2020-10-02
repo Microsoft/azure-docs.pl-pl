@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295266"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631294"
 ---
 # <a name="add-an-api-manually"></a>Ręczne dodawanie interfejsu API
 
@@ -39,7 +39,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 2. Z menu po lewej stronie wybierz pozycję **+ Dodaj interfejs API**.
 3. Z listy wybierz pozycję **Pusty interfejs API**.  
     ![Pusty interfejs API](media/add-api-manually/blank-api.png)  
-4. Wprowadź ustawienia interfejsu API. Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+4. Wprowadź ustawienia interfejsu API. Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
 5. Wybierz przycisk **Utwórz**.
 
 W tym momencie nie masz żadnych operacji w API Management, które mapują operacje w interfejsie API zaplecza. Jeśli wywołasz operację, która jest dostępna za pomocą zaplecza, ale nie za pomocą API Management, uzyskasz **404**.

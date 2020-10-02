@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 68b5946cb21bef1c8979a94c8780682cfe9defa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376996"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631383"
 ---
-W zapytaniu Użyj `@StartTime` parametru, aby uzyskać dane metryk dla konkretnej sygnatury czasowej. Ta wartość zostanie zastąpiona `yyyy-MM-ddTHH:mm:ss` ciągiem formatu. 
+W zapytaniu Użyj `@StartTime` parametru, aby uzyskać dane metryk dla pojedynczej sygnatury czasowej. Doradca metryk zastąpi parametr `yyyy-MM-ddTHH:mm:ss` ciągiem formatu podczas uruchamiania zapytania.
 
 > [!IMPORTANT]
-> Upewnij się, że tylko dane metryk z **pojedynczej sygnatury czasowej** zostaną zwrócone przez zapytanie. Doradca metryk uruchomi zapytanie względem każdej sygnatury czasowej w celu uzyskania odpowiednich danych metryki. Na przykład zapytanie dla metryki z *dzienną* szczegółowością powinno zawierać tylko jedną sygnaturę czasową, taką jak `2020-06-21T00:00:00Z` podczas uruchamiania zapytania jeden raz. 
+> Zapytanie powinno zwrócić co najwyżej jeden rekord dla każdej kombinacji wymiarów w każdym znaczniku czasu. Wszystkie rekordy zwrócone przez zapytanie muszą mieć te same sygnatury czasowe. Doradca metryk uruchomi to zapytanie dla każdej sygnatury czasowej w celu pozyskania danych. Zapoznaj się z [sekcją często zadawanych pytań na temat zapytań](../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) , aby uzyskać więcej informacji i przykłady. 

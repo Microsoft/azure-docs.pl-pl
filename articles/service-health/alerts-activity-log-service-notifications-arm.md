@@ -4,12 +4,12 @@ description: Otrzymuj powiadomienia za pośrednictwem wiadomości SMS, poczty e-
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 84c888195ab7e2f3288691948706d31160393d25
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918909"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630223"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Szybki Start: tworzenie alertów dziennika aktywności dla powiadomień usługi przy użyciu szablonu ARM
 
@@ -51,19 +51,19 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
-      "defaultValue": "SubHealth",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "SubHealth"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "ServiceHealthActivityLogAlert",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "ServiceHealthActivityLogAlert"
     },
-    "emailAddress":{
-      "type":"string"
+    "emailAddress": {
+      "type": "string"
     }
   },
   "variables": {
-    "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
   },
   "resources": [
     {
@@ -72,8 +72,9 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
       "apiVersion": "2019-06-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,8 +86,7 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Service Health Activity Log Alert",
@@ -94,8 +94,11 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
       "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [
+        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+      ],
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
@@ -122,10 +125,7 @@ Poniższy szablon umożliwia utworzenie grupy akcji z miejscem docelowym poczty 
         },
         "enabled": true,
         "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
+      }
     }
   ]
 }
@@ -136,7 +136,7 @@ Szablon definiuje dwa zasoby:
 - [Microsoft. Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
 - [Microsoft. Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** i **EmailAddress** z odpowiednimi wartościami dla danego środowiska.
 

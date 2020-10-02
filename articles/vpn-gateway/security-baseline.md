@@ -4,35 +4,35 @@ description: Linia bazowa zabezpieczeń VPN Gateway zawiera wskazówki i zasoby 
 author: msmbaldwin
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2ad40f83ece1a68fe49be39551aaa1a3b93ea064
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614591"
+ms.locfileid: "91626262"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Podstawa zabezpieczeń platformy Azure dla VPN Gateway
 
-Ta linia bazowa zabezpieczeń stosuje wskazówki z programu [Azure Security test w wersji 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview) do VPN Gateway. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące VPN Gateway. **Kontrolki** nie mają zastosowania do VPN Gateway zostały wykluczone.
+Ta linia bazowa zabezpieczeń stosuje wskazówki z programu [Azure Security test w wersji 1,0](../security/benchmarks/overview-v1.md) do VPN Gateway. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące VPN Gateway. **Kontrolki** nie mają zastosowania do VPN Gateway zostały wykluczone.
 
 Aby dowiedzieć się, jak VPN Gateway całkowicie mapować do testu porównawczego zabezpieczeń platformy Azure, zobacz [pełny VPN Gateway pliku mapowania linii bazowej zabezpieczeń](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
 **Wskazówki**: podczas pracy z podsieciami bramy sieci VPN należy unikać kojarzenia sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) z podsiecią bramy. Skojarzenie sieciowej grupy zabezpieczeń z tą podsiecią spowoduje, że brama sieci VPN przestanie działać zgodnie z oczekiwaniami.  Należy jednak włączyć sieciowe grupy zabezpieczeń dla innych podsieci usługi non-VPN Gateway w Virtual Network.
 
-- [Jak utworzyć Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) 
+- [Jak utworzyć Virtual Network](../virtual-network/quick-create-portal.md) 
 
-- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) 
+- [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md) 
 
-- [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
+- [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](create-routebased-vpn-gateway-portal.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -42,7 +42,7 @@ Aby dowiedzieć się, jak VPN Gateway całkowicie mapować do testu porównawcze
 
 **Wskazówki**: Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczącymi ochrony sieci, aby pomóc w zabezpieczeniu zasobów sieciowych na platformie Azure. 
 
-- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -52,7 +52,7 @@ Aby dowiedzieć się, jak VPN Gateway całkowicie mapować do testu porównawcze
 
 **Wskazówki**: Włączanie przechwytywania pakietów bramy sieci VPN na bramie lub w określonym połączeniu w zależności od wymagań.
 
-- [Konfigurowanie przechwytywania pakietów dla bram sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/packet-capture)
+- [Konfigurowanie przechwytywania pakietów dla bram sieci VPN](packet-capture.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -64,11 +64,11 @@ Aby dowiedzieć się, jak VPN Gateway całkowicie mapować do testu porównawcze
 
 Możesz również użyć planów platformy Azure, aby uprościć duże wdrożenia platformy Azure przez pakowanie najważniejszych artefaktów środowiska, takich jak szablony Azure Resource Manager, przypisania RBAC platformy Azure i przypisania Azure Policy, w ramach jednej definicji planu. Można zastosować plan do nowych lub istniejących subskrypcji oraz dostosować kontrolę i zarządzanie przy użyciu wersji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/#network) 
+- [Przykłady Azure Policy dla sieci](/azure/governance/policy/samples/#network) 
 
-- [Jak utworzyć Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -78,9 +78,9 @@ Możesz również użyć planów platformy Azure, aby uprościć duże wdrożeni
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów i wykrywania zmian zasobów sieci wirtualnej. Tworzenie alertów w Azure Monitor, które będą wyzwalane w przypadku zmiany krytycznych zasobów związanych z bramą sieci VPN.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log-view)
 
-- [Jak utworzyć alerty w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -88,7 +88,7 @@ Możesz również użyć planów platformy Azure, aby uprościć duże wdrożeni
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
@@ -96,11 +96,11 @@ Możesz również użyć planów platformy Azure, aby uprościć duże wdrożeni
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-- [Konfigurowanie alertów dotyczących zdarzeń dzienników diagnostycznych z VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+- [Konfigurowanie alertów dotyczących zdarzeń dzienników diagnostycznych z VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
 - [Jak rozpocząć pracę z usługą Azure Monitor i integracją SIEM innej firmy](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -112,9 +112,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dla zasobów VPN Gateway, aby uzyskać dostęp do dzienników inspekcji, zabezpieczeń i diagnostyki. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy. 
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -124,9 +124,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania obszaru roboczego log Analytics zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego i archiwizowania. 
 
-- [Zmień okres przechowywania danych w Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -138,11 +138,11 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innej firmy. 
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md) 
 
-- [Wprowadzenie do Log Analytics zapytań](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) 
+- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/log-query/get-started-portal.md) 
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -154,11 +154,11 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej.
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -174,7 +174,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
@@ -194,7 +194,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileged Identity Management i Azure Resource Manager. 
 
-- [Dowiedz się więcej o Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Dowiedz się więcej o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -204,7 +204,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory rejestracji jednokrotnej, zamiast konfigurować indywidualne poświadczenia autonomiczne dla poszczególnych usług. Użyj Azure Security Center zaleceń dotyczących tożsamości i dostępu. 
 
-- [Opis logowania jednokrotnego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Opis logowania jednokrotnego w usłudze Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -214,9 +214,9 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center i zaleceń dotyczących dostępu. 
 
-- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) 
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
-- [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -226,9 +226,9 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Użyj bezpiecznej, zarządzanej przez platformę Azure stacji roboczej (znanej także jako stacja robocza dostępu uprzywilejowanego lub dostępem uprzywilejowanym) dla zadań administracyjnych, które wymagają podwyższonego poziomu uprawnień.
 
-- [Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure](../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Jak włączyć usługę Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -238,9 +238,9 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Użyj Azure Active Directory raportów i monitorowania zabezpieczeń, aby wykrywać, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Azure Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -250,7 +250,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Użyj nazw lokalizacji usługi Azure AD, aby zezwolić na dostęp tylko z określonych logicznych grup zakresów adresów IP lub krajów/regionów. 
 
-- [Jak skonfigurować nazwane lokalizacje usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Jak skonfigurować nazwane lokalizacje usługi Azure AD](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -260,7 +260,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika. 
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -270,9 +270,9 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 **Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów tożsamości i dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. 
 
-- [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/) 
+- [Informacje o raportowaniu usługi Azure AD](/azure/active-directory/reports-monitoring/) 
 
-- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -284,7 +284,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics. 
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -294,11 +294,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: użyj funkcji Azure AD Identity Protection, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Możesz również pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy. 
 
-- [Jak wyświetlić ryzykowne logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies) 
+- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -306,17 +306,17 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
 **Wskazówki**: bramy sieci VPN mają dedykowane wystąpienia maszyn wirtualnych dla każdej sieci wirtualnej klienta. Zaimplementuj izolację przy użyciu oddzielnych sieci wirtualnych, subskrypcji i grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak typ środowiska i poziom czułości danych. Możesz ograniczyć poziom dostępu do zasobów platformy Azure, których wymagają aplikacje i środowiska korporacyjne. Dostęp do zasobów platformy Azure można kontrolować za pośrednictwem Azure Active Directory kontroli dostępu opartej na rolach.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription)
 
-- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Jak utworzyć Grupy zarządzania](/azure/governance/management-groups/create)
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -328,7 +328,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i chroni przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych. 
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -340,15 +340,15 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podczas przesyłania i szyfrowania w celu zapewnienia odpowiednich zasobów w sieci wirtualnej.
 
-- [Informacje o typach sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#vpntype)
+- [Informacje o typach sieci VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype)
 
-- [Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń VPN Gateway typu lokacja-lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)
+- [Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń VPN Gateway typu lokacja-lokacja](vpn-gateway-about-vpn-devices.md#ipsec)
 
-- [Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)
+- [Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje](vpn-gateway-about-compliance-crypto.md)
 
-- [Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell)
+- [Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -366,9 +366,9 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 **Wskazówki**: Użyj usługi Azure AD RBAC do kontrolowania dostępu do danych i zasobów, w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usług. Użyj wbudowanych ról kontroli dostępu opartej na rolach, takich jak właściciel, współautor lub współautor sieci, a następnie przypisz rolę do odpowiedniego zakresu. Przypisanie określonych uprawnień dla podzestawu możliwości sieci wirtualnej przez utworzenie roli niestandardowej i przypisanie określonych uprawnień wymaganych dla sieci wirtualnych, podsieci, bram sieci VPN, interfejsów sieciowych, sieciowych grup zabezpieczeń i tabel tras do roli.
 
-- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Planowanie sieci wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#permissions)
+- [Planowanie sieci wirtualnych](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -378,11 +378,11 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 **Wskazówki**: Konfigurowanie alertów Azure monitor w celu wyzwolenia dzienników aktywności platformy Azure w przypadku wprowadzenia zmian do krytycznych zasobów platformy Azure, takich jak bramy sieci VPN. 
 
-- [Konfigurowanie alertów dotyczących metryk VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric)
+- [Konfigurowanie alertów dotyczących metryk VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)
 
-- [Konfigurowanie alertów dotyczących zdarzeń dzienników diagnostycznych z VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+- [Konfigurowanie alertów dotyczących zdarzeń dzienników diagnostycznych z VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -390,7 +390,7 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
 
@@ -404,19 +404,19 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania wszystkich zasobów związanych z bramami sieci VPN w ramach subskrypcji. Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że można wyliczyć wszystkie zasoby w Twoich subskrypcjach. Ponadto możesz użyć interfejsu wiersza polecenia platformy Azure, aby wyliczyć zasoby VPN Gateway.
 
-- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 - [Interfejs wiersza polecenia platformy Azure dla bramy sieci VPN](https://docs.microsoft.com/cli/azure/network/vnet-gateway?view=azure-cli-latest)
 
 - [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -426,7 +426,7 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 **Wskazówki**: Zastosuj znaczniki do VPN Gateway zasobów, aby logicznie organizować je zgodnie ze zdefiniowaną taksonomią.
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -436,11 +436,11 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji w miarę potrzeb w celu organizowania i śledzenia zasobów VPN Gateway. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie. 
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](/azure/billing/billing-create-subscription) 
 
-- [Tworzenie grup zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [Tworzenie grup zarządzania](/azure/governance/management-groups/create) 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -464,11 +464,11 @@ Postępuj zgodnie z Azure Security Center zalecenia dotyczące szyfrowania podcz
 
 Ponadto należy użyć grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania zasobów w ramach subskrypcji. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Przykładowe zasady platformy Azure dla usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Przykładowe zasady platformy Azure dla usługi Virtual Network](/azure/virtual-network/policy-samples)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -478,7 +478,7 @@ Ponadto należy użyć grafu zasobów platformy Azure do wykonywania zapytań i 
 
 **Wskazówki**: klienci mogą uniemożliwiać tworzenie zasobów lub użycie, przypisując definicje Azure Policy zgodnie z wymaganiami bezpieczeństwa organizacji. Należy jednak zaimplementować własny proces usuwania niezatwierdzonych lub nieautoryzowanych zasobów.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -492,11 +492,11 @@ Ponadto należy użyć grafu zasobów platformy Azure do wykonywania zapytań i 
 
 - Dozwolone typy zasobów
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
-- [Przykładowe zasady platformy Azure dla usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Przykładowe zasady platformy Azure dla usługi Virtual Network](/azure/virtual-network/policy-samples)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -506,7 +506,7 @@ Ponadto należy użyć grafu zasobów platformy Azure do wykonywania zapytań i 
 
 **Wskazówki**: Użyj dostępu warunkowego usługi Azure AD, aby ograniczyć możliwość korzystania z usługi Azure Resources przez użytkowników w celu skonfigurowania "blokowania dostępu" dla aplikacji "Microsoft Azure Management". 
 
-- [Jak skonfigurować dostęp warunkowy, aby blokować dostęp do usługi Azure Resources](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Jak skonfigurować dostęp warunkowy, aby blokować dostęp do usługi Azure Resources](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -514,7 +514,7 @@ Ponadto należy użyć grafu zasobów platformy Azure do wykonywania zapytań i 
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
@@ -526,13 +526,13 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 - [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykładowe zasady platformy Azure dla usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Przykładowe zasady platformy Azure dla usługi Virtual Network](/azure/virtual-network/policy-samples)
 
-- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny](../security-center/recommendations-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -542,15 +542,15 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 **Wskazówki**: użyj szablonów Azure Resource Manager i przypisań Azure Policy do bezpiecznego konfigurowania zasobów platformy Azure skojarzonych z VPN gatewayem i powiązanymi zasobami. Szablony Azure Resource Manager to pliki w formacie JSON używane do wdrażania maszyn wirtualnych wraz z zasobami platformy Azure i szablonem niestandardowym. Firma Microsoft przeprowadza konserwację szablonów podstawowych.  Aby wymusić bezpieczne ustawienia w ramach zasobów platformy Azure, użyj Azure Policy w trybie [Odmów] i [Wdróż, jeśli nie istnieje].
 
-- [Informacje na temat tworzenia szablonów Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- [Informacje na temat tworzenia szablonów Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Zrozumienie Azure Policy efektów](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie Azure Policy efektów](../governance/policy/concepts/effects.md)
 
-- [Przykłady szablonów usługi Azure Resource Manager dla sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/template-samples)
+- [Przykłady szablonów usługi Azure Resource Manager dla sieci wirtualnej](../virtual-network/template-samples.md)
 
-- [Przykładowe zasady platformy Azure dla usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Przykładowe zasady platformy Azure dla usługi Virtual Network](/azure/virtual-network/policy-samples)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -562,7 +562,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 - [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
-- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -572,9 +572,9 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów platformy Azure przy użyciu Azure Policy. Użyj aliasów Azure Policy, aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji zasobów platformy Azure. Można również używać wbudowanych definicji zasad związanych z konkretnymi zasobami. Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji. 
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -584,9 +584,9 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 **Wskazówki**: przypisywanie definicji Azure Policy do mierzenia konfiguracji zasobów związanych z zasobami VPN Gateway. Użyj usługi Azure Policy Insights do inspekcji konfiguracji zasobów i alertów dotyczących krytycznych zmian konfiguracji.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykładowe zasady platformy Azure dla usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/policy-samples)
+- [Przykładowe zasady platformy Azure dla usługi Virtual Network](/azure/virtual-network/policy-samples)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -610,15 +610,15 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych tożsamości.
 
-- [Konfigurowanie dzierżawy](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant)
+- [Konfigurowanie dzierżawy](openvpn-azure-ad-tenant.md)
 
-- [Konfigurowanie dzierżawy z wieloma aplikacjami klienckimi](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app)
+- [Konfigurowanie dzierżawy z wieloma aplikacjami klienckimi](openvpn-azure-ad-tenant-multi-app.md)
 
-- [Konfigurowanie Multi-Factor Authentication](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-mfa)
+- [Konfigurowanie Multi-Factor Authentication](openvpn-azure-ad-mfa.md)
 
-- [Konfigurowanie klienta sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client)
+- [Konfigurowanie klienta sieci VPN](openvpn-azure-ad-client.md)
 
-- [Jak skonfigurować tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [Jak skonfigurować tożsamości zarządzane](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -636,19 +636,19 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: zapewnianie regularnych zautomatyzowanych kopii zapasowych
 
 **Wskazówki**: Aby wdrożyć zasoby VPN Gateway, użyj Azure Resource Manager. Azure Resource Manager zapewnia możliwość eksportowania szablonów, które mogą być używane jako kopie zapasowe do przywracania VPN Gateway zasobów. Użyj Azure Automation, aby regularnie wywoływać interfejs API eksportowania szablonu Azure Resource Manager.
 
-- [Omówienie usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+- [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
-- [Przykłady szablonów usługi Azure Resource Manager dla sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/template-samples)
+- [Przykłady szablonów usługi Azure Resource Manager dla sieci wirtualnej](../virtual-network/template-samples.md)
 
-- [Grupy zasobów — Eksportowanie szablonu](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+- [Grupy zasobów — Eksportowanie szablonu](/rest/api/resources/resourcegroups/exporttemplate)
 
-- [Wprowadzenie do Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Wprowadzenie do Azure Automation](../automation/automation-intro.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -658,11 +658,11 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 **Wskazówki**: Aby wdrożyć zasoby VPN Gateway, użyj Azure Resource Manager. Azure Resource Manager zapewnia możliwość eksportowania szablonów, które mogą być używane jako kopie zapasowe do przywracania bramy sieci VPN i powiązanych zasobów. Użyj Azure Automation, aby regularnie wywoływać interfejs API eksportowania szablonu Azure Resource Manager.
 
-- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Grupy zasobów — Eksportowanie szablonu](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+- [Grupy zasobów — Eksportowanie szablonu](/rest/api/resources/resourcegroups/exporttemplate)
 
-- [Wprowadzenie do Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Wprowadzenie do Azure Automation](../automation/automation-intro.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -672,7 +672,7 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 **Wskazówki**: Upewnij się, że w razie potrzeby okresowo Wdrażaj regularnie wdrożenia szablonów Azure Resource Manager.
 
-- [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+- [Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
 - [Jak przywrócić klucze magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -686,7 +686,7 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 - [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 - [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
@@ -696,7 +696,7 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -718,9 +718,9 @@ Usługa Azure AD jest zalecana, ponieważ umożliwia korzystanie z zarządzanych
 
 Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system nazewnictwa, aby identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają poufne dane.  Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie. 
 
-- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview) 
+- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -740,7 +740,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych zostały nadane przez nielegalną lub nieautoryzowaną stronę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane. 
 
-- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -750,9 +750,9 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego, która pomaga identyfikować zagrożenia dla zasobów platformy Azure. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center do przesyłania strumieniowego alertów do usługi Azure wskaźnikowej. 
 
-- [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md) 
 
-- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -762,7 +762,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: korzystanie z funkcji automatyzacji przepływu pracy Azure Security Center do automatycznego wyzwalania odpowiedzi na alerty zabezpieczeń i zalecenia dotyczące ochrony zasobów platformy Azure. 
 
-- [Jak skonfigurować automatyzację przepływu pracy w Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Jak skonfigurować automatyzację przepływu pracy w Security Center](../security-center/workflow-automation.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -770,7 +770,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 

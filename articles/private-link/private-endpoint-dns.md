@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918132"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628013"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -74,7 +74,7 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/obszar roboczy | privatelink.api.azureml.ms | api.azureml.ms |
 | IoT Hub (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
 | Sygnalizujący (Microsoft. SignalRService/Signaler)/sygnalizujący | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.com | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.com |
+| Azure Monitor (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Microsoft. CognitiveServices/accounts)/Account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure File Sync (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
 
@@ -121,7 +121,7 @@ Ten model można rozszerzyć na wiele równorzędnych sieci wirtualnych, które 
 
 W tym scenariuszu istnieje topologia sieci typu [Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Centrum i szprycha z systemem DNS dostarczonym przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Obciążenia lokalne przy użyciu usługi przesyłania dalej DNS
 
@@ -142,7 +142,7 @@ Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci lokalnej, która używa usługi przesyłania dalej DNS wdrożonej na platformie Azure, w której rozwiązanie jest nawiązywane przez prywatną strefę DNS [połączoną z siecią wirtualną](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Lokalne przy użyciu Azure DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
 
 Tę konfigurację można rozszerzyć dla sieci lokalnej, w której znajduje się już rozwiązanie DNS. 
 Lokalne rozwiązanie DNS musi być skonfigurowane do przekazywania ruchu DNS do Azure DNS za pośrednictwem [usługi przesyłania dalej warunkowego](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) , która odwołuje się do usługi przesyłania dalej DNS wdrożonej na platformie Azure.
@@ -163,7 +163,7 @@ Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci 
 > [!IMPORTANT]
 > Warunkowe przekazywanie należy wykonać do zalecanej [publicznej usługi przesyłania dalej strefy DNS](#azure-services-dns-zone-configuration).Na przykład:  `database.windows.net`   zamiast **privatelink**. Database.Windows.NET.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokalne przekazywanie do Azure DNS":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Obciążenia sieci wirtualnej i lokalne przy użyciu usługi przesyłania dalej DNS
 
@@ -190,7 +190,7 @@ Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci lokalnej i wirtualnej, która korzysta z usługi przesyłania dalej DNS wdrożonej na platformie Azure, gdzie rozwiązanie jest nawiązywane przez prywatną strefę DNS [połączoną z siecią wirtualną](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Scenariusz hybrydowy":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
 
 ## <a name="next-steps"></a>Następne kroki
 - [Dowiedz się więcej o prywatnych punktach końcowych](private-endpoint-overview.md)

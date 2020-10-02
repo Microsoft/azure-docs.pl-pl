@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322341"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631254"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi w Azure Portal
 
@@ -61,20 +61,18 @@ Do utworzenia obszaru roboczego potrzebna jest subskrypcja platformy Azure. Jeś
  
  1. Aby wyświetlić nowy obszar roboczy, wybierz pozycję **Przejdź do zasobu**.
 
-### <a name="networking"></a>Networking  
+### <a name="networking"></a>Sieć  
 
 > [!IMPORTANT]  
-> Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-enable-virtual-network.md).  
-1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__, który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, zamiast tego możesz wybrać opcję __prywatny punkt końcowy__ (wersja zapoznawcza) jako __metodę połączenia__, a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy.   
-
-   > [!IMPORTANT]   
-   > Korzystanie z prywatnego punktu końcowego z obszarem roboczym Azure Machine Learning jest obecnie dostępne w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.  
-   > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-enable-virtual-network.md).
+    
+1. Domyślną konfiguracją sieci jest użycie __publicznego punktu końcowego__, który jest dostępny w publicznej sieci Internet. Aby ograniczyć dostęp do obszaru roboczego do utworzonego Virtual Network platformy Azure, możesz zamiast tego wybrać __prywatny punkt końcowy__ jako __metodę połączenia__, a następnie użyć opcji __+ Dodaj__ , aby skonfigurować punkt końcowy. 
+    
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Wybór prywatnego punktu końcowego":::  
 
 1. W formularzu __Tworzenie prywatnego punktu końcowego__ Ustaw lokalizację, nazwę i sieć wirtualną do użycia. Jeśli chcesz użyć punktu końcowego ze strefą Prywatna strefa DNS, wybierz opcję __Zintegruj z prywatną strefą DNS__ i wybierz strefę przy użyciu pola __strefy prywatna strefa DNS__ . Wybierz __przycisk OK__ , aby utworzyć punkt końcowy.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Tworzenie prywatnego punktu końcowego":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Wybór prywatnego punktu końcowego":::   
 
 1. Po zakończeniu konfigurowania sieci możesz wybrać pozycję __Przegląd + Utwórz__lub przejdź do opcjonalnej __zaawansowanej__ konfiguracji. 
 
@@ -112,14 +110,15 @@ Jeśli używasz wersji __Enterprise__ programu Azure Machine Learning, możesz z
 >   
 >     Nie musisz ręcznie tworzyć wystąpienia Azure Cosmos DB, po utworzeniu obszaru roboczego zostanie ono utworzone. To wystąpienie Azure Cosmos DB zostanie utworzone w oddzielnej grupie zasobów przy użyciu nazwy opartej na tym wzorcu: `<your-workspace-resource-name>_<GUID>` .   
 >   
-> Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego. Jeśli usuniesz Azure Cosmos DB używany przez obszar roboczy, musisz również usunąć obszar roboczy, który go używa.   
+> Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego. Jeśli usuniesz Azure Cosmos DB używany przez obszar roboczy, musisz również usunąć obszar roboczy, który go używa.
+
 1. Wybierz pozycję __klucze zarządzane przez klienta__, a następnie wybierz __pozycję kliknij, aby wybrać klucz__.   
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Klucze zarządzane przez klienta":::   
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Wybór prywatnego punktu końcowego":::   
 
 1. W formularzu __Wybierz klucz z Azure Key Vault__ wybierz istniejący Azure Key Vault, klucz, który zawiera, i wersję klucza. Ten klucz służy do szyfrowania danych przechowywanych w Azure Cosmos DB. Na koniec użyj przycisku __Wybierz__ , aby użyć tego klucza. 
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Wybierz klucz":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Wybór prywatnego punktu końcowego":::
 
 ### <a name="download-a-configuration-file"></a>Pobierz plik konfiguracji
 
@@ -148,7 +147,7 @@ Jeśli używasz wersji __Enterprise__ programu Azure Machine Learning, możesz z
 
 W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Usuń**  w górnej części obszaru roboczego, który chcesz usunąć.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Usuwanie obszaru roboczego":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Wybór prywatnego punktu końcowego":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

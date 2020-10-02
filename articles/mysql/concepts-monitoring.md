@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
-ms.openlocfilehash: 207693945c2fe916e99d55545d8a33c08067ba04
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538283"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627520"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorowanie w Azure Database for MySQL
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for MySQL oferuje różne metryki, które dają wgląd w zachowanie serwera.
@@ -56,8 +57,10 @@ Funkcja [zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 **Powiadomienia o planowanej konserwacji** umożliwiają otrzymywanie alertów dotyczących nadchodzącej planowanej konserwacji do Azure Database for MySQL. Te powiadomienia są zintegrowane z zaplanowaną konserwacją [Service Health](../service-health/overview.md) i umożliwiają wyświetlanie całej zaplanowanej konserwacji subskrypcji w jednym miejscu. Pomaga również skalować powiadomienie do odpowiednich odbiorców dla różnych grup zasobów, ponieważ użytkownik może mieć różne kontakty odpowiedzialne za różne zasoby. Otrzymasz powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
 
-> [!Note]
-> Firma Microsoft podejmie próbę udostępnienia **powiadomienia o planowanej konserwacji** 72 godzin dla wszystkich zdarzeń. Jednak w przypadku poprawek krytycznych lub zabezpieczeń powiadomienia mogą być wysyłane bliżej zdarzenia lub zostać pominięte.
+Podczas planowanej konserwacji można oczekiwać, że serwer zostanie ponownie uruchomiony, a [Błędy przejściowe](concepts-connectivity.md#transient-errors) mogą wystąpić. Większość z tych zdarzeń jest automatycznie zmniejszana przez system w mniej niż 60 sekund.
+
+> [!IMPORTANT]
+> Powiadomienia o planowanej konserwacji są obecnie dostępne w publicznej wersji zapoznawczej we wszystkich regionach **z wyjątkiem** zachodnich Stanów Zjednoczonych
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Aby odebrać powiadomienie o planowanej konserwacji
 
@@ -72,8 +75,8 @@ Funkcja [zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 Szczegółowe instrukcje dotyczące tworzenia **alertów dotyczących kondycji usługi**można znaleźć w sekcji [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> Powiadomienia o planowanej konserwacji są obecnie dostępne w wersji zapoznawczej we wszystkich regionach **z wyjątkiem** zachodnich Stanów Zjednoczonych
+> [!Note]
+> Firma Microsoft podejmie próbę udostępnienia **powiadomienia o planowanej konserwacji** 72 godzin dla wszystkich zdarzeń. Jednak w przypadku poprawek krytycznych lub zabezpieczeń powiadomienia mogą być wysyłane bliżej zdarzenia lub zostać pominięte.
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [jak skonfigurować alerty](howto-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.

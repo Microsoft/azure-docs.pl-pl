@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210698"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627078"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optymalizowanie wydajności przez uaktualnienie puli SQL usługi Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Teraz można bezproblemowo uaktualnić do warstwy Gen2 obliczeń zoptymalizowany
 
    > [!NOTE]
    > Jeśli nie widzisz karty **uaktualnienie do Gen2** na karcie zadania, typ subskrypcji jest ograniczony w bieżącym regionie.
-   > [Prześlij bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) , aby uzyskać subskrypcję usługi listy dozwolonych.
+   > [Prześlij bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) , aby uzyskać zatwierdzenie subskrypcji.
 
 3. Upewnij się, że obciążenie zostało zakończone i przestanie działać w stanie spoczynku przed uaktualnieniem. Wystąpi przestój przez kilka minut, zanim Pula SQL zostanie przywrócona w trybie online jako pula w warstwie Gen2 zoptymalizowana pod kątem obliczeń. **Wybierz pozycję Uaktualnij**:
 

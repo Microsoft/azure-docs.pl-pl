@@ -3,15 +3,15 @@ title: 'Szybki Start: Tworzenie aplikacji ASP.NET Core w języku C#'
 description: Dowiedz się, jak uruchamiać aplikacje sieci Web w Azure App Service, wdrażając pierwszą aplikację ASP.NET Core.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.date: 09/24/2020
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7cbfddd10fdc383b16ce2277e5e9a082297d1912
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973756"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628149"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -304,7 +304,7 @@ Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Por
 
 W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji platformy Azure.
 
-:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Zrzut ekranu przedstawiający stronę App Services z wybraną przykładową aplikacją platformy Azure.":::
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Zrzut ekranu przedstawiający stronę App Services z wybraną przykładową aplikacją sieci Web.":::
 
 Zostanie wyświetlona strona omówienia aplikacji. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. 
 

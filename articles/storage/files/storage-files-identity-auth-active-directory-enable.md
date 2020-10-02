@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd80f7b4a62380b62acb52543b49f5640cc5d365
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322074"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627980"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -54,7 +54,7 @@ Przed włączeniem AD DS uwierzytelniania dla udziałów plików platformy Azure
 
     Upewnij się, że konto magazynu zawierające Twoje udziały plików nie zostało już skonfigurowane do uwierzytelniania za pomocą usługi Azure AD DS. Jeśli na koncie magazynu jest włączone uwierzytelnianie Azure Files Azure AD DS, należy je wyłączyć przed zmianą lokalnego AD DS. Oznacza to, że istniejące listy ACL skonfigurowane w środowisku usługi Azure AD DS należy ponownie skonfigurować do prawidłowego wymuszania uprawnień.
 
-    Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
+    Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
 
 - Przed włączeniem i skonfigurowaniem uwierzytelniania AD DS w udziałach plików platformy Azure wprowadź odpowiednią konfigurację sieci. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md) .
 

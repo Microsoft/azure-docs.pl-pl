@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650859"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630937"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurowanie sieciowego urządzenia wirtualnego w usłudze Azure HDInsight
 
@@ -23,7 +23,7 @@ Zapora platformy Azure jest automatycznie konfigurowana w taki sposób, aby zezw
 
 * Usługi obsługujące punkt końcowy usługi można skonfigurować za pomocą punktów końcowych usługi, które w wyniku pomijania urządzenie WUS zazwyczaj dotyczą kosztów lub problemów dotyczących wydajności.
 * Zależności adresów IP są związane z ruchem innym niż HTTP/S (ruchem TCP i UDP).
-* Punkty końcowe HTTP/HTTPS w nazwie FQDN można listy dozwolonych na urządzeniu urządzenie WUS.
+* Punkty końcowe HTTP/HTTPS FQDN mogą być zatwierdzone na urządzeniu urządzenie WUS.
 * Przypisz tabelę tras utworzoną w podsieci usługi HDInsight.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Zależności obsługujące punkt końcowy usługi

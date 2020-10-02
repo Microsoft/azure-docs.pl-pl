@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538386"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631192"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -80,19 +80,7 @@ Aby uzyskać szczegółowe instrukcje dotyczące wykonywania tych kroków, zobac
 ### <a name="limitations"></a>Ograniczenia
 
 Zabezpieczanie obszaru roboczego i skojarzonych z nim zasobów w ramach sieci wirtualnej ma następujące ograniczenia:
-- Link prywatny obszaru roboczego jest dostępny tylko w następujących regionach:
-    - **East US**
-    - **South Central US**
-    - **Zachodnie stany USA**
-    - **Zachodnie stany USA 2**
-    - **Kanada środkowa**
-    - **Southeast Asia**
-    - **Japan East**
-    - **Europa Północna**
-    - **Australia Wschodnia**
-    - **Południowe Zjednoczone Królestwo**
-    
-    To ograniczenie nie ma zastosowania do skojarzonych zasobów. Na przykład możesz włączyć sieć wirtualną dla magazynu w dowolnym Azure Machine Learning regionie.
+- Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach w Azure Government lub w Chinach. platformy Azure.
 - Wszystkie zasoby muszą należeć do tej samej sieci wirtualnej. Jednak podsieci w tej samej sieci wirtualnej są dozwolone.
 
 ## <a name="secure-the-training-environment"></a>Zabezpiecz środowisko szkoleniowe

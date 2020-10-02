@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6808117728569ba6fd0b094c7330ce9a1baa24c4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618611"
+ms.locfileid: "91631787"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
@@ -23,7 +23,7 @@ W przypadku przepływu pracy kontenera Azure App Service plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Authentication** | 1. Nazwa główna usługi lub profil publikacji. <br /> 2. Utwórz wpis tajny usługi GitHub. |
+|**Authentication** | 1. Pobierz nazwę główną usługi lub profil publikacji. <br /> 2. Utwórz wpis tajny usługi GitHub. |
 |**Kompilacja** | 1. Utwórz środowisko. <br /> 2. Skompiluj obraz kontenera. |
 |**Wdrażanie** | 1. Wdróż obraz kontenera. |
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: 4550f1da0ac87a55bab64566a0035451dee8d225
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/1/2020
+ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538266"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627571"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -36,6 +36,9 @@ Typowy scenariusz polega na tym, że obciążenia analizy biznesowej i analizy u
 Ponieważ repliki są tylko do odczytu, nie zmniejszają bezpośrednio obciążeń związanych z pojemnością zapisu na serwerze głównym. Ta funkcja nie jest przeznaczona dla obciążeń intensywnie korzystających z zapisu.
 
 Funkcja odczytu repliki korzysta z replikacji asynchronicznej MySQL. Ta funkcja nie jest przeznaczona do scenariuszy replikacji synchronicznej. Nastąpi wymierne opóźnienie między źródłem a repliką. Dane z repliki ostatecznie staną się spójne z danymi na serwerze głównym. Użyj tej funkcji dla obciążeń, które mogą obsłużyć to opóźnienie.
+
+> [!IMPORTANT]
+> Azure Database for MySQL używa rejestrowania binarnego opartego na **wierszach** . Jeśli tabela nie zawiera klucza podstawowego, wszystkie wiersze w tabeli są skanowane pod kątem operacji DML. Powoduje to zwiększenie opóźnienia replikacji. Aby upewnić się, że replika jest w stanie zachować zmiany w źródle, zaleca się dodanie klucza podstawowego do tabel na serwerze źródłowym przed utworzeniem serwera repliki lub ponowne utworzenie serwera repliki, jeśli już istnieje.
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 Replikę odczytu można utworzyć w innym regionie niż na serwerze źródłowym. Replikacja między regionami może być przydatna w scenariuszach takich jak planowanie odzyskiwania po awarii lub umieszczenie danych bliżej użytkowników.

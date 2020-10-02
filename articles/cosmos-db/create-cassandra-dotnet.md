@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f17385307995d87f2d5792a7e9ce19ad0260cbcc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010248"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627401"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu .NET SDK i Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację interfejsu API bazy dan
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z pliku `Program.cs` zainstalowanego w folderze `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string).
+Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z pliku `Program.cs` zainstalowanego w folderze `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string).
 
 * Zainicjuj sesję przez nawiązanie połączenia z punktem końcowym klastra Cassandra. Interfejs API bazy danych Cassandra w usłudze Azure Cosmos DB obsługuje tylko protokół TLS 1.2. 
 
@@ -158,13 +158,13 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     ```
 3. Naciśnij klawisze CTRL+F5, aby uruchomić aplikację. Aplikacja zostanie wyświetlona w oknie konsoli. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Wyświetlanie i weryfikowanie danych wyjściowych":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia":::
 
     Naciśnij klawisze CTRL+C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
     
 4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Wyświetlanie danych w Eksploratorze danych":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
@@ -174,7 +174,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kontenera za pomocą Eksploratora danych i uruchamiania aplikacji internetowej. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 

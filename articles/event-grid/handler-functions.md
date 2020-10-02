@@ -3,12 +3,12 @@ title: Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Azu
 description: Opisuje, jak można używać usługi Azure Functions jako obsługi zdarzeń dla zdarzeń Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 87aeb78729dcc7bec9f193fab389e5c0952e63d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270330"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629692"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Event Grid
 
@@ -60,7 +60,7 @@ W czasie tworzenia subskrypcji w interfejsie użytkownika na stronie **Tworzenie
 
 Te wartości dla istniejącej subskrypcji można zaktualizować na karcie **funkcje** na stronie **tematu Event Grid** . 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Włącz przetwarzanie wsadowe po utworzeniu":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Włącz przetwarzanie wsadowe w momencie tworzenia subskrypcji":::
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 W szablonie Azure Resource Manager można ustawić **maxEventsPerBatch** i **preferredBatchSizeInKilobytes** . Aby uzyskać więcej informacji, zobacz [Dokumentacja szablonu Microsoft. EventGrid eventSubscriptions](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
@@ -70,9 +70,6 @@ Aby skonfigurować ustawienia związane z usługą Batch przy użyciu następuj�
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Za pomocą polecenia cmdlet [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) lub [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) można skonfigurować ustawienia związane z usługą Batch, korzystając z następujących parametrów: `-MaxEventsPerBatch` lub `-PreferredBatchSizeInKiloBytes` .
-
-> [!NOTE]
-> Dostarczanie zdarzeń do funkcji platformy Azure w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

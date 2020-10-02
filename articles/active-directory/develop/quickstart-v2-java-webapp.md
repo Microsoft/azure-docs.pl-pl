@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity platform Java Internet Web App — Szybki Start | Azure
-description: Dowiedz się, jak zaimplementować logowanie firmy Microsoft w aplikacji sieci Web Java za pomocą OpenID Connect Connect
+title: 'Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Java | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak zaimplementować logowanie firmy Microsoft w aplikacji sieci Web w języku Java za pomocą OpenID Connect Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6281ab00f20663a54fd8c397df307581d3967ef9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258102"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631600"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 

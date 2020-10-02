@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314117"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626500"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii środowiska VMware na platformie Azure
 
@@ -45,12 +45,12 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
-Wyczerpująca lista adresów URL, które mają być listy dozwolonych do komunikacji między lokalną infrastrukturą Azure Site Recovery i usługami platformy Azure, znajduje się [w sekcji wymagania dotyczące sieci w artykule dotyczącym wymagań wstępnych](vmware-azure-deploy-configuration-server.md#prerequisites).
+Pełna lista adresów URL, które mają być filtrowane w celu komunikacji między lokalną infrastrukturą Azure Site Recovery i usługami platformy Azure, znajduje się [w sekcji wymagania dotyczące sieci w artykule dotyczącej wymagań wstępnych](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## <a name="replication-process"></a>Proces replikacji
 

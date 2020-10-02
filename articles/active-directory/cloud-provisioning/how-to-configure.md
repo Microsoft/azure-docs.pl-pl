@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f02ea42bb792320da6e2523b733f09afd412a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8b18629a776dd98950f49b1f607cbc876abcd9c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360966"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628903"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Utwórz nową konfigurację dla Azure AD Connect aprowizacji opartej na chmurze
 
@@ -25,67 +25,68 @@ Po zainstalowaniu agenta należy zalogować się do Azure Portal i skonfigurowa�
 ## <a name="configure-provisioning"></a>Konfigurowanie aprowizacji
 Aby skonfigurować Inicjowanie obsługi, wykonaj następujące kroki.
 
-1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **Azure AD Connect**.
-1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+ 1. W Azure Portal wybierz pozycję **Azure Active Directory**
+ 2. Wybierz **Azure AD Connect**.
+ 3. Wybierz pozycję **Zarządzaj obsługą**.
 
-    ![Zarządzanie obsługą administracyjną (wersja zapoznawcza)](media/how-to-configure/manage1.png)
+ ![Zarządzanie obsługą administracyjną](media/how-to-configure/manage1.png)
+ 
+ 4. Wybierz pozycję **Nowa konfiguracja**.
+ 5. Na ekranie Konfiguracja wybierz domenę i zdecyduj, czy ma zostać włączona synchronizacja skrótów haseł.  Kliknij przycisk **Utwórz**.  
+ 
+ ![Utwórz nową konfigurację](media/how-to-configure/configure1.png)
 
-1.  Wybierz pozycję **Nowa konfiguracja**.
-1.  Na ekranie Konfiguracja jest wstępnie wypełniona domena lokalna.
-1.  Wprowadź **wiadomość e-mail z powiadomieniem**. Ta wiadomość e-mail zostanie powiadomiona, gdy obsługa administracyjna nie jest w dobrej kondycji.
-1.  Przenieś selektor, aby go **włączyć**, a następnie wybierz pozycję **Zapisz**.
 
-    ![Inicjowanie obsługi usługi Azure AD (wersja zapoznawcza)](media/tutorial-single-forest/configure2.png)
+ 6.  Zostanie otwarty ekran edytuj konfigurację aprowizacji.
+
+   ![Edytuj konfigurację](media/how-to-configure/configure2.png)
+
+ 7. Wprowadź **wiadomość e-mail z powiadomieniem**. Ta wiadomość e-mail zostanie powiadomiona, gdy obsługa administracyjna nie jest w dobrej kondycji.
+ 8. Przenieś selektor, aby go włączyć, a następnie wybierz pozycję Zapisz.
 
 ## <a name="scope-provisioning-to-specific-users-and-groups"></a>Inicjowanie obsługi zakresu dla określonych użytkowników i grup
 Można ograniczyć agenta do synchronizowania określonych użytkowników i grup za pomocą lokalnych grup Active Directory lub jednostek organizacyjnych. W ramach konfiguracji nie można konfigurować grup i jednostek organizacyjnych. 
 
-1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **Azure AD Connect**.
-1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
-1.  W obszarze **Konfiguracja**wybierz konfigurację.
+ 1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
+ 2. Wybierz **Azure AD Connect**.
+ 3. Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+ 4. W obszarze **Konfiguracja**wybierz konfigurację.
 
-    ![Sekcja konfiguracji](media/how-to-configure/scope1.png)
+ ![Sekcja konfiguracji](media/how-to-configure/scope1.png)
+ 
+ 5. W obszarze **Konfiguracja**wybierz opcję **Edytuj filtry zakresu** , aby zmienić zakres reguły konfiguracji.
+ ![Edytowanie zakresu](media/how-to-configure/scope3.png)
+ 7. Po prawej stronie można zmienić zakres.  Po zakończeniu kliknij pozycję **gotowe**  i **Zapisz** .
+ 8. Po zmianie zakresu należy [ponownie uruchomić Inicjowanie obsługi](#restart-provisioning) , aby zainicjować natychmiastową synchronizację zmian.
 
-1.  W obszarze **Konfiguracja**wybierz pozycję **Wszyscy użytkownicy** , aby zmienić zakres reguły konfiguracji.
+## <a name="attribute-mapping"></a>Mapowanie atrybutów
+Azure AD Connect aprowizacji w chmurze umożliwia łatwe Mapowanie atrybutów między obiektami lokalnymi użytkownika/grupy i obiektami w usłudze Azure AD.  Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów.  Aby uzyskać więcej informacji, zobacz [Mapowanie atrybutów](how-to-attribute-mapping.md).
 
-    ![Opcja wszyscy użytkownicy](media/how-to-configure/scope2.png)
-
-1. Po prawej stronie można zmienić zakres, aby uwzględnić tylko grupy zabezpieczeń. Wprowadź nazwę wyróżniającą grupy, a następnie wybierz pozycję **Dodaj**.
-
-    ![Wybrane opcje grup zabezpieczeń](media/how-to-configure/scope3.png)
-
-1.  Lub można zmienić zakres, aby uwzględnić tylko określone jednostki organizacyjne. Wybierz pozycję **gotowe** i **Zapisz**.  
-2.  Po zmianie zakresu należy [ponownie uruchomić Inicjowanie obsługi](#restart-provisioning) , aby zainicjować natychmiastową synchronizację zmian.
-
-    ![Opcja wybranej jednostki organizacyjnej](media/how-to-configure/scope4.png)
-
+## <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie
+Azure AD Connect aprowizacji w chmurze umożliwia testowanie zmian konfiguracji przez zastosowanie tych zmian do pojedynczego użytkownika lub grupy.  Można go użyć do sprawdzenia poprawności i sprawdzenia, czy zmiany wprowadzone do konfiguracji zostały zastosowane prawidłowo i są prawidłowo zsynchronizowane z usługą Azure AD.  Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi na żądanie](how-to-on-demand-provision.md).
 
 ## <a name="restart-provisioning"></a>Ponowne uruchamianie aprowizacji 
 Jeśli nie chcesz czekać na następne zaplanowane uruchomienie, wyzwól uruchomienie aprowizacji za pomocą przycisku **ponowne Inicjowanie obsługi administracyjnej** . 
-1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **Azure AD Connect**.
-1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
-1.  W obszarze **Konfiguracja**wybierz konfigurację.
+ 1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
+ 2. Wybierz **Azure AD Connect**.
+ 3.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+ 4. W obszarze **Konfiguracja**wybierz konfigurację.
 
-    ![Wybór konfiguracji w celu ponownego uruchomienia aprowizacji](media/how-to-configure/scope1.png)
+   ![Wybór konfiguracji w celu ponownego uruchomienia aprowizacji](media/how-to-configure/scope1.png)
 
-1.  W górnej części wybierz pozycję **Uruchom ponownie Inicjowanie obsługi**.
+ 5. W górnej części wybierz pozycję **Uruchom ponownie Inicjowanie obsługi**.
 
 ## <a name="remove-a-configuration"></a>Usuń konfigurację
 Aby usunąć konfigurację, wykonaj następujące kroki.
 
-1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
-1.  Wybierz **Azure AD Connect**.
-1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
-1.  W obszarze **Konfiguracja**wybierz konfigurację.
+ 1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
+ 2. Wybierz **Azure AD Connect**.
+ 3. Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+ 4. W obszarze **Konfiguracja**wybierz konfigurację.
+   
+   ![Wybór konfiguracji w celu usunięcia konfiguracji](media/how-to-configure/scope1.png)
 
-    ![Wybór konfiguracji w celu usunięcia konfiguracji](media/how-to-configure/scope1.png)
-
-1.  W górnej części ekranu konfiguracja wybierz pozycję **Usuń**.
-
-    ![Przycisk Usuń](media/how-to-configure/remove1.png)
+ 5. W górnej części ekranu konfiguracja wybierz pozycję **Usuń**.
 
 >[!IMPORTANT]
 >Nie ma potwierdzenia przed usunięciem konfiguracji. Upewnij się, że jest to akcja, którą chcesz wykonać przed wybraniem opcji **Usuń**.

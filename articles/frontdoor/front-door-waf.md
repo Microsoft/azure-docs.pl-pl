@@ -1,5 +1,5 @@
 ---
-title: Skalowanie i ochrona aplikacji sieci Web przy użyciu usług frontonu platformy Azure i WAF
+title: 'Samouczek: skalowanie i ochrona aplikacji sieci Web przy użyciu usług frontonu platformy Azure i zapory aplikacji sieci Web platformy Azure (WAF)'
 description: W tym samouczku pokazano, jak używać zapory aplikacji sieci Web platformy Azure z usługą Azure front-drzwi.
 services: frontdoor
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276276"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626483"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Samouczek: szybka skalowanie i ochrona aplikacji sieci Web przy użyciu platformy Azure z przodu i zapory aplikacji sieci Web platformy Azure (WAF)
 
-Wiele aplikacji sieci Web napotkało szybki wzrost ruchu w ostatnich tygodniach z powodu COVID-19. Te aplikacje sieci Web również wystąpiły przez gwałtowny wzrost ilości szkodliwego ruchu, w tym ataki typu "odmowa usługi". Istnieje skuteczny sposób skalowania w poziomie w celu przepięcia ruchu i ochrony przed atakami: Skonfiguruj tylne drzwi platformy Azure za pomocą usługi Azure WAF jako akceleracja, buforowanie i warstwę zabezpieczeń przed Twoją aplikacją internetową. Ten artykuł zawiera wskazówki dotyczące szybkiego uzyskiwania drzwi platformy Azure z systemem Azure WAF skonfigurowanych dla dowolnej aplikacji sieci Web, która działa w ramach platformy Azure lub poza nią. 
+Wiele aplikacji sieci Web napotkało szybki wzrost ruchu w ostatnich tygodniach z powodu COVID-19. Te aplikacje sieci Web również wystąpiły przez gwałtowny wzrost ilości szkodliwego ruchu, w tym ataki typu "odmowa usługi". Istnieje skuteczny sposób skalowania aplikacji w celu przepięcia ruchu i ochrony przed atakami: Skonfiguruj drzwi platformy Azure z użyciem usługi Azure WAF jako akcelerację, buforowanie i warstwę zabezpieczeń przed aplikacją sieci Web. Ten artykuł zawiera wskazówki dotyczące uzyskiwania drzwi platformy Azure z systemem Azure WAF skonfigurowanych dla dowolnej aplikacji sieci Web, która działa w ramach platformy Azure lub poza nią. 
 
 Użyjemy interfejsu wiersza polecenia platformy Azure, aby skonfigurować WAF w tym samouczku. Tę samą czynność można wykonać przy użyciu Azure Portal, Azure PowerShell, Azure Resource Manager lub interfejsów API REST platformy Azure. 
 
@@ -36,7 +36,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
+- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
 
   > [!TIP] 
   > Łatwa i szybka metoda rozpoczynania pracy w interfejsie wiersza polecenia platformy Azure to [bash w Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -48,7 +48,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
    ```
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-an-azure-front-door-resource"></a>Tworzenie zasobu frontonu platformy Azure
 
@@ -121,7 +121,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 `--resource-group`: Grupa zasobów, w której został umieszczony zasób z przodu platformy Azure.
 
-`--set`: W tym miejscu należy zaktualizować `WebApplicationFirewallPolicyLink` atrybut `frontendEndpoint` skojarzonego z zasobem drzwi platformy Azure przy użyciu nowych zasad WAF. Należy mieć identyfikator zasad WAF z odpowiedzi, która została utworzona podczas tworzenia profilu WAF wcześniej w tym samouczku.
+`--set`: To miejsce, w którym aktualizujesz `WebApplicationFirewallPolicyLink` atrybut `frontendEndpoint` skojarzonego z zasobem drzwi platformy Azure z nowymi zasadami WAFymi. Należy mieć identyfikator zasad WAF z odpowiedzi, która została utworzona podczas tworzenia profilu WAF wcześniej w tym samouczku.
 
  > [!NOTE] 
 > Powyższy przykład dotyczy sytuacji, gdy nie używasz domeny niestandardowej. Jeśli nie korzystasz z żadnych domen niestandardowych w celu uzyskania dostępu do aplikacji sieci Web, możesz pominąć następną sekcję. W takim przypadku otrzymasz klientów, którzy `hostName` otrzymali podczas tworzenia zasobu platformy Azure z przodu. Użyjemy tego `hostName` , aby przejść do aplikacji sieci Web.
@@ -132,19 +132,19 @@ Niestandardowa nazwa domeny aplikacji sieci Web jest używana przez klientów do
 
 Określone kroki aktualizowania rekordów DNS będą zależeć od dostawcy usługi DNS. Jeśli używasz Azure DNS do hostowania nazwy DNS, możesz zapoznać się z dokumentacją, aby uzyskać [instrukcje dotyczące aktualizacji rekordu DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) i wskazywać drzwiczki frontonu platformy Azure `hostName` . 
 
-Należy pamiętać o tym, że klienci będą musieli uzyskać dostęp do witryny sieci Web przy użyciu wierzchołka strefy (na przykład contoso.com). W takim przypadku należy użyć Azure DNS i jego [typu rekordu aliasu](https://docs.microsoft.com/azure/dns/dns-alias) , aby hostować nazwę DNS. 
+Należy pamiętać o tym, że klienci mogą uzyskać dostęp do witryny sieci Web przy użyciu wierzchołka strefy (na przykład contoso.com). W takim przypadku należy użyć Azure DNS i jego [typu rekordu aliasu](https://docs.microsoft.com/azure/dns/dns-alias) , aby hostować nazwę DNS. 
 
 Należy również zaktualizować konfigurację drzwi platformy Azure, aby dodać do niej [domenę niestandardową](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) , tak aby była ona świadoma tego mapowania.
 
-Na koniec Jeśli używasz domeny niestandardowej do uzyskiwania dostępu do aplikacji sieci Web i chcesz włączyć protokół HTTPS, musisz [skonfigurować certyfikaty dla domeny niestandardowej na platformie Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Na koniec, jeśli używasz domeny niestandardowej do uzyskiwania dostępu do aplikacji sieci Web i chcesz włączyć protokół HTTPS. Musisz [skonfigurować certyfikaty dla niestandardowej domeny na platformie Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Zablokuj aplikację sieci Web
 
-Zalecamy, aby upewnić się, że tylko krawędzie drzwi platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą komunikować się z Twoją aplikacją sieci Web. Dzięki temu nikt nie będzie mógł ominąć ochrony przed drzwiami platformy Azure i bezpośrednio uzyskiwać dostęp do aplikacji. Aby wykonać tę blokadę, zobacz [Jak mogę zablokować dostęp do mojego zaplecza tylko do platformy Azure — przód?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
+Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Aby dowiedzieć się, jak rozwiązać problemy z drzwiami wstępnymi, zobacz prz
 
 > [!div class="nextstepaction"]
 > [Rozwiązywanie typowych problemów z routingiem](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Dozwolone urzędy certyfikacji](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

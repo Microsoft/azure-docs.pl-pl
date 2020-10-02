@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 996c3f5bd6781d35f9ce55da0766712c53e7cb7a
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613292"
+ms.locfileid: "91630529"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
 Ten przewodnik Szybki Start zawiera przykładowy kod, który demonstruje, jak aplikacja platforma uniwersalna systemu Windows (platformy UWP) może logować użytkowników z kontami osobistymi lub kontami służbowymi, uzyskać token dostępu i wywoływać interfejs API Microsoft Graph. (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Wymagania wstępne
+>
+> * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
 > [!div renderon="docs" class="sxs-lookup"]
 > Istnieją dwie opcje uruchamiania aplikacji Szybki start:

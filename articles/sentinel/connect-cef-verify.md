@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: f6892f4ebb250290a0faad546fd000530baf4479
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038175"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631634"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
@@ -54,7 +54,7 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
 
 1. Sprawdza, czy plik zawiera następujący tekst:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -72,24 +72,59 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
     </filter>
     ```
 
+1. Sprawdza, czy analiza Cisco ASA dla zdarzeń zapory jest skonfigurowana zgodnie z oczekiwaniami:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Sprawdza, czy pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 
-1. Sprawdza, czy demon dziennika systemu (rsyslog) jest prawidłowo skonfigurowany do wysyłania komunikatów identyfikowanych jako CEF (przy użyciu wyrażenia regularnego) do agenta Log Analytics na porcie TCP 25226:
+1. Sprawdza, czy demon dziennika systemu (rsyslog) jest prawidłowo skonfigurowany do wysyłania komunikatów (identyfikowanych jako CEF) do agenta Log Analytics na porcie TCP 25226:
 
-    - Plik konfiguracji:`/etc/rsyslog.d/security-config-omsagent.conf`
+    - Plik konfiguracji: `/etc/rsyslog.d/security-config-omsagent.conf`
 
-        ```console
-        :rawmsg, regex, "CEF"|"ASA"
-        *.* @@127.0.0.1:25226
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
         ```
-  
-1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514
 
-1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics
+1. Uruchamia ponownie demona dziennika systemu i agenta Log Analytics:
+
+    ```bash
+    service rsyslog restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514 i czy Agent otrzymuje dane na porcie 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. Wysyła dane MAKIETy do portu 514 na hoście lokalnym. Te dane powinny być zauważalne w obszarze roboczym wskaźnik platformy Azure, uruchamiając następujące zapytanie:
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```
@@ -102,7 +137,7 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
 
 1. Sprawdza, czy plik zawiera następujący tekst:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -120,25 +155,61 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
     </filter>
     ```
 
+1. Sprawdza, czy analiza Cisco ASA dla zdarzeń zapory jest skonfigurowana zgodnie z oczekiwaniami:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Sprawdza, czy pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
 1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 
 1. Sprawdza, czy demon dziennika systemowego (Dziennik systemowy) jest prawidłowo skonfigurowany do wysyłania komunikatów identyfikowanych jako CEF (przy użyciu wyrażenia regularnego) do agenta Log Analytics na porcie TCP 25226:
 
-    - Plik konfiguracji:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+    - Plik konfiguracji: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
-        ```console
+        ```bash
         filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
         destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 
-1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514
+1. Uruchamia ponownie demona dziennika systemu i agenta Log Analytics:
 
-1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics
+    ```bash
+    service syslog-ng restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514 i czy Agent otrzymuje dane na porcie 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
 
 1. Wysyła dane MAKIETy do portu 514 na hoście lokalnym. Te dane powinny być zauważalne w obszarze roboczym wskaźnik platformy Azure, uruchamiając następujące zapytanie:
 
-    ```console
+    ```kusto
     CommonSecurityLog
     | where DeviceProduct == "MOCK"
     ```

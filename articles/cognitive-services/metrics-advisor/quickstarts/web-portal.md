@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947813"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631387"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Szybki Start: monitorowanie pierwszej metryki przy użyciu portalu sieci Web
 
@@ -38,6 +38,13 @@ Po zainicjowaniu obsługi administracyjnej wystąpienia klasyfikatora metryk mo�
 > * Jeśli chcesz korzystać z interfejsu API REST w celu korzystania z usługi, będziesz potrzebować klucza i punktu końcowego z utworzonego zasobu. Można je znaleźć na karcie  **klucze i punkty końcowe** w utworzonym zasobie.
 
 Ten dokument używa SQL Database jako przykładu do tworzenia pierwszego monitora.
+
+## <a name="sign-in-to-your-workspace"></a>Zaloguj się do swojego obszaru roboczego
+
+Po wdrożeniu zasobu Zaloguj się do [portalu klasyfikatora metryk](https://go.microsoft.com/fwlink/?linkid=2143774). Wybierz swój obszar roboczy, aby rozpocząć monitorowanie metryk. 
+ 
+Obecnie można utworzyć jeden zasób usługi Advisor metryk w każdym z dostępnych regionów. W dowolnym momencie możesz przełączyć obszary robocze w portalu usługi Advisor metryk.
+
 
 ## <a name="onboard-time-series-data"></a>Dołączanie danych szeregów czasowych
 
@@ -90,7 +97,7 @@ Gdy schemat danych zostanie załadowany i przedstawiony poniżej, wybierz odpowi
 |**Ignoruj**     | Ignoruj wybraną kolumnę.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Konfiguracja schematu" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Ustawienia połączenia" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Ustawienia automatycznego zestawiania
 
@@ -110,7 +117,7 @@ Po zastosowaniu wykrywania kliknij jedno z metryk wymienionych w strumieniowym �
 - Aktualizowanie konfiguracji wykrywania w celu spełnienia oczekiwanych wyników
 - Skonfiguruj powiadomienia dla wykrytych anomalii
 
-:::image type="content" source="../media/metric-details.png" alt-text="Szczegóły metryki" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Ustawienia połączenia" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Wyświetlanie szczegółowych informacji diagnostycznych
 
@@ -118,13 +125,13 @@ Po dostrojeniu konfiguracji wykrywania anomalie, które zostaną znalezione, pow
 
 Aby wyświetlić szczegółowe informacje diagnostyczne, kliknij czerwoną kropkę w wizualizacjach szeregów czasowych, które reprezentują wykryte anomalie. Zostanie wyświetlone okno z linkiem do strony analiza zdarzeń. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Link zdarzenia" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Ustawienia połączenia" lightbox="../media/incident-link.png":::
 
 Po kliknięciu linku nastąpi przestawienie na stronę analiza zdarzeń, która analizuje w odpowiedniej anomalii, za pomocą szeregu szczegółowych informacji diagnostycznych. W górnej części znajdują się statystyki dotyczące zdarzenia, takie jak **ważność**, **związane anomalie**oraz czas **rozpoczęcia** i **czas zakończenia**. 
 
 Następnie zobaczysz nietypową anomalię zdarzenia oraz zautomatyzowane porady dotyczące głównych przyczyn. To zautomatyzowane porady dotyczące głównej przyczyny są generowane przez analizowanie drzewa incydentów wszystkich powiązanych anomalii, w tym: odchylenia, dystrybucji i udziału w przypadku nadrzędnych anomalii. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostyka zdarzeń" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Ustawienia połączenia" lightbox="../media/incident-diagnostic.png":::
 
 Na podstawie tych informacji można już uzyskać prosty widok tego, co się dzieje, i wpływ zdarzenia, jak również najbardziej potencjalną główną przyczynę. Dzięki temu można natychmiast podjąć działania w celu rozpoznania zdarzenia najszybciej, jak to możliwe. 
 

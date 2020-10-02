@@ -17,22 +17,18 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3b2c89086688451b16a8a6e10c25be65ffd4d9dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273861"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631651"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
 W tym dokumencie opisano instalowanie i konfigurowanie agentów programu Azure AD Connect Health. Agentów możesz pobrać [tutaj](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## <a name="requirements"></a>Wymagania
-
-
-> [!IMPORTANT]
-> Instalowanie agenta Azure AD Connect Health w systemie Windows Server Core nie jest obsługiwane.
 
 Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure AD Connect Health.
 
@@ -48,6 +44,9 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 | Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.NET</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https:\//sts.contoso.com</li> Dowiedz się więcej [na temat konfigurowania programu IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Jeśli masz serwer proxy w sieci, zobacz uwagi poniżej.|
 | Upewnij się, że zainstalowano program PowerShell w wersji 4.0 lub nowszej | <li>System Windows Server 2008 R2 jest dostarczany z programem PowerShell w wersji 2.0, która jest niewystarczająca dla agenta. Zaktualizuj program PowerShell zgodnie z opisem w poniższej sekcji dotyczącej [instalacji agenta na serwerach z systemem Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>System Windows Server 2012 jest dostarczany z programem PowerShell w wersji 3.0, która jest niewystarczająca dla agenta.</li><li>System Windows Server 2012 R2 i jego nowsze wersje są dostarczane z wystarczająco nową wersją programu PowerShell.</li>|
 |Wyłącz standard FIPS|Standard FIPS nie jest obsługiwany przez agentów programu Azure AD Connect Health.|
+
+> [!IMPORTANT]
+> Instalowanie agenta Azure AD Connect Health w systemie Windows Server Core nie jest obsługiwane.
 
 
 > [!NOTE]

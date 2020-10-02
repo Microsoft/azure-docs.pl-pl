@@ -3,12 +3,12 @@ title: Centrum zdarzeń jako program obsługi zdarzeń dla zdarzeń Azure Event 
 description: Opisuje, jak można użyć centrów zdarzeń jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322567"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629628"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centrum zdarzeń jako program obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje akcję, aby przetworzyć zdarzenie. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **platforma azure Event Hubs** jest jednym z nich. 
@@ -81,9 +81,6 @@ W przypadku używania **centrum zdarzeń** jako programu obsługi zdarzeń w prz
     }
 }
 ```
-
-> [!NOTE]
-> Dostarczanie zdarzeń do centrum zdarzeń platformy Azure w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

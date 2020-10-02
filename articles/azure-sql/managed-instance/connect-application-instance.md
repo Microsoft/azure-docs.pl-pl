@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d58a8c1dc79c10ed42fd1675115eb14f2ad4d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283738"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628370"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Istnieją dwie opcje łączenia sieci wirtualnych:
 - [Komunikacja równorzędna sieci wirtualnej platformy Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Brama sieci VPN typu sieć wirtualna-sieć wirtualna ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Komunikacja równorzędna jest preferowana, ponieważ używa sieci szkieletowej firmy Microsoft, dlatego z punktu widzenia łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Wirtualne sieci równorzędne są ograniczone do sieci w tym samym regionie.  
+Komunikacja równorzędna jest preferowana, ponieważ używa sieci szkieletowej firmy Microsoft, dlatego z punktu widzenia łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Komunikacja równorzędna sieci wirtualnych jest obsługiwana między sieciami w tym samym regionie. Globalne wirtualne sieci równorzędne są również obsługiwane z ograniczeniami opisanymi w poniższej uwadze.  
 
 > [!IMPORTANT]
-> Scenariusz komunikacji równorzędnej sieci wirtualnej dla wystąpienia zarządzanego SQL jest ograniczony do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-from-on-premises"></a>Nawiązywanie połączenia z lokalnego 
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279503"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629798"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -185,7 +185,7 @@ W przypadku usługi Azure Cloud Services skonfiguruj każdą rolę, aby użyć [
 W przypadku [usługi Azure Virtual Machines](../../virtual-machines/windows/overview.md)upewnij się, że architektura maszyny wirtualnej zawiera więcej niż jedną maszynę wirtualną i że każda maszyna wirtualna jest uwzględniona w [zestawie dostępności](../../virtual-machines/windows/tutorial-availability-sets.md). Zalecamy używanie zestawów skalowania maszyn wirtualnych do obsługi funkcji skalowania automatycznego.
 
 **Najlepsze rozwiązanie**: Ochrona zabezpieczeń warstwowych w aplikacji zmniejsza prawdopodobieństwo pomyślnego ataku. Zaimplementuj bezpieczne projekty dla aplikacji, korzystając z wbudowanych możliwości platformy Azure.  
-**Szczegóły**: ryzyko ataku zwiększa się wraz z rozmiarem (obszarem powierzchni) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy dozwolonych, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
+**Szczegóły**: ryzyko ataku zwiększa się wraz z rozmiarem (obszarem powierzchni) aplikacji. Obszar powierzchniowy można zmniejszyć przy użyciu listy zatwierdzania, aby zamknąć uwidocznioną przestrzeń adresów IP i porty nasłuchujące, które nie są potrzebne w przypadku modułów równoważenia obciążenia ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) i [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
 [Sieciowe grupy zabezpieczeń](../../virtual-network/security-overview.md) to inny sposób zmniejszenia obszaru ataków. Możesz użyć [tagów usługi](../../virtual-network/security-overview.md#service-tags) i [grup zabezpieczeń aplikacji](../../virtual-network/security-overview.md#application-security-groups) , aby zminimalizować złożoność tworzenia reguł zabezpieczeń i konfigurowania zabezpieczeń sieci, jako naturalnego rozszerzenia struktury aplikacji.
 

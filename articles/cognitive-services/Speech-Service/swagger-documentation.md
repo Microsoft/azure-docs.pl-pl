@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 30e8224b6cb757f044a5eac598d834cee838391e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629985"
 ---
 # <a name="swagger-documentation"></a>Dokumentacja platformy Swagger
 
@@ -26,21 +26,20 @@ Usługa mowy oferuje specyfikację struktury Swagger do współpracy z kilku int
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generowanie kodu na podstawie specyfikacji struktury Swagger
 
-[Specyfikacja struktury Swagger](https://cris.ai/swagger/ui/index) zawiera opcje, które umożliwiają szybkie przetestowanie różnych ścieżek. Jednak czasami trzeba wygenerować kod dla wszystkich ścieżek, tworząc pojedynczą bibliotekę wywołań, na których można oprzeć przyszłe rozwiązania. Przyjrzyjmy się procesowi, aby wygenerować bibliotekę języka Python.
+[Specyfikacja struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) zawiera opcje, które umożliwiają szybkie przetestowanie różnych ścieżek. Jednak czasami trzeba wygenerować kod dla wszystkich ścieżek, tworząc pojedynczą bibliotekę wywołań, na których można oprzeć przyszłe rozwiązania. Przyjrzyjmy się procesowi, aby wygenerować bibliotekę języka Python.
 
 Musisz ustawić strukturę Swagger na ten sam region, w którym znajduje się subskrypcja usługi mowy. Możesz potwierdzić swój region w Azure Portal w ramach zasobu usługi mowy. Aby uzyskać pełną listę obsługiwanych regionów, zobacz [regiony](regions.md).
 
-1. Przejdź do strony https://editor.swagger.io
-2. Kliknij pozycję **plik**, a następnie kliknij pozycję **Importuj** .
-3. Wprowadź adres URL programu Swagger, w tym Region subskrypcji usługi mowy `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. Kliknij pozycję **Generuj klienta** i wybierz pozycję Python
-5. Zapisz bibliotekę kliencką
+1. W przeglądarce przejdź do specyfikacji struktury Swagger dla danego regionu `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0` . Na tej stronie kliknij pozycję **definicja interfejsu API**, a następnie kliknij pozycję **Swagger**. Skopiuj adres URL wyświetlanej strony.
+1. W nowej przeglądarce przejdź do https://editor.swagger.io
+1. Kliknij pozycję **plik**, kliknij pozycję **Importuj adres URL**, wklej adres URL, a następnie kliknij przycisk **OK**.
+1. Kliknij przycisk **Generuj klienta** i wybierz język **Python**. Biblioteka klienta pobiera do komputera.
 
 Możesz użyć biblioteki języka Python wygenerowanej w [przykładach usługi mowy w witrynie GitHub](https://aka.ms/csspeech/samples).
 
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
-* [REST (Swagger): Transkrypcja i dostosowywanie partii](https://westus.cris.ai/swagger/ui/index)
+* [REST (Swagger): Transkrypcja i dostosowywanie partii](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 * [Interfejs API REST: zamiana mowy na tekst](rest-speech-to-text.md)
 * [Interfejs API REST: zamiana tekstu na mowę](rest-text-to-speech.md)
 

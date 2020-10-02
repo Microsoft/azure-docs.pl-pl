@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853045"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629084"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Zarejestruj publiczną aplikację kliencką w Azure Active Directory
 
@@ -45,7 +45,8 @@ Podobnie jak w przypadku [poufnej aplikacji klienckiej](register-confidential-az
 
 1. Otwórz **uprawnienia interfejsu API**.
 
-    Jeśli używasz interfejsu API platformy Azure dla usługi FHIR, dodasz uprawnienie do interfejsów API usługi Azure opieki zdrowotnej, wyszukując interfejsy API usługi Azure opieki zdrowotnej w obszarze **interfejsy API używane przez moją organizację** (Poniższy obraz).
+    Jeśli używasz interfejsu API platformy Azure dla usługi FHIR, dodasz uprawnienie do interfejsów API usługi Azure opieki IT, wyszukując interfejsy API usługi Azure opieki zdrowotnej w obszarze **interfejsy API używane przez moją organizację**. Można to sprawdzić tylko wtedy [, gdy wdrożono już interfejs API platformy Azure dla usługi FHIR](fhir-paas-powershell-quickstart.md).
+
     
     Jeśli odwołujesz się do innej aplikacji zasobów, wybierz [rejestrację aplikacji FHIR interfejsu API](register-resource-azure-ad-client-app.md) utworzoną wcześniej w obszarze **Moje interfejsy API**:
 

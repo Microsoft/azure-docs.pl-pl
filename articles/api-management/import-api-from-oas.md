@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905571"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626874"
 ---
 # <a name="import-an-openapi-specification"></a>Importowanie specyfikacji interfejsu OpenAPI
 
@@ -42,7 +42,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 2. Wybierz pozycję **Specyfikacja interfejsu OpenAPI** z listy **Dodawanie nowego interfejsu API**.
 
     ![Specyfikacja OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Wprowadź ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+3. Wprowadź ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
 4. Wybierz przycisk **Utwórz**.
 
 > [!NOTE]

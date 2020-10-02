@@ -1,5 +1,6 @@
 ---
 title: Microsoft Identity platform — Omówienie — Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się więcej na temat składników platformy tożsamości firmy Microsoft i sposobu, w jaki mogą one pomóc w tworzeniu obsługi zarządzania tożsamościami i dostępem (IAM) w aplikacjach.
 services: active-directory
 author: rwike77
@@ -12,14 +13,14 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119559"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627129"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Microsoft Identity platform — Omówienie
+# <a name="what-is-the-microsoft-identity-platform"></a>Co to jest platforma tożsamości firmy Microsoft?
 
 Platforma tożsamości firmy Microsoft ułatwia tworzenie aplikacji, do których użytkownicy i klienci mogą logować się przy użyciu tożsamości firmy Microsoft lub kont społecznościowych, a także zapewniają autoryzowany dostęp do własnych interfejsów API lub interfejsów API firmy Microsoft, takich jak Microsoft Graph.
 
@@ -43,8 +44,8 @@ Korzystając z platformy tożsamości firmy Microsoft, możesz napisać kod jede
 Wybierz [scenariusz aplikacji](authentication-flows-app-scenarios.md) , który chcesz skompilować. Każda z tych ścieżek scenariusza rozpoczyna się od przeglądu i łączy do przewodnika Szybki Start, aby ułatwić rozpoczęcie pracy:
 
 - [Aplikacja jednostronicowa (SPA)](scenario-spa-overview.md)
-- [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md)
-- [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md)
+- [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
+- [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md)
 - [Chroniony internetowy interfejs API](scenario-protected-web-api-overview.md)
 - [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md)
 - [Aplikacja klasyczna](scenario-desktop-overview.md)

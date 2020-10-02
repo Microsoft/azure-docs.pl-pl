@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 023d6512a13e1add1e9980d450a91ed2183e7793
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614448"
+ms.locfileid: "91627231"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -359,7 +359,11 @@ Po skonfigurowaniu grupy trybu failover między podstawowym i pomocniczym wystą
 - Dwa wystąpienia wystąpienia zarządzanego SQL muszą znajdować się w różnych regionach świadczenia usługi Azure.
 - Dwa wystąpienia wystąpienia zarządzanego SQL muszą być tą samą warstwą usług i mieć ten sam rozmiar magazynu.
 - Dodatkowe wystąpienie wystąpienia zarządzanego SQL musi być puste (bez baz danych użytkowników).
-- Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za pośrednictwem sieci lokalnej, upewnij się, że nie ma reguły zapory blokującej porty 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana.
+- Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za pośrednictwem sieci lokalnej, upewnij się, że nie ma reguły zapory blokującej porty 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych jest obsługiwana z ograniczeniami opisanymi w poniższej uwadze.
+
+   > [!IMPORTANT]
+   > [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+
 - Dwa sieci wirtualnych wystąpienie zarządzane SQL nie może mieć nakładających się adresów IP.
 - Należy skonfigurować sieciowe grupy zabezpieczeń tak, aby porty 5022 i zakres 11000 ~12000 były dla połączeń przychodzących i wychodzących z podsieci drugiego wystąpienia zarządzanego. Ma to na celu umożliwienie ruchu związanego z replikacją pomiędzy wystąpieniami.
 

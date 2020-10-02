@@ -7,18 +7,18 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851145"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628999"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Rozwiązywanie problemów z błędami połączeń wychodzących
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Rozwiązywanie problemów z błędami połączeń wychodzących
 
 Ten artykuł ma na celu umożliwienie rozwiązywania typowych problemów z połączeniami wychodzącymi z Azure Load Balancer. Większość problemów z łącznością wychodzącą, którą zapewnia klient, wynika z wyczerpania portów i limitów czasu połączenia prowadzących do porzucenia pakietów. W tym artykule przedstawiono procedurę łagodzenia poszczególnych problemów.
 
-## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Zarządzanie wyczerpaniem portów (z)
+## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Zarządzanie wyczerpaniem portów (z)
 [Porty](load-balancer-outbound-connections.md) tymczasowe [używane do](load-balancer-outbound-connections.md) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](load-balancer-outbound-connections.md) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](load-balancer-outbound-connections.md). Możesz monitorować użycie portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko dla lub potwierdzić wyczerpanie adresów w [tym](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) przewodniku.
 
 Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące są zakończone niepowodzeniem lub są zalecane w przypadku wyczerpania [portów przydzielonego](load-balancer-outbound-connections.md#preallocatedports) [dostępu do danych](load-balancer-outbound-connections.md)wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem.
@@ -44,7 +44,7 @@ Gdy [wstępnie alokowany porty](load-balancer-outbound-connections.md#preallocat
 Porty tymczasowe mają 4-minutowy limit czasu bezczynności (nieregulowane). Jeśli ponowna próba jest zbyt agresywna, wyczerpanie nie ma możliwości samodzielnego wyczyszczenia. W związku z tym rozważać, jak i jak często — transakcje ponawiania prób aplikacji są istotną częścią projektu.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Przypisz publiczny adres IP do każdej maszyny wirtualnej
-Przypisanie publicznego adresu IP zmienia Twój Scenariusz na [publiczny adres IP na maszynę wirtualną](load-balancer-outbound-connections.md). Wszystkie tymczasowe porty publicznego adresu IP, które są używane dla każdej maszyny wirtualnej, są dostępne dla maszyny wirtualnej. (W przeciwieństwie do scenariuszy, w których porty tymczasowe publicznego adresu IP są udostępniane wszystkim maszynom wirtualnym skojarzonym z odpowiednią pulą zaplecza). Istnieją branże, które należy wziąć pod uwagę, takie jak dodatkowe koszty publicznych adresów IP i potencjalny wpływ listy dozwolonych dużej liczby pojedynczych adresów IP.
+Przypisanie publicznego adresu IP zmienia Twój Scenariusz na [publiczny adres IP na maszynę wirtualną](load-balancer-outbound-connections.md). Wszystkie tymczasowe porty publicznego adresu IP, które są używane dla każdej maszyny wirtualnej, są dostępne dla maszyny wirtualnej. (W przeciwieństwie do scenariuszy, w których porty tymczasowe publicznego adresu IP są udostępniane wszystkim maszynom wirtualnym skojarzonym z odpowiednią pulą zaplecza). Istnieją kompromisy, które należy wziąć pod uwagę, takie jak dodatkowe koszty publicznych adresów IP i potencjalny wpływ filtrowania dużej liczby pojedynczych adresów IP.
 
 >[!NOTE] 
 >Ta opcja nie jest dostępna dla ról procesów roboczych sieci Web.

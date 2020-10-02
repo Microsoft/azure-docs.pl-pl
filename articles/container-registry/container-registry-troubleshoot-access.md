@@ -2,13 +2,13 @@
 title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532452"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630954"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
@@ -22,6 +22,7 @@ Może zawierać co najmniej jedną z następujących czynności:
 * Nie można wypchnąć ani ściągnąć obrazów i uzyskać błędu interfejsu wiersza polecenia platformy Azure `Could not connect to the registry login server`
 * Nie można ściągnąć obrazów z rejestru do usługi Azure Kubernetes lub innej usługi platformy Azure
 * Nie można uzyskać dostępu do rejestru za pośrednictwem serwera proxy HTTPS i pojawia się błąd `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Nie można skonfigurować ustawień sieci wirtualnej i pojawia się błąd `Failed to save firewall and virtual network settings for container registry`
 * Nie można uzyskać dostępu do ustawień rejestru w Azure Portal lub zarządzać rejestrem przy użyciu interfejsu wiersza polecenia platformy Azure
 * Nie można dodać lub zmodyfikować ustawień sieci wirtualnej lub reguł dostępu publicznego
 * Zadania ACR nie mogą wypchnąć ani ściągnąć obrazów
@@ -47,7 +48,7 @@ Przykłady poleceń można znaleźć [w temacie Sprawdzanie kondycji usługi Azu
 
 ### <a name="configure-client-firewall-access"></a>Konfigurowanie dostępu do zapory klienta
 
-Aby uzyskać dostęp do rejestru za zaporą klienta lub serwerem proxy, należy skonfigurować reguły zapory w celu uzyskania dostępu do punktów końcowych usługi REST i danych rejestru. W przypadku włączenia [dedykowanych punktów końcowych danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) wymagane są reguły dostępu do programu:
+Aby uzyskać dostęp do rejestru za pośrednictwem zapory klienta lub serwera proxy, należy skonfigurować reguły zapory w celu uzyskania dostępu do publicznego punktu końcowego REST i danych rejestru. W przypadku włączenia [dedykowanych punktów końcowych danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) wymagane są reguły dostępu do programu:
 
 * Punkt końcowy REST: `<registryname>.azurecr.io`
 * Punkty końcowe danych: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ Upewnij się, że sieć wirtualna jest skonfigurowana za pomocą prywatnego punk
 Przejrzyj reguły sieciowej grupy zabezpieczeń i Tagi usług używane do ograniczania ruchu z innych zasobów w sieci do rejestru. 
 
 Jeśli skonfigurowano punkt końcowy usługi do rejestru, potwierdź, że reguła sieci jest dodawana do rejestru, który zezwala na dostęp z tej podsieci sieciowej. Punkt końcowy usługi obsługuje tylko dostęp z maszyn wirtualnych i klastrów AKS w sieci.
+
+Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu sieci wirtualnej w innej subskrypcji platformy Azure, upewnij się, że `Microsoft.ContainerRegistry` dostawca zasobów został zarejestrowany w tej subskrypcji. [Zarejestruj dostawcę zasobów](../azure-resource-manager/management/resource-providers-and-types.md) dla Azure Container Registry przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure.
 
 Jeśli w sieci jest skonfigurowana Zapora platformy Azure lub podobne rozwiązanie, należy sprawdzić, czy ruch wychodzący z innych zasobów, takich jak klaster AKS, jest włączony w celu uzyskania dostępu do punktów końcowych rejestru.
 

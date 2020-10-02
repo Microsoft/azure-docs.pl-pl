@@ -5,107 +5,93 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 5/21/2019
+ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: fe2159f0eeb9d01081e6a25e7a88ceff4f1e361c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399694"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626646"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Utwórz tylne drzwi z przekierowaniami HTTP do HTTPS przy użyciu Azure Portal
 
-Za pomocą Azure Portal można utworzyć [tylne drzwi](front-door-overview.md) z certyfikatem dla zakończenia protokołu TLS. Reguła routingu służy do przekierowywania ruchu HTTP do protokołu HTTPS.
-
-W tym artykule omówiono sposób wykonywania następujących zadań:
-
-> [!div class="checklist"]
-> * Utwórz drzwi z przodu przy użyciu istniejącego zasobu aplikacji sieci Web
-> * Dodawanie domeny niestandardowej z certyfikatem TLS/SSL 
-> * Konfigurowanie przekierowania protokołu HTTPS w domenie niestandardowej
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Za pomocą Azure Portal można [utworzyć tylne drzwi](quickstart-create-front-door.md) z certyfikatem dla zakończenia protokołu TLS. Reguła routingu służy do przekierowywania ruchu HTTP do protokołu HTTPS.
 
 ## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Utwórz drzwi z przodu przy użyciu istniejącego zasobu aplikacji sieci Web
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. W lewym górnym rogu witryny Azure Portal kliknij przycisk **Utwórz zasób**.
-3. Wyszukaj **przód drzwi** przy użyciu paska wyszukiwania, a po znalezieniu typu zasobu kliknij przycisk **Utwórz**.
-4. Wybierz subskrypcję, a następnie Użyj istniejącej grupy zasobów lub Utwórz nową. Należy pamiętać, że lokalizacja zaproszona w interfejsie użytkownika dotyczy tylko grupy zasobów. Konfiguracja z drzwiami wstępnymi zostanie wdrożona we wszystkich [lokalizacjach pop zewnętrznych drzwi platformy Azure](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
-    ![Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych](./media/front-door-url-redirect/front-door-create-basics.png)
+1. Wybierz pozycję **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal.
 
-5. Kliknij przycisk **dalej** , aby wprowadzić kartę Konfiguracja. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. 
+1. Wyszukaj **przód drzwi** przy użyciu paska wyszukiwania, a po znalezieniu typu zasobu wybierz pozycję **Utwórz**.
 
-     ![Projektant konfiguracji front-drzwi](./media/front-door-url-redirect/front-door-designer.png)
+1. Wybierz *subskrypcję* , a następnie Użyj istniejącej grupy zasobów lub Utwórz nową. Wybierz pozycję **dalej** , aby wprowadzić kartę Konfiguracja.
 
-6. Kliknij ikonę " **+** " na _hostach frontonu_ , aby utworzyć hosta frontonu, a następnie wprowadź unikatową nazwę globalną dla domyślnego hosta frontonu ( `\<**name**\>.azurefd.net` ). Kliknij przycisk **Dodaj** , aby przejść do następnego kroku.
+    > [!NOTE]
+    > Lokalizacja wyświetlana w interfejsie użytkownika dotyczy tylko grupy zasobów. Konfiguracja z drzwiami wstępnymi zostanie wdrożona we wszystkich [lokalizacjach pop zewnętrznych drzwi platformy Azure](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
-     ![Dodawanie hosta frontonu](./media/front-door-url-redirect/front-door-create-fehost.png)
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-7. Kliknij ikonę " **+** " w _pulach zaplecza_ , aby utworzyć pulę zaplecza. Podaj nazwę puli zaplecza, a następnie kliknij pozycję "**Dodaj wewnętrzną bazę danych**".
-8. Wybierz typ hosta zaplecza jako _usługę App Service_. Wybierz subskrypcję, w której jest hostowana aplikacja sieci Web, a następnie wybierz konkretną aplikację sieci Web z listy rozwijanej **Nazwa hosta zaplecza**.
-9. Kliknij przycisk **Dodaj** , aby zapisać zaplecze, a następnie ponownie kliknij przycisk **Dodaj** , aby zapisać konfigurację puli zaplecza.   ![Dodawanie zaplecza w puli zaplecza](./media/front-door-url-redirect/front-door-create-backendpool.png)
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** " na _hostach frontonu_ , aby utworzyć hosta frontonu.
 
-10. Kliknij ikonę " **+** " w _regułach routingu_ , aby utworzyć trasę. Podaj nazwę trasy, powiedz "HttpToHttpsRedirect", a następnie ustaw wartość pola _akceptowane protokoły_ na wartość **"http Only"**. Upewnij się, że wybrano odpowiedni _host frontonu_ .  
-11. W sekcji _szczegóły trasy_ Ustaw _Typ trasy_ na **przekierowania**, upewnij się, że _Typ przekierowania_ jest ustawiony na **wartość znaleziono (302)** , a _Protokół przekierowania_ jest ustawiony **tylko na https**. 
-12. Kliknij przycisk Dodaj, aby zapisać regułę routingu dla przekierowania HTTP na HTTPS.
-     ![Dodawanie trasy HTTP do protokołu HTTPS](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. Dodaj kolejną regułę routingu do obsługi ruchu HTTPS. Kliknij przycisk " **+** " w _regułach routingu_ i podaj nazwę trasy, powiedz "DefaultForwardingRoute", a następnie ustaw pole _akceptowane protokoły_ na wartość **"https Only"**. Upewnij się, że wybrano odpowiedni _host frontonu_ .
-14. W sekcji Szczegóły trasy Ustaw _Typ trasy_ na **Prześlij dalej**, upewnij się, że wybrano odpowiednią pulę zaplecza, a _Protokół przekazywania_ jest ustawiony tylko na protokół **https**. 
-15. Kliknij przycisk Dodaj, aby zapisać regułę routingu na potrzeby przekazywania żądań.
-     ![Dodawanie trasy przesyłania dalej dla ruchu HTTPS](./media/front-door-url-redirect/front-door-forward-route-example.png)
-16. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz**, aby utworzyć profil z drzwiami wstępnymi. Przejdź do zasobu po utworzeniu.
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-## <a name="add-a-custom-domain-to-your-front-door-and-enable-https-on-it"></a>Dodaj domenę niestandardową do czołowych drzwi i Włącz protokół HTTPS
-W poniższych krokach opisano, jak dodać domenę niestandardową do istniejącego zasobu frontonu, a następnie włączyć na nim przekierowywanie protokołu HTTP do protokołu HTTPS. 
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
 
-### <a name="add-a-custom-domain"></a>Dodawanie domeny niestandardowej
+1. Wprowadź globalnie unikatową nazwę domyślnego hosta frontonu dla drzwi z przodu. Wybierz pozycję **Dodaj** , aby przejść do następnego kroku.
 
-W tym przykładzie należy dodać rekord CNAME dla domeny podrzędnej `www` (na przykład `www.contosonews.com` ).
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-#### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
 
-Dodaj rekord CNAME, aby zmapować poddomenę na domyślnego hosta frontonu na początku drzwi ( `<name>.azurefd.net` gdzie `<name>` to nazwa profilu przedniego drzwi).
+### <a name="create-backend-pool"></a>Utwórz pulę zaplecza
 
-W przypadku `www.contoso.com` domeny na przykład Dodaj rekord CNAME, który mapuje nazwę `www` na `<name>.azurefd.net` .
+1. Wybierz ikonę " **+** " w _pulach zaplecza_ , aby utworzyć pulę zaplecza. Podaj nazwę puli zaplecza, a następnie wybierz pozycję **Dodaj wewnętrzną bazę danych**.
 
-Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-![Domena niestandardowa CNAME do przednich drzwi](./media/front-door-url-redirect/front-door-dns-cname.png)
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
 
-#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Dołącz domenę niestandardową do swoich drzwi
+1. Wybierz typ hosta zaplecza jako _usługę App Service_. Wybierz subskrypcję, w której jest hostowana aplikacja sieci Web, a następnie wybierz konkretną aplikację sieci Web z listy rozwijanej **Nazwa hosta zaplecza**.
 
-1. Na karcie Projektant drzwi przednich kliknij ikonę "+" w sekcji hosty frontonu, aby dodać nową domenę niestandardową. 
-2. Wprowadź w pełni kwalifikowaną niestandardową nazwę DNS w polu Nazwa hosta niestandardowego `www.contosonews.com` . 
-3. Po sprawdzeniu poprawności mapowania CNAME z domeny do swoich pierwszych drzwi kliknij przycisk **Dodaj** , aby dodać domenę niestandardową.
-4. Kliknij przycisk **Zapisz** , aby przesłać zmiany.
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-![Menu domen niestandardowych](./media/front-door-url-redirect/front-door-add-custom-domain.png)
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
 
-### <a name="enable-https-on-your-custom-domain"></a>Włączanie protokołu HTTPS w domenie niestandardowej
+1. Wybierz pozycję **Dodaj** , aby zapisać zaplecze, a następnie ponownie wybierz pozycję **Dodaj** , aby zapisać konfigurację puli zaplecza. 
 
-1. Kliknij domenę niestandardową, która została dodana, i poniżej sekcji adres **https domeny niestandardowej**Zmień stan na **włączone**.
-2. **Typ zarządzania certyfikatami** można pozostawić ustawiony na _frontony zarządzane_ dla bezpłatnego certyfikatu obsługiwanego, zarządzanego i obracanego przez tylne drzwi. Możesz również użyć własnego niestandardowego certyfikatu TLS/SSL przechowywanego w usłudze Azure Key Vault. W tym samouczku przyjęto założenie, że jest używane certyfikaty zarządzane przed drzwiami.
-![Włączanie protokołu HTTPS dla domeny niestandardowej](./media/front-door-url-redirect/front-door-custom-domain-https.png)
+## <a name="create-http-to-https-redirect-rule"></a>Utwórz regułę przekierowania HTTP do HTTPS
 
-3. Kliknij przycisk **Aktualizuj** , aby zapisać zaznaczenie, a następnie kliknij przycisk **Zapisz**.
-4. Kliknij przycisk **Odśwież** po kilku minutach, a następnie ponownie kliknij domenę niestandardową, aby zobaczyć postęp aprowizacji certyfikatów. 
+1. Wybierz ikonę " **+** " w *regułach routingu* , aby utworzyć trasę. Podaj nazwę dla trasy, na przykład "HttpToHttpsRedirect", a następnie ustaw pole *zaakceptowanego protokołu* na wartość **"http Only"**. Upewnij się, że wybrano odpowiednie *frontony/domeny* .  
 
-> [!WARNING]
-> Włączenie protokołu HTTPS dla domeny niestandardowej może potrwać kilka minut, a także zależeć od weryfikacji własności domeny, jeśli rekord CNAME nie został bezpośrednio zmapowany na hosta z drzwiczkami `<name>.azurefd.net` . Dowiedz się więcej na temat [włączania protokołu HTTPS dla domeny niestandardowej](./front-door-custom-domain-https.md).
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
 
-## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Konfigurowanie reguł routingu dla domeny niestandardowej
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
 
-1. Kliknij utworzoną wcześniej regułę routingu przekierowania.
-2. Kliknij listę rozwijaną dla hostów frontonu i wybierz domenę niestandardową, aby zastosować tę trasę również dla Twojej domeny.
-3. Kliknij przycisk **Update** (Aktualizuj).
-4. Wykonaj tę samą operację dla innej reguły routingu, a także dla trasy przesyłania dalej, aby dodać domenę niestandardową.
-5. Kliknij przycisk **Zapisz** , aby przesłać zmiany.
+1. W sekcji *szczegóły trasy* Ustaw *Typ trasy* do **przekierowania**. Upewnij się, że *Typ przekierowania* jest ustawiony na wartość **znaleziono (302)** i *Przekieruj protokół* get **tylko na https**. 
+
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
+
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** ":::
+
+1. Wybierz pozycję **Dodaj** , aby zapisać regułę routingu dla przekierowania HTTP na https.
+
+## <a name="create-forwarding-rule"></a>Utwórz regułę przekazywania
+
+1. Dodaj kolejną regułę routingu do obsługi ruchu HTTPS. Wybierz pozycję " **+** " w *regułach routingu* i podaj nazwę trasy, na przykład "DefaultForwardingRoute". Następnie ustaw wartość pola *akceptowane protokoły* na **https**. Upewnij się, że wybrano odpowiednie *frontony/domeny* .
+
+1. W sekcji Szczegóły trasy Ustaw *Typ trasy* na **Prześlij dalej**. Upewnij się, że wybrano odpowiednią pulę zaplecza, a *Protokół przekazywania* jest ustawiony **tylko na https**. 
+
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Skonfiguruj podstawowe informacje o nowych drzwiach zewnętrznych&quot;:::
+
+1. Konfiguracja dla drzwi przednich odbywa się w trzech krokach — dodanie domyślnego hosta frontonu, dodanie zaplecza do puli zaplecza, a następnie utworzenie reguł routingu w celu zamapowania zachowania routingu dla hosta frontonu. Wybierz ikonę &quot; **+** " border="false":::
+
+1. Wybierz pozycję **Dodaj** , aby zapisać regułę routingu na potrzeby przekazywania żądań.
+
+1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz**, aby utworzyć profil z drzwiami wstępnymi. Przejdź do zasobu po utworzeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
 - Dowiedz się, [jak działa usługa Front Door](front-door-routing-architecture.md).
 - Dowiedz się więcej o [przekierowaniu adresu URL na wierzchu drzwi](front-door-url-redirect.md).

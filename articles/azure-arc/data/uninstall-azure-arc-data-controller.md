@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dce70441e5e8487bfc015df0a946ab3cd74c14f0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7e1a2d50e04601b977bb7a708f60e78089ddded1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397593"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631022"
 ---
 # <a name="delete-azure-arc-data-controller"></a>Usuń kontroler danych usługi Azure Arc
 
@@ -80,9 +80,9 @@ Oprócz obiektów o zakresie przestrzeni nazw, jeśli chcesz również usunąć 
 ```
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
 kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
 ```

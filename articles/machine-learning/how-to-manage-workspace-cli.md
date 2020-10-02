@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0919e2b0703d56c61bd9ee37cb70021de4deff45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322278"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631209"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -142,21 +142,7 @@ Dane wyjściowe tego polecenia są podobne do następujących:
 ### <a name="virtual-network-and-private-endpoint"></a>Sieć wirtualna i prywatny punkt końcowy
 
 > [!IMPORTANT]
-> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w następujących regionach:
->
-> * **East US**
-> * **South Central US**
-> * **Zachodnie stany USA**
-> * **Zachodnie stany USA 2**
-> * **Kanada środkowa**
-> * **Southeast Asia**
-> * **Japan East**
-> * **Europa Północna**
-> * **Australia Wschodnia**
-> * **Południowe Zjednoczone Królestwo**
->
-> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Korzystanie z obszaru roboczego Azure Machine Learning z linkiem prywatnym nie jest dostępne w regionach Azure Government ani w regionach 21Vianet platformy Azure w Chinach.
 
 Jeśli chcesz ograniczyć dostęp do obszaru roboczego do sieci wirtualnej, możesz użyć następujących parametrów:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948202"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631430"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
@@ -36,7 +36,7 @@ W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ust
 
 - Użytkownik, który ma zostać przetestowany 
 - Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu
-- Warunki, w których odbywa się dostęp do konfigurowania aplikacji w chmurze
+- Warunki, w których jest przeprowadzany dostęp do skonfigurowanych aplikacji w chmurze
      
 Następnym krokiem jest zainicjowanie przebiegu symulacji, który służy do obliczania ustawień. Tylko zasady, które są włączone, są częścią przebiegu ewaluacyjnego.
 
@@ -102,7 +102,7 @@ Na liście zasad, które są stosowane dla wybranego użytkownika, można równi
 
 Na liście zasad, które nie mają zastosowania do użytkownika, możesz również znaleźć powody, dla których te zasady nie są stosowane. Dla każdej z wymienionych zasad powód reprezentuje pierwszy warunek, który nie był spełniony. Możliwą przyczyną niestosowania zasad jest zasada wyłączona, ponieważ nie są one jeszcze oceniane.   
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Więcej informacji na temat aplikacji zasady dostępu warunkowego można znaleźć za pomocą trybu tylko raportowanie zasad przy użyciu usługi [dostęp warunkowy i raportowania](howto-conditional-access-insights-reporting.md).
 - Jeśli wszystko jest gotowe do skonfigurowania zasad dostępu warunkowego dla danego środowiska, zobacz [zasady dostępu warunkowego](concept-conditional-access-policy-common.md).

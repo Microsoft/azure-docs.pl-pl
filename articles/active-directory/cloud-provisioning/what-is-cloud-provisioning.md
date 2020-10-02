@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 311aa8974003e28692999ddb9409b4be20dc8e21
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050595"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628336"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Co to jest aprowizacja w chmurze programu Azure AD Connect?
 Azure AD Connect aprowizacji w chmurze to nowy Agent firmy Microsoft, który zaprojektowano w celu spełnienia celów tożsamości hybrydowej dla synchronizacji użytkowników, grup i kontaktów z usługą Azure AD.  Można go używać razem z Azure AD Connect synchronizacją i zapewnia następujące korzyści:
@@ -31,9 +31,17 @@ Azure AD Connect aprowizacji w chmurze to nowy Agent firmy Microsoft, który zap
 ## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Jak Azure AD Connect aprowizacji w chmurze różni się od synchronizacji Azure AD Connect?
 Dzięki Azure AD Connect aprowizacji w chmurze Inicjowanie obsługi administracyjnej z usługi AD do usługi Azure AD jest zorganizowane w usługach online firmy Microsoft. Organizacja musi tylko wdrożyć w środowisku lokalnym i IaaS, lekki Agent, który działa jako Most między usługą Azure AD i usługą AD. Konfiguracja aprowizacji jest przechowywana w usłudze Azure AD i zarządzana jako część usługi.
 
+## <a name="azure-ad-connect-cloud-provisioning-video"></a>Azure AD Connect wideo aprowizacji w chmurze
+Następujący krótki film wideo zapewnia doskonałe overveiw Azure AD Connect aprowizacji w chmurze:
+
+> [!VIDEO https://youtu.be/embed/mOT3ID02_YQ]
+
+
+## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Porównanie między Azure AD Connect i aprowizacji w chmurze
+
 Poniższa tabela zawiera porównanie między Azure AD Connect i Azure AD Connect aprowizacji w chmurze:
 
-| Funkcja | Synchronizacja Azure Active Directory Connect| Azure Active Directory Connect aprowizacji w chmurze |
+| Cechy | Synchronizacja Azure Active Directory Connect| Azure Active Directory Connect aprowizacji w chmurze |
 |:--- |:---:|:---:|
 |Połączenie z pojedynczym lokalnym lasem usługi AD|● |● |
 | Połączenie z wieloma lokalnymi lasami usługi AD |● |● |

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533727"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627350"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametry serwera w Azure Database for MySQL
 
@@ -54,6 +54,12 @@ W celu poprawienia problemów z wydajnością krótkich zapytań w puli wątków
 
 > [!IMPORTANT]
 > Przetestuj pulę wątków przed włączeniem jej w środowisku produkcyjnym. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+W Azure Database for MySQL dzienniki binarne są zawsze włączone (tj. `log_bin` jest ustawione na wartość włączone). Jeśli chcesz użyć wyzwalaczy, zostanie wyświetlony komunikat o błędzie podobny do tego, że *nie masz uprawnień administratora, a rejestrowanie binarne jest włączone (możesz chcieć użyć mniej bezpiecznej `log_bin_trust_function_creators` zmiennej)*. 
+
+Format rejestrowania binarnego to zawsze **wiersz** i wszystkie połączenia z serwerem **zawsze** używają rejestrowania binarnego opartego na wierszach. W przypadku rejestrowania binarnego opartego na wierszach problemy z zabezpieczeniami nie istnieją i rejestrowanie danych binarnych nie może zostać zerwane, więc można bezpiecznie ustawić [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **wartość true**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

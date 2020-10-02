@@ -13,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705749"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627010"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
 Manifest aplikacji zawiera definicję wszystkich atrybutów obiektu aplikacji na platformie tożsamości firmy Microsoft. Służy również jako mechanizm aktualizowania obiektu aplikacji. Aby uzyskać więcej informacji na temat jednostki aplikacji i jej schematu, zobacz [dokumentację jednostki aplikacji interfejs API programu Graph](/graph/api/resources/application).
 
-Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo przy użyciu [interfejsu API REST](/graph/api/resources/application) lub [programu PowerShell](/powershell/module/azuread/?view=azureadps-2.0#applications). Istnieje jednak kilka scenariuszy, w których należy edytować manifest aplikacji w celu skonfigurowania atrybutu aplikacji. Scenariusze obejmują:
+Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo przy użyciu [interfejsu API REST](/graph/api/resources/application) lub [programu PowerShell](/powershell/module/azuread#applications). Istnieje jednak kilka scenariuszy, w których należy edytować manifest aplikacji w celu skonfigurowania atrybutu aplikacji. Scenariusze obejmują:
 
 * Jeśli aplikacja została zarejestrowana jako usługa Azure AD z wieloma dzierżawcami i osobistymi kontami Microsoft, nie można zmienić obsługiwanych kont Microsoft w interfejsie użytkownika. Zamiast tego należy użyć edytora manifestu aplikacji, aby zmienić obsługiwany typ konta.
 * Jeśli konieczne jest zdefiniowanie uprawnień i ról obsługiwanych przez aplikację, należy zmodyfikować manifest aplikacji.
@@ -686,14 +686,10 @@ Skorzystaj z następującej sekcji komentarzy, aby przekazać Opinie, które uł
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[APPLICATION-ENTITY]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity
-[APPLICATION-ENTITY-APP-ROLE]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#approle-type
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference
-[O365-SERVICE-DAEMON-APPS]: /previous-versions/office/office-365-api/
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

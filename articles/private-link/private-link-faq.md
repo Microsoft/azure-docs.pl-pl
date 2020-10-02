@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349937"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629951"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
 
-## <a name="private-link"></a>Link prywatny
+## <a name="private-link"></a>Private Link
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Co to jest prywatny punkt końcowy platformy Azure i usługa łącza prywatnego platformy Azure?
 
@@ -65,7 +65,7 @@ Tak. Jedna usługa linku prywatnego może odbierać połączenia z wielu prywatn
 Można kontrolować narażenie przy użyciu konfiguracji widoczności w usłudze link prywatny. Widoczność obsługuje trzy ustawienia:
 
 - **Brak** — tylko subskrypcje z dostępem RBAC mogą zlokalizować usługę. 
-- Tylko **restrykcyjne** subskrypcje listy dozwolonych i z dostępem RBAC mogą zlokalizować usługę. 
+- Tylko **restrykcyjne** subskrypcje, które są zatwierdzone i z dostępem RBAC, mogą zlokalizować usługę. 
 - **Wszyscy — wszyscy** mogą zlokalizować usługę. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Czy można utworzyć usługę linku prywatnego z podstawową Load Balancer? 
