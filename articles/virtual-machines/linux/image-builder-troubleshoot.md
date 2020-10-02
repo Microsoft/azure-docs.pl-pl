@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z usługą Azure Image Builder
 description: Rozwiązywanie typowych problemów i błędów podczas korzystania z usługi Azure VM Image Builder
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459933"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661112"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Rozwiązywanie problemów z usługą Azure Image Builder
 
@@ -209,7 +209,7 @@ Dostosowanie. log obejmuje następujące etapy:
     ```
 5. Etap cofania aprowizacji. Konstruktor obrazów platformy Azure dodaje ukryty element dostosowujący. Ten krok cofania obsługi jest odpowiedzialny za przygotowanie maszyny wirtualnej do nieaprowizacji. Uruchamia narzędzie Windows Sysprep (przy użyciu programu c:\DeprovisioningScript.ps1) lub waagent z systemem Linux (przy użyciu/tmp/DeprovisioningScript.sh). 
 
-    Na przykład:
+    Przykład:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -247,7 +247,7 @@ Niepowodzenie dostosowywania.
 
 Przejrzyj dziennik, aby zlokalizować niepowodzenia konfiguratorów. Wyszukaj frazę *(telemetrię)*. 
 
-Na przykład:
+Przykład:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -591,6 +591,18 @@ Aby uzyskać więcej informacji na temat możliwości i ograniczeń usługi Azur
 #### <a name="solution"></a>Rozwiązanie
 
 Możesz obsługiwać własnych agentów DevOps lub przyjrzeć się skróceniu czasu kompilacji. Na przykład w przypadku dystrybuowania do galerii obrazów udostępnionych należy przeprowadzić replikację do jednego regionu. Jeśli chcesz replikować asynchronicznie. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Wolne logowanie do systemu Windows: "Czekaj na Instalator modułów systemu Windows"
+
+#### <a name="error"></a>Błąd
+Po utworzeniu obrazu systemu Windows 10 za pomocą programu Image Builder Utwórz maszynę wirtualną na podstawie obrazu, przy użyciu protokołu RDP i musisz poczekać minuty przy pierwszym logowaniu, zobaczyc niebieski ekran z komunikatem:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Rozwiązanie
+Najpierw sprawdź, czy nie ma żadnych zaległych ponownych uruchomień wymaganych przez dodanie dostosowywania ponownego uruchomienia systemu Windows jako ostatniego dostosowania oraz ukończenie instalacji całego oprogramowania. Na koniec Dodaj opcję [/Mode: VM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) do domyślnego programu Sysprep używanego przez AIB, zobacz poniżej "maszyny wirtualne utworzone na podstawie obrazów AIB nie zostały pomyślnie utworzone" > "przesłaniające polecenia"  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Maszyny wirtualne utworzone na podstawie obrazów AIB nie zostały pomyślnie utworzone
 

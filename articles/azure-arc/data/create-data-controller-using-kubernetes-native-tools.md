@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397627"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661061"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu narzędzi Kubernetes
 
@@ -31,11 +31,11 @@ Aby utworzyć kontroler danych usługi Azure ARC przy użyciu narzędzi Kubernet
 > [!NOTE]
 > Niektóre kroki tworzenia kontrolera danych usługi Azure Arc wskazane poniżej wymagają uprawnień administratora klastra Kubernetes.  Jeśli nie jesteś administratorem klastra Kubernetes, musisz mieć uprawnienia administratora klastra Kubernetes w Twoim imieniu.
 
-#### <a name="cleanup-from-past-installations"></a>Czyszczenie z wcześniejszych instalacji
+### <a name="cleanup-from-past-installations"></a>Czyszczenie z wcześniejszych instalacji
 
-Jeśli wcześniej zainstalowano kontroler danych usługi Azure Arc w tym samym klastrze i usunięto kontroler danych usługi Azure ARC przy użyciu `azdata arc dc delete` polecenia, może istnieć kilka obiektów na poziomie klastra, które nadal będą musiały zostać usunięte. Uruchom następujące polecenia, aby usunąć obiekty poziomu klastra kontrolera danych usługi Azure ARC:
+Jeśli w przeszłości zainstalowano kontroler danych usługi Azure ARC, w tym samym klastrze i usunięto kontroler danych usługi Azure ARC przy użyciu `azdata arc dc delete` polecenia, może istnieć kilka obiektów poziomu klastra, które nadal trzeba usunąć. Uruchom następujące polecenia, aby usunąć obiekty poziomu klastra kontrolera danych usługi Azure ARC:
 
-```
+```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
 kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 

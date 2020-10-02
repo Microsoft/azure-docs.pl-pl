@@ -4,18 +4,18 @@ description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Function
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4d93f728103aabdd1bd5557033a8bd36ffac2d42
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213158"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661027"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
 
 W tym artykule wyjaśniono, jak wyłączyć funkcję w Azure Functions. Aby *wyłączyć* funkcję oznacza, że środowisko uruchomieniowe zignoruje automatyczny wyzwalacz, który jest zdefiniowany dla funkcji. Dzięki temu można zapobiec uruchamianiu określonej funkcji bez zatrzymywania całej aplikacji funkcji.
 
-Zalecanym sposobem wyłączenia funkcji jest użycie ustawienia aplikacji w formacie `AzureWebJobs.<FUNCTION_NAME>.Disabled` . To ustawienie aplikacji można utworzyć i zmodyfikować na wiele sposobów, w tym za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/) oraz z karty **zarządzanie** funkcją w [Azure Portal](https://portal.azure.com). 
+Zalecanym sposobem wyłączenia funkcji jest ustawienie aplikacji w formacie `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawionym na `true` . To ustawienie aplikacji można utworzyć i zmodyfikować na wiele sposobów, w tym za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/) oraz z karty **zarządzanie** funkcją w [Azure Portal](https://portal.azure.com). 
 
 > [!NOTE]  
 > Po wyłączeniu funkcji wyzwalanej przez protokół HTTP przy użyciu metod opisanych w tym artykule punkt końcowy może nadal być dostępny, gdy działa na komputerze lokalnym.  
@@ -40,7 +40,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Korzystanie z portalu
 
-Można również użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają przez tworzenie i usuwanie `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawień aplikacji.
+Można również użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają, zmieniając wartość `AzureWebJobs.<FUNCTION_NAME>.Disabled` Ustawienia aplikacji. To ustawienie specyficzne dla funkcji jest tworzone po raz pierwszy.
 
 ![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
 

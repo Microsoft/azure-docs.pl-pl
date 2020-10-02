@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d01164552b1f3f10f592cedf80eafe57566bf09c
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569689"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661078"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Praca z kontem usługi Azure Cosmos
 
@@ -27,7 +27,7 @@ Aby bezpiecznie zarządzać dostępem do wszystkich danych w ramach konta usług
 
 Usługa Azure Cosmos Container jest podstawową jednostką skalowalności. Można praktycznie mieć nieograniczoną przepływność (RU/s) i magazyn w kontenerze. Azure Cosmos DB przezroczyste partycjonowanie kontenera przy użyciu klucza partycji logicznej, który można określić w celu elastycznego skalowania zainicjowanej przepływności i magazynu. Aby uzyskać więcej informacji, zobacz [Praca z kontenerami i elementami usługi Azure Cosmos](databases-containers-items.md).
 
-Obecnie można utworzyć maksymalnie 100 kont usługi Azure Cosmos w ramach subskrypcji platformy Azure. Pojedyncze konto usługi Azure Cosmos może praktycznie zarządzać nieograniczoną ilością danych i elastyczną przepływność. Aby zarządzać danymi i elastyczną przepływność, można utworzyć co najmniej jedną bazę danych usługi Azure Cosmos na Twoim koncie i w ramach tej bazy danych. można utworzyć jeden lub więcej kontenerów. Na poniższej ilustracji przedstawiono hierarchię elementów na koncie usługi Azure Cosmos:
+Obecnie można utworzyć maksymalnie 50 kont usługi Azure Cosmos w ramach subskrypcji platformy Azure (jest to limit elastyczny, który można zwiększyć za pośrednictwem żądania pomocy technicznej). Pojedyncze konto usługi Azure Cosmos może praktycznie zarządzać nieograniczoną ilością danych i elastyczną przepływność. Aby zarządzać danymi i elastyczną przepływność, można utworzyć co najmniej jedną bazę danych usługi Azure Cosmos na Twoim koncie i w ramach tej bazy danych. można utworzyć jeden lub więcej kontenerów. Na poniższej ilustracji przedstawiono hierarchię elementów na koncie usługi Azure Cosmos:
 
 :::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Hierarchia konta usługi Azure Cosmos" border="false":::
 

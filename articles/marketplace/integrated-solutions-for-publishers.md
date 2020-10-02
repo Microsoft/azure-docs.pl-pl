@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119535"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660908"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
@@ -114,4 +114,4 @@ Jeśli Twoje rozwiązanie działa w Microsoft AppSource lub witrynie Azure Marke
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat kupowania zintegrowanego rozwiązania w portalu Marketplace, zobacz [zintegrowane rozwiązania](./integrated-solutions.md).
+- [Formularz nominacji zintegrowanych rozwiązań](https://aka.ms/AA5qicu)
