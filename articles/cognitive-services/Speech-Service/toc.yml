@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Przykłady i często zadawane pytania
               href: windows-voice-assistants-faq.md
-    - name: Custom — słowo kluczowe
-      items:
-        - name: Omówienie niestandardowych słów kluczowych
-          href: custom-keyword-overview.md
-        - name: Podstawy niestandardowych słów kluczowych
-          href: custom-keyword-basics.md
 - name: Rozpoznawanie osoby mówiącej
   items:
     - name: Omówienie rozpoznawania osoby mówiącej
@@ -465,6 +459,12 @@
       items:
         - name: Interfejs API REST funkcji rozpoznawania osoby mówiącej
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Custom — słowo kluczowe
+  items:
+    - name: Omówienie niestandardowych słów kluczowych
+      href: custom-keyword-overview.md
+    - name: Podstawy niestandardowych słów kluczowych
+      href: custom-keyword-basics.md
 - name: Narzędzia
   items:
     - name: Zestaw SDK rozpoznawania mowy
