@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421185"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665331"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
 
@@ -24,6 +24,7 @@ Aby udostępnić widok niestandardowy w Eksploratorze Azure Time Series Insights
 Eksplorator Azure Time Series Insights obsługuje parametry zapytania URL, aby określić widoki w środowisku bezpośrednio z adresu URL. Na przykład przy użyciu tylko adresu URL możesz określić środowisko docelowe, predykat wyszukiwania i żądany przedział czasu. Gdy użytkownik wybierze dostosowany adres URL, Interfejs udostępnia link bezpośrednio do tego zasobu w portalu Azure Time Series Insights. Obowiązują zasady dostępu do danych.
 
 > [!TIP]
+>
 > * Obejrzyj pokaz bezpłatnej [Azure Time Series Insights](https://insights.timeseries.azure.com/samples).
 > * Przeczytaj towarzyszącą dokumentację programu [Azure Time Series Insights Explorer](./time-series-insights-explorer.md) .
 
@@ -33,7 +34,7 @@ Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. J
 
 Przykładowy parametr identyfikatora środowiska to `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Czas
+## <a name="time"></a>Godzina
 
 Za pomocą sparametryzowanego adresu URL możesz określać bezwzględne lub względne wartości czasu.
 
@@ -55,14 +56,14 @@ Na przykład parametr `&relativeMillis=3600000` spowoduje wyświetlenie danych z
 
 Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Azure Time Series Insights i obejmują:
 
-* `1800000`(Ostatnie 30 min)
-* `3600000`(Ostatnie 60 min)
-* `10800000`(Ostatnie 3 godziny)
-* `21600000`(Ostatnie 6 godzin)
-* `43200000`(Ostatnie 12 godzin)
-* `86400000`(Ostatnie 24 godziny)
-* `604800000`(Ostatnie 7 dni)
-* `2592000000`(Ostatnie 30 godzin)
+* `1800000` (Ostatnie 30 min)
+* `3600000` (Ostatnie 60 min)
+* `10800000` (Ostatnie 3 godziny)
+* `21600000` (Ostatnie 6 godzin)
+* `43200000` (Ostatnie 12 godzin)
+* `86400000` (Ostatnie 24 godziny)
+* `604800000` (Ostatnie 7 dni)
+* `2592000000` (Ostatnie 30 godzin)
 
 ### <a name="optional-parameters"></a>Parametry opcjonalne
 
@@ -87,7 +88,7 @@ Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Azure T
 
 | Pary | Opis |
 | --- | --- |
-| `multiChartStack=false` | `true`jest domyślnie włączona, dlatego `false` należy przejść do stosu. |
+| `multiChartStack=false` | `true` jest domyślnie włączona, dlatego `false` należy przejść do stosu. |
 | `multiChartStack=false&multiChartSameScale=true` | Układanie na stosie musi mieć możliwość użycia takiej samej skali osi Y dla warunków.  Jest on `false` Domyślnie, więc przekazywanie `true` włącza tę funkcję. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Jednostki = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Jednostka zawsze wielką literą. </br> Zdefiniuj liczbę jednostek, przekazując żądaną liczbę całkowitą dla **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | Liczba całkowita jest zawsze w milisekundach. |
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-000
 > Zapoznaj się z Eksploratorem na żywo przy użyciu powyższego przykładu [adresu URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ) .
 
-Powyższy adres URL opisuje i wyświetla sparametryzowany widok Eksploratora Azure Time Series Insights. 
+Powyższy adres URL opisuje i wyświetla sparametryzowany widok Eksploratora Azure Time Series Insights.
 
 * Predykaty sparametryzowane.
 

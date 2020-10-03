@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 3ba3d8d4b345c9db2e41c647147021eb9616288e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947661"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667507"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
 
@@ -77,7 +77,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.zshrc` z okna ko
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-Edytuj **bash_profile**i Dodaj zmienną środowiskową:
+Edytuj **.bash_profile**i Dodaj zmienną środowiskową:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -87,7 +87,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.bash_profile` z 
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
@@ -98,7 +98,7 @@ Jeśli po usunięciu zasobów masz przypisane numery telefonów, numery telefon�
 W tym przewodniku szybki start zawarto informacje na temat wykonywania tych instrukcji:
 
 > [!div class="checklist"]
-> * Tworzenie zasobu usług komunikacyjnych
+> * Tworzenie zasobu usług Communication Services
 > * Konfigurowanie lokalizacji i znaczników zasobów
 > * Uzyskaj dostęp do kluczy dla tego zasobu
 > * Usuń zasób

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902923"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667439"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -61,7 +61,7 @@ Zarządzaj zasobami uczenia maszynowego bezpośrednio w przeglądarce. Zasoby s�
 - Notebooks
 - Eksperymenty
 - Uruchamianie dzienników
-- Pipelines 
+- Potoki 
 - Punkty końcowe potoku
 
 Nawet jeśli jesteś doświadczonym deweloperem, program Studio może uprościć zarządzanie zasobami obszaru roboczego.
@@ -88,7 +88,7 @@ Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (k
 | Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
 | Cele obliczeń wdrożenia | Własny format usługi sieci Web, niedostosowywalny | Szeroka gama [elementów docelowych obliczeniowych wdrożenia](concept-compute-target.md#deploy). Obejmuje obsługę procesora GPU i procesorów |
 | Potok ML | Nieobsługiwane | Twórz elastyczne, modularne [potoki](concept-ml-pipelines.md) do automatyzowania przepływów pracy |
-| MLOps | Podstawowe Zarządzanie modelami i wdrażanie | Przechowywanie wersji jednostek (model, dane, przepływy pracy), Automatyzacja przepływu pracy, integracja z narzędziami CICD [i inne](concept-model-management-and-deployment.md) |
+| MLOps | Podstawowe Zarządzanie modelami i ich wdrażanie; Wdrożenia wyłącznie procesora | Przechowywanie wersji jednostek (model, dane, przepływy pracy), Automatyzacja przepływów pracy, integracja z narzędziami CICD, wdrożenia procesora CPU i procesora GPU [itd](concept-model-management-and-deployment.md) . |
 | Format modelu | Format własnościowy, Studio (klasyczny) | Wiele obsługiwanych formatów w zależności od typu zadania szkoleniowego |
 | Automatyczne szkolenie modelu i dostrajanie parametrów |  Nieobsługiwane | [Obsługiwane](concept-automated-ml.md). Opcje Code-First i No-Code. | 
 | Wykrywanie dryfowania danych | Nieobsługiwane | [Obsługiwane](how-to-monitor-datasets.md) |

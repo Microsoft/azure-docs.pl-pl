@@ -8,22 +8,22 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7da33aeceff3d4d822de0d05e4643826219af8a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102167"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667065"
 ---
-# <a name="what-is-azure-time-series-insights-gen2"></a>Co to jest usługa Azure Time Series Insights Gen2?
+# <a name="what-is-azure-time-series-insights-gen2"></a>Co to jest Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 to otwarta i skalowalna kompleksowa usługa analizy IoT, która oferuje najlepsze w swojej klasie środowiska użytkownika i rozbudowane interfejsy API, aby zintegrować swoje zaawansowane możliwości z istniejącym przepływem pracy lub aplikacją. 
+Azure Time Series Insights Gen2 to otwarta i skalowalna kompleksowa usługa analizy IoT, która oferuje najlepsze w swojej klasie środowiska użytkownika i rozbudowane interfejsy API, aby zintegrować swoje zaawansowane możliwości z istniejącym przepływem pracy lub aplikacją.
 
-Można jej używać do zbierania, przetwarzania, przechowywania, wykonywania zapytań i wizualizacji danych w skali Internet rzeczy (IoT) — danych, które są wysoce zastrzeżonych i zoptymalizowane pod kątem szeregów czasowych. 
+Można jej używać do zbierania, przetwarzania, przechowywania, wykonywania zapytań i wizualizacji danych w skali Internet rzeczy (IoT) — danych, które są wysoce zastrzeżonych i zoptymalizowane pod kątem szeregów czasowych.
 
-Azure Time Series Insights Gen2 jest przeznaczony do eksploracji danych ad hoc i analizy operacyjnej, co umożliwia odkrywanie ukrytych trendów, anomalii wykrywania trendów i przeprowadzanie analiz głównych przyczyn. Jest to otwarta i elastyczna oferta, która spełnia szeroką gamę potrzeb przemysłowych wdrożeń IoT. 
+Azure Time Series Insights Gen2 jest przeznaczony do eksploracji danych ad hoc i analizy operacyjnej, co umożliwia odkrywanie ukrytych trendów, anomalii wykrywania trendów i przeprowadzanie analiz głównych przyczyn. Jest to otwarta i elastyczna oferta, która spełnia szeroką gamę potrzeb przemysłowych wdrożeń IoT.
 
 ## <a name="video"></a>Wideo
 
@@ -33,9 +33,9 @@ Dowiedz się więcej o Azure Time Series Insights Gen2.
 
 ## <a name="definition-of-iot-data"></a>Definicja danych IoT
 
-Przemysłowe dane IoT w organizacjach intensywnie korzystających z zasobów często nie posiadają spójności strukturalnej ze względu na zróżnicowany charakter urządzeń i czujników w ustawieniach przemysłowych. Dane z tych strumieni są scharakteryzowane przez znaczące przerwy, a czasami uszkodzone komunikaty i fałszywe odczyty. Dane IoT są często zrozumiałe w kontekście dodatkowych danych wejściowych, które pochodzą z pierwszych stron lub innych źródeł, takich jak CRM lub ERP, które dodają kontekst dla kompleksowych przepływów pracy. Wejścia ze źródeł danych innych firm, takie jak dane pogodowe, mogą pomóc w rozszerzeniu strumieni telemetrii w danej instalacji. 
+Przemysłowe dane IoT w organizacjach intensywnie korzystających z zasobów często nie posiadają spójności strukturalnej ze względu na zróżnicowany charakter urządzeń i czujników w ustawieniach przemysłowych. Dane z tych strumieni są scharakteryzowane przez znaczące przerwy, a czasami uszkodzone komunikaty i fałszywe odczyty. Dane IoT są często zrozumiałe w kontekście dodatkowych danych wejściowych, które pochodzą z pierwszych stron lub innych źródeł, takich jak CRM lub ERP, które dodają kontekst dla kompleksowych przepływów pracy. Wejścia ze źródeł danych innych firm, takie jak dane pogodowe, mogą pomóc w rozszerzeniu strumieni telemetrii w danej instalacji.
 
-Wszystko to oznacza, że tylko ułamek danych jest używany do celów operacyjnych i firmowych, a analiza wymaga contextualization. Dane przemysłowe są często historyczne w celu dokładnej analizy w dłuższym okresie, aby zrozumieć i skorelować trendy. Przekształcanie zbieranych danych IoT na szczegółowe informacje umożliwiające podejmowanie działań wymaga następujących elementów: 
+Wszystko to oznacza, że tylko ułamek danych jest używany do celów operacyjnych i firmowych, a analiza wymaga contextualization. Dane przemysłowe są często historyczne w celu dokładnej analizy w dłuższym okresie, aby zrozumieć i skorelować trendy. Przekształcanie zbieranych danych IoT na szczegółowe informacje umożliwiające podejmowanie działań wymaga następujących elementów:
 
 * przetwarzanie danych w celu oczyszczenia, przefiltrowania, interpolacji, przekształcenia i przygotowania danych do analizy;
 * Struktura umożliwiająca nawigowanie i zrozumienie danych, czyli Aby znormalizować i contextualize dane.
@@ -49,24 +49,24 @@ Na poniższej ilustracji przedstawiono typowy przepływ danych IoT.
 
 ## <a name="azure-time-series-insights-gen2-for-industrial-iot"></a>Azure Time Series Insights Gen2 dla rzeczy przemysłowych
 
-Środowisko IoT jest zróżnicowane dla klientów obejmujących różne segmenty branżowe, takie jak produkcja, samochodowa, energia, narzędzia, inteligentne budynki i doradztwo. W ramach tego szerokiego zakresu przemysłowego IoT, natywne rozwiązania w chmurze, które zapewniają kompleksową analizę na dużą skalę danych IoT, są nadal rozwijane. 
+Środowisko IoT jest zróżnicowane dla klientów obejmujących różne segmenty branżowe, takie jak produkcja, samochodowa, energia, narzędzia, inteligentne budynki i doradztwo. W ramach tego szerokiego zakresu przemysłowego IoT, natywne rozwiązania w chmurze, które zapewniają kompleksową analizę na dużą skalę danych IoT, są nadal rozwijane.
 
-Azure Time Series Insights Gen2 na to, że to wymaganie na rynku, zapewniając gotowe, kompleksowe rozwiązanie do analizy IoT z rozbudowanym modelem semantycznym dla contextualization danych szeregów czasowych, szczegółowych informacji opartych na zasobach i najlepszych w swojej klasie środowisku użytkownika do odnajdywania, tworzenia trendów, wykrywania anomalii i analizy operacyjnej. 
+Azure Time Series Insights Gen2 na to, że to wymaganie na rynku, zapewniając gotowe, kompleksowe rozwiązanie do analizy IoT z rozbudowanym modelem semantycznym dla contextualization danych szeregów czasowych, szczegółowych informacji opartych na zasobach i najlepszych w swojej klasie środowisku użytkownika do odnajdywania, tworzenia trendów, wykrywania anomalii i analizy operacyjnej.
 
-Rozbudowana platforma analityczna działająca w połączeniu z naszymi interaktywnymi możliwościami eksplorowania danych, można użyć Azure Time Series Insights Gen2, aby uzyskać więcej wartości z danych zebranych z zasobów IoT. Oferta Gen2 obsługuje: 
+Rozbudowana platforma analityczna działająca w połączeniu z naszymi interaktywnymi możliwościami eksplorowania danych, można użyć Azure Time Series Insights Gen2, aby uzyskać więcej wartości z danych zebranych z zasobów IoT. Oferta Gen2 obsługuje:
 
-* Wielowarstwowe rozwiązanie magazynu z obsługą wysokiej i zimnej analizy zapewnia klientom możliwość przesyłania danych między ciepłą i zimną analizą interaktywną, a także analizą operacyjną w przypadku danych historycznych. 
+* Wielowarstwowe rozwiązanie magazynu z obsługą wysokiej i zimnej analizy zapewnia klientom możliwość przesyłania danych między ciepłą i zimną analizą interaktywną, a także analizą operacyjną w przypadku danych historycznych.
 
-    *    Wysoce interaktywne rozwiązanie do analizy ciepłej do częstego wykonywania i wiele zapytań w ciągu krótszych okresów 
-    *    Skalowalne, wydajne i zoptymalizowane pod kątem kosztów usługi Data Lake w oparciu o usługę Azure Storage, dzięki czemu klienci mogą trendować dane szeregów czasowych w ciągu kilku sekund. 
+  * Wysoce interaktywne rozwiązanie do analizy ciepłej do częstego wykonywania i wiele zapytań w ciągu krótszych okresów
+  * Skalowalne, wydajne i zoptymalizowane pod kątem kosztów usługi Data Lake w oparciu o usługę Azure Storage, dzięki czemu klienci mogą trendować dane szeregów czasowych w ciągu kilku sekund.
 
 * Obsługa modelu semantycznego opisującego domenę i metadane skojarzone z sygnałami pochodnymi i nieprzetworzonymi z zasobów i urządzeń.
 
-* Elastyczna platforma analityczna umożliwiająca przechowywanie historycznych danych szeregów czasowych na koncie usługi Azure Storage należącym do klienta, dzięki czemu klienci mogą mieć własność swoich danych IoT. Dane są przechowywane w formacie Apache Parquet typu "open source", który umożliwia łączność i współdziałanie w różnych scenariuszach danych, takich jak Analiza predykcyjna, uczenie maszynowe i inne niestandardowe obliczenia wykonywane przy użyciu znanych technologii, takich jak Spark i datakostki. 
+* Elastyczna platforma analityczna umożliwiająca przechowywanie historycznych danych szeregów czasowych na koncie usługi Azure Storage należącym do klienta, dzięki czemu klienci mogą mieć własność swoich danych IoT. Dane są przechowywane w formacie Apache Parquet typu "open source", który umożliwia łączność i współdziałanie w różnych scenariuszach danych, takich jak Analiza predykcyjna, uczenie maszynowe i inne niestandardowe obliczenia wykonywane przy użyciu znanych technologii, takich jak Spark i datakostki.
 
 * Zaawansowana analiza przy użyciu ulepszonych interfejsów API zapytań i środowiska użytkownika, które łączą dane oparte na zasobach dzięki bogatej analizie danych ad hoc z obsługą interpolacji, skalarnych i agregujących funkcji, zmiennych kategorii, wykresów punktowych i przesunięciem czasu szeregów czasowych dla dokładnej analizy.
 
-*    Platforma klasy korporacyjnej umożliwiająca obsługę skalowalności, wydajności, zabezpieczeń i niezawodności potrzeb naszych klientów IoT w przedsiębiorstwie.
+* Platforma klasy korporacyjnej umożliwiająca obsługę skalowalności, wydajności, zabezpieczeń i niezawodności potrzeb naszych klientów IoT w przedsiębiorstwie.
 
 * Obsługa rozszerzalności i integracji na potrzeby kompleksowej analizy. Azure Time Series Insights Gen2 zapewnia rozszerzalną platformę analityczną dla różnych scenariuszy danych. Łącznik Power BI umożliwia klientom wykonywanie zapytań, które wykonują w Azure Time Series Insights Gen2 bezpośrednio w Power BI, aby uzyskać ujednolicony wgląd w analizy analizy biznesowej i szeregów czasowych w jednym okienku Glass.
 
@@ -74,8 +74,8 @@ Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu.
 
   [![Najważniejsze możliwości](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
-Azure Time Series Insights Gen2 zapewnia skalowalny model cenowy z płatnością zgodnie z rzeczywistym użyciem na potrzeby przetwarzania danych, magazynowania (danych i metadanych) oraz wykonywania zapytań, dzięki czemu klienci mogą dostosowywać ich użycie do potrzeb firmy. 
- 
+Azure Time Series Insights Gen2 zapewnia skalowalny model cenowy z płatnością zgodnie z rzeczywistym użyciem na potrzeby przetwarzania danych, magazynowania (danych i metadanych) oraz wykonywania zapytań, dzięki czemu klienci mogą dostosowywać ich użycie do potrzeb firmy.
+
 Wraz z wprowadzeniem tych podstawowych funkcji IoT rzeczy Azure Time Series Insights Gen2 również oferuje następujące kluczowe korzyści:  
 
 | Możliwość | Korzyść |
@@ -83,8 +83,8 @@ Wraz z wprowadzeniem tych podstawowych funkcji IoT rzeczy Azure Time Series Insi
 | Magazyn wielowarstwowy dla danych szeregów czasowych w skali IoT | Za pomocą potoku przetwarzania danych udostępnionych do pozyskiwania danych można pozyskać dane zarówno do magazynu ciepłego, jak i chłodni. Korzystaj ze sklepu ciepłego dla interaktywnych zapytań i chłodnego magazynu do przechowywania dużych ilości danych. Aby dowiedzieć się więcej o tym, jak korzystać z wysoce wydajnych zapytań opartych na zasobach, zobacz [zapytania](./concepts-query-overview.md). |
 | Model szeregu czasowego na potrzeby określania kontekstu nieprzetworzonych danych telemetrycznych i uzyskiwania szczegółowych danych opartych na zasobach | Możesz użyć modelu szeregów czasowych, aby utworzyć wystąpienia, hierarchie, typy i zmienne dla danych szeregów czasowych. Aby dowiedzieć się więcej na temat modelu szeregów czasowych, zobacz [model szeregów czasowych](./concepts-model-overview.md).  |
 | Bezproblemowa i ciągła integracja z innymi rozwiązaniami do obsługi danych | Dane znajdujące się w Azure Time Series Insights Gen2 zimny magazyn są [przechowywane](./concepts-storage.md) w plikach programu Apache Parquet Open Source. Pozwala to na integrację danych z innymi rozwiązaniami dotyczącymi danych, 1 lub trzecimi, w przypadku scenariuszy obejmujących analizę biznesową, zaawansowaną Uczenie maszynowe i analizę predykcyjną. |
-| Eksploracja danych w czasie niemal rzeczywistym | Środowisko użytkownika programu [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) zapewnia wizualizację wszystkich danych przesyłanych za pomocą potoku pozyskiwania. Po nawiązaniu połączenia ze źródłem zdarzeń można wyświetlać, eksplorować i wysyłać zapytania dotyczące danych zdarzeń. W ten sposób można sprawdzić, czy urządzenie emituje dane zgodnie z oczekiwaniami. Można również monitorować kondycję, wydajność i ogólną efektywność zasobu IoT. | 
-| Rozszerzalność i integracja | Integracja łącznika Power BI jest dostępna bezpośrednio w środowisku użytkownika Eksploratora szeregów czasowych za pomocą opcji **eksportu** , umożliwiając klientom eksportowanie zapytań szeregów czasowych tworzonych w środowisku użytkownika bezpośrednio na pulpit Power BI i wyświetlanie ich wykresów szeregów czasowych wraz z inną ANALIZĄ analizy biznesowej. Spowoduje to otwarcie drzwi do nowej klasy scenariuszy dla firmowych przedsiębiorstw IoT, które zainwestowali w Power BI przez zapewnienie pojedynczego okienka Glass przez analizę z różnych źródeł danych, w tym szeregów czasowych IoT. | 
+| Eksploracja danych w czasie niemal rzeczywistym | Środowisko użytkownika programu [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) zapewnia wizualizację wszystkich danych przesyłanych za pomocą potoku pozyskiwania. Po nawiązaniu połączenia ze źródłem zdarzeń można wyświetlać, eksplorować i wysyłać zapytania dotyczące danych zdarzeń. W ten sposób można sprawdzić, czy urządzenie emituje dane zgodnie z oczekiwaniami. Można również monitorować kondycję, wydajność i ogólną efektywność zasobu IoT. |
+| Rozszerzalność i integracja | Integracja łącznika Power BI jest dostępna bezpośrednio w środowisku użytkownika Eksploratora szeregów czasowych za pomocą opcji **eksportu** , umożliwiając klientom eksportowanie zapytań szeregów czasowych tworzonych w środowisku użytkownika bezpośrednio na pulpit Power BI i wyświetlanie ich wykresów szeregów czasowych wraz z inną ANALIZĄ analizy biznesowej. Spowoduje to otwarcie drzwi do nowej klasy scenariuszy dla firmowych przedsiębiorstw IoT, które zainwestowali w Power BI przez zapewnienie pojedynczego okienka Glass przez analizę z różnych źródeł danych, w tym szeregów czasowych IoT. |
 | Aplikacje niestandardowe skompilowane na platformie Azure Time Series Insights Gen2 | Azure Time Series Insights Gen2 obsługuje [zestaw JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Ten zestaw SDK zapewnia zaawansowane kontrolki i uproszczony dostęp do zapytań. Użyj zestawu SDK do kompilowania niestandardowych aplikacji IoT na Azure Time Series Insights Gen2, aby odpowiadały potrzebom biznesowym. Możesz również użyć Azure Time Series Insights [interfejsów API zapytań](./concepts-query-overview.md) Gen2 bezpośrednio, aby dyskować dane w niestandardowych aplikacjach IoT. |
 
 ## <a name="next-steps"></a>Następne kroki

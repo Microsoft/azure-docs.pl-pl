@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409565"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667201"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -43,7 +43,7 @@ Virtual Network NAT (translator adresów sieciowych) upraszcza połączenia z In
 
 Łączność wychodząca może być zdefiniowana dla każdej podsieci z translatorem adresów sieciowych.  Wiele podsieci w tej samej sieci wirtualnej może mieć różne NAT. Podsieć jest konfigurowana przez określenie, który zasób bramy NAT ma być używany. Wszystkie przepływy wychodzące UDP i TCP z dowolnego wystąpienia maszyny wirtualnej będą korzystać z translatora adresów sieciowych. 
 
-Translator adresów sieciowych jest zgodny z zasobami publicznych adresów IP jednostki SKU lub publicznymi zasobami prefiksu adresu IP lub połączeniem obu tych elementów.  Publicznego prefiksu adresu IP można używać bezpośrednio lub rozpowszechniać publiczne adresy IP prefiksu w wielu zasobach bramy translatora adresów sieciowych. Translator adresów sieciowych będzie oczyszczał cały ruch do zakresu adresów IP prefiksu.  Wszystkie listy dozwolonych IP wdrożeń są teraz łatwe.
+Translator adresów sieciowych jest zgodny z zasobami publicznych adresów IP jednostki SKU lub publicznymi zasobami prefiksu adresu IP lub połączeniem obu tych elementów.  Publicznego prefiksu adresu IP można używać bezpośrednio lub rozpowszechniać publiczne adresy IP prefiksu w wielu zasobach bramy translatora adresów sieciowych. Translator adresów sieciowych będzie oczyszczał cały ruch do zakresu adresów IP prefiksu.  Wszystkie filtrowanie adresów IP wdrożeń jest teraz łatwe.
 
 Cały ruch wychodzący dla podsieci jest przetwarzany automatycznie przy użyciu translatora adresów sieciowych bez żadnej konfiguracji klienta.  Trasy zdefiniowane przez użytkownika nie są wymagane. Translator adresów sieciowych ma wyższy priorytet niż inne scenariusze wychodzące i zastępuje domyślne miejsce docelowe w podsieci.
 
@@ -145,4 +145,3 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Zaproponuj i zagłosuj na to, 
 
 * Dowiedz się więcej o [zasobach bramy translatora adresów sieciowych](./nat-gateway-resource.md).
 * [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).
-

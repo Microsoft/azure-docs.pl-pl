@@ -1,5 +1,5 @@
 ---
-title: Tworzenie niestandardowych słów kluczowych — usługa mowy
+title: Tworzenie słowa kluczowego szybkiego startu — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Urządzenie zawsze nasłuchuje słowa kluczowego (lub frazy). Gdy użytkownik wyświetla słowo kluczowe, urządzenie wysyła wszystkie kolejne audio do chmury, dopóki użytkownik nie przestanie mówić. Dostosowanie słowa kluczowego jest skutecznym sposobem na odróżnienie urządzenia i wzmocnienie oznakowania.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360671"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667697"
 ---
-# <a name="custom-keyword-basics"></a>Podstawy niestandardowych słów kluczowych
+# <a name="get-started-with-custom-keyword"></a>Wprowadzenie do niestandardowego słowa kluczowego
 
-W tym artykule przedstawiono podstawowe informacje dotyczące pracy z niestandardowymi słowami kluczowymi przy użyciu programu Speech Studio i zestawu Speech SDK. Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi aktywację głosu. Można tworzyć modele słów kluczowych w programie Speech Studio, a następnie eksportować plik modelu używany z zestawem Speech SDK w aplikacjach.
+W tym przewodniku szybki start przedstawiono podstawowe informacje dotyczące pracy z niestandardowymi słowami kluczowymi przy użyciu programu Speech Studio i zestawu Speech SDK. Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi aktywację głosu. Można tworzyć modele słów kluczowych w programie Speech Studio, a następnie eksportować plik modelu używany z zestawem Speech SDK w aplikacjach.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

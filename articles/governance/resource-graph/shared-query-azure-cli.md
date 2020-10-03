@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie kwerendy udostępnionej przy użyciu interfejsu 
 description: W tym przewodniku szybki start wykonaj kroki, aby włączyć rozszerzenie Graf zasobów dla interfejsu wiersza polecenia platformy Azure i utworzyć zapytanie udostępnione.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050968"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667660"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Szybki Start: Tworzenie zapytania udostępnionego grafu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="add-the-resource-graph-extension"></a>Dodawanie rozszerzenia usługi Resource Graph
 
-Aby włączyć interfejs wiersza polecenia platformy Azure do pracy z usługą Azure Resource Graph, należy dodać rozszerzenie. To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platformy Azure może być używany, w tym w [funkcji bash w systemie Windows 10](/windows/wsl/install-win10), usłudze [Cloud Shell](https://shell.azure.com) (autonomicznej i wewnątrz portalu), [obrazie platformy Docker interfejsu wiersza polecenia platformy Azure](https://hub.docker.com/r/microsoft/azure-cli/), lub zainstalowany lokalnie.
+Aby włączyć interfejs wiersza polecenia platformy Azure do pracy z usługą Azure Resource Graph, należy dodać rozszerzenie. To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platformy Azure może być używany, w tym w [funkcji bash w systemie Windows 10](/windows/wsl/install-win10), usłudze [Cloud Shell](https://shell.azure.com) (autonomicznej i wewnątrz portalu), [obrazie platformy Docker interfejsu wiersza polecenia platformy Azure](https://hub.docker.com/_/microsoft-azure-cli), lub zainstalowany lokalnie.
 
 1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.8.0**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows).
 

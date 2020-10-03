@@ -4,19 +4,24 @@ description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w u
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a46519d434061ebfdedbabe70a3e044cb69ca552
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322227"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667082"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
+
 ## <a name="update-september-2020"></a>Aktualizacja (2020 września)
-- Azure Migrate teraz umożliwia migrowanie serwerów do Strefy dostępności.
-- Azure Migrate teraz umożliwia migrowanie maszyn wirtualnych i serwerów fizycznych opartych na interfejsie UEFI do maszyn wirtualnych 2. generacji platformy Azure. 
+- Migracja serwerów do Strefy dostępności jest teraz obsługiwana.
+- Migracja maszyn wirtualnych opartych na interfejsie UEFI i serwerów fizycznych do maszyn wirtualnych generacji 2 platformy Azure jest teraz obsługiwana
+- Dostępny jest nowy pulpit nawigacyjny oceny Power BI Azure Migrate, który ułatwia porównanie kosztów różnych ustawień oceny. Pulpit nawigacyjny zawiera narzędzie programu PowerShell, które automatycznie tworzy oceny, które są podłączone do pulpitu nawigacyjnego Power BI. [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- Analiza zależności (bez wykorzystania agentów) można teraz uruchamiać jednocześnie na maszynach wirtualnych 1000.
+- Analizę zależności (bez wykorzystania agentów) można teraz włączyć lub wyłączyć na dużą skalę przy użyciu skryptów programu PowerShell. [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Wizualizowanie połączeń sieciowych w Power BI przy użyciu danych zbieranych przy użyciu analizy zależności (bez wykorzystania agentów) [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 
 ## <a name="update-august-2020"></a>Aktualizacja (sierpień 2020)
 
@@ -24,9 +29,10 @@ ms.locfileid: "91322227"
 - Opcja pobrania plików JAJOWE/VHD lub skryptów Instalatora z portalu w celu skonfigurowania odpowiednio urządzeń VMware i funkcji Hyper-V.
 - Odświeżanie programu Configuration Manager przy użyciu ulepszonego środowiska użytkownika.
 - Obsługa wielu poświadczeń dla odnajdywania maszyn wirtualnych funkcji Hyper-V.
-- Ulepszone funkcje wyszukiwania, sortowania i filtrowania dla dodanych poświadczeń i źródeł odnajdywania.
-- Wejście pojedynczego elementu, wiele elementów dane wejściowe i importowanie opcji CSV dla użytkownika umożliwiające dodawanie źródeł odnajdywania dla hostów/klastrów funkcji Hyper-V & serwerów fizycznych.
-- Udoskonalone środowisko błędów z aktualizacjami stanu dla operacji weryfikacji i odnajdywania dla każdego dodanego źródła w tabeli. 
+
+## <a name="update-july-2020"></a>Aktualizacja (lipiec 2020)
+
+- Migracja oprogramowania VMware bez agenta obsługuje teraz współbieżną replikację maszyn wirtualnych 300 na program vCenter
 
 ## <a name="update-june-2020"></a>Aktualizacja (Czerwiec 2020)
 

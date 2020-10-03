@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7172e3319e60603d46dc2af87f3818a5c3664285
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947649"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667677"
 ---
 # <a name="call-flows"></a>Przepływy wywołań
 
@@ -44,13 +44,13 @@ Jeśli dwa urządzenia znajdują się w podsieciach, które nie mogą nawiązywa
 
 W przypadku programu Alicja będzie to translator adresów sieciowych w sklepie kawowym i dla Roberta, który będzie translatorem adresów sieciowych biura domowego. Urządzenie Alicja wyśle adres zewnętrzny jego translatora adresów sieciowych i Robert będzie tego samego. Biblioteki klienckie zawierają informacje o adresach zewnętrznych z usługi STUN (narzędzia do przechodzenia do sesji dla translatora adresów sieciowych), które są bezpłatnie dostępne dla usług Azure Communication Services. Logika, która obsługuje uzgadnianie między Alicja i Robert, jest wbudowana w udostępnione biblioteki klienta usługi Azure Communications Services. (Nie jest wymagana żadna dodatkowa konfiguracja)
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram przedstawiający wywołanie VOIP korzystające z połączenia STUN.":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Przypadek 3: VoIP, gdzie nie jest możliwe połączenie bezpośrednie ani z translatorem adresów sieciowych
 
 Jeśli jedno lub oba urządzenia klienckie znajdują się za symetrycznym translatorem adresów sieciowych, wymagana jest oddzielna usługa w chmurze przekazująca nośnik między dwiema bibliotekami klienckimi. Ta usługa jest wywoływana (przechodzenie przy użyciu przekaźników wokół translatora adresów sieciowych) i jest również udostępniana przez usługi komunikacyjne. Biblioteka klienta wywołująca usługi komunikacyjne automatycznie korzysta z WŁĄCZania usług na podstawie wykrytych warunków sieci. Opłaty za korzystanie z usługi Microsoft skręć są naliczone osobno.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram przedstawiający wywołanie VOIP, które wykorzystuje połączenie z połączeniem.":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>Przypadek 4: wywołania grupowe za pomocą sieci PSTN
 
@@ -58,7 +58,7 @@ Zarówno sygnalizowanie, jak i multimedia dla wywołań PSTN używają zasobu te
 
 Ruch multimediów PSTN przez składnik o nazwie procesor multimediów.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram przedstawiający wywołanie grupy PSTN przy użyciu usług komunikacyjnych.":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
 
 > [!NOTE]
 > W przypadku tych, które zapoznają się z przetwarzaniem multimediów, nasz procesor multimedialny jest również odwracany do agenta użytkownika, zgodnie z definicją w [dokumencie RFC 3261 SIP:](https://tools.ietf.org/html/rfc3261)calling Protocol. Kontroler sygnalizujący usługi Azure Communication Services to implementacja firmy Microsoft serwera proxy SIP na ten sam dokument.
@@ -70,11 +70,11 @@ Domyślny protokół w czasie rzeczywistym (RTP) dla wywołań grup to UDP (User
 > [!NOTE]
 > Procesor multimediów może pełnić rolę jednostki kontroli MultiPoint (MIKROKONTROLERY) lub jednostki przekierowania selektywnego (SFU)
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram przedstawiający przepływ procesu multimediów UDP w ramach usług komunikacyjnych.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
 
 Jeśli Biblioteka klienta nie może używać protokołu UDP dla multimediów z powodu ograniczeń zapory, zostanie podjęta próba użycia Transmission Control Protocol (TCP). Należy pamiętać, że składnik procesora multimediów wymaga protokołu UDP, więc w takim przypadku usługa komunikacji zostanie dodana do wywołania grupy, aby przetłumaczyć protokół TCP na UDP. W takim przypadku naliczanie opłat będzie naliczane, chyba że funkcje WYŁĄCZania nie zostaną wyłączone ręcznie.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram przedstawiający przepływ procesu multimediów TCP w ramach usług komunikacyjnych.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram przedstawiający bezpośrednie połączenie VOIP między użytkownikami i usługami komunikacyjnymi.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

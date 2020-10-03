@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631804"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665145"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia komercyjna dotycząca analizy Marketplace i często zadawane pytania
 
@@ -45,7 +45,7 @@ Jeśli otrzymujesz tę wiadomość, oznacza to, że masz dane analityczne, ale n
 | Typ licencji platformy Azure: Enterprise | Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę w portalu Marketplace za pomocą Umowa Enterprise podpisanej bezpośrednio w firmie Microsoft.|
 | Typ licencji platformy Azure: przedsiębiorstwo przez odsprzedawcę  | Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę portalu Marketplace przez odsprzedawcę, który ułatwia ich Umowa Enterprise firmie Microsoft.|
 | Typ licencji platformy Azure: płatność zgodnie z rzeczywistym użyciem| Klient, zamówienie | Klient końcowy nabywa platformę Azure i ofertę Marketplace w ramach umowy "płatność zgodnie z rzeczywistym użyciem" podpisanej bezpośrednio z firmą Microsoft.|
-| Identyfikator konta rozliczeniowego| Klient, zamówienie, użycie| Identyfikator konta, na którym jest generowane rozliczanie. Ten atrybut służy do łączenia raportów analitycznych z raportem transakcji wypłaty.|
+| Identyfikator konta rozliczeniowego| Klient, zamówienie, użycie| Identyfikator konta, na którym jest generowane rozliczanie. Mapuj **Identyfikator konta rozliczeniowego** na wartość **CustomerID** , aby połączyć Raport transakcji wypłaty z raportami klientów, zamówień i użycia.|
 | Nazwa wystąpienia chmury| Zamówienie| Microsoft Cloud, w którym wystąpiło wdrożenie maszyny wirtualnej.|
 | Nazwa wystąpienia chmury: globalna Azure| Zamówienie| Publiczna globalna chmura firmy Microsoft.|
 | Nazwa wystąpienia chmury: Azure Government | Zamówienie| Specyficzne dla instytucji rządowe chmury firmy Microsoft dla jednego z następujących rządów: Chiny, Niemcy lub Stany Zjednoczone Ameryki.| |

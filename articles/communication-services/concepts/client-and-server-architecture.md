@@ -6,15 +6,15 @@ author: mikben
 manager: mikben
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 38d6b131c972b4fd890af53624fdd6a36b3ecb6c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938143"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666946"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
 
@@ -43,13 +43,13 @@ Aby uzyskać dodatkowe informacje, zobacz [najlepsze rozwiązania związane z za
 
 Biblioteki klienckie JavaScript dotyczące usługi Azure Communications umożliwiają aplikacjom sieci Web zaawansowaną obsługę tekstu, głosu i wideo. Aplikacja bezpośrednio współdziała z usługami Azure Communications Services za pomocą biblioteki klienckiej w celu uzyskania dostępu do płaszczyzny danych i dostarczania tekstu, głosu i wideo w czasie rzeczywistym. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram przedstawiający architekturę przeglądarki dla usług komunikacyjnych.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
 
 ## <a name="native-app-communication"></a>Komunikacja natywna aplikacji
 
 Wiele scenariuszy najlepiej obsługuje aplikacje natywne. Usługi komunikacyjne platformy Azure obsługują komunikację między przeglądarką a aplikacją.  Podczas tworzenia natywnego środowiska aplikacji przy użyciu powiadomień wypychanych użytkownicy będą mogli odbierać wywołania nawet wtedy, gdy aplikacja nie jest uruchomiona. Usługi komunikacyjne systemu Azure ułatwiają to zintegrowane powiadomienia wypychane w usłudze Google Firebase, Apple Push Notification Service i powiadomieniach wypychanych systemu Windows. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram przedstawiający architekturę usług komunikacyjnych do komunikacji natywnej aplikacji.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Komunikacja głosowa i SMS za pośrednictwem publicznej sieci telefonicznej (PSTN)
 
@@ -58,7 +58,7 @@ Komunikacja przez system telefonii może znacząco zwiększyć zasięg aplikacji
 > [!Note]
 > W publicznej wersji zapoznawczej udostępnianie numerów telefonów US jest dostępne dla klientów, którzy mają adresy rozliczeń znajdujące się w Stanach Zjednoczonych i Kanadzie. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę PSTN usług komunikacyjnych.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
 
 Aby uzyskać więcej informacji na temat rozwiązań PSTN i SMS, zobacz [Planowanie rozwiązań PSTN i SMS](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji na temat rozwiązań PSTN i SMS, zobacz [Planowa
 
 Usługi komunikacyjne platformy Azure obsługują komunikację między ludźmi, chociaż kanały tekstowe i głosowe, z usługami, które bezpośrednio uzyskują dostęp do płaszczyzny danych usług Azure Communication Services. Na przykład możesz mieć bot odpowiedzi na przychodzące rozmowy telefoniczne lub uczestniczyć w rozmowie w sieci Web. Usługi komunikacyjne platformy Azure udostępniają biblioteki klienckie, które umożliwiają wywoływanie i rozmowę z tymi scenariuszami. Przykładowy przepływ architektury można znaleźć poniżej:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram przedstawiający architekturę bot usług komunikacyjnych.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
 
 ## <a name="networking"></a>Networking
 
@@ -85,5 +85,5 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - Informacje o [uwierzytelnianiu](../concepts/authentication.md)
 - Informacje o [rozwiązaniach PSTN i SMS](../concepts/telephony-sms/plan-solution.md)
 
-- [Dodawanie rozmowy do aplikacji](../quickstarts/chat/get-started.md)
-- [Dodawanie rozmowy głosowej do aplikacji](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Dodawanie czatu do aplikacji](../quickstarts/chat/get-started.md)
+- [Dodawanie połączenia głosowego do aplikacji](../quickstarts/voice-video-calling/getting-started-with-calling.md)

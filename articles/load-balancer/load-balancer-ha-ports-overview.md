@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564053"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664877"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
-Usługa Azure usługa Load Balancer w warstwie Standardowa pomaga zrównoważyć obciążenie przepływów TCP i UDP na wszystkich portach jednocześnie, gdy korzystasz z wewnętrznego modułu równoważenia obciążenia. 
+Usługa Azure usługa Load Balancer w warstwie Standardowa pomaga zrównoważyć obciążenie **wszystkich** przepływów protokołu na **wszystkich** portach jednocześnie, gdy korzystasz z wewnętrznego Load Balancer za pośrednictwem portów ha.
 
-Reguła równoważenia obciążenia portów o wysokiej dostępności (HA) jest wariantem reguły równoważenia obciążenia skonfigurowanej w wewnętrznej usługa Load Balancer w warstwie Standardowa. Można uprościć korzystanie z modułu równoważenia obciążenia, zapewniając jedną regułę równoważenia obciążenia wszystkich przepływów TCP i UDP, które docierają do wszystkich portów wewnętrznego usługa Load Balancer w warstwie Standardowa. Podejmowana jest decyzja dotycząca równoważenia obciążenia dla przepływu. Ta akcja jest oparta na następującym połączeniu z pięcioma kolekcjami: źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy i protokół
+Porty wysokiej dostępności (HA) to typ reguły równoważenia obciążenia, która zapewnia łatwy sposób równoważenia obciążenia **wszystkich** przepływów, które docierają do **wszystkich** portów wewnętrznej usługa Load Balancer w warstwie Standardowa. Podejmowana jest decyzja dotycząca równoważenia obciążenia dla przepływu. Ta akcja jest oparta na następującym połączeniu z pięcioma kolekcjami: źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy i protokół
 
 Reguły równoważenia obciążenia portów HA ułatwiają scenariusze krytyczne, takie jak wysoka dostępność i skalowanie dla wirtualnych urządzeń sieciowych (urządzeń WUS) w sieciach wirtualnych. Funkcja może również pomóc w sytuacji, gdy duża liczba portów musi być zrównoważona obciążenia. 
 

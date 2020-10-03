@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b5b6233c0978f15aad94b7f66f8935c2d6f6f1c1
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978148"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666963"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights przypadki użycia Gen2
 

@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441825"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665995"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferowanie subskrypcji do innego katalogu
 
-- Jeśli potrzebujesz kroków dotyczących sposobu transferowania subskrypcji do innego katalogu usługi Azure AD, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)](transfer-subscription.md).
+- Jeśli potrzebujesz kroków dotyczących sposobu transferowania subskrypcji do innego katalogu usługi Azure AD, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD](transfer-subscription.md).
 - Jeśli przeniesiesz subskrypcję do innego katalogu usługi Azure AD, wszystkie przypisania ról zostaną **trwale** usunięte ze źródłowego katalogu usługi Azure AD i nie zostaną zmigrowane do docelowego katalogu usługi Azure AD. Musisz ponownie utworzyć przypisania roli w katalogu docelowym. Należy również ręcznie odtworzyć zarządzane tożsamości dla zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Jeśli jesteś administratorem globalnym usługi Azure AD i nie masz dostępu do subskrypcji po przeniesieniu między katalogami, użyj przełącznika **Zarządzanie dostępem do zasobów platformy Azure** , aby tymczasowo [podnieść poziom dostępu](elevate-access-global-admin.md) w celu uzyskania dostępu do subskrypcji.
 

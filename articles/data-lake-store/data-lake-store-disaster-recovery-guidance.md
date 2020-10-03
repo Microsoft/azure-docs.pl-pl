@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191420"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666249"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Wskazówki dotyczące wysokiej dostępności i odzyskiwania po awarii dla Data Lake Storage Gen1
 
@@ -37,8 +37,6 @@ Chociaż Data Lake Storage Gen1 zapewnia odporność danych za pośrednictwem za
 Aby zapobiec przypadkowemu usunięciu, zalecamy najpierw ustawić odpowiednie zasady dostępu dla konta usługi Data Lake Storage Gen1. Obejmuje to zastosowanie [blokad zasobów platformy Azure](../azure-resource-manager/management/lock-resources.md) w celu zablokowania ważnych zasobów i zastosowania kontroli dostępu na poziomie konta i pliku przy użyciu dostępnych [funkcji zabezpieczeń Data Lake Storage Gen1](data-lake-store-security-overview.md). Zalecamy również, aby regularnie tworzyć kopie krytycznych danych przy użyciu [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) lub [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) w innym Data Lake Storage Gen1 koncie, folderze lub subskrypcji platformy Azure. Umożliwi to odzyskanie danych po ich uszkodzeniu lub usunięciu. Azure Data Factory to usługa przydatna w przypadku cyklicznego tworzenia i wdrażania potoków przepływu danych.
 
 Możesz również włączyć [rejestrowanie diagnostyczne](data-lake-store-diagnostic-logs.md) dla konta Data Lake Storage Gen1, aby zebrać ślady inspekcji dostępu do danych. Dziennik inspekcji zawiera informacje o tym, kto może usunąć lub zaktualizować plik.
-
-Można spróbować przywrócić usunięty element przy użyciu polecenia [AZ. kontach datalakestore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell module dla Data Lake Storage Gen 1. W celu zapoznaj się z tematem polecenie [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Przed podjęciem próby użycia tego polecenia Pamiętaj, aby przejrzeć sekcję [Opis](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) .
 
 ## <a name="next-steps"></a>Następne kroki
 

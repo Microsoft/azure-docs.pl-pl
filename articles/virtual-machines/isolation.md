@@ -1,18 +1,18 @@
 ---
 title: Izolacja maszyn wirtualnych na platformie Azure
 description: Informacje o izolacji maszyny wirtualnej działają na platformie Azure.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831451"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666844"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Izolacja maszyny wirtualnej na platformie Azure
 
@@ -42,7 +42,7 @@ Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, p
 | Standard_DS15_v2<sup>1</sup> | 15 maja 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 maja 2020 |
 
-<sup>1</sup> Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
+<sup>1</sup>  Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
 
 
 ## <a name="faq"></a>Często zadawane pytania

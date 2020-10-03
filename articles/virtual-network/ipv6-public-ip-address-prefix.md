@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420523"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666787"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefiks publicznego adresu IPv6
 
@@ -28,7 +28,7 @@ Wszystkie publiczne adresy IP, które można zarezerwować, są skojarzone z wyb
 > [!WARNING]
 > Należy zachować ostrożność, aby nie usuwać Twoich publicznych adresów IP przypadkowo. Usunięcie publicznego adresu IP spowoduje usunięcie go z subskrypcji i nie będzie można go odzyskać (nawet z pomocą techniczną platformy Azure).
 
-Oprócz rezerwowania pojedynczych adresów IPv6 można zarezerwować ciągłe zakresy adresów IPv6 platformy Azure (nazywane prefiksem IP).  Podobnie jak poszczególne adresy IP, zarezerwowane prefiksy są skojarzone z wybranym przez Ciebie regionem platformy Azure i z subskrypcją platformy Azure. Przewidywalna, ciągły zakres adresów ma wiele użycia. Na przykład można znacznie uprościć *listy dozwolonych* IP aplikacji hostowanych przez platformę Azure przez firmę i klientów, ponieważ statyczne zakresy adresów IP mogą być łatwo zaprogramowane w zaporach lokalnych.  W razie potrzeby można utworzyć poszczególne publiczne adresy IP z prefiksu IP, a po usunięciu tych indywidualnych publicznych adresów IP są one *zwracane* do zarezerwowanego zakresu, aby można było użyć ich później. Wszystkie adresy IP w prefiksie IP są zarezerwowane do użytku wyłącznego do momentu usunięcia prefiksu.
+Oprócz rezerwowania pojedynczych adresów IPv6 można zarezerwować ciągłe zakresy adresów IPv6 platformy Azure (nazywane prefiksem IP).  Podobnie jak poszczególne adresy IP, zarezerwowane prefiksy są skojarzone z wybranym przez Ciebie regionem platformy Azure i z subskrypcją platformy Azure. Przewidywalna, ciągły zakres adresów ma wiele użycia. Na przykład można znacznie uprościć *filtrowanie* adresów IP aplikacji hostowanych przez platformę Azure przez firmę i klientów, ponieważ zakresy statycznych adresów IP mogą być łatwo zaprogramowane w zaporach lokalnych.  W razie potrzeby można utworzyć poszczególne publiczne adresy IP z prefiksu IP, a po usunięciu tych indywidualnych publicznych adresów IP są one *zwracane* do zarezerwowanego zakresu, aby można było użyć ich później. Wszystkie adresy IP w prefiksie IP są zarezerwowane do użytku wyłącznego do momentu usunięcia prefiksu.
 
 
 
@@ -40,7 +40,7 @@ Dostępne są następujące publiczne rozmiary prefiksów adresów IP:
 
 Rozmiar prefiksu jest określony jako rozmiar maski routingu między domenami (CIDR). Na przykład maska/128 reprezentuje pojedynczy adres IPv6, ponieważ adresy IPv6 składają się z 128 bitów.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
  
 W przypadku kosztów związanych z korzystaniem z publicznych adresów IP platformy Azure, zarówno indywidualnych adresów IP, jak i zakresów adresów IP, zobacz [Cennik publicznego adresu IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 

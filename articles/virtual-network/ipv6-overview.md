@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653301"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666827"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Co to jest protokół IPv6 dla usługi Azure Virtual Network?
 
@@ -31,7 +31,7 @@ Na poniższym diagramie przedstawiono proste wdrożenie podwójnego stosu (IPv4/
 
 ![Diagram wdrażania sieci IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Zalety protokołu IPv6 dla sieci wirtualnej platformy Azure:
 
@@ -61,7 +61,7 @@ Protokół IPv6 dla sieci wirtualnej platformy Azure obejmuje następujące moż
     - Uwaga: protokół IPv6 może być zrównoważony pod względem podstawowego interfejsu sieciowego (NIC) na maszynach wirtualnych platformy Azure. 
 - [Standardowa obsługa Load Balancer wewnętrznego IPv6](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) do tworzenia odpornych aplikacji wielowarstwowych w ramach usługi Azure sieci wirtualnych.   
 - Obsługa publicznej Load Balancer publicznych adresów IPv6 w celu zapewnienia zgodności ze starszymi wdrożeniami
-- [Publiczne adresy IP i zakresy adresów zastrzeżonego protokołu IPv6](ipv6-public-ip-address-prefix.md) zapewniają stabilne, przewidywalne adresy IPv6, które ułatwiają listy dozwolonych aplikacji hostowanych na platformie Azure dla Twojej firmy i klientów.
+- [Publiczne adresy IP i zakresy adresów zastrzeżonego protokołu IPv6](ipv6-public-ip-address-prefix.md) zapewniają stabilne, przewidywalne adresy IPv6, które ułatwiają filtrowanie aplikacji hostowanych na platformie Azure dla Twojej firmy i klientów.
 - Publiczny adres IP na poziomie wystąpienia zapewnia łączność z Internetem IPv6 bezpośrednio z indywidualnymi maszynami wirtualnymi.
 - [Dodawanie protokołu IPv6 do istniejących wdrożeń obsługujących tylko protokół IPv4](ipv6-add-to-existing-vnet-powershell.md)— ta funkcja umożliwia łatwe dodawanie łączności IPv6 do istniejących wdrożeń obsługujących tylko protokół IPv4 bez konieczności ponownego tworzenia wdrożeń.  W trakcie tego procesu nie ma to oddziaływania na ruch sieciowy IPv4, więc w zależności od aplikacji i systemu operacyjnego może być możliwe dodanie protokołu IPv6 nawet do usług Live Services.    
 - Zezwól klientom internetowym na bezproblemowy dostęp do aplikacji dwustosowej przy użyciu dowolnie wybranego protokołu z obsługą Azure DNS dla rekordów IPv6 (AAAA). 

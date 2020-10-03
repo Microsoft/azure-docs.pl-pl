@@ -6,17 +6,17 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 2c5d11a0c7f9963b3020cb45460ea8f74885565a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 94d4726bc45de2f9400a04bf940233771551ed36
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303329"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667490"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Szybki Start: wysyłanie wiadomości SMS
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener, Kubernetes
-ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597446"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665416"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
@@ -29,7 +29,8 @@ Obsługa kontenerów jest obecnie dostępna dla podzestawu Cognitive Services pl
 
 > [!div class="checklist"]
 > * [Narzędzie do wykrywania anomalii][ad-containers]
-> * [Przetwarzanie obrazów][cv-containers]
+> * [Odczytaj OCR (optyczne rozpoznawanie znaków) ][cv-containers]
+> * [Analiza przestrzenna][spa-containers]
 > * [Rozpoznawanie twarzy][fa-containers]
 > * [Rozpoznawanie formularzy][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]

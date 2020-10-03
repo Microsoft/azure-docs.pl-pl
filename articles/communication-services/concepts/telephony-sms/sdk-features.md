@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4077bbe0a98f6b7788af9b6c44f73abbc936c6aa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95a7ae951edab8e75894b0e9aa85029a54a50acb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332243"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664923"
 ---
 # <a name="sms-client-library-overview"></a>Omówienie biblioteki klienta wiadomości SMS
 

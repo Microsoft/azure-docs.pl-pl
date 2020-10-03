@@ -3,15 +3,15 @@ title: Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows PowerSh
 description: Jak utworzyć pulę hostów w programie Virtual Desktop systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287291"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667167"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell
 
@@ -99,6 +99,9 @@ Aby pomyślnie przyłączyć do domeny, wykonaj następujące czynności na każ
 
     >[!NOTE]
     > W przypadku dołączania maszyn wirtualnych do środowiska Azure Active Directory Domain Services (Azure AD DS) Upewnij się, że użytkownik przyłączania do domeny jest również członkiem [grupy Administratorzy kontrolera domeny usługi AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+
+>[!IMPORTANT]
+>Nie zaleca się włączania żadnych zasad ani konfiguracji, które wyłączają Instalator Windows. Jeśli wyłączysz Instalator Windows, usługa nie będzie mogła zainstalować aktualizacji agenta na hostach sesji, a hosty sesji nie będą działać prawidłowo.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Rejestrowanie maszyn wirtualnych w puli hostów usług pulpitu wirtualnego systemu Windows
 

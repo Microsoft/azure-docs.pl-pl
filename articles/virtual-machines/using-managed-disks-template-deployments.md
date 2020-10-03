@@ -1,6 +1,6 @@
 ---
-title: Dyski zarządzane — szablony Azure Resource Manager
-description: Szczegóły dotyczące korzystania z dysków zarządzanych w szablonach Azure Resource Manager dla maszyn wirtualnych platformy Azure.
+title: Wdrażanie dysków przy użyciu szablonów Azure Resource Manager
+description: Szczegóły dotyczące korzystania z dysków zarządzanych i niezarządzanych w szablonach Azure Resource Manager dla maszyn wirtualnych platformy Azure.
 documentationcenter: ''
 author: jboeshart
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854336"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666555"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Używanie Managed Disks w szablonach Azure Resource Manager
+# <a name="using-disks-in-azure-resource-manager-templates"></a>Używanie dysków w szablonach Azure Resource Manager
 
 Ten dokument zawiera instrukcje dotyczące różnic między dyskami zarządzanymi i niezarządzanymi przy użyciu szablonów Azure Resource Manager do obsługi maszyn wirtualnych. Przykłady ułatwiają aktualizowanie istniejących szablonów, które używają dysków niezarządzanych do dysków zarządzanych. Aby uzyskać informacje na temat programu, użyj szablonu [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) jako przewodnika. Możesz wyświetlić szablon przy użyciu dysków [zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) i wcześniejszej wersji za pomocą [dysków niezarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) , jeśli chcesz je bezpośrednio porównać.
 

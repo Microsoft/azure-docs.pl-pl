@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602045"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666164"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -60,14 +60,14 @@ Poniższa tabela przedstawia, kiedy Metoda uwierzytelniania może być używana 
 
 | Metoda                         | Uwierzytelnianie podstawowe | Uwierzytelnianie pomocnicze  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello dla firm     | Yes                    | Funkcja                       |
+| Windows Hello dla firm     | Tak                    | Uwierzytelnianie wieloskładnikowe                       |
 | Aplikacja Microsoft Authenticator    | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
-| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Yes                    | Funkcja                       |
-| Tokeny sprzętowe OATH (wersja zapoznawcza) | Nie                     | Funkcja                       |
-| Tokeny oprogramowania OATH           | Nie                     | Funkcja                       |
+| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Tak                    | Uwierzytelnianie wieloskładnikowe                       |
+| Tokeny sprzętowe OATH (wersja zapoznawcza) | Nie                     | Uwierzytelnianie wieloskładnikowe                       |
+| Tokeny oprogramowania OATH           | Nie                     | Uwierzytelnianie wieloskładnikowe                       |
 | SMS                            | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
 | Połączenie głosowe                     | Nie                     | Uwierzytelnianie MFA i SSPR              |
-| Hasło                       | Yes                    |                           |
+| Hasło                       | Tak                    |                           |
 
 Wszystkie te metody uwierzytelniania można skonfigurować w Azure Portal i w coraz większym stopniu przy użyciu [interfejsu API REST Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
@@ -100,6 +100,8 @@ Aby dowiedzieć się więcej o pojęciach SSPR, zobacz Jak działa funkcja samoo
 Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
 
 Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
+Aby sprawdzić, jakie metody uwierzytelniania są używane, zapoznaj się z tematem [Analiza metody uwierzytelniania w usłudze Azure Multi-Factor Authentication przy użyciu programu PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

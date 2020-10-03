@@ -7,18 +7,15 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 30587fac7d7be37d7595a78502b7999adee9a30f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191145"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665314"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
-
-> [!IMPORTANT]
-> Rozmiary maszyn wirtualnych z serii Dv4, Dsv4, Ev4 i Esv4 są teraz dostępne w publicznej wersji zapoznawczej. Aby zarejestrować się w publicznej wersji zapoznawczej, Wypełnij ten [formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ## <a name="what-does-no-local-temp-disk-mean"></a>Co oznacza brak lokalnego dysku tymczasowego? 
 Tradycyjnie mamy rozmiary maszyn wirtualnych (np. Standard_D2s_v3, Standard_E48_v3), które obejmują niewielki dysk lokalny (tj. dysk D:). Teraz przy użyciu nowych rozmiarów maszyn wirtualnych ten mały dysk lokalny już nie istnieje; można jednak nadal dołączać HDD w warstwie Standardowa, SSD w warstwie Premium lub SSD w warstwie Ultra.

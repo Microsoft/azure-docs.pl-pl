@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440834"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667745"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "89440834"
 
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen1. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen1. Przed Data Lake Storage Gen1, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. W przypadku Data Lake Storage Gen1 większość stałych limitów rozmiaru i wydajności jest usuwana. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Azure Data Lake Storage Gen1 oferuje kontrolki dostępu POSIX i szczegółową inspekcję dla Azure Active Directory (Azure AD) użytkowników, grup i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i foldery. Kontroli dostępu można także użyć do tworzenia wartości domyślnych, które mogą być stosowane do nowych plików lub folderów. Gdy uprawnienia są ustawione na istniejące foldery i obiekty podrzędne, uprawnienia muszą być rekursywnie rozpropagowane dla każdego obiektu. W przypadku dużej liczby plików propagowanie uprawnień może zająć dużo czasu. Czas trwania może mieć zakres od 30-50 do przetworzenia obiektów na sekundę. W związku z tym należy odpowiednio zaplanować strukturę folderów i grupy użytkowników. W przeciwnym razie może to spowodować nieoczekiwane opóźnienia i problemy podczas pracy z danymi.
 
@@ -33,7 +33,7 @@ Załóżmy, że masz folder z 100 000 obiektami podrzędnymi. Jeśli pozostanie 
 
 Podczas pracy z danymi Big Data w Data Lake Storage Gen1 najprawdopodobniej jednostka usługi jest używana do zezwalania usługom, takim jak usługa Azure HDInsight, na pracę z danymi. Mogą jednak wystąpić sytuacje, w których indywidualni użytkownicy potrzebują dostępu do danych. W takich przypadkach należy używać [grup zabezpieczeń](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) Azure Active Directory zamiast przypisywania poszczególnych użytkowników do folderów i plików.
 
-Gdy grupa zabezpieczeń ma przypisane uprawnienia, Dodawanie lub usuwanie użytkowników z grupy nie wymaga żadnych aktualizacji do Data Lake Storage Gen1. Zapewnia to również, że nie zostanie przekroczony limit [32 dostępu i domyślnych list ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (obejmuje cztery listy ACL w stylu POSIX, które zawsze są skojarzone z każdym plikiem i folderem: [użytkownik](data-lake-store-access-control.md#the-owning-user)będący właścicielem, [Grupa będąca właścicielem](data-lake-store-access-control.md#the-owning-group), [maska](data-lake-store-access-control.md#the-mask)i inne).
+Gdy grupa zabezpieczeń ma przypisane uprawnienia, Dodawanie lub usuwanie użytkowników z grupy nie wymaga żadnych aktualizacji do Data Lake Storage Gen1. Zapewnia to również, że nie zostanie przekroczony limit [32 dostępu i domyślnych list ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (obejmuje cztery listy ACL w stylu POSIX, które zawsze są skojarzone z każdym plikiem i folderem: [użytkownik](data-lake-store-access-control.md#the-owning-user)będący właścicielem, [Grupa będąca właścicielem](data-lake-store-access-control.md#the-owning-group), [maska](data-lake-store-access-control.md#the-mask)i inne).
 
 ### <a name="security-for-groups"></a>Zabezpieczenia dla grup
 
@@ -104,7 +104,7 @@ Poniżej znajdują się trzy najbardziej zalecane opcje organizowania replikacji
 |**Obsługuje kopiowanie różnic**     |   Tak      | Nie         | Nie         |
 |**Wbudowana aranżacja**     |  Nie (Użyj Oozie Flow lub zadań firmy CRONUS)       | Tak        | Nie (Użyj Azure Automation lub Harmonogram zadań systemu Windows)         |
 |**Obsługiwane systemy plików**     | ADL, HDFS, WASB, S3, GS, CFS        |Wiele, zobacz [Łączniki](../data-factory/connector-azure-blob-storage.md).         | ADL do ADL, WASB do ADL (tylko ten sam region)        |
-|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Nie dotyczy          | Windows 10         |
+|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Brak          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Użyj pomocą distcp do przenoszenia danych między dwiema lokalizacjami
 

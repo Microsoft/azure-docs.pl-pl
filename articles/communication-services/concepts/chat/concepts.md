@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3b4970b70a9bd5399199771a081481e17e2efb1
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292476"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666997"
 ---
 # <a name="chat-concepts"></a>Pojęcia dotyczące czatu
 
@@ -47,7 +47,7 @@ Istnieją dwa podstawowe części dla architektury czatu: 1) usługa zaufana i 2
 Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika, a także komunikaty generowane przez system, nazywane **działaniami wątków**. Działania wątków są generowane, gdy wątek rozmowy zostanie zaktualizowany. W przypadku wywołania `List Messages` lub `Get Messages` w wątku rozmowy wynik będzie zawierać komunikaty tekstowe generowane przez użytkownika, a także komunikaty systemowe w kolejności chronologicznej. Dzięki temu można określić, kiedy element członkowski został dodany lub usunięty albo kiedy temat wątku rozmowy został zaktualizowany. Obsługiwane typy komunikatów:  
 
  - `Text`: Rzeczywisty komunikat tworzony i wysyłany przez użytkownika w ramach konwersacji rozmowy. 
- - `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy. Na przykład:
+ - `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy. Przykład:
 
 ```xml
 
@@ -72,7 +72,7 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ```  
 
-- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy. Na przykład:
+- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy. Przykład:
 
 ```xml
 
@@ -92,7 +92,7 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ```
 
-- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat. Na przykład:
+- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat. Przykład:
 
 ```xml
 
@@ -130,7 +130,7 @@ Jednym ze sposobów osiągnięcia tego celu jest to, że usługa zaufana działa
 
 W ten sposób historia komunikatów będzie zawierać zarówno oryginalne, jak i tłumaczone komunikaty. W aplikacji klienckiej można dodać logikę, aby wyświetlić oryginalny lub przetłumaczony komunikat. Zapoznaj się z [tym przewodnikiem Szybki Start](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) , aby dowiedzieć się, jak używać interfejsów API poznawcze do tłumaczenia tekstu na różne języki. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram przedstawiający Cognitive Services korzystania z usług komunikacyjnych.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram przedstawiający architekturę czatu usług komunikacyjnych.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

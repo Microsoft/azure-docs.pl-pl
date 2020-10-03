@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611167"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665875"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -551,13 +551,15 @@ Gdy użytkownik wybierze przycisk **Zaloguj** po raz pierwszy, `signIn` wywołuj
 
 W tym momencie kod autoryzacji chroniony przez PKCE jest wysyłany do punktu końcowego tokenu chronionego przez funkcję CORS i jest wymieniany na potrzeby tokenów. Token identyfikatora, token dostępu i token odświeżania są odbierane przez aplikację i przetwarzane przez *msal.js*, a informacje zawarte w tokenach są buforowane.
 
-Token identyfikatora zawiera podstawowe informacje o użytkowniku, takie jak nazwa wyświetlana. Jeśli planujesz używać dowolnych danych dostarczonych przez token identyfikatora, serwer zaplecza *musi* sprawdzić jego poprawność, aby zagwarantować, że token został wystawiony dla prawidłowego użytkownika aplikacji. Token odświeżania ma ograniczony okres istnienia i wygasa po 24 godzinach. Token odświeżania może służyć do dyskretnego pozyskiwania nowych tokenów dostępu.
+Token identyfikatora zawiera podstawowe informacje o użytkowniku, takie jak nazwa wyświetlana. Jeśli planujesz używać dowolnych danych dostarczonych przez token identyfikatora, serwer zaplecza *musi* sprawdzić jego poprawność, aby zagwarantować, że token został wystawiony dla prawidłowego użytkownika aplikacji.
+
+Token dostępu ma ograniczony okres istnienia i wygasa po 24 godzinach. Token odświeżania może służyć do dyskretnego pozyskiwania nowych tokenów dostępu.
 
 SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/lub `acquireTokenPopup` uzyskuje *token dostępu* używany do wykonywania zapytań dotyczących interfejsu API Microsoft Graph informacji o profilu użytkownika. Jeśli potrzebujesz przykładu, który sprawdza poprawność tokenu identyfikatora, zobacz przykładową aplikację [Active-Directory-JavaScript-singlepageapp-dotnet-WebAPI-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) w witrynie GitHub. Przykład używa interfejsu API sieci Web ASP.NET do sprawdzania poprawności tokenu.
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.

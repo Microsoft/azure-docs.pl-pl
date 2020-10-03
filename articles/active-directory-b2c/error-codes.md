@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388531"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664855"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Kody błędów: Azure Active Directory B2C
 
 Usługa Azure Active Directory B2C może zwrócić następujące błędy.
 
-| Kod błędu | Komunikat |
+| Kod błędu | Wiadomość |
 | ---------- | ------- |
 | `AADB2C90002` | Zasób CORS " {0} " zwrócił element 404, który nie został znaleziony. |
 | `AADB2C90006` | Identyfikator URI przekierowania " {0} " podany w żądaniu nie jest zarejestrowany dla identyfikatora klienta " {1} ". |
@@ -34,7 +34,7 @@ Usługa Azure Active Directory B2C może zwrócić następujące błędy.
 | `AADB2C90013` | Żądany typ odpowiedzi " {0} " podany w żądaniu nie jest obsługiwany. |
 | `AADB2C90014` | Żądany tryb odpowiedzi " {0} " podany w żądaniu nie jest obsługiwany. |
 | `AADB2C90016` | Żądany typ potwierdzenia klienta "" nie jest {0} zgodny z oczekiwanym typem " {1} ". |
-| `AADB2C90017` | Potwierdzenie klienta podane w żądaniu jest nieprawidłowe:{0} |
+| `AADB2C90017` | Potwierdzenie klienta podane w żądaniu jest nieprawidłowe: {0} |
 | `AADB2C90018` | Identyfikator klienta " {0} " określony w żądaniu nie jest zarejestrowany w dzierżawie " {1} ". |
 | `AADB2C90019` | Kontener kluczy o identyfikatorze " {0} " w dzierżawie " {1} " nie ma prawidłowego klucza. Przyczyna: {2} . |
 | `AADB2C90021` | Profil techniczny " {0} " nie istnieje w zasadach " {1} " dzierżawy " {2} ". |
@@ -73,7 +73,8 @@ Usługa Azure Active Directory B2C może zwrócić następujące błędy.
 | `AADB2C90085` | Usługa napotkała błąd wewnętrzny. Ponownie Uwierzytelnij i spróbuj ponownie. |
 | `AADB2C90086` | Podany grant_type [ {0} ] nie jest obsługiwany. |
 | `AADB2C90087` | Podany przydział nie został wystawiony dla tej wersji punktu końcowego protokołu. |
-| `AADB2C90088` | Podany przydział nie został wystawiony dla tego punktu końcowego. Rzeczywista wartość: {0} i oczekiwana wartość:{1} |
+| `AADB2C90088` | Podany przydział nie został wystawiony dla tego punktu końcowego. Rzeczywista wartość: {0} i oczekiwana wartość: {1} |
+| `AADB2C90091` | Anulowanie przez użytkownika. |
 | `AADB2C90092` | Podana aplikacja o IDENTYFIKATORze " {0} " jest wyłączona dla dzierżawy " {1} ". Włącz aplikację i spróbuj ponownie. |
 | `AADB2C90107` | Aplikacja o IDENTYFIKATORze " {0} " nie może uzyskać tokenu identyfikatora, ponieważ w żądaniu nie podano zakresu OpenID Connect lub aplikacja nie ma do niej autoryzacji. |
 | `AADB2C90108` | Krok aranżacji " {0} " nie określa elementu CpimIssuerTechnicalProfileReferenceId, gdy było oczekiwane. |

@@ -4,17 +4,17 @@ description: Korzystaj z funkcji, takich jak analiza magazynu, rejestrowanie po 
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031487"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667915"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -72,7 +72,7 @@ Aby uzyskać szczegółowe informacje na temat kompleksowego rozwiązywania prob
   * [Dodatek 4: używanie programu Excel do wyświetlania metryk i danych dzienników]
   * [Dodatek 5: monitorowanie za pomocą Application Insights platformy Azure DevOps]
 
-## <a name="introduction"></a><a name="introduction"></a>Wprowadzenie
+## <a name="introduction"></a><a name="introduction"></a>Początk
 W tym przewodniku pokazano, jak za pomocą funkcji, takich jak analityka magazynu platformy Azure, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
 
 ![Diagram przedstawiający przepływ informacji między aplikacjami klienckimi i usługami Azure Storage.][1]
@@ -256,6 +256,14 @@ Usługa magazynu automatycznie generuje identyfikatory żądań serwera.
 >
 >
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Poniższy przykład kodu pokazuje, jak używać niestandardowego identyfikatora żądania klienta. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 Jeśli Biblioteka klienta magazynu zgłasza wyjątek **magazynu** na kliencie, właściwość **RequestInformation** zawiera obiekt **RequestResult** , który zawiera właściwość **ServiceRequestID** . Możesz również uzyskać dostęp do obiektu **RequestResult** z wystąpienia elementu **OperationContext** .
 
 Poniższy przykład kodu ilustruje sposób ustawienia niestandardowej wartości **identyfikatorem żądania klienta** przez dołączenie obiektu **OperationContext** do żądania usługi magazynu. Pokazano również, jak pobrać wartość **ServerRequestId** z komunikatu odpowiedzi.
@@ -291,6 +299,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>Znaczniki czasu
 Sygnatury czasowe można także użyć do lokalizowania powiązanych wpisów dziennika, ale należy zachować ostrożność podczas pochylenia zegara między klientem a serwerem, który może istnieć. Wyszukaj i minus 15 minut dla pasujących wpisów po stronie serwera na podstawie sygnatury czasowej klienta. Należy pamiętać, że metadane obiektów BLOB dla obiektów BLOB zawierających metryki wskazują zakres czasu dla metryk przechowywanych w obiekcie blob. Ten zakres czasu jest przydatny, jeśli masz wiele obiektów BLOB metryk przez tę samą minutę lub godzinę.
@@ -358,13 +368,19 @@ Możliwe przyczyny, dla których klient odpowie wolno, obejmują ograniczoną li
 
 W przypadku usług tabel i kolejek algorytm nagle może również spowodować duże **niską averagee2elatency** w porównaniu z **wartość averageserverlatency**: Aby uzyskać więcej informacji, zobacz Algorytm post [nagle nie jest przyjazny do małych żądań](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Algorytm nagle można wyłączyć w kodzie przy użyciu klasy **ServicePointManager** w przestrzeni nazw **System.NET** . Należy to zrobić przed wprowadzeniem jakichkolwiek wywołań do usług Table lub Queue w aplikacji, ponieważ nie ma to wpływu na połączenia, które są już otwarte. Poniższy przykład pochodzi z metody **Application_Start** w roli procesu roboczego.
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
+
+---
 
 Należy sprawdzić dzienniki po stronie klienta, aby zobaczyć liczbę żądań przesyłanych przez aplikację kliencką, a także sprawdzić ogólne wąskie gardła wydajności związane z platformą .NET na kliencie, takie jak procesor CPU, wyrzucanie elementów bezużytecznych platformy .NET, wykorzystanie sieci lub pamięć. Jako punkt wyjścia do rozwiązywania problemów z aplikacjami klienckimi platformy .NET, zobacz [debugowanie, śledzenie i profilowanie](https://msdn.microsoft.com/library/7fe0dd2y).
 
@@ -594,6 +610,12 @@ Aby obejść problem z JavaScript, można skonfigurować udostępnianie zasobów
 
 Poniższy przykład kodu pokazuje, jak skonfigurować usługę BLOB Service, aby zezwolić JavaScript działaniu w domenie contoso na dostęp do obiektu BLOB w usłudze BLOB Storage:
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +631,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>Awaria sieci
 W pewnych okolicznościach utracone pakiety sieciowe mogą prowadzić do usługi magazynu zwracającej komunikaty HTTP 404 do klienta. Na przykład jeśli aplikacja kliencka usuwa jednostkę z usługi Table Service, zobaczysz komunikat o stanie "HTTP 404 (nie znaleziono)" w usłudze Table Service. Gdy przebadasz tabelę w usłudze Table Storage, zobaczysz, że usługa usunąła jednostkę zgodnie z żądaniem.

@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275595"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667473"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
@@ -137,12 +137,12 @@ Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności.
 Jeśli chcesz zatrzymać zależność od kilku maszyn, możesz to zrobić za pomocą [programu PowerShell](#start-or-stop-dependency-discovery-using-powershell) .
 
 
-### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Uruchamianie lub zatrzymywanie odnajdywania zależności przy użyciu programu PowerShell
+## <a name="start-or-stop-dependency-discovery-using-powershell"></a>Uruchamianie lub zatrzymywanie odnajdywania zależności przy użyciu programu PowerShell
 
 Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) w witrynie GitHub.
 
 
-#### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 1. Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount.
 
@@ -166,7 +166,7 @@ Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](htt
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### <a name="enable-or-disable-dependency-data-collection"></a>Włączanie lub wyłączanie zbierania danych zależności
+### <a name="enable-or-disable-dependency-data-collection"></a>Włączanie lub wyłączanie zbierania danych zależności
 
 1. Pobierz listę odnalezionych maszyn wirtualnych VMware w projekcie Azure Migrate przy użyciu następujących poleceń. W poniższym przykładzie nazwa projektu to FabrikamDemoProject, a grupa zasobów, do której należy, to FabrikamDemoRG. Lista maszyn zostanie zapisana w FabrikamDemo_VMs.csv
 

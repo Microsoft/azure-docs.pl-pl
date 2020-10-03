@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836460"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665261"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limity w Azure Database for PostgreSQL-pojedynczym serwerze
 W poniższych sekcjach opisano pojemności i limity funkcjonalne usługi bazy danych. Jeśli chcesz dowiedzieć się więcej o warstwach zasobów (obliczeniowych, pamięci, magazynu), zobacz artykuł [warstwy cenowe](concepts-pricing-tiers.md) .
@@ -66,6 +66,11 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 ### <a name="utf-8-characters-on-windows"></a>Znaki UTF-8 w systemie Windows
 - W niektórych scenariuszach znaki UTF-8 nie są w pełni obsługiwane w programie Open Source PostgreSQL w systemie Windows, co ma wpływ na Azure Database for PostgreSQL. Aby uzyskać więcej informacji, zobacz wątek w [#15476 błędów w archiwum PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) .
+
+### <a name="gss-error"></a>Błąd GSS
+Jeśli zobaczysz błąd związany z jednostką **GSS**, możesz korzystać z nowszej wersji klienta/sterownika, która nie jest jeszcze w pełni obsługiwana przez usługę Azure Postgres na jednym serwerze. Ten błąd jest znany, aby mieć wpływ na [JDBC wersje sterowników 42.2.15 i 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planuje ukończenie aktualizacji przed końcem listopada. Rozważ użycie w międzyczasie wersji sterownika działającego.
+   - Lub rozważ wyłączenie żądania GSS.  Użyj parametru połączenia, takiego jak `gssEncMode=disable` .
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz [się, co jest dostępne w poszczególnych warstwach cenowych](concepts-pricing-tiers.md)

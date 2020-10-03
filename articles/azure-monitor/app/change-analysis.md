@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540166"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667630"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
 
@@ -101,7 +101,7 @@ Analiza zmian aplikacji to autonomiczny detektor w aplikacji sieci Web diagnozow
 
    ![Zrzut ekranu przedstawiający przycisk "awarie aplikacji"](./media/change-analysis/application-changes.png)
 
-3. Aby włączyć analizę zmian, wybierz pozycję **Włącz teraz**.
+3. Łącze prowadzi do aplikacji sieci Web z zakresem interfejsu użytkownika Aalysis zmiany aplikacji. Jeśli śledzenie zmian w aplikacji internetowej w trybie gościa nie jest włączone, postępuj zgodnie z transparentem, aby uzyskać zmiany ustawień plików i aplikacji.
 
    ![Zrzut ekranu opcji "awarie aplikacji"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,11 +109,33 @@ Analiza zmian aplikacji to autonomiczny detektor w aplikacji sieci Web diagnozow
 
     ![Zrzut ekranu przedstawiający interfejs użytkownika "Włącz analizę zmian"](./media/change-analysis/change-analysis-on.png)
 
-5. Aby uzyskać dostęp do analizy zmian, wybierz opcję **diagnozowanie i rozwiązywanie problemów dotyczących**  >  **dostępności i wydajności**  >  **aplikacji**. Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
+5. Dane dotyczące zmiany są również dostępne w obszarze Wybierz **aplikacje sieci Web** i wykrywacze **awarii aplikacji** . Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
 
      ![Zrzut ekranu przedstawiający widok różnic między zmianami](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Włącz analizę zmian na dużą skalę
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnozowanie i rozwiązywanie problemów z maszyną wirtualną
+
+Przejdź do narzędzia diagnozowanie i rozwiązywanie problemów dotyczących maszyny wirtualnej.  Przejdź do **Narzędzia do rozwiązywania problemów**, przejdź do strony i wybierz pozycję **Analizuj ostatnie zmiany** , aby wyświetlić zmiany na maszynie wirtualnej.
+
+![Zrzut ekranu maszyny wirtualnej diagnozowanie i rozwiązywanie problemów](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Analizator zmian w narzędziach do rozwiązywania problemów](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Historia zmian dziennika aktywności
+Funkcja [Wyświetl historię zmian](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) w dzienniku aktywności wywołuje zaplecze usługi analizy zmian aplikacji w celu uzyskania zmian skojarzonych z operacją. **Historia zmian** używana do bezpośredniego wywoływania [grafu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview) , ale zastąpi zaplecze w celu wywołania analizy zmian aplikacji, w związku z czym zwrócone zmiany będą obejmowały zmiany poziomu zasobów z [wykresu zasobów platformy Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), właściwości zasobów z [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)i zmiany w gościu z usług PaaS Services, takich jak App Services aplikacji sieci Web. Aby usługa analizy zmian aplikacji mogła skanować w poszukiwaniu zmian w subskrypcjach użytkowników, należy zarejestrować dostawcę zasobów. Po pierwszym wprowadzeniu karty **historia zmian** narzędzie automatycznie rozpocznie rejestrowanie dostawcy zasobów **Microsoft. ChangeAnalysis** . Po zarejestrowaniu zmiany z **grafu zasobów platformy Azure** będą dostępne natychmiast i będzie obejmować ostatnie 14 dni. Zmiany z innych źródeł będą dostępne po upływie około 4 godzin od momentu dołączenia subskrypcji.
+
+![Integracja historii zmian dziennika aktywności](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integracja usługi VM Insights
+Użytkownicy korzystający z usługi [VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) mogą zobaczyć, co zmieniło się na swoich maszynach wirtualnych, które mogą spowodować, że wszystkie skoki na wykresie metryk, takie jak procesor CPU lub pamięć, i zastanawiają się, co spowodowało. Zmiany danych są zintegrowane na pasku nawigacyjnym po stronie usługi VM Insights. Użytkownik może wyświetlić ewentualne zmiany w maszynie wirtualnej, a następnie kliknąć przycisk **Zbadaj zmiany** , aby wyświetlić szczegóły zmiany w programie autonomiczny interfejs użytkownika analizy zmian aplikacji.
+
+[![Integracja usługi VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Włącz analizę zmian na dużą skalę
 
 Jeśli Twoja subskrypcja obejmuje wiele aplikacji sieci Web, włączenie usługi na poziomie aplikacji sieci Web byłoby niewydajne. Uruchom następujący skrypt, aby włączyć wszystkie aplikacje sieci Web w ramach subskrypcji.
 
@@ -147,13 +169,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnozowanie i rozwiązywanie problemów z maszyną wirtualną
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Przejdź do narzędzia diagnozowanie i rozwiązywanie problemów dotyczących maszyny wirtualnej.  Przejdź do **Narzędzia do rozwiązywania problemów**, przejdź do strony i wybierz pozycję **Analizuj ostatnie zmiany** , aby wyświetlić zmiany na maszynie wirtualnej.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Wystąpił problem podczas rejestrowania dostawcy zasobów Microsoft. Change Analysis z karty Historia zmian
+Jeśli po raz pierwszy przeglądasz historię zmian po jej zintegrowaniu z analizą zmian aplikacji, zobaczysz, że automatycznie zarejestrowano dostawcę zasobów **Microsoft. ChangeAnalysis**. W rzadkich przypadkach może się nie powieść z następujących powodów:
 
-![Zrzut ekranu maszyny wirtualnej diagnozowanie i rozwiązywanie problemów](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Nie masz wystarczających uprawnień do zarejestrowania dostawcy zasobów Microsoft. ChangeAnalysis**. Ten komunikat o błędzie oznacza, że rola w bieżącej subskrypcji nie ma skojarzonej z nią zakresu **Microsoft. Support/Register/Action** . Taka sytuacja może wystąpić, jeśli nie jesteś właścicielem subskrypcji i masz uprawnienia dostępu współdzielonego przez współpracownika. oznacza to, że można wyświetlić dostęp do grupy zasobów. Aby rozwiązać ten problem, możesz skontaktować się z właścicielem subskrypcji w celu zarejestrowania dostawcy zasobów **Microsoft. ChangeAnalysis** . Można to zrobić w Azure Portal za poorednictwem **subskrypcji | Dostawcy zasobów** oraz wyszukiwanie ```Microsoft.ChangeAnalysis``` i rejestrowanie w interfejsie użytkownika, a także za pomocą Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-![Zrzut ekranu maszyny wirtualnej diagnozowanie i rozwiązywanie problemów](./media/change-analysis/analyze-recent-changes.png)
+    Rejestrowanie dostawcy zasobów przy użyciu programu PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Nie można zarejestrować dostawcy zasobów Microsoft. ChangeAnalysis**. Ten komunikat oznacza, że coś nie powiodło się natychmiast, gdy interfejs użytkownika wysłał żądanie zarejestrowania dostawcy zasobów i nie jest powiązany z uprawnieniami. Prawdopodobnie może to być tymczasowy problem z połączeniem z Internetem. Spróbuj odświeżyć stronę i sprawdzić połączenie internetowe. Jeśli błąd będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com
+
+- Trwa **to dłużej niż oczekiwano**. Ten komunikat oznacza, że rejestracja trwa dłużej niż 2 minuty. Jest to nietypowe, ale niekoniecznie oznacza coś, co poszło źle. Możesz przejść do pozycji **subskrypcje | Dostawca zasobów** do sprawdzania stanu rejestracji dostawcy zasobów **Microsoft. ChangeAnalysis** . Możesz spróbować użyć interfejsu użytkownika do wyrejestrowania, ponownego zarejestrowania lub odświeżenia, aby zobaczyć, czy to pomoże. Jeśli problem będzie się powtarzać, skontaktuj się z changeanalysishelp@microsoft.com pomocą techniczną.
+    ![Rozwiązywanie problemów z rejestracją RP trwa zbyt długo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

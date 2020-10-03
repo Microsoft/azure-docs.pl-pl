@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708216"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666793"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 Zasady punktu końcowego usługi platformy Azure są dostępne tylko dla usługi Azure Storage. Dlatego będziemy włączać punkt końcowy usługi dla *Microsoft. Storage* w tej podsieci na potrzeby tego przykładowego Instalatora.
 
-Zasady punktu końcowego usługi są stosowane za pośrednictwem punktów końcowych usługi. Zaczniemy od utworzenia zasad punktu końcowego usługi. Następnie utworzymy definicje zasad w ramach tych zasad dla kont usługi Azure Storage, które będą listy dozwolonych dla tej podsieci
+Zasady punktu końcowego usługi są stosowane za pośrednictwem punktów końcowych usługi. Zaczniemy od utworzenia zasad punktu końcowego usługi. Następnie utworzymy definicje zasad w ramach tych zasad dla kont usługi Azure Storage, które mają zostać zatwierdzone dla tej podsieci
 
 Tworzenie zasad punktu końcowego usługi
 

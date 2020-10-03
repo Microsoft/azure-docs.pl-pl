@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298916"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666623"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -163,7 +163,7 @@ Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie k
 <sup>1</sup> W przypadku aplikacji MPI dedykowana sieć zaplecza RDMA jest włączana przez sieć FDR InfiniBand, która zapewnia bardzo małe opóźnienia i wysoką przepustowość.  
 
 > [!NOTE]
-> Maszyny wirtualne A8 – A11 są planowane do wycofania w dniu 3/2021. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> Maszyny wirtualne A8 – A11 są planowane do wycofania w dniu 3/2021. Zdecydowanie zalecamy, aby nie tworzyć żadnych nowych maszyn wirtualnych A8 – A11. Przeprowadź migrację wszystkich istniejących maszyn wirtualnych z systemem A8 – A11 do nowszych i zaawansowanych rozmiarów maszyn wirtualnych o wysokiej wydajności, takich jak H, HB, HC, HBv2, a także rozmiarów maszyn wirtualnych obliczeń ogólnego przeznaczenia, takich jak D, E i F, w celu uzyskania lepszej wydajności cenowej. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 

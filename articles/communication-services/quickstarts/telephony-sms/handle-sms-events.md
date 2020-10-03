@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 02a0a5dd5cfe3a1ecaa264f1e81c848a8da6c58d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66160f17a15ce81dbc21ddf65dba17c0a4ad7a99
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947636"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665377"
 ---
 # <a name="quickstart-handle-sms-events"></a>Szybki Start: obsługa zdarzeń programu SMS
 
@@ -65,11 +65,11 @@ Możesz subskrybować określone zdarzenia, aby poinformować Event Grid, które
 
 Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](../../concepts/event-handling.md).
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Zrzut ekranu przedstawiający wybrane typy zdarzeń odebrane przez SMS i raport dostarczania SMS.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
 Wybierz **element Hook sieci Web** dla **typu punktu końcowego**. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Zrzut ekranu przedstawiający pole typu punktu końcowego ustawione na element Hook sieci Web.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
 W przypadku **punktu końcowego**kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web.
 
@@ -77,7 +77,7 @@ W takim przypadku będziemy używać adresu URL z [przykładowej przeglądarki A
 
 Następnie wybierz pozycję **Potwierdź wybór**.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Zrzut ekranu przedstawiający potwierdzenie punktu końcowego elementu webhook.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
 ## <a name="viewing-sms-events"></a>Wyświetlanie zdarzeń programu SMS
 
@@ -94,13 +94,13 @@ Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Comm
 
 Po wykonaniu każdej akcji powyżej zobaczysz, że  `SMS Received` `SMS Delivery Report Received` zdarzenia i są wysyłane do punktu końcowego. Te zdarzenia będą wyświetlane w [przykładowej Azure Event Grid przeglądarki](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , którą ustawimy na początku. Aby zobaczyć cały ładunek, możesz nacisnąć ikonę oka obok zdarzenia. Zdarzenia będą wyglądać następująco:
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Zrzut ekranu przedstawiający schemat Event Grid dla zdarzenia otrzymanego SMS.":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Zrzut ekranu przedstawiający schemat Event Grid dla zdarzenia raportu dostarczania SMS.":::
+:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
 Dowiedz się więcej o [schematach zdarzeń i innych pojęciach związanych z zdarzeniami](../../concepts/event-handling.md)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](../create-communication-resource.md#clean-up-resources).
 
