@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317756"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708439"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
 
@@ -26,10 +26,10 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 | Typ danych wyjściowych | Partycjonowanie | Zabezpieczenia | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Tak|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
-|[Azure SQL Database](sql-database-output.md)|Tak, musi być włączona.|Uwierzytelnianie użytkownika SQL </br> MSI (wersja zapoznawcza)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Nie|Uwierzytelnianie użytkownika SQL|
+|[Azure SQL Database](sql-database-output.md)|Tak, opcjonalnie.|Uwierzytelnianie użytkownika SQL </br> MSI (wersja zapoznawcza)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Tak|Uwierzytelnianie użytkownika SQL|
 |[BLOB Storage i Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Tak|Tożsamość usługi zarządzanej </br> Klucz dostępu|
-|[Azure Event Hubs](event-hubs-output.md)|Tak|Klucz dostępu|
+|[Azure Event Hubs](event-hubs-output.md)|Tak, należy ustawić kolumnę klucza partycji w konfiguracji wyjściowej.|Klucz dostępu|
 |[Power BI](power-bi-output.md)|Nie|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
 |[Azure Table storage](table-storage-output.md)|Tak|Klucz konta|
 |[Kolejki usługi Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
@@ -41,7 +41,7 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 
 Stream Analytics obsługuje partycje dla wszystkich danych wyjściowych z wyjątkiem Power BI. Aby uzyskać więcej informacji o kluczach partycji i liczbie modułów zapisywania danych wyjściowych, zobacz artykuł dotyczący określonego typu danych wyjściowych. Wszystkie artykuły wyjściowe są połączone w poprzedniej sekcji.  
 
-Liczba modułów zapisywania danych wyjściowych może być kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej powoduje opóźnienie do późnego przybycia czasu. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
+Ponadto w celu zapewnienia bardziej zaawansowanego dostrajania partycji liczba modułów zapisywania danych wyjściowych może być kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej powoduje opóźnienie do późnego przybycia czasu. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 

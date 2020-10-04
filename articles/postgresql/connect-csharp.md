@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Łączenie przy użyciu języka C#-Azure Database for PostgreSQL-pojedynczego serwera'
 description: Ten przewodnik Szybki Start zawiera przykładowy kod języka C# (.NET), którego można używać do nawiązywania połączeń i zapytań dotyczących danych z Azure Database for PostgreSQL-jednego serwera.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: c176caf4bd2bac68b1994b5eef51ebc2f7e7be4b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cfa7a6e7e2de11978709fd662dcbfaa2085a0716
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903851"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710417"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie platformy .NET (C#) do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a149d147b9817d8fde7a4fa7eb1b0e7a7eea8283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940406"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710077"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opcje obliczeń i magazynowania w Azure Database for PostgreSQL-elastycznym serwerze
 
@@ -22,7 +22,7 @@ Serwer Azure Database for PostgreSQL można utworzyć w jednej z trzech różnyc
 
 | Zasób/warstwa | **Z możliwością przenoszenia** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
-| Rdzeni wirtualnych | 1, 2 | 4, 8, 16, 32, 64 | 4, 8, 16, 32, 48, 64 |
+| Rdzeni wirtualnych | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Pamięć na rdzeń wirtualny | Zmienna | 4 GB | 6,75 do 8 GB |
 | Rozmiar magazynu | 32 GB do 16 TB | 32 GB do 16 TB | 32 GB do 16 TB |
 | Okres przechowywania kopii zapasowej bazy danych | od 7 do 35 dni | od 7 do 35 dni | od 7 do 35 dni |

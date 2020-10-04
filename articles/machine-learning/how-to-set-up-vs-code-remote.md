@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461565"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708377"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Nawiązywanie połączenia z wystąpieniem obliczeniowym Azure Machine Learning w Visual Studio Code (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ W tym momencie można nadal uruchamiać komórki w notesie Jupyter.
 W przypadku w pełni funkcjonalnego środowiska tworzenia zdalnego należy spełnić kilka wymagań wstępnych:
 
 * [Visual Studio Code rozszerzenie zdalnego protokołu SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Wystąpienie obliczeniowe z obsługą protokołu SSH. Aby uzyskać więcej informacji, [zobacz Przewodnik tworzenia wystąpienia obliczeniowego](concept-compute-instance.md#create).
+* Wystąpienie obliczeniowe z obsługą protokołu SSH. Aby uzyskać więcej informacji, [zobacz Przewodnik tworzenia wystąpienia obliczeniowego](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) , jeśli jeszcze go nie ma. Instrukcje nie są obsługiwane w systemie Windows, ponieważ polecenie SSH musi znajdować się w ścieżce.

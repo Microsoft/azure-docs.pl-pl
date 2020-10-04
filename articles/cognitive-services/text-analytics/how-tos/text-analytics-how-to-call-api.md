@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: b2c994d23e63f9e2118cd3e6571c5dcc0449a367
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601099"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710604"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -26,6 +26,8 @@ Każde żądanie musi zawierać klucz dostępu i punkt końcowy HTTP. Punkt koń
 Odzyskanie tego analiza tekstu jest bezstanowe, aby nie było żadnych zasobów danych do zarządzania. Tekst zostanie przekazany, przeanalizowany po odebraniu, a wyniki są zwracane natychmiast do aplikacji wywołującej.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -114,7 +116,7 @@ Usługa akceptuje żądania o rozmiarze do 1 MB. Jeśli używasz programu Poster
 
    W programie Poster odpowiedź jest wyświetlana w następnym oknie w dół, jako pojedynczy dokument JSON, z elementem dla każdego identyfikatora dokumentu podanego w żądaniu.
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Przegląd analiza tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

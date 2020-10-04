@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 93b47d2147a7438ebd38a5ae36363950639ba414
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380964"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708904"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace
 
@@ -69,7 +69,7 @@ Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, zapewn
 Połącz system zarządzania relacjami z klientami (CRM) z ofertą komercyjnej witryny Marketplace, aby otrzymywać informacje kontaktowe klienta, gdy klient wyraża zainteresowanie lub wdroży produkt. To połączenie można zmodyfikować w dowolnym momencie podczas tworzenia oferty lub po niej.
 
 > [!NOTE]
-> Jeśli sprzedajesz ofertę przez firmę Microsoft lub wybrano opcję **kontakt ze mną** , musisz skonfigurować zarządzanie potencjalnymi klientami. Aby uzyskać szczegółowe wskazówki, zobacz temat [Zarządzanie potencjalnymi klientami w portalu komercyjnym](lead-management-for-cloud-marketplace.md).
+> Jeśli sprzedajesz ofertę przez firmę Microsoft lub wybrano opcję **kontakt ze mną** , musisz skonfigurować zarządzanie potencjalnymi klientami. Aby uzyskać szczegółowe wskazówki, zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Aby skonfigurować szczegóły połączenia w centrum partnerskim
 

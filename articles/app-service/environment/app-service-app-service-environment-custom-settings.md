@@ -4,15 +4,15 @@ description: Skonfiguruj ustawienia, które mają zastosowanie do całego środo
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09c41c7480b262e6f1a912ad4b708e485d86bf56
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f9dd63df6d743f12fa7addb3c814e763d37dc61f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833506"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708768"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Niestandardowe ustawienia konfiguracji dla środowisk App Service Environment
 ## <a name="overview"></a>Omówienie
@@ -67,7 +67,7 @@ App Service Environment działa jako system czarnego pudełka, w którym nie są
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```

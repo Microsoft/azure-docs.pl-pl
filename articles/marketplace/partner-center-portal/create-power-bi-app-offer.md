@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646677"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710655"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 
-W tym artykule opisano sposób tworzenia i publikowania oferty aplikacji Power BI w programie Microsoft [AppSource](https://appsource.microsoft.com/).
+W tym artykule opisano sposób tworzenia i publikowania oferty aplikacji Power BI w [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](create-account.md) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
@@ -53,12 +53,12 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
-- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
-- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval))
-- Jeśli nie ukończono wylogowania wydawcy — [Anulowanie publikowania](update-existing-offer.md#cancel-publishing)
+- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
+- Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval)
+- Jeśli nie ukończono publikowania — [Anuluj publikowanie](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
@@ -73,7 +73,7 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](commercial-marketplace-lead-management-instructions-azure-table.md) lub [punktu końcowego HTTPS](commercial-marketplace-lead-management-instructions-https.md) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
+    > Jeśli Twój system CRM nie znajduje się na tej liście, użyj [usługi Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) lub i [punktu końcowego HTTPS](commercial-marketplace-lead-management-instructions-https.md) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
 3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
@@ -81,10 +81,10 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
-- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
+- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
+- [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
+- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -202,7 +202,7 @@ Podaj co najmniej jeden i maksymalnie trzy powiązane dokumenty marketingowe w f
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje `https://upload.xboxlive.com` usługi używanej przez centrum partnerskie.
@@ -218,7 +218,7 @@ Te logo są używane w różnych miejscach na liście:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

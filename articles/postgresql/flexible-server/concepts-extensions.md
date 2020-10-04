@@ -1,17 +1,17 @@
 ---
 title: Rozszerzenia-Azure Database for PostgreSQL-elastyczny serwer
 description: Dowiedz się więcej na temat dostępnych rozszerzeń Postgres na serwerze elastycznym Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: f38006e83be47142a6d7a6db25eefb3daccd0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307589"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710587"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Rozszerzenia PostgreSQL na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -36,14 +36,14 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Przykład dotyczący zestawu danych standaryzacji z nami|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1,2             | funkcje sprawdzania integralności relacji|
-> |[lotem](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
+> |[lotem](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | Obsługa indeksowania wspólnych typów danych w ĄTEK|
 > |[btree_gist](https://www.postgresql.org/docs/12/btree-gist.html)                   | 1.5             | Obsługa indeksowania wspólnych typów danych w rejestrze|
 > |[citext](https://www.postgresql.org/docs/12/citext.html)                       | 1.6             | Typ danych dla ciągów znaków bez uwzględniania wielkości liter|
 > |[modułów](https://www.postgresql.org/docs/12/cube.html)                         | 1.4             | Typ danych dla modułów wielowymiarowych|
 > |[dblink](https://www.postgresql.org/docs/12/dblink.html)                       | 1,2             | Łączenie z innymi bazami danych PostgreSQL z poziomu bazy danych|
-> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1,0             | szablon słownika wyszukiwania tekstu dla liczb całkowitych|
-> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1,0             | szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów|
+> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1.0             | szablon słownika wyszukiwania tekstu dla liczb całkowitych|
+> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1.0             | szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów|
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1,1             | Oblicz duże odległości na powierzchni ziemi|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1,1             | Określ podobieństwa i odległość między ciągami|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | Typ danych do przechowywania zestawów par (klucz, wartość)|
@@ -62,16 +62,16 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | funkcje kryptograficzne|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1,2             | Pokaż informacje o blokowaniu na poziomie wiersza|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Pokaż statystyki na poziomie krotki|
-> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | Język proceduralny PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Język proceduralny PL/pgSQL|
 > |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometrii, Geografia |
 > |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS i funkcje rastrowe| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS funkcje SFCGAL|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS geokodera Tiger i odwrotna geokod|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Typy i funkcje przestrzenne topologii PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1,0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
+> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1,2             | Informacje o certyfikatach SSL|
-> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1,0             |  Metoda reklasy, która akceptuje liczbę wierszy jako limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1,0             |  Metoda potraktować jako limit czas w milisekundach|
+> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  Metoda reklasy, która akceptuje liczbę wierszy jako limit|
+> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  Metoda potraktować jako limit czas w milisekundach|
 > |[deakcentowanie](https://www.postgresql.org/docs/12/unaccent.html)                     | 1,1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/12/uuid-ossp.html)                    | 1,1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
@@ -85,14 +85,14 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Służy do analizowania adresu w elementach składowych. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Przykład dotyczący zestawu danych standaryzacji z nami|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1,1             | funkcje sprawdzania integralności relacji|
-> |[lotem](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
+> |[lotem](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | Obsługa indeksowania wspólnych typów danych w ĄTEK|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | Obsługa indeksowania wspólnych typów danych w rejestrze|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | Typ danych dla ciągów znaków bez uwzględniania wielkości liter|
 > |[modułów](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | Typ danych dla modułów wielowymiarowych|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1,2             | Łączenie z innymi bazami danych PostgreSQL z poziomu bazy danych|
-> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1,0             | szablon słownika wyszukiwania tekstu dla liczb całkowitych|
-> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1,0             | szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | szablon słownika wyszukiwania tekstu dla liczb całkowitych|
+> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1.0             | szablon słownika wyszukiwania tekstu dla rozszerzonego przetwarzania synonimów|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1,1             | Oblicz duże odległości na powierzchni ziemi|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1,1             | Określ podobieństwa i odległość między ciągami|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | Typ danych do przechowywania zestawów par (klucz, wartość)|
@@ -111,16 +111,16 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | funkcje kryptograficzne|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1,2             | Pokaż informacje o blokowaniu na poziomie wiersza|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Pokaż statystyki na poziomie krotki|
-> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Język proceduralny PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Język proceduralny PL/pgSQL|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometrii, Geografia i typy przestrzenne i funkcje rastrowe|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS funkcje SFCGAL|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS geokodera Tiger i odwrotna geokod|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Typy i funkcje przestrzenne topologii PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1,2             | Informacje o certyfikatach SSL|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
-> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1,0             |  Metoda reklasy, która akceptuje liczbę wierszy jako limit|
-> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1,0             |  Metoda potraktować jako limit czas w milisekundach|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
+> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  Metoda reklasy, która akceptuje liczbę wierszy jako limit|
+> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1.0             |  Metoda potraktować jako limit czas w milisekundach|
 > |[deakcentowanie](https://www.postgresql.org/docs/11/unaccent.html)                     | 1,1             | słownik wyszukiwania tekstu, który usuwa akcenty|
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1,1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446785"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707742"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -28,18 +28,31 @@ W typowym cyklu projektowania modelu można:
 Zasoby obliczeniowe używane dla obiektów docelowych obliczeń są dołączone do [obszaru roboczego](concept-workspace.md). Zasoby obliczeniowe inne niż maszyna lokalna są współużytkowane przez użytkowników obszaru roboczego.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Szkoleniowe cele obliczeniowe
-
-Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych.  Możesz również dołączyć własny zasób obliczeniowy, chociaż obsługa różnych scenariuszy może się różnić.
+Azure Machine Learning ma różne wsparcie dla różnych obiektów docelowych obliczeń. Typowy cykl projektowania modelu rozpoczyna się od tworzenia i eksperymentowania w niewielkiej ilości danych. Na tym etapie zalecamy używanie środowiska lokalnego. Na przykład na komputerze lokalnym lub maszynie wirtualnej opartej na chmurze. Podczas skalowania w górę szkolenia w przypadku większych zestawów danych lub przeprowadzenia szkolenia rozproszonego zalecamy użycie funkcji Azure Machine Learning COMPUTE do utworzenia wielowęzłowego klastra, który automatycznie skaluje się przy każdym przesyłaniu przebiegu. Możesz również dołączyć własny zasób obliczeniowy, chociaż obsługa różnych scenariuszy może się różnić w następujący sposób:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Dowiedz się więcej o [korzystaniu z elementu docelowego obliczeń do uczenia modelu](how-to-set-up-training-targets.md).
+Dowiedz się więcej o sposobach [przesyłania szkolenia do elementu docelowego obliczeń](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Cele wdrożenia
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Cele obliczeniowe do wnioskowania
 
 Następujące zasoby obliczeniowe mogą służyć do hostowania wdrożenia modelu.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+Podczas wykonywania wnioskowania Azure Machine Learning tworzy kontener platformy Docker, który będzie hostować model i skojarzone zasoby niezbędne do korzystania z niego. Ten kontener jest następnie używany w jednym z następujących scenariuszy wdrażania:
+
+* Jako __Usługa sieci Web__ , która jest używana do wnioskowania w czasie rzeczywistym. Wdrożenia usług sieci Web używają jednego z następujących elementów docelowych obliczeń:
+
+    * [Komputer lokalny](how-to-attach-compute-targets.md#local)
+    * [Wystąpienie obliczeniowe usługi Azure Machine Learning](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (wersja zapoznawcza). Wdrożenie do Azure Functions opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure Functions. Aby uzyskać więcej informacji, zobacz [Wdrażanie modelu uczenia maszynowego w Azure Functions (wersja zapoznawcza)](how-to-deploy-functions.md).
+
+* Jako punkt końcowy __wnioskowania partii__ , który jest używany do okresowego przetwarzania partii danych. Wnioskowanie wsadowe używa [Azure Machine Learning klastra obliczeniowego](how-to-create-attach-compute-cluster.md).
+
+* Na __urządzeniu IoT__ (wersja zapoznawcza). Wdrożenie na urządzeniu IoT opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [wdrażanie jako moduł IoT Edge (wersja zapoznawcza)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Dowiedz się [, gdzie i jak wdrożyć model w miejscu docelowym obliczeń](how-to-deploy-and-where.md).
 
@@ -50,8 +63,9 @@ Zarządzany zasób obliczeniowy jest tworzony i zarządzany przez Azure Machine 
 
 Można tworzyć Azure Machine Learning wystąpienia obliczeniowe lub Klastry obliczeniowe z:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
-* Azure Portal
-* Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) zestawu SDK języka Python
+* Zestaw SDK języka Python i interfejs wiersza polecenia:
+    * [Wystąpienie obliczeniowe](how-to-create-manage-compute-instance.md)
+    * [Klaster obliczeniowy](how-to-create-attach-compute-cluster.md)
 * [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (wersja zapoznawcza)
 * Szablon Menedżer zasobów. Aby zapoznać się z przykładowym szablonem, zobacz [create Azure Machine Learning COMPUTE Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Rozszerzenie uczenia maszynowego [dla interfejsu wiersza polecenia platformy Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +82,7 @@ Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru robocz
 
 
 > [!NOTE]
-> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](concept-compute-instance.md#managing-a-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów. 
+> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](how-to-create-manage-compute-instance.md#manage) gdy nie jest używane, aby uniknąć dodatkowych kosztów. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 

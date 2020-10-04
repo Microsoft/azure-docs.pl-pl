@@ -1,17 +1,17 @@
 ---
 title: Zalecenia dotyczące wydajności — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano funkcję rekomendacji dotyczących wydajności w ramach Azure Database for PostgreSQL-jednego serwera.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903870"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710570"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Zalecenia dotyczące wydajności w Azure Database for PostgreSQL-pojedynczym serwerze
 
@@ -33,7 +33,7 @@ Wybierz pozycję **Analizuj** i wybierz bazę danych, która rozpocznie analizę
 
 W oknie **rekomendacje** zostanie wyświetlona lista zaleceń, jeśli zostały znalezione.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Zaleceń dotyczących wydajności — Nowa strona":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Zalecenia dotyczące wydajności, strona docelowa":::
 
 Zalecenia nie są automatycznie stosowane. Aby zastosować zalecenie, skopiuj tekst zapytania i uruchom go z wybranego klienta. Należy pamiętać o przetestowaniu i monitorowaniu w celu ocenienia zalecenia. 
 

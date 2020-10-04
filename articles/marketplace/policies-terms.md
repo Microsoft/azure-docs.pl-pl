@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52b9a67ee8c11011ea04f7414a3d978f5860c0ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974838"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708071"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki komercyjnej platformy handlowej
 
@@ -30,6 +30,6 @@ Oferty na komercyjnej platformie Marketplace muszą być zgodne z naszymi zasada
 - [Azure Marketplace — zasady udziału](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
 - [Warunki witryny Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
-Odwiedź stronę [podręcznika publikowania w witrynie komercyjnej](marketplace-publishers-guide.md) .
+- [Co to jest komercyjne oprogramowanie Microsoft Marketplace?](overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183985"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710349"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
 
@@ -94,17 +94,17 @@ W poniższych tabelach przedstawiono wskazówki wstępne dotyczące modelu urzą
 
 | Pojemność magazynu | 8100 | 8600 |
 |---|---|---|
-| Pojemność magazynu lokalnego | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Pojemność magazynu w chmurze | &gt;200 TiB\* | &gt;500 TiB\* |
+| Pojemność magazynu lokalnego | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Pojemność magazynu w chmurze | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Rozmiar magazynu nie zakłada deduplikacji ani kompresji.
+\* Rozmiar magazynu nie zakłada deduplikacji ani kompresji.
 
 **StorSimple pojemności dla podstawowych i pomocniczych kopii zapasowych**
 
 | Scenariusz tworzenia kopii zapasowej  | Pojemność magazynu lokalnego  | Pojemność magazynu w chmurze  |
 |---|---|---|
 | Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na potrzeby szybkiego odzyskiwania w celu spełnienia celu punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO) pasuje do pojemności chmury |
-| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Nie dotyczy  |
+| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Brak  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple jako podstawowy element docelowy kopii zapasowej
 
@@ -266,7 +266,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 | GFS wymaganie |   | 38 |   |
 | Dodatkowy przydział  | 4  |   | 42 łączny wymóg GFS  |
 
-\*Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
+\* Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
 
 ## <a name="set-up-veeam-storage"></a>Konfigurowanie magazynu Veeam
 
@@ -274,7 +274,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 1.  W konsoli **Narzędzia**do tworzenia kopii zapasowych i replikacji programu Veeam przejdź do pozycji **infrastruktura kopii zapasowych**. Kliknij prawym przyciskiem myszy pozycję **repozytoria kopii zapasowych**, a następnie wybierz pozycję **Dodaj repozytorium kopii zapasowych**.
 
-    ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Zrzut ekranu pokazujący konsolę zarządzania Veeam i podświetl opcję Dodaj repozytorium kopii zapasowych.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
 
@@ -295,7 +295,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
 
-    ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Zrzut ekranu pokazujący konsolę zarządzania Veeam, w której można dodać nowe repozytorium kopii zapasowej.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Przejrzyj ustawienia, a następnie wybierz przycisk **dalej**.
 
@@ -335,11 +335,11 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
 2.  W oknie dialogowym **nowe zadanie tworzenia kopii zapasowej** wprowadź nazwę i opis codziennego zadania tworzenia kopii zapasowej.
 
-    ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Zrzut ekranu przedstawiający konsolę zarządzania Veeam, w której można dodać nazwę i opis.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Wybierz maszynę wirtualną, do której ma zostać utworzona kopia zapasowa.
 
-    ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Zrzut ekranu pokazujący konsolę zarządzania Veeamą, w której można wybrać maszynę wirtualną.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Wybierz wartości, dla których chcesz utworzyć **kopię zapasową serwera proxy** i **kopii zapasowych**. Wybierz wartość **punktów przywracania, aby zachować dostęp do dysku** zgodnie z definicjami RPO i RTO dla danego środowiska w lokalnym magazynie dołączonym. Wybierz pozycję **Zaawansowane**.
 
@@ -347,9 +347,9 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
 5. W oknie dialogowym **Ustawienia zaawansowane** na karcie **kopia zapasowa** wybierz pozycję **przyrostowe**. Upewnij się, że pole wyboru **Utwórz syntetyczne pełne kopie zapasowe** jest wyczyszczone. Zaznacz pole wyboru **Utwórz aktywne pełne kopie zapasowe okresowo** . W obszarze **aktywna pełna kopia zapasowa**zaznacz pole wyboru **co tydzień w wybranym** dniu dla soboty.
 
-    ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Zrzut ekranu przedstawiający konsolę zarządzania Veeam, na przykład nową stronę ustawień zaawansowanych zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Wybierz pozycję **OK**.
+6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Wybierz przycisk **OK**.
 
     ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
@@ -386,7 +386,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Roczna pełna |Dysk StorSimple (długoterminowy) | 1 | 1 | 1 |
 |Wymaganie rozmiaru woluminów GFS |  |  |  | postanowienia|
 
-\*Całkowita pojemność obejmuje 17 TiB z dysków StorSimple i 1 TiB lokalnego woluminu RAID.
+\* Całkowita pojemność obejmuje 17 TiB z dysków StorSimple i 1 TiB lokalnego woluminu RAID.
 
 
 ### <a name="gfs-example-schedule"></a>Przykładowy harmonogram GFS
@@ -408,11 +408,11 @@ GFS rotacja co tydzień, co miesiąc i co rok
 
 1.  W konsoli kopia zapasowa Veeam i replikacja wybierz pozycję **kopia zapasowa & replikacja**. Kliknij prawym przyciskiem myszy pozycję **kopia zapasowa**, a następnie wybierz pozycję **VMware** lub **funkcji Hyper-V**w zależności od środowiska.
 
-    ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Zrzut ekranu pokazujący konsolę zarządzania Veeam z opcjami programu VMware i funkcji Hyper-V, które można wybrać.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  W oknie dialogowym **nowe zadanie tworzenia kopii zapasowej** wprowadź nazwę i opis zadania.
 
-    ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Zrzut ekranu pokazujący konsolę zarządzania Veeam, w której można wprowadzić nazwę i opis zadania.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Wybierz Maszyny wirtualne, które chcesz przetworzyć. Wybierz pozycję z kopii zapasowych, a następnie wybierz utworzoną wcześniej kopię zapasową.
 
@@ -422,13 +422,13 @@ GFS rotacja co tydzień, co miesiąc i co rok
 
 5.  Wybierz repozytorium kopii zapasowych i ustaw wartość dla **punktów przywracania, które mają być zachowane**. Pamiętaj, aby zaznaczyć pole wyboru **Zachowaj następujące punkty przywracania dla celów archiwizowania** . Zdefiniuj częstotliwość tworzenia kopii zapasowych, a następnie wybierz pozycję **Zaawansowane**.
 
-    ![Konsola zarządzania Veeam, Nowa strona zadania tworzenia kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Zrzut ekranu pokazujący, gdzie definiujesz częstotliwość tworzenia kopii zapasowych.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Określ następujące ustawienia zaawansowane:
 
     * Na karcie **Obsługa** Wyłącz funkcję Ochrona przed uszkodzeniem na poziomie magazynu.
 
-    ![Strona Zaawansowane ustawienia konsoli zarządzania Veeam, nowej kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Zrzut ekranu przedstawiający kartę Obsługa w konsoli zarządzania Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * Na karcie **Magazyn** upewnij się, że deduplikacja i kompresja są wyłączone.
 

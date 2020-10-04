@@ -1,17 +1,17 @@
 ---
 title: Konfigurowanie alertów — Azure Portal-Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostępu do alertów metryk dla Azure Database for PostgreSQL-pojedynczego serwera z Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907554"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708938"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Użyj Azure Portal, aby skonfigurować alerty dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -40,23 +40,19 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formularz dodawania alertu metryki":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Wybierz reguły alertów":::
 
 5. W sekcji **warunek** wybierz pozycję **Dodaj warunek**.
 
 6. Wybierz metrykę z listy sygnałów, dla których chcesz otrzymywać alerty. W tym przykładzie wybierz pozycję "procent magazynu".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Wybierz metrykę":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Wybierz reguły alertów":::
 
 7. Skonfiguruj logikę alertów, łącznie z **warunkiem** (np. "Większe niż"), **próg** (np. 85 procent), **agregacja czasu**, **okres** czasu reguły metryki musi być spełniony przed wyzwalaczami alertu (np. "W ciągu ostatnich 30 minut") i **częstotliwość**.
    
    Wybierz pozycję **gotowe** po zakończeniu.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Wybierz metrykę":::
-
-8. W sekcji **grupy akcji** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, która będzie otrzymywać powiadomienia dotyczące alertu.
-
-9. Wypełnij formularz "Dodawanie grupy akcji" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Wybierz reguły alertów" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
 
 10. Skonfiguruj typ akcji **poczty e-mail/SMS/wypychania/głosu** .
     
@@ -66,11 +62,11 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
     Po zakończeniu wybierz **przycisk OK** .
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Grupa akcji":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Wybierz reguły alertów":::
 
 11. Określ nazwę, opis i ważność reguły alertu.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupa akcji"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Wybierz reguły alertów"::: 
 
 12. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 

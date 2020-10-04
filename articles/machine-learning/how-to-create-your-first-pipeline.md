@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 641f6de00f641f52db4f0b1e799d02397d01989d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315664"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708479"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 ## <a name="set-up-a-compute-target"></a>Konfigurowanie celu obliczeń
 
 
-W Azure Machine Learning termin __obliczeniowy__ (lub __element docelowy obliczeń__) odnosi się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego.   Zobacz [elementy docelowe obliczeń dla szkolenia modelu](concept-compute-target.md#train) , aby uzyskać pełną listę elementów docelowych obliczeń i [utworzyć cele obliczeniowe](how-to-create-attach-compute-sdk.md) na potrzeby tworzenia i dołączania ich do obszaru roboczego.   Proces tworzenia i dołączania obiektu docelowego obliczeń jest taki sam, jak w przypadku szkolenia modelu lub uruchamiania kroku potoku. Po utworzeniu i dołączeniu obiektu docelowego obliczeń Użyj `ComputeTarget` obiektu w [kroku potoku](#steps).
+W Azure Machine Learning termin __obliczeniowy__ (lub __element docelowy obliczeń__) odnosi się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego.   Zobacz [elementy docelowe obliczeń dla szkolenia modelu](concept-compute-target.md#train) , aby uzyskać pełną listę elementów docelowych obliczeń i [utworzyć cele obliczeniowe](how-to-create-attach-compute-studio.md) na potrzeby tworzenia i dołączania ich do obszaru roboczego.   Proces tworzenia i dołączania obiektu docelowego obliczeń jest taki sam, jak w przypadku szkolenia modelu lub uruchamiania kroku potoku. Po utworzeniu i dołączeniu obiektu docelowego obliczeń Użyj `ComputeTarget` obiektu w [kroku potoku](#steps).
 
 > [!IMPORTANT]
 > Wykonywanie operacji zarządzania na obiektach docelowych obliczeń nie jest obsługiwane w ramach zadań zdalnych. Potoki uczenia maszynowego są przesyłane jako zadania zdalne, dlatego nie należy używać operacji zarządzania na obiektach docelowych obliczeń z wnętrza potoku.
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Następnie można pobrać zestaw danych w potoku przy użyciu słownika [Run. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueinput-datasets) .
+Następnie można pobrać zestaw danych w potoku przy użyciu słownika [Run.input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueinput-datasets) .
 
 ```python
 # iris_train.py

@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493383"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708745"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Ulepszenia zarządzania użytkownikami (wersja zapoznawcza) w Azure Active Directory
 
-W tym artykule opisano sposób korzystania z wersji zapoznawczej zarządzania użytkownikami w portalu Azure Active Directory (Azure AD). Strony **Wszyscy użytkownicy** i **usunięci użytkownicy** zostali zaktualizowani, aby uzyskać więcej informacji i ułatwić znajdowanie użytkowników. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+W tym artykule opisano sposób używania ulepszeń zarządzania użytkownikami w wersji zapoznawczej w portalu Azure Active Directory (Azure AD). Strony **Wszyscy użytkownicy** i **usunięci użytkownicy** zostali zaktualizowani, aby uzyskać więcej informacji i ułatwić znajdowanie użytkowników. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Zmiany w wersji zapoznawczej obejmują:
 
 - Bardziej widoczne właściwości użytkownika, w tym identyfikator obiektu, stan synchronizacji katalogu, typ tworzenia i wystawca tożsamości
 - Search umożliwia teraz połączone wyszukiwanie nazw, wiadomości e-mail i identyfikatorów obiektów
-- Ulepszone filtrowanie według typu użytkownika (członek i gość), stanu synchronizacji katalogu i typu tworzenia
+- Ulepszone filtrowanie według typu użytkownika (elementu członkowskiego, gościa, brak), stanu synchronizacji katalogu, typu tworzenia, nazwy firmy i nazwy domeny
+- Nowe możliwości sortowania dotyczące właściwości, takich jak nazwa i główna nazwa użytkownika
+- Nowa łączna liczba użytkowników, którzy aktualizujeją wyszukiwania lub filtry
 
 > [!NOTE]
 > Ta wersja zapoznawcza jest obecnie niedostępna dla dzierżawców Azure AD B2C.
@@ -66,7 +68,7 @@ Na stronie **Wszyscy użytkownicy** są wyświetlane następujące właściwośc
 - Stan zaproszenia: stan zaproszenia dla użytkownika-gościa.
 - Poczta: wiadomość e-mail użytkownika.
 
-   ![nowe właściwości użytkownika wyświetlane na stronach wszyscy użytkownicy i usunięci użytkownicy](./media/users-search-enhanced/user-properties.png)
+![nowe właściwości użytkownika wyświetlane na stronach wszyscy użytkownicy i usunięci użytkownicy](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>Strona usuniętych użytkowników
 
@@ -96,22 +98,36 @@ Możliwości filtrowania zostały ulepszone, aby zapewnić więcej opcji filtrow
 
 Poniżej znajdują się właściwości z możliwością filtrowania na stronie **Wszyscy użytkownicy** :
 
-- Typ użytkownika — członek lub gość
-- Stan synchronizacji katalogu — tak
-- Typ tworzenia — zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
+- Typ użytkownika: członek, gość, brak
+- Stan synchronizacji katalogu: tak, nie
+- Typ tworzenia: zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
 - Stan zaproszenia — oczekiwanie na akceptację, zaakceptowane
-- Jednostka administracyjna — wybierz tę opcję, aby ograniczyć zakres wyświetlania użytkowników do pojedynczej jednostki administracyjnej. Aby uzyskać więcej informacji, zobacz [Zarządzanie jednostkami administracyjnymi w wersji zapoznawczej](directory-administrative-units.md).
+- Nazwa domeny: Wprowadź nazwę domeny
+- Nazwa firmy: Wprowadź nazwę firmy
+- Jednostka administracyjna: Wybierz tę opcję, aby ograniczyć zakres wyświetlania użytkowników do pojedynczej jednostki administracyjnej. Aby uzyskać więcej informacji, zobacz [Zarządzanie jednostkami administracyjnymi w wersji zapoznawczej](directory-administrative-units.md).
 
-## <a name="filtering-deleted-users-list"></a>Filtrowanie listy usuniętych użytkowników
+### <a name="filtering-deleted-users-list"></a>Filtrowanie listy usuniętych użytkowników
 
 Strona **usunięci użytkownicy** ma dodatkowe filtry, które nie znajdują się na stronie **Wszyscy użytkownicy** . Poniżej znajdują się właściwości z możliwością filtrowania na stronie **usunięci użytkownicy** :
 
-- Typ użytkownika — członek lub gość
-- Stan synchronizacji katalogu — tak
-- Typ tworzenia — zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
-- Stan zaproszenia — oczekiwanie na akceptację, zaakceptowane
-- Data usunięcia — ostatnie 7, 14 lub 30 dni
-- Data trwałego usunięcia — ostatnie 7, 14 lub 30 dni
+- Typ użytkownika: członek, gość, brak
+- Stan synchronizacji katalogu: tak, nie
+- Typ tworzenia: zaproszenie, zweryfikowane wiadomości E-mail, konto lokalne
+- Stan zaproszenia: oczekiwanie na akceptację, zaakceptowane
+- Data usunięcia: ostatnie 7, 14 lub 30 dni
+- Nazwa domeny: Wprowadź nazwę domeny
+- Nazwa firmy: Wprowadź nazwę firmy
+- Data trwałego usunięcia: ostatnie 7, 14 lub 30 dni
+
+## <a name="user-list-sorting"></a>Sortowanie listy użytkowników
+
+Teraz można sortować według nazwy i nazwy głównej użytkownika na stronach **Wszyscy użytkownicy** i **usunięci użytkownicy** . Możesz również sortować według daty usunięcia na liście **usuniętych użytkowników** .
+
+## <a name="user-list-counts"></a>Liczba list użytkowników
+
+Możesz wyświetlić łączną liczbę użytkowników na stronach **Wszyscy użytkownicy** i **usunięci użytkownicy** . Podczas wyszukiwania lub filtrowania list liczba jest aktualizowana w celu odzwierciedlenia łącznej liczby znalezionych użytkowników.
+
+![Ilustracja przedstawiająca liczbę list użytkowników na stronie wszyscy użytkownicy](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -121,8 +137,6 @@ Co dzieje się z możliwościami zbiorczymi dla użytkowników i Gości? | Opera
 Co się stało z kolumną źródłową? | Kolumna **źródłowa** została zastąpiona innymi kolumnami, które zawierają podobne informacje, a jednocześnie umożliwiają filtrowanie tych wartości niezależnie. Przykłady obejmują **Typ tworzenia**, **zsynchronizowany katalog** i **wystawcę tożsamości**.
 Co się stało z kolumną Nazwa użytkownika? | Kolumna **Nazwa użytkownika** nadal istnieje, ale została zmieniona na **nazwę główną użytkownika**. Lepiej odzwierciedla informacje zawarte w tej kolumnie. Zauważ również, że pełna główna nazwa użytkownika jest teraz wyświetlana dla Gości B2B. Jest to zgodne z tym, co uzyskasz w programie MS Graph.  
 Dlaczego można wykonać tylko wyszukiwanie "zaczyna się od", a nie "zawiera"? | Istnieją pewne ograniczenia, które uniemożliwiają nam przeprowadzenie wyszukiwania "zawiera". Wysłaliśmy swoją opinię, więc poczekaj.
-Dlaczego nie mogę sortować kolumn? | Istnieją pewne ograniczenia, które uniemożliwiają posortowanie kolumn. Wysłaliśmy swoją opinię, więc poczekaj.
-Dlaczego można filtrować tylko kolumny z **synchronizacją katalogu** według tak? | Istnieją pewne ograniczenia, które uniemożliwiają przefiltrowanie tej właściwości przez wartość No. Wysłaliśmy swoją opinię, więc poczekaj.
 
 ## <a name="next-steps"></a>Następne kroki
 

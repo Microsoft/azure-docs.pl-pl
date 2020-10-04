@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538658"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708805"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą 8x8
 
@@ -107,7 +107,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -147,11 +147,11 @@ Kolejna część tego samouczka zależy od rodzaju subskrypcji z 8x8.
 
 1. Na stronie głównej kliknij pozycję **Zarządzanie tożsamościami**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Zrzut ekranu, który podświetla kafelek Zarządzanie tożsamościami.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Sprawdź Logowanie jednokrotne **(SSO)** , a następnie wybierz pozycję **Microsoft Azure AD**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Zrzut ekranu, który wyróżnia opcje logowania jednokrotnego (SSO) i Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Skopiuj trzy adresy URL i certyfikat podpisywania z strony **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w usłudze Azure AD do sekcji **ustawienia protokołu SAML Microsoft Azure AD** w programie 8x8 Configuration Manager.
 
@@ -173,23 +173,23 @@ Kolejna część tego samouczka zależy od rodzaju subskrypcji z 8x8.
 
 1. Na panelu aplikacji wybierz pozycję **Menedżer konta usługi 8x8 Virtual Office**.
 
-    ![Konfigurowanie po stronie aplikacji](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Zrzut ekranu, który wyróżnia kafelek Menedżer kont w pakiecie Office.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Wybierz konto **firmowe**, którym chcesz zarządzać, a następnie kliknij przycisk **Zaloguj się**.
 
-    ![Konfigurowanie po stronie aplikacji](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Zrzut ekranu, który podświetla opcję biznes i przycisk Zaloguj.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Kliknij kartę **KONTA** na liście menu.
 
-    ![Konfigurowanie po stronie aplikacji](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Zrzut ekranu, który podświetla kartę konta na liście menu.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Kliknij pozycję **Logowanie jednokrotne** na liście kont.
 
-    ![Konfigurowanie po stronie aplikacji](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Zrzut ekranu, który wyróżnia opcję logowania jednokrotnego.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. W obszarze Metody uwierzytelniania wybierz pozycję **Logowanie jednokrotne** i kliknij pozycję **SAML**.
 
-    ![Konfigurowanie po stronie aplikacji](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Zrzut ekranu, który podświetla element SAML w obszarze Logowanie jednokrotne.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. W sekcji **Logowanie jednokrotne SAML** wykonaj następujące kroki:
 
@@ -215,11 +215,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka 8x8 w panelu dostępu należy automatycznie zalogować się do 8x8, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

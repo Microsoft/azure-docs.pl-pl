@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 028f47fcfb4a6a4d94d672e950b4c37d739e672b
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 9d36cee1ebf9f58991db6fd40fd6aa9422546b61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597316"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710757"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
 
-Program SQL Server (wcześniej bez programu SQL Server) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą [linku Synapse platformy Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w czasie niemal rzeczywistym i nie wpływają na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
+Synapse SQL Server (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
 
 > [!NOTE]
 > Obsługa zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu programu SQL Server jest obecnie dostępna w wersji zapoznawczej. 
@@ -242,10 +242,10 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
-| Wartość logiczna | bit |
-| Liczba całkowita | bigint |
+| Boolean (wartość logiczna) | bit |
+| Integer | bigint |
 | Liczba dziesiętna | float |
-| Ciąg | varchar (sortowanie bazy danych UTF8) |
+| String (ciąg) | varchar (sortowanie bazy danych UTF8) |
 | Data i godzina (ciąg w formacie ISO) | varchar (30) |
 | Data i godzina (Sygnatura czasowa systemu UNIX) | bigint |
 | Zero | `any SQL type` 

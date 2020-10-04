@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297641"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707765"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
 
@@ -39,7 +39,7 @@ W tym artykule pokazano, jak skierować dane do konta magazynu, a następnie wy�
 1. Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 1. Przejdź do konta Media Services w programie, a następnie kliknij pozycję **Ustawienia diagnostyczne** w obszarze **monitorowanie**. Zostanie wyświetlona lista wszystkich zasobów w subskrypcji, które generują dane monitorowania za pośrednictwem usługi Azure Monitor.
 
-    ![Sekcja ustawień diagnostycznych](media/media-services-diagnostic-logs/logs01.png)
+    ![Zrzut ekranu, który wyróżnia ustawienia diagnostyczne w sekcji monitorowanie.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Na przykład:
+Przykład:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -181,7 +181,7 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)

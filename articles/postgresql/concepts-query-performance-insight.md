@@ -1,17 +1,17 @@
 ---
 title: Szczegółowe informacje o wydajności zapytań-Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano funkcję Szczegółowe informacje o wydajności zapytań w programie Azure Database for PostgreSQL — pojedynczy serwer.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906521"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710264"
 ---
 # <a name="query-performance-insight"></a>Szczegółowe informacje o wydajności zapytań 
 
@@ -40,7 +40,7 @@ Tabela poniżej wykresu zawiera więcej szczegółów na temat długotrwałych z
 
 Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Dane statystyczne Szczegółowe informacje o wydajności zapytań czeka":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Szczegółowe informacje o wydajności zapytań długotrwałych zapytań":::
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 * Szczegółowe informacje o wydajności zapytań nie jest dostępna dla [replik odczytu](concepts-read-replicas.md).

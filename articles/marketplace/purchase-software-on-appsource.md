@@ -1,5 +1,5 @@
 ---
-title: Jak kupić oprogramowanie w witrynie AppSource | Portal Azure Marketplace
+title: Jak kupić oprogramowanie w Microsoft AppSource
 description: Kroki do zakupu oprogramowania w witrynie AppSource | Portal Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032847"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708037"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Jak kupić oprogramowanie w Microsoft AppSource
 
 Firma Microsoft [AppSource](https://appsource.microsoft.com/) teraz umożliwia klientom subskrybowanie aplikacji SaaS oferowanych przez partnerów firmy Microsoft. Klienci mogą znajdować certyfikowane aplikacje sieci Web w sklepie i zarządzać opłatami, uaktualnieniami, obniżeniem poziomu i anulowaniami w jednym miejscu przy użyciu Centrum administracyjnego firmy Microsoft. W tym artykule opisano sposób zakupu aplikacji ze sklepu.
 
-Program AppSource oferuje wybór aplikacji, z uwzględnieniem bezpłatnych, prób i płatnych subskrypcji. W tym artykule opisano, jak Płatne subskrypcje można kupić za pośrednictwem AppSource.
+AppSource oferuje wybór aplikacji, z uwzględnieniem bezpłatnych wersji próbnych i płatnych subskrypcji. W tym artykule opisano, jak Płatne subskrypcje można kupić za pośrednictwem AppSource.
 
 ## <a name="requirements"></a>Wymagania
 
@@ -51,7 +51,7 @@ Aby kupić oferty SaaS, potrzebne są:
 
 Po otrzymaniu zamówienia może upłynąć kilka sekund, aby potwierdzić. Zostanie wyświetlony link umożliwiający skonfigurowanie subskrypcji usługi SaaS na stronie, a także wiadomość e-mail z potwierdzeniem zakupu i linkiem, aby zakończyć konfigurację.
 
-1. Na stronie **potwierdzenie zamówienia** wybierz pozycję **Konfiguruj**. Alternatywnie możesz użyć linku konfiguracji wysłanego do Ciebie w wiadomości e-mail z potwierdzeniem.
+1. Na stronie **potwierdzenie zamówienia** wybierz pozycję **Konfiguruj**. Zamiast tego możesz użyć linku konfiguracji wysłanego do Ciebie w wiadomości e-mail z potwierdzeniem.
 1. Ukończ Inicjowanie obsługi administracyjnej i skonfiguruj ją w witrynie sieci Web dostawcy oprogramowania.
 
     > [!Note]
@@ -65,4 +65,4 @@ W przypadku produktów firmowych [skontaktuj się z pomocą techniczną tutaj](/
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji można znaleźć w [dokumentacji komercyjnej portalu Marketplace](partner-center-portal/commercial-marketplace-overview.md) .
+- [Dokumentacja klienta Microsoft Marketplace](/marketplace/)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc2aba6241ef498cd6802c7490e46552e7737ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538841"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708819"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Samouczek: Integrowanie 23 filmów wideo z Azure Active Directory
 
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -138,11 +138,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w 23 wideo.
 
 3. W obszarze **Użytkownicy** kliknij przycisk **Konfiguruj**.
 
-    ![Przypisz użytkownika](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Zrzut ekranu, który podświetla sekcję Users (Użytkownicy).](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Kliknij pozycję **Dodaj nowego użytkownika**.
 
-    ![Przypisz użytkownika](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Zrzut ekranu, który podświetla przycisk Dodaj nowego użytkownika.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. W sekcji **zapraszanie osoby do przyłączenia do tej witryny** wykonaj następujące czynności:
 
@@ -158,10 +158,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka wideo 23 w panelu dostępu należy automatycznie zalogować się do wideo 23, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

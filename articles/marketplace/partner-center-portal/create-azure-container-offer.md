@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649271"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709108"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w witrynie Azure Marketplace
 
@@ -50,7 +50,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -80,10 +80,10 @@ Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim można połą
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
-- [Zarządzanie potencjalnymi klientami — często zadawane pytania](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
+- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
+- [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
+- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -180,7 +180,7 @@ Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą tec
 
 W sekcji **skontaktuj się z pomocą techniczną** Podaj **witrynę sieci Web pomocy technicznej** , w której partnerzy mogą znaleźć pomoc techniczną dotyczącą oferty w zależności od tego, czy oferta jest dostępna na platformie Azure, Azure Government czy w obu tych przypadkach.
 
-W sekcji **kontakt programu z programem CSP** Podaj link ( **materiały marketingowe programu CSP** ), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
+W sekcji **kontakt programu z programem CSP** Podaj link (**materiały marketingowe programu CSP**), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
@@ -190,7 +190,7 @@ Aby dowiedzieć się więcej na temat tworzenia list ofert, zobacz [najlepsze ro
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
@@ -223,19 +223,19 @@ W poniższych przykładach pokazano, jak pola list oferty pojawiają się w ró�
 
 Spowoduje to wyświetlenie strony z **listą ofert** w witrynie Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Przedstawia stronę aukcji oferty w witrynie Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft." :::
 
 Spowoduje to wyświetlenie wyników wyszukiwania w witrynie Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustruje wyniki wyszukiwania w witrynie Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 Spowoduje to wyświetlenie strony z **listą ofert** w Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustruje stronę z listą ofert w Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 Spowoduje to wyświetlenie wyników wyszukiwania w Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustruje wyniki wyszukiwania w Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 ## <a name="preview"></a>Wersja zapoznawcza
 
@@ -328,11 +328,11 @@ W poniższych przykładach pokazano, jak pola listy planów są wyświetlane w r
 
 Są to pola w portalu Azure Marketplace podczas wyświetlania szczegółów planu:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustruje pola wyświetlane podczas przeglądania szczegółów planu w portalu Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 Są to szczegóły planu dotyczące Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustruje szczegóły planu na Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 ### <a name="plan-availability"></a>Planowanie dostępności
 
@@ -363,11 +363,11 @@ Podaj poniższe informacje na karcie **szczegóły repozytorium obrazów** .
 
 **Nazwa użytkownika administratora dla Azure Container Registry** — Podaj [nazwę użytkownika administratora](../../container-registry/container-registry-authentication.md#admin-account)), która jest połączona z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure. Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 **Hasło dla Azure Container Registry** — Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustruje menu klucz dostępu.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
 **Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Dołącz nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  strony**repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md).
 

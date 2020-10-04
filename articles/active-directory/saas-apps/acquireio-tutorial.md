@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537935"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708326"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą AcquireIO
 
@@ -100,7 +100,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -134,15 +134,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Z lewej strony menu kliknij pozycję **sklep z aplikacjami**.
 
-     ![Konfiguracja AcquireIO](./media/acquireio-tutorial/config01.png)
+     ![Zrzut ekranu, który wyróżnia sklep z aplikacjami.](./media/acquireio-tutorial/config01.png)
 
 1. Przewiń w dół do **Active Directory** i kliknij pozycję **Zainstaluj**.
 
-    ![Konfiguracja AcquireIO](./media/acquireio-tutorial/config02.png)
+    ![Zrzut ekranu, który podświetla sekcję Active Directory i przycisk Instaluj.](./media/acquireio-tutorial/config02.png)
 
 1. W oknie podręcznym Active Directory wykonaj następujące czynności:
 
-    ![Konfiguracja AcquireIO](./media/acquireio-tutorial/config03.png)
+    ![Screnshot, który wyświetla ekran Active Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Kliknij przycisk **Kopiuj** , aby skopiować adres URL odpowiedzi dla swojego wystąpienia i wkleić go w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -162,7 +162,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Acquire
 
 1. Z lewej strony menu kliknij pozycję **Profile** i przejdź do obszaru **Dodawanie profilu**.
 
-     ![Konfiguracja AcquireIO](./media/acquireio-tutorial/config04.png)
+     ![Zrzut ekranu, który wyróżnia profile w menu po lewej stronie ekranu, a także opcję Dodaj profil.](./media/acquireio-tutorial/config04.png)
 
 1. W oknie podręcznym **Dodaj klienta** wykonaj następujące czynności:
 
@@ -180,11 +180,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka AcquireIO w panelu dostępu należy automatycznie zalogować się do AcquireIO, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,17 +1,17 @@
 ---
 title: Nawiązywanie połączenia z Azure Database for PostgreSQL usługą Azure Kubernetes — pojedynczy serwer
 description: Informacje na temat nawiązywania połączenia z usługą Azure Kubernetes Service (AKS) przy użyciu jednego serwera Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b7da2fcc1310f03f894e048089658f25be3a149
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084181"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708853"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Łączenie usługi Azure Kubernetes i Azure Database for PostgreSQL — pojedynczy serwer
 

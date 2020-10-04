@@ -1,17 +1,17 @@
 ---
 title: Zabezpieczenia w Azure Database for PostgreSQL — pojedynczy serwer
 description: Omówienie funkcji zabezpieczeń w ramach Azure Database for PostgreSQL-jednego serwera.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375795"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710485"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Zabezpieczenia w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -38,7 +38,7 @@ Reguły zapory adresów IP umożliwiają dostęp do serwerów na podstawie źró
 Punkty końcowe usługi sieci wirtualnej zwiększają łączność sieci wirtualnej przez sieć szkieletową platformy Azure. Korzystając z reguł sieci wirtualnej, można włączyć serwer Azure Database for PostgreSQL, aby zezwalać na połączenia z wybranych podsieci w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie punktu końcowego usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>Prywatny adres IP
-Link prywatny umożliwia nawiązanie połączenia z Azure Database for PostgreSQL pojedynczym serwerem na platformie Azure za pośrednictwem prywatnego punktu końcowego. Link prywatny platformy Azure zasadniczo zapewnia usługi platformy Azure w ramach prywatnego Virtual Network (VNet). Dostęp do zasobów PaaS można uzyskać przy użyciu prywatnego adresu IP, podobnie jak w przypadku każdego innego zasobu w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [link prywatny — Omówienie](concepts-data-access-and-security-private-link.md)
+Link prywatny umożliwia nawiązanie połączenia z Azure Database for PostgreSQL pojedynczym serwerem na platformie Azure za pośrednictwem prywatnego punktu końcowego. Usługa Azure Private Link zasadniczo łączy usługi platformy Azure z Twoją prywatną siecią wirtualną. Dostęp do zasobów PaaS można uzyskać przy użyciu prywatnego adresu IP, podobnie jak w przypadku każdego innego zasobu w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [link prywatny — Omówienie](concepts-data-access-and-security-private-link.md)
 
 
 ## <a name="access-management"></a>Zarządzanie dostępem
@@ -54,6 +54,9 @@ Możesz zrezygnować z [zaawansowaną ochronę przed zagrożeniami](concepts-dat
 
 [Rejestrowanie inspekcji](concepts-audit.md) jest dostępne do śledzenia aktywności w bazach danych. 
 
+## <a name="migrating-from-oracle"></a>Migrowanie z programu Oracle
+
+Firma Oracle obsługuje Transparent Data Encryption (TDE) do szyfrowania danych tabeli i obszaru tabel. Na platformie Azure for PostgreSQL dane są automatycznie szyfrowane w różnych warstwach. Zobacz sekcję "at-REST" na tej stronie i zapoznaj się z różnymi tematami dotyczącymi zabezpieczeń, w tym [kluczami zarządzanymi przez klienta](./concepts-data-encryption-postgresql.md) i [podwójnym szyfrowaniem infrastruktury](./concepts-infrastructure-double-encryption.md). Możesz również rozważyć użycie rozszerzenia [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) , które jest obsługiwane przez [platformę Azure dla PostgreSQL](./concepts-extensions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 - Włącz reguły zapory dla [adresów IP](concepts-firewall-rules.md) lub [sieci wirtualnych](concepts-data-access-and-security-vnet.md)

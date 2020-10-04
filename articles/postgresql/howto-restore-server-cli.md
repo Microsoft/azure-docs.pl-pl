@@ -1,19 +1,19 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się, jak ustawiać konfiguracje kopii zapasowych i przywracać serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49acce96012df0a45bc1833ae0397a3d989142ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c7e8f0fc3a90a0811d38840004f7ae12a9a225ce
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500644"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708513"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Aby ukończyć ten przewodnik, musisz:
  
 
 > [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Ustawianie konfiguracji kopii zapasowej
 

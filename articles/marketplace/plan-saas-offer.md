@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420442"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708122"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -57,7 +57,7 @@ Opcja _Pobierz teraz (bezpłatna)_, _bezpłatna wersja próbna_i _sprzedawanie p
 
 Te dodatkowe wymagania techniczne mają zastosowanie tylko do oferty zakupu _przez firmę Microsoft_ (transactly):
 
-- Wymagana jest usługa Azure AD z obsługą logowania jednokrotnego (SSO) i uwierzytelnianiem. Aby uzyskać szczegółowe wskazówki, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](azure-ad-saas.md).
+- Usługa Azure AD z logowaniem jednokrotnym (SSO) i uwierzytelnianiem jest wymagana dla użytkownika kupowania, który uzyskuje dostęp do strony docelowej. Aby uzyskać szczegółowe wskazówki, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](azure-ad-saas.md).
 - Aby przeprowadzić integrację z platformą Azure Marketplace i Microsoft AppSource, musisz użyć [interfejsów API realizacji SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) . Należy uwidocznić usługę, która może współistnieć z subskrypcją SaaS, aby utworzyć, zaktualizować i usunąć konto użytkownika i plan usług. Krytyczne zmiany interfejsu API muszą być obsługiwane w ciągu 24 godzin. Niekrytyczne zmiany interfejsu API będą okresowo publikowane. Diagramy i szczegółowe wyjaśnienia opisujące użycie zebranych pól są dostępne w dokumentacji dotyczącej [interfejsów API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Musisz utworzyć co najmniej jeden plan dla swojej oferty. Cena Twojego planu jest naliczana na podstawie modelu cen wybranych przed opublikowaniem: _stawka ryczałtowa_ lub _dla poszczególnych użytkowników_. Więcej szczegółowych informacji na temat [planów](#plans) znajduje się w dalszej części tego artykułu.
 - Klient może w dowolnej chwili zrezygnować z oferty.
@@ -68,7 +68,7 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
 
 - **Adres URL strony docelowej**: adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), do której użytkownicy będą kierowani po uzyskaniu oferty od komercyjnej witryny Marketplace, wyzwalając proces konfiguracji od nowo utworzonej subskrypcji SaaS. Ten adres URL otrzyma token, który może służyć do wywoływania interfejsów API realizacji w celu uzyskania szczegółowych informacji o aprowizacji na stronie rejestracji interaktywnej.
 
-  Ten adres URL zostanie wywołany za pomocą parametru tokenu zakupu w portalu Marketplace, który jednoznacznie identyfikuje SaaS zakupu określonego klienta. Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą [interfejsu API rozpoznawania](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta i aktywowania zakupu. Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD).
+  Ten adres URL zostanie wywołany za pomocą parametru tokenu zakupu w portalu Marketplace, który jednoznacznie identyfikuje określonego klienta SaaS zakupu. Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą [interfejsu API rozpoznawania](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta i aktywowania zakupu. Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD).
 
   Ten adres URL z parametrem tokena identyfikacji zakupu w witrynie Marketplace zostanie również wywołany, gdy klient uruchomi zarządzane środowisko SaaS z poziomu Centrum administracyjnego usługi Azure Portal lub M365. Należy obsługiwać oba przepływy: gdy token jest dostarczany po raz pierwszy po nowym zakupie klienta i gdy zostanie on ponownie udostępniony dla istniejącego klienta zarządzającego rozwiązaniem SaaS.
 
@@ -90,7 +90,7 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
   > [!NOTE]
   > Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, należy użyć co najmniej dwóch identyfikatorów aplikacji usługi Azure AD, z których każde będzie miało konto. Każde konto partnera w centrum partnerskim musi używać unikatowego identyfikatora aplikacji usługi Azure AD dla wszystkich ofert SaaS opublikowanych za pośrednictwem tego konta.
 
-## <a name="test-drives"></a>Testowanie dysków
+## <a name="test-drives"></a>Wersje testowe
 Możesz włączyć dysk testowy dla aplikacji SaaS. Dyski testowe zapewniają klientom dostęp do wstępnie skonfigurowanego środowiska przez określoną liczbę godzin. Możesz włączyć dyski testowe dla dowolnej opcji publikowania, jednak ta funkcja ma dodatkowe wymagania. Aby dowiedzieć się więcej na temat dysków testowych, zobacz [co to jest dysk testowy?](what-is-test-drive.md) Aby uzyskać informacje o konfigurowaniu różnych rodzajów dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](test-drive-technical-configuration.md).
 
 > [!TIP]
@@ -100,7 +100,7 @@ Możesz włączyć dysk testowy dla aplikacji SaaS. Dyski testowe zapewniają kl
 
 Aby zbierać informacje o klientach, należy połączyć swoją ofertę z systemem zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i sklepem online, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Komercyjna witryna Marketplace obsługuje różne systemy CRM, a także opcję używania tabeli platformy Azure lub konfigurowania punktu końcowego HTTPS przy użyciu automatyzacji.
 
-Połączenie programu CRM można dodać lub zmodyfikować w dowolnym momencie podczas tworzenia oferty lub po niej. Aby uzyskać szczegółowe wskazówki, zobacz temat [Zarządzanie potencjalnymi klientami w portalu komercyjnym](lead-management-for-cloud-marketplace.md).
+Połączenie programu CRM można dodać lub zmodyfikować w dowolnym momencie podczas tworzenia oferty lub po niej. Aby uzyskać szczegółowe wskazówki, zobacz temat [potencjalni klienci z oferty komercyjnej witryny Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Wybieranie sklepu online
 

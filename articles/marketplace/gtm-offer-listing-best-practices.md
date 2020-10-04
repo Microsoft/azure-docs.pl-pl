@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420935"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708649"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -61,7 +61,8 @@ Wybierz kategorie i podkategorie, które najlepiej dopasowują się do typu rozw
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>Ważne: SaaSe oferty i dodatki Microsoft 365
 
-Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać sklep online, w którym Twoja oferta zostanie opublikowana:
+Zobacz artykuł dotyczący tworzenia pakietów [w komercyjnej witrynie Marketplace,](marketplace-commercial-transaction-capabilities-and-considerations.md) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki usługa Transact może mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać sklep online, w którym Twoja oferta zostanie opublikowana.
+
 
 | Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Odpowiedni sklep online| Odpowiedni sklep online |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|

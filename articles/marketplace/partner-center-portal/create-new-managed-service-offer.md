@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816987"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710621"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -130,7 +130,7 @@ Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub
 
 W tej sekcji można podać logo i obrazy, które będą używane podczas wyświetlania oferty dla klienta. Wszystkie obrazy muszą mieć format PNG.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
@@ -147,13 +147,13 @@ Te logo są używane w różnych miejscach na liście:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 
@@ -245,7 +245,7 @@ Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz now
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

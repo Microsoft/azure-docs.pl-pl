@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: ed87c536c53ab1c07af05a7b8223901591c16e66
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332344"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710784"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -37,6 +37,8 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 > * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
 >    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -84,7 +86,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | Język | Dostępna wersja | 
 |----------|------------------------|
 | Ruby     | [Wersja 2,1](ruby-sdk.md) | 
-| Go       | [Wersja 2,1](go-sdk.md) | 
+| Przejdź       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 

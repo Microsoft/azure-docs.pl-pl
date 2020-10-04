@@ -1,17 +1,17 @@
 ---
 title: Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 description: Informacje o opcjach łączności i sieci w opcji elastyczne wdrożenie serwera dla Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331679"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708785"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 

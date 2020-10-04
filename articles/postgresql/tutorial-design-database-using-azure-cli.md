@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: projektowanie serwera Azure Database for PostgreSQL-pojedynczego — interfejs wiersza polecenia platformy Azure'
 description: W tym samouczku przedstawiono sposób tworzenia, konfigurowania i wykonywania zapytań dotyczących pierwszego serwera Azure Database for PostgreSQL-pojedynczego przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: c1ab057c34a89bfa39a298805216af89b2327622
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500780"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710213"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Samouczek: projektowanie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu interfejsu wiersza polecenia platformy Azure 
 W tym samouczku dowiesz się, jak wykonywać następujące czynności, używając interfejsu wiersza polecenia platformy Azure:
@@ -51,7 +51,7 @@ W poniższym przykładzie zostanie utworzony serwer o nazwie `mydemoserver` w gr
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 Wartość parametru sku-name jest zgodna z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne}, jak pokazano w przykładach poniżej:
-+ `--sku-name B_Gen5_2`mapuje do warstwy Podstawowa, Gen 5 i 2 rdzeni wirtualnych.
++ `--sku-name B_Gen5_2` mapuje do warstwy Podstawowa, Gen 5 i 2 rdzeni wirtualnych.
 + `--sku-name GP_Gen5_32` — warstwa ogólnego przeznaczenia, 5. generacja, 32 rdzenie wirtualne.
 + `--sku-name MO_Gen5_2` — warstwa zoptymalizowana pod kątem pamięci, 5. generacja, 2 rdzenie wirtualne.
 

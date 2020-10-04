@@ -1,19 +1,19 @@
 ---
 title: Azure Database for PostgreSQL skalowanie i monitorowanie skryptów interfejsu wiersza polecenia platformy Azure
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — skalowanie serwera usługi Azure Database for PostgreSQL na inny poziom wydajności po wykonaniu zapytania względem metryk.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: 23dae705f10ecca9119932640383c93ab80d1d21
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d5f08e764ae44b11ab5838689e7f8a70c89b3122
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496495"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708632"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorowanie i skalowanie pojedynczego serwera PostgreSQL za pomocą interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia skaluje zasoby obliczeniowe i magazyn dla jednego serwera Azure Database for PostgreSQL po wykonaniu zapytania o metryki. Obliczenia można skalować w górę lub w dół. Magazyn można skalować w górę. 

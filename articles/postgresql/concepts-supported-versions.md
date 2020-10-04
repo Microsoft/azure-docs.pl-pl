@@ -1,18 +1,18 @@
 ---
 title: Obsługiwane wersje — Azure Database for PostgreSQL — pojedynczy serwer
 description: Opisuje obsługiwane wersje głównych i pomocniczych Postgres w Azure Database for PostgreSQL-pojedynczym serwerze.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1640395b3a73116c27894a2b3f2b95b8bd5bb2eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084164"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707918"
 ---
 # <a name="supported-postgresql-major-versions"></a>Obsługiwane wersje główne PostgreSQL
 Firma Microsoft dąży do obsługi wersji n-2 aparatu PostgreSQL w Azure Database for PostgreSQL-pojedynczym serwerze. Wersje byłyby w bieżącej wersji głównej na platformie Azure (n) i dwóch wcześniejszych wersjach głównych (-2).

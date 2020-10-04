@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290078"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707782"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB migracji NoSQL i partnerów programistycznych aplikacji
 
-Od NoSQL migracji do tworzenia aplikacji możesz wybrać spośród wielu doświadczonych partnerów i narzędzi integratora systemów, aby obsłużyć rozwiązania Azure Cosmos DB. 
+Od NoSQL migracji do tworzenia aplikacji możesz wybrać spośród wielu doświadczonych partnerów i narzędzi integratora systemów, aby obsłużyć rozwiązania Azure Cosmos DB. W tym artykule wymieniono partnerów, którzy mają rozwiązania lub usługi, które używają Azure Cosmos DB. Ta lista zmienia się w czasie, firma Microsoft nie ponosi odpowiedzialności za wszelkie zmiany ani aktualizacje wprowadzone do rozwiązań tych partnerów.
 
-## <a name="systems-integrator-partners"></a>Partnerzy integratora systemów
+## <a name="systems-integrator-and-tooling-partners"></a>Integrator systemów i partnerzy narzędziowi
 
 |**Partner**  |**Możliwości & środowiska**  |**Obsługiwane kraje/regiony**  |
 |---------|---------|---------|

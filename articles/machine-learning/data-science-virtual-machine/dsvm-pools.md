@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144774"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708972"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Tworzenie udostępnionej puli Virtual Machines nauki o danych
 
 W tym artykule dowiesz się, jak utworzyć udostępnioną pulę Virtual Machines analizy danych (DSVMs) dla zespołu. Zalety korzystania z puli udostępnionej obejmują lepsze wykorzystanie zasobów, łatwiejsze udostępnianie i współpracę oraz wydajniejsze zarządzanie zasobami DSVM.
 
-Za pomocą wielu metod i technologii można utworzyć pulę DSVMs. Ten artykuł koncentruje się na pulach dla interaktywnych maszyn wirtualnych. Alternatywna zarządzana infrastruktura obliczeniowa to Azure Machine Learning COMPUTE. Aby uzyskać więcej informacji, zobacz [Tworzenie obiektów docelowych obliczeń przy użyciu zestawu Python SDK](../how-to-create-attach-compute-sdk.md).
+Za pomocą wielu metod i technologii można utworzyć pulę DSVMs. Ten artykuł koncentruje się na pulach dla interaktywnych maszyn wirtualnych. Alternatywna zarządzana infrastruktura obliczeniowa to Azure Machine Learning COMPUTE. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra obliczeniowego](../how-to-create-attach-compute-cluster.md).
 
 ## <a name="interactive-vm-pool"></a>Interaktywna Pula maszyn wirtualnych
 

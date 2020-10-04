@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398018"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709074"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -76,10 +76,10 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
-- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
+- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
+- [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
+- [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -146,7 +146,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -202,7 +202,7 @@ Dodaj maksymalnie trzy (ale co najmniej jeden) obsługę dokumentów PDF dla ofe
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
@@ -247,7 +247,7 @@ W tym miejscu zdefiniujesz elementy, takie jak Cennik, rynek i klucz prywatny.
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać swoją ofertę do przeglądu i publikacji.
 
-1. Gdy wszystko będzie gotowe do opublikowania oferty usługi konsultingowej, kliknij pozycję **Przejrzyj i Opublikuj**.
+1. Gdy wszystko będzie gotowe do opublikowania oferty usługi konsultingowej, wybierz pozycję **Przejrzyj i Opublikuj**.
 2. Zapoznaj się ze szczegółami na stronie ostatecznego przesłania.
 3. W razie potrzeby Napisz uwagę do zespołu certyfikacji, jeśli uważasz, że wszystkie szczegóły oferty wymagają wyjaśnienia.
 4. Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij**.

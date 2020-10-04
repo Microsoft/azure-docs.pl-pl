@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967560"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708870"
 ---
 # <a name="about-keys"></a>Informacje o kluczach
 
@@ -47,7 +47,7 @@ Klucze chronione przez moduł HSM (określane również jako klucze HSM) są prz
 - Magazyny korzystają z zweryfikowanych sprzętowych modułów zabezpieczeń **poziomu 2 FIPS 140-2** do ochrony kluczy HSM w udostępnionej infrastrukturze zaplecza modułu HSM. 
 - Zarządzane pule modułu HSM używają sprawdzonych modułów HSM **140-2 Level 3** w celu ochrony kluczy. Każda pula modułów HSM jest izolowanym wystąpieniem pojedynczej dzierżawy z własną [domeną zabezpieczeń](../managed-hsm/security-domain.md) zapewniającą pełną izolację kryptograficzną od wszystkich innych pul modułu HSM, które współużytkują tę samą infrastrukturę sprzętową.
 
-Te klucze są chronione w pulach modułu HSM o pojedynczej dzierżawie. W postaci miękkiej lub wyeksportowanej z obsługiwanego urządzenia HSM można zaimportować klucz RSA, EC i symetryczny. Klucze można również generować w pulach HSM. Podczas importowania kluczy HSM przy użyciu kluczy przy użyciu metody opisanej w [BYOK (Dostarcz własny klucz) Specyfikacja](../keys/byok-specification.md)umożliwia bezpieczny materiał klucza transportowego do zarządzanych pul modułów HSM. 
+Te klucze są chronione w pulach modułu HSM o pojedynczej dzierżawie. W postaci miękkiej lub wyeksportowanej z obsługiwanego urządzenia HSM można zaimportować klucz RSA, EC i symetryczny. Klucze można również generować w pulach HSM. Podczas importowania kluczy HSM przy użyciu metody opisanej w [BYOK (Dostarcz własny klucz) Specyfikacja](../keys/byok-specification.md)umożliwia bezpieczny materiał klucza transportowego do zarządzanych pul modułu HSM. 
 
 Aby uzyskać więcej informacji na temat granic geograficznych, zobacz [Microsoft Azure Centrum zaufania](https://azure.microsoft.com/support/trust-center/privacy/)
 
@@ -76,9 +76,9 @@ Key Vault obsługuje klucze RSA, EC i symetryczne.
 
 |Typy/rozmiary/krzywe kluczy| Szyfruj/Odszyfruj<br>(Zawijanie/odpakowywanie) | Podpisz/Weryfikuj | 
 | --- | --- | --- |
-|WE-P256, P256K-P384, EC-521|Nie dotyczy|ES256<br>ES256K<br>ES384<br>ES512|
+|WE-P256, P256K-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA — OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bitowy| AES — KW<br>AES — GCM<br>AES — CBC| Nie dotyczy| 
+|AES 128-bit, 256-bitowy| AES — KW<br>AES — GCM<br>AES — CBC| NA| 
 |||
 
 ###  <a name="ec-algorithms"></a>Algorytmy we

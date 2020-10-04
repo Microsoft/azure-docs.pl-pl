@@ -1,17 +1,17 @@
 ---
 title: Korzystanie z zaawansowanej ochrony przed zagrożeniami — Azure Database for PostgreSQL — pojedynczy serwer
 description: Ochrona przed zagrożeniami wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 25f263a5c9ccdc67f1ab8353e616a6dded0c7f7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901664"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708224"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -42,15 +42,15 @@ Po wykryciu nietypowych działań bazy danych otrzymasz powiadomienie e-mail. Wi
     
 1. Kliknij link **Wyświetl Ostatnie alerty** w wiadomości e-mail, aby uruchomić Azure Portal i wyświetlić stronę Azure Security Center alertów, która zawiera przegląd aktywnych zagrożeń wykrytych w bazie danych SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Raport o nietypowych działaniach":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
 
     Wyświetl aktywne zagrożenia:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Aktywne zagrożenia":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
 
 2. Kliknij konkretny alert, aby uzyskać dodatkowe szczegóły i akcje związane z badaniem tego zagrożenia i korygowaniem przyszłe zagrożenia.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Konkretny alert":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
 
 ## <a name="explore-threat-detection-alerts"></a>Eksploruj alerty wykrywania zagrożeń
 
@@ -58,7 +58,7 @@ Zaawansowana ochrona przed zagrożeniami integruje swoje alerty z [Azure Securit
 
 Kliknij pozycję **alerty zabezpieczeń** w obszarze **Ochrona przed zagrożeniami** , aby uruchomić stronę alerty Azure Security Center i zapoznać się z omówieniem aktywnych zagrożeń SQL wykrytych w bazie danych.
 
-  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Ochrona przed zagrożeniami ASC":::
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Konfigurowanie wykrywania zagrożeń":::
 
 ## <a name="next-steps"></a>Następne kroki
 

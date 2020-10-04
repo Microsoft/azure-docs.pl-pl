@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 895bdfde80dfe10bef4b6aad12236db60e2c427b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533149"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709091"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -44,7 +44,7 @@ W tym artykule należy
 
 * Zainstalowano Azure Machine Learning Python SDK.
     Aby zainstalować zestaw SDK, można 
-    * Utwórz wystąpienie obliczeniowe, które automatycznie zainstaluje zestaw SDK i jest wstępnie skonfigurowany dla przepływów pracy usługi ML. Aby uzyskać więcej informacji [, zobacz co to jest wystąpienie obliczeniowe Azure Machine Learning?](concept-compute-instance.md#managing-a-compute-instance) . 
+    * Utwórz wystąpienie obliczeniowe, które automatycznie zainstaluje zestaw SDK i jest wstępnie skonfigurowany dla przepływów pracy usługi ML. Aby uzyskać więcej informacji [, zobacz Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim](how-to-create-manage-compute-instance.md) . 
 
     * [Samodzielnie Zainstaluj zestaw SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Upewnij się tylko, że dołączysz `automl` dodatkowe. 
 

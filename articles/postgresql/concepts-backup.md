@@ -1,17 +1,17 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie-Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się więcej o automatycznych kopiach zapasowych i przywracaniu serwera Azure Database for PostgreSQL — jeden serwer.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292867"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708458"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-pojedynczym serwerze
 
@@ -19,7 +19,7 @@ Azure Database for PostgreSQL automatycznie tworzy kopie zapasowe serwera i prze
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
-Azure Database for PostgreSQL wykonuje kopie zapasowe plików danych i dziennika transakcji. W zależności od obsługiwanego maksymalnego rozmiaru magazynu należy wykonać pełne i różnicowe kopie zapasowe (maksymalnie 4 serwery magazynu) lub migawki kopii zapasowych (maksymalnie 16 TB serwerów magazynu). Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego.
+Azure Database for PostgreSQL wykonuje kopie zapasowe plików danych i dziennika transakcji. W zależności od obsługiwanego maksymalnego rozmiaru magazynu należy wykonać pełne i różnicowe kopie zapasowe (maksymalnie 4 serwery magazynu) lub migawki kopii zapasowych (maksymalnie 16 TB serwerów magazynu). Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
 Nie można eksportować tych plików kopii zapasowej. Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for PostgreSQL. Aby skopiować bazę danych, można użyć [pg_dump](howto-migrate-using-dump-and-restore.md) .
 
@@ -32,9 +32,9 @@ W przypadku serwerów, które obsługują maksymalnie 4 TB magazynu, pełne kopi
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Serwery z maksymalnie 16 TBm pamięci masowej
 
-W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać do 16 TB pamięci masowej. Kopie zapasowe na tych dużych serwerach magazynu są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest zaplanowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki to tylko różnicowe kopie zapasowe. Tworzenie kopii zapasowych migawek różnicowych nie odbywa się zgodnie z ustalonym harmonogramem. W ciągu dnia są wykonywane trzy kopie zapasowe migawek różnicowych. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. 
+W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać do 16 TB pamięci masowej. Kopie zapasowe na tych dużych serwerach magazynu są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. W ciągu dnia są wykonywane trzy kopie zapasowe migawek różnicowych. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. 
 
-### <a name="backup-retention"></a>Przechowywanie kopii zapasowych
+### <a name="backup-retention"></a>Przechowywanie kopii zapasowej
 
 Kopie zapasowe są zachowywane na podstawie ustawienia okresu przechowywania kopii zapasowej na serwerze. Można wybrać okres przechowywania wynoszący od 7 do 35 dni. Domyślny okres przechowywania wynosi 7 dni. Okres przechowywania można ustawić podczas tworzenia serwera lub później, aktualizując konfigurację kopii zapasowej za pomocą [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration). 
 
@@ -53,7 +53,7 @@ Azure Database for PostgreSQL zapewnia elastyczność wyboru między lokalnie na
 
 Azure Database for PostgreSQL zapewnia do 100% magazynu z zainicjowaną obsługą kopii zapasowych bez dodatkowych kosztów. Każdy dodatkowy magazyn kopii zapasowych jest naliczany w GB miesięcznie. Na przykład jeśli Zainicjowano obsługę serwera z 250 GB miejsca w magazynie, masz 250 GB dodatkowego magazynu dla kopii zapasowych serwera bez dodatkowych opłat. Magazyn używany do tworzenia kopii zapasowych przekracza 250 GB jest naliczany zgodnie z [modelem cen](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Możesz użyć metryki [używany magazyn kopii zapasowych](concepts-monitoring.md) w Azure monitor dostępnej w Azure Portal do monitorowania magazynu kopii zapasowych zużywanego przez serwer. Metryka używany magazyn kopii zapasowych reprezentuje sumę magazynu zużywanego przez wszystkie pełne kopie zapasowe bazy danych, różnicowe kopie zapasowe i kopie zapasowe dzienników przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Częstotliwość wykonywania kopii zapasowych to zarządzane i wyjaśnione wcześniej usługi. Duże działania transakcyjne na serwerze mogą spowodować zwiększenie użycia magazynu kopii zapasowej bez względu na łączny rozmiar bazy danych. W przypadku magazynu geograficznie nadmiarowego użycie magazynu kopii zapasowych jest dwa razy większe niż magazyn lokalnie nadmiarowy. 
+Możesz użyć metryki [używany magazyn kopii zapasowych](concepts-monitoring.md) w Azure monitor dostępnej w Azure Portal do monitorowania magazynu kopii zapasowych zużywanego przez serwer. Metryka używany magazyn kopii zapasowych reprezentuje sumę magazynu zużywanego przez wszystkie pełne kopie zapasowe bazy danych, różnicowe kopie zapasowe i kopie zapasowe dzienników przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Częstotliwość wykonywania kopii zapasowych to zarządzane i wyjaśnione wcześniej usługi. Duża liczba transakcji na serwerze może powodować zwiększenie użycia magazynu kopii zapasowych niezależnie od całkowitego rozmiaru bazy danych. W przypadku magazynu geograficznie nadmiarowego użycie magazynu kopii zapasowych jest dwa razy większe niż magazyn lokalnie nadmiarowy. 
 
 Podstawowym sposobem kontrolowania kosztu magazynowania kopii zapasowych jest ustawienie odpowiedniego okresu przechowywania kopii zapasowych i wybranie odpowiednich opcji nadmiarowości kopii zapasowych w celu spełnienia potrzebnych celów odzyskiwania. Możesz wybrać okres przechowywania z zakresu od 7 do 35 dni. Serwery Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci mogą wybrać magazyn Geograficznie nadmiarowy dla kopii zapasowych.
 

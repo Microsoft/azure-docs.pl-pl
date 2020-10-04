@@ -1,17 +1,17 @@
 ---
 title: Ciągłość działania — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano ciągłość biznesową (przywracanie do punktu w czasie, awaria centrum danych, przywracanie geograficzne, repliki) podczas korzystania z Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612020"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710910"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Przegląd ciągłości działania z Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -19,16 +19,20 @@ Ten przegląd zawiera opis możliwości, które Azure Database for PostgreSQL za
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funkcje, których można użyć w celu zapewnienia ciągłości biznesowej
 
-Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które obejmują automatyczne kopie zapasowe, oraz możliwość inicjowania przywracania geograficznego przez użytkowników. Każdy z nich ma różne cechy szacowanego czasu odzyskiwania (ERT) i potencjalną utratę danych. Szacowany czas odzyskiwania (ERT) jest szacowany czas, przez jaki baza danych ma być w pełni funkcjonalna po żądaniu przywracania/przejścia w tryb failover. Po zrozumieniu tych opcji można wybierać spośród nich i używać ich razem w różnych scenariuszach. Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po wystąpieniu zdarzenia zakłócenia — jest to cel czasu odzyskiwania (RTO). Należy również zrozumieć maksymalną ilość najnowszych aktualizacji danych (przedział czasu), jaką aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia — jest to cel punktu odzyskiwania (RPO).
+Podczas opracowywania planu ciągłości biznesowej należy zrozumieć maksymalny akceptowalny czas, po upływie którego aplikacja zostanie w pełni odzyskana po wystąpieniu zdarzenia zakłócenia — jest to cel czasu odzyskiwania (RTO). Należy również zrozumieć maksymalną ilość najnowszych aktualizacji danych (przedział czasu), jaką aplikacja może tolerować podczas odzyskiwania po wystąpieniu zdarzenia zakłócenia — jest to cel punktu odzyskiwania (RPO).
 
-W poniższej tabeli porównano ERT i cel punktu odzyskiwania dla dostępnych funkcji:
+Azure Database for PostgreSQL zapewnia funkcje ciągłości biznesowej, które obejmują geograficznie nadmiarowe kopie zapasowe z możliwością inicjowania przywracania geograficznego oraz wdrażania replik odczytu w innym regionie. Każdy z nich ma różne cechy czasu odzyskiwania i potencjalną utratę danych. Dzięki funkcji [przywracania geograficznego](concepts-backup.md) nowy serwer jest tworzony przy użyciu danych kopii zapasowej replikowanych z innego regionu. Całkowity czas przywracania i odzyskiwania zależy od rozmiaru bazy danych i ilości dzienników do odzyskania. Całkowity czas ustanowienia serwera różni się od kilku minut do kilku godzin. W przypadku [replik odczytu](concepts-read-replicas.md)dzienniki transakcji z podstawowego programu są przesyłane strumieniowo do repliki. Opóźnienie między podstawową i repliką zależy od opóźnienia między lokacjami, a także ilości danych do przesłania. W przypadku awarii lokacji głównej, takiej jak błąd strefy dostępności, podwyższanie poziomu repliki zapewnia krótszą RTO i zmniejsza utratę danych. 
+
+W poniższej tabeli porównano RTO i cel punktu odzyskiwania w typowym scenariuszu:
 
 | **Funkcja** | **Podstawowa** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania |
-| Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h |
+| Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | RTO — różne <br/>Cel punktu odzyskiwania < 1 h | RTO — różne <br/>Cel punktu odzyskiwania < 1 h |
+| Repliki do odczytu | RTO — minuty <br/>Cel punktu odzyskiwania < 5 min | RTO — minuty <br/>Cel punktu odzyskiwania < 5 min| RTO — minuty <br/>Cel punktu odzyskiwania < 5 min|
 
-Można również rozważyć użycie [replik odczytu](concepts-read-replicas.md).
+> [!IMPORTANT]
+> Oczekiwane RTO i cel punktu odzyskiwania są wyłącznie do celów referencyjnych. Dla tych metryk nie są oferowane żadne umowy SLA.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Odzyskiwanie serwera po błędzie użytkownika lub aplikacji
 

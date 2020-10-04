@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647653"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708190"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Utwórz komercyjne konto witryny Marketplace w centrum partnerskim
 
@@ -80,7 +80,7 @@ Twój profil wydawcy zawiera nazwę firmy i identyfikator MPN. Jeśli jeszcze te
     
 1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia**ustawienia  >  **partnera**  >  **programy**.
 
-Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać więcej informacji, zobacz [komercyjne Omówienie witryny Marketplace](./commercial-marketplace-overview.md). Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Tworzenie konta przy użyciu istniejących rejestracji w centrum partnerskim firmy Microsoft
 
@@ -129,7 +129,7 @@ Po zalogowaniu się Zakończ Konfigurowanie konta, wykonując następujące czyn
     
 1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia**ustawienia  >  **partnera**  >  **programy**.
 
-Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać więcej informacji, zobacz [komercyjne Omówienie witryny Marketplace](./commercial-marketplace-overview.md). Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>Co zrobić, Jeśli zarejestrowano już w programie dla deweloperów?
 
@@ -157,7 +157,7 @@ Po zalogowaniu się do Centrum partnerskiego Zakończ Konfigurowanie konta, wyko
     
 1. Aby sprawdzić, czy konto komercyjnej witryny Marketplace jest wyświetlane jako zarejestrowane, wybierz pozycję **Ustawienia**ustawienia  >  **partnera**  >  **programy**.
 
-Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać więcej informacji, zobacz [komercyjne Omówienie witryny Marketplace](./commercial-marketplace-overview.md). Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+Konto komercyjnego portalu Marketplace zostało już utworzone w centrum partnerskim. Aby uzyskać pomoc dotyczącą dodawania wydawców, zobacz [Dodawanie nowych wydawców do komercyjnej witryny Marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Dla wydawców przenoszonych z portal Cloud Partner
 
@@ -190,4 +190,5 @@ Po zakończeniu tego procesu możesz zarządzać nowo utworzonym wydawcą, przec
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Co to jest komercyjne oprogramowanie Microsoft Marketplace?](../overview.md)
 - [Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim](./manage-account.md)

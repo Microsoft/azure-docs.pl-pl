@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: e593cfa06b160539a0d830b9149c9aa9a069a984
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542074"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708320"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -176,7 +176,7 @@ Aby używać Azure Container Registry wewnątrz sieci wirtualnej, należy spełn
 
 * Azure Container Registry musi znajdować się w tej samej sieci wirtualnej i podsieci co konto magazynu i cele obliczeniowe używane do uczenia lub wnioskowania.
 
-* Obszar roboczy Azure Machine Learning musi zawierać [Azure Machine Learning klaster obliczeniowy](how-to-create-attach-compute-sdk.md#amlcompute).
+* Obszar roboczy Azure Machine Learning musi zawierać [Azure Machine Learning klaster obliczeniowy](how-to-create-attach-compute-cluster.md).
 
     Gdy ACR znajduje się za siecią wirtualną, Azure Machine Learning nie może użyć jej do bezpośredniego tworzenia obrazów platformy Docker. Zamiast tego klaster obliczeniowy jest używany do kompilowania obrazów.
 

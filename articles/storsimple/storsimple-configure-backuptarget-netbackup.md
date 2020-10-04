@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184010"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710927"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
 
@@ -92,17 +92,17 @@ W poniższych tabelach przedstawiono wskazówki wstępne dotyczące modelu urzą
 
 | Pojemność magazynu       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Pojemność magazynu lokalnego | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Pojemność magazynu w chmurze | &gt;200 TiB\* | &gt;500 TiB\* |
+| Pojemność magazynu lokalnego | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Pojemność magazynu w chmurze | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Rozmiar magazynu nie zakłada deduplikacji ani kompresji.
+\* Rozmiar magazynu nie zakłada deduplikacji ani kompresji.
 
 **StorSimple pojemności dla podstawowych i pomocniczych kopii zapasowych**
 
 | Scenariusz tworzenia kopii zapasowej  | Pojemność magazynu lokalnego  | Pojemność magazynu w chmurze  |
 |---|---|---|
 | Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na potrzeby szybkiego odzyskiwania w celu spełnienia celu punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO) pasuje do pojemności chmury |
-| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Nie dotyczy  |
+| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Brak  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple jako podstawowy element docelowy kopii zapasowej
 
@@ -132,7 +132,7 @@ Na poniższej ilustracji przedstawiono architekturę, w której początkowe kopi
 
 Ważne jest, aby rozmiar woluminu o wysokiej wydajności mógł obsłużyć wymagania dotyczące pojemności i wydajności zasad przechowywania.
 
-![StorSimple jako docelowy Diagram logiczny pomocniczej kopii zapasowej](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagram przedstawiający architekturę, w której początkowe kopie zapasowe i przywracają docelowy wolumin o wysokiej wydajności.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Pomocnicza procedura logiczna docelowej kopii zapasowej
 
@@ -259,7 +259,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 | GFS wymaganie |   | 38 |   |
 | Dodatkowy przydział  | 4  |   | 42 łączny wymóg GFS  |
 
-\*Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
+\* Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
 
 ## <a name="set-up-netbackup-storage"></a>Konfigurowanie magazynu NetBackup
 
@@ -316,7 +316,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, tworzenie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Wybierz pozycję **OK**.
+2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Wybierz przycisk **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Dodawanie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
@@ -360,7 +360,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
     ![Konsola administracyjna NetBackup, zmiana okna startowego](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. Wybierz pozycję **OK**.
+14. Wybierz przycisk **OK**.
 
 15. Powtórz kroki 10-14 dla każdej przyrostowej kopii zapasowej. Wybierz odpowiedni wolumin i harmonogram dla każdej utworzonej kopii zapasowej.
 
@@ -403,7 +403,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Roczna pełna |Dysk StorSimple (długoterminowy) | 1 | 1 | 1 |
 |Wymaganie rozmiaru woluminów GFS |  |  |  | postanowienia|
 
-\*Całkowita pojemność obejmuje 17 TiB z dysków StorSimple i 1 TiB lokalnego woluminu RAID.
+\* Całkowita pojemność obejmuje 17 TiB z dysków StorSimple i 1 TiB lokalnego woluminu RAID.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Przykładowy harmonogram GFS: GFS rotacja co tydzień, co miesiąc i co rok
@@ -436,7 +436,7 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 
 2. Wprowadź nazwę migawki, a następnie wybierz pozycję **Dodaj**.
 
-3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz pozycję **OK**.
+3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz przycisk **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Nowa operacja](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
@@ -478,7 +478,7 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 | GFS wymaganie  |     |     | 38 |
 | Dodatkowy przydział  | 4  |    | 42 łączny wymóg GFS |
 
-\*Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
+\* Mnożnik GFS to liczba kopii, które należy chronić i zachować, aby spełnić wymagania dotyczące zasad tworzenia kopii zapasowych.
 
 ## <a name="storsimple-cloud-snapshots"></a>Migawki w chmurze StorSimple
 

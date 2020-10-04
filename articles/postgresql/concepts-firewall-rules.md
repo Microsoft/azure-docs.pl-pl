@@ -1,17 +1,17 @@
 ---
 title: Reguły zapory — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano sposób używania reguł zapory do nawiązywania połączenia z serwerem Azure Database for PostgreSQL-pojedynczym.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7048fac4804e16ae70145c8fadc1cd6e0859fcfc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e677aef7a90e7372c5af4bfa48c6160c439b3ee8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903907"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707969"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reguły zapory w Azure Database for PostgreSQL-pojedynczym serwerze
 Zapora serwera Azure Database for PostgreSQL uniemożliwia dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
@@ -40,7 +40,7 @@ Jeśli stały wychodzący adres IP nie jest dostępny dla usługi platformy Azur
 > Opcja **Zezwalaj na dostęp do usług platformy Azure** umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
 > 
 
-:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Konfigurowanie zezwalania na dostęp do usług platformy Azure w portalu":::
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Przykładowy przepływ działania zapory":::
 
 ### <a name="connecting-from-a-vnet"></a>Łączenie z sieci wirtualnej
 Aby bezpiecznie połączyć się z serwerem Azure Database for PostgreSQL z sieci wirtualnej, należy rozważyć użycie [punktów końcowych usługi sieci wirtualnej](./concepts-data-access-and-security-vnet.md). 

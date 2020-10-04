@@ -1,19 +1,19 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie Azure PowerShell-Azure Database for PostgreSQL
 description: Dowiedz się, jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL przy użyciu Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902035"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708105"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for PostgreSQL przy użyciu programu PowerShell
 

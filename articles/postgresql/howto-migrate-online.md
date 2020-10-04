@@ -1,17 +1,17 @@
 ---
 title: Migracja z minimalnym przestojem do Azure Database for PostgreSQL-pojedynczego serwera
 description: W tym artykule opisano, jak przeprowadzić migrację bazy danych PostgreSQL o minimalnym przestoju do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu Azure Database Migration Service.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 8bdafb73c4b791f059f8c38233ae8f9cc5945039
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1f1af53388f177dc348c5cb805ef8e6fbe9f9436
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881985"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710825"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migracja z minimalnym przestojem do Azure Database for PostgreSQL-pojedynczego serwera
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]

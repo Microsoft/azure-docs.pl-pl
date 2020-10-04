@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898102"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708399"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
 
 W tym artykule dowiesz się, jak tworzyć cele obliczeniowe i zarządzać nimi w usłudze Azure Machine Studio.  Można również tworzyć cele obliczeń i zarządzać nimi za pomocą:
 
-* [Zestaw SDK uczenia Azure Machine Learning](how-to-create-attach-compute-sdk.md) 
-* [Rozszerzenie interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md#resource-management) dla Azure Machine Learning
+* Azure Machine Learning uczenie zestawu SDK lub rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
+  * [Wystąpienie obliczeniowe](how-to-create-manage-compute-instance.md)
+  * [Klaster obliczeniowy](how-to-create-attach-compute-cluster.md)
+  * [Klaster usługi Azure Kubernetes](how-to-create-attach-kubernetes.md)
+  * [Inne zasoby obliczeniowe](how-to-attach-compute-targets.md)
 * [Vs Code rozszerzenie](how-to-manage-resources-vscode.md#compute-clusters) Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Jeśli nie masz obiektów docelowych obliczeń, wybierz pozycję  **Utwórz** w środku strony.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Utwórz element docelowy obliczeń":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
 
 1. Jeśli zostanie wyświetlona lista zasobów obliczeniowych, wybierz pozycję **+ Nowy** nad listą.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Wybierz pozycję Nowy":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
 
 
 1. Wypełnij formularz dla typu obliczenia:
@@ -74,14 +77,14 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Wyświetlanie stanu obliczeń z listy":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
 
 
 ### <a name="compute-instance"></a>Wystąpienie obliczeniowe
 
 Wykonaj [powyższe kroki](#portal-create) , aby utworzyć wystąpienie obliczeniowe.  Następnie wypełnij formularz w następujący sposób:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Tworzenie nowego wystąpienia obliczeniowego":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
 
 
 |Pole  |Opis  |
@@ -107,7 +110,7 @@ Tworzenie klastra obliczeniowego pojedynczego lub wielowęzłowego na potrzeby s
 |Maksymalna liczba węzłów | Maksymalna liczba węzłów, które mają zostać objęte obsługą administracyjną. Obliczenia będą automatycznie skalowane do maksymalnej liczby węzłów, gdy zadanie zostanie przesłane. |
 |Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną**i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](how-to-enable-virtual-network.md#compute-instance) wirtualnej.   Dołącz także [zarządzane tożsamości](#managed-identity) , aby udzielić dostępu do zasobów     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Konfigurowanie tożsamości zarządzanej
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Konfigurowanie tożsamości zarządzanej
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333838"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708258"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -273,7 +273,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Skonfiguruj Azure Machine Learning obliczenia jako element docelowy obliczeń i prześlij swój przebieg szkoleniowy. Aby uzyskać instrukcje, zobacz [Tworzenie obiektów docelowych obliczeń za pomocą zestawu SDK języka Python](how-to-create-attach-compute-sdk.md#amlcompute) . Przydatne może być również znalezienie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
+1. Skonfiguruj Azure Machine Learning obliczenia jako element docelowy obliczeń i prześlij swój przebieg szkoleniowy. Instrukcje można znaleźć w temacie [Tworzenie klastrów obliczeniowych Azure Machine Learning i zarządzanie nimi](how-to-create-attach-compute-cluster.md) . Przydatne może być również znalezienie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
 
 1. Pobierz wyjaśnienie w lokalnym notesie Jupyter.
 

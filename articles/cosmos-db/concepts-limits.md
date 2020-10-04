@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653591"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708955"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -137,6 +137,7 @@ W zależności od używanego interfejsu API element platformy Azure Cosmos może
 | Maksymalna długość wartości właściwości | Brak praktycznego limitu |
 | Maksymalna długość wartości właściwości ciągu | Brak praktycznego limitu |
 | Maksymalna długość wartości właściwości liczbowej | IEEE754 o podwójnej precyzji 64-bitowej |
+| Maksymalny poziom zagnieżdżenia dla osadzonych obiektów/tablic | 128 |
 | Maksymalna wartość czasu wygaśnięcia |2147483647|
 
 Nie ma żadnych ograniczeń dotyczących ładunków elementów, takich jak liczba właściwości i głębokość zagnieżdżenia, z wyjątkiem ograniczeń długości klucza partycji i wartości identyfikatora oraz całkowitego ograniczenia rozmiaru wynoszącego 2 MB. Może być konieczne skonfigurowanie zasad indeksowania dla kontenerów z dużymi lub złożonymi strukturami elementów w celu ograniczenia zużycia RU. Zobacz [modelowanie elementów w Cosmos DB](how-to-model-partition-example.md) , aby zapoznać się z rzeczywistym przykładem i wzorcem do zarządzania dużymi elementami.

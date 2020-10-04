@@ -1,17 +1,17 @@
 ---
 title: Monitorowanie i dostrajanie-Azure Database for PostgreSQL-pojedynczy serwer
 description: W tym artykule opisano funkcje monitorowania i dostrajania w Azure Database for PostgreSQL-pojedynczym serwerze.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 2f57d20df6adbb7c1a0c73958cc10035126e29b8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530990"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708717"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for PostgreSQL oferuje różne opcje monitorowania w celu zapewnienia wglądu w zachowanie serwera programu.

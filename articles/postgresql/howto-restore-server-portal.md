@@ -1,17 +1,17 @@
 ---
 title: Kopia zapasowa i przywracanie-Azure Portal-Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano sposób przywracania serwera w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884315"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708088"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu Azure Portal
 
@@ -33,11 +33,11 @@ Podczas tworzenia serwera za pomocą Azure Portal okno **warstwy cenowej** to mi
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Azure Database for PostgreSQL Server — szybki start](quickstart-create-server-database-portal.md).
 
 Okres przechowywania kopii zapasowej serwera można zmienić, wykonując następujące czynności:
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 2. Wybierz serwer usługi Azure Database for PostgreSQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Zwiększono okres przechowywania kopii zapasowej":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 4. Kliknij przycisk **OK** , aby potwierdzić zmianę.
 
@@ -53,11 +53,11 @@ Poniższe kroki umożliwiają przywrócenie przykładowego serwera do punktu w c
 
 2. Na pasku narzędzi na stronie **Przegląd** serwera wybierz pozycję **Przywróć**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL — przegląd — przycisk Przywróć":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 3. Wypełnij formularz Przywracanie wymaganymi informacjami:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for PostgreSQL — przywracanie informacji":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
    - **Punkt przywracania**: Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
    - **Serwer docelowy**: Podaj nazwę nowego serwera.
    - **Lokalizacja**: nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.
@@ -77,17 +77,17 @@ Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie n
 
 1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu. Wybierz pozycję **bazy danych**  >  **Azure Database for PostgreSQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Przejdź do Azure Database for PostgreSQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 2. Wybierz opcję wdrożenia **pojedynczego serwera** .
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Wybierz opcję wdrożenia Azure Database for PostgreSQL — pojedynczy serwer.":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
  
 3. Podaj subskrypcję, grupę zasobów i nazwę nowego serwera. 
 
 4. Wybierz pozycję **kopia zapasowa** jako **Źródło danych**. Ta akcja powoduje załadowanie listy rozwijanej, która zawiera listę serwerów, na których włączono geograficznie nadmiarowe kopie zapasowe.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Wybierz pozycję źródło danych.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
     
    > [!NOTE]
    > Gdy serwer jest tworzony po raz pierwszy, może nie być od razu dostępny do przywracania geograficznego. Wypełnienie wymaganych metadanych może potrwać kilka godzin.
@@ -95,21 +95,21 @@ Jeśli serwer został skonfigurowany pod kątem kopii zapasowych geograficznie n
 
 5. Wybierz listę rozwijaną **kopia zapasowa** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Wybierz listę rozwijaną kopia zapasowa.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 6. Wybierz serwer źródłowy, z którego chcesz wykonać przywracanie.
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Wybierz pozycję Kopia zapasowa.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 7. Serwer będzie domyślnie mieć wartości dla liczby **rdzeni wirtualnych**, **okresu przechowywania kopii zapasowej**, **opcji nadmiarowości kopii zapasowej**, **wersji aparatu**i **poświadczeń administratora**. Wybierz pozycję **Continue** (Kontynuuj). 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Kontynuuj tworzenie kopii zapasowej.":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 8. Wypełnij resztę formularza z preferencjami. Można wybrać dowolną **lokalizację**.
 
     Po wybraniu lokalizacji możesz wybrać pozycję **Konfiguruj serwer** , aby zaktualizować **generowanie obliczeń** (jeśli jest dostępna w wybranym regionie), liczbę **rdzeni wirtualnych**, **okres przechowywania kopii zapasowych**i **opcję nadmiarowości kopii zapasowych**. Zmiana **warstwy cenowej** (podstawowa, ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru **magazynu** podczas przywracania nie jest obsługiwana.
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Wypełnij formularz."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej"::: 
 
 9. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. 
 

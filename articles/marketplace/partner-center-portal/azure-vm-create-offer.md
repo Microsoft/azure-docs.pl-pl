@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405058"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709020"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -53,7 +53,7 @@ Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga zna
 
 Zespół inżynieryjny powinien dysponować podstawową wiedzą i praktyczną wiedzę o następujących technologiach firmy Microsoft:
 
-- [Usługi platformy Azure](https://azure.microsoft.com/services/)
+- [Usługi Azure](https://azure.microsoft.com/services/)
 - [Projektowanie i Architektura aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/)
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
@@ -242,7 +242,7 @@ Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypa
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
@@ -319,7 +319,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz pozycję **Utwórz**.
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -547,7 +547,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w wynikach wyszukiwania w portalu Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -558,7 +558,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład szczegółów planu witryny Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustruje szczegóły planu witryny Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -568,7 +568,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -579,7 +579,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal wynikach wyszukiwania:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -589,7 +589,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład Azure Portal szczegóły planu:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustruje szczegóły planu Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 

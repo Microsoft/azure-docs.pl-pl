@@ -1,17 +1,17 @@
 ---
 title: Zrzuć i Przywróć-Azure Database for PostgreSQL-pojedynczy serwer
 description: Opisuje sposób wyodrębniania bazy danych PostgreSQL do pliku zrzutu i przywracania z pliku utworzonego przez pg_dump w ramach Azure Database for PostgreSQL-jednego serwera.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 529573bd18dbdbd16a795619d488beedfb532b11
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4fe15d1bd23f36b7289c54bedf575ae4760600e0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902676"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710808"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrowanie bazy danych PostgreSQL metodą zrzutu i przywracania
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
@@ -98,7 +98,7 @@ Oto przykład użycia tego **pg_restore** dla **elastycznego serwera**:
 - Możesz również edytować plik zrzutu, dodając zestaw poleceń *synchronous_commit = off;* na początku, a polecenie *Set synchronous_commit = on;* na końcu. Nie włączaj go na końcu, zanim aplikacje zmienią dane, może to spowodować utratę danych.
 
 - Na serwerze docelowym Azure Database for PostgreSQL rozważ wykonanie następujących czynności przed przystąpieniem do przywracania:
-    - Wyłącz śledzenie wydajności zapytań, ponieważ te statystyki nie są zbędne podczas migracji. Można to zrobić, ustawiając pg_stat_statements. Track, pg_qs query_capture_mode i pgms_wait_sampling. query_capture_mode na NONE.
+    - Wyłącz śledzenie wydajności zapytań, ponieważ te statystyki nie są zbędne podczas migracji. Można to zrobić, ustawiając wartości pg_stat_statements. Track, pg_qs. query_capture_mode i pgms_wait_sampling. query_capture_mode na NONE.
 
     - Aby przyspieszyć migrację, należy użyć dużej i dużej ilości pamięci SKU, na przykład 32 rdzeń wirtualny zoptymalizowanej pod kątem pamięci. Po zakończeniu przywracania można łatwo skalować z powrotem do preferowanej jednostki SKU. Im wyższa jednostka SKU, tym bardziej równoległości można osiągnąć przez zwiększenie odpowiedniego `-j` parametru w pg_restore polecenie.
 

@@ -1,17 +1,17 @@
 ---
 title: 'Samouczek: monitorowanie i dostrajanie-Azure Database for PostgreSQL-pojedynczy serwer'
 description: Ten samouczek przeprowadzi Cię przez monitorowanie i dostrajanie w Azure Database for PostgreSQL-pojedynczym serwerze.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895078"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705285"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Samouczek: monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -52,7 +52,7 @@ W widoku [Szczegółowe informacje o wydajności zapytań](concepts-query-perfor
 
 2. Na karcie **Długotrwałe zapytania** jest wyświetlane pięć pierwszych zapytań według średniego czasu trwania na wykonanie, agregowanych w piętnastominutowych interwałach. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Szczegółowe informacje o wydajności zapytań, strona docelowa":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Parametry serwera magazynu zapytań":::
 
    Możesz wyświetlić więcej zapytań, wybierając wartość z listy rozwijanej **Liczba zapytań**. Gdy to zrobisz, kolory wykresu dla określonego identyfikatora zapytania mogą ulec zmianie.
 
@@ -64,7 +64,7 @@ W widoku [Szczegółowe informacje o wydajności zapytań](concepts-query-perfor
 
 6. Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Szczegółowe informacje o wydajności zapytań — statystyki oczekiwania":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Parametry serwera magazynu zapytań":::
 
 ### <a name="permissions"></a>Uprawnienia
 Uprawnienia **Właściciel** lub **Współautor** są wymagane do wyświetlania tekstu zapytań w widoku Szczegółowe informacje o wydajności zapytań. **Czytelnik** może wyświetlać wykresy i tabele, ale nie tekst zapytań.
@@ -75,7 +75,7 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 1. Otwórz **Zalecenia dotyczące wydajności** w sekcji **Pomoc techniczna i rozwiązywanie problemów** paska menu na stronie serwera PostgreSQL w witrynie Azure Portal.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Zalecenia dotyczące wydajności, strona docelowa":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Parametry serwera magazynu zapytań":::
 
 2. Wybierz opcję **Analiza** i wybierz bazę danych. Spowoduje to rozpoczęcie analizy.
 
@@ -85,7 +85,7 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 5. Zalecenia będą zawierały informacje o odpowiedniej **bazie danych**, **tabeli**, **kolumnie** i **rozmiarze indeksu**.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Zalecenia dotyczące wydajności, wyniki":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Parametry serwera magazynu zapytań":::
 
 6. Aby wdrożyć zalecenie, skopiuj tekst zapytania i uruchom je z poziomu wybranego klienta.
 

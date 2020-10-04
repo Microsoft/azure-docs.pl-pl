@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251443"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710723"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -38,7 +38,7 @@ Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji pl
 
 * Przewodniki Szybki start:
 
-    * [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
     * [Przewodnik po najlepszych rozwiązaniach dotyczących szablonów platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publikowanie definicji aplikacji](../../managed-applications/publish-service-catalog-app.md)
     * [Wdrażanie aplikacji katalogu usług](../../managed-applications/deploy-service-catalog-quickstart.md)
@@ -193,7 +193,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -242,7 +242,7 @@ Podaj nazwę, adres e-mail i numer telefonu dla kontaktu **z pomocą techniczną
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.

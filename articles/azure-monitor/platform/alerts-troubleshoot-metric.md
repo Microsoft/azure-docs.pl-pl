@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294229"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710298"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -76,6 +76,9 @@ Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego
 > [!NOTE] 
 > W przypadku skonfigurowania metryk gościa do wysłania do obszaru roboczego Log Analytics metryki są wyświetlane w obszarze zasób obszaru roboczego Log Analytics i rozpoczną wyświetlanie danych **dopiero** po utworzeniu reguły alertu, która je monitoruje. W tym celu postępuj zgodnie z instrukcjami, aby [skonfigurować alert metryki na potrzeby dzienników](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> Monitorowanie metryk gościa dla wielu maszyn wirtualnych z pojedynczą regułą alertu nie jest obecnie obsługiwane przez alerty metryki. Można to osiągnąć za pomocą [reguły alertu dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). W tym celu upewnij się, że metryki gościa są zbierane do obszaru roboczego Log Analytics i Utwórz regułę alertu dziennika w obszarze roboczym.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>Nie można znaleźć metryki do alertu
 
 Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów dotyczących metryk](./alerts-metric-near-real-time.md).
@@ -110,7 +113,7 @@ Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są
 
 Podczas tworzenia reguły alertu metryki Nazwa metryki jest sprawdzana pod kątem [interfejsu API definicji metryk](/rest/api/monitor/metricdefinitions/list) , aby upewnić się, że istnieje. W niektórych przypadkach chcesz utworzyć regułę alertu dla metryki niestandardowej nawet przed emisją. Na przykład podczas tworzenia (przy użyciu szablonu Menedżer zasobów) Application Insights zasobu, który będzie emitować metrykę niestandardową, wraz z regułą alertu, która monitoruje tę metrykę.
 
-Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji metryk niestandardowych, można użyć parametru *skipMetricValidation* w sekcji kryteria reguły alertu, co spowoduje Pominięcie sprawdzania poprawności metryki. Zapoznaj się z poniższym przykładem, jak używać tego parametru w szablonie Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [pełne przykłady szablonów Menedżer zasobów na potrzeby tworzenia reguł alertów dotyczących metryk](./alerts-metric-create-templates.md).
+Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji metryk niestandardowych, można użyć parametru *skipMetricValidation* w sekcji kryteria reguły alertu, co spowoduje Pominięcie sprawdzania poprawności metryki. Zapoznaj się z poniższym przykładem, jak używać tego parametru w szablonie Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [pełne przykłady szablonów Menedżer zasobów do tworzenia reguł alertów dotyczących metryk](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -245,13 +248,19 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Na przykład:
+Przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS
     - Chcę zaktualizować pierwszy warunek i monitorować tylko transakcje, w przypadku których wymiar **ApiName** ma wartość *"GetBlob"*
     - Ponieważ metryki **Transactions** i **SuccessE2ELatency** obsługują wymiar **ApiName** , należy zaktualizować oba warunki i określić, że oba z nich określają wymiar **ApiName** z wartością *"GetBlob"* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Ustawianie okresu i częstotliwości dla reguły alertu
+
+Zalecamy wybranie *stopnia szczegółowości agregacji (okres)* , który jest większy niż *częstotliwość obliczania*, aby zmniejszyć prawdopodobieństwo braku pierwszej oceny dodanej szeregu czasowego w następujących przypadkach:
+-   Reguła alertu metryki, która monitoruje wiele wymiarów — po dodaniu nowej kombinacji wartości wymiaru
+-   Reguła alertu metryki, która monitoruje wiele zasobów — po dodaniu nowego zasobu do zakresu
+-   Reguła alertu dotyczącego metryki, która monitoruje metrykę nieemitowaną ciągle (metrykę rozrzedzoną) — gdy Metryka jest emitowana po okresie dłuższym niż 24 godziny, w którym nie została wyemitowana
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Łączenie przy użyciu języka Python-Azure Database for PostgreSQL-pojedynczego serwera'
 description: Ten przewodnik Szybki Start zawiera przykłady kodu w języku Python, których można używać do nawiązywania połączeń i wysyłania zapytań dotyczących danych z jednego serwera Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901816"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707901"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -105,7 +105,7 @@ conn.close()
 
 Po pomyślnym uruchomieniu kodu generowane są następujące dane wyjściowe:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Dane wyjściowe wiersza polecenia":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Nazwa serwera usługi Azure Database for PostgreSQL":::
 
 ## <a name="read-data"></a>Odczyt danych
 Poniższy przykład kodu nawiązuje połączenie z bazą danych Azure Database for PostgreSQL i używa [cursor.exeurocze](http://initd.org/psycopg/docs/cursor.html#execute) z instrukcją **SELECT** języka SQL w celu odczytu danych. Ta funkcja akceptuje zapytanie i zwraca zestaw wyników, aby wykonać iterację przy użyciu funkcji [Cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

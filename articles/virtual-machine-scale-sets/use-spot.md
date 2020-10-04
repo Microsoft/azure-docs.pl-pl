@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072744"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709048"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -163,8 +163,7 @@ Odp **.:** Tak, możesz ustawić reguły skalowania automatycznego w zestawie sk
 
 **P:**  Czy automatyczne skalowanie jest wykonywane z użyciem zasad wykluczania (cofanie alokacji i usuwanie)?
 
-Odp **.:** Zalecane jest ustawienie zasad wykluczania do usunięcia podczas korzystania z funkcji automatycznego skalowania. Wynika to z faktu, że nieprzypisane wystąpienia są zliczane względem liczby pojemności w zestawie skalowania. W przypadku korzystania z funkcji automatycznego skalowania prawdopodobnie dojdziemy do szybszej liczby wystąpień docelowych ze względu na cofnięte alokacje. 
-
+Odp **.:** Zalecane jest ustawienie zasad wykluczania do usunięcia podczas korzystania z funkcji automatycznego skalowania. Wynika to z faktu, że nieprzypisane wystąpienia są zliczane względem liczby pojemności w zestawie skalowania. W przypadku korzystania z funkcji automatycznego skalowania prawdopodobnie dojdziemy do szybszej liczby wystąpień docelowych ze względu na cofnięte alokacje. Ponadto wykluczanie danych może mieć wpływ na operacje skalowania. Na przykład wystąpienia VMSS mogą spaść poniżej ustawionej liczby minimalnej ze względu na wykluczenie wielu punktów podczas operacji skalowania. 
 
 **P:** Jakie kanały obsługują maszyny wirtualne na miejscu?
 
@@ -174,11 +173,11 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
+| Enterprise Agreement         | Tak                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](/partner-center/azure-plan-get-started) |
 | Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Yes                               |
+| Sponsorowan                    | Tak                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 

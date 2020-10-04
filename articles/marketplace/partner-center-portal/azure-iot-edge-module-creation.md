@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815780"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708343"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -78,9 +78,9 @@ Po opublikowaniu oferty w witrynie Marketplace z centrum partnerskim możesz opc
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
-- [Omówienie zarządzania potencjalnymi klientami](commercial-marketplace-get-customer-leads.md)
-- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Typowe błędy konfiguracji potencjalnych klientów](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Potencjalni klienci z oferty komercyjnej witryny Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Często zadawane pytania dotyczące zarządzania potencjalnymi klientami](../lead-management-faq.md#common-questions-about-lead-management)
+- [Rozwiązywanie problemów z błędami konfiguracji potencjalnego klienta](../lead-management-faq.md#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
@@ -194,7 +194,7 @@ Aby dowiedzieć się więcej na temat tworzenia list ofert, zobacz [najlepsze ro
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
@@ -242,7 +242,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w wynikach wyszukiwania w portalu Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -252,7 +252,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -263,7 +263,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal wynikach wyszukiwania:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -362,7 +362,7 @@ Po zakończeniu tych pól wybierz pozycję **Zapisz wersję roboczą** .
 
 Oto przykładowe szczegóły dotyczące planu witryny Azure Marketplace (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustruje szczegóły planu witryny Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -372,7 +372,7 @@ Oto przykładowe szczegóły dotyczące planu witryny Azure Marketplace (wszystk
 
 <br>Poniżej przedstawiono przykładowe szczegóły planu Azure Portal (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustruje szczegóły planu Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -413,7 +413,7 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 **Nazwa użytkownika administratora dla Azure Container Registry**: Podaj [nazwę użytkownika administratora](../../container-registry/container-registry-authentication.md#admin-account)) skojarzoną z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure. Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Opis połączenia
 
@@ -421,7 +421,7 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 <br>**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -429,7 +429,7 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 2. Nazwa użytkownika
 3. Hasło
 
-**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria**Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Należy pamiętać, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
+**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria**Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tagi obrazu dla nowych wersji oferty
 
@@ -466,7 +466,7 @@ Jeśli na przykład moduł wymaga zaakceptowania warunków użytkowania przed ro
 - Nazwa #1: ACCEPT_EULA
 - Wartość #1: Y
 
-**Domyślne opcje tworzenia kontenera**. Opcje tworzenia kontenera kierują tworzeniem kontenera Docker modułu IoT Edge. IoT Edge obsługuje opcje tworzenia kontenera interfejsu API aparatu platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Pole Create Options musi być prawidłowym kodem JSON, bez znaku ucieczki i krótszym niż 512 znaków.
+**Domyślne opcje tworzenia kontenera**. Opcje tworzenia kontenera kierują tworzeniem kontenera Docker modułu IoT Edge. IoT Edge obsługuje opcje tworzenia kontenera interfejsu API aparatu platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Pole Create Options musi być prawidłowym kodem JSON, bez znaku ucieczki i mniej niż 512 znaków.
 
 Na przykład, jeśli moduł wymaga powiązania portu, Zdefiniuj następujące opcje tworzenia:
 

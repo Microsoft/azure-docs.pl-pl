@@ -1,17 +1,17 @@
 ---
 title: Dekodowanie logiczne-Azure Database for PostgreSQL-pojedynczy serwer
 description: Opisuje logiczne dekodowanie i wal2json na potrzeby przechwytywania zmian danych w ramach jednego serwera Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903896"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708615"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
@@ -38,7 +38,7 @@ Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten 
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-1. Ustaw platformę Azure. replication_support na `logical` .
+1. Ustaw azure.replication_support na `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -56,7 +56,7 @@ Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten 
 
 2. Uruchom ponownie serwer, aby zastosować zmiany, wybierając opcję **tak**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikacja — Obsługa replikacji platformy Azure":::
 
 
 ## <a name="start-logical-decoding"></a>Rozpocznij dekodowanie logiczne
@@ -159,7 +159,7 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień platformę Azure. replication_support z powrotem na `replica` lub `off` . Szczegóły WAL przechowywane przez `logical` program są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używane. 
+> Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień azure.replication_support z powrotem na `replica` lub `off` . Szczegóły WAL przechowywane przez `logical` program są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używane. 
 
  
 ## <a name="next-steps"></a>Następne kroki

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419758"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708360"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,7 +22,7 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne sklepy online Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z typami rozwiązań i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. W każdym sklepie online dostępne są wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma magazynami online, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
+Komercyjne sklepy online Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z typami rozwiązań i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. W każdym sklepie online dostępne są wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między programem AppSource i portalem Azure Marketplace, zobacz [komercyjne sklepy online Marketplace](overview.md#commercial-marketplace-online-stores).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 

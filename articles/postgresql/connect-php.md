@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Łączenie przy użyciu języka PHP-Azure Database for PostgreSQL-pojedynczego serwera'
 description: Ten przewodnik Szybki Start zawiera przykład kodu w języku PHP, którego można użyć do nawiązywania połączeń i wysyłania zapytań dotyczących danych z jednego serwera Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 8443742fb883a63ec869157de7bf436d8f6f5ad6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 45fa455d00a757e6df87d2a93982f33fe4e64bef
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901887"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710366"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka PHP do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 

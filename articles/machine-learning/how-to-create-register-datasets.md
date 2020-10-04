@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 544cb38876d038bb6cf8bfce19f00f19c1427f72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58377913d4352038a683c67986ad33e215315457
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302353"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708419"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
@@ -47,9 +47,9 @@ Aby tworzyć zestawy danych i korzystać z nich, potrzebne są:
 
 * [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), który obejmuje pakiet usługi Azure DataSets.
 
-    * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
+    * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](how-to-create-manage-compute-instance.md), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
 
-    **ORAZ**
+    **OR**
 
     * Pracuj nad własnym notesem Jupyter i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 

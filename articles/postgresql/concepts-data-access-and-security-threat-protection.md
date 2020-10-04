@@ -1,17 +1,17 @@
 ---
 title: Zaawansowana ochrona przed zagrożeniami — Azure Database for PostgreSQL — pojedynczy serwer
 description: Więcej informacji na temat korzystania z funkcji zaawansowanej ochrony przed zagrożeniami w celu wykrywania nietypowych działań bazy danych wskazujących na potencjalne zagrożenia bezpieczeństwa bazy danych.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fbb6a7dbe73444ac9049573705e4d04bd868a806
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cfe565c45ea6aa0a4bcfecc95b1e1149b17542a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884568"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708054"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Zaawansowana ochrona przed zagrożeniami w programie Azure Database for PostgreSQL — pojedynczy serwer
 

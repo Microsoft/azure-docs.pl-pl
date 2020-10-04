@@ -1,19 +1,19 @@
 ---
 title: Skrypt interfejsu wiersza polecenia platformy Azure — zmiana konfiguracji serwera (PostgreSQL)
 description: Ten przykładowy skrypt interfejsu wiersza polecenia zwraca listę wszystkich dostępnych opcji konfiguracji serwera i aktualizuje wartość jednej z opcji.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 097b7692c5088a0860b8778fe8f315a84cf6b147
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 722db134d6cd5287a0eddee844ccbf6b6ef98a10
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496563"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709057"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Uzyskiwanie listy i aktualizowanie konfiguracji serwera usługi Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia zwraca listę wszystkich dostępnych parametrów konfiguracji oraz ich dopuszczalnych wartości dla serwera usługi Azure Database for PostgreSQL, a także ustawia parametr *log_retention_days* na wartość inną niż domyślna.
