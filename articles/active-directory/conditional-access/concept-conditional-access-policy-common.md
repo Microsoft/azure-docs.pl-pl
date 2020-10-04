@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024387"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705062"
 ---
 # <a name="common-conditional-access-policies"></a>Typowe zasady dostępu warunkowego
 
@@ -38,14 +38,14 @@ Więcej informacji o kontach dostępu awaryjnego i o tym, dlaczego są ważne, m
 * [Wymagaj uwierzytelniania wieloskładnikowego na potrzeby zarządzania na platformie Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Te cztery zasady po połączeniu ze sobą funkcje podśladu włączone przy użyciu [ustawień domyślnych zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md).
+\* Te cztery zasady po połączeniu ze sobą funkcje podśladu włączone przy użyciu [ustawień domyślnych zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Dodatkowe zasady
 
-* [Logowanie warunkowe oparte na ryzyku (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk.md)
+* [Dostęp warunkowy oparty na ryzyku związanym z logowaniem (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk.md)
 * [Dostęp warunkowy oparty na ryzyku (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Wymaganie zaufanej lokalizacji na potrzeby rejestracji uwierzytelniania wieloskładnikowego](howto-conditional-access-policy-registration.md)
-* [Blokuj dostęp według lokalizacji](howto-conditional-access-policy-location.md)
+* [Blokowanie dostępu według lokalizacji](howto-conditional-access-policy-location.md)
 * [Wymaganie zgodnego urządzenia](howto-conditional-access-policy-compliant-device.md)
 * [Blokuj dostęp poza określonymi aplikacjami](howto-conditional-access-policy-block-access.md)
 

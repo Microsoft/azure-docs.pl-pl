@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722742"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704603"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
@@ -58,7 +58,7 @@ Aby uzyskać dostęp do szablonu skoroszytu dla raportu Przegląd zabezpieczeń,
 1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*
 1. Z menu po lewej stronie wybierz pozycję **monitorowanie > skoroszyty**
 
-    ![Wybierz opcję menu skoroszyty w Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Zrzut ekranu, który hightlights, gdzie można wybrać raport Przegląd zabezpieczeń i raport aktywności konta.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Wybierz **raport Przegląd zabezpieczeń**.
 1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie obszar roboczy Azure Monitor.

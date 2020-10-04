@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: projektowanie Azure Database for PostgreSQL-pojedynczego serwera — Azure PowerShell'
 description: W tym samouczku pokazano, jak utworzyć, skonfigurować i wykonać zapytania dotyczące pierwszego serwera Azure Database for PostgreSQL-pojedynczego przy użyciu Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b424213a1041c426653e5cb455615111c265746a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d60fbf57847c26d03fab4eb98fd74607984369da
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500065"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707606"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Samouczek: projektowanie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu programu PowerShell
 
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL jest usługą relacyjnej bazy danych w chmurze fir
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -134,7 +134,7 @@ Jeśli na Twoim komputerze klienckim jest zainstalowany program PostgreSQL, moż
    ```
 
    > [!TIP]
-   > Jeśli wolisz używać ścieżki URL w celu nawiązania połączenia z usługą Postgres, adres URL Koduj znak @ w nazwie użytkownika za pomocą `%40` . Na przykład parametry połączenia dla PSQL byłyby,`psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
+   > Jeśli wolisz używać ścieżki URL w celu nawiązania połączenia z usługą Postgres, adres URL Koduj znak @ w nazwie użytkownika za pomocą `%40` . Na przykład parametry połączenia dla PSQL byłyby, `psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
 
 1. Po nawiązaniu połączenia z serwerem utwórz pustą bazę danych za pomocą wiersza polecenia.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d6820e890607ff16230ecf48e8318e6d1119a3a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309102"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707510"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
 
@@ -141,10 +141,11 @@ Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo 
 
 ### <a name="example-responses"></a>Przykładowe odpowiedzi
 
-Wersja 3 zapewnia oddzielne punkty końcowe dla NER i konsolidacji jednostek. Odpowiedzi dla obu operacji są poniżej. 
+Wersja 3 zawiera oddzielne punkty końcowe dla ogólnych NER, dane OSOBowe i powiązania jednostek. Odpowiedzi dla obu operacji są poniżej. 
 
 #### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
+Przykład ogólnej odpowiedzi NER:
 ```json
 {
   "documents": [
@@ -198,6 +199,44 @@ Wersja 3 zapewnia oddzielne punkty końcowe dla NER i konsolidacji jednostek. Od
 ```
 #### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-preview)
 
+Przykład odpowiedzi na dane OSOBowe:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+Przykład powiązania jednostki z odpowiedzią:
 ```json
 {
   "documents": [
@@ -244,7 +283,6 @@ Wersja 3 zapewnia oddzielne punkty końcowe dla NER i konsolidacji jednostek. Od
   "modelVersion": "2020-02-01"
 }
 ```
-
 ---
 
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276071"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704732"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -69,7 +69,7 @@ Dzięki ciągłej zmianie danych potrzebne są szybkie i usprawnione szkolenia m
 
 Azure Machine Learning użytkownicy mogą korzystać z zarządzanego Azure Machine Learning klastra obliczeniowego, nazywanego również AmlCompute. AmlCompute obsługuje wiele opcji procesora GPU i procesorów. AmlCompute jest wewnętrznie hostowana w imieniu subskrypcji przez Azure Machine Learning. Zapewnia to takie samo bezpieczeństwo, zgodność i zarządzanie, na platformie Azure IaaS w skali chmury.
 
-Ponieważ te pule obliczeniowe należą do infrastruktury IaaS platformy Azure, można wdrożyć, skalować i zarządzać szkoleniami z tymi samymi wymaganiami dotyczącymi zabezpieczeń i zgodności, co w przypadku reszty infrastruktury.  Te wdrożenia są wykonywane w ramach subskrypcji i przestrzegają reguł zarządzania. Dowiedz się więcej na temat [Azure Machine Learning obliczeń](how-to-create-attach-compute-sdk.md#amlcompute).
+Ponieważ te pule obliczeniowe należą do infrastruktury IaaS platformy Azure, można wdrożyć, skalować i zarządzać szkoleniami z tymi samymi wymaganiami dotyczącymi zabezpieczeń i zgodności, co w przypadku reszty infrastruktury.  Te wdrożenia są wykonywane w ramach subskrypcji i przestrzegają reguł zarządzania. Dowiedz się więcej na temat [Azure Machine Learning obliczeń](how-to-create-attach-compute-cluster.md).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurowanie klastrów szkoleniowych na potrzeby automatycznego skalowania
 
@@ -127,4 +127,4 @@ Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadk
 Dowiedz się więcej na następujące tematy:
 * [Zarządzanie i zwiększanie przydziałów zasobów](how-to-manage-quotas.md)
 * [Zarządzanie kosztami przy użyciu analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Utwórz Azure Machine Learning COMPUTE przy użyciu [zestawu SDK](how-to-create-attach-compute-sdk.md#amlcompute) lub w programie [Studio](how-to-create-attach-compute-studio.md#amlcompute).
+* Utwórz Azure Machine Learning COMPUTE przy użyciu [zestawu SDK](how-to-create-attach-compute-cluster.md) lub w programie [Studio](how-to-create-attach-compute-studio.md#amlcompute).

@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie serwera-Azure PowerShell-Azure Database for PostgreSQL-pojedynczego serwera'
 description: Przewodnik Szybki Start dotyczący tworzenia Azure Database for PostgreSQL-pojedynczego serwera przy użyciu Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 082adc0753cb8e41bc61f5703445e6b8507202b5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7f04c4c52b2c1e2b347699168b3255d2f809278b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902688"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705317"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu programu PowerShell
 
@@ -66,7 +66,7 @@ Poniższa tabela zawiera listę często używanych parametrów i wartości przyk
 | SKU                        | GP_Gen5_2        | Nazwa jednostki SKU. Postępuj zgodnie z Konwencją ** \_ \_ rdzeni wirtualnych obliczeń warstwy cenowej** . Aby uzyskać więcej informacji na temat parametru SKU, zobacz informacje przedstawione w tej tabeli.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres wynosi od 7 do 35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled (Włączony)          | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe. Tej wartości nie można włączyć dla serwerów w warstwie cenowej podstawowa i nie można jej zmienić po utworzeniu serwera. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                      |
-| Location                   | westus           | Region świadczenia usługi Azure dla serwera.                                                                                                                                                                                                                                                                                                         |
+| Lokalizacja                   | westus           | Region świadczenia usługi Azure dla serwera.                                                                                                                                                                                                                                                                                                         |
 | SslEnforcement             | Enabled (Włączony)          | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Pojemność magazynu serwera (w megabajtach). Prawidłowe StorageInMb to co najmniej 5120 MB i zwiększa się w przyrostach 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Azure Database for PostgreSQL warstwy cenowe](./concepts-pricing-tiers.md).                                                                               |
 | Wersja                    | 9,6              | Wersja główna PostgreSQL.                                                                                                                                                                                                                                                                                                                 |
@@ -169,7 +169,7 @@ pgAdmin to narzędzie open source używane z bazą danych PostgreSQL. Aplikację
 
 1. W oknie dialogowym **Create - Server** (Tworzenie — Serwer) na karcie **Connection** (Połączenie) uzupełnij tabelę ustawień.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="Karta połączenie":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="Karta Ogólne":::
 
     Parametr narzędzia pgAdmin |Wartość|Opis
     ---|---|---
@@ -193,13 +193,13 @@ pgAdmin to narzędzie open source używane z bazą danych PostgreSQL. Aplikację
 
 1. Z listy rozwijanej wybierz pozycję **Właściciel** dla bazy danych. Wybierz nazwę logowania administratora serwera, np. przykładową nazwę **my admin**.
 
-   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Tworzenie bazy danych w programie pgAdmin":::
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Karta Ogólne":::
 
 1. Wybierz pozycję **Zapisz**, aby utworzyć nową pustą bazę danych.
 
 1. W okienku **Browser** (Przeglądarka) utworzona baza danych zostanie wyświetlona na liście baz danych w ramach pozycji nazwy serwera.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby utworzone w tym przewodniku Szybki Start nie są potrzebne do korzystania z innego przewodnika Szybki start lub samouczka, możesz je usunąć, uruchamiając Poniższy przykład.
 

@@ -1,18 +1,18 @@
 ---
 title: Limity-Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano limity w Azure Database for PostgreSQL-pojedynczym serwerze, takie jak liczba opcji połączenia i aparatu magazynu.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665261"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707527"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limity w Azure Database for PostgreSQL-pojedynczym serwerze
 W poniższych sekcjach opisano pojemności i limity funkcjonalne usługi bazy danych. Jeśli chcesz dowiedzieć się więcej o warstwach zasobów (obliczeniowych, pamięci, magazynu), zobacz artykuł [warstwy cenowe](concepts-pricing-tiers.md) .

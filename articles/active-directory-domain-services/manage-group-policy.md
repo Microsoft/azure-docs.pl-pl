@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040082"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704858"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrowanie zasady grupy w Azure Active Directory Domain Servicesej domenie zarządzanej
 
@@ -90,7 +90,7 @@ Istnieją dwa wbudowane obiekty zasady grupy (GPO) w domenie zarządzanej — je
 
 1. Zostanie otwarte narzędzie Edytor zarządzania zasadami grupy umożliwiające dostosowanie obiektu zasad grupy, takiego jak *Zasady konta*:
 
-    ![Dostosuj obiekt zasad grupy, aby skonfigurować ustawienia zgodnie z potrzebami](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Zrzut ekranu przedstawiający Edytor zarządzania zasadami grupy.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Po zakończeniu wybierz pozycję **plik > Zapisz** , aby zapisać zasady. Komputery domyślnie odświeżają zasady grupy co 90 minut i stosują wprowadzone zmiany.
 

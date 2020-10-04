@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142405"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704382"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Przykład: Jak wyodrębnić kluczowe frazy przy użyciu analiza tekstu
 
@@ -23,14 +23,16 @@ ms.locfileid: "84142405"
 
 Ta możliwość jest przydatna, jeśli chcesz szybko zidentyfikować główne tematy w kolekcji dokumentów. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” usługa zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”.
 
-Więcej informacji, zobacz [Obsługiwane języki](../text-analytics-supported-languages.md).
+Aby uzyskać więcej informacji, zobacz [obsługiwane języki](../text-analytics-supported-languages.md).
 
 > [!TIP]
 > Analiza tekstu udostępnia również obraz kontenera platformy Docker oparty na systemie Linux na potrzeby wyodrębniania kluczowych fraz, można więc [zainstalować i uruchomić kontener analizy tekstu](text-analytics-how-to-install-containers.md) blisko danych.
 
 ## <a name="preparation"></a>Przygotowanie
 
-Wyodrębnianie kluczowych fraz działa najlepiej na większej ilości tekstu. Jest to przeciwieństwo analizy tonacji, która działa lepiej na mniejszej ilości tekstu. Aby uzyskać najlepsze wyniki dla obu operacji, rozważ odpowiednią zmianę struktury danych wejściowych.
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
+Wyodrębnianie kluczowych fraz działa najlepiej na większej ilości tekstu. Jest to przeciwieństwo analizy tonacji, która działa lepiej na mniejszej ilości tekstu. Aby uzyskać najlepsze wyniki obydwu operacji, warto rozważyć odpowiednią zmianę struktury danych wejściowych.
 
 Musisz mieć dokumenty JSON w tym formacie: ID, text, language
 
@@ -74,7 +76,7 @@ Aby uzyskać informacje na temat definicji żądania, zobacz [jak wywołać inte
 
 + Utwórz żądanie **POST**. Zapoznaj się z dokumentacją interfejsu API dla tego żądania: [interfejs API fraz kluczy](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Ustaw punkt końcowy HTTP na potrzeby wyodrębniania fraz kluczowych przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz uwzględnić `/text/analytics/v3.0/keyPhrases` w adresie URL. Na przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Ustaw punkt końcowy HTTP na potrzeby wyodrębniania fraz kluczowych przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz uwzględnić `/text/analytics/v3.0/keyPhrases` w adresie URL. Przykład: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Ustaw nagłówek żądania w taki sposób, aby zawierał [klucz dostępu](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dla operacji analiza tekstu.
 
@@ -95,57 +97,66 @@ Wszystkie żądania POST zwracają odpowiedź w formacie JSON z identyfikatorami
 
 Dane wyjściowe są zwracane natychmiast. Wyniki można przesłać strumieniowo do aplikacji, która akceptuje kod JSON, lub zapisać do pliku w systemie lokalnym, a następnie zaimportować do aplikacji, która umożliwia sortowanie i wyszukiwanie danych oraz manipulowanie nimi.
 
-W tym miejscu pokazano przykład danych wyjściowych dla wyodrębniania kluczowych fraz:
+Przykład danych wyjściowych dotyczących wyodrębniania fraz kluczowych z punktu końcowego v 3.1 — Preview. 2 jest przedstawiony tutaj:
 
 ```json
     {
-        "documents": [
-            {
-                "keyPhrases": [
-                    "year",
-                    "trail",
-                    "trip",
-                    "views"
-                ],
-                "id": "1"
-            },
-            {
-                "keyPhrases": [
-                    "marked trails",
-                    "Worst hike",
-                    "goners"
-                ],
-                "id": "2"
-            },
-            {
-                "keyPhrases": [
-                    "trail",
-                    "small children",
-                    "family"
-                ],
-                "id": "3"
-            },
-            {
-                "keyPhrases": [
-                    "spectacular views",
-                    "trail",
-                    "area"
-                ],
-                "id": "4"
-            },
-            {
-                "keyPhrases": [
-                    "places",
-                    "beautiful views",
-                    "favorite trail"
-                ],
-                "id": "5"
-            }
-        ],
-        "errors": []
+       "documents":[
+          {
+             "id":"1",
+             "keyPhrases":[
+                "year",
+                "trail",
+                "trip",
+                "views",
+                "hike"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"2",
+             "keyPhrases":[
+                "marked trails",
+                "Worst hike",
+                "goners"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"3",
+             "keyPhrases":[
+                "trail",
+                "small children",
+                "family"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"4",
+             "keyPhrases":[
+                "spectacular views",
+                "trail",
+                "Worth",
+                "area"
+             ],
+             "warnings":[]
+          },
+          {
+             "id":"5",
+             "keyPhrases":[
+                "places",
+                "beautiful views",
+                "favorite trail",
+                "rest"
+             ],
+             "warnings":[]
+          }
+       ],
+       "errors":[],
+       "modelVersion":"2020-07-01"
     }
-```
 
+```
 Jak wspomniano, Analizator znajdzie i odrzuca nieważne słowa i utrzymuje pojedyncze terminy lub frazy, które wyglądają jako temat lub obiekt zdania.
 
 ## <a name="summary"></a>Podsumowanie
@@ -157,13 +168,13 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do wyodrębn
 + Żądanie POST jest wysyłane do punktu końcowego `/keyphrases` za pomocą spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) prawidłowego dla używanej subskrypcji.
 + Dane wyjściowe odpowiedzi, które składają się z kluczowych słów i fraz dla każdego identyfikatora dokumentu, mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON, w tym Microsoft Office Excel i Power BI, aby nazwać kilka.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Omówienie analizy tekstu](../overview.md) [Frequently asked questions (FAQ) (Często zadawane pytania (FAQ))](../text-analytics-resource-faq.md)</br>
  [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd analiza tekstu](../overview.md)
+* [Przegląd analizy tekstu](../overview.md)
 * [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/text-analytics-sdk.md)
 * [Co nowego](../whats-new.md)

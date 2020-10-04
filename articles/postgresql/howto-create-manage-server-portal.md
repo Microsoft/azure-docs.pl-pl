@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie Azure Database for PostgreSQL-Azure Portal
 description: Dowiedz się, jak zarządzać serwerem Azure Database for PostgreSQL przy użyciu Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.openlocfilehash: 02a50a94b0b07d1755abe78c567df7ff5c7eda92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 393e67d1b690f7231b5bf298b44f4db7c489d184
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907452"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704518"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Zarządzanie serwerem Azure Database for PostgreSQL przy użyciu Azure Portal
 
@@ -50,7 +50,7 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 2. Zmień ustawienie **rdzeń wirtualny** , przesuwając suwak do żądanej wartości.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wybranie opcji rdzeń wirtualny w Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Skalowanie rdzeni wirtualnych powoduje ponowne uruchomienie serwera.
@@ -63,7 +63,7 @@ Możesz skalować od Ogólnego przeznaczenia do zoptymalizowanej pod kątem pami
 
 2. Zmień ustawienie **magazynu** , przesuwając suwak w górę do żądanej wartości.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby wybrać skalę magazynu w Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Nie można skalować magazynu.
@@ -76,11 +76,11 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
 
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Resetuj hasło**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal resetowania hasła w programie Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
 2. Wprowadź nowe hasło i Potwierdź hasło. W polu tekstowym zostanie wyświetlony monit o podanie wymagań dotyczących złożoności haseł.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal resetowania hasła i zapisywania w Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
 3. Wybierz **przycisk OK** , aby zapisać nowe hasło.
 
@@ -90,11 +90,11 @@ Serwer można usunąć, jeśli nie jest już potrzebny.
 
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal usuwania serwera w programie Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
 2. Wpisz nazwę serwera w polu wejściowym, aby upewnić się, że jest to serwer, który chcesz usunąć.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby potwierdzić, że serwer jest usuwany Azure Database for PostgreSQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w celu wybrania warstwy Podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci w Azure Database for PostgreSQL":::
 
    > [!NOTE]
    > Usuwanie serwera jest nieodwracalne.

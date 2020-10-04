@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
-ms.openlocfilehash: 56febc6c2a0e88b2be547c71a2f90ccfa9b78f26
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.date: 10/02/2020
+ms.openlocfilehash: 68143d3ee5df6dca29c43cb090f5873c4b50060f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630835"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704694"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -24,7 +24,7 @@ Wystąpienia obliczeniowe ułatwiają rozpoczęcie pracy z programowaniem Azure 
 
 Użyj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska programistycznego w chmurze na potrzeby uczenia maszynowego. Mogą one również służyć jako obiekt docelowy obliczeń na potrzeby szkoleń i inferencing na potrzeby tworzenia i testowania.  
 
-Aby uzyskać szkolenia modelu klasy produkcyjnej, użyj [Azure Machine Learning klastra obliczeniowego](how-to-create-attach-compute-sdk.md#amlcompute) z możliwościami skalowania wielowęzłowego. W celu wdrożenia modelu klasy produkcyjnej należy użyć [klastra usługi Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
+Aby uzyskać szkolenia modelu klasy produkcyjnej, użyj [Azure Machine Learning klastra obliczeniowego](how-to-create-attach-compute-cluster.md) z możliwościami skalowania wielowęzłowego. W celu wdrożenia modelu klasy produkcyjnej należy użyć [klastra usługi Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Dlaczego warto używać wystąpienia obliczeniowego?
 
@@ -37,6 +37,8 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 |Wstępnie skonfigurowane &nbsp; dla &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
 
+Można [utworzyć wystąpienie obliczeniowe](how-to-create-manage-compute-instance.md?tabs=python#create) samodzielnie lub administrator może [utworzyć wystąpienie obliczeniowe dla Ciebie](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
+
 ## <a name="tools-and-environments"></a><a name="contents"></a>Narzędzia i środowiska
 
 > [!IMPORTANT]
@@ -45,7 +47,9 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 
 Wystąpienie obliczeniowe Azure Machine Learning umożliwia tworzenie, uczenie i wdrażanie modeli w pełni zintegrowane środowisko notesu w obszarze roboczym.
 
-Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym: 
+Można [zainstalować pakiety](how-to-create-manage-compute-instance.md#install-packages) i [dodać jądra](how-to-create-manage-compute-instance.md#add-new-kernels) do wystąpienia obliczeniowego.  
+
+Te narzędzia i środowiska są już zainstalowane w wystąpieniu obliczeniowym: 
 
 |Narzędzia ogólne & środowiska|Szczegóły|
 |----|:----:|
@@ -78,46 +82,6 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 
 Wszystkie pakiety języka Python są zainstalowane w środowisku **python 3,6-Azure** .  
 
-### <a name="installing-packages"></a>Instalowanie pakietów
-
-Pakiety można instalować bezpośrednio w Jupyter Notebook lub RStudio:
-
-* RStudio Użyj karty **pakiety** w prawym dolnym rogu lub karty **konsoli** w lewym górnym rogu.  
-* Python: Dodawanie kodu instalacji i wykonywanie w komórce Jupyter Notebook.
-
-Możesz też uzyskać dostęp do okna terminalu w dowolny z następujących sposobów:
-
-* RStudio: Wybierz kartę **terminalu** u góry po lewej stronie.
-* Jupyter Lab: wybierz kafelek **terminalu** pod **innym** nagłówkiem na karcie Uruchamianie.
-* Jupyter: wybierz pozycję **Nowy Terminal>** w prawym górnym rogu na karcie pliki.
-* SSH z maszyną.  Następnie zainstaluj pakiety Python w środowisku **python 3,6-Azure** .  Zainstaluj pakiety języka R w środowisku **języka r** .
-
-Podczas dostosowywania wystąpienia obliczeniowego upewnij się, że nie usuniesz środowiska azureml_py36 Conda lub języka Python 3,6 — jądra Azure. Jest to niezbędny w przypadku funkcji Jupyter/JupyterLab
-
-### <a name="add-new-kernels"></a>Dodaj nowe jądra
-
-Aby dodać nowe jądro Jupyter do wystąpienia obliczeniowego:
-
-1. Tworzenie nowego terminalu z poziomu okienka Jupyter, JupyterLab lub z notesów lub z poziomu protokołu SSH do wystąpienia obliczeniowego
-2. Użyj okna terminalu, aby utworzyć nowe środowisko.  Na przykład poniższy kod tworzy `newenv` :
-    ```shell
-    conda create --name newenv
-    ```
-3. Aktywuj środowisko.  Na przykład po utworzeniu `newenv` :
-
-    ```shell
-    conda activate newenv
-    ```
-4. Zainstaluj pakiet PIP i ipykernel w nowym środowisku i Utwórz jądro dla tej Conda ENV
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) .
-
 ## <a name="accessing-files"></a>Uzyskiwanie dostępu do plików
 
 Notesy i skrypty języka R są przechowywane na domyślnym koncie magazynu Twojego obszaru roboczego w udziale plików platformy Azure.  Te pliki znajdują się w katalogu "pliki użytkownika". Ten magazyn ułatwia udostępnianie notesów między wystąpieniami obliczeniowymi. Konto magazynu umożliwia również bezpieczne zachowywanie Twoich notesów po zatrzymaniu lub usunięciu wystąpienia obliczeniowego.
@@ -131,68 +95,6 @@ Najnowsze przykłady Azure Machine Learning można także klonować do folderu w
 Pisanie małych plików może być wolniejsze na dyskach sieciowych niż zapis na dysku lokalnym wystąpienia obliczeniowego.  Jeśli piszesz wiele małych plików, spróbuj użyć katalogu bezpośrednio w wystąpieniu obliczeniowym, takim jak `/tmp` katalog. Uwaga Te pliki nie będą dostępne z innych wystąpień obliczeniowych. 
 
 Możesz użyć `/tmp` katalogu w wystąpieniu obliczeniowym dla danych tymczasowych.  Nie należy jednak zapisywać dużych plików danych na dysku systemu operacyjnego wystąpienia obliczeniowego.  Zamiast nich należy używać [magazynów](concept-azure-machine-learning-architecture.md#datasets-and-datastores) danych. Jeśli zainstalowano rozszerzenie git JupyterLab, może to również prowadzić do spowolnienia działania wystąpienia obliczeniowego.
-
-## <a name="managing-a-compute-instance"></a>Zarządzanie wystąpieniem obliczeniowym
-
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
-
-![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
-
-Można wykonać następujące czynności:
-
-* [Utwórz wystąpienie obliczeniowe](#create). 
-* Odśwież kartę wystąpienia obliczeniowe.
-* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego.  Płatność za wystąpienie jest dokonywana za każdym razem, gdy jest ono uruchomione. Zatrzymaj wystąpienie obliczeniowe, gdy nie jest używane, aby obniżyć koszty. Zatrzymywanie wystąpienia obliczeniowego powoduje jego przydział. Następnie uruchom ją ponownie, gdy będzie potrzebna.
-* Usuń wystąpienie obliczeniowe.
-* Przefiltruj listę wystąpień obliczeniowych, aby wyświetlić tylko te, które zostały utworzone.
-
-Dla każdego wystąpienia obliczeniowego w obszarze roboczym, którego możesz użyć, możesz:
-
-* Dostęp do Jupyter, JupyterLab, RStudio w wystąpieniu obliczeniowym
-* Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
-* Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
-
-[RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC i naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
-
-Te akcje można kontrolować za pomocą RBAC:
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
-
-### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego
-
-W obszarze roboczym programu Azure Machine Learning Studio [Utwórz nowe wystąpienie obliczeniowe](how-to-create-attach-compute-studio.md#compute-instance) z sekcji **obliczenia** lub w sekcji **notesy** , gdy wszystko będzie gotowe do uruchomienia jednego z notesów. 
-
-Można również utworzyć wystąpienie
-* Bezpośrednio w [środowisku zintegrowanych notesów](tutorial-1st-experiment-sdk-setup.md#azure)
-* W Azure Portal
-* Z szablonu Azure Resource Manager. Przykładowy szablon można znaleźć w temacie [Create a Azure Machine Learning COMPUTE instance Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Z [zestawem SDK Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
-* Z [rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
-
-Dedykowane rdzenie dla poszczególnych regionów na poszczególne regiony i łączne limity przydziału regionalnego, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane przy użyciu Azure Machine Learninggo przydziału klastra obliczeniowego. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe.
-
-
-### <a name="create-on-behalf-of-preview"></a>Utwórz w imieniu (wersja zapoznawcza)
-
-Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu Analityka danych i przypisać do nich wystąpienie:
-* [Szablon Azure Resource Manager](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
-* Interfejs API REST
-
-Analityk danych tworzy wystąpienie obliczeniowe wymagające następujących uprawnień RBAC: 
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
-* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/applicationaccess/akcja*
-
-Analityk danych może uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienie obliczeniowe. Mogą używać wystąpienia obliczeniowego dla:
-* Jupyter
-* JupyterLab
-* RStudio
-* Zintegrowane notesy
 
 ## <a name="compute-target"></a>Docelowy zasób obliczeniowy
 
@@ -218,4 +120,5 @@ Nie można utworzyć nowych maszyn wirtualnych notesu. Można jednak nadal uzysk
 
 ## <a name="next-steps"></a>Następne kroki
 
- * [Samouczek: uczenie swojego pierwszego modelu ml](tutorial-1st-experiment-sdk-train.md) pokazuje, jak używać wystąpienia obliczeniowego z zintegrowanym notesem.
+* [Tworzenie wystąpienia obliczeniowego i zarządzanie nim](how-to-create-manage-compute-instance.md)
+* [Samouczek: uczenie swojego pierwszego modelu ml](tutorial-1st-experiment-sdk-train.md) pokazuje, jak używać wystąpienia obliczeniowego z zintegrowanym notesem.

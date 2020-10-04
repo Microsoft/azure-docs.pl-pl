@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer'
 description: W tym przewodniku szybki start utworzysz serwer Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 182226a0bb97c9239f1c0d0dc6e7d4d2b8bdbb1c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798877"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705266"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 

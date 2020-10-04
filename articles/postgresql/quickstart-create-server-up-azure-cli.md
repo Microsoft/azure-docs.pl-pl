@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie serwera-AZ Postgres up-Azure Database for PostgreSQL-Single Server'
 description: Przewodnik Szybki Start dotyczący tworzenia Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e4615db3dbabbc4b18dad7d6ec805ddff10e8fd7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300021"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705113"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: korzystanie z interfejsu wiersza polecenia platformy Azure, AZ Postgres up (wersja zapoznawcza) w celu utworzenia Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -63,10 +63,10 @@ resource-group | Wygenerowano system | Nowa grupa zasobów platformy Azure.
 sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa}\_{generacja obliczeniowa}\_{rdzenie wirtualne} w skrócie. Wartość domyślna to Ogólnego przeznaczenia serwer 5 rdzeń z 2 rdzeni wirtualnych. Aby uzyskać więcej informacji o warstwach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) .
 backup-retention | 7 | Czas przechowywania kopii zapasowej. Jednostka to dni.
 geo-redundant-backup | Disabled | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
-location | westus2 | Lokalizacja platformy Azure dla serwera.
+location | zachodnie_stany_USA_2 | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Disabled | Czy na tym serwerze powinien być włączony protokół TLS/SSL.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
-version | 10 | Wersja główna PostgreSQL.
+Wersja | 10 | Wersja główna PostgreSQL.
 admin-user | Wygenerowano system | Nazwa użytkownika administratora.
 admin-password | Wygenerowano system | Hasło użytkownika administratora.
 

@@ -4,14 +4,14 @@ description: Zgłoś alert w skali przy użyciu jednej reguły alertu dla wielu 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186999"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704484"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitoruj wiele szeregów czasowych w jednej regule alertu metryki
 
@@ -21,7 +21,7 @@ Pojedyncza reguła alertu metryki może służyć do monitorowania jednej lub wi
 
 Seria czasowa metryk jest serią pomiarów (lub "wartości metryk") przechwytywanych w danym okresie czasu. 
 
-Na przykład:
+Przykład:
 
 - Użycie procesora CPU przez maszynę wirtualną
 - Przychodzące bajty (ruch przychodzący) do konta magazynu
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji na temat reguł alertów dotyczących wielu zaso
 
 Reguła alertu o pojedynczej metryce może również monitorować maksymalnie pięć warunków dla każdej reguły alertu. 
 
-Na przykład:
+Przykład:
 
 - Zasób docelowy: *myVM1*
 - Condition1
@@ -174,6 +174,11 @@ Cennik reguł alertów dotyczących metryk są dostępne na [stronie cennik Azur
 Podczas tworzenia reguły alertu dotyczącego metryki podane oszacowanie cen bazuje na wybranych funkcjach i liczbie monitorowanych szeregów czasowych, co jest określane na podstawie konfiguracji reguły i bieżących wartości metryk. Miesięczna opłata jest naliczana w oparciu o rzeczywiste oceny szeregów czasowych, a w związku z tym różni się od oryginalnego oszacowania, jeśli niektóre serie czasowe nie mają danych do oceny lub jeśli reguła alertu używa funkcji, które mogą skalować ją dynamicznie.
 
 Na przykład reguła alertu może przedstawiać wysoki poziom oszacowania cen, jeśli wykorzystuje funkcję wielowymiarową, a wybrano dużą liczbę kombinacji wartości wymiarów, co prowadzi do monitorowania wielu szeregów czasowych. Jednak rzeczywista opłata dla tej reguły alertu może być niższa, jeśli nie wszystkie serie czasowe, które wynikają z kombinacji wartości wymiarów, faktycznie mają dane do obliczenia.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Liczba szeregów czasowych monitorowanych przez pojedynczą regułę alertu
+
+Aby uniknąć nadmiernych kosztów, Każda reguła alertów może domyślnie monitorować do 5000 serii czasowych. Aby podnieść ten limit z subskrypcji, Otwórz bilet pomocy technicznej.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

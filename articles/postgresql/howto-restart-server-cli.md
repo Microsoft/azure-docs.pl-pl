@@ -1,18 +1,18 @@
 ---
 title: Uruchom ponownie serwer — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano, jak można ponownie uruchomić pojedynczy serwer Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 495c9015da3c169a3325e1379487aa5a1ac4dfdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 30770dd7ed71f4cde68c1a616a256bf60b5acaef
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489932"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704739"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Ponowne uruchamianie Azure Database for PostgreSQL — pojedynczy serwer przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for PostgreSQL. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.
@@ -28,7 +28,7 @@ Aby ukończyć ten przewodnik, musisz:
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz polecenie `az --version` . Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="restart-the-server"></a>Uruchom ponownie serwer.
