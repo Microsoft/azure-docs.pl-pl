@@ -1,17 +1,17 @@
 ---
 title: Najlepsze rozwiązania w zakresie magazynu zapytań w Azure Database for PostgreSQL-pojedynczym serwerze
 description: W tym artykule opisano najlepsze rozwiązania dotyczące magazynu zapytań w ramach Azure Database for PostgreSQL-jednego serwera.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70764231"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708836"
 ---
 # <a name="best-practices-for-query-store"></a>Najlepsze rozwiązania dotyczące magazynu zapytań
 
@@ -22,24 +22,24 @@ W tym artykule opisano najlepsze rozwiązania dotyczące korzystania z magazynu 
 ## <a name="set-the-optimal-query-capture-mode"></a>Ustawianie optymalnego trybu przechwytywania zapytania
 Pozwól, aby Magazyn zapytań przechwytł dane. 
 
-|**pg_qs. query_capture_mode** | **Scenariusz**|
+|**pg_qs pg_qs.query_capture_mode** | **Scenariusz**|
 |---|---|
-|_Wszystko_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
+|_Całą_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
 |_Pierwsze_  |Należy skoncentrować się na najważniejszych zapytaniach — tych, które są wystawiane przez klientów.
 |_Brak_ |Przechwycono już zestaw zapytań i przedział czasu, które chcesz zbadać, i chcesz wyeliminować rozpraszanie, które mogą zostać wprowadzone przez inne zapytania. _Żadna nie_ jest odpowiednia do testowania i oznaczania na kanapie. _Nie_ należy stosować z zachowaniem ostrożności, ponieważ możesz pominąć szansę śledzenia i optymalizacji ważnych nowych zapytań. Nie można odzyskać danych w oknach, które przeszły czas. |
 
-Magazyn zapytań zawiera również magazyn do statystyk oczekiwania. Istnieje dodatkowe zapytanie w trybie przechwytywania, które zarządza statystyką oczekiwania: **pgms_wait_sampling. query_capture_mode** można ustawić na _none_ lub _All_. 
+Magazyn zapytań zawiera również magazyn do statystyk oczekiwania. Istnieje dodatkowe zapytanie w trybie przechwytywania, które zarządza statystyką oczekiwania: **pgms_wait_sampling. query_capture_mode** może mieć wartość _none_ lub _All_. 
 
 > [!NOTE] 
-> **pg_qs. query_capture_mode** zastępuje **pgms_wait_sampling. query_capture_mode**. Jeśli pg_qs. query_capture_mode ma _wartość None_, pgms_wait_sampling. query_capture_mode ustawienie nie ma żadnego wpływu. 
+> **pg_qs. query_capture_mode** zastępuje **pgms_wait_sampling. query_capture_mode**. Jeśli pg_qs. query_capture_mode ma _wartość None_, ustawienie pgms_wait_sampling. query_capture_mode nie ma żadnego efektu. 
 
 
 ## <a name="keep-the-data-you-need"></a>Zachowaj potrzebne dane
-Parametr **pg_qs. retention_period_in_days** określa w dniach okres przechowywania danych dla magazynu zapytań. Starsze dane dotyczące zapytań i statystyk są usuwane. Domyślnie magazyn zapytań jest skonfigurowany tak, aby dane były przechowywane przez 7 dni. Unikaj przechowywania danych historycznych, których nie planujesz używać. Zwiększ wartość, jeśli chcesz, aby dane były dłużej przechowywane.
+**Pg_qs. retention_period_in_days** parametr określa w dniach okres przechowywania danych dla magazynu zapytań. Starsze dane dotyczące zapytań i statystyk są usuwane. Domyślnie magazyn zapytań jest skonfigurowany tak, aby dane były przechowywane przez 7 dni. Unikaj przechowywania danych historycznych, których nie planujesz używać. Zwiększ wartość, jeśli chcesz, aby dane były dłużej przechowywane.
 
 
 ## <a name="set-the-frequency-of-wait-stats-sampling"></a>Ustaw częstotliwość próbkowania statystyk oczekiwania 
-Parametr **pgms_wait_sampling. history_period** określa, jak często (w milisekundach) zdarzenia oczekiwania są próbkowane. Im krótszy okres, tym częstsze próbkowanie. Pobrano więcej informacji, ale jest to koszt większego zużycia zasobów. Zwiększ ten okres, jeśli serwer jest objęty obciążeniem lub nie potrzebujesz stopnia szczegółowości
+**Pgms_wait_sampling. history_period** określa, jak często (w milisekundach) zdarzenia oczekiwania są próbkowane. Im krótszy okres, tym częstsze próbkowanie. Pobrano więcej informacji, ale jest to koszt większego zużycia zasobów. Zwiększ ten okres, jeśli serwer jest objęty obciążeniem lub nie potrzebujesz stopnia szczegółowości
 
 
 ## <a name="get-quick-insights-into-query-store"></a>Uzyskaj szybki wgląd w szczegółowe informacje na temat magazynu zapytań

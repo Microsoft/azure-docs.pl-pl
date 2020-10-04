@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886089"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710060"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów
 
@@ -79,4 +79,4 @@ Jeśli nie jest wymagane przechowywanie danych, Zapisz pliki w `./outputs` folde
 
 * Dowiedz się więcej o [uzyskiwaniu dostępu do danych z Twoich magazynów](how-to-access-data.md).
 
-* Dowiedz się więcej na temat tworzenia obiektów docelowych obliczeń za pomocą [zestawu SDK języka Python](how-to-create-attach-compute-sdk.md) lub programu [Studio](how-to-create-attach-compute-studio.md).
+* Dowiedz się więcej [na temat tworzenia obiektów docelowych obliczeń na potrzeby szkoleń i wdrażania modelu](how-to-create-attach-compute-studio.md)

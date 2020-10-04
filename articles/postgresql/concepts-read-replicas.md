@@ -1,17 +1,17 @@
 ---
 title: Odczytaj repliki — Azure Database for PostgreSQL — pojedynczy serwer
 description: W tym artykule opisano funkcję Read Replica w Azure Database for PostgreSQL — pojedynczy serwer.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530944"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710519"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Odczytaj repliki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -83,7 +83,7 @@ W wierszu polecenia wprowadź hasło dla konta użytkownika.
 ## <a name="monitor-replication"></a>Monitorowanie replikacji
 Azure Database for PostgreSQL udostępnia dwie metryki do monitorowania replikacji. Dwie metryki to **maksymalne opóźnienie między replikami** i **zwłoką repliki**. Aby dowiedzieć się, jak wyświetlić te metryki, zobacz sekcję **monitorowanie repliki** w [artykule Jak uzyskać informacje o replikacji](howto-read-replicas-portal.md).
 
-Metryka **maks. opóźnienie między replikami** pokazuje opóźnienie w bajtach między podstawową i najbardziej opóźnioną repliką. Ta Metryka jest dostępna tylko na serwerze podstawowym.
+Metryka **maks. opóźnienie między replikami** pokazuje opóźnienie w bajtach między podstawową i najbardziej opóźnioną repliką. Ta Metryka jest dostępna tylko na serwerze podstawowym i będzie dostępna tylko wtedy, gdy co najmniej jedna z replik odczytu jest połączona z serwerem podstawowym.
 
 Metryka **opóźnienia repliki** przedstawia czas od ostatniego odtworzonej transakcji. Jeśli na serwerze podstawowym nie ma żadnych transakcji, Metryka uwzględnia ten czas opóźnienia. Ta Metryka jest dostępna tylko dla serwerów repliki. Opóźnienie repliki jest obliczane na podstawie `pg_stat_wal_receiver` widoku:
 
@@ -141,6 +141,9 @@ Po podjęciu decyzji o przejściu do trybu failover w replice
     
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
+### <a name="disaster-recovery"></a>Odzyskiwanie po awarii
+
+W przypadku wystąpienia poważnych zdarzeń awaryjnych, takich jak strefa dostępności lub awarie regionalne, można wykonać operację odzyskiwania po awarii, promując replikę odczytu. W portalu interfejsu użytkownika można przejść do serwera odczytywania repliki. Następnie kliknij kartę replikacja, a następnie Zatrzymaj replikę, aby zapewnić jej niezależny serwer. Alternatywnie można użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) do zatrzymania i podniesienia poziomu serwera repliki.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 

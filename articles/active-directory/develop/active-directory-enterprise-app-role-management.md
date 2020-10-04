@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116091"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704552"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -75,7 +75,7 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -159,7 +159,7 @@ Jeśli aplikacja oczekuje, że role niestandardowe mają być przesyłane do odp
 
     a. Kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika & oświadczenia** .
 
-      ![Przycisk "Dodaj atrybut"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Zrzut ekranu, który wyróżnia ikonę edycji używaną do otwierania atrybutów użytkownika & okno dialogowe.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. W oknie dialogowym **Zarządzanie oświadczeniami użytkowników** Dodaj ATRYBUT tokenu SAML, klikając pozycję **Dodaj nowe oświadczenie**.
 
@@ -189,7 +189,7 @@ Aby zaktualizować istniejącą rolę, wykonaj następujące czynności:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -227,7 +227,7 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Jeśli używasz wielu katalogów, postępuj zgodnie z tym wzorcem: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Eksplorator grafu — okno dialogowe z zapytaniem dotyczącym pobierania listy jednostek usługi](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 

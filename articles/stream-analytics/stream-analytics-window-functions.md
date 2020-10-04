@@ -6,21 +6,21 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/16/2020
+ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075926"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707561"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okna Stream Analytics
 
 W scenariuszach przesyłania strumieniowego w czasie wykonywanie operacji na danych zawartych w oknach czasowych jest typowym wzorcem. Stream Analytics ma natywną obsługę funkcji okna, dzięki czemu deweloperzy mogą tworzyć złożone zadania przetwarzania strumieniowego z minimalnym nakładem pracy.
 
-Istnieją cztery rodzaje danych czasowych do wyboru: [**wirowania**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**przeskoku**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**przesuwane**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)i okna [**sesji**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) .  Używasz funkcji okna w klauzuli [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) składni zapytania w zadaniach Stream Analytics. Można również agregować zdarzenia w wielu oknach przy użyciu funkcji [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Dostępne są pięć rodzajów danych czasowych do wyboru: [**wirowania**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**przeskoku**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**przesuwane**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**sesji**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)i [**migawki**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) systemu Windows.  Używasz funkcji okna w klauzuli [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) składni zapytania w zadaniach Stream Analytics. Można również agregować zdarzenia w wielu oknach przy użyciu funkcji [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Wszystkie operacje [okna](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) są wyprowadzane na **końcu** okna. Dane wyjściowe okna będą pojedynczym zdarzeniem na podstawie użytej funkcji agregującej. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są definiowane ze stałą długością. 
+Wszystkie operacje [okna](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) są wyprowadzane na **końcu** okna. Należy pamiętać, że po uruchomieniu zadania usługi Stream Analytics można określić *godzinę rozpoczęcia danych wyjściowych zadania* , a system automatycznie pobierze poprzednie zdarzenia w strumieniach przychodzących w celu wygenerowania pierwszego okna w określonym czasie. na przykład po rozpoczęciu pracy z opcją *Now* rozpocznie się natychmiastowe wyemitowanie danych. Dane wyjściowe okna będą pojedynczym zdarzeniem na podstawie użytej funkcji agregującej. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są definiowane ze stałą długością. 
 
 ![Pojęcia dotyczące funkcji okna Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -30,7 +30,7 @@ Funkcje okna wirowania są używane do segmentacji strumienia danych w różne s
 ![Stream Analytics okno wirowania](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Okno przeskoku
-Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres. Okna te przypominają okna wirowania, ale mogą się nakładać, więc zdarzenia mogą należeć do więcej niż jednego zestawu wyników okien powtarzanych. Aby okno przeskoku było takie samo jak okno wirowania, określ rozmiar przeskoku tak samo jak rozmiar okna. 
+Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres. Można je łatwo traktować jako wirowania okna, które mogą się nakładać i być emitowane częściej niż rozmiar okna. Zdarzenia mogą należeć do więcej niż jednego zestawu wyników okna przeskoku. Aby okno przeskoku było takie samo jak okno wirowania, określ rozmiar przeskoku tak samo jak rozmiar okna. 
 
 ![Stream Analytics okno przeskoku](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
