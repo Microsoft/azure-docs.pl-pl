@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569656"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715208"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -54,7 +54,9 @@ Zobacz [pojęcia wysokiej dostępności](concepts-high-availability.md) , aby uz
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatyczne stosowanie poprawek za pomocą zarządzanego okna obsługi
 
-Usługa wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawki obejmują aktualizacje zabezpieczeń i oprogramowania. W przypadku aparatu MySQL uaktualnienia wersji pomocniczej są również dołączone jako część planowanej wersji konserwacji. Użytkownicy mogą konfigurować harmonogram stosowania poprawek, aby był zarządzany przez system lub definiować własny harmonogram. W harmonogramie konserwacji poprawka zostanie zastosowana i serwer może wymagać ponownego uruchomienia w ramach procesu poprawek, aby ukończyć aktualizację. Zgodnie z harmonogramem niestandardowym użytkownicy mogą przewidywalnić swój cykl poprawek i wybrać okno obsługi z minimalnym wpływem na firmę. Ogólnie rzecz biorąc usługa jest zgodna z harmonogramem wydań w ramach ciągłej integracji i wydania. 
+Usługa wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawki obejmują aktualizacje zabezpieczeń i oprogramowania. W przypadku aparatu MySQL uaktualnienia wersji pomocniczej są również dołączone jako część planowanej wersji konserwacji. Użytkownicy mogą konfigurować harmonogram stosowania poprawek, aby był zarządzany przez system lub definiować własny harmonogram. W harmonogramie konserwacji poprawka zostanie zastosowana i serwer może wymagać ponownego uruchomienia w ramach procesu poprawek, aby ukończyć aktualizację. Zgodnie z harmonogramem niestandardowym użytkownicy mogą przewidywalnić swój cykl poprawek i wybrać okno obsługi z minimalnym wpływem na firmę. Ogólnie rzecz biorąc usługa jest zgodna z harmonogramem wydań w ramach ciągłej integracji i wydania.
+
+Aby uzyskać więcej informacji, zobacz [zaplanowana konserwacja](concepts-maintenance.md) . 
 
 ## <a name="automatic-backups"></a>Automatyczne kopie zapasowe
 
@@ -86,6 +88,8 @@ Zobacz [pojęcia dotyczące obliczeń i magazynu](concepts-compute-storage.md) ,
 ## <a name="stopstart-server-to-optimize-cost"></a>Zatrzymaj/Uruchom serwer, aby zoptymalizować koszt
 
 Elastyczna usługa serwerowa umożliwia zatrzymanie i uruchomienie serwera na żądanie w celu zoptymalizowania kosztów. Rozliczanie w warstwie obliczeniowej jest zatrzymywane natychmiast po zatrzymaniu serwera. Dzięki temu można mieć znaczny koszt oszczędności podczas opracowywania, testowania i dla przewidywalnych obciążeń produkcyjnych. Serwer pozostaje w stanie zatrzymania przez siedem dni, chyba że zostanie jeszcze wcześniej uruchomiony. 
+
+Aby dowiedzieć się więcej, zobacz [pojęcia dotyczące serwerów](concept-servers.md) . 
 
 ## <a name="enterprise-grade-security-and-privacy"></a>Bezpieczeństwo i prywatność klasy korporacyjnej
 

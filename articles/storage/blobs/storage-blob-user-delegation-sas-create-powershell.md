@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 781d76cb80dd375c54d1283ecf27f543765f5ddb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077028"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714519"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB przy użyciu programu PowerShell
 
@@ -75,9 +75,9 @@ Connect-AzAccount
 
 Aby uzyskać więcej informacji na temat logowania przy użyciu programu PowerShell, zobacz [Logowanie za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-## <a name="assign-permissions-with-rbac"></a>Przypisywanie uprawnień przy użyciu RBAC
+## <a name="assign-permissions-with-azure-rbac"></a>Przypisywanie uprawnień za pomocą usługi Azure RBAC
 
-Aby można było utworzyć sygnaturę dostępu współdzielonego delegowania użytkownika z Azure PowerShell, konto usługi Azure AD używane do logowania się do programu PowerShell musi mieć przypisaną rolę obejmującą akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . To uprawnienie umożliwia kontu usługi Azure AD zażądanie *klucza delegowania użytkownika*. Klucz delegowania użytkownika służy do podpisywania sygnatury dostępu współdzielonego delegowania użytkownika. Rola dostarczająca akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** musi być przypisana na poziomie konta magazynu, grupy zasobów lub subskrypcji. Aby uzyskać więcej informacji na temat uprawnień RBAC do tworzenia sygnatury dostępu współdzielonego delegowania użytkowników, zobacz sekcję **przypisywanie uprawnień za pomocą RBAC** w temacie [Tworzenie delegowania konta użytkownika](/rest/api/storageservices/create-user-delegation-sas).
+Aby można było utworzyć sygnaturę dostępu współdzielonego delegowania użytkownika z Azure PowerShell, konto usługi Azure AD używane do logowania się do programu PowerShell musi mieć przypisaną rolę obejmującą akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . To uprawnienie umożliwia kontu usługi Azure AD zażądanie *klucza delegowania użytkownika*. Klucz delegowania użytkownika służy do podpisywania sygnatury dostępu współdzielonego delegowania użytkownika. Rola dostarczająca akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** musi być przypisana na poziomie konta magazynu, grupy zasobów lub subskrypcji. Aby uzyskać więcej informacji o uprawnieniach usługi Azure RBAC do tworzenia sygnatury dostępu współdzielonego delegowania użytkowników, zobacz sekcję **przypisywanie uprawnień za pomocą usługi Azure RBAC** w temacie [Tworzenie skojarzenia zabezpieczeń delegowania użytkowników](/rest/api/storageservices/create-user-delegation-sas).
 
 Jeśli nie masz wystarczających uprawnień do przypisywania ról platformy Azure do podmiotu zabezpieczeń usługi Azure AD, może być konieczne poproszenie właściciela konta lub administratora, aby przypisał odpowiednie uprawnienia.
 

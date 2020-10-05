@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449777"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714965"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące włączania usługi Azure a
 - Maszyny wirtualne nie mogą łączyć się z obszarem roboczym usługi log Analytics w innej subskrypcji
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
-**Jakie uprawnienie RBAC jest potrzebne do włączenia autozarządzania?**
+**Jakie uprawnienia RBAC platformy Azure są potrzebne do włączenia autozarządzania?**
 
 Jeśli włączysz Autozarządzanie na maszynie wirtualnej z istniejącym kontem autozarządzania, musisz mieć rolę współautora dla grupy zasobów, w której znajduje się maszyna wirtualna.
 

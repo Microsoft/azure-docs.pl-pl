@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671325"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713046"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozuj problemy z konfiguracją linków prywatnych na Azure Key Vault
 
@@ -24,7 +24,7 @@ Jeśli jesteś nowym elementem tej funkcji, zobacz [integracja Key Vault z prywa
 
 ### <a name="symptoms-covered-by-this-article"></a>Objawy omówione w tym artykule
 
-- Zapytania DNS nadal zwracają publiczny adres IP dla magazynu kluczy, a nie prywatny adres IP, który powinien być używany przez funkcję łącza prywatnego.
+- Zapytania DNS nadal zwracają publiczny adres IP dla magazynu kluczy, a nie prywatny adres IP, który powinien być używany przez funkcję linków prywatnych.
 - Wszystkie żądania wykonywane przez danego klienta, który używa linku prywatnego, kończą się niepowodzeniem z przekroczeniem limitu czasu lub błędami sieciowymi, a problem nie jest sporadyczny.
 - Magazyn kluczy ma prywatny adres IP, ale żądania nadal uzyskują `403` odpowiedź z `ForbiddenByFirewall` wewnętrznym kodem błędu.
 - Używasz linków prywatnych, ale Magazyn kluczy nadal akceptuje żądania z publicznego Internetu.
@@ -34,7 +34,7 @@ Jeśli jesteś nowym elementem tej funkcji, zobacz [integracja Key Vault z prywa
 ### <a name="symptoms-not-covered-by-this-article"></a>Objawy nieobjęte tym artykułem
 
 - Występuje tymczasowy problem z łącznością. W danym kliencie zobaczysz, że niektóre żądania działają, a niektóre nie działają. *Sporadyczne problemy zwykle nie są spowodowane problemem z konfiguracją linków prywatnych; są one znakiem przeciążenia sieci lub klienta.*
-- Używasz programu i produktu platformy Azure, który obsługuje BYOK (Bring Your Own Key) lub CMK (klucze zarządzane przez klienta) i że produkt nie może uzyskać dostępu do magazynu kluczy. *Zapoznaj się z dokumentacją innych produktów. Upewnij się, że jawnie stanowi obsługę magazynów kluczy z włączoną zaporą. W razie potrzeby skontaktuj się z pomocą techniczną dotyczącą tego konkretnego produktu.*
+- Używasz produktu platformy Azure, który obsługuje BYOK (Bring Your Own Key) lub CMK (klucze zarządzane przez klienta) i że produkt nie może uzyskać dostępu do magazynu kluczy. *Zapoznaj się z dokumentacją innych produktów. Upewnij się, że jawnie stanowi obsługę magazynów kluczy z włączoną zaporą. W razie potrzeby skontaktuj się z pomocą techniczną dotyczącą tego konkretnego produktu.*
 
 ### <a name="how-to-read-this-article"></a>Jak przeczytać ten artykuł
 
@@ -46,7 +46,7 @@ Zaczynamy!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Upewnij się, że klient jest uruchomiony w sieci wirtualnej
 
-Ten przewodnik rozwiązywania problemów dotyczy połączeń z magazynem kluczy, który pochodzi z kodu aplikacji. Przykładami są aplikacje i skrypty wykonywane w maszynach wirtualnych, klastrach Service Fabric platformy Azure, Azure App Service, usłudze Azure Kubernetes Service (AKS) i podobnych innych.
+Ten przewodnik ma pomóc w naprawieniu połączeń z magazynem kluczy, który pochodzi z kodu aplikacji. Przykładami są aplikacje i skrypty wykonywane w ramach platformy Azure Virtual Machines, klastry Service Fabric platformy Azure, Azure App Service, usługa Azure Kubernetes Service (AKS) i podobne inne.
 
 Przez zdefiniowanie linków prywatnych, aplikacja lub skrypt musi działać na komputerze, klastrze lub środowisku podłączonym do Virtual Network, w którym został wdrożony [zasób prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md) . Jeśli aplikacja działa w dowolnej sieci połączonej z Internetem, ten przewodnik nie ma zastosowania i prawdopodobnie nie można używać prywatnych linków.
 
@@ -128,7 +128,7 @@ Należy zdiagnozować rozpoznawanie nazw hostów, a dla tego należy znać dokł
 Adres IP to ta, którą maszyny wirtualne i inne urządzenia *działające w tym samym Virtual Network* będą używane do nawiązywania połączenia z magazynem kluczy. Zanotuj adres IP lub pozostaw otwartą kartę przeglądarki i nie dotykaj jej w trakcie dalszych badań.
 
 >[!NOTE]
-> Jeśli magazyn kluczy ma wiele prywatnych punktów końcowych, będzie miał wiele prywatnych adresów IP. Jest to przydatne tylko wtedy, gdy masz wiele sieci wirtualnych uzyskujących dostęp do tego samego magazynu kluczy za pomocą własnego prywatnego punktu końcowego (prywatny punkt końcowy należy do jednego Virtual Network). Upewnij się, że problem dotyczy poprawnego Virtual Network i wybierz odpowiednie połączenie prywatnego punktu końcowego w powyższej procedurze. Ponadto nie **należy tworzyć wielu** prywatnych punktów końcowych dla tego samego Key Vault w tej samej Virtual Network. Nie jest to konieczność i jest źródłem pomyłek.
+> Jeśli magazyn kluczy ma wiele prywatnych punktów końcowych, ma wiele prywatnych adresów IP. Jest to przydatne tylko wtedy, gdy masz wiele sieci wirtualnych uzyskujących dostęp do tego samego magazynu kluczy za pomocą własnego prywatnego punktu końcowego (prywatny punkt końcowy należy do jednego Virtual Network). Upewnij się, że problem dotyczy poprawnego Virtual Network i wybierz odpowiednie połączenie prywatnego punktu końcowego w powyższej procedurze. Ponadto nie **należy tworzyć wielu** prywatnych punktów końcowych dla tego samego Key Vault w tej samej Virtual Network. Nie jest to konieczność i jest źródłem pomyłek.
 
 ## <a name="5-validate-the-dns-resolution"></a>5. Sprawdź poprawność rozpoznawania nazw DNS
 
@@ -158,11 +158,11 @@ W systemie Linux:
 
 Można zobaczyć, że nazwa jest rozpoznawana jako publiczny adres IP i nie ma `privatelink` aliasu. Alias został wyjaśniony później. nie martw się o to teraz.
 
-Powyższy wynik jest oczekiwany niezależnie od tego, czy maszyna jest podłączona do Virtual Network, czy też do dowolnego komputera z połączeniem internetowym. Dzieje się tak, ponieważ Magazyn kluczy nie ma prywatnego linku w stanie zatwierdzonym i dlatego nie ma potrzeby obsługi przez Magazyn kluczy prywatnych połączeń linków.
+Powyższy wynik jest oczekiwany niezależnie od tego, czy maszyna jest podłączona do Virtual Network, czy też do dowolnego komputera z połączeniem internetowym. Dzieje się tak, ponieważ Magazyn kluczy nie ma prywatnego połączenia z punktem końcowym w zatwierdzonym stanie i w związku z tym nie ma potrzeby, aby Magazyn kluczy obsługiwał linki prywatne.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>Magazyn kluczy z prywatnym łączem do rozwiązania z dowolnego komputera z Internetem
 
-Jeśli magazyn kluczy ma co najmniej jedno połączenie prywatnego punktu końcowego w stanie zatwierdzone, a nazwa hosta jest rozpoznawana z dowolnej maszyny połączonej z Internetem (maszyna, która **nie jest** połączona z Virtual Networką, w której znajduje się prywatny punkt końcowy), należy ją znaleźć:
+Jeśli magazyn kluczy ma co najmniej jedno połączenie prywatnego punktu końcowego w stanie zatwierdzone, a nazwa hosta jest rozpoznawana z dowolnej maszyny połączonej z Internetem (maszyna, która *nie jest* połączona z Virtual Networką, w której znajduje się prywatny punkt końcowy), należy ją znaleźć:
 
 W systemie Windows:
 
@@ -229,7 +229,7 @@ Twoja subskrypcja platformy Azure musi mieć [prywatna strefa DNS zasób strefy]
 
 Obecność tego zasobu można sprawdzić, przechodząc do strony subskrypcji w portalu i wybierając pozycję "zasoby" w menu po lewej stronie. Nazwa zasobu musi mieć wartość `privatelink.vaultcore.azure.net` , a typem zasobu musi być **prywatna strefa DNS strefa**.
 
-Zazwyczaj ten zasób jest tworzony automatycznie podczas tworzenia prywatnego punktu końcowego przy użyciu typowej metody. Istnieją jednak przypadki, w których ten zasób nie jest tworzony automatycznie i trzeba będzie wykonać go ręcznie. Ten zasób mógł również zostać przypadkowo usunięty.
+Zazwyczaj ten zasób jest tworzony automatycznie podczas tworzenia prywatnego punktu końcowego przy użyciu typowej metody. Istnieją jednak przypadki, w których ten zasób nie jest tworzony automatycznie i trzeba go wykonać ręcznie. Ten zasób mógł również zostać przypadkowo usunięty.
 
 Jeśli nie masz tego zasobu, Utwórz nowy zasób strefy Prywatna strefa DNS w ramach subskrypcji. Należy pamiętać, że nazwa musi być dokładnie `privatelink.vaultcore.azure.net` , bez spacji lub dodatkowych kropek. W przypadku określenia nieprawidłowej nazwy rozpoznawanie nazw wyjaśnione w tym artykule nie będzie działało. Aby uzyskać więcej informacji na temat tworzenia tego zasobu, zobacz [Tworzenie prywatnej strefy DNS platformy Azure przy użyciu Azure Portal](../../dns/private-dns-getstarted-portal.md). Po wykonaniu tej strony możesz pominąć tworzenie Virtual Network, ponieważ na tym etapie powinien już istnieć. Można również pominąć procedury walidacji za pomocą Virtual Machines.
 
@@ -253,7 +253,7 @@ Aby rozpoznawanie nazw magazynu kluczy działało, musi istnieć `A` rekord o pr
 Ponadto wartość `A` rekordu (adres IP) musi być [prywatnym adresem IP magazynu kluczy](#find-the-key-vault-private-ip-address-in-the-virtual-network). Jeśli rekord zostanie znaleziony `A` , ale zawiera niewłaściwy adres IP, należy usunąć niewłaściwy adres IP i dodać nowy. Zaleca się usunięcie całego `A` rekordu i dodanie nowego.
 
 >[!NOTE]
-> Po każdym usunięciu lub zmodyfikowaniu `A` rekordu, komputer może nadal zostać rozpoznany jako stary adres IP, ponieważ wartość czasu wygaśnięcia (Time to Live) może jeszcze nie zostać wygasła. Zalecane jest, aby zawsze określić wartość TTL nie mniejszą niż 60 sekund (minutę) i nie większą niż 600 sekund (10 minut). Jeśli określisz zbyt dużą wartość, klienci będą mieć problemy z odzyskiwaniem z awarii.
+> Po każdym usunięciu lub zmodyfikowaniu `A` rekordu, komputer może nadal zostać rozpoznany jako stary adres IP, ponieważ wartość czasu wygaśnięcia (Time to Live) może jeszcze nie zostać wygasła. Zalecane jest, aby zawsze określić wartość TTL nie mniejszą niż 60 sekund (minutę) i nie większą niż 600 sekund (10 minut). Jeśli określisz zbyt dużą wartość, odzyskanie sprawności przez klientów może trwać zbyt długo.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>Rozpoznawanie nazw DNS dla więcej niż jednego Virtual Network
 
@@ -261,15 +261,13 @@ Jeśli istnieje wiele sieci wirtualnych, a każdy z nich ma własny prywatny zas
 
 W bardziej zaawansowanych scenariuszach istnieje wiele sieci wirtualnych z włączoną obsługą komunikacji równorzędnej. W takim przypadku tylko jeden Virtual Network wymaga zasobu prywatnego punktu końcowego, chociaż obie mogą wymagać połączenia z zasobem strefy Prywatna strefa DNS. Ten dokument nie jest bezpośrednio objęty tym scenariuszem.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>Fakt: użytkownik kontroluje rozpoznawanie nazw DNS
+### <a name="fact-you-have-control-over-dns-resolution"></a>Fakt: masz kontrolę nad rozpoznawaniem nazw DNS
 
-Jeśli jesteś osobą Scholar Network lub chcesz wiedzieć, prawdopodobnie wiesz, jak działa rozpoznawanie nazw DNS. Zgodnie z opisem w [poprzedniej sekcji](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)Magazyn kluczy z linkami prywatnymi będzie miał alias `{vaultname}.privatelink.vaultcore.azure.net` w swojej *publicznej* rejestracji. Serwer DNS używany przez Virtual Network sprawdzi każdy alias w celu rejestracji nazwy *prywatnej* , a jeśli zostanie znaleziona, zostanie zatrzymany po aliasach rejestracji publicznej.
+Zgodnie z opisem w [poprzedniej sekcji](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)Magazyn kluczy z linkami prywatnymi ma alias `{vaultname}.privatelink.vaultcore.azure.net` w swojej *publicznej* rejestracji. Serwer DNS używany przez Virtual Network używa rejestracji publicznej, ale sprawdza każdy alias do rejestracji *prywatnej* , a jeśli zostanie znaleziony, zostanie zatrzymany po aliasie zdefiniowanym podczas rejestracji publicznej.
 
-Rozważmy na przykład, że Virtual Network jest połączony ze strefą Prywatna strefa DNS o nazwie `privatelink.vaultcore.azure.net` , a publiczna Rejestracja w systemie DNS dla magazynu kluczy ma alias `fabrikam.privatelink.vaultcore.azure.net` . Należy pamiętać, że sufiks pasuje do nazwy strefy Prywatna strefa DNS dokładnie. Oznacza to, że rozwiązanie będzie wyglądać najpierw dla `A` rekordu o nazwie `fabrikam` w strefie prywatna strefa DNS. Jeśli `A` rekord zostanie znaleziony, jego adres IP zostanie zwrócony w zapytaniu DNS. A ten adres IP właśnie występuje jako prywatny adres IP magazynu kluczy.
+Ta logika oznacza, że jeśli Virtual Network jest połączony ze strefą Prywatna strefa DNS o nazwie `privatelink.vaultcore.azure.net` , a publiczna Rejestracja w systemie DNS dla magazynu kluczy ma alias `fabrikam.privatelink.vaultcore.azure.net` (należy zauważyć, że sufiks nazwy hosta magazynu kluczy jest zgodny z nazwą strefy prywatna strefa DNS dokładnie), a następnie zapytanie DNS będzie szukać `A` rekordu o nazwie `fabrikam` *w strefie prywatna strefa DNS*. Jeśli `A` rekord zostanie znaleziony, jego adres IP jest zwracany w zapytaniu DNS i żadne dalsze wyszukiwanie nie jest wykonywane podczas publicznej rejestracji DNS.
 
-Jak widać, całe rozpoznawanie nazw jest pod kontrolą użytkownika.
-
-Istnieją dwa powody tego projektu:
+Jak widać, rozpoznawanie nazw jest pod kontrolą. Racjonalne znaczenie dla tego projektu:
 
 - Może istnieć złożony scenariusz, który obejmuje niestandardowe serwery DNS i integrację z sieciami lokalnymi. W takim przypadku należy kontrolować sposób tłumaczenia nazw na adresy IP.
 - Może być konieczne uzyskanie dostępu do magazynu kluczy bez linków prywatnych. W takim przypadku rozpoznanie nazwy hosta z Virtual Network musi zwrócić publiczny adres IP. dzieje się tak, ponieważ magazyny kluczy bez linków prywatnych nie mają `privatelink` aliasu w rejestracji nazwy.

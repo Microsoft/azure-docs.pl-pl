@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534859"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714448"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -21,13 +21,13 @@ Eksplorator usługi Microsoft Azure Storage jest autonomiczną aplikacją, któr
 
 Ten przewodnik zawiera podsumowanie rozwiązań dotyczących problemów, które są często spotykane w Eksplorator usługi Storage.
 
-## <a name="rbac-permissions-issues"></a>Problemy z uprawnieniami RBAC
+## <a name="azure-rbac-permissions-issues"></a>Problemy z uprawnieniami kontroli RBAC platformy Azure
 
-[Kontrola dostępu](https://docs.microsoft.com/azure/role-based-access-control/overview) oparta na rolach umożliwia wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień w _role_. Poniżej przedstawiono kilka strategii zapewniających optymalną pracę z usługą RBAC w Eksplorator usługi Storage.
+Kontrola dostępu oparta na rolach na [platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pozwala uzyskać wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień z _rolami_. Poniżej przedstawiono niektóre strategie, które umożliwiają optymalną pracę z usługą Azure RBAC w Eksplorator usługi Storage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Jak mogę uzyskać dostęp do moich zasobów w Eksplorator usługi Storage?
 
-Jeśli masz problemy z uzyskaniem dostępu do zasobów magazynu za pomocą RBAC, być może nie masz przypisanych odpowiednich ról. W poniższych sekcjach opisano uprawnienia Eksplorator usługi Storage obecnie wymagane w celu uzyskania dostępu do zasobów magazynu. Jeśli nie masz pewności, czy masz odpowiednie role lub uprawnienia, skontaktuj się z administratorem konta platformy Azure.
+Jeśli masz problemy z uzyskaniem dostępu do zasobów magazynu za pomocą usługi Azure RBAC, być może nie masz przypisanych odpowiednich ról. W poniższych sekcjach opisano uprawnienia Eksplorator usługi Storage obecnie wymagane w celu uzyskania dostępu do zasobów magazynu. Jeśli nie masz pewności, czy masz odpowiednie role lub uprawnienia, skontaktuj się z administratorem konta platformy Azure.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"Odczyt: Lista/pobieranie kont magazynu" — problem z uprawnieniami
 
@@ -63,9 +63,9 @@ Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możes
 1. Otwórz okno dialogowe Połącz.
 2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD). Kliknij przycisk Dalej.
 3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Kliknij przycisk Dalej.
-4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Podłącz.
+4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Połącz.
 
-W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego RBAC. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 
@@ -175,9 +175,9 @@ Jeśli nie możesz pobrać subskrypcji po pomyślnym zalogowaniu, wypróbuj nast
 
 Jeśli nie można usunąć dołączonego konta lub zasobu magazynu za pomocą interfejsu użytkownika, można ręcznie usunąć wszystkie dołączone zasoby, usuwając następujące foldery:
 
-* Systemy`%AppData%/StorageExplorer`
-* MacOS`/Users/<your_name>/Library/Application Support/StorageExplorer`
-* System`~/.config/StorageExplorer`
+* Systemy `%AppData%/StorageExplorer`
+* MacOS `/Users/<your_name>/Library/Application Support/StorageExplorer`
+* System `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Zamknij Eksplorator usługi Storage przed usunięciem tych folderów.

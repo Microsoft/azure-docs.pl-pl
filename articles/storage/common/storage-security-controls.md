@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b4d74e7ba869e0438a936817d824e841823d472
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826521"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715713"
 ---
 # <a name="security-controls-for-azure-storage"></a>Kontrolki zabezpieczeń dla usługi Azure Storage
 
@@ -32,7 +32,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 | Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Obsługa standardowych mechanizmów protokołu HTTPS/TLS.  Użytkownicy mogą także szyfrować dane przed ich przesłaniem do usługi. |
 | Wywołania interfejsu API są szyfrowane| Tak |  |
 
-## <a name="network"></a>Network
+## <a name="network"></a>Sieć
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi |
 |---|---|--|
@@ -54,8 +54,8 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak | Azure Active Directory, klucz współużytkowany, token dostępu współdzielonego. |
-| Autoryzacja| Tak | Obsługa autoryzacji za pośrednictwem list kontroli dostępu RBAC, POSIX i tokenów SAS |
+| Authentication| Tak | Azure Active Directory, klucz współużytkowany, token dostępu współdzielonego. |
+| Autoryzacja| Tak | Obsługa autoryzacji za pośrednictwem usług Azure RBAC, list kontroli dostępu POSIX i tokenów SAS |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją
 

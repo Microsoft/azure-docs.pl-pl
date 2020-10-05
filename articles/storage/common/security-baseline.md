@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228277"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715147"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -380,13 +380,13 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD zapewnia kontrolę dostępu opartą na rolach (RBAC) na potrzeby precyzyjnej kontroli dostępu klienta do zasobów na koncie magazynu.  Użyj poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie bezpieczeństwa zamiast korzystać z klucza konta, co może być bardziej łatwe. Gdy projekt aplikacji wymaga sygnatur dostępu współdzielonego w celu uzyskania dostępu do usługi BLOB Storage, Użyj poświadczeń usługi Azure AD, aby utworzyć sygnatury dostępu współdzielonego (SAS) delegowania użytkowników, jeśli jest to możliwe dla wyższego poziomu zabezpieczeń.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Platforma Azure zapewnia kontrolę dostępu opartą na rolach (Azure RBAC), aby uzyskać szczegółową kontrolę nad dostępem klientów do zasobów na koncie magazynu.  Użyj poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie bezpieczeństwa zamiast korzystać z klucza konta, co może być bardziej łatwe. Gdy projekt aplikacji wymaga sygnatur dostępu współdzielonego w celu uzyskania dostępu do usługi BLOB Storage, Użyj poświadczeń usługi Azure AD, aby utworzyć sygnatury dostępu współdzielonego (SAS) delegowania użytkowników, jeśli jest to możliwe dla wyższego poziomu zabezpieczeń.
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Jak skonfigurować dostęp do obiektów blob platformy Azure i danych z kolejki za pomocą RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Autoryzowanie dostępu do danych w usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: implementowanie izolacji przy użyciu oddzielnych subskrypcji, grup zarządzania i kont magazynu dla poszczególnych domen zabezpieczeń, takich jak środowisko, czułość danych.  Możesz ograniczyć swoje konto magazynu, aby kontrolować poziom dostępu do kont magazynu, które są używane przez aplikacje i środowiska korporacyjne na podstawie typu i podzestawu używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do usługi Azure Storage można kontrolować za pośrednictwem usługi Azure AD RBAC. Możesz również skonfigurować prywatne punkty końcowe, aby zwiększyć bezpieczeństwo ruchu sieciowego między siecią wirtualną a usługą przechodzącą przez sieć szkieletową firmy Microsoft, eliminując ekspozycję z publicznego Internetu. 
+**Wskazówki**: implementowanie izolacji przy użyciu oddzielnych subskrypcji, grup zarządzania i kont magazynu dla poszczególnych domen zabezpieczeń, takich jak środowisko, czułość danych.  Możesz ograniczyć swoje konto magazynu, aby kontrolować poziom dostępu do kont magazynu, które są używane przez aplikacje i środowiska korporacyjne na podstawie typu i podzestawu używanych sieci. W przypadku skonfigurowania reguł sieci tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do konta magazynu. Dostęp do usługi Azure Storage można kontrolować za pośrednictwem usługi Azure RBAC. Możesz również skonfigurować prywatne punkty końcowe, aby zwiększyć bezpieczeństwo ruchu sieciowego między siecią wirtualną a usługą przechodzącą przez sieć szkieletową firmy Microsoft, eliminując ekspozycję z publicznego Internetu. 
 
 - [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -502,7 +502,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 - [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Zasady punktu końcowego usługi sieci wirtualnej w usłudze Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Zasady punktu końcowego usługi dla sieci wirtualnej dla usługi Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Azure Active Directory (Azure AD) autoryzują prawa dostępu do zabezpieczonych zasobów za pośrednictwem kontroli dostępu opartej na ROLACH (RBAC). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki. 
+**Wskazówki**: Azure Active Directory (Azure AD) autoryzują prawa dostępu do zabezpieczonych zasobów za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Usługa Azure Storage definiuje zestaw wbudowanych ról platformy Azure, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do danych obiektu BLOB lub kolejki. 
 
 - [Jak przypisać role platformy Azure dla konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Jak skonfigurować dostęp do obiektów blob platformy Azure i danych z kolejki za pomocą RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Jak skonfigurować dostęp do danych obiektów blob platformy Azure i kolejkować dane za pomocą usługi Azure RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

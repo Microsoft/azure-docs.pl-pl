@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986633"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715385"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Zalecenia dotyczące zabezpieczeń usługi queue storage
 
@@ -29,7 +29,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
-| Korzystanie z modelu wdrażania Azure Resource Manager | Utwórz nowe konta magazynu przy użyciu Azure Resource Manager model wdrażania, aby uzyskać ważne ulepszenia zabezpieczeń, w tym funkcję kontroli dostępu (RBAC) i inspekcję, wdrażanie i zarządzanie na podstawie Menedżer zasobów, dostęp do zarządzanych tożsamości, dostęp do Azure Key Vault dla wpisów tajnych oraz uwierzytelnianie i autoryzację na podstawie usługi Azure AD w celu uzyskania dostępu do danych i zasobów usługi Azure Storage. Jeśli to możliwe, Przeprowadź migrację istniejących kont magazynu, które używają klasycznego modelu wdrażania, aby użyć Azure Resource Manager. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](/azure/azure-resource-manager/resource-group-overview). | - |
+| Korzystanie z modelu wdrażania Azure Resource Manager | Utwórz nowe konta magazynu przy użyciu modelu wdrażania Azure Resource Manager, aby uzyskać ważne ulepszenia zabezpieczeń, w tym najwyższą kontrolę dostępu opartą na rolach (Azure RBAC) oraz inspekcję i uwierzytelnianie oparte na Menedżer zasobówach, dostęp do zarządzanych tożsamości, dostęp do Azure Key Vault dla wpisów tajnych, a także uwierzytelniania i autoryzacji na podstawie usługi Azure AD w celu uzyskania dostępu do danych i zasobów usługi Azure Storage. Jeśli to możliwe, Przeprowadź migrację istniejących kont magazynu, które używają klasycznego modelu wdrażania, aby użyć Azure Resource Manager. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](/azure/azure-resource-manager/resource-group-overview). | - |
 | Włącz zaawansowaną ochronę przed zagrożeniami dla wszystkich kont magazynu | Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane w Azure Security Center, gdy wystąpią anomalie działania i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń. Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure Storage](../common/azure-defender-storage-configure.md). | [Tak](../../security-center/security-center-sql-service-recommendations.md) |
 | Ogranicz tokeny sygnatury dostępu współdzielonego (SAS) tylko do połączeń HTTPS | Wymaganie protokołu HTTPS, gdy klient korzysta z tokenu sygnatury dostępu współdzielonego, aby uzyskać dostęp do danych w kolejce, aby zminimalizować ryzyko podsłuchiwania. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md). | - |
 
@@ -38,7 +38,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
 | Użyj Azure Active Directory (Azure AD), aby autoryzować dostęp do danych kolejki | Usługa Azure AD zapewnia znakomite zabezpieczenia i łatwość użycia w porównaniu z kluczami udostępnionymi do autoryzowania żądań do usługi queue storage. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Należy pamiętać o najniższych uprawnieniach podczas przypisywania uprawnień do podmiotu zabezpieczeń usługi Azure AD za pośrednictwem RBAC | Podczas przypisywania roli do użytkownika, grupy lub aplikacji Przyznaj podmiotowi zabezpieczeń tylko te uprawnienia, które są niezbędne do wykonywania swoich zadań. Ograniczanie dostępu do zasobów pomaga zapobiegać przypadkowemu i złośliwemu wykorzystaniu danych. | - |
+| Podczas przypisywania uprawnień do podmiotu zabezpieczeń usługi Azure AD za pomocą funkcji RBAC platformy Azure należy pamiętać o najniższych uprawnieniach. | Podczas przypisywania roli do użytkownika, grupy lub aplikacji Przyznaj podmiotowi zabezpieczeń tylko te uprawnienia, które są niezbędne do wykonywania swoich zadań. Ograniczanie dostępu do zasobów pomaga zapobiegać przypadkowemu i złośliwemu wykorzystaniu danych. | - |
 | Zabezpiecz klucze dostępu do konta za pomocą Azure Key Vault | Firma Microsoft zaleca używanie usługi Azure AD do autoryzowania żądań do usługi Azure Storage. Jeśli jednak musisz użyć autoryzacji klucza współużytkowanego, Zabezpiecz klucze konta za pomocą Azure Key Vault. Możesz pobrać klucze z magazynu kluczy w czasie wykonywania, zamiast zapisywać je w aplikacji. | - |
 | Okresowe ponowne generowanie kluczy konta | Okresowe obracanie kluczy konta zmniejsza ryzyko ujawnienia danych do złośliwych aktorów. | - |
 | Należy pamiętać o najniższych uprawnieniach podczas przypisywania uprawnień do sygnatury dostępu współdzielonego | Podczas tworzenia sygnatury dostępu współdzielonego należy określić tylko te uprawnienia, które są wymagane przez klienta do wykonywania funkcji. Ograniczanie dostępu do zasobów pomaga zapobiegać przypadkowemu i złośliwemu wykorzystaniu danych. | - |

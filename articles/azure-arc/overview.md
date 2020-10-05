@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Arc
 description: Dowiedz się więcej na temat tego, co to jest usługa Azure Arc i jak pomaga klientom w zarządzaniu zasobami hybrydowymi i zarządzaniem nimi za pomocą innych usług i funkcji platformy Azure.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335402"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714145"
 ---
 # <a name="azure-arc-overview"></a>Omówienie usługi Azure Arc
 
@@ -56,7 +56,7 @@ Funkcja płaszczyzny kontroli usługi Azure Arc jest oferowana bez dodatkowych k
 
 * Wyszukiwanie i indeksowanie za pomocą grafu zasobów platformy Azure.
 
-* Dostęp i zabezpieczenia za za poorednictwem RBAC i subskrypcji.
+* Dostęp i zabezpieczenia za pomocą RBAC i subskrypcji platformy Azure.
 
 * Środowiska i Automatyzacja za poorednictwem szablonów i rozszerzeń.
 

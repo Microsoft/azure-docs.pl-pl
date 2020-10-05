@@ -3,12 +3,12 @@ title: Uprawnienia w Azure Advisor
 description: Uprawnienia usługi Advisor oraz sposób, w jaki mogą blokować możliwość konfigurowania subskrypcji lub odroczenia lub odrzucania zaleceń.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927389"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712924"
 ---
 # <a name="permissions-in-azure-advisor"></a>Uprawnienia w Azure Advisor
 
@@ -20,15 +20,15 @@ W poniższej tabeli zdefiniowano role i dostęp do nich w usłudze Advisor:
 
 | **Role** | **Wyświetl rekomendacje** | **Edytuj reguły** | **Edytuj konfigurację subskrypcji** | **Edytuj konfigurację grupy zasobów**| **Odrzuć i odłóż zalecenia**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Właściciel subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
-|Współautor subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
-|Czytelnik subskrypcji|**Y**|--|--|--|--|
-|Właściciel grupy zasobów|**Y**|--|--|**Y**|**Y**|
-|Współautor grupy zasobów|**Y**|--|--|**Y**|**Y**|
-|Czytelnik grupy zasobów|**Y**|--|--|--|--|
-|Właściciel zasobu|**Y**|--|--|--|**Y**|
-|Współautor zasobów|**Y**|--|--|--|**Y**|
-|Czytnik zasobów|**Y**|--|--|--|--|
+|Właściciel subskrypcji|**X**|**X**|**X**|**X**|**X**|
+|Współautor subskrypcji|**X**|**X**|**X**|**X**|**X**|
+|Czytelnik subskrypcji|**X**|--|--|--|--|
+|Właściciel grupy zasobów|**X**|--|--|**X**|**X**|
+|Współautor grupy zasobów|**X**|--|--|**X**|**X**|
+|Czytelnik grupy zasobów|**X**|--|--|--|--|
+|Właściciel zasobu|**X**|--|--|--|**X**|
+|Współautor zasobów|**X**|--|--|--|**X**|
+|Czytnik zasobów|**X**|--|--|--|--|
 
 > [!NOTE]
 > Dostęp do zaleceń dotyczących widoku zależy od dostępu do zasobu, którego dotyczy problem.
@@ -47,7 +47,7 @@ Jeśli wystąpi błąd podczas próby odroczenia lub odrzucenia zalecenia, może
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł zawiera omówienie sposobu używania RBAC przez klasyfikatora do kontrolowania uprawnień użytkowników i rozwiązywania typowych problemów. Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
+Ten artykuł zawiera omówienie sposobu korzystania z usługi Azure RBAC do kontrolowania uprawnień użytkowników i rozwiązywania typowych problemów. Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
 
-- [Co to jest Azure Advisor?](./advisor-overview.md)
+- [Co to jest usługa Azure Advisor?](./advisor-overview.md)
 - [Wprowadzenie do usługi Azure Advisor](./advisor-get-started.md)

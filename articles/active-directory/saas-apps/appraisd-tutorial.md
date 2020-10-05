@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547787"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714477"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Samouczek: integracja Appraisd z usługą Azure Active Directory
 
@@ -86,7 +86,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Appraisd oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja Appraisd oczekuje, że **NameIdentifier** mają być mapowane przy użyciu elementu **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia okienko atrybuty użytkownika z wyróżnioną ikoną Edytuj.](common/edit-attribute.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -110,15 +110,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. W prawym górnym rogu strony kliknij ikonę **Ustawienia** , a następnie przejdź do **konfiguracji**.
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![Zrzut ekranu przedstawia łącze konfiguracji o nazwie wychodzące.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. Po lewej stronie menu kliknij pozycję **SAML single sign-on** (Logowanie jednokrotne SAML).
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![Zrzut ekranu przedstawia opcje konfiguracji z wyróżnioną opcją protokołu SAML logowania jednokrotnego.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. Na stronie **SAML 2.0 Single Sign-On configuration** (Konfiguracja logowania jednokrotnego SAML 2.0) wykonaj następujące kroki:
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracyjną Logowanie jednokrotne w protokole SAML 2,0, na której można edytować domyślny stan przekazywania i nazwę logowania zainicjowaną przez usługę U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Skopiuj **domyślną wartość stanu przekazywania** i wklej ją w polu tekstowym **Stan przekazywania** w **podstawowej konfiguracji SAML** na Azure Portal.
 
@@ -126,7 +126,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 7. Przewiń tę samą stronę do pozycji **Identifying users** (Identyfikowanie użytkowników) i wykonaj następujące kroki:
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![Zrzut ekranu przedstawia Identyfikowanie użytkowników, w których można wprowadzać wartości z tego kroku.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. W polu tekstowym **Identity Provider Single Sign-On URL** (Adres URL logowania jednokrotnego dostawcy tożsamości) wklej wartość **Adres URL logowania** skopiowaną z witryny Azure Portal, a następnie kliknij przycisk **Save** (Zapisz).
 
@@ -144,7 +144,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B. Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -174,15 +174,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w aplikacji Apprai
 
 2. W prawym górnym rogu strony kliknij ikonę **Ustawienia** , a następnie przejdź do **Centrum administracyjnego**.
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![Zrzut ekranu przedstawia opcje ustawień, w których można wybrać Centrum administracyjne.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. Na pasku narzędzi u góry strony kliknij pozycję **osoby**, a następnie przejdź do **obszaru Dodaj nowego użytkownika**.
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![Zrzut ekranu przedstawia stronę Appraisd z osobami i Dodaj nowego użytkownika o nazwie.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. Na stronie **Add a new user** (Dodawanie nowego użytkownika) wykonaj następujące kroki:
 
-    ![image (obraz)](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie nowego użytkownika.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika, np. **Britta**.
 
@@ -200,6 +200,6 @@ Po wybraniu kafelka Appraisd w panelu dostępu należy automatycznie zalogować 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

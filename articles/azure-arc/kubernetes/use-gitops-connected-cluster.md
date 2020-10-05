@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541632"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714192"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 
@@ -23,13 +23,13 @@ Połączenie między klastrem a jednym lub wieloma repozytoriami git jest śledz
 
 `config-agent`Działający w klastrze jest odpowiedzialny za obserwowanie nowych lub zaktualizowanych `sourceControlConfiguration` zasobów rozszerzeń w zasobie Kubernetes z włączoną funkcją Azure ARC, wdrożenie operatora strumieniowego w celu obejrzenia repozytorium git i propagowanie wszelkich aktualizacji wprowadzonych do programu `sourceControlConfiguration` . Istnieje również możliwość utworzenia wielu `sourceControlConfiguration` zasobów z `namespace` zakresem w tym samym klastrze Kubernetes z obsługą usługi Azure Arc w celu osiągnięcia wielu dzierżawców. W takim przypadku każdy operator może wdrażać tylko konfiguracje w odpowiedniej przestrzeni nazw.
 
-Repozytorium git może zawierać wszystkie prawidłowe zasoby Kubernetes, w tym przestrzenie nazw, ConfigMaps, wdrożenia, DaemonSets itd.  Może również zawierać wykresy Helm na potrzeby wdrażania aplikacji. Typowym zestawem scenariuszy jest definiowanie konfiguracji linii bazowej dla organizacji, która może obejmować typowe role i powiązania kontroli RBAC, agentów monitorowania lub rejestrowania lub usług obejmujących cały klaster.
+Repozytorium git może zawierać wszystkie prawidłowe zasoby Kubernetes, w tym przestrzenie nazw, ConfigMaps, wdrożenia, DaemonSets itd.  Może również zawierać wykresy Helm na potrzeby wdrażania aplikacji. Typowym zestawem scenariuszy jest definiowanie konfiguracji bazowej dla organizacji, która może obejmować typowe role i powiązania platformy Azure, agentów monitorowania i rejestrowania oraz usług w całym klastrze.
 
 Ten sam wzorzec może służyć do zarządzania większą kolekcją klastrów, które mogą być wdrażane w środowiskach heterogenicznych. Na przykład można mieć jedno repozytorium definiujące konfigurację bazową organizacji i zastosować je do dziesiątek klastrów Kubernetes jednocześnie. [Usługa Azure Policy umożliwia automatyzację](use-azure-policy.md) tworzenia `sourceControlConfiguration` z określonym zestawem parametrów we wszystkich zasobach Kubernetes z obsługą usługi Azure Arc w ramach zakresu (subskrypcji lub grupy zasobów).
 
 Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu konfiguracji z zakresem administratora klastra.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący Kubernetes połączony klaster usługi Azure Arc. Jeśli potrzebny jest podłączony klaster, zobacz temat [łączenie się z klastrem szybki start](./connect-cluster.md).
 

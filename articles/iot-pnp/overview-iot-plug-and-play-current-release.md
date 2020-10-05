@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 723e63d4185adb03ddccadaa2148c665665725c2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: c7ebcdac3174f7eb497ae3e976386ab92212e1ba
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650021"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715555"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Co znajduje się w bieżącej wersji Plug and Play IoT
 
@@ -56,7 +56,7 @@ Aby dowiedzieć się więcej na temat bibliotek i zestawów SDK, zobacz [Microso
 - Zestaw SDK urządzeń Java [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
 - Zestaw SDK urządzenia w języku Python [2.3.0 PIP](https://pypi.org/project/azure-iot-device/)
 - Zestaw SDK urządzeń Node.js [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)
-- .NET — usługa IoT Hub [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices )
+- .NET — usługa IoT Hub [NuGet 1.27.1](https://www.nuget.org/packages/Microsoft.Azure.Devices )
 - Java — IoT Hub usługi [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0)
 - Node.js — IoT Hub usługi [npm 1.13.0](https://www.npmjs.com/package/azure-iothub)
 - Python-IoT Hub/Digital bliźniaczych reprezentacji Service [PIP 2.2.3](https://pypi.org/project/azure-iot-hub)

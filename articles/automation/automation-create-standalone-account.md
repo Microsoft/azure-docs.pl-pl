@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987270"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714649"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
@@ -22,7 +22,7 @@ Po utworzeniu konta usługi Automation w Azure Portal konto **Uruchom jako** jes
 
 * Tworzy nazwę główną usługi w Azure Active Directory (Azure AD).
 * Tworzy certyfikat.
-* Przypisuje Access Control opartych na rolach współautor (RBAC), które zarządzają Azure Resource Manager zasobami przy użyciu elementów Runbook.
+* Przypisuje rolę współautor, która zarządza zasobami Azure Resource Manager za pomocą elementów Runbook.
 
 Po utworzeniu tego konta możesz szybko rozpocząć tworzenie i wdrażanie elementów Runbook, aby obsługiwać potrzeby automatyzacji.
 
@@ -59,7 +59,7 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
    > [!NOTE]
    > Jeśli w okienku Dodawanie konta usługi Automation zostanie wyświetlony następujący komunikat, Twoje konto nie jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Zrzut ekranu przedstawiający monit "nie masz uprawnień do utworzenia konta Uruchom jako w usłudze Azure Active Directory".":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Zrzut ekranu przedstawiający monit &quot;nie masz uprawnień do utworzenia konta Uruchom jako w usłudze Azure Active Directory&quot;.":::
 
 1. W okienku Dodawanie konta usługi Automation wprowadź nazwę nowego konta usługi Automation w polu **Nazwa** . Tej nazwy nie można zmienić po jej wybraniu. 
 
@@ -74,7 +74,7 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
    > [!NOTE]
    > Jeśli zdecydujesz się nie tworzyć konta Uruchom jako, wybierając pozycję **nie** , aby **utworzyć konto Uruchom jako platformy Azure**, w okienku Dodawanie konta usługi Automation zostanie wyświetlony komunikat. Mimo że konto jest tworzone w Azure Portal, konto nie ma odpowiedniej tożsamości uwierzytelniania w ramach subskrypcji klasycznego modelu wdrażania lub subskrypcji Azure Resource Manager usługi katalogowej. W związku z tym konto usługi Automation nie ma dostępu do zasobów w Twojej subskrypcji. Dzięki temu wszystkie elementy Runbook odwołujące się do tego konta nie będą mogły uwierzytelniać i wykonywać zadań względem zasobów w tych modelach wdrożenia.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Zrzut ekranu przedstawiający monit z komunikatem "nie można utworzyć konta Uruchom jako".":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Zrzut ekranu przedstawiający monit &quot;nie masz uprawnień do utworzenia konta Uruchom jako w usłudze Azure Active Directory&quot;.":::
    >
    > Gdy nie zostanie utworzona jednostka usługi, rola współautor nie jest przypisana.
    >

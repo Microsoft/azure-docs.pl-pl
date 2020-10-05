@@ -1,7 +1,7 @@
 ---
 title: Przypisywanie roli platformy Azure na potrzeby dostępu do danych przy użyciu interfejsu wiersza polecenia platformy Azure
 titleSuffix: Azure Storage
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure przypisać uprawnienia do Azure Active Directory podmiotu zabezpieczeń z kontrolą dostępu opartą na rolach (RBAC). Usługa Azure Storage obsługuje wbudowaną i niestandardową rolę platformy Azure do uwierzytelniania za pośrednictwem usługi Azure AD.
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure przypisać uprawnienia do podmiotu zabezpieczeń Azure Active Directory przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Usługa Azure Storage obsługuje wbudowaną i niestandardową rolę platformy Azure do uwierzytelniania za pośrednictwem usługi Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5714ab17f82f9c4d9c1d00f297c0950e41f54cdc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827983"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715130"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
 
@@ -139,6 +139,6 @@ az role assignment create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach i programu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki RBAC przy użyciu Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Udzielanie dostępu do danych w obiektach blob i kolejkach na platformie Azure za pomocą kontroli dostępu opartej na rolach w witrynie Azure Portal](storage-auth-aad-rbac-portal.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu modułu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Użyj modułu Azure PowerShell, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](storage-auth-aad-rbac-powershell.md)
+- [Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](storage-auth-aad-rbac-portal.md)

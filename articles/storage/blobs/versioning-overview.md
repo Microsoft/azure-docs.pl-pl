@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613513"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714933"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -175,17 +175,17 @@ Na poniższym diagramie przedstawiono działania wykonywane po utworzeniu migawk
 
 Dostęp do wersji obiektów BLOB można autoryzować przy użyciu jednej z następujących metod:
 
-- Za pomocą kontroli dostępu opartej na rolach (RBAC) w celu udzielenia uprawnień do podmiotu zabezpieczeń usługi Azure Active Directory (Azure AD). Firma Microsoft zaleca korzystanie z usługi Azure AD w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji na temat korzystania z usługi Azure AD z operacjami obiektów blob, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md).
+- Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) w celu udzielenia uprawnień do podmiotu zabezpieczeń Azure Active Directory (Azure AD). Firma Microsoft zaleca korzystanie z usługi Azure AD w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji na temat korzystania z usługi Azure AD z operacjami obiektów blob, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md).
 - Za pomocą sygnatury dostępu współdzielonego (SAS) do delegowania dostępu do wersji obiektów BLOB. Określ identyfikator wersji dla podpisanego typu zasobu `bv` reprezentujący wersję obiektu BLOB, aby utworzyć token sygnatury dostępu współdzielonego dla operacji w określonej wersji. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md).
 - Przy użyciu kluczy dostępu do konta w celu autoryzacji operacji dla wersji obiektów blob z użyciem klucza współużytkowanego. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key).
 
 Obsługa wersji obiektów BLOB została zaprojektowana w celu ochrony danych przed przypadkowym lub złośliwym usunięciem. Aby podwyższyć poziom ochrony, Usuwanie wersji obiektu BLOB wymaga specjalnych uprawnień. W poniższych sekcjach opisano uprawnienia potrzebne do usunięcia wersji obiektu BLOB.
 
-### <a name="rbac-action-to-delete-a-blob-version"></a>Akcja RBAC do usunięcia wersji obiektu BLOB
+### <a name="azure-rbac-action-to-delete-a-blob-version"></a>Akcja RBAC platformy Azure do usunięcia wersji obiektu BLOB
 
-W poniższej tabeli przedstawiono akcje RBAC obsługujące usuwanie obiektu BLOB lub wersji obiektu BLOB.
+W poniższej tabeli przedstawiono działania kontroli RBAC platformy Azure obsługujące usuwanie obiektu BLOB lub wersji obiektu BLOB.
 
-| Opis | Operacja Blob service | Wymagana jest akcja danych RBAC | Wbudowana rola RBAC |
+| Opis | Operacja Blob service | Wymagana akcja danych RBAC platformy Azure | Wbudowana obsługa ról platformy Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob usługi Storage |
 | Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektu blob usługi Storage |
@@ -198,7 +198,7 @@ W poniższej tabeli przedstawiono uprawnienia wymagane przez sygnaturę dostępu
 
 | **Uprawnienie** | **Symbol URI** | **Dozwolone operacje** |
 |----------------|----------------|------------------------|
-| Usuń         | x              | Usuń wersję obiektu BLOB. |
+| Usuwanie         | x              | Usuń wersję obiektu BLOB. |
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
@@ -291,7 +291,7 @@ W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB, k
 | Jeśli są włączone trwałe usuwanie i przechowywanie wersji obiektów BLOB | Wszystkie istniejące wersje o pełnej długości zawartości niezależnie od warstwy. |
 | Jeśli usuwanie nietrwałe obiektów BLOB jest włączone, ale przechowywanie wersji jest wyłączone | Wszystkie istniejące nietrwałe migawki usuwania w pełnej długości zawartości niezależnie od warstwy. |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
 - [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

@@ -1,7 +1,7 @@
 ---
 title: Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych
 titleSuffix: Azure Storage
-description: Dowiedz się, w jaki sposób używać Azure Portal do przypisywania uprawnień do Azure Active Directory podmiotu zabezpieczeń z kontrolą dostępu opartą na rolach (RBAC). Usługa Azure Storage obsługuje wbudowaną i niestandardową rolę platformy Azure do uwierzytelniania za pośrednictwem usługi Azure AD.
+description: Dowiedz się, w jaki sposób używać Azure Portal do przypisywania uprawnień do Azure Active Directory podmiotu zabezpieczeń za pomocą kontroli dostępu opartej na rolach (Azure RBAC). Usługa Azure Storage obsługuje wbudowaną i niestandardową rolę platformy Azure do uwierzytelniania za pośrednictwem usługi Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249669"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715849"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
 
@@ -64,11 +64,11 @@ Pokazana tutaj procedura przypisuje rolę w zakresie kontenera, ale można wykon
 1. Kliknij przycisk **Dodaj przypisanie roli** , aby dodać nową rolę.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę usługi Azure Storage, którą chcesz przypisać. Następnie wyszukaj w celu zlokalizowania podmiotu zabezpieczeń, do którego chcesz przypisać tę rolę.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Zrzut ekranu przedstawiający sposób przypisywania roli platformy Azure":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera":::
 
 1. Kliknij pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono, że dodany użytkownik ma teraz uprawnienia do odczytu danych w kontenerze o nazwie *Sample-Container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Zrzut ekranu przedstawiający listę użytkowników przypisanych do roli":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera":::
 
 Możesz wykonać podobne kroki, aby przypisać rolę do zakresu konta magazynu, grupy zasobów lub subskrypcji.
 
@@ -98,9 +98,9 @@ Przypisywanie roli **czytelnik** jest niezbędne tylko dla użytkowników, któr
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat ról platformy Azure dla zasobów magazynu, zobacz temat [uwierzytelnianie dostępu do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](storage-auth-aad.md). 
-- Aby dowiedzieć się więcej na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md)
+- Aby dowiedzieć się więcej na temat usługi Azure RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md).
 - Aby dowiedzieć się, jak przypisywać przypisania ról platformy Azure i zarządzać nimi za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST, zobacz następujące artykuły:
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
-    - [Zarządzanie kontrolą dostępu opartą na rolach (RBAC) za pomocą interfejsu API REST](../../role-based-access-control/role-assignments-rest.md)
+    - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu modułu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+    - [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
+    - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../../role-based-access-control/role-assignments-rest.md)
 - Aby dowiedzieć się, jak autoryzować dostęp do kontenerów i kolejek z poziomu aplikacji magazynu, zobacz [Korzystanie z usługi Azure AD z aplikacjami usługi Azure Storage](storage-auth-aad-app.md).

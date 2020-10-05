@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2927cbe9a586d8e7a35cea1b523122f9c1c3fed7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085641"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713680"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoryzuj dostęp do danych obiektów blob i kolejek z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji na temat biblioteki klienta tożsamości platfor
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Przypisywanie ról platformy Azure na potrzeby dostępu do danych
 
-Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektu BLOB lub kolejki, musi mieć uprawnienia do tego zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy konto użytkownika usługi Azure AD z uruchomionym kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę platformy Azure, która umożliwia dostęp do danych obiektów blob lub kolejek w usłudze Azure Storage. Informacje o przypisywaniu uprawnień za pośrednictwem RBAC zawiera sekcja zatytułowana **Przypisywanie ról platformy Azure na potrzeby dostępu** w artykule [Autoryzuj dostęp do obiektów blob platformy Azure i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektu BLOB lub kolejki, musi mieć uprawnienia do tego zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy konto użytkownika usługi Azure AD z uruchomionym kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę platformy Azure, która umożliwia dostęp do danych obiektów blob lub kolejek w usłudze Azure Storage. Informacje o przypisywaniu uprawnień za pośrednictwem usługi Azure RBAC zawiera sekcja zatytułowana **Przypisywanie ról platformy Azure na potrzeby dostępu** w artykule [Autoryzuj dostęp do obiektów blob i kolejek platformy azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Uwierzytelnianie użytkownika w środowisku programistycznym
 
@@ -163,6 +163,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie prawami dostępu do danych magazynu za pomocą RBAC](storage-auth-aad-rbac.md).
+- [Zarządzanie prawami dostępu do danych magazynu za pomocą usługi Azure RBAC](storage-auth-aad-rbac.md).
 - [Korzystanie z usługi Azure AD z aplikacjami magazynu](storage-auth-aad-app.md).
 - [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-active-directory-powershell.md)

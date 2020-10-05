@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie ak
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448060"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715972"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
 
@@ -64,7 +64,7 @@ Usługa Azure Automation zawiera zestaw współdzielonych zasobów, które ułat
 
 ### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Azure Automation obsługuje kontrolę dostępu opartą na rolach (RBAC) w celu regulowania dostępu do konta usługi Automation i jego zasobów. Aby dowiedzieć się więcej o konfigurowaniu RBAC na koncie usługi Automation, elementach Runbook i zadaniach, zobacz [Kontrola dostępu oparta na rolach dla Azure Automation](automation-role-based-access-control.md).
+Azure Automation obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure w celu regulowania dostępu do konta usługi Automation i jego zasobów. Aby dowiedzieć się więcej o konfigurowaniu usługi Azure RBAC na koncie usługi Automation, elementach Runbook i zadaniach, zobacz [Kontrola dostępu oparta na rolach dla Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integracja kontroli źródła
 
@@ -86,7 +86,7 @@ Azure Automation obsługuje zarządzanie przez cały cykl życia infrastruktury 
 * **Znajdź zmiany** — Zidentyfikuj zmiany, które mogą spowodować błędy konfiguracji i poprawić zgodność operacyjną.
 * **Monitoruj** — Izoluj zmiany maszyn, które powodują problemy i Koryguj lub eskalować je do systemów zarządzania.
 * **Ochrona** maszyn kwarantanny w przypadku zgłoszenia alertów zabezpieczeń. Ustaw wymagania dotyczące gościa.
-* **Zarządzanie** — skonfigurowanie RBAC dla zespołów. Odzyskaj nieużywane zasoby.
+* **Zarządzanie** — skonfigurowanie RBAC na platformie Azure dla zespołów. Odzyskaj nieużywane zasoby.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

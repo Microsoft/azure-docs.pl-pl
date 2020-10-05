@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450320"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715037"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Utwórz preferencję niestandardową w usłudze Azure automanage dla maszyn wirtualnych
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 > Konta bezpłatnych wersji próbnych nie mają dostępu do maszyn wirtualnych używanych w tym samouczku. Przeprowadź uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
-> Następujące uprawnienie RBAC jest konieczne do włączenia funkcji Autozarządzanie: rola **właściciela** lub **współautora** wraz z rolami **administratora dostępu użytkowników** .
+> Następujące uprawnienie usługi Azure RBAC jest konieczne do włączenia funkcji Autozarządzanie: rola **właściciela** lub **współautora** wraz z rolami **administratora dostępu użytkowników** .
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -69,7 +69,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
         1. Subskrypcja
         1. Grupa zasobów
         1. Nazwa preferencji
-        1. Region (Region)
+        1. Region
 
     :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 

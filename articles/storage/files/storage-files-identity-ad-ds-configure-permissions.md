@@ -7,22 +7,22 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320340"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716029"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
 Przed rozpoczęciem pracy z tym artykułem upewnij się, że wykonano Poprzedni artykuł, [Przypisz uprawnienia na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md) , aby upewnić się, że Twoje uprawnienia na poziomie udziału zostały wprowadzone.
 
-Po przypisaniu uprawnień na poziomie udziału za pomocą RBAC należy skonfigurować odpowiednie listy ACL systemu Windows na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziału RBAC jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Listy ACL systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonywać użytkownik na poziomie katalogu lub pliku. Uprawnienia na poziomie udziału i pliku/katalogu są wymuszane, gdy użytkownik próbuje uzyskać dostęp do pliku/katalogu, więc jeśli istnieje różnica między jednym z nich, zostanie zastosowane tylko najbardziej restrykcyjne. Na przykład jeśli użytkownik ma dostęp do odczytu/zapisu na poziomie pliku, ale tylko do odczytu na poziomie udziału, może odczytać tylko ten plik. Ta sama wartość powinna być równa true, jeśli została odwrócona, a użytkownik miał dostęp do odczytu/zapisu na poziomie udziału, ale tylko do odczytu na poziomie pliku może nadal tylko odczytać plik.
+Po przypisaniu uprawnień na poziomie udziału za pomocą usługi Azure RBAC należy skonfigurować odpowiednie listy ACL systemu Windows na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziałów platformy Azure jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Listy ACL systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonywać użytkownik na poziomie katalogu lub pliku. Uprawnienia na poziomie udziału i pliku/katalogu są wymuszane, gdy użytkownik próbuje uzyskać dostęp do pliku/katalogu, więc jeśli istnieje różnica między jednym z nich, zostanie zastosowane tylko najbardziej restrykcyjne. Na przykład jeśli użytkownik ma dostęp do odczytu/zapisu na poziomie pliku, ale tylko do odczytu na poziomie udziału, może odczytać tylko ten plik. Ta sama wartość powinna być równa true, jeśli została odwrócona, a użytkownik miał dostęp do odczytu/zapisu na poziomie udziału, ale tylko do odczytu na poziomie pliku może nadal tylko odczytać plik.
 
-## <a name="rbac-permissions"></a>Uprawnienia RBAC
+## <a name="azure-rbac-permissions"></a>Uprawnienia kontroli RBAC platformy Azure
 
-Poniższa tabela zawiera uprawnienia RBAC powiązane z tą konfiguracją:
+Poniższa tabela zawiera uprawnienia usługi Azure RBAC powiązane z tą konfiguracją:
 
 
 | Wbudowana rola  | Uprawnienie NTFS  | Uzyskany dostęp  |
@@ -104,7 +104,7 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
 1.    Wybierz przycisk **OK**.
 1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz przycisk **Zastosuj**.
+1.    Wybierz pozycję **Zastosuj**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a30ab4136b1d54e852ddb8fe3d0ed9a4e2bc9149
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485944"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716051"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -85,7 +85,7 @@ Jeśli chcesz tylko pobrać pliki, sprawdź, czy [czytnik danych BLOB magazynu](
 Jeśli chcesz przekazać pliki, sprawdź, czy jedna z tych ról została przypisana do podmiotu zabezpieczeń:
 
 - [Współautor danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Właściciel danych obiektów blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Właściciel danych obiektu blob usługi Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących zakresów:
 
@@ -94,7 +94,7 @@ Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących
 - Grupa zasobów
 - Subskrypcja
 
-Aby dowiedzieć się, jak weryfikować i przypisywać role, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby dowiedzieć się, jak weryfikować i przypisywać role, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut.

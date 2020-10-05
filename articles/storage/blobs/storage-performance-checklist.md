@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85701f3d073b8f743ddf48910822f152420c4fc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001386"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714812"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista kontrolna wydajności i skalowalności usługi BLOB Storage
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zob
 Jeśli zbliżasz się do maksymalnej liczby kont magazynu dozwolonych dla konkretnej kombinacji subskrypcji/regionu, Oceń swój scenariusz i ustal, czy są spełnione następujące warunki:
 
 - Czy używasz kont magazynu do przechowywania dysków niezarządzanych i dodawania tych dysków do maszyn wirtualnych? W tym scenariuszu firma Microsoft zaleca używanie dysków zarządzanych. Skalowanie dysków zarządzanych automatycznie i bez konieczności tworzenia poszczególnych kont magazynu i zarządzania nimi. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md)
-- Czy używasz jednego konta magazynu dla każdego klienta na potrzeby izolacji danych? W tym scenariuszu firma Microsoft zaleca używanie kontenera obiektów BLOB dla każdego klienta, a nie całego konta magazynu. Usługa Azure Storage umożliwia teraz Przypisywanie ról platformy Azure dla poszczególnych kontenerów. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](../common/storage-auth-aad-rbac-portal.md).
+- Czy używasz jednego konta magazynu dla każdego klienta na potrzeby izolacji danych? W tym scenariuszu firma Microsoft zaleca używanie kontenera obiektów BLOB dla każdego klienta, a nie całego konta magazynu. Usługa Azure Storage umożliwia teraz Przypisywanie ról platformy Azure dla poszczególnych kontenerów. Aby uzyskać więcej informacji, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md).
 - Czy używasz wielu kont magazynu do fragmentu, aby zwiększyć ruch przychodzący, ruch wychodzący, operacje we/wy na sekundę (IOPS) lub pojemność? W tym scenariuszu firma Microsoft zaleca użycie zwiększonych limitów dla kont magazynu w celu zmniejszenia liczby kont magazynu wymaganych do obciążenia, jeśli jest to możliwe. Skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/) , aby zażądać zwiększonych limitów dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie większych kont magazynu](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)o większej skali.
 
 ### <a name="capacity-and-transaction-targets"></a>Pojemność i cele transakcji
@@ -284,7 +284,7 @@ Dołączane obiekty blob są podobne do bloków obiektów blob, które składaj�
 
 Stronicowe obiekty blob są odpowiednie, jeśli aplikacja musi wykonywać losowe operacje zapisu na danych. Na przykład dyski maszyny wirtualnej platformy Azure są przechowywane jako stronicowe obiekty blob. Aby uzyskać więcej informacji, zobacz [Omówienie blokowych obiektów blob, dołączanie obiektów blob i stronicowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Cele skalowalności i wydajności dla usługi BLOB Storage](scalability-targets.md)
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

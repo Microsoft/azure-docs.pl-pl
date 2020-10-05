@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548359"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS)
 
@@ -146,7 +146,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -304,7 +304,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 18. Utwórz nowe zasady dla tego użytkownika.
 
-    ![Zrzut ekranu przedstawiający Dodawanie użytkownika](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie użytkownika, na której można utworzyć zasady dla użytkownika.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Wybierz pozycję **Dołącz istniejące zasady bezpośrednio**.
 
@@ -322,7 +322,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 20. Pobierz poświadczenia użytkownika.
 
-    ![Zrzut ekranu przedstawiający Dodawanie użytkownika](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie użytkownika z przyciskiem Pobierz c s w celu uzyskania poświadczeń użytkownika.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Skopiuj **identyfikator klucza dostępu** i **klucz dostępu wpisu tajnego**.
 
@@ -348,7 +348,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Zapisz ustawienie, wybierając pozycję **Zapisz**.
 
-3. W sekcji **Ustawienia** w obszarze **stan aprowizacji**wybierz pozycję **włączone**. Następnie wybierz pozycję **Zapisz**.
+3. W sekcji **Ustawienia** w obszarze **stan aprowizacji**wybierz pozycję **włączone**. Następnie wybierz przycisk **Zapisz**.
 
     ![Zrzut ekranu przedstawiający sekcję ustawień z wyróżnioną pozycją](./media/amazon-web-service-tutorial/provisioning2.png)
 
@@ -382,11 +382,11 @@ Po kliknięciu kafelka Amazon Web Services (AWS) na panelu dostępu powinno nast
 
   * Role muszą mieć dokładnie jeden dostawca SAML zdefiniowany w AWS
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

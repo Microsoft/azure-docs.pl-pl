@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 806222fc522c548fd58935812d705e12c9b3cee1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029539"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714416"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autoryzowanie dostępu do danych w usłudze Azure Storage
 
@@ -33,11 +33,11 @@ W poniższej tabeli opisano opcje oferowane przez usługę Azure Storage do auto
 
 Każdą opcję autoryzacji można krótko opisać poniżej:
 
-- **Azure Active Directory (Azure AD) integracja** obiektów blob i kolejek. Usługa Azure AD zapewnia kontrolę dostępu opartą na rolach (RBAC) na potrzeby kontroli dostępu klienta do zasobów na koncie magazynu. Aby uzyskać więcej informacji na temat integracji usługi Azure AD dla obiektów blob i kolejek, zobacz temat [autoryzowanie dostępu do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD) integracja** obiektów blob i kolejek. Platforma Azure zapewnia kontrolę dostępu opartą na rolach (Azure RBAC) na potrzeby kontroli nad dostępem klientów do zasobów na koncie magazynu. Aby uzyskać więcej informacji na temat integracji usługi Azure AD dla obiektów blob i kolejek, zobacz temat [autoryzowanie dostępu do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](storage-auth-aad.md).
 
-- **Azure Active Directory Domain Services (Azure AD DS) uwierzytelnianie** dla Azure Files. Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem usługi Azure AD DS. Można użyć RBAC do szczegółowej kontroli nad dostępem klienta do Azure Files zasobów na koncie magazynu. Więcej informacji dotyczących uwierzytelniania Azure Files przy użyciu usług domenowych można znaleźć w temacie [Omówienie](../files/storage-files-active-directory-overview.md).
+- **Azure Active Directory Domain Services (Azure AD DS) uwierzytelnianie** dla Azure Files. Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem usługi Azure AD DS. Możesz użyć kontroli RBAC platformy Azure, aby uzyskać szczegółową kontrolę nad dostępem klienta do Azure Files zasobów na koncie magazynu. Więcej informacji dotyczących uwierzytelniania Azure Files przy użyciu usług domenowych można znaleźć w temacie [Omówienie](../files/storage-files-active-directory-overview.md).
 
-- **Active Directory Domain Services lokalnego (AD DS lub lokalnego AD DS) uwierzytelniania (wersja zapoznawcza)** dla Azure Files. Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB za pośrednictwem AD DS. Środowisko AD DS może być hostowane na maszynach lokalnych lub na maszynach wirtualnych platformy Azure. Dostęp do plików SMB jest obsługiwany przy użyciu poświadczeń AD DS z komputerów przyłączonych do domeny, lokalnie lub na platformie Azure. Można użyć kombinacji RBAC na potrzeby kontroli dostępu na poziomie udziału i list DACL systemu plików NTFS dla wymuszania uprawnień na poziomie katalogu/pliku. Więcej informacji dotyczących uwierzytelniania Azure Files przy użyciu usług domenowych można znaleźć w temacie [Omówienie](../files/storage-files-active-directory-overview.md).
+- **Active Directory Domain Services lokalnego (AD DS lub lokalnego AD DS) uwierzytelniania (wersja zapoznawcza)** dla Azure Files. Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB za pośrednictwem AD DS. Środowisko AD DS może być hostowane na maszynach lokalnych lub na maszynach wirtualnych platformy Azure. Dostęp do plików SMB jest obsługiwany przy użyciu poświadczeń AD DS z komputerów przyłączonych do domeny, lokalnie lub na platformie Azure. Możesz użyć kombinacji RBAC na platformie Azure na potrzeby kontroli dostępu na poziomie udziału i list DACL systemu plików NTFS na potrzeby wymuszania uprawnień na poziomie katalogu/pliku. Więcej informacji dotyczących uwierzytelniania Azure Files przy użyciu usług domenowych można znaleźć w temacie [Omówienie](../files/storage-files-active-directory-overview.md).
 
 - **Autoryzacja klucza współużytkowanego** dla obiektów blob, plików, kolejek i tabel. Klient korzystający z klucza współużytkowanego przekazuje nagłówek z każdym żądaniem podpisanym przy użyciu klucza dostępu konta magazynu. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key/).
 - **Sygnatury dostępu współdzielonego** dla obiektów blob, plików, kolejek i tabel. Sygnatury dostępu współdzielonego (SAS) zapewniają ograniczony dostęp delegowany do zasobów na koncie magazynu. Dodanie ograniczeń w przedziale czasowym, dla którego podpis jest prawidłowy lub na uprawnienia, które ma w ten sposób zapewnia elastyczność zarządzania dostępem. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
