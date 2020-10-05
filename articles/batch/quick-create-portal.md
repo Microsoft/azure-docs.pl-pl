@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
 ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88511375"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal
@@ -49,7 +49,7 @@ Teraz, gdy masz już konto usługi Batch, utwórz przykładową pulę węzłów 
   
    |Ustawienie  |Wartość  |
    |---------|---------|
-   |**Typ obrazu**|Marketplace|
+   |**Typ obrazu**|Portal Marketplace|
    |**Publisher**     |MicrosoftWindowsServer|
    |**Oferta**     |WindowsServer|
    |**Magazyn**     |2019 — Datacenter-Core-smalldisk|
@@ -97,11 +97,11 @@ Aby utworzyć drugie zadanie, powtórz powyższe kroki. Wprowadź inną wartoś�
 
 Utworzone przykładowe zadania zostaną wykonane w ciągu kilku minut. Aby wyświetlić dane wyjściowe wykonanego zadania, wybierz zadanie, a następnie wybierz pozycję **pliki w węźle**. Wybierz plik, `stdout.txt` Aby wyświetlić standardowe dane wyjściowe zadania. Zawartość jest podobna do następującej:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe z wykonanego zadania.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Zrzut ekranu usługi Batch w portalu Azure Marketplace.":::
 
 Zawartość obejmuje zmienne środowiskowe usługi Azure Batch, które są ustawione w węźle. Podczas tworzenia własnych zadań i zadań podrzędnych usługi Batch możesz odwoływać się do tych zmiennych środowiskowych w wierszach polecenia zadań podrzędnych oraz w aplikacjach i skryptach uruchamianych przez wiersze polecenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz kontynuować naukę z samouczkami i przykładami usługi Batch, skorzystaj z konta usługi Batch i powiązanego konta magazynu, które zostały utworzone w tym przewodniku Szybki start. Za samo konto usługi Batch nie są naliczane opłaty.
 

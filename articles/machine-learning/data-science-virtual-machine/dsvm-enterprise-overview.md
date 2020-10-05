@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
 ms.openlocfilehash: b1357c9bb125cb881ac4aa6dd31c9dcaf53954f0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87919943"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Analiza zespołu oparta na Data Science Virtual Machineach i środowisko AI 
@@ -40,9 +40,9 @@ Ta seria zawiera wskazówki i wskaźniki dla każdego z powyższych tematów. Ni
 * [Bezpieczeństwo sieci](https://docs.microsoft.com/azure/security/fundamentals/network-security)
 * [Monitorowanie](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) i [Zarządzanie](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Rejestrowanie i przeprowadzanie inspekcji](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Ustawienie zasad i wymuszanie](../../governance/policy/overview.md)
-* [Oprogramowanie chroniące przed złośliwym kodem](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Szyfrowanie](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
 * [Odnajdywanie i zarządzanie danymi](https://docs.microsoft.com/azure/data-catalog/)
 

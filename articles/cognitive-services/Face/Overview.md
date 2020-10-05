@@ -12,10 +12,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: rozpoznawanie twarzy, oprogramowanie do rozpoznawania twarzy, analiza twarzy, dopasowanie twarzy, aplikacja do rozpoznawania twarzy, wyszukiwanie twarzy według obrazu, wyszukiwanie twarzy
 ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91262488"
 ---
 # <a name="what-is-the-azure-face-service"></a>Co to jest usługa Azure Front?
@@ -76,7 +76,7 @@ Po utworzeniu i przeprowadzeniu uczenia bazy danych można przeprowadzić identy
 
 Aby uzyskać więcej informacji na temat identyfikacji osób, zobacz Przewodnik dotyczący pojęć dotyczących [rozpoznawania twarzy](concepts/face-recognition.md) lub dokumentację dotyczącą [identyfikacji interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Kontenery
 
 [Użyj kontenera twarzy](face-how-to-install-containers.md) , aby wykrywać, rozpoznawać i identyfikować twarze, instalując ustandaryzowany kontener platformy Docker bliżej Twoich danych.
 

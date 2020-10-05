@@ -12,10 +12,10 @@ ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
 ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88586457"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ze sprężyną Java przy użyciu konfiguracji aplikacji platformy Azure
@@ -40,7 +40,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-7. Wybierz przycisk **Zastosuj**.
+7. Wybierz pozycję **Zastosuj**.
 
 ## <a name="create-a-spring-boot-app"></a>Tworzenie aplikacji Spring Boot
 
@@ -182,7 +182,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     Zobaczysz komunikat wprowadzony w magazynie konfiguracji aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

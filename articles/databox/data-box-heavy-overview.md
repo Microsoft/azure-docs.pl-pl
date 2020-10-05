@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80437778"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Czym jest Azure Data Box Heavy?
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby zarejestrować się w usłudze Data Box Heavy:
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **+ Utwórz zasób** , aby utworzyć nowy zasób. Wyszukaj **Azure Data Box**. Wybierz usługę **Azure Data Box**.
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 4. Wybierz subskrypcję, której chcesz użyć dla Data Box Heavy. Wybierz region, w którym chcesz wdrożyć zasób rozwiązania Data Box Heavy. W opcji **Data Box Heavy** kliknij pozycję **Zarejestruj się**.
 5. Odpowiedz na pytania dotyczące kraju/regionu pobytu danych, ramy czasowe, docelowej usługi platformy Azure na potrzeby transferu danych, przepustowości sieci i częstotliwości transferu danych. Przejrzyj zasady ochrony prywatności i warunki i zaznacz pole wyboru obok pozycji Firma Microsoft może używać Twojego adresu e-mail do kontaktu.
 

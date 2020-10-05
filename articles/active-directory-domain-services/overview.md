@@ -12,13 +12,13 @@ ms.date: 08/14/2020
 ms.author: iainfou
 ms.custom: contperfq1
 ms.openlocfilehash: 2255f2193378d0cc3611680c6aa5f8e0837e99aa
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88245182"
 ---
-# <a name="what-is-azure-active-directory-domain-services"></a>Co to jest Azure Active Directory Domain Services?
+# <a name="what-is-azure-active-directory-domain-services"></a>Co to są usługi Azure Active Directory Domain Services?
 
 Azure Active Directory Domain Services (AD DS) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP (Lightweight Directory Access Protocol) oraz uwierzytelnianie Kerberos/NTLM. Te usługi domenowe są używane bez konieczności wdrażania kontrolerów domeny (DC) w chmurze i zarządzania nimi.
 

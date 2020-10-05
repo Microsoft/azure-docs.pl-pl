@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80056546"
 ---
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz współpracować z kolejnymi przewodnikami Szybki Start, samouczkami lub z dowolnymi usługami utworzonymi w ramach tego przewodnika Szybki Start, nie czyść zasobów.

@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961341"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Tworzenie aplikacji w języku Ruby on-Szyns w App Service
@@ -65,7 +65,7 @@ Przy użyciu przeglądarki internetowej przejdź pod adres `http://localhost:300
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
@@ -121,7 +121,7 @@ http://<app-name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: język Ruby na szynach z Postgres](tutorial-ruby-postgres-app.md)

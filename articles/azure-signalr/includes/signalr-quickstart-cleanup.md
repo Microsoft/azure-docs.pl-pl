@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -8,13 +8,13 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67183598"
 ---
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji i nie chcesz, aby zostały naliczone jakiekolwiek opłaty, wykonaj następujące czynności w celu usunięcia wszystkich zasobów w ramach tego przewodnika Szybki start:
 

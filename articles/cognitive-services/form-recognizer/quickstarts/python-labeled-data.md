@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: e96940960b6ee131068b77bca4818499377ea3dd
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723502"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
@@ -40,7 +40,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 Następnie musisz skonfigurować wymagane dane wejściowe. Funkcja dane etykietowane ma specjalne wymagania wejściowe wykraczające poza to, co jest potrzebne do uczenia modelu niestandardowego bez etykiet.
 
-Upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, zorganizuj je w podfolderach w oparciu o wspólny format. Podczas uczenia należy skierować interfejs API do podfolderu.
+Upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, podziel je na podfoldery w oparciu o wspólny format. Podczas szkolenia będziesz kierować interfejs API do podfolderu.
 
 Aby zapewnić uczenie modelu przy użyciu danych z etykietami, potrzebne są następujące pliki jako dane wejściowe w podfolderze. Dowiesz się, jak utworzyć poniższe pliki.
 
@@ -255,7 +255,7 @@ Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginaln
 Aby przeprowadzić uczenie modelu z danymi z etykietami, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
 1. Zamień na `<Endpoint>` adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
-1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Zamień na `<Blob folder name>` nazwę folderu w kontenerze obiektów blob, w którym znajdują się dane wejściowe. Lub, jeśli Twoje dane są w katalogu głównym, pozostaw to pole puste i usuń je `"prefix"` z treści żądania HTTP.
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)

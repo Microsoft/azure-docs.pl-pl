@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 655c016b55abdcf4b6f546a1fe16348ec4c83724
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87853368"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie projektu za pomocą środowiska niestandardowego w programie Azure Notebooks Preview
@@ -54,7 +54,7 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
 
    | Operacja | Opis |
    | --- | --- |
-   | Requirements.txt | Projekty języka Python definiują ich zależności w pliku requirements.txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz pozycję **Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty środowisko **ustawień projektu**  >  **Environment** i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie`pip install -r <file>` |
+   | Requirements.txt | Projekty języka Python definiują ich zależności w pliku requirements.txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz pozycję **Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty środowisko **ustawień projektu**  >  **Environment** i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie `pip install -r <file>` |
    | Skrypt powłoki | Użyj, aby wskazać skrypt powłoki bash (zazwyczaj plik z rozszerzeniem *. sh* ) zawierający wszystkie polecenia, które chcesz uruchomić w celu zainicjowania środowiska. |
    | Środowisko. yml | Projekt języka Python, który używa Conda do zarządzania środowiskiem, używa pliku Environments *. yml* do opisywania zależności. W przypadku tej opcji wybierz odpowiedni plik z listy plików projektu. |
 

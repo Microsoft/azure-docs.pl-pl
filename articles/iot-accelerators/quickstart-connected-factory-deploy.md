@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "62127467"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Szybki start: testowanie rozwiązania opartego na chmurze w celu zarządzania przemysłowymi urządzeniami IoT
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start przedstawia sposób wdrażania akceleratora rozwiąz
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
 
@@ -118,7 +118,7 @@ Po hierarchii rozwiązania można nawigować oraz wyświetlać wartości ogólne
 
 Jeśli Twoja subskrypcja ma dostęp do [interfejsu API usługi Mapy Bing](iot-accelerators-faq-cf.md), na mapie *Fabryki* są wyświetlane lokalizacje geograficzne i stan wszystkich fabryk w rozwiązaniu. Aby przejść do szczegółów lokalizacji, kliknij lokalizacje wyświetlane na mapie.
 
-[![Zmapować](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Mapa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmy
 
@@ -139,7 +139,7 @@ Aby dalej analizować dane alarmów, kliknij wykres na panelu alarmów.
 
 Te alarmy są generowane na podstawie reguł określonych w pliku konfiguracyjnym w akceleratorze rozwiązania. Te reguły mogą generować alarmy, gdy OEE lub kluczowego wskaźnika wydajności lub wartości węzła OPC UA przekraczają próg. Możesz ustawić wartość tego progu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz dalsze działanie, akcelerator rozwiązań połączonej fabryki powinien pozostać wdrożony.
 

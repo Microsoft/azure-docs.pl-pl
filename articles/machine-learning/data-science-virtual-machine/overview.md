@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
 ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88816341"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Co to jest Data Science Virtual Machine platformy Azure dla systemów Linux i Windows?
@@ -73,7 +73,7 @@ Możesz użyć DSVM, aby oszacować lub poznać nowe [Narzędzia](./tools-includ
 
 ### <a name="deep-learning-with-gpus"></a>Uczenie głębokie za pomocą procesorów GPU
 
-W DSVM modele szkoleniowe mogą korzystać z algorytmów uczenia głębokiego na sprzęcie opartym na procesorach GPU. Korzystając z możliwości skalowania maszyn wirtualnych platformy Azure, DSVM ułatwia korzystanie z sprzętu opartego na procesorze GPU w chmurze zgodnie z potrzebami. Możesz przełączyć się na maszynę wirtualną opartą na procesorze GPU podczas uczenia dużych modeli lub gdy potrzebujesz obliczeń o dużej szybkości przy zachowaniu tego samego dysku systemu operacyjnego. Można wybrać dowolną z maszyn wirtualnych serii N z obsługą procesorów GPU z DSVM. Uwaga jednostki SKU maszyny wirtualnej obsługujące procesor GPU nie są obsługiwane w przypadku bezpłatnych kont platformy Azure.
+W DSVM modele szkoleniowe mogą korzystać z algorytmów uczenia głębokiego na sprzęcie opartym na procesorach GPU. Korzystając z możliwości skalowania maszyn wirtualnych platformy Azure, DSVM ułatwia korzystanie z sprzętu opartego na procesorze GPU w chmurze zgodnie z potrzebami. Można przełączyć się do maszyny wirtualnej opartej na procesorze GPU w przypadku trenowania dużych modeli lub przeprowadzania szybkich obliczeń i zachować ten sam dysk systemu operacyjnego. Można wybrać dowolną z maszyn wirtualnych serii N z obsługą procesorów GPU z DSVM. Uwaga jednostki SKU maszyny wirtualnej obsługujące procesor GPU nie są obsługiwane w przypadku bezpłatnych kont platformy Azure.
 
 Wersje systemu Windows DSVM są wstępnie zainstalowane ze sterownikami procesora GPU, platformami i wersjami procesora GPU dla platform edukacyjnych. W wersjach systemu Linux uczenie głębokie na procesorach GPU jest włączone na Ubuntu DSVMs. 
 
@@ -83,7 +83,7 @@ Możesz również wdrożyć Ubuntu lub wersje systemu Windows DSVM na maszynie w
 
 ### <a name="data-science-training-and-education"></a>Szkolenia i edukacja w zakresie nauki o danych
 
-Instruktorzy i nauczyciele, którzy uczą klasy nauki o danych, zwykle udostępniają obraz maszyny wirtualnej. Obraz gwarantuje, że uczniowie mają spójną konfigurację oraz że próbki przewidywalnie działają.
+Instruktorzy i nauczyciele prowadzący zajęcia z zakresu nauki o danych zwykle udostępniają obraz maszyny wirtualnej. Obraz gwarantuje, że uczniowie mają spójną konfigurację oraz że próbki przewidywalnie działają.
 
 DSVM tworzy środowisko na żądanie z spójną konfiguracją, która ułatwia problemy z obsługą i niezgodnością. To rozwiązanie oferuje znaczące korzyści w sytuacjach, w których jest konieczne częste tworzenie takich środowisk (zwłaszcza w przypadku krótszych szkoleń).
 

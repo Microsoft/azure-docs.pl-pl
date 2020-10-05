@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
 ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78244976"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnej strefy DNS platformy Azure przy użyciu Azure Portal
 
 Ten przewodnik Szybki Start przeprowadzi Cię przez kroki tworzenia pierwszej prywatnej strefy i rekordu DNS przy użyciu Azure Portal.
 
-Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, musisz określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy Autorejestracja jest włączona, Azure DNS aktualizuje także rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia jej adres IP lub został usunięty.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby opublikować prywatną strefę DNS w sieci wirtualnej, należy określić listę sieci wirtualnych, które mogą rozpoznawać rekordy w strefie.  Są one nazywane *połączonymi* sieciami wirtualnymi. Gdy Autorejestracja jest włączona, Azure DNS aktualizuje także rekordy strefy za każdym razem, gdy maszyna wirtualna jest tworzona, zmienia jej adres IP lub został usunięty.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
@@ -64,19 +64,19 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | MyAzureResourceGroup (wybierz istniejącą grupę zasobów) |
-| **\<Nazwa sieci wirtualnej>** | MyAzureVNet          |
-| **\<Nazwa regionu>**          | Zachodnio-środkowe stany USA      |
-| **\<Adresy IPv4>miejsca**   | 10.2.0.0 \ 16          |
-| **\<>nazwy podsieci**          | MyAzureSubnet        |
-| **\<>zakresu adresów podsieci** | 10.2.0.0 \ 24          |
+| **\<resource-group-name>**  | MyAzureResourceGroup (wybierz istniejącą grupę zasobów) |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | Zachodnio-środkowe stany USA      |
+| **\<IPv4-address-space>**   | 10.2.0.0 \ 16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0 \ 24          |
 
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>Łączenie sieci wirtualnej
 
-Aby połączyć prywatną strefę DNS z siecią wirtualną, należy utworzyć łącze sieci wirtualnej.
+Aby połączyć prywatną strefę DNS z siecią wirtualną, należy utworzyć link sieci wirtualnej.
 
 ![Dodaj łącze sieci wirtualnej](media/private-dns-portal/dns-add-virtual-network-link.png)
 
@@ -143,7 +143,7 @@ Powtórz dla maszyny wirtualnej myVM02.
    ```
    ping myVM01.private.contoso.com
    ```
-   Powinny pojawić się dane wyjściowe podobne do następujących:
+   Wyświetlone dane wyjściowe powinny wyglądać mniej więcej tak:
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -163,7 +163,7 @@ Powtórz dla maszyny wirtualnej myVM02.
    ```
    ping db.private.contoso.com
    ```
-   Powinny pojawić się dane wyjściowe podobne do następujących:
+   Wyświetlone dane wyjściowe powinny wyglądać mniej więcej tak:
    ```
    PS C:\> ping db.private.contoso.com
 
@@ -188,5 +188,5 @@ Gdy nie jest już potrzebne, Usuń grupę zasobów **MyAzureResourceGroup** , ab
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Scenariusze usługi Azure DNS Private Zones](private-dns-scenarios.md)
+> [Scenariusze Azure DNS Private Zones](private-dns-scenarios.md)
 

@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91001042"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) z węzłami niejawnego przetwarzania za pomocą interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
@@ -220,7 +220,7 @@ Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć skojarzone pule węzłów lub usunąć klaster AKS, Użyj poniższych poleceń:
 

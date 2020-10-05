@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8f9c1b1762c4e6028d935e03a630dfc0ca4ee4b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73615762"
 ---
 # <a name="what-is-azure-blob-storage"></a>Co to jest Azure Blob Storage? 
@@ -22,4 +22,4 @@ ms.locfileid: "73615762"
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wprowadzenie do usługi Azure Blob Storage](storage-blobs-introduction.md)
-- [Wprowadzenie do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+- [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

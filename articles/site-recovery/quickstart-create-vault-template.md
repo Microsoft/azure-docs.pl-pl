@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684120"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu ARM
@@ -40,7 +40,7 @@ Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Usta
 
 Aby uzyskać więcej szablonów Recovery Services platformy Azure, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów**i **Nazwa magazynu** .
 
@@ -63,7 +63,7 @@ Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów**i **Nazw
 
 1. Aby rozpocząć wdrażanie magazynu, wybierz przycisk **Kup** . Po pomyślnym wdrożeniu zostanie wyświetlone powiadomienie.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Wdrażanie magazynu powiodło się.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Szablon służący do tworzenia magazynu Recovery Services.":::
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 

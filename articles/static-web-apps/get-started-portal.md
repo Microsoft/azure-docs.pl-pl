@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
 ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91280570"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web w Azure Portal
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto bezpłatnej wersji p
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
-## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji sieci Web
+## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji internetowej
 
 Po utworzeniu repozytorium można utworzyć statyczną aplikację sieci Web na podstawie Azure Portal.
 
@@ -51,7 +51,7 @@ W sekcji _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania j
 
 Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytorium.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Szczegóły repozytorium":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Sekcja podstawy":::
 
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **moja-First-Web-static-App** z listy rozwijanej _repozytorium_
@@ -94,18 +94,18 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
 1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Sekcja podstawy":::
 
     > [!NOTE]
     > [Plik przepływu pracy](github-actions-workflow.md) można edytować, aby zmienić te wartości po utworzeniu aplikacji.
 
 1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Przycisk Utwórz":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Sekcja podstawy":::
 
 1. Wybierz pozycję **Przejdź do zasobu**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Przycisk Przejdź do zasobu":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Sekcja podstawy":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

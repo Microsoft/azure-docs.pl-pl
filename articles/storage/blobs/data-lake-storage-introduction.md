@@ -9,13 +9,13 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: d85b0cd2f9fa7eb81f5c39bd5d163188e3cd7106
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835769"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Wprowadzenie do Azure Data Lake Storage Gen2
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Wprowadzenie do usługi Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na [usłudze Azure Blob Storage](storage-blobs-introduction.md). Data Lake Storage Gen2 jest wynikiem zbieżności możliwości naszych dwóch istniejących usług magazynu, magazynu obiektów blob platformy Azure i Azure Data Lake Storage Gen1. Funkcje z [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), takie jak semantyka systemu plików, katalog i zabezpieczenia na poziomie plików i skalowanie, są połączone z tanim magazynem warstwowym, wysoką dostępnością/odzyskiwaniem po awarii z [usługi Azure Blob Storage](storage-blobs-introduction.md).
 
@@ -80,7 +80,7 @@ Data Lake Storage Gen2 obsługuje kilka usług platformy Azure, których można 
 
 Kilka platform Open Source obsługuje Data Lake Storage Gen2. Aby uzyskać pełną listę, zobacz [platformy typu "open source" obsługujące Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Dostęp z wieloprotokołem do Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

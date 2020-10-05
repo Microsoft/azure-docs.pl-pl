@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/28/2020
 ms.author: kegorman
 ms.openlocfilehash: 5a94fa917625a32c0ae8b47a4d1a380e3f18d053
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91274694"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie Oracle Database na maszynie wirtualnej platformy Azure

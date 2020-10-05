@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
 ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73498817"
 ---
 # <a name="what-is-microsoft-genomics"></a>Co to jest Microsoft Genomics?
@@ -35,5 +35,5 @@ Usługa Microsoft Genomics to ISO 27001, ISO 27018 i ISO 9001 certyfikowane i zg
 Teraz, po zapoznaniu się z wprowadzeniem do Microsoft Genomics, możesz przystąpić do:
 - Odwiedzenie strony cennika zawierającej porównania kosztów i kalkulatory. [Cennik](https://azure.microsoft.com/pricing/details/genomics/)
 - Zacznij od uruchomienia pierwszego przepływu pracy za pomocą usługi Microsoft Genomics. [uruchamianie przepływu pracy za pośrednictwem usługi Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
-- Prześlij własne dane do przetwarzania przez usługę Microsoft Genomics: [sparowany FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | z[wieloma FASTQ lub BAM](quickstart-input-multiple.md) 
+- Prześlij własne dane do przetwarzania przez usługę Microsoft Genomics: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)z  |  [wieloma FASTQ lub BAM](quickstart-input-multiple.md) 
 

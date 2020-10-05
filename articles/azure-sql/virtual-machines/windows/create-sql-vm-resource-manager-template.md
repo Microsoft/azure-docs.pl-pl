@@ -8,10 +8,10 @@ ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88660211"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej SQL Server przy użyciu szablonu ARM
@@ -77,7 +77,7 @@ Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można
     * **Ścieżka dziennika**: ścieżka do SQL Server plików dziennika. 
     * **Lokalizacja**: lokalizacja dla wszystkich zasobów, ta wartość powinna pozostać wartością domyślną `[resourceGroup().location]` . 
 
-3. Wybierz pozycję **Przejrzyj i utwórz**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
+3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również używać Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -92,7 +92,7 @@ read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli grupa zasobów nie jest już konieczna, usuń ją za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 

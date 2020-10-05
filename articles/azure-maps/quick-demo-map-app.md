@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91264290"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Szybki Start: Tworzenie mapy wyszukiwania interaktywnego za pomocą Azure Maps
@@ -62,7 +62,7 @@ Po pomyślnym utworzeniu konta Maps Pobierz klucz podstawowy, który umożliwia 
 >[!NOTE]
 > Jeśli używasz klucza subskrypcji zamiast klucza podstawowego, mapa nie będzie renderowana prawidłowo. Ponadto ze względów bezpieczeństwa zaleca się obracanie między kluczami podstawowymi i pomocniczymi. Aby obrócić klucze, zaktualizuj aplikację tak, aby korzystała z klucza pomocniczego, wdróż, a następnie naciśnij przycisk Cykl/Odśwież obok klucza podstawowego, aby wygenerować nowy klucz podstawowy. Stary klucz podstawowy zostanie wyłączony. Aby uzyskać więcej informacji na temat rotacji kluczy, zobacz [konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Pobierz klucz podstawowy Azure Maps w Azure Portal":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Tworzenie konta usługi Maps w portalu":::
 
 ## <a name="download-the-demo-application"></a>Pobieranie aplikacji demonstracyjnej
 
@@ -78,7 +78,7 @@ Po pomyślnym utworzeniu konta Maps Pobierz klucz podstawowy, który umożliwia 
 4. Wypróbuj funkcję wyszukiwania interaktywnego. W polu wyszukiwania w lewym górnym rogu demonstracyjnej aplikacji internetowej wyszukaj **restauracje**.
 5. Przesuń wskaźnik myszy na liście adresów i lokalizacji, które są wyświetlane pod polem wyszukiwania. Zwróć uwagę, jak za pomocą odpowiedniej pinezki na mapie wyświetlane są informacje o tej lokalizacji. Ze względu na ochronę danych prywatnych firm wyświetlono fikcyjne nazwy i adresy.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplikacja sieci Web do wyszukiwania map interakcyjnych":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Tworzenie konta usługi Maps w portalu":::
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

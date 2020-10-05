@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki umożliwiające włąc
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4cc7eb524060f2a797077f38321ae9ce6c9cf267
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056418"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell
@@ -88,7 +88,7 @@ Teraz, gdy moduł programu Azure PowerShell został dodany do Twojego wybranego 
 Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
 
 > [!NOTE]
-> Jeśli zapytanie nie zwraca wyników z subskrypcji, do której już masz dostęp, należy zauważyć, że `Search-AzGraph` polecenie cmdlet domyślnie obsługuje subskrypcje w kontekście domyślnym. Aby wyświetlić listę identyfikatorów subskrypcji, które są częścią kontekstu domyślnego, uruchom tę opcję `(Get-AzContext).Account.ExtendedProperties.Subscriptions` , jeśli chcesz przeszukać wszystkie subskrypcje, do których masz dostęp, ale można ustawić PSDefaultParameterValues dla `Search-AzGraph` polecenia cmdlet, uruchamiając polecenie`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Jeśli zapytanie nie zwraca wyników z subskrypcji, do której już masz dostęp, należy zauważyć, że `Search-AzGraph` polecenie cmdlet domyślnie obsługuje subskrypcje w kontekście domyślnym. Aby wyświetlić listę identyfikatorów subskrypcji, które są częścią kontekstu domyślnego, uruchom tę opcję `(Get-AzContext).Account.ExtendedProperties.Subscriptions` , jeśli chcesz przeszukać wszystkie subskrypcje, do których masz dostęp, ale można ustawić PSDefaultParameterValues dla `Search-AzGraph` polecenia cmdlet, uruchamiając polecenie `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

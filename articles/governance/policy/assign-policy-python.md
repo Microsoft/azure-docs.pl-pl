@@ -5,10 +5,10 @@ ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a160b9bc389bc0c902f9644887aa478f80822e60
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136518"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python
@@ -56,7 +56,7 @@ Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać biblio
    > [!NOTE]
    > Jeśli język Python jest zainstalowany dla wszystkich użytkowników, polecenia te należy uruchomić z poziomu konsoli z podwyższonym poziomem uprawnień.
 
-1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-policyinsights`powinna być **0.5.0** lub wyższa, `azure-mgmt-resource` powinna być **9.0.0** lub większa i `azure-cli-core` powinna być **2.5.0** lub wyższa.
+1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-policyinsights` powinna być **0.5.0** lub wyższa, `azure-mgmt-resource` powinna być **9.0.0** lub większa i `azure-cli-core` powinna być **2.5.0** lub wyższa.
 
    ```bash
    # Check each installed library
@@ -95,10 +95,10 @@ Szczegóły przypisania:
 - **display_name** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_.
 - **policy_definition_id** — ścieżka definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_. W tym przykładzie definicja zasad jest wbudowana, a ścieżka nie zawiera informacji o grupie zarządzania lub subskrypcji.
 - **zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może ona przedziały od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jednym z następujących wzorców:
-  - Grupa zarządzania:`/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Ramach`/subscriptions/{subscriptionId}`
+  - Grupa zarządzania: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+  - Ramach `/subscriptions/{subscriptionId}`
   - Grupa zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Zasoby`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
+  - Zasoby `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 - **Opis** — dokładniejsze wyjaśnienie tego, czym są zasady lub dlaczego są przypisane do tego zakresu.
 
 Tworzenie przypisania:

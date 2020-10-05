@@ -13,10 +13,10 @@ ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91258136"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
@@ -59,7 +59,7 @@ Po zakończeniu rejestracji Azure Portal wyświetla okienko **Przegląd** rejest
 
 Kod aplikacji lub zwykle Biblioteka uwierzytelniania użyta w aplikacji również używa identyfikatora klienta jako jednego aspektu podczas weryfikowania tokenów zabezpieczających odbieranych z platformy tożsamości.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej z okienkiem przegląd rejestracji aplikacji.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację.":::
 
 ## <a name="add-a-redirect-uri"></a>Dodaj identyfikator URI przekierowania
 
@@ -80,7 +80,7 @@ Aby skonfigurować ustawienia aplikacji na podstawie docelowej platformy lub urz
 1. W obszarze **Konfiguracja platformy**wybierz pozycję **Dodaj platformę**.
 1. Na stronie **Konfigurowanie platform**wybierz kafelek dla typu aplikacji (platformy), aby skonfigurować jego ustawienia.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Zrzut ekranu przedstawiający okienko Konfiguracja platformy w Azure Portal" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację." border="false":::
 
     | Platforma | Ustawienia konfiguracji |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Poświadczenia są używane przez poufne aplikacje klienckie, które uzyskują d
 
 Do rejestracji poufnej aplikacji klienckiej można dodać zarówno certyfikaty, jak i klucze tajne klienta (ciąg) jako poświadczenia.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlania certyfikatów i wpisów tajnych w rejestracji aplikacji":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Zrzut ekranu przedstawiający Azure Portal w przeglądarce internetowej pokazujący okienko Zarejestruj aplikację.":::
 
 ### <a name="add-a-certificate"></a>Dodawanie certyfikatu
 

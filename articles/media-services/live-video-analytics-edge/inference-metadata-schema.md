@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono informacje o schemacie metadanych wnio
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88691860"
 ---
 # <a name="inference-metadata-schema"></a>Schemat metadanych wnioskowania 
@@ -26,7 +26,7 @@ Każdy obiekt wnioskowania bez względu na użycie umowy opartej na protokole HT
 |Prostokąt|Prostokątny region względem lewego górnego rogu obrazu. Wymagane właściwości będą mieć wartość "Length", "width", Height "i" górną odległość od początku ".|
 |Klasyfikacja|Etykieta klasyfikatora często stosowana do całego przykładu. Za pomocą "tagu" można sklasyfikować wynik.|
 |Jednostka|Obiekt został wykryty lub zidentyfikowany w próbce. Gdy obiekt jest wykrywany przez aparat inferencing, pobierany jest "tag", dodatkowe atrybuty, które zostały wywnioskowane, a współrzędnych prostokątnego pola wokół znalezionej znalezionej jednostki jest zwracana.|
-|Zdarzenie|Wykryto zdarzenie w próbce. W przypadku wykrycia zdarzenia w przykładzie zostanie zwrócona nazwa zdarzenia i właściwości specyficzne dla zdarzenia.|
+|Wydarzenie|Wykryto zdarzenie w próbce. W przypadku wykrycia zdarzenia w przykładzie zostanie zwrócona nazwa zdarzenia i właściwości specyficzne dla zdarzenia.|
 |Ruchu|Wykryto ruch w próbce. Gdy ruch zostanie wykryty w próbce, jest zwracana granica prostokątnego pola ograniczenia, w którym wykryto ruch.|
 |Tekst|Zwracany jest tekst skojarzony z próbką wraz z początkową i końcową sygnaturą czasową tekstu.|
 |Inne|Zwraca inne informacje o ładunku ogólnym.|
@@ -123,5 +123,5 @@ Poniższy przykład zawiera jedno zdarzenie z obsługiwanymi typami wnioskowania
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [kontrakt danych gRPC](grpc-data-contract.md)
+- [Kontrakt danych gRPC](grpc-data-contract.md)
 - [Kontrakt danych HTTP](http-data-contract.md)

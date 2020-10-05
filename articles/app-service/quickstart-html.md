@@ -8,10 +8,10 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961348"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
@@ -40,7 +40,7 @@ Uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplika
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 Przejdź do katalogu, który zawiera przykładowy kod, i uruchom polecenie `az webapp up`. W poniższym przykładzie zastąp ciąg <nazwa_aplikacji> unikatową nazwą aplikacji. Zawartość statyczna jest wskazywana przez `--html` flagę.
 
@@ -132,7 +132,7 @@ az group delete --name appsvc_rg_Windows_westeurope
 
 Wykonanie tego polecenia może potrwać około minutę.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Mapowanie domeny niestandardowej](app-service-web-tutorial-custom-domain.md)

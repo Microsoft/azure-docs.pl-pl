@@ -9,10 +9,10 @@ ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303373"
 ---
 # <a name="what-is-azure-communication-services"></a>Co to są usługi Azure Communication Services?
@@ -51,7 +51,7 @@ Następujące zasoby są doskonałym miejscem do uruchomienia, jeśli dopiero za
 |**[Wprowadzenie do rozmowy](./quickstarts/chat/get-started.md)**|W celu zintegrowania rozmowy w czasie rzeczywistym z aplikacjami można użyć biblioteki klienta czatu usługi Azure Communication Services.|
 
 
-## <a name="samples"></a>Przykłady
+## <a name="samples"></a>Samples
 
 Poniższe przykłady przedstawiają kompleksowe wykorzystanie bibliotek klienckich usług Azure Communications Services. Możesz korzystać z tych przykładów do uruchamiania własnych rozwiązań usług komunikacyjnych.
 <br>

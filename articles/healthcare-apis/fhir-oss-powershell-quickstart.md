@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: c133a309cc85ffcfb69be2ae7bbb614cbb540f2e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87847146"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-powershell"></a>Szybki Start: Wdrażanie serwera FHIR Open Source przy użyciu programu PowerShell
@@ -52,7 +52,7 @@ $metadata.RawContent
 
 Potrwa to chwilę, zanim serwer zacznie reagować po raz pierwszy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń grupę zasobów, wykonując następujące czynności:
 

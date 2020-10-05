@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
 ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91252310"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Szybki start: tworzenie usługi Front Door na potrzeby globalnej aplikacji internetowej o wysokiej dostępności
@@ -58,7 +58,7 @@ Jeśli nie masz jeszcze aplikacji sieci Web, wykonaj następujące kroki, aby sk
 
 1. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj **Podsumowanie**, a następnie wybierz pozycję **Utwórz**. Ukończenie wdrożenia może potrwać kilka minut.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Przejrzyj podsumowanie dla aplikacji sieci Web":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 Po zakończeniu wdrażania Utwórz drugą aplikację sieci Web. Użyj tej samej procedury z tymi samymi wartościami, z wyjątkiem następujących wartości:
 
@@ -87,7 +87,7 @@ Skonfiguruj drzwiczki frontonu platformy Azure, aby skierować ruch użytkownik�
 
 1. W obszarze **Nazwa hosta**wprowadź globalnie unikatową nazwę hosta. W tym przykładzie używamy *contoso-frontonu*. Wybierz pozycję **Dodaj**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Dodawanie hosta frontonu dla drzwi platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
@@ -95,7 +95,7 @@ Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
 1. W obszarze **Nazwa**wprowadź wartość *myBackendPool*, a następnie wybierz pozycję **Dodaj wewnętrzną bazę danych**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Dodawanie puli zaplecza":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 1. W bloku **Dodawanie zaplecza** wybierz poniższe informacje, a następnie wybierz pozycję **Dodaj**.
 
@@ -107,7 +107,7 @@ Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
     **Pozostaw wszystkie pozostałe pola domyślne.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Dodawanie hosta zaplecza do drzwi przednich":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 1. Ponownie wybierz pozycję **Dodaj wewnętrzną bazę danych** . wybierz poniższe informacje i wybierz pozycję **Dodaj**.
 
@@ -121,7 +121,7 @@ Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
 1. Wybierz pozycję **Dodaj** w bloku **Dodawanie puli zaplecza** , aby ukończyć konfigurację puli zaplecza.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Dodawanie puli zaplecza dla drzwi platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 Na koniec Dodaj regułę routingu. Reguła routingu mapuje hosta frontonu do puli zaplecza. Reguła przekazuje żądanie do `contoso-frontend.azurefd.net` **myBackendPool**.
 
@@ -129,14 +129,14 @@ Na koniec Dodaj regułę routingu. Reguła routingu mapuje hosta frontonu do pul
 
 1. W polu **Dodaj regułę**, dla **nazwy**wpisz *LocationRule*. Zaakceptuj wszystkie wartości domyślne, a następnie wybierz pozycję **Dodaj** , aby dodać regułę routingu.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Dodawanie reguły do czołowych drzwi":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
    >[!WARNING]
    > **Musisz** się upewnić, że każdy host frontonu w swoich drzwiach frontonu ma regułę routingu ze `\*` skojarzoną z nią ścieżką domyślną (). Oznacza to, że we wszystkich regułach routingu musi istnieć co najmniej jedna reguła routingu dla każdego z hostów frontonu zdefiniowanych w ścieżce domyślnej ( `\*` ). Niewykonanie tej czynności może spowodować, że ruch użytkowników końcowych nie zostanie prawidłowo przekierowany.
 
 1. Wybierz kolejno pozycje **Przegląd + Utwórz**i **Utwórz**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Skonfigurowane drzwi frontonu platformy Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 ## <a name="view-azure-front-door-in-action"></a>Wyświetl działania z przodu platformy Azure w działaniu
 
@@ -161,7 +161,7 @@ Aby przetestować natychmiastową globalną pracę w trybie failover, spróbuj w
 
 1. Odśwież przeglądarkę. Tym razem powinien zostać wyświetlony komunikat o błędzie.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Oba wystąpienia aplikacji sieci Web zostały zatrzymane":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Tworzenie aplikacji internetowej w witrynie Azure Portal":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

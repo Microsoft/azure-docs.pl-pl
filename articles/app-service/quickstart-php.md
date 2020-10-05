@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961441"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web w języku PHP w Azure App Service
@@ -76,7 +76,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 W Cloud Shell Utwórz aplikację sieci Web w `myAppServicePlan` planie App Service za pomocą [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. 
 
@@ -204,7 +204,7 @@ Po zakończeniu wdrożenia wróć do okna przeglądarki otwartego w kroku **prze
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [PHP z bazą danych MySQL](tutorial-php-mysql-app.md)

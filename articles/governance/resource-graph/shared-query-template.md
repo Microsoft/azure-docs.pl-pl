@@ -5,10 +5,10 @@ ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88685531"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Szybki Start: Tworzenie zapytania udostępnionego przy użyciu szablonu ARM
@@ -37,7 +37,7 @@ Zasób zdefiniowany w szablonie to:
 
 - [Microsoft. ResourceGraph/zapytania](/azure/templates/microsoft.resourcegraph/queries)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 > [!NOTE]
 > Usługa Azure Resource Graph jest bezpłatna. Aby uzyskać więcej informacji, zobacz [Omówienie grafu zasobów platformy Azure](./overview.md).
@@ -85,7 +85,7 @@ Alternatywnie można otworzyć udostępnione zapytanie z Eksploratora grafu zaso
 
 1. Po załadowaniu zapytania wybierz przycisk **Uruchom zapytanie** . Wyniki są wyświetlane na karcie **wyniki** poniżej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone zapytanie udostępnione, wykonaj następujące kroki:
 

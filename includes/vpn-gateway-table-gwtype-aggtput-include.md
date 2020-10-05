@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "74828973"
 ---
 |**<br>Generowanie bramy sieci VPN <br>** |**SKU**   | **Połączenia typu lokacja-lokacja/Połączenia między sieciami wirtualnymi<br>Tunele** | **Połączenia typu punkt-lokacja<br> Połączenia SSTP** | **P2S <br> połączenia IKEv2/OpenVPN** | **Test porównawczy<br>agregowanej przepływności** | **BGP** | **Strefa nadmiarowa** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
-|**Generation1**|**Podstawowe**   | Maksymalnie z 10    | Maksymalnie z 128  | Nieobsługiwane  | 100 Mb/s  | Nieobsługiwane| Nie |
+|**Generation1**|**Podstawowa**   | Maksymalnie z 10    | Maksymalnie z 128  | Nieobsługiwane  | 100 Mb/s  | Nieobsługiwane| Nie |
 |**Generation1**|**VpnGw1**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 250       | 650 Mb/s  | Obsługiwane | Nie |
 |**Generation1**|**VpnGw2**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 500       | 1 Gb/s    | Obsługiwane | Nie |
 |**Generation1**|**VpnGw3**  | Maksymalnie z 30*   | Maksymalnie z 128  | Maksymalnie z 1000      | 1,25 Gb/s | Obsługiwane | Nie |
@@ -48,7 +48,7 @@ ms.locfileid: "74828973"
 
 Aby pomóc naszym klientom zrozumieć względną wydajność jednostek SKU przy użyciu różnych algorytmów, do mierzenia wydajności używamy publicznie dostępnych narzędzi iPerf i CTSTraffic. W poniższej tabeli przedstawiono wyniki testów wydajności dla generacji 1, VpnGw jednostek SKU. Jak widać, najlepszą wydajność uzyskuje się w przypadku użycia algorytmu GCMAES256 w przypadku szyfrowania i integralności protokołu IPsec. Średnia wydajność podczas korzystania z AES256 na potrzeby szyfrowania IPsec i SHA256 w celu zapewnienia integralności. W przypadku użycia DES3 na potrzeby szyfrowania IPsec i SHA256 w celu zapewnienia integralności mamy najniższą wydajność.
 
-|**Generacji**|**SKU**   | **Używane algorytmy <br>** | **Zaobserwowana przepływność <br>** | **Poobserwowane pakiety na sekundę <br>** |
+|**Generowanie**|**SKU**   | **Używane algorytmy <br>** | **Zaobserwowana przepływność <br>** | **Poobserwowane pakiety na sekundę <br>** |
 |---           |---       | ---                 | ---            | ---                    |
 |**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mb/s<br>500 Mb/s<br>120 MB/s   | 58 000<br>50 000<br>50 000|
 |**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gb/s<br>500 Mb/s<br>120 MB/s | 90 000<br>80 000<br>55 000|

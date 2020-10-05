@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88234945"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra za pomocą zestawu SDK języka Python i Azure Cosmos DB
@@ -66,7 +66,7 @@ Teraz sklonujemy aplikację interfejsu API Apache Cassandra z usługi GitHub, us
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *pyquickstart.py* . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). 
+Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *pyquickstart.py* . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). 
 
 * `cluster`Zostanie zainicjowany z `contactPoint` i `port` informacje pobierane z Azure Portal. `cluster`Następnie łączy się z interfejs API Cassandra Azure Cosmos dB przy użyciu `connect()` metody. Autoryzowane połączenie jest ustanawiane przy użyciu nazwy użytkownika, hasła i certyfikatu domyślnego lub jawnego certyfikatu, jeśli podano go w pliku konfiguracji.
 
@@ -157,11 +157,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     Naciśnij klawisze CTRL + C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Wyświetlanie i weryfikowanie danych wyjściowych":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Wyświetlanie i kopiowanie nazwy użytkownika, hasła i punktu kontaktowego w witrynie Azure Portal, blok parametrów połączenia":::
     
 4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Wyświetlanie danych w Eksploratorze danych":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Wyświetlanie i kopiowanie nazwy użytkownika, hasła i punktu kontaktowego w witrynie Azure Portal, blok parametrów połączenia":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 

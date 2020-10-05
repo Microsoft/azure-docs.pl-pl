@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851940"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu Azure Portal
@@ -37,13 +37,13 @@ Usługę Azure API for FHIR można znaleźć, wpisując ciąg "FHIR" w polu wysz
 
 Wybierz pozycję **Utwórz** , aby utworzyć nowe konto interfejsu API platformy Azure dla usługi FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Tworzenie konta interfejsu API platformy Azure dla usługi FHIR":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
 
 ## <a name="enter-account-details"></a>Wprowadź szczegóły konta
 
 Wybierz istniejącą grupę zasobów lub Utwórz nową, wybierz nazwę konta, a na koniec kliknij pozycję **Przegląd + Utwórz**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Nowe szczegóły dotyczące interfejsu API usługi opieki zdrowotnej":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
 
 Potwierdź utworzenie i oczekiwanie na wdrożenie interfejsu API FHIR.
 
@@ -51,7 +51,7 @@ Potwierdź utworzenie i oczekiwanie na wdrożenie interfejsu API FHIR.
 
 Możesz również kliknąć przycisk **Dalej: Ustawienia dodatkowe** , aby wyświetlić ustawienia uwierzytelniania. Domyślną konfiguracją interfejsu API platformy Azure dla usługi FHIR jest [użycie funkcji RBAC platformy Azure do przypisywania ról płaszczyzny danych](configure-azure-rbac.md). Po skonfigurowaniu w tym trybie "urząd" dla usługi FHIR zostanie ustawiony na dzierżawę Azure Active Directory subskrypcji:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Domyślne ustawienia uwierzytelniania":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Wyszukaj interfejsy API usługi opieki zdrowotnej":::
 
 Należy zauważyć, że pole umożliwiające wprowadzanie dozwolonych identyfikatorów obiektów jest wyszarzone, ponieważ w tym przypadku korzystamy z usługi Azure RBAC do konfigurowania przypisań ról.
 
@@ -61,7 +61,7 @@ Jeśli chcesz skonfigurować usługę FHIR do korzystania z dzierżawy zewnętrz
 
 Aby sprawdzić, czy nowe konto interfejsu API FHIR jest inicjowane, Pobierz instrukcję możliwości, wskazując przeglądarkę na `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata` .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, usługa Azure API dla FHIR i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów zawierającą konto interfejsu API platformy Azure dla usługi FHIR, wybierz pozycję **Usuń grupę zasobów**, a następnie Potwierdź nazwę grupy zasobów do usunięcia.
 

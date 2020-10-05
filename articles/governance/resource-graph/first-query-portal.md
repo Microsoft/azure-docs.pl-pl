@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierws
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056384"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
@@ -94,7 +94,7 @@ Aby przedstawić przykłady zapytań dotyczących wykresów zasobów i jak możn
 
 - [Eksplorator grafów zasobów — przykładowy pulpit nawigacyjny #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #2" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Przykład obrazu dla przykładowego pulpitu nawigacyjnego #1" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Liczniki i wykresy w powyższym przykładowym zrzucie ekranu nawigacyjnego różnią się w zależności od środowiska platformy Azure.

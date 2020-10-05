@@ -17,10 +17,10 @@ ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: dc6abc51fd0e5669126f1d2f1a977194479db5f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91269883"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -826,7 +826,7 @@ Utwórz maszynę wirtualną za pomocą [AZ VM Create](https://docs.microsoft.com
 ```
 Wdrożenie maszyny wirtualnej może potrwać kilka minut.
 
-### <a name="test"></a>Testowanie
+### <a name="test"></a>Test
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 

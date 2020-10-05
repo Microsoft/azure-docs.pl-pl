@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87852637"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu narzędzi wiersza polecenia
@@ -115,7 +115,7 @@ mvn azure-functions:deploy
 
 1. Sprawdź ponownie kolejkę magazynu, zgodnie z opisem w poprzedniej sekcji, aby sprawdzić, czy zawiera ona nowy komunikat zapisany w kolejce.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu Użyj następującego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć ponoszenia dalszych kosztów.
 

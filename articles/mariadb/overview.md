@@ -8,24 +8,24 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
 ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79535565"
 ---
-# <a name="what-is-azure-database-for-mariadb"></a>Czym jest usługa Azure Database for MariaDB?
+# <a name="what-is-azure-database-for-mariadb"></a>Co to jest usługa Azure Database for MariaDB?
 
 Azure Database for MariaDB to usługa relacyjnej bazy danych w chmurze firmy Microsoft. Azure Database for MariaDB jest oparta na [MariaDB Community Edition](https://mariadb.org/download/) (dostępnej w ramach licencji GPLv2), wersja 10,2 i 10,3.
 
-Usługa Azure Database for MariaDB udostępnia następujące funkcje:
+Usługa Azure Database for MariaDB zapewnia następujące funkcje:
 
-- Wbudowana wysoka dostępność bez dodatkowych kosztów
-- Przewidywalna wydajność dzięki płatnościom zgodnym z rzeczywistym użyciem
-- Skalowanie zgodnie z potrzebami w ciągu kilku sekund
-- Zabezpieczenia zapewniające ochronę przesyłanych oraz magazynowanych poufnych danych
-- Automatyczne tworzenie kopii zapasowych i funkcja przywracania do punktu w czasie do 35 dni
-- Mechanizmy zabezpieczeń i zgodności klasy korporacyjnej
+- Wbudowana wysoka dostępność bez dodatkowych kosztów.
+- Przewidywalna wydajność z zastosowaniem inkluzywnego cennika płatności zgodnie z rzeczywistym użyciem.
+- Skalowanie zależnie od potrzeb w ciągu kilku sekund.
+- Zabezpieczona ochrona poufnych danych magazynowanych i przesyłanych.
+- Automatyczne tworzenie kopii zapasowych i funkcja przywracania do punktu w czasie do 35 dni.
+- Bezpieczeństwo i zgodność klasy korporacyjnej.
 
 Te funkcje nie wymagają niemal żadnej administracji. Są one udostępniane bez dodatkowych opłat. Usługa Azure Database for MariaDB ułatwia szybkie tworzenie aplikacji i pozwala skrócić czas wprowadzania produktów na rynek. Nie musisz przydzielać cennego czasu i ważnych zasobów na potrzeby zarządzania maszynami wirtualnymi i infrastrukturą. Możesz też tworzyć aplikacje przy użyciu dowolnych narzędzi i platform typu open source. Osiągaj zadowalające wyniki z szybkością i efektywnością zgodną z Twoimi wymaganiami biznesowymi bez konieczności uczenia się nowych umiejętności.
 

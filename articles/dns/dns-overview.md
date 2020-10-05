@@ -1,5 +1,5 @@
 ---
-title: Co to jest Azure DNS?
+title: Co to jest system DNS platformy Azure?
 description: Omówienie usługi hostingu DNS na platformie Microsoft Azure. Hostuj swoją domenę na platformie Microsoft Azure.
 author: rohinkoul
 ms.service: dns
@@ -7,13 +7,13 @@ ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
 ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87924278"
 ---
-# <a name="what-is-azure-dns"></a>Co to jest Azure DNS?
+# <a name="what-is-azure-dns"></a>Co to jest system DNS platformy Azure?
 
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure.
 
