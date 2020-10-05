@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905473"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728441"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
-W Azure Security Center istnieje wiele alertów dla wielu różnych typów zasobów. Security Center generuje alerty dotyczące zasobów wdrożonych na platformie Azure, a także dla zasobów wdrożonych w środowiskach lokalnych i hybrydowych w chmurze.
+W Security Center istnieje wiele alertów dla wielu różnych typów zasobów. Security Center generuje alerty dotyczące zasobów wdrożonych na platformie Azure, a także dla zasobów wdrożonych w środowiskach lokalnych i hybrydowych w chmurze.
 
 Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne tylko w usłudze Azure Defender. Dostępna jest bezpłatna wersja próbna. Uaktualnienie można przeprowadzić na stronie **ustawień & cenowych** . Dowiedz się więcej o [cenach Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -84,6 +84,14 @@ Azure Security Center korzyści ze stosowania przez firmę Microsoft zespołów 
 * **Dostrajanie wykrywania zagrożeń**: algorytmy są uruchamiane na rzeczywistych zestawach danych klienta, a pracownicy naukowo-badawczy z zakresu zabezpieczeń pracują z klientami w celu weryfikacji otrzymanych wyników. Wyniki prawdziwie i fałszywie dodatnie są używane w celu udoskonalania algorytmów uczenia maszynowego.
 
 Te połączone wysiłki skutkują w nowych i ulepszonych wykryciuch, z których możesz korzystać natychmiast — nie ma żadnych działań do wykonania.
+
+## <a name="export-alerts"></a>Eksportowanie alertów
+
+Masz szereg opcji wyświetlania alertów poza Security Center, w tym:
+
+- **Pobierz raport CSV** na pulpicie nawigacyjnym alertów umożliwia jednorazowe Eksportowanie do pliku CSV.
+- **Eksport ciągły** z ustawień & cenowych umożliwia skonfigurowanie strumieni alertów zabezpieczeń i zaleceń dotyczących log Analytics obszarów roboczych i Event Hubs. [Dowiedz się więcej na temat eksportu ciągłego](continuous-export.md)
+- **Łącznik wskaźnikowy platformy Azure** przesyła strumieniowo alerty usługi Azure Defender z Azure Security Center do platformy Azure. [Dowiedz się więcej na temat łączenia Azure Security Center ze wskaźnikiem kontrolnym](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

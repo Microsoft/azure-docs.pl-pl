@@ -9,13 +9,13 @@ ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: dd36bb18e84ea299195b77286887a3b279f81469
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90903580"
 ---
-# <a name="introduction-to-the-sample-app"></a>Wprowadzenie do przykładowej aplikacji
+# <a name="introduction-to-the-sample-app"></a>Wprowadzenie do aplikacji przykładowej
 
 ::: zone pivot="programming-language-csharp"
 Ta seria przewodników szybki start używa przykładowej aplikacji składającej się z dwóch mikrousług, aby dowiesz się, jak wdrożyć aplikację .NET Core steeltoe w usłudze w chmurze platformy Azure. Będziesz korzystać z możliwości chmury Azure wiosny, takich jak odnajdowanie usług, serwer konfiguracji, dzienniki, metryki i śledzenie rozproszone.

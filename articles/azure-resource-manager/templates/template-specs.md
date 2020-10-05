@@ -2,21 +2,21 @@
 title: Przegląd specyfikacji szablonu
 description: Opisuje sposób tworzenia specyfikacji szablonu i udostępniania ich innym użytkownikom w organizacji.
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448820"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728475"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
-Specyfikacja szablonu to nowy typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby udostępnić specyfikację szablonu.
+Specyfikacja szablonu to typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby udostępnić specyfikację szablonu.
 
-**Microsoft. resources/templateSpecs** to nowy typ zasobu dla specyfikacji szablonu. Składa się z szablonu głównego i dowolnej liczby połączonych szablonów. Platforma Azure bezpiecznie przechowuje specyfikacje szablonu w grupach zasobów. Specyfikacje szablonu obsługują [przechowywanie wersji](#versioning).
+**Microsoft. resources/templateSpecs** to typ zasobu dla specyfikacji szablonu. Składa się z szablonu głównego i dowolnej liczby połączonych szablonów. Platforma Azure bezpiecznie przechowuje specyfikacje szablonu w grupach zasobów. Specyfikacje szablonu obsługują [przechowywanie wersji](#versioning).
 
 Do wdrożenia specyfikacji szablonu można używać standardowych narzędzi platformy Azure, takich jak PowerShell, interfejs wiersza polecenia platformy Azure, Azure Portal, REST i inne obsługiwane zestawy SDK i klienci. Używasz tych samych poleceń, co w przypadku szablonu.
 

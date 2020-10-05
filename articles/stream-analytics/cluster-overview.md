@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947478"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Omówienie klastra Azure Stream Analytics (wersja zapoznawcza)
@@ -23,9 +23,9 @@ W przypadku klastrów Stream Analytics są naliczane opłaty za jednostki przesy
 
 ## <a name="what-are-stream-analytics-clusters"></a>Co to są klastry Stream Analytics
 
-Klastry Stream Analytics są obsługiwane przez ten sam aparat, który umożliwia Stream Analytics zadań uruchomionych w środowisku wielodostępnym. Pojedynczy dzierżawca, dedykowany klaster, ma następujące funkcje:
+Klastry usługi Stream Analytics są obsługiwane przez ten sam aparat, który odpowiada za uruchamianie zadań usługi Stream Analytics w środowisku wielodostępnym. Pojedyncza dzierżawa, dedykowany klaster, ma następujące funkcje:
 
-* Hosting z jednym dzierżawcą bez żadnych szumów z innych dzierżawców. Zasoby są naprawdę "izolowane" i działają lepiej, gdy występuje ruch w sieci.
+* Hosting pojedynczej dzierżawy bez szumów z innych dzierżaw. Zasoby są naprawdę „odizolowane” i działają lepiej w przypadku nagłego skoku ruchu w sieci.
 
 * Skaluj klaster między 36 a 216, gdy użycie przesyłania strumieniowego rośnie z upływem czasu.
 

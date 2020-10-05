@@ -11,10 +11,10 @@ ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
 ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91349127"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
@@ -47,7 +47,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 * [Microsoft. CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
 ms.openlocfilehash: a04657463808a3df3634102c0295f4b79a7b4579
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91537858"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Szybki Start: Tworzenie klastra Apache Spark w usłudze Azure HDInsight przy użyciu Azure Portal
@@ -49,7 +49,7 @@ Użyj Azure Portal, aby utworzyć klaster usługi HDInsight, który korzysta z o
     |Subskrypcja  | Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra. |
     |Grupa zasobów | Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
     |Nazwa klastra | Podaj globalnie unikatową nazwę.|
-    |Region (Region)   | Z listy rozwijanej wybierz region, w którym tworzony jest klaster. |
+    |Region   | Z listy rozwijanej wybierz region, w którym tworzony jest klaster. |
     |Typ klastra| Wybierz pozycję Wybierz typ klastra, aby otworzyć listę. Z listy wybierz pozycję **Spark**.|
     |Wersja klastra|Po wybraniu typu klastra pole zostanie automatycznie wypełnione przy użyciu domyślnej wersji.|
     |Nazwa użytkownika logowania klastra| Wprowadź nazwę użytkownika logowania klastra.  Nazwa domyślna to **admin**. To konto jest używane do logowania się do notesu Jupyter w dalszej części przewodnika Szybki Start. |

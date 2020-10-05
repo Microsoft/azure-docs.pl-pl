@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 3715b3eb00a1ccb549bf77d14ce33969f9a7eda1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87502260"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu programu PowerShell
@@ -21,7 +21,7 @@ W tym przewodniku szybki start opisano, jak utworzyć serwer Azure Database for 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -208,8 +208,8 @@ Aby zapoznać się z dodatkowymi poleceniami, zobacz [MySQL 5.7 Reference Manual
     |    **Ustawienie**    |            **Sugerowana wartość**            |                      **Opis**                       |
     | ----------------- | ----------------------------------------- | ---------------------------------------------------------- |
     | Nazwa połączenia   | Moje połączenie                             | Określ etykietę dla tego połączenia                        |
-    | Metoda połączenia | Standardowa (TCP/IP)                         | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
-    | Nazwa hosta          | `mydemoserver.mariadb.database.azure.com` | Nazwa serwera zanotowana wcześniej                           |
+    | Connection Method (Metoda połączenia) | Standard (TCP/IP)                         | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
+    | Hostname (Nazwa hosta)          | `mydemoserver.mariadb.database.azure.com` | Nazwa serwera zanotowana wcześniej                           |
     | Port              | 3306                                      | Domyślny port dla MariaDB                                 |
     | Nazwa użytkownika          | myadmin@mydemoserver                      | Identyfikator logowania administratora serwera zanotowany wcześniej                |
     | Hasło          | *************                             | Użyj hasła do konta administratora, które zostało skonfigurowane wcześniej      |

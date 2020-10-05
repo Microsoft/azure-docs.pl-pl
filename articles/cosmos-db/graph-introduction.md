@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409616"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
@@ -106,7 +106,7 @@ Bazy danych programu Graph są często uwzględniane w kategorii NoSQL lub niere
 
 Przykładowy graf pomoże dowiedzieć się, jak można wyrazić zapytania w języku Gremlin. Na poniższej ilustracji przedstawiono w formie grafu aplikację biznesową, która zarządza danymi o użytkownikach, zainteresowaniach i urządzeniach.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Przykładowa baza danych przedstawiająca osoby, urządzenia i zainteresowania" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Architektura grafów w usłudze Azure Cosmos DB" border="false"::: 
 
 Ten wykres ma następujące typy *wierzchołków* (są one również nazywane "etykietą" w Gremlin):
 

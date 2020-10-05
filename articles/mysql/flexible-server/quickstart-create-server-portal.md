@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/29/2020
 ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91569627"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Szybki Start: Użyj Azure Portal, aby utworzyć Azure Database for MySQL elastyczny serwer
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby utworzyć elastyczny serwer:
     Nazwa serwera |*mydemoserver*|Unikatowa nazwa identyfikująca elastyczny serwer. Nazwa domeny *MySQL.Database.Azure.com* jest dołączana do podania nazwy serwera. Serwer może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.|
     Nazwa użytkownika administratora |*mydemouser*| Własne konto logowania do użycia podczas łączenia z serwerem. Nazwa logowania administratora nie może być **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public**.|
     Hasło |Twoje hasło| Nowe hasło do konta administratora serwera. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (od 0 do 9) i znaki inne niż alfanumeryczne (!, $, #, % itp.).|
-    Region (Region)|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.|
+    Region|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.|
     Wersja|5.7| Wersja główna programu MySQL.|
     Obliczenia i magazyn | **Burstable** **Standard_B1ms**, **10** **dni** | Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Wartości domyślne dla **warstwy obliczeniowej**, **rozmiaru obliczeń**, **magazynu**i **okresu przechowywania kopii zapasowej**mogą być przełączone *,* *Standard_B1ms*, *10 GIB*i *7 dni* . Możesz pozostawić te suwaki jako lub dostosować je. Aby zapisać ten wybór obliczeń i magazynu, wybierz pozycję **Zapisz** , aby kontynuować konfigurację. Poniższy zrzut ekranu przedstawia opcje obliczeń i magazynu.|
     

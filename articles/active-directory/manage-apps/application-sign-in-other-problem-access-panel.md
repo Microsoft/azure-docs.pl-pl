@@ -11,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3b9acc3f91a91527e96f450d825d06f6b909e15d
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707972"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729155"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
-Moje aplikacje są portalem opartym na sieci Web, który umożliwia użytkownikowi z kontem służbowym w usłudze Azure Active Directory (Azure AD) wyświetlanie i uruchamianie aplikacji opartych na chmurze, do których administrator usługi Azure AD udzielił im dostępu. 
+Moje aplikacje są portalem opartym na sieci Web, który umożliwia użytkownikowi z kontem służbowym w usłudze Azure Active Directory (Azure AD) wyświetlanie i uruchamianie aplikacji opartych na chmurze, do których administrator usługi Azure AD udzielił im dostępu. Dostęp do aplikacji odbywa się przy użyciu przeglądarki sieci Web pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
 Aby dowiedzieć się więcej o korzystaniu z usługi Azure AD jako dostawcy tożsamości dla aplikacji, zobacz artykuł dotyczący [zarządzania aplikacjami w usłudze Azure AD](what-is-application-management.md). Aby szybko uzyskać szybki dostęp, zapoznaj się z [serią szybki start na stronie Zarządzanie aplikacjami](view-applications-portal.md).
 

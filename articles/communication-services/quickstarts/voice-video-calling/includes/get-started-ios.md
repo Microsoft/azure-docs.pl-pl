@@ -7,10 +7,10 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377228"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu iOS.
@@ -47,7 +47,7 @@ Dodaj do projektu bibliotekę klienta wywołującą usługi Azure Communication 
 5. Otwórz kartę **Ustawienia kompilacji** w edytorze ustawień projektu i przewiń do sekcji **ścieżki wyszukiwania** . Dodaj nowy wpis **ścieżki wyszukiwania struktury** dla katalogu zawierającego **AzureCommunicationCalling. Framework**.
     1. Dodaj kolejną pozycję ścieżki wyszukiwania struktury wskazującej folder zawierający zależności.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający aktualizowanie ścieżek wyszukiwania struktury w programie XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Zrzut ekranu przedstawiający okno nowy projekt w Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Zażądaj dostępu do mikrofonu
 
@@ -192,7 +192,7 @@ func endCall()
 
 Możesz skompilować i uruchomić aplikację w symulatorze systemu iOS, wybierając **Product**opcję  >  **Uruchom** produkt lub używając skrótu klawiaturowego (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Końcowy wygląd i działanie aplikacji szybkiego startu":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Zrzut ekranu przedstawiający okno nowy projekt w Xcode.":::
 
 Wychodzące wywołanie VOIP można utworzyć, podając identyfikator użytkownika w polu tekstowym i naciskając przycisk **Rozpocznij połączenie** . Wywołanie `8:echo123` nawiązuje połączenie z botem ECHA. jest to doskonałe rozwiązanie do rozpoczęcia i sprawdzenia, czy urządzenia audio działają. 
 

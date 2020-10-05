@@ -8,17 +8,17 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90903779"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Co to jest usługa Azure Database for PostgreSQL?
 
 Azure Database for PostgreSQL jest usługą relacyjnej bazy danych w chmurze firmy Microsoft opartą na systemie [PostgreSQL Community Edition](https://www.postgresql.org/) (dostępnym w ramach aparatu bazy danych licencji GPLv2). Zalety Azure Database for PostgreSQL:
 
-- Wbudowana wysoka dostępność.
+- Wbudowana wysoka dostępność
 - Ochrona danych przy użyciu automatycznych kopii zapasowych i przywracanie do punktu w czasie przez maksymalnie 35 dni.
 - Automatyczna konserwacja podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych, aby zapewnić bezpieczeństwo i aktualność usługi.
 - Przewidywalna wydajność z zastosowaniem inkluzywnego cennika płatności zgodnie z rzeczywistym użyciem.
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL obsługiwane przez PostgreSQL Community Edition s�
 
 Azure Database for PostgreSQL pojedynczym serwerze to w pełni zarządzana usługa bazy danych z minimalnymi wymaganiami dotyczącymi dostosowywania bazy danych. Platforma jednoserwerowa została zaprojektowana tak, aby obsługiwała większość funkcji zarządzania bazami danych, takich jak stosowanie poprawek, kopii zapasowych, wysoka dostępność, zabezpieczenia z minimalną konfiguracją i kontrolą użytkownika. Architektura jest zoptymalizowana pod kątem wbudowanej wysokiej dostępności dzięki dostępności na 99,99% w ramach pojedynczej strefy dostępności. Obsługuje ona wersję Community PostgreSQL 9,5, 9, 6, 10 i 11. Usługa jest ogólnie dostępna dzisiaj w wielu [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-Opcja wdrożenia pojedynczego serwera oferuje trzy warstwy cenowe: podstawowe, Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci. Każda warstwa oferuje inne możliwości w zakresie zasobów, aby wspierać obciążenia bazy danych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
+Opcja wdrożenia pojedynczego serwera oferuje trzy warstwy cenowe: Podstawowa, Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. Każda warstwa oferuje inne możliwości w zakresie zasobów, aby wspierać obciążenia bazy danych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz [Warstwy cenowe](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
 
 Pojedyncze serwery najlepiej nadają się do obsługi natywnych aplikacji w chmurze, które mają obsługiwać automatyczne stosowanie poprawek bez potrzeby szczegółowej kontroli nad harmonogramem poprawek i niestandardowymi ustawieniami konfiguracji PostgreSQL.
 
@@ -64,12 +64,12 @@ Aby zapoznać się z szczegółowym omówieniem elastycznego trybu wdrażania se
 
 ### <a name="azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL — skalowanie (Citus)
 
-Opcja Citus) w poziomie skaluje zapytania na wielu maszynach przy użyciu fragmentowania. Aparat zapytań parallelizes przychodzące zapytania SQL między tymi serwerami w celu przyspieszenia odpowiedzi w dużych zestawach danych. Obsługuje ona aplikacje, które wymagają większej skali i wydajności, zazwyczaj obciążeń, które zbliżają się do--lub już przekraczają--100 GB danych.
+Opcja wdrożenia Hiperskala (Citus) skaluje zapytania w poziomie na wielu maszynach przy użyciu fragmentowania. Aparat zapytań przetwarza równolegle przychodzące zapytania SQL między tymi serwerami w celu przyspieszenia odpowiedzi w dużych zestawach danych. Obsługuje on aplikacje, które wymagają większej skali i wydajności. Ogólnie chodzi o obciążenia, które zbliżają się do rozmiaru 100 GB lub już ten rozmiar przekroczyły.
 
-Opcja wdrożenia Citus (preskaling) oferuje następujące funkcje:
+Opcja wdrożenia Hiperskala (Citus) zapewnia następujące funkcje:
 
 - Skalowanie w poziomie na wielu maszynach przy użyciu fragmentowania
-- Przetwarzanie równoległe zapytania na tych serwerach w celu uzyskania szybszych odpowiedzi w dużych zestawach danych
+- Przetwarzanie równoległe zapytań na tych serwerach w celu uzyskania szybszych odpowiedzi w dużych zestawach danych
 - Doskonała pomoc techniczna dla aplikacji wielodostępnych, analizy danych operacyjnych w czasie rzeczywistym oraz obciążeń transakcyjnych o wysokiej przepływności
   
 Aplikacje skompilowane dla PostgreSQL mogą uruchamiać zapytania rozproszone na potrzeby tworzenia i skalowania (Citus) przy użyciu standardowych [bibliotek połączeń](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) i minimalnych zmian.

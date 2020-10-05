@@ -3,16 +3,16 @@ title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: df3403fea47f31481f4b3c6d1292749d69f2f584
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369182"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728543"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
-Dowiedz się, jak utworzyć [specyfikację szablonu](template-specs.md) z [połączonym szablonem](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. W tym artykule opisano sposób tworzenia specyfikacji szablonu do pakowania szablonu głównego i jego połączonych szablonów przy użyciu nowej `relativePath` właściwości [zasobu wdrożenia](/azure/templates/microsoft.resources/deployments).
+Dowiedz się, jak utworzyć [specyfikację szablonu](template-specs.md) z [połączonym szablonem](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. W tym artykule opisano sposób tworzenia specyfikacji szablonu do pakowania szablonu głównego i jego połączonych szablonów przy użyciu `relativePath` właściwości [zasobu wdrożenia](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

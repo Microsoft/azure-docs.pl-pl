@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377424"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729070"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -75,6 +75,23 @@ Tak. Zapoznaj się ze szczegółową dokumentacją [tutaj](backup-azure-afs-auto
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Czy mogę uzyskać dostęp do migawek wykonanych przez kopie zapasowe platformy Azure i zainstalować je?
 
 Dostęp do wszystkich migawek wykonanych przez Azure Backup można uzyskać, wyświetlając migawki w portalu, programie PowerShell lub interfejsie wiersza polecenia. Aby dowiedzieć się więcej na temat migawek udziału Azure Files, zobacz [Omówienie migawek udziałów dla Azure Files](../storage/files/storage-snapshots-files.md).
+
+### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>Co się stanie po przeniesieniu kopii zapasowej udziału plików na inną subskrypcję?
+
+Gdy udział plików zostanie przeniesiony do innej subskrypcji, jest traktowany jako nowy udział plików przez Azure Backup. Poniżej przedstawiono zalecane czynności:
+ 
+Scenariusz: Załóżmy, że masz udział plików FS1 w subskrypcji S1 i jest on chroniony przy użyciu magazynu v1. Teraz chcesz przenieść udział plików do subskrypcji S2.
+ 
+1.  Przenieś odpowiednie konto magazynu i udział plików (FS1) do innej subskrypcji (S2).
+2.  W magazynie w wersji 1 Wyzwól zatrzymanie ochrony przy użyciu operacji usuwania danych dla FS1.
+3.  Wyrejestruj hosting konta magazynu FS1 z magazynu w wersji 1.
+4.  Skonfiguruj ponownie kopię zapasową usługi FS1, która została przeniesiona do warstwy S2 z magazynem (v2) w ramach subskrypcji S2. 
+ 
+Należy pamiętać, że po ponownym skonfigurowaniu kopii zapasowej za pomocą wersji 2 migawki utworzone przy użyciu wersji 1 nie będą już zarządzane przez program Azure Backup i dlatego konieczne będzie ręczne usunięcie tych migawek zgodnie z wymaganiami.
+
+### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Czy mogę przenieść kopię zapasową udziału plików do innej grupy zasobów?
+ 
+Tak. udział plików kopii zapasowej można przenieść do innej grupy zasobów. Należy jednak ponownie skonfigurować kopię zapasową udziału plików, ponieważ będzie on traktowany jako nowy zasób przez Azure Backup. Ponadto migawki, które zostały utworzone przed przeniesieniem grupy zasobów, nie będą już zarządzane przez usługę Azure Backup. W związku z tym konieczne będzie ręczne usunięcie tych migawek zgodnie z wymaganiami.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Jaki jest maksymalny czas przechowywania, który można skonfigurować dla kopii zapasowych?
 

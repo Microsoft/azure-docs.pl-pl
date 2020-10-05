@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: azure-communication-services
 author: matthewrobertson
 manager: nimag
@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: marobert
 ms.openlocfilehash: 1235cb299fe887f20dd3f7e47c22eed2b9df6dc9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947610"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne

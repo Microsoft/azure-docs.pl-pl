@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
 ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90967578"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
@@ -76,7 +76,7 @@ Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych 
 
 **Izolowane przetwarzanie**: oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
 
-## <a name="get-started"></a>Rozpocznij
+## <a name="get-started"></a>Rozpoczęcie pracy
 ### <a name="azure-compute"></a>Azure Compute
 Twórz aplikacje w oparciu o poufne oferty obliczeniowe IaaS na platformie Azure.
 - Virtual Machines (maszyny wirtualne): [Seria DCsv2](confidential-computing-enclaves.md)

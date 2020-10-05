@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91397814"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
@@ -70,7 +70,7 @@ SaaS to oprogramowanie, które jest centralnie hostowane i zarządzane. Zwykle b
 
 Microsoft 365 jest dobrym przykładem oferty SaaS. Subskrybenci zwracają miesięczną lub roczną opłatę za subskrypcję i otrzymują program Microsoft Exchange, Microsoft OneDrive i resztę pakietu Microsoft Office jako usługi. Subskrybenci zawsze uzyskują najnowszą wersję, a serwer Exchange jest zarządzany przez Ciebie. W porównaniu do instalowania i uaktualniania pakietu Office co roku jest to tańsze i wymaga mniejszego nakładu pracy.
 
-## <a name="azure-services"></a>Usługi platformy Azure
+## <a name="azure-services"></a>Usługi Azure
 
 Platforma Azure oferuje wiele usług w chmurze obliczeniowej. Te usługi obejmują:
 
@@ -471,7 +471,7 @@ Istnieje kilka opcji wdrażania sieci wirtualnej.
 
 - [Interfejs wiersza polecenia](../../virtual-network/quick-create-cli.md)
 
-- Szablony Azure Resource Manager
+- Szablony usługi Azure Resource Manager
 
 > **Kiedy używać**: wszędzie, gdzie pracujesz z maszynami wirtualnymi na platformie Azure, będziesz korzystać z sieci wirtualnych. Pozwala to na segmentację maszyn wirtualnych do publicznych i prywatnych podsieci podobnych do lokalnych centrów danych.
 >

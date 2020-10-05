@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90978574"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Szybki Start: Wdrażanie serwera FHIR "open source" przy użyciu Azure Portal
@@ -43,7 +43,7 @@ Po wypełnieniu szczegółów możesz rozpocząć wdrażanie.
 
 Po zakończeniu wdrażania możesz wskazać przeglądarce, aby `https://SERVICENAME.azurewebsites.net/metadata` uzyskać instrukcję możliwości. Potrwa to chwilę, zanim serwer zacznie reagować po raz pierwszy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów zawierającą zasoby, które zostały zainicjowane, wybierz pozycję **Usuń grupę zasobów**, a następnie Potwierdź nazwę grupy zasobów do usunięcia.
 

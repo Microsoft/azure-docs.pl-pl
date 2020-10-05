@@ -13,15 +13,15 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90604125"
 ---
 # <a name="what-is-application-management"></a>Co to jest zarządzanie aplikacjami?
 
-Usługa Azure AD to system zarządzania tożsamościami i dostępem. Zawiera ono pojedyncze miejsce do przechowywania informacji o tożsamościach cyfrowych. Aplikacje można skonfigurować do korzystania z usługi Azure AD jako miejsca, w którym są przechowywane informacje o użytkowniku. 
+Usługa Azure AD to system zarządzania dostępem i tożsamościami. Zapewnia ona jedno miejsce na potrzeby przechowywania informacji o tożsamościach cyfrowych. Aplikacje możesz skonfigurować tak, aby korzystały z usługi Azure AD jako miejsca przechowywania informacji o użytkowniku. 
 
 Usługa Azure AD musi być skonfigurowana do integracji z aplikacją. Innymi słowy, musi wiedzieć, które aplikacje używają go jako systemu tożsamości. Proces zapewniania, że usługa Azure AD wie o tych aplikacjach oraz jak powinny je obsługiwać, jest znana jako Zarządzanie aplikacjami.
 

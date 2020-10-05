@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90968884"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu wywołań interfejsu API REST
@@ -90,7 +90,7 @@ Aby utworzyć zestaw skalowania maszyn wirtualnych z włączoną tożsamością 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -185,7 +185,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system w istniejącym
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -218,7 +218,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system w istniejącym
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. |
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. |
  
    **Treść żądania**
 
@@ -252,7 +252,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system w istniejącym
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -296,7 +296,7 @@ Aby wyłączyć tożsamość przypisaną przez system w istniejącym zestawie sk
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -353,7 +353,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -440,7 +440,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. |
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. |
  
    **Treść żądania**
 
@@ -534,7 +534,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. |   
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. |   
  
 
 4. Jeśli nie masz żadnych tożsamości zarządzanych użytkownika lub systemu przypisanych do zestawu skalowania maszyn wirtualnych, użyj następującego polecenia, aby wywołać Azure Resource Manager punkt końcowy REST, aby przypisać do zestawu skalowania maszyn wirtualnych pierwszą tożsamość zarządzaną przez użytkownika.  Jeśli masz przypisane tożsamości zarządzane przez użytkownika lub system do zestawu skalowania maszyn wirtualnych, przejdź do kroku 5, w którym pokazano, jak dodać wiele zarządzanych tożsamości przypisanych do użytkownika do zestawu skalowania maszyn wirtualnych, jednocześnie zachowując także tożsamość zarządzaną przypisaną przez system.
@@ -556,7 +556,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -588,7 +588,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -624,7 +624,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -663,7 +663,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -701,7 +701,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
 
    |Nagłówek żądania  |Opis  |
    |---------|---------|
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. |
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. |
    
    Jeśli masz zarządzane tożsamości przypisane do maszyny wirtualnej, są one wyświetlane w odpowiedzi w `identity` wartości. 
     
@@ -724,7 +724,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -756,7 +756,7 @@ W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez
    |Nagłówek żądania  |Opis  |
    |---------|---------|
    |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-   |*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+   |*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
    **Treść żądania**
 
@@ -786,7 +786,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+|*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
 **Treść żądania**
 
@@ -813,7 +813,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu. | 
+|*Autoryzacja*     | Wymagane. Ustaw prawidłowy `Bearer` token dostępu. | 
 
 **Treść żądania**
 

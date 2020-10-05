@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: f3b9758d52c4be8e4d85c398f5ef1d0b3fae7e86
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87541808"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Szybki Start: Tworzenie magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure

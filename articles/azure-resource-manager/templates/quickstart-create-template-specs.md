@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Dowiedz się, jak utworzyć specyfikację szablonu na podstawie szablonu ARM. Następnie wdróż specyfikację szablonu w grupie zasobów w subskrypcji.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91369219"
+ms.locfileid: "91728781"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https
 
 ## <a name="create-template-spec"></a>Utwórz specyfikację szablonu
 
-Specyfikacja szablonu jest nowym typem zasobu o nazwie **Microsoft. resources/templateSpecs**. Aby utworzyć specyfikację szablonu, można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu ARM. We wszystkich opcjach wymagany jest szablon ARM, który jest spakowany w ramach specyfikacji szablonu.
+Specyfikacja szablonu jest typem zasobu o nazwie **Microsoft. resources/templateSpecs**. Aby utworzyć specyfikację szablonu, można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu ARM. We wszystkich opcjach wymagany jest szablon ARM, który jest spakowany w ramach specyfikacji szablonu.
 
 Przy użyciu programu PowerShell i interfejsu wiersza polecenia szablon ARM jest przekazaniem jako parametr w poleceniu. W przypadku szablonu ARM szablon ARM do spakowania w specyfikacji szablonu jest osadzony w definicji specyfikacji szablonu.
 

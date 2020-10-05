@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91399826"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
@@ -61,7 +61,7 @@ Kreator udostępnia podstawowy układ dla renderowanych wyników wyszukiwania, k
 
 1. W polu Opis wybierz pole, które zawiera szczegółowe informacje, które mogą pomóc komuś zdecydować, czy klikać ten dokument.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Skonfiguruj wyniki dla przykładowych danych" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Strona źródła danych dla przykładowych danych" border="false":::
 
 ## <a name="add-a-sidebar"></a>Dodaj pasek boczny
 
@@ -83,7 +83,7 @@ Sugestie są włączone dla określonych definicji pól. Kreator udostępnia opc
 
 Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną stroną w aplikacji. Możesz zobaczyć, jak są używane wybory pól i jak "Pokaż nazwę pola" służy do dołączania lub wykluczania etykiet w ramach sugestii.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Konfiguracja sugestii dotyczących zapytań":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Strona źródła danych dla przykładowych danych":::
 
 ## <a name="create-download-and-execute"></a>Tworzenie, pobieranie i wykonywanie
 
@@ -95,12 +95,12 @@ Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną 
 
 Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zostały zduplikowane w dokumentach, a opisy czasami nie pasują do obrazu. Podczas tworzenia aplikacji na podstawie własnych indeksów można spodziewać się bardziej spójnego środowiska.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Uruchamianie aplikacji":::
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Strona źródła danych dla przykładowych danych":::
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
