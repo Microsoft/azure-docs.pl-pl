@@ -118,6 +118,8 @@
           href: autogen-bitrate-ladder.md
         - name: Kodowanie z rozpoznawaniem zawartości
           href: content-aware-encoding.md
+        - name: Jednostki zarezerwowane multimediów
+          href: concept-media-reserved-units.md
     - name: Analizowanie zawartości (Video Indexer)
       items:
         - name: Omówienie
@@ -383,7 +385,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

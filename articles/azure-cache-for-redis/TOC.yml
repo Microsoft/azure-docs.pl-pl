@@ -43,6 +43,8 @@
           href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: Tworzenie rankingów
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: Wdrażanie modelu uczenia maszynowego
+      href: cache-ml.md
     - name: Zarządzanie przy użyciu programu Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure

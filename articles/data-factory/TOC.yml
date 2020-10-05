@@ -700,6 +700,8 @@
               href: how-to-data-flow-error-rows.md
             - name: Z usługi Azure SQL DB do usługi Azure Cosmos DB
               href: how-to-sqldb-to-cosmosdb.md
+            - name: Deduplikowanie i sprawdzanie wartości NULL przy użyciu fragmentów kodu
+              href: how-to-data-flow-dedupe-nulls-snippets.md
         - name: Migracja ze środowiska lokalnego za pomocą usług SSIS
           items:
             - name: Migracja za pomocą usług SSIS — omówienie

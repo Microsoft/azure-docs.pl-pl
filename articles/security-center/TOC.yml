@@ -39,6 +39,7 @@
         - name: Usługa Azure Defender dla usługi App Service
           href: defender-for-app-service-introduction.md
         - name: Usługa Azure Defender dla usługi Storage
+          displayName: 'blob, adls, files'
           href: defender-for-storage-introduction.md
         - name: Usługa Azure Defender dla bazy danych SQL
           displayName: database
@@ -46,7 +47,7 @@
         - name: Usługa Azure Defender dla IoT
           href: defender-for-iot-introduction.md
         - name: Usługa Azure Defender dla usługi Key Vault
-          displayName: KV
+          displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Usługa Azure Defender dla platformy Kubernetes
           displayName: 'clusters, k8s'
@@ -65,13 +66,13 @@
   items:
     - name: Rozpoczęcie pracy
       href: security-center-get-started.md
-    - name: Łączenie maszyn spoza platformy Azure
-      displayName: 'azure stack, windows, linux'
-      href: quickstart-onboard-machines.md
-    - name: Łączenie kont AWS i GCP
+    - name: Konfigurowanie środowiska hybrydowego
       items:
+        - name: Łączenie maszyn spoza platformy Azure
+          displayName: 'azure stack, ash, windows, linux, hybrid, arc'
+          href: quickstart-onboard-machines.md
         - name: Łączenie kont AWS
-          displayName: 'hybrid, multicloud, amazon'
+          displayName: 'hybrid, multicloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Łączenie kont GCP
           displayName: 'hybrid, multicloud, google'
@@ -90,7 +91,7 @@
       href: security-center-planning-and-operations-guide.md
     - name: Ochrona zasobów
       href: tutorial-protect-resources.md
-    - name: Reagowanie na zdarzenia
+    - name: Badanie alertów zabezpieczeń i reagowanie na nie
       href: tutorial-security-incident.md
     - name: Zwiększanie zgodności z przepisami
       href: security-center-compliance-dashboard.md
@@ -206,6 +207,7 @@
       items:
         - name: Konfigurowanie usługi Azure Defender dla bazy danych SQL na maszynach wirtualnych platformy Azure
           href: defender-for-sql-usage.md
+          displayName: 'hybrid, arc'
         - name: Dostosowywanie zasad ochrony informacji
           href: security-center-info-protection-policy.md
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
@@ -218,6 +220,7 @@
         - name: Tworzenie reguł pomijania alertów i zarządzanie nimi
           href: alerts-suppression-rules.md
         - name: Reagowanie na alerty usługi Azure Defender dla usługi Key Vault
+          displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
         - name: Zarządzanie zdarzeniami zabezpieczeń
           href: security-center-incident.md

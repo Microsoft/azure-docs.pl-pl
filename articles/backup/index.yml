@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
+  ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90974437"
+  ms.lasthandoff: 10/01/2020
+  ms.locfileid: "91620124"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Backup
   linkLists:
@@ -60,6 +60,12 @@ landingContent:
       url: backup-center-overview.md
     - text: Tworzenie kopii zapasowej usługi Azure Database for PostgreSQL
       url: backup-azure-database-postgresql.md
+    - text: Selektywne tworzenie i przywracanie kopii zapasowych dysków maszyn wirtualnych platformy Azure
+      url: selective-disk-backup-restore.md
+    - text: Obejmujące wiele regionów przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: Obsługa tworzenia kopii zapasowych maszyn wirtualnych z maksymalnie 32 dyskami
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Usuwanie nietrwałe dla usługi Azure Backup
       url: backup-azure-security-feature-cloud.md
     - text: Przywracanie jako plików programu SQL Server na maszynach wirtualnych platformy Azure

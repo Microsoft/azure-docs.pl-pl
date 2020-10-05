@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: Konfiguracja aprowizacji w chmurze
           href: how-to-configure.md
+        - name: Aprowizacja na żądanie
+          href: how-to-on-demand-provision.md
+        - name: Mapowanie atrybutów
+          href: how-to-attribute-mapping.md
         - name: Korzystanie z logowania jednokrotnego
           href: how-to-sso.md
     - name: Planowanie i projektowanie
@@ -56,7 +60,7 @@
           href: how-to-troubleshoot.md
         - name: Zduplikowane atrybuty
           href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
-- name: Tematy pomocy
+- name: Dokumentacja
   items:
     - name: Historia wersji agenta aprowizacji w chmurze programu Azure AD Connect
       href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context

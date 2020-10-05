@@ -73,7 +73,7 @@
           href: time-series-insights-update-query-data-csharp.md
         - name: Wykonywanie zapytań o dane za pomocą języka C# — 1. generacja
           href: time-series-insights-query-data-csharp.md
-        - name: Zarządzanie danymi referencyjnymi w języku C#
+        - name: Zarządzanie danymi referencyjnymi w języku C# — 1. generacja
           href: time-series-insights-manage-reference-data-csharp.md
         - name: Udostępnianie widoku niestandardowego
           href: time-series-insights-parameterized-urls.md

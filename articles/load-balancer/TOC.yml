@@ -69,6 +69,8 @@
       href: load-balancer-tcp-reset.md
     - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
       href: load-balancer-standard-availability-zones.md
+    - name: Konfiguracja pływającego adresu IP
+      href: load-balancer-floating-ip.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń

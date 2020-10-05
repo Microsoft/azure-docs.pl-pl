@@ -117,15 +117,10 @@
       items:
         - name: Omówienie
           href: platform/data-platform.md
-        - name: Lokalizacje danych
-          href: platform/data-locations.md
-        - name: Metryki
-          href: platform/data-platform-metrics.md
         - name: Dzienniki
           href: platform/data-platform-logs.md
-        - name: Czas pozyskiwania danych dziennika
-          displayname: latency
-          href: platform/data-ingestion-time.md
+        - name: Metryki
+          href: platform/data-platform-metrics.md
         - name: Przesyłanie strumieniowe danych do usługi Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Insights
@@ -209,39 +204,42 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Omówienie zapytania dziennika
-          displayname: 'log query, log queries, query, queries'
+        - name: Omówienie
+          displayname: 'Log Analytics, log query, log queries, query, queries'
           href: log-query/log-query-overview.md
+        - name: Samouczek
+          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+          href: log-query/get-started-portal.md
+        - name: Zakres zapytania
+          href: log-query/scope.md
         - name: Prosta obsługa dzienników
           href: log-query/simple-logs.md
-        - name: Zapytania dzienników inspekcji
-          href: log-query/query-audit.md
-        - name: Samouczki
+        - name: Rejestrowanie zapytań
           items:
-            - name: Samouczek usługi Log Analytics
-              href: log-query/get-started-portal.md
-            - name: Samouczek dotyczący zapytań dzienników
-              href: log-query/get-started-queries.md
-        - name: Dane dziennika
-          items:
-            - name: Zakres zapytania
-              href: log-query/scope.md
             - name: Kolumny standardowe
               href: platform/log-standard-columns.md
+            - name: Inspekcja zapytań
+              href: log-query/query-audit.md
+            - name: Optymalizowanie zapytań
+              href: log-query/query-optimization.md
+            - name: Funkcje
+              href: log-query/functions.md
+            - name: Analizowanie danych tekstowych
+              href: log-query/parse-text.md
+            - name: Przykładowe zapytania
+              href: log-query/saved-queries.md
             - name: Grupy komputerów
               href: platform/computer-groups.md
         - name: Język zapytań
           items:
-            - name: Dokumentacja języka zapytań
-              href: log-query/query-language.md
-            - name: Różnice w językach
+            - name: Dokumentacja języka KQL
+              href: /azure/data-explorer/kusto/query/
+            - name: Różnica względem usługi Azure Data Explorer
               href: log-query/data-explorer-difference.md
-            - name: Przydatne operatory
-              href: log-query/useful-operators.md
-            - name: Funkcje
-              href: log-query/functions.md
-            - name: Przejście z przeszukiwania dzienników
-              href: log-query/log-search-transition.md
+            - name: Przykłady
+              href: log-query/examples.md
+            - name: Przykłady inteligentnej analizy
+              href: log-query/smart-analytics.md
             - name: Lekcje
               items:
                 - name: Operacje dotyczące ciągów
@@ -268,9 +266,9 @@
                   href: log-query/sql-cheatsheet.md
                 - name: Splunk
                   href: log-query/splunk-cheatsheet.md
-        - name: Obejmujące wiele zasobów
+        - name: Zapytania obejmujące wiele zasobów
           items:
-            - name: Zapytania obejmujące wiele zasobów
+            - name: Omówienie
               href: log-query/cross-workspace-query.md
             - name: wyrażenie app
               href: log-query/app-expression.md
@@ -280,32 +278,25 @@
               href: log-query/resource-expression.md
             - name: Ujednolicenie zasobów danych aplikacji
               href: log-query/unify-app-resource-data.md
-        - name: Przykłady i wskazówki
-          items:
-            - name: Przykładowe zapytania
-              href: log-query/saved-queries.md
-            - name: Przykłady zapytań dziennika
-              href: log-query/examples.md
-            - name: Przykłady inteligentnej analizy
-              href: log-query/smart-analytics.md
-            - name: Optymalizowanie zapytań
-              href: log-query/query-optimization.md
-            - name: Analizowanie danych tekstowych
-              href: log-query/parse-text.md
         - name: Obszary robocze i klastry
           items:
             - name: Projektowanie wdrożenia obszaru roboczego
               href: platform/design-logs-deployment.md
             - name: Tworzenie obszaru roboczego
               items:
-                - name: Korzystanie z witryny Azure Portal
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
                 - name: Interfejs wiersza polecenia platformy Azure
                   href: learn/quick-create-workspace-cli.md
-                - name: Korzystanie z programu PowerShell
+                - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+                - name: Szablon usługi Resource Manager
+                  href: platform/template-workspace-configuration.md
             - name: Usuwanie i odzyskiwanie obszaru roboczego
               href: platform/delete-workspace.md
+            - name: Zarządzanie dostępem
+              displayName: Log Analytics workspace
+              href: platform/manage-access.md
             - name: Przenoszenie obszaru roboczego
               href: platform/move-workspace.md
             - name: Projekt dla dostawców usług
@@ -328,6 +319,9 @@
       items:
         - name: Reguły zbierania danych
           href: platform/data-collection-rule-overview.md
+        - name: Czas pozyskiwania danych dziennika
+          displayname: latency
+          href: platform/data-ingestion-time.md
         - name: Źródła danych agentów
           items:
             - name: Omówienie
@@ -1167,12 +1161,18 @@
               href: platform/workbooks-time.md
             - name: Parametry tekstu
               href: platform/workbooks-text.md
+            - name: Parametry zasobów
+              href: platform/workbooks-resources.md
         - name: Konfigurowanie
           items:
             - name: Kontrola dostępu
               href: platform/workbooks-access-control.md
             - name: Wdrażanie za pomocą usługi Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Grupy
+              href: platform/workbooks-groups.md
+            - name: Przekształcanie danych JSON przy użyciu wyrażeń JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Przenoszenie skoroszytów do innego regionu
               href: platform/workbooks-move-region.md
             - name: Przenoszenie szablonów skoroszytów do innego regionu
