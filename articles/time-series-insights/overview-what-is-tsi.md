@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667065"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>Co to jest Azure Time Series Insights Gen2

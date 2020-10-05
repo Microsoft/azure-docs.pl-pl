@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91001030"
 ---
 # <a name="enclave-aware-containers"></a>Kontenery obsługujące enklawy
@@ -43,7 +43,7 @@ Struktura konsorcjum poufnego (CCF) to platforma typu "open source" służąca d
 
 Zacznij korzystać z usługi Azure CONFIDENTIAL i CCF [tutaj](https://github.com/Microsoft/CCF)
 
-### <a name="confidential-inferencing-onnx-runtime"></a>Poufne środowisko uruchomieniowe ONNX Inferencing
+### <a name="confidential-inferencing-onnx-runtime"></a>Środowisko uruchomieniowe poufnego wnioskowania ONNX
 
 Środowisko uruchomieniowe ONNX (Open Source enklawy) ustanawia bezpieczny kanał między klientem a usługą wnioskowania — bez zapewnienia, że ani żądanie, ani odpowiedź nie mogą opuścić bezpiecznego enklawy. 
 

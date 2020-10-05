@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 93f23cdcfb3fb7107e3b1838b48b3e58ccc2d028
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91288770"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
@@ -164,7 +164,7 @@ Następujące typy danych nie mogą być używane w SELECT część elementu CET
 
 - nchar
 - nvarchar
-- datetime
+- data/godzina
 - smalldatetime
 - datetimeoffset
 - pieniędzy

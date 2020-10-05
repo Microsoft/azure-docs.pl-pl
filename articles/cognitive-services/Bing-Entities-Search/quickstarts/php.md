@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.openlocfilehash: 21a8d47f80dae35553114f522c1c78a97a086518
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83650221"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka PHP
@@ -37,7 +37,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
 2. Dodaj kod przedstawiony poniżej.
 3. Zastąp wartość `key` kluczem dostępu właściwym dla Twojej subskrypcji.
 4. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
-5. Uruchom program.
+5. Uruchomisz program.
 
 ```php
 <?php

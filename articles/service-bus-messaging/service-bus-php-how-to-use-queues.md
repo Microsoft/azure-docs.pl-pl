@@ -6,10 +6,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: a7e0d1fa321f1b7c1295b5a640fe78b46adf1c72
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85341113"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Szybki Start: jak używać kolejek Service Bus przy użyciu języka PHP
@@ -68,7 +68,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 Gdzie `Endpoint` jest zazwyczaj format `[yourNamespace].servicebus.windows.net` .
 
-Aby utworzyć dowolnego klienta usługi platformy Azure, należy użyć `ServicesBuilder` klasy. Można:
+Aby utworzyć dowolnego klienta usługi platformy Azure, należy użyć `ServicesBuilder` klasy. Oto co możesz zrobić:
 
 * Przekaż parametry połączenia bezpośrednio do niego.
 * Użyj **CloudConfigurationManager (CCM)** , aby sprawdzić wiele zewnętrznych źródeł parametrów połączenia:

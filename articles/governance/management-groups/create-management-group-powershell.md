@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 74e4f0769bbf4deafefd27e166e0dae2c2e019a3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237305"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą Azure PowerShell

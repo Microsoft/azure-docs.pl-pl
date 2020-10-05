@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719397"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728934"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -23,8 +23,6 @@ Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa mo
 Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą do sprawdzania poprawności stanu maszyny platformy Azure lub spoza niej.
 
 > [!IMPORTANT]
-> Zasady niestandardowe z konfiguracją gościa są funkcją w wersji zapoznawczej.
->
 > Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa.
 > Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
@@ -403,13 +401,22 @@ Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicy
 Poniższy przykład tworzy definicję zasad w celu przeprowadzenia inspekcji usługi, w której użytkownik wybiera z listy w momencie przypisywania zasad.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -431,7 +438,7 @@ Pakiety artefaktów dla konfiguracji gościa można rozszerzyć w celu uwzględn
 Rozszerzanie konfiguracji gościa wymaga opracowania dwóch składników.
 
 - Zasób konfiguracji żądanego stanu, który obsługuje wszystkie działania związane z zarządzaniem narzędziem innej firmy
-  - Instalowanie
+  - Zainstaluj
   - Invoke
   - Konwertuj dane wyjściowe
 - Zawartość w poprawnym formacie dla narzędzia do natywnego użycia

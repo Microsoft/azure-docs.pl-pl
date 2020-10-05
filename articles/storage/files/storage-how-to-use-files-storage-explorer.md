@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "75431818"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą Eksploratora usługi Azure Storage
@@ -19,7 +19,7 @@ W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udzia�
 
 Eksplorator usługi Azure Storage to popularne narzędzie klienckie dostępne dla systemów Windows, macOS i Linux. Eksplorator usługi Storage służy do zarządzania udziałami plików platformy Azure i innymi zasobami magazynu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start wymaga zainstalowanego Eksploratora usługi Azure Storage. Aby pobrać i zainstalować go, przejdź na stronę [Eksploratora usługi Storage Azure](https://azure.microsoft.com/features/storage-explorer/).
@@ -76,11 +76,11 @@ Istnieje możliwość przekazania pliku z maszyny lokalnej do nowego katalogu w 
 Gdy skończysz, plik zostanie wyświetlony na liście w okienku *myDirectory*.
 
 ### <a name="download-a-file"></a>Pobieranie pliku
-Aby pobrać kopię pliku z udziału plików, kliknij prawym przyciskiem myszy plik, a następnie wybierz polecenie **Pobierz**. Wybierz, gdzie chcesz umieścić plik na maszynie lokalnej, a następnie wybierz polecenie **Zapisz**.
+Aby pobrać kopię pliku z udziału plików, kliknij prawym przyciskiem myszy plik, a następnie wybierz polecenie **Download** (Pobierz). Wybierz, gdzie chcesz umieścić plik na maszynie lokalnej, a następnie wybierz polecenie **Zapisz**.
 
 Postęp pobierania będzie wyświetlany w okienku **Działania** na dole okna.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Nie możesz użyć Eksploratora usługi Storage do usunięcia zasobów. Aby wyczyścić wyniki działań wykonanych w ramach tego przewodnika Szybki start, użyj [witryny Azure Portal](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]

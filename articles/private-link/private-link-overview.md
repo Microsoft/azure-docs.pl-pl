@@ -9,10 +9,10 @@ ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 88f4a2bdc8adbf38da0dc9824dea772d94af3467
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667779"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 

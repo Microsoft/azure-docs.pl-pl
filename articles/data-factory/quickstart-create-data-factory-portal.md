@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
 ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84655797"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki Start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika usługi Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -40,8 +40,8 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-1. Przejdź do [Azure Portal](https://portal.azure.com). 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
 1. Wybierz pozycję **Analiza**, a następnie wybierz pozycję **Data Factory**. 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)

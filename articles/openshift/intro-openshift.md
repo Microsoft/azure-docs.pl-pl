@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/24/2020
 ms.custom: mvc
 ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82628524"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift

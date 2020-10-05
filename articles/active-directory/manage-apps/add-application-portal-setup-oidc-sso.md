@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.openlocfilehash: 0f3073214fb47de006c6d9ebb07f443f3e63a4f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91349102"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie logowania jednokrotnego opartego na usłudze OIDC (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
@@ -54,7 +54,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
 
 3. Po pomyślnym uwierzytelnieniu zostanie wyświetlone okno dialogowe z pytaniem o zgodę administratora. Wybierz pozycję **zgoda w imieniu organizacji** , a następnie wybierz pozycję **Zaakceptuj**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Zrzut ekranu przedstawia ekran wyrażania zgody dla aplikacji." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Zrzut ekranu przedstawia opcję logowania jednokrotnego i przycisk tworzenia konta." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. Aplikacja zostanie dodana do dzierżawy, a zostanie wyświetlona strona główna aplikacji.
 

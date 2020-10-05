@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91461193"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Szybki Start: Konfigurowanie laboratorium przy użyciu szablonu Azure DevTest Labs ARM
@@ -20,7 +20,7 @@ W tym przewodniku szybki start wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Przegląd szablonu 
-> * Wdrażanie szablonu
+> * Wdrożenie szablonu
 > * Weryfikowanie szablonu
 > * Oczyszczanie zasobów
 
@@ -46,7 +46,7 @@ Zasoby zdefiniowane w szablonie obejmują:
 
 Aby znaleźć więcej przykładów szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk. 
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)

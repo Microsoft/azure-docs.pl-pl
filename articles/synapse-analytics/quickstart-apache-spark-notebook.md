@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91651721"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
@@ -119,7 +119,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
 6. W polu kolumna osi X wybierz pozycję stan.
 7. W polu kolumna osi Y wybierz pozycję "wynagrodzenie".
 8. W polu **agregacja** wybierz wartość "Średnia".
-9. Wybierz przycisk **Zastosuj**.
+9. Wybierz pozycję **Zastosuj**.
 
    ![Dane wyjściowe wykresu na platformie Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Dane wyjściowe wykresu na platformie Azure Synapse Spark")
 

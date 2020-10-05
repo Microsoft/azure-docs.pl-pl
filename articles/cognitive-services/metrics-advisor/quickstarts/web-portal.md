@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631387"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Szybki Start: monitorowanie pierwszej metryki przy użyciu portalu sieci Web
@@ -92,7 +92,7 @@ Gdy schemat danych zostanie załadowany i przedstawiony poniżej, wybierz odpowi
 |Zaznaczenie  |Opis  |Uwagi  |
 |---------|---------|---------|
 |**Timestamp**     | Sygnatura czasowa punktu danych. W przypadku pominięcia klasyfikator metryk będzie używać sygnatury czasowej, gdy zostanie wprowadzony punkt danych. Dla każdego źródła danych można określić maksymalnie jedną kolumnę jako sygnaturę czasową.        | Opcjonalny. Należy określić z co najwyżej jedną kolumną.       |
-|**miara**     |  Wartości liczbowe w strumieniowym źródle danych. Dla każdego źródła danych można określić wiele miar, ale do miary należy wybrać co najmniej jedną kolumnę.        | Należy określić z co najmniej jedną kolumną.        |
+|**Measure**     |  Wartości liczbowe w strumieniowym źródle danych. Dla każdego źródła danych można określić wiele miar, ale do miary należy wybrać co najmniej jedną kolumnę.        | Należy określić z co najmniej jedną kolumną.        |
 |**Wymiar**     | Kategorii wartości. Kombinacja różnych wartości identyfikuje konkretną serię czasową pojedynczego wymiaru, na przykład: Country, language, dzierżawca. Jako wymiary można wybrać opcję Brak lub dowolną liczbę kolumn. Uwaga: Jeśli wybierasz kolumnę niebędącą ciągiem jako wymiar, należy zachować ostrożność z rozłożeniem wymiaru. | Opcjonalny.        |
 |**Ignoruj**     | Ignoruj wybraną kolumnę.        |         |
 

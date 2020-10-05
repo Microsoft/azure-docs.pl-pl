@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ebc0ee2e029e1f349972e3cd7fada46495534d54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252412"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729172"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
 W tym Samouczku opisano, jak dodać domenę niestandardową do usługi Front Door. W przypadku korzystania z usługi Azure Front Drzwiczks do dostarczania aplikacji niestandardowa domena jest potrzebna, jeśli chcesz, aby Twoja nazwa domeny była widoczna na żądanie użytkownika końcowego. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem.
 
 Po utworzeniu drzwi czołowych domyślnym hostem frontonu, który jest poddomeną `azurefd.net` , jest dołączony do adresu URL w celu dostarczania zawartości z tyłu z zaplecza domyślnie (na przykład https: \/ /contoso-frontend.azurefd.NET/activeusers.htm). Dla Twojej wygody usługa Azure Front Door udostępnia opcję kojarzenia domeny niestandardowej z hostem domyślnym. Ta opcja umożliwia dostarczanie zawartości przy użyciu domeny niestandardowej w adresie URL zamiast korzystania z nazwy domeny należącej do usługi Front Door (np. https:\//www.contoso.com/photo.png). 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Tworzenie rekordu DNS CNAME.
 > - Kojarzenie domeny niestandardowej z usługą Front Door.
@@ -209,4 +209,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Aby dowiedzieć się, jak włączyć protokół HTTPS dla domeny niestandardowej, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Włączanie protokołu HTTPS dla domeny niestandardowej](front-door-custom-domain.md)
+> [Włączanie protokołu HTTPS dla domeny niestandardowej](front-door-custom-domain-https.md)

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86276122"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Które regiony są dostępne?
@@ -43,7 +43,7 @@ Protokoły RDP i SSH są protokołem opartym na użyciu. Wysokie użycie sesji s
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>Jakie funkcje są obsługiwane w sesji protokołu RDP?
 
-W tej chwili obsługiwana jest tylko kopiowanie/wklejanie tekstu. Funkcje, takie jak kopiowanie plików, nie są obsługiwane. Możesz bezpłatnie podzielić się swoją opinią na temat nowych funkcji na [stronie opinii o usłudze Azure bastionu](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+Obecnie obsługiwane jest tylko kopiowanie/wklejanie tekstu. Funkcje takie jak kopiowanie plików nie są obsługiwane. Możesz przekazać nam swoją opinię na temat nowych funkcji na [stronie opinii o usłudze Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Które przeglądarki są obsługiwane?
 

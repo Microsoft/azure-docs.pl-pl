@@ -10,10 +10,10 @@ ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87080152"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Inicjowanie obsługi maszyn wirtualnych z systemem Linux na platformie Azure
@@ -44,7 +44,7 @@ Jeśli masz jądro systemu Linux, które nie może obsługiwać jednego z agent�
 - Raportowanie odcisku palca klucza hosta SSH do platformy
 - Zarządzanie dyskami zasobów
 - Formatowanie i Instalowanie dysku zasobów
-- Wykorzystywanie i przetwarzanie`customData`
+- Wykorzystywanie i przetwarzanie `customData`
  
 **Sieć**
   
@@ -54,7 +54,7 @@ Jeśli masz jądro systemu Linux, które nie może obsługiwać jednego z agent�
 **Jądro**
   
 - Konfiguruje wirtualną architekturę NUMA (Wyłącz dla jądra <`2.6.37` )
-- Zużywa entropię funkcji Hyper-V dla`/dev/random`
+- Zużywa entropię funkcji Hyper-V dla `/dev/random`
 - Konfiguruje limity czasu SCSI dla urządzenia głównego (co może być zdalne)
 
 **Diagnostyka**
@@ -73,7 +73,7 @@ Agent systemu Linux i Usługa Cloud-init są zależne od niektórych pakietów s
 - Środowisko Python 2.6 +
 - OpenSSL 1.0 +
 - OpenSSH 5.3 +
-- Narzędzia systemu plików: `sfdisk` , `fdisk` , `mkfs` ,`parted`
+- Narzędzia systemu plików: `sfdisk` , `fdisk` , `mkfs` , `parted`
 - Narzędzia do haseł: chpasswd, sudo
 - Narzędzia do przetwarzania tekstu: SED, grep
 - Narzędzia sieciowe: trasa IP

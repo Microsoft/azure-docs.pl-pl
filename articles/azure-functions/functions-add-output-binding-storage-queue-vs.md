@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84235372"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Łączenie funkcji z usługą Azure Storage przy użyciu programu Visual Studio
@@ -29,7 +29,7 @@ Przed rozpoczęciem tego artykułu należy:
 
 ## <a name="download-the-function-app-settings"></a>Pobierz ustawienia aplikacji funkcji
 
-W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule opisano pisanie komunikatów w kolejce magazynu w ramach tego samego konta. Aby nawiązać połączenie z kontem magazynu podczas lokalnego uruchamiania funkcji, musisz pobrać ustawienia aplikacji do pliku *Local. Settings. JSON* . 
+W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule opisano pisanie komunikatów w kolejce magazynu w ramach tego samego konta. Aby nawiązać połączenie z kontem magazynu podczas lokalnego uruchamiania funkcji, musisz pobrać ustawienia aplikacji do *local.settings.js* pliku. 
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. 
 
@@ -75,7 +75,7 @@ Nowa kolejka o nazwie `outqueue` zostanie utworzona na koncie magazynu przez śr
 
 1. W programie Visual Studio z menu **Widok** wybierz opcję **Eksplorator chmury**.
 
-1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź `AzureWebJobsStorage` ustawienie parametrów połączenia w pliku *Local. Settings. JSON* .  
+1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź `AzureWebJobsStorage` ustawienie parametrów połączenia w *local.settings.jsna* pliku.  
 
 1. Rozwiń węzeł **kolejki** , a następnie kliknij dwukrotnie kolejkę o nazwie **dequeueing** , aby wyświetlić zawartość kolejki w programie Visual Studio. 
 
@@ -95,7 +95,7 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

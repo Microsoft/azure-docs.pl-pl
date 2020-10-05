@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
 ms.openlocfilehash: 480e22b319edd03dc9bb9d666dd43718fb3c841b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88507034"
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest usługa Azure Virtual Network?

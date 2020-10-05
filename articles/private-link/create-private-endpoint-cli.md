@@ -9,10 +9,10 @@ ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e7c098ba06086781306960f76978aac9e4fa06bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87502668"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -132,11 +132,11 @@ az network private-endpoint dns-zone-group create \
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. Na pasku wyszukiwania portalu wprowadź *myVm*.
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
 
 1. Otwórz pobrany plik RDP *.
 
@@ -147,7 +147,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -180,7 +180,7 @@ W tej sekcji połączysz się z SQL Databaseą z maszyny wirtualnej przy użyciu
    - Hasło: wprowadź hasło podane podczas tworzenia.
    - Zapamiętaj hasło: wybierz pozycję tak.
 
-5. Wybierz polecenie **Połącz**.
+5. Wybierz pozycję **Połącz**.
 6. Przeglądaj **bazy danych** z menu po lewej stronie.
 7. Zdefiniować Utwórz lub zapytaj informacje z *bazy danych*
 8. Zamknij połączenie pulpitu zdalnego z *myVm*.

@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 685ee0c616234563981e55f14213e424daae32f5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85611275"
 ---
 # <a name="what-is-bing-local-business-search"></a>Co to jest lokalne wyszukiwanie w biznesie Bing?
@@ -30,7 +30,7 @@ Lokalny interfejs API wyszukiwania biznesowego Bing to usługa RESTful, która u
 ## <a name="workflow"></a>Przepływ pracy
 Wywołaj interfejs API wyszukiwania w usłudze Bing Local Business Search z dowolnego języka programowania, który może wykonywać żądania HTTP i analizować odpowiedzi JSON. Ta usługa jest dostępna przy użyciu interfejsu API REST.
  
-1. Utwórz [konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z dostępem do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).   
+1. Utwórz [konto interfejsu API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  z dostępem do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).   
 2. Kodowanie w adresie URL wyszukiwanych terminów dla `q=""` parametru zapytania. Na przykład: `q=nearby+restaurant` lub `q=nearby%20restaurant`. W razie konieczności Ustaw również stronicowanie. 
 3. Wyślij [żądanie do interfejsu API wyszukiwania lokalnego usługi Bing](quickstarts/local-quickstart.md) 
 4. Analizowanie odpowiedzi w formacie JSON 

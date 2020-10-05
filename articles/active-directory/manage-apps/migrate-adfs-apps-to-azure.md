@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600949"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728985"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
 
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) oferuje uniwersalną platformę do obsługi tożsamości, która umożliwia osobom, partnerom i klientom pojedynczą tożsamość dostęp do aplikacji i współpracę z dowolnego platformy i urządzenia. Usługa Azure AD ma [pełen pakiet funkcji zarządzania tożsamościami](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Ujednolicenie uwierzytelniania aplikacji i autoryzacji do usługi Azure AD zapewnia korzyści oferowane przez te funkcje. 
 
-> [!NOTE]
-> Ten artykuł koncentruje się na przenoszeniu uwierzytelniania aplikacji z lokalnych Active Directory i Active Directory Federation Services do usługi Azure AD. Zapoznaj się z oficjalnym dokumentem [Migrowanie uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper) , aby zapoznać się z omówieniem planowania tego przeniesienia. W tym dokumencie omówiono sposób planowania migracji, testowania i szczegółowych informacji.
+> [!TIP]
+> Ten artykuł jest przeznaczony dla użytkowników deweloperów. Menedżerowie projektów i Administratorzy planują przechodzenie aplikacji do usługi Azure AD, należy rozważyć zapoznanie się z naszym [migrowaniem uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper) oficjalny dokument (PDF).
 
 ## <a name="introduction"></a>Wprowadzenie
 

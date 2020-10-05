@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947659"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -127,7 +127,7 @@ Jeśli musisz utworzyć grupę zasobów, możesz to zrobić za pomocą [Azure Po
 
 Nasze wystąpienie klienta biblioteki klienta zarządzania usługami komunikacyjnymi ( ``Azure.ResourceManager.Communication.CommunicationManagementClient`` ) może służyć do wykonywania operacji na zasobach usług komunikacyjnych.
 
-#### <a name="create-a-communication-services-resource"></a>Tworzenie zasobu usług komunikacyjnych
+#### <a name="create-a-communication-services-resource"></a>Tworzenie zasobu usług Communication Services
 
 Podczas tworzenia zasobu usług komunikacyjnych należy określić nazwę grupy zasobów i nazwę zasobu. Należy pamiętać, że `Location` Właściwość zawsze będzie `global` , a w publicznej wersji zapoznawczej `DataLocation` wartość musi być `UnitedStates` .
 

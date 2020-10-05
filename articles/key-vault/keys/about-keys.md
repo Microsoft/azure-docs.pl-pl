@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91708870"
 ---
 # <a name="about-keys"></a>Informacje o kluczach

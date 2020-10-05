@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88185166"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -51,11 +51,11 @@ name | **mydemoserver** | Wprowadź unikatową nazwę, która identyfikuje Twój
 resource-group | **myresourcegroup** | Wprowadź nazwę grupy zasobów platformy Azure.
 sku-name | **GP_Gen5_2** | Nazwa jednostki SKU. Zgodnie z Konwencją Konwencji *cenowej* \_ rdzeni wirtualnych*generacji obliczeń* \_ *vCores* w postaci skróconej. Aby uzyskać więcej informacji na temat parametru **sku-name**, zobacz sekcję poniżej tabeli.
 backup-retention | **7** | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres: 7–35. 
-geo-redundant-backup | **Disabled** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
+geo-redundant-backup | **Wyłączone** | Określa, czy dla tego serwera powinny być włączone geograficznie nadmiarowe kopie zapasowe. Dozwolone wartości: **włączone**, **wyłączone**.
 location | **westus** | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | **Włączono** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
+ssl-enforcement | **Włączone** | Określa, czy dla tego serwera powinien być włączony protokół SSL. Dozwolone wartości: **włączone**, **wyłączone**.
 storage-size | **51200** | Pojemność magazynu serwera (w megabajtach). Prawidłowy rozmiar magazynu to 5120 MB (minimum) rosnący z przyrostem 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Warstwy cenowe](./concepts-pricing-tiers.md). 
-version | **10,2** | Wersja główna aparatu MariaDB.
+Wersja | **10,2** | Wersja główna aparatu MariaDB.
 admin-user | **myadmin** | Nazwa użytkownika w przypadku logowania administratora. Parametr **admin-user** nie może mieć wartości **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
 admin-password | *Twoje hasło* | Hasło użytkownika administratora. Twoje hasło musi zawierać od 8 do 128 znaków. Musi ono zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 
@@ -213,8 +213,8 @@ Aby nawiązać połączenie z serwerem, używając narzędzia wiersza polecenia 
    | Ustawienie | Sugerowana wartość | Opis |
    |---|---|---|
    | Nazwa połączenia | **Połączenie demonstracyjne** | Wprowadź etykietę dla tego połączenia (nazwa połączenia może być dowolna) |
-   | Metoda połączenia | **Standardowa (TCP/IP)** | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
-   | Nazwa hosta | **mydemoserver.mariadb.database.azure.com** | Zanotowana wcześniej nazwa serwera. |
+   | Connection Method (Metoda połączenia) | **Standard (TCP/IP)** | Użyj protokołu TCP/IP do nawiązania połączenia z usługą Azure Database for MariaDB |
+   | Hostname (Nazwa hosta) | **mydemoserver.mariadb.database.azure.com** | Zanotowana wcześniej nazwa serwera. |
    | Port | **3306** | Domyślny port dla usługi Azure Database for MariaDB. |
    | Nazwa użytkownika | **mydemoserver administratora \@** | Zanotowany wcześniej identyfikator logowania administratora serwera. |
    | Hasło | *Twoje hasło* | Użyj skonfigurowanego wcześniej hasła konta administratora. |

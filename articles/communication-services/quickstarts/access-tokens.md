@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ms.openlocfilehash: a76000ecacdf78196ec1b80a60940484f6421641
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947611"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Szybki Start: tworzenie tokenów dostępu i zarządzanie nimi
@@ -58,7 +58,7 @@ Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-
 ```
 <!---cSpell:enable --->
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](./create-communication-resource.md#clean-up-resources).
 
@@ -74,10 +74,10 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 
 > [!div class="nextstepaction"]
-> [Dodawanie rozmowy głosowej do aplikacji](./voice-video-calling/getting-started-with-calling.md)
+> [Dodawanie połączenia głosowego do aplikacji](./voice-video-calling/getting-started-with-calling.md)
 
 Możesz również chcieć:
 
  - [Informacje o uwierzytelnianiu](../concepts/authentication.md)
- - [Dodawanie rozmowy do aplikacji](./chat/get-started.md)
+ - [Dodawanie czatu do aplikacji](./chat/get-started.md)
  - [Informacje o architekturze klienta i serwera](../concepts/client-and-server-architecture.md)

@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85213027"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Szybki Start: Tworzenie klasyfikatora obciążeń puli SQL Synapse przy użyciu Azure Portal
@@ -23,7 +23,7 @@ ms.locfileid: "85213027"
 W tym przewodniku szybki start utworzysz [klasyfikator obciążeń](sql-data-warehouse-workload-classification.md) służący do przypisywania zapytań do grupy obciążeń.  Klasyfikator przypisze żądania od `ELTLogin` użytkownika SQL do `DataLoads` grupy obciążeń.   Postępuj zgodnie z samouczkiem [Szybki Start: Konfigurowanie izolacji obciążenia](quickstart-configure-workload-isolation-portal.md) , aby utworzyć `DataLoads` grupę obciążeń.  W tym samouczku zostanie utworzony klasyfikator obciążeń z opcją WLM_LABEL, aby ułatwić dalsze klasyfikowanie żądań.  Klasyfikator przypisze `HIGH` również [ważność obciążeń](sql-data-warehouse-workload-importance.md) do tych żądań.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
@@ -97,13 +97,13 @@ Klasyfikacja pozwala na kierowanie żądań na podstawie zestawu reguł do grupy
     ![Kliknij pozycję Konfiguracja](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>Weryfikuj i Testuj klasyfikację
-Sprawdź widok wykazu [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) , aby sprawdzić istnienie `ELTLoginDataLoads` klasyfikatora.
+Sprawdź widok wykazu [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) , aby sprawdzić istnienie `ELTLoginDataLoads` klasyfikatora.
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Sprawdź widok wykazu [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) , aby zweryfikować szczegóły klasyfikatora.
+Sprawdź widok wykazu [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) , aby zweryfikować szczegóły klasyfikatora.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value

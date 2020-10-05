@@ -16,10 +16,10 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82996235"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Szybki start: tworzenie profilu i punktu końcowego usługi Azure CDN
@@ -33,7 +33,7 @@ W tym przewodniku szybki start włączysz usługę Azure Content Delivery Networ
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
@@ -53,7 +53,7 @@ Utworzony profil usługi CDN jest używany do tworzenia punktu końcowego.
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | **Nazwa** | Wprowadź nazwę sieci *CDN-Endpoint-123* dla nazwy hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa na platformie Azure; Jeśli jest już używana, wprowadź inną nazwę. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w domenie _ &lt;Endpoint Name&gt;_. azureedge.NET.|
+    | **Nazwa** | Wprowadź nazwę sieci *CDN-Endpoint-123* dla nazwy hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa na platformie Azure; Jeśli jest już używana, wprowadź inną nazwę. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w domenie _ &lt; Endpoint name &gt; _. azureedge.NET.|
     | **Typ źródła** | Wybierz pozycję **Magazyn**. | 
     | **Nazwa hosta źródła** | Wybierz nazwę hosta konta usługi Azure Storage, którego używasz, z listy rozwijanej, na przykład *cdnstorageacct123.blob.Core.Windows.NET*. |
     | **Ścieżka do źródła** | Pozostaw to pole puste. |
@@ -70,7 +70,7 @@ Utworzony profil usługi CDN jest używany do tworzenia punktu końcowego.
     
    Czas przeznaczony na propagację punktu końcowego zależy od warstwy cenowej wybranej podczas tworzenia profilu. **Standardowa Akamai** jest zwykle zakończona w ciągu jednej minuty, **standardowej firmie Microsoft** w 10 minutach oraz **standardowej Verizon** i **Premium Verizon** w maksymalnie 90 minutach.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach utworzono profil i punkt końcowy usługi CDN w grupie zasobów. Zapisz te zasoby, jeśli chcesz przejść do sekcji [Następne kroki](#next-steps) i dowiedzieć się, jak dodać domenę niestandardową do punktu końcowego. Jeśli jednak nie będziesz już potrzebować tych zasobów w przyszłości, możesz je usunąć przez usunięcie grupy zasobów, unikając w ten sposób dodatkowych opłat:
 

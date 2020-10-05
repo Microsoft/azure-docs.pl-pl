@@ -5,10 +5,10 @@ ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
 ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91533810"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania platformy Azure?
@@ -90,7 +90,7 @@ Te uprawnienia są dziedziczone do zasobów podrzędnych, które istnieją w hie
 
 Na poniższym wykresie przedstawiono listę ról i obsługiwane akcje na grupach zarządzania.
 
-| Nazwa roli platformy Azure             | Utwórz | Zmień nazwę | Przenieś\*\* | Usuń | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
+| Nazwa roli platformy Azure             | Utwórz | Zmień nazwę | Przenieś\*\* | Usuwanie | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Właściciel                       | X      | X      | X        | X      | X             | X             | X     |
 |Współautor                 | X      | X      | X        | X      |               |               | X     |

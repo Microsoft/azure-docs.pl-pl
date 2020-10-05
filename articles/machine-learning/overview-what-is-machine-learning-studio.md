@@ -9,10 +9,10 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667439"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
@@ -80,7 +80,7 @@ Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning**, a nie ml S
 
 Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (klasyczne) i Azure Machine Learning.
 
-| Cechy | ML Studio (klasyczny) | Azure Machine Learning |
+| Cecha | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
 | Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
 | Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |

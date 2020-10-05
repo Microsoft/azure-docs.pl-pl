@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86527408"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Omówienie autoskalowania w zestawach skalowania maszyn wirtualnych platformy Azure
@@ -75,8 +75,8 @@ Podczas tworzenia reguł skalowania automatycznego w celu monitorowania danej me
 | Średnia          |
 | Minimum          |
 | Maksimum          |
-| Łącznie            |
-| Last             |
+| Suma            |
+| Ostatnie             |
 | Liczba            |
 
 Reguły skalowania automatycznego są następnie wyzwalane, gdy metryki są porównywane ze zdefiniowanym progiem z jednym z następujących operatorów:

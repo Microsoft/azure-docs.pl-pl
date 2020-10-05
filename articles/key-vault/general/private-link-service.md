@@ -9,10 +9,10 @@ ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88585835"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrowanie usługi Key Vault z usługą Azure Private Link
@@ -67,7 +67,7 @@ Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz tera
 
 Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 1. Na pasku wyszukiwania wpisz ciąg "magazyny kluczy".
 1. Z listy wybierz magazyn kluczy, do którego chcesz dodać prywatny punkt końcowy.
 1. Wybierz kartę "Sieć" w obszarze Ustawienia

@@ -4,10 +4,10 @@ description: Szybko zaloguj się do Azure Notebooks wersja zapoznawcza i ustaw i
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85830421"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika na potrzeby wersji zapoznawczej Azure Notebooks
@@ -16,7 +16,7 @@ ms.locfileid: "85830421"
 
 Mimo że zawsze możesz wyświetlać Azure Notebooks bez logowania, musisz zalogować się, aby uruchomić notesy, uzyskać dostęp do zapisanych projektów i notesów oraz udostępnić Notes innym osobom.
 
-## <a name="sign-in"></a>Zaloguj
+## <a name="sign-in"></a>Zaloguj się
 
 1. Wybierz pozycję **Zaloguj się** w prawym górnym rogu [Notebooks.Azure.com](https://notebooks.azure.com/).
 

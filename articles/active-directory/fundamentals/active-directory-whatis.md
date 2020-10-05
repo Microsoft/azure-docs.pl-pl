@@ -12,10 +12,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d66e8b15b7af73517a7f838186821248bffeccc
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566113"
 ---
 # <a name="what-is-azure-active-directory"></a>Co to jest usługa Azure Active Directory?

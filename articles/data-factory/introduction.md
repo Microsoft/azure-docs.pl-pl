@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89536316"
 ---
-# <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+# <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -24,11 +24,11 @@ W świecie danych big data dane nieprzetworzone i niezorganizowane często są p
 
 Dane big data wymagają usługi, która umożliwia organizację i operacjonalizację procesów mających na celu przekształcenie tych ogromnych zbiorów nieprzetworzonych danych w praktyczną analizę biznesową. Azure Data Factory to zarządzana usługa w chmurze, stworzona z myślą o tych kompleksowych, hybrydowych projektach typu wyodrębnianie-transformacja-ładowanie (ETL), wyodrębnianie-ładowanie-transformacja (ELT) i integracji danych.
 
-Na przykład wyobraź sobie producenta gier, który zbiera petabajty dzienników gier tworzonych przez gry w chmurze. Firma chce analizować te dzienniki w celu uzyskania szczegółowych informacji dotyczących preferencji klientów, danych demograficznych oraz zachowania użytkowników podczas korzystania z gier. Dzięki temu firma będzie mogła identyfikować możliwości sprzedaży droższych produktów i sprzedaży wiązanej, opracowywać nowe atrakcyjne funkcje pozytywnie wpływające na rozwój biznesowy oraz oferować klientom udoskonalone środowisko gier.
+Przykładowo wyobraź sobie, że firma zajmująca się grami gromadzi petabajty dzienników gier, które są tworzone przez gry w chmurze. Firma chce analizować te dzienniki w celu uzyskania wglądu w preferencje klientów, dane demograficzne i zachowania związane z użyciem. Dzięki temu firma będzie mogła identyfikować możliwości sprzedaży droższych produktów i sprzedaży wiązanej, opracowywać nowe atrakcyjne funkcje pozytywnie wpływające na rozwój biznesowy oraz oferować klientom udoskonalone środowisko gier.
 
 Do analizy tych dzienników firma musi użyć danych referencyjnych, np. informacji o kliencie, grze i kampanii marketingowej, które znajdują się w lokalnym magazynie danych. Firma chce korzystać z tych danych z lokalnego magazynu danych, łącząc je z dodatkowymi danymi dzienników znajdującymi się w magazynie danych w chmurze. 
 
-Aby wyodrębnić szczegółowe informacje, nadziei przetworzyć połączone dane przy użyciu klastra Spark w chmurze (Azure HDInsight), a następnie opublikować przekształcone dane w magazynie danych w chmurze, takim jak Azure Synapse Analytics (dawniej SQL Data Warehouse), aby łatwo utworzyć raport na jego podstawie. Firma zamierza zautomatyzować przepływ pracy, a także monitorować go i zarządzać nim w cyklu dziennym. Poza tym chce wykonywać przepływ pracy, gdy pliki znajdą się w kontenerze usługi Blob Storage.
+Aby wyodrębnić szczegółowe informacje, nadziei przetworzyć połączone dane przy użyciu klastra Spark w chmurze (Azure HDInsight), a następnie opublikować przekształcone dane w magazynie danych w chmurze, takim jak Azure Synapse Analytics (dawniej SQL Data Warehouse), aby łatwo utworzyć raport na jego podstawie. Firma chce zautomatyzować ten przepływ pracy oraz monitorować go i zarządzać nim zgodnie z codziennym harmonogramem. Chce również wykonać tę operację, gdy pliki znajdują się w kontenerze magazynu obiektów blob.
 
 Azure Data Factory to platforma, która umożliwia pracę z takimi scenariuszami danych. Jest to *Usługa ETL i integracja danych oparta na chmurze, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania przenoszenia danych i przekształcania danych na dużą skalę*. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Można tworzyć złożone procesy ETL, które przekształcają dane graficznie przy użyciu przepływów danych lub usług obliczeniowych, takich jak Azure HDInsight Hadoop, Azure Databricks i Azure SQL Database. 
 
@@ -38,7 +38,7 @@ Ponadto możesz publikować przekształcone dane w magazynach danych, takich jak
 
 ## <a name="how-does-it-work"></a>Jak to działa?
 
-Data Factory zawiera szereg połączonych systemów, które zapewniają kompleksową platformę do obsługi inżynierów danych.
+Usługa Data Factory zawiera szereg połączonych systemów, które tworzą kompleksową platformę dla inżynierów danych.
 
 ### <a name="connect-and-collect"></a>Łączenie i zbieranie
 
@@ -73,7 +73,7 @@ Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usług
 Ich współdziałanie pozwala udostępnić platformę umożliwiającą tworzenie opartych na danych przepływów pracy wraz z etapami służącymi do przenoszenia i przekształcania danych.
 
 ### <a name="pipeline"></a>Potok
-Fabryka danych może obejmować jeden lub wiele potoków. Potoki to logiczne grupy działań, które wspólnie wykonują pracę. które umożliwiają wykonanie zadania. Na przykład potok może zawierać grupę działań, które pozwalają pozyskać dane z obiektu blob platformy Azure, a następnie uruchomić zapytanie programu Hive w klastrze usługi HDInsight w celu podzielenia danych. 
+Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupowaniem działań, które wspólnie wykonują jednostkę pracy. Razem działania w potoku wykonują zadanie. Na przykład potok może zawierać grupę działań, które pozwalają pozyskać dane z obiektu blob platformy Azure, a następnie uruchomić zapytanie programu Hive w klastrze usługi HDInsight w celu podzielenia danych. 
 
 Zaletą korzystania z potoku jest możliwość zarządzania zestawem działań, a nie pojedynczymi zadaniami. Działania w potoku można ze sobą połączyć w sposób sekwencyjny, mogą też działać niezależnie i równolegle.
 

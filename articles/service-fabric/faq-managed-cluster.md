@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 73815e793357dd38244dd429f9056c4c6a0bfff1
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410334"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729002"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric często zadawane pytania dotyczące klastrów zarządzanych
 
@@ -41,7 +41,7 @@ Umowa SLA nie zmienia się z bieżącego modelu zasobów Service Fabric.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Jaka jest różnica między podstawowym i standardowym klastrem SKU?
 
-Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](overview-managed-cluster.md#service-fabric-managed-cluster skus.md) , aby uzyskać więcej szczegółów.
+Podstawowy klaster SKU oznacza większość konfiguracji udostępnianych przez dostawcę zasobów Service Fabric. Podstawowe klastry SKU są przeznaczone do użycia na potrzeby testowania i środowiska produkcyjnego. Klaster standardowej jednostki SKU umożliwia użytkownikom skonfigurowanie klastra w celu spełnienia wymagań. Aby uzyskać więcej informacji, zobacz [Service Fabric zarządzanych jednostek SKU klastra](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) , aby uzyskać więcej szczegółów.
 
 ## <a name="cluster-deployment-and-management"></a>Wdrażanie i zarządzanie klastrami
 

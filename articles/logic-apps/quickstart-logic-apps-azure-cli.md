@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87499555"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Szybki Start: Tworzenie aplikacji logiki i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -25,7 +25,7 @@ W tym przewodniku szybki start pokazano, jak tworzyć aplikacje logiki i zarząd
 
 * Konto platformy Azure z aktywną subskrypcją. Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) zainstalowany na komputerze lokalnym.
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) zainstalowane na tym komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia:`az extension add --name logic`
+* [Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) zainstalowane na tym komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia: `az extension add --name logic`
 * [Grupa zasobów platformy Azure](#example---create-resource-group) , w której ma zostać utworzona aplikacja logiki.
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
@@ -241,7 +241,7 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 
 ```
 
-## <a name="errors"></a>błędy
+## <a name="errors"></a>Errors
 
 Następujący błąd wskazuje, że rozszerzenie interfejsu wiersza polecenia Azure Logic Apps nie jest zainstalowane. Wykonaj kroki opisane w sekcji wymagania wstępne, aby [zainstalować rozszerzenie Logic Apps](#prerequisites) na komputerze.
 

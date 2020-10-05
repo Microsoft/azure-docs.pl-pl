@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem'
+title: 'Szybki start: wprowadzenie do usługi Azure Sentinel'
 description: Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak szybko wyświetlać i monitorować działania wykonywane w danym środowisku za pomocą usługi Azure wskaźnikowej. 
 services: sentinel
 author: yelevin
@@ -11,13 +11,13 @@ ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90889135"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki start: wprowadzenie do usługi Azure Sentinel
 
 
 

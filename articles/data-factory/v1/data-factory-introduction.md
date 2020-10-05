@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89436260"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
@@ -71,14 +71,14 @@ Na przykład można pobrać dane z usługi Azure Data Lake Store i przekształci
 ### <a name="transform-and-enrich"></a>Przekształcanie i wzbogacanie
 Po umieszczeniu danych w centralnym magazynie danych w chmurze zebrane dane należy przetworzyć lub przetransferować za pomocą usług obliczeniowych, takich jak HDInsight Hadoop, Spark, Data Lake Analytics lub Machine Learning. Przekształcone dane powinny być generowane niezawodnie i zgodnie z możliwym do utrzymania i kontrolowania harmonogramem, aby zapewnić środowiskom produkcyjnym zaufane dane. 
 
-### <a name="publish"></a>Publikowanie 
+### <a name="publish"></a>Opublikuj 
 Przekształcone dane należy dostarczyć z chmury do źródeł lokalnych, takich jak program SQL Server. Można też zachować je w magazynach w chmurze do wykorzystania przez narzędzia analityczne, aplikacje analizy biznesowej i inne aplikacje.
 
 ## <a name="key-components"></a>Główne składniki
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Usługa Azure Data Factory składa się z czterech głównych składników. Ich współdziałanie pozwala udostępnić platformę umożliwiającą tworzenie opartych na danych przepływów pracy wraz z etapami służącymi do przenoszenia i przekształcania danych. 
 
 ### <a name="pipeline"></a>Potok
-Fabryka danych może obejmować jeden lub wiele potoków. Potok jest grupą działań, które umożliwiają wykonanie zadania. 
+Fabryka danych może obejmować jeden lub wiele potoków. Potok jest grupą działań, Razem działania w potoku wykonują zadanie. 
 
 Na przykład potok może zawierać grupę działań, które pozwalają pozyskać dane z obiektu blob platformy Azure, a następnie uruchomić zapytanie programu Hive w klastrze usługi HDInsight w celu podzielenia danych. Zaletą korzystania z potoku jest możliwość zarządzania zestawem działań. Na przykład zamiast planować oddzielne działania można wdrożyć i zaplanować potok. 
 

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80586583"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C# (wersja zapoznawcza)
@@ -45,7 +45,7 @@ Na poniższej ilustracji przedstawiono, w jaki sposób lokalne i lokalne aplikac
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,7 +53,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
   * Środkowe stany USA
   * Środkowe stany USA — EUAP
-  * Azja Południowo-Wschodnia
+  * Southeast Asia
   * Europa Północna
 
 * Dwie przykładowe aplikacje, które są uruchamiane w tym przewodniku Szybki Start, są zapisywane w języku C#. Potrzebujesz zestaw .NET Core SDK 2.1.0 na komputerze deweloperskim lub nowszym.
@@ -81,7 +81,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Prawidłowe konto użytkownika i poświadczenie na urządzeniu (Windows lub Linux) używane do uwierzytelniania użytkownika.
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -136,7 +136,7 @@ W oknie terminalu lokalnego przejdź do `device-streams-proxy/device` katalogu w
 | Nazwa argumentu | Wartość argumentu |
 |----------------|-----------------|
 | `DeviceConnectionString` | Parametry połączenia urządzenia utworzone wcześniej. |
-| `targetServiceHostName` | Adres IP, na którym nasłuchuje serwer SSH. Adres powinien być `localhost` adresem IP, w którym jest uruchomiona aplikacja lokalnego serwera proxy. |
+| `targetServiceHostName` | Adres IP, na którym nasłuchuje serwer SSH. Adres powinien być adresem `localhost` IP, w którym jest uruchomiona aplikacja lokalnego serwera proxy. |
 | `targetServicePort` | Port używany przez protokół aplikacji (w przypadku protokołu SSH domyślnie to port 22).  |
 
 Kompiluj i uruchamiaj kod przy użyciu następujących poleceń:
@@ -214,7 +214,7 @@ W oknie terminalu lokalnego przejdź do `device-streams-proxy/device` katalogu w
 | Nazwa argumentu | Wartość argumentu |
 |----------------|-----------------|
 | `DeviceConnectionString` | Parametry połączenia urządzenia utworzone wcześniej. |
-| `targetServiceHostName` | Nazwa hosta lub adres IP, na którym działa serwer RDP. Adres powinien być `localhost` adresem IP, w którym jest uruchomiona aplikacja lokalnego serwera proxy. |
+| `targetServiceHostName` | Nazwa hosta lub adres IP, na którym działa serwer RDP. Adres powinien być adresem `localhost` IP, w którym jest uruchomiona aplikacja lokalnego serwera proxy. |
 | `targetServicePort` | Port używany przez protokół aplikacji (domyślnie dla protokołu RDP to port 3389).  |
 
 Kompiluj i uruchamiaj kod przy użyciu następujących poleceń:
@@ -262,7 +262,7 @@ Teraz należy używać aplikacji klienckiej RDP i nawiązać połączenie z loka
 
 ![Protokół RDP nawiązuje połączenie z aplikacją lokalnego serwera proxy usługi](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
