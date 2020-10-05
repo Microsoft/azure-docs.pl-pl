@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423800"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714351"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Skorzystaj z prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Za pomocą linku prywatnego można:
 - Bezpiecznie łącz swoją prywatną sieć lokalną z Azure Automation przy użyciu linku ExpressRoute i prywatnego.
 - Zachowaj cały ruch w sieci szkieletowej Microsoft Azure.
 
-Aby uzyskać więcej informacji, zobacz [najważniejsze zalety linku prywatnego](../../private-link/private-link-overview.md#key-benefits).
+Aby uzyskać więcej informacji, zobacz  [najważniejsze zalety linku prywatnego](../../private-link/private-link-overview.md#key-benefits).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -53,7 +53,7 @@ W ramach wersji zapoznawczej konto usługi Automation nie może uzyskać dostęp
 
 ### <a name="webhook-scenario"></a>Scenariusz elementu webhook
 
-Elementy Runbook można uruchamiać przy użyciu wpisu na adres URL elementu webhook. Na przykład adres URL wygląda następująco:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Elementy Runbook można uruchamiać przy użyciu wpisu na adres URL elementu webhook. Na przykład adres URL wygląda następująco: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenariusz konfiguracja stanu (agentsvc)
 
@@ -108,17 +108,17 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**SIECI**| |
+    |**SIEĆ**| |
     | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
     | Podsieć | Wybierz pozycję Moja *podsieć*. |
-    |**PRYWATNA INTEGRACJA Z USŁUGĄ DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz pozycję **Tak**. |
-    |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Azure-Automation.NET* |
+    |**INTEGRACJA PRYWATNEJ USŁUGI DNS**||
+    |Integruj z prywatną strefą DNS |Wybierz pozycję **Tak**. |
+    |Prywatna strefa DNS |SELECT *(New) privatelink. Azure-Automation.NET* |
     |||
 
-8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-9. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+9. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 W **centrum linku prywatnego (wersja zapoznawcza)** wybierz pozycję **prywatne punkty końcowe** , aby wyświetlić zasób łącza prywatnego.
 
@@ -128,7 +128,7 @@ Wybierz zasób, aby wyświetlić wszystkie szczegóły. Spowoduje to utworzenie 
 
 Analogicznie, unikatowa w pełni kwalifikowana nazwa domeny (FQDN) jest tworzona dla konfiguracji stanu (agentsvc) oraz dla hybrydowego środowiska uruchomieniowego Runbook Worker (jrds). Każdy z nich ma przypisany oddzielny adres IP od sieci wirtualnej, a **stan połączenia** jest wyświetlany jako **zatwierdzony**.
 
-Jeśli odbiorca usługi ma uprawnienia RBAC do zasobu usługi Automation, może wybrać metodę automatycznego zatwierdzania. W takim przypadku, gdy żądanie osiągnie zasób dostawcy usługi Automation, nie jest wymagane żadne działanie od usługodawcy, a połączenie jest automatycznie zatwierdzane.
+Jeśli odbiorca usługi ma uprawnienia usługi Azure RBAC w ramach zasobu usługi Automation, może wybrać metodę automatycznego zatwierdzania. W takim przypadku, gdy żądanie osiągnie zasób dostawcy usługi Automation, nie jest wymagane żadne działanie od usługodawcy, a połączenie jest automatycznie zatwierdzane.
 
 ## <a name="set-public-network-access-flags"></a>Ustawianie flag dostępu do sieci publicznej
 

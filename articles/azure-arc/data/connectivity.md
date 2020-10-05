@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9c1dd6f628e87792808d14db2c7bcc7f050923a3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273185"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713197"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Tryby i wymagania dotyczące łączności
 
@@ -54,8 +54,8 @@ Obecnie w wersji zapoznawczej jest obsługiwany tylko pośredni połączony tryb
 |**Automatyczne tworzenie kopii zapasowej i przywracanie**|Obsługiwane<br/>Automatyczna lokalna kopia zapasowa i przywracanie.|Obsługiwane<br/>Oprócz zautomatyzowanej lokalnej kopii zapasowej i przywracania można _Opcjonalnie_ wysyłać kopie zapasowe do Azure Backup w celu długoterminowego przechowywania poza lokacją. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
 |**Monitorowanie**|Obsługiwane<br/>Lokalne monitorowanie przy użyciu pulpitów nawigacyjnych Grafana i Kibana.|Obsługiwane<br/>Oprócz lokalnych pulpitów nawigacyjnych monitorowania można _Opcjonalnie_ wysyłać dane monitorowania i dzienniki, aby Azure monitor monitorowanie wielu lokacji w jednym miejscu. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
 |**Authentication**|Użyj lokalnej nazwy użytkownika/hasła na potrzeby uwierzytelniania kontrolera danych i pulpitu nawigacyjnego. Używaj nazw logowania SQL i Postgres lub Active Directory na potrzeby łączności z wystąpieniami bazy danych.  Użyj dostawców uwierzytelniania K8s do uwierzytelniania w interfejsie API Kubernetes.|Oprócz lub zamiast metod uwierzytelniania w trybie połączonym pośrednio _można użyć Azure Active Directory_ . **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
-|**Access Control oparte na rolach (RBAC)**|Użyj Kubernetes RBAC w interfejsie API Kubernetes. Użyj SQL i Postgres RBAC dla wystąpień bazy danych.|Opcjonalnie możesz zintegrować z Azure Active Directory dla RBAC. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
-|**Usługa Azure Defender**|Nieobsługiwane|Planowane dla przyszłych|
+|**Kontrola dostępu oparta na rolach (RBAC)**|Użyj Kubernetes RBAC w interfejsie API Kubernetes. Użyj SQL i Postgres RBAC dla wystąpień bazy danych.|Opcjonalnie możesz zintegrować z Azure Active Directory i RBAC platformy Azure. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
+|**Azure Defender**|Nieobsługiwane|Planowane dla przyszłych|
 
 ## <a name="connectivity-requirements"></a>Wymagania dotyczące łączności
 
@@ -69,7 +69,7 @@ Obecnie w wersji zapoznawczej jest obsługiwany tylko pośredni połączony tryb
 |**Spis zasobów**|Środowisko klienta — > platformy Azure|Wymagane|Nie|Pośrednie lub bezpośrednie|Spis kontrolerów danych, wystąpienia bazy danych (PostgreSQL i SQL) są przechowywane na platformie Azure na potrzeby rozliczeń, a także do celów tworzenia spisu wszystkich kontrolerów danych i wystąpień bazy danych w jednym miejscu, co jest szczególnie przydatne, jeśli masz więcej niż jedno środowisko z usługami Azure Arc Data Services.  Gdy wystąpienia są inicjowane, anulowane aprowizacji, skalowane w poziomie/w poziomie, skalowanie w górę/w dół spis zostanie zaktualizowany na platformie Azure.|
 |**Dane telemetryczne dotyczące rozliczeń**|Środowisko klienta — > platformy Azure|Wymagane|Nie|Pośrednie lub bezpośrednie|Użycie wystąpień bazy danych na platformie Azure musi być wysyłane na potrzeby rozliczeń.  W okresie zapoznawczym nie ma kosztu dla usług danych z włączonym usługą Azure Arc.|
 |**Monitorowanie danych i dzienników**|Środowisko klienta — > platformy Azure|Opcjonalne|Może być zależne od ilości danych (zobacz [cennik Azure monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/))|Pośrednie lub bezpośrednie|Możesz chcieć wysłać lokalnie zebrane dane monitorowania i dzienniki, aby Azure Monitor do agregowania danych w wielu środowiskach w jednym miejscu, a także do korzystania z usług Azure Monitor, takich jak alerty, przy użyciu danych w Azure Machine Learning itd.|
-|**Access Control oparte na rolach (RBAC) na platformie Azure**|Środowisko klienta — > platformy Azure — > środowiska klienta|Opcjonalne|Nie|Tylko bezpośrednie|Jeśli chcesz używać platformy Azure do kontroli RBAC, połączenie musi być nawiązywane z platformą Azure przez cały czas.  Jeśli nie chcesz używać platformy Azure na potrzeby RBAC, możesz użyć lokalnego Kubernetes RBAC.  **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
+|**Access Control oparte na rolach platformy Azure (RBAC)**|Środowisko klienta — > platformy Azure — > środowiska klienta|Opcjonalne|Nie|Tylko bezpośrednie|Jeśli chcesz korzystać z usługi Azure RBAC, połączenie musi być nawiązywane z platformą Azure przez cały czas.  Jeśli nie chcesz korzystać z usługi Azure RBAC, możesz użyć lokalnego Kubernetes RBAC.  **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
 |**Azure Active Directory (AD)**|Środowisko klienta — > platformy Azure — > środowiska klienta|Opcjonalne|Może jednak być już płacisz za usługę Azure AD|Tylko bezpośrednie|Jeśli chcesz używać usługi Azure AD do uwierzytelniania, w każdej chwili należy nawiązać połączenie z platformą Azure. Jeśli nie chcesz używać usługi Azure AD do uwierzytelniania, możesz nam Active Directory Federation Services (ADFS) przez Active Directory. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
 |**Kopie zapasowe/przywracanie**|Środowisko klienta — > platformy Azure — > środowiska klienta|Opcjonalne|Tak dla kosztów magazynu|Tylko bezpośrednie|Możesz chcieć wysyłać kopie zapasowe, które są wykonywane lokalnie, aby Azure Backup do długoterminowego przechowywania kopii zapasowych poza lokacjami i przywracać je do środowiska lokalnego na potrzeby przywracania. **Oczekiwanie na dostępność trybu bezpośrednio połączonego**|
 |**Usługi zabezpieczeń usługi Azure Defender**|Środowisko klienta — > platformy Azure — > środowiska klienta|Opcjonalne|Tak|Tylko bezpośrednie|**Oczekiwanie na dostępność trybu bezpośrednio połączonego**|

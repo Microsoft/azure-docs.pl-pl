@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549424"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713803"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą AskYourTeam
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -131,19 +131,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **moją organizację**.
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia link my inorganizacją.](./media/askyourteam-tutorial/user1.png)
 
 1. Kliknij pozycję **integracji**.
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia link integracji.](./media/askyourteam-tutorial/configure1.png)
 
 1. Kliknij pozycję **Edytuj ustawienia**.
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia komunikat logowania jednokrotnego za pomocą przycisku Edytuj ustawienia.](./media/askyourteam-tutorial/configure2.png)
 
 1. Na stronie **Edytuj integrację logowania** jednokrotnego wykonaj następujące czynności: 
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia funkcję Edytuj integrację logowania jednokrotnego, w której można wprowadzić wartości dla tego kroku.](./media/askyourteam-tutorial/configure3.png)
 
     a. W polu tekstowym **adres URL usługi logowania** jednokrotnego protokołu SAML wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -168,15 +168,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **moją organizację**.
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia link my reorganizacją, w którym rozpoczyna się to zadanie.](./media/askyourteam-tutorial/user1.png)
 
 1. Kliknij pozycję **Użytkownicy** i wybierz pozycję **nowy użytkownik**.
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia link użytkownicy z nowym użytkownikiem.](./media/askyourteam-tutorial/user2.png)
 
 1. W sekcji **nowy użytkownik** wykonaj następujące czynności:
 
-    ![Konfiguracja AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia nową sekcję użytkownika, w której wprowadzane są informacje o użytkowniku.](./media/askyourteam-tutorial/user3.png)
 
     1. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika.
 
@@ -194,11 +194,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka AskYourTeam w panelu dostępu należy automatycznie zalogować się do AskYourTeam, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

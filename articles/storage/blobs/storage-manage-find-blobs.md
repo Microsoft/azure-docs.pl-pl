@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275068"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713691"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -196,7 +196,7 @@ Następująca przykładowa reguła zarządzania cyklem życia ma zastosowanie do
 
 Można autoryzować dostęp do indeksu obiektów BLOB przy użyciu jednej z następujących metod:
 
-- Za pomocą kontroli dostępu opartej na rolach (RBAC) w celu udzielenia uprawnień do podmiotu zabezpieczeń usługi Azure Active Directory (Azure AD). Firma Microsoft zaleca korzystanie z usługi Azure AD w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji na temat korzystania z usługi Azure AD z operacjami obiektów blob, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md).
+- Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) w celu udzielenia uprawnień do podmiotu zabezpieczeń Azure Active Directory (Azure AD). Firma Microsoft zaleca korzystanie z usługi Azure AD w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji na temat korzystania z usługi Azure AD z operacjami obiektów blob, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md).
 - Za pomocą sygnatury dostępu współdzielonego (SAS) do delegowania dostępu do indeksu obiektów BLOB. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md).
 - Przy użyciu kluczy dostępu do konta w celu autoryzacji operacji za pomocą klucza współużytkowanego. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -205,7 +205,7 @@ Tagi indeksów obiektów BLOB to zasób podrzędny do danych obiektów BLOB. Uż
 ### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 Obiekty wywołujące korzystające z [tożsamości usługi Azure AD](../common/storage-auth-aad.md) mogą mieć przyznane następujące uprawnienia do działania w tagach indeksu obiektów BLOB.
 
-|   Operacje obiektu BLOB  |  Akcja RBAC   |
+|   Operacje obiektu BLOB  |  Akcja RBAC platformy Azure   |
 |--------------------|----------------|
 | Znajdź obiekty blob według tagów | Microsoft. Storage/storageAccounts/blobServices/Containers/Blobs/Filter/Action |
 | Ustaw Tagi obiektów BLOB      | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/zapis |

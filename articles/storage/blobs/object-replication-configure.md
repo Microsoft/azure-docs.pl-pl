@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707921"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715625"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB
 
@@ -37,7 +37,7 @@ Konto magazynu może stanowić konto źródłowe dla maksymalnie dwóch kont doc
 
 Podczas konfigurowania replikacji obiektów należy utworzyć zasady replikacji na koncie docelowym za pośrednictwem dostawcy zasobów usługi Azure Storage. Po utworzeniu zasad replikacji usługa Azure Storage przypisze mu identyfikator zasad. Następnie należy powiązać te zasady replikacji z kontem źródłowym przy użyciu identyfikatora zasad. Aby replikacja była wykonywana, identyfikator zasad na kontach źródłowych i docelowych musi być taki sam.
 
-Aby skonfigurować zasady replikacji obiektów dla konta magazynu, musisz mieć przypisaną rolę **współautor** Azure Resource Manager, zakresem do poziomu konta magazynu lub wyższą. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) w dokumentacji Access Control opartej na rolach na platformie Azure.
+Aby skonfigurować zasady replikacji obiektów dla konta magazynu, musisz mieć przypisaną rolę **współautor** Azure Resource Manager, zakresem do poziomu konta magazynu lub wyższą. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) w dokumentacji kontroli dostępu opartej na rolach (Azure RBAC).
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Skonfiguruj replikację obiektów, gdy masz dostęp do obu kont magazynu
 
@@ -65,19 +65,19 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
     Na poniższej ilustracji przedstawiono filtry, które ograniczają, które obiekty blob są kopiowane w ramach reguły replikacji.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Zrzut ekranu przedstawiający filtry dla reguły replikacji":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
 1. Domyślnie zakres kopiowania jest ustawiony na kopiowanie tylko nowych obiektów. Aby skopiować wszystkie obiekty w kontenerze lub skopiować obiekty rozpoczynając od niestandardowej daty i godziny, wybierz łącze **Zmień** i skonfiguruj zakres kopiowania dla pary kontenerów.
 
     Na poniższym obrazie przedstawiono niestandardowy zakres kopiowania, który kopiuje obiekty z określonego dnia i czasu do momentu.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Zrzut ekranu przedstawiający niestandardowy zakres kopiowania dla replikacji obiektów":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
 1. Wybierz pozycję **Zapisz i Zastosuj** , aby utworzyć zasady replikacji i rozpocząć replikowanie danych.
 
 Po skonfigurowaniu replikacji obiektów Azure Portal zostaną wyświetlone zasady replikacji i reguły, jak pokazano na poniższej ilustracji.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Zrzut ekranu przedstawiający zasady replikacji obiektów w Azure Portal":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Jeśli nie masz uprawnień do źródłowego konta magazynu, możesz skonfigurować replikację obiektów na koncie docelowym i udostępnić plik JSON zawierający definicję zasad innemu użytkownikowi, aby utworzyć te same zasady na koncie źródłowym. Na przykład, jeśli konto źródłowe znajduje się w innej dzierżawie usługi Azure AD z konta docelowego, można użyć tej metody w celu skonfigurowania replikacji obiektów.
 
-Pamiętaj, że musisz mieć przypisaną rolę **Współautora** Azure Resource Manager zakresem do poziomu docelowego konta magazynu lub wyższą, aby utworzyć zasady. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) w dokumentacji Access Control opartej na rolach na platformie Azure.
+Pamiętaj, że musisz mieć przypisaną rolę **Współautora** Azure Resource Manager zakresem do poziomu docelowego konta magazynu lub wyższą, aby utworzyć zasady. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) w dokumentacji kontroli dostępu opartej na rolach (Azure RBAC).
 
 Poniższa tabela zawiera podsumowanie wartości, które mają być używane dla identyfikatora zasad i identyfikatorów reguł w pliku JSON w każdym scenariuszu.
 
@@ -284,7 +284,7 @@ Aby skonfigurować replikację obiektów na koncie docelowym przy użyciu pliku 
 1. Wybierz pozycję **Przekaż reguły replikacji**.
 1. Przekaż plik JSON. Azure Portal wyświetla zasady i reguły, które zostaną utworzone, jak pokazano na poniższej ilustracji.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Zrzut ekranu przedstawiający sposób przekazywania pliku JSON w celu zdefiniowania zasad replikacji":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
 1. Wybierz pozycję **Przekaż** , aby utworzyć zasady replikacji na koncie docelowym.
 
@@ -293,7 +293,7 @@ Następnie można pobrać plik JSON zawierający definicję zasad, którą możn
 1. Przejdź do ustawień **replikacji obiektów** dla konta docelowego w Azure Portal.
 1. Wybierz przycisk **więcej** obok zasad, które chcesz pobrać, a następnie wybierz pozycję **Pobierz reguły**, jak pokazano na poniższej ilustracji.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Zrzut ekranu przedstawiający sposób pobierania reguł replikacji do pliku JSON":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
 1. Zapisz plik JSON na komputerze lokalnym, aby udostępnić go innemu użytkownikowi w celu skonfigurowania zasad na koncie źródłowym.
 

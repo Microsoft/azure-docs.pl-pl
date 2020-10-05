@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0db43f438eaff3e783b829eabe7152c5f13e943d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 659cca6979a8d8be7d12c49fe01a9d0a5d7ac58e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548298"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713759"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Amazon Business z Azure Active Directory
 
@@ -80,7 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL przy użyciu jednego z następujących wzorców:
     
-       | Adres URL | Region (Region) |
+       | Adres URL | Region |
        |-|-|
        | `https://www.amazon.com`| Ameryka Północna |
        | `https://www.amazon.co.jp`| Azja Wschodnia |
@@ -88,7 +88,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
     
-       | Adres URL | Region (Region) |
+       | Adres URL | Region |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ameryka Północna |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Azja Wschodnia |
@@ -101,19 +101,19 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Aby edytować atrybuty, kliknij ikonę **Edytuj** w sekcji **atrybuty użytkownika & oświadczenia** .
 
-    ![Atrybuty](media/amazon-business-tutorial/map-attribute3.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z wartościami domyślnymi, takimi jak podano użytkownikaname i EmailAddress User. mail.](media/amazon-business-tutorial/map-attribute3.png)
 
 1. Edytuj atrybuty i skopiuj wartość **przestrzeni nazw** tych atrybutów do Notatnika.
 
-    ![Atrybuty](media/amazon-business-tutorial/map-attribute4.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z kolumnami dla nazwy i wartości oświadczenia.](media/amazon-business-tutorial/map-attribute4.png)
 
 1. Oprócz powyższych, aplikacja Amazon Business oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy** wykonaj następujące czynności:
 
     a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
-    ![image (obraz)](./media/amazon-business-tutorial/config04.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z ikoną dla grup zwracanych w ramach wybranego oświadczenia.](./media/amazon-business-tutorial/config04.png)
 
-    ![image (obraz)](./media/amazon-business-tutorial/config05.png)
+    ![Zrzut ekranu przedstawia oświadczenia grup z wartościami opisanymi w tej procedurze.](./media/amazon-business-tutorial/config05.png)
 
     b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
@@ -145,54 +145,54 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W kreatorze **konfigurowania logowania jednokrotnego** wybierz dostawcę zgodnie z wymaganiami organizacji i kliknij przycisk **dalej**.
 
-    ![Grupa domyślna](media/amazon-business-tutorial/default-group1.png)
+    ![Zrzut ekranu przedstawia konfigurację S O, z Microsoft Azure a i dalej wybranym.](media/amazon-business-tutorial/default-group1.png)
     
     > [!NOTE]
     > Mimo że usługa Microsoft AD FS jest wymieniona, nie działa z logowaniem jednokrotnym w usłudze Azure AD.
 
 1. W kreatorze **nowego konta użytkownika** domyślne wybierz **grupę domyślną** , a następnie wybierz **domyślną rolę kupowania** zgodnie z rolą użytkownika w organizacji i kliknij przycisk **dalej**.
 
-    ![Grupa domyślna](media/amazon-business-tutorial/dafault-group2.png)
+    ![Zrzut ekranu przedstawia nowe wartości domyślne konta użytkownika z Microsoft S S O, zapotrzebowaniu i następnym wybranym.](media/amazon-business-tutorial/dafault-group2.png)
 
 1. W kreatorze **przekazywania pliku metadanych** kliknij przycisk **Przeglądaj** , aby przesłać plik **XML metadanych** pobrany z Azure Portal i kliknij przycisk **Przekaż**.
 
-    ![Dane połączenia](media/amazon-business-tutorial/connection-data1.png)
+    ![Zrzut ekranu przedstawia przekazywanie pliku metadanych, co pozwala na przechodzenie do pliku x m l i przekazywanie go.](media/amazon-business-tutorial/connection-data1.png)
 
 1. Po przekazaniu pobranego pliku metadanych pola w sekcji **dane połączenia** będą wypełniane automatycznie. Po kliknięciu **przycisku Dalej**.
 
-    ![Dane połączenia](media/amazon-business-tutorial/connection-data2.png)
+    ![Zrzut ekranu przedstawia dane połączenia, w którym można określić identyfikator D systemu Azure, nazwę logowania U R L i certyfikat podpisywania SAML.](media/amazon-business-tutorial/connection-data2.png)
 
 1. W kreatorze **przekazywania instrukcji atrybutu** kliknij przycisk **Pomiń**.
 
-    ![Atrybuty](media/amazon-business-tutorial/map-attribute1.png)
+    ![Zrzut ekranu przedstawia instrukcję Przekaż swój atrybut, która umożliwia przechodzenie do instrukcji Attribute, ale w tym przypadku wybierz pozycję Pomiń.](media/amazon-business-tutorial/map-attribute1.png)
 
 1. W kreatorze **mapowania atrybutów** Dodaj pola wymagania, klikając opcję **+ Dodaj pole** . Dodaj wartości atrybutów, w tym przestrzeń nazw, skopiowane z sekcji **atrybuty użytkownika & oświadczenia** Azure Portal do pola  **SAML AttributeName** , a następnie kliknij przycisk **dalej**.
 
-    ![Atrybuty](media/amazon-business-tutorial/map-attribute2.png)
+    ![Zrzut ekranu przedstawia Mapowanie atrybutów, w którym można edytować nazwy atrybutów SAML danych Amazon.](media/amazon-business-tutorial/map-attribute2.png)
 
 1. W kreatorze **danych połączenia usługi Amazon** kliknij przycisk **dalej**.
 
-    ![Połączenie](media/amazon-business-tutorial/amazon-connect.png)
+    ![Zrzut ekranu przedstawia dane połączenia Amazon, gdzie można kliknąć przycisk Dalej, aby kontynuować.](media/amazon-business-tutorial/amazon-connect.png)
 
 1. Sprawdź **stan** kroków, które zostały skonfigurowane, a następnie kliknij przycisk **Rozpocznij testowanie**.
 
-    ![Połączenie](media/amazon-business-tutorial/sso-connection1.png)
+    ![Zrzut ekranu przedstawia szczegóły połączenia S-S z opcją rozpoczęcia testowania.](media/amazon-business-tutorial/sso-connection1.png)
 
 1. W kreatorze **testowania połączenia rejestracji jednokrotnej** kliknij przycisk **Testuj**.
 
-    ![Połączenie](media/amazon-business-tutorial/sso-connection2.png)
+    ![Zrzut ekranu przedstawia połączenie testów S z przyciskiem testowym.](media/amazon-business-tutorial/sso-connection2.png)
 
 1. Przed kliknięciem przycisku **Aktywuj**w kreatorze **zainicjowanych adresów URL dostawcy tożsamości** , skopiuj wartość przypisaną do **idpid** i wklej do parametru **idpid** w **adresie URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    ![Połączenie](media/amazon-business-tutorial/sso-connection3.png)
+    ![Zrzut ekranu przedstawia stan D P zainicjowany U R L, gdzie można uzyskać stan U R L niezbędny do testowania, a następnie wybierz pozycję Aktywuj.](media/amazon-business-tutorial/sso-connection3.png)
 
 1. Na stronie **czy jesteś gotowy do przełączenia do aktywnego kreatora logowania jednokrotnego?** Sprawdź, czy w **pełni PRZEtestowano Logowanie jednokrotne i wszystko jest gotowe do użycia na żywo** , a następnie kliknij pozycję **Przełącz na aktywny**.
 
-    ![Połączenie](media/amazon-business-tutorial/sso-connection4.png)
+    ![Zrzut ekranu pokazuje, że wszystko jest gotowe do przełączenia na aktywne potwierdzenie usługi S, gdzie można wybrać opcję Przełącz na aktywny.](media/amazon-business-tutorial/sso-connection4.png)
 
 1. Na koniec w sekcji **szczegóły połączenia z logowaniem jednokrotnym** **stan** jest wyświetlany jako **aktywny**.
 
-    ![Połączenie](media/amazon-business-tutorial/sso-connection5.png)
+    ![Zrzut ekranu przedstawia szczegóły połączenia S-O ze stanem aktywny.](media/amazon-business-tutorial/sso-connection5.png)
     
     > [!NOTE]
     > Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **SP** , wykonaj następujące czynności, a następnie wklej adres URL logowania z zrzutu ekranu powyżej w polu tekstowym **Ustaw dodatkowe adresy** **URL w** Azure Portal. Użyj następującego formatu:
@@ -212,21 +212,21 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal
 
 1. Kliknij **Azure Active Directory > wszystkie grupy**.
 
-    ![Tworzenie grupy zabezpieczeń usługi Azure AD](./media/amazon-business-tutorial/all-groups-tab.png)
+    ![Zrzut ekranu przedstawia menu Azure Portal z wybranym Azure Active Directory i wszystkimi grupami wybranymi w okienku grupy.](./media/amazon-business-tutorial/all-groups-tab.png)
 
 1. Kliknij pozycję **Nowa grupa**:
 
-    ![Tworzenie grupy zabezpieczeń usługi Azure AD](./media/amazon-business-tutorial/new-group-tab.png)
+    ![Zrzut ekranu przedstawia przycisk Nowa grupa.](./media/amazon-business-tutorial/new-group-tab.png)
 
 1. Wypełnij pola **Typ grupy**, **Nazwa grupy**, **Opis grupy**, **Typ członkostwa**. Kliknij strzałkę, aby wybrać elementy członkowskie, a następnie wyszukaj lub kliknij element członkowski, który chcesz dodać do grupy. Kliknij pozycję **Wybierz** , aby dodać wybrane elementy członkowskie, a następnie kliknij pozycję **Utwórz**.
 
-    ![Tworzenie grupy zabezpieczeń usługi Azure AD](./media/amazon-business-tutorial/group-information.png)
+    ![Zrzut ekranu przedstawia okienko grupy z opcjami, w tym Wybieranie członków i Zapraszanie użytkowników zewnętrznych.](./media/amazon-business-tutorial/group-information.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -240,7 +240,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
+    ![Zrzut ekranu przedstawia przycisk Dodaj użytkownika.](common/add-assign-user.png)
 
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
@@ -249,7 +249,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     >[!NOTE]
     > Jeśli nie przypiszesz użytkowników w usłudze Azure AD, zostanie wyświetlony następujący błąd.
 
-    ![Link Dodaj użytkownika](media/amazon-business-tutorial/assign-user.png)
+    ![Zrzut ekranu przedstawia komunikat o błędzie informujący o tym, że nie można się zalogować.](media/amazon-business-tutorial/assign-user.png)
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Przypisz grupę zabezpieczeń usługi Azure AD w Azure Portal
 
@@ -290,6 +290,6 @@ Po kliknięciu kafelka usługi Amazon Business w panelu dostępu należy automat
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

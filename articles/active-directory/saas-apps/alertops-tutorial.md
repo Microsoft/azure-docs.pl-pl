@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a278204da556b41bd663b8b5c9ff5152e16017cc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522360"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715868"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Samouczek: integracja AlertOps z usługą Azure Active Directory
 
@@ -108,11 +108,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. Kliknij pozycję **Account settings** (Ustawienia konta) w panelu nawigacji po lewej stronie.
 
-    ![Konfigurowanie aplikacji AlertOps](./media/alertops-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia menu AlertOps z ustawieniami konta o nazwie.](./media/alertops-tutorial/configure1.png)
 
 5. Na stronie **Subscription Settings** (Ustawienia subskrypcji) wybierz pozycję **SSO** (Logowanie jednokrotne), a następnie wykonaj następujące kroki:
 
-    ![Konfigurowanie aplikacji AlertOps](./media/alertops-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia okno Ustawienia subskrypcji dla S S o wartości wprowadzone w tym kroku.](./media/alertops-tutorial/configure2.png)
 
     a. Zaznacz pole wyboru **Użyj logowania jednokrotnego Sign-On (SSO)**.
 
@@ -138,7 +138,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -164,15 +164,15 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 2. Kliknij pozycję **Users** (Użytkownicy) na panelu nawigacyjnym po lewej stronie.
 
-    ![Konfigurowanie aplikacji AlertOps](./media/alertops-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia menu AlertOps z użytkownikami o nazwie out.](./media/alertops-tutorial/user1.png)
 
 3. Wybierz pozycję **Dodaj użytkownika**.
 
-    ![Konfigurowanie aplikacji AlertOps](./media/alertops-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia okno użytkownicy z przyciskiem Dodaj użytkownika.](./media/alertops-tutorial/user2.png)
 
 4. W oknie dialogowym **Add User** (Dodawanie użytkownika) wykonaj następujące kroki:
 
-    ![Konfigurowanie aplikacji AlertOps](./media/alertops-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia okienko Dodawanie użytkowników z wartościami wprowadzonymi w tym kroku.](./media/alertops-tutorial/user3.png)
 
     a. W polu tekstowym **Login User Name** (Nazwa użytkownika logowania) wprowadź nazwę użytkownika, na przykład **Brittasimon**.
 
@@ -196,6 +196,6 @@ Po wybraniu kafelka AlertOps w panelu dostępu należy automatycznie zalogować 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017238"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716102"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implementuje model kontroli dostępu, który obsłu
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+## <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
-Funkcja RBAC używa przypisań ról do efektywnego stosowania zestawów uprawnień do *podmiotów zabezpieczeń*. *Podmiot zabezpieczeń* to obiekt, który reprezentuje użytkownika, grupę, jednostkę usługi lub tożsamość zarządzaną zdefiniowaną w Azure Active Directory (AD), która żąda dostępu do zasobów platformy Azure.
+Funkcja RBAC platformy Azure używa przypisań ról do efektywnego stosowania zestawów uprawnień do *podmiotów zabezpieczeń*. *Podmiot zabezpieczeń* to obiekt, który reprezentuje użytkownika, grupę, jednostkę usługi lub tożsamość zarządzaną zdefiniowaną w Azure Active Directory (AD), która żąda dostępu do zasobów platformy Azure.
 
 Zazwyczaj te zasoby platformy Azure są ograniczone do zasobów najwyższego poziomu (na przykład: konta usługi Azure Storage). W przypadku usługi Azure Storage, w Azure Data Lake Storage Gen2 związku z czym ten mechanizm został rozszerzony do zasobu kontenera (systemu plików).
 
-Aby dowiedzieć się, jak przypisać role do podmiotów zabezpieczeń w zakresie konta magazynu, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki RBAC w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby dowiedzieć się, jak przypisać role do podmiotów zabezpieczeń w zakresie konta magazynu, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Użytkownik-Gość nie może utworzyć przypisania roli.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Wpływ przypisań ról na listy kontroli dostępu na poziomie plików i katalogów
 
-Podczas korzystania z przypisań ról platformy Azure jest zaawansowanym mechanizmem kontrolowania uprawnień dostępu, jest to bardzo gruby mechanizm względem list ACL. Najmniejszy stopień szczegółowości dla RBAC jest na poziomie kontenera i zostanie on oceniony z wyższym priorytetem niż listy kontroli dostępu. W związku z tym, Jeśli rola jest przypisywana do podmiotu zabezpieczeń w zakresie kontenera, ten podmiot zabezpieczeń ma poziom autoryzacji skojarzony z tą rolą dla wszystkich katalogów i plików w tym kontenerze, niezależnie od przypisań listy ACL.
+Podczas korzystania z przypisań ról platformy Azure jest zaawansowanym mechanizmem kontrolowania uprawnień dostępu, jest to bardzo gruby mechanizm względem list ACL. Najmniejszy poziom szczegółowości dla usługi Azure RBAC jest na poziomie kontenera i zostanie on oceniony z wyższym priorytetem niż listy kontroli dostępu. W związku z tym, Jeśli rola jest przypisywana do podmiotu zabezpieczeń w zakresie kontenera, ten podmiot zabezpieczeń ma poziom autoryzacji skojarzony z tą rolą dla wszystkich katalogów i plików w tym kontenerze, niezależnie od przypisań listy ACL.
 
-Gdy podmiot zabezpieczeń otrzymuje uprawnienia do danych RBAC za pomocą [wbudowanej roli](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)lub roli niestandardowej, te uprawnienia są oceniane jako pierwsze przy autoryzacji żądania. Jeśli żądana operacja jest autoryzowana przez przydziały roli platformy Azure podmiotu zabezpieczeń, autoryzacja jest natychmiast rozwiązywana i nie są wykonywane żadne dodatkowe sprawdzenia listy ACL. Alternatywnie, jeśli podmiot zabezpieczeń nie ma przypisania roli platformy Azure lub operacja żądania nie jest zgodna z przypisanym uprawnieniem, sprawdzenia listy ACL są wykonywane w celu ustalenia, czy podmiot zabezpieczeń jest autoryzowany do wykonywania żądanych operacji.
+Gdy podmiot zabezpieczeń otrzymuje uprawnienia do danych RBAC platformy Azure za pomocą [wbudowanej roli](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)lub przez rolę niestandardową, te uprawnienia są oceniane w pierwszej kolejności przy autoryzacji żądania. Jeśli żądana operacja jest autoryzowana przez przydziały roli platformy Azure podmiotu zabezpieczeń, autoryzacja jest natychmiast rozwiązywana i nie są wykonywane żadne dodatkowe sprawdzenia listy ACL. Alternatywnie, jeśli podmiot zabezpieczeń nie ma przypisania roli platformy Azure lub operacja żądania nie jest zgodna z przypisanym uprawnieniem, sprawdzenia listy ACL są wykonywane w celu ustalenia, czy podmiot zabezpieczeń jest autoryzowany do wykonywania żądanych operacji.
 
 > [!NOTE]
 > Jeśli podmiotowi zabezpieczeń przypisano przypisanie wbudowanej roli właściciela danych obiektu blob magazynu, podmiot zabezpieczeń jest traktowany jako *administrator* i uzyskuje pełny dostęp do wszystkich operacji związanych z operacjami, takich jak Ustawianie właściciela katalogu lub pliku oraz list ACL dla katalogów i plików, dla których nie są właścicielami. Dostęp administratora jest jedynym autoryzowanym sposobem zmiany właściciela zasobu.
@@ -102,7 +102,7 @@ Uprawnienia do obiektu kontenera są **odczytywane**, **zapisywane**i **wykonywa
 | **Wykonanie (X)** | Nie oznacza wszystkiego w kontekście Data Lake Storage Gen2 | Wymagane do przechodzenia między elementami podrzędnymi katalogu |
 
 > [!NOTE]
-> W przypadku przyznawania uprawnień przy użyciu tylko list kontroli dostępu (bez RBAC), a następnie udzielenia podmiotu zabezpieczeń uprawnienia do odczytu lub zapisu do pliku, należy przyznać podmiotowi zabezpieczeń uprawnienie do **wykonywania** względem kontenera oraz do każdego folderu w hierarchii folderów, które prowadzą do pliku.
+> Jeśli udzielasz uprawnień przy użyciu tylko list ACL (bez kontroli dostępu Azure), a następnie chcesz udzielić podmiotu zabezpieczeń uprawnienia do odczytu lub zapisu do pliku, musisz udzielić podmiotu zabezpieczeń uprawnień do **wykonania** dla kontenera oraz do każdego folderu w hierarchii folderów, które prowadzą do pliku.
 
 #### <a name="short-forms-for-permissions"></a>Krótkie formy uprawnień
 
@@ -252,8 +252,8 @@ Maska umask dla Azure Data Lake Storage Gen2 stałą wartość ustawioną na 007
 
 | składnik maska umask     | Forma liczbowa | Forma krótka | Znaczenie |
 |---------------------|--------------|------------|---------|
-| Maska umask. owning_user   |    0         |   `---`      | W przypadku użytkownika będącego właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu elementu podrzędnego. | 
-| Maska umask. owning_group  |    0         |   `---`      | W przypadku grupy będącej właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu do elementu podrzędnego. | 
+| umask.owning_user   |    0         |   `---`      | W przypadku użytkownika będącego właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu elementu podrzędnego. | 
+| umask.owning_group  |    0         |   `---`      | W przypadku grupy będącej właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu do elementu podrzędnego. | 
 | Maska umask. other         |    7         |   `RWX`      | W przypadku innych Usuń wszystkie uprawnienia na liście ACL dostępu dziecka |
 
 Wartość maska umask używana Azure Data Lake Storage Gen2 efektywnie oznacza, że wartość dla **innych** nigdy nie jest domyślnie przekazywana w nowych elementach podrzędnych, chyba że domyślna lista ACL nie jest zdefiniowana w katalogu nadrzędnym. W takim przypadku maska umask jest skutecznie ignorowana, a uprawnienia zdefiniowane przez domyślną listę ACL są stosowane do elementu podrzędnego. 
@@ -347,6 +347,6 @@ Listy ACL nie są dziedziczone. Jednak domyślne listy ACL mogą być używane d
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

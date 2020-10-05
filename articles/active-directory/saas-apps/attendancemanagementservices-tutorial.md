@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550261"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Samouczek: integracja Azure Active Directory z usługami zarządzania frekwencją
 
@@ -128,11 +128,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usług z
 
 1. Kliknij pozycję **uwierzytelnianie SAML** w **sekcji Zarządzanie zabezpieczeniami**.
 
-    ![Konfiguracja usług zarządzania frekwencją](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia uwierzytelnianie SAML wybrane na stronie używającej znaków innych niż łacińskie.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Wykonaj następujące czynności:
 
-    ![Konfiguracja usług zarządzania frekwencją](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia okno, w którym można wykonać zadania opisane w tym kroku.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Wybierz opcję **Użyj uwierzytelniania SAML**.
 
@@ -168,7 +168,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -206,15 +206,15 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do usług zarządz
 
 1. Kliknij pozycję **Zarządzanie użytkownikami** w **sekcji Zarządzanie zabezpieczeniami**.
 
-    ![Dodawanie pracownika](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Zrzut ekranu przedstawia zarządzanie użytkownikami wybrane na stronie używającej znaków innych niż łacińskie.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Kliknij kolejno pozycje **nowe reguły logowanie**.
 
-    ![Dodawanie pracownika](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia wybranie opcji Plus.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. W sekcji **Informacje o OBCiD** wykonaj następujące czynności:
 
-    ![Dodawanie pracownika](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Zrzut ekranu przedstawia okno, w którym można wykonać opisane zadania.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. W polu tekstowym **OBCiD** wpisz adres e-mail użytkownika, np `BrittaSimon\@contoso.com` .
 
@@ -232,6 +232,6 @@ Po kliknięciu kafelka usługi zarządzania obecności w panelu dostępu należy
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

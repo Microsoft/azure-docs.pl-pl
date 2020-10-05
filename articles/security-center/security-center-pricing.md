@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: c5537552e35c1738e6c3cd4873b4c6444685a5fe
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448310"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713738"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie ataków cybernetycznymi.
@@ -58,7 +58,7 @@ Poniżej znajduje się Strona z cennikiem przykładowej subskrypcji. Należy zau
 :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Strona cennika Security Center w portalu":::
 
 > [!NOTE]
-> Aby włączyć wszystkie funkcje Security Center w tym funkcje ochrony przed zagrożeniami, należy włączyć usługę Azure Defender w ramach subskrypcji zawierającej odpowiednie obciążenia. Włączenie tej opcji na poziomie obszaru roboczego nie pozwala na dostęp do programu VM, adaptacyjne kontrolki aplikacji i wykrywanie sieci dla zasobów platformy Azure. 
+> Aby włączyć wszystkie funkcje Security Center w tym funkcje ochrony przed zagrożeniami, należy włączyć usługę Azure Defender w ramach subskrypcji zawierającej odpowiednie obciążenia. Włączenie tej opcji na poziomie obszaru roboczego nie pozwala na dostęp do programu VM, adaptacyjne kontrolki aplikacji i wykrywanie sieci dla zasobów platformy Azure. Ponadto jedyne plany usługi Azure Defender dostępne na poziomie obszaru roboczego to usługa Azure Defender dla serwerów i usługi Azure Defender dla serwerów SQL na komputerach.
 >
 > **Usługę Azure Defender można włączyć dla kont magazynu** na poziomie subskrypcji lub poziomu zasobów.
 > **Usługę Azure Defender dla programu SQL** można włączyć na poziomie subskrypcji lub na poziomie zasobu.

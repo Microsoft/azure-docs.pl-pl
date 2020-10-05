@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835446"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714388"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Przewodnik po zabezpieczeniach Eksplorator usługi Azure Storage
 
@@ -42,11 +42,11 @@ Jeśli to możliwe, zalecamy używanie uwierzytelniania usługi Azure AD.
 
 W tej sekcji opisano dwie technologie oparte na usłudze Azure AD, które mogą być używane do zabezpieczania zasobów magazynu.
 
-#### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami RBAC i uprawnieniami można zarządzać z poziomu Azure Portal.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami i uprawnieniami platformy Azure można zarządzać z poziomu Azure Portal.
 
-Eksplorator usługi Storage obsługuje dostęp RBAC do kont magazynu, obiektów blob i kolejek. Jeśli potrzebujesz dostępu do udziałów plików lub tabel, musisz przypisać role RBAC, które przyznają uprawnienia do wyświetlania kluczy konta magazynu.
+Eksplorator usługi Storage obsługuje dostęp do usługi Azure RBAC do kont magazynu, obiektów blob i kolejek. Jeśli potrzebujesz dostępu do udziałów plików lub tabel, musisz przypisać role platformy Azure, które przyznają uprawnienia do wyświetlania kluczy konta magazynu.
 
 #### <a name="access-control-lists-acls"></a>Listy kontroli dostępu (ACL)
 
@@ -77,11 +77,11 @@ W przypadku korzystania z sygnatury dostępu współdzielonego w Eksplorator us�
 
 ### <a name="storage-account-keys"></a>Klucze kont magazynu
 
-Klucze konta magazynu udzielają nieograniczonego dostępu do usług i zasobów w ramach konta magazynu. Z tego powodu zaleca się ograniczenie użycia kluczy w celu uzyskania dostępu do zasobów w Eksplorator usługi Storage. Aby zapewnić dostęp, użyj funkcji RBAC lub sygnatury dostępu współdzielonego.
+Klucze konta magazynu udzielają nieograniczonego dostępu do usług i zasobów w ramach konta magazynu. Z tego powodu zaleca się ograniczenie użycia kluczy w celu uzyskania dostępu do zasobów w Eksplorator usługi Storage. Aby zapewnić dostęp, użyj funkcji RBAC lub SAS platformy Azure.
 
-Niektóre role RBAC przyznają uprawnienia do pobierania kluczy konta magazynu. Osoby mające te role mogą efektywnie obejść uprawnienia udzielone lub odrzucone przez RBAC. Nie zaleca się udzielania tego uprawnienia, chyba że jest to konieczne.
+Niektóre role platformy Azure przyznają uprawnienia do pobierania kluczy konta magazynu. Osoby mające te role mogą efektywnie obejść uprawnienia udzielone lub odrzucone przez kontrolę RBAC platformy Azure. Nie zaleca się udzielania tego uprawnienia, chyba że jest to konieczne.
 
-Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia (**usługi > konta magazynu > wyłączyć użycie kluczy**). Niektóre funkcje nie obsługują RBAC, takich jak praca z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
+Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia (**usługi > konta magazynu > wyłączyć użycie kluczy**). Niektóre funkcje nie obsługują kontroli RBAC platformy Azure, na przykład podczas pracy z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
 
 Aby uzyskać dostęp do zasobów magazynu, należy użyć kluczy, zalecamy następujące wytyczne:
 

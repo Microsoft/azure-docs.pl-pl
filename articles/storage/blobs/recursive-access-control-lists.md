@@ -9,12 +9,12 @@ ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280372"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714093"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -138,7 +138,7 @@ Następnie wybierz, w jaki sposób polecenia mają uzyskać autoryzację na kont
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opcja 1: uzyskiwanie autoryzacji za pomocą Azure Active Directory (AD)
 
-W ramach tego podejścia system gwarantuje, że konto użytkownika ma odpowiednie przypisania kontroli dostępu opartej na rolach (RBAC) i uprawnienia ACL. 
+W ramach tego podejścia system gwarantuje, że konto użytkownika ma odpowiednie przypisania kontroli dostępu opartej na rolach (Azure RBAC) i listy ACL. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -153,7 +153,7 @@ W poniższej tabeli przedstawiono każdą z obsługiwanych ról i ich możliwoś
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opcja 2: uzyskiwanie autoryzacji przy użyciu klucza konta magazynu
 
-W tym podejściu system nie sprawdza uprawnień RBAC ani ACL.
+W tym podejściu system nie sprawdza uprawnień usługi Azure RBAC ani listy ACL.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -174,7 +174,7 @@ Po zainstalowaniu pakietu Dodaj tę instrukcję using na początku pliku kodu.
 using Azure.Identity;
 ```
 
-Pobierz identyfikator klienta, klucz tajny klienta i identyfikator dzierżawy. Aby to zrobić, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
+Pobierz identyfikator klienta, klucz tajny klienta i identyfikator dzierżawy. Aby to zrobić, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
 
 |Rola|Możliwość ustawienia listy ACL|
 |--|--|
@@ -229,7 +229,7 @@ Aby użyć fragmentów kodu w tym artykule, należy utworzyć wystąpienie **Dat
 
 Aby uwierzytelnić aplikację w usłudze Azure AD, możesz użyć [biblioteki klienta tożsamości platformy Azure dla języka Python](https://pypi.org/project/azure-identity/) .
 
-Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  Aby uzyskać te wartości, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
+Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  Aby uzyskać te wartości, zobacz [pozyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej](../common/storage-auth-aad-app.md). W ramach tego procesu należy przypisać jedną z następujących ról [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md) do podmiotu zabezpieczeń. 
 
 |Rola|Możliwość ustawienia listy ACL|
 |--|--|
@@ -345,7 +345,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Ustawianie listy ACL rekursywnie przez wywołanie metody **DataLakeDirectoryClient. set_access_control_recursive** .
+Ustaw listę ACL rekursywnie, wywołując metodę **DataLakeDirectoryClient.set_access_control_recursive** .
 
 Ten przykład ustawia listę ACL katalogu o nazwie `my-parent-directory` . Te wpisy dają użytkownikowi właściciela uprawnienia do odczytu, zapisu i wykonywania, dają członkom należącym do grupy uprawnienia Odczyt i wykonywanie, a inni nie mają dostępu. Ostatni wpis listy ACL w tym przykładzie daje określonemu użytkownikowi identyfikator "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "uprawnień do odczytu i wykonywania.
 
@@ -423,7 +423,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Aktualizowanie listy ACL rekursywnie przez wywołanie metody **DataLakeDirectoryClient. update_access_control_recursive** . 
+Aktualizowanie listy ACL rekursywnie przez wywołanie metody **DataLakeDirectoryClient.update_access_control_recursive** . 
 
 Ten przykład aktualizuje wpis listy ACL z uprawnieniami do zapisu. 
 
@@ -498,7 +498,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Usuń wpisy listy ACL, wywołując metodę **DataLakeDirectoryClient. remove_access_control_recursive** . 
+Usuń wpisy listy ACL, wywołując metodę **DataLakeDirectoryClient.remove_access_control_recursive** . 
 
 Ten przykład usuwa wpis listy ACL z listy ACL katalogu o nazwie `my-parent-directory` . 
 

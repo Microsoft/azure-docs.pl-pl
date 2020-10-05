@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223486"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713020"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Rozwiązywanie niezgodnych błędów katalogów dla istniejących Azure Active Directory Domain Services domen zarządzanych
 
@@ -28,11 +28,11 @@ W tym artykule wyjaśniono, dlaczego występuje błąd i jak go rozwiązać.
 
 Niezgodny błąd katalogu występuje, gdy domena zarządzana i Sieć wirtualna platformy Azure AD DS należą do dwóch różnych dzierżaw usługi Azure AD. Na przykład możesz mieć domenę zarządzaną o nazwie *aaddscontoso.com* , która jest uruchamiana w dzierżawie usługi Azure AD firmy Contoso. Jednak Sieć wirtualna platformy Azure dla domeny zarządzanej jest częścią dzierżawy usługi Azure AD firmy Fabrikam.
 
-Platforma Azure używa kontroli dostępu opartej na rolach (RBAC), aby ograniczyć dostęp do zasobów. Po włączeniu usługi Azure AD DS w dzierżawie usługi Azure AD skróty poświadczeń są synchronizowane z domeną zarządzaną. Ta operacja wymaga, aby być administratorem dzierżawy dla katalogu usługi Azure AD, a dostęp do tych poświadczeń musi być kontrolowany.
+Kontrola dostępu oparta na rolach (Azure RBAC) służy do ograniczania dostępu do zasobów. Po włączeniu usługi Azure AD DS w dzierżawie usługi Azure AD skróty poświadczeń są synchronizowane z domeną zarządzaną. Ta operacja wymaga, aby być administratorem dzierżawy dla katalogu usługi Azure AD, a dostęp do tych poświadczeń musi być kontrolowany.
 
 Aby wdrożyć zasoby w sieci wirtualnej platformy Azure i kontrolować ruch, musisz mieć uprawnienia administracyjne w sieci wirtualnej, w której wdrażana jest domena zarządzana.
 
-Aby kontrola RBAC działała spójnie i bezpieczny dostęp do wszystkich zasobów używanych przez usługę Azure AD DS, domena zarządzana i Sieć wirtualna muszą należeć do tej samej dzierżawy usługi Azure AD.
+Aby usługa Azure RBAC działała spójnie i bezpieczny dostęp do wszystkich zasobów używanych przez usługę Azure AD DS, domena zarządzana i Sieć wirtualna muszą należeć do tej samej dzierżawy usługi Azure AD.
 
 Do wdrożeń mają zastosowanie następujące reguły:
 

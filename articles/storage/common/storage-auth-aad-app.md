@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280252"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714771"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -31,7 +31,7 @@ Przykładowa aplikacja zawiera kompleksowe środowisko, w którym pokazano, jak 
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Przypisywanie roli do podmiotu zabezpieczeń usługi Azure AD
 
-Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role, które obejmują uprawnienia do kontenerów i kolejek. Gdy rola RBAC zostanie przypisana do podmiotu zabezpieczeń, ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC](storage-auth-aad-rbac.md).
+Aby uwierzytelnić podmiot zabezpieczeń z aplikacji usługi Azure Storage, najpierw Skonfiguruj ustawienia kontroli dostępu opartej na rolach (Azure RBAC) dla tego podmiotu zabezpieczeń. Usługa Azure Storage definiuje wbudowane role, które obejmują uprawnienia do kontenerów i kolejek. Po przypisaniu roli platformy Azure do podmiotu zabezpieczeń ten podmiot zabezpieczeń ma udzielony dostęp do tego zasobu. Aby uzyskać więcej informacji, zobacz [Zarządzanie prawami dostępu do obiektów blob platformy Azure i Kolejkowanie danych przy użyciu RBAC na platformie Azure](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Rejestrowanie aplikacji w dzierżawie usługi Azure AD
 
@@ -46,7 +46,7 @@ Na poniższej ilustracji przedstawiono typowe ustawienia rejestracji aplikacji s
 
 Po zarejestrowaniu aplikacji zobaczysz identyfikator aplikacji (lub identyfikator klienta) w obszarze **Ustawienia**:
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Zrzut ekranu przedstawiający identyfikator klienta":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
 
 Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [Integrowanie aplikacji z Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
@@ -59,13 +59,13 @@ Następnie Udziel uprawnień aplikacji do wywoływania interfejsów API usługi 
 1. W okienku **uprawnienia do interfejsu API żądania** w obszarze **jakiego typu uprawnienia aplikacja jest wymagana?** Zwróć uwagę na to, że dostępnym typem uprawnień jest **delegowane uprawnienia**. Ta opcja jest domyślnie wybrana.
 1. W obszarze **uprawnienia**zaznacz pole wyboru obok pozycji **user_impersonation**, a następnie wybierz przycisk **Dodaj uprawnienia** .
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Zrzut ekranu przedstawiający uprawnienia do interfejsu API usługi Storage":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
 
 1. Następnie udziel zgody administratora na te uprawnienia, klikając pozycję **Udziel zgody administratora dla katalogu domyślnego**.
 
 W okienku **uprawnienia interfejsu API** widać, że zarejestrowana aplikacja usługi Azure AD ma dostęp zarówno do Microsoft Graph, jak i interfejsów API usługi Azure Storage, a ta zgoda jest przyznawana dla katalogu domyślnego. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Zrzut ekranu przedstawiający uprawnienia interfejsu API dla zarejestrowanej aplikacji":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
 
 ### <a name="create-a-client-secret"></a>Tworzenie klucza tajnego klienta
 
@@ -87,7 +87,7 @@ Następnie skonfiguruj niejawny przepływ dla aplikacji. Wykonaj następujące k
 1. W sekcji **Zarządzanie** wybierz ustawienie **uwierzytelnianie** .
 1. W sekcji **niejawne przyznanie** zaznacz pole wyboru, aby włączyć tokeny identyfikatora, jak pokazano na poniższej ilustracji:
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Zrzut ekranu przedstawiający sposób włączania ustawień dla niejawnego przepływu dotacji":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Zrzut ekranu przedstawiający sposób rejestrowania aplikacji magazynu w usłudze Azure AD":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Biblioteki klienckie do pozyskiwania tokenów
 
@@ -127,7 +127,7 @@ Aby zażądać tokenu, potrzebne są następujące wartości z rejestracji aplik
 
 Aby uruchomić przykładowy kod, Utwórz konto magazynu w ramach tej samej subskrypcji co Azure Active Directory. Następnie utwórz kontener w ramach tego konta magazynu. Przykładowy kod spowoduje utworzenie blokowego obiektu BLOB w tym kontenerze.
 
-Następnie jawnie Przypisz rolę **współautor danych obiektu blob magazynu** do konta użytkownika, w ramach którego zostanie uruchomiony przykładowy kod. Aby uzyskać instrukcje dotyczące sposobu przypisywania tej roli w Azure Portal, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki RBAC w Azure Portal](storage-auth-aad-rbac-portal.md).
+Następnie jawnie Przypisz rolę **współautor danych obiektu blob magazynu** do konta użytkownika, w ramach którego zostanie uruchomiony przykładowy kod. Aby uzyskać instrukcje dotyczące sposobu przypisywania tej roli w Azure Portal, zobacz [Korzystanie z Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
 > Podczas tworzenia konta usługi Azure Storage nie są automatycznie przypisywane uprawnienia dostępu do danych za pośrednictwem usługi Azure AD. Musisz jawnie przypisać sobie rolę platformy Azure dla usługi Azure Storage. Można ją przypisać na poziomie subskrypcji, grupy zasobów, konta magazynu lub kontenera lub kolejki.
@@ -291,5 +291,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## <a name="next-steps"></a>Następne kroki
 
 - [Platforma tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Zarządzanie prawami dostępu do danych magazynu za pomocą RBAC](storage-auth-aad-rbac.md)
+- [Zarządzanie prawami dostępu do danych magazynu za pomocą usługi Azure RBAC](storage-auth-aad-rbac.md)
 - [Uwierzytelnianie dostępu do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](storage-auth-aad-msi.md)

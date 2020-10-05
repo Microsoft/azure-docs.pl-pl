@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710298"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715329"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -81,8 +81,10 @@ Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Nie można znaleźć metryki do alertu
 
-Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów dotyczących metryk](./alerts-metric-near-real-time.md).
-Jeśli można zobaczyć pewne metryki dla zasobu, ale nie można znaleźć określonej metryki, [Sprawdź, czy ta Metryka jest dostępna](./metrics-supported.md), a jeśli tak, zobacz Opis metryki, aby sprawdzić, czy jest dostępna tylko w określonych wersjach lub wersjach tego zasobu.
+Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie zobaczysz jej podczas tworzenia reguły alertu, sprawdź następujące informacje:
+- Jeśli nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów metryk](./alerts-metric-near-real-time.md).
+- Jeśli można zobaczyć pewne metryki dla zasobu, ale nie można znaleźć określonej metryki, [Sprawdź, czy ta Metryka jest dostępna](./metrics-supported.md), a jeśli tak, zobacz Opis metryki, aby sprawdzić, czy jest dostępna tylko w określonych wersjach lub wersjach tego zasobu.
+- Jeśli Metryka nie jest dostępna dla zasobu, może być dostępna w dziennikach zasobów i może być monitorowana przy użyciu alertów dzienników. Zobacz tutaj, aby uzyskać więcej informacji na temat [zbierania i analizowania dzienników zasobów z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Nie można znaleźć wymiaru metryki dla alertu
 
@@ -248,7 +250,7 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Przykład:
+Na przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

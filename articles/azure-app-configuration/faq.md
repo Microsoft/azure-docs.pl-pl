@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335385"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715444"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
 
@@ -94,7 +94,7 @@ Poniżej przedstawiono zagadnienia dotyczące wybierania warstwy.
     W przypadku magazynów w warstwie Standardowa pierwsze 200 000 żądań każdego dnia są uwzględniane w dziennej opłacie. Dodatkowe żądania są rozliczane jako nadwyżkowe.
 
 - **Umowa dotycząca poziomu usług**: warstwa standardowa ma umowę SLA na 99,9% czasu dostępności. Warstwa Bezpłatna nie ma umowy SLA.
-- **Funkcje zabezpieczeń**: w obu warstwach są dostępne podstawowe funkcje zabezpieczeń, w tym szyfrowanie za pomocą kluczy zarządzanych przez firmę Microsoft, uwierzytelnianie za pośrednictwem algorytmu HMAC lub Azure Active Directory, obsługa RBAC i tożsamość zarządzana. Warstwa standardowa oferuje bardziej zaawansowane funkcje zabezpieczeń, w tym obsługę linków prywatnych i szyfrowanie za pomocą kluczy zarządzanych przez klienta.
+- **Funkcje zabezpieczeń**: w obu warstwach są dostępne podstawowe funkcje zabezpieczeń, w tym szyfrowanie za pomocą kluczy zarządzanych przez firmę Microsoft, uwierzytelnianie za pośrednictwem algorytmu HMAC lub Azure Active Directory, obsługa funkcji RBAC platformy Azure i tożsamość zarządzana. Warstwa standardowa oferuje bardziej zaawansowane funkcje zabezpieczeń, w tym obsługę linków prywatnych i szyfrowanie za pomocą kluczy zarządzanych przez klienta.
 - **Koszt**: magazyny w warstwie Standardowa mają dzienną opłatą za użycie. Jest również opłata za nadwyżkowe żądania w porównaniu do codziennej alokacji. Nie ma kosztu korzystania z magazynu warstwy Bezpłatna.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Czy mogę uaktualnić sklep z warstwy Bezpłatna do warstwy Standardowa? Czy mogę obniżyć poziom sklepu z warstwy Standardowa do warstwy Bezpłatna?

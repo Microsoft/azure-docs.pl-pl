@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088675"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715513"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych kolejki w Azure Portal
 
@@ -24,11 +24,11 @@ Gdy uzyskujesz dostęp do danych z kolejki przy użyciu [Azure Portal](https://p
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Uprawnienia wymagające dostępu do danych kolejki
 
-W zależności od tego, jak chcesz autoryzować dostęp do danych w kolejce w Azure Portal, będziesz potrzebować określonych uprawnień. W większości przypadków te uprawnienia są udostępniane za pośrednictwem kontroli dostępu opartej na rolach (RBAC). Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md)
+W zależności od tego, jak chcesz autoryzować dostęp do danych w kolejce w Azure Portal, będziesz potrzebować określonych uprawnień. W większości przypadków te uprawnienia są udostępniane za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji na temat usługi Azure RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Korzystanie z klucza dostępu do konta
 
-Aby uzyskać dostęp do danych kolejki przy użyciu klucza dostępu do konta, musisz mieć przypisaną rolę platformy Azure, która obejmuje akcję RBAC **Microsoft. Storage/storageAccounts/ListKeys/Action**. Ta rola platformy Azure może być rolą wbudowaną lub niestandardową. Wbudowane role obsługujące **firmę Microsoft. Storage/storageAccounts/ListKeys/Action** obejmują:
+Aby uzyskać dostęp do danych kolejki przy użyciu klucza dostępu do konta, musisz mieć przypisaną rolę platformy Azure, która obejmuje akcję RBAC platformy Azure **Microsoft. Storage/storageAccounts/ListKeys/Action**. Ta rola platformy Azure może być rolą wbudowaną lub niestandardową. Wbudowane role obsługujące **firmę Microsoft. Storage/storageAccounts/ListKeys/Action** obejmują:
 
 - Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
@@ -74,11 +74,11 @@ Po przejściu do kolejki Azure Portal wskazuje, czy aktualnie używasz klucza do
 
 W przypadku uwierzytelniania przy użyciu klucza dostępu do konta w portalu zostanie wyświetlony **klucz dostępu** określony jako metoda uwierzytelniania:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Zrzut ekranu przedstawiający użytkowników, którzy aktualnie uzyskują dostęp do kolejek przy użyciu klucza konta":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
 
 Aby przełączyć się do korzystania z konta usługi Azure AD, kliknij link wyróżniony na obrazie. Jeśli masz odpowiednie uprawnienia za pośrednictwem przypisanych do Ciebie ról platformy Azure, możesz to zrobić. Jeśli jednak nie masz odpowiednich uprawnień, zobaczysz komunikat o błędzie podobny do następującego:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Błąd wyświetlany, jeśli konto usługi Azure AD nie obsługuje dostępu":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
 
 Zwróć uwagę, że na liście nie są wyświetlane żadne kolejki, jeśli Twoje konto usługi Azure AD nie ma uprawnień do ich wyświetlania. Kliknij link **Przełącz do klucza dostępu** , aby ponownie użyć klawisza dostępu do uwierzytelniania.
 
@@ -86,7 +86,7 @@ Zwróć uwagę, że na liście nie są wyświetlane żadne kolejki, jeśli Twoje
 
 W przypadku uwierzytelniania za pomocą konta usługi Azure AD zobaczysz **konto użytkownika usługi Azure AD** określone jako metoda uwierzytelniania w portalu:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Zrzut ekranu przedstawiający użytkowników aktualnie uzyskujących dostęp do kolejek przy użyciu konta usługi Azure AD":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
 
 Aby przełączyć się do korzystania z klucza dostępu do konta, kliknij link wyróżniony na obrazie. Jeśli masz dostęp do klucza konta, będziesz mieć możliwość przejścia. Jeśli jednak nie masz dostępu do klucza konta, Azure Portal wyświetli komunikat o błędzie.
 
@@ -95,6 +95,6 @@ Kolejki nie są wyświetlane w portalu, jeśli nie masz dostępu do kluczy konta
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uwierzytelnianie dostępu do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md)
-- [Udzielanie dostępu do kontenerów i kolejek platformy Azure przy użyciu RBAC w Azure Portal](../common/storage-auth-aad-rbac-portal.md)
-- [Udzielanie dostępu do danych w obiektach blob i kolejkach na platformie Azure za pomocą kontroli dostępu opartej na rolach przy użyciu interfejsu wiersza polecenia platformy Azure](../common/storage-auth-aad-rbac-cli.md)
-- [ przy użyciu programu PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md)
+- [Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-cli.md)
+- [Użyj modułu Azure PowerShell, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-powershell.md)

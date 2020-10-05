@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 47f4085ff01526853fab29da2c1bc1a3e8998d23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937651"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714896"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Włącz Autozarządzanie maszynami wirtualnymi za Azure Policy
 
@@ -28,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto]
 > Konta bezpłatnych wersji próbnych nie mają dostępu do maszyn wirtualnych używanych w tym samouczku. Przeprowadź uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
 > [!IMPORTANT]
-> Następujące uprawnienie RBAC jest konieczne, aby włączyć Autozarządzanie: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Następujące uprawnienie kontroli RBAC platformy Azure jest konieczne, aby włączyć Autozarządzanie: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure

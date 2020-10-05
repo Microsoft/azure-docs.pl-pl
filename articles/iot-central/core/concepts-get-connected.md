@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018195"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714249"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -99,13 +99,13 @@ Aby dodać i zweryfikować certyfikat główny lub pośredni do grupy rejestracj
 
 1. Na **stronie certyfikat podstawowy**Przekaż podstawowy certyfikat X. 509. Jest to certyfikat główny lub pośredni:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Zrzut ekranu certyfikatu podstawowego":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Dodawanie zrzutu ekranu grupy rejestracji X. 509":::
 
-1. Użyj **kodu weryfikacyjnego** , aby wygenerować kod weryfikacyjny w używanym narzędziu. Następnie wybierz pozycję **Weryfikuj** , aby przekazać certyfikat weryfikacji.
+1. Kliknij przycisk **Generuj kod weryfikacyjny** , aby wygenerować kod dla narzędzia używanego do generowania certyfikatu weryfikacji. Następnie wybierz pozycję **Weryfikuj** , aby przekazać certyfikat weryfikacji.
 
 1. Jeśli weryfikacja zakończy się pomyślnie, zobaczysz następujące potwierdzenie:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Zweryfikowano zrzut ekranu podstawowego certyfikatu":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Dodawanie zrzutu ekranu grupy rejestracji X. 509":::
 
 Weryfikowanie własności certyfikatu gwarantuje, że osoba przekazująca certyfikat ma klucz prywatny certyfikatu.
 
@@ -147,7 +147,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 1. Skopiuj klucz podstawowy grupy z grupy rejestracji **SAS-IoT-Devices** :
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupuj klucz podstawowy z grupy rejestracji SAS-IoT-Devices":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Dodawanie zrzutu ekranu grupy rejestracji X. 509":::
 
 1. Użyj `az iot central device compute-device-key` polecenia, aby wygenerować klucze SAS urządzenia. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikatory urządzeń muszą mieć wielkie litery:
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300276"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715403"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
@@ -100,7 +100,7 @@ Aby upewnić się, że poświadczenia profilu publikowania są blokowane w progr
 
 ### <a name="disable-access-to-the-api"></a>Wyłącz dostęp do interfejsu API
 
-Interfejs API w poprzedniej sekcji to kopia zapasowa Access Control opartej na rolach (RBAC) na platformie Azure, co oznacza, że można [utworzyć rolę niestandardową](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) i przypisać użytkownikom niższych priveldged do roli, aby nie mogli włączyć uwierzytelniania podstawowego w dowolnych lokacjach. Aby skonfigurować rolę niestandardową, [wykonaj te instrukcje](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+Interfejs API w poprzedniej sekcji jest kopią zapasową kontroli dostępu opartej na rolach (Azure RBAC), co oznacza, że można [utworzyć rolę niestandardową](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) i przypisać użytkownikom niższych priveldged do roli, aby nie mogli włączyć uwierzytelniania podstawowego w dowolnych lokacjach. Aby skonfigurować rolę niestandardową, [wykonaj te instrukcje](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Możesz również użyć [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) do inspekcji wszelkich pomyślnych żądań uwierzytelnienia i użyć [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) , aby wymusić tę konfigurację dla wszystkich lokacji w ramach subskrypcji.
 

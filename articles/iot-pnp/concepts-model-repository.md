@@ -7,16 +7,16 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577802"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715065"
 ---
 # <a name="azure-iot-model-repository"></a>Repozytorium modeli usługi Azure IoT
 
-Repozytorium modeli usługi Azure IoT umożliwia konstruktorom urządzeń zarządzanie i udostępnianie modeli urządzeń Plug and Play IoT. Modele urządzeń to JSON LD dokumenty zdefiniowane przy użyciu [języka Digital bliźniaczych reprezentacji Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Modele przechowywane w usłudze repozytorium modeli mogą być udostępniane deweloperom rozwiązań prywatnie poprzez kontrolę dostępu lub publicznie bez konieczności uwierzytelniania i opracowywania rozwiązania IoT Plug and Play w chmurze.
+Repozytorium modeli usługi Azure IoT umożliwia konstruktorom urządzeń zarządzanie i udostępnianie modeli urządzeń IoT Plug and Play. Modele urządzeń to JSON LD dokumenty zdefiniowane przy użyciu [języka Digital bliźniaczych reprezentacji Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Modele przechowywane w usłudze repozytorium modeli mogą być udostępniane deweloperom rozwiązań prywatnie poprzez kontrolę dostępu lub publicznie bez konieczności uwierzytelniania i opracowywania rozwiązania IoT Plug and Play w chmurze.
 
 > [!NOTE]
 > Konstruktory urządzeń mogą zdecydować się na wdrożenie modeli urządzeń Plug and Play IoT bezpośrednio na urządzeniu, użycie modułów lub w module IoT Edge.
@@ -48,7 +48,7 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Aby wyświetlić model publiczny za pomocą interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) interfejsu wiersza poleceń platformy Azure.
@@ -118,7 +118,7 @@ Aby wyświetlić firmę lub model współużytkowany przy użyciu interfejsu API
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Aby wyświetlić model firmy lub model współużytkowany przy użyciu interfejsu wiersza polecenia, zobacz polecenie [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) interfejsu wiersza poleceń platformy Azure.
@@ -164,16 +164,16 @@ Aby przekazać model przy użyciu interfejsu API REST, zobacz [Create a model](h
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
 Aby przekazać model przy użyciu interfejsu wiersza polecenia, zobacz Create The [model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) CLI platformy Azure.
 
 ### <a name="publish-a-model"></a>Publikowanie modelu
 
-Aby opublikować model, muszą zostać spełnione następujące wymagania:
+Aby opublikować model, muszą być spełnione następujące wymagania:
 
-1. Aby można było opublikować model, organizacja musi być członkiem [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) . Aby utworzyć konto Centrum partnerskiego, zobacz [Tworzenie konta Centrum partnerskiego](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Po zatwierdzeniu konta można opublikować modele. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące usługi Partner Center](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
+1. Aby opublikować model, organizacja musi być członkiem programu [Microsoft Partner Network](https://docs.microsoft.com/partner-center/). Aby utworzyć konto w Centrum partnerskim, zobacz [Tworzenie konta Centrum partnerskiego](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). Po zatwierdzeniu konta można opublikować modele. Aby uzyskać więcej informacji, zapoznaj się z tematem [Centrum partnerskie — często zadawane pytania.](https://support.microsoft.com/help/4340639/partner-center-account-faqs)
 
 2. Użytkownik musi być członkiem roli *wydawcy* dzierżawy repozytorium.
 

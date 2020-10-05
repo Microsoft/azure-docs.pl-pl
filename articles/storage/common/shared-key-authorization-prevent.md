@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088803"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715125"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby utworzyć metrykę, która śledzi żądania wy
 
 Po skonfigurowaniu metryki żądania kierowane do konta magazynu rozpoczną się na wykresie. Na poniższej ilustracji przedstawiono żądania autoryzowane za pomocą klucza współużytkowanego lub z tokenem SAS. Żądania są agregowane dziennie w ciągu ostatnich 30 dni.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Zrzut ekranu przedstawiający zagregowane żądania autoryzowane za pomocą klucza współużytkowanego":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji wykonanych za pomocą klucza współużytkowanego lub SAS":::
 
 Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o określonej liczbie żądań autoryzowanych za pomocą klucza współużytkowanego dla konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 1. W obszarze **szczegóły kategorii**w sekcji **Dziennik** wybierz pozycję **StorageRead**, **StorageWrite**i **StorageDelete** , aby rejestrować wszystkie żądania danych do wybranej usługi.
 1. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**. Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji wykonanych za pomocą klucza współużytkowanego lub SAS":::
 
 Możesz utworzyć ustawienia diagnostyczne dla każdego typu zasobu usługi Azure Storage na koncie magazynu.
 
@@ -133,7 +133,7 @@ Aby nie zezwalać na autoryzację klucza współużytkowanego dla konta magazynu
 1. W obszarze **Ustawienia**Znajdź ustawienie **Konfiguracja** .
 1. Ustaw opcję **Zezwalaj na dostęp do klucza wspólnego** na **wyłączony**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób niezezwalania na dostęp do klucza udostępnionego dla konta":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji wykonanych za pomocą klucza współużytkowanego lub SAS":::
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell dla operacji obiektu BLOB lub kolejki w usłudze Azure AD, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-active-directory-powershell.md) lub [uruchamiania poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki](../queues/authorize-active-directory-powershell.md). |
 | Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](authorize-data-operations-cli.md) |
 | Azure IoT Hub | Obsługiwane. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługa sieci wirtualnych](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem kontroli dostępu opartej na rolach (RBAC). Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
+| Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 

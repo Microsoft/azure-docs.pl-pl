@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545478"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z funkcją amplitudy
 
@@ -107,7 +107,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -141,15 +141,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Plan Admin** (Administrator planu) na pasku nawigacyjnym po lewej stronie.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/amplitude-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia menu amplitudy z wybranym administratorem planu.](./media/amplitude-tutorial/configure1.png)
 
 1. Wybierz pozycję **Microsoft Azure Active Directory Metadata** (Metadane usługi Microsoft Azure Active Directory) z listy **SSO Integration** (Integracja logowania jednokrotnego).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/amplitude-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia okienko administrator planu z wywołanym łączem metadanych Microsoft Azure Active Directory.](./media/amplitude-tutorial/configure2.png)
 
 1. W sekcji **Set Up Single Sign-On** (Konfigurowanie logowania jednokrotnego) wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/amplitude-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia sekcję Konfigurowanie logowania jednokrotnego z wartościami opisanymi w tym kroku.](./media/amplitude-tutorial/configure3.png)
 
     a. Otwórz **plik XML metadanych** pobrany z witryny Azure Portal w programie Notatnik i wklej jego zawartość w polu tekstowym **Microsoft Azure Active Directory Metadata** (Metadane usługi Microsoft Azure Active Directory).
 
@@ -170,11 +170,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Amplitude na panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Amplitude, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

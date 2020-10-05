@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549618"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Samouczek: integracja Azure Active Directory z usługą ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie **dostawcy tożsamości** zainicjowany:
 
-    ![Informacje o domenie i adresach URL pojedynczego logowania aplikacji ArcGIS Enterprise](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
     c. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL pojedynczego logowania aplikacji ArcGIS Enterprise](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 1. Wybierz pozycję **Organization >EDIT SETTINGS** (Organizacja > EDYTUJ USTAWIENIA).
 
-    ![Konfiguracja aplikacji ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia kartę ArcGIS Enterprise Organization z ustawieniami edycji o nazwie out.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Wybierz kartę **Security** (Zabezpieczenia).
 
-    ![Konfiguracja aplikacji ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia wybraną kartę Zabezpieczenia.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Przewiń w dół do sekcji **Enterprise Logins via SAML** (Logowanie dla przedsiębiorstwa za pomocą protokołu SAML) i wybierz pozycję **SET ENTERPRISE LOGIN** (USTAW LOGOWANIE DLA PRZEDSIĘBIORSTWA).
 
-    ![Konfiguracja aplikacji ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia identyfikatory logowania przedsiębiorstwa za pośrednictwem protokołu SAML, w którym można wybrać opcję Ustaw identyfikator logowania przedsiębiorstwa.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. W sekcji **Set Identity Provider** (Ustawianie dostawcy tożsamości) wykonaj następujące działania:
 
-    ![Konfiguracja aplikacji ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia Ustawianie dostawcy tożsamości, w którym wykonywane są kroki opisane tutaj.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. W polu tekstowym **Name** (Nazwa) podaj nazwę, na przykład **Test usługi Azure Active Directory**.
 
@@ -158,7 +158,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
     c. Kliknij pozycję **Show advanced settings** (Pokaż ustawienia zaawansowane) i skopiuj wartość z pola **Entity ID** (Identyfikator jednostki), a następnie wklej ją w polu tekstowym **Identyfikator** w sekcji **Domena i adresy URL aplikacji ArcGIS Enterprise** w witrynie Azure Portal.
     
-    ![Konfiguracja aplikacji ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Zrzut ekranu pokazuje, gdzie uzyskać jednostkę I D i zaktualizować dostawcę.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Kliknij przycisk **UPDATE IDENTITY PROVIDER** (ZAKTUALIZUJ DOSTAWCĘ TOŻSAMOŚCI).
 
@@ -185,7 +185,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -230,7 +230,7 @@ Po kliknięciu kafelka ArcGIS Enterprise w panelu dostępu powinno nastąpić au
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
