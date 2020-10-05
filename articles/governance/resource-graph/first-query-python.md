@@ -5,10 +5,10 @@ ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87873674"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu języka Python
@@ -19,7 +19,7 @@ Po zakończeniu tego procesu dodaliśmy biblioteki do instalacji języka Python 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +56,7 @@ Aby umożliwić językowi Python zapytanie do grafu zasobów platformy Azure, na
    > [!NOTE]
    > Jeśli język Python jest zainstalowany dla wszystkich użytkowników, polecenia te należy uruchomić z poziomu konsoli z podwyższonym poziomem uprawnień.
 
-1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-resourcegraph`powinna być **2.0.0** lub wyższa, `azure-mgmt-resource` powinna być **9.0.0** lub większa i `azure-cli-core` powinna być **2.5.0** lub wyższa.
+1. Sprawdź, czy biblioteki zostały zainstalowane. `azure-mgmt-resourcegraph` powinna być **2.0.0** lub wyższa, `azure-mgmt-resource` powinna być **9.0.0** lub większa i `azure-cli-core` powinna być **2.5.0** lub wyższa.
 
    ```bash
    # Check each installed library
@@ -125,7 +125,7 @@ Dzięki bibliotekom języka Python dodanych do wybranego środowiska można wypr
 
 Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć zainstalowane biblioteki ze środowiska języka Python, możesz to zrobić za pomocą następującego polecenia:
 

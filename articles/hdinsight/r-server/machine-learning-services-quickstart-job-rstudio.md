@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73241888"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Szybki Start: wykonywanie skryptu języka R w klastrze usług ML w usłudze Azure HDInsight przy użyciu serwera RStudio
@@ -21,19 +21,19 @@ Usługi ML w usłudze Azure HDInsight umożliwiają używanie skryptów języka 
 
 W tym przewodniku szybki start dowiesz się, jak uruchomić skrypt języka R z serwerem RStudio, który demonstruje użycie platformy Spark w przypadku obliczeń rozproszonych języka R. Zdefiniujesz kontekst obliczeniowy do wykonywania obliczeń lokalnie w węźle brzegowym i ponownie dystrybuowany w węzłach klastra usługi HDInsight.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Klaster usługi ML w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **usługi ml** dla **typu klastra**.
 
 ## <a name="connect-to-rstudio-server"></a>Łączenie z programem RStudio Server
 
-Serwer RStudio jest uruchamiany w węźle brzegowym klastra. Przejdź do następującego adresu URL, `CLUSTERNAME` gdzie to nazwa utworzonego klastra usług ml:
+Serwer RStudio jest uruchamiany w węźle brzegowym klastra. Przejdź do następującego adresu URL, gdzie `CLUSTERNAME` to nazwa utworzonego klastra usług ml:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Gdy logujesz się po raz pierwszy, musisz uwierzytelnić się dwa razy. W przypadku pierwszego monitu o uwierzytelnienie Podaj nazwę logowania administratora klastra i hasło, `admin`wartość domyślna to. W przypadku drugiego monitu uwierzytelniania Podaj nazwę logowania SSH i hasło, wartość domyślna `sshuser`to. Kolejne logowania wymagają tylko poświadczeń SSH.
+Gdy logujesz się po raz pierwszy, musisz uwierzytelnić się dwa razy. W przypadku pierwszego monitu o uwierzytelnienie Podaj nazwę logowania administratora klastra i hasło, wartość domyślna to `admin` . W przypadku drugiego monitu uwierzytelniania Podaj nazwę logowania SSH i hasło, wartość domyślna to `sshuser` . Kolejne logowania wymagają tylko poświadczeń SSH.
 
 Po nawiązaniu połączenia ekran powinien przypominać następujący zrzut ekranu:
 
@@ -170,7 +170,7 @@ Po nawiązaniu połączenia ekran powinien przypominać następujący zrzut ekra
 
     Obliczenia powinny zakończyć się około 5 minut.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane.
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
 ms.openlocfilehash: 26ae0f5add40125b5e9c1ce9451583040322314b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88641895"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM
@@ -41,7 +41,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 Zasób platformy Azure zdefiniowany w szablonie to [Microsoft. StreamAnalytics/StreamingJobs](/azure/templates/microsoft.streamanalytics/streamingjobs): create an Azure Stream Analytics Job.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 W tej sekcji utworzysz zadanie Azure Stream Analytics przy użyciu szablonu ARM.
 
@@ -87,7 +87,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
  Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, możesz pozostawić te zasoby na miejscu. Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie Azure Stream Analytics zadania. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 

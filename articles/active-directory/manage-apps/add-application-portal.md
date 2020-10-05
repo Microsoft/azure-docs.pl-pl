@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91305755"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)
@@ -55,10 +55,10 @@ Aby dodać aplikację do dzierżawy usługi Azure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego." lightbox="media/add-application-portal/sso-types.png":::
 
     - Jeśli deweloper aplikacji użył **standardu OIDC** na potrzeby rejestracji jednokrotnej, wybierz pozycję **Utwórz konto**. Zostanie wyświetlona strona konfiguracji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na usłudze OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na OIDC.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego.":::
 
     - Jeśli deweloper aplikacji użył protokołu **SAML Standard** dla logowania jednokrotnego, wybierz pozycję **Utwórz**. Zostanie wyświetlona strona wprowadzenia z opcjami konfigurowania aplikacji w organizacji. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na protokole SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na protokole SAML.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego.":::
 
 
 > [!IMPORTANT]

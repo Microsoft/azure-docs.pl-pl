@@ -11,10 +11,10 @@ ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87921677"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
@@ -115,7 +115,7 @@ Dowiedz się więcej o przepływach użytkowników w [przepływach użytkownikó
 
 Zasady niestandardowe blokują dostęp do pełnego potencjału aparatu aranżacji programu Identity Experience Framework (IEF). Za pomocą zasad niestandardowych można korzystać z IEF w celu kompilowania niemal wszelkich możliwości uwierzytelniania, rejestracji użytkowników lub edytowania profilów, które można wyobrazić.
 
-Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Przykład:
+Platforma obsługi tożsamości umożliwia konstruowanie podróży użytkowników przy użyciu dowolnej kombinacji kroków. Na przykład:
 
 * Sfederować z innymi dostawcami tożsamości
 * Wyzwania uwierzytelniania wieloskładnikowego (MFA) w pierwszej kolejności i innej firmy

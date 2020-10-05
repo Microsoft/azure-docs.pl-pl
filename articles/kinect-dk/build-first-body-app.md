@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, treść, śledzenie, wspólne, aplikacja, pierwsze
 ms.openlocfilehash: bdf8ee7a14bf59a151dfa316b11159830b4f63b8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277982"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>Szybki Start: Tworzenie aplikacji do śledzenia treści usługi Azure urządzenia Kinect
@@ -22,7 +22,7 @@ Wprowadzenie do zestawu SDK śledzenia treści? Ten przewodnik Szybki Start umo�
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Konfigurowanie zestawu Azure Kinect DK](set-up-azure-kinect-dk.md)
-- [Konfigurowanie zestawu SDK śledzenia treści](body-sdk-setup.md)
+- [Konfigurowanie zestawu Body Tracking SDK](body-sdk-setup.md)
 - Zapoznaj się z tematem Tworzenie pierwszego przewodnika Szybki Start dla [aplikacji Azure urządzenia Kinect](build-first-app.md) .
 - Zapoznaj się z następującymi funkcjami zestawu SDK czujnika:
   - [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
@@ -49,7 +49,7 @@ Wprowadzenie do zestawu SDK śledzenia treści? Ten przewodnik Szybki Start umo�
 
 Twoja pierwsza aplikacja do śledzenia treści zakłada, że pojedyncze urządzenie urządzenia Kinect platformy Azure jest połączone z komputerem.
 
-Śledzenie treści jest kompilacją w zestawie SDK czujnika. Aby można było korzystać z funkcji śledzenia treści, należy najpierw otworzyć i skonfigurować urządzenie. Użyj funkcji [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) , aby otworzyć urządzenie, a następnie skonfiguruj je za pomocą obiektu [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) . Aby uzyskać najlepsze wyniki, ustaw tryb głębokości na `K4A_DEPTH_MODE_NFOV_UNBINNED` lub `K4A_DEPTH_MODE_WFOV_2X2BINNED` . Śledzenie treści nie zostanie uruchomione, jeśli tryb głębokości jest ustawiony na `K4A_DEPTH_MODE_OFF` lub `K4A_DEPTH_MODE_PASSIVE_IR` .
+Śledzenie treści jest kompilacją w zestawie SDK czujnika. Aby można było korzystać z funkcji śledzenia treści, należy najpierw otworzyć i skonfigurować urządzenie. Użyj funkcji [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) , aby otworzyć urządzenie, a następnie skonfiguruj je za pomocą obiektu [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) . Aby uzyskać najlepsze wyniki, ustaw tryb głębokości na `K4A_DEPTH_MODE_NFOV_UNBINNED` lub `K4A_DEPTH_MODE_WFOV_2X2BINNED` . Śledzenie treści nie zostanie uruchomione, jeśli tryb głębokości jest ustawiony na  `K4A_DEPTH_MODE_OFF` lub `K4A_DEPTH_MODE_PASSIVE_IR` .
 
 Więcej informacji na temat znajdowania i otwierania urządzenia można znaleźć na [tej stronie](find-then-open-device.md).
 
@@ -244,4 +244,4 @@ int main()
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Pobierz wyniki śledzenia treści](get-body-tracking-results.md)
+>[Pobieranie wyników śledzenia ciała](get-body-tracking-results.md)

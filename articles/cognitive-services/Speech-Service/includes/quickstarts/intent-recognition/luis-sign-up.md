@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: a41c9dc888e85baf021712e3302da7ae6106db47
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81421772"
 ---
 Aby ukończyć funkcję szybkiego startu rozpoznawania intencji, musisz utworzyć konto LUIS i projekt przy użyciu portalu LUIS w wersji zapoznawczej. Ten przewodnik Szybki Start wymaga tylko subskrypcji LUIS. Subskrypcja usługi mowy *nie jest* wymagana.
@@ -18,7 +18,7 @@ Pierwszą czynnością, którą należy wykonać, jest utworzenie konta LUIS i a
 
 Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć aplikację LUIS:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Szybki Start: Tworzenie wbudowanej aplikacji domeny<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Szybki Start: Tworzenie wbudowanej aplikacji domeny <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Gdy skończysz, będziesz potrzebować czterech rzeczy:
 
@@ -31,7 +31,7 @@ Oto, gdzie można znaleźć te informacje w [portalu Luis w wersji zapoznawczej]
 
 1. W portalu LUIS w wersji zapoznawczej wybierz aplikację, a następnie wybierz przycisk **Publikuj** .
 
-2. Wybierz miejsce **produkcyjne** , jeśli używasz opcji `en-US` Przełącz pozycję **Speech napełnianiu** do pozycji **wł** . Następnie wybierz przycisk **Publikuj** .
+2. Wybierz miejsce **produkcyjne** , jeśli używasz `en-US` opcji Przełącz pozycję **Speech napełnianiu** do pozycji **wł** . Następnie wybierz przycisk **Publikuj** .
 
     > [!IMPORTANT]
     > **Napełnianiu mowy** jest zdecydowanie zalecane, ponieważ poprawi dokładność rozpoznawania mowy.

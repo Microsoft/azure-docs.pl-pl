@@ -10,10 +10,10 @@ ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81000427"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Architektura centrum mikrorealizacji

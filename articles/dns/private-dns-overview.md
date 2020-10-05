@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 6/12/2019
 ms.author: rohink
 ms.openlocfilehash: 540c4d6f2dde64cef9b5795d635ac6259bfc69c3
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87985635"
 ---
 # <a name="what-is-azure-private-dns"></a>Co to jest prywatna strefa DNS platformy Azure?
@@ -64,7 +64,7 @@ Azure DNS ma następujące ograniczenia:
 * Zwrotny serwer DNS dla prywatnego adresu IP dla połączonej sieci wirtualnej zwraca *Internal.cloudapp.NET* jako domyślny sufiks dla maszyny wirtualnej. W przypadku sieci wirtualnych, które są połączone ze strefą prywatną z włączoną funkcją autorejestracji, odwrotny serwer DNS dla prywatnego adresu IP zwraca dwie nazwy FQDN: jeden z domyślną sufiks *Internal.cloudapp.NET* i drugi z sufiksem strefy prywatnej.
 * Warunkowe przekazywanie nie jest obecnie obsługiwane natywnie. Aby włączyć rozwiązanie między platformą Azure i sieciami lokalnymi, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
  
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 

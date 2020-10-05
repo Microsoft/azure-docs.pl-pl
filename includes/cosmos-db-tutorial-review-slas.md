@@ -6,10 +6,10 @@ ms.date: 03/22/2019
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: a8162afadb5a7d327804d7202b29ca0dccf275c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "71210300"
 ---
 Azure Portal monitoruje przepływność, magazyn, dostępność, opóźnienia i spójność konta Cosmos DB. Wykresy dla metryk skojarzonych z [Umowa dotycząca poziomu usług Azure Cosmos dB (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) pokazują wartość SLA w porównaniu z rzeczywistą wydajnością. Ten pakiet metryk pozwala monitorować umowy SLA przezroczyste.

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83727136"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C (wersja zapoznawcza)
@@ -120,7 +120,7 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
       cmake --build . -- /m /p:Configuration=Release
       ```
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -199,7 +199,7 @@ Ta sekcja umożliwia ustanowienie kompleksowego strumienia do tunelowania ruchu 
 Zgodnie z opisem w sekcji "jak działa", ustanowienie kompleksowego strumienia do tunelowania ruchu SSH wymaga lokalnego serwera proxy na każdym końcu (zarówno usługi, jak i urządzenia). W publicznej wersji zapoznawczej zestaw SDK IoT Hub C obsługuje strumienie urządzeń tylko po stronie urządzenia. Aby skompilować i uruchomić lokalny serwer proxy usługi, postępuj zgodnie z instrukcjami w jednym z następujących przewodników szybki start:
 
    * [Strumienie urządzeń SSH/RDP przez IoT Hub przy użyciu aplikacji serwera proxy języka C#](./quickstart-device-streams-proxy-csharp.md)
-   * [Strumienie urządzeń SSH/RDP przez IoT Hub przy użyciu aplikacji serwera proxy platformy Node. js](./quickstart-device-streams-proxy-nodejs.md)
+   * [Strumienie urządzeń SSH/RDP przez IoT Hub przy użyciu Node.js aplikacji serwera proxy](./quickstart-device-streams-proxy-nodejs.md)
 
 ### <a name="establish-an-ssh-session"></a>Tworzenie sesji SSH
 

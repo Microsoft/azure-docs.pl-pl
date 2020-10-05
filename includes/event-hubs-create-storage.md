@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,20 +9,20 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "75692552"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Tworzenie konta magazynu dla hosta procesora zdarzeń
 Host procesora zdarzeń to inteligentny agent, który upraszcza odbieranie zdarzeń z usługi Event Hubs przez zarządzanie trwałymi punktami kontrolnymi i równoległymi odbiorami. W przypadku obsługi punktów kontrolnych host procesora zdarzeń wymaga konta magazynu. Poniższy przykład pokazuje, jak utworzyć konto magazynu oraz uzyskać jego klucze na potrzeby dostępu:
 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
 
     ![Utwórz element menu zasobu, Microsoft Azure Portal](./media/event-hubs-create-storage/create-resource.png)
 
-2. Wybierz **Storage**pozycję  >  **konto magazynu**magazynu.
+2. Wybierz pozycję **Magazyn** > **Konto magazynu**.
    
     ![Wybierz pozycję konto magazynu, Microsoft Azure Portal](./media/event-hubs-create-storage/select-storage-account.png)
 
@@ -32,7 +32,7 @@ Host procesora zdarzeń to inteligentny agent, który upraszcza odbieranie zdarz
    2. Wybierz **subskrypcję** platformy Azure, która zawiera centrum zdarzeń.
    3. Wybierz lub Utwórz **grupę zasobów** , w której znajduje się centrum zdarzeń.
    4. Wybierz **lokalizację** , w której chcesz utworzyć zasób. 
-   5. Wybierz pozycję **Przegląd + utwórz**.
+   5. Wybierz pozycję **Przeglądanie + tworzenie**.
    
         ![Przejrzyj + Utwórz, Utwórz konto magazynu, Microsoft Azure Portal](./media/event-hubs-create-storage/review-create.png)
 

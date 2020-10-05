@@ -12,15 +12,15 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873824"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Szybki start: wywoływanie interfejsu API wyszukiwania w sieci Web Bing za pomocą języka PHP  
 
-Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node.js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 
 ## <a name="enable-secure-http-support"></a>Włączanie bezpiecznej obsługi protokołu HTTP
 
-Przed rozpoczęciem należy zlokalizować plik php. ini i usunąć komentarz z tego wiersza:
+Przed rozpoczęciem należy zlokalizować php.ini i usunąć komentarz z tego wiersza:
 
 ```php
 ; extension=php_openssl.dll

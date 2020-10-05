@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84021708"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure Portal
@@ -61,20 +61,20 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
     | Region | Wybierz pozycję **WestCentralUS**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
     | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
-    | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
+    | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Potwierdź hasło | Ponownie wprowadź hasło. |
     | **REGUŁY PORTÓW WEJŚCIOWYCH** |  |
     | Publiczne porty wejściowe | Pozostaw wartość domyślną **Brak**. |
     | **OSZCZĘDZAJ PIENIĄDZE** |  |
-    | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **Nie**. |
+    | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **nie**. |
     |||
 
 1. Wybierz pozycję **Dalej: dyski**.
 
-1. W obszarze **Utwórz maszynę wirtualną**, pozostaw wartości domyślne, a następnie wybierz pozycję **Dalej: sieć**.
+1. W obszarze **Tworzenie maszyny wirtualnej — dyski** pozostaw wartości domyślne i wybierz przycisk **Dalej: Sieć**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
 
@@ -83,15 +83,15 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
     | Sieć wirtualna | Pozostaw wartość domyślną **MyVirtualNetwork**.  |
     | Przestrzeń adresowa | Pozostaw wartość domyślną **10.1.0.0/24**.|
     | Podsieć | Pozostaw domyślną wartość moja **podsieć (10.1.0.0/24)**.|
-    | Publiczny adres IP | Pozostaw wartość domyślną **(nowy) myVm-ip**. |
+    | Publiczny adres IP | Pozostaw wartość domyślną **(New) myVm-IP**. |
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
     | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
     |||
 
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 ## <a name="create-a-logical-sql-server"></a>Tworzenie logicznego serwera SQL
 
@@ -120,9 +120,9 @@ W tej sekcji utworzysz logiczny serwer SQL Server na platformie Azure.
     | Lokalizacja | Wybierz region platformy Azure, w którym chcesz mieć SQL Server. |
     
 7. Wybierz przycisk **OK**. 
-8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
-9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
-10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
+8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
+9. Po wyświetleniu komunikatu Sprawdzanie poprawności zakończone powodzeniem kliknij przycisk **Utwórz**. 
+10. Po wyświetleniu komunikatu Sprawdzanie poprawności zakończone powodzeniem kliknij przycisk Utwórz. 
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
@@ -157,27 +157,27 @@ W tej sekcji utworzysz program SQL Server i dodasz do niego prywatny punkt końc
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**SIECI**| |
+    |**SIEĆ**| |
     | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
     | Podsieć | Wybierz pozycję Moja *podsieć*. |
-    |**PRYWATNA INTEGRACJA Z USŁUGĄ DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz pozycję **tak**. |
-    |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Database. Windows. NET* |
+    |**INTEGRACJA PRYWATNEJ USŁUGI DNS**||
+    |Integruj z prywatną strefą DNS |Wybierz pozycję **Tak**. |
+    |Prywatna strefa DNS |SELECT *(New) privatelink. Database. Windows. NET* |
     |||
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
-2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
+2. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**. 
  
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpit zdalny (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpitu zdalnego (RDP)
 
 
 Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następujący sposób: 
 
-1. Na pasku wyszukiwania portalu wprowadź *myVm*.
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
@@ -188,7 +188,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -198,7 +198,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
-2. Wprowadź polecenie `nslookup myserver.database.windows.net`. 
+2. Wprowadź `nslookup myserver.database.windows.net`. 
 
     Zostanie wyświetlony komunikat podobny do tego:
     ```azurepowershell
@@ -219,7 +219,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
     | Nazwa serwera| Wybierz *MyServer.Database.Windows.NET* |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika, username@servername która jest dostępna podczas tworzenia programu SQL Server. |
     |Hasło |Wprowadź hasło podane podczas tworzenia programu SQL Server. |
-    |Zapamiętaj hasło|Wybierz pozycję **tak**.|
+    |Remember password (Zapamiętaj hasło)|Wybierz pozycję **Tak**.|
     |||
 1. Wybierz pozycję **Połącz**.
 2. Przeglądaj bazy danych z menu po lewej stronie.

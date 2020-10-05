@@ -8,10 +8,10 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88510651"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
@@ -36,16 +36,23 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Sprawdź, czy **rozmiar** jest *Standardowy D2s v3*.
 1. W obszarze **konto administratora**wybierz pozycję **hasło**. Wprowadź nazwę użytkownika i hasło.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta "dyski" zawiera pole "typ szyfrowania" w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
-1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję "Utwórz nowe", Nadaj nowemu kontu nazwę i wybierz pozycję "OK"
+1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK"
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Ekran tworzenia z przetworzeniem zasobów":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
+
+    > [!WARNING]
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    >
+    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
+
+1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK":::
 
 1. Kliknij pozycję "Przejrzyj + Utwórz".
 1. Na stronie **Tworzenie maszyny wirtualnej** wyświetlone są szczegółowe informacje o maszynie wirtualnej, którą masz zamiar utworzyć. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
@@ -59,26 +66,47 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
 1. Na górnym pasku wybierz pozycję **dodatkowe ustawienia** .
 1. W obszarze **Ustawienia szyfrowania**  >  **dyski do zaszyfrowania**wybierz opcję **dyski systemu operacyjnego i danych**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="wybór dysków i szyfrowania":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
+
+    > [!WARNING]
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    >
+    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
+
+1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK":::
 
 1. W obszarze **Ustawienia szyfrowania**wybierz **pozycję Wybierz magazyn kluczy i klucz do szyfrowania**.
 1. Na ekranie **Wybieranie klucza z Azure Key Vault** wybierz pozycję **Utwórz nowy**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="wybór dysków i szyfrowania":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
+
+    > [!WARNING]
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    >
+    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
+
+1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK":::
 
 1. Z lewej strony **magazynu kluczy i klucza**wybierz **pozycję kliknij, aby wybrać klucz**.
 1. Na stronie **Wybierz klucz z Azure Key Vault**w polu **Key Vault** wybierz pozycję **Utwórz nowy**.
 1. Na ekranie **Tworzenie magazynu kluczy** upewnij się, że grupa zasobów jest grupą *zasobów, i*nadaj jej nazwę.  Każdy Magazyn kluczy na platformie Azure musi mieć unikatową nazwę.
 1. Na karcie **zasady dostępu** sprawdź pole **Azure Disk Encryption do szyfrowania woluminów** .
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="wybór dysków i szyfrowania":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.  
+    > [!WARNING]
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    >
+    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
+
+1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK":::
+
+1. Wybierz pozycję **Przeglądanie + tworzenie**.  
 1. Po przekazaniu walidacji magazynu kluczy wybierz pozycję **Utwórz**. Spowoduje to powrót do ekranu **wyboru z Azure Key Vault** .
 1. Pozostaw pole **klucza** puste i wybierz **pozycję Wybierz**.
-1. W górnej części ekranu szyfrowania kliknij przycisk **Zapisz**. W oknie podręcznym zostanie wyświetlone ostrzeżenie o ponownym uruchomieniu maszyny wirtualnej. Kliknij przycisk **tak**.
+1. W górnej części ekranu szyfrowania kliknij przycisk **Zapisz**. W oknie podręcznym zostanie wyświetlone ostrzeżenie o ponownym uruchomieniu maszyny wirtualnej. Kliknij przycisk **Yes** (Tak).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz opcję Usuń, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

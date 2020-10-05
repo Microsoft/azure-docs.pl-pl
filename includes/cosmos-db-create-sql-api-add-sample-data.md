@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "70020170"
 ---
 Teraz możesz dodawać dane do nowego kontenera przy użyciu Eksplorator danych.

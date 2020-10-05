@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318623"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla Node.js za pomocą usługi Azure DevOps Starter

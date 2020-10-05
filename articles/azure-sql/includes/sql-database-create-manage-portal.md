@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
 ms.openlocfilehash: 3cc8e836d39a38f950e15d31aeb3e3acdca45acc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84045494"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Tworzenie zasobów usługi Azure SQL i zarządzanie nimi za pomocą Azure Portal
@@ -32,6 +32,6 @@ Po wybraniu **+ Dodaj**Wyświetl dodatkowe informacje o różnych opcjach, wybie
 Aby uzyskać szczegółowe informacje, zobacz:
 
 - [Tworzenie pojedynczej bazy danych](../database/single-database-create-quickstart.md)
-- [Tworzenie puli elastycznej](../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Tworzenie elastycznej puli](../database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
 - [Tworzenie wystąpienia zarządzanego](../managed-instance/instance-create-quickstart.md)
 - [Tworzenie maszyny wirtualnej SQL](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)

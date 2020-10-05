@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
 ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79499742"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Szybki Start: Zapraszanie użytkowników do Video Indexer
@@ -55,7 +55,7 @@ Użytkownicy nie otrzymają powiadomienia po usunięciu. Po usunięciu użytkown
 
 Możesz teraz korzystać z [witryny sieci web video Indexer](video-indexer-view-edit.md) lub [portalu deweloperów Video Indexer](video-indexer-use-apis.md) , aby zobaczyć szczegółowe informacje o filmie wideo.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Omówienie usługi Video Indexer](video-indexer-overview.md)
 - [jak utworzyć konto i przekazać pierwszy plik wideo](video-indexer-get-started.md)

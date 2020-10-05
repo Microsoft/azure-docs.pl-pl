@@ -14,10 +14,10 @@ ms.date: 08/26/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3c74cceb1f0142a53b8222472d0adad8629a1ebf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90978109"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Szybki Start: Tworzenie profilu Traffic Manager dla aplikacji sieci Web o wysokiej dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -212,7 +212,7 @@ Skopiuj wartość **RelativeDnsName** . Nazwa DNS profilu Traffic Manager to *ht
 3. Skopiuj nazwę DNS profilu Traffic Manager (*http://<* relativednsname *>. trafficmanager.NET*), aby wyświetlić witrynę internetową w nowej sesji przeglądarki sieci Web.
 4. Sprawdź, czy aplikacja internetowa jest nadal dostępna.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy wszystko będzie gotowe, Usuń grupy zasobów, aplikacje sieci Web i wszystkie pokrewne zasoby za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 

@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-js
 ms.date: 06/21/2019
 ms.openlocfilehash: 13baface2bce9e98f08e37b8a16ba1e2b435205a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91281580"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Szybki Start: używanie Node.js do sterowania urządzeniem podłączonym do usługi Azure IoT Hub

@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79371073"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Szybki Start: Kwerenda Apache HBase w usłudze Azure HDInsight przy użyciu powłoki HBase
 
 W tym przewodniku szybki start dowiesz się, jak za pomocą powłoki Apache HBase utworzyć tabelę HBase, wstawić dane, a następnie zbadać tabelę.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/))
 
 Za pomocą protokołu SSH można łączyć się z klastrami HBase, a następnie używać powłoki Apache HBase do tworzenia tabel HBase, wstawiania danych i wykonywania zapytań dotyczących danych.
 
-1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując `CLUSTERNAME` je nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując je `CLUSTERNAME` nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -73,7 +73,7 @@ Za pomocą protokołu SSH można łączyć się z klastrami HBase, a następnie 
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Użyj `scan` polecenia, aby przeskanować `Contacts` i zwrócić dane tabeli. Wprowadź następujące polecenie:
+6. Użyj `scan` polecenia, aby przeskanować i zwrócić `Contacts` dane tabeli. Wprowadź następujące polecenie:
 
     ```hbase
     scan 'Contacts'
@@ -113,7 +113,7 @@ Za pomocą protokołu SSH można łączyć się z klastrami HBase, a następnie 
 
 Aby uzyskać więcej informacji na temat schematu tabeli HBase, zobacz [wprowadzenie do projektu schematu Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Więcej poleceń bazy danych HBase można znaleźć w [Podręczniku bazy danych Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane.
 

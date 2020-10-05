@@ -11,10 +11,10 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88520774"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
@@ -164,7 +164,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć zasoby utworzone w ramach tego przewodnika Szybki Start, w tym konto magazynu, Usuń grupę zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group) . Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 

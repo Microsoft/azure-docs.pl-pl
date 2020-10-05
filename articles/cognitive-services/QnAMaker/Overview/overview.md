@@ -4,10 +4,10 @@ description: QnA Maker to oparta na chmurze usługa NLP, która w prosty sposób
 ms.topic: overview
 ms.date: 05/26/2020
 ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83994871"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Co to jest usługa QnA Maker?

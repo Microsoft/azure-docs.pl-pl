@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
 ms.openlocfilehash: ef0db373dc6faaa470470b8169fdb6ae61aa8dde
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90982735"
 ---
 Użyj biblioteki klienta QnA Maker dla języka Ruby, aby:
@@ -78,15 +78,15 @@ QnA Maker tworzenia klienta jest obiektem [QnAMakerClient](https://github.com/Az
 
 Po utworzeniu klienta Użyj metod właściwości [bazy](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb) wiedzy klienta, aby utworzyć i opublikować bazę wiedzy oraz zarządzać nią.
 
-W przypadku operacji natychmiastowych Metoda zwykle zwraca wynik, jeśli istnieje. W przypadku długotrwałych operacji odpowiedź jest obiektem [operacji](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation.rb) . Wywołaj metodę [Operations. get_details](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/operations.rb#L33) z `operation.operation_id` wartością, aby określić [stan żądania](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation_state_type.rb).
+W przypadku operacji natychmiastowych Metoda zwykle zwraca wynik, jeśli istnieje. W przypadku długotrwałych operacji odpowiedź jest obiektem [operacji](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation.rb) . Wywołaj metodę [Operations.get_details](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/operations.rb#L33) z `operation.operation_id` wartością, aby określić [stan żądania](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation_state_type.rb).
 
 ### <a name="qnamakerruntimeclient-object-model"></a>Model obiektów QnAMakerRuntimeClient
 
 QnA Maker środowiska uruchomieniowego jest obiektem [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/qnamaker_runtime_client.rb) .
 
-Po opublikowaniu bazy wiedzy przy użyciu klienta tworzenia Użyj metody wykonawczej klienta środowiska uruchomieniowego [. generate_answer](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/runtime.rb#L34) , aby uzyskać odpowiedź z bazy wiedzy.
+Po opublikowaniu bazy wiedzy przy użyciu klienta tworzenia Użyj metody [Runtime.generate_answer](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/runtime.rb#L34) klienta środowiska uruchomieniowego, aby uzyskać odpowiedź z bazy wiedzy.
 
-Po wywołaniu `generate_answer` należy przekazać skrót dla `custom_headers` opcjonalnego parametru. Ten skrót powinien zawierać klucz `Authorization` i wartość `EndpointKey YOUR_ENDPOINT_KEY` . Dla wartości YOUR_ENDPOINT_KEY Użyj klienta tworzenia do wywołania [endpoint_keys. get_keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32).
+Po wywołaniu `generate_answer` należy przekazać skrót dla `custom_headers` opcjonalnego parametru. Ten skrót powinien zawierać klucz `Authorization` i wartość `EndpointKey YOUR_ENDPOINT_KEY` . Dla wartości YOUR_ENDPOINT_KEY Użyj klienta tworzenia do wywołania [endpoint_keys. Get _keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32).
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Uwierzytelnianie klienta w celu tworzenia bazy wiedzy
 
@@ -103,7 +103,7 @@ Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://
 * Dla **plików**Użyj obiektu [FileDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/file_dto.rb) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
 * W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
-Wywołaj metodę [Create](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb#L554) , a następnie Przekaż `operation_id` Właściwość zwróconej operacji do metody [Operations. get_details](#get-status-of-an-operation) w celu sondowania stanu.
+Wywołaj metodę [Create](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb#L554) , a następnie Przekaż `operation_id` Właściwość zwróconej operacji do metody [Operations.get_details](#get-status-of-an-operation) w celu sondowania stanu.
 
 Ostatni wiersz poniższego kodu zwraca identyfikator bazy wiedzy.
 
@@ -116,7 +116,7 @@ Bazę wiedzy można zaktualizować, wywołując bazę wiedzy [. Update](https://
 - [update](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/update_kb_operation_dtoupdate.rb)
 - [delete](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/update_kb_operation_dtodelete.rb)
 
-Przekaż `operation_id` Właściwość zwracanej operacji do metody [Operations. get_details](#get-status-of-an-operation) w celu sondowania stanu.
+Przekaż `operation_id` Właściwość zwracanej operacji do metody [Operations.get_details](#get-status-of-an-operation) w celu sondowania stanu.
 
 :::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/qnamaker/sdk/quickstart.rb" id="UpdateKBMethod":::
 
@@ -136,7 +136,7 @@ Opublikuj bazę wiedzy przy użyciu metody [Baza wiedzy. publish](https://github
 
 Po opublikowaniu bazy wiedzy potrzebny jest klucz punktu końcowego środowiska uruchomieniowego, aby wykonać zapytanie o wiedzę. Nie jest to ten sam klucz subskrypcji użyty do utworzenia klienta tworzenia.
 
-Użyj metody [endpoint_keys. get_keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32) , aby uzyskać obiekt [EndpointKeysDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/endpoint_keys_dto.rb) .
+Użyj metody [endpoint_keys. Get _keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32) , aby pobrać obiekt [EndpointKeysDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/endpoint_keys_dto.rb) .
 
 Użyj jednej z właściwości klucza zwracanego w obiekcie, aby wykonać zapytanie dotyczące bazy wiedzy.
 

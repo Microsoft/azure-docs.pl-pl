@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87797495"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
@@ -109,7 +109,7 @@ Teraz możesz wyświetlić członków przypisanych do znalezionej grupy.
 
     ![Lista członków przypisanych do grupy MDM policy – West](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Ta grupa jest używana w kilku procedurach zawartych w **przewodnikach z instrukcjami** w tej dokumentacji. Jeśli jednak nie chcesz używać tej grupy, możesz ją usunąć wraz z przypisanymi członkami, wykonując następujące czynności:
 
 1. Na stronie **Grupy — Wszystkie grupy** znajdź grupę **MDM policy – West**.

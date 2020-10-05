@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88191270"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu utworzenia Service Bus przestrzeni nazw i kolejki
@@ -23,7 +23,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto
 W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchomić po zalogowaniu się do Azure Portal. Aby uzyskać szczegółowe informacje na temat Azure Cloud Shell, zobacz [omówienie Azure Cloud Shell](../cloud-shell/overview.md). Możesz również [zainstalować](/cli/azure/install-azure-cli) i używać Azure PowerShell na komputerze. 
 
 ## <a name="provision-resources"></a>Inicjowanie zasobów
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji. Przełącz się do trybu **bash** , jeśli CloudShell jest w trybie **PowerShell** . 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell uruchamiania":::

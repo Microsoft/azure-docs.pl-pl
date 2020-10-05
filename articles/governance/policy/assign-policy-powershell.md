@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start użyjesz Azure PowerShell, aby utwor
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88548416"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu Azure PowerShell
@@ -93,7 +93,7 @@ ManagementGroupIds          : {managementGroupId}
 
 Wyniki są zgodne z informacjami wyświetlanymi na karcie **zgodność zasobów** w przypisaniu zasad w widoku Azure Portal.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone przypisanie, wykonaj następujące polecenie:
 

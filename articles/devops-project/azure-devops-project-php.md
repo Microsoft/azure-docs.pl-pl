@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233792"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla języka PHP przy użyciu usługi Azure DevOps Starter
@@ -30,7 +30,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz uzyskać ją bezpłatnie za
 
  DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz bezpłatnie utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. Usługa DevOps Projects tworzy również zasoby platformy Azure w wybranej subskrypcji platformy Azure.
 
-1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
+1. Zaloguj się do witryny [Microsoft Azure Portal](https://portal.azure.com).
 
 1. W polu wyszukiwania wpisz **DevOps Starter**, a następnie wybierz opcję. Kliknij przycisk **Dodaj** , aby utworzyć nowy.
 
@@ -84,7 +84,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz uzyskać ją bezpłatnie za
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk **wielokropka** (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie źródeł z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych do wdrożenia.
 
@@ -110,7 +110,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz uzyskać ją bezpłatnie za
 
 1. Po prawej stronie wybierz pozycję **Wyświetl wydania**, aby wyświetlić historię wydań.
 
-1. Wybierz wielokropek (...) obok jednej z wersji, a następnie wybierz pozycję **Otwórz**. W tym widoku jest kilka menu, z którymi możesz się zapoznać, na przykład podsumowanie wersji, skojarzone elementy robocze i testy.
+1. Wybierz wielokropek (...) obok jednej z wersji, a następnie wybierz pozycję  **Otwórz**. W tym widoku jest kilka menu, z którymi możesz się zapoznać, na przykład podsumowanie wersji, skojarzone elementy robocze i testy.
 
 1. Wybierz pozycję **Zatwierdzenia**. Ten widok przedstawia zatwierdzenia kodu skojarzone z konkretnym wdrożeniem. 
 

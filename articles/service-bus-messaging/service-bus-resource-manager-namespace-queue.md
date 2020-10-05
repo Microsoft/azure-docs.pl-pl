@@ -9,10 +9,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88660635"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Szybki Start: tworzenie przestrzeni nazw Service Bus i kolejki przy użyciu szablonu ARM
@@ -50,7 +50,7 @@ Zasoby zdefiniowane w szablonie obejmują:
 
 Możesz znaleźć więcej szablonów na podstawie [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Za pomocą tego szablonu należy wdrożyć przestrzeń nazw Service Bus z kolejką.
 
@@ -70,7 +70,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij następujący przycisk: Utwórz
     ![Grupa zasobów — przestrzeń nazw](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. Wybierz przestrzeń nazw z listy, aby wyświetlić stronę **Service Bus przestrzeni nazw** . 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. W Azure Portal przejdź do strony **grupy zasobów** dla grupy zasobów.
 2. Wybierz pozycję **Usuń grupę zasobów** z paska narzędzi. 

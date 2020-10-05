@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: cognitive-services
 author: roy-har
 manager: diberry
@@ -11,15 +11,15 @@ ms.topic: include
 ms.custom: include file
 ms.author: roy-har
 ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84466799"
 ---
 Utwórz aplikację Pizza.
 
-1. Wybierz pozycję [Pizza-App-for-Luis-V6. JSON](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) , aby wyświetlić stronę usługi GitHub dla tego `pizza-app-for-luis.json` pliku.
+1. Wybierz pozycję [pizza-app-for-luis-v6.js](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) , aby wyświetlić stronę usługi GitHub dla tego `pizza-app-for-luis.json` pliku.
 1. Kliknij prawym przyciskiem myszy lub naciśnij przycisk **RAW** , a następnie wybierz pozycję **Zapisz link jako** , aby zapisać `pizza-app-for-luis.json` na komputerze.
 1. Zaloguj się do [portalu Luis](https://www.luis.ai).
 1. Wybierz pozycję [Moje aplikacje](https://www.luis.ai/applications).
@@ -44,7 +44,7 @@ Na stronie **intencje** powinna zostać wyświetlona lista intencji w aplikacji 
 ## <a name="add-an-authoring-resource-to-the-pizza-app"></a>Dodawanie zasobu tworzenia do aplikacji Pizza
 
 1. Wybierz pozycję **Zarządzaj**.
-1. Wybierz pozycję **zasoby platformy Azure**.
+1. Wybierz pozycję **Azure Resources** (Zasoby platformy Azure).
 1. Wybierz pozycję **zasób tworzenia**.
 1. Wybierz pozycję **Zmień zasób tworzenia**.
 
@@ -65,7 +65,7 @@ Aby znaleźć te wartości:
 
 1. Na stronie **intencje** wybierz pozycję **Zarządzaj**.
 1. Na stronie **Ustawienia aplikacji** Zapisz **Identyfikator aplikacji**.
-1. Wybierz pozycję **zasoby platformy Azure**.
+1. Wybierz pozycję **Azure Resources** (Zasoby platformy Azure).
 1. Wybierz pozycję **zasób tworzenia**.
 1. Na karcie **zasób tworzenia** Zapisz **klucz podstawowy**. Ta wartość jest kluczem tworzenia.
 1. Zapisz **adres URL punktu końcowego**. Ta wartość jest punktem końcowym tworzenia.

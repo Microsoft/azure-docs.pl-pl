@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: urządzenia Kinect, Azure, czujnik, dostęp, Głębokość, zestaw SDK, treść, śledzenie, wspólne, konfiguracja, cuda, NVIDIA
 ms.openlocfilehash: 2cf4c1097730f88fc4bd66c28e1bdddd7fea8640
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277983"
 ---
 # <a name="quickstart-set-up-azure-kinect-body-tracking"></a>Szybki Start: Konfigurowanie śledzenia treści usługi Azure urządzenia Kinect
@@ -38,7 +38,7 @@ Pobierz i Zainstaluj Pakiet redystrybucyjny Visual C++ dla Visual Studio 2015.
 
 Uruchom [Podgląd usługi Azure urządzenia Kinect](azure-kinect-viewer.md) , aby sprawdzić, czy usługa Azure urządzenia Kinect DK została prawidłowo skonfigurowana.
 
-## <a name="download-the-body-tracking-sdk"></a>Pobierz zestaw SDK śledzenia treści
+## <a name="download-the-body-tracking-sdk"></a>Pobieranie zestawu Body Tracking SDK
  
 1. Wybierz link, aby [pobrać zestaw SDK śledzenia treści](body-sdk-download.md)
 2. Zainstaluj zestaw SDK śledzenia treści na komputerze.
@@ -47,7 +47,7 @@ Uruchom [Podgląd usługi Azure urządzenia Kinect](azure-kinect-viewer.md) , ab
 
 Uruchom **Podgląd śledzenia treści usługi Azure urządzenia Kinect** , aby sprawdzić, czy zestaw SDK śledzenia treści został prawidłowo skonfigurowany. Przeglądarka jest instalowana z instalatorem Instalatora MSI SDK. Można go znaleźć w menu Start lub w `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe` .
 
-Jeśli nie masz wystarczającej ilości procesora GPU i nadal chcesz przetestować wynik, możesz uruchomić **Podgląd śledzenia treści usługi Azure urządzenia Kinect** w wierszu polecenia za pomocą następującego polecenia:`<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
+Jeśli nie masz wystarczającej ilości procesora GPU i nadal chcesz przetestować wynik, możesz uruchomić **Podgląd śledzenia treści usługi Azure urządzenia Kinect** w wierszu polecenia za pomocą następującego polecenia: `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
 
 Jeśli wszystko jest prawidłowo skonfigurowane, powinno zostać wyświetlone okno z chmurą punktu 3W i śledzonymi treściami.
 
@@ -61,5 +61,5 @@ Przykłady dotyczące korzystania z zestawu SDK śledzenia treści można znale�
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Tworzenie pierwszej aplikacji do śledzenia treści](build-first-body-app.md)
+>[Tworzenie pierwszej aplikacji śledzącej ciało](build-first-body-app.md)
 

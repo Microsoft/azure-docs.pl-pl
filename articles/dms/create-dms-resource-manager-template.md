@@ -8,10 +8,10 @@ ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
 ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88661184"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Szybki Start: Tworzenie wystąpienia Azure Database Migration Service przy użyciu szablonu ARM
@@ -64,7 +64,7 @@ Więcej szablonów usług Azure Database Migration Services można znaleźć w [
 
 
 
-3. Wybierz pozycję **Przejrzyj i utwórz**. Po pomyślnym wdrożeniu wystąpienia Azure Database Migration Service otrzymasz powiadomienie. 
+3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu wystąpienia Azure Database Migration Service otrzymasz powiadomienie. 
 
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
@@ -81,7 +81,7 @@ az resource list --resource-group $resourcegroupName
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli grupa zasobów nie jest już konieczna, usuń ją za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 

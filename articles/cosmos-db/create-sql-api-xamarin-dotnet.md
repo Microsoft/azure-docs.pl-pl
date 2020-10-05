@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91319048"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji do zrobienia za pomocą platformy Xamarin przy użyciu Azure Cosmos DB konta interfejsu API SQL
@@ -91,7 +91,7 @@ Wróć do witryny Azure Portal, aby uzyskać informacje o kluczach interfejsu AP
 
 1. W witrynie [Azure Portal](https://portal.azure.com/), korzystając ze swojego konta interfejsu API SQL usługi Azure Cosmos DB, kliknij na lewym panelu nawigacyjnym pozycję **Klucze**, a następnie pozycję **Klucze odczytu i zapisu**. W następnym kroku, korzystając z przycisków kopiowania dostępnych po prawej stronie ekranu, skopiujesz identyfikator URI i klucz podstawowy do pliku APIKeys.cs.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, blok Klucze":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 2. W programie Visual Studio 2019 lub Visual Studio dla komputerów Mac otwórz plik APIKeys.cs w folderze Azure-Cosmos-DB-SQL-Xamarin-Getting-Started/src/ToDoItems. Core/Pomocnicys.
 
@@ -109,7 +109,7 @@ Wróć do witryny Azure Portal, aby uzyskać informacje o kluczach interfejsu AP
 
 To rozwiązanie przedstawia sposób tworzenia aplikacji z listą zadań do wykonania przy użyciu interfejsu API SQL usługi Azure Cosmos DB i platformy Xamarin.Forms. Aplikacja ma dwie karty. Na pierwszej z nich jest widok listy zadań, które nie zostały jeszcze wykonane. Na drugiej karcie są wyświetlane zadania, które zostały już wykonane. Oprócz wyświetlania na pierwszej karcie zadań, które nie zostały jeszcze wykonane, można również dodawać nowe zadania do wykonania, edytować istniejące zadania i oznaczać zadania jako wykonane.
 
-:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Kopiowanie danych json i klikanie pozycji Zapisz w Eksploratorze danych w witrynie Azure Portal":::
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 Kod w rozwiązaniu ToDoItems zawiera następujące elementy:
 
@@ -172,27 +172,27 @@ W poniższych krokach zademonstrowano sposób uruchamiania aplikacji przy użyci
 
 1. Najpierw wybierz platformę docelową, klikając wyróżnioną listę rozwijaną i wybierając pozycję ToDoItems.iOS dla systemu iOS lub pozycję ToDoItems.Android dla systemu Android.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Wybieranie platformy do debugowania w programie Visual Studio dla komputerów Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 2. Aby rozpocząć debugowanie aplikacji, naciśnij klawisze cmd+Enter lub kliknij przycisk odtwarzania.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Uruchamianie na potrzeby debugowania w programie Visual Studio dla komputerów Mac":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 3. Po uruchomieniu symulatora systemu iOS lub emulatora systemu Android w aplikacji zostaną wyświetlone 2 karty u dołu ekranu (w przypadku systemu iOS) lub w górnej części ekranu (w przypadku systemu Android). Na pierwszej karcie są wyświetlane zadania do wykonania, a na drugiej zadania już wykonane.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Ekran z uruchomioną aplikacją z listą zadań do wykonania":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 4. Aby oznaczyć zadanie jako wykonane w systemie iOS, przesuń zadanie w lewą stronę i naciśnij przycisk **Complete** (Wykonane). Aby oznaczyć zadanie jako wykonane w systemie Android, naciśnij je i przytrzymaj, a następnie naciśnij przycisk Complete (Wykonane).
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Oznaczanie zadania jako wykonane":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 5. Aby edytować zadanie do wykonania, naciśnij je. Zostanie wyświetlony nowy ekran umożliwiający wprowadzenie nowych wartości. Po naciśnięciu przycisku zapisywania zmiany zostaną utrwalone w usłudze Azure Cosmos DB.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Edytowanie zadania do wykonania":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 6. Aby dodać zadanie do wykonania, naciśnij przycisk **Add** (Dodaj) w prawym górnym rogu ekranu głównego. Zostanie wyświetlona nowa pusta strona edycji.
 
-    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Dodawanie zadania do wykonania":::
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Aplikacji Xamarin z listą zadań do wykonania działająca w systemie iOS":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 

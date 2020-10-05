@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
 ms.openlocfilehash: 4d299c97064e2c6e5054e5303d85d47ca60f9566
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835140"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Szybki Start: Wyodrębnianie wydruku tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i środowiska Java

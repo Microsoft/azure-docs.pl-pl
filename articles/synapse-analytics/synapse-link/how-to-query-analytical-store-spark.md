@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91287733"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link (wersja zapoznawcza)
@@ -35,11 +35,11 @@ Przed zapoznaj się z dwoma możliwymi opcjami wykonywania zapytań dotyczących
 
 Różnica w działaniu polega na tym, czy zmiany danych źródłowych w kontenerze Azure Cosmos DB powinny być automatycznie odzwierciedlane w analizie wykonywanej na platformie Spark. Gdy jest zarejestrowana ramka Dataframe lub tworzona jest tabela Spark dla magazynu analitycznego kontenera, metadane dotyczące bieżącej migawki danych w magazynie analitycznym są pobierane do platformy Spark w celu wydajnego przekazywania kolejnej analizy. Należy pamiętać, że ponieważ platforma Spark korzysta z zasad oceny z opóźnieniem, chyba że akcja jest wywoływana w ramce Dataframe lub SparkSQL zapytanie jest wykonywane względem tabeli Spark, rzeczywiste dane nie są pobierane z magazynu analitycznego kontenera źródłowego.
 
-W przypadku **ładowania do programu Spark Dataframe**pobrane metadane są buforowane przez okres istnienia sesji Spark, a tym samym kolejne akcje wywołane w ramce Dataframe są oceniane względem migawki magazynu analitycznego w momencie tworzenia ramki danych.
+W przypadku **ładowania do ramki danych Spark** pobrane metadane są buforowane przez okres istnienia sesji Spark. Tym samym kolejne akcje wywoływane dla ramki danych są oceniane względem migawki magazynu analitycznego z czasu utworzenia ramki danych.
 
-Z drugiej strony, w przypadku **tworzenia tabeli Spark**, metadane stanu magazynu analitycznego nie są buforowane w usłudze Spark i są ponownie ładowane na każdym SparkSQL wykonywania zapytań względem tabeli Spark.
+Z drugiej strony w przypadku **utworzenia tabeli Spark** metadane stanu magazynu analitycznego nie są buforowane na platformie Spark i są ponownie ładowane przy każdym wykonaniu zapytania SparkSQL względem tabeli Spark.
 
-W ten sposób można wybrać między ładowaniem do programu Spark Dataframe i utworzeniem tabeli Spark w oparciu o to, czy analiza platformy Spark ma być oceniana względem stałej migawki magazynu analitycznego, czy też do najnowszej migawki magazynu analitycznego.
+W związku z tym możesz wybrać między ładowaniem do ramki danych Spark i utworzeniem tabeli Spark w zależności od tego, czy analiza platformy Spark ma być oceniana względem, odpowiednio, stałej migawki magazynu analitycznego, czy najnowszej migawki magazynu analitycznego.
 
 > [!NOTE]
 > Aby wykonać zapytanie dotyczące Azure Cosmos DBgo interfejsu API kont usługi Mongo DB, Dowiedz się więcej o [pełnej reprezentacji schematu](../../cosmos-db/analytical-store-introduction.md#analytical-schema) w magazynie analitycznym i nazwach właściwości rozszerzonych, które mają być używane.
@@ -86,7 +86,7 @@ create table call_center using cosmos.olap options (
 ```
 
 > [!NOTE]
-> Jeśli masz scenariusze, w których schemat bazowego Azure Cosmos DB kontener zmienia się w czasie; a jeśli chcesz, aby zaktualizowany schemat automatycznie odzwierciedlał zapytania względem tabeli Spark, możesz to zrobić, ustawiając opcję na w opcjach `spark.cosmos.autoSchemaMerge` `true` tabeli Spark.
+> W scenariuszach, w których schemat podstawowego kontenera usługi Azure Cosmos DB zmienia się i chcesz, aby zaktualizowany schemat był automatycznie odzwierciedlany w zapytaniach względem tabeli Spark, możesz w tym celu ustawić opcję `spark.cosmos.autoSchemaMerge` na wartość `true` w opcjach tabeli Spark.
 
 
 ## <a name="write-spark-dataframe-to-azure-cosmos-db-container"></a>Zapisz ramkę danych Spark w kontenerze Azure Cosmos DB

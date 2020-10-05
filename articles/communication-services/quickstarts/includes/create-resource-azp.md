@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947660"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -23,11 +23,11 @@ Aby utworzyć zasób usługi Azure Communications Services, najpierw Zaloguj si�
 
 Wprowadź wartość **komunikacja** na stronie **Wyszukaj w witrynie Marketplace** lub na pasku wyszukiwania w górnej części portalu.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie usług komunikacyjnych na pasku wyszukiwania.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Zrzut ekranu z wyróżnionym przyciskiem Utwórz zasób w Azure Portal.":::
 
 W wynikach wybierz pozycję **usługi komunikacyjne** , a następnie wybierz pozycję **Dodaj**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Zrzut ekranu przedstawiający panel platformy Azure z wyróżnionym przyciskiem Dodaj.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Zrzut ekranu z wyróżnionym przyciskiem Utwórz zasób w Azure Portal.":::
 
 Teraz możesz skonfigurować zasób usług komunikacyjnych. Na pierwszej stronie w procesie tworzenia zostanie wyświetlony monit o określenie:
 

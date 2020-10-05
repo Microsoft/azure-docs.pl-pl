@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91306467"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Co to jest usługa Azure AD Identity Governance?
@@ -74,7 +74,7 @@ W przeszłości dostęp uprzywilejowany został opisany przez innych dostawców 
 
 Oprócz funkcji wymienionych powyżej, dodatkowe funkcje usługi Azure AD często używane do zapewniania scenariuszy zarządzania tożsamościami obejmują:
 
-| Możliwość | Scenariusz |Cechy
+| Możliwość | Scenariusz |Cecha
 | ------- | --------------------- |-----|
 |Cykl życia tożsamości (pracownicy)|Administratorzy mogą włączyć Inicjowanie obsługi konta użytkownika z poziomu produktu Workday lub SuccessFactors Cloud HR lub lokalnej KADRy.|[Inicjowanie obsługi administracyjnej użytkowników w chmurze w usłudze Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
 |Cykl życia tożsamości (Goście)|Administratorzy mogą włączyć dołączenie do samoobsługowego użytkownika-gościa z innej dzierżawy usługi Azure AD, Federacji bezpośredniej, jednorazowego kodu dostępu (OTP) lub kont Google.  Użytkownicy-Goście są automatycznie obsługiwani i cofają aprowizacji z uwzględnieniem zasad cyklu życia.|[Zarządzanie prawami](entitlement-management-overview.md) przy użyciu [B2B](../external-identities/what-is-b2b.md)|
@@ -106,7 +106,7 @@ Chociaż nie ma doskonałego rozwiązania lub rekomendacji dla każdego klienta,
 
 Najlepszym rozwiązaniem jest użycie roli najniższych uprawnień do wykonywania zadań administracyjnych w ramach nadzoru tożsamości. Zalecamy użycie usługi Azure AD PIM do uaktywnienia roli w razie potrzeby w celu wykonania tych zadań. Poniżej wymieniono najmniej uprzywilejowane role katalogu w celu skonfigurowania funkcji zarządzania tożsamościami:
 
-| Cechy | Najmniejsza rola uprzywilejowana |
+| Cecha | Najmniejsza rola uprzywilejowana |
 | ------- | --------------------- |
 | Zarządzanie upoważnieniami | Administrator użytkowników (z wyjątkiem dodawania witryn usługi SharePoint Online do wykazów, które wymagają administratora globalnego) |
 | Przeglądy dostępu | Administrator użytkowników (z wyjątkiem przeglądów dostępu dotyczących ról platformy Azure lub usługi Azure AD, które wymagają uprzywilejowanego administratora roli) |

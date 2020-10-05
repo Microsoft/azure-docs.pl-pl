@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js
 ms.openlocfilehash: 8b773c714825d483f2c9239daee422ce353d16bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91324755"
 ---
 # <a name="recognize-speech-stored-in-blob-storage"></a>Rozpoznawanie mowy przechowywanej w usłudze Blob Storage

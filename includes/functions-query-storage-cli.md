@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
 ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "77474282"
 ---
 ### <a name="query-the-storage-queue"></a>Wykonywanie zapytań względem kolejki magazynu
@@ -19,9 +19,9 @@ Możesz użyć [`az storage queue list`](/cli/azure/storage/queue#az-storage-que
 az storage queue list --output tsv
 ```
 
-Dane wyjściowe tego polecenia obejmują kolejkę o nazwie `outqueue`, która jest kolejką utworzoną podczas uruchamiania funkcji.
+Dane wyjściowe tego polecenia obejmują kolejkę o nazwie `outqueue` , która jest kolejką utworzoną podczas uruchamiania funkcji.
 
-Następnie użyj [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) polecenia, aby wyświetlić komunikaty w tej kolejce, jak w tym przykładzie:
+Następnie użyj polecenia, [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) Aby wyświetlić komunikaty w tej kolejce, jak w tym przykładzie:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

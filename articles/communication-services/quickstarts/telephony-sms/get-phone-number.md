@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91298120"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
@@ -37,13 +37,13 @@ Aby rozpocząć Inicjowanie obsługi numerów, przejdź do zasobu usług komunik
 
 Przejdź do bloku numery telefonów w menu zasób.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Zrzut ekranu przedstawiający stronę telefonu zasobu usług komunikacyjnych.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 Naciśnij `Get` przycisk, aby uruchomić kreatora. Kreator w `Phone numbers` bloku przeprowadzi Cię przez szereg pytań, które ułatwiają wybranie numeru telefonu, który najlepiej pasuje do Twojego scenariusza. 
 
 Najpierw musisz wybrać lokalizację, w `Country/region` której chcesz zainicjować obsługę administracyjną numeru telefonu. Po wybraniu kraju/regionu będziesz musiał wybrać, które najlepiej odpowiadają `phone plan` Twoim potrzebom. 
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Zrzut ekranu przedstawiający widok pobieranie numerów telefonów.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 ### <a name="select-a-phone-plan"></a>Wybierz plan telefonu
 
@@ -60,13 +60,13 @@ Oferujemy obecnie dwa typy liczb: `Geographic` , i `Toll-free` . Po wybraniu typ
 
 W naszym przykładzie wybrano `Toll-free` typ numeru z `Outbound calling` planem.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Zrzut ekranu przedstawiający Widok wybierz plany.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 ### <a name="declare-purpose"></a>Zadeklaruj cel
 
 Następnie Kreator wyświetli zapytanie w celu użycia liczby. Firma Microsoft zbiera te informacje w celu zastosowania odpowiednich przepisów podatkowych i regulacji dotyczących wywołań awaryjnych.
 
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Zrzut ekranu przedstawiający wybór bot lub ludzi w procesie pozyskiwania numeru telefonu.":::
+:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 W tym miejscu kliknij `Next: Numbers` przycisk w dolnej części strony, aby dostosować numery telefonów, które chcesz udostępnić.
 
@@ -74,14 +74,14 @@ W tym miejscu kliknij `Next: Numbers` przycisk w dolnej części strony, aby dos
 
 Na `Numbers` stronie zostaną dostosowane numery telefonów, które chcesz udostępnić.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Zrzut ekranu przedstawiający stronę wybór liczb.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 > [!NOTE]
 > Ten przewodnik Szybki Start przedstawia `Toll-free` przepływ dostosowania typu liczby. Środowisko może być nieco inne, jeśli wybrano `Geographic` typ Number, ale wynik końcowy będzie taki sam.
 
 Wybierz `Area code` z listy dostępnych kodów obszaru i wprowadź liczbę, którą chcesz udostępnić, a następnie kliknij, `Search` Aby znaleźć numery spełniające wybrane wymagania. Numery telefonów, które spełniają Twoje wymagania, będą wyświetlane wraz z miesięcznymi kosztami.
 
-:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę wybór liczb z zastrzeżonymi numerami.":::
+:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 > [!NOTE]
 > Dostępność zależy od typu liczby, lokalizacji i wybranego planu.
@@ -98,7 +98,7 @@ Na stronie Podsumowanie zostanie zastosowany numer telefonu, funkcje, numery tel
 
 Na koniec kliknij przycisk `Place order` w dolnej części strony, aby potwierdzić.
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Zrzut ekranu przedstawiający stronę Podsumowanie z widocznym typem numeru, funkcjami, numerami telefonów i łącznym kosztem miesięcznym.":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Znajdź numery telefonów na Azure Portal
 
@@ -108,7 +108,7 @@ Przejdź do zasobu komunikacyjnego platformy Azure na [Azure Portal](https://por
 
 Wybierz kartę numery telefonów w menu, aby zarządzać numerami telefonów.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Zrzut ekranu przedstawiający stronę numeru telefonu zasobu usług komunikacyjnych.":::
+:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 > [!NOTE]
 > Wyświetlanie numerów aprowizacji na tej stronie może potrwać kilka minut.

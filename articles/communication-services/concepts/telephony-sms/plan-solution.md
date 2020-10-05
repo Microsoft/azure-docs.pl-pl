@@ -10,13 +10,13 @@ ms.date: 06/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 39f88ab8b735438f60d8e20513ea5cbda43d41ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947410"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Planowanie rozwiązania do zarządzania telefonami i programem SMS
+# <a name="plan-your-telephony-and-sms-solution"></a>Planowanie rozwiązania do obsługi telefonii i wiadomości SMS
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -42,7 +42,7 @@ Usługi komunikacyjne platformy Azure zapewniają doskonałą elastyczność dla
 
 Dostępne plany zależą od typu kraju i numeru telefonu, w którym pracujesz. Poniższy diagram przedstawia przepływ decyzji: dostępne plany zależą od typu kraju i numeru telefonu, w którym pracujesz.
 
-<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
+<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Diagram przedstawiający sposób podejmowania decyzji dotyczących numerów telefonów."::: -->
 
 Przed wybraniem typu numeru telefonu zapoznaj się z międzynarodowym planem numerowania numerów telefonów.
 
@@ -67,19 +67,19 @@ Poniżej przedstawiono kilka przykładów, które pomogą lepiej zrozumieć plan
 
 Regionalny numer telefonu w Stanach Zjednoczonych:
 
-:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Przykład numeru telefonu regionalnego w Stanach Zjednoczonych":::
+:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Diagram przedstawiający sposób podejmowania decyzji dotyczących numerów telefonów.":::
 
 Regionalny numer telefonu w Kanadzie:
 
-:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Przykład regionalnego numeru telefonu w Kanadzie":::
+:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Diagram przedstawiający sposób podejmowania decyzji dotyczących numerów telefonów.":::
 
 Numer bezpłatny w Ameryka Północna regionie:
 
-:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Przykład numeru bezpłatnego w Ameryka Północna":::
+:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Diagram przedstawiający sposób podejmowania decyzji dotyczących numerów telefonów.":::
 
 Numer telefonu komórkowego w Wielkiej Brytanii:
 
-:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Przykład numeru telefonu komórkowego w Wielkiej Brytanii":::
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Diagram przedstawiający sposób podejmowania decyzji dotyczących numerów telefonów.":::
 
 Następnie Przejrzyjmy określone typy numerów telefonów dostępne w usłudze Azure Communications Services.
 
@@ -112,6 +112,6 @@ Przyjrzyjmy się możliwościom, które można włączyć dla numerów telefonó
 
 ### <a name="conceptual-documentation"></a>Dokumentacja dotycząca pojęć
 
-- [Koncepcje głosowe i wideo](../voice-video-calling/about-call-types.md)
+- [Pojęcia dotyczące głosu i wideo](../voice-video-calling/about-call-types.md)
 - [Przepływy wywołań i przepływy SMS](../call-flows.md)
 - [Cennik](../pricing.md)

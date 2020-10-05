@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91288226"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
@@ -107,7 +107,7 @@ Aby wyświetlić bieżące ustawienie jednostek dwu:
 
 1. Otwórz Eksplorator obiektów SQL Server w programie Visual Studio.
 2. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL.
-3. Wybierz opcję z dynamicznego widoku zarządzania sys. database_service_objectives. Oto przykład:
+3. Wybierz z sys.database_service_objectives dynamiczny widok zarządzania. Oto przykład:
 
 ```sql
 SELECT  db.name [Database]

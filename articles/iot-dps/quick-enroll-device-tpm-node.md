@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 184fb4bbf8845b749459e1963bed3c6d9fa64856
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91323849"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Szybki Start: rejestrowanie urządzenia TPM w celu IoT Hub Device Provisioning Service przy użyciu zestawu SDK usługi Node.js

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947474"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Szybki Start: tworzenie dedykowanego klastra Azure Stream Analytics przy użyciu Azure Portal
@@ -41,7 +41,7 @@ W tej sekcji utworzysz zasób klastra Stream Analytics.
    |Subskrypcja|Nazwa subskrypcji|Wybierz subskrypcję platformy Azure, która ma być używana dla tego klastra Stream Analytics. |
    |Grupa zasobów|Nazwa grupy zasobów|Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową**, a następnie wprowadź unikatową nazwę nowej grupy zasobów. |
    |Nazwa klastra|Unikatowa nazwa|Wprowadź nazwę identyfikującą klaster Stream Analytics.|
-   |Location|Region znajdujący się najbliżej źródeł danych i ujścia|Wybierz lokalizację geograficzną, aby hostować klaster Stream Analytics. Użyj lokalizacji znajdującej się najbliżej źródeł danych i ujściach w celu analizy małych opóźnień.|
+   |Lokalizacja|Region znajdujący się najbliżej źródeł danych i ujścia|Wybierz lokalizację geograficzną, aby hostować klaster Stream Analytics. Użyj lokalizacji znajdującej się najbliżej źródeł danych i ujściach w celu analizy małych opóźnień.|
    |Pojemność jednostki przesyłania strumieniowego|36 do 216 |Określ rozmiar klastra, szacując, ile zadania Stream Analytics planowane do uruchomienia, i łącznej liczby wymaganych zadań programu SUs. Możesz zacząć od 36 usług SUs i później skalować w górę lub w dół odpowiednio do potrzeb.|
 
    ![Tworzenie klastra](./media/create-cluster/create-cluster.png)

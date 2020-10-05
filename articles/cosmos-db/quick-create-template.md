@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85483299"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Szybki Start: Tworzenie Azure Cosmos DB i kontenera przy użyciu szablonu ARM
@@ -21,9 +21,9 @@ Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Subskrypcja platformy Azure lub bezpłatne Azure Cosmos DB konto wersji próbnej
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -57,7 +57,7 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
 2. Wybierz lub wprowadź następujące wartości.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Szablon ARM, integracja Azure Cosmos DB, wdrażanie portalu":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Wdrażanie na platformie Azure":::
 
     O ile nie zostanie on określony, użyj wartości domyślnych, aby utworzyć zasoby usługi Azure Cosmos.
 
@@ -78,7 +78,7 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu konta usługi Azure Cosmos otrzymasz powiadomienie:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Szablon ARM, integracja Cosmos DB, wdrażanie powiadomienia portalu":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Wdrażanie na platformie Azure":::
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
 

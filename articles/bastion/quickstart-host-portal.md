@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
 ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90985585"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Szybki Start: Nawiązywanie połączenia z maszyną wirtualną przy użyciu prywatnego adresu IP i usługi Azure bastionu
@@ -77,7 +77,7 @@ Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz
 
    ![Połączenie RDP](./media/quickstart-host-portal/443-rdp.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy skończysz korzystać z sieci wirtualnej i maszyn wirtualnych, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

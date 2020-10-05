@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
 ms.date: 09/16/2020
 ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91292765"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Szybki Start: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu ARM

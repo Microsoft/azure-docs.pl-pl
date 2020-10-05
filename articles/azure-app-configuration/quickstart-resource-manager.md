@@ -10,10 +10,10 @@ ms.custom:
 - mvc
 - subject-armqs
 ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88661473"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Szybki Start: Automatyczne wdrażanie maszyn wirtualnych z konfiguracją aplikacji i szablonem Menedżer zasobów (szablon ARM)
@@ -61,7 +61,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
     - **Lokalizacja**: Określ lokalizację magazynu konfiguracji aplikacji.  Użyj wartości domyślnej.
     - **Nazwa jednostki SKU**: Określ nazwę jednostki SKU magazynu konfiguracji aplikacji. Użyj wartości domyślnej.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Sprawdź, czy strona zawiera **Zakończono walidację**, a następnie wybierz pozycję **Utwórz**.
 
 Zanotuj nazwę grupy zasobów i nazwę magazynu konfiguracji aplikacji.  Te wartości są wymagane podczas wdrażania maszyny wirtualnej
@@ -108,7 +108,7 @@ Teraz, po dodaniu klucza — wartości do magazynu, możesz przystąpić do wdro
     - **Klucz jednostki SKU maszyny wirtualnej**: Określ **windowsOsVersion**.  Jest to nazwa wartości klucza dodanej do sklepu.
     - **Klucz rozmiaru dysku**: Określ **diskSizeGB**. Jest to nazwa wartości klucza dodanej do sklepu.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Sprawdź, czy strona zawiera **Zakończono walidację**, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
@@ -117,7 +117,7 @@ Teraz, po dodaniu klucza — wartości do magazynu, możesz przystąpić do wdro
 1. Z menu po lewej stronie wybierz pozycję **Przegląd** i sprawdź, czy **jednostka SKU** to **2019 — centrum**danych.
 1. Z menu po lewej stronie wybierz pozycję **dyski** , a następnie sprawdź, czy rozmiar dysku danych to **2013**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, magazyn konfiguracji aplikacji, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Jeśli planujesz używać magazynu konfiguracji aplikacji lub maszyny wirtualnej w przyszłości, możesz pominąć usuwanie. Jeśli nie planujesz używania tego zadania w przyszłości, usuń wszystkie zasoby utworzone w ramach tego przewodnika Szybki start, uruchamiając następujące polecenie cmdlet:
 

@@ -9,10 +9,10 @@ ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
 ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649673"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu ARM
@@ -60,12 +60,12 @@ W szablonie zdefiniowano kilka zasobów:
     - **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
     - **Lokalizacja**: wybierz lokalizację.  Na przykład **Środkowe stany USA**.
     - **Nazwa użytkownika administratora**: Podaj nazwę użytkownika, taką jak *azureuser*.
-    - **Hasło administratora**: Podaj hasło do użycia dla konta administratora. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Hasło administratora**: Podaj hasło do użycia dla konta administratora. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Prefiks etykiety DNS**: wprowadź unikatowy identyfikator, który ma być używany jako część etykiety DNS.
     - **Wersja systemu operacyjnego Windows**: Wybierz wersję systemu Windows, która ma być uruchamiana na maszynie wirtualnej.
     - **Rozmiar maszyny wirtualnej**: Wybierz [rozmiar](../sizes.md) , który ma być używany przez maszynę wirtualną.
     - **Lokalizacja**: domyślnie jest to ta sama lokalizacja, w której znajduje się grupa zasobów, jeśli już istnieje.
-1. Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć i wdrożyć maszynę wirtualną.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć i wdrożyć maszynę wirtualną.
 
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
@@ -75,7 +75,7 @@ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal mo�
 Za pomocą Azure Portal można sprawdzić maszynę wirtualną i inne utworzone zasoby. Po zakończeniu wdrażania wybierz pozycję **Przejdź do grupy zasobów** , aby wyświetlić maszynę wirtualną i inne zasoby.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po usunięciu grupy zasobów, która usunie maszynę wirtualną i wszystkie zasoby w grupie zasobów, nie są już potrzebne. 
 

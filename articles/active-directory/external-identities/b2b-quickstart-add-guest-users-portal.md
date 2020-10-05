@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12f134a11b6d0a561a8b53156c927906afe2874a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87906087"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Szybki start: Dodawanie użytkowników-gości do katalogu w witrynie Azure Portal
@@ -84,7 +84,7 @@ Teraz zaloguj się jako użytkownik-gość, aby zobaczyć zaproszenie.
 
 4. Wybierz pozycję **Zaakceptuj**. Zostanie otwarty Panel dostępu zawierający listę aplikacji, do których może uzyskać dostęp użytkownik-gość.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Usuń testowego użytkownika-gościa i aplikację testową, gdy przestaną być potrzebne.
 1.  Zaloguj się do witryny Azure Portal jako administrator usługi Azure AD.
 2.  W lewym okienku wybierz pozycję **Azure Active Directory**.

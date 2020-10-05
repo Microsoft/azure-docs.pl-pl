@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79370325"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Szybki Start: Kwerenda Apache HBase w usłudze Azure HDInsight z Apache Phoenix
 
 W tym przewodniku szybki start dowiesz się, jak używać Apache Phoenix do uruchamiania zapytań HBase w usłudze Azure HDInsight. Apache Phoenix jest aparatem zapytań SQL dla platformy Apache HBase. Jest on dostępny jako sterownik JDBC i umożliwia wykonywanie zapytań i zarządzanie tabelami HBase przy użyciu języka SQL. [SqlLine](http://sqlline.sourceforge.net/) to narzędzie wiersza polecenia do wykonywania instrukcji SQL.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="identify-a-zookeeper-node"></a>Zidentyfikuj węzeł dozorcy
 
-Po nawiązaniu połączenia z klastrem HBase należy nawiązać połączenie z jednym z węzłów Apache ZooKeeper. Każdy klaster usługi HDInsight ma trzy węzły dozorcy. Zwinięcie może służyć do szybkiej identyfikacji węzła dozorcy. Edytuj poniższe polecenie, zastępując `PASSWORD` i `CLUSTERNAME` przy użyciu odpowiednich wartości, a następnie wprowadź polecenie w wierszu polecenia:
+Po nawiązaniu połączenia z klastrem HBase należy nawiązać połączenie z jednym z węzłów Apache ZooKeeper. Każdy klaster usługi HDInsight ma trzy węzły dozorcy. Zwinięcie może służyć do szybkiej identyfikacji węzła dozorcy. Edytuj poniższe polecenie `PASSWORD` , zastępując i `CLUSTERNAME` przy użyciu odpowiednich wartości, a następnie wprowadź polecenie w wierszu polecenia:
 
 ```cmd
 curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER
@@ -47,13 +47,13 @@ Część danych wyjściowych będzie wyglądać podobnie do:
       }
 ```
 
-Zwróć uwagę na wartość do użycia `host_name` w przyszłości.
+Zwróć uwagę na wartość do `host_name` użycia w przyszłości.
 
 ## <a name="create-a-table-and-manipulate-data"></a>Tworzenie tabeli i manipulowanie danymi
 
 Do łączenia się z klastrami HBase można użyć protokołu SSH, a następnie użyć Apache Phoenix do tworzenia tabel HBase, wstawiania danych i wykonywania zapytań dotyczących danych.
 
-1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując `CLUSTERNAME` je nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując je `CLUSTERNAME` nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -65,7 +65,7 @@ Do łączenia się z klastrami HBase można użyć protokołu SSH, a następnie 
     cd /usr/hdp/current/phoenix-client/bin
     ```
 
-3. Uruchom [SqlLine](http://sqlline.sourceforge.net/). Edytuj poniższe polecenie, zastępując `ZOOKEEPER` węzeł dozorcy zidentyfikowany wcześniej, a następnie wprowadź polecenie:
+3. Uruchom [SqlLine](http://sqlline.sourceforge.net/). Edytuj poniższe polecenie `ZOOKEEPER` , zastępując węzeł dozorcy zidentyfikowany wcześniej, a następnie wprowadź polecenie:
 
     ```bash
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
@@ -77,7 +77,7 @@ Do łączenia się z klastrami HBase można użyć protokołu SSH, a następnie 
     CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
     ```
 
-5. Użyj polecenia SqlLine `!tables` , aby wyświetlić listę wszystkich tabel w HBase. Wprowadź następujące polecenie:
+5. Użyj polecenia SqlLine, `!tables` Aby wyświetlić listę wszystkich tabel w HBase. Wprowadź następujące polecenie:
 
     ```sqlline
     !tables
@@ -108,13 +108,13 @@ Do łączenia się z klastrami HBase można użyć protokołu SSH, a następnie 
     DROP TABLE Company;
     ```
 
-10. Użyj polecenia SqlLine `!quit` , aby zakończyć działanie SqlLine. Wprowadź następujące polecenie:
+10. Użyj polecenia SqlLine, `!quit` Aby zakończyć działanie SqlLine. Wprowadź następujące polecenie:
 
     ```sqlline
     !quit
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane.
 

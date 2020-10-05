@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 18366069fd7273afe33b538d2bd69ac8a99689c6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947606"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Szybki Start: Użyj szablonu ARM, aby utworzyć serwer Azure Database for MySQL-elastyczny (wersja zapoznawcza)
@@ -158,7 +158,7 @@ Utwórz ```mysql-flexible-server-template.json``` plik i skopiuj ```json``` do n
 }
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wybierz opcję **Wypróbuj** z następującego bloku kodu programu PowerShell, aby otworzyć [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -211,7 +211,7 @@ read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz przejść do [następnych kroków](#next-steps), Zachowaj tę grupę zasobów, serwer i pojedynczą bazę danych. W następnych krokach pokazano, jak różnymi metodami łączyć się z bazą danych i wykonywać w niej zapytania.
 

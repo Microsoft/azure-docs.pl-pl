@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835752"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka PHP
@@ -173,7 +173,7 @@ Metoda **getBlob()** umożliwia pobranie zawartości obiektów blob. Poniższy k
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli nie potrzebujesz już obiektów blob przekazanych podczas pracy z tym przewodnikiem Szybki start, możesz usunąć cały kontener, korzystając z metody **deleteContainer()**. Jeśli utworzone pliki nie są już potrzebne, możesz użyć metody **deleteBlob()**, aby je usunąć.
 
 ```PHP

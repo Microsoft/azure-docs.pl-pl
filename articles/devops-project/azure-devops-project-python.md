@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 891b8a5a844691d46c121c254e04b73f2b8c2d62
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87872739"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla języka Python przy użyciu usługi Azure DevOps Starter
@@ -120,7 +120,7 @@ W poprzednim kroku DevOps Starter automatycznie skonfigurował potok ciągłej i
 
 1. Wybierz pozycję **dzienniki**. Dzienniki zawierają przydatne informacje na temat procesu wdrażania. Możesz je wyświetlać zarówno podczas wdrażania, jak i po jego zakończeniu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy usługa Azure App Service i powiązane zasoby nie będą już potrzebne, możesz je usunąć. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 

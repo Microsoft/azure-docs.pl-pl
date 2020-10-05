@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: azure-communication-services
 author: danieldoolabh
 manager: nimag
@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
 ms.openlocfilehash: 3fe27bf31385e0310211b5e1b0b7bbfa636eb19b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947689"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta programu SMS usługi komunikacyjnej Python w celu wysyłania wiadomości SMS.

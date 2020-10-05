@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/19/2020
 ms.openlocfilehash: f38b8de37e84cd8a65c5a5caadf8d3b6b71ce455
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88587076"
 ---
 # <a name="what-is-azure-app-configuration"></a>Co to jest usługa Azure App Configuration?

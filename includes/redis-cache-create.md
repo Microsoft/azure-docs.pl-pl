@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: e0557f8eb2fd120baeebee96acb4ef539344e3e7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87528835"
 ---
 1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
 ms.openlocfilehash: 2ca6ceb326a1fd6f7aaf5a9871d043377e60de83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85508558"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>Co to jest Azure Data Lake Storage Gen1?
@@ -60,7 +60,7 @@ Data Lake Storage Gen1 używa Azure Active Directory (Azure AD) do uwierzytelnia
 
 | Cecha | Opis |
 | --- | --- |
-| Uwierzytelnianie |Data Lake Storage Gen1 integruje się z usługą Azure AD w celu zarządzania tożsamościami i dostępem dla wszystkich danych przechowywanych w Data Lake Storage Gen1. Ze względu na integrację Data Lake Storage Gen1 korzyści ze wszystkich funkcji usługi Azure AD, takich jak uwierzytelnianie wieloskładnikowe, dostęp warunkowy, kontrola dostępu oparta na rolach, monitorowanie użycia aplikacji, monitorowanie zabezpieczeń i alerty itd. Data Lake Storage Gen1 obsługuje uwierzytelnianie przy użyciu protokołu OAuth 2,0 w ramach interfejsu REST. Zobacz [Data Lake Storage Gen1 Authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentication |Data Lake Storage Gen1 integruje się z usługą Azure AD w celu zarządzania tożsamościami i dostępem dla wszystkich danych przechowywanych w Data Lake Storage Gen1. Ze względu na integrację Data Lake Storage Gen1 korzyści ze wszystkich funkcji usługi Azure AD, takich jak uwierzytelnianie wieloskładnikowe, dostęp warunkowy, kontrola dostępu oparta na rolach, monitorowanie użycia aplikacji, monitorowanie zabezpieczeń i alerty itd. Data Lake Storage Gen1 obsługuje uwierzytelnianie przy użyciu protokołu OAuth 2,0 w ramach interfejsu REST. Zobacz [Data Lake Storage Gen1 Authentication](data-lakes-store-authentication-using-azure-active-directory.md).|
 | Kontrola dostępu |Data Lake Storage Gen1 zapewnia kontrolę dostępu dzięki obsłudze uprawnień w stylu POSIX przez protokół WebHDFS. Listy ACL można włączyć w folderze głównym, w podfolderach i na pojedynczych plikach. Aby uzyskać więcej informacji na temat sposobu działania list ACL w kontekście Data Lake Storage Gen1, zobacz [Kontrola dostępu w Data Lake Storage Gen1](data-lake-store-access-control.md). |
 | Szyfrowanie |Data Lake Storage Gen1 również zapewnia szyfrowanie danych przechowywanych na koncie. Podczas tworzenia konta Data Lake Storage Gen1 należy określić ustawienia szyfrowania. Możesz zdecydować się na zaszyfrowanie danych lub rezygnację z szyfrowania. Aby uzyskać więcej informacji, zobacz [szyfrowanie w Data Lake Storage Gen1](data-lake-store-encryption.md). Aby uzyskać instrukcje dotyczące sposobu zapewnienia konfiguracji związanej z szyfrowaniem, zobacz Wprowadzenie [do Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). |
 

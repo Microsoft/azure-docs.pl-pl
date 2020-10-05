@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947341"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Szybki Start: badanie alertów zabezpieczeń
@@ -44,12 +44,12 @@ Otwarcie każdego zagregowanego alertu powoduje wyświetlenie szczegółowych op
 
 1. Wybierz i Otwórz dowolny alert zabezpieczeń z **IoT Hub**  >  **Security**  >  listy**alerty** zabezpieczeń IoT Hub. 
 1. Przejrzyj **Opis**alertu, **ważność**, **Źródło wykrywania**, **szczegóły urządzenia** wszystkich urządzeń, które wystawiły ten alert w okresie agregacji.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Przechodzenie do szczegółów i przeglądanie szczegółów poszczególnych urządzeń w zagregowanym alercie "::: 
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Zbadaj nowe alerty zabezpieczeń IoT przy użyciu nowej flagi alertu"::: 
 1. Po przejrzeniu specyficznych alertów należy użyć instrukcji **ręcznego rozwiązywania problemów** , aby pomóc skorygować i/lub rozwiązać problem, który spowodował wygenerowanie alertu. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Postępuj zgodnie z ręcznymi krokami korygowania, aby pomóc w rozwiązaniu lub skorygowaniu alertów zabezpieczeń urządzenia":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Zbadaj nowe alerty zabezpieczeń IoT przy użyciu nowej flagi alertu":::
 
 1. Jeśli wymagane jest dalsze badanie, **Zbadaj alerty w log Analytics** przy użyciu linku. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Aby kontynuować badanie alertu, Użyj linku badanie przy użyciu usługi log Analytics dostępnego na ekranie":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Zbadaj nowe alerty zabezpieczeń IoT przy użyciu nowej flagi alertu":::
 
 ## <a name="next-steps"></a>Następne kroki
 

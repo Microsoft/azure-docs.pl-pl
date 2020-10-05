@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88654110"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
@@ -62,7 +62,7 @@ Ten szablon jest tworzony na potrzeby celów edukacyjnych. W ramach tej działal
 
 Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych, zanim przypisanie RBAC zostanie ukończone. Mimo komunikatu o błędzie wdrożenie może się powieść.  Nadal będzie można zapoznać się z [przeglądem wdrożonych zasobów](#review-deployed-resources).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon.
 
@@ -89,7 +89,7 @@ Wynika to z faktu, że wdrożenie próbuje utworzyć zestaw danych, zanim przypi
     ![Ustawienia synchronizacji konta magazynu udziałów danych platformy Azure](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Wybierz pozycję **zaproszenia** z góry. Zobaczysz adres e-mail określony podczas wdrażania szablonu. **Stan** jest **oczekiwany**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie zasobów z grupy zasobów.
 

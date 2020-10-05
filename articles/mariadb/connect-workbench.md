@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 90247f093096728ac250f36fa7cb0d5d88a597d9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88121888"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Szybki Start: Azure Database for MariaDB: używanie programu MySQL Workbench do nawiązywania połączeń i wykonywania zapytań dotyczących danych
@@ -54,8 +54,8 @@ Aby nawiązać połączenie z serwerem usługi Azure Database for MariaDB przy u
    | Ustawienie | Sugerowana wartość | Opis pola |
    |---|---|---|
    |   Nazwa połączenia | **Połączenie demonstracyjne** | Podaj etykietę dla tego połączenia. |
-   | Metoda połączenia | **Standardowa (TCP/IP)** | Metoda Standardowa (TCP/IP) jest wystarczająca. |
-   | Nazwa hosta | *Nazwa serwera* | Określ nazwę serwera użytą do utworzenia wystąpienia usługi Azure Database for MariaDB. Przykładowy serwer to **mydemoserver.mariadb.database.azure.com**. Użyj w pełni kwalifikowanej nazwy domeny (\*.mariadb.database.azure.com), tak jak pokazano w przykładzie. Jeśli nie pamiętasz nazwy serwera, wykonaj kroki w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia.  |
+   | Connection Method (Metoda połączenia) | **Standard (TCP/IP)** | Metoda Standardowa (TCP/IP) jest wystarczająca. |
+   | Hostname (Nazwa hosta) | *Nazwa serwera* | Określ nazwę serwera użytą do utworzenia wystąpienia usługi Azure Database for MariaDB. Przykładowy serwer to **mydemoserver.mariadb.database.azure.com**. Użyj w pełni kwalifikowanej nazwy domeny (\*.mariadb.database.azure.com), tak jak pokazano w przykładzie. Jeśli nie pamiętasz nazwy serwera, wykonaj kroki w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia.  |
    | Port | **3306** | Zawsze używaj portu 3306 podczas łączenia z usługą Azure Database for MariaDB. |
    | Nazwa użytkownika |  *Nazwa logowania administratora serwera* | Podaj nazwę logowania administratora serwera użytą do utworzenia wystąpienia usługi Azure Database for MariaDB. Nasza przykładowa nazwa użytkownika to ** \@ mydemoserver**. Jeśli nie pamiętasz nazwy logowania administratora serwera, wykonaj instrukcje w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia. Format to *username \@ servername*.
    | Hasło | *Twoje hasło* | Aby zapisać hasło, wybierz pozycję **Store in Vault** (Zapisz w magazynie). |

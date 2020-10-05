@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68726349"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą języka Ruby
@@ -113,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty blob są używane najczęściej i dlatego zostały użyte w tym przewodniku Szybki start.  
 
-Aby przekazać plik do obiektu blob, uzyskaj pełną ścieżkę pliku, łącząc nazwę katalogu i nazwę pliku na dysku lokalnym. Następnie można przekazać plik do określonej ścieżki przy użyciu metody **create\_Block\_BLOB ()** . 
+Aby przekazać plik do obiektu blob, uzyskaj pełną ścieżkę pliku, łącząc nazwę katalogu i nazwę pliku na dysku lokalnym. Następnie można przekazać plik do określonej ścieżki przy użyciu metody **create \_ Block \_ BLOB ()** . 
 
 Za pomocą przykładowego kodu tworzony jest plik lokalny do zastosowania w przypadku przekazywania i pobierania. Plik do przekazania jest przechowany jako **file\_path\_to\_file**, a nazwa obiektu blob jako **local\_file\_name**. Następujący kod przykładowy przekazuje plik do kontenera o nazwie **quickstartblobs**.
 
@@ -135,11 +135,11 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Aby przeprowadzić częściową aktualizację zawartości blokowego obiektu BLOB, użyj metody **create\_Block\_list ()** . Blokowe obiekty blob mogą mieć rozmiar nawet do 4,7 TB i mogą to być dowolne pliki, od arkuszy kalkulacyjnych programu Excel po duże pliki wideo. Stronicowe obiekty blob są używane głównie do tworzenia plików VHD służących do obsługi maszyn wirtualnych IaaS. Uzupełnialne obiekty blob są używane do rejestrowania, na przykład w sytuacji, w której konieczny jest zapis do pliku, a następnie dodawanie kolejnych informacji. Uzupełnianego obiektu blob należy używać w ramach pojedynczego modelu zapisywania. Większość obiektów przechowywanych w usłudze Blob Storage to blokowe obiekty blob.
+Aby przeprowadzić częściową aktualizację zawartości blokowego obiektu BLOB, użyj metody **create \_ Block \_ list ()** . Blokowe obiekty blob mogą mieć rozmiar nawet do 4,7 TB i mogą to być dowolne pliki, od arkuszy kalkulacyjnych programu Excel po duże pliki wideo. Stronicowe obiekty blob są używane głównie do tworzenia plików VHD służących do obsługi maszyn wirtualnych IaaS. Uzupełnialne obiekty blob są używane do rejestrowania, na przykład w sytuacji, w której konieczny jest zapis do pliku, a następnie dodawanie kolejnych informacji. Uzupełnianego obiektu blob należy używać w ramach pojedynczego modelu zapisywania. Większość obiektów przechowywanych w usłudze Blob Storage to blokowe obiekty blob.
 
 ### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Listę plików w kontenerze można uzyskać za pomocą metody **list\_obiektów BLOB ()** . Poniższy kod umożliwia pobranie listy obiektów blob, a następnie przetwarza je w pętli, wyświetlając nazwy obiektów blob odnalezionych w kontenerze.  
+Listę plików w kontenerze można uzyskać za pomocą metody **list \_ obiektów BLOB ()** . Poniższy kod umożliwia pobranie listy obiektów blob, a następnie przetwarza je w pętli, wyświetlając nazwy obiektów blob odnalezionych w kontenerze.  
 
 ```ruby
 # List the blobs in the container
@@ -168,8 +168,8 @@ blob, content = blob_client.get_blob(container_name,local_file_name)
 File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Jeśli nie potrzebujesz już obiektów BLOB przekazanych w tym przewodniku Szybki Start, możesz usunąć cały kontener, korzystając z metody **delete\_Container ()** . Jeśli utworzone pliki nie są już potrzebne, użyj metody **delete\_BLOB ()** , aby usunąć pliki.
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
+Jeśli nie potrzebujesz już obiektów BLOB przekazanych w tym przewodniku Szybki Start, możesz usunąć cały kontener, korzystając z metody **delete \_ Container ()** . Jeśli utworzone pliki nie są już potrzebne, użyj metody **delete \_ BLOB ()** , aby usunąć pliki.
 
 ```ruby
 # Clean up resources. This includes the container and the temp files

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 8925b98269b67bfb8a96cb057982ee4e396f17ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81686226"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Architektura szablonu IoT Central połączonej aplikacji logistycznej

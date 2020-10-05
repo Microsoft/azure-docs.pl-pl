@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: gelecaro
 ms.openlocfilehash: d9f49b2ca51174d22dde45f849749886ccffd393
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82980171"
 ---
 ## <a name="install-speech-sdk"></a>Instalowanie zestawu Speech SDK

@@ -1,6 +1,6 @@
 ---
 title: dołączanie pliku (strumienie urządzeń)
-description: dołączanie pliku
+description: plik dołączania
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 01/15/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82506416"
 ---
 Jeśli planujesz kontynuować w następnym zalecanym artykule, możesz zachować i ponownie użyć wcześniej utworzonych zasobów.

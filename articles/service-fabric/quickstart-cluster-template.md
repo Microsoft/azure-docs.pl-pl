@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
 ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87460307"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Szybki Start: Tworzenie klastra Service Fabric przy użyciu szablonu ARM
@@ -28,7 +28,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Zainstaluj Service Fabric zestaw SDK i moduły programu PowerShell
 
@@ -170,7 +170,7 @@ Punkt końcowy Service Fabric Explorer można również znaleźć w bloku zasob�
 
 ![Blok zasobów Service Fabric pokazujący Service Fabric Explorer punkt końcowy](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie zasobów z grupy zasobów.
 

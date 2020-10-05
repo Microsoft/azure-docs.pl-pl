@@ -10,17 +10,17 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80998960"
 ---
-# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Szybki Start: Konfigurowanie reguł i akcji dla urządzenia w usłudze Azure IoT Central
+# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Szybki start: Konfigurowanie reguł i akcji dla urządzenia w usłudze Azure IoT Central
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 
-W tym przewodniku szybki start utworzysz regułę, która wysyła wiadomość e-mail, gdy temperatura zgłoszona przez czujnik urządzenia przekracza&deg; 90 F.
+W tym przewodniku szybki start utworzysz regułę, która wysyła wiadomość e-mail, gdy temperatura zgłoszona przez czujnik urządzenia przekracza 90 &deg; F.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,7 +30,7 @@ Przed rozpoczęciem należy wykonać dwa poprzednie Przewodniki Szybki Start [Tw
 
 1. Aby dodać nową regułę opartą na telemetrii do aplikacji, w okienku po lewej stronie wybierz pozycję **reguły**.
 
-1. Aby utworzyć nową regułę, wybierz opcję **+**.
+1. Aby utworzyć nową regułę, wybierz opcję **+** .
 
 1. Wprowadź **temperaturę środowiska** jako nazwę reguły.
 
@@ -55,7 +55,7 @@ Przed rozpoczęciem należy wykonać dwa poprzednie Przewodniki Szybki Start [Tw
     | Ustawienie   | Wartość                                             |
     | --------- | ------------------------------------------------- |
     | Nazwa wyświetlana | Akcja e-mail operatora                          |
-    | Do        | Twój adres e-mail                                |
+    | Działanie        | Twój adres e-mail                                |
     | Uwagi     | Temperatura środowiska przekroczyła wartość progową. |
 
     > [!NOTE]
@@ -63,7 +63,7 @@ Przed rozpoczęciem należy wykonać dwa poprzednie Przewodniki Szybki Start [Tw
 
     ![Akcja tworzenia reguły](./media/quick-configure-rules/action.png)
 
-1. Wybierz pozycję **Zapisz**. Reguła zostanie wyświetlona na stronie **reguły** .
+1. Wybierz pozycję **Zapisz**. Reguła zostanie wyświetlona na stronie **Reguły**.
 
 ## <a name="test-the-rule"></a>Testowanie reguły
 

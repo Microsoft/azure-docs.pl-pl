@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88213984"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
@@ -74,7 +74,7 @@ Przed opublikowaniem projektu musisz mieć aplikację funkcji w ramach subskrypc
 
 2. Przejdź do tego adresu URL i zobaczysz odpowiedź w przeglądarce do zdalnego żądania GET zwróconego przez funkcję, która wygląda podobnie do poniższego przykładu:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Odpowiedź funkcji wyświetlona w przeglądarce":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Uruchomiona aplikacja funkcji":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -88,7 +88,7 @@ Aby ukończyć te przewodniki Szybki start, zostały utworzone zasoby. Za te zas
 
 1. Na stronie aplikacja funkcji wybierz kartę **Przegląd** , a następnie wybierz link w obszarze **Grupa zasobów**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Wybierz grupę zasobów do usunięcia ze strony aplikacji funkcji":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Uruchomiona aplikacja funkcji":::
 
 2. Na stronie **Grupa zasobów** zapoznaj się z listą uwzględnionych zasobów i sprawdź, czy są one tymi, które chcesz usunąć.
  

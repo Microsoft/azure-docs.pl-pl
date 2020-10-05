@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 07/05/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 68a208af1a9aa9e73f2af99021d195f264fb21f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67183847"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Włączanie dostawcy zasobów usługi Event Grid

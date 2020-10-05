@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 54bf6265a5b440e5c450d21b192acc2f7024f938
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91307538"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript V12 w Node.js
@@ -24,7 +24,7 @@ Dodatkowe zasoby:
 * [Dokumentacja referencyjna interfejsu API](/javascript/api/@azure/storage-blob)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

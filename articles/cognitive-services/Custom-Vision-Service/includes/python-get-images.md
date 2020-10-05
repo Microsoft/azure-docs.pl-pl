@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: d7cfcffda19931027367e266cf41f2a0ab37a87e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76166601"
 ---
 ## <a name="get-the-sample-images"></a>Pobieranie przykładowych obrazów

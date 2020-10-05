@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88654348"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
@@ -105,13 +105,13 @@ Platforma Azure obsługuje funkcję [Cloud-init](https://cloud-init.io/) w więk
 
 * [Korzystanie z pakietu cloud-init na maszynach wirtualnych platformy Azure z systemem Linux](using-cloud-init.md)
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Dodawanie dysku do maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](add-disk.md)
 * [Jak dołączyć dysk danych do maszyny wirtualnej w witrynie Azure Portal?](attach-disk-portal.md)
 
 ## <a name="networking"></a>Networking
-* [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
+* [Przegląd Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](portal-create-fqdn.md)

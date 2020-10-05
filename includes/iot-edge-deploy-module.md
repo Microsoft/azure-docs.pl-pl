@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: iot-edge
 author: kgremban
 ms.service: iot-edge
@@ -9,13 +9,13 @@ ms.date: 06/30/2020
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 76c8eb7acf20d8cf68d3573defd947efbc6c3c43
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85801740"
 ---
-Jedną z najważniejszych funkcji usługi Azure IoT Edge jest możliwość wdrażania kodu na urządzeniach usługi IoT Edge z poziomu chmury. *Moduły usługi IoT Edge* to pakiety plików wykonywalnych implementowane jako kontenery. Ta sekcja obejmuje wdrożenie wstępnie skompilowanego modułu z [sekcji modułów IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) bezpośrednio z poziomu usługi Azure IoT Hub.
+Jedną z najważniejszych funkcji usługi Azure IoT Edge jest możliwość wdrażania kodu na urządzeniach usługi IoT Edge z poziomu chmury. *Moduły IoT Edge* są pakietami wykonywalnymi wdrożonymi jako kontenery. Ta sekcja obejmuje wdrożenie wstępnie skompilowanego modułu z [sekcji modułów IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) bezpośrednio z poziomu usługi Azure IoT Hub.
 
 Moduł, który wdrożysz w tej sekcji, symuluje czujnik i wysyła wygenerowane dane. Ten moduł jest przydatny, gdy rozpoczyna się pracę z usługą IoT Edge, ponieważ symulowane dane można wykorzystać przy programowaniu i testowaniu. Jeśli chcesz zobaczyć, co dokładnie robi ten moduł, możesz wyświetlić [kod źródłowy symulowanego czujnika temperatury](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
@@ -53,6 +53,6 @@ Aby wdrożyć swój pierwszy moduł z witryny Azure Marketplace, wykonaj następ
 
    Podczas przesłania nowego wdrożenia na urządzenie usługi IoT Edge do urządzenia nie jest wypychane żadne powiadomienie. Nie jest to konieczne, ponieważ urządzenie regularnie wysyła do usługi IoT Hub zapytania w celu odebrania wszelkich nowych instrukcji. Jeśli urządzenie znajdzie zaktualizowany manifest wdrażania, użyje informacji o nowym wdrożeniu, aby ściągnąć obrazy modułów z chmury, a następnie zacznie uruchamiać moduły lokalnie. Ten proces może potrwać kilka minut.
 
-1. Po utworzeniu szczegółów wdrożenia modułu Kreator powróci do strony szczegółów urządzenia. Na stronie Szczegóły urządzenia Wyświetl stan wdrożenia na karcie **moduły** . Należy wymienić trzy moduły: $edgeAgent, $edgeHub i SimulatedTemperatureSensor. Jeśli co najmniej jeden z modułów jest wyświetlany jako określony we wdrożeniu, ale nie jako zgłaszany przez urządzenie, to urządzenie usługi IoT Edge nadal go uruchamia. Poczekaj chwilę, a następnie wybierz pozycję **Odśwież** w górnej części strony.
+1. Po utworzeniu szczegółów wdrożenia modułu Kreator powróci do strony szczegółów urządzenia. Na stronie Szczegóły urządzenia Wyświetl stan wdrożenia na karcie **moduły** . Należy wymienić trzy moduły: $edgeAgent, $edgeHub i SimulatedTemperatureSensor. Jeśli co najmniej jeden z modułów jest wyświetlany jako określony we wdrożeniu, ale nie jako zgłaszany przez urządzenie, to urządzenie usługi IoT Edge nadal go uruchamia. Poczekaj chwilę i wybierz pozycję **Odśwież** w górnej części strony.
 
    ![Wyświetlanie modułu SimulatedTemperatureSensor na liście wdrożonych modułów](./media/iot-edge-deploy-module/view-deployed-modules.png)

@@ -13,10 +13,10 @@ ms.author: aahi
 keywords: wykrywanie anomalii, uczenie maszynowe, algorytmy
 ms.custom: cog-serv-seo-aug-2020
 ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91319320"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Co to jest interfejs API narzędzia do wykrywania anomalii?
@@ -33,7 +33,7 @@ Korzystanie z detektora anomalii nie wymaga wcześniejszego doświadczenia w ucz
 
 Dzięki detektorowi anomalii można automatycznie wykrywać anomalie w danych szeregów czasowych lub w miarę ich występowania w czasie rzeczywistym.
 
-|Cechy  |Opis  |
+|Cecha  |Opis  |
 |---------|---------|
 |Wykrywanie anomalii w czasie rzeczywistym. | Wykrywaj anomalie w danych przesyłanych strumieniowo, używając wcześniej zaobserwowanych punktów danych w celu ustalenia, czy Najnowsza z nich jest nieaktualna. Ta operacja generuje model przy użyciu wysyłanych punktów danych i określa, czy punkt docelowy jest anomalią. Wywołując interfejs API z każdym wygenerowanym nowym punktem danych, można monitorować dane w miarę ich tworzenia. |
 |Wykrywaj anomalie w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć ewentualne anomalie, które mogą istnieć w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.         |

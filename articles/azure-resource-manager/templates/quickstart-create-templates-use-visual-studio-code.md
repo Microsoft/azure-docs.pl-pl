@@ -6,10 +6,10 @@ ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
 ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88034989"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów Azure Resource Manager przy użyciu Visual Studio Code
@@ -20,7 +20,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="create-an-arm-template"></a>Tworzenie szablonu ARM
+## <a name="create-an-arm-template"></a>Tworzenie szablonu usługi Resource Manager
 
 Utwórz i Otwórz przy użyciu Visual Studio Code nowy plik o nazwie *azuredeploy.jsna*. Przejdź `arm` do edytora kodu, który inicjuje Azure Resource Manager fragmenty kodu umożliwiające tworzenie szkieletu szablonu usługi ARM.
 
@@ -114,7 +114,7 @@ Wróć do szablonu ARM i zwróć uwagę, że został zgłoszony błąd wskazują
 
 Zaktualizuj wartość do odpowiedniej wartości, Zapisz plik i przejdź z powrotem do szablonu. Zwróć uwagę, że błąd w parametrze został rozwiązany.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Otwórz Visual Studio Code terminalu zintegrowanego przy użyciu `ctrl`  +  ```` ` ```` kombinacji klawiszy, a następnie wdróż szablon przy użyciu interfejsu wiersza polecenia platformy Azure lub modułu Azure PowerShell.
 

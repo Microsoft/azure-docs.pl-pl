@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91323678"
 ---
 # <a name="what-is-azure-security-center"></a>Co to jest usługa Azure Security Center?
@@ -67,7 +67,7 @@ Podstawową sprawą jest zapewnienie, że działające obciążenia są bezpiecz
 
 Security Center pomaga **identyfikować subskrypcje IT w tle**. Sprawdzając subskrypcje oznaczone na pulpicie nawigacyjnym etykietą **Nieobjęte**, można dowiedzieć się natychmiast, że zostały utworzone nowe subskrypcje, i upewnić się, że są objęte zasadami oraz chronione przez usługę Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Pulpit nawigacyjny z zasadami w usłudze Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Strona zarządzania zasadami":::
 
 ### <a name="continuous-assessments"></a>Ciągłe oceny
 
@@ -75,13 +75,13 @@ Usługa Security Center ciągle wykrywa nowe zasoby wdrażane w różnych obcią
 
 Aby ułatwić zrozumienie, jak ważne są poszczególne zalecenia, Security Center grupuje zalecenia do kontroli zabezpieczeń i dodaje **bezpieczną wartość oceny** do każdej kontrolki. Jest to kluczowe znaczenie w umożliwieniu **określania priorytetów pracy w zabezpieczeniach**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Wskaźnik bezpieczeństwa w usłudze Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Strona zarządzania zasadami":::
 
 ### <a name="network-map"></a>Mapa sieci
 
 Jednym z najbardziej zaawansowanych narzędzi Security Center zapewnia stałe monitorowanie stanu zabezpieczeń sieci to **Mapa sieciowa**. Mapa umożliwia wyświetlenie topologii obciążeń, aby sprawdzić, czy każdy węzeł jest odpowiednio skonfigurowany. Można zobaczyć, jak węzły są połączone, co pomaga blokować niechciane połączenia, które mogą potencjalnie ułatwić osobie atakującej dostanie się do sieci.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa sieci w usłudze Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Strona zarządzania zasadami":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optymalizacja i zwiększanie bezpieczeństwa dzięki konfigurowaniu zalecanych środków kontroli
@@ -92,7 +92,7 @@ W ten sposób usługa Security Center umożliwia nie tylko ustanawianie zasad za
 
 Zalecenia pomagają zmniejszyć obszar ataków w każdym z zasobów. Obejmują one maszyny wirtualne platformy Azure, serwery spoza platformy Azure oraz usługi PaaS platformy Azure takie jak konta SQL i konta magazynu. Każdy rodzaj zasobu jest oceniany oddzielnie i ma swoje własne standardy.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Przykład zaleceń usługi Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Strona zarządzania zasadami":::
 
 ## <a name="protect-against-threats"></a>Ochrona przed zagrożeniami
 
@@ -100,7 +100,7 @@ Ochrona przed zagrożeniami w usłudze Security Center umożliwia wykrywanie zag
 
 Ochrona przed zagrożeniami w usłudze Security Center obejmuje kompleksową analizę łańcucha ataku, która automatycznie koreluje alerty w danym środowisku na podstawie modelu łańcucha ataku cybernetycznego. Dzięki temu uzyskujesz lepszy wgląd we wszystkie etapy ataku, jego punkt początkowy oraz wpływ na zasoby.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alerty zabezpieczeń":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Strona zarządzania zasadami":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integracja z usługą Microsoft Defender Advanced Threat Protection
 

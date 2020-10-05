@@ -12,10 +12,10 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ecdcfc7d90f61443cc6947680df9bbf9d9b9514e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873227"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania w wiadomościach przy użyciu języka PHP i interfejsu API REST wyszukiwanie wiadomości Bing
@@ -41,7 +41,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
 3. Dodaj kod przedstawiony poniżej.
 4. Zastąp wartość `accessKey` kluczem dostępu właściwym dla Twojej subskrypcji.
 5. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
-6. Uruchom program.
+6. Uruchomisz program.
 
 ```php
 <?php

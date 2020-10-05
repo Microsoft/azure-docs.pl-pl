@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
 ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947522"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
@@ -63,10 +63,10 @@ Log Analytics pozyskiwanie w IoT Hub jest wyłączone domyślnie dla rozwiązani
 1. Wybierz pozycję **zbieranie danych**. 
 1. W opcji **Konfiguracja obszaru roboczego** Przełącz przełącznik na wartość **włączone**. 
 1. Utwórz nowy obszar roboczy Log Analytics lub Dołącz istniejący. Upewnij się, że wybrano opcję **dostęp do danych pierwotnych zabezpieczeń** . 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Konfiguracja usługi Azure RTO z opcją zbierania danych i opcjami pierwotnych danych zabezpieczeń":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Opcja zbierania danych dostępu dla usługi Azure RTO":::
 1. Wybierz pozycję **Zapisz**
 1. Wróć do listy zasobów platformy Azure i upewnij się, że dla IoT Hub został włączony utworzony lub dołączony obszar roboczy Log Analytics.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Sprawdź listę zasobów platformy Azure, aby potwierdzić dodanie poprawnego Log Analytics obszaru roboczego dodanego dla IoT Hub"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Opcja zbierania danych dostępu dla usługi Azure RTO"::: 
 
 ## <a name="next-steps"></a>Następne kroki
 

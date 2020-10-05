@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87873045"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
@@ -65,7 +65,7 @@ Teraz sklonujemy aplikację Flask bazy danych MongoDB z repozytorium GitHub, ust
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Uruchamianie aplikacji internetowej](#run-the-web-app). 
+Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Uruchamianie aplikacji internetowej](#run-the-web-app). 
 
 Wszystkie poniższe fragmenty kodu pochodzą z pliku *App.py* i używają parametrów połączenia dla lokalnego emulatora Azure Cosmos DB. Hasło musi zostać podzielone, jak pokazano poniżej, aby uwzględnić ukośniki, których w przeciwnym razie nie można by było przeanalizować.
 
@@ -125,7 +125,7 @@ Aby przetestować kod na koncie usługi Live Azure Cosmos DB, Pobierz informacje
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. Możesz ją uruchomić tak jak wcześniej.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 Aby wdrożyć tę aplikację, możesz utworzyć nową aplikację internetową na platformie Azure i włączyć ciągłe wdrażanie z rozwidleniem tego repozytorium GitHub. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) , aby skonfigurować ciągłe wdrażanie za pomocą usługi GitHub na platformie Azure.
 
@@ -152,7 +152,7 @@ Jeśli nie chcesz tworzyć rozwidlenia tego repozytorium, możesz również wybr
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

@@ -8,10 +8,10 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87836432"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Szybki Start: Tworzenie udziału Azure Files i zarządzanie nim przy użyciu maszyn wirtualnych z systemem Windows
@@ -20,11 +20,11 @@ W tym artykule przedstawiono podstawowe kroki tworzenia i używania udziału us�
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Przygotowanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 W tym przewodniku Szybki start skonfigurujesz następujące elementy:
 
@@ -175,7 +175,7 @@ Podobnie jak w przypadku migawek usługi VSS w środowisku lokalnym, możesz wy�
 
    ![Przycisk Przywróć w komunikacie ostrzegawczym ](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Uwaga: Jeśli plik nie został zmieniony, nie zostanie wyświetlona Poprzednia wersja tego pliku, ponieważ ten plik jest w tej samej wersji co migawka. Jest to zgodne z tym, jak to działa na serwerze plików z systemem Windows.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

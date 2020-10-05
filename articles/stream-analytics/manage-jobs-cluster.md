@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947362"
 ---
 # <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Tworzenie i usuwanie zadań w klastrze Azure Stream Analytics

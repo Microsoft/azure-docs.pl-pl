@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85849918"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Co to jest usługa ML w usłudze Azure HDInsight
@@ -63,7 +63,7 @@ Poniższe funkcje są zawarte w usłudze ML w usłudze HDInsight.
 | Język R — włączony | [Pakiety języka r](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) dla rozwiązań utworzonych w języku r, z dystrybucją języka r typu open source i infrastruktury czasu wykonywania na potrzeby wykonywania skryptów. |
 | Python — włączono | [Moduły języka Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) dla rozwiązań utworzonych w języku Python, z dystrybucją typu "open source" w języku Python i infrastruktury środowiska uruchomieniowego na potrzeby wykonywania skryptów.
 | [Modele wstępnie nauczone](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Na potrzeby analizy wizualizacji i tekstu tonacji można przystąpić do oceny danych, które zapewniasz. |
-| [Wdrażanie i korzystanie z](r-server-operationalize.md) | `Operationalize`Twój serwer i Wdróż rozwiązania jako usługę sieci Web. |
+| [Wdrażanie i korzystanie z](r-server-operationalize.md) | `Operationalize` Twój serwer i Wdróż rozwiązania jako usługę sieci Web. |
 | [Zdalne wykonywanie](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Uruchom sesje zdalne w klastrze usługi ML w sieci z poziomu stacji roboczej klienta. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opcje przechowywania danych dla usług ML w usłudze HDInsight
@@ -82,7 +82,7 @@ Można nawiązać połączenie z usługą Microsoft ML Server w węźle brzegowy
 
 Skrypty języka R mogą korzystać z dowolnego z pakietów języka R typu "open source" w liczbie 8000. Można również użyć równoległych i rozproszonych procedur z biblioteki skalowania. Skrypty uruchamiane w węźle brzegowym działają w obrębie interpretera języka R w tym węźle. Z wyjątkiem kroków, które są wywoływane w funkcjach skalowania przy użyciu kontekstu obliczeniowego ograniczenia mapy (RxHadoopMR) lub Spark (obliczeniowego rxspark). Funkcje są uruchamiane w sposób rozproszony w węzłach danych, które są skojarzone z danymi. Aby uzyskać więcej informacji na temat opcji kontekstu, zobacz temat [Opcje kontekstu obliczeniowego dla usług w usłudze ml w usłudze HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>`Operationalize`Model
+## <a name="operationalize-a-model"></a>`Operationalize` Model
 
 Po zakończeniu modelowania danych `operationalize` model do prognozowania dla nowych danych na platformie Azure lub w środowisku lokalnym. Ten proces jest znany jako ocenianie. Ocenianie może odbywać się w usłudze HDInsight, Azure Machine Learning lub lokalnie.
 
@@ -136,7 +136,7 @@ Węzeł brzegowy systemu Linux klastra usługi HDInsight jest strefą docelową 
 
 Aby uzyskać dostęp do konsoli języka R w węźle brzegowym, wpisz **R** w wierszu polecenia. Korzystając z interfejsu konsoli, wygodnie jest utworzyć skrypt języka R w edytorze tekstu. Następnie należy wyciąć i wkleić sekcje skryptu do konsoli języka R, zgodnie z potrzebami.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Ceny skojarzone z klastrem usługi HDInsight usług w usłudze ML mają strukturę podobną do innych typów klastrów w usłudze HDInsight. Są one oparte na wymiarze rozmiarów bazowych maszyn wirtualnych w obrębie nazwy, danych i węzłów brzegowych. Również przyrosty godzin. Aby uzyskać więcej informacji, zobacz [Cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
