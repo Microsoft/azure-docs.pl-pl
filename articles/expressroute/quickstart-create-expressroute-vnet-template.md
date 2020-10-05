@@ -10,10 +10,10 @@ ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
 ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90016558"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Szybki Start: Tworzenie obwodu usługi ExpressRoute z prywatną usługą komunikacji równorzędnej przy użyciu szablonu usługi ARM
@@ -49,7 +49,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 Aby znaleźć więcej szablonów związanych z usługą ExpressRoute, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure. 
 
@@ -92,11 +92,11 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 1. Grupa zasobów powinna zawierać następujące zasoby:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupa zasobów wdrażania ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
 
 1. Wybierz obwód ExpressRoute **er-ck01** , aby sprawdzić, czy stan obwodu **jest włączony**, stan dostawcy **nie jest zainicjowany** , a prywatna Komunikacja równorzędna ma stan **aprowizacji**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Obwód wdrożenia ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
 
 > [!NOTE]
 > Aby można było połączyć sieć wirtualną z obwodem, należy skontaktować się z dostawcą w celu ukończenia procesu aprowizacji.

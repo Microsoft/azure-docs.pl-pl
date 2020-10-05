@@ -14,17 +14,17 @@ ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90031929"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Samouczek: Konfigurowanie aparatu reguł
 
 W tym samouczku pokazano, jak utworzyć konfigurację aparatu reguł i pierwszą regułę zarówno w Azure Portal, jak i w interfejsie wiersza polecenia. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Skonfiguruj aparat reguł przy użyciu portalu.
 > - Konfigurowanie aparatu reguł przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -108,11 +108,11 @@ W poprzednich krokach zostały skonfigurowane i skojarzone z konfiguracją apara
 
 1. Usuń zaznaczenie wszystkich reguł routingu, do których jest skojarzona ta konfiguracja aparatu reguły, a następnie kliknij przycisk Zapisz.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Skojarzenie reguły routingu":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Kojarzenie reguł routingu":::
 
 1. Teraz można usunąć konfigurację aparatu reguł z drzwi z przodu.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Usuń konfigurację aparatu reguł":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Kojarzenie reguł routingu":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki umożliwiające rozwi�
 ms.date: 07/12/2020
 ms.topic: quickstart
 ms.openlocfilehash: 9763e2e9ec49d6fb4ea37fac12578ab23b7b5363
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87102106"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu języka Ruby
@@ -18,7 +18,7 @@ Po zakończeniu tego procesu dodaliśmy Gems do instalacji języka Ruby i urucho
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 - Nazwa główna usługi platformy Azure, w tym _clientId_ i _clientSecret_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -90,8 +90,8 @@ Po zapisaniu skryptu Ruby i przygotowaniu go do użycia czas na wypróbowanie pr
 W każdym wywołaniu do `argQuery` , istnieją zmienne, które są używane, należy zamienić na własne wartości:
 
 - `{tenantId}` — zastąp identyfikatorem swojej dzierżawy
-- `{clientId}`-Zamień na identyfikator klienta nazwy głównej usługi
-- `{clientSecret}`-Zamień na klucz tajny klienta jednostki usługi
+- `{clientId}` -Zamień na identyfikator klienta nazwy głównej usługi
+- `{clientSecret}` -Zamień na klucz tajny klienta jednostki usługi
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
 1. Zmień katalogi na folder projektu, w którym zostały utworzone `Gemfile` `argClient.rb` pliki i.

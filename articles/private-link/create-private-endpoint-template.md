@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705813"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu szablonu ARM
@@ -52,7 +52,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): interfejs sieciowy dla maszyny wirtualnej.
 - [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): maszyna wirtualna używana do testowania połączenia prywatnego z prywatnym punktem końcowym do wystąpienia elementu SQL Database.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Poniżej przedstawiono sposób wdrażania szablonu ARM na platformie Azure:
 
@@ -78,7 +78,7 @@ Połącz się z maszyną wirtualną _myVm {unikatowym}_ z Internetu w następuj�
 
 2. Wybierz pozycję **Połącz**. Zostanie otwarte okno **łączenie z maszyną wirtualną** .
 
-3. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (_rdp_), który zostanie pobrany na komputer.
+3. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (_RDP_) i pobiera go na komputer.
 
 4. Otwórz pobrany plik RDP.
 
@@ -89,7 +89,7 @@ Połącz się z maszyną wirtualną _myVm {unikatowym}_ z Internetu w następuj�
       > [!NOTE]
       > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-5. Kliknij **OK**.
+5. Wybierz przycisk **OK**.
 
 6. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -125,7 +125,7 @@ Poniżej przedstawiono sposób nawiązywania połączenia z serwerem SQL Databas
 7.  Opcjonalnie można utworzyć lub zbadać informacje z _przykładowej bazy danych_.
 8.  Zamknij Pulpit zdalny połączenie, aby _myVm {unikatowy}_.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu prywatnego punktu końcowego, Usuń grupę zasobów. Spowoduje to usunięcie prywatnego punktu końcowego i wszystkich powiązanych zasobów.
 

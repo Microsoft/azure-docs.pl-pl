@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815865"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Użyj Azure Portal, aby ograniczyć dostęp do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
@@ -52,7 +52,7 @@ Należy zwrócić uwagę na sieć wirtualną maszyny wirtualnej, do której są 
 
 Po utworzeniu zasobu przejdź bezpośrednio do niego.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Zrzut ekranu przedstawiający przycisk Przejdź do zasobu w portalu":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
@@ -61,13 +61,13 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
 1. Z zasobów dostępu do dysku wybierz pozycję **połączenia prywatne punktów końcowych**.
 1. Wybierz pozycję **+ prywatny punkt końcowy**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Zrzut ekranu przedstawiający blok przegląd dla zasobu dostępu do dysku. Są wyróżnione prywatne połączenia punktów końcowych.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 1. Wybieranie grupy zasobów
 1. Wypełnij pola Nazwa i wybierz ten sam region, w którym został utworzony zasób dostępu do dysku.
 1. Wybierz pozycję **Dalej: zasób >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Zrzut ekranu przedstawiający przepływ pracy tworzenia prywatnego punktu końcowego, pierwszy blok. Jeśli nie wybierzesz odpowiedniego regionu, możesz napotkać problemy później.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 1. W bloku **zasób** wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu**.
 1. W obszarze **Typ zasobu** wybierz pozycję **Microsoft. COMPUTE/diskAccesses**
@@ -75,7 +75,7 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
 1. Pozostaw **docelowy zasób podrzędny** jako **dyski**
 1. Wybierz kolejno pozycje **Dalej: Configuration >**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Zrzut ekranu przedstawiający przepływ pracy tworzenia prywatnego punktu końcowego, drugi blok. Ze wszystkimi wyróżnionymi wartościami (typ zasobu, zasób, cel podrzędny)":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 1. Wybierz sieć wirtualną, do której chcesz ograniczyć eksport dysku do programu, inne sieci wirtualne nie będą mogły wyeksportować dysku.
 
@@ -85,7 +85,7 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
 1. Wybierz odpowiednią podsieć
 1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Zrzut ekranu przedstawiający prywatny przepływ pracy tworzenia punktów końcowych, trzeci blok. Wyróżniono sieć wirtualną i podsieć.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Włącz prywatny punkt końcowy na dysku
 
@@ -94,7 +94,7 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
 1. Wybierz pozycję **prywatny punkt końcowy (za pomocą dostępu do dysku)** i wybierz utworzony wcześniej dostęp do dysku.
 1. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Zrzut ekranu przedstawiający blok sieć dysku zarządzanego. Wyróżnij wybór prywatnego punktu końcowego oraz dostęp do wybranego dysku. Zapisanie spowoduje skonfigurowanie dysku dla tego dostępu.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
 Ukończono Konfigurowanie linków prywatnych, których można użyć podczas importowania/eksportowania dysku zarządzanego.
 

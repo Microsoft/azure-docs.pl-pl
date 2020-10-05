@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/25/2020
 ms.author: duau
 ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566878"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
@@ -44,7 +44,7 @@ Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma rou
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Łączność z usługami w chmurze firmy Microsoft
 Połączenia ExpressRoute umożliwiają dostęp do następujących usług:
 * Usługi Microsoft Azure
-* Usługi Microsoft 365
+* Usługi platformy Microsoft 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

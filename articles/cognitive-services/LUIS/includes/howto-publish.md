@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
@@ -9,10 +9,10 @@ ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.openlocfilehash: f07ac2027f165eb4e9722330cb779ec32999a5e3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91534602"
 ---
 Aby otrzymywać prognozę LUIS w programie Chat bot lub innej aplikacji klienckiej, należy opublikować aplikację w punkcie końcowym przewidywania.

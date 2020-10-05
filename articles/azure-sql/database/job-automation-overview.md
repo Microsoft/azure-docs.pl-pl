@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
 ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91450349"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatyzowanie zadań zarządzania za pomocą zadań bazy danych
@@ -210,7 +210,7 @@ W przypadku bieżącej wersji zapoznawczej istniejąca baza danych w Azure SQL D
 
 *Baza danych zadań* nie musi być nowością, ale powinna być celem czystego, pustego, S0 lub wyższej usługi. Zalecany cel usługi *bazy danych zadań* ma wartość S1 lub wyższą, ale optymalny wybór zależy od potrzeb związanych z wydajnością zadań: liczby kroków zadań, liczby elementów docelowych zadania i częstotliwości uruchamiania zadań. Na przykład baza danych S0 może być wystarczająca dla agenta zadań, który uruchamia kilka zadań o godzinie docelowej mniejszej niż dziesięć baz danych, ale uruchamianie zadania co minutę może być niedostatecznie szybkie w przypadku bazy danych S0, a wyższa warstwa usług może być lepsza.
 
-Jeśli operacje dotyczące bazy danych zadań są wolniejsze niż oczekiwane, [Monitoruj](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) wydajność bazy danych i wykorzystanie zasobów w bazie danych zadań w okresach spowolnienia przy użyciu Azure Portal lub [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Jeśli użycie zasobu, takiego jak procesor CPU, we/wy danych lub zapis w dzienniku, zbliża się do 100% i jest skorelowane z okresami spowolnienia, należy rozważyć przyrostowe skalowanie bazy danych do wyższych celów usługi (w [modelu DTU](service-tiers-dtu.md) lub w [modelu rdzeń wirtualny](service-tiers-vcore.md)), dopóki wydajność bazy danych zadań zostanie dostatecznie zwiększona.
+Jeśli operacje dotyczące bazy danych zadań są wolniejsze niż oczekiwane, [Monitoruj](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) wydajność bazy danych i wykorzystanie zasobów w bazie danych zadań w okresach spowolnienia przy użyciu Azure Portal lub [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Jeśli użycie zasobu, takiego jak procesor CPU, we/wy danych lub zapis w dzienniku, zbliża się do 100% i jest skorelowane z okresami spowolnienia, należy rozważyć przyrostowe skalowanie bazy danych do wyższych celów usługi (w [modelu DTU](service-tiers-dtu.md) lub w [modelu rdzeń wirtualny](service-tiers-vcore.md)), dopóki wydajność bazy danych zadań zostanie dostatecznie zwiększona.
 
 ##### <a name="job-database-permissions"></a>Uprawnienia dotyczące bazy danych zadań
 

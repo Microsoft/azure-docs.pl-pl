@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: daveba
 ms.openlocfilehash: 77c262982fc24215462559772e01f8d85dd00d2d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86256660"
 ---
 Korzystanie z tej funkcji wymaga licencji na Azure AD — wersja Premium P2. Aby znaleźć odpowiednią licencję dla wymagań, zobacz [porównanie ogólnie dostępnych funkcji aplikacji pakietu Office 365 i wersji Premium](https://azure.microsoft.com/pricing/details/active-directory/).

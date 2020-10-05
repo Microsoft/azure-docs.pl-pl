@@ -4,10 +4,10 @@ description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę
 ms.topic: quickstart
 ms.date: 09/23/2020
 ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327888"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc
@@ -99,7 +99,7 @@ Skrypt służący do automatyzowania pobierania, instalacji i nawiązywania poł
 
 Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure Arc przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Zapoznaj się z maszyną w [Azure Portal](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Pomyślne połączenie z maszyną" border="false":::
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

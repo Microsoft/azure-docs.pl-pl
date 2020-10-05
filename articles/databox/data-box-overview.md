@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86206216"
 ---
 # <a name="what-is-azure-data-box"></a>Co to jest usługa Azure Data Box?
@@ -149,7 +149,7 @@ Urządzenie Data Box może transferować dane na podstawie regionu, w którym wd
 - **Docelowe konta magazynu** — konta magazynu przechowujące dane są dostępne we wszystkich regionach platformy Azure, w których usługa jest dostępna.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj [wymagania systemowe usługi Data Box](data-box-system-requirements.md).
 - Poznaj [ograniczenia usługi Data Box](data-box-limits.md).

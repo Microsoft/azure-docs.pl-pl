@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89001331"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
@@ -22,7 +22,7 @@ Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomoc�
 Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, aby:
 
 * Tworzenie kontenera
-* Przekazywanie obiektu BLOB do usługi Azure Storage
+* Przekazywanie obiektu blob do usługi Azure Storage
 * Wyświetl listę wszystkich obiektów BLOB w kontenerze
 * Pobieranie obiektu BLOB do urządzenia
 * Usuwanie kontenera
@@ -267,7 +267,7 @@ Przed rozpoczęciem procesu oczyszczania Sprawdź, czy dane wyjściowe zawartoś
 
 Po zweryfikowaniu wartości Potwierdź monit o usunięcie kontenera i Zakończ pokaz.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start przedstawiono sposób przekazywania, pobierania i wyświetlania listy obiektów BLOB przy użyciu biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin.
 

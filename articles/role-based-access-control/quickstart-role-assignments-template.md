@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
 ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88690446"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu ARM
@@ -45,7 +45,7 @@ Zasób zdefiniowany w szablonie to:
 
 - [Microsoft. Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -116,7 +116,7 @@ Zasób zdefiniowany w szablonie to:
 
    ![Przypisanie nowej roli](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć przypisanie roli i utworzoną grupę zasobów, wykonaj następujące kroki.
 

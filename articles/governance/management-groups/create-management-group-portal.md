@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89661743"
 ---
 # <a name="quickstart-create-a-management-group"></a>Szybki Start: Tworzenie grupy zarządzania
@@ -39,7 +39,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
    - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń z tej grupy zarządzania. Ten identyfikator nie jest edytowalny po utworzeniu, ponieważ jest używany w całym systemie Azure do identyfikowania tej grupy. [Główna Grupa zarządzania](./overview.md#root-management-group-for-each-directory) jest automatycznie tworzona z identyfikatorem, który jest identyfikatorem Azure Active Directory. W przypadku wszystkich innych grup zarządzania przypisz unikatowy identyfikator.
    - Pole Nazwa wyświetlana to nazwa wyświetlana w Azure Portal. Oddzielna nazwa wyświetlana jest polem opcjonalnym podczas tworzenia grupy zarządzania i można ją zmienić w dowolnym momencie.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Zrzut ekranu przedstawiający opcje Dodaj grupę zarządzania służącą do tworzenia nowej grupy zarządzania.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Zrzut ekranu przedstawiający stronę grupy zarządzania z podrzędnymi grupami zarządzania i subskrypcjami.":::
 
 1. Wybierz pozycję **Zapisz**.
 

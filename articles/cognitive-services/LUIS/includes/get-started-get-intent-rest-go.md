@@ -8,10 +8,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.openlocfilehash: 3fffff64668eb8a010c76fc5e11904193f18d17d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91545713"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/LUIS/go-rest-predict/predict.go)
@@ -35,7 +35,7 @@ Użyj języka go, aby wykonać zapytanie dotyczące [punktu końcowego przewidyw
 
 1. Zastąp wartości zaczynające się od `YOUR-` własnymi wartościami.
 
-    |Informacyjny|Przeznaczenie|
+    |Informacje|Przeznaczenie|
     |--|--|
     |`YOUR-APP-ID`|Identyfikator aplikacji. Na stronie Ustawienia aplikacji Portal LUIS dla aplikacji.
     |`YOUR-PREDICTION-KEY`|Klucz predykcyjny dla 32 znaków. Znajdujący się w portalu LUIS, stronie zasobów platformy Azure dla Twojej aplikacji.

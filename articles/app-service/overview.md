@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
 ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961486"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
@@ -54,7 +54,7 @@ App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych
 - W Azure Portal są wyświetlane tylko funkcje, które obecnie działają w przypadku aplikacji systemu Linux. Gdy funkcje są włączone, są aktywowane w portalu.
 - Po wdrożeniu wbudowanych obrazów do kodu i zawartości są przydzielone woluminy magazynu dla zawartości sieci Web, obsługiwane przez usługę Azure Storage. Opóźnienie dysku tego woluminu jest większe i bardziej zmienne niż opóźnienie systemu plików kontenera. Aplikacje wymagające dużego dostępu tylko do odczytu do plików zawartości mogą korzystać z opcji niestandardowego kontenera, która umieszcza pliki w systemie plików kontenera zamiast na woluminie zawartości.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Utwórz swoją pierwszą aplikację internetową.
 

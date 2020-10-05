@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: jasonh
 ms.custom: devx-track-js
 ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409378"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji Node.js przy użyciu konta interfejsu API usługi Azure Cosmos DB Gremlin
@@ -161,7 +161,7 @@ Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Blok kluczy Azure Portal":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w Azure Portal, Strona przegląd":::
 
 4. Wprowadź nazwę bazy danych i nazwę grafu (kontenera) dla wartości parametrów config.database i config.collection. 
 

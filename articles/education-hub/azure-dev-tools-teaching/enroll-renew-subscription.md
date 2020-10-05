@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: edb0de9f235565d09c81ce4466de59698a321f56
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87102129"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Zarejestruj lub Odnów narzędzia deweloperskie platformy Azure dla usługi nauczania
@@ -33,19 +33,19 @@ W tym artykule opisano proces rejestracji w narzędziach deweloperskich platform
 
 1. Wypełnij **Informacje o instytucji**, jeśli są rejestrowane po raz pierwszy. W przypadku odnowienia te informacje będą wypełniane.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Wprowadź informacje o instytucji." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Komunikat o błędzie logowania." border="false":::
     
 1. Wypełnij **Informacje o rozliczeniach**. Jeśli Twoja instytucja jest częścią umowy licencjonowania zbiorowego, możesz wprowadzić numer umowy licencjonowania zbiorowego. Jeśli zarejestrujesz się w celu uzyskania nowej subskrypcji i płacisz inaczej niż karta kredytowa, może wystąpić opóźnienie uzyskiwania dostępu do subskrypcji w trakcie procesów płatności. Będziesz otrzymywać wiadomości e-mail z aktualizacją postępu płatności.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Wprowadź informacje o rozliczeniach." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Komunikat o błędzie logowania." border="false":::
     
 1. Wybierz **plan subskrypcji** i Potwierdź jego **administratora subskrypcji** . Domena poczty e-mail administratora subskrypcji umożliwi uczniom w tej samej domenie uzyskanie łatwego dostępu do pobierania korzyści z oprogramowania.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Wybierz pozycję plan subskrypcji." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Komunikat o błędzie logowania." border="false":::
     
 1. Potwierdź wszystkie informacje o zakupie i kliknij pozycję **Umieść zamówienie**. Wiadomości e-mail z potwierdzeniem zostaną wysłane do skrzynki odbiorczej, z aktualizacją stanu płatności i wszystkimi możliwymi kolejnymi krokami.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Potwierdź zamówienie." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Komunikat o błędzie logowania." border="false":::
 
 ## <a name="renew-an-existing-subscription"></a>Odnów istniejącą subskrypcję
 

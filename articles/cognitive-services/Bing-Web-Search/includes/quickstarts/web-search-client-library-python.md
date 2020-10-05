@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85940420"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją języka Python. Z tego przewodnika Szybki start dowiesz się, jak wysłać żądanie, odebrać odpowiedź JSON oraz filtrować i analizować wyniki.
@@ -83,7 +83,7 @@ Jeśli odpowiedź zawiera strony internetowe, obrazy, wiadomości lub wideo, zos
 
 1. Utwórz nowy projekt języka Python przy użyciu ulubionego środowiska IDE lub edytora.
 
-1. Skopiuj ten przykładowy kod do projektu. `endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.:  
+1. Skopiuj ten przykładowy kod do projektu. `endpoint` może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.:  
 
     ```python
     # Import required modules.
@@ -169,7 +169,7 @@ Jeśli odpowiedź zawiera strony internetowe, obrazy, wiadomości lub wideo, zos
 
 1. Zastąp ciąg `YOUR_ENDPOINT` adresem URL punktu końcowego w portalu i Usuń sekcję "Bing/v 7.0" z punktu końcowego.
 
-1. Uruchom program. Na przykład: `python your_program.py`.
+1. Uruchomisz program. Przykład: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiowanie funkcji i filtrowanie wyników
 
@@ -212,7 +212,7 @@ W tym przykładzie użyto `count` parametrów i, `offset` Aby ograniczyć liczb�
             print("Encountered exception. {}".format(err))
     ```
 
-1. Uruchom program.
+1. Uruchomisz program.
 
 ### <a name="filter-for-news-and-freshness"></a>Filtrowanie według wiadomości i aktualności
 
@@ -262,7 +262,7 @@ Ten przykład używa `response_filter` parametrów i `freshness` w celu filtrowa
     web_search_with_response_filter(subscription_key)
     ```
 
-1. Uruchom program.
+1. Uruchomisz program.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Używanie filtrów safe search, answer count i promote
 
@@ -307,7 +307,7 @@ W tym przykładzie użyto `answer_count` `promote` parametrów, i `safe_search` 
             print("Encountered exception. {}".format(err))
     ```
 
-1. Uruchom program.
+1. Uruchomisz program.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -318,6 +318,6 @@ Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji 
 > [!div class="nextstepaction"]
 > [Przykłady dotyczące zestawu SDK dla języka Python dla usług Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja zestawu Azure Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

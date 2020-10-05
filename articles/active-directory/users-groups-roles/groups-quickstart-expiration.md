@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90054402"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Szybki Start: Ustawianie Microsoft 365ych grup do wygaśnięcia w Azure Active Directory
@@ -67,7 +67,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 5. Wybierz przycisk **Zapisz**, aby zapisać ustawienia wygasania, gdy wszystko będzie gotowe.
 
-Gotowe. W tym przewodniku szybki start pomyślnie ustawiono zasady wygasania dla wybranych grup Microsoft 365.
+To wszystko. W tym przewodniku szybki start pomyślnie ustawiono zasady wygasania dla wybranych grup Microsoft 365.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

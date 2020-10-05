@@ -4,10 +4,10 @@ description: Na podstawie własnej zawartości, takiej jak często zadawane pyta
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89535853"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
@@ -64,7 +64,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Dodaj pytanie jako tekst i odpowiedź sformatowaną z uwzględnieniem promocji.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
 
     Symbol promocji, `*` ,, jest używany dla punktów punktorów. `\n`Służy do nowego wiersza.
 
@@ -81,7 +81,7 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
     `How many Azure services are used by a knowledge base?`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
 
 1. Wybierz pozycję **Zbadaj**, aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
 
@@ -131,7 +131,7 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
 
     Bot rozmowy reaguje na odpowiedź z bazy wiedzy.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
 
 ## <a name="what-did-you-accomplish"></a>Co zostało wykonane?
 

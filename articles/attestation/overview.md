@@ -9,10 +9,10 @@ ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
 ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90033000"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
@@ -25,7 +25,7 @@ Zaświadczanie na platformie Azure umożliwia korzystanie z odcięć takich odmi
 
 Zaświadczanie platformy Azure odbiera dowody od jednostek obliczeniowych, włącza je do zestawu oświadczeń, weryfikuje je pod kątem konfigurowalnych zasad i tworzy kryptograficzne sprawdzanie dla aplikacji opartych na oświadczeniach (na przykład jednostki uzależnione i urzędy inspekcji).
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 Zaświadczanie platformy Azure zapewnia kompleksowe usługi zaświadczania dla wielu środowisk i charakterystycznych przypadków użycia.
 

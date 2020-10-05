@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
 ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86535789"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Szybki Start: Tworzenie aplikacji języka go z `gocql` klientem w celu zarządzania danymi interfejs API Cassandra Azure Cosmos DB
@@ -65,7 +65,7 @@ Zacznij od klonowania aplikacji z usługi GitHub.
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do [uruchamiania aplikacji](#run-the-application)
+Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do [uruchamiania aplikacji](#run-the-application)
 
 `GetSession`Funkcja (część `utils\utils.go` ) zwraca wartość [`*gocql.Session`](https://godoc.org/github.com/gocql/gocql#Session) , która jest używana do wykonywania operacji klastra, takich jak INSERT, Find itp.
 
@@ -128,7 +128,7 @@ func DropKeySpaceIfExists(keyspace string, session *gocql.Session) {
 }
 ```
 
-`CreateKeySpace`funkcja służy do tworzenia `keyspace` ( `user_profile` )
+`CreateKeySpace` funkcja służy do tworzenia `keyspace` ( `user_profile` )
 
 ```go
 const createKeyspace = "CREATE KEYSPACE %s WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 }"
@@ -158,7 +158,7 @@ func CreateUserTable(keyspace, table string, session *gocql.Session) {
 
 Po utworzeniu przestrzeni kluczy i tabeli wywoływane są operacje CRUD (część z `operations\crud.go` ). 
 
-`InsertUser`służy do tworzenia `User` . Ustawia informacje o użytkowniku (identyfikator, nazwę i miasto) jako argumenty zapytania przy użyciu[`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
+`InsertUser` służy do tworzenia `User` . Ustawia informacje o użytkowniku (identyfikator, nazwę i miasto) jako argumenty zapytania przy użyciu [`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
 
 ```go
 const createQuery = "INSERT INTO %s.%s (user_id, user_name , user_bcity) VALUES (?,?,?)"
@@ -172,7 +172,7 @@ func InsertUser(keyspace, table string, session *gocql.Session, user model.User)
 }
 ```
 
-`FindUser`służy do wyszukiwania użytkownika ( `model\user.go` ) przy użyciu określonego identyfikatora użytkownika podczas [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) wiązania atrybutów użytkownika (zwracanych przez Cassandra) do poszczególnych zmiennych ( `userid` , `name` , `city` ) — jest to tylko jeden z metod, w których można użyć wynik uzyskany jako wynik zapytania wyszukiwania
+`FindUser` służy do wyszukiwania użytkownika ( `model\user.go` ) przy użyciu określonego identyfikatora użytkownika podczas [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) wiązania atrybutów użytkownika (zwracanych przez Cassandra) do poszczególnych zmiennych ( `userid` , `name` , `city` ) — jest to tylko jeden z metod, w których można użyć wynik uzyskany jako wynik zapytania wyszukiwania
 
 ```go
 const selectQuery = "SELECT * FROM %s.%s where user_id = ?"
@@ -193,7 +193,7 @@ func FindUser(keyspace, table string, id int, session *gocql.Session) model.User
 }
 ```
 
-`FindAllUsers`służy do pobierania wszystkich użytkowników. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap)służy jako skrót do uzyskania wszystkich informacji o użytkowniku w postaci wycinka `map` s. Należy traktować każdą `map` rolę jako pary klucz-wartość, gdzie nazwa kolumny (na przykład `user_id` ) jest kluczem wraz z odpowiednią wartością.
+`FindAllUsers` służy do pobierania wszystkich użytkowników. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap) służy jako skrót do uzyskania wszystkich informacji o użytkowniku w postaci wycinka `map` s. Należy traktować każdą `map` rolę jako pary klucz-wartość, gdzie nazwa kolumny (na przykład `user_id` ) jest kluczem wraz z odpowiednią wartością.
 
 ```go
 const findAllUsersQuery = "SELECT * FROM %s.%s"
@@ -254,7 +254,7 @@ go run main.go
 
 4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Wyświetlanie danych w Eksplorator danych — Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Wyświetl i skopiuj szczegóły ze strony parametrów połączenia w Azure Portal":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 

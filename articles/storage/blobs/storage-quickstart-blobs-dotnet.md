@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fa37db7a5c63f7a5e8a84d98afbb81e007904974
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89001437"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Szybki start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET
@@ -22,7 +22,7 @@ Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 dla platf
 Użyj biblioteki klienta usługi Azure Blob Storage V12 dla platformy .NET, aby:
 
 * Tworzenie kontenera
-* Przekazywanie obiektu BLOB do usługi Azure Storage
+* Przekazywanie obiektu blob do usługi Azure Storage
 * Wyświetl listę wszystkich obiektów BLOB w kontenerze
 * Pobieranie obiektu BLOB na komputer lokalny
 * Usuwanie kontenera
@@ -308,7 +308,7 @@ Przed rozpoczęciem procesu oczyszczania Sprawdź, czy w folderze *danych* są d
 
 Po zweryfikowaniu plików naciśnij klawisz **Enter** , aby usunąć pliki testowe i zakończyć demonstrację.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start opisano następujące czynności: przekazywanie, pobieranie i wyświetlanie listy obiektów blob przy użyciu platformy .NET.
 

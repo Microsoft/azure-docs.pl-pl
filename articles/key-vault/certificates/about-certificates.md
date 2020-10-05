@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88923691"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
@@ -103,14 +103,14 @@ Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do efektywnych 
 
 |**Flagi użycia klucza x509**|**Key Vault kluczowe operacje**|**Zachowanie domyślne**|
 |----------|--------|--------|
-|DataEncipherment|szyfrowanie, odszyfrowywanie| Nie dotyczy |
-|DecipherOnly|zawartości| Nie dotyczy  |
+|DataEncipherment|szyfrowanie, odszyfrowywanie| Brak |
+|DecipherOnly|zawartości| Brak  |
 |Bity digitalSignature|Podpisz, zweryfikuj| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|EncipherOnly|encrypt| Nie dotyczy |
-|KeyCertSign|Podpisz, zweryfikuj|Nie dotyczy|
+|EncipherOnly|encrypt| Brak |
+|KeyCertSign|Podpisz, zweryfikuj|Brak|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|Niemożność wyparcia|Podpisz, zweryfikuj| Nie dotyczy |
-|crlsign bit|Podpisz, zweryfikuj| Nie dotyczy |
+|Niemożność wyparcia|Podpisz, zweryfikuj| Brak |
+|crlsign bit|Podpisz, zweryfikuj| Brak |
 
 ## <a name="certificate-issuer"></a>Wystawca certyfikatu
 
