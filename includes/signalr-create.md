@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: signalr
 author: wesmc7777
 ms.service: signalr
@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86050259"
 ---
 1. Aby utworzyć zasób usługi Azure sygnalizujący, najpierw Zaloguj się do [Azure Portal](https://portal.azure.com). W lewym górnym rogu strony wybierz pozycję **+ Utwórz zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** wprowadź wartość **Usługa sygnalizująca**.
@@ -30,7 +30,7 @@ ms.locfileid: "86050259"
     | Warstwa cenowa | *Bezpłatna* | Obecnie dostępne są opcje **bezpłatne** i **standardowe** . |
     | Przypnij do pulpitu nawigacyjnego | ✔ | Zaznacz to pole, aby zasób został przypięty do pulpitu nawigacyjnego, co ułatwia jego znalezienie. |
 
-4. Wybierz pozycję **Utwórz**. Wdrożenie może potrwać kilka minut.
+4. Wybierz przycisk **Utwórz**. Wdrożenie może potrwać kilka minut.
 
 5. Po zakończeniu wdrażania wybierz pozycję **klucze** w obszarze **Ustawienia**. Skopiuj parametry połączenia klucza podstawowego. Ten ciąg zostanie użyty później w celu skonfigurowania aplikacji do korzystania z zasobu usługi Azure Signal Service.
 

@@ -4,10 +4,10 @@ description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna w
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: d229e48e5c49a9a672c533fb24231e9329e524c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85831407"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
@@ -95,7 +95,7 @@ Aby przekazać nam pytania dotyczące usługi Azure Notebooks, prześlij zgłosz
 
   - [Tworzenie i udostępnianie notesu](quickstart-create-share-jupyter-notebook.md)
   - [Klonowanie notesu](quickstart-clone-jupyter-notebook.md)
-  - [Migrowanie z lokalnego notesu Jupyter](quickstart-migrate-local-jupyter-notebook.md)
+  - [Migrowanie lokalnego notesu Jupyter](quickstart-migrate-local-jupyter-notebook.md)
   - [Korzystanie ze środowiska niestandardowego](quickstart-create-jupyter-notebook-project-environment.md)
   - [Logowanie się i ustawianie identyfikatora użytkownika](quickstart-sign-in-azure-notebooks.md)
 

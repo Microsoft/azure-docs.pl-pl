@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start wykonaj kroki umożliwiające włąc
 ms.date: 06/16/2020
 ms.topic: quickstart
 ms.openlocfilehash: cc15b9fe75913ca47a14001a27e1e3c37d9ea71a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84899684"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Szybki Start: uruchamianie pierwszego zapytania wykresu zasobów przy użyciu języka go
@@ -18,7 +18,7 @@ Po zakończeniu tego procesu dodaliśmy pakiety do instalacji języka go i uruch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="add-the-resource-graph-package"></a>Dodawanie pakietu grafu zasobów
 

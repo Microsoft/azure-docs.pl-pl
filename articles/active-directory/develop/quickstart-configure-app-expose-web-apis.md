@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442159"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API
@@ -95,7 +95,7 @@ Aby dodać `Employees.Write.All` przykład zakresu, postępuj zgodnie z instrukc
 
 Jeśli pomyślnie dodano oba przykładowe zakresy opisane w poprzednich sekcjach, zostaną one wyświetlone w okienku **Uwidacznianie interfejsu API** w ramach rejestracji aplikacji internetowego interfejsu API, podobnie jak w przypadku tego obrazu:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Zrzut ekranu przedstawiający okienko Uwidacznianie interfejsu API zawierające dwa uwidocznione zakresy.":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Rejestracja aplikacji uwidacznia okienko interfejsu API w Azure Portal":::
 
 Jak pokazano na obrazie, pełny ciąg zakresu jest połączeniem identyfikatora **aplikacji** internetowego interfejsu API i **nazwy zakresu**zakresu.
 

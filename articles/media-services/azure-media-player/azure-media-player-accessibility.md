@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 2231c2969bbfce1668002ad4f5f719e0b8e13de5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81726557"
 ---
 # <a name="accessibility"></a>Ułatwienia dostępu #
@@ -29,7 +29,7 @@ Domyślny interfejs użytkownika w Azure Media Player jest zgodny z większości
 
 ### <a name="tabbing-focus"></a>Fokus tabulacji ###
 
-Fokus tabulacji, udostępniany przez ogólne standardy HTML, jest dostępny w Azure Media Player. Aby włączyć skoncentrowanie się na kartach, należy `tabindex=0` dodać (lub inną wartość, jeśli rozumiesz, w jaki sposób kolejność tabulacji ma wpływ `<video>` na kod HTML `<video ... tabindex=0>...</video>`), np.:. Na niektórych platformach fokus dla kontrolek może być obecny tylko wtedy, gdy kontrolki są widoczne, a Platforma obsługuje te funkcje.
+Fokus tabulacji, udostępniany przez ogólne standardy HTML, jest dostępny w Azure Media Player. Aby włączyć skoncentrowanie się na kartach, należy dodać `tabindex=0` (lub inną wartość, jeśli rozumiesz, w jaki sposób kolejność tabulacji ma wpływ na kod HTML), `<video>` np `<video ... tabindex=0>...</video>` .:. Na niektórych platformach fokus dla kontrolek może być obecny tylko wtedy, gdy kontrolki są widoczne, a Platforma obsługuje te funkcje.
 
 Po włączeniu fokusu na kartach użytkownik końcowy może efektywnie nawigować i kontrolować odtwarzacz wideo bez względu na ich mysz. Do każdego menu kontekstowego lub elementu z możliwością kontrolowania można przejść do przycisku tabulacji i wybrać polecenie Enter lub spacja. Naciśnięcie klawisza Enter lub Spacja w menu kontekstowym spowoduje jego rozwinięcie, aby użytkownik końcowy mógł kontynuować tabulację w celu wybrania elementu menu. Gdy masz już kontekst wybieranego elementu, naciśnij ponownie klawisz Enter lub spację, aby ukończyć wybieranie.
 
@@ -43,7 +43,7 @@ Azure Media Player obsługuje kontrolowanie za pomocą klawisza skrótu klawiatu
 | M/m                  | Dźwięk odtwarzacza będzie wyciszany/włączany                                          |
 | Strzałka w górę i w dół    | Głośność dźwięku odtwarzacza będzie zwiększana/zmniejszana                                    |
 | Strzałka w lewo i w prawo | Postęp filmu wideo będzie zwiększany/zmniejszany                                  |
-| 0,1,2,3,4,5,6,7,8,9  | Postęp filmu wideo zostanie zmieniony na 0%\- 90% w zależności od naciśniętego klawisza |
+| 0,1,2,3,4,5,6,7,8,9  | Postęp filmu wideo zostanie zmieniony na 0% \- 90% w zależności od naciśniętego klawisza |
 | Kliknij akcję         | Film wideo będzie odtwarzany/wstrzymywany                                                   |
 
 ## <a name="next-steps"></a>Następne kroki

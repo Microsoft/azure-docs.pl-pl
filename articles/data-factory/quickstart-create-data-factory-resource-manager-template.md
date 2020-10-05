@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
 ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87283898"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Szybki Start: Tworzenie Azure Data Factory przy użyciu szablonu ARM
@@ -94,23 +94,23 @@ Więcej przykładów szablonów Azure Data Factory można znaleźć w [galerii s
 
 1. Wybierz pozycję **Przejdź do grupy zasobów**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Grupa zasobów":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 2.  Sprawdź, czy Azure Data Factory został utworzony.
     1. Nazwa Azure Data Factory jest w formacie — DataFactory \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Przykład Data Factory":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 2. Sprawdź, czy konto magazynu zostało utworzone.
     1. Nazwa konta magazynu jest w formacie-Storage \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Konto magazynu":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 3. Wybierz utworzone konto magazynu, a następnie wybierz pozycję **Containers (kontenery**).
     1. Na stronie **kontenery** wybierz utworzony kontener obiektów BLOB.
         1. Nazwa kontenera obiektów BLOB jest w formacie-BLOB \<uniqueid\> .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Kontener obiektów blob":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 ### <a name="upload-a-file"></a>Przekazywanie pliku
 
@@ -126,7 +126,7 @@ Więcej przykładów szablonów Azure Data Factory można znaleźć w [galerii s
 
 6. Wybierz ikonę **Zamknij** ( **symbol X**), aby zamknąć stronę **przekazywanie obiektu BLOB** .
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Przekaż plik do folderu wejściowego":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowania danych wyjściowych na końcu tego przewodnika Szybki Start.
 
@@ -136,17 +136,17 @@ Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowan
 
 2. Wybierz kafelek **tworzenie & monitor** . 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Tworzenie monitora &":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 2. Wybierz kartę **autor** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false"::: .
 
 3. Wybierz utworzony potok-ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Potok szablonu ARM":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 4. Wybierz pozycję **Dodaj wyzwalacz wyzwalacza**  >  **teraz**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Wyzwalacz":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 5. W prawym okienku w obszarze **uruchomienie potoku**wybierz pozycję **OK**.
 
@@ -156,7 +156,7 @@ Pozostaw otwartą stronę kontenera, ponieważ można jej użyć do zweryfikowan
 
 2. Zostaną wyświetlone uruchomienia działania skojarzone z uruchomieniem potoku. W tym przewodniku Szybki start potok ma tylko jedno działanie typu Kopiowanie. W związku z tym zostanie wyświetlony przebieg dla tego działania.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Pomyślne uruchomienie":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
 ### <a name="verify-the-output-file"></a>Weryfikowanie pliku wyjściowego
 
@@ -168,9 +168,9 @@ Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB. Nastę
 
 3. Upewnij się, że plik **emp.txt** jest kopiowany do folderu wyjściowego. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Dane wyjściowe":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Wdróż szablon ARM w usłudze ADF":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zasoby, które zostały utworzone w ramach tego przewodnika Szybki start, możesz wyczyścić na dwa sposoby. [Grupę zasobów platformy Azure](../azure-resource-manager/management/delete-resource-group.md), która obejmuje wszystkie zasoby w grupie zasobów, można usunąć. Jeśli chcesz zachować inne zasoby bez zmian, usuń tylko fabrykę danych utworzoną w tym samouczku.
 

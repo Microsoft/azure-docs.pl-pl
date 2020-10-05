@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, mikrofon, dostęp MICS, dane MIC
 ms.openlocfilehash: 3632145b3f3b63023e0c66e3cf99903231802edf
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277952"
 ---
 # <a name="quickstart-build-your-first-azure-kinect-application"></a>Szybki Start: Tworzenie pierwszej aplikacji usługi Azure urządzenia Kinect

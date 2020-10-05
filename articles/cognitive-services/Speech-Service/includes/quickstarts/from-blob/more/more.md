@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: 76640d00343cf2d58aa128550e2001779d80d6f2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81400978"
 ---
 ## <a name="additional-language-and-platform-support"></a>Dodatkowy język i obsługa platformy
@@ -20,7 +20,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | C# | [Od mikrofonu][1-mic], [z pliku][1-file] | [.NET Framework][dotnet], [.NET Core][netcore], [platformy UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
 | C++ | [Od mikrofonu][2-mic], [z pliku][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
 | Java | [Od mikrofonu][3-mic], [z pliku][3-file] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Przeglądarka z pliku z użyciem mikrofonu][js-browser], [Node. js][js-node] | [Windows, Linux, macOS][js-code] |
+| JavaScript | [Przeglądarka z mikrofonu][js-browser], [Node.js z pliku][js-node] | [Windows, Linux, macOS][js-code] |
 | Obiektowy C | [iOS z mikrofonu][obj-iOS-qck], [macOS z mikrofonu][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
 | Python | [Od mikrofonu][4-mic], [z pliku][4-file] | [Windows, Linux, macOS][python] |
 | Swift | [iOS z mikrofonu][swift-iOS-qck], [macOS z mikrofonu][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87035115"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Co to jest Azure Active Directory Authentication?
@@ -52,7 +52,7 @@ Gdy użytkownik zaktualizuje lub zresetuje hasło przy użyciu funkcji samoobsł
 
 ## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Uwierzytelnianie wieloskładnikowe to proces, w którym użytkownik jest monitowany podczas procesu logowania w celu uzyskania dodatkowej formy identyfikacji, na przykład w celu wprowadzenia kodu w Cellphone lub zapewnienia skanowania odcisku palca.
+Uwierzytelnianie wieloskładnikowe to proces, w którym podczas procesu logowania użytkownik otrzymuje monit mający na celu uzyskanie dodatkowej formy identyfikacji, na przykład wprowadzenie kodu w telefonie komórkowym lub zeskanowanie odcisku palca.
 
 Jeśli używasz tylko hasła do uwierzytelniania użytkownika, opuszcza on niezabezpieczony wektor na potrzeby ataku. Jeśli hasło jest słabe lub zostało ujawnione w innym miejscu, czy użytkownik loguje się przy użyciu nazwy użytkownika i hasła, czy też jest osoba atakująca? Gdy wymagana jest druga forma uwierzytelniania, zabezpieczenia są zwiększane, ponieważ ten dodatkowy czynnik nie jest czymś, co jest łatwe do uzyskania lub zduplikowania przez osobę atakującą.
 

@@ -12,17 +12,17 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85212993"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Szybki Start: Konfigurowanie izolacji obciążenia przy użyciu języka T-SQL
 
 W tym przewodniku szybki start utworzysz grupę obciążeń i klasyfikator w celu zarezerwowania zasobów na potrzeby ładowania danych. Grupa obciążenia przydzieli 20% zasobów systemowych na ładowane dane.  Klasyfikator obciążeń przypisze żądania do grupy obciążeń ładowania danych.  Dzięki obciążeniu 20% w przypadku ładowania danych są one gwarantowane zasobom, które trafią umowy SLA.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!NOTE]
 > Utworzenie wystąpienia programu SQL Synapse w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -110,5 +110,5 @@ Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w magazy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Grupa obciążeń została już utworzona. Uruchom kilka zapytań jako ELTLogin, aby zobaczyć, jak są one wykonywane. Zobacz sekcję [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyświetlić zapytania i przypisaną grupę obciążeń.
+- Grupa obciążeń została już utworzona. Uruchom kilka zapytań jako ELTLogin, aby zobaczyć, jak są one wykonywane. Zobacz [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyświetlić zapytania i przypisaną grupę obciążeń.
 - Aby uzyskać więcej informacji na temat Synapse zarządzania obciążeniami SQL, zobacz [zarządzanie obciążeniami](sql-data-warehouse-workload-management.md) i [izolacja obciążeń](sql-data-warehouse-workload-isolation.md).

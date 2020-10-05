@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135700"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Szybki Start: Konfigurowanie odzyskiwania po awarii w regionie pomocniczym platformy Azure dla maszyny wirtualnej platformy Azure
@@ -48,7 +48,7 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 1. W obszarze **operacje** wybierz pozycję **odzyskiwanie po awarii**.
 1. Aby wyświetlić szczegóły replikacji z **przeglądu** , wybierz pozycję **Essentials**. Więcej szczegółów znajduje się w temacie **kondycja i stan**, **gotowość trybu failover**oraz mapa **widoku infrastruktury** .
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Stan replikacji.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Włącz replikację.":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -65,7 +65,7 @@ Aby wyłączyć replikację, wykonaj następujące czynności:
 1. Na stronie **Przegląd**wybierz pozycję **Wyłącz replikację**.
 1. Aby odinstalować rozszerzenie Site Recovery, przejdź do rozszerzeń **ustawień**maszyny wirtualnej  >  **Extensions**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Wyłącz replikację.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Włącz replikację.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

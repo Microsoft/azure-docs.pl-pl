@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 06/26/2019
 keywords: Azure, urządzenia Kinect, omówienie, dev Kit, DK, urządzenie, Głębokość, śledzenie treści, mowę, usługi poznawcze, zestawy SDK
 ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277994"
 ---
 # <a name="about-azure-kinect-dk"></a>Informacje o zestawie Azure Kinect DK
 
  ![Azure Kinect DK](./media/index/device-image.jpg)
 
-Azure urządzenia Kinect DK to zestaw deweloperów z zaawansowanymi czujnikami AI, który zapewnia zaawansowane modele przetwarzania i przetwarzania mowy.  Urządzenia Kinect zawiera czujnik głębokości, geograficzną tablicę z kamerą wideo oraz czujnik orientacji jako wszystkie w jednym niewielkim urządzeniu z wieloma trybami, opcjami i zestawami SDK (Software Development Kit). Jest ona dostępna do zakupu w [Sklepie Microsoft Online](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
+Azure Kinect DK to zestaw dla deweloperów z zaawansowanymi czujnikami AI udostępniający złożone modele przetwarzania obrazów i mowy.  Kinect to niewielkie urządzenie zawierające czujnik głębi, przestrzenną macierz mikrofonów z kamerą i czujnik orientacji, które oferuje wiele trybów, opcji i zestawów SDK. Jest ona dostępna do zakupu w [Sklepie Microsoft Online](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
 
 Środowisko deweloperskie usługi Azure urządzenia Kinect DK składa się z następujących wielu zestawów SDK:
 
@@ -30,7 +30,7 @@ Ponadto usługi poznawcze mogą być używane z kamerą RGB urządzenia.
 
    ![Diagram zestawów SDK usługi Azure urządzenia Kinect](./media/quickstarts/sdk-diagram.jpg)
 
-## <a name="azure-kinect-sensor-sdk"></a>Zestaw SDK czujnika usługi Azure urządzenia Kinect
+## <a name="azure-kinect-sensor-sdk"></a>Azure Kinect Sensor SDK
 
 Zestaw SDK czujnika usługi Azure urządzenia Kinect zapewnia dostęp czujnika niskiego poziomu dla czujników sprzętowych i konfiguracji urządzeń platformy Azure urządzenia Kinect.
 
@@ -56,7 +56,7 @@ Następujące narzędzia są dostępne w zestawie SDK czujnika:
 - Narzędzie do rejestrowania czujnika i interfejs API czytnika odtwarzania, który używa formatu kontenera Matroska.
 - Narzędzie do aktualizacji oprogramowania układowego w usłudze Azure urządzenia Kinect DK.
 
-## <a name="azure-kinect-body-tracking-sdk"></a>Zestaw SDK śledzenia treści usługi Azure urządzenia Kinect
+## <a name="azure-kinect-body-tracking-sdk"></a>Azure Kinect Body Tracking SDK
 
 Zestaw SDK śledzenia treści zawiera bibliotekę systemu Windows i środowisko uruchomieniowe do śledzenia treści w 3D, gdy jest używany z sprzętem usługi Azure urządzenia Kinect DK.
 

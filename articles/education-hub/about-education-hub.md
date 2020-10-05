@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: a12c954cbce0b6b78c2f36d4fe75a901571f572a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86535797"
 ---
 # <a name="what-is-the-azure-education-hub"></a>Co to jest Education Hub platformy Azure?
@@ -28,5 +28,5 @@ Aby skorzystać z dotacji akademickiej, musisz utworzyć klasę w Education Hub 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostęp do Education Hub](access-education-hub.md)
+- [Uzyskiwanie dostępu do usługi Education Hub](access-education-hub.md)
 - [Opcje pomocy technicznej](educator-service-desk.md)

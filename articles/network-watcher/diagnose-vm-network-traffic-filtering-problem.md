@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84709219"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu witryny Azure Portal
@@ -44,7 +44,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |---|---|
     |Nazwa|myVm|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać zdefiniowane wymagania dotyczące złożoności.|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać zdefiniowane wymagania dotyczące złożoności.|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
     |Lokalizacja| Wybierz **Wschodnie stany USA**|
@@ -61,7 +61,7 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, naj
 
 Jeśli masz już włączony obserwator sieciowy w co najmniej jednym regionie, przejdź do obszaru [Użyj weryfikacji przepływu IP](#use-ip-flow-verify).
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
 2. Włącz usługę Network Watcher w regionie Wschodnie stany USA, ponieważ to tam wdrożono maszynę wirtualną w poprzednim kroku. Wybierz węzeł **Regiony**, aby go rozwinąć, a następnie wybierz symbol **...** z prawej strony pozycji **Wschodnie stany USA**, jak pokazano na poniższej ilustracji:
 
     ![Włączanie usługi Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -72,7 +72,7 @@ Jeśli masz już włączony obserwator sieciowy w co najmniej jednym regionie, p
 
 Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blokuje ruch sieciowy do i z maszyny wirtualnej. Domyślne ustawienia platformy Azure można później zastąpić, aby zezwalać lub nie zezwalać na dodatkowe typy ruchu.
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W polu *Filtr* **wszystkie usługi** wprowadź *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W polu *Filtr* **wszystkie usługi** wprowadź *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
 2. W obszarze **Narzędzia do diagnostyki sieci** wybierz pozycję **Weryfikowanie przepływu adresów IP**.
 3. Wybierz subskrypcję, wpisz lub wybierz następujące wartości, a następnie wybierz pozycję **Sprawdź**, jak pokazano na poniższej ilustracji:
 
@@ -88,7 +88,7 @@ Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blo
     | Zdalny adres IP | 13.107.21.200 — jeden z adresów dla <www.bing.com>.                                             |
     | Port zdalny       | 80                                                                                                |
 
-    ![Weryfikowanie przepływu adresów IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
+    ![Weryfikacja przepływu adresów IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
     Wynik zwrócony po kilku sekundach informuje, że dostęp jest dozwolony dzięki regule zabezpieczeń o nazwie **AllowInternetOutbound**. Jeśli masz usługę Network Watcher w regionie innym niż Wschodnie stany USA, po uruchomieniu testu automatycznie jest tworzona usługa Network Watcher w regionie Wschodnie stany USA.
 4. Wykonaj ponownie krok 3, ale wartość pola **Zdalny adres IP** zmień na **172.31.0.100**. Zwrócony wynik informuje o odmowie dostępu z powodu reguły zabezpieczeń o nazwie **DefaultOutboundDenyAll**.
@@ -101,7 +101,7 @@ Gdy już wiesz, które reguły zabezpieczeń zezwalają na ruch lub blokują ruc
 1. Aby ustalić, dlaczego reguły wymienione w krokach 3–5 sekcji **Korzystanie z weryfikowania przepływu adresów IP** zezwalają na komunikację lub ją blokują, zapoznaj się z aktywnymi regułami zabezpieczeń interfejsu sieciowego w maszynie wirtualnej. W polu wyszukiwania w górnej części portalu wpisz ciąg *myvm*. Gdy interfejs sieciowy **myvm** (lub interfejs sieciowy o innej nazwie) pojawi się w wynikach wyszukiwania, wybierz go.
 2. Wybierz pozycję **Aktywne reguły zabezpieczeń** w obszarze **Pomoc techniczna i rozwiązywanie problemów**, jak pokazano na poniższej ilustracji:
 
-    ![Aktywne reguły zabezpieczeń](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
+    ![Obowiązujące reguły zabezpieczeń](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
     W kroku 3 sekcji **Korzystanie z weryfikowania przepływu adresów IP** okazało się, że komunikacja jest dozwolona dzięki regule **AllowInternetOutbound**. Na poprzedniej ilustracji widać, że **miejscem docelowym** dla tej reguły jest **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200, który był testowany w kroku 3 sekcji **Korzystanie z weryfikowania przepływu adresów IP**, jest związany z **Internetem**.
 3. Wybierz regułę **AllowInternetOutBound**, a następnie wybierz pozycję **Miejsce docelowe**, jak pokazano na poniższej ilustracji:

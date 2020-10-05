@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85100751"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Co to jest Azure Data Box Gateway?
@@ -67,7 +67,7 @@ Urządzenie wirtualne Data Box Gateway ma następujące parametry:
 | Specyfikacje                                          | Opis              |
 |---------------------------------------------------------|--------------------------|
 | Procesory wirtualne (rdzenie)   | Minimum 4 |
-| Memory (Pamięć)  |Minimum 8 GB|
+| Pamięć  |Minimum 8 GB|
 | Dostępność|Jeden węzeł|
 | Dyski|Dysk systemu operacyjnego: 250 GB <br> Dysk danych: minimum 2 TB, alokowany elastycznie, wymagane dyski SSD|
 | Interfejsy sieciowe |Co najmniej 1 wirtualny interfejs sieciowy|

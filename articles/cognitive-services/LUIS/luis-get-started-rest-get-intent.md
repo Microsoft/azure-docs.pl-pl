@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
 ms.openlocfilehash: 7a8cbfa307f14a6660dcace3315384bc523ad888
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91316260"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Szybki Start: używanie założeń i REST w celu uzyskania zamiaru
@@ -79,7 +79,7 @@ Użyj Zwinięciea, aby wykonać zapytanie dotyczące [punktu końcowego przewidy
 
 1. Zastąp wartości zaczynające się od `***YOUR-` własnymi wartościami.
 
-    |Informacyjny|Przeznaczenie|
+    |Informacje|Przeznaczenie|
     |--|--|
     |`***YOUR-PREDICTION-ENDPOINT***`| Punkt końcowy adresu URL przewidywania. Znajdujący się w portalu LUIS, stronie zasobów platformy Azure dla Twojej aplikacji.<br>Na przykład `https://westus.api.cognitive.microsoft.com/`.|
     |`***YOUR-APP-ID***`|Identyfikator aplikacji. Na stronie Ustawienia aplikacji Portal LUIS dla aplikacji.

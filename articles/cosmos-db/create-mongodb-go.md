@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85299198"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: łączenie aplikacji go z interfejsem API Azure Cosmos DB dla MongoDB
@@ -62,7 +62,7 @@ Uruchom następujące polecenia w celu sklonowania przykładowego repozytorium.
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak działa aplikacja, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do [uruchamiania aplikacji](#run-the-application). Układ aplikacji jest następujący:
+Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak działa aplikacja, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do [uruchamiania aplikacji](#run-the-application). Układ aplikacji jest następujący:
 
 ```bash
 .
@@ -75,7 +75,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku `todo.go`.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Łączenie aplikacji języka Go z usługą Cosmos Azure DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)hermetyzuje parametry połączenia dla Azure Cosmos DB, które są przesyłane przy użyciu zmiennej środowiskowej (szczegóły w kolejnej sekcji). Połączenie jest inicjowane przy użyciu, [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) do którego `clientOptions` wystąpienie zostanie przesłane. [ `Ping` Funkcja](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) jest wywoływana w celu potwierdzenia pomyślnej łączności (dotyczy to strategii niepowodzenia)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) hermetyzuje parametry połączenia dla Azure Cosmos DB, które są przesyłane przy użyciu zmiennej środowiskowej (szczegóły w kolejnej sekcji). Połączenie jest inicjowane przy użyciu, [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) do którego `clientOptions` wystąpienie zostanie przesłane. [ `Ping` Funkcja](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) jest wywoływana w celu potwierdzenia pomyślnej łączności (dotyczy to strategii niepowodzenia)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -96,7 +96,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku `todo.go`.
 ```
 
 > [!NOTE] 
-> Użycie [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) konfiguracji jest ważne, bez której zostanie wyświetlony następujący błąd łączności:`unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
+> Użycie [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) konfiguracji jest ważne, bez której zostanie wyświetlony następujący błąd łączności: `unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
 >
 
 ### <a name="create-a-todo-item"></a>Utwórz `todo` element
@@ -145,7 +145,7 @@ func list(status string) {
     }
 ```
 
-[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find)służy do wyszukiwania dokumentów opartych na filtrze, a wynik jest konwertowany na wycinek`Todo`
+[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find) służy do wyszukiwania dokumentów opartych na filtrze, a wynik jest konwertowany na wycinek `Todo`
 
 ```go
     todoCollection := c.Database(database).Collection(collection)
@@ -199,9 +199,9 @@ func update(todoid, newStatus string) {
     }
 ```
 
-### <a name="delete-a-todo"></a>Usuń element`todo`
+### <a name="delete-a-todo"></a>Usuń element `todo`
 
-Element `todo` jest usuwany na podstawie jego `_id` i jest hermetyzowany w postaci [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) wystąpienia. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)jest wywoływana w celu usunięcia dokumentu.
+Element `todo` jest usuwany na podstawie jego `_id` i jest hermetyzowany w postaci [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) wystąpienia. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) jest wywoływana w celu usunięcia dokumentu.
 
 ```go
 func delete(todoid string) {
@@ -340,7 +340,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 > Ta `ssl=true` opcja jest ważna ze względu na wymagania Cosmos DB. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące parametrów połączenia](connect-mongodb-account.md#connection-string-requirements).
 >
 
-W polu `MONGODB_CONNECTION_STRING` zmienna środowiskowa Zastąp symbole zastępcze dla `<COSMOSDB_ACCOUNT_NAME>` i`<COSMOSDB_PASSWORD>`
+W polu `MONGODB_CONNECTION_STRING` zmienna środowiskowa Zastąp symbole zastępcze dla `<COSMOSDB_ACCOUNT_NAME>` i `<COSMOSDB_PASSWORD>`
 
 1. `<COSMOSDB_ACCOUNT_NAME>`: Nazwa utworzonego konta Azure Cosmos DB
 2. `<COSMOSDB_PASSWORD>`: Klucz bazy danych wyodrębniony w poprzednim kroku
@@ -354,7 +354,7 @@ Możesz wybrać preferowane wartości dla `MONGODB_DATABASE` i `MONGODB_COLLECTI
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Aby utworzyć`todo`
+Aby utworzyć `todo`
 
 ```bash
 ./todo --create "Create an Azure Cosmos DB database account"
@@ -366,7 +366,7 @@ Jeśli to się powiedzie, powinny pojawić się dane wyjściowe z MongoDB `_id` 
 added todo ObjectID("5e9fd6befd2f076d1f03bd8a")
 ```
 
-Utwórz inny`todo`
+Utwórz inny `todo`
 
 ```bash
 ./todo --create "Get the MongoDB connection string using the Azure CLI"
@@ -422,7 +422,7 @@ Aby wyświetlać dane użytkownika utworzone w poprzednim kroku, a także pracow
 
 W górnym polu wyszukiwania wprowadź **Azure Cosmos DB**. Po otwarciu bloku konta usługi Cosmos wybierz swoje konto usługi Cosmos. Na lewym pasku nawigacyjnym wybierz pozycję **Eksplorator danych**. Rozwiń kolekcję w okienku Kolekcje. Następnie możesz wyświetlić dokumenty w kolekcji, wysłać zapytanie dotyczące danych, a nawet tworzyć i uruchamiać procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF). 
 
-:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Eksplorator danych z nowo utworzonym dokumentem":::
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Eksplorator danych z nowo utworzonym dokumentem&quot;:::
 
 
 Usuń `todo` Identyfikator using
@@ -443,7 +443,7 @@ Wyświetl listę `todo` s do potwierdzenia
 +----------------------------+--------------------------------+-----------+
 |             ID             |          DESCRIPTION           |  STATUS   |
 +----------------------------+--------------------------------+-----------+
-| "5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
+| &quot;5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
 |                            | string using the Azure CLI     |           |
 +----------------------------+--------------------------------+-----------+
 ```

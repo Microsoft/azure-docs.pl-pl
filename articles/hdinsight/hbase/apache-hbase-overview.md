@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: afbf9aff09999a34a84d55634a868250fbb6d1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82188964"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Co to jest Apache HBase w usłudze Azure HDInsight
@@ -43,7 +43,7 @@ Kanoniczny przypadek użycia, dla którego utworzono BigTable (i rozszerzenie HB
 |Magazyn wartości klucza|HBase można używać jako magazynu klucz-wartość i są odpowiednie do zarządzania systemami komunikatów. Serwis Facebook używa usługi HBase do obsługi komunikatów i jest idealnym rozwiązaniem do przechowywania komunikacji z Internetem i zarządzania nią. Usługa WebTable używa bazy danych HBase do wyszukiwania tabel wyodrębnianych ze stron sieci Web oraz zarządzania nimi.|
 |Dane czujników|Baza danych HBase może służyć do przechwytywania danych gromadzonych przyrostowo z różnych źródeł. Te dane obejmują analizę społecznościową i szeregi czasowe. I utrzymywanie interaktywnych pulpitów nawigacyjnych na bieżąco z trendami i licznikami oraz zarządzanie systemami dziennika inspekcji. Przykłady obejmują Terminal Bloomberg handlowca i otwartą bazę danych szeregów czasowych (OpenTSDB). OpenTSDB przechowuje i zapewnia dostęp do metryk zbieranych na temat kondycji systemów serwerowych.|
 |Zapytania w czasie rzeczywistym|[Apache Phoenix](https://phoenix.apache.org/) jest aparatem zapytań SQL dla platformy Apache HBase. Jest on dostępny jako sterownik JDBC i umożliwia wykonywanie zapytań i Zarządzanie tabelami HBase przy użyciu języka SQL.|
-|HBase jako platforma|Aplikacje mogą działać w bazie danych HBase, wykorzystując ją jako magazyn danych. Przykładami mogą być Phoenix, `Kiji`OpenTSDB, i Titan. Aplikacje można również integrować z bazą danych HBase. Przykłady obejmują: [Apache Hive](https://hive.apache.org/), Apache chlewnej, [Solr](https://lucene.apache.org/solr/), Apache Storm, Apache Flume, [Apache Impala](https://impala.apache.org/), Apache Spark `Ganglia`i Apache drążenie.|
+|HBase jako platforma|Aplikacje mogą działać w bazie danych HBase, wykorzystując ją jako magazyn danych. Przykładami mogą być Phoenix, OpenTSDB, `Kiji` i Titan. Aplikacje można również integrować z bazą danych HBase. Przykłady obejmują: [Apache Hive](https://hive.apache.org/), Apache chlewnej, [Solr](https://lucene.apache.org/solr/), Apache Storm, Apache Flume, [Apache Impala](https://impala.apache.org/), Apache Spark `Ganglia` i Apache drążenie.|
 
 ## <a name="next-steps"></a>Następne kroki
 

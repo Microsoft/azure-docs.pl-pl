@@ -9,10 +9,10 @@ ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91326256"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
@@ -87,7 +87,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Zastosuj podział w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
-## <a name="distributed-tracing"></a>Śledzenie rozproszone
+## <a name="distributed-tracing"></a>Rozproszone śledzenie
 
 1. W Azure Portal przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie wybierz kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
@@ -183,7 +183,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    [![Zastosuj podział w metrykach ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
 
-## <a name="distributed-tracing"></a>Śledzenie rozproszone
+## <a name="distributed-tracing"></a>Rozproszone śledzenie
 
 1. Przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie kliknij kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
@@ -224,6 +224,6 @@ Aby poznać więcej możliwości monitorowania chmury wiosennej platformy Azure,
 > [!div class="nextstepaction"]
 > [Usługi diagnostyczne](diagnostic-services.md)
 >
-> [Śledzenie rozproszone](spring-cloud-tutorial-distributed-tracing.md)
+> [Rozproszone śledzenie](spring-cloud-tutorial-distributed-tracing.md)
 >
 > [Rejestrowanie strumieni w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)

@@ -13,10 +13,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84667645"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Szybki Start: tworzenie SQL Server 2017 na maszynie wirtualnej z systemem Windows w Azure Portal
@@ -35,7 +35,7 @@ W tym przewodniku szybki start opisano tworzenie SQL Server maszyny wirtualnej (
   > - W tym przewodniku Szybki start przedstawiono ścieżkę szybkiego aprowizowania maszyny wirtualnej SQL i nawiązywania z nią połączenia. Aby uzyskać więcej informacji na temat innych opcji inicjowania obsługi maszyn wirtualnych SQL, zobacz [Przewodnik aprowizacji dla SQL Server na maszynie wirtualnej z systemem Windows w Azure Portal](create-sql-vm-portal.md).
   > - Jeśli masz pytania dotyczące maszyn wirtualnych programu SQL Server, zobacz [Często zadawane pytania](frequently-asked-questions-faq.md).
 
-## <a name="get-an-azure-subscription"></a><a id="subscription"></a>Uzyskaj subskrypcję platformy Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Uzyskaj subskrypcję platformy Azure
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -70,7 +70,7 @@ Na karcie **podstawowe** podaj następujące informacje:
 
    ![Szczegóły wystąpienia](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. W obszarze **konto administratora**Podaj nazwę użytkownika, taką jak _azureuser_ i hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. W obszarze **konto administratora**Podaj nazwę użytkownika, taką jak _azureuser_ i hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Konto administratora](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
@@ -90,12 +90,12 @@ Na karcie **ustawienia SQL Server** skonfiguruj następujące opcje:
 
 1. W razie konieczności Zmień inne ustawienia, a następnie wybierz pozycję **Przegląd + Utwórz**. 
 
-   ![Przegląd + tworzenie](./media/sql-vm-create-portal-quickstart/review-create.png)
+   ![Przeglądanie i tworzenie](./media/sql-vm-create-portal-quickstart/review-create.png)
 
 
 ## <a name="create-the-sql-server-vm"></a>Tworzenie maszyny wirtualnej z programem SQL Server
 
-Na karcie **Przegląd + tworzenie** Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
+Na karcie **Przegląd + tworzenie** Przejrzyj podsumowanie, a następnie wybierz pozycję  **Utwórz** , aby utworzyć SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
 
 Możesz monitorować wdrożenie z poziomu witryny Azure Portal. Przycisk **Powiadomienia** w górnej części ekranu służy do wyświetlania podstawowych informacji dotyczących stanu wdrożenia. Wdrożenie może potrwać kilka minut. 
 

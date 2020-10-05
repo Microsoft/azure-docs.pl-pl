@@ -1,5 +1,5 @@
 ---
-title: Cognitive Services danych Big Data
+title: Usługi Cognitive Services dla danych big data
 description: Dowiedz się, jak korzystać z usługi Azure Cognitive Services w dużych zestawach danych przy użyciu języków Python, Java i Scala. Za pomocą Cognitive Services dla danych Big Data można osadzić ciągłe ulepszanie, inteligentnych modeli bezpośrednio do Apache Spark &trade; i obliczeń SQL.
 services: cognitive-services
 author: mhamilton723
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
 ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86201784"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Cognitive Services platformy Azure dla danych Big Data
@@ -42,7 +42,7 @@ Cognitive Services dla danych Big Data mogą korzystać z usług z dowolnego reg
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Usługa rozpoznawania mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa mowy zapewnia dostęp do funkcji, takich jak rozpoznawanie mowy, synteza mowy, Tłumaczenie mowy oraz weryfikacja i identyfikacja prelegenta.|
+|[Usługa mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa mowy zapewnia dostęp do funkcji, takich jak rozpoznawanie mowy, synteza mowy, Tłumaczenie mowy oraz weryfikacja i identyfikacja prelegenta.|
 
 ### <a name="decision"></a>Decyzja
 
@@ -50,13 +50,13 @@ Cognitive Services dla danych Big Data mogą korzystać z usług z dowolnego reg
 |:-----------|:------------------|
 |[Narzędzie do wykrywania anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Narzędzie do wykrywania anomalii") | Usługa wykrywania anomalii (wersja zapoznawcza) umożliwia monitorowanie i wykrywanie nieprawidłowych danych szeregów czasowych.|
 
-### <a name="language"></a>Language
+### <a name="language"></a>Język
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
 |[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Analiza tekstu")| Usługa analiza tekstu zapewnia przetwarzanie języka naturalnego w tekście nieprzetworzonym w celu analizy tonacji, wyodrębniania kluczowych fraz i wykrywania języka.|
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
@@ -132,7 +132,7 @@ Cognitive Services dla danych Big Data to przykład integracji inteligentnych us
 - [Prezentację szczytu platformy Spark: skalowalne AI dla dobra](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Cognitive Services danych Big Data w Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Wprowadzenie z Cognitive Services dla danych Big Data](getting-started.md)
 - [Proste przykłady języka Python](samples-python.md)

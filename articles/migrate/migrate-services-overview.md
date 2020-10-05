@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86122085"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
@@ -47,7 +47,7 @@ Centrum Azure Migrate obejmuje następujące narzędzia:
 
 Azure Migrate integruje się z kilkoma ofertami niezależnych dostawców oprogramowania. 
 
-**NIEZALEŻNEGO dostawcy oprogramowania**    | **Funkcja**
+**ISV**    | **Funkcja**
 --- | ---
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrowanie serwerów.
 [Cloudamize](https://www.cloudamize.com/platform) | Ocenianie serwerów.
@@ -80,7 +80,7 @@ Ocena serwera korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appli
 
 Azure Migrate: Narzędzie do migracji serwera ułatwia Migrowanie do platformy Azure:
 
-**Migrate** | **Szczegóły**
+**Dokonać** | **Szczegóły**
 --- | ---
 Lokalne maszyny wirtualne VMware | Migrowanie maszyn wirtualnych na platformę Azure przy użyciu funkcji bezagentowej lub migracji opartej na agentach.<br/><br/> W przypadku migracji bez wykorzystania agentów Migracja serwera używa urządzenia Azure Migrate, które jest wdrażane lokalnie. Jest to ten sam typ urządzenia, którego używasz do oceny serwera.<br/><br/> W przypadku migracji na podstawie agenta Ocena serwera korzysta z urządzenia replikacji.
 Lokalne maszyny wirtualne funkcji Hyper-V | Migrowanie maszyn wirtualnych na platformę Azure.<br/><br/> Funkcja oceny serwera używa agentów dostawcy zainstalowanych na hoście funkcji Hyper-V na potrzeby migracji.

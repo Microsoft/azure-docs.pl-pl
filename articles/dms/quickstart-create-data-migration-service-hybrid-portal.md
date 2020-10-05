@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84195688"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Szybki Start: Tworzenie wystąpienia trybu hybrydowego z Azure Portal & Azure Database Migration Service
@@ -39,7 +39,7 @@ W tym przewodniku szybki start użyjesz Azure Portal, aby utworzyć wystąpienie
 > [!IMPORTANT]
 > Azure Database Migration Service Instalatora hybrydowego wymaga platformy .NET w wersji lub nowszej. Aby znaleźć najnowsze wersje programu .NET, zobacz stronę [pobieranie .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -69,13 +69,13 @@ Zarejestruj dostawcę zasobów Microsoft. datamigration przed utworzeniem pierws
 
     - Wybierz **nazwę usługi** , która jest dopamiętana i unikatowa, aby zidentyfikować wystąpienie Azure Database Migration Service.
     - Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć wystąpienie.
-    - Wybierz istniejącą **grupę zasobów** lub utwórz nową.
+    - Wybierz istniejącą **grupę zasobów** lub Utwórz nową.
     - Wybierz pozycję **Lokalizacja** położoną najbliżej Twojego serwera źródłowego lub docelowego.
     - W obszarze **tryb usługi**wybierz pozycję **hybrydowe (wersja zapoznawcza)**.
 
          ![Tworzenie usługi migracji — podstawy](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
-4. Wybierz pozycję **Przegląd + utwórz**.
+4. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 5. Na karcie **Recenzja + tworzenie** Przejrzyj warunki, sprawdź inne podane informacje, a następnie wybierz pozycję **Utwórz**.
 
@@ -125,7 +125,7 @@ Musisz utworzyć identyfikator rejestracji aplikacji platformy Azure, który mo�
     > [!IMPORTANT]
     > Azure Database Migration Service Instalatora hybrydowego wymaga platformy .NET w wersji lub nowszej. Aby znaleźć najnowsze wersje programu .NET, zobacz stronę [pobieranie .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-4. W folderze Install zlokalizuj i Otwórz plik **dmsSettings. JSON** , określ identyfikator **aplikacji** i identyfikator **zasobu**, a następnie Zapisz plik.
+4. W folderze Install zlokalizuj i Otwórz **dmsSettings.jsw** pliku, określ identyfikator **aplikacji** i identyfikator **zasobu**, a następnie Zapisz plik.
 
     ![Azure Database Migration Service ustawień hybrydowego procesu roboczego](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 

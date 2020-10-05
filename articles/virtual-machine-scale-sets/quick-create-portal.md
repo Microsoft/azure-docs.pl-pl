@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87077543"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
@@ -45,7 +45,7 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
     | Jednostka SKU           | Wybierz pozycję **Standardowy**.       |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP  | *myPip*   |
-    | Przypisanie| Statyczny |
+    | Przypisanie| Static |
     | Strefa dostępności | Wybierz pozycję **Strefowo nadmiarowa**. |
 
 1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz** . 

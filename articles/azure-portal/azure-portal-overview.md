@@ -10,21 +10,21 @@ ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84763928"
 ---
 # <a name="azure-portal-overview"></a>Azure Portal — omówienie
 
 W tym artykule wprowadzono Azure Portal, identyfikują elementy strony portalu i ułatwiają zapoznanie się z możliwościami zarządzania Azure Portal.
 
-## <a name="what-is-the-azure-portal"></a>Co to jest witryna Azure Portal?
+## <a name="what-is-the-azure-portal"></a>Co to jest Azure Portal?
 
-Witryna Azure Portal to ujednolicona, oparta na sieci Web konsola, która stanowi alternatywę dla narzędzi wiersza polecenia. Za pomocą Azure Portal możesz zarządzać subskrypcją platformy Azure przy użyciu graficznego interfejsu użytkownika. Możesz tworzyć i monitorować wszystkie elementy z prostych aplikacji sieci Web oraz zarządzać nimi, aby uzyskać złożone wdrożenia w chmurze. Tworzenie niestandardowych pulpitów nawigacyjnych dla zorganizowanego widoku zasobów. Skonfiguruj opcje ułatwień dostępu w celu zapewnienia optymalnego środowiska.
+Witryna Azure Portal to ujednolicona, oparta na sieci Web konsola, która stanowi alternatywę dla narzędzi wiersza polecenia. Dzięki witrynie Azure Portal możesz zarządzać subskrypcją platformy Azure przy użyciu graficznego interfejsu użytkownika. Możesz tworzyć i monitorować wszystko, począwszy od prostych aplikacji internetowych po złożone wdrożenia w chmurze, a także zarządzać nimi. Twórz niestandardowe pulpity nawigacyjne, aby uzyskać zorganizowany widok zasobów. Konfiguruj opcje ułatwień dostępu w celu zapewnienia optymalnego środowiska.
 
-Azure Portal jest zaprojektowana pod kątem odporności i ciągłej dostępności. Jest ona dostępna w każdym centrum danych platformy Azure. Ta konfiguracja sprawia, że Azure Portal odporne na awarie poszczególnych centrów danych i pozwala uniknąć spowolnienia działania sieci przez zamknięcie użytkowników. Azure Portal są stale aktualizowane i nie wymagają przestojów w przypadku działań konserwacyjnych.
+Azure Portal jest zaprojektowana pod kątem odporności i ciągłej dostępności. Jest ona dostępna w każdym centrum danych platformy Azure. Ta konfiguracja sprawia, że Azure Portal odporne na awarie poszczególnych centrów danych i pozwala uniknąć spowolnienia działania sieci przez zamknięcie użytkowników. Witryna Azure Portal jest stale aktualizowana i nie wymaga przestojów pod kątem działań konserwacyjnych.
 
 ## <a name="azure-portal-menu"></a>Menu Azure Portal
 

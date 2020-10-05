@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
 ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85560504"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Szybki Start: tworzenie pulpitu nawigacyjnego w Azure Portal przy użyciu szablonu ARM
@@ -20,7 +20,7 @@ Pulpit nawigacyjny w Azure Portal to skoncentrowany i zorganizowany widok zasob�
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Pulpit nawigacyjny tworzony w następnej części tego przewodnika Szybki Start 
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json). Jeden zasób platformy Azure jest zdefiniowany w szablonie [Microsoft. Portal/pulpity nawigacyjne](/azure/templates/microsoft.portal/dashboards) — Utwórz pulpit nawigacyjny w Azure Portal.
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json). Jeden zasób platformy Azure jest zdefiniowany w szablonie [Microsoft. Portal/pulpity nawigacyjne](/azure/templates/microsoft.portal/dashboards) — Utwórz pulpit nawigacyjny w Azure Portal.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -90,7 +90,7 @@ Azure Portal został użyty do wdrożenia szablonu. Oprócz witryny Azure Portal
 
 Sprawdź, czy pulpit nawigacyjny został utworzony pomyślnie i czy można zobaczyć dane z maszyny wirtualnej.
 
-1. W Azure Portal wybierz pozycję **pulpit nawigacyjny**.
+1. W witrynie Azure Portal wybierz pozycję **Pulpit nawigacyjny**.
 
     ![Azure Portal nawigację do pulpitu nawigacyjnego](media/quick-create-template/navigate-to-dashboards.png)
 
@@ -102,7 +102,7 @@ Sprawdź, czy pulpit nawigacyjny został utworzony pomyślnie i czy można zobac
 
     ![Przejrzyj prosty pulpit nawigacyjny maszyny wirtualnej](media/quick-create-template/review-simple-vm-dashboard.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć maszynę wirtualną i skojarzony z nią pulpit nawigacyjny, Usuń grupę zasobów, która ją zawiera.
 

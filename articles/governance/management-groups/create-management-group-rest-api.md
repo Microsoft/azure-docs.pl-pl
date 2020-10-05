@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start za pomocą interfejsu API REST utwor
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237324"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Szybki Start: Tworzenie grupy zarządzania za pomocą interfejsu API REST

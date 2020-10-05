@@ -4,10 +4,10 @@ description: W tym przewodniku szybki start pokazano, jak dodać pary pytań i o
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84331393"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
@@ -43,7 +43,7 @@ Bieżąca baza wiedzy ma QnA Maker QnA Rozwiązywanie problemów. Te pary zosta�
 
 Po zaimportowaniu tego adresu URL zostanie utworzona tylko jedno pytanie z jedną odpowiedzią. W tej procedurze należy dodać dodatkowe pytania.
 
-1. Na stronie **Edytuj** Użyj pola tekstowego Wyszukaj powyżej par pytania i odpowiedzi, aby znaleźć pytanie`How large a knowledge base can I create?`
+1. Na stronie **Edytuj** Użyj pola tekstowego Wyszukaj powyżej par pytania i odpowiedzi, aby znaleźć pytanie `How large a knowledge base can I create?`
 
 1. W kolumnie **pytania** wybierz pozycję **+ Dodaj alternatywne sformułowanie** , a następnie Dodaj każde nowe sformułowanie, które podano w poniższej tabeli.
 
@@ -99,7 +99,7 @@ Dodanie metadanych do pary pytań i odpowiedzi umożliwia aplikacji klienckiej �
 
 Twoja baza wiedzy została poddana edycji w celu obsługi większej liczby pytań i dostarczonych par nazwa/wartość do obsługi filtrowania podczas wyszukiwania dla najważniejszych odpowiedzi lub dostosujesz, gdy zostanie zwrócona odpowiedź lub odpowiedzi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Start, Usuń QnA Maker i zasoby struktury bot w Azure Portal.
 

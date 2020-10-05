@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90529391"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki Start: Tworzenie drzwi z przodu przy użyciu szablonu ARM
@@ -47,7 +47,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 * [**Microsoft. Network/usługi frontdoor**](/azure/templates/microsoft.network/frontDoors)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure. 
 
@@ -95,7 +95,7 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 1. Wybierz utworzone wcześniej drzwi i kliknij link **hosta frontonu** . Link spowoduje otwarcie przeglądarki sieci Web przekierowanie użytkownika do nazwy FQDN zaplecza zdefiniowanej podczas tworzenia.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Omówienie portalu z przodu":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Dane wyjściowe wdrożenia programu PowerShell dla drzwi przednich Menedżer zasobów szablonu":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

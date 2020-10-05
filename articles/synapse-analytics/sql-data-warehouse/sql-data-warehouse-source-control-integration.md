@@ -11,17 +11,17 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89441325"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integracja kontroli źródła dla puli SQL
 
 W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu zasobu puli SQL w usłudze Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
@@ -63,7 +63,7 @@ Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu prog
 
 3. W Team Explorer w programie Visual Studio Zatwierdź zmiany w lokalnym repozytorium git.
 
-   ![Zleca](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Zatwierdzenie")  
+   ![Zatwierdzenie](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Zatwierdzenie")  
 
 4. Teraz, gdy zmiany zostały zatwierdzone lokalnie w sklonowanym repozytorium, zsynchronizuj i wypchnij zmiany do repozytorium repozytorium platformy Azure w projekcie usługi Azure DevOps.
 

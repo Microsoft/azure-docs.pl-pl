@@ -4,10 +4,10 @@ description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza poleceni
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91324432"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
@@ -26,7 +26,7 @@ Przed zasubskrybowaniem tematu niestandardowego Utwórz funkcję do obsługi zda
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Wybierz wyzwalacz Event Grid":::
 3. Na stronie **Nowa funkcja** wprowadź nazwę funkcji, a następnie wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Nowa strona funkcji":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Wybierz wyzwalacz Event Grid":::
 4. Użyj strony **Kod + test** , aby wyświetlić istniejący kod dla funkcji i zaktualizować ją. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -88,7 +88,7 @@ Zasubskrybowanie tematu pozwala poinformować usługę Event Grid o tym, które 
     
         Przetwarzanie wsadowe może zapewnić wysoką przepływność. W przypadku **maksymalnych zdarzeń na partię**Ustaw maksymalną liczbę zdarzeń obejmującą subskrypcję w partii. Preferowany rozmiar wsadu ustawia preferowaną górną granicę rozmiaru partii w kilobajtach, ale można ją przekroczyć, jeśli pojedyncze zdarzenie jest większe niż ten próg.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Włącz przetwarzanie wsadowe":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Wybierz wyzwalacz Event Grid":::
     6. Na stronie **Tworzenie subskrypcji zdarzeń** wybierz pozycję **Utwórz**.
 
 ## <a name="send-an-event-to-your-topic"></a>Wysyłanie zdarzenia do tematu

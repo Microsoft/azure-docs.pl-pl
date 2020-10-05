@@ -12,10 +12,10 @@ ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89008645"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Przegląd zmian w systemie Linux Foundation
@@ -113,7 +113,7 @@ data.write.format("delta").save(deltaTablePath)
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |  0|
 |  1|
@@ -154,7 +154,7 @@ df.show()
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |  1|
 |  3|
@@ -200,7 +200,7 @@ df.show()
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |  7|
 |  8|
@@ -287,13 +287,13 @@ Wyniki w:
 |                            |                                                                                                             |       |
 |Szczegółowe informacje o tabeli  |                                                                                                             |       |
 |baza danych                    |default                                                                                                      |       |
-|Tabela                       |manageddeltatable                                                                                            |       |
+|tabela                       |manageddeltatable                                                                                            |       |
 |Właściciel                       |Użytkownik zaufany — usługa                                                                                         |       |
 |Czas utworzenia                |SAT kwi 25 00:35:34 UTC 2020                                                                                 |       |
 |Ostatni dostęp                 |Czwartek sty 01 00:00:00 UTC 1970                                                                                 |       |
 |Created By                  |Spark 2.4.4.2.6.99.201 — 11401300                                                                              |       |
 |Typ                        |ZARZĄDZANYCH                                                                                                      |       |
-|Dostawca                    |powstanie                                                                                                        |       |
+|Dostawca                    |delta                                                                                                        |       |
 |Właściwości tabeli            |[transient_lastDdlTime = 1587774934]                                                                           |       |
 |Statystyki                  |2407 bajtów                                                                                                   |       |
 |Lokalizacja                    |abfss://data @ <data lake> . DFS.Core.Windows.NET/Synapse/Workspaces/ <workspace name> /Warehouse/manageddeltatable|       |
@@ -334,7 +334,7 @@ Wyniki w:
 |                            |                                                                      |       |
 |Szczegółowe informacje o tabeli  |                                                                      |       |
 |baza danych                    |default                                                               |       |
-|Tabela                       |externaldeltatable                                                    |       |
+|tabela                       |externaldeltatable                                                    |       |
 |Właściciel                       |Użytkownik zaufany — usługa                                                  |       |
 |Czas utworzenia                |SAT kwi 25 00:35:38 UTC 2020                                          |       |
 |Ostatni dostęp                 |Czwartek sty 01 00:00:00 UTC 1970                                          |       |
@@ -405,7 +405,7 @@ deltaTable.toDF.show
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |106|
 |108|
@@ -444,7 +444,7 @@ deltaTable.toDF.show
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |  5|
 |  7|
@@ -509,7 +509,7 @@ deltaTable.toDF.show()
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 | 18|
 | 15|
@@ -564,7 +564,7 @@ deltaTable.history.show(false)
 
 Wyniki w:
 
-|version|          sygnatura czasowa|userId|userName|operation|                                                operationParameters| zleceń|notesu|clusterId|readVersion|isolationLevel|isBlindAppend|
+|Wersja|          sygnatura czasowa|userId|userName|operation|                                                operationParameters| zadanie|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
 |      4|2020-04-25 00:36:27|  wartość null|    wartość null|    POŁĄCZENIE|                       [predykat-> (oldData.`ID` = newData. `ID` )]|wartość null|    wartość null|     wartość null|          3|          wartość null|        fałsz|
 |      3|2020-04-25 00:36:08|  wartość null|    wartość null|   DELETE|[predykat-> ["(( `ID` % CAST (2 jako bigint)) = CAST (0 jako bigint))"]]|wartość null|    wartość null|     wartość null|          2|          wartość null|        fałsz|
@@ -609,7 +609,7 @@ df.show()
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 |  0|
 |  1|
@@ -696,7 +696,7 @@ deltaTable.toDF.sort($"id".desc).show
 
 Wyniki w:
 
-| ID|
+| ID (Identyfikator)|
 |---|
 | 19|
 | 18|
@@ -745,7 +745,7 @@ deltaTable.history.show
 
 Wyniki w:
 
-|version|          sygnatura czasowa|       operation|                                                                  operationParameters|readVersion|
+|Wersja|          sygnatura czasowa|       operation|                                                                  operationParameters|readVersion|
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|AKTUALIZACJA PRZESYŁANIA STRUMIENIOWEGO|[outputmode-> append, queryId-> d26b4f8a-7e5a-44f2-A5FB-23a7bd02aef7, epochId-> 0]|          4|
 |      4|2020-04-25 00:36:27|           POŁĄCZENIE|                                         [predykat-> (oldData.`id` = newData. `id` )]|          3|
@@ -783,7 +783,7 @@ deltaTable.history.show
 
 Wyniki w:
 
-|version|          sygnatura czasowa|       operation|                                                                  operationParameters|readVersion|
+|Wersja|          sygnatura czasowa|       operation|                                                                  operationParameters|readVersion|
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|AKTUALIZACJA PRZESYŁANIA STRUMIENIOWEGO|[outputmode-> append, queryId-> d26b4f8a-7e5a-44f2-A5FB-23a7bd02aef7, epochId-> 0]|          4|
 |      4|2020-04-25 00:36:27|           POŁĄCZENIE|                                         [predykat-> (oldData.`id` = newData. `id` )]|          3|
@@ -903,7 +903,7 @@ spark.sql(s"DESCRIBE HISTORY delta.`$deltaTablePath`").show()
 
 Wyniki w:
 
-|version|          sygnatura czasowa|userId|userName|       operation| operationParameters| zleceń|notesu|clusterId|readVersion|isolationLevel|isBlindAppend|
+|Wersja|          sygnatura czasowa|userId|userName|       operation| operationParameters| zadanie|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
 |      5|2020-04-25 00:37:09|  wartość null|    wartość null|AKTUALIZACJA PRZESYŁANIA STRUMIENIOWEGO|[outputmode-> AP...|wartość null|    wartość null|     wartość null|          4|          wartość null|         true|
 |      4|2020-04-25 00:36:27|  wartość null|    wartość null|           POŁĄCZENIE|[predykat-> (OL...|wartość null|    wartość null|     wartość null|          3|          wartość null|        fałsz|
@@ -994,7 +994,7 @@ Pełną dokumentację można znaleźć na [stronie z dokumentacją usługi Delta
 
 Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https://github.com/delta-io/delta).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

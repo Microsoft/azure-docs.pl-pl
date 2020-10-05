@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/06/2020
 ms.openlocfilehash: 24f5a671076a44db382ac37e2f6532e5f0f2a3ae
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82930390"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Co to są otwarte zestawy danych platformy Azure i jak można z nich korzystać?
@@ -35,14 +35,14 @@ Poniżej przedstawiono przykłady dostępnych zestawów danych.
 
 ### <a name="weather-data"></a>Dane pogodowe
  
-|Dataset         | Notebooks     | Opis                                    |
+|Zestaw danych         | Notebooks     | Opis                                    |
 |----------------|---------------|------------------------------------------------|
 |[NOAA zintegrowane dane powierzchniowe (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Ogólnoświatowe i godzinowe dane pogody z NOAA z optymalnym pokryciem przestrzennym w Ameryka Północna, Europie, Australii i części Azji. Zaktualizowano codziennie. |
 |[Globalny system prognozowania NOAA (GFS)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | 15-dniowe dane prognozy pogody o godzinie NOAA. Zaktualizowano codziennie. |
 
 ### <a name="calendar-data"></a>Dane kalendarza
 
-|Dataset         | Notebooks     | Opis                                    |
+|Zestaw danych         | Notebooks     | Opis                                    |
 |----------------|---------------|------------------------------------------------|
 |[Dni wolne od pracy](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Ogólnoświatowe publiczne dane urlopowe obejmujące 41 krajów lub regionów od 1970 do 2099. Obejmuje kraj oraz to, czy większość osób ma płatne czasowo. |
 
