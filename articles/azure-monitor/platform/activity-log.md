@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983204"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712310"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności to [Dziennik platformy](platform-logs-overview.md) na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
@@ -226,7 +226,7 @@ Poniżej znajduje się przykładowy skrypt programu PowerShell służący do two
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 

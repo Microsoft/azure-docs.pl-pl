@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301435"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712276"
 ---
 # <a name="harden-your-docker-hosts"></a>Wzmacnianie zabezpieczeń hostów platformy Docker
 
@@ -32,7 +32,7 @@ Po znalezieniu luk w zabezpieczeniach są one pogrupowane w ramach jednego zalec
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Wymagane role i uprawnienia:|**Czytnik** w obszarze roboczym, z którym łączy się host|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identyfikowanie i korygowanie luk w zabezpieczeniach w konfiguracji platformy Docker
@@ -50,11 +50,11 @@ Po znalezieniu luk w zabezpieczeniach są one pogrupowane w ramach jednego zalec
     > [!TIP]
     > Po rozpoczęciu pracy na stronie spisu zasobów i osiągnięciu tego zalecenia w tym miejscu ybierz przycisk **Przejmij akcję** na stronie rekomendacja.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Użyj przycisku akcji, aby uruchomić Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Zalecenie dotyczące korygowania luk w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów ":::
 
     Log Analytics otwarty z niestandardową operacją gotową do uruchomienia. Domyślne zapytanie niestandardowe zawiera listę wszystkich ocenionych reguł zakończonych niepowodzeniem, a także wskazówki ułatwiające rozwiązanie problemów.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Strona Log Analyticsa z zapytaniem wyświetlającym wszystkie niepowodzenie kontrolek CIS":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Zalecenie dotyczące korygowania luk w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów ":::
 
 1. Dostosowywanie parametrów zapytania w razie potrzeby.
 

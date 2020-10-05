@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447719"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712293"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy
 
@@ -33,7 +33,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
