@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91654400"
 ---
 Aby utworzyć projekt programu Visual Studio na potrzeby programowania aplikacji klasycznych w języku C++, należy skonfigurować opcje deweloperskie programu Visual Studio, utworzyć projekt, wybrać architekturę docelową i zainstalować zestaw Speech SDK.

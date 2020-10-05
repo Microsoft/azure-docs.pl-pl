@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
 ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91285336"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
@@ -52,7 +52,7 @@ Zestaw SDK sieci Web Azure Maps umożliwia dostosowywanie interaktywnych map prz
 
 Użyj Android SDK Azure Maps, aby utworzyć aplikacje do mapowania aplikacji mobilnych.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Przykłady mapowania na urządzeniu przenośnym":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Przykładowa Mapa zmiany populacji utworzona przy użyciu Azure Maps Web SDK":::
 
 ## <a name="services-in-azure-maps"></a>Usługi Azure Maps
 
@@ -78,7 +78,7 @@ Aby dowiedzieć się więcej na temat usługi, zobacz [dokumentację usługi mob
 
 [Usługa renderowania w wersji 2](https://docs.microsoft.com/rest/api/maps/renderv2) , która jest teraz w wersji zapoznawczej, zawiera nową wersję [interfejsu API pobierania mapy kafelków](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)w wersji 2. Interfejs API uzyskiwania mapy kafelka v2 umożliwia teraz klientom żądanie Azure Maps kafelków dróg, kafelków pogody lub kafelków mapy utworzonych przy użyciu Azure Maps Creator. Zalecamy użycie nowego interfejsu API programu Get map kafelka v2.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Przykład mapy z usługi renderowania w wersji 2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Przykładowa Mapa zmiany populacji utworzona przy użyciu Azure Maps Web SDK":::
 
 Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją usługi renderowania w wersji 2](https://docs.microsoft.com/rest/api/maps/renderv2).
 
@@ -88,7 +88,7 @@ Aby dowiedzieć się więcej na temat usługi renderowania w wersji 1 (ogólnie 
 
 Usługi Route Services mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają czynniki, takie jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości jazdy w dniu tygodnia i godziny dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Usługa umożliwia deweloperom Obliczanie kierunków w kilku trybach podróży, takich jak samochód, ciężarówka, rower lub pojazd elektryczny. Usługa uwzględnia również dane wejściowe, takie jak czas wyruszenia, ograniczenia wagi lub transport materiału niebezpiecznego.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Przykład mapy z usługi Route Service":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Przykładowa Mapa zmiany populacji utworzona przy użyciu Azure Maps Web SDK":::
 
 Usługa Route oferuje zaawansowane funkcje zestawu, takie jak:
 
@@ -102,7 +102,7 @@ Aby uzyskać szczegółowe informacje o możliwościach routingu, Przeczytaj [do
 
 Usługa Search ułatwia deweloperom wyszukiwanie adresów, miejsc, aukcji w biznesie według nazwy lub kategorii oraz innych informacji geograficznych. Ponadto usługi mogą [odwracać adresy geokodowe](https://en.wikipedia.org/wiki/Reverse_geocoding) i krzyżyki na podstawie Latitudes i długości geograficznej.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Przykład wyszukiwania na mapie":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Przykładowa Mapa zmiany populacji utworzona przy użyciu Azure Maps Web SDK":::
 
 Usługa Search oferuje także zaawansowane funkcje, takie jak:
 
@@ -204,7 +204,7 @@ Ponadto Azure Maps oferuje wygodną [kontrolkę mapy JavaScript](https://docs.mi
 
 Wizualizacja Azure Maps dla Power BI oferuje bogaty zestaw danych graficznych dla danych przestrzennych na mapie. Szacuje się, że ponad 80% danych gospodarczych ma kontekst lokalizacji. Wizualizacja Azure Maps oferuje niekodowe rozwiązanie do uzyskiwania wglądu w sposób odnoszący się do tego kontekstu lokalizacji i ma wpływ na dane biznesowe.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI pulpicie z wizualizacją Azure Maps wyświetlającą dane biznesowe":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Przykładowa Mapa zmiany populacji utworzona przy użyciu Azure Maps Web SDK":::
 
 Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie do [Azure Maps Power BI dokumentacji wizualnej](power-bi-visual-getting-started.md) .
 

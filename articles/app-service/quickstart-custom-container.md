@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91356421"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Uruchamianie niestandardowego kontenera na platformie Azure
@@ -199,7 +199,7 @@ Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz a
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
 
-## <a name="sign-in"></a>Zaloguj
+## <a name="sign-in"></a>Zaloguj się
 
 Następnie uruchom VS Code i zaloguj się do konta platformy Azure przy użyciu rozszerzenia App Service. W tym celu wybierz logo platformy Azure na pasku działania, przejdź do Eksploratora **usługi App Service** , a następnie wybierz pozycję **Zaloguj się do platformy Azure** i postępuj zgodnie z instrukcjami.
 

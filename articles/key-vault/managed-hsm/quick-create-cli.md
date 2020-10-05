@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91001023"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Szybki Start: udostępnianie zarządzanego modułu HSM i aktywowanie go przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -111,7 +111,7 @@ Zapisz plik domeny zabezpieczeń i pary kluczy RSA bezpiecznie. Będą one potrz
 
 Po pomyślnym pobraniu domeny zabezpieczeń moduł HSM będzie w stanie aktywny i będzie gotowy do użycia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz korzystać z kolejnych przewodników Szybki start i samouczków, pozostaw te zasoby na swoim miejscu.
 

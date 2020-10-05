@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
 ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91630223"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Szybki Start: tworzenie alertów dziennika aktywności dla powiadomień usługi przy użyciu szablonu ARM
@@ -136,7 +136,7 @@ Szablon definiuje dwa zasoby:
 - [Microsoft. Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
 - [Microsoft. Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** i **EmailAddress** z odpowiednimi wartościami dla danego środowiska.
 

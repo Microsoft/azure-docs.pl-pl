@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
 ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90883160"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu ARM
@@ -48,7 +48,7 @@ Następujące zasoby są zdefiniowane w szablonie:
 * [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Tworzenie maszyny wirtualnej opartej na chmurze. W tym szablonie maszyna wirtualna jest skonfigurowana jako Data Science Virtual Machine z systemem Ubuntu 18,04.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Aby użyć szablonu w interfejsie wiersza polecenia platformy Azure, zaloguj się i wybierz swoją subskrypcję (zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)). Następnie uruchom polecenie:
 
@@ -77,7 +77,7 @@ Po uruchomieniu powyższego polecenia wpisz:
 
 Aby wyświetlić Data Science Virtual Machine:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 1. Zaloguj się.
 1. Wybierz utworzoną grupę zasobów.
 
@@ -87,7 +87,7 @@ Zobaczysz informacje o grupie zasobów:
 
 Kliknij zasób maszyny wirtualnej, aby przejść do strony z informacjami. Tutaj można znaleźć informacje na temat maszyny wirtualnej, w tym szczegóły połączenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz używać tej maszyny wirtualnej, usuń ją. Ponieważ DSVM jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie trzeba będzie usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk **Usuń** i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu:
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.openlocfilehash: 7f4849c75b36b1663416ad1a97e3264fabcdaa67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86201728"
 ---
 # <a name="getting-started"></a>Wprowadzenie
@@ -60,7 +60,7 @@ Azure Databricks to platforma analityczna oparta na Apache Spark z jednym klikni
 1. Zainstaluj Cognitive Services danych Big Data
     * Utwórz nową bibliotekę w obszarze roboczym datakosteks  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
-    * Wprowadź następujące współrzędne Maven współrzędne: `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` repozytorium:`https://mmlspark.azureedge.net/maven`  
+    * Wprowadź następujące współrzędne Maven współrzędne:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` repozytorium: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Instalowanie biblioteki w klastrze  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
@@ -98,7 +98,7 @@ Najpierw można utworzyć Notes w Azure Databricks. W przypadku innych dostawcó
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
-    Wybierz pozycję **Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
 1. Wklej poniższy fragment kodu poniżej do nowego notesu.
 
@@ -142,7 +142,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 | Jestem sfrustrowani przez ten szczytuy ruch godzinny |   0,0237956 |
 | Usługi poznawcze w usłudze Spark aint są nieprawidłowe  |   0,888896  |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Krótkie przykłady w języku Python](samples-python.md)
 - [Krótkie przykłady Scala](samples-scala.md)

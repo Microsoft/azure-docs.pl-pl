@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91597818"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Co to jest Azure Time Series Insights Gen1?
@@ -78,7 +78,7 @@ Azure Time Series Insights przechwytuje i zapisuje każde nowe zdarzenie jako wi
 
 - **Skalowalność**: Azure Time Series Insights jest zaprojektowana do obsługi IoT na dużą skalę. Umożliwia pozyskiwanie od 1 miliona do 100 milionów zdarzeń dziennie, które domyślnie są przechowywane przez 31 dni. Możesz wizualizować i analizować strumienie danych na żywo niemal w czasie rzeczywistym, obok danych historycznych.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby rozpocząć, wykonaj następujące kroki.
 

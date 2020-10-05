@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409395"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Szybki start: Tworzenie elementów, wykonywanie zapytań i przechodzenie przez grafową bazę danych usługi Azure Cosmos DB przy użyciu konsoli Gremlin
@@ -65,11 +65,11 @@ Należy również zainstalować [konsolę Gremlin](https://tinkerpop.apache.org/
 
    W przypadku wartości hosta skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Wyświetlanie i kopiowanie wartości Identyfikator URI Gremlin na stronie Przegląd w witrynie Azure Portal":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
 
    W przypadku wartości hasła skopiuj wartość **Klucz podstawowy** ze strony **Klucze**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Wyświetlanie i kopiowanie klucza podstawowego w witrynie Azure Portal na stronie Klucze":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
 
    Zdalny plik secure.yaml powinien wyglądać następująco:
 

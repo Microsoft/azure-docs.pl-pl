@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91620277"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
@@ -22,7 +22,7 @@ ms.locfileid: "91620277"
 
 Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podstawowe pojęcia związane z usługą i ważnymi poleceniami. Ten artykuł jest pomocny w przypadku nowych osób, które chcą uzyskać najważniejsze tematy dotyczące usługi Azure Synapse.
 
-## <a name="basics"></a>Podstawy
+## <a name="basics"></a>Informacje podstawowe
 
 **Obszar roboczy Synapse** to zabezpieczana granica współpracy służąca do przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów.
 

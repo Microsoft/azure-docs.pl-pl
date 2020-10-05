@@ -4,10 +4,10 @@ description: Ten temat zawiera omówienie analizy filmów wideo na żywo na IoT 
 ms.topic: overview
 ms.date: 05/27/2020
 ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90904358"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>Co to jest usługa Live Video Analytics na IoT Edge? (wersja zapoznawcza)
@@ -31,7 +31,7 @@ Obsługiwane są środowiska Linux x86 — 64 i ARM64.
 > Obsługa urządzeń z ARM64 jest dostępna w kompilacjach `1.0.4` i nowszych.
 > Obsługa środowiska uruchomieniowego Azure IoT Edge na urządzeniach ARM64 jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z następującymi artykułami koncepcji, a następnie skorzystaj z przewodnika Szybki Start, aby uruchomić Wykrywanie ruchu na żywo kanału wideo.
 

@@ -8,10 +8,10 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 08/31/2020
 ms.openlocfilehash: 76bbb980b6430f7cffc23ec078e2c932128dc637
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89265273"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>Tworzenie Azure Media Services strumienia na żywo
@@ -104,7 +104,7 @@ W następnej procedurze powrócisz do Azure Media Services w przeglądarce, aby 
 4. Przejdź do aplikacji Wirecast i wklej **wejściowy adres URL** do pola **adres** w ustawieniach danych wyjściowych.
 
    ![Wejściowy adres URL Wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
-5. Wybierz pozycję **OK**.
+5. Wybierz przycisk **OK**.
 
 ## <a name="set-up-outputs"></a>Konfigurowanie danych wyjściowych
 

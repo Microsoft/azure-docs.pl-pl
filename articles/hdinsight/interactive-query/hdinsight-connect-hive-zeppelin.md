@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
 ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79367928"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Szybki Start: wykonywanie zapytań Apache Hive w usłudze Azure HDInsight przy użyciu platformy Apache Zeppelin
 
 W tym przewodniku szybki start dowiesz się, jak używać oprogramowania Apache Zeppelin do uruchamiania zapytań [Apache Hive](https://hive.apache.org/) w usłudze Azure HDInsight. Interaktywne klastry zapytań usługi HDInsight obejmują notesy [Apache Zeppelin](https://zeppelin.apache.org/) , których można używać do uruchamiania interakcyjnych zapytań Hive.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ HDInsight An interaktywny klaster zapytań. Zobacz [Tworzenie klastra](../hadoop
 
 ## <a name="create-an-apache-zeppelin-note"></a>Tworzenie notatki Apache Zeppelin
 
-1. Zamień `CLUSTERNAME` na nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Następnie wprowadź adres URL w przeglądarce sieci Web.
+1. Zamień na `CLUSTERNAME` nazwę klastra w następującym adresie URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` . Następnie wprowadź adres URL w przeglądarce sieci Web.
 
 2. Wprowadź nazwę użytkownika i hasło logowania do klastra. Na stronie Zeppelin można utworzyć nową notatkę lub otworzyć istniejące notatki. **HiveSample** zawiera przykładowe zapytania Hive.  
 
@@ -108,7 +108,7 @@ HDInsight An interaktywny klaster zapytań. Zobacz [Tworzenie klastra](../hadoop
 
 Zapoznaj się z [podręcznikiem języka Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) w celu uzyskania dodatkowej składni.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 

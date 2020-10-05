@@ -4,10 +4,10 @@ description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy
 ms.topic: overview
 ms.date: 05/04/2020
 ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91574465"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
@@ -26,7 +26,7 @@ Chmury prywatne i klastry dla rozwiązań VMware platformy Azure są zbudowane z
 
 Nowe chmury prywatne są wdrażane za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 [!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 

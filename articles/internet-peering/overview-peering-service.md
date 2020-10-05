@@ -1,7 +1,7 @@
 ---
-title: Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
+title: Internetowa komunikacja równorzędna a Peering Service
 titleSuffix: Azure
-description: Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
+description: Internetowa komunikacja równorzędna a Peering Service
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83849386"
 ---
-# <a name="internet-peering-vs-peering-service"></a>Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
+# <a name="internet-peering-vs-peering-service"></a>Internetowa komunikacja równorzędna a Peering Service
 
 Komunikacja równorzędna internetowa dotyczy wszelkich połączeń między siecią globalną firmy Microsoft (AS8075) a przewoźnikami lub usługodawcami sieciowymi. Usługodawca może zostać partnerem usługi komunikacji równorzędnej, implementując wymagania dotyczące partnerstwa usługi komunikacji równorzędnej opisane poniżej w celu zapewnienia niezawodnej i wysoce wydajnej łączności publicznej z optymalnym routingiem od klienta do sieci firmy Microsoft.
 

@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87503926"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reguły zapory IP usługi Azure Synapse Analytics (wersja zapoznawcza)
@@ -35,7 +35,7 @@ Możesz również dodać reguły zapory adresów IP do obszaru roboczego Synapse
 
 ![Konfiguracja adresu IP obszaru roboczego usługi Azure Synapse w Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connect-to-synapse-from-your-own-network"></a>Łączenie się z usługą Synapse z własnej sieci
+## <a name="connect-to-synapse-from-your-own-network"></a>Nawiązywanie połączenia z usługą Synapse z własnej sieci
 
 Możesz nawiązać połączenie z obszarem roboczym usługi Synapse za pomocą programu Synapse Studio. Możesz również użyć SQL Server Management Studio (SSMS), aby nawiązać połączenie z zasobami SQL (pulami SQL i SQL na żądanie) w obszarze roboczym.
 

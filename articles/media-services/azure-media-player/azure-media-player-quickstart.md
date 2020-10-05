@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: quickstart
 ms.date: 04/20/2020
 ms.openlocfilehash: ac81832765f674e58ad6b3213238e9c68e04d2dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81726466"
 ---
 # <a name="azure-media-player-quickstart"></a>Szybki start: usługa Azure Media Player
@@ -22,7 +22,7 @@ Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarza
 ```
 
 > [!IMPORTANT]
-> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player; na przykład `latest` Zastąp `1.0.0`ciąg. W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
+> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień na `latest` wersję Azure Media Player; na przykład Zastąp ciąg `latest` opcją `1.0.0` . W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
 
 ## <a name="use-the-video-element"></a>Korzystanie z elementu wideo
 

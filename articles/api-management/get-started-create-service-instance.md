@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90708210"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu Azure Portal
@@ -32,16 +32,16 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. Możesz również wybrać pozycję **Utwórz zasób** na stronie **głównej** platformy Azure. 
    
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="Wybierz pozycję Utwórz zasób":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="Wystąpienie API Management":::
 
    
 1. Na stronie **Nowy** wybierz pozycję **integracja**  >  **API Management**.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="Nowe wystąpienie usługi Azure API Management":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="Wystąpienie API Management":::
    
 1. Na stronie **usługa API Management** wprowadź ustawienia.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nowe wystąpienie":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Wystąpienie API Management":::
    
    | Ustawienie                 | Opis   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -53,7 +53,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
    | **Adres e-mail administratora** | Adres e-mail, na który będą wysyłane wszystkie powiadomienia z **API Management** .   |  
    | **Warstwa cenowa**        | Wybierz pozycję warstwa **dewelopera** , aby oszacować usługę. Ta warstwa nie jest używana do użycia w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie). |
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
     > [!TIP]
     > Utworzenie i aktywowanie usługi API Management w tej warstwie może potrwać od 30 do 40 minut. Wybranie pozycji **Przypnij do pulpitu nawigacyjnego** ułatwia znajdowanie nowo utworzonej usługi.
@@ -72,17 +72,17 @@ Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **grupy zasobów**. Możesz również wybrać **grupy zasobów** na stronie **głównej** . 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Nawigacja grupy zasobów":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Wystąpienie API Management":::
 
 1. Na stronie **grupy zasobów** wybierz grupę zasobów.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Wybieranie grupy zasobów":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Wystąpienie API Management":::
 
 1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**. 
    
 1. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Usuwanie grupy zasobów":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Wystąpienie API Management":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906358"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Szybki Start: Tworzenie automatycznej odpowiedzi na określony alert zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablon ARM)
@@ -46,7 +46,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 Inne Security Center Szablony szybkiego startu można znaleźć w [szablonach](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security)utworzonych przez społeczność.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
   - Program **PowerShell**:
     ```azurepowershell-interactive
@@ -77,14 +77,14 @@ Użyj Azure Portal, aby sprawdzić, czy Automatyzacja przepływu pracy został w
     >[!TIP]
     > Jeśli masz wiele automatyzacji przepływu pracy w subskrypcji, użyj opcji **Filtruj według nazwy** . 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń automatyzację przepływu pracy przy użyciu Azure Portal.
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center**.
 1. Na górnym pasku menu wybierz ikonę filtru, a następnie wybierz konkretną subskrypcję, w której wdrożono nową automatyzację przepływu pracy.
 1. Na pasku bocznym Security Center Otwórz **automatyzację przepływu pracy** i Znajdź automatyzację do usunięcia.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Procedura usuwania automatyzacji przepływu pracy" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Lista skonfigurowanych automatyzacji" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Zaznacz pole wyboru dla elementu, który ma zostać usunięty.
 1. Na pasku narzędzi wybierz pozycję **Usuń**.
 

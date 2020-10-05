@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.openlocfilehash: 44dc3f16128913f76369ad645a32e91f38272546
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83869864"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Szybki Start: sprawdzanie pisowni przy użyciu interfejsu API REST sprawdzanie pisowni Bing i języka PHP
@@ -36,7 +36,7 @@ Mimo że aplikacja jest zapisywana w języku PHP, interfejs API jest usługą si
 2. Dodaj kod przedstawiony poniżej.
 3. Zastąp wartość `subscriptionKey` kluczem dostępu właściwym dla Twojej subskrypcji.
 4. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
-5. Uruchom program.
+5. Uruchomisz program.
     
     ```php
     <?php

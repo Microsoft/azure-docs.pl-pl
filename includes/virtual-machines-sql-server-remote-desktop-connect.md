@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: fe5daa38c43723c85fb464e191ee4a3e85700e0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67183187"
 ---
 1. Po utworzeniu i uruchomieniu maszyny wirtualnej platformy Azure kliknij ikonę Maszyny wirtualne w witrynie Azure Portal, aby wyświetlić swoje maszyny wirtualne.
 
 1. Kliknij przycisk wielokropka (**... **) dla nowej maszyny wirtualnej.
 
-1. Kliknij pozycję **Połącz**.
+1. Kliknij przycisk **Połącz**.
 
    ![Nawiązywanie połączenia z maszyną wirtualną w portalu](./media/virtual-machines-sql-server-remote-desktop-connect/azure-virtual-machine-connect.png)
 

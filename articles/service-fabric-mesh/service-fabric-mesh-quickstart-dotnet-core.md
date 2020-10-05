@@ -7,10 +7,10 @@ ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91653302"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Szybki start: Tworzenie i wdrażanie aplikacji internetowych w usłudze Azure Service Fabric Mesh

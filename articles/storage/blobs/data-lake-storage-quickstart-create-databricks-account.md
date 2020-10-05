@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
 ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86109777"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Szybki Start: analizowanie danych z użyciem datakostki
@@ -92,7 +92,7 @@ W tej sekcji utworzysz notes w obszarze roboczym usługi Azure Databricks, a nas
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz pozycję **Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
 4. Skopiuj i wklej następujący blok kodu do pierwszej komórki, ale jeszcze nie uruchamiaj kodu.
 

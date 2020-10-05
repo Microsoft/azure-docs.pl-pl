@@ -9,17 +9,17 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
 ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87133082"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wersji, klipy wideo, wpisy w blogu i inne typy informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="july-2020"></a>Lipiec 2020 r.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86082441"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
@@ -32,7 +32,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna**.
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna**.
 
 1. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz następujące informacje:
 
@@ -57,9 +57,9 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
 
 ### <a name="create-the-first-vm"></a>Tworzenie pierwszej maszyny wirtualnej
 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W menu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
 
-1. W portalu Azure Marketplace wybierz pozycję **COMPUTE**  >  **Windows Server 2019 Datacenter**. Wybierz pozycję **Utwórz**.
+1. W portalu Azure Marketplace wybierz pozycję **COMPUTE**  >  **Windows Server 2019 Datacenter**. Wybierz przycisk **Utwórz**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
 
@@ -72,11 +72,11 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
     | Nazwa maszyny wirtualnej | Wprowadź nazwę *myVm1*. |
     | Region | Wybierz pozycję **Wschodnie stany USA**. |
     | Opcje dostępności | Domyślnie **nie jest wymagana żadna nadmiarowość infrastruktury**. |
-    | Obraz | Domyślnie dla **systemu Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Domyślnie dla **systemu Windows Server 2019 Datacenter**. |
     | Rozmiar | Domyślnie **standardowa DS1 v2**. |
     | **Konto administratora** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Potwierdź hasło | Wprowadź ponownie hasło. |
     | **Reguły portów ruchu przychodzącego** |  |
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
@@ -112,9 +112,9 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
     | Wydajność | Domyślnie **standardowa**. |
     | Replikacja | Domyślnie **Magazyn lokalnie nadmiarowy (LRS)**. |
 
-1. Wybierz pozycję **OK**, a następnie wybierz pozycję **Przegląd + Utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **OK**, a następnie wybierz pozycję **Przegląd + Utwórz**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 ### <a name="create-the-second-vm"></a>Tworzenie drugiej maszyny wirtualnej
 
@@ -137,7 +137,7 @@ Po utworzeniu *myVm1*Połącz się z Internetem.
 
     Zostanie otwarta strona **łączenie** .
 
-1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
 
 1. Otwórz plik RDP. Po wyświetleniu monitu wybierz pozycję **Połącz**.
 
@@ -146,7 +146,7 @@ Po utworzeniu *myVm1*Połącz się z Internetem.
     > [!NOTE]
     > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 1. Po zalogowaniu się może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -156,7 +156,7 @@ Po utworzeniu *myVm1*Połącz się z Internetem.
 
 1. Na pulpicie zdalnym maszyny *myVm1* otwórz program PowerShell.
 
-1. Wprowadź polecenie `ping myVm2`.
+1. Wprowadź `ping myVm2`.
 
     Zostanie wyświetlony komunikat podobny do tego wyjściowego:
 

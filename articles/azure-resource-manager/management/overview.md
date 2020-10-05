@@ -5,23 +5,23 @@ ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91372276"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
-Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
+Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i tagi, można zabezpieczyć oraz zorganizować zasoby po wdrożeniu.
 
 Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Spójna warstwa zarządzania
 
-Gdy użytkownik wysyła żądanie z dowolnego narzędzia, interfejsów API lub zestawów SDK platformy Azure, Menedżer zasobów odbiera żądanie. Uwierzytelnia i autoryzuje żądanie. Menedżer zasobów wysyła żądanie do usługi platformy Azure, która przyjmuje żądaną akcję. Ponieważ wszystkie żądania są obsługiwane przez ten sam interfejs API, użytkownik widzi spójne wyniki i możliwości w różnych narzędziach.
+Gdy użytkownik wysyła żądanie z dowolnego narzędzia platformy Azure, interfejsów API lub zestawów SDK, usługa Resource Manager odbiera je. Uwierzytelnia i autoryzuje to żądanie. Usługa Resource Manager wysyła żądanie do usługi platformy Azure, która podejmuje żądaną akcję. Ponieważ wszystkie żądania są obsługiwane przez ten sam interfejs API, użytkownik widzi spójne wyniki i możliwości w różnych narzędziach.
 
-Na poniższej ilustracji przedstawiono rolę Azure Resource Manager odgrywaną w obsłudze żądań platformy Azure.
+Na poniższym obrazie przedstawiono rolę, jaką odgrywa usługa Azure Resource Manager w obsłudze żądań platformy Azure.
 
 ![Model żądań usługi Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -31,8 +31,8 @@ Wszystkie funkcje, które są dostępne w portalu są również dostępne za po�
 
 Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka terminów, których możesz nie znać.
 
-* **Zasób** — dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Przykładami zasobów są maszyny wirtualne, konta magazynu, aplikacje internetowe, bazy danych i sieci wirtualne. Grupy zasobów, subskrypcje, grupy zarządzania i Tagi są również przykładami zasobów.
-* **Grupa zasobów** — kontener, który zawiera powiązane zasoby rozwiązania dla platformy Azure. Grupa zasobów zawiera zasoby, którymi chcesz zarządzać jako grupą. Należy zdecydować, które zasoby należą do grupy zasobów, w oparciu o to, co jest najrozsądniejsze dla Twojej organizacji. Zobacz [Grupy zasobów](#resource-groups).
+* **zasób** — element do zarządzania, który jest dostępny za pomocą platformy Azure. Przykładami zasobów są maszyny wirtualne, konta magazynu, aplikacje internetowe, bazy danych i sieci wirtualne. Grupy zasobów, subskrypcje, grupy zarządzania i Tagi są również przykładami zasobów.
+* **Grupa zasobów** — kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Grupa zasobów zawiera zasoby, którymi chcesz zarządzać jako grupą. Należy zdecydować, które zasoby należą do grupy zasobów, w oparciu o to, co jest najrozsądniejsze dla Twojej organizacji. Zobacz [Grupy zasobów](#resource-groups).
 * **Dostawca zasobów** — usługa dostarczająca zasoby platformy Azure. Na przykład typowym dostawcą zasobów jest Microsoft.Compute, który dostarcza zasób maszyny wirtualnej. Innym typowym dostawcą zasobów jest Microsoft.Storage. Zobacz [dostawcy zasobów i ich typy](resource-providers-and-types.md).
 * **Szablon Menedżer zasobów** — plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [Template Deployment przegląd](../templates/overview.md).
 * **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure.  Zobacz [Template Deployment przegląd](../templates/overview.md).
@@ -41,19 +41,19 @@ Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka 
 
 Za pomocą Menedżer zasobów można:
 
-* Zarządzaj infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
+* Zarządzanie infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
 
-* Wdrażaj i Monitoruj wszystkie zasoby dla rozwiązania jako grupę, a także zarządzaj nimi, a nie Przetwarzaj tych zasobów pojedynczo.
+* Wdrażanie i monitorowanie wszystkich zasobów rozwiązania jako grupy, a także zarządzania nimi, zamiast obsługi tych zasobów indywidualnie.
 
-* Wdróż ponownie rozwiązanie w całym cyklu rozwoju i Zachowaj pewność, że zasoby są wdrażane w spójnym stanie.
+* Ponowne wdrażanie rozwiązania w całym cyklu projektowania i zachowanie pewności, że zasoby są wdrażane w stanie spójności.
 
-* Zdefiniuj zależności między zasobami, aby zostały wdrożone w odpowiedniej kolejności.
+* Definiowanie zależności między zasobami w celu wdrożenia w odpowiedniej kolejności.
 
 * Zastosuj kontrolę dostępu do wszystkich usług, ponieważ kontrola dostępu oparta na rolach na platformie Azure (RBAC) jest natywnie zintegrowana z platformą zarządzania.
 
-* Zastosuj Tagi do zasobów, aby logicznie organizować wszystkie zasoby w subskrypcji.
+* Zastosowanie tagów do zasobów w celu logicznej organizacji wszystkich zasobów w subskrypcji.
 
-* Wyjaśnij rozliczenia w organizacji, wyświetlając koszty dla grupy zasobów, które współużytkują ten sam tag.
+* Wyjaśnienie rozliczeń organizacji, wyświetlając koszty dla grupy zasobów korzystających z tego samego tagu.
 
 ## <a name="understand-scope"></a>Objaśnienie zakresu
 
@@ -63,7 +63,7 @@ Platforma Azure udostępnia cztery poziomy zakresu: [grupy zarządzania](../../g
 
 Ustawienia zarządzania są stosowane na dowolnych z tych poziomów zakresu. Zasięg zastosowania ustawienia jest określany na podstawie wybranego poziomu. Niższe poziomy dziedziczą ustawienia z wyższych poziomów. Na przykład w przypadku zastosowania [zasad](../../governance/policy/overview.md) do subskrypcji zasady są stosowane do wszystkich grup zasobów i zasobów w ramach subskrypcji. Po zastosowaniu zasad w grupie zasobów te zasady są stosowane do grupy zasobów i wszystkich jej zasobów. Jednak inna grupa zasobów nie ma tego przypisania zasad.
 
-Szablony można wdrażać dla dzierżawców, grup zarządzania, subskrypcji lub grup zasobów.
+Szablony można wdrażać w dzierżawach, grupach zarządzania, subskrypcjach lub grupach zasobów.
 
 ## <a name="resource-groups"></a>Grupy zasobów
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947622"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Szybki Start: Eksplorowanie pokazu doradcy metryk z przykładowymi danymi
@@ -44,14 +44,14 @@ Kliknij źródło *przykładowego kosztu/przychodu — dane dotyczące miejscowo
 * Dzienniki, gdy strumieniowe źródło danych zostało zaktualizowane.   
 * Informacje i ustawienia strumieniowego źródła danych.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Widok strumieniowego źródła danych" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Lista przykładowych danych" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Wyświetlanie wizualizacji i konfiguracji szeregów czasowych
 
 Kliknij pozycję Metryka *kosztu* w strumieniu *przykładowego kosztu/przychodu — dane dotyczące miejscowości/kategorii* . Zostanie wyświetlona skojarzona seria czasowa pozielona według wymiarów z wizualizacjami zgodnie z historycznymi danymi metryki. Niebieski pasek wokół danych metryki reprezentuje zakres wartości oczekiwanej z modeli uczenia maszynowego klasyfikatora metryk. Punkty, które znajdują się poza tym pasmem, będą oznaczone czerwonymi kropkami, które wykryją anomalie. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Wizualizacja serii" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Lista przykładowych danych" lightbox="../media/series-visualization.png":::
 
 Wykrywanie anomalii można skonfigurować przez dostrajanie **konfiguracji wykrywania** po lewej stronie szczegółów metryki. Dostępne są wiele metod wykrywania anomalii i można je połączyć. Możesz również wypróbować różne sensitivities, wykrywać wskazówki i inne konfiguracje. Link **Konfiguracja zaawansowana** u dołu **wykrywania konfiguracji** umożliwia tworzenie bardziej złożonych i dostosowanych ustawień wykrywania, które mogą być używane dla grup lub poszczególnych serii. 
 
@@ -59,7 +59,7 @@ Możesz również dostrajać wykrywanie anomalii, przekazując Opinie do algoryt
 
 W dolnej części panelu **Dodaj opinię** znajduje się łącze **do centrum zdarzeń**, które przekieruje Cię do strony analiza zdarzeń i przeanalizuje główną przyczynę zdarzenia.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Link zdarzenia" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Lista przykładowych danych" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Eksplorowanie wyników wykrywania anomalii i wykonywanie analizy głównych przyczyn
 
@@ -67,7 +67,7 @@ Po kliknięciu linku **do centrum zdarzeń** z anomalii zostanie wyświetlona st
 
 Sekcja **Diagnostyka** przedstawia drzewo zdarzenia oraz kilka kart do diagnozowania incydentu.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostyka zdarzeń" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Lista przykładowych danych" lightbox="../media/incident-diagnostic.png":::
 
 Przez lokalizowanie głównej przyczyny zdarzenia można podjąć działania i rozwiązać problem, zanim sytuacja będzie gorsza. Więcej szczegółowych informacji można także poznać, klikając inne dostępne funkcje diagnostyczne. 
 

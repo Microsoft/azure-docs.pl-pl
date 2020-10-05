@@ -11,37 +11,37 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
 ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86231271"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy Azure w celu zdefiniowania zadania Stream Analytics, które filtruje komunikaty czujnika w czasie rzeczywistym z odczytem temperatury większym niż 27. Zadanie Stream Analytics będzie odczytywać dane z IoT Hub, przekształcać dane i zapisywać dane z powrotem do kontenera w usłudze BLOB Storage. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-your-environment"></a>Przygotowanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. Zaloguj się.
 
-   Zaloguj się przy użyciu polecenia [AZ login](/cli/azure/reference-index#az-login) , jeśli używasz lokalnej instalacji interfejsu wiersza polecenia.
+   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się przy użyciu polecenia [az login](/cli/azure/reference-index#az-login).
 
     ```azurecli
     az login
     ```
 
-    Postępuj zgodnie z instrukcjami wyświetlanymi w terminalu, aby ukończyć proces uwierzytelniania.
+    Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
 2. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure.
 
-   Podczas pracy z odwołaniami do rozszerzeń dla interfejsu wiersza polecenia platformy Azure należy najpierw zainstalować rozszerzenie.  Rozszerzenia interfejsu wiersza polecenia platformy Azure umożliwiają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze wysłane jako część podstawowego interfejsu wiersza polecenia.  Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+   Aby pracować z odwołaniami do rozszerzenia dla interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować rozszerzenie.  Rozszerzenia interfejsu wiersza polecenia platformy Azure dają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze dostarczone jako część podstawowego interfejsu wiersza polecenia.  Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [Używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
 
    Zainstaluj [rozszerzenie dla Stream Analytics](/cli/azure/ext/stream-analytics/stream-analytics) , uruchamiając następujące polecenie:
 

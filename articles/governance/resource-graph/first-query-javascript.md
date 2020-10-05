@@ -5,10 +5,10 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91251970"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Szybki Start: uruchamianie pierwszego zapytania wykresu zasobów przy użyciu języka JavaScript

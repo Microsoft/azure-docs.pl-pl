@@ -10,13 +10,13 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90889028"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
+# <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wdrażanie usługi Azure Sentinel
 
 W tym przewodniku szybki start dowiesz się, jak dołączyć wskaźnik do platformy Azure. 
 
@@ -37,7 +37,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 - Aby włączyć wskaźnik na platformie Azure, musisz mieć uprawnienia współautora do subskrypcji, w której znajduje się obszar roboczy wskaźnik platformy Azure. 
 - Aby korzystać z platformy Azure, musisz mieć uprawnienia współautora lub czytelnika w grupie zasobów, do której należy obszar roboczy.
 - Do nawiązania połączenia z określonymi źródłami danych mogą być konieczne dodatkowe uprawnienia.
-- Azure — Wskaźnikowanie jest płatną usługą. Aby uzyskać informacje o cenach, zobacz [Informacje o wskaźniku platformy Azure](https://go.microsoft.com/fwlink/?linkid=2104058).
+- Azure Sentinel to usługa płatna. Aby uzyskać informacje o cenach, zobacz [Informacje o wskaźniku platformy Azure](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 

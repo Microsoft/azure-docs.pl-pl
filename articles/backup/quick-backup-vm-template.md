@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: e64aa10d8ddadd367d04b2b480770a99f3ece1dc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88826535"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Szybki Start: Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu szablonu ARM
@@ -41,7 +41,7 @@ Zasoby zdefiniowane w szablonie są następujące:
 - [**Microsoft. RecoveryServices/magazyny**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
 - [**Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Aby wdrożyć szablon, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell, a następnie wklej następujący skrypt programu PowerShell do okna powłoki. Aby wkleić kod, kliknij prawym przyciskiem myszy okno powłoki, a następnie wybierz polecenie **Wklej**.
 

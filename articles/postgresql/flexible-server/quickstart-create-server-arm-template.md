@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: a52f88f5ca325027cbac53d2c7e927bcf30da994
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947633"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Szybki Start: Użyj szablonu ARM, aby utworzyć serwer elastyczny Azure Database for PostgreSQL
@@ -21,7 +21,7 @@ ms.locfileid: "90947633"
 
 Elastyczny serwer to zarządzana usługa, która umożliwia uruchamianie i skalowanie baz danych PostgreSQL o wysokiej dostępności w chmurze oraz zarządzanie nimi. Za pomocą szablonów ARM można zainicjować PostgreSQL elastyczny serwer, aby wdrożyć wiele serwerów lub wiele baz danych na serwerze.
 
-Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
+Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i tagi, można zabezpieczyć oraz zorganizować zasoby po wdrożeniu.
 
 Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
@@ -159,7 +159,7 @@ Utwórz ```postgres-flexible-server-template.json``` plik i skopiuj ```json``` d
 }
 ```
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wybierz opcję **Wypróbuj** z następującego bloku kodu programu PowerShell, aby otworzyć Azure Cloud Shell.
 
@@ -214,7 +214,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz przejść do [następnych kroków](#next-steps), Zachowaj tę grupę zasobów, serwer i pojedynczą bazę danych. W następnych krokach pokazano, jak różnymi metodami łączyć się z bazą danych i wykonywać w niej zapytania.
 

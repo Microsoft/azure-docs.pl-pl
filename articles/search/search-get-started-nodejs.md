@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91400608"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Node.js przy użyciu interfejsów API REST
@@ -473,7 +473,7 @@ Powinna zostać wyświetlona seria komunikatów opisujących akcje podejmowane p
 
 Otwórz **Przegląd** usługi wyszukiwania w Azure Portal. Wybierz kartę **indeksy** . Powinien wyglądać podobnie do poniższego:
 
-:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, Omówienie usługi wyszukiwania, karta indeksy" border="false":::
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 W następnym kroku dodasz dane do indeksu. 
 
@@ -693,7 +693,7 @@ Ogólnym zachowaniem `run` funkcji jest usunięcie indeksu usługi Azure wyszuki
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

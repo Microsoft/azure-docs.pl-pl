@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91285422"
 ---
 # <a name="claim-and-claim-rules"></a>Reguły dotyczące roszczeń i roszczeń
@@ -79,8 +79,8 @@ Poniżej znajdują się operatory, których można użyć do sprawdzenia warunk�
 | Polach | Obsługiwane operacje |
 |--|--|
 | Integer | = = (Equals), \! = (nie równa się), <= (mniejsze niż lub równe), < (mniejsze niż), >= (większe lub równe), > (większe niż) |
-| String | = = (Equals), \! = (nie równa się) |
-| Boolean | = = (Equals), \! = (nie równa się) |
+| String (ciąg) | = = (Equals), \! = (nie równa się) |
+| Boolean (wartość logiczna) | = = (Equals), \! = (nie równa się) |
 
 Ocena listy warunków:
 

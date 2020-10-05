@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90602816"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
@@ -44,33 +44,33 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| ascii  | Yes |
-| bigint  | Yes |
-| blob  | Yes |
-| boolean  | Yes |
-| counter  | Yes |
-| data  | Yes |
-| decimal  | Yes |
-| double  | Yes |
-| float  | Yes |
-| frozen  | Yes |
-| inet  | Yes |
-| int  | Yes |
-| list  | Yes |
-| set  | Yes |
-| smallint  | Yes |
-| tekst  | Yes |
-| time  | Yes |
-| sygnatura czasowa  | Yes |
-| timeuuid  | Yes |
-| tinyint  | Yes |
-| tuple  | Yes |
-| uuid  | Yes |
-| varchar  | Yes |
-| varint  | Yes |
-| tuples | Yes | 
-| udts  | Yes |
-| map (mapa) | Yes |
+| ascii  | Tak |
+| bigint  | Tak |
+| blob  | Tak |
+| boolean  | Tak |
+| counter  | Tak |
+| data  | Tak |
+| decimal  | Tak |
+| double  | Tak |
+| float  | Tak |
+| frozen  | Tak |
+| inet  | Tak |
+| int  | Tak |
+| list  | Tak |
+| set  | Tak |
+| smallint  | Tak |
+| tekst  | Tak |
+| time  | Tak |
+| sygnatura czasowa  | Tak |
+| timeuuid  | Tak |
+| tinyint  | Tak |
+| tuple  | Tak |
+| uuid  | Tak |
+| varchar  | Tak |
+| varint  | Tak |
+| tuples | Tak | 
+| udts  | Tak |
+| map (mapa) | Tak |
 
 ## <a name="cql-functions"></a>Funkcje języka CQL
 
@@ -78,9 +78,9 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| Klucza | Yes |
-| czas wygaśnięcia | Yes |
-| writetime | Yes |
+| Klucza | Tak |
+| czas wygaśnięcia | Tak |
+| writetime | Tak |
 | rzutowanie | Nie |
 
 \* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` nie jest obsługiwany.
@@ -90,34 +90,34 @@ Funkcje agregujące:
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| min | Yes |
-| max | Yes |
-| śr | Yes |
-| count | Yes |
+| min | Tak |
+| max | Tak |
+| śr | Tak |
+| count | Tak |
 
 Funkcje konwersji obiektów blob:
  
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| typeAsBlob(value)   | Yes |
-| blobAsType(value) | Yes |
+| typeAsBlob(value)   | Tak |
+| blobAsType(value) | Tak |
 
 
 Funkcje UUID i timeuuid:
  
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| dateOf()  | Yes |
-| now()  | Yes |
-| minTimeuuid()  | Yes |
-| unixTimestampOf()  | Yes |
-| toDate(timeuuid)  | Yes |
-| toTimestamp(timeuuid)  | Yes |
-| toUnixTimestamp(timeuuid)  | Yes |
-| toDate(timeuuid)  | Yes |
-| toUnixTimestamp(timestamp)  | Yes |
-| toTimestamp(date)  | Yes |
-| toUnixTimestamp(date) | Yes |
+| dateOf()  | Tak |
+| now()  | Tak |
+| minTimeuuid()  | Tak |
+| unixTimestampOf()  | Tak |
+| toDate(timeuuid)  | Tak |
+| toTimestamp(timeuuid)  | Tak |
+| toUnixTimestamp(timeuuid)  | Tak |
+| toDate(timeuuid)  | Tak |
+| toUnixTimestamp(timestamp)  | Tak |
+| toTimestamp(date)  | Tak |
+| toUnixTimestamp(date) | Tak |
 
 
   
@@ -127,11 +127,11 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| ZEZWALAJ NA FILTROWANIE | Yes |
+| ZEZWALAJ NA FILTROWANIE | Tak |
 | ZMIEŃ PRZESTRZEŃ KLUCZY | Nie dotyczy (usługa PaaS, zarządzane wewnętrznie replikację)|
 | ZMIEŃ WIDOK Z MATERIAŁAMI | Nie |
 | ZMIEŃ ROLĘ | Nie |
-| ALTER TABLE | Yes |
+| ALTER TABLE | Tak |
 | ZMIEŃ TYP | Nie |
 | ZMIEŃ UŻYTKOWNIKA | Nie |
 | Sekwencja | Tak (tylko nierejestrowana partia)|
@@ -140,44 +140,44 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 | UTWÓRZ INDEKS NIESTANDARDOWY (SASI) | Nie |
 | CREATE INDEX | Tak (bez [określania nazwy indeksu](cassandra-secondary-index.md)i indeksy w kluczach klastrowania lub pełna zamrożona kolekcja nie jest obsługiwana) |
 | UTWÓRZ FUNKCJĘ | Nie |
-| Utwórz miejsce na dysku (zignorowano ustawienia replikacji) | Yes |
+| Utwórz miejsce na dysku (zignorowano ustawienia replikacji) | Tak |
 | UTWÓRZ WIDOK Z MATERIAŁAMI | Nie |
-| CREATE TABLE | Yes |
+| CREATE TABLE | Tak |
 | UTWÓRZ WYZWALACZ | Nie |
-| UTWÓRZ TYP | Yes |
+| UTWÓRZ TYP | Tak |
 | UTWÓRZ ROLĘ | Nie |
 | Utwórz użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
-| DELETE | Yes |
-| Usuń (lekkie transakcje z WARUNKIem IF)| Yes |
+| DELETE | Tak |
+| Usuń (lekkie transakcje z WARUNKIem IF)| Tak |
 | UPUŚĆ WARTOŚĆ ZAGREGOWANĄ | Nie |
 | DROP — FUNKCJA | Nie |
-| DROP INDEX | Yes |
-| PORZUĆ MIEJSCE NA DYSKU | Yes |
+| DROP INDEX | Tak |
+| PORZUĆ MIEJSCE NA DYSKU | Tak |
 | UPUŚĆ WIDOK Z MATERIAŁAMI | Nie |
 | USUŃ ROLĘ | Nie |
-| USUŃ TABELĘ | Yes |
+| USUŃ TABELĘ | Tak |
 | PORZUĆ WYZWALACZ | Nie | 
-| TYP USUWANIA | Yes |
+| TYP USUWANIA | Tak |
 | UPUŚĆ użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | DAWAĆ | Nie |
-| INSERT | Yes |
-| Wstaw (lekkie transakcje z WARUNKIem IF)| Yes |
+| INSERT | Tak |
+| Wstaw (lekkie transakcje z WARUNKIem IF)| Tak |
 | WYŚWIETL UPRAWNIENIA | Nie |
 | ROLE LIST | Nie |
 | Lista użytkowników (przestarzałe w natywnym programie Apache Cassandra) | Nie |
 | ODWOŁANIA | Nie |
-| SELECT | Yes |
+| SELECT | Tak |
 | SELECT (lekkie transakcje z WARUNKIem IF)| Nie |
-| UPDATE | Yes |
+| UPDATE | Tak |
 | Aktualizuj (uproszczone transakcje z WARUNKIem IF)| Nie |
 | OBCIĄĆ | Nie |
-| USE | Yes |
+| USE | Tak |
 
 ## <a name="json-support"></a>Obsługa JSON
 |Polecenie  |Obsługiwane |
 |---------|---------|
-| WYBIERZ KOD JSON | Yes |
-| WSTAW KOD JSON | Yes |
+| WYBIERZ KOD JSON | Tak |
+| WSTAW KOD JSON | Tak |
 | fromJson() | Nie |
 | toJson () | Nie |
 
@@ -186,7 +186,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>Narzędzia 
+## <a name="tools"></a>narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 
@@ -196,7 +196,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanyc
 
 Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Cosmos platformy Azure](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH&quot;:::
 
 Możesz również nawiązać połączenie z interfejs API Cassandra w Azure Cosmos DB przy użyciu CQLSH zainstalowanego na komputerze lokalnym. Jest on dostarczany z Apache Cassandra 3.1.1 i działa poza ramką przez ustawienie zmiennych środowiskowych. Poniższe sekcje zawierają instrukcje dotyczące instalowania, konfigurowania i nawiązywania połączeń interfejs API Cassandra w programie Azure Cosmos DB w systemie Windows lub Linux przy użyciu CQLSH.
 
@@ -220,7 +220,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra

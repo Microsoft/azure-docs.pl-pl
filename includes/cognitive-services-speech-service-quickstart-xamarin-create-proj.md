@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91654439"
 ---
 Aby utworzyć projekt programu Visual Studio dla wieloplatformowego programowania aplikacji mobilnych platformy .NET przy użyciu platformy Xamarin, należy:

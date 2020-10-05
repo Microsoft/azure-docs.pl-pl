@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
 ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906439"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie szablonu ARM do tworzenia Azure Database for PostgreSQL-pojedynczego serwera
@@ -60,13 +60,13 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for PostgreSQL można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for PostgreSQL Server w Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for PostgreSQL przy użyciu sieci wirtualnej** :
 
@@ -76,7 +76,7 @@ Na stronie **wdrażanie Azure Database for PostgreSQL przy użyciu sieci wirtual
 
 3. Wprowadź **nazwę serwera**, **Identyfikator logowania administratora**i **hasło logowania administratora**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Wdrażanie Azure Database for PostgreSQL przy użyciu okna Sieć wirtualna, szablon szybkiego startu platformy Azure, Azure Portal":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Wdrażanie na platformie Azure":::
 
 4. Zmień inne ustawienia domyślne, jeśli chcesz:
 
@@ -175,7 +175,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
 

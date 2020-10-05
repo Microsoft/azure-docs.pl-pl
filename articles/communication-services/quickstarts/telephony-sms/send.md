@@ -12,10 +12,10 @@ ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
 ms.openlocfilehash: 94d4726bc45de2f9400a04bf940233771551ed36
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667490"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Szybki Start: wysyłanie wiadomości SMS

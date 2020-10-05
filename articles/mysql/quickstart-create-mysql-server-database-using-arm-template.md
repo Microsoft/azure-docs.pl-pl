@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
 ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896152"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu szablonu ARM
@@ -60,13 +60,13 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for MySQL można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for MySQL Server w Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej** :
 
@@ -76,7 +76,7 @@ Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej**
 
 3. Wprowadź **nazwę serwera**, **Identyfikator logowania administratora**i **hasło logowania administratora**.
 
-    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Wdrażanie Azure Database for MySQL przy użyciu okna Sieć wirtualna, szablon szybkiego startu platformy Azure, Azure Portal":::
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Wdrażanie na platformie Azure":::
 
 4. Zmień inne ustawienia domyślne, jeśli chcesz:
 
@@ -181,7 +181,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
 

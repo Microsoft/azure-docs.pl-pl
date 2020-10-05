@@ -13,10 +13,10 @@ ms.author: swmachan
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, tłumaczenie tekstu, tłumaczenie maszynowe, usługa tłumaczenia
 ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90530339"
 ---
 # <a name="what-is-the-translator-service"></a>Co to jest usługa translator?

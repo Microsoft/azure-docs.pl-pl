@@ -13,10 +13,10 @@ ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90894435"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
@@ -48,7 +48,7 @@ Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cogniti
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Usługa rozpoznawania mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji.|
+|[Usługa mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji.|
 |[Interfejs API rozpoznawania osoby mówiącej](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Interfejs API rozpoznawania osoby mówiącej") (wersja zapoznawcza)|Interfejs API rozpoznawania osoby mówiącej zapewnia algorytmy identyfikacji i weryfikacji osoby mówiącej.|
 |[Rozpoznawanie mowy Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Rozpoznawanie mowy Bing") (wycofywanie)|Interfejs API rozpoznawania mowy Bing zapewnia łatwy sposób tworzenia funkcji z obsługą mowy w aplikacjach.|
 |[Tłumaczenie mowy w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tłumaczenie mowy w usłudze Translator") (wycofywanie)|Tłumaczenie mowy w usłudze Translator to usługa tłumaczenia maszynowego.|

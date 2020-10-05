@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88948865"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze
@@ -58,7 +58,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytk
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. W Azure Portal na lewym pasku nawigacyjnym kliknij pozycję **Azure Active Directory**.
 
-   ![Usługa Azure Active Directory](./media/require-tou/02.png)
+   ![Azure Active Directory](./media/require-tou/02.png)
 
 1. Na stronie **Azure Active Directory** w sekcji **zabezpieczenia** kliknij pozycję **dostęp warunkowy**.
 
@@ -82,7 +82,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytk
    1. Jako **Język**wybierz pozycję **angielski**.
    1. **Aby użytkownicy mogli rozwijać warunki użytkowania**, wybierz pozycję **włączone**.
    1. Jako **wymuszanie przy użyciu szablonów zasad dostępu warunkowego**, wybierz pozycję **zasady niestandardowe**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ## <a name="create-your-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -146,7 +146,7 @@ W zasadach ustaw następujące ustawienia:
 
    ![Włącz zasady](./media/require-tou/18.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Oceń symulowane logowanie
 
@@ -206,7 +206,7 @@ Gdy nie jest już potrzebne, Usuń użytkownika testowego i zasady dostępu waru
 
     ![Uwierzytelnianie wieloskładnikowe](./media/require-tou/29.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Wymaganie uwierzytelniania MFA dla określonych aplikacji](../authentication/tutorial-enable-azure-mfa.md)

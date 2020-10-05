@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
 ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322754"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wysyłania zapytań dotyczących danych z Azure Cosmos DB konta interfejsu API SQL
@@ -177,7 +177,7 @@ Teraz wróć do Azure Portal, aby uzyskać szczegóły parametrów połączenia 
 
 1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze** w lewym okienku nawigacji, a następnie wybierz pozycję klucze **odczytu i zapisu**. Użyj przycisków kopiowania po prawej stronie ekranu, aby skopiować identyfikator URI i klucz podstawowy do pliku _app.js_ w następnym kroku.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, blok Klucze":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Eksplorator danych w witrynie Azure Portal, okienko Dodawanie kontenera":::
 
 2. W obszarze Otwórz plik _config.js_ .
 

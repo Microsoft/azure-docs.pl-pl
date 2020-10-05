@@ -5,10 +5,10 @@ ms.date: 06/29/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89005874"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu platformy .NET Core
@@ -135,7 +135,7 @@ Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic 
 
 Jeśli chcesz usunąć aplikację konsolową .NET Core i zainstalowane pakiety, możesz to zrobić, usuwając `argQuery` folder projektu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono aplikację konsolową .NET Core z wymaganymi pakietami wykresów zasobów i uruchomimy pierwsze zapytanie. Aby dowiedzieć się więcej na temat języka grafu zasobów, przejdź do strony szczegółów języka zapytań.
 

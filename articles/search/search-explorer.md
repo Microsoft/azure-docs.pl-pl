@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91398412"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Szybki Start: korzystanie z Eksploratora wyszukiwania do uruchamiania zapytań w portalu
@@ -41,7 +41,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
     Lub użyj osadzonej karty **Eksploratora wyszukiwania** w otwartym indeksie:
 
-   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Karta Eksplorator wyszukiwania" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="unspecified-query"></a>Nieokreślone zapytanie
 
@@ -55,7 +55,7 @@ Odpowiednikiem składni pustego wyszukiwania jest `*` lub `search=*` .
 
    **Wyniki**
    
-   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Przykład niekwalifikowanego lub pustego zapytania" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="free-text-search"></a>Wyszukiwanie swobodne tekstu
 
@@ -71,7 +71,7 @@ Zwróć uwagę, że w przypadku podania kryteriów wyszukiwania, takich jak term
 
    Możesz użyć kombinacji Ctrl-F, aby przeszukać wyniki dla określonych warunków zainteresowania.
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Przykład zapytania Free text" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Liczba pasujących dokumentów 
 
@@ -83,7 +83,7 @@ Dodaj **$Count = true** , aby uzyskać liczbę dopasowań znalezionych w indeksi
 
    **Wyniki**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Liczba pasujących dokumentów w indeksie" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Ograniczanie pól w wynikach wyszukiwania
 
@@ -95,7 +95,7 @@ Dodaj [**$SELECT**](search-query-odata-select.md) , aby ograniczyć wyniki do ja
 
    **Wyniki**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Ograniczanie pól w wynikach wyszukiwania" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Zwróć następną partię wyników
 
@@ -107,7 +107,7 @@ Usługa Azure Wyszukiwanie poznawcze zwraca górne dopasowania 50 w oparciu o ra
 
    **Wyniki**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Zwróć następną partię wyników wyszukiwania" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Wyrażenia filtru (większe niż, mniejsze niż, równe)
 
@@ -119,7 +119,7 @@ Użyj parametru [**$Filter**](search-query-odata-filter.md) , aby określić dok
    
    **Wyniki**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filtruj według kryteriów" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 ## <a name="order-by-expressions"></a>Wyrażenia order-by
 
@@ -131,7 +131,7 @@ Dodaj [**$OrderBy**](search-query-odata-orderby.md) , aby sortować wyniki wedł
    
    **Wyniki**
 
-   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Zmiana kolejności sortowania" border="false":::
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Polecenie Search Explorer w portalu" border="false":::
 
 Wyrażenia **$Filter** i **$OrderBy** są konstrukcjami OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
 
@@ -151,7 +151,7 @@ W tym przewodniku szybki start użyto **Eksploratora wyszukiwania** do wykonywan
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

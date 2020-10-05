@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: azure-communication-services
 author: chrwhit
 manager: nimag
@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
 ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303328"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta programu SMS dla usług komunikacyjnych, aby wysyłać wiadomości SMS.

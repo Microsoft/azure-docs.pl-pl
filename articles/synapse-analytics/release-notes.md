@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: f2050bf671af35df4faec8b0b1d53f4c10a9075e
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90031674"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics (obszary robocze)

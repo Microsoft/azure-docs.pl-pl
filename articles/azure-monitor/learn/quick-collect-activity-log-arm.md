@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631855"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Szybki Start: wysyłanie dziennika aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu szablonu ARM
@@ -132,7 +132,7 @@ Ten szablon definiuje jeden zasób:
 
 - [Microsoft. OperationalInsights/obszary robocze](/azure/templates/microsoft.operationalinsights/workspaces)
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**, **obszaru roboczegoname**i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 
@@ -246,7 +246,7 @@ Ten szablon definiuje jeden zasób:
 
 - [Microsoft. Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
-### <a name="deploy-the-template"></a>Wdrażanie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**, **obszaru roboczegoname**i **lokalizacji** odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 

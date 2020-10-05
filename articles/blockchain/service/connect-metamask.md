@@ -5,10 +5,10 @@ ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90530441"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Szybki Start: używanie maskowania do łączenia i wdrażania kontraktu inteligentnego
@@ -63,7 +63,7 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 
     ![Utwórz plik](./media/connect-metamask/create-file.png)
 
-    Wybierz pozycję **OK**.
+    Wybierz przycisk **OK**.
 1. W edytorze Remix wklej następujący **prosty kod kontraktu inteligentnego** .
 
     ```solidity

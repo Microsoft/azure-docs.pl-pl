@@ -10,10 +10,10 @@ ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91460598"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero

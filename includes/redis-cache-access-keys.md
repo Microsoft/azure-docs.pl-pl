@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73720306"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Pobieranie nazwy hosta, portów i kluczy dostępu z Azure Portal

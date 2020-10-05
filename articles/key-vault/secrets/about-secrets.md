@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82930475"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
@@ -46,7 +46,7 @@ Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w dowolnej 
 
 ### <a name="date-time-controlled-operations"></a>Operacje kontrolowane przez datę i godzinę
 
-Operacja **pobrania** wpisu tajnego będzie działała w przypadku nieprawidłowych i wygasłych wpisów tajnych poza oknem*wygaśnięcia* protokołu *NBF* / . Wywoływanie operacji **Get** wpisu tajnego dla nieprawidłowego hasła tajnego może być używane do celów testowych. Pobieranie (**pobieranie**) wygasłego klucza tajnego może być używane na potrzeby operacji odzyskiwania.
+Operacja **pobrania** wpisu tajnego będzie działała w przypadku nieprawidłowych i wygasłych wpisów tajnych *nbf*poza  /  oknem*wygaśnięcia* protokołu NBF. Wywoływanie operacji **Get** wpisu tajnego dla nieprawidłowego hasła tajnego może być używane do celów testowych. Pobieranie (**pobieranie**) wygasłego klucza tajnego może być używane na potrzeby operacji odzyskiwania.
 
 ## <a name="secret-access-control"></a>Kontrola dostępu do wpisów tajnych
 

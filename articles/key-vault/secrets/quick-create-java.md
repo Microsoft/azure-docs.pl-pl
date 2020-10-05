@@ -9,10 +9,10 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.openlocfilehash: 6c29141a2e255588ffa581b84ffeb4ddd7fdb703
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87324713"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla języka Java
@@ -193,7 +193,7 @@ Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ T
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

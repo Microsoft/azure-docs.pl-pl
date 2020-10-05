@@ -7,10 +7,10 @@ ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322057"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop?

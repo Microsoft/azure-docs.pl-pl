@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
 ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947382"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -132,7 +132,7 @@ Uruchom lokalnie funkcję platformy Azure przy użyciu polecenia `F5` . Spowoduj
 
 Otwórz adres URL w przeglądarce i dla tokenu powinna zostać wyświetlona treść odpowiedzi z identyfikatorem użytkownika, tokenem i wygaśnięciem komunikacji.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Zrzut ekranu przedstawiający przykład odpowiedzi dla utworzonej funkcji platformy Azure.":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagram dla architektury zaufanych usług":::
 
 ## <a name="deploy-the-function-to-azure"></a>Wdróż funkcję na platformie Azure
 

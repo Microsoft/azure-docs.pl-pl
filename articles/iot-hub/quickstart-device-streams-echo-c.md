@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 7b5487233e2bd0e532efad4e108c41f188b51d91
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83727180"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w języku C za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
@@ -58,7 +58,7 @@ Wymagane są następujące wymagania wstępne:
 
 Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
 
-  * Central US
+  * Środkowe stany USA
   * Środkowe stany USA — EUAP
   * Europa Północna
   * Azja Południowo-Wschodnia
@@ -114,7 +114,7 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
       cmake --build . -- /m /p:Configuration=Release
       ```
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -196,7 +196,7 @@ Jak wspomniano wcześniej, zestaw SDK IoT Hub C obsługuje strumienie urządzeń
 
 * [Komunikacja z aplikacją urządzenia w Node.js za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-nodejs.md)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

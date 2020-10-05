@@ -4,10 +4,10 @@ description: Użyj Azure Event Grid i szablonu Azure Resource Manager do tworzen
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91598345"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Szybki Start: kierowanie zdarzeń usługi BLOB Storage do punktu końcowego w sieci Web przy użyciu szablonu ARM
@@ -30,7 +30,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 1. Wybierz pozycję **Wdróż na platformie Azure** w celu wdrożenia rozwiązania w subskrypcji. W witrynie Azure Portal podaj wartości parametrów.
 
-    [Wdrażanie na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
+    [Wdróż na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 1. Wdrożenie może potrwać kilka minut. Po pomyślnym wdrożeniu należy wyświetlić aplikację sieci Web i upewnić się, że jest uruchomiona. W przeglądarce sieci Web przejdź do: `https://<your-site-name>.azurewebsites.net`
 
 1. Zobaczysz witrynę, w której nie opublikowano jeszcze żadnych zdarzeń.
@@ -88,5 +88,5 @@ Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zoba
 
 * [Dokumentacja Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definiowanie zasobów w szablonie usługi Azure Resource Manager](/azure/templates/)
-* [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)
+* [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
 * [Szablony Azure Event Grid](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
 ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91325882"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości
@@ -70,4 +70,4 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować Logo
 LUB
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie logowania jednokrotnego opartego na OIDC](add-application-portal-setup-oidc-sso.md)
+> [Konfigurowanie logowania jednokrotnego opartego na warstwie OIDC](add-application-portal-setup-oidc-sso.md)

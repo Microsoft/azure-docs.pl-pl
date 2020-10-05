@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86045029"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Szybki Start: Tworzenie i monitorowanie topologii Apache Storm w usłudze Azure HDInsight

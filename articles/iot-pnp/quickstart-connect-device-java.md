@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91577020"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play działającej w systemie Windows w celu IoT Hub (Java)

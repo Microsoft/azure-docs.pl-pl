@@ -1,15 +1,15 @@
 ---
 title: Konfigurowanie aplikacji systemu Linux Python
-description: Dowiedz się, jak skonfigurować wstępnie skonstruowany kontener języka Python dla aplikacji. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
+description: Dowiedz się, jak skonfigurować wstępnie skonstruowany kontener języka Python dla aplikacji. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
 ms.openlocfilehash: 88a3876757c3f51d1fc70692976987560ee1b991
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961639"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
@@ -156,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Uzyskiwanie dostępu do zmiennych środowiskowych
 
-W App Service można [ustawić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie można uzyskiwać do nich dostęp przy użyciu standardowego wzorca [os.environ](https://docs.python.org/3/library/os.html#os.environ). Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `WEBSITE_SITE_NAME`, użyj następującego kodu:
+W usłudze App Service można [określić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie można uzyskiwać do nich dostęp przy użyciu standardowego wzorca [os.environ](https://docs.python.org/3/library/os.html#os.environ). Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `WEBSITE_SITE_NAME`, użyj następującego kodu:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -177,7 +177,7 @@ Popularne platformy internetowe umożliwiają dostęp do informacji `X-Forwarded
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>Otwórz sesję SSH w przeglądarce
+## <a name="open-ssh-session-in-browser"></a>Otwieranie sesji SSH w przeglądarce
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -193,7 +193,7 @@ Popularne platformy internetowe umożliwiają dostęp do informacji `X-Forwarded
 - Sprawdź, czy aplikacja ma strukturę, App Service oczekuje na [Django](#django-app) lub [kolbę](#flask-app), lub Użyj [niestandardowego polecenia uruchamiania](#customize-startup-command).
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: aplikacja w języku Python z PostgreSQL](tutorial-python-postgresql-app.md)
@@ -202,4 +202,4 @@ Popularne platformy internetowe umożliwiają dostęp do informacji `X-Forwarded
 > [Samouczek: wdrażanie z repozytorium kontenera prywatnego](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [App Service Linux — często zadawane pytania](faq-app-service-linux.md)
+> [App Service dla systemu Linux — często zadawane pytania](faq-app-service-linux.md)

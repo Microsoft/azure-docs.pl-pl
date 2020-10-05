@@ -8,10 +8,10 @@ ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 50414d48c3368ddf409630422d3316cdc45a63fe
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88587399"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
@@ -22,7 +22,7 @@ Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet 
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Interfejs API Azure Cosmos DB dla MongoDB jest domyślnie zgodny z serwerem MongoDB w wersji **3,6** dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Należy pamiętać, że w przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, wersja 3,6 kont ma punkt końcowy w formacie, `*.mongo.cosmos.azure.com` podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com` .
+Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB jest domyślnie zgodny z wersją **3.6** serwera MongoDB dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Pamiętaj, że konta interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB w wersji 3.6 mają punkt końcowy w formacie `*.mongo.cosmos.azure.com`, a konta w wersji 3.2 mają punkt końcowy w formacie `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 
@@ -331,14 +331,14 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |Polecenie  |Obsługiwane |
 |---------|---------|
 |Double    |Tak    |
-|String    |Tak    |
+|Ciąg    |Tak    |
 |Obiekt    |Tak    |
 |Tablica    |Tak    |
 |Dane binarne    |Tak|    
 |ObjectId    |Tak    |
-|Boolean    |Tak    |
-|Data    |Tak    |
-|Null    |Tak    |
+|Boolean (wartość logiczna)    |Tak    |
+|Date    |Tak    |
+|Zero    |Tak    |
 |32-bitowa liczba całkowita (int)    |Tak    |
 |Timestamp    |Tak    |
 |64-bitowa liczba całkowita (Long)    |Tak    |

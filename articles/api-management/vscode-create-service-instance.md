@@ -8,10 +8,10 @@ ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90057425"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu Visual Studio Code

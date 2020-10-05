@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
 ms.openlocfilehash: 49feedaa087a89b2dfc5d90c7230b7abf23ed1ba
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815754"
 ---
 Przejdź do Azure Portal i <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" Utwórz nowy formularz aparatu rozpoznawania, " target="_blank"> Utwórz nowy zasób aparatu rozpoznawania <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . W okienku **Tworzenie** podaj następujące informacje:

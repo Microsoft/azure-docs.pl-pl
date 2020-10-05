@@ -13,10 +13,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Rozpoznawanie obrazu, aplikacja rozpoznawania obrazu, niestandardowa wizja
 ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91596880"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Szybki Start: Tworzenie klasyfikatora przy użyciu witryny sieci Web Custom Vision

@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: c6913fee6872d8875e068b2502727c9f42f80401
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89594207"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
@@ -79,7 +79,7 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="americas"></a>Ameryka Północna i Południowa
 
-|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Kanada Środkowa    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
@@ -88,8 +88,8 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Wschodnie stany USA 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Północno-środkowe stany USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Północno-środkowe stany USA     |     S8v2, S9v2    |    1     |
-|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Central US     |    S8v2, S9v2     |    1     |
+|Środkowe stany USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Środkowe stany USA     |    S8v2, S9v2     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Zachodnio-środkowe stany USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Zachodnie stany USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
@@ -99,7 +99,7 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="europe"></a>Europa
 
-|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Europa Północna     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa Północna     |    S8v2, S9v2      |    3     |
@@ -109,7 +109,7 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 ### <a name="asia-pacific"></a>Azja i Pacyfik 
 
-|Region (Region)  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
+|Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Australia Wschodnia     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Australia Wschodnia     |    S8, S9, S8v2, S9v2    |    1     |
@@ -163,7 +163,7 @@ Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu 
 
 Na poziomie serwera usługi Analysis Services oferują zaporę, uwierzytelnianie platformy Azure, role administratora serwera i szyfrowanie po stronie serwera. Na poziomie modelu danych zabezpieczenia ról użytkownika, na poziomie wiersza i na poziomie zapewniają bezpieczeństwo danych, które będą widoczne tylko dla użytkowników, którzy powinni je widzieć.
 
-### <a name="firewall"></a>Firewall
+### <a name="firewall"></a>Zapora
 
 Zapora usługi Azure Analysis Services blokuje wszystkie połączenia klienta inne niż adresy IP określone w regułach. Domyślnie ochrona za pomocą zapory nie jest włączana w przypadku nowych serwerów. Zalecane jest włączenie ochrony za pomocą zapory i skonfigurowanie zasad w ramach skryptu inicjowania obsługi serwera lub w portalu natychmiast po utworzeniu serwera. Skonfiguruj reguły, określając dozwolone adresy IP przy użyciu poszczególnych adresów IP klientów lub zakresu. Połączenia usługi Power BI również mogą być dozwolone lub zablokowane. Zaporę i reguły należy skonfigurować w portalu lub przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz [Configure a server firewall](analysis-services-qs-firewall.md) (Konfigurowanie zapory serwera).
 

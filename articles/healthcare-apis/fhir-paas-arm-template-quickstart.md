@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 09/14/2020
 ms.openlocfilehash: 393678342ad1e8e6e2ff5d3c38dab68ce29ee7e7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91711721"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Szybki Start: używanie szablonu ARM do wdrażania interfejsu API platformy Azure dla usługi FHIR
@@ -65,7 +65,7 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Więcej przykładów szablonów interfejsu API platformy Azure dla usługi FHIR można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "65467877"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Szybki start: wdrażanie i uruchamianie symulacji urządzenia usługi IoT na platformie Azure
@@ -22,7 +22,7 @@ W tym przewodniku Szybki start przedstawiono sposób wdrażania symulacji urząd
 
 Do wykonania kroków tego przewodnika Szybki start jest potrzebna aktywna subskrypcja platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="deploy-device-simulation"></a>Wdrażanie symulacji urządzenia
 
@@ -82,7 +82,7 @@ Kliknij pozycję **Rozpocznij symulację**. Symulacja będzie uruchamiana bez og
 
 Z poziomu wystąpienia symulacji urządzenia w danym momencie można uruchomić tylko jedną symulację urządzenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz dalsze działanie, symulacja urządzenia powinna pozostać wdrożona.
 

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642269"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
@@ -40,7 +40,7 @@ Wybierz jedną z następujących kart, Użyj linku i wypełnij sekcję, aby utwo
 
 [Utwórz projekt funkcji lokalnych w Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
 
-# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 [Tworzenie projektu funkcji lokalnych w programie Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
 
@@ -65,7 +65,7 @@ Ten szablon tworzy następujące cztery zasoby platformy Azure:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
 + [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli-interactive
@@ -105,7 +105,7 @@ Aby opublikować projekt w nowych zasobach platformy Azure, wykonaj następując
 
 W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania funkcji działającej na platformie Azure. 
 
-# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**.
 
@@ -117,7 +117,7 @@ W danych wyjściowych Skopiuj adres URL wyzwalacza HTTP. Służy do testowania f
 
 1. Po zakończeniu publikowania Skopiuj **adres URL witryny**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Skopiuj adres URL witryny z podsumowania publikowania":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Wybierz istniejący element docelowy publikowania":::
 
 1. Dołącz ścieżkę `/api/<FUNCTION_NAME>?name=Functions` , gdzie `<FUNCTION_NAME>` to nazwa funkcji. Adres URL, który wywołuje funkcję wyzwalacza HTTP, ma następujący format:
 
@@ -147,7 +147,7 @@ Powinna zostać wyświetlona odpowiedź:
 
 <pre>Hello Functions!</pre>
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przejdziesz do następnego kroku i dodasz powiązanie danych wyjściowych kolejki usługi Azure Storage, Zachowaj wszystkie swoje zasoby w miejscu, w którym będziesz kompilować zawartość już wykonane.
 
@@ -168,7 +168,7 @@ Teraz, po opublikowaniu pierwszej funkcji, Dowiedz się więcej, dodając powią
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs-code.md)
 
-# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-vs.md)

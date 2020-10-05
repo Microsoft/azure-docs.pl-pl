@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91569768"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania aparatu do usługi Azure Front drzwiczk
@@ -51,7 +51,7 @@ Identyfikuje żądania na podstawie argumentów zdefiniowanych dla metody POST R
 
 Nazwa argumentu | Operator | Wartość argumentu | Przekształcanie wielkości liter
 --------------|----------|----------------|---------------
-Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+String (ciąg) | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="query-string"></a>Ciąg zapytania
 
@@ -104,7 +104,7 @@ Identyfikuje żądania, które używają określonego nagłówka w żądaniu.
 
 Nazwa nagłówka | Operator | Wartość nagłówka | Przekształcanie wielkości liter
 ------------|----------|--------------|---------------
-Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+String (ciąg) | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="request-method"></a>Metoda żądania
 

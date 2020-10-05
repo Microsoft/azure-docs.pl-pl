@@ -9,10 +9,10 @@ ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
 ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85254705"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
@@ -30,7 +30,7 @@ Aby utworzyć Ubuntu 18,04 Data Science Virtual Machine, musisz mieć subskrypcj
 
 Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Machine Ubuntu 18,04:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com). Jeśli użytkownik nie jest jeszcze zalogowany, może zostać wyświetlony monit o zalogowanie się do konta platformy Azure.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). Jeśli użytkownik nie jest jeszcze zalogowany, może zostać wyświetlony monit o zalogowanie się do konta platformy Azure.
 1. Znajdź listę maszyn wirtualnych, wpisując ciąg "maszyna wirtualna do analizy danych" i wybierając pozycję "Data Science Virtual Machine-Ubuntu 18,04"
 
 1. W następnym oknie wybierz pozycję **Utwórz**.
@@ -59,7 +59,7 @@ Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Ma
 
        * **Hasło**: wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
     
-   1. Wybierz pozycję **Przegląd + utwórz**.
+   1. Wybierz pozycję **Przeglądanie + tworzenie**.
    1. **Przegląd + tworzenie**
       * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
       * Wybierz przycisk **Utwórz**.
@@ -85,30 +85,30 @@ Jeśli maszyna wirtualna została skonfigurowana przy użyciu uwierzytelniania S
 
 ### <a name="x2go"></a>X2Go
 
-Maszyna wirtualna z systemem Linux została już zainicjowana z serwerem X2Go i gotowa do akceptowania połączeń klienckich. Aby nawiązać połączenie z graficznym pulpitem maszyny wirtualnej z systemem Linux, wykonaj poniższą procedurę na kliencie:
+Maszyna wirtualna z systemem Linux została już zainicjowana z serwerem X2Go i gotowa do akceptowania połączeń klienckich. Aby nawiązać połączenie z graficznym pulpitem maszyny wirtualnej z systemem Linux, wykonaj poniższą procedurę w obrębie klienta:
 
-1. Pobierz i zainstaluj klienta programu X2Go dla platformy klienckiej z programu [x2go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+1. Pobierz i zainstaluj klienta X2Go na platformie klienckiej z witryny [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Zanotuj publiczny adres IP maszyny wirtualnej, który można znaleźć w Azure Portal, otwierając utworzoną maszynę wirtualną.
 
    ![Ubuntu adres IP maszyny](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-1. Uruchom klienta programu X2Go. Jeśli okno "Nowa sesja" nie zostanie automatycznie wyskakujące, przejdź do sesji > nowej sesji.
+1. Uruchom klienta X2Go. Jeśli okno "Nowa sesja" nie zostanie automatycznie wyskakujące, przejdź do sesji > nowej sesji.
 
-1. W wyniku okna konfiguracji wprowadź następujące parametry konfiguracji:
-   * **Karta sesji**:
-     * **Host**: wprowadź adres IP maszyny wirtualnej, która została zanotowana wcześniej.
-     * **Logowanie**: Wprowadź nazwę użytkownika na maszynie wirtualnej z systemem Linux.
-     * **Port SSH**: pozostaw wartość domyślną równą 22.
-     * **Typ sesji**: Zmień wartość na **pulpit Xfce**. Obecnie maszyna wirtualna z systemem Linux obsługuje tylko pulpit pulpit Xfce.
-   * **Karta multimedia**: można wyłączyć obsługę dźwięku i drukowanie klientów, jeśli nie trzeba ich używać.
+1. W oknie konfiguracji wynikowej wprowadź następujące parametry konfiguracji:
+   * **Karta Session** (Sesja):
+     * **Host**: wprowadź zanotowany wcześniej adres IP maszyny wirtualnej.
+     * **Login** (Identyfikator logowania): wprowadź nazwę użytkownika na maszynie wirtualnej z systemem Linux.
+     * **SSH Port** (Port SSH): pozostaw wartość domyślną 22.
+     * **Session Type** (Typ sesji): zmień wartość na **XFCE**. Obecnie maszyna wirtualna z systemem Linux obsługuje tylko pulpit XFCE.
+   * **Karta Media** (Multimedia): możesz wyłączyć obsługę dźwięku i drukowanie przez klienta, jeśli nie potrzebujesz tych funkcji.
    * **Foldery udostępnione**: Użyj tej karty, aby dodać katalog komputera klienckiego, który ma zostać zainstalowany na maszynie wirtualnej. 
 
-   ![Konfiguracja X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. Wybierz przycisk **OK**.
+   ![Konfiguracja rozwiązania X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
+1. Wybierz pozycję **OK**.
 1. Kliknij pole w prawym okienku okna X2Go, aby wyświetlić ekran logowania dla maszyny wirtualnej.
-1. Wprowadź hasło dla maszyny wirtualnej.
-1. Wybierz przycisk **OK**.
-1. Może być konieczne nadanie X2Go uprawnień do obejścia zapory, aby zakończyć nawiązywanie połączenia.
+1. Wprowadź hasło maszyny wirtualnej.
+1. Wybierz pozycję **OK**.
+1. Aby zakończyć nawiązywanie połączenia, być może trzeba będzie nadać uprawnienia rozwiązania X2Go umożliwiające obchodzenie zapory.
 1. Powinien być teraz widoczny interfejs graficzny Ubuntu DSVM. 
 
 

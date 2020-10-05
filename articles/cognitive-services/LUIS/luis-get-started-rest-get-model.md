@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
 ms.openlocfilehash: e5cf3160e6592a48e3a81480480ad8f01cc6af3a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86206252"
 ---
 # <a name="quickstart-use-curl-and-rest-to-change-model"></a>Szybki Start: używanie Zwinięciea i REST do zmiany modelu
@@ -168,7 +168,7 @@ Jeśli tablica entityLabels nie jest pusta, elementy `startCharIndex` i `endChar
 
 1. Zastąp wartości zaczynające się od `***YOUR-` własnymi wartościami.
 
-    |Informacyjny|Przeznaczenie|
+    |Informacje|Przeznaczenie|
     |--|--|
     |`***YOUR-AUTHORING-ENDPOINT***`| Twój punkt końcowy adresu URL tworzenia. Na przykład „https://REPLACE-WITH-YOUR-RESOURCE-NAME.api.cognitive.microsoft.com/”. Nazwa zasobu jest ustawiana podczas tworzenia zasobu.|
     |`***YOUR-APP-ID***`| Identyfikator aplikacji LUIS. |
@@ -372,7 +372,7 @@ Jeśli tablica entityLabels nie jest pusta, elementy `startCharIndex` i `endChar
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń `ExampleUtterances.JSON` plik z systemu plików.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Najlepsze rozwiązania dla aplikacji](luis-concept-best-practices.md)

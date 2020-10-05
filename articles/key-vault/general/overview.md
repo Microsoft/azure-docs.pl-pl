@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89421649"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault

@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: overview
 ms.date: 08/19/2020
 ms.openlocfilehash: 24b7679c92b8f69b9406677ebe6355c0e1e51f55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91349135"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>Co mogę zrobić z Machine Learning Studio (klasyczny)?
