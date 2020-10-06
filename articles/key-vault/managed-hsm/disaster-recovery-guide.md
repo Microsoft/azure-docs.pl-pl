@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 13f62631e4913434699f4c5dd5eb1956ca3e3a36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000774"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760397"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Odzyskiwanie po awarii zarządzanego modułu HSM
 
@@ -30,7 +30,7 @@ Wystąpienie modułu HSM można utworzyć ponownie w tym samym lub innym regioni
 Poniżej przedstawiono kroki procedury odzyskiwania po awarii:
 
 1. Utwórz nowe wystąpienie modułu HSM.
-1. Aktywuj "odzyskiwanie domeny zabezpieczeń". Nowa para kluczy RSA (klucz wymiany domeny zabezpieczeń) zostanie wygenerowana na potrzeby transferu domeny zabezpieczeń i wysyłana w odpowiedzi, która zostanie pobrana z SecurityDomainExchangeKey (klucz publiczny).
+1. Aktywuj "odzyskiwanie domeny zabezpieczeń". Nowa para kluczy RSA (klucz wymiany domeny zabezpieczeń) zostanie wygenerowana na potrzeby transferu domeny zabezpieczeń i wysyłana w odpowiedzi, która zostanie pobrana jako SecurityDomainExchangeKey (klucz publiczny).
 1. Utwórz, a następnie Przekaż "plik transferu domeny zabezpieczeń". Wymagane są klucze prywatne, które szyfrują domenę zabezpieczeń. Klucze prywatne są używane lokalnie i nigdy nie są przesyłane w dowolnym miejscu w ramach tego procesu.
 1. Utwórz kopię zapasową nowego modułu HSM. Kopia zapasowa jest wymagana przed przywróceniem, nawet jeśli moduł HSM jest pusty. Kopie zapasowe umożliwiają łatwe wycofywanie.
 1. Przywróć ostatnią kopię zapasową modułu HSM ze źródłowego modułu HSM
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 Dane wyjściowe tego polecenia przedstawiają właściwości zarządzanego modułu HSM, który został utworzony. Dwie najważniejsze właściwości to:
 
 * **Nazwa**: w tym przykładzie nazwa to ContosoMHSM. Ta nazwa będzie używana do innych poleceń Key Vault.
-* **hsmUri**: w tym przykładzie identyfikator URI to https://contosohsm.managedhsm.azure.net . Aplikacje korzystające z modułu HSM za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
+* **hsmUri**: w przykładzie identyfikator URI to " https://contosohsm.managedhsm.azure.net ." Aplikacje korzystające z modułu HSM za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym zarządzanym module HSM. Od tej pory nikt nie jest autoryzowany.
 
@@ -102,7 +102,7 @@ Aby utworzyć kopię zapasową modułu HSM, potrzebne są następujące elementy
 - Konto magazynu, na którym będzie przechowywana kopia zapasowa
 - Kontener magazynu obiektów BLOB na tym koncie magazynu, w którym proces tworzenia kopii zapasowej utworzy nowy folder do przechowywania zaszyfrowanej kopii zapasowej
 
-W poniższym przykładzie `az keyvault backup` polecenie jest używane do tworzenia kopii zapasowych HSM w kontenerze magazynu **mhsmbackupcontainer** konto magazynu **ContosoBackup**. Utworzymy token sygnatury dostępu współdzielonego, który wygaśnie w ciągu 30 minut i zapewnisz, że w celu utworzenia kopii zapasowej zarządzany moduł HSM.
+Używamy `az keyvault backup` polecenia do tworzenia kopii zapasowych modułu HSM w kontenerze magazynu **mhsmbackupcontainer**, który znajduje się na koncie magazynu **ContosoBackup** w poniższym przykładzie. Utworzymy token sygnatury dostępu współdzielonego, który wygaśnie w ciągu 30 minut i zapewnisz, że w celu utworzenia kopii zapasowej zarządzany moduł HSM.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

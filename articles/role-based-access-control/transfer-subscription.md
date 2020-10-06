@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: fd8192b48f6923a8fe68abf674d6100c8b8e5a00
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652388"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761876"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -74,7 +74,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure File Sync | Tak | Tak |  |  |
-| Dyski zarządzane platformy Azure | Tak | Brak |  |  |
+| Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
 | Azure Container Services dla Kubernetes | Tak | Tak |  |  |
 | Azure Active Directory Domain Services | Tak | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |

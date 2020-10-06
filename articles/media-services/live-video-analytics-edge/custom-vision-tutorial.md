@@ -3,12 +3,12 @@ title: Analizuj wideo na żywo dzięki usłudze Live Video Analytics na IoT Edge
 description: Dowiedz się, w jaki sposób używać Custom Vision do kompilowania modelu kontenera, który może wykryć wózek i korzystać z rozszerzalności na żywo wideo w usłudze IoT Edge (LVA) w celu wdrożenia modelu na krawędzi na potrzeby wykrywania wózków zabawki z poziomu strumienia wideo na żywo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0e980ac73d77b6fbbfdb8178f285904d3bf29920
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 022dc5714e7a2e19446ee57e827a08ef4c56413e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946553"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761434"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -57,7 +57,7 @@ Wymagania wstępne dotyczące tego samouczka:
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
 
-W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv/) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Obejrzyj film wideo, który w przypadku znacznika 36-sekundowego występuje w filmie. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
+W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Obejrzyj film wideo, który w przypadku znacznika 36-sekundowego występuje w filmie. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
 
 ## <a name="overview"></a>Omówienie
 
@@ -81,33 +81,7 @@ Dodatkowe uwagi:
 Po zakończeniu, jeśli model jest gotowy zgodnie z oczekiwaniami, można go wyeksportować do kontenera Docker za pomocą przycisku Eksportuj na karcie wydajność. Upewnij się, że jako typ platformy kontenera wybrano system Linux. Jest to platforma, na której zostanie uruchomiony kontener. Komputer, na którym pobierany jest kontener, może być w systemie Windows lub Linux. Poniższe instrukcje zostały oparte na pliku kontenera pobranym na komputer z systemem Windows.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Dockerfile":::
- 
-1. Plik zip powinien zostać pobrany na komputer lokalny o nazwie `<projectname>.DockerFile.Linux.zip` . 
-1. Sprawdź, czy zainstalowano platformę Docker, jeśli nie zainstalujesz [platformy Docker](https://docs.docker.com/get-docker/) dla pulpitu systemu Windows.
-1. Rozpakuj pobrany plik w wybranej lokalizacji. Użyj wiersza polecenia, aby przejść do katalogu niespakowanego folderu.
-    
-    Uruchom następujące polecenia 
-    
-    1. `docker build -t cvtruck` 
-    
-        To polecenie umożliwia pobranie pakietu pakietów i skompilowanie obrazu platformy Docker i oznaczenie go jako `cvtruck:latest` . 
-    
-        > [!NOTE]
-        > Jeśli `- Successfully built <docker image id> and Successfully tagged cvtruck:latest.` polecenie kompilacji zakończy się niepowodzeniem, powinny zostać wyświetlone następujące elementy, a następnie spróbuj ponownie, ponieważ pakiety zależności nie są pobierane po raz pierwszy.
-    1. `docker  image ls`
-
-        To polecenie sprawdza, czy nowy obraz znajduje się w rejestrze lokalnym.
-    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
-    
-        To polecenie powinno opublikować port platformy Docker (80) na porcie komputera lokalnego (80).
-    1. `docker container ls`
-    
-        To polecenie sprawdza mapowania portów i jeśli kontener platformy Docker działa prawidłowo na komputerze. Dane wyjściowe powinny wyglądać następująco:
-
-        ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Przegląd Custom Vision"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -148,33 +122,14 @@ Po zakończeniu, jeśli model jest gotowy zgodnie z oczekiwaniami, można go wye
 1. Kliknij prawym przyciskiem myszy plik "src/Edge/deployment.customvision.template.json", a następnie kliknij pozycję **generuj IoT Edge manifest wdrożenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Generowanie manifestu wdrażania IoT Edge":::
-  
-    Należy utworzyć plik manifestu w folderze src/Edge/config o nazwie "deployment.customvision.amd64.json".
-1. Otwórz plik "src/Edge/deployment.customvision.template.json" i Znajdź blok JSON registryCredentials. W tym bloku znajduje się adres usługi Azure Container Registry wraz z nazwą użytkownika i hasłem.
-1. Wypchnij lokalny kontener Custom Vision do usługi Azure Container Registry, wykonując następujące czynności w wierszu polecenia.
-
-    1. Zaloguj się do rejestru, wykonując następujące polecenie:
-    
-        `docker login <address>`
-    
-        Wpisz nazwę użytkownika i hasło, gdy zostanie wyświetlony monit o uwierzytelnienie. 
-        
-        > [!NOTE]
-        > Hasło nie jest widoczne w wierszu polecenia.
-    1. Oznacz obraz przy użyciu:<br/>`docker tag cvtruck   <address>/cvtruck`
-    1. Wypchnij obraz przy użyciu:<br/>`docker push <address>/cvtruck`
-
-        Jeśli zakończyło się pomyślnie, w wierszu polecenia powinna zostać wyświetlona wartość "pushd" wraz z algorytmem SHA dla obrazu. 
-    1. Możesz również potwierdzić, sprawdzając rejestr kontenerów platformy Azure na Azure Portal. W tym miejscu zostanie wyświetlona nazwa repozytorium wraz ze znacznikiem. 
-1. Ustaw parametry połączenia IoTHub, klikając ikonę "więcej akcji" obok okienka AZURE IOT HUB w lewym dolnym rogu. Można skopiować ciąg z appsettings.jspliku. (Oto inne zalecane podejście, aby upewnić się, że w programu vscode są skonfigurowane odpowiednie IoT Hub za pomocą [polecenia wybierz Centrum IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Przegląd Custom Vision" obok okienka AZURE IOT HUB w lewym dolnym rogu. Można skopiować ciąg z appsettings.jspliku. (Oto inne zalecane podejście, aby upewnić się, że w programu vscode są skonfigurowane odpowiednie IoT Hub za pomocą [polecenia wybierz Centrum IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Parametry połączenia":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Przegląd Custom Vision":::
 1. Następnie kliknij prawym przyciskiem myszy pozycję "src/Edge/config/deployment.customvision.amd64.json", a następnie kliknij pozycję **Utwórz wdrożenie dla jednego urządzenia**. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Utwórz wdrożenie dla pojedynczego urządzenia":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Przegląd Custom Vision":::
 1. Zostanie wyświetlony monit o wybranie urządzenia IoT Hub. Z listy rozwijanej wybierz pozycję LVA-Sample-Device.
 1. W ciągu około 30 sekund Odśwież usługę Azure IOT Hub w lewym dolnym rogu, a urządzenie brzegowe powinno być wdrożone przy użyciu następujących modułów:
 
@@ -187,7 +142,7 @@ Po zakończeniu, jeśli model jest gotowy zgodnie z oczekiwaniami, można go wye
 Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie danych wyjściowych Visual Studio Code.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Przegląd Custom Vision":::
 
 ## <a name="run-the-sample-program"></a>Uruchamianie przykładowego programu
 
@@ -372,7 +327,7 @@ W powyższych komunikatach należy zwrócić uwagę na następujące kwestie:
 * "treść" zawiera dane dotyczące zdarzenia analizy. W tym przypadku zdarzenie jest zdarzeniem wnioskowania, w związku z czym treść zawiera tablicę wniosków o nazwie "przewidywania".
 * sekcja "przewidywania" zawiera listę prognoz, w których w ramce znajduje się wózek do dostarczania zabawka (tag = wózek dostawczy). Jak można się odwołać, ciężarówka dostarczająca jest tagiem niestandardowym, który został dostarczony do niestandardowego modelu przeszkolonego dla wózka zabawki, a model jest inferencing i identyfikujący ciężarówkę zabawki w wejściowym wideo z różnymi wynikami zaufania prawdopodobieństwa.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz wypróbować inne samouczki lub Przewodniki Szybki Start, należy zamieścić do utworzonych zasobów. W przeciwnym razie przejdź do obszaru Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 

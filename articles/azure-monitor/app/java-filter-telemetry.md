@@ -4,12 +4,12 @@ description: Zmniejsz ruch telemetrii, filtrując zdarzenia, które nie muszą b
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372182"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761009"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
 
@@ -78,10 +78,7 @@ W ApplicationInsights.xml Dodaj `TelemetryProcessors` sekcję podobną do tego p
 
 ```
 
-
-
-
-[Sprawdź pełen zestaw wbudowanych procesorów](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Sprawdź pełen zestaw wbudowanych procesorów](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## <a name="built-in-filters"></a>Filtry wbudowane
 
@@ -94,7 +91,7 @@ W ApplicationInsights.xml Dodaj `TelemetryProcessors` sekcję podobną do tego p
            </Processor>
 ```
 
-* `NotNeeded`-Rozdzielana przecinkami lista nazw metryk niestandardowych.
+* `NotNeeded` -Rozdzielana przecinkami lista nazw metryk niestandardowych.
 
 
 ### <a name="page-view-telemetry-filter"></a>Filtr telemetrii widoku strony
@@ -108,9 +105,9 @@ W ApplicationInsights.xml Dodaj `TelemetryProcessors` sekcję podobną do tego p
            </Processor>
 ```
 
-* `DurationThresholdInMS`-Czas trwania oznacza czas potrzebny do załadowania strony. Jeśli ta wartość jest ustawiona, strony ładowane szybciej niż ten czas nie są zgłaszane.
-* `NotNeededNames`— Rozdzielana przecinkami lista nazw stron.
-* `NotNeededUrls`-Rozdzielana przecinkami lista fragmentów adresów URL. Na przykład `"home"` filtry wszystkie strony, które mają "Home" w adresie URL.
+* `DurationThresholdInMS` -Czas trwania oznacza czas potrzebny do załadowania strony. Jeśli ta wartość jest ustawiona, strony ładowane szybciej niż ten czas nie są zgłaszane.
+* `NotNeededNames` — Rozdzielana przecinkami lista nazw stron.
+* `NotNeededUrls` -Rozdzielana przecinkami lista fragmentów adresów URL. Na przykład `"home"` filtry wszystkie strony, które mają "Home" w adresie URL.
 
 
 ### <a name="request-telemetry-filter"></a>Filtr telemetryczny żądania
@@ -149,7 +146,7 @@ Odfiltruj dane telemetryczne dla określonych źródeł syntetycznych:
            </Processor>
 ```
 
-* `NotNeeded`-Rozdzielana przecinkami lista nazw źródeł syntetycznych.
+* `NotNeeded` -Rozdzielana przecinkami lista nazw źródeł syntetycznych.
 
 ### <a name="telemetry-event-filter"></a>Filtr zdarzeń telemetrii
 
@@ -164,7 +161,7 @@ Filtruje zdarzenia niestandardowe (rejestrowane przy użyciu [poleceń trackEven
 ```
 
 
-* `NotNeededNames`— Rozdzielana przecinkami lista nazw zdarzeń.
+* `NotNeededNames` — Rozdzielana przecinkami lista nazw zdarzeń.
 
 
 ### <a name="trace-telemetry-filter"></a>Filtr telemetrii śledzenia
@@ -178,7 +175,7 @@ Filtruje ślady dziennika (rejestrowane przy użyciu [TrackTrace ()](./api-custo
            </Processor>
 ```
 
-* `FromSeverityLevel`prawidłowe wartości to:
+* `FromSeverityLevel` prawidłowe wartości to:
   *  Wyłącz filtrowanie wszystkich śladów
   *  Śledzenie — brak filtrowania. równa się na poziomie śledzenia
   *  INFO — Filtruj poziom śledzenia

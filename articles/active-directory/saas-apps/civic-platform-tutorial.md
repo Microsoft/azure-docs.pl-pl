@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520386"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760635"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Samouczek: integracja platformy projektowi Civic Innovation z usługą Azure Active Directory
 
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
-    ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
+    ![Zrzut ekranu przedstawia stronę certyfikatu podpisywania SAML, w której można skopiować metadane federacji aplikacji, które są l.](common/copy-metadataurl.png)
 
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji** w usłudze Azure AD, wybierz aplikację.
 
@@ -120,21 +120,21 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij pozycję **standardowe opcje**.
 
-    ![Link do pobierania certyfikatu](media/civic-platform-tutorial/standard-choices.png)
+    ![Zrzut ekranu przedstawia witrynę Atlassian w chmurze z opcjami standardowymi określonymi w obszarze Narzędzia administratora.](media/civic-platform-tutorial/standard-choices.png)
 
 1. Utwórz standardową **ssoconfig**wyboru.
 
 1. Wyszukaj **ssoconfig**  i Prześlij.
 
-    ![Link do pobierania certyfikatu](media/civic-platform-tutorial/sso-config.png)
+    ![Zrzut ekranu przedstawia standardowe opcje wyszukiwania z podaną konfiguracją nazwa s-s.](media/civic-platform-tutorial/sso-config.png)
 
 1. Rozwiń SSOCONFIG, klikając czerwoną kropkę.
 
-    ![Link do pobierania certyfikatu](media/civic-platform-tutorial/sso-config01.png)
+    ![Zrzut ekranu przedstawia opcje standardowe Przeglądaj z usługą S S O dostępnej konfiguracji.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Podaj informacje o konfiguracji dotyczące logowania jednokrotnego w następującym kroku:
 
-    ![Link do pobierania certyfikatu](media/civic-platform-tutorial/sso-config02.png)
+    ![Zrzut ekranu przedstawia standardowe elementy opcji Edycja dla konfiguracji S S O.](media/civic-platform-tutorial/sso-config02.png)
 
     1. W polu **applicationid** **Identyfikator aplikacji** wprowadź wartość identyfikatora, która została skopiowana z Azure Portal.
 
@@ -154,7 +154,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -188,7 +188,7 @@ Po kliknięciu kafelka platforma projektowi Civic Innovation w panelu dostępu n
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

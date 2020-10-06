@@ -1,5 +1,5 @@
 ---
-title: Wskazówki dotyczące zmiany wielkości
+title: Wskazówki dotyczące określania rozmiaru
 description: Zaplanuj rozmiar wdrożenia usług danych z obsługą usługi Azure Arc.
 services: azure-arc
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940766"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761485"
 ---
 # <a name="sizing-guidance"></a>Wskazówki dotyczące zmiany wielkości
 
@@ -27,7 +27,7 @@ Planując wdrożenie usługi Azure Arc Data Services, należy zaplanować popraw
 ## <a name="general-sizing-requirements"></a>Ogólne wymagania dotyczące ustalania wielkości
 
 > [!NOTE]
-> Jeśli nie znasz koncepcji w tym artykule, możesz zapoznać się z tematem więcej informacji na temat [Kubernetesego zarządzania zasobami](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) i [Kubernetes](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Jeśli nie znasz koncepcji w tym artykule, możesz zapoznać się z tematem więcej informacji na temat [Kubernetesego zarządzania zasobami](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) i [Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Liczba rdzeni musi być liczbą całkowitą większą lub równą 1.
 

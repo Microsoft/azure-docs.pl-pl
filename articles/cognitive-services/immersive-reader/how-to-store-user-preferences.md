@@ -1,5 +1,5 @@
 ---
-title: Zachowaj preferencje użytkownika
+title: Zapisywanie preferencji użytkownika
 titleSuffix: Azure Cognitive Services
 description: W tym artykule przedstawiono sposób przechowywania preferencji użytkownika.
 author: metanMSFT
@@ -9,20 +9,29 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: metan
-ms.openlocfilehash: beb053551dc1fa28672c488b31dfb29ca3b53651
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: ddae4a99964e438c003fe0ff0db91c5808fa7631
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486923"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761111"
 ---
 # <a name="how-to-store-user-preferences"></a>Jak przechowywać preferencje użytkownika
 
-W tym artykule przedstawiono sposób przechowywania preferencji użytkownika. Ta funkcja jest przeznaczona jako alternatywna metoda przechowywania preferencji użytkownika w przypadku, gdy używanie plików cookie nie jest pożądane lub możliwe.
+W tym artykule przedstawiono sposób przechowywania ustawień interfejsu użytkownika, które są znane jako **Preferencje użytkownika**, za pomocą opcji [-Preferences](./reference.md#options) i [-onPreferencesChanged](./reference.md#options) dbreader zestawu SDK.
+
+Gdy opcja zestawu [CookiePolicy](./reference.md#cookiepolicy-options) SDK jest ustawiona na wartość *włączone*, aplikacja czytnika immersyjny przechowuje **Preferencje użytkownika** (rozmiar tekstu, kolor motywu, czcionkę itd.) w plikach cookie, które są lokalne dla konkretnej przeglądarki i urządzenia. Za każdym razem, gdy użytkownik uruchamia czytnik immersyjny w tej samej przeglądarce i urządzeniu, zostanie on otwarty z preferencjami użytkownika z ostatniej sesji na tym urządzeniu. Jeśli jednak użytkownik otworzy czytnik immersyjny w innej przeglądarce lub urządzeniu, ustawienia zostaną początkowo skonfigurowane z domyślnymi ustawieniami czytnika immersyjny, a użytkownik będzie musiał ponownie ustawić swoje preferencje i tak dalej dla każdego używanego urządzenia. `-preferences` `-onPreferencesChanged` Opcje zestawu SDK czytnika immersyjny umożliwiają aplikacjom mobilny dostęp do preferencji użytkownika w różnych przeglądarkach i urządzeniach, dzięki czemu użytkownik ma spójne środowisko, wszędzie tam, gdzie korzystają z aplikacji.
+
+Po pierwsze, dostarczając `-onPreferencesChanged` opcję zestawu SDK wywołania zwrotnego podczas uruchamiania aplikacji czytnik immersyjny, czytnik immersyjny wyśle ciąg z `-preferences` powrotem do aplikacji hosta za każdym razem, gdy użytkownik zmieni Preferencje podczas sesji czytnika. Aplikacja hosta jest odpowiedzialna za przechowywanie preferencji użytkownika w ich własnym systemie. Następnie, gdy ten sam użytkownik ponownie uruchomi czytnik immersyjny, aplikacja hosta może pobrać preferencje tego użytkownika z magazynu, a następnie podać je jako `-preferences` opcję zestawu ciąg SDK podczas uruchamiania aplikacji czytnika immersyjny, aby przywrócić preferencje użytkownika.
+
+Ta funkcja może być używana jako alternatywna metoda przechowywania **preferencji użytkownika** w przypadku, gdy używanie plików cookie nie jest pożądane lub możliwe.
+
+> [!CAUTION]
+> **Ważne** Nie należy podejmować próby programistycznej zmiany wartości `-preferences` ciągu wysyłanego do i z aplikacji czytnika immersyjny, ponieważ może to spowodować nieoczekiwane zachowanie w przypadku użytkowników. Aplikacje hosta nigdy nie powinny przypisywać wartości niestandardowych do ciągu ani manipulować nimi `-preferences` . Korzystając z `-preferences` opcji String, należy używać tylko dokładnej wartości, która została zwrócona z `-onPreferencesChanged` opcji wywołania zwrotnego.
 
 ## <a name="how-to-enable-storing-user-preferences"></a>Jak włączyć przechowywanie preferencji użytkownika
 
-`options`Parametr zawiera `onPreferencesChanged` wywołanie zwrotne. Ta funkcja będzie wywoływana w dowolnym momencie, gdy użytkownik zmieni swoje preferencje (na przykład zmieni rozmiar tekstu, kolor motywu, czcionkę itd.). `value`Parametr zawiera ciąg, który reprezentuje bieżące preferencje użytkownika. Ten ciąg może być przechowywany przy użyciu dowolnego preferowanego mechanizmu.
+parametr [launchAsync](./reference.md#launchasync) zestawu SDK czytnika immersyjny `options` zawiera `-onPreferencesChanged` wywołanie zwrotne. Ta funkcja będzie wywoływana, gdy użytkownik zmieni swoje preferencje. `value`Parametr zawiera ciąg, który reprezentuje bieżące preferencje użytkownika. Ten ciąg jest następnie przechowywany dla tego użytkownika przez aplikację hosta.
 
 ```typescript
 const options = {
@@ -36,14 +45,16 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## <a name="how-to-load-user-preferences-into-the-immersive-reader"></a>Jak załadować preferencje użytkownika do czytnika immersyjny
 
-Przekaż preferencje użytkownika do czytnika immersyjny przy użyciu `preferences` parametru. Oto uproszczony przykład przechowywania i ładowania preferencji użytkownika:
+Przekaż preferencje użytkownika do czytnika immersyjny przy użyciu `-preferences` opcji. Oto uproszczony przykład przechowywania i ładowania preferencji użytkownika:
 
 ```typescript
-let userPreferences = null;
+const storedUserPreferences = localStorage.getItem("USER_PREFERENCES");
+let userPreferences = storedUserPreferences === null ? null : storedUserPreferences;
 const options = {
     preferences: userPreferences,
     onPreferencesChanged: (value: string) => {
         userPreferences = value;
+        localStorage.setItem("USER_PREFERENCES", userPreferences);
     }
 };
 ```

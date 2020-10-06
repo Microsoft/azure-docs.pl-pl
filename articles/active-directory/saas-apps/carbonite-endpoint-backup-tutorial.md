@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9888ae6f7d28f6fef5901ea246d71d7b9ae9f78f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4fcc9ab0811c447cebff825a0c45c9dac877219c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530615"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761740"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Samouczek: Integrowanie kopii zapasowych punktu końcowego Carbonite z Azure Active Directory
 
@@ -129,19 +129,19 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. Kliknij **firmę** w okienku po lewej stronie.
 
-    ![Konfiguracja kopii zapasowej punktu końcowego Carbonite ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia punkt końcowy Carbonite z wybranym przez firmę.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
 5. Kliknij pozycję Logowanie **jednokrotne**.
 
-    ![Konfiguracja kopii zapasowej punktu końcowego Carbonite ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia firmę z wybranym logowaniem jednokrotnym.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
 6. Kliknij pozycję **Włącz** , a następnie kliknij pozycję **Edytuj ustawienia** do skonfigurowania.
 
-    ![Konfiguracja kopii zapasowej punktu końcowego Carbonite ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne z ustawieniami włączania i edycji wywoływanymi jako out.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
 7. Na stronie ustawienia **rejestracji** jednokrotnej wykonaj następujące czynności:
 
-    ![Konfiguracja kopii zapasowej punktu końcowego Carbonite ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia kartę Logowanie jednokrotne z informacjami opisanymi w tym kroku.](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
     1. W polu tekstowym **Nazwa dostawcy tożsamości** wklej wartość **identyfikatora usługi Azure AD** , która została skopiowana z Azure Portal.
 
@@ -161,7 +161,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -187,11 +187,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Użytkownicy** w lewym okienku, a następnie kliknij pozycję **Dodaj użytkownika**.
 
-    ![Dodawanie użytkownika w kopii zapasowej Carbonite Endpoint](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![Zrzut ekranu przedstawia stronę punktu końcowego Carbonite z użytkownikami i Dodaj wybranych użytkowników.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. Na stronie **Dodawanie użytkownika** wykonaj następujące czynności:
 
-    ![Dodawanie użytkownika w kopii zapasowej Carbonite Endpoint](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![Zrzut ekranu przedstawia stronę Dodawanie użytkownika, na której można wykonać kroki opisane tutaj.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. Wprowadź **adres e-mail**, **imię**i nazwisko **użytkownika, a** następnie podaj wymagane uprawnienia dla użytkownika zgodnie z wymaganiami organizacji.
 
@@ -203,10 +203,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka kopia zapasowa punktu końcowego Carbonite w panelu dostępu należy automatycznie zalogować się do kopii zapasowej punktu końcowego Carbonite, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

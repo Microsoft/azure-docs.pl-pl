@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4c4ee5fa6281b0a137bd46a9d3a82db22adc77ea
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306192"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760776"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Samouczek: integracja logowania jednokrotnego (SSO) w usłudze Azure Active Directory (AD) za pomocą klawisza F5
 
@@ -146,38 +146,38 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Należy zaimportować certyfikat metadanych do F5 (Advanced Kerberos), który będzie używany później w procesie instalacji. Przejdź do pozycji **System > Certificate management > Traffic Certificate management >> listy certyfikatów SSL**. Kliknij pozycję **Importuj** w prawym górnym rogu.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure01.png)
+    ![Zrzut ekranu, który wyróżnia przycisk Importuj na potrzeby importowania certyfikatu metadanych.](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. Aby skonfigurować dostawcy tożsamości SAML, przejdź do pozycji **dostęp > federacyjnego > dostawcy usługi saml > utwórz > z metadanych**.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure02.png)
+    ![Zrzut ekranu, który pokazuje, jak utworzyć element SAML dostawcy tożsamości z metadanych.](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure03.png)
+    ![Zrzut ekranu przedstawiający ekran Tworzenie nowego łącznika SAML dostawcy tożsamości.](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Zrzut ekranu przedstawiający ekran ustawień usługi logowania jednokrotnego. ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Określ certyfikat przekazany z zadania 3
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure06.png)
+    ![Zrzut ekranu przedstawiający ekran Edytuj łącznik SAML dostawcy tożsamości.](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure07.png)
+    ![Zrzut ekranu, na którym jest wyświetlany ekran Ustawienia usługi wylogowania jednokrotnego.](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. Aby skonfigurować protokół SAML SP, przejdź do obszaru **dostępu > federacyjnego > saml > usługi w usłudze SP > Utwórz**.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure08.png)
+    ![Zrzut ekranu przedstawiający ekran, na którym jest tworzona lokalna usługa SP.](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. Kliknij przycisk **OK**.
 
 1. Wybierz konfigurację SP i kliknij pozycję **Powiązywanie/Usuwanie powiązania dostawcy tożsamości łączników**.
 
-     ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure09.png)
+     ![Zrzut ekranu przedstawiający dostawcę usługi SAML.](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. Kliknij przycisk **Dodaj nowy wiersz** i wybierz **zewnętrzny łącznik dostawcy tożsamości** utworzony w poprzednim kroku.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure10.png)
+    ![Zrzut ekranu, który podświetla przycisk Dodaj nowy wiersz.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. Do konfigurowania logowania jednokrotnego protokołu Kerberos **> dostępu > protokołu Kerberos** przy użyciu logowania jednokrotnego
 
@@ -188,54 +188,54 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     • Źródło obszaru użytkownika  `session.logon.last.domain`
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure11.png)
+    ![Zrzut ekranu, który wyróżnia dostęp > rejestracji jednokrotnej.](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. Aby skonfigurować profil dostępu, **> dostępu do profilu/zasad > profilu dostępu (dla zasad sesji)**.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure12.png)
+    ![Zrzut ekranu, który podświetla kartę właściwości pod opcją menu Profile/zasady.](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure13.png)
+    ![Zrzut ekranu przedstawiający kartę domeny logowania jednokrotnego/uwierzytelniania.](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure14.png)
+    ![Zrzut ekranu przedstawiający kartę Zasady dostępu.](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure15.png)
+    ![Zrzut ekranu pokazujący kartę właściwości w zasadach dostępu.](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure16.png)
+    ![Zrzut ekranu pokazujący właściwości przypisania zmiennej.](./media/advance-kerbf5-tutorial/configure16.png)
  
     * Session. Logon. Last. usernameUPN Expr {[mcget {Session. SAML. Last. Identity}]}
 
     * preprezentacja tekstu Session. AD. lastactualdomain. Live
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure17.png)
+    ![Zrzut ekranu pokazujący właściwości zapytania usługi AD.](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName =% {Session. Logon. Last. usernameUPN})
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure18.png)
+    ![Zrzut ekranu pokazujący kartę reguły rozgałęzień i regułę sprawdzania konta.](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure19.png)
+    ![Zrzut ekranu, który pokazuje niestandardowe pola tekstowe zmiennej i wyrażenia niestandardowego.](./media/advance-kerbf5-tutorial/configure19.png)
 
     * Session. Logon. Last. username Expr {"[mcget {Session. AD. Last. ATTR. sAMAccountName}]"}
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure20.png)
+    ![Zrzut ekranu pokazujący wartości w polach Nazwa tokenu logowania jednokrotnego i hasło tokenu logowania jednokrotnego.](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {Session. Logon. Last. username}
     * mcget {Session. Logon. Last. Password}
 
 1. Aby dodać nowy węzeł, przejdź do obszaru **ruch lokalny > węzły > listy węzłów > +**.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure21.png)
+    ![Zrzut ekranu, który podświetla ruch lokalny > węzłów.](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. Aby utworzyć nową pulę, przejdź do obszaru **ruch lokalny > pule > liście puli > Utwórz**.
 
-     ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure22.png)
+     ![Zrzut ekranu, który podświetla ruch lokalny > pule.](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. Aby utworzyć nowy serwer wirtualny, przejdź do obszaru **ruch lokalny > serwery wirtualne > listy serwerów wirtualnych > +**.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure23.png)
+    ![Zrzut ekranu, który podświetla ruch lokalny > serwery wirtualne.](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. Określ Profil dostępu utworzony w poprzednim kroku.
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![Zrzut ekranu pokazujący lokalizację utworzonego profilu dostępu.](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### <a name="setting-up-kerberos-delegation"></a>Konfigurowanie delegowania protokołu Kerberos 
 
@@ -264,15 +264,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     * Skonfiguruj odpowiednie delegowanie dla konta delegowania F5.
     * W poniższym przykładzie konto delegowania APM jest konfigurowane do KCD for FRP-APP1. predemonstracyjne. Live App.
 
-        ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure25.png)
+        ![Zrzut ekranu przedstawiający właściwości konta Delegatio APM > kartę Delegowanie.](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. Podaj szczegóły, jak wspomniano w powyższym dokumencie referencyjnym w [tym](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html) temacie
 
 1. Dodatek — mapowania zmiennych adresów IP w języku SAML – F5 pokazane poniżej:
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure26.png)
+    ![Zrzut ekranu przedstawiający kartę Przegląd > aktywnych sesji.](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![Zrzut ekranu pokazujący zmienne i klucze sesji.](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. Poniżej znajduje się pełna lista domyślnych atrybutów SAML. Dana wartośćname jest reprezentowana przy użyciu następującego ciągu.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
@@ -322,7 +322,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -8,22 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: c3f0b7c262fc774e43f2f63ebf09a1a08beea686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4100bf38b61d1b6eb7c3dfad3f1434a885c7d2ae
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262675"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760856"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: Wyodrębnianie wydrukowanych i odręcznych tekstu przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
 W tym przewodniku Szybki Start zostanie wyodrębniony drukowany i odręczny tekst z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Korzystając z metod [odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i [Get Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , można wykryć tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków, który można odczytać. 
 
-> [!IMPORTANT]
-> Metoda [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [uzyskiwania wyniku odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu.
+Metoda [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [uzyskiwania wyniku odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,8 +31,8 @@ W tym przewodniku Szybki Start zostanie wyodrębniony drukowany i odręczny teks
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
-## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
+## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
 Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 

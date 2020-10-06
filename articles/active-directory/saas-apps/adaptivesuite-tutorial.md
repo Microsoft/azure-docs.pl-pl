@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537743"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760788"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Samouczek: Integrowanie adaptacyjnych szczegółowych informacji za pomocą Azure Active Directory
 
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 2. Przejdź do sekcji **Administration** (Administracja).
 
-    ![Administracja](./media/adaptivesuite-tutorial/ic805644.png "Administrator")
+    ![Zrzut ekranu, który wyróżnia administrację w panelu nawigacji.](./media/adaptivesuite-tutorial/ic805644.png "Administracja")
 
 3. W sekcji **Użytkownicy i role** kliknij pozycję **Ustawienia logowania jednokrotnego**dla protokołu SAML.
 
@@ -143,7 +143,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -173,7 +173,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania a
 
 2. Przejdź do sekcji **Administration** (Administracja).
 
-   ![Administracja](./media/adaptivesuite-tutorial/IC805644.png "Administrator")
+   ![Administracja](./media/adaptivesuite-tutorial/IC805644.png "Administracja")
 
 3. W sekcji **Użytkownicy i role** kliknij pozycję **Użytkownicy**.
 
@@ -202,7 +202,7 @@ Po kliknięciu kafelka adaptacyjnego wglądu w panelu dostępu należy automatyc
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

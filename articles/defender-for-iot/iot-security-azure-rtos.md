@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 0cfd1e0ce16008c6f7fd128d561ad361bcc53b87
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22bd12bbdcccef2fd0e9010f926cd18e95d42967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939466"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761859"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Przegląd: usługa Defender for IoT Security module dla usługi Azure RTO (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Dzięki zastosowaniu zalecanej usługi Defender for IoT można uzyskać wiedzę 
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Wprowadzenie do ochrony urządzeń z usługą Azure RTO
 
-Moduł zabezpieczeń dla usługi Azure RTO jest udostępniany bezpłatnie do pobrania dla urządzeń. Usługa Defender for IoT w chmurze jest dostępna z 30-dniową wersją próbną dla każdej subskrypcji platformy Azure. Pobierz [moduł zabezpieczeń dla usługi Azure RTO](https://github.com/azure-rtos/iot-security-module-preview) , aby rozpocząć pracę. 
+Moduł zabezpieczeń dla usługi Azure RTO jest udostępniany bezpłatnie do pobrania dla urządzeń. Usługa Defender for IoT w chmurze jest dostępna z 30-dniową wersją próbną dla każdej subskrypcji platformy Azure. Pobierz [moduł zabezpieczeń dla usługi Azure RTO](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md) , aby rozpocząć pracę. 
 
 
 ## <a name="next-steps"></a>Następne kroki

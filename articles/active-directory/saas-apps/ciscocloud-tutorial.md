@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d86ed8303d14a30cd4f03c9b174b91ea81f41cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6372f313517b1ef8515bc3a5b9c8e56eb8643bc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551341"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Samouczek: integracja Azure Active Directory z usługą Cisco Cloud
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w usłudze Cisco Cloud
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje logowania jednokrotnego w usłudze Cisco Cloud Domain i URL](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, gdzie są wyświetlane wartości identyfikator i odpowiedź U R L.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `<subdomain>.cisco.com`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w usłudze Cisco Cloud
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje logowania jednokrotnego w usłudze Cisco Cloud Domain i URL](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.cloudapps.cisco.com`
 
@@ -116,7 +116,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w usłudze Cisco Cloud
 
 6. Aplikacja w chmurze firmy Cisco oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 7. Oprócz powyższych, aplikacja w chmurze firmy Cisco oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -128,9 +128,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w usłudze Cisco Cloud
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawia oświadczenia użytkownika z opcją dodania nowego oświadczenia.](common/new-save-attribute.png)
 
-    ![image (obraz)](common/new-attribute-details.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -175,7 +175,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -217,6 +217,6 @@ Po kliknięciu kafelka usługi Cisco Cloud w panelu dostępu należy automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

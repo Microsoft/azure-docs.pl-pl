@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544693"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Samouczek: integracja z Azure Active Directoryami z jasnym przeglądem
 
@@ -102,7 +102,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL aplikacji Clear Review na potrzeby logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<customer name>.clearreview.com/sso/metadata/`
 
@@ -110,7 +110,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL aplikacji Clear Review na potrzeby logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<customer name>.clearreview.com`
 
@@ -119,15 +119,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
 6. Wyczyść aplikację Przejrzyj oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Wyczyść aplikację do przeglądu oczekuje, że **NameIdentifier** mają być mapowane z **użytkownikiem. mail**, więc musisz edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
 
 7. W oknie dialogowym **atrybuty użytkownika & oświadczenia** wykonaj następujące czynności:
 
     a. Kliknij **ikonę Edytuj** po prawej stronie **wartości identyfikator nazwy**.
 
-    ![image (obraz)](./media/clearreview-tutorial/attribute02.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z wybraną ikoną Edytuj.](./media/clearreview-tutorial/attribute02.png)
 
-    ![image (obraz)](./media/clearreview-tutorial/attribute01.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](./media/clearreview-tutorial/attribute01.png)
 
     b. Z listy **atrybutów źródłowych** wybierz wartość atrybutu **User. mail** dla tego wiersza.
 
@@ -153,15 +153,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
 2. Wybierz pozycję **Admin** (Administrator) na lewym pasku nawigacyjnym.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+    ![Zrzut ekranu przedstawia Portal z wybraną opcją Wyczyść przegląd z wybranym przez administratora.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. W sekcji **integracje** w dolnej części strony kliknij przycisk **zmiany** po prawej stronie **ustawień logowania**jednokrotnego.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Zrzut ekranu przedstawia przycisk zmiany logowania jednokrotnego.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Wykonaj poniższe kroki na stronie **Single Sign-On Settings** (Ustawienia logowania jednokrotnego).
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Zrzut ekranu przedstawia stronę ustawień logowania jednokrotnego, na której można wprowadzić informacje w tym kroku.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. W polu tekstowym **adres URL wystawcy** wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
 
@@ -196,7 +196,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -238,7 +238,7 @@ Po kliknięciu kafelka Clear Review w panelu dostępu powinno nastąpić automat
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

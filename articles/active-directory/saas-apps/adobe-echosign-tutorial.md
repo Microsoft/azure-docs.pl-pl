@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7d1ea6c1ee21970a598855471284130160e1d65
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 18a034c6af9659e113a821e072098aee873c2ee2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537937"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Samouczek: integracja Azure Active Directory ze znakiem Adobe
 
@@ -151,7 +151,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w rozwiązaniu Adobe S
 
 1. W sekcji **Ustawienia języka SAML** wykonaj następujące czynności:
   
-   ![Zrzut ekranu ustawień protokołu SAML](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
+   ![Zrzut ekranu, który wyróżnia ustawienia SAML, w tym SAML obowiązkowy.](./media/adobe-echosign-tutorial/ic789521.png "Ustawienia SAML")
    
    ![Zrzut ekranu ustawień protokołu SAML](./media/adobe-echosign-tutorial/ic789522.png "Ustawienia SAML")
 
@@ -194,7 +194,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -256,7 +256,7 @@ Po kliknięciu kafelka Adobe Sign w panelu dostępu powinno nastąpić automatyc
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403708"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761043"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
 
@@ -29,7 +29,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
@@ -99,7 +99,7 @@ Należy określić, czy niska wydajność aplikacji jest spowodowana przez sieć
 
 Po ustaleniu, że problem jest spowodowany przez sieć, wybierz łącze widok **topologii** , aby zidentyfikować przeskok problematycznych na mapie topologii. Na poniższej ilustracji przedstawiono przykład. Z 105-całkowite opóźnienie między węzłem a punktem końcowym aplikacji 96 MS jest spowodowane przeskokiem oznaczonym kolorem czerwonym. Po zidentyfikowaniu przeskoku problematycznych możesz podejmować działania naprawcze. 
 
-![Testy monitora łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologia punktu końcowego monitora łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostyka 
 

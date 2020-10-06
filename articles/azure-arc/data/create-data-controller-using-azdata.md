@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8651921dafd5727f79e4ab3919e188d4b8612465
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939943"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761689"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu interfejsu wiersza polecenia platformy Azure (azdata)
 
@@ -155,7 +155,7 @@ Aby utworzyć kontroler danych na platformie Azure Red Hat OpenShift, należy wy
 > [!NOTE]
 >   Użyj tej samej przestrzeni nazw tutaj i `azdata arc dc create` poniższego polecenia. Przykład to `arc` .
 
-Najpierw pobierz niestandardowe ograniczenie kontekstu zabezpieczeń (SCC) z usługi [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) i zastosuj je do klastra.
+Najpierw pobierz niestandardowe ograniczenie kontekstu zabezpieczeń (SCC) z usługi [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) i zastosuj je do klastra.
 
 Można uruchomić następujące polecenie, aby utworzyć kontroler danych:
 > [!NOTE]

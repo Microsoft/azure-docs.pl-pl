@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 24350c63df04e55107ed32c2d61d1026aa27bdb9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547634"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Samouczek: integracja Azure Active Directory ze kanwą
 
@@ -181,7 +181,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -223,11 +223,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Canva
 
 3. Kliknij pozycję **Użytkownicy**.
 
-   ![Użytkownicy](./media/canvas-lms-tutorial/ic775995.png "Użytkownicy")
+   ![Zrzut ekranu przedstawia menu kanwy z wybranymi użytkownikami.](./media/canvas-lms-tutorial/ic775995.png "Użytkownicy")
 
 4. Kliknij pozycję **Dodaj nowego użytkownika**.
 
-   ![Użytkownicy](./media/canvas-lms-tutorial/ic775996.png "Użytkownicy")
+   ![Zrzut ekranu przedstawia przycisk Dodaj nowego użytkownika.](./media/canvas-lms-tutorial/ic775996.png "Użytkownicy")
 
 5. W oknie dialogowym Dodawanie nowego użytkownika wykonaj następujące kroki:
 
@@ -256,7 +256,7 @@ Po kliknięciu kafelka Canvas w panelu dostępu powinno nastąpić automatyczne 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

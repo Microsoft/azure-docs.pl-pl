@@ -6,12 +6,12 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: b4042e65fb9f7dbff6566bd497f782c3e6d591cb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707853"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761604"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
 
@@ -24,7 +24,7 @@ Micrometer do monitorowania aplikacji miaruje metryki dla kodu aplikacji oparteg
 
 ## <a name="using-spring-boot-15x"></a>Korzystanie z usługi sprężynowego rozruchu 1,5 x
 Dodaj następujące zależności do pliku pom.xml lub Build. Gradle: 
-* [Application Insights sprężyny rozruchu — Starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 lub nowszego
+* [Application Insights sprężyny rozruchu — Starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter) 2.5.0 lub nowszego
 * Micrometer Azure Registry 1.1.0 lub nowszy
 * [Micrometer sprężyny ze starszą](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 lub wyższą (to spowoduje Przeportowanie kodu autokonfiguracji w strukturze sprężynowej).
 * [Zasób ApplicationInsights](./create-new-resource.md)
@@ -57,7 +57,7 @@ Kroki
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Kompilowanie aplikacji i uruchamianie jej
-2. Powyższe funkcje powinny pomóc Ci w rozpoczęciu pracy z wstępnie zagregowanymi metrykami, które są zbierane do Azure Monitor. Szczegółowe informacje na temat dostosowywania Application Insights sprężynowego rozruchu Starter można znaleźć w [pliku Readme w witrynie GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+2. Powyższe funkcje powinny pomóc Ci w rozpoczęciu pracy z wstępnie zagregowanymi metrykami, które są zbierane do Azure Monitor. Szczegółowe informacje na temat dostosowywania Application Insights sprężynowego rozruchu Starter można znaleźć w [pliku Readme w witrynie GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md).
 
 ## <a name="using-spring-2x"></a>Korzystanie z sprężyny 2. x
 

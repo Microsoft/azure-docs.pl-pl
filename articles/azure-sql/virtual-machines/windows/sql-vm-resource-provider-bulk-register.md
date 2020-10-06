@@ -10,20 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271991"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761264"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano sposób samoSQL Serverowego rejestrowania maszyn wirtualnych na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell.
+
+W tym artykule przedstawiono zbiorczo rejestrację SQL Server maszyn wirtualnych. Alternatywnie można rejestrować [wszystkie SQL Server maszyny wirtualne automatycznie](sql-vm-resource-provider-automatic-registration.md) lub [SQL Server maszyn wirtualnych](sql-vm-resource-provider-register.md). 
+
+## <a name="overview"></a>Omówienie
 
 `Register-SqlVMs`Polecenia cmdlet można użyć do zarejestrowania wszystkich maszyn wirtualnych na danej liście subskrypcji, grup zasobów lub listy określonych maszyn wirtualnych. Polecenie cmdlet spowoduje zarejestrowanie maszyn wirtualnych w trybie _uproszczonego_ zarządzania, a następnie wygenerowanie zarówno [raportu, jak i pliku dziennika](#output-description). 
 
@@ -40,7 +44,7 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 

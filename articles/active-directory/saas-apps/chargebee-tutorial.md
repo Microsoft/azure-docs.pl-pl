@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529488"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760652"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Samouczek: integracja Chargebee z usługą Azure Active Directory
 
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -132,11 +132,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Z lewej strony menu kliknij pozycję **Ustawienia**  >  **zabezpieczenia**  >  **Zarządzaj**.
 
-    ![Konfiguracja Chargebee](./media/chargebee-tutorial/config01.png)
+    ![Zrzut ekranu przedstawia witrynę firmy Chargebee z ustawieniami, zabezpieczeniami i wybranym przez siebie zarządzaniem.](./media/chargebee-tutorial/config01.png)
 
 5. W oknie podręcznym **Logowanie** jednokrotne wykonaj następujące czynności:
 
-    ![Konfiguracja Chargebee](./media/chargebee-tutorial/config02.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Logowanie jednokrotne z wybranym elementem SAML i opcją potwierdzenia.](./media/chargebee-tutorial/config02.png)
 
     a. Wybierz pozycję **SAML**.
 
@@ -156,11 +156,11 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się do usługi Chargebe
 
 2. Z lewej strony menu, kliknij pozycję **klienci** , a następnie przejdź do **obszaru Utwórz nowego klienta**.
 
-    ![Konfiguracja Freedcamp](./media/chargebee-tutorial/config03.png)
+    ![Zrzut ekranu przedstawia witrynę Chargebee z klientami i utworzyć nowego klienta.](./media/chargebee-tutorial/config03.png)
 
 3. Na stronie **Nowy klient** Wypełnij odpowiednie pola poniżej, a następnie kliknij pozycję **Utwórz klienta** w celu utworzenia użytkownika.
 
-    ![Konfiguracja Freedcamp](./media/chargebee-tutorial/config04.png)
+    ![Zrzut ekranu przedstawia nową stronę klienta, na której można wprowadzać informacje o kliencie.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -168,11 +168,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Chargebee w panelu dostępu należy automatycznie zalogować się do Chargebee, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

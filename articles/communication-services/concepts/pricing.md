@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460938"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761230"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
 
@@ -59,7 +59,7 @@ Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysy
 
 ### <a name="price"></a>Cena
 
-- Opłata jest naliczana $0,0008 dla każdej wysyłanej wiadomości czatu.
+Opłata jest naliczana $0,0008 dla każdej wysyłanej wiadomości czatu.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Przykład cen: rozmowa między dwoma użytkownikami 
 
@@ -77,3 +77,46 @@ Róża widzi komunikaty i zaczyna czatować. W tym czasie Casey pobiera wywołan
 **Obliczenia kosztów** 
 
 - Liczba wysłanych komunikatów (20 + 30 + 18 + 30 + 25 + 35) x $0,0008 = $0,1264
+
+
+## <a name="telephony-and-sms"></a>Telefonia i wiadomości SMS
+
+## <a name="price"></a>Cena 
+
+Opłaty za usługi telefonii są naliczane co minutę, a opłata za wiadomości SMS jest naliczana na podstawie poszczególnych komunikatów. Cennik jest określany przez typ i lokalizację używanego numeru oraz miejsce docelowe wywołań i wiadomości SMS.
+
+### <a name="telephone-calling"></a>Połączenie telefoniczne
+
+Tradycyjne wywoływanie telefoniczne (wywołanie, które jest wykonywane przez publiczną sieć telefoniczną), jest dostępne z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem dla numerów telefonów opartych na Stany Zjednoczone. Cena to opłata za minutę w oparciu o typ używanej liczby i miejsce docelowe wywołania. Szczegóły cennika dla najpopularniejszych miejsc docelowych wywoływania znajdują się w poniższej tabeli. Pełną listę miejsc docelowych można znaleźć w [szczegółowej liście cenowej](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) .
+
+
+#### <a name="united-states-calling-prices"></a>Ceny wywoływania Stany Zjednoczone
+
+Następujące ceny obejmują wymagane podatki i opłaty za komunikację do 30 czerwca 2021:
+
+|Typ liczby   |Aby wykonać wywołania   |Aby odebrać wywołania|
+|--------------|-----------|------------|
+|Lokalne     |Rozpoczynając od wartości $0.013/min       |$0.0085/min        |
+|Bezpłatny — bezpłatny |$0.013/min   |$0.0220/min |
+
+#### <a name="other-calling-destinations"></a>Inne obiekty docelowe wywołujące
+
+Następujące ceny obejmują wymagane podatki i opłaty za komunikację do 30 czerwca 2021:
+
+|Wykonaj wywołania do   |Cena za minutę|
+|-----------|------------|
+|Kanada     |Rozpoczynając od wartości $0.013/min   |
+|Zjednoczone Królestwo     |Rozpoczynając od wartości $0,015/min   |
+|Niemcy     |Rozpoczynając od wartości $0,015/min   |
+|Francja     |Rozpoczynając od wartości $0,016;/min   |
+
+
+### <a name="sms"></a>SMS
+
+Program SMS oferuje Cennik z opcją płatność zgodnie z rzeczywistym użyciem. Cena jest opłatą za wiadomość w oparciu o miejsce docelowe wiadomości. Komunikaty mogą być wysyłane za pomocą bezpłatnych numerów telefonów do numerów telefonów znajdujących się w Stany Zjednoczone. Należy pamiętać, że nie można używać lokalnych (geograficznych) numerów telefonów do wysyłania wiadomości SMS.
+
+Następujące ceny obejmują wymagane podatki i opłaty za komunikację do 30 czerwca 2021:
+
+|Kraj   |Wysyłanie komunikatów|Odbieranie komunikatów|
+|-----------|------------|------------|
+|USA (bezpłatny)    |$0.0075/MSG   | $0.0075/MSG |

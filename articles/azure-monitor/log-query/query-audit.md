@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285064"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760165"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Inspekcja zapytań w dziennikach Azure Monitor (wersja zapoznawcza)
 Dzienniki inspekcji zapytań dzienników udostępniają dane telemetryczne dotyczące zapytań dzienników uruchomionych w Azure Monitor. Obejmuje to takie informacje, jak w przypadku uruchomienia zapytania, jego uruchomienia, używanego narzędzia, tekstu zapytania i statystyki wydajności opisującej wykonywanie zapytania.
@@ -68,6 +68,9 @@ Rekord inspekcji jest tworzony przy każdym uruchomieniu zapytania. Jeśli dane 
 - Statystyki wydajności nie są dostępne dla zapytań pochodzących z serwera proxy usługi Azure Eksplorator danych. Wszystkie inne dane dla tych zapytań będą nadal wypełniane.
 - Wskazówki *h* dotyczące ciągów, które [zasłaniają literały ciągu](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) , nie będą miały wpływu na dzienniki inspekcji zapytań. Zapytania zostaną przechwycone dokładnie tak, jak zostało przesłane bez wycofywania ciągu. Należy upewnić się, że tylko użytkownicy z prawami zgodności do wyświetlania tych danych mogą korzystać z różnych trybów RBAC dostępnych w obszarze roboczym Log Analytics.
 - W przypadku zapytań zawierających dane z wielu obszarów roboczych zapytanie zostanie przechwycone tylko w tych obszarach roboczych, do których użytkownik ma dostęp.
+
+## <a name="costs"></a>Koszty  
+Usługa Azure Diagnostic Extension nie ma kosztu, ale opłaty za dane pozyskiwane mogą być naliczane. Sprawdź [ceny Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) lokalizacji docelowej, w której zbierane są dane.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716029"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761145"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
+Jeśli występują problemy z nawiązywaniem połączenia z usługą Azure Files, zapoznaj się z [narzędziem rozwiązywania problemów opublikowanym pod kątem Azure Files instalowania błędów w systemie Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Udostępniamy również [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) ułatwiające obejście tego problemu, gdy port 445 jest zablokowany. 
 
 ## <a name="configure-windows-acls"></a>Skonfiguruj listy ACL systemu Windows
 
@@ -104,7 +104,7 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
 1.    Wybierz przycisk **OK**.
 1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz pozycję **Zastosuj**.
+1.    Wybierz przycisk **Zastosuj**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 

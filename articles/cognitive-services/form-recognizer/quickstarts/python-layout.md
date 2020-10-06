@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: e6c18df2d90f8d6efc9425f2d9fdff057e06ad51
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f136248b93283b02824ead7f34886a056ae0a33
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88719119"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762063"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie informacji o tekście i układzie przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python
 

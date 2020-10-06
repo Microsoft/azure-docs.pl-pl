@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286618"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761128"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
@@ -137,7 +137,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Na przykład:
+   Przykład:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -252,6 +252,22 @@ Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominą
 1. W akcji **Utwórz plik** Otwórz listę **Dodaj nowy parametr** , wybierz właściwość **Pobierz wszystkie metadane pliku** i ustaw wartość na **nie**.
 
 1. Jeśli te metadane pliku są potrzebne później, można użyć akcji **Pobierz metadane pliku** .
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504: "próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie określonego czasu lub nawiązane połączenie nie powiodło się, ponieważ podłączony host nie odpowiedział" lub "żądanie do serwera SFTP zajęło więcej niż" 00:00:30 "s"
+
+Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiązać połączenia z serwerem SFTP. Może być wiele różnych powodów i sugerujemy rozwiązanie problemu z następujących aspektów. 
+
+1. Limit czasu połączenia wynosi 20 sekund. Upewnij się, że serwer SFTP ma dobrą wydajność, a urządzenia intermidiate, takie jak zapora, nie zwiększają nakładu pracy. 
+
+2. Jeśli istnieje Zapora, upewnij się, że adresy **IP łącznika zarządzanego** to listy dozwolonych. Te adresy IP można znaleźć dla regionu aplikacji logiki [**tutaj**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Jeśli ten problem występuje sporadycznie, Przetestuj ustawienia ponawiania, aby zobaczyć, czy większa liczba ponownych prób od domyślnego 4 może pomóc.
+
+4. Sprawdź, czy serwer SFTP ogranicza liczbę połączeń z poszczególnych adresów IP. Jeśli tak, może być konieczne ograniczenie liczby współbieżnych wystąpień aplikacji logiki. 
+
+5. Zwiększ wartość właściwości [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) , tak jak 1 godzina w konfiguracji SSH na serwerze SFTP, aby zmniejszyć koszt ustanowienia połączenia.
+
+6. Możesz sprawdzić dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki kiedykolwiek dotarło do serwera SFTP. Może być również konieczne wykonanie niektórych funkcji śledzenia sieci na zaporze i na serwerze SFTP, aby Dig dalsze problemy z łącznością.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

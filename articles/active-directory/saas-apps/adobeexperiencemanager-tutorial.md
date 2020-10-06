@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543027"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Samouczek: integracja Azure Active Directory z programem Adobe Experience Manager
 
@@ -101,7 +101,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego programu Adobe Experience Manager](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący podstawową sekcję konfiguracyjną języka SAML oraz wyróżnianie pól tekstowych identyfikator i adres URL odpowiedzi.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz unikatową wartość, która została również zdefiniowana na Twoim serwerze AEM.
 
@@ -136,35 +136,35 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 2. Wybierz pozycję **Ustawienia**  >  **Security**  >  **Użytkownicy**zabezpieczeń.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Zrzut ekranu przedstawiający kafelek użytkownicy w programie Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Wybierz **administratora** lub dowolnego innego odpowiedniego użytkownika.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Zrzut ekranu, który wyróżnia użytkownika Adminisrator.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Wybierz pozycję **Ustawienia konta**  >  **Zarządzaj TrustStore**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Zrzut ekranu przedstawiający zarządzanie TrustStore w obszarze Ustawienia konta.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. W obszarze **Dodaj certyfikat z pliku CER** kliknij pozycję **Wybierz plik certyfikatu**. Wyszukaj i wybierz plik certyfikatu, który został już pobrany z witryny Azure Portal.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Zrzut ekranu, który podświetla przycisk Wybierz plik certyfikatu.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. Certyfikat jest dodawany do magazynu TrustStore. Zapisz alias certyfikatu.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Zrzut ekranu pokazujący, że certyfikat został dodany do TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. Na stronie **Użytkownicy** wybierz pozycję **authentication-service**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Sreenshot, który wyróżnia usługi uwierzytelniania na ekranie.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Wybierz pozycję **Ustawienia konta**  >  **Utwórz magazyn kluczy i Zarządzaj nim**. Utwórz magazyn kluczy, podając hasło.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Zrzut ekranu przedstawiający Zarządzanie magazynem kluczy.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Wróć do ekranu administratora. Następnie wybierz kolejno pozycje **Ustawienia**  >  **Operations**  >  **Konsola sieci Web**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Zrzut ekranu, który wyróżnia konsolę sieci Web w obszarze operacje w sekcji Ustawienia.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Spowoduje to otwarcie strony konfiguracji.
 
@@ -172,7 +172,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 10. Znajdź pozycję **Program obsługi uwierzytelniania Adobe Granite SAML 2.0**. Następnie wybierz ikonę **Dodaj**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Zrzut ekranu przedstawiający procedurę obsługi uwierzytelniania w programie Adobe Granite SAML 2,0.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. Na tej stronie wykonaj następujące czynności.
 
@@ -221,7 +221,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -265,6 +265,6 @@ Po kliknięciu kafelka Adobe Experience Manager w panelu dostępu powinno nastą
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

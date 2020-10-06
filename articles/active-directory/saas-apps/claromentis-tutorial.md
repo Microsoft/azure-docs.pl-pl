@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520315"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759791"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Claromentis
 
@@ -112,7 +112,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -138,19 +138,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę aplikacje** , a następnie wybierz pozycję **administrator**.
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config1.png)
+    ![Zrzut ekranu przedstawia witrynę sieci Web Claromentis z wybranym przez administratora.](./media/claromentis-tutorial/config1.png)
 
 1. Wybierz kartę **Niestandardowa obsługa logowania** .
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config2.png)
+    ![Zrzut ekranu przedstawia stronę Administracja z wybranym niestandardową obsługą logowania.](./media/claromentis-tutorial/config2.png)
 
 1. Wybierz pozycję **Konfiguracja protokołu SAML**.
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config3.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji protokołu SAML.](./media/claromentis-tutorial/config3.png)
 
 1. Na karcie **Konfiguracja protokołu SAML** przewiń w dół do sekcji **Konfiguracja** i wykonaj następujące czynności:
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config4.png)
+    ![Zrzut ekranu przedstawia sekcję konfiguracji strony, na której można wprowadzić informacje opisane w tym kroku.](./media/claromentis-tutorial/config4.png)
 
     a. W polu tekstowym **Nazwa kontaktu technicznego** wprowadź nazwę osoby kontaktowej.
 
@@ -160,7 +160,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przewiń w dół do **źródeł uwierzytelniania** i wykonaj następujące czynności:
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config5.png)
+    ![Zrzut ekranu przedstawia sekcję źródła uwierzytelniania, w której można wprowadzić informacje opisane w tym kroku.](./media/claromentis-tutorial/config5.png)
 
     a. W polu tekstowym **dostawcy tożsamości** wprowadź wartość **identyfikatora usługi Azure AD** , która została skopiowana z Azure Portal.
 
@@ -172,7 +172,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Teraz Zauważ, że wszystkie adresy URL zostały wypełnione w sekcji **dostawca tożsamości** w sekcji **Konfiguracja protokołu SAML** .
 
-    ![Konfiguracja Claromentis](./media/claromentis-tutorial/config6.png)
+    ![Zrzut ekranu przedstawia stronę dostawcy tożsamości wypełnioną przy użyciu U R ls.](./media/claromentis-tutorial/config6.png)
 
     a. Kopiuj wartość **identyfikatora (identyfikatora jednostki)** , wklej tę wartość w polu tekstowym **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -190,11 +190,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Claromentis w panelu dostępu należy automatycznie zalogować się do Claromentis, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513769"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761519"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -32,14 +32,13 @@ Poniżej znajduje się Podsumowanie ról przypisanych do zarządzanej tożsamoś
 
 |**Typ magazynu danych**|**Źródłowy magazyn danych Dostawca danych**|**Docelowy magazyn danych odbiorcy danych**|
 |---|---|---|
-|Azure Blob Storage| Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
+|Azure Blob Storage| Czytelnik danych obiektu blob usługi Storage | Współautor danych obiektu blob usługi Storage
 |Azure Data Lake Gen1 | Właściciel | Nieobsługiwane
-|Azure Data Lake Gen2 | Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
-|Serwer usługi SQL Azure | Współautor bazy danych SQL | Współautor bazy danych SQL
+|Azure Data Lake Gen2 | Czytelnik danych obiektu blob usługi Storage | Współautor danych obiektu blob usługi Storage
 |Klaster usługi Azure Data Explorer | Współautor | Współautor
 |
 
-W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w Azure SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Poniżej znajduje się Podsumowanie uprawnień wymaganych przez użytkownika programu SQL.
+W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w Azure SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Do utworzenia tego użytkownika wymagane jest uprawnienie administratora Azure Active Directory. Poniżej znajduje się Podsumowanie uprawnień wymaganych przez użytkownika programu SQL.
 
 |**Typ SQL Database**|**Dostawca danych uprawnienie użytkownika SQL**|**Uprawnienie użytkownika SQL dla danych klienta**|
 |---|---|---|

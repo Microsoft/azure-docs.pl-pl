@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 375191bbe6f45189fba50ea927454c0ec4f64678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939086"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760310"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Przekaż dane dotyczące rozliczeń na platformę Azure i Wyświetl je w Azure Portal
 
@@ -30,7 +30,7 @@ W przyszłości będą dostępne dwa tryby, w których można uruchamiać usług
 - **Połączono** bezpośrednio — nie ma bezpośredniego połączenia z platformą Azure. Dane są wysyłane do platformy Azure tylko przez proces eksportowania/przekazywania. Wszystkie wdrożenia usługi Azure Arc Data Services działają w tym trybie dzisiaj w wersji zapoznawczej.
 - **Połączone bezpośrednio** — w tym trybie jest zależna od usługi Kubernetes z włączonym Azure ARC, która zapewnia bezpośrednie połączenie między platformą Azure i klastrem Kubernetes, na którym działają usługi danych z funkcją Azure Arc. Spowoduje to włączenie większej liczby możliwości i umożliwi użycie Azure Portal i interfejsu wiersza polecenia platformy Azure do zarządzania usługami danych z obsługą usługi Azure ARC, podobnie jak w przypadku zarządzania usługami danych w usłudze Azure PaaS.  Ten tryb łączności nie jest jeszcze dostępny w wersji zapoznawczej, ale zostanie wkrótce uwzględniony.
 
-Więcej informacji o różnicach między [trybami łączności](/docs/connectivity.md).
+Więcej informacji o różnicach między [trybami łączności](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
 
 W trybie połączone bezpośrednio dane dotyczące rozliczeń są okresowo eksportowane z kontrolera danych usługi Azure Arc do zabezpieczonego pliku, a następnie przekazywane do platformy Azure i przetwarzane.  W nadchodzącym bezpośrednio trybie połączonym dane dotyczące rozliczeń zostaną automatycznie wysłane do platformy Azure około 1/godzinę, aby zapewnić niemal rzeczywisty wgląd w koszty usług. Proces eksportowania i przekazywania danych w trybie bezpośrednio połączonym może być również zautomatyzowany przy użyciu skryptów lub możemy utworzyć usługę, która ją wykona.
 
@@ -40,7 +40,7 @@ Aby przekazać dane dotyczące rozliczeń na platformę Azure, należy najpierw 
 
 1. Utwórz usługę danych z włączonym Łukem Azure, jeśli jeszcze jej nie masz. Na przykład Utwórz jedną z następujących czynności:
    - [Tworzenie wystąpienia zarządzanego usługi Azure SQL w usłudze Azure Arc](create-sql-managed-instance.md)
-   - [Tworzenie grupy serwerów PostgreSQL z funkcją Azure Arc](create-postgresql-hyperscale-server-group.md)
+   - [Tworzenie grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc](create-postgresql-hyperscale-server-group.md)
 1. [Przekazanie spisu zasobów, danych użycia, metryk i dzienników do Azure monitor](upload-metrics-and-logs-to-azure-monitor.md) , jeśli nie zostało to jeszcze zrobione.
 1. Zaczekaj co najmniej 2 godziny od momentu utworzenia usługi danych, aby proces gromadzenia danych telemetrii rozliczeń mógł zbierać dane dotyczące rozliczeń.
 

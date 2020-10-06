@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421675"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762012"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Zbiorcze dodawanie elementów członkowskich grupy w Azure Active Directory
 
@@ -75,7 +75,7 @@ Aby uzyskać szczegółowe informacje na temat każdego elementu wiersza w ramac
 
 ## <a name="bulk-import-service-limits"></a>Limity usług importowania zbiorczego
 
-Każde działanie zbiorcze służące do importowania listy członków grupy może być uruchamiane przez maksymalnie jedną godzinę. Umożliwia to zaimportowanie listy co najmniej 40 000 elementów członkowskich.
+Każde działanie zbiorcze służące do importowania listy członków grupy może być uruchamiane przez maksymalnie jedną godzinę. Umożliwia to zaimportowanie listy maksymalnie 40 000 elementów członkowskich.
 
 ## <a name="next-steps"></a>Następne kroki
 

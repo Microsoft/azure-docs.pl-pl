@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d58b4d86936c56a08f27bef59edc1d3cc4ce4617
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947678"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761985"
 ---
 W tym przewodniku szybki start dowiesz się, jak zacząć wywoływanie przy użyciu biblioteki klienta wywołania usługi Azure Communication Services dla języka JavaScript.
 
@@ -124,10 +124,8 @@ const callClient = new CallClient();
 const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
 let callAgent;
 
-callClient.createCallAgent(tokenCredential).then(agent => {
-  callAgent = agent;
-  callButton.disabled = false;
-});
+callAgent = await callClient.createCallAgent(tokenCredential);
+callButton.disabled = false;
 ```
 
 ## <a name="start-a-call"></a>Rozpocznij wywołanie

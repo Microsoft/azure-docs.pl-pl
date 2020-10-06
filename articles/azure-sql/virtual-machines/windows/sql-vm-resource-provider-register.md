@@ -10,21 +10,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a197f8a11186d799f320c03a5bbe980b1f38e126
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272076"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761315"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Rejestrowanie SQL Server maszyny wirtualnej na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule opisano sposób rejestrowania maszyny wirtualnej SQL Server na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL (RP). Rejestracja przy użyciu dostawcy zasobów powoduje utworzenie _zasobu_ **maszyny wirtualnej SQL** w ramach subskrypcji, czyli oddzielnego zasobu z zasobu maszyny wirtualnej. Wyrejestrowanie maszyny wirtualnej SQL Server od dostawcy zasobów spowoduje usunięcie _zasobu_ **maszyny wirtualnej SQL** , ale nie spowoduje porzucenia rzeczywistej maszyny wirtualnej. 
+W tym artykule opisano sposób rejestrowania maszyny wirtualnej SQL Server na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL (RP). 
+
+W tym artykule opisano, jak zarejestrować pojedynczą maszynę wirtualną SQL Server przy użyciu dostawcy zasobów maszyny wirtualnej SQL. Alternatywnie można rejestrować wszystkie SQL Server maszyny wirtualne [automatycznie](sql-vm-resource-provider-automatic-registration.md) lub [skrypty zbiorczo](sql-vm-resource-provider-bulk-register.md).
+
+## <a name="overview"></a>Omówienie
+
+Rejestracja przy użyciu dostawcy zasobów powoduje utworzenie _zasobu_ **maszyny wirtualnej SQL** w ramach subskrypcji, czyli oddzielnego zasobu z zasobu maszyny wirtualnej. Wyrejestrowanie maszyny wirtualnej SQL Server od dostawcy zasobów spowoduje usunięcie _zasobu_ **maszyny wirtualnej SQL** , ale nie spowoduje porzucenia rzeczywistej maszyny wirtualnej.
 
 Wdrożenie SQL Server maszyny wirtualnej w portalu Azure Marketplace za pomocą Azure Portal automatycznie rejestruje maszynę wirtualną SQL Server przy użyciu dostawcy zasobów. Jednak w przypadku wybrania opcji samodzielnego zainstalowania SQL Server na maszynie wirtualnej platformy Azure lub aprowizacji maszyny wirtualnej platformy Azure na podstawie niestandardowego wirtualnego dysku twardego należy zarejestrować maszynę wirtualną SQL Server przy użyciu dostawcy zasobów dla:
 
@@ -58,7 +64,7 @@ Aby można było korzystać z dostawcy zasobów maszyny wirtualnej SQL, należy 
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów, musisz: 
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
-- Model zasobów platformy Azure [SQL Server maszynę wirtualną](create-sql-vm-portal.md) wdrożoną w chmurze publicznej lub Azure Government. 
+- Model zasobów platformy Azure dla [maszyny wirtualnej z systemem Windows](../../../virtual-machines/windows/quick-create-portal.md) [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) wdrożony w chmurze publicznej lub Azure Government. 
 - Najnowsza wersja [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [programu PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Tryby zarządzania
@@ -321,18 +327,18 @@ Wyrejestrowanie maszyny wirtualnej SQL z dostawcą zasobów maszyny wirtualnej S
 
 Aby wyrejestrować SQL Server maszynę wirtualną za pomocą dostawcy zasobów przy użyciu Azure Portal, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do zasobu maszyny wirtualnej SQL. 
   
    ![Zasób maszyn wirtualnych SQL](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
 1. Wybierz pozycję **Usuń**. 
 
-   ![Usuń dostawcę zasobów maszyny wirtualnej SQL](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![Wybierz pozycję Usuń w górnym obszarze nawigacji](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. Wpisz nazwę maszyny wirtualnej SQL i **Usuń zaznaczenie pola wyboru obok maszyny wirtualnej**.
 
-   ![Usuń dostawcę zasobów maszyny wirtualnej SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![Usuń zaznaczenie maszyny wirtualnej, aby zapobiec usunięciu rzeczywistej maszyny wirtualnej, a następnie wybierz pozycję Usuń, aby kontynuować usuwanie zasobu maszyny wirtualnej SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Nie można wyczyścić pola wyboru obok nazwy maszyny wirtualnej. całkowicie *usunie* maszynę wirtualną. Wyczyść pole wyboru, aby wyrejestrować SQL Server MASZYNę wirtualną z dostawcy zasobów, ale *nie usunąć rzeczywistej maszyny wirtualnej*. 
@@ -342,7 +348,7 @@ Aby wyrejestrować SQL Server maszynę wirtualną za pomocą dostawcy zasobów p
 ### <a name="command-line"></a>Wiersz polecenia
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-Aby wyrejestrować SQL Server maszynę wirtualną z dostawcy zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Spowoduje to usunięcie SQL Server *zasobów* maszyn wirtualnych, ale nie spowoduje usunięcia maszyny wirtualnej. 
+Aby wyrejestrować SQL Server maszynę wirtualną z dostawcy zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Spowoduje to usunięcie SQL Server *zasobów* maszyn wirtualnych, ale nie spowoduje usunięcia maszyny wirtualnej. 
 
 
 ```azurecli-interactive
@@ -400,7 +406,7 @@ Domyślny tryb zarządzania SQL podczas rejestrowania z dostawcą zasobów maszy
 
 Tak, Rejestracja przy użyciu dostawcy zasobów maszyny wirtualnej SQL zainstaluje agenta na maszynie wirtualnej.
 
-SQL Server rozszerzenie IaaS korzysta z agenta, aby zbadać metadane dla SQL Server. Jedyną niezainstalowanym agentem jest to, że dostawca zasobów maszyny wirtualnej SQL jest regsitered w trybie noagent
+SQL Server rozszerzenie IaaS korzysta z agenta, aby zbadać metadane dla SQL Server. Jedyną niezainstalowanym agentem jest to, że dostawca zasobów maszyny wirtualnej SQL jest zarejestrowany w trybie noagent
 
 **Czy program będzie rejestrował się przy użyciu dostawcy zasobów maszyny wirtualnej SQL SQL Server na mojej maszynie wirtualnej?**
 

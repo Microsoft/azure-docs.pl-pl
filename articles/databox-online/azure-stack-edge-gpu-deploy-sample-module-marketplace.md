@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie modułu GPU na urządzeniu z systemem Microsoft Azure Stack Edge w witrynie Azure Marketplace | Microsoft Docs
-description: W tym artykule opisano sposób włączania obliczeń i wprowadzania danych do Azure Stack brzegowych urządzeń z systemem Pro za pośrednictwem lokalnego interfejsu użytkownika.
+description: Opisuje sposób wdrażania modułu IoT z włączonym procesorem GPU na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899949"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760063"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Wdrażanie modułu IoT z włączonym procesorem GPU z poziomu portalu Azure Marketplace na urządzeniu Azure Stack EDGE Pro GPU
 
@@ -55,7 +55,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 4. Wybierz pozycję **Kontynuuj** , aby potwierdzić warunki użytkowania dostawcy i zasady zachowania poufności informacji. 
 
-    ![Pobieranie przykładowego modułu](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Pobierz przykładowy moduł 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Wybierz subskrypcję, która została użyta do wdrożenia urządzenia z usługą Azure Stack EDGE Pro.
 
@@ -89,7 +89,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 13. Sprawdź, czy moduł został wdrożony w IoT Hub w Azure Portal. Wybierz urządzenie, wybierz pozycję **Ustaw moduły**,   a moduł powinien zostać wyświetlony w sekcji **IoT Edge moduły**   .
 
-    ![Wybieranie pozycji Utwórz](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Wybierz pozycję Utwórz 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>Monitorowanie modułu  
 

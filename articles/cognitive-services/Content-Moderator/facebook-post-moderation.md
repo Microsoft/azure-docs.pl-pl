@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548518"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760201"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Samouczek: umiarkowane wpisy i polecenia w usłudze Facebook przy użyciu usługi Azure Content Moderator
 
 W ramach tego samouczka nauczysz się, jak używać usługi Azure Content Moderator, aby ułatwić umiarkowane wpisy i komentarze na stronie w serwisie Facebook. Usługa Facebook wyśle zawartość opublikowaną przez odwiedzających do usługi Content Moderator. Następnie przepływy pracy Content Moderator będą publikować zawartość lub tworzyć przeglądy w ramach narzędzia do przeglądu, w zależności od wyników i progów zawartości. Zobacz [film wideo z pokazem 2017](https://channel9.msdn.com/Events/Build/2017/T6033) , aby zapoznać się z przykładowym scenariuszem.
+
+> [!IMPORTANT]
+> W 2018 w serwisie Facebook zaimplementowano bardziej rygorystyczne zasady przed sprawdzeniemymi dla aplikacji w serwisie Facebook. Nie będzie można wykonać kroków tego samouczka, jeśli Twoja aplikacja nie została przejrzana i zatwierdzona przez zespół ds. przeglądania w serwisie Facebook.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -33,9 +36,6 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Ten diagram ilustruje każdy składnik tego scenariusza:
 
 ![Diagram Content Moderator otrzymywanie informacji z usługi Facebook przez "FBListener" i wysyłanie informacji za pośrednictwem "CMListener"](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> W 2018 w serwisie Facebook zaimplementowano bardziej rygorystyczne zasady przed sprawdzeniemymi dla aplikacji w serwisie Facebook. Nie będzie można wykonać kroków tego samouczka, jeśli Twoja aplikacja nie została przejrzana i zatwierdzona przez zespół ds. przeglądania w serwisie Facebook.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -87,7 +87,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/) i wykonaj następując
 
     1. Kliknij kafelek z **wyzwalaczem http**.
     1. Wprowadź nazwę **FBListener**. W polu **Authorization Level** (Poziom autoryzacji) powinna być ustawiona wartość **Function** (Funkcja).
-    1. Kliknij przycisk **Utwórz**.
+    1. Kliknij pozycję **Utwórz**.
     1. Zastąp zawartość elementu **Run. CSX** zawartością z **FbListener/Run. CSX**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]

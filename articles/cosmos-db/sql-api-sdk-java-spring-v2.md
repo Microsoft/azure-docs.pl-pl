@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570757"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760829"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v2 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -67,10 +67,10 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 | **Pobieranie zestawu SDK** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**Dokumentacja interfejsu API** | [Informacje o sprężyny Azure Cosmos DB dokumentacji]() |
 |**Współtworzenie zestawu SDK** | [Dane wiosenne Azure Cosmos DB repozytorium w serwisie GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
-|**Rozruch z sprężyną Starter**| [Azure Cosmos DB wiosny startowej biblioteki klienckiej dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**Rozruch z sprężyną Starter**| [Azure Cosmos DB wiosny startowej biblioteki klienckiej dla języka Java](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Przykład aplikacji ze sprężyną do zrobienia przy użyciu Azure Cosmos DB**| [Kompleksowe środowisko Java w systemie App Service Linux (część 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
 |**Przewodnik dewelopera** | [Przewodnik dewelopera usługi Azure Cosmos DB w rozwiązaniu Spring Data](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Przy użyciu Starter** | [Jak używać funkcji sprężynowego rozruchu Starter z interfejsem API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repozytorium GitHub dla Azure Cosmos DB sprężynowego rozruchu Starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-cosmosdb) |
+|**Przy użyciu Starter** | [Jak używać funkcji sprężynowego rozruchu Starter z interfejsem API SQL Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repozytorium GitHub dla Azure Cosmos DB sprężynowego rozruchu Starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Przykład z Azure App Service** | [Jak używać platformy Spring i usługi Cosmos DB z usługą App Service w systemie Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Przykład aplikacji do zrobienia](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Historia wersji

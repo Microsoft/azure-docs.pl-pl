@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549341"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Samouczek: integracja Azure Active Directory z usługą ClickTime
 
@@ -165,7 +165,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -207,7 +207,7 @@ W przypadku aplikacji ClickTime aprowizowanie jest zadaniem ręcznym.
 
 1. Na pasku narzędzi u góry kliknij pozycję **Company** (Firma), a następnie kliknij pozycję **People** (Osoby).
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![Zrzut ekranu przedstawia dzierżawcę ClickTime z wybranym przez firmę i użytkownikami.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Kliknij przycisk **Add Person** (Dodaj osobę).
    
@@ -215,7 +215,7 @@ W przypadku aplikacji ClickTime aprowizowanie jest zadaniem ręcznym.
 
 1. W sekcji New Person (Nowa osoba) wykonaj następujące kroki:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![Zrzut ekranu przedstawia sekcję Dodaj osobę, w której można dodać informacje w tym kroku.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  W polu tekstowym **full name** (imię i nazwisko) wpisz imię i nazwisko użytkownika, np. **Britta Simon**. 
   
@@ -232,11 +232,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ClickTime w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji ClickTime, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

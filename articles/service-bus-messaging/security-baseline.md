@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6242e593171bd8a01d01739b884ae8a1ca7beb4d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629764"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761162"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Podstawa zabezpieczeń platformy Azure dla Service Bus
 
@@ -273,7 +273,7 @@ Możesz również utworzyć niestandardowe definicje zasad, jeśli wbudowane def
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Użyj Azure Active Directory logowania jednokrotnego (SSO)
 
-**Wskazówki**: Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z Azure Service Bus jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to https://servicebus.azure.net/ . Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a aplikacja może użyć tokenu dostępu do autoryzacji żądania Azure Service Bus zasobów.
+**Wskazówki**: Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z Azure Service Bus jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to https://azure.microsoft.com/services/service-bus/ . Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a aplikacja może użyć tokenu dostępu do autoryzacji żądania Azure Service Bus zasobów.
 
 - [Jak uwierzytelnić aplikację przy użyciu usługi Azure AD w celu uzyskiwania dostępu do zasobów Service Bus](authenticate-application.md)
 

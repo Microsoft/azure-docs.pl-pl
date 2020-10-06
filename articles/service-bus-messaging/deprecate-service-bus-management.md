@@ -3,12 +3,12 @@ title: Usługi Azure Messaging Services — Service Manager do Menedżer zasobó
 description: Ten artykuł zawiera mapowanie przestarzałych poleceń cmdlet programu PowerShell usługi Azure Service Manager API REST & Menedżer zasobów interfejsu API REST & poleceń cmdlet programu PowerShell.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 30842023004246a71f28ff4093d70a5bb015c05a
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367771"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761179"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Wycofanie pomocy technicznej Service Manager platformy Azure dla Azure Service Bus, przekazywania i Event Hubs
 
@@ -46,7 +46,7 @@ Service Bus/centrum zdarzeń/przekaźnik<br/>```PUT https://management.core.wind
 | **EventHubsCrud-ListEventHubsAsync**<br/>[Event Hubs listy](/rest/api/eventhub/list-event-hubs)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/eventhubs?$skip={skip}&$top={top}``` | &nbsp; | [list](/rest/api/servicebus/stable/eventhubs/listbynamespace) | &nbsp; | 
 | **EventHubsCrud-GetEventHubAsync**<br/>[Pobierz Event Hubs](/rest/api/eventhub/get-event-hub)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/eventhubs/{eventHubPath}``` | &nbsp; | [Pobierz](/rest/api/eventhub/get-event-hub) | &nbsp; | 
 | **NamespaceAuthorizationRules-DeleteNamespaceAuthorizationRuleAsync**<br/>Service Bus/centrum zdarzeń/przekaźnik<br/>```DELETE https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules/{rule name}``` | [deleteauthorizationrule](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/deleteauthorizationrule) | [deleteauthorizationrule](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/deleteauthorizationrule) | [deleteauthorizationrule](/rest/api/relay/namespaces/deleteauthorizationrule) |
-| **NamespaceAuthorizationRules-GetNamespaceAuthorizationRulesAsync**<br/>Service Bus/EventHub/przekaźnik<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules``` | [listauthorizationrules](/rest/api/servicebus/namespaces/listauthorizationrules) | [listauthorizationrules](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/listauthorizationrules) | [listauthorizationrules](/rest/api/relay/namespaces/listauthorizationrules) |
+| **NamespaceAuthorizationRules-GetNamespaceAuthorizationRulesAsync**<br/>Service Bus/EventHub/przekaźnik<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/AuthorizationRules``` | [listauthorizationrules](/rest/api/relay/namespaces/listauthorizationrules) | [listauthorizationrules](/rest/api/eventhub/2017-04-01/authorization%20rules%20-%20namespaces/listauthorizationrules) | [listauthorizationrules](/rest/api/relay/namespaces/listauthorizationrules) |
 | **NamespaceAvailability-IsNamespaceAvailable**<br/>[Dostępność Service Bus przestrzeni nazw](/rest/api/servicebus/check-namespace-availability)<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/CheckNamespaceAvailability/?namespace=<namespaceValue>``` | [checknameavailability](/rest/api/servicebus/stable/namespaces%20-%20checkname%20availability/checknameavailability) | [checknameavailability](/rest/api/eventhub/2017-04-01/check%20name%20availability%20-%20namespaces/checknameavailability) | [checknameavailability](/rest/api/relay/namespaces/checknameavailability) |
 | **Przestrzenie nazw — CreateOrUpdateNamespaceAsync**<br/>Service Bus/centrum zdarzeń/przekaźnik<br/>```PUT https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}``` | [metodę createorupdate](/rest/api/servicebus/stable/namespaces/createorupdate) | [metodę createorupdate](/rest/api/eventhub/2017-04-01/namespaces/createorupdate) | [metodę createorupdate](/rest/api/relay/namespaces/createorupdate) | 
 | **Tematy — GetTopicAsync**<br/>```GET https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/topics/{topicPath}``` | [Pobierz](/rest/api/servicebus/stable/topics/get) | &nbsp; | &nbsp; |

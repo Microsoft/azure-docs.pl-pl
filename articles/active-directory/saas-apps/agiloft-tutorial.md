@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542959"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Samouczek: integracja Azure Active Directory z usługą Agiloft
 
@@ -100,7 +100,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Domena i adresy URL aplikacji Agiloft — informacje dotyczące logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu, który podświetla pola tekstowe identyfikator i adres URL odpowiedzi.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
@@ -150,11 +150,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
 
 2. Kliknij pozycję **Setup (Konfigurowanie)** (w okienku po lewej stronie), a następnie wybierz pozycję **Access (Dostęp)**.
 
-    ![Konfiguracja aplikacji Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Zrzut ekranu, który podświetla sekcję dostęp.](./media/agiloft-tutorial/setup1.png)
 
 3. Kliknij przycisk **Configure SAML 2.0 Single Sign-On (Skonfiguruj logowanie jednokrotne SAML 2.0)**.
 
-    ![Konfiguracja aplikacji Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Zrzut ekranu, który podświetla przycisk konfiguruje Logowanie jednokrotne w protokole SAML 2,0.](./media/agiloft-tutorial/setup2.png)
 
 4. Pojawi się okno dialogowe kreatora. W oknie dialogowym kliknij pozycję **Identity Provider Details (Szczegóły dostawcy tożsamości)** i wypełnij następujące pola:  
 
@@ -168,7 +168,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
 
     d. Otwórz **certyfikat zakodowany w formacie Base-64** w Notatniku pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do **dostawcy tożsamości podanego w polu tekstowym zawartość certyfikatu X. 509** .
 
-    e. Kliknij przycisk **Zakończ**.
+    e. Kliknij przycisk **Finish** (Zakończ).
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -193,7 +193,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -235,6 +235,6 @@ Po kliknięciu kafelka Agiloft w panelu dostępu powinno nastąpić automatyczne
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

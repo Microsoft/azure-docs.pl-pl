@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 68143d3ee5df6dca29c43cb090f5873c4b50060f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 88cb54a7a9e20e643d9a19f57dc83d3f1ea8004d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704694"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761213"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -95,6 +95,68 @@ Najnowsze przykłady Azure Machine Learning można także klonować do folderu w
 Pisanie małych plików może być wolniejsze na dyskach sieciowych niż zapis na dysku lokalnym wystąpienia obliczeniowego.  Jeśli piszesz wiele małych plików, spróbuj użyć katalogu bezpośrednio w wystąpieniu obliczeniowym, takim jak `/tmp` katalog. Uwaga Te pliki nie będą dostępne z innych wystąpień obliczeniowych. 
 
 Możesz użyć `/tmp` katalogu w wystąpieniu obliczeniowym dla danych tymczasowych.  Nie należy jednak zapisywać dużych plików danych na dysku systemu operacyjnego wystąpienia obliczeniowego.  Zamiast nich należy używać [magazynów](concept-azure-machine-learning-architecture.md#datasets-and-datastores) danych. Jeśli zainstalowano rozszerzenie git JupyterLab, może to również prowadzić do spowolnienia działania wystąpienia obliczeniowego.
+
+## <a name="managing-a-compute-instance"></a>Zarządzanie wystąpieniem obliczeniowym
+
+W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+
+![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
+
+Można wykonać następujące czynności:
+
+* [Utwórz wystąpienie obliczeniowe](#create). 
+* Odśwież kartę wystąpienia obliczeniowe.
+* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego.  Płatność za wystąpienie jest dokonywana za każdym razem, gdy jest ono uruchomione. Zatrzymaj wystąpienie obliczeniowe, gdy nie jest używane, aby obniżyć koszty. Zatrzymywanie wystąpienia obliczeniowego powoduje jego przydział. Następnie uruchom ją ponownie, gdy będzie potrzebna.
+* Usuń wystąpienie obliczeniowe.
+* Przefiltruj listę wystąpień obliczeniowych, aby wyświetlić tylko te, które zostały utworzone.
+
+Dla każdego wystąpienia obliczeniowego w obszarze roboczym, którego możesz użyć, możesz:
+
+* Dostęp do Jupyter, JupyterLab, RStudio w wystąpieniu obliczeniowym
+* Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
+* Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
+
+[RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie miało Logowanie jednokrotne, a wszystkie akcje będą używać tożsamości tego użytkownika do kontroli RBAC i naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+
+Te akcje można kontrolować za pomocą RBAC:
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+
+### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego
+
+W obszarze roboczym programu Azure Machine Learning Studio [Utwórz nowe wystąpienie obliczeniowe](how-to-create-attach-compute-studio.md#compute-instance) z sekcji **obliczenia** lub w sekcji **notesy** , gdy wszystko będzie gotowe do uruchomienia jednego z notesów. 
+
+Można również utworzyć wystąpienie
+* Bezpośrednio w [środowisku zintegrowanych notesów](tutorial-1st-experiment-sdk-setup.md#azure)
+* W Azure Portal
+* Z szablonu Azure Resource Manager. Przykładowy szablon można znaleźć w temacie [Create a Azure Machine Learning COMPUTE instance Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
+* Z [zestawem SDK Azure Machine Learning](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
+* Z [rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
+
+Dedykowane rdzenie dla poszczególnych regionów na poszczególne regiony i łączne limity przydziału regionalnego, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane przy użyciu Azure Machine Learninggo przydziału klastra obliczeniowego. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe.
+
+
+### <a name="create-on-behalf-of-preview"></a>Utwórz w imieniu (wersja zapoznawcza)
+
+Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu Analityka danych i przypisać do nich wystąpienie:
+* [Szablon Azure Resource Manager](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
+* Interfejs API REST
+
+Analityk danych tworzy wystąpienie obliczeniowe wymagające następujących uprawnień RBAC: 
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+* *Microsoft. MachineLearningServices/obszary robocze/obliczenia/applicationaccess/akcja*
+
+Analityk danych może uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienie obliczeniowe. Mogą używać wystąpienia obliczeniowego dla:
+* Jupyter
+* JupyterLab
+* RStudio
+* Zintegrowane notesy
 
 ## <a name="compute-target"></a>Docelowy zasób obliczeniowy
 

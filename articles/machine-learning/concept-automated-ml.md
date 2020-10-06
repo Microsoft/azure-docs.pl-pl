@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886388"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760973"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -39,7 +39,7 @@ Klasyfikacja to typowe zadanie uczenia maszynowego. Klasyfikacja to typ nadzorow
 
 Głównym celem modeli klasyfikacji jest przewidywanie, do których kategorii nowe dane będą się opierać na podstawie informacji szkoleniowych. Typowe przykłady klasyfikacji obejmują wykrywanie oszustw, rozpoznawanie pisma ręcznego i wykrywanie obiektów. Dowiedz się więcej i zapoznaj się z przykładem na temat [tworzenia modelu klasyfikacji przy użyciu zautomatyzowanej](tutorial-first-experiment-automated-ml.md)tablicy.
 
-Zobacz przykłady klasyfikacji i zautomatyzowane Uczenie maszynowe w tych notesach języka Python: [wykrywanie oszustw](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [prognozowanie marketingowe](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)i [Klasyfikacja danych grupy dyskusyjnej](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+Zobacz przykłady klasyfikacji i zautomatyzowane Uczenie maszynowe w tych notesach języka Python: [wykrywanie oszustw](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [prognozowanie marketingowe](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)i [Klasyfikacja danych grupy dyskusyjnej](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
 
 ### <a name="regression"></a>Regresja
 
@@ -172,7 +172,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. 
 
-| Cechy                                                    | Zdalne | Lokalne | 
+| Cecha                                                    | Zdalne | Lokalne | 
 |------------------------------------------------------------|--------|-------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | 
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       |

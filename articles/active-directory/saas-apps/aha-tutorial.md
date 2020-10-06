@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542857"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760692"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Samouczek: integracja z usługą z Azure Active Directory
 
@@ -106,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
     1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
     1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-    1. Kliknij przycisk **Utwórz**.
+    1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,7 +148,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 6. Kliknij pozycję **Security and single sign-on** (Zabezpieczenia i logowanie jednokrotne).
 
-    ![Zabezpieczenia i logowanie jednokrotne](./media/aha-tutorial/IC798952.png "Zabezpieczenia i logowanie jednokrotne")
+    ![Zrzut ekranu, który podświetla opcję menu zabezpieczenia i logowanie jednokrotne.](./media/aha-tutorial/IC798952.png "Zabezpieczenia i logowanie jednokrotne")
 
 7. W sekcji **Single Sign-On** (Logowanie jednokrotne) wybierz w polu **Identity Provider** (Dostawca tożsamości) opcję **SAML2.0**.
 
@@ -180,7 +180,7 @@ Po kliknięciu przycisku Aha! kafelek w panelu dostępu, należy automatycznie z
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

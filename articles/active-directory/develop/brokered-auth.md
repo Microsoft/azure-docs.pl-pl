@@ -13,12 +13,12 @@ ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5042bfad2cfe06c7c368c6b476aa1b02d67bcc9c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258415"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760758"
 ---
 # <a name="brokered-authentication-in-android"></a>Uwierzytelnianie obsługiwane przez brokera w systemie Android
 
@@ -55,7 +55,7 @@ Jeśli na urządzeniu nie ma jeszcze zainstalowanej aplikacji brokera, MSAL naka
 
 Gdy na urządzeniu jest zainstalowany Broker, wszystkie kolejne żądania tokenu interakcyjnego (wywołania do `acquireToken()` ) są obsługiwane przez brokera, a nie lokalnie przez MSAL. Wszystkie Stany logowania jednokrotnego, wcześniej dostępne dla MSAL, nie są dostępne dla brokera. W związku z tym użytkownik będzie musiał ponownie przeprowadzić uwierzytelnienie lub wybrać konto z istniejącej listy kont znanych urządzeniu.
 
-Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` mogą być zgłaszane z kilku powodów i muszą zostać rozwiązane interaktywnie. Na przykład:
+Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` mogą być zgłaszane z kilku powodów i muszą zostać rozwiązane interaktywnie. Przykład:
 
 - Użytkownik zmienił hasło skojarzone z kontem.
 - Konto użytkownika nie spełnia już zasad dostępu warunkowego.
@@ -95,7 +95,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Po wygenerowaniu skrótu podpisu za pomocą *Narzędzia*klucza Użyj Azure Portal, aby wygenerować identyfikator URI przekierowania:
 
-1. Zaloguj się do [Azure Portal](https://protal.azure.com) i wybierz swoją aplikację dla systemu Android w **rejestracje aplikacji**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz swoją aplikację dla systemu Android w **rejestracje aplikacji**.
 1. Wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **Android**.
 1. W otwartym okienku **Konfiguracja aplikacji systemu Android** wprowadź **skrót sygnatury** wygenerowany wcześniej i **nazwę pakietu**.
 1. Wybierz przycisk **Konfiguruj** .

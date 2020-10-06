@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0ed5ebf316c80d7fc560b11e1f784dd1b91b170d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612578"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761332"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Java)
 
@@ -71,7 +71,7 @@ Urządzenie jest teraz gotowe do odbierania poleceń i aktualizacji właściwoś
 W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki Szybki Start i samouczki](set-up-environment.md) zostały utworzone dwie zmienne środowiskowe w celu skonfigurowania przykładu w celu połączenia z Centrum IoT i urządzeniem:
 
 * **IOTHUB_CONNECTION_STRING**: parametry połączenia usługi IoT Hub, dla których wykonano wcześniej adnotację.
-* **DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
 
 W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT, które zostało zapisanie w języku Java, aby można było korzystać z właśnie skonfigurowanego przykładowego urządzenia.
 

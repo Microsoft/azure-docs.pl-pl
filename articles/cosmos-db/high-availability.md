@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 85ffff1a38d42aac00ce122a1e51d79515b0c51b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597283"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762029"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność? 
 
@@ -97,7 +97,7 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |Przepływność | X RU/s zainicjowana przepływność | X RU/s alokowanej przepływności * 1,25 | przepustowość z obsługą jednostki RU/s <br/><br/> Ten tryb konfiguracji wymaga dwukrotnej ilości przepływności w porównaniu do jednego regionu z Strefy dostępności, ponieważ istnieją dwa regiony. |
 
 > [!NOTE]
-> Aby włączyć obsługę strefy dostępności dla konta usługi Azure Cosmos dla regionu wieloregionowego, konto musi mieć włączone zapisywanie zapisów w ramach wieloregionu.
+> Aby włączyć obsługę strefy dostępności dla konta usługi Azure Cosmos dla regionu wieloregionowego, konto musi mieć włączone zapisy w regionie.
 
 Nadmiarowość strefy można włączyć podczas dodawania regionu do nowych lub istniejących kont usługi Azure Cosmos. Aby włączyć nadmiarowość strefy na koncie usługi Azure Cosmos, należy ustawić `isZoneRedundant` flagę na `true` dla określonej lokalizacji. Tę flagę można ustawić we właściwości Locations. Na przykład poniższy fragment kodu programu PowerShell umożliwia nadmiarowość strefy dla regionu "Azja Południowo-Wschodnia":
 

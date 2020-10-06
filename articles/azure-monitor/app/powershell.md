@@ -3,12 +3,12 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322486"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760907"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
@@ -188,8 +188,8 @@ Utwórz nowy plik JSON — Przywołajmy go `template1.json` w tym przykładzie. 
 
 ### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Tworzenie nowego zasobu Application Insights przy użyciu szablonu Menedżer zasobów
 
-1. W programie PowerShell Zaloguj się do platformy Azure przy użyciu`$Connect-AzAccount`
-2. Ustawianie kontekstu na subskrypcję za pomocą`Set-AzContext "<subscription ID>"`
+1. W programie PowerShell Zaloguj się do platformy Azure przy użyciu `$Connect-AzAccount`
+2. Ustawianie kontekstu na subskrypcję za pomocą `Set-AzContext "<subscription ID>"`
 2. Uruchom nowe wdrożenie, aby utworzyć nowy zasób Application Insights:
    
     ```PS
@@ -199,9 +199,9 @@ Utwórz nowy plik JSON — Przywołajmy go `template1.json` w tym przykładzie. 
 
     ``` 
    
-   * `-ResourceGroupName`jest grupą, w której chcesz utworzyć nowe zasoby.
-   * `-TemplateFile`musi następować przed parametrami niestandardowymi.
-   * `-appName`Nazwa zasobu do utworzenia.
+   * `-ResourceGroupName` jest grupą, w której chcesz utworzyć nowe zasoby.
+   * `-TemplateFile` musi następować przed parametrami niestandardowymi.
+   * `-appName` Nazwa zasobu do utworzenia.
 
 Możesz dodać inne parametry — opisy można znaleźć w sekcji Parametry szablonu.
 
@@ -451,7 +451,7 @@ Poniżej przedstawiono przykłady podstawień, które należy wykonać. Istnieje
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(małe litery) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (małe litery) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>Ustawianie zależności między zasobami
@@ -473,5 +473,5 @@ Inne artykuły dotyczące usługi Automation:
 * [Konfigurowanie alertów](powershell-alerts.md)
 * [Utwórz testy sieci Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](powershell-azure-diagnostics.md)
-* [Utwórz adnotacje wydania](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Utwórz adnotacje wydania](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

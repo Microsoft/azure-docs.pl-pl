@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 52481eb40a46457a0374c776ee4897c81ebddf7c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 466e69ece993ca34f8f6770c0465471d01b9c3ed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551289"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760941"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu spotkań Cisco WebEx
 
@@ -138,7 +138,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
     1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
     1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-    1. Kliknij przycisk **Utwórz**.
+    1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -164,11 +164,11 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do obszaru **typowe ustawienia lokacji** i przejdź do **konfiguracji rejestracji jednokrotnej**.
  
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+    ![Zrzut ekranu przedstawia administrowanie Cisco WebEx z użyciem wspólnych ustawień lokacji i wybranej konfiguracji S-O.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. Na stronie **Administracja WebEx** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+    ![Zrzut ekranu przedstawia stronę administrowania Webexą z informacjami opisanymi w tym kroku.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
     a. Wybierz pozycję **SAML 2,0** jako **Protokół federacyjny**.
 
@@ -202,7 +202,7 @@ Po kliknięciu kafelka spotkań Cisco WebEx w panelu dostępu należy automatycz
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

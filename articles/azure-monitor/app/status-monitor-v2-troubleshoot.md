@@ -5,18 +5,17 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041399"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761468"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Rozwiązywanie problemów z agentem Application Insights (dawniej nazwany monitor stanu v2)
 
 Po włączeniu monitorowania mogą wystąpić problemy uniemożliwiające zbieranie danych.
 W tym artykule wymieniono wszystkie znane problemy i przedstawiono przykłady rozwiązywania problemów.
-Jeśli wystąpi problem, którego nie ma na liście, możesz skontaktować się z nami w serwisie [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -72,12 +71,10 @@ Po uruchomieniu polecenia Enable wykonaj następujące czynności:
 ### <a name="iis-nested-applications"></a>Aplikacje zagnieżdżone usług IIS
 
 Nie instrumentuje zagnieżdżonych aplikacji w usługach IIS w wersji 1,0.
-[Teraz śledzimy ten problem.](https://github.com/microsoft/ApplicationInsights-Home/issues/369)
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>Zaawansowana konfiguracja zestawu SDK jest niedostępna.
 
 Konfiguracja zestawu SDK nie jest dostępna dla użytkownika końcowego w wersji 1,0.
-[Teraz śledzimy ten problem.](https://github.com/microsoft/ApplicationInsights-Home/issues/375)
 
     
     
@@ -140,7 +137,7 @@ Zapoznaj się z dokumentacją [interfejsu API](status-monitor-v2-api-reference.m
     - **Kodu**
     - **Merge**
     - **Kolekcja symboli platformy .NET**
-5. Ustaw tych **dodatkowych dostawców**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Ustaw tych **dodatkowych dostawców**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>Zbieranie dzienników
@@ -156,4 +153,3 @@ Zapoznaj się z dokumentacją [interfejsu API](status-monitor-v2-api-reference.m
 ## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj [odwołanie do interfejsu API](status-monitor-v2-overview.md#powershell-api-reference) , aby dowiedzieć się więcej na temat parametrów, które mogły zostać pominięte.
-- Jeśli wystąpi problem, którego nie ma na liście, możesz skontaktować się z nami w serwisie [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

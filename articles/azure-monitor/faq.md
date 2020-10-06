@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054266"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760257"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -399,7 +399,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 
@@ -430,7 +430,7 @@ Nie zależy to od lokalizacji zasobów Application Insights. Zależy to tylko od
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Czy mogę wysłać dane telemetryczne do portalu Application Insights?
 
-Zalecamy używanie naszych zestawów SDK i korzystanie z [interfejsu API zestawu SDK](app/api-custom-events-metrics.md). Istnieje wiele wariantów zestawu SDK dla różnych [platform](app/platforms.md). Te zestawy SDK obsługują buforowanie, kompresję, ograniczanie, ponawianie prób i tak dalej. Jednak [schemat](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) pozyskiwania i [Protokół punktu końcowego](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
+Zalecamy używanie naszych zestawów SDK i korzystanie z [interfejsu API zestawu SDK](app/api-custom-events-metrics.md). Istnieje wiele wariantów zestawu SDK dla różnych [platform](app/platforms.md). Te zestawy SDK obsługują buforowanie, kompresję, ograniczanie, ponawianie prób i tak dalej. Jednak [schemat](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) pozyskiwania i [Protokół punktu końcowego](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Czy mogę monitorować intranetowy serwer sieci Web?
 

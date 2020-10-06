@@ -3,12 +3,12 @@ title: Korzystanie z centrum zdarzeń w programie Apache Kafka App — Azure Eve
 description: Ten artykuł zawiera informacje na temat obsługi Apache Kafka przez usługę Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2c552c9f901fdb886a7ddc3e71505e8e46717c03
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 5c49f8f87d8d399cda33a332f7464ed340ae3a0f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371494"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761502"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Korzystanie z Event Hubs platformy Azure z aplikacji Apache Kafka
 Event Hubs udostępnia punkt końcowy zgodny z interfejsami API Apache Kafka® producenta i konsumenta, które mogą być używane przez większość istniejących aplikacji klienckich Apache Kafka jako alternatywę dla uruchamiania własnego klastra Apache Kafka. Event Hubs obsługuje klientów Apache Kafka z klientami i klienta interfejsu API w wersji 1,0 lub nowszej.
@@ -83,7 +83,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 > [!NOTE]
 > W przypadku korzystania z uwierzytelniania SAS z klientami Kafka ustanowione połączenia nie są rozłączane po ponownym wygenerowaniu klucza SAS. 
 
-#### <a name="samples"></a>Przykłady 
+#### <a name="samples"></a>Samples 
 **Samouczek** zawierający instrukcje krok po kroku dotyczące tworzenia centrum zdarzeń i uzyskiwania dostępu do niego przy użyciu SAS lub OAuth zawiera temat [Szybki Start: przesyłanie strumieniowe danych za pomocą Event Hubs przy użyciu protokołu Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 Aby uzyskać więcej **przykładów** , które pokazują, jak używać protokołu OAuth z Event Hubs for Kafka, zobacz [przykłady w witrynie GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
@@ -128,7 +128,7 @@ Autonomiczne i bez ksqlDB strumienie Kafka mają mniejszą liczbę możliwości 
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Azure Synapse Analytics (za pośrednictwem funkcji przechwytywania Event Hubs)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](/databricks/scenarios/databricks-stream-from-eventhubs)
+- [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)

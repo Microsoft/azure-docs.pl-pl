@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551821"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Samouczek: integracja Azure Active Directory z platformą produktywności ClickUp
 
@@ -118,17 +118,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickUp Pr
 
 2. Kliknij **profil użytkownika**, a następnie wybierz pozycję **Ustawienia**.
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Zrzut ekranu przedstawia dzierżawę produktywność ClickUp z wybraną ikoną ustawienia.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia ustawienia.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. W obszarze „Single Sign-On (SSO) Provider” (Dostawca logowania jednokrotnego) wybierz pozycję **Microsoft**.
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia okienko uwierzytelnianie z wybranym przez firmę Microsoft.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. Na stronie **Configure Microsoft Single Sign On** (Konfigurowanie logowania jednokrotnego firmy Microsoft) wykonaj następujące czynności:
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia stronę Konfigurowanie logowania jednokrotnego firmy Microsoft, na której można skopiować jednostkę I D i zapisać metadane federacji platformy Azure U R L.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Kliknij przycisk **Copy** (Kopiuj), aby skopiować wartość identyfikatora jednostki, i wklej ją w polu tekstowym **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja protokołu SAML** witryny Azure Portal.
     
@@ -136,7 +136,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickUp Pr
 
 5. Aby ukończyć instalację, kliknij pozycję **Authenticate With Microsoft to complete setup** (Uwierzytelnij za pomocą konta Microsoft w celu ukończenia instalacji) i uwierzytelnij się przy użyciu konta Microsoft.
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia przycisk Uwierzytelnij z firmą Microsoft, aby zakończyć instalację.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -161,7 +161,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -195,13 +195,13 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
 2. Kliknij **profil użytkownika**, a następnie wybierz pozycję **osoby**.
    
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Zrzut ekranu przedstawia dzierżawę wydajności ClickUp.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia wybrany link osoby.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. W polu tekstowym wprowadź adres e-mail użytkownika i kliknij przycisk **Invite** (Zaproś).
 
-    ![Konfigurowanie aplikacji ClickUp Productivity](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia ustawienia użytkowników zespołu, w których można zapraszać osoby za pośrednictwem poczty e-mail.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > Użytkownik otrzyma powiadomienie i musi zaakceptować zaproszenie do aktywowania konta.
@@ -216,7 +216,7 @@ Po kliknięciu kafelka ClickUp Productivity Platform w panelu dostępu powinno n
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

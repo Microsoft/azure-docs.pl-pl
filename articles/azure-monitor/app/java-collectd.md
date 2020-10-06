@@ -3,12 +3,12 @@ title: Monitorowanie wydajności aplikacji sieci Web w języku Java w systemie L
 description: Rozszerzone monitorowanie wydajności aplikacji w witrynie Java za pomocą zebranej wtyczki dla Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322605"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761026"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>zebrane: metryki wydajności systemu Linux w Application Insights
 
@@ -28,7 +28,7 @@ Skopiuj klucz instrumentacji, który identyfikuje zasób.
 Na komputerach z systemem Linux:
 
 1. Zainstaluj [zebraną](https://collectd.org/) wersję 5.4.0 lub nowszą.
-2. Pobierz [wtyczkę Application Insights zebranych modułów zapisujących](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Zanotuj numer wersji.
+2. Pobierz [wtyczkę Application Insights zebranych modułów zapisujących](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Zanotuj numer wersji.
 3. Skopiuj wtyczkę JAR do programu `/usr/share/collectd/java` .
 4. Edytuj `/etc/collectd/collectd.conf` :
    * Upewnij się, że [Wtyczka Java](https://collectd.org/wiki/index.php/Plugin:Java) jest włączona.

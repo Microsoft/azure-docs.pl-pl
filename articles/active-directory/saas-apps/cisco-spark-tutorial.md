@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528900"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759850"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Cisco WebEx
 
@@ -118,7 +118,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -151,13 +151,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Wybierz pozycję **Settings** (Ustawienia) i w sekcji **Authentication** (Uwierzytelnianie) kliknij pozycję **Modify** (Modyfikuj).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Zrzut ekranu przedstawia ustawienia uwierzytelniania, które umożliwiają wybranie opcji Modyfikuj.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Wybierz pozycję **Zintegruj dostawcę tożsamości innej firmy. (Zaawansowane)** i przejdź do następnego ekranu.
 
 6. Na stronie **Import Idp Metadata** (Importowanie metadanych dostawcy tożsamości) przeciągnij i upuść plik metadanych usługi Azure AD lub użyj opcji przeglądarki plików, aby znaleźć i przekazać ten plik. Następnie zaznacz opcję **Require certificate signed by a certificate authority in Metadata (more secure)** (Wymagaj certyfikatu podpisanego przez urząd certyfikacji w metadanych (bezpieczniejsze)) i kliknij przycisk **Next** (Dalej).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Zrzut ekranu przedstawia stronę metadanych importu I d P.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Wybierz pozycję **Test SSO Connection** (Testuj połączenie logowania jednokrotnego) i gdy zostanie otwarta nowa karta przeglądarki, uwierzytelnij się przy użyciu usługi Azure AD, logując się.
 
@@ -171,13 +171,13 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w programie Cisco WebEx. W
 
 2. Kliknij pozycję **Users** (Użytkownicy), a następnie pozycję **Manage Users** (Zarządzaj użytkownikami).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Zrzut ekranu przedstawia stronę użytkownicy, na której można zarządzać użytkownikami.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. W oknie **Manage User** (Zarządzanie użytkownikiem) wybierz pozycję **Manually add or modify users** (Ręcznie dodaj lub modyfikuj użytkowników) i kliknij przycisk **Next** (Dalej).
 
 4. Wybierz pozycję **Names and Email address** (Nazwy i adres e-mail). Wypełnij pola tekstowe w następujący sposób:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie użytkownikami, w którym można ręcznie dodawać lub modyfikować użytkowników.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, na przykład **B**.
 
@@ -197,7 +197,7 @@ Po wybraniu kafelka Cisco WebEx w panelu dostępu należy automatycznie zalogowa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
