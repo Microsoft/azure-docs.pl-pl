@@ -15,6 +15,9 @@
       href: fhir-paas-powershell-quickstart.md
     - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
       href: fhir-paas-cli-quickstart.md
+    - name: Wdrażanie usługi Azure API for FHIR — szablon usługi ARM
+      href: fhir-paas-arm-template-quickstart.md
+      displayName: deploy azure resource manager template
     - name: Wdrażanie serwera FHIR dla platformy Azure — portal
       href: fhir-oss-portal-quickstart.md
     - name: Wdrażanie serwera FHIR dla platformy Azure — PowerShell
@@ -80,7 +83,7 @@
     - name: Eksportowanie danych
       expanded: false
       items:
-        - name: Eksportowanie danych
+        - name: Eksportuj dane
           href: export-data.md
     - name: Znajdowanie identyfikatorów obiektów tożsamości
       href: find-identity-object-ids.md

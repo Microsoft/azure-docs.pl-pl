@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: Połączenia wychodzące
       href: load-balancer-outbound-connections.md
-    - name: Resetowanie protokołu TCP w wyniku upływu limitu czasu bezczynności
+    - name: Limit czasu bezczynności protokołu TCP i resetowania protokołu TCP
       href: load-balancer-tcp-reset.md
     - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
       href: load-balancer-standard-availability-zones.md

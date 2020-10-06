@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: Monitorowanie wydajności
           href: insights/vminsights-performance.md
+        - name: Monitorowanie zmian
+          href: insights/vminsights-change-analysis.md
         - name: Analizowanie danych przy użyciu zapytań dzienników
           href: insights/vminsights-log-search.md
         - name: Wizualizowanie danych za pomocą skoroszytów

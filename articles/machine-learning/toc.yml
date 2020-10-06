@@ -235,17 +235,23 @@
         - name: Używanie szablonu usługi Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Tworzenie zasobów obliczeniowych
+    - name: Tworzenie zasobów obliczeniowych i zarządzanie nimi
       items:
-        - name: Korzystanie ze studia
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-studio.md
-        - name: Korzystanie z zestawu SDK dla języka Python
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-sdk.md
+        - name: Wystąpienie obliczeniowe
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: Klaster obliczeniowy
+          displayName: 'compute target, low priority, managed identity'
+          href: how-to-create-attach-compute-cluster.md
         - name: Azure Kubernetes Service
           displayName: 'AKS, inference'
           href: how-to-create-attach-kubernetes.md
+        - name: Dołączanie własnego
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-attach-compute-targets.md
+        - name: Korzystanie ze studia
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
+          href: how-to-create-attach-compute-studio.md
     - name: Konfigurowanie środowiska
       items:
         - name: Konfigurowanie środowisk deweloperskich

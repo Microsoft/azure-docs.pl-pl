@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Rozwiązywanie problemów z dostępem
           href: troubleshooting-access-issues.md
+    - name: Jak włączyć rejestrowanie
+      href: howto-logging.md
     - name: Programowanie
       items:
         - name: Przewodnik dewelopera usługi Azure Key Vault
@@ -146,6 +148,10 @@
           href: move-subscription.md
         - name: Przenoszenie magazynu kluczy do innego regionu
           href: move-region.md
+    - name: Networking
+      items:
+        - name: Diagnozowanie problemów z konfiguracją łączy prywatnych
+          href: private-link-diagnostics.md
 - name: Dokumentacja
   items:
     - name: Co nowego

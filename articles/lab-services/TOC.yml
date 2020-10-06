@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: Określanie informacji o pomocy technicznej (właściciel konta laboratorium)
           href: lab-account-owner-support-information.md
+        - name: Przekazywanie obrazu niestandardowego do usługi Shared Image Gallery
+          href: upload-custom-image-shared-image-gallery.md
     - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (nauczyciel)
       items:
         - name: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
