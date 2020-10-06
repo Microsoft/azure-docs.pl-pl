@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 116ee7c8db3070a667c21a052bec739fd397a2dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825566"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758144"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Samouczek: integracja logowania jednokrotnego usługi Azure AD za pomocą łącznika SAML Maverics Identity Orchestrator
 
@@ -36,7 +36,7 @@ W tym samouczku pokazano, jak przeprowadzić migrację lokalnej aplikacji sieci 
 4. Skonfiguruj Magazyn kluczy platformy Azure i skonfiguruj Maverics do korzystania z niego jako dostawcy zarządzania kluczami tajnymi.
 5. Zademonstrowanie migracji użytkowników i abstrakcji sesji za pomocą Maverics, aby zapewnić dostęp do lokalnej aplikacji sieci Web Java.
 
-Dodatkowe instrukcje dotyczące instalacji i konfiguracji można znaleźć w [witrynie sieci Web strat](https://strata.io/docs).
+Dodatkowe instrukcje dotyczące instalacji i konfiguracji można znaleźć w [witrynie sieci Web strat](https://www.strata.io).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +45,7 @@ Dodatkowe instrukcje dotyczące instalacji i konfiguracji można znaleźć w [wi
 
 ## <a name="install-maverics-identity-orchestrator"></a>Instalowanie programu Maverics Identity Orchestrator
 
-Aby rozpocząć instalację programu Orchestrator Identity Maverics, zobacz [instrukcje dotyczące instalacji](https://strata.io/docs).
+Aby rozpocząć instalację programu Orchestrator Identity Maverics, zobacz [instrukcje dotyczące instalacji](https://www.strata.io).
 
 ### <a name="system-requirements"></a>Wymagania systemowe
 * Obsługiwane systemy operacyjne
@@ -163,7 +163,7 @@ Magazyn kluczy platformy Azure można skonfigurować przy użyciu Azure Portal l
 1. [Zarejestruj aplikację w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 1. [Autoryzuj aplikację do korzystania z klucza tajnego](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
 
-**Używanie interfejsu wiersza polecenia platformy Azure**
+**Korzystanie z interfejsu wiersza polecenia platformy Azure**
 
 1. Otwórz [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), a następnie wprowadź następujące polecenie:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542823"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758153"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Samouczek: Integrowanie zegarków z usługą Azure Active Directory
 
@@ -125,7 +125,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij kartę **User** (Użytkownik), w polu tekstowym **Base DN** (Bazowa nazwa domeny) wpisz nazwę domeny, a następnie kliknij pozycję **Save** (Zapisz).
 
-   ![Użytkownik](./media/airwatch-tutorial/ic791922.png "Użytkownik")
+   ![Zrzut ekranu, który podświetla pole tekstowe podstawowej nazwy wyróżniającej.](./media/airwatch-tutorial/ic791922.png "Użytkownik")
 
 1. Kliknij kartę **Server** (Serwer).
 
@@ -133,7 +133,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Wykonaj następujące kroki w sekcji **LDAP** :
 
-    ![Przekaż](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Zrzut ekranu pokazujący zmiany, które należy wprowadzić w sekcji LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. W polu **Directory Type** (Typ katalogu) wybierz pozycję **None** (Brak).
 
@@ -189,7 +189,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -223,7 +223,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze, należ
 
 3. W menu **Użytkownicy** kliknij przycisk **Widok listy**, a następnie kliknij przycisk **Dodaj > dodać użytkownika**.
   
-   ![Dodaj użytkownika](./media/airwatch-tutorial/ic791930.png "Dodaj użytkownika")
+   ![Zrzut ekranu, który podświetla przyciski Dodaj i Dodaj użytkownika.](./media/airwatch-tutorial/ic791930.png "Dodaj użytkownika")
 
 4. W oknie dialogowym **Add / Edit User** (Dodawanie/edytowanie użytkownika) wykonaj następujące czynności:
 
@@ -240,10 +240,10 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze, należ
 
 Po wybraniu kafelka do oglądania w panelu dostępu należy automatycznie zalogować się do czujki, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

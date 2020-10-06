@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741411"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757940"
 ---
 # <a name="security-control-v2-identity-management"></a>Kontrola zabezpieczeń v2: Zarządzanie tożsamościami
 
@@ -59,7 +59,7 @@ Uwaga: usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, które
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| WIADOMOŚCI BŁYSKAWICZNE — 2 | Brak | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| WIADOMOŚCI BŁYSKAWICZNE — 2 | Nie dotyczy | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 W przypadku kont nieludzkich, takich jak usługi lub Automatyzacja, Użyj tożsamości zarządzanych przez platformę Azure, zamiast tworzyć bardziej zaawansowane konto w celu uzyskania dostępu do zasobów lub wykonywania kodu. Tożsamości zarządzane przez platformę Azure mogą uwierzytelniać usługi platformy Azure i zasoby, które obsługują uwierzytelnianie usługi Azure AD. Uwierzytelnianie jest włączane przy użyciu wstępnie zdefiniowanych reguł przyznawania dostępu, unikając zakodowanych poświadczeń w kodzie źródłowym lub plikach konfiguracyjnych. 
 
@@ -169,7 +169,7 @@ Azure Advanced Threat Protection (ATP) to rozwiązanie zabezpieczeń, które umo
 
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Alerty w Azure Security Center module ochrony przed zagrożeniami](//azure/security-center/alerts-reference)
+- [Alerty w Azure Security Center module ochrony przed zagrożeniami](/azure/security-center/alerts-reference)
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -189,7 +189,7 @@ Azure Advanced Threat Protection (ATP) to rozwiązanie zabezpieczeń, które umo
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| WIADOMOŚCI BŁYSKAWICZNE — 6 | Brak | AC-2, AC-3 |
+| WIADOMOŚCI BŁYSKAWICZNE — 6 | Nie dotyczy | AC-2, AC-3 |
 
 Korzystanie z dostępu warunkowego usługi Azure AD w celu uzyskania bardziej szczegółowej kontroli dostępu na podstawie warunków zdefiniowanych przez użytkownika, takich jak wymaganie logowania użytkowników z określonych zakresów adresów IP do korzystania z usługi MFA. Szczegółowe zarządzanie sesjami uwierzytelniania może być również używane za pomocą zasad dostępu warunkowego usługi Azure AD dla różnych przypadków użycia. 
 

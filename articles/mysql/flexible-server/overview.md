@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715208"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759649"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -97,7 +97,7 @@ Elastyczna usługa serwerowa używa zatwierdzonego modułu kryptograficznego FIP
 
 Usługa domyślnie szyfruje dane z użyciem zabezpieczeń warstwy transportowej. Elastyczne serwery obsługują tylko połączenia szyfrowane za pomocą Transport Layer Security (TLS 1,2) i wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone. 
 
-Aby dowiedzieć się więcej, zobacz [jak używać szyfrowanych połączeń z elastycznymi serwerami](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) .
+Aby dowiedzieć się więcej, zobacz [jak używać szyfrowanych połączeń z elastycznymi serwerami](https://docs.mongodb.com/manual/tutorial/configure-ssl) .
 
 Elastyczne serwery umożliwiają pełny dostęp do serwerów za pomocą integracji z [usługą Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNET). Serwery w usłudze Azure Virtual Network mogą być osiągalne i połączone tylko za pomocą prywatnych adresów IP. Dzięki integracji z siecią wirtualną dostęp publiczny jest zabroniony i serwery nie można osiągnąć przy użyciu publicznych punktów końcowych. 
 

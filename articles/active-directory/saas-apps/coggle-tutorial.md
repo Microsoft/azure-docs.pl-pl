@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555975"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759547"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Coggle
 
@@ -120,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -146,19 +146,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Kliknij pozycję konto **Coggle** i wybierz pozycję **Moje ustawienia**.
 
-    ![Konfiguracja Coggle](./media/Coggle-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia Coggleą witrynę firmy z wybranymi ustawieniami.](./media/Coggle-tutorial/configure1.png)
 
 3. Kliknij następujące **logo** i wybierz pozycję **uwierzytelnianie**.
 
-    ![Konfiguracja Coggle](./media/Coggle-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia ikonę Whale i wybrane uwierzytelnianie.](./media/Coggle-tutorial/configure2.png)
 
 4. Kliknij pozycję **Edytuj konfigurację protokołu SAML**.
 
-    ![Konfiguracja Coggle](./media/Coggle-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia stronę integracji SAML z opcją edytuj konfigurację protokołu SAML.](./media/Coggle-tutorial/configure3.png)
 
 5. Na stronie okna dialogowego **integracja SAML** wykonaj następujące czynności:
 
-    ![Konfiguracja Coggle](./media/Coggle-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia stronę integracji SAML, na której można wprowadzić informacje w tym kroku.](./media/Coggle-tutorial/configure4.png)
 
     a. W polu tekstowym **punkt wejścia (adres URL logowania jednokrotnego dla dostawcy identyfikatorów)** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -176,11 +176,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Coggle w panelu dostępu należy automatycznie zalogować się do Coggle, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

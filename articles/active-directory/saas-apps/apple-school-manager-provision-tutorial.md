@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 221039ad1dc30e645d98ba6dd7e79c7b81ba3430
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313063"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757456"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Menedżera szkoły firmy Apple w celu automatycznego aprowizacji użytkowników
 
@@ -55,7 +55,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 1. W programie Apple szkoły Manager Zaloguj się przy użyciu konta z rolą administratora, Site Manager lub Menedżera osób.
 2. Kliknij pozycję Ustawienia u dołu paska bocznego, kliknij pozycję źródło danych poniżej ustawienia organizacji, a następnie kliknij pozycję Połącz ze źródłem danych.
 3. Kliknij przycisk Połącz obok pozycji Standard scim, uważnie przeczytaj ostrzeżenie, kliknij przycisk Kopiuj, a następnie kliknij przycisk Zamknij.
-[Okno łączenia z usługą Standard scim, w którym znajduje się token i przycisk kopiowania.] Pozostaw to okno otwarte, aby skopiować adres URL dzierżawy z programu Apple Business Manager do usługi Azure AD: https://federation.apple.com/feeds/school/scim
+[Okno łączenia z usługą Standard scim, w którym znajduje się token i przycisk kopiowania.] Pozostaw to okno otwarte, aby skopiować adres URL dzierżawy z programu Apple Business Manager do usługi Azure AD, czyli: " https://federation.apple.com/feeds/school/scim "
 
     ![Apple School Manager](media/appleschoolmanager-provisioning-tutorial/scim-token.png)
 
@@ -119,10 +119,10 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |externalId|Ciąg|
    |locale|Ciąg|
    |timezone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -148,20 +148,20 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Przejrzyj wymagania standard scim dla programu Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apdd88331cd6)
-* [Jak identyfikator osoby jest używany w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apd69e1e48e9)
-* [Importowanie użytkowników do programu Apple szkoły Manager za pomocą Standard scim](URL=https://support.apple.com/guide/apple-school-manager/apd3ec7b95ad)
-* [Rozwiązywanie konfliktów kont użytkowników Standard scim w Menedżerze szkoły firmy Apple](URL=https://support.apple.com/guide/apple-school-manager/apd313013d12)
-* [Usuwanie kont usługi Azure AD, które są wyświetlane w Menedżerze szkoły firmy Apple](URL=https://support.apple.com/guide/apple-school-manager/apdaa5798fbe)
-* [Wyświetlanie działania Standard scim w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
-* [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a823611)
-* [Rozłącz połączenie usługi Standard scim w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
-* [Rozwiązywanie problemów z połączeniem Standard scim w programie Apple szkoły Manager](URL=https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
+* [Przejrzyj wymagania standard scim dla programu Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apdd88331cd6)
+* [Jak identyfikator osoby jest używany w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apd69e1e48e9)
+* [Importowanie użytkowników do programu Apple szkoły Manager za pomocą Standard scim](https://support.apple.com/guide/apple-school-manager/apd3ec7b95ad)
+* [Rozwiązywanie konfliktów kont użytkowników Standard scim w Menedżerze szkoły firmy Apple](https://support.apple.com/guide/apple-school-manager/apd313013d12)
+* [Usuwanie kont usługi Azure AD, które są wyświetlane w Menedżerze szkoły firmy Apple](https://support.apple.com/guide/apple-school-manager/apdaa5798fbe)
+* [Wyświetlanie działania Standard scim w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
+* [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
+* [Rozłącz połączenie usługi Standard scim w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
+* [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
+* [Rozwiązywanie problemów z połączeniem Standard scim w programie Apple szkoły Manager](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Następne kroki
 

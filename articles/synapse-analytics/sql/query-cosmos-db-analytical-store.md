@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d36cee1ebf9f58991db6fd40fd6aa9422546b61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710757"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757599"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Synapse SQL Server (wcześniej SQL na żądanie) umożliwia analizowanie danych 
 > [!NOTE]
 > Obsługa zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu programu SQL Server jest obecnie dostępna w wersji zapoznawczej. 
 
-Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania bezserwerowego SQL do Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania bezserwerowego SQL do Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL Server, które będzie wysyłać zapytania do danych z Azure Cosmos DB kontenerów z włączonym łączem Synapse. Następnie można dowiedzieć się więcej o tworzeniu widoków bezserwerowych programu SQL Server za pośrednictwem kontenerów Azure Cosmos DB i łączeniu ich z modelami Power BI w [tym](./tutorial-data-analyst.md) samouczku. 
 
@@ -245,7 +245,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 | Boolean (wartość logiczna) | bit |
 | Integer | bigint |
 | Liczba dziesiętna | float |
-| String (ciąg) | varchar (sortowanie bazy danych UTF8) |
+| Ciąg | varchar (sortowanie bazy danych UTF8) |
 | Data i godzina (ciąg w formacie ISO) | varchar (30) |
 | Data i godzina (Sygnatura czasowa systemu UNIX) | bigint |
 | Zero | `any SQL type` 

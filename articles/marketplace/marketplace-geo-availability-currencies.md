@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650982"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759097"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -108,7 +108,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Mongolia                            | MN        | USD          |
 | Czarnogóra                          | ME        | USD          |
 | Maroko                             | MA        | USD          |
-| Namibia                             | Nie dotyczy        | USD          |
+| Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Holandia                         | NL        | EUR          |
 | Nowa Zelandia                         | NZ        | NZD          |
@@ -166,7 +166,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* W przypadku klientów w Brazylii commcercial Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
+\* W przypadku klientów w Brazylii komercyjna witryna Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
 
 \** Tylko bezpłatne i BYOL obrazy maszyn wirtualnych.
 
@@ -181,7 +181,7 @@ Aby dostosować cenę przed opublikowaniem, po prostu wyeksportuj arkusz cen, zm
 
 Cena oferty jest zawsze wyświetlana klientom w lokalnej walucie. Cena wybrana w centrum partnerskim jest konwertowana na lokalną walutę klientów zgodnie z kursem wymiany w momencie zapisania ceny w centrum partnerskim. Cena pokazywana klientom w sklepach online nie zmienia się, chyba że zostanie ponownie opublikowana oferta.
 
-Firma Microsoft odbiera płatności od klientów w ich lokalnej walucie i płaci w lokalnej walucie. Firma Microsoft konwertuje walutę lokalną klienta na walutę lokalną przy użyciu kursu wymiany dnia zakupu.
+Firma Microsoft odbiera płatności od klientów w ich lokalnej walucie i płaci w walucie wybranej w centrum partnerskim. Firma Microsoft konwertuje lokalną walutę klienta przy użyciu kursu wymiany dnia zakupu.
 
 > [!NOTE]
 > Firma Microsoft przelicza ceny oferty przy użyciu kursów wymiany od firmy Microsoft.

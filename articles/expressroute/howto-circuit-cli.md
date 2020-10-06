@@ -1,44 +1,37 @@
 ---
-title: 'Tworzenie i modyfikowanie obwodu usługi ExpressRoute: interfejs wiersza polecenia platformy Azure'
-description: W tym artykule przedstawiono sposób tworzenia, inicjowania obsługi, sprawdzania, aktualizowania, usuwania i anulowania aprowizacji obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia.
+title: 'Szybki Start: Tworzenie i modyfikowanie obwodu usługi ExpressRoute: interfejs wiersza polecenia platformy Azure'
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia, inicjowania obsługi, weryfikowania, aktualizowania, usuwania i anulowania aprowizacji obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 11/13/2019
+ms.topic: quickstart
+ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566147"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757609"
 ---
-# <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute za pomocą interfejsu wiersza polecenia
+# <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Szybki Start: Tworzenie i modyfikowanie obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure
 
+W tym przewodniku szybki start opisano sposób tworzenia obwodu usługi Azure ExpressRoute za pomocą interfejsu wiersza polecenia (CLI). W tym artykule pokazano również, jak sprawdzić stan, zaktualizować lub usunąć i anulować obsługę administracyjną obwodu.
 
-W tym artykule opisano sposób tworzenia obwodu usługi Azure ExpressRoute za pomocą interfejsu wiersza polecenia (CLI). W tym artykule pokazano również, jak sprawdzić stan, zaktualizować lub usunąć i anulować obsługę administracyjną obwodu. Jeśli chcesz użyć innej metody do pracy z obwodami usługi ExpressRoute, możesz wybrać artykuł z poniższej listy:
+## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Program PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
-> * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
-> * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
->
-
-## <a name="before-you-begin"></a>Przed rozpoczęciem
-
-* Przed rozpoczęciem zainstaluj najnowszą wersję poleceń interfejsu wiersza polecenia (wersję 2.0 lub nowszą). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli).
 * Przed rozpoczęciem konfiguracji Przejrzyj [wymagania wstępne](expressroute-prerequisites.md) i [przepływy pracy](expressroute-workflows.md) .
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Zainstaluj najnowszą wersję poleceń interfejsu wiersza polecenia (2,0 lub nowszej). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Tworzenie i Inicjowanie obsługi obwodu ExpressRoute
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Zaloguj się do konta platformy Azure i wybierz swoją subskrypcję
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się do konta platformy Azure i wybierz swoją subskrypcję
 
-Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure. Jeśli używasz CloudShell "Wypróbuj", nastąpi automatyczne logowanie. Poniższe przykłady ułatwiają nawiązanie połączenia:
+Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure. Jeśli używasz Cloud Shell "Wypróbuj", nastąpi automatyczne logowanie. Poniższe przykłady ułatwiają nawiązanie połączenia:
 
 ```azurecli-interactive
 az login
@@ -56,7 +49,7 @@ Wybierz subskrypcję, dla której chcesz utworzyć obwód usługi ExpressRoute.
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Pobierz listę obsługiwanych dostawców, lokalizacji i przepustowości
+### <a name="get-the-list-of-supported-providers-locations-and-bandwidths"></a>Pobierz listę obsługiwanych dostawców, lokalizacji i przepustowości
 
 Przed utworzeniem obwodu usługi ExpressRoute należy uzyskać listę obsługiwanych dostawców połączeń, lokalizacji i opcji przepustowości. Polecenie interfejsu wiersza polecenia `az network express-route list-service-providers` zwraca te informacje, które będą używane w kolejnych krokach:
 
@@ -125,7 +118,7 @@ Sprawdź odpowiedź, aby sprawdzić, czy dostawca połączenia jest wymieniony. 
 
 Teraz można przystąpić do tworzenia obwodu ExpressRoute.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Tworzenie obwodu ExpressRoute
+### <a name="create-an-expressroute-circuit"></a>Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)
 
 > [!IMPORTANT]
 > Obwód usługi ExpressRoute jest rozliczany od momentu, gdy zostanie wystawiony klucz usług. Wykonaj tę operację, gdy dostawca łączności jest gotowy do aprowizacji obwodu.
@@ -138,12 +131,12 @@ Jeśli nie masz jeszcze grupy zasobów, musisz ją utworzyć przed utworzeniem o
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-Poniższy przykład pokazuje, jak utworzyć obwód ExpressRoute 200 MB/s za pomocą Equinix w Dolina krzemu. Jeśli używasz innego dostawcy i innych ustawień, podstaw te informacje podczas żądania.
+Poniższy przykład pokazuje, jak utworzyć obwód ExpressRoute 200 MB/s za pomocą Equinix w Dolina krzemu. Jeśli używasz innego dostawcy i innych ustawień, Zastąp te informacje podczas żądania.
 
 Upewnij się, że określono poprawną warstwę SKU i rodzinę SKU:
 
-* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, *Standard* lub *Premium*. Nie można zmienić jednostki SKU z warstwy *standardowa/Premium* na *lokalną*.
-* Rodzina SKU określa typ rozliczeń. Możesz określić *Metereddata* dla mierzonego planu taryfowego i *Unlimiteddata* dla nieograniczonego planu taryfowego. Typ rozliczeń można zmienić z *Metereddata* na *Unlimiteddata*, ale nie można zmienić typu z *Unlimiteddata* na *Metereddata*. Obwód *lokalny* jest tylko *Unlimiteddata* .
+* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy, czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, * Standard lub *Premium*. Nie można zmienić jednostki SKU z warstwy *standardowa/Premium* na *lokalną*.
+* Rodzina SKU określa typ rozliczeń. Możesz określić *MeteredData* dla mierzonego planu taryfowego i *UnlimitedData* dla nieograniczonego planu taryfowego. Typ rozliczeń można zmienić z *MeteredData* na *UnlimitedData*, ale nie można zmienić typu z *UnlimitedData* na *MeteredData*. Obwód *lokalny* jest tylko *UnlimitedData* .
 
 
 Obwód usługi ExpressRoute jest rozliczany od momentu, gdy zostanie wystawiony klucz usług. Poniższy przykład to żądanie nowego klucza usługi:
@@ -154,7 +147,7 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 Odpowiedź zawiera klucz usługi.
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Wyświetl wszystkie obwody usługi ExpressRoute
+### <a name="list-all-expressroute-circuits"></a>Wyświetl wszystkie obwody usługi ExpressRoute
 
 Aby uzyskać listę wszystkich utworzonych obwodów usługi ExpressRoute, uruchom `az network express-route list` polecenie. Te informacje można pobrać w dowolnym momencie za pomocą tego polecenia. Aby wyświetlić listę wszystkich obwodów, należy wywołać wywołanie bez parametrów.
 
@@ -199,7 +192,7 @@ Aby uzyskać szczegółowe opisy wszystkich parametrów, należy uruchomić pole
 az network express-route list -h
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Wyślij klucz usługi do dostawcy połączenia w celu aprowizacji
+### <a name="send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Wyślij klucz usługi do dostawcy połączenia w celu aprowizacji
 
 Element "ServiceProviderProvisioningState" zawiera informacje o bieżącym stanie aprowizacji po stronie dostawcy usług. Stan zapewnia informacje o stanie po stronie firmy Microsoft. Aby uzyskać więcej informacji, zobacz [artykuł przepływy pracy](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -210,23 +203,23 @@ Podczas tworzenia nowego obwodu ExpressRoute obwód jest w następującym stanie
 "circuitProvisioningState": "Enabled"
 ```
 
-Obwód zostanie zmieniony na następujący stan, gdy dostawca łączności jest w trakcie jego włączania:
+Obwód zostanie zmieniony na następujący stan, gdy dostawca łączności aktualnie go włączy:
 
 ```output
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
-Aby móc korzystać z obwodu usługi ExpressRoute, musi on być w następującym stanie:
+Aby użyć obwodu ExpressRoute, musi on być w następującym stanie:
 
 ```output
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. okresowo sprawdza stan i stan klucza obwodu.
+### <a name="periodically-check-the-status-and-the-state-of-the-circuit-key"></a>Okresowe sprawdzanie stanu i stanu klucza obwodu
 
-Sprawdzenie stanu i stanu klucza obwodu pozwala sprawdzić, kiedy dostawca włączył obwód. Po skonfigurowaniu obwodu "ServiceProviderProvisioningState" jest wyświetlany jako "zainicjowany", jak pokazano w następującym przykładzie:
+Sprawdzenie stanu i stanu klucza usługi poinformuje Cię, gdy dostawca zaudostępniał obwód. Po skonfigurowaniu obwodu *ServiceProviderProvisioningState* pojawia się zgodnie z *zainicjowaną obsługą*, jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -263,7 +256,7 @@ Odpowiedź jest podobna do poniższego przykładu:
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-### <a name="7-create-your-routing-configuration"></a>7. Utwórz konfigurację routingu
+### <a name="create-your-routing-configuration"></a>Utwórz konfigurację routingu
 
 Aby uzyskać instrukcje krok po kroku, zobacz artykuł [Konfiguracja routingu obwodów usługi ExpressRoute](howto-routing-cli.md) w celu utworzenia i zmodyfikowania komunikacji równorzędnej obwodu.
 
@@ -272,7 +265,7 @@ Aby uzyskać instrukcje krok po kroku, zobacz artykuł [Konfiguracja routingu ob
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Łączenie sieci wirtualnej z obwodem ExpressRoute
+### <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 
 Następnie połącz sieć wirtualną z obwodem ExpressRoute. Skorzystaj z artykułu [łączenie sieci wirtualnych do obwodów usługi ExpressRoute](howto-linkvnet-cli.md) .
 
@@ -306,9 +299,9 @@ Obwód ma teraz włączone funkcje dodatku ExpressRoute Premium. Zaczynamy nalic
 
 Przed wyłączeniem dodatku ExpressRoute Premium zapoznaj się z następującymi kryteriami:
 
-* Przed obniżeniem wersji Premium do standard należy upewnić się, że masz mniej niż 10 sieci wirtualnych podłączonych do obwodu. Jeśli masz więcej niż 10, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane według stawek za usługę Premium.
-* Należy odłączyć wszystkie sieci wirtualne w innych regionach geopolitycznych. Jeśli nie odłączysz wszystkich sieci wirtualnych, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane zgodnie z stawką za usługę Premium.
-* Tabela tras musi być krótsza niż 4 000 tras dla prywatnej komunikacji równorzędnej. Jeśli rozmiar tabeli tras przekracza 4 000 tras, sesja BGP spadnie. Sesja nie zostanie ponownie włączona, dopóki liczba anonsowanych prefiksów nie będzie mniejsza niż 4 000.
+* Przed obniżeniem wersji Premium do standard należy upewnić się, że liczba sieci wirtualnych, które są połączone z obwodem, jest mniejsza niż 10. Jeśli tego nie zrobisz, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane według stawek za usługę Premium.
+* Należy najpierw odłączyć wszystkie sieci wirtualne w innych regionach geopolitycznych. Jeśli nie usuniesz linku, żądanie aktualizacji zakończy się niepowodzeniem i będziemy nadal korzystać z stawek za usługę Premium.
+* Tabela tras musi być krótsza niż 4 000 tras dla prywatnej komunikacji równorzędnej. Jeśli rozmiar tabeli tras przekracza 4 000 tras, sesja protokołu BGP zostanie porzucana. Sesja BGP nie zostanie włączona jeszcze raz, dopóki liczba anonsowanych prefiksów nie będzie objęta 4 000.
 
 Dodatek ExpressRoute Premium dla istniejącego obwodu można wyłączyć, korzystając z następującego przykładu:
 
@@ -332,7 +325,7 @@ Po określeniu wymaganego rozmiaru Użyj następującego polecenia, aby zmienić
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
-Rozmiar obwodu jest ustawiany po stronie firmy Microsoft. Następnie należy skontaktować się z dostawcą połączenia w celu zaktualizowania konfiguracji po stronie, aby dopasować tę zmianę. Po dokonaniu tego powiadomienia zaczynamy naliczać opłaty za zaktualizowaną opcję przepustowości.
+Obwód zostanie uaktualniony po stronie firmy Microsoft. Następnie należy skontaktować się z dostawcą połączenia w celu zaktualizowania konfiguracji po stronie, aby dopasować tę zmianę. Po dokonaniu tego powiadomienia zaczynamy naliczać opłaty za zaktualizowaną opcję przepustowości.
 
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Aby przenieść jednostkę SKU z pomiaru do nieograniczonego
 
@@ -346,13 +339,15 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Zapoznaj się z instrukcjami w temacie [Move ExpressRoute Circuits z klasycznego modelu wdrażania Menedżer zasobów](expressroute-howto-move-arm.md).
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Anulowanie aprowizacji i usuwanie obwodu usługi ExpressRoute
+## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>Anulowanie aprowizacji obwodu ExpressRoute
 
 Aby anulować obsługę administracyjną i usunąć obwód ExpressRoute, upewnij się, że rozumiesz następujące kryteria:
 
-* Musisz odłączyć wszystkie sieci wirtualne od obwodu usługi ExpressRoute. Jeśli ta operacja zakończy się niepowodzeniem, sprawdź, czy sieci wirtualne są połączone z obwodem.
-* Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute **jest inicjowany lub** **zainicjowano**obsługę administracyjną, należy skontaktować się z dostawcą usług w celu anulowania aprowizacji obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.
-* Obwód można usunąć, jeśli dostawca usług anulował obsługę administracyjną obwodu. W przypadku anulowania **aprowizacji**obwodu stan aprowizacji dostawcy usług jest ustawiony na nieudostępniane. Spowoduje to zatrzymanie naliczania opłat za obwód.
+* Wszystkie sieci wirtualne muszą być odłączone od obwodu usługi ExpressRoute. Jeśli ta operacja zakończy się niepowodzeniem, sprawdź, czy sieci wirtualne są połączone z obwodem.
+* Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.
+* Jeśli dostawca usług anulował obsługę administracyjną tego obwodu, oznacza to, że stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**, można usunąć obwód. Naliczanie opłat za obwód zostanie zatrzymane.
+
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 
 Obwód ExpressRoute można usunąć, uruchamiając następujące polecenie:
 
@@ -362,7 +357,7 @@ az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzeniu obwodu upewnij się, że wykonano następujące zadania:
+Po utworzeniu obwodu i zainicjowaniu obsługi administracyjnej z dostawcą przejdź do następnego kroku, aby skonfigurować komunikację równorzędną:
 
-* [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute](howto-routing-cli.md)
-* [Łączenie sieci wirtualnej z obwodem ExpressRoute](howto-linkvnet-cli.md)
+> [!div class="nextstepaction"]
+> [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute](howto-routing-cli.md)

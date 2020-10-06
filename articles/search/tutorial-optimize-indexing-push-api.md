@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998428"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757796"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -325,7 +325,7 @@ do
 
 W tym miejscu zawijamy kod wykładniczy wycofywania do funkcji, aby można było ją łatwo wywołać.
 
-Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
+Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
@@ -387,7 +387,7 @@ Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć z
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy znasz już koncepcję pozyskiwania danych, przyjrzyjmy się bliżej architekturze zapytań Lucene i jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze.
 

@@ -8,20 +8,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 23ac1e241c0811944a943c3c3fef3116eff68a67
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9b6dfc977aab7d8907b5d3c3851a22f96227d78
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937903"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757762"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Użyj usługi Azure DevOps, aby utworzyć potok ciągłej integracji/ciągłego wdrażania dla zadania Stream Analytics
 
-W tym artykule dowiesz się, jak utworzyć potoki [kompilacji](/devops/pipelines/get-started-designer) i [wydania](/devops/pipelines/release/define-multistage-release-process) usługi Azure DevOps za pomocą Azure Stream Analytics narzędzia Ci/CD.
+W tym artykule dowiesz się, jak utworzyć potoki [kompilacji](/azure/devops/pipelines/get-started/pipelines-get-started) i [wydania](/azure/devops/pipelines/release/define-multistage-release-process) usługi Azure DevOps za pomocą Azure Stream Analytics narzędzia Ci/CD.
 
 ## <a name="commit-your-stream-analytics-project"></a>Zatwierdzanie projektu Stream Analytics
 
-Przed rozpoczęciem należy zatwierdzić pełne Stream Analytics projekty jako pliki źródłowe w repozytorium [Azure DevOps](/devops/user-guide/source-control) . Możesz odwoływać się do tego [przykładowego repozytorium](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) i [Stream Analytics kodu źródłowego projektu](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) w Azure Pipelines.
+Przed rozpoczęciem należy zatwierdzić pełne Stream Analytics projekty jako pliki źródłowe w repozytorium [Azure DevOps](/azure/devops/user-guide/source-control) . Możesz odwoływać się do tego [przykładowego repozytorium](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) i [Stream Analytics kodu źródłowego projektu](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) w Azure Pipelines.
 
 W procedurach przedstawionych w tym artykule jest używany projekt Stream Analytics Visual Studio Code. Jeśli używasz projektu programu Visual Studio, postępuj zgodnie z instrukcjami [automatyzacji kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi Ci/CD](cicd-tools.md).
 
@@ -39,7 +39,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
 1. Wybierz typ źródła, projekt zespołowy i repozytorium. Następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Wybierz projekt Azure Stream Analytics":::
+   :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 1. Na stronie **Wybierz szablon** wybierz pozycję **puste zadanie**.
 
@@ -47,7 +47,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
 1. Na stronie **zadania** wybierz znak plus obok pozycji **zadanie agenta 1**. Wprowadź *npm* w polu wyszukiwania zadania i wybierz pozycję **npm**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Wybieranie zadania npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/search-npm.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 2. Nadaj zadanie **nazwę wyświetlaną**. Zmień opcję **polecenia** na *niestandardową* i wprowadź następujące polecenie w **poleceniu i argumentach**. Pozostaw pozostałe domyślne opcje.
 
@@ -55,7 +55,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
    install -g azure-streamanalytics-cicd
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Wprowadź konfiguracje dla zadania npm":::
+   :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="add-a-build-task"></a>Dodawanie zadania kompilacji
 
@@ -65,7 +65,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
    |-|-|
    |projectRootPath|[YourProjectName]|
    |outputPath|Dane wyjściowe|
-   |deployPath|Wdróż|
+   |deployPath|Wdrażanie|
 
 2. Na stronie **zadania** wybierz znak plus obok pozycji **zadanie agenta 1**. Wyszukaj **wiersz polecenia**.
 
@@ -77,7 +77,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
    Na poniższym obrazie jest stosowany projekt Stream Analytics Visual Studio Code.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Wprowadź konfiguracje dla zadania wiersza polecenia programu Visual Studio Code":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-build.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="add-a-test-task"></a>Dodawanie zadania testowego
 
@@ -85,9 +85,9 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
 
    |Nazwa zmiennej|Wartość|
    |-|-|
-   |testPath|Testowanie|
+   |testPath|Test|
 
-   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Dodaj zmienne potoku":::
+   :::image type="content" source="media/set-up-cicd-pipeline/pipeline-variables-test.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 2. Na stronie **zadania** wybierz znak plus obok pozycji **zadanie agenta 1**. Wyszukaj **wiersz polecenia**.
 
@@ -99,7 +99,7 @@ W tej sekcji dowiesz się, jak utworzyć potok kompilacji. Możesz odwołać si�
    azure-streamanalytics-cicd test -project $(projectRootPath)/asaproj.json -outputpath $(projectRootPath)/$(outputPath)/$(testPath) -testConfigPath $(projectRootPath)/test/testConfig.json 
    ```
 
-   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Wprowadź konfiguracje dla zadania wiersza polecenia":::
+   :::image type="content" source="media/set-up-cicd-pipeline/command-line-config-test.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="add-a-copy-files-task"></a>Zadanie dodawania plików do kopiowania
 
@@ -116,7 +116,7 @@ Należy dodać zadanie kopiowania pliku, aby skopiować plik podsumowania testu 
 
 2. Rozwiń węzeł **Opcje kontrolki**. Wybierz **nawet wtedy, gdy poprzednie zadanie zakończyło się niepowodzeniem, chyba że kompilacja została anulowana** w trakcie **wykonywania tego zadania**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Wprowadź konfiguracje dla zadania kopiowania":::
+   :::image type="content" source="media/set-up-cicd-pipeline/copy-config.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="add-a-publish-build-artifacts-task"></a>Dodaj zadanie publikowania artefaktów kompilacji
 
@@ -124,7 +124,7 @@ Należy dodać zadanie kopiowania pliku, aby skopiować plik podsumowania testu 
 
 2. Rozwiń węzeł **Opcje kontrolki**. Wybierz **nawet wtedy, gdy poprzednie zadanie zakończyło się niepowodzeniem, chyba że kompilacja została anulowana** w trakcie **wykonywania tego zadania**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Wprowadź konfiguracje dla zadania publikowania":::
+   :::image type="content" source="media/set-up-cicd-pipeline/publish-config.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="save-and-run"></a>Zapisz i uruchom
 
@@ -134,9 +134,9 @@ Po zakończeniu dodawania pakietu npm, wiersza polecenia, kopiowania plików i p
 
 Plik podsumowania testu i pliki szablonów Azure Resource Manager można znaleźć w folderze **opublikowanym** .
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Sprawdź kompilację i wynik testu":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-build-test-result.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
-   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Sprawdź artefakty":::
+   :::image type="content" source="media/set-up-cicd-pipeline/check-drop-folder.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="release-with-azure-pipelines"></a>Wydanie z Azure Pipelines
 
@@ -150,7 +150,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
 
 3. W polu **artefakty** wybierz pozycję **+ Dodaj artefakt**. W obszarze **Źródło**wybierz utworzony potok kompilacji i wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Wprowadź artefakt potoku kompilacji":::
+   :::image type="content" source="media/set-up-cicd-pipeline/build-artifact.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 4. Zmień nazwę **etapu 1** , aby **wdrożyć zadanie w środowisku testowym**.
 
@@ -168,7 +168,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
    |Subskrypcja platformy Azure| Wybierz subskrypcję.|
    |Akcja| *Utwórz lub zaktualizuj grupę zasobów*|
    |Grupa zasobów| Wybierz nazwę grupy zasobów testowych, która będzie zawierać zadanie Stream Analytics.|
-   |Location|Wybierz lokalizację grupy zasobów testowych.|
+   |Lokalizacja|Wybierz lokalizację grupy zasobów testowych.|
    |Lokalizacja szablonu| Połączony artefakt|
    |Szablon| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demonstracyjne-CI — Wdróż/upuść/myASAProject.JobTemplate.jsna |
    |Parametry szablonu|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demonstracyjne-CI — Wdróż/upuść/myASAProject.JobTemplate.parameters.jsna |
@@ -185,7 +185,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
    |Subskrypcja platformy Azure| Wybierz subskrypcję.|
    |Akcja| *Utwórz lub zaktualizuj grupę zasobów*|
    |Grupa zasobów| Wybierz nazwę produkcyjnej grupy zasobów, która będzie zawierać zadanie Stream Analytics.|
-   |Location|Wybierz lokalizację produkcyjnej grupy zasobów.|
+   |Lokalizacja|Wybierz lokalizację produkcyjnej grupy zasobów.|
    |Lokalizacja szablonu| *Połączony artefakt*|
    |Szablon| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demonstracyjne-CI — Wdróż/upuść/myASAProject.JobTemplate.jsna |
    |Parametry szablonu|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demonstracyjne-CI — Wdróż/upuść/myASAProject.JobTemplate.parameters.jsna |
@@ -196,7 +196,7 @@ Otwórz przeglądarkę internetową i przejdź do projektu Visual Studio Code Az
 
 Aby utworzyć wydanie, wybierz pozycję **Utwórz wydanie** w prawym górnym rogu.
 
-:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Tworzenie wydania przy użyciu Azure Pipelines":::
+:::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Tworzenie nowego potoku platformy Azure":::
 
 ## <a name="next-steps"></a>Następne kroki
 

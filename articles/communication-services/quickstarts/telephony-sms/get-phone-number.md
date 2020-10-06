@@ -1,24 +1,24 @@
 ---
 title: Szybki Start — uzyskiwanie numeru telefonu z usług Azure Communications Services
 description: Dowiedz się, jak kupić numer telefonu usług komunikacyjnych za pomocą Azure Portal.
-author: ddematheu2
-manager: nimag
+author: prakulka
+manager: nmurav
 services: azure-communication-services
-ms.author: dademath
-ms.date: 07/09/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91298120"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756916"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu Azure Portal, aby kupić numer telefonu.
 
@@ -41,7 +41,7 @@ Przejdź do bloku numery telefonów w menu zasób.
 
 Naciśnij `Get` przycisk, aby uruchomić kreatora. Kreator w `Phone numbers` bloku przeprowadzi Cię przez szereg pytań, które ułatwiają wybranie numeru telefonu, który najlepiej pasuje do Twojego scenariusza. 
 
-Najpierw musisz wybrać lokalizację, w `Country/region` której chcesz zainicjować obsługę administracyjną numeru telefonu. Po wybraniu kraju/regionu będziesz musiał wybrać, które najlepiej odpowiadają `phone plan` Twoim potrzebom. 
+Najpierw musisz wybrać lokalizację, w `Country/region` której chcesz zainicjować obsługę administracyjną numeru telefonu. Po wybraniu kraju/regionu będziesz musiał wybrać, które najlepiej odpowiadają `use case` Twoim potrzebom. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
@@ -50,23 +50,13 @@ Najpierw musisz wybrać lokalizację, w `Country/region` której chcesz zainicjo
 Wybór planu telefonu jest podzielony na dwa kroki: 
 
 1. Wybór [typu liczby](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. Wybór [planu](../../concepts/telephony-sms/plan-solution.md#plans)
+2. Wybór [planu](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 Oferujemy obecnie dwa typy liczb: `Geographic` , i `Toll-free` . Po wybraniu typu liczbowego będziesz oferować kilka planów, z których możesz wybrać.
 
-> [!NOTE]
-> Obecnie obsługujemy wybieranie numerów telefonów z obsługą ruchu przychodzącego lub wychodzącego. Można jednak zakupić numer telefonu z włączonym wywołaniem przychodzącym, a następnie skonfigurować identyfikator rozmówcy wychodzącego w taki sposób, aby odpowiadał liczbie numeru telefonu z włączoną obsługą ruchu przychodzącego (co widzą użytkownicy po wywołaniu ich w aplikacji usług komunikacyjnych).
-> Ma to zastosowanie tylko do dwukierunkowego wywoływania. Dwukierunkowa wiadomość SMS jest obsługiwana natywnie.
-
-W naszym przykładzie wybrano `Toll-free` typ numeru z `Outbound calling` planem.
+W naszym przykładzie wybieramy `Toll-free` typ liczbowy z `Outbound calling` `Inbound and Outbound SMS` planami i.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
-
-### <a name="declare-purpose"></a>Zadeklaruj cel
-
-Następnie Kreator wyświetli zapytanie w celu użycia liczby. Firma Microsoft zbiera te informacje w celu zastosowania odpowiednich przepisów podatkowych i regulacji dotyczących wywołań awaryjnych.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 W tym miejscu kliknij `Next: Numbers` przycisk w dolnej części strony, aby dostosować numery telefonów, które chcesz udostępnić.
 
@@ -106,12 +96,19 @@ Przejdź do zasobu komunikacyjnego platformy Azure na [Azure Portal](https://por
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
-Wybierz kartę numery telefonów w menu, aby zarządzać numerami telefonów.
+Wybierz blok numery telefonów w menu, aby zarządzać numerami telefonów.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 > [!NOTE]
 > Wyświetlanie numerów aprowizacji na tej stronie może potrwać kilka minut.
+
+### <a name="customizing-phone-number-plans"></a>Dostosowywanie planów numerów telefonów
+Na `Numbers` stronie możesz wybrać numer telefonu, klikając numer, dla którego chcesz dostosować plan.
+
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
+
+Wybierz możliwości z listy dostępnych możliwości wywoływania i SMS, a następnie kliknij, `Confirm` Aby zastosować wybór.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -119,7 +116,7 @@ Często zadawane pytania i problemy:
 
 - W tej chwili jest obsługiwane kupowanie numerów telefonów. Jest to oparte na adresie rozliczeniowym subskrypcji, z którą skojarzony jest zasób. W tej chwili nie można przenieść zasobu do innej subskrypcji.
 
-- Po usunięciu numeru telefonu numer telefonu nie zostanie opublikowany lub nie można go wykupić do końca cyklu rozliczeniowego.
+- Po wydaniu numeru telefonu numer telefonu nie zostanie wykupiony lub nie można go wykupić do końca cyklu rozliczeniowego.
 
 - Po usunięciu zasobu usług komunikacyjnych numery telefonów skojarzone z tym zasobem będą automatycznie wydawane w tym samym czasie.
 

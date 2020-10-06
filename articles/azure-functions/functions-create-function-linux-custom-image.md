@@ -5,16 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531648"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758986"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
 W tym samouczku utworzysz i wdrożono kod w celu Azure Functions jako niestandardowego kontenera Docker przy użyciu podstawowego obrazu systemu Linux. Obraz niestandardowy jest zazwyczaj używany, gdy funkcje wymagają określonej wersji językowej lub mają określoną zależność lub konfigurację, która nie jest dostarczana przez wbudowany obraz.
+
+Wdrożenie kodu funkcji w niestandardowym kontenerze systemu Linux wymaga [planu Premium](functions-premium-plan.md#features) lub [dedykowanego planu (App Service)](functions-scale.md#app-service-plan) . Ukończenie tego samouczka wiąże się z pozostałymi kosztami korzystania z kilku dolarów amerykańskich na koncie platformy Azure, które można zminimalizować przez [oczyszczenie zasobów](#clean-up-resources) po zakończeniu.
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -31,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Włącz połączenia SSH z kontenerem.
 > * Dodawanie powiązania wyjściowego magazynu kolejki. 
 
-Ten samouczek można wykonać na dowolnym komputerze z systemem Windows, macOS lub Linux. Ukończenie tego samouczka spowoduje naliczenie kosztów z kilku dolarów amerykańskich na koncie platformy Azure.
+Ten samouczek można wykonać na dowolnym komputerze z systemem Windows, macOS lub Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Aby utworzyć te elementy, Użyj poleceń interfejsu wiersza polecenia platformy
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Obsługa systemu Linux dla kontenerów funkcji niestandardowych jest obsługiwana w przypadku [planów dedykowanych (App Service)](functions-scale.md#app-service-plan) i [planów Premium](functions-premium-plan.md#features). W tym miejscu jest używany plan Premium, który można skalować odpowiednio do wymagań. Aby dowiedzieć się więcej o hostingu, zobacz [Porównanie planów hostingu usługi Azure Functions](functions-scale.md). Aby obliczyć koszty, zobacz [stronę cennika funkcji](https://azure.microsoft.com/pricing/details/functions/).
+    W tym miejscu jest używany plan Premium, który można skalować odpowiednio do wymagań. Aby dowiedzieć się więcej o hostingu, zobacz [Porównanie planów hostingu usługi Azure Functions](functions-scale.md). Aby obliczyć koszty, zobacz [stronę cennika funkcji](https://azure.microsoft.com/pricing/details/functions/).
 
     Polecenie udostępnia również skojarzone wystąpienie usługi Azure Application Insights w tej samej grupie zasobów, za pomocą którego można monitorować aplikację funkcji i wyświetlać dzienniki. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). Wystąpienie nie wiąże się z żadnymi kosztami, dopóki nie zostanie uaktywnione.
 

@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 95a7ae951edab8e75894b0e9aa85029a54a50acb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d40637b05a5d398124ee52dbca49d55b3112ec95
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664923"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758408"
 ---
 # <a name="sms-client-library-overview"></a>Omówienie biblioteki klienta wiadomości SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Za pomocą bibliotek klienckich SMS usług Azure Communication Services można dodawać wiadomości SMS do aplikacji.
 
@@ -37,7 +37,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 | Numer telefonu      | Bezpłatne numery telefonów                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | Normatywn        | Rezygnacja z obsługi                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Monitorowanie        | Monitoruj użycie komunikatów wysłanych i odebranych                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| Wywołanie PSTN      | Dodawanie możliwości wywoływania funkcji PSTN do numeru bezpłatnego z włączoną obsługą programu SMS (prywatna wersja zapoznawcza)                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| Wywołanie PSTN      | Dodawanie możliwości wywoływania sieci PSTN do numeru bezpłatnego z włączoną obsługą programu SMS                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629951"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757048"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
 
@@ -24,14 +24,16 @@ ms.locfileid: "91629951"
 - **[Usługa linków prywatnych platformy Azure](private-link-service-overview.md)**: usługa link prywatny platformy Azure to usługa utworzona przez dostawcę usług. Obecnie usługa linku prywatnego może być dołączona do konfiguracji adresu IP frontonu usługa Load Balancer w warstwie Standardowa. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Jak jest wysyłany ruch w przypadku korzystania z prywatnego linku?
-Ruch jest wysyłany prywatnie przy użyciu sieci szkieletowej firmy Microsoft. Nie przechodzi ona przez Internet.  
+Ruch jest wysyłany prywatnie przy użyciu sieci szkieletowej firmy Microsoft. Nie przechodzi ona przez Internet. Łącze prywatne platformy Azure nie przechowuje danych klienta.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Jaka jest różnica między punktami końcowymi usługi i prywatnymi punktami końcowymi?
-- W przypadku korzystania z prywatnych punktów końcowych dostęp do sieci jest przydzielany do określonych zasobów za daną usługę, co zapewnia szczegółowe segmentacji, również ruch może dotrzeć do zasobu usługi ze źródła lokalnego bez używania publicznych punktów końcowych.
+- Prywatne punkty końcowe zapewniają dostęp sieciowy do określonych zasobów za daną usługę zapewniającą szczegółowe segmentacji. Ruch może nawiązać połączenie z zasobem usługi lokalnie bez używania publicznych punktów końcowych.
 - Punkt końcowy usługi pozostaje publicznie w adresie IP.  Prywatny punkt końcowy to prywatny adres IP w przestrzeni adresowej sieci wirtualnej, w której jest skonfigurowany prywatny punkt końcowy.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Jaka jest relacja między usługą link prywatny i prywatnym punktem końcowym?
-Prywatny punkt końcowy zapewnia dostęp do wielu typów zasobów łączy prywatnych, w tym usług Azure PaaS Services i własnej usługi linku prywatnego. Jest to relacja jeden do wielu. Jedna usługa linku prywatnego może odbierać połączenia z wielu prywatnych punktów końcowych. Z drugiej strony jeden prywatny punkt końcowy może łączyć się tylko z jedną usługą linku prywatnego.    
+Wiele typów zasobów połączenia prywatnego obsługuje dostęp za pośrednictwem prywatnego punktu końcowego. Zasoby obejmują usługi Azure PaaS Services i własną usługę łącza prywatnego. Jest to relacja jeden do wielu. 
+
+Usługa linków prywatnych odbiera połączenia z wielu prywatnych punktów końcowych. Prywatny punkt końcowy nawiązuje połączenie z jedną usługą linku prywatnego.    
 
 ## <a name="private-endpoint"></a>Prywatny punkt końcowy 
  
@@ -68,14 +70,14 @@ Można kontrolować narażenie przy użyciu konfiguracji widoczności w usłudze
 - Tylko **restrykcyjne** subskrypcje, które są zatwierdzone i z dostępem RBAC, mogą zlokalizować usługę. 
 - **Wszyscy — wszyscy** mogą zlokalizować usługę. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Czy można utworzyć usługę linku prywatnego z podstawową Load Balancer? 
-Nie. Usługa linku prywatnego za pośrednictwem podstawowego Load Balancer nie jest obsługiwana.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Czy można utworzyć usługę linku prywatnego z podstawowym modułem równoważenia obciążenia? 
+Nie. Usługa linku prywatnego za pośrednictwem podstawowego modułu równoważenia obciążenia nie jest obsługiwana.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Czy dedykowana podsieć jest wymagana dla usługi link prywatny? 
 Nie. Usługa link prywatny nie wymaga dedykowanej podsieci. Możesz wybrać dowolną podsieć w sieci wirtualnej, w której została wdrożona usługa.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Jestem dostawcą usług korzystającym z prywatnego linku platformy Azure. Czy muszę mieć pewność, że wszyscy klienci mają unikatową przestrzeń adresów IP i nie nakładają się na przestrzeń adresową IP? 
-Nie. Usługa Azure Private Link udostępnia te funkcje. W związku z tym nie trzeba mieć nienakładających się przestrzeni adresowych z przestrzenią adresową klienta. 
+### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Jestem dostawcą usług przy użyciu prywatnego linku platformy Azure. Czy muszę mieć pewność, że wszyscy klienci mają unikatową przestrzeń adresów IP i nie nakładają się na przestrzeń adresową IP? 
+Nie. Usługa Azure Private Link udostępnia te funkcje. Nie trzeba mieć nienakładających się przestrzeni adresowych z przestrzenią adresową klienta. 
 
 ##  <a name="next-steps"></a>Następne kroki
 

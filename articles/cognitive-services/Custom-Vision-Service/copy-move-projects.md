@@ -9,18 +9,18 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532699"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758578"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Kopiowanie i przenoszenie projektów Custom Vision
 
 Po utworzeniu i przeszkoleniu projektu Custom Vision warto skopiować projekt do innego zasobu. Na przykład możesz chcieć przenieść projekt z programowania do środowiska produkcyjnego lub utworzyć kopię zapasową projektu na koncie w innym regionie świadczenia usługi Azure, aby zwiększyć bezpieczeństwo danych.
 
-Interfejsy API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** i **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** umożliwiają ten scenariusz, umożliwiając kopiowanie projektów z jednego konta Custom Vision do innych. W tym przewodniku pokazano, jak używać tych interfejsów API REST z zwinięciem. Możesz również użyć usługi żądania HTTP, takiej jak program Poster, aby wydać żądania.
+Interfejsy API **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** i **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** umożliwiają ten scenariusz, umożliwiając kopiowanie projektów z jednego konta Custom Vision do innych. W tym przewodniku pokazano, jak używać tych interfejsów API REST z zwinięciem. Możesz również użyć usługi żądania HTTP, takiej jak program Poster, aby wydać żądania.
 
 ## <a name="business-scenarios"></a>Scenariusze biznesowe
 

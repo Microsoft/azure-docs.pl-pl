@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90016558"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759241"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Szybki Start: Tworzenie obwodu usługi ExpressRoute z prywatną usługą komunikacji równorzędnej przy użyciu szablonu usługi ARM
 
@@ -49,7 +49,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 Aby znaleźć więcej szablonów związanych z usługą ExpressRoute, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure. 
 
@@ -120,11 +120,7 @@ W tym przewodniku szybki start utworzono:
 * Publiczny adres IP
 * sieciowe grupy zabezpieczeń
 
-Aby dowiedzieć się więcej na temat łączenia sieci wirtualnej z obwodem, przejdź do samouczków ExpressRoute.
+Aby dowiedzieć się, jak połączyć sieć wirtualną z obwodem, przejdź do samouczków ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Samouczki ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Więcej informacji na temat przepływów pracy usługi ExpressRoute znajduje się w artykule [ExpressRoute workflows](expressroute-workflows.md) (Przepływy pracy usługi ExpressRoute).
-* Aby uzyskać więcej informacji o komunikacji równorzędnej obwodu, zobacz artykuł [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu usługi ExpressRoute).
-* Więcej informacji na temat pracy z sieciami wirtualnymi znajduje się w artykule [Virtual network overview](../virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych).

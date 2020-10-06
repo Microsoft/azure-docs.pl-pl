@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 542532ba660c9d625b22a06e989f5a7d13e7a9d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 35398d60008ac52ba16dca0a0201f8c2f2101a0f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664974"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758561"
 ---
 # <a name="sms-concepts"></a>Pojęcia dotyczące wiadomości SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Usługa Azure Communication Services umożliwia wysyłanie i odbieranie wiadomości SMS przy użyciu bibliotek klienckich programu SMS usług komunikacyjnych. Te biblioteki klienckie mogą służyć do obsługi scenariuszy obsługi klienta, przypomnień o terminie, uwierzytelniania dwuskładnikowego i innych potrzeb związanych z łącznością w czasie rzeczywistym. Usługi komunikacyjne programu SMS umożliwiają niezawodne wysyłanie komunikatów przy jednoczesnym ujawnianiu informacji o dostarczaniu i częstotliwości odpowiedzi w ramach kampanii.
 

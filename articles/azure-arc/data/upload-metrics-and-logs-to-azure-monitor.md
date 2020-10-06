@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630003"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757473"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
@@ -95,7 +95,7 @@ Wykonaj następujące polecenia, aby utworzyć nazwę główną usługi przekazy
 Aby utworzyć nazwę główną usługi, uruchom następujące polecenie:
 
 > [!NOTE]
-> Tworzenie jednostki usługi wymaga [pewnych uprawnień na platformie Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+> Tworzenie jednostki usługi wymaga [pewnych uprawnień na platformie Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

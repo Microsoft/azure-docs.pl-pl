@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253160"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757847"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
-Link Synapse dla Azure Cosmos DB to natywna w pełni funkcjonalna funkcja przetwarzania danych transakcyjnych i analitycznych (HTAP) w chmurze, która umożliwia uruchamianie analizy niemal w czasie rzeczywistym w Azure Cosmos DB. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
+[Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md) to natywna w chmurze funkcja przetwarzania transakcyjnego i analitycznego (HTAP), która pozwala uruchamiać analizę niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych w Azure Cosmos DB. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Aby korzystać z usługi Azure Synapse, upewnij się, że masz konto Azure Cosmos DB & obszarze roboczym usługi Azure Synapse Analytics w jednym z obsługiwanych regionów. Link Synapse platformy Azure jest obecnie dostępny w następujących regionach świadczenia usługi Azure: zachodnie stany USA, Wschodnie stany USA, zachodni stany USA 2, Europa Północna, Europa Zachodnia, Południowe Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Australia Wschodnia, Wschodni wschód, Południowe Zjednoczone Królestwo.
@@ -34,7 +34,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto platformy Azure](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto Azure Cosmos DB.
 
@@ -46,7 +46,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
 1. Następnie zostanie wyświetlony komunikat z prośbą o włączenie linku Synapse na Twoim koncie. Wybierz pozycję **Włącz**. Ten proces może potrwać od 1 do 5 minut.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Włącz funkcję linku Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
 1. Twoje konto ma teraz włączoną funkcję linku Synapse. Następnie zobacz jak utworzyć kontenery obsługujące magazyn analityczny, aby automatycznie rozpocząć replikację danych operacyjnych z magazynu transakcyjnego do magazynu analitycznego.
 
@@ -68,7 +68,7 @@ Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas
 
 1. Wybierz pozycję **nowy kontener** i wprowadź nazwę bazy danych, kontenera, klucza partycji i szczegółów przepływności. Włącz opcję **Magazyn analityczny** . Po włączeniu magazynu analitycznego tworzy on kontener z `AnalyicalTTL` właściwością ustawioną na wartość domyślną-1 (nieograniczone przechowywanie). Ten magazyn analityczny zachowuje wszystkie historyczne wersje rekordów.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Włącz magazyn analityczny dla kontenera usługi Azure Cosmos":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
 1. Jeśli na tym koncie nie włączono wcześniej linku Synapse, zostanie wyświetlony monit z pytaniem, że jest to wymaganie wstępne do utworzenia kontenera z włączonym magazynem analitycznym. Jeśli zostanie wyświetlony monit, wybierz pozycję **Włącz łącze Synapse**. Ten proces może potrwać od 1 do 5 minut.
 

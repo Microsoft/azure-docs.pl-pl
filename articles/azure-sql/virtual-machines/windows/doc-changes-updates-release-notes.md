@@ -1,5 +1,5 @@
 ---
-title: Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines | Microsoft Docs
+title: Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines
 description: Dowiedz się więcej o nowych funkcjach i ulepszeniach dla różnych wersji SQL Server na platformie Azure Virtual Machines.
 services: virtual-machines-windows
 author: MashaMSFT
@@ -10,18 +10,25 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.openlocfilehash: a596a57b2b4ac914514fcdefe77106c311e53c44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/21/2020
+ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272671"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758646"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Server wbudowane. Ten artykuł zawiera podsumowanie zmian w dokumentacji związanych z nowymi funkcjami i ulepszeniami w ostatnich wersjach [SQL Server na platformie Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+| Zmiany | Szczegóły |
+| --- | --- |
+| **Automatyczna rejestracja RP** | Teraz można włączyć funkcję [automatycznej rejestracji](sql-vm-resource-provider-automatic-registration.md) , aby automatycznie rejestrować wszystkie SQL Server maszyny wirtualne już wdrożone w ramach subskrypcji, a także wszystkie SQL Server maszyny wirtualne dodane w przyszłości.  | 
+
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -71,7 +78,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | **Rejestracja dostawcy zasobów zbiorczych** | Teraz można [rejestrować zbiorczo](sql-vm-resource-provider-bulk-register.md) SQL Server maszyn wirtualnych przy użyciu dostawcy zasobów. | 
 |**Konfiguracja magazynu zoptymalizowanego pod kątem wydajności** | Teraz można w [pełni dostosować konfigurację magazynu](storage-configuration.md#new-vms) podczas tworzenia nowej maszyny wirtualnej SQL Server. |
 |**Udział plików w warstwie Premium dla FCI** | Teraz można utworzyć wystąpienie klastra trybu failover przy użyciu [udziału plików Premium](failover-cluster-instance-premium-file-share-manually-configure.md) zamiast oryginalnej metody [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
-| **Azure Dedicated Host** | Maszynę wirtualną SQL Server można uruchomić na [dedykowanym hoście platformy Azure](dedicated-host.md). | 
+| **Dedykowany Host platformy Azure** | Maszynę wirtualną SQL Server można uruchomić na [dedykowanym hoście platformy Azure](dedicated-host.md). | 
 | **SQL Server migrację maszyny wirtualnej do innego regionu** | Użyj Azure Site Recovery, aby [migrować maszynę wirtualną SQL Server z jednego regionu do innego](move-sql-vm-different-region.md). |
 |  **Nowe tryby instalacji programu SQL IaaS** | Teraz można zainstalować rozszerzenie SQL Server IaaS w [trybie uproszczonym](sql-server-iaas-agent-extension-automate-management.md) , aby uniknąć ponownego uruchomienia usługi SQL Server.  |
 | **Modyfikacja wersji SQL Server** | Teraz możesz zmienić [Właściwość wersji](change-sql-server-edition.md) dla maszyny wirtualnej SQL Server. |
@@ -83,7 +90,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | **Obsługa nazwanych wystąpień** | Teraz można użyć [rozszerzenia SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) z nazwanym wystąpieniem, jeśli domyślne wystąpienie zostało odinstalowane prawidłowo. | 
 | **Rozszerzenie portalu** | Azure Portal środowisko wdrażania SQL Server maszyny wirtualnej zostało odnowionych w celu poprawy użyteczności. Aby uzyskać więcej informacji, zobacz krótkie Przewodnik [szybkiego startu](sql-vm-create-portal-quickstart.md) i dokładniejsze [instrukcje](create-sql-vm-portal.md) dotyczące wdrażania SQL Server maszyny wirtualnej.|
 | **Udoskonalenie portalu** | Teraz można zmienić model licencjonowania dla maszyny wirtualnej SQL Server, wybierając pozycję płatność zgodnie z rzeczywistym użyciem, aby przenieść własną licencję przy użyciu [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Uproszczenie wdrażania grup dostępności na maszynie wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure** | Wdrażanie grupy dostępności na maszynie wirtualnej SQL Server na platformie Azure jest teraz łatwiejsze niż kiedykolwiek wcześniej. Możesz użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) do utworzenia klastra trybu failover systemu Windows, wewnętrznego modułu równoważenia obciążenia i odbiorników grup dostępności, a wszystko to w wierszu poleceń. Aby uzyskać więcej informacji, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure w celu skonfigurowania grupy dostępności Always On dla SQL Server na maszynie wirtualnej platformy Azure](availability-group-az-cli-configure.md). | 
+| **Uproszczenie wdrażania grup dostępności na maszynie wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure** | Wdrażanie grupy dostępności na maszynie wirtualnej SQL Server na platformie Azure jest teraz łatwiejsze niż kiedykolwiek wcześniej. Możesz użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) do utworzenia klastra trybu failover systemu Windows, wewnętrznego modułu równoważenia obciążenia i odbiorników grup dostępności, a wszystko to w wierszu poleceń. Aby uzyskać więcej informacji, zobacz [Korzystanie z interfejsu wiersza polecenia platformy Azure w celu skonfigurowania grupy dostępności Always On dla SQL Server na maszynie wirtualnej platformy Azure](availability-group-az-cli-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -97,7 +104,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 |**Przełącz model licencjonowania** | Teraz możesz przechodzić między modelami "płatność za użycie" i "Przenieś własne" dla maszyny wirtualnej SQL Server za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Aby uzyskać więcej informacji, zobacz [jak zmienić model licencjonowania dla SQL Server maszyny wirtualnej na platformie Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 **Maszyny wirtualne z systemem Windows**:
 

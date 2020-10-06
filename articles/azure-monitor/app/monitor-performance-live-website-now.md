@@ -4,12 +4,12 @@ description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdra�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923827"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758667"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
@@ -40,14 +40,14 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 
 |  | W czasie kompilacji | W czasie wykonywania |
 | --- | --- | --- |
-| **Żądania & wyjątki** |Yes |Yes |
-| **[Bardziej szczegółowe wyjątki](./asp-net-exceptions.md)** | |Yes |
+| **Żądania & wyjątki** |Tak |Tak |
+| **[Bardziej szczegółowe wyjątki](./asp-net-exceptions.md)** | |Tak |
 | **[Diagnostyka zależności](./asp-net-dependencies.md)** |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
-| **[Liczniki wydajności sytemu](./performance-counters.md)** |Yes |Yes |
-| **[Interfejs API dla telemetrii niestandardowej][api]** |Yes |Nie |
-| **[Integracja dziennika śledzenia](./asp-net-trace-logs.md)** |Yes |Nie |
-| **[Widok strony & dane użytkownika](./javascript.md)** |Yes |Nie |
-| **Konieczność ponownej kompilacji kodu** |Yes | Nie |
+| **[Liczniki wydajności sytemu](./performance-counters.md)** |Tak |Tak |
+| **[Interfejs API dla telemetrii niestandardowej][api]** |Tak |Nie |
+| **[Integracja dziennika śledzenia](./asp-net-trace-logs.md)** |Tak |Nie |
+| **[Widok strony & dane użytkownika](./javascript.md)** |Tak |Nie |
+| **Konieczność ponownej kompilacji kodu** |Tak | Nie |
 
 
 
@@ -130,7 +130,7 @@ Aby naprawić web.config:
 </dependentAssembly>
 ```
 
-[Tutaj](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)śledzimy ten problem.
+[Tutaj](https://github.com/MohanGsk/ApplicationInsights-Home)śledzimy ten problem.
 
 
 ### <a name="application-diagnostic-messages"></a>Komunikaty diagnostyczne aplikacji

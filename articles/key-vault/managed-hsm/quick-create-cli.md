@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001023"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756824"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Szybki Start: udostępnianie zarządzanego modułu HSM i aktywowanie go przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -76,7 +76,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 Dane wyjściowe tego polecenia przedstawiają właściwości zarządzanego modułu HSM, który został utworzony. Dwie najważniejsze właściwości to:
 
 * **Nazwa**: w tym przykładzie nazwa to ContosoMHSM. Ta nazwa będzie używana do innych poleceń Key Vault.
-* **hsmUri**: w tym przykładzie identyfikator URI to https://contosohsm.managedhsm.azure.net . Aplikacje korzystające z modułu HSM za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
+* **hsmUri**: w przykładzie identyfikator URI to " https://contosohsm.managedhsm.azure.net ." Aplikacje korzystające z modułu HSM za pomocą interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym zarządzanym module HSM. Od tej pory nikt nie jest autoryzowany.
 

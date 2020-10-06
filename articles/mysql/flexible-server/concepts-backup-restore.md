@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939306"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756538"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL elastyczny serwer, program automatycznie tworzy kopie z
 
 Elastyczny serwer pobiera kopie zapasowe plików danych i zapisuje je w lokalnym nadmiarowym magazynie. Serwer wykonuje również kopie zapasowe dzienników transakcji i przechowuje je w lokalnym magazynie nadmiarowym. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować kopię zapasową bazy danych od 1 do 35 dni. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego dla danych przechowywanych w spoczynku.
 
-Nie można eksportować tych plików kopii zapasowej. Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Możesz również użyć [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)   z klienta MySQL, aby skopiować bazę danych.
+Nie można eksportować tych plików kopii zapasowej. Kopie zapasowe mogą być używane tylko w przypadku operacji przywracania na serwerze elastycznym. Możesz również użyć [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   z klienta MySQL, aby skopiować bazę danych.
 
 ## <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
 

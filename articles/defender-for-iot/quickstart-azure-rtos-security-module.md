@@ -4,21 +4,21 @@ description: Dowiedz się, jak dołączyć i włączyć moduł zabezpieczeń dla
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 09/24/2020
+ms.author: rkarlin
+ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947522"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759736"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Ten artykuł zawiera opis wymagań wstępnych przed rozpoczęciem pracy i wyjaś
 - NXP i.MX RT1060 EVK
 - Mikroukład SAM E54 Xplained Pro EVK
 
-Pobieraj, Kompiluj i uruchamiaj jeden z plików. zip dla konkretnej tablicy i narzędzia (IAR, IDE lub PC) wybranego z [modułu zabezpieczeń dla zasobu usługi Azure RTO](hhtps://github.com/azure-rtos/azure-iot-preview/releases)w serwisie GitHub.
+Pobieraj, Kompiluj i uruchamiaj jeden z plików. zip dla konkretnej tablicy i narzędzia (IAR, IDE lub PC) wybranego z [modułu zabezpieczeń dla zasobu usługi Azure RTO](https://github.com/azure-rtos/azure-iot-preview/releases)w serwisie GitHub.
 
 ### <a name="azure-resources"></a>Zasoby platformy Azure
 

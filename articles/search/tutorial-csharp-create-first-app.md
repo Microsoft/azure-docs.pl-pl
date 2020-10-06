@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23cf7cdb75f1889f58cec152b1b520deac3f6839
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2414570a1d483cd7630e628b13c92dbdc331370d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740619"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759139"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -55,15 +55,15 @@ Gotowa wersja kodu w tym samouczku można znaleźć w następującym projekcie:
 
 * [1 — podstawowe-strona wyszukiwania (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
+Ten samouczek został zaktualizowany do korzystania z pakietu Azure.Search.Documents (wersja 11). Aby uzyskać wcześniejszą wersję zestawu .NET SDK, zobacz [przykład kodu Microsoft. Azure. Search (wersja 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
+
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+Ponieważ używasz publicznego indeksu wyszukiwania przykładowego hostowanego przez firmę Microsoft, nie potrzebujesz usługi Search ani konta platformy Azure dla tego samouczka.
 
 * [Program Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Biblioteka kliencka usługi Azure Wyszukiwanie poznawcze (wersja 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-Ten samouczek został zaktualizowany do korzystania z pakietu Azure.Search.Documents (wersja 11). Aby uzyskać wcześniejszą wersję zestawu .NET SDK, zobacz [przykład kodu Microsoft. Azure. Search (wersja 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
-
-Ponieważ używasz publicznego przykładu hostowanego przez firmę Microsoft, nie potrzebujesz usługi Search ani konta platformy Azure dla tego samouczka.
 
 ### <a name="install-and-run-the-project-from-github"></a>Instalowanie i uruchamianie projektu z usługi GitHub
 
@@ -89,7 +89,7 @@ Aby utworzyć projekt od podstaw i w ten sposób wzmocnić koncepcje Wyszukiwani
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Wyszukiwanie * Pool *" border="true":::
 
-1. Nadaj projektowi nazwę, taką jak "FirstSearchApp", i Ustaw lokalizację. Wybierz przycisk **Utwórz**.
+1. Nadaj projektowi nazwę, taką jak "FirstSearchApp", i Ustaw lokalizację. Wybierz pozycję **Utwórz**.
 
 1. Wybierz szablon projektu **aplikacja sieci Web (Model-View-Controller)** .
 

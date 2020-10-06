@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510516"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757031"
 ---
 # <a name="how-to-manage-settings"></a>Jak zarządzać ustawieniami
 
@@ -51,6 +51,8 @@ Jeśli nie masz subskrypcji, wykonaj następujące czynności:
 
     ![Okno dialogowe Tworzenie nowego obszaru roboczego](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Usługa translatora niestandardowego nie obsługuje tworzenia obszaru roboczego dla zasobu interfejs API tłumaczenia tekstu w usłudze Translator (vel Klucz subskrypcji platformy Azure), który został utworzony w ramach [włączonej sieci wirtualnej](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Modyfikuj istniejący klucz
 
@@ -61,7 +63,7 @@ Jeśli nie masz subskrypcji, wykonaj następujące czynności:
 
 3. W oknie dialogowym wprowadź klucz subskrypcji usługi translator, a następnie kliknij przycisk "Zapisz".
 
-    ![Jak dodać klucz subskrypcji](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Dodawanie klucza subskrypcji — okno dialogowe](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Zarządzanie obszarem roboczym
 
