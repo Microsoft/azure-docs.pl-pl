@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 2a66ef2f91715180ae84036fc7eead759e7ee00f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685055"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447669"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizowanie kosztów za pomocą aplikacji Azure Cost Management usługi Power BI dla umów Enterprise Agreement (EA)
 
@@ -47,7 +47,7 @@ Aby zainstalować aplikację:
 9. W wyświetlonym oknie dialogowym wprowadź swój numer rejestracji EA dla wartości **BillingProfileIdOrEnrollmentNumber**. Określ liczbę miesięcy, z których mają zostać pobrane dane. Pozostaw domyślną wartość pola **Zakres** (**Numer rejestracji**), a następnie wybierz pozycję **Dalej**.  
   ![Wprowadzanie informacji o rejestracji EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. Następne okno dialogowe łączy się z platformą Azure i pobiera dane wymagane przez rekomendacje dotyczące wystąpień zarezerwowanych. *Pozostaw wartości domyślne zgodnie z konfiguracją*, a następnie wybierz pozycję **Zaloguj się**.  
-  ![Łączenie się z platformą Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![Zrzut ekranu przedstawia okno dialogowe Nawiązywanie połączenia z aplikacją Azure Cost Management z wartościami domyślnymi.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. W ostatnim kroku instalacji następuje nawiązanie połączenia z rejestracją EA. Jest do tego wymagane konto [administratora przedsiębiorstwa](../manage/understand-ea-roles.md). Wybierz pozycję **Zaloguj się**, aby uwierzytelnić się w rejestracji EA. Ten krok uruchamia również akcję odświeżania danych w usłudze Power BI.  
   ![Nawiązywanie połączenia z rejestracją EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -189,7 +189,7 @@ Ten błąd występuje, gdy zmienisz metodę uwierzytelniania na potrzeby połąc
 
 1. Nawiązywanie połączenia z danymi.
 1. Po wprowadzeniu rejestracji w ramach umowy EA i liczby miesięcy upewnij się, że dla metody uwierzytelniania jest ustawiona wartość domyślna **Anonymous**, a dla poziomu prywatności wartość **None**.  
-  ![Łączenie się z platformą Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![Zrzut ekranu przedstawia okno dialogowe Nawiązywanie połączenia z aplikacją Azure Cost Management z wprowadzonymi wartościami Anonymous i None.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. Na następnej stronie ustaw wartość **OAuth2** dla metody uwierzytelniania i wartość **None** dla poziomu prywatności. Następnie zaloguj się, aby uwierzytelnić się w rejestracji. Ten krok uruchamia również odświeżanie danych w usłudze Power BI.
 
 

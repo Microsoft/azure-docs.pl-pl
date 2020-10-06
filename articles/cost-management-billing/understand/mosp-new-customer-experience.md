@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690429"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371746"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Rozpoczynanie pracy ze zaktualizowanym kontem rozliczeniowym platformy Azure
 
@@ -113,7 +113,7 @@ W poniższych sekcjach znajdują się dodatkowe informacje o nowym środowisku.
 
 **Brak przestojów usługi** Usługi platformy Azure w ramach Twojej subskrypcji będą działały bez jakiejkolwiek przerwy. Aktualizacją jest objęte tylko Twoje środowisko rozliczeniowe. Istniejące zasoby, grupy zasobów czy grupy zarządzania pozostaną niezmienione.
 
-**Brak zmian w zasobach platformy Azure** Ta aktualizacja nie ma wpływu na dostęp do zasobów platformy Azure ustawiony przy użyciu funkcji kontroli dostępu na podstawie ról platformy Azure (Azure RBAC).
+**Brak zmian w zasobach platformy Azure** Ta aktualizacja nie ma wpływu na dostęp do zasobów platformy Azure ustawiony przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 
 **Wcześniejsze faktury są dostępne w nowym środowisku** Faktury wygenerowane przed zaktualizowaniem konta będą nadal dostępne w witrynie Azure Portal.
 

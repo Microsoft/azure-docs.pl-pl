@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371885"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Przyznawanie dostępu do tworzenia subskrypcji Enterprise platformy Azure (wersja zapoznawcza)
 
@@ -23,11 +23,11 @@ Jako klient platformy Azure posiadający umowę [Enterprise Agreement (EA)](http
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscription.md), użytkownicy muszą mieć [rolę właściciela RBAC](../../role-based-access-control/built-in-roles.md#owner) na tym koncie. Można przyznać użytkownikowi lub grupie użytkowników rolę właściciela RBAC na koncie rejestracji, wykonując następujące czynności:
+Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscription.md), użytkownicy muszą mieć [rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) RBAC platformy Azure na tym koncie. Można przyznać użytkownikowi lub grupie użytkowników rolę właściciela RBAC platformy Azure na koncie rejestracji, wykonując następujące czynności:
 
 1. Pobierz identyfikator obiektu konta rejestracji, do którego chcesz przyznać dostęp
 
-    Aby przyznać innym osobom rolę właściciela RBAC konta rejestracji, musisz być właścicielem konta lub właścicielem RBAC tego konta.
+    Aby przyznać innym osobom rolę właściciela RBAC platformy Azure konta rejestracji, musisz być właścicielem konta lub właścicielem RBAC platformy Azure tego konta.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscri
     }
     ```
 
-    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
+    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
 
     # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscri
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC. Skopiuj właściwość `ObjectId` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Wklej ten identyfikator obiektu w dogodnym miejscu, aby można było użyć go w następnym kroku jako właściwości `enrollmentAccountObjectId`.
+    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure. Skopiuj właściwość `ObjectId` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Wklej ten identyfikator obiektu w dogodnym miejscu, aby można było użyć go w następnym kroku jako właściwości `enrollmentAccountObjectId`.
 
     # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscri
 
     ---
 
-    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
+    Użyj właściwości `principalName`, aby określić konto, na którym chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure. Skopiuj właściwość `name` tego konta. Jeśli na przykład chcesz przyznać użytkownikowi dostęp właściciela RBAC platformy Azure na koncie rejestracji SignUpEngineering@contoso.com, skopiuj wartość ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Jest to identyfikator obiektu konta rejestracji. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Pobierz identyfikator obiektu użytkownika lub grupy, którym chcesz przyznać rolę właściciela RBAC
+1. <a id="userObjectId"></a>Pobierz identyfikator obiektu użytkownika lub grupy, którym chcesz przyznać rolę właściciela RBAC platformy Azure
 
     1. W witrynie Azure Portal wyszukaj pozycję **Azure Active Directory**.
     1. Jeśli chcesz przyznać dostęp użytkownikowi, wybierz pozycję **Użytkownicy** w menu po lewej stronie. Jeśli chcesz przyznać dostęp grupie, wybierz pozycję **Grupy**.
-    1. Wybierz użytkownika lub grupę, którym chcesz przyznać rolę właściciela RBAC.
+    1. Wybierz użytkownika lub grupę, którym chcesz przyznać rolę właściciela RBAC platformy Azure.
     1. Jeśli wybrano użytkownika, identyfikator obiektu znajdziesz na stronie Profil. Jeśli wybrano grupę, identyfikator obiektu znajdziesz na stronie Przegląd. Skopiuj wartość **ObjectID**, wybierając ikonę po prawej stronie pola tekstowego. Wklej tę wartość w dogodnym miejscu, aby można było użyć jej w następnym kroku jako właściwości `userObjectId`.
 
-1. Przyznaj użytkownikowi lub grupie rolę właściciela RBAC na koncie rejestracji
+1. Przyznaj użytkownikowi lub grupie rolę właściciela RBAC platformy Azure na koncie rejestracji
 
-    Za pomocą wartości zebranych w pierwszych dwóch krokach przyznaj użytkownikowi lub grupie rolę właściciela RBAC na koncie rejestracji.
+    Za pomocą wartości zebranych w pierwszych dwóch krokach przyznaj użytkownikowi lub grupie rolę właściciela RBAC platformy Azure na koncie rejestracji.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ Aby [tworzyć subskrypcje na koncie rejestracji](programmatically-create-subscri
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Gdy użytkownik zostanie właścicielem RBAC na koncie rejestracji, będzie mógł [programowo tworzyć subskrypcje](programmatically-create-subscription.md) w ramach tego konta. Subskrypcja utworzona przez delegowanych użytkowników nadal ma oryginalnego właściciela konta lub administratora usługi, ale domyślnie jej właścicielem RBAC jest również delegowany użytkownik.
+    Gdy użytkownik zostanie właścicielem RBAC platformy Azure na koncie rejestracji, będzie mógł [programowo tworzyć subskrypcje](programmatically-create-subscription.md) w ramach tego konta. Subskrypcja utworzona przez delegowanych użytkowników nadal ma oryginalnego właściciela konta lub administratora usługi, ale domyślnie jej właścicielem RBAC platformy Azure jest również delegowany użytkownik.
 
     ---
 

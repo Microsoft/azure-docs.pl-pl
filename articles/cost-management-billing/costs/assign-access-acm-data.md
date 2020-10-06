@@ -9,20 +9,20 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: c69dc63af6bacb4aaf1beda1a0846a98b06ec209
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371970"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Przypisywanie dostępu do danych usługi Cost Management
 
-W przypadku użytkowników platformy Azure korzystających z umów Enterprise Agreement połączenie uprawnień udzielonych w witrynie Azure Portal i portalu Enterprise (EA) definiuje poziom dostępu użytkownika do danych usługi Azure Cost Management. W przypadku użytkowników z innymi typami kont platformy Azure definiowanie poziomu dostępu użytkownika do danych usługi Cost Management jest prostsze przy użyciu kontroli dostępu na podstawie ról na platformie Azure. W tym artykule przedstawiono sposób przypisywania dostępu do danych usługi Cost Management. Po przypisaniu kombinacji uprawnień użytkownik wyświetla dane w usłudze Cost Management na podstawie jego zakresu dostępu oraz w zakresie wybranym przez niego w witrynie Azure Portal.
+W przypadku użytkowników platformy Azure korzystających z umów Enterprise Agreement połączenie uprawnień udzielonych w witrynie Azure Portal i portalu Enterprise (EA) definiuje poziom dostępu użytkownika do danych usługi Azure Cost Management. W przypadku użytkowników z innymi typami kont platformy Azure definiowanie poziomu dostępu użytkownika do danych usługi Cost Management jest prostsze przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure. W tym artykule przedstawiono sposób przypisywania dostępu do danych usługi Cost Management. Po przypisaniu kombinacji uprawnień użytkownik wyświetla dane w usłudze Cost Management na podstawie jego zakresu dostępu oraz w zakresie wybranym przez niego w witrynie Azure Portal.
 
 Wybrany przez użytkownika zakres będzie stosowany w całej usłudze Cost Management w celu zapewnienia konsolidacji danych i kontrolowania dostępu do informacji o kosztach. W przypadku korzystania z zakresów użytkownicy nie dokonują ich wielokrotnego wyboru. Zamiast tego wybierają większy zakres, na który są rzutowane zakresy podrzędne, a następnie filtrują go w dół do elementów, które chcą wyświetlić. Konsolidacja danych jest ważna, ponieważ niektóre osoby nie powinny mieć dostępu do zakresu nadrzędnego, który obejmuje zakresy podrzędne.
 
-Obejrzyj wideo [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) (Kontrolowanie dostępu w usłudze Cost Management), aby dowiedzieć się więcej o przypisaniu dostępu do wyświetlania kosztów i opłat za pomocą kontroli dostępu opartej na rolach na platformie Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
+Obejrzyj wideo [Kontrolowanie dostępu w usłudze Cost Management](https://www.youtube.com/watch?v=_uQzQ9puPyM), aby dowiedzieć się więcej o przypisaniu dostępu do wyświetlania kosztów i opłat za pomocą kontroli dostępu na podstawie ról (RBAC) platformy Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -71,7 +71,7 @@ Aby włączyć opcję w witrynie Azure Portal:
 1. W obszarze **Ustawienia** wybierz element menu **Zasady**, a następnie skonfiguruj ustawienie.  
     ![Zasady zakresu rozliczeniowego z opcjami wyświetlania opłat](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-Po włączeniu opcji wyświetlania opłat większość zakresów wymaga również konfiguracji uprawnień kontroli dostępu na podstawie ról (RBAC) w witrynie Azure Portal.
+Po włączeniu opcji wyświetlania opłat większość zakresów wymaga również konfiguracji uprawnień kontroli dostępu na podstawie ról (RBAC) platformy Azure w witrynie Azure Portal.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Zapewnianie dostępu do kosztów w portalu EA
 
@@ -84,7 +84,7 @@ Aby włączyć opcję w portalu EA:
 3. Dla zakresów zarządzania kosztami, do których chcesz zapewnić dostęp, włącz opcję opłat **Wyświetlanie opłat dla administratora działu** i/lub **Wyświetlanie opłat dla właściciela konta**.  
     ![Karta Rejestrowanie przedstawiająca opcje Wyświetlanie opłat dla administratora działu i Wyświetlanie opłat dla właściciela konta](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Po włączeniu opcji wyświetlania opłat większość zakresów wymaga również konfiguracji uprawnień kontroli dostępu na podstawie ról (RBAC) w witrynie Azure Portal.
+Po włączeniu opcji wyświetlania opłat większość zakresów wymaga również konfiguracji uprawnień kontroli dostępu na podstawie ról (RBAC) platformy Azure w witrynie Azure Portal.
 
 ## <a name="enterprise-administrator-role"></a>Rola administratora przedsiębiorstwa
 
@@ -182,9 +182,9 @@ Dostęp do grupy zasobów wymaga co najmniej uprawnienia Cost Management — czy
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemy z uwierzytelnianiem w wielu dzierżawach
 
-Obecnie usługa Azure Cost Management ma ograniczoną obsługę uwierzytelniania między dzierżawami. W niektórych sytuacjach podczas próby uwierzytelnienia w dzierżawach może zostać wyświetlony błąd **Odmowa dostępu** w analizie kosztów. Ten problem może wystąpić, jeśli konfigurujesz kontrolę dostępu na podstawie ról (RBAC) w ramach subskrypcji innej dzierżawy, a następnie próbujesz wyświetlić dane dotyczące kosztów.
+Obecnie usługa Azure Cost Management ma ograniczoną obsługę uwierzytelniania między dzierżawami. W niektórych sytuacjach podczas próby uwierzytelnienia w dzierżawach może zostać wyświetlony błąd **Odmowa dostępu** w analizie kosztów. Ten problem może wystąpić, jeśli konfigurujesz kontrolę dostępu na podstawie ról (RBAC) platformy Azure w ramach subskrypcji innej dzierżawy, a następnie próbujesz wyświetlić dane dotyczące kosztów.
 
-*Aby obejść ten problem*: Po skonfigurowaniu kontroli RBAC w wielu dzierżawach odczekaj godzinę. Następnie spróbuj wyświetlić koszty w analizie kosztów lub udziel dostępu do usługi Cost Management użytkownikom w obu dzierżawach.  
+*Aby obejść ten problem*: Po skonfigurowaniu kontroli RBAC na platformie Azure w wielu dzierżawach odczekaj godzinę. Następnie spróbuj wyświetlić koszty w analizie kosztów lub udziel dostępu do usługi Cost Management użytkownikom w obu dzierżawach.  
 
 
 ## <a name="next-steps"></a>Następne kroki

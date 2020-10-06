@@ -1,6 +1,6 @@
 ---
 title: Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla umowy partnerskiej firmy Microsoft
-description: Dowiedz się, jak uzyskiwać własność rozliczeń subskrypcji platformy Azure od innych użytkowników.
+description: Dowiedz się, jak uzyskiwać własność rozliczeń subskrypcji platformy Azure od innych użytkowników na potrzeby umowy Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371018"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft
 
@@ -35,7 +35,7 @@ Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu poświadczeń agenta administratora dostawcy usług w chmurze w dzierżawie dostawcy usług w chmurze.
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w witrynie Azure Portal](./media/mpa-request-ownership/search-cmb.png)
+    ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost management + Billing w witrynie Azure Portal w celu zażądania własności rozliczeń.](./media/mpa-request-ownership/search-cmb.png)
 1. Wybierz pozycję **Klienci** po lewej stronie, a następnie wybierz klienta z listy.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie**.  
@@ -56,7 +56,7 @@ Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w witrynie Azure Portal](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal dla stanu żądania przeniesienia.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Wybierz pozycję **Klienci** po lewej stronie.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Wybierz z listy klienta, dla którego wysłano żądanie przeniesienia.
@@ -127,7 +127,7 @@ Rezerwacje platformy Azure nie są automatycznie przenoszone wraz z subskrypcjam
 
 ### <a name="access-to-azure-services"></a>Dostęp do usług platformy Azure
 
-Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane przy użyciu usługi [Azure RBAC (kontroli dostępu opartej na rolach)](../../role-based-access-control/overview.md). Partner nie uzyska nowego dostępu RBAC do subskrypcji.
+Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane w ramach [kontroli dostępu na podstawie ról (RBAC) platformy Azure](../../role-based-access-control/overview.md). Partner nie uzyska nowego dostępu RBAC platformy Azure do subskrypcji.
 
 Partnerzy powinni skontaktować się z klientem w celu uzyskania dostępu do subskrypcji. Partnerzy muszą uzyskać [Dostęp administratora w imieniu — AOBO (Admin on Behalf Of)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) lub [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider), aby otwierać bilety pomocy technicznej.
 
@@ -174,4 +174,4 @@ Jeśli potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://port
 ## <a name="next-steps"></a>Następne kroki
 
 * Własność rozliczeń subskrypcji platformy Azure zostaje przeniesiona na użytkownika. Śledź opłaty za te subskrypcje w witrynie [Azure Portal](https://portal.azure.com).
-* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Zarządzaj dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Dodaj lub usuń przypisania ról platformy Azure przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

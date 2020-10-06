@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372191"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -234,7 +234,7 @@ Istnieje wiele sposobów konfigurowania budżetu w środowisku platformy Azure. 
 - **Okres** — określa, jak długo budżet jest ważny. Budżet aktywnie monitoruje i wyświetla alerty tylko w okresie swojej ważności.
 - **Powiadomienia**
   - Kontakty e-mail — gdy budżet nalicza koszty i przekracza zdefiniowane progi, na adresy e-mail są wysyłane alerty.
-  - Role kontaktu — ta opcja powoduje, że alerty e-mail otrzymują wszyscy użytkownicy z odpowiednią rolą RBAC platformy Azure. Na przykład właściciele subskrypcji mogą otrzymać alert o utworzeniu budżetu w zakresie subskrypcji.
+  - Role kontaktu — ta opcja powoduje, że alerty e-mail otrzymują wszyscy użytkownicy z odpowiednią rolą na platformie Azure. Na przykład właściciele subskrypcji mogą otrzymać alert o utworzeniu budżetu w zakresie subskrypcji.
   - Grupy kontaktów — po przekroczeniu progu alertu budżet wywołuje skonfigurowane grupy akcji.
 - **Filtry wymiaru kosztu** — to samo filtrowanie, które można przeprowadzić w analizie kosztów lub interfejsie API zapytania, jest również dostępne w budżecie. Ten filtr umożliwia ograniczenie zakresu kosztów monitorowanych w budżecie.
 

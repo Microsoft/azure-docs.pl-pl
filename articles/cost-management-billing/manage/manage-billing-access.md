@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: f42c185046e6ce78edd234923da1a3390ed08608
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371817"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure
 
@@ -40,7 +40,7 @@ Administrator konta może udzielać innym osobom dostępu do informacji rozlicze
 
 Role te mają dostęp do informacji dotyczących rozliczeń w witrynie [Azure Portal](https://portal.azure.com/). Osoby, którym przypisano te role, mogą również używać [interfejsów API](usage-rate-card-overview.md) do programistycznego uzyskiwania informacji o fakturach i użyciu.
 
-Aby przypisać role, zobacz [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby przypisać role, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ** Jeśli jesteś klientem z umową EA, właściciel konta może przypisać powyższą rolę innym użytkownikom w zespole. Jednak aby użytkownicy mogli wyświetlać informacje dotyczące rozliczeń, administrator przedsiębiorstwa musi włączyć wyświetlanie opłat przez właściciela konta w witrynie Enterprise Portal.
 
@@ -105,7 +105,7 @@ Funkcja czytelnika rozliczeń jest dostępna w wersji zapoznawczej i nie obsług
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Użytkownicy z innymi rolami, takimi jak Właściciel lub Współautor, mogą uzyskać dostęp nie tylko do informacji rozliczeniowych, ale również do usług platformy Azure. Aby zarządzać tymi rolami, zobacz [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+- Użytkownicy z innymi rolami, takimi jak Właściciel lub Współautor, mogą uzyskać dostęp nie tylko do informacji rozliczeniowych, ale również do usług platformy Azure. Aby zarządzać danymi rolami, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 - Aby uzyskać więcej informacji o rolach, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.

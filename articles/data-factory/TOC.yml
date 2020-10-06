@@ -399,7 +399,7 @@
           href: connector-shopify.md
         - name: Snowflake
           href: connector-snowflake.md
-        - name: Spark
+        - name: platforma Spark
           href: connector-spark.md
         - name: SQL Server
           href: connector-sql-server.md
@@ -544,6 +544,8 @@
           href: data-flow-new-branch.md
         - name: Przestawianie
           href: data-flow-pivot.md
+        - name: Ranga
+          href: data-flow-rank.md
         - name: Wybierz pozycję
           href: data-flow-select.md
         - name: Ujście

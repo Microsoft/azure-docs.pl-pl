@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368723"
 ---
 # <a name="buy-a-reservation"></a>Kupowanie rezerwacji
 
@@ -123,7 +123,7 @@ W zależności od tego, jak płacisz za subskrypcję platformy Azure, powiadomie
 W przypadku klientów z subskrypcjami EA:
 
 - Powiadomienia są wysyłane tylko do kontaktów dla powiadomień ustawionych w ramach umowy EA.
-- Użytkownicy dodani do rezerwacji przy użyciu uprawnień RBAC (Zarządzanie dostępem i tożsamościami) nie otrzymują żadnych powiadomień e-mail.
+- Użytkownicy dodani do rezerwacji przy użyciu uprawnienia RBAC platformy Azure (Zarządzanie dostępem i tożsamościami) nie otrzymują żadnych powiadomień e-mail.
 
 W przypadku klientów z subskrypcjami indywidualnymi:
 

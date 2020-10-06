@@ -1,6 +1,6 @@
 ---
 title: Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
-description: Opisuje sposób dodawania lub zmieniania administratora subskrypcji platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC).
+description: Opisuje sposób dodawania lub zmieniania administratora subskrypcji platformy Azure przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
@@ -9,21 +9,21 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2ccdb16af788f6f8d106628742b2a83e25b26263
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372310"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
 
 Zarządzanie dostępem do zasobów platformy Azure wymaga odpowiedniej roli administratora. Platforma Azure ma system autoryzacji zwany [kontrolą dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/overview.md) z kilkoma wbudowanymi rolami do wyboru. Te role można przypisywać do różnych zakresów, takich jak grupa zarządzania, subskrypcja lub grupa zasobów. Domyślnie osoba, która tworzy nową subskrypcję platformy Azure, może przypisywać innym użytkownikom dostęp administracyjny do tej subskrypcji.
 
-W tym artykule opisano sposób dodawania lub zmieniania roli administratora dla użytkownika przy użyciu funkcji RBAC w zakresie subskrypcji.
+W tym artykule opisano sposób dodawania lub zmieniania roli administratora dla użytkownika przy użyciu systemu RBAC platformy Azure w zakresie subskrypcji.
 
-Firma Microsoft zaleca, aby zarządzać dostępem do zasobów przy użyciu ról RBAC. Jeśli jednak nadal korzystasz z klasycznego modelu wdrażania i zarządzasz zasobami klasycznymi przy użyciu [modułu programu PowerShell do zarządzania usługami platformy Azure](/powershell/module/servicemanagement/azure.service), musisz użyć administratora klasycznego.
+Firma Microsoft zaleca, aby zarządzać dostępem do zasobów przy użyciu systemu RBAC platformy Azure. Jeśli jednak nadal korzystasz z klasycznego modelu wdrażania i zarządzasz zasobami klasycznymi przy użyciu [modułu programu PowerShell do zarządzania usługami platformy Azure](/powershell/module/servicemanagement/azure.service), musisz użyć administratora klasycznego.
 
 > [!TIP]
 > Jeśli do zarządzania zasobami klasycznymi używasz tylko witryny Azure Portal, nie musisz używać administratora klasycznego.

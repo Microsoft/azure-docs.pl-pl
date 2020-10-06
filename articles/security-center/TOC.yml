@@ -263,8 +263,6 @@
       href: release-notes-archive.md
     - name: Blog harmonogramu działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
-    - name: Wycofywanie funkcji i interfejsów API (lipiec 2019 r.)
-      href: security-center-features-retirement-july2019.md
     - name: Rekomendacje i ocena ochrony punktu końcowego
       href: security-center-endpoint-protection.md
 - name: Zasoby

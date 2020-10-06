@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372259"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -22,7 +22,7 @@ Usługa Azure Cost Management jest natywnie dostępna dla bezpośrednich partner
 
 W przypadku bezpośrednich partnerów i dostawców pośrednich administrator globalny oraz agenci administratora mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie partnera i zarządzać kosztami według zafakturowanych cen.
 
-Odsprzedawcy i klienci mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie klienta i wyświetlić koszty dla subskrypcji, które są obliczane i przedstawiane przy użyciu stawek detalicznych. Jednak muszą oni mieć dostęp RBAC do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
+Odsprzedawcy i klienci mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie klienta i wyświetlić koszty dla subskrypcji, które są obliczane i przedstawiane przy użyciu stawek detalicznych. Jednak muszą oni mieć dostęp RBAC platformy Azure do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
 
 Klienci mogą korzystać z funkcji usługi Cost Management, jeśli są one włączone przez ich partnera będącego dostawcą usług w chmurze.
 
@@ -55,13 +55,13 @@ Usługa Azure Cost Management wymaga dostępu do odczytu do konta rozliczenioweg
 
 Aby uzyskać więcej informacji na temat włączania i przypisywania dostępu do usługi Azure Cost Management dla konta rozliczeniowego, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview). Kosztami dla konta rozliczeniowego mogą zarządzać role **Administrator globalny** i **Agent administratora**.
 
-Aby uzyskać dostęp do usługi Azure Cost Management w zakresie subskrypcji, każdy użytkownik z dostępem RBAC do subskrypcji może wyświetlać koszty po stawkach detalicznych (płatność zgodnie z rzeczywistym użyciem). Jednak [zasady widoczności kosztów dla dzierżawy klienta](#enable-the-policy-to-view-azure-usage-charges) muszą być włączone. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
+Aby uzyskać dostęp do usługi Azure Cost Management w zakresie subskrypcji, każdy użytkownik z dostępem RBAC platformy Azure do subskrypcji może wyświetlać koszty po stawkach detalicznych (płatność zgodnie z rzeczywistym użyciem). Jednak [zasady widoczności kosztów dla dzierżawy klienta](#enable-the-policy-to-view-azure-usage-charges) muszą być włączone. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Jak usługa Cost Management używa zakresów
 
-Zakresy to miejsce, w którym zarządzasz danymi dotyczącymi rozliczeń, masz role specyficzne dla płatności, wyświetlasz faktury i ogólnie zarządzasz kontami. Role rozliczeń i kont są zarządzane oddzielnie od zakresów używanych do zarządzania zasobami, które używają mechanizmu RBAC. Aby wyraźnie odróżnić przeznaczenie poszczególnych zakresów, a w tym różnice w kontroli dostępu, są one określane odpowiednio jako zakresy rozliczeń i zakresy RBAC.
+Zakresy to miejsce, w którym zarządzasz danymi dotyczącymi rozliczeń, masz role specyficzne dla płatności, wyświetlasz faktury i ogólnie zarządzasz kontami. Role rozliczeń i kont są zarządzane oddzielnie od zakresów używanych do zarządzania zasobami, które używają systemu RBAC platformy Azure. Aby wyraźnie odróżnić przeznaczenie poszczególnych zakresów, a w tym różnice w kontroli dostępu, są one określane odpowiednio jako zakresy rozliczeń i zakresy RBAC platformy Azure.
 
-Aby zrozumieć zakresy rozliczeń i zakresy RBAC oraz to, jak działa zarządzanie kosztami przy użyciu zakresów, zobacz [Opis zakresów i praca z nimi](understand-work-scopes.md).
+Aby zrozumieć zakresy rozliczeń i zakresy RBAC platformy Azure oraz to, jak działa zarządzanie kosztami przy użyciu zakresów, zobacz [Opis zakresów i praca z nimi](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Zarządzanie kosztami przy użyciu zakresów rozliczeń dzierżawy partnera
 
@@ -116,9 +116,9 @@ Tylko użytkownicy mający role **Administrator globalny** i **Agent administrat
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Włączanie zarządzania kosztami dla subskrypcji dzierżawy klienta
 
-Partnerzy mogą włączyć dostęp do usługi Cost Management po dołączeniu klientów do Umowy z Klientem Microsoft. Następnie partnerzy mogą włączyć zasady umożliwiające klientom wyświetlanie ich kosztów usług używanych w ramach platformy Azure obliczonych na podstawie stawek detalicznych za płatność zgodnie z rzeczywistym użyciem. Koszty są pokazane w walucie rozliczeniowej klienta dla ich użycia w ramach subskrypcji RBAC i zakresów grup zasobów.
+Partnerzy mogą włączyć dostęp do usługi Cost Management po dołączeniu klientów do Umowy z Klientem Microsoft. Następnie partnerzy mogą włączyć zasady umożliwiające klientom wyświetlanie ich kosztów usług używanych w ramach platformy Azure obliczonych na podstawie stawek detalicznych za płatność zgodnie z rzeczywistym użyciem. Koszty są pokazane w walucie rozliczeniowej klienta dla ich użycia w ramach subskrypcji systemu RBAC platformy Azure i zakresów grup zasobów.
 
-Po włączeniu przez partnera zasad dotyczących widoczności kosztów każdy użytkownik, który ma dostęp w usłudze Azure Resource Manager do subskrypcji, może zarządzać kosztami i analizować je według stawek płatności zgodnie z rzeczywistym użyciem. Efektywnie odsprzedawcy i klienci, którzy mają odpowiedni dostęp RBAC do subskrypcji platformy Azure, mogą wyświetlać koszt.
+Po włączeniu przez partnera zasad dotyczących widoczności kosztów każdy użytkownik, który ma dostęp w usłudze Azure Resource Manager do subskrypcji, może zarządzać kosztami i analizować je według stawek płatności zgodnie z rzeczywistym użyciem. Efektywnie odsprzedawcy i klienci, którzy mają odpowiedni dostęp RBAC platformy Azure do subskrypcji platformy Azure, mogą wyświetlać koszt.
 
 Niezależnie od zasad administratorzy globalni i agenci administratora dostawcy mogą wyświetlać koszty subskrypcji, jeśli mają dostęp do subskrypcji i grupy zasobów.
 
@@ -149,9 +149,9 @@ Aby wyświetlić koszty dla subskrypcji, otwórz panel **Zarządzanie kosztami i
 
 [![Wyświetlanie analizy kosztów jako klient](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-Analiza kosztów, budżety i alerty są dostępne dla zakresów subskrypcji i zakresów RBAC grup zasobów z kosztami bazującymi na płatności zgodnie z rzeczywistym użyciem.
+Analiza kosztów, budżety i alerty są dostępne dla zakresów subskrypcji i zakresów RBAC platformy Azure grup zasobów z kosztami bazującymi na płatności zgodnie z rzeczywistym użyciem.
 
-Widoki amortyzowane i rzeczywiste koszty dla wystąpień zarezerwowanych w zakresach RBAC pokazują zero opłat. Koszty wystąpień zarezerwowanych są wyświetlane tylko w zakresach rozliczeniowych, w których dokonano zakupów.
+Widoki amortyzowane i rzeczywiste koszty dla wystąpień zarezerwowanych w zakresach RBAC platformy Azure pokazują zero opłat. Koszty wystąpień zarezerwowanych są wyświetlane tylko w zakresach rozliczeniowych, w których dokonano zakupów.
 
 Stawki detaliczne używane do obliczania kosztów pokazanych w widoku to te same ceny, które są widoczne w kalkulatorze cen platformy Azure dla wszystkich klientów. Pokazane koszty nie obejmują żadnych rabatów ani środków, które mogą być w posiadaniu partnera, takich jak środki uzyskane przez partnerów, rabaty dotyczące warstw i zniżki na usługi globalne.
 
@@ -159,7 +159,7 @@ Stawki detaliczne używane do obliczania kosztów pokazanych w widoku to te same
 
 Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą badać i analizować zafakturowane koszty w analizie kosztów u klientów dla określonego klienta lub faktury. W widoku [Analiza kosztów](quick-acm-cost-analysis.md) możesz także [zapisywać widoki](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) i eksportować dane do [plików CSV i PNG](quick-acm-cost-analysis.md#download-usage-data).
 
-Użytkownicy RBAC z dostępem do subskrypcji w dzierżawie klienta mogą również analizować koszty sprzedaży detalicznej dla subskrypcji w dzierżawie klienta, zapisywać widoki oraz eksportować dane do plików CSV i PNG.
+Użytkownicy systemu RBAC platformy Azure z dostępem do subskrypcji w dzierżawie klienta mogą również analizować koszty sprzedaży detalicznej dla subskrypcji w dzierżawie klienta, zapisywać widoki oraz eksportować dane do plików CSV i PNG.
 
 W celu przeanalizowania kosztów według wielu pól możesz użyć funkcji filtrowania i grupowania w analizie kosztów. Pola specyficzne dla partnera są wyświetlane w następnej sekcji.
 
@@ -223,8 +223,8 @@ Następujące pola danych znajdują się w plikach szczegółów użycia i inter
 | costinBillingCurrency | Koszt rozszerzony lub zmieszany przed opodatkowaniem w walucie rozliczeniowej. | Nie dotyczy |
 | costinPricingCurrency | Koszt rozszerzony lub zmieszany przed opodatkowaniem w walucie cennika w celu skorelowania z cenami. | Nie dotyczy |
 | **costinUSD** | Szacowany koszt rozszerzony lub zmieszany przed opodatkowaniem w USD. | Nie dotyczy |
-| **paygCostInBillingCurrency** | Pokazuje koszty, jeśli cennik zawiera ceny detaliczne. Pokazuje ceny płatności zgodnie z rzeczywistym użyciem w walucie rozliczeniowej. Dostępne tylko w zakresach RBAC. | Nie dotyczy |
-| **paygCostInUSD** | Pokazuje koszty, jeśli cennik zawiera ceny detaliczne. Pokazuje ceny płatności zgodnie z rzeczywistym użyciem w USD. Dostępne tylko w zakresach RBAC. | Nie dotyczy |
+| **paygCostInBillingCurrency** | Pokazuje koszty, jeśli cennik zawiera ceny detaliczne. Pokazuje ceny płatności zgodnie z rzeczywistym użyciem w walucie rozliczeniowej. Dostępne tylko w zakresach RBAC platformy Azure. | Nie dotyczy |
+| **paygCostInUSD** | Pokazuje koszty, jeśli cennik zawiera ceny detaliczne. Pokazuje ceny płatności zgodnie z rzeczywistym użyciem w USD. Dostępne tylko w zakresach RBAC platformy Azure. | Nie dotyczy |
 | exchangeRate | Kurs wymiany używany do konwersji z waluty cennika na walutę rozliczeń. | Określany jako PCToBCExchangeRate w Centrum partnerskim. Kurs wymiany waluty cennika na walutę rozliczeń.|
 | exchangeRateDate | Data kursu wymiany używanego do konwersji z waluty cennika na walutę rozliczeń. | Określana jako PCToBCExchangeRateDat w Centrum partnerskim. Data kursu wymiany waluty cennika na walutę rozliczeń.|
 | isAzureCreditEligible | Wskazuje, czy koszt można opłacić ze środków na korzystanie z platformy Azure. | Nie dotyczy |
@@ -262,7 +262,7 @@ Możesz również grupować i filtrować według właściwości **PartnerEarnedC
 
 Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą eksportować swoje dane dotyczące kosztów i użycia do obiektu blob usługi Azure Storage. Obiekt blob musi znajdować się w subskrypcji w dzierżawie partnera, która nie jest subskrypcją usługi udostępnionej ani subskrypcją klienta. Aby włączyć eksportowanie danych kosztów, zalecamy skonfigurowanie niezależnej subskrypcji płatnej zgodnie z rzeczywistym użyciem w dzierżawie partnera w celu hostowania wyeksportowanych danych kosztów. Konto magazynu do eksportowania jest tworzone w obiekcie blob usługi Azure Storage hostowanej w ramach subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem. Na podstawie zakresu, w którym partner tworzy eksport, skojarzone dane są automatycznie cyklicznie eksportowane na konto magazynu.
 
-Użytkownicy z dostępem RBAC do subskrypcji mogą również eksportować dane kosztów do obiektu blob usługi Azure Storage hostowanego w dowolnej subskrypcji w dzierżawie klienta.
+Użytkownicy z dostępem RBAC platformy Azure do subskrypcji mogą również eksportować dane kosztów do obiektu blob usługi Azure Storage hostowanego w dowolnej subskrypcji w dzierżawie klienta.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Tworzenie eksportu w dzierżawie partnera lub dzierżawie klienta
 
@@ -276,7 +276,7 @@ Następnie wybierz pozycję **Dodaj** oraz wpisz nazwę i wybierz typ eksportu. 
 
 Po utworzeniu eksportu w dzierżawie partnera wybierz subskrypcję z płatnością zgodnie z rzeczywistym użyciem w dzierżawie partnera. Utwórz konto usługi Azure Storage za pomocą tej subskrypcji.
 
-W przypadku użytkowników RBAC w dzierżawie klienta wybierz subskrypcję w dzierżawie klienta. Utwórz konto usługi Azure Storage za pomocą tej subskrypcji.
+W przypadku użytkowników systemu RBAC platformy Azure w dzierżawie klienta wybierz subskrypcję w dzierżawie klienta. Utwórz konto usługi Azure Storage za pomocą tej subskrypcji.
 
 Przejrzyj zawartość, a następnie wybierz pozycję **Utwórz**, aby zaplanować eksport.
 

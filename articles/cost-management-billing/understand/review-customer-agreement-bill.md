@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689528"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447538"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Samouczek: Przeglądanie faktury dla Umowy z Klientem Microsoft
 
@@ -47,7 +47,7 @@ Sprawdź typ umowy, aby określić, czy masz dostęp do konta rozliczeniowego um
 
 W witrynie Azure Portal wpisz w polu wyszukiwania *zarządzanie kosztami i rozliczenia*, a następnie wybierz pozycję **Zarządzanie kosztami i rozliczenia**.
 
-![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w witrynie Azure Portal](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Zrzut ekranu przedstawia wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Jeśli masz dostęp tylko do jednego zakresu rozliczeniowego, wybierz pozycję **Właściwości** po lewej stronie. Masz dostęp do konta rozliczeniowego umowy klienta firmy Microsoft, jeśli typ konta rozliczeniowego to **Umowa klienta firmy Microsoft**.
 
@@ -106,7 +106,7 @@ Wybierz kartę **Podsumowanie** w górnej części ekranu.
 
 W sekcji Opłaty są wyświetlane opłaty za bieżący i poprzedni miesiąc.
 
-![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w witrynie Azure Portal](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Zrzut ekranu przedstawia podsumowanie profilu rozliczeniowego.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Opłaty za bieżący miesiąc to oczekujące opłaty naliczone w tym miesiącu, które zostaną rozliczone w momencie wygenerowania faktury za ten miesiąc. Jeśli jeszcze nie wygenerowano faktury za poprzedni miesiąc, opłaty z tego miesiąca również będą oznaczone jako oczekujące i pojawią się na najbliższej fakturze.
 
@@ -138,7 +138,7 @@ Wybierz pozycję **Wszystkie subskrypcje** po lewej stronie.
 
 Na stronie subskrypcji platformy Azure są wyświetlane opłaty za bieżący i ubiegły miesiąc, dotyczące poszczególnych subskrypcji z profilu rozliczeniowego. Opłaty za bieżący miesiąc to oczekujące opłaty naliczone w tym miesiącu, które zostaną rozliczone w momencie wygenerowania faktury za ten miesiąc. Jeśli jeszcze nie wygenerowano faktury za poprzedni miesiąc, opłaty z tego miesiąca również będą oznaczone jako oczekujące.
 
-![Zrzut ekranu przedstawiający listę subskrypcji platformy Azure dla profilu rozliczeniowego](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Zrzut ekranu przedstawia subskrypcje z opłatami za bieżący miesiąc i opłatami za ostatni miesiąc.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analizowanie opłat za użycie platformy Azure
 
@@ -172,7 +172,7 @@ Możesz przefiltrować plik CSV z danymi o użyciu platformy Azure i opłatach, 
 
 Na poniższej ilustracji przedstawiono listę subskrypcji w witrynie Azure Portal.
 
-![Zrzut ekranu przedstawiający listę subskrypcji platformy Azure dla profilu rozliczeniowego](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Zrzut ekranu przedstawia listę subskrypcji w witrynie Azure Portal z wywołaną jedną subskrypcją.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Przefiltruj kolumnę **subscriptionName** w pliku CSV użycia platformy Azure i opłat według wartości **WA_Subscription**, aby wyświetlić szczegółowe informacje o opłatach za użycie w ramach tej subskrypcji.
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362779"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizowanie kosztów przez dostosowanie konta rozliczeniowego
 
@@ -53,19 +53,19 @@ W tej sekcji opisano typowe scenariusze organizowania kosztów i właściwe dla 
 |---------|---------|
 |Jacek zakłada konto na platformie Azure i potrzebuje pojedynczej faktury miesięcznej. | Profil rozliczeniowy i sekcja faktury. Ta struktura jest automatycznie konfigurowana dla Jacka podczas zakładania konta na platformie Azure i nie wymaga żadnych dodatkowych kroków. |
 
-![Grafika informacyjna dotycząca prostego scenariusza rozliczania](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Grafika informacyjna dotycząca jednego scenariusza rozliczania.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenariusz  |Struktura  |
 |---------|---------|
 |Firma Contoso to mała organizacja, która potrzebuje jednej faktury miesięcznej, ale z grupowaniem kosztów według działów — marketingu i inżynierii.  | Profil rozliczeniowy dla firmy Contoso i sekcje faktury dla działów marketingu i inżynierii. |
 
-![Grafika informacyjna dotycząca prostego scenariusza rozliczania](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Grafika informacyjna dotycząca wielu scenariuszów rozliczania.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenariusz  |Struktura  |
 |---------|---------|
 |Fabrikam to organizacja średniej wielkości, która potrzebuje oddzielnych faktur dla działów inżynierii i marketingu. Dla działu inżynierii koszty mają być grupowane według środowisk — produkcyjnego i programistycznego.  | Profile rozliczeniowe dla działów marketingu i inżynierii. Dla działu inżynierii sekcje faktury dotyczące środowiska produkcyjnego i programistycznego. |
 
-![Grafika informacyjna dotycząca prostego scenariusza rozliczania](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Grafika informacyjna dotycząca wielu scenariuszów rozliczania z oddzielnymi rozliczeniami dla środowisk produkcyjnego i programistycznego.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Tworzenie nowej sekcji faktury
 
@@ -79,7 +79,7 @@ Aby utworzyć sekcję faktury, musisz być **właścicielem profilu rozliczeniow
 
 3. W okienku po lewej stronie wybierz pozycję **Profile rozliczeniowe**. Wybierz z listy profil rozliczeniowy. Nowa sekcja zostanie pokazana na fakturze wybranego profilu rozliczeniowego.
 
-   [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Wybierz pozycję **Sekcje faktury** z okienka po lewej stronie, a następnie wybierz pozycję **Dodaj** w górnej części strony.
 
@@ -107,7 +107,7 @@ Aby utworzyć profil rozliczeniowy, musisz być **właścicielem konta rozliczen
 
 3. Wybierz pozycję **Profile rozliczeniowe** z okienka po lewej stronie, a następnie wybierz pozycję **Dodaj** w górnej części strony.
 
-   [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych z wybraną pozycją Dodaj.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Po dostosowaniu konta rozliczeniowego do własnych potrzeb możesz połączyć s
 
 2. Wyszukaj pozycję **Subskrypcje**.
 
-   [![Zrzut ekranu przedstawiający wyszukiwanie subskrypcji w portalu](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Zrzut ekranu przedstawiający wyszukiwanie subskrypcji w witrynie Azure Portal.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Wybierz pozycję **Dodaj** w górnej części strony.
 
-   ![Zrzut ekranu przedstawiający przycisk Dodaj w widoku Subskrypcje](./media/mca-section-invoice/subscription-add.png)
+   ![Zrzut ekranu przedstawiający przycisk Dodaj w widoku Subskrypcje dla nowej subskrypcji.](./media/mca-section-invoice/subscription-add.png)
 
 4. Jeśli masz dostęp do wielu kont rozliczeniowych, wybierz konto rozliczeniowe dla Twojej Umowy z Klientem Microsoft.
 
-   ![Zrzut ekranu przedstawiający przycisk Dodaj w widoku Subskrypcje](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Zrzut ekranu przedstawiający okienko Tworzenie subskrypcji.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Wybierz profil rozliczeniowy, dla którego zostanie naliczona opłata za użycie subskrypcji. Opłaty za użycie platformy Azure i inne zakupy dla tej subskrypcji będą naliczane na fakturze w ramach wybranego profilu rozliczeniowego.
 
@@ -166,7 +166,7 @@ Jeśli masz istniejące subskrypcje platformy Azure lub inne produkty, takie jak
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
-   ![Zrzut ekranu przedstawiający wyszukiwanie subskrypcji w portalu](./media/mca-section-invoice/search-cmb.png)
+   ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal.](./media/mca-section-invoice/search-cmb.png)
 
 3. Aby połączyć subskrypcję z nową sekcją faktury, wybierz pozycję **Subskrypcje platformy Azure** z lewej strony ekranu. W przypadku innych produktów, takich jak zasoby z usług Azure Marketplace i AppSource, wybierz pozycję **Opłaty cykliczne**.
 

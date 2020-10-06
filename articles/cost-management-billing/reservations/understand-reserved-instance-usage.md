@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447877"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informacje na temat użycia rezerwacji platformy Azure dla indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem
 
@@ -74,7 +74,7 @@ Załóżmy, że uruchomiono usługę SQL Database Gen 4 w regionie Wschodnie sta
 
 Filtruj według nazwy miernika **Użycie wystąpień zarezerwowanych** i wybierz wymaganą **kategorię miernika** — Azure SQL Database lub Azure Cosmos DB. Zostaną wyświetlone informacje podobne do tych na poniższym zrzucie ekranu:
 
-![Plik CSV dla pojemności zarezerwowanej usługi SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Zrzut ekranu przedstawia wpis kategorii miernika.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 Wiersz **Reserved Instance Usage** (Użycie wystąpień zarezerwowanych) zawiera łączną liczbę godzin podstawowych objętych rezerwacją. Stawka dla tego wiersza wynosi 0 USD, ponieważ koszt został pokryty przez rezerwację.
 
@@ -82,7 +82,7 @@ Wiersz **Reserved Instance Usage** (Użycie wystąpień zarezerwowanych) zawiera
 
 Filtruj według pozycji **Dodatkowe informacje** i wpisz tekst **Identyfikator rezerwacji**. Poniższy zrzut ekranu przedstawia pola powiązane z rezerwacją pojemności zarezerwowanej usługi SQL Database.
 
-![Plik CSV dla pojemności zarezerwowanej usługi SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Zrzut ekranu przedstawia szczegóły pliku CSV dotyczące pojemności zarezerwowanej.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. Pozycja **ReservationId** w polu **Dodatkowe informacje** to rezerwacja pojemności zarezerwowanej usługi SQL Database stosowana do zasobów bazy danych SQL.
 2. **ConsumptionMeter** jest identyfikatorem miernika dla zasobów usługi SQL Database.

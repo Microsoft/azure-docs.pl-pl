@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 203a3b93f200a54ec40c96ee79c7fc822fac140b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270614"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Unikanie naliczania opłat za korzystanie z bezpłatnego konta platformy Azure
 
@@ -31,7 +31,7 @@ Korzystając z bezpłatnego konta platformy Azure, w każdym miesiącu otrzymuje
 
 ## <a name="you-used-some-services-that-arent-free"></a>Użyto usług, które nie są bezpłatne
 
-Po uaktualnieniu konta za korzystanie z usług, które nie są dostępne bezpłatnie w ramach bezpłatnego konta platformy Azure, są naliczane opłaty według stawek płatności zgodnie z rzeczywistym użyciem. Aby dowiedzieć się więcej o usługach dostępnych w ramach bezpłatnego konta, zobacz [Często zadawane pytania dotyczące bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/free-account-faq/). Użycie usług można sprawdzić w witrynie Azure Portal. Aby dowiedzieć się więcej, zobacz [Regularne sprawdzanie podziału kosztów i oceny wydajności w portalu](getting-started.md#costs).
+Po uaktualnieniu konta za korzystanie z usług, które nie są dostępne bezpłatnie w ramach bezpłatnego konta platformy Azure, są naliczane opłaty według stawek płatności zgodnie z rzeczywistym użyciem. Aby dowiedzieć się więcej o usługach dostępnych w ramach bezpłatnego konta, zobacz [Często zadawane pytania dotyczące bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/free-account-faq/). Użycie usług można sprawdzić w witrynie Azure Portal. Aby dowiedzieć się więcej, zobacz [Analizowanie nieoczekiwanych opłat](../understand/analyze-unexpected-charges.md).
 
 ## <a name="you-reached-the-end-of-your-free-12-months"></a>Zakończył się 12-miesięczny bezpłatny okres
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360700"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Konta i zakresy rozliczeniowe w witrynie Azure Portal
 
@@ -80,11 +80,11 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
-   ![Zrzut ekranu przedstawiający wyszukiwanie w witrynie Azure Portal](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. Na stronie przeglądu wybierz pozycję **Przełącz zakres**.
 
-   ![Zrzut ekranu przedstawiający zakresy rozliczeniowe](./media/view-all-accounts/overview-select-scopes.png)
+   ![Zrzut ekranu przedstawiający zakresy rozliczeniowe.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie r
 
 4. Wybierz zakres, aby wyświetlić szczegóły.
 
-   ![Zrzut ekranu przedstawiający zakresy rozliczeniowe](./media/view-all-accounts/list-of-scopes.png)
+   ![Zrzut ekranu przedstawiający zakresy rozliczeniowe, które można wybrać, aby uzyskać szczegółowe informacje.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Sprawdzanie typu konta
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

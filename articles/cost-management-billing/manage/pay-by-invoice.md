@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0667e253d50ecc34acef822a928a95e49f13282e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567915"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439785"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Płatność za subskrypcje platformy Azure przy użyciu faktury
 
@@ -85,7 +85,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przełączyć subskrypcję pla
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com), aby zalogować się jako administrator konta. Wyszukaj i wybierz obszar **Zarządzanie kosztami i rozliczenia**.
 
-    ![Wyszukiwanie obszaru Zarządzanie kosztami i rozliczenia, witryna Microsoft Azure Portal](./media/pay-by-invoice/search.png)
+    ![Zrzut ekranu przedstawia wyszukiwanie usługi Cost Management + Billing w witrynie Azure Portal.](./media/pay-by-invoice/search.png)
 
 1. Wybierz subskrypcję, którą chcesz przełączyć do płatności na podstawie faktury.
 1. Wybierz pozycję **Formy płatności**.

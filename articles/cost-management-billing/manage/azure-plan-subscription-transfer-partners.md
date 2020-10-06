@@ -1,30 +1,30 @@
 ---
-title: Przenoszenie subskrypcji platformy Azure między partnerami (wersja zapoznawcza)
+title: Przenoszenie subskrypcji ujętych w planie platformy Azure między partnerami (wersja zapoznawcza)
 description: W tym artykule zawarto informacje dotyczące przenoszenia własności rozliczeń subskrypcji platformy Azure.
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: banders
-ms.openlocfilehash: 246128ec3d26e4bf3f2a5a8f0660aab7d9daca3d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: cb9a035217734028df325555cb0954dedd29ac30
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89554206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372293"
 ---
-# <a name="transfer-azure-subscriptions-from-one-partner-to-another-preview"></a>Przenoszenie subskrypcji platformy Azure między partnerami (wersja zapoznawcza)
+# <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Przenoszenie subskrypcji ujętych w planie platformy Azure między partnerami (wersja zapoznawcza)
 
 W tym artykule zawarto informacje dotyczące przenoszenia własności rozliczeń subskrypcji platformy Azure. Aby rozpocząć przenoszenie subskrypcji platformy Azure ujętej w planie platformy Azure pomiędzy partnerami firmy Microsoft, musisz skontaktować się z partnerem. Od partnera dostaniesz instrukcje dotyczące rozpoczęcia tego procesu. Po zakończeniu procesu przenoszenia własność rozliczeń subskrypcji zostanie zmieniona.
 
 ## <a name="user-access"></a>Dostęp użytkowników
 
-Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane przy użyciu kontroli dostępu na podstawie ról (RBAC) na platformie Azure. [Kontrola dostępu na podstawie ról na platformie Azure](../../role-based-access-control/overview.md) ułatwia zarządzanie osobami mającymi dostęp do zasobów platformy Azure, czynnościami, jakie mogą wykonywać, oraz obszarami, do których mają dostęp. Przeniesienie subskrypcji nie oznacza, że nowy partner otrzymuje dostęp RBAC do Twoich zasobów. Poprzedni partner zatrzymuje dostęp RBAC.
+Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure. [Kontrola dostępu na podstawie ról na platformie Azure](../../role-based-access-control/overview.md) ułatwia zarządzanie osobami mającymi dostęp do zasobów platformy Azure, czynnościami, jakie mogą wykonywać, oraz obszarami, do których mają dostęp. Przeniesienie subskrypcji nie oznacza, że nowy partner otrzymuje dostęp RBAC platformy Azure do Twoich zasobów. Poprzedni partner zatrzymuje dostęp RBAC platformy Azure.
 
-W związku z tym musisz usunąć dostęp RBAC starego partnera do platformy Azure i nadać dostęp nowemu partnerowi. Aby uzyskać więcej informacji na temat nadawania dostępu nowemu partnerowi, zobacz [Co to jest kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md) Aby uzyskać więcej informacji na temat usuwania dostępu RBAC poprzedniego partnera, zobacz [Usuwanie przypisania roli](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
+W związku z tym musisz usunąć dostęp RBAC starego partnera do platformy Azure i nadać dostęp nowemu partnerowi. Aby uzyskać więcej informacji na temat nadawania dostępu nowemu partnerowi, zobacz [Co to jest kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md) Aby uzyskać więcej informacji na temat usuwania dostępu RBAC platformy Azure poprzedniego partnera, zobacz [Usuwanie przypisania roli](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
 
-Ponadto nowy partner nie otrzymuje automatycznie dostępu do subskrypcji w ramach funkcji [Administruj w imieniu (Admin on Behalf Of, AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Funkcja AOBO jest niezbędna, aby nowy partner mógł zarządzać subskrypcjami platformy Azure w Twoim imieniu. Aby uzyskać więcej informacji na temat nadawania nowemu partnerowi dostępu do funkcji AOBO, zobacz [Przenoszenie własności rozliczeń konta subskrypcji platformy Azure na inne konto](billing-subscription-transfer.md).
+Ponadto nowy partner nie otrzymuje automatycznie dostępu do subskrypcji w ramach funkcji [Administruj w imieniu (Admin on Behalf Of, AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Funkcja AOBO jest niezbędna, aby nowy partner mógł zarządzać subskrypcjami platformy Azure w Twoim imieniu. Aby uzyskać więcej informacji na temat uprawnień platformy Azure, zobacz [Uzyskiwanie uprawnień do zarządzania usługą lub subskrypcją klienta](/partner-center/customers-revoke-admin-privileges).
 
 ## <a name="stop-a-transfer"></a>Zatrzymywanie przenoszenia
 
@@ -38,5 +38,5 @@ Możesz również poszukać pomocy, a także zgłosić nieprawidłowe lub podejr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby nadać dostęp RBAC nowemu partnerowi, zobacz [Co to jest kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
-- Aby nadać nowemu partnerowi dostępu do funkcji AOBO, zobacz [Przenoszenie własności rozliczeń konta subskrypcji platformy Azure na inne konto](billing-subscription-transfer.md).
+- Aby nadać dostęp RBAC platformy Azure nowemu partnerowi, zobacz [Co to jest kontrola dostępu na podstawie ról (RBAC) platformy Azure?](../../role-based-access-control/overview.md)
+- [Uzyskiwanie uprawnień do zarządzania usługą lub subskrypcją klientów](/partner-center/customers-revoke-admin-privileges).

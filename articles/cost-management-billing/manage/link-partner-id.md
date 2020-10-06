@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371834"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Łączenie identyfikatora partnera z kontami platformy Azure
 
@@ -151,9 +151,9 @@ Raportowanie wydajności produktu w chmurze jest dostępne dla partnerów na [pu
 
 Klient może być niewidoczny w raportach z następujących powodów:
 
-1. Połączone konto użytkownika nie ma [dostępu opartego na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview) w żadnej subskrypcji ani zasobie klienta platformy Azure.
+1. Połączone konto użytkownika nie ma dostępu do [kontroli dostępu na podstawie ról (RBAC) platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) w żadnej subskrypcji ani zasobie klienta platformy Azure.
 
-2. Subskrypcja platformy Azure, w której użytkownik ma [dostęp oparty na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview), nie ma żadnego użycia.
+2. Subskrypcja platformy Azure, w której użytkownik ma dostęp do [kontroli dostępu na podstawie ról (RBAC) platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), nie ma żadnego użycia.
 
 **Czy identyfikator partnera hiperlinku współdziała z usługą Azure Stack?**
 

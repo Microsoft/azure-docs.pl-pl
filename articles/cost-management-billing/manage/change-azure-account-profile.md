@@ -1,25 +1,27 @@
 ---
-title: Zmiana informacji kontaktowych na koncie platformy Azure
-description: Opisano tutaj sposób modyfikowania informacji kontaktowych konta administratora platformy Azure
+title: Zmiana informacji kontaktowych na koncie rozliczeniowym platformy Azure
+description: Opisano tutaj sposób modyfikowania informacji kontaktowych konta rozliczeniowego platformy Azure
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6045afba230fa204dd5f93adc11b67ff0e3e209f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: contperfq1
+ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297729"
 ---
-# <a name="change-the-contact-information-for-your-azure-account"></a>Zmienianie informacji kontaktowych na koncie platformy Azure
+# <a name="change-contact-information-for-an-azure-billing-account"></a>Zmiana informacji kontaktowych na koncie rozliczeniowym platformy Azure
 
-Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące Twojego konta w witrynie Azure Portal. Instrukcje aktualizacji informacji kontaktowych różnią się w zależności od typu konta rozliczeniowego. Aby dowiedzieć się więcej na temat kont rozliczeniowych i identyfikowania typu konta rozliczeniowego, zobacz [Wyświetlanie kont rozliczeniowych w witrynie Azure Portal](view-all-accounts.md).
+Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące *konta rozliczeniowego* w witrynie Azure Portal. Instrukcje aktualizacji informacji kontaktowych różnią się w zależności od typu konta rozliczeniowego. Aby dowiedzieć się więcej na temat kont rozliczeniowych i identyfikowania typu konta rozliczeniowego, zobacz [Wyświetlanie kont rozliczeniowych w witrynie Azure Portal](view-all-accounts.md). Konto rozliczeniowe platformy Azure jest oddzielone od konta użytkownika i [konta Microsoft](https://account.microsoft.com/).
+
+Jeśli chcesz zaktualizować informacje o profilu użytkownika w usłudze Azure Active Directory, tylko administrator użytkowników może wprowadzić dane zmiany. Jeśli nie masz przypisanej roli administratora użytkowników, skontaktuj się z administratorem użytkowników. Aby uzyskać więcej informacji na temat zmian w profilu użytkownika, zobacz [Dodawanie lub aktualizowanie informacji w profilu użytkownika przy użyciu usługi Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Adres kupującego* — adres kupującego to adres oraz informacje kontaktowe organizacji lub osoby odpowiedzialnej za konto rozliczeniowe. Jest on widoczny na wszystkich fakturach wygenerowanych dla konta rozliczeniowego.
 
@@ -31,21 +33,21 @@ Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące Twojego 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z uprawnieniami administratora konta.
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
+    ![Zrzut ekranu przedstawiający miejsce wyszukiwania narzędzia Cost Management + Billing w witrynie Azure Portal](./media/change-azure-account-profile/search-cmb.png)
 1. Wybierz pozycję **Właściwości** po lewej stronie.  
-    ![Zrzut ekranu przedstawiający stronę aktualizowania adresu](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![Zrzut ekranu przedstawiający właściwości konta rozliczeniowego programu subskrypcji usług online firmy Microsoft](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. Wybierz pozycję **Aktualizuj adres na fakturze**, aby zaktualizować adresy kupującego i płatnika. Wprowadź nowy adres, a następnie wybierz pozycję **Zapisz**.  
-    ![Zrzut ekranu przedstawiający stronę aktualizowania adresu](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![Zrzut ekranu przedstawiający aktualizowanie adresu na koncie rozliczeniowym programu subskrypcji usług online firmy Microsoft](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Aktualizowanie adresu kupującego konta rozliczeniowego umowy z klientem Microsoft
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z przypisaną rolą właściciela lub współautora na koncie rozliczeniowym umowy z klientem firmy Microsoft.
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
+    ![Zrzut ekranu przedstawiający miejsce wyszukiwania w witrynie Azure Portal](./media/change-azure-account-profile/search-cmb.png)
 1. Wybierz pozycję **Właściwości** z lewej strony, a następnie wybierz pozycję **Aktualizuj kupującego**.  
-    ![Zrzut ekranu przedstawiający wybór opcji aktualizacji kupującego](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![Zrzut ekranu przedstawiający właściwości konta rozliczeniowego umowy z klientem firmy Microsoft, na którym można zmodyfikować adres kupującego](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. Wprowadź nowy adres i wybierz pozycję **Zapisz**.  
-    ![Zrzut ekranu pokazujący aktualizowanie adresu](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![Zrzut ekranu przedstawiający aktualizowanie adresu kupującego na koncie umowy z klientem Microsoft](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > Niektóre konta wymagają dodatkowej weryfikacji w celu aktualizacji kupującego. Jeśli na Twoim koncie wymagane jest ręczne zatwierdzenie, pojawi się monit o kontakt z pomocą techniczną platformy Azure.
@@ -54,13 +56,12 @@ Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące Twojego 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z przypisaną rolą właściciela lub współautora na koncie rozliczeniowym lub w profilu rozliczeniowym umowy z klientem firmy Microsoft.
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
 1. Po lewej stronie wybierz pozycję **Profile rozliczeniowe**.
 1. Wybierz profil rozliczeniowy, aby zaktualizować adres rozliczeniowy.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![Zrzut ekranu przedstawiający stronę Profile rozliczeniowe, na której wybierasz profil rozliczeniowy](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Wybierz pozycję **Właściwości** po lewej stronie.
 1. Wybierz pozycję **Aktualizuj adres**.  
-    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![Zrzut ekranu przedstawiający miejsce aktualizowania adresu](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Wprowadź nowy adres, a następnie wybierz pozycję **Zapisz**.  
     ![Zrzut ekranu przedstawiający aktualizowanie adresu](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
@@ -83,11 +84,9 @@ Wprowadź adres e-mail, na który chcesz otrzymywać wiadomości dotyczące kont
 
 Kontaktowy adres e-mail można zmienić, korzystając z jednej z następujących metod. Aktualizacja kontaktowego adresu e-mail nie oznacza aktualizacji adresu e-mail, za pomocą którego się logujesz.
 
-* Jeśli jesteś administratorem konta programu subskrypcji usług online firmy Microsoft, postępuj według instrukcji w sekcji [Aktualizowanie adresu konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft](#update-an-mosp-billing-account-address), a w ostatnim kroku wybierz pozycję **Aktualizuj informacje kontaktowe**. Następnie wprowadź nowy adres e-mail.
-
-* Przejdź do obszaru [Informacje kontaktowe](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) w witrynie Azure Portal i wprowadź nowy adres e-mail. 
-
-* W witrynie [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) wybierz ikonę z Twoimi inicjałami lub zdjęciem. Wybierz menu kontekstowe ( **...** ). Następnie wybierz pozycję **Moje informacje kontaktowe** z menu i wprowadź nowy adres e-mail.
+1. Jeśli jesteś administratorem konta programu subskrypcji usług online firmy Microsoft, postępuj według instrukcji w sekcji [Aktualizowanie adresu konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft](#update-an-mosp-billing-account-address), a w ostatnim kroku wybierz pozycję **Aktualizuj informacje kontaktowe**. Następnie wprowadź nowy adres e-mail.
+1. Przejdź do obszaru [Informacje kontaktowe](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) w witrynie Azure Portal i wprowadź nowy adres e-mail. 
+1. W witrynie [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) wybierz ikonę z Twoimi inicjałami lub zdjęciem. Wybierz menu kontekstowe ( **...** ). Następnie wybierz pozycję **Moje informacje kontaktowe** z menu i wprowadź nowy adres e-mail.
 
 ![Przykład aktualizacji adresu e-mail na platformie Azure](./media/change-azure-account-profile/azure-contact-information.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371919"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -175,7 +175,7 @@ Ten dokument zawiera odpowiedzi na często zadawane pytania dotyczące własnoś
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Ilu właścicieli konta platformy Azure można mieć na subskrypcję?
 
-Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu funkcji dostępu opartego na rolach lub kontroli dostępu (zarządzanie dostępem i tożsamościami) na karcie subskrypcji w lewym górnym rogu strony witryny [Azure Portal](https://portal.azure.com).
+Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure na karcie subskrypcji w lewym górnym rogu strony witryny [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Czy właściciel konta platformy Azure może być wymieniony w więcej niż jednym dziale?
 
@@ -191,7 +191,7 @@ Właściciel konta platformy Azure może utworzyć nieograniczoną liczbę subsk
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Jak mogę wyświetlić wszystkie subskrypcje mojej organizacji lub uzyskać do nich dostęp?
 
-Obecnie robi się to za pomocą zasad. Oznacza to, że należy wymagać tego dla każdej utworzonej subskrypcji i że Twoje konto jest dodawane do roli subskrypcji przy użyciu dostępu opartego na rolach.
+Obecnie robi się to za pomocą zasad. Oznacza to, że należy wymagać tego dla każdej utworzonej subskrypcji i że Twoje konto jest dodawane do roli subskrypcji przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Gdzie mogę utworzyć subskrypcję?
 

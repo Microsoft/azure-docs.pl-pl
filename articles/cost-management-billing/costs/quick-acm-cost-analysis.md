@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297865"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -150,7 +150,7 @@ Obejrzyj klip wideo [Udostępnianie i zapisywanie widoków w usłudze Azure Cost
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Aby przypiąć analizę kosztów, wybierz ikonę pinezki w prawym górnym rogu. Przypięcie analizy kosztów spowoduje zapisanie tylko głównego wykresu lub widoku tabeli. Udostępnij pulpit nawigacyjny, aby umożliwić innym użytkownikom dostęp do kafelka. Pamiętaj, że spowoduje to tylko udostępnienie konfiguracji pulpitu nawigacyjnego i nie udzieli innym użytkownikom dostępu do danych źródłowych. Jeśli nie masz dostępu do kosztów, ale masz dostęp do udostępnionego pulpitu nawigacyjnego, zobaczysz komunikat „odmowa dostępu”.
+Aby przypiąć analizę kosztów, wybierz ikonę pinezki w prawym górnym rogu lub bezpośrednio po nagłówku <Subscription Name> | Analiza kosztów”. Przypięcie analizy kosztów spowoduje zapisanie tylko głównego wykresu lub widoku tabeli. Udostępnij pulpit nawigacyjny, aby umożliwić innym użytkownikom dostęp do kafelka. Pamiętaj, że spowoduje to tylko udostępnienie konfiguracji pulpitu nawigacyjnego i nie udzieli innym użytkownikom dostępu do danych źródłowych. Jeśli nie masz dostępu do kosztów, ale masz dostęp do udostępnionego pulpitu nawigacyjnego, zobaczysz komunikat „odmowa dostępu”.
 
 Aby udostępnić link do analizy kosztów, wybierz pozycję **Udostępnij** w górnej części bloku. Zostanie wyświetlony niestandardowy adres URL, który otwiera ten konkretny widok dla określonego zakresu. Jeśli nie masz dostępu do kosztów i uzyskasz ten adres URL, zobaczysz komunikat „odmowa dostępu”.
 

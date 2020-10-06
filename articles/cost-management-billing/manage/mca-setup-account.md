@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371800"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurowanie konta rozliczeniowego dla umowy klienta firmy Microsoft
 
@@ -132,7 +132,7 @@ Usługi platformy Azure w ramach Twojej subskrypcji będą działały bez jakiej
 
 ### <a name="user-access-to-azure-resources"></a>Dostęp użytkowników do zasobów platformy Azure
 
-Proces przeniesienia nie wpływa na dostęp do zasobów platformy Azure ustawiony przy użyciu funkcji kontroli dostępu opartej na rolach platformy Azure.
+Proces przeniesienia nie wpływa na dostęp do zasobów platformy Azure ustawiony przy użyciu kontroli dostępu na podstawie ról (RBAC) platformy Azure.
 
 ### <a name="azure-reservations"></a>Rezerwacje platformy Azure
 
@@ -225,7 +225,7 @@ Rezerwacje platformy Azure w ramach rejestracji umowy Enterprise Agreement będ�
 
 4. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)** .
 
-   ![Zrzut ekranu pokazujący dostęp administratorów przedsiębiorstwa po przeniesieniu](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Zrzut ekranu przedstawiający dostęp administratorów przedsiębiorstwa wyświetlonych jako właściciele kont rozliczeniowych po przeniesieniu.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Administratorzy przedsiębiorstwa są wyświetlani jako właściciele konta rozliczeniowego, a administratorzy przedsiębiorstwa z uprawnieniami tylko do odczytu są wyświetlani jako czytelnicy konta rozliczeniowego. Jeśli uważasz, że administratorzy przedsiębiorstwa nie mają odpowiedniego dostępu, możesz udzielić im dostępu w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w witrynie Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -241,7 +241,7 @@ Administratorzy przedsiębiorstwa są wyświetlani jako właściciele konta rozl
 
 4. Po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)** .
 
-   ![Zrzut ekranu pokazujący dostęp administratorów przedsiębiorstwa po przeniesieniu](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Zrzut ekranu przedstawiający dostęp administratorów przedsiębiorstwa wyświetlanych jako właściciele profili rozliczeniowych po przeniesieniu.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Administratorzy przedsiębiorstwa są wyświetlani jako właściciele profilu rozliczeniowego, a administratorzy przedsiębiorstwa z uprawnieniami tylko do odczytu są wyświetlani jako czytelnicy profilu rozliczeniowego. Jeśli uważasz, że administratorzy przedsiębiorstwa nie mają odpowiedniego dostępu, możesz udzielić im dostępu w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Zarządzanie rolami rozliczeń w witrynie Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

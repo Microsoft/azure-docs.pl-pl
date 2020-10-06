@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: c4d328d2e2ef562813bcb529c104b3559f03066e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371902"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -101,13 +101,13 @@ W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciel
 
 Jeśli subskrypcja platformy Azure zostanie przeniesiona na konto w tej dzierżawie usługi Azure Active Directory, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [kontrolą dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/overview.md) używaną do zarządzania zasobami, zachowają dostęp.
 
-Aby wyświetlić użytkowników z dostępem RBAC do subskrypcji:
+Aby wyświetlić użytkowników z dostępem RBAC platformy Azure do subskrypcji:
 
 1. W witrynie Azure Portal otwórz pozycję **Subskrypcje**.
 2. Wybierz subskrypcję, którą chcesz wyświetlić, a następnie wybierz pozycję **Kontrola dostępu (Zarządzanie dostępem i tożsamościami)** .
-3. Wybierz pozycję **Przypisania ról**. Na stronie przypisań ról są wyświetlani wszyscy użytkownicy z dostępem RBAC do subskrypcji.
+3. Wybierz pozycję **Przypisania ról**. Na stronie przypisań ról są wyświetlani wszyscy użytkownicy z dostępem RBAC platformy Azure do subskrypcji.
 
-Jeśli subskrypcja zostanie przeniesiona na konto w innej dzierżawie usługi Azure AD, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [dostępem RBAC](../../role-based-access-control/overview.md) do zarządzania zasobami _utracą_ dostęp. Chociaż dostęp RBAC nie istnieje, dostęp do subskrypcji może być dostępny w ramach mechanizmów zabezpieczeń, takich jak przykład:
+Jeśli subskrypcja zostanie przeniesiona na konto w innej dzierżawie usługi Azure AD, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [dostępem RBAC platformy Azure](../../role-based-access-control/overview.md) do zarządzania zasobami _utracą_ dostęp. Chociaż dostęp RBAC platformy Azure nie istnieje, dostęp do subskrypcji może być dostępny w ramach mechanizmów zabezpieczeń, takich jak przykład:
 
 - Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
 - Klucze dostępu dla usług, takich jak Storage. Aby uzyskać więcej informacji, zobacz [Omówienie konta magazynu platformy Azure](../../storage/common/storage-account-overview.md).

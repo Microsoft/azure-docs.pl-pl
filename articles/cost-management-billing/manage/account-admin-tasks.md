@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ad39b9980562c345aff87f4e0771f265011886b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683304"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447696"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Zadania administratora konta w witrynie Azure Portal
 
@@ -35,14 +35,14 @@ Aby wykonać dowolne z tych zadań, musisz być administratorem konta.
 
 1. Na liście **Moje subskrypcje** wybierz subskrypcję, do której chcesz dodać kartę kredytową.
 
-   ![Zrzut ekranu przedstawiający przegląd siatki Moje subskrypcje](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Zrzut ekranu przedstawia stronę narzędzia Cost Management + Billing, na której można wybrać subskrypcję.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Jeśli niektóre subskrypcje nie są tutaj widoczne, może to oznaczać, że w pewnym momencie zmieniono katalog subskrypcji. Dla tych subskrypcji należy przełączyć katalog na katalog oryginalny (katalog, w którym początkowo utworzono konto). Następnie powtórz krok 2.
 
 1. Wybierz pozycję **Formy płatności**.
 
-    ![Zrzut ekranu przedstawiający wybrany blok Formy płatności.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Zrzut ekranu przedstawia stronę Formy płatności, na której można dodać metodę płatności.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 W tym miejscu możesz dodać nową kartę kredytową, zmienić aktywną formę płatności, edytować szczegóły karty kredytowej i usunąć karty kredytowe.
 
@@ -100,7 +100,7 @@ Jeśli kwalifikujesz się do płatności za pomocą faktury (czek/przelew), moż
 
 1. Wybierz pozycję **Płatność za pomocą faktury** na pasku poleceń.
 
-    ![Zrzut ekranu przedstawiający wybrany blok Formy płatności.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
+    ![Zrzut ekranu przedstawia stronę Formy płatności z wybraną opcją Płatność przy użyciu faktury.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Wprowadź adres dla formy płatności za pomocą faktury.
 1. Kliknij przycisk **Dalej**.
@@ -124,7 +124,7 @@ Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z 
 
 1. Na liście **Moje subskrypcje** wybierz subskrypcję Visual Studio Enterprise.
 
-   ![Zrzut ekranu przedstawiający przegląd siatki Moje subskrypcje](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Zrzut ekranu przedstawia obszar Moje subskrypcje, w którym można wybrać subskrypcję programu Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Jeśli niektóre subskrypcje Visual Studio nie są tutaj widoczne, może to oznaczać, że w pewnym momencie zmieniono katalog subskrypcji. Dla tych subskrypcji należy przełączyć katalog na katalog oryginalny (katalog, w którym początkowo utworzono konto). Następnie powtórz krok 2.
@@ -152,7 +152,7 @@ Jeśli masz subskrypcję platformy Azure w ramach programu licencjonowania Open,
 
 1. Na liście **Moje subskrypcje** wybierz subskrypcję platformy Azure w ramach programu licencjonowania Open.
 
-    ![Zrzut ekranu przedstawiający przegląd siatki Moje subskrypcje](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Zrzut ekranu przedstawia obszar Moje subskrypcje, w którym można wybrać subskrypcję platformy Azure w ramach programu licencjonowania Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Jeśli Twoja subskrypcja nie jest tutaj widoczna, może to oznaczać, że w pewnym momencie zmieniono jej katalog. Należy przełączyć katalog subskrypcji na katalog oryginalny (katalog, w którym początkowo utworzono konto). Następnie powtórz krok 2.
@@ -183,4 +183,4 @@ Jeśli masz subskrypcję platformy Azure w ramach programu licencjonowania Open,
 Nie obsługujemy kart wirtualnych i przedpłaconych. Jeśli podczas dodawania lub aktualizowania ważnej karty kredytowej pojawiają się błędy, spróbuj otworzyć przeglądarkę w trybie prywatnym.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej na temat [analizowania i zapobiegania nieoczekiwanym kosztom w witrynie Azure Portal](getting-started.md)
+- Dowiedz się więcej na temat [analizy nieoczekiwanych opłat](../understand/analyze-unexpected-charges.md)

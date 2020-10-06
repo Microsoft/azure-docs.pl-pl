@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 233cc5330096b9b6419c8024205a41646ddd9519
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371868"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure z innych kont
 
@@ -152,7 +152,7 @@ Jeśli przenosisz subskrypcje umów Enterprise Agreement (EA) lub umowy klienta 
 
 ### <a name="access-to-azure-services"></a>Dostęp do usług platformy Azure
 
-Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane przy użyciu usługi (Azure RBAC (kontroli dostępu opartej na rolach))[../role-based-access-control/overview.md].
+Przejście nie wpływa na dostęp do istniejących użytkowników, grup lub jednostek usługi, które zostały przypisane w ramach [kontroli dostępu na podstawie ról (RBAC) platformy Azure](../../role-based-access-control/overview.md).
 
 ### <a name="azure-support-plan"></a>Plan pomocy technicznej platformy Azure
 

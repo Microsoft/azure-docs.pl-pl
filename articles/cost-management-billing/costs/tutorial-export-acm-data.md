@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683270"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447607"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Samouczek: Eksportowanie danych i zarządzanie nimi
 
@@ -91,9 +91,9 @@ Eksporty dla grup zarządzania innych typów subskrypcji nie są obsługiwane.
 
 1. Jeśli grupa zarządzania nie została jeszcze utworzona, utwórz ją i przypisz do niej subskrypcje.
 1. W analizie kosztów ustaw zakres grupy zarządzania i wybierz opcję **Wybierz tę grupę zarządzania**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Przykład przedstawiający opcję Wybierz tę grupę zarządzania" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Przykład nowego eksportu" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Utwórz eksport w zakresie, aby uzyskać dane dotyczące zarządzania kosztami dla subskrypcji w grupie zarządzania.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Przykład przedstawiający opcję Utwórz nowy eksport z zakresem grupy zarządzania":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Przykład nowego eksportu":::
 
 ## <a name="verify-that-data-is-collected"></a>Sprawdzanie, czy dane są zbierane
 
@@ -128,11 +128,11 @@ Możesz również pobrać wyeksportowany plik CSV w witrynie Azure Portal. Poni�
 
 Aby wyświetlić historię uruchamiania zaplanowanego eksportu, wybierz eksport indywidualny na stronie listy z eksportami. Strona listy z eksportami umożliwia również szybkie wyświetlenie czasu uruchomienia poprzednich eksportów oraz zaplanowanych eksportów. Oto przykładowa historia uruchamiania.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Przykład przedstawiający historię uruchamiania eksportu":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Przykład nowego eksportu":::
 
 Wybierz eksport, aby wyświetlić jego historię uruchamiania.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Przykład przedstawiający historię uruchamiania eksportu":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Przykład nowego eksportu":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Uzyskiwanie dostępu do wyeksportowanych danych z poziomu innych systemów
 

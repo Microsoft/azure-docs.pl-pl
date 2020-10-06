@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308966"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Ponowne uaktywnianie wyłączonej subskrypcji platformy Azure
 
@@ -32,7 +32,7 @@ Subskrypcje platformy Azure oferujące środki, takie jak bezpłatna wersja pró
 > [!NOTE]
 > Jeśli masz subskrypcję bezpłatnej wersji próbnej i usuniesz limit wydatków, Twoja subskrypcja zostanie przekonwertowana na pojedynczą subskrypcję ze stawkami zgodnymi z rzeczywistym użyciem po wygaśnięciu bezpłatnej wersji próbnej. Zachowasz swoje pozostałe środki przez pełne 30 dni od utworzenia subskrypcji. Masz również dostęp do bezpłatnych usług przez 12 miesięcy.
 
-Aby monitorować działania rozliczeniowe dotyczące platformy Azure i nimi zarządzać, zobacz temat [Zapobieganie powstawaniu nieoczekiwanych kosztów w rozliczeniach platformy Azure i zarządzanie kosztami](getting-started.md).
+Aby monitorować działania związane z rozliczeniami i zarządzać nimi na platformie Azure, zobacz [Planowanie zarządzania kosztami platformy Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Upłynął termin zapłaty należności
@@ -60,4 +60,4 @@ W przypadku innych typów subskrypcji [skontaktuj się z pomocą techniczną](ht
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się, [ jak monitorować działania związane z rozliczeniami i zarządzać nimi na platformie Azure](getting-started.md).
+- Dowiedz się, jak [planować zarządzanie kosztami platformy Azure](../understand/plan-manage-costs.md).

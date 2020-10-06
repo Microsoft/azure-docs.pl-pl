@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690191"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446452"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Zarządzanie kosztami przy użyciu budżetów platformy Azure
 
@@ -152,7 +152,7 @@ Użycie instrukcji warunkowej w celu sprawdzenia, czy wielkość progowa osiągn
 1. Wybierz przycisk **OK**, aby ustawić wyrażenie.
 1. Wybierz pozycję **jest większe lub równe** w polu listy rozwijanej **Warunek**.
 1. W polu **Wybierz wartość** warunku wprowadź `.8`.  
-    ![Azure — Aplikacja logiki — Wyrażenie float z wartością](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Warunek z wybranymi wartościami.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Wybierz pozycję **Dodaj** > **Dodaj wiersz** w polu Warunek, aby dodać dodatkową część warunku.
 1. W polu **Warunek** wybierz pole tekstowe zawierające frazę `Choose a value`.
 1. Wybierz pozycję **Wyrażenie** w górnej części listy i wprowadź następujące wyrażenie w edytorze wyrażeń: `float()`
@@ -160,7 +160,7 @@ Użycie instrukcji warunkowej w celu sprawdzenia, czy wielkość progowa osiągn
 1. Wybierz przycisk **OK**, aby ustawić wyrażenie.
 1. Wybierz pozycję **jest mniejsze niż** w polu listy rozwijanej **Warunek**.
 1. W polu **Wybierz wartość** warunku wprowadź `1`.  
-    ![Azure — Aplikacja logiki — Wyrażenie float z wartością](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Warunek z wybranymi dwoma warunkami.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. W polu **W przypadku wartości true** wybierz pozycję **Dodaj akcję**. Zostanie dodana akcja HTTP POST, która spowoduje wyłączenie opcjonalnych maszyn wirtualnych.  
     ![Azure — Aplikacja logiki — Dodaj akcję](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Wprowadź **HTTP**, aby wyszukać akcję HTTP, i wybierz akcję **HTTP — HTTP**.  
@@ -183,7 +183,7 @@ Użycie instrukcji warunkowej w celu sprawdzenia, czy wielkość progowa osiągn
 Użycie instrukcji warunkowej w celu sprawdzenia, czy wielkość progu osiągnęła lub przekroczyła 100% wartości budżetu. Jeśli ta wielkość progowa została osiągnięta, instrukcja HTTP POST jest wysyłana przy użyciu elementu webhook o nazwie **Complete** (Ukończone). Ta akcja spowoduje zamknięcie wszystkich pozostałych maszyn wirtualnych.
 
 1. Wybierz pozycję **Nowy krok** > **Dodaj warunek**.  
-    ![Azure — Aplikacja logiki — Dodaj akcję](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Zrzut ekranu przedstawia okno dialogowe W przypadku wartości true z wywołaniem opcji Dodaj akcję.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. W polu **Warunek** wybierz pole tekstowe zawierające frazę `Choose a value`, aby wyświetlić listę dostępnych wartości.
 1. Wybierz pozycję **Wyrażenie** w górnej części listy i wprowadź następujące wyrażenie w edytorze wyrażeń: `float()`
 1. Wybierz pozycję **Zawartość dynamiczna**, umieść kursor wewnątrz nawiasu () i wybierz pozycję **NotificationThresholdAmount** z listy, aby wypełnić ukończone wyrażenie.
@@ -194,11 +194,11 @@ Użycie instrukcji warunkowej w celu sprawdzenia, czy wielkość progu osiągnę
 1. W polu **Wybierz wartość** warunku wprowadź `1`.  
     ![Azure — Aplikacja logiki — Ustawianie wartości warunku](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. W polu **W przypadku wartości true** wybierz pozycję **Dodaj akcję**. Zostanie dodana akcja HTTP POST, która spowoduje wyłączenie wszystkich pozostałych maszyn wirtualnych.  
-    ![Azure — Aplikacja logiki — Dodaj akcję](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Zrzut ekranu przedstawia okno dialogowe W przypadku wartości true, w którym można dodać akcję HTTP POST.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Wprowadź **HTTP**, aby wyszukać akcję HTTP, i wybierz akcję **HTTP — HTTP**.
 1. Wybierz pozycję **Post** dla wartości **Metoda**.
 1. Wprowadź adres URL elementu webhook o nazwie **Complete** (Ukończone), który został utworzony wcześniej w tym samouczku, jako wartość identyfikatora **URI**.  
-    ![Azure — Aplikacja logiki — Dodaj akcję](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Zrzut ekranu przedstawia okno dialogowe HTTP, w którym można wprowadzić wartość adresu URL.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Wybierz pozycję **Dodaj akcję** w polu **W przypadku wartości true**. Dodasz akcję poczty e-mail, która spowoduje wysłanie wiadomości e-mail z powiadomieniem odbiorcy o wyłączeniu pozostałych maszyn wirtualnych.
 1. Wyszukaj ciąg „wyślij wiadomość e-mail” i wybierz akcję *wyślij wiadomość e-mail* na podstawie używanej usługi poczty e-mail.
 1. Dodaj tekst w polach **Do**, **Temat** i **Treść** wiadomości e-mail, która powiadamia o adresata o zamknięciu opcjonalnych maszyn wirtualnych. Użyj nazwy **BudgetName** i zawartości dynamicznej **NotificationThresholdAmount** do wypełnienia pól tematu i treści.  

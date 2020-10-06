@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371953"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -242,10 +242,10 @@ Przenosząc własność do konta, należy pamiętać o następujących kwestiach
 
 - Po zakończeniu przenoszenia subskrypcji firma Microsoft aktualizuje właściciela konta.
 
-Należy pamiętać o następujących zasadach kontroli dostępu na podstawie ról (RBAC):
+Należy pamiętać o następujących zasadach kontroli dostępu na podstawie ról (RBAC) platformy Azure:
 
-- W przypadku przenoszenia subskrypcji między dwoma identyfikatorami organizacyjnymi w tej samej dzierżawie zasady kontroli dostępu opartej na rolach i istniejące role administratora usługi oraz współadministratora są zachowywane.
-- Inne przenoszenie subskrypcji powoduje utratę zasad kontroli dostępu na podstawie ról oraz przypisań ról.
+- W przypadku przenoszenia subskrypcji między dwoma identyfikatorami organizacyjnymi w tej samej dzierżawie zasady RBAC platformy Azure i istniejące role administratora usługi oraz współadministratora są zachowywane.
+- Inne przenoszenie subskrypcji powoduje utratę zasad RBAC platformy Azure oraz przypisań ról.
 - Zasady i role administratorów nie są przenoszone między różnymi katalogami. Administratorzy usługi są aktualizowani do właściciela konta docelowego.
 
 Przed zmianą właściciela konta:
@@ -569,7 +569,7 @@ Limit przydziału wydatków można ustawić na poziomie działu, a system automa
 
 Aby zdefiniować limit przydziału wydatków, wybierz dział, a następnie wybierz ikonę edycji. Gdy zakończysz edytowanie limitu wydatków, wybierz pozycję **Zapisz**.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Grupy zasobów były używane do implementowania kontroli dostępu na podstawie ról i śledzenia użycia. Jak wyświetlić skojarzone szczegóły użycia?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Grupy zasobów były używane do implementowania kontroli RBAC platformy Azure i śledzenia użycia. Jak wyświetlić skojarzone szczegóły użycia?
 
 W przypadku używania _grup zasobów_ i _tagów_ informacje te są śledzone na poziomie usługi. Dostęp do nich można uzyskać, pobierając plik CSV ze szczegółowym użyciem. Zobacz [Pobieranie raportu użycia](https://ea.azure.com/report/downloadusage) w witrynie Azure Enterprise Portal.
 

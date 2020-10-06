@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372361"
 ---
 # <a name="understand-and-work-with-scopes"></a>Opis zakresów i praca z nimi
 
@@ -26,7 +26,7 @@ _Zakres_ to węzeł w hierarchii zasobów platformy Azure, w którym użytkownic
 - Dane dotyczące rozliczeń, takie jak płatności i faktury
 - Usługi w chmurze, takie jak zarządzanie kosztami i zasadami
 
-Zakresy to miejsce, w którym zarządzasz danymi dotyczącymi rozliczeń, masz role specyficzne dla płatności, wyświetlasz faktury i ogólnie zarządzasz kontami. Rolami rozliczeń i kont zarządza się oddzielnie od ról służących do zarządzania zasobami, które używają [funkcji RBAC na platformie Azure](../../role-based-access-control/overview.md). Aby wyraźnie odróżnić przeznaczenie poszczególnych zakresów, a w tym różnice w kontroli dostępu, są one określane odpowiednio jako _zakresy rozliczeń_ i _zakresy RBAC_.
+Zakresy to miejsce, w którym zarządzasz danymi dotyczącymi rozliczeń, masz role specyficzne dla płatności, wyświetlasz faktury i ogólnie zarządzasz kontami. Rolami rozliczeń i kont zarządza się oddzielnie od ról służących do zarządzania zasobami, które używają [funkcji RBAC na platformie Azure](../../role-based-access-control/overview.md). Aby wyraźnie odróżnić przeznaczenie poszczególnych zakresów, a w tym różnice w kontroli dostępu, są one określane odpowiednio jako _zakresy rozliczeń_ i _zakresy RBAC platformy Azure_.
 
 Aby dowiedzieć się więcej o zakresach, obejrzyj wideo [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (Konfigurowanie hierarchii w usłudze Cost Management). Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Aby dowiedzieć się więcej o zakresach, obejrzyj wideo [Cost Management settin
 
 ## <a name="how-cost-management-uses-scopes"></a>Jak usługa Cost Management używa zakresów
 
-Usługa Cost Management działa we wszystkich zakresach powyżej zasobów, umożliwiając organizacjom zarządzanie kosztami na poziomie, do którego mają dostęp, niezależnie od tego, czy jest to całe konto rozliczeniowe, czy pojedyncza grupa zasobów. Chociaż zakresy rozliczeniowe różnią się w zależności od umowy firmy Microsoft (typu subskrypcji), zakresy RBAC — nie.
+Usługa Cost Management działa we wszystkich zakresach powyżej zasobów, umożliwiając organizacjom zarządzanie kosztami na poziomie, do którego mają dostęp, niezależnie od tego, czy jest to całe konto rozliczeniowe, czy pojedyncza grupa zasobów. Chociaż zakresy rozliczeniowe różnią się w zależności od umowy firmy Microsoft (typu subskrypcji), zakresy RBAC platformy Azure — nie.
 
 ## <a name="azure-rbac-scopes"></a>Zakresy RBAC na platformie Azure
 
@@ -98,7 +98,7 @@ Zakresy rozliczeniowe umowy EA obsługują następujące role:
 - **Użytkownik przedsiębiorstwa tylko do odczytu** — może wyświetlać ustawienia kont rozliczeniowych, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Zakres rozliczeniowy umowy EA działa tak samo jak [rola Cost Management — czytelnik funkcji na platformie Azure](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrator działu** — może zarządzać ustawieniami działu, takimi jak centrum kosztów, może uzyskiwać dostęp do wszystkich kosztów i wyświetlać je oraz zarządzać konfiguracją kosztów. Przykład: budżety i eksporty.  Aby administratorzy działów i użytkownicy tylko do odczytu mogli wyświetlać koszty, musi być włączone ustawienie konta rozliczeniowego **Wyświetlanie opłat przez administratora działu**. Jeśli opcja **Wyświetlanie opłat przez administratora działu** jest wyłączona, użytkownicy działu nie widzą kosztów na żadnym poziomie, nawet jeśli są właścicielami konta lub subskrypcji.
 - **Użytkownik działu tylko do odczytu** — może wyświetlać ustawienia działu, dane dotyczące kosztów i konfigurację kosztów. Przykład: budżety i eksporty. Jeśli opcja **Wyświetlanie opłat przez administratora działu** jest wyłączona, użytkownicy działu nie widzą kosztów na żadnym poziomie, nawet jeśli są właścicielami konta lub subskrypcji.
-- **Właściciel konta** — może zarządzać ustawieniami konta rejestracji (na przykład centrum kosztów), wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów (na przykład budżetami i eksportami) dla konta rejestracji. Aby właściciele kont i użytkownicy RBAC mogli wyświetlać koszty, musi być włączone ustawienie konta rozliczeniowego **Wyświetlanie opłat przez właściciela konta**.
+- **Właściciel konta** — może zarządzać ustawieniami konta rejestracji (na przykład centrum kosztów), wyświetlać wszystkie koszty i zarządzać konfiguracją kosztów (na przykład budżetami i eksportami) dla konta rejestracji. Aby właściciele kont i użytkownicy systemu RBAC platformy Azure mogli wyświetlać koszty, musi być włączone ustawienie konta rozliczeniowego **Wyświetlanie opłat przez właściciela konta**.
 
 Użytkownicy konta rozliczeniowego umowy EA nie mają bezpośredniego dostępu do faktur. Faktury są dostępne z poziomu zewnętrznego systemu licencjonowania zbiorowego.
 

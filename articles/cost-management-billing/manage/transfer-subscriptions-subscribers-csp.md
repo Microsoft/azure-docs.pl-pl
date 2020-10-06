@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997578"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371409"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
-W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platformy Azure między partnerami będącymi dostawcami rozwiązań w chmurze (CSP) a ich klientami.
+W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platformy Azure między partnerami będącymi dostawcami rozwiązań w chmurze (CSP) a ich klientami. Informacje zawarte w tym miejscu są przeznaczone dla subskrybenta platformy Azure, aby pomóc mu we współpracy z partnerem. Informacje, które są używane przez partnerów firmy Microsoft do procesu przenoszenia, zostały udokumentowane w artykule [Dowiedz się, jak przenieść subskrypcje platformy Azure klienta do innego partnera](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 
@@ -38,7 +38,7 @@ Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego
     > [!IMPORTANT]
     > - Po skojarzeniu subskrypcji z innym katalogiem usługi Azure AD użytkownicy, którzy mają przypisane role za pomocą [kontroli dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
     > - Przypisania zasad są również usuwane z subskrypcji, gdy subskrypcja jest kojarzona z innym katalogiem.
-1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC](add-change-subscription-administrator.md) do obu subskrypcji.
+1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC platformy Azure](add-change-subscription-administrator.md) do obu subskrypcji.
 1. Przed rozpoczęciem [zweryfikuj](/rest/api/resources/resources/validatemoveresources), czy wszystkie zasoby platformy Azure mogą zostać przeniesione z subskrypcji źródłowej do subskrypcji docelowej.  
     Niektórych zasobów platformy Azure nie można przenosić między subskrypcjami. Aby wyświetlić pełną listę zasobów platformy Azure, które można przenieść, zobacz [Obsługa operacji przenoszenia dla zasobów](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usłu
     Katalog zmian nie jest subskrypcją programu CSP. Na przykład przechodzisz z programu CSP na subskrypcję z opcją płatności zgodnie z rzeczywistym użyciem. Aby zapewnić zgodność z katalogiem, należy zmienić katalog subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem.
 
     > [!IMPORTANT]
-    >  - Po skojarzeniu subskrypcji z innym katalogiem użytkownicy, którzy mają przypisane role za pomocą [RBAC](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
+    >  - Po skojarzeniu subskrypcji z innym katalogiem użytkownicy, którzy mają przypisane role za pomocą systemu [RBAC platformy Azure](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
     >  - Przypisania zasad są również usuwane z subskrypcji, gdy subskrypcja jest kojarzona z innym katalogiem.
 
-1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC](add-change-subscription-administrator.md) do obu subskrypcji.
+1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC platformy Azure](add-change-subscription-administrator.md) do obu subskrypcji.
 1. Przed rozpoczęciem [zweryfikuj](/rest/api/resources/resources/validatemoveresources), czy wszystkie zasoby platformy Azure mogą zostać przeniesione z subskrypcji źródłowej do subskrypcji docelowej.
     > [!IMPORTANT]
     >  - Niektórych zasobów platformy Azure nie można przenosić między subskrypcjami. Aby wyświetlić pełną listę zasobów platformy Azure, które można przenieść, zobacz [Obsługa operacji przenoszenia dla zasobów](../../azure-resource-manager/management/move-support-resources.md).
