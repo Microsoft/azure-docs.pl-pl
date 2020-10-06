@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704594"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742421"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Wdróż macierz wirtualną StorSimple — Skonfiguruj jako serwer iSCSI za pośrednictwem Azure Portal
 
@@ -125,7 +125,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 11. Przejdź do bloku **urządzenia** usługi. Jeśli masz dużo zasobów, kliknij pozycję **wszystkie zasoby**, kliknij nazwę usługi (Wyszukaj ją w razie potrzeby), a następnie kliknij pozycję **urządzenia**.
 12. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą, sprawdzając jego stan. Urządzenie powinno mieć stan **Gotowe do skonfigurowania**.
     
-    ![Zarejestruj urządzenie](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![Wdróż urządzenie](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## <a name="step-2-configure-the-device-as-iscsi-server"></a>Krok 2. Konfigurowanie urządzenia jako serwera iSCSI
 
@@ -138,7 +138,7 @@ Wykonaj następujące kroki w Azure Portal, aby zakończyć wymaganą konfigurac
     ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png) 
 2. Kliknij urządzenie i zostanie wyświetlony komunikat transparent wskazujący, że urządzenie jest gotowe do instalacji.
    
-    ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
+    ![Konfigurowanie urządzenia jako serwera iSCSI 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis2m.png)  
 3. Kliknij pozycję **Konfiguruj** na pasku poleceń urządzenia. Spowoduje to otwarcie bloku **Konfiguracja** . W bloku **Konfigurowanie** wykonaj następujące czynności:
    
    * Nazwa serwera iSCSI jest automatycznie wypełniana.
@@ -146,13 +146,13 @@ Wykonaj następujące kroki w Azure Portal, aby zakończyć wymaganą konfigurac
    * Określ klucz szyfrowania 32-znakowego i zarejestruj go w aplikacji do zarządzania kluczami do użytku w przyszłości.
    * Wybierz konto magazynu, które ma być używane z Twoim urządzeniem. W tej subskrypcji możesz wybrać istniejące konto magazynu lub kliknąć przycisk **Dodaj** , aby wybrać konto z innej subskrypcji.
      
-     ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
+     ![Konfigurowanie urządzenia jako serwera iSCSI 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis4m.png)
 4. Kliknij pozycję **Konfiguruj** , aby zakończyć konfigurowanie serwera iSCSI.
    
-    ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
+    ![Konfigurowanie urządzenia jako serwera iSCSI 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis5m.png) 
 5. Zostanie wyświetlone powiadomienie o tym, że tworzenie serwera iSCSI jest w toku. Po pomyślnym utworzeniu serwera iSCSI zostanie zaktualizowany blok **urządzenia** , a odpowiadający mu stan urządzenia jest w **trybie online**.
    
-    ![Konfigurowanie urządzenia jako serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
+    ![Konfigurowanie urządzenia jako serwera iSCSI 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis9m.png)
 
 ## <a name="step-3-add-a-volume"></a>Krok 3. Dodawanie woluminu
 
@@ -169,17 +169,17 @@ Wykonaj następujące kroki w Azure Portal, aby zakończyć wymaganą konfigurac
      
      Wolumin warstwowy z drugiej strony jest alokowany elastycznie. Podczas tworzenia woluminu warstwowego zostanie zainicjowana około 10% miejsca w warstwie lokalnej i zostanie zainicjowana 90% miejsca w chmurze. Na przykład jeśli Zainicjowano obsługę woluminu o pojemności 1 TB, 100 GB będzie znajdować się w miejscu lokalnym, a w chmurze zostanie użyta 900 GB. To z kolei oznacza, że w przypadku braku całego lokalnego miejsca na urządzeniu nie można zainicjować obsługi administracyjnej udziałów warstwowych (ponieważ 10% nie będzie dostępny).
      
-     ![Dodaj wolumin](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
+     ![Dodaj wolumin 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
    * Kliknij pozycję **połączone hosty**, wybierz rekord kontroli dostępu (ACR) odpowiadający inicjatorowi iSCSI, który ma zostać połączony z tym woluminem, a następnie kliknij pozycję **Wybierz**. <br><br> 
 3. Aby dodać nowy połączony host, kliknij przycisk **Dodaj nowy**, wprowadź nazwę hosta i jego kwalifikowaną nazwę iSCSI (IQN), a następnie kliknij przycisk **Dodaj**. Jeśli nie masz nazwy IQN, przejdź do [załącznika A: pobieranie nazwy IQN hosta z systemem Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
    
-      ![Dodaj wolumin](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
+      ![Dodaj wolumin 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
 4. Po zakończeniu konfigurowania woluminu kliknij przycisk **OK**. Zostanie utworzony wolumin z określonymi ustawieniami i zostanie wyświetlone powiadomienie. Domyślnie monitorowanie i wykonywanie kopii zapasowych będzie włączone dla woluminu.
    
-     ![Dodaj wolumin](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
+     ![Dodaj wolumin 4](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis18m.png)
 5. Aby upewnić się, że wolumin został pomyślnie utworzony, przejdź do bloku **woluminy** . Powinien zostać wyświetlony wymieniony wolumin.
    
-   ![Dodaj wolumin](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
+   ![Dodaj wolumin 5](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
 ## <a name="step-4-mount-initialize-and-format-a-volume"></a>Krok 4. Instalowanie, inicjowanie i formatowanie woluminu
 

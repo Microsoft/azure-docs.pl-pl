@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903504"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743390"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Samouczek: aktywowanie Azure Stack EDGE Pro z procesorem GPU
 
@@ -50,14 +50,14 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
     
 3. W okienku **Aktywuj** wprowadź **klucz aktywacji** uzyskany w ramach [okna Pobieranie klucza aktywacji dla Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
-4. Wybierz przycisk **Zastosuj**.
+4. Wybierz pozycję **Zastosuj**.
 
-    ![Strona lokalnego interfejsu użytkownika sieci Web "Szczegóły chmury"](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury" Strona 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. Pierwsze urządzenie zostało aktywowane. Zostanie wyświetlony monit o pobranie pliku klucza.
     
-    ![Strona lokalnego interfejsu użytkownika sieci Web "Szczegóły chmury"](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury" Strona 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Wybierz pozycję **Pobierz i Kontynuuj** i Zapisz *device-serial-no.jsw* pliku w bezpiecznej lokalizacji poza urządzeniem. **Ten plik klucza zawiera klucze odzyskiwania dla dysku systemu operacyjnego i dysków z danymi na urządzeniu**. Te klucze mogą być konieczne, aby ułatwić przyszłe odzyskiwanie systemu.
 
@@ -88,7 +88,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy 
 
 6. Przejdź do strony **Przegląd** . Stan urządzenia powinien być widoczny jako **aktywowany**.
 
-    ![Strona lokalnego interfejsu użytkownika sieci Web "Szczegóły chmury"](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury", Strona 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 Aktywacja urządzenia została zakończona. Możesz teraz dodawać udziały na urządzeniu.
 

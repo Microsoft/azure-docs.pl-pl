@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070697"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742183"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klonowanie z kopii zapasowej macierzy wirtualnej StorSimple
 
@@ -44,7 +44,7 @@ W tym artykule opisano krok po kroku, jak sklonować zestaw kopii zapasowych udz
    
    c.    Kliknij przycisk **OK**.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Klonowanie kopii zapasowej 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. W bloku **klonowania** kliknij pozycję **ustawienia docelowe** , a następnie wykonaj następujące czynności:
    
    a.    Podaj nazwę udziału. Nazwa udziału musi zawierać 3-127 znaków.
@@ -59,13 +59,13 @@ W tym artykule opisano krok po kroku, jak sklonować zestaw kopii zapasowych udz
    
    f.    Kliknij przycisk **OK**.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Klonowanie kopii zapasowej 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Kliknij przycisk **Klonuj** , aby uruchomić zadanie klonowania. Po zakończeniu zadania Operacja klonowania zostanie uruchomiona i zostanie wyświetlone powiadomienie. Aby monitorować postęp klonowania, przejdź do bloku **zadania** i kliknij zadanie, aby wyświetlić szczegóły zadania.
 5. Po pomyślnym utworzeniu klonu przejdź z powrotem do bloku **udziały** na urządzeniu.
 6. Teraz można wyświetlić nowy sklonowany udział na liście udziałów na urządzeniu. Udział warstwowy jest sklonowany jako warstwowy i przypięty lokalnie jako udział przypięty lokalnie.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Klonowanie kopii zapasowej 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Klonowanie woluminów z zestawu kopii zapasowych
 
@@ -84,7 +84,7 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    
    c.    Kliknij przycisk **OK**.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Klonowanie woluminu 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. W bloku **klonowania** kliknij pozycję **Ustawienia woluminu docelowego** , a następnie wykonaj następujące czynności:
    
    a. Nazwa urządzenia jest wypełniana automatycznie.
@@ -95,16 +95,16 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    
    d. W przypadku **podłączonych hostów**kliknij przycisk **Wybierz**.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Klonowanie woluminu 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. W bloku **połączone hosty** wybierz jedną z istniejących ACR lub Dodaj nową ACR. Aby dodać nowy ACR, należy podać nazwę ACR i IQN hosta. Kliknij pozycję **Wybierz**.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Klonowanie woluminu 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Kliknij przycisk **Klonuj** , aby uruchomić zadanie klonowania.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Klonowanie woluminu 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. Po utworzeniu zadania klonowania rozpocznie się klonowanie. Po utworzeniu klonu zostanie on wyświetlony w bloku woluminy na urządzeniu. Należy zauważyć, że wolumin warstwowy jest sklonowany jako warstwowy i wolumin przypięty lokalnie został sklonowany jako wolumin przypięty lokalnie.
    
-   ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Klonowanie woluminu 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Gdy wolumin zostanie wyświetlony w trybie online na liście woluminów, wolumin jest dostępny do użycia. Na hoście inicjatora iSCSI Odśwież listę elementów docelowych w oknie właściwości inicjatora iSCSI. Nowy element docelowy zawierający sklonowaną nazwę woluminu powinien być wyświetlany jako "nieaktywny" w kolumnie Stan.
 8. Wybierz element docelowy, a następnie kliknij przycisk **Połącz**. Po powiązaniu inicjatora z elementem docelowym stan powinien zmienić się na **połączono**.
 9. W oknie **Zarządzanie dyskami** zainstalowane woluminy są wyświetlane jak pokazano na poniższej ilustracji. Kliknij prawym przyciskiem myszy odnaleziony wolumin (kliknij nazwę dysku), a następnie kliknij pozycję **Online**.

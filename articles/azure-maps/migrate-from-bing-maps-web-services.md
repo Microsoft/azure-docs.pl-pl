@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108839"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741673"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Migrowanie usługi sieci Web z map Bing
 
@@ -24,7 +24,7 @@ W poniższej tabeli przedstawiono interfejsy API usługi Azure Maps, które zape
 
 | Interfejs API usługi mapy Bing                 | Interfejs API usługi Azure Maps      |
 |---------------------------------------|-----------------------------|
-| Automatycznego sugerowania                           | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)     |
+| Automatyczne sugerowanie                           | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)     |
 | Kierunki (w tym ciężarówka)          | [Kierunki tras](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)                          |
 | Macierz odległości                       | [Macierz trasy](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)                          |
 | Obraz — Mapa statyczna                  | [Renderowanie](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                                   |
@@ -249,7 +249,7 @@ Interfejs API routingu Azure Maps ma wiele dodatkowych funkcji dostępnych w us�
 
 Istnieje kilka sposobów przyciągania współrzędne do dróg w Azure Maps.
 
--   Użyj interfejsu API wskazówek dotyczących trasy, aby przyciągnąć współrzędne i z trasy logicznej do sieci drogowej.
+-   Użyj interfejsu API wskazówek dotyczących trasy, aby przyciągnąć współrzędne do trasy logicznej wzdłuż sieci drogowej.
 -   Użyj zestawu Web SDK Azure Maps, aby przyciągnąć poszczególne współrzędne do najbliższej drogi w kafelkach wektora.
 -   Użyj Azure Maps kafelków wektorowych bezpośrednio do przyciągania poszczególnych współrzędnych.
 

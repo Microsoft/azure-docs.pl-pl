@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900014"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743407"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Samouczek: Instalowanie Azure Stack EDGE Pro z procesorem GPU
 
@@ -22,7 +22,7 @@ W tym samouczku opisano sposób instalowania urządzenia fizycznego w programie 
 
 Instalacja może potrwać około dwóch godzin.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Rozpakowywanie urządzenia
@@ -124,7 +124,7 @@ Znajdź składniki służące do instalowania zestawu szyny:
 3. Dołącz do lewej i prawej szynę montażową do czołowych pionowych kołnierzy stojaków przy użyciu dwóch par wkrętów.
 4. Przesuń w lewo i w prawo nawiasy klamrowe w przód do tylnej krawędzi pionowej i Dołącz je przy użyciu dwóch par wkrętów.
 
-    ![Zainstaluj i Usuń szyny narzędzia](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Zainstaluj i Usuń szyny narzędzia 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instalowanie systemu w stojaku
 
@@ -166,7 +166,7 @@ Aby można było rozpocząć podłączanie kabli urządzenia, potrzebne są nast
 - Co najmniej jeden kabel sieciowy 1-GbE RJ-45 służący do łączenia z interfejsem zarządzania. Istnieją dwa interfejsy sieciowe 1-GbE: jeden do zarządzania i drugi stanowiący interfejs danych w urządzeniu.
 - Jeden miedziany kabel 25-GbE SFP+ dla każdego interfejsu sieciowego danych do skonfigurowania. Co najmniej jeden sieciowy interfejs danych — PORT 2, PORT 3, PORT 4, PORT 5 lub PORT 6 — musi być połączony z Internetem (umożliwiając łączność z platformą Azure).  
 - Dostęp do dwóch jednostek dystrybucji zasilania (zalecane).
-- Co najmniej jeden przełącznik sieciowy 1 GbE, aby połączyć z Internetem interfejs sieciowy z 1 GbE. Lokalny interfejs użytkownika sieci Web nie będzie dostępny, jeśli przełącznik podłączony nie ma co najmniej 1 GbE. W przypadku korzystania z interfejsu 25/10 GbE dla danych potrzebny jest przełącznik z 25 GbE lub 10 GbE. 
+- Co najmniej 1 1-GbE Network switch, aby połączyć interfejs sieciowy 1-GbE z Internetem w celu uzyskania danych. Lokalny interfejs użytkownika sieci Web nie będzie dostępny, jeśli przełącznik podłączony nie ma co najmniej 1 GbE. W przypadku korzystania z interfejsu 25/10 GbE dla danych potrzebny jest przełącznik z 25 GbE lub 10 GbE. 
 
 > [!NOTE]
 > - Jeśli łączysz tylko jeden interfejs sieciowy danych, zalecamy użycie interfejsu sieciowego 25/10 GbE, takiego jak PORT 3, PORT 4, PORT 5 lub PORT 6 do wysyłania danych do platformy Azure. 
@@ -182,7 +182,7 @@ Na urządzeniu Azure Stack EDGE Pro:
 - Płaszczyzna tylna obejmuje nadmiarowe jednostki zasilacza (PSUs).
 - Płaszczyzna tylna ma sześć interfejsów sieciowych:
 
-    - Dwa interfejsy 1 GB/s.
+    - Interfejsy 2 1 GB/s.
     - Interfejsy 4 25 GB/s, które mogą również działać jako interfejsy 10 GB/s.
     - Kontroler zarządzania płytą główną (BMC).
 
@@ -207,11 +207,11 @@ Wykonaj poniższe kroki, aby podłączyć kable urządzenia do sieci i zasilania
 
     - Urządzenie z 3 gniazdami PCI i jednym procesorem GPU
 
-        ![Płaszczyzna tylna urządzenia z kablem](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Płaszczyzna tylna urządzenia z kablem 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Urządzenie z 3 gniazdami PCI i dwoma procesorami GPU
 
-        ![Płaszczyzna tylna urządzenia z kablem](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Płaszczyzna tylna urządzenia z kablem 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Znajdź miejsca na dysku i przycisk energia na przedniej urządzeniu.
 

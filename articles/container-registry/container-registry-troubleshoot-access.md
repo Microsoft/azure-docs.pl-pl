@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z siecią przy użyciu rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas uzyskiwania dostępu do usługi Azure Container Registry w sieci wirtualnej lub za zaporą
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630954"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743373"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Rozwiązywanie problemów z siecią przy użyciu rejestru
 
@@ -90,6 +90,8 @@ Jeśli skonfigurowano punkt końcowy usługi do rejestru, potwierdź, że reguł
 Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu sieci wirtualnej w innej subskrypcji platformy Azure, upewnij się, że `Microsoft.ContainerRegistry` dostawca zasobów został zarejestrowany w tej subskrypcji. [Zarejestruj dostawcę zasobów](../azure-resource-manager/management/resource-providers-and-types.md) dla Azure Container Registry przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub innych narzędzi platformy Azure.
 
 Jeśli w sieci jest skonfigurowana Zapora platformy Azure lub podobne rozwiązanie, należy sprawdzić, czy ruch wychodzący z innych zasobów, takich jak klaster AKS, jest włączony w celu uzyskania dostępu do punktów końcowych rejestru.
+
+W przypadku skonfigurowania prywatnego punktu końcowego upewnij się, że system DNS rozwiązuje publiczną nazwę FQDN rejestru, taką jak *myregistry.azurecr.IO* , do prywatnego adresu IP rejestru. Użyj narzędzia sieciowego, takiego jak `dig` lub `nslookup` do wyszukiwania DNS.
 
 Powiązane linki:
 

@@ -1,19 +1,19 @@
 ---
-title: Łączenie i zarządzanie urządzeniem Microsoft Azure Stack EDGE Pro za pośrednictwem interfejsu programu Windows PowerShell | Microsoft Docs
-description: Opisuje sposób nawiązywania połączenia z usługą Azure Stack EDGE Pro za pomocą interfejsu programu Windows PowerShell i zarządzania nią.
+title: Nawiązywanie połączenia z urządzeniem GPU i zarządzanie nim za pomocą interfejsu programu Windows PowerShell (Microsoft Azure Stack Edge) Microsoft Docs
+description: Zawiera opis sposobu nawiązywania połączenia z usługą Azure Stack Edge z procesorem GPU i zarządzania nią za pośrednictwem interfejsu programu Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a61bd16d127afadc2dc4d968b3492f3c8491d29
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903512"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743220"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem wieloprocesorowym Pro Azure Stack Edge za pośrednictwem programu Windows PowerShell
 
@@ -127,7 +127,7 @@ Domyślnie Kubernetes na urządzeniu brzegowym Azure Stack używa podsieci 172.2
 
 Tę konfigurację należy wykonać przed rozpoczęciem konfigurowania obliczeń z Azure Portal, ponieważ w tym kroku jest tworzony klaster Kubernetes.
 
-1. Nawiąż połączenie z interfejsem programu PowerShell urządzenia.
+1. [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
 1. W interfejsie programu PowerShell urządzenia Uruchom polecenie:
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
@@ -425,7 +425,56 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
+## <a name="connect-to-bmc"></a>Połącz z kontrolerem BMC
 
+Kontroler zarządzania płytą główną (BMC) służy do zdalnego monitorowania urządzenia i zarządzania nim. W tej sekcji opisano polecenia cmdlet, których można użyć do zarządzania konfiguracją kontrolera BMC. Przed uruchomieniem dowolnego z tych poleceń cmdlet [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
+
+- `Get-HcsNetBmcInterface`: Użyj tego polecenia cmdlet, aby uzyskać właściwości konfiguracji sieci kontrolera BMC, na przykład,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` : 
+
+- `Set-HcsNetBmcInterface`: To polecenie cmdlet można użyć na dwa sposoby.
+
+    - Użyj polecenia cmdlet, aby włączyć lub wyłączyć konfigurację DHCP dla kontrolera BMC przy użyciu odpowiedniej wartości `UseDhcp` parametru. 
+
+        ```powershell
+        Set-HcsNetBmcInterface -UseDhcp $true
+        ```
+
+        Oto przykładowe dane wyjściowe: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -UseDhcp $true
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address IPv4Gateway IPv4SubnetMask DhcpEnabled
+        ----------- ----------- -------------- -----------
+        10.128.54.8 10.128.52.1 255.255.252.0         True
+        [10.100.10.10]: PS>
+        ```
+
+    - Użyj tego polecenia cmdlet, aby skonfigurować konfigurację statyczną dla kontrolera BMC. Możesz określić wartości dla `IPv4Address` , `IPv4Gateway` i `IPv4SubnetMask` . 
+    
+        ```powershell
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        ```        
+        
+        Oto przykładowe dane wyjściowe: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -IPv4Address 10.128.53.186 -IPv4Gateway 10.128.52.1 -IPv4SubnetMask 255.255.252.0
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+        -----------   ----------- -------------- -----------
+        10.128.53.186 10.128.52.1 255.255.252.0        False
+        [10.100.10.10]: PS>
+        ```    
+
+- `Set-HcsBmcPassword`: To polecenie cmdlet służy do modyfikowania hasła BMC dla programu `EdgeUser` . 
+
+    Oto przykładowe dane wyjściowe: 
+
+    ```powershell
+    [10.100.10.10]: PS> Set-HcsBmcPassword -NewPassword "Password1"
+    [10.100.10.10]: PS>
+    ```
 
 ## <a name="exit-the-remote-session"></a>Zakończ sesję zdalną
 

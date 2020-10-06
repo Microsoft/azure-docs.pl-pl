@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962421"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742608"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi Azure App Service
 
@@ -42,7 +42,7 @@ Istnieje szereg korzyści dla Połączenia hybrydowe możliwości, w tym:
 - Zwykle nie wymaga to otworów zapory. Połączenia są wychodzące przez standardowe porty sieci Web.
 - Ponieważ ta funkcja jest poziomem sieci, jest niezależny od do języka używanego przez aplikację i technologii używanej przez punkt końcowy.
 - Może służyć do zapewnienia dostępu w wielu sieciach z pojedynczej aplikacji. 
-- Jest ona obsługiwana w przypadku aplikacji systemu Windows i jest dostępna w wersji zapoznawczej dla aplikacji z systemem Linux.
+- Jest ona obsługiwana w odniesieniu do aplikacji natywnych systemu Windows i jest w wersji zapoznawczej dla aplikacji z systemem Linux. Nie jest obsługiwana w przypadku aplikacji kontenera systemu Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Elementy, których nie można wykonać za pomocą Połączenia hybrydowe ###
 
@@ -94,8 +94,8 @@ App Service Połączenia hybrydowe są dostępne tylko w jednostkach SKU w warst
 
 | Plan cenowy | Liczba Połączenia hybrydowe użytecznych w planie |
 |----|----|
-| Podstawowe | 5 na plan |
-| Standard | 25 na plan |
+| Podstawowy | 5 na plan |
+| Standardowa | 25 na plan |
 | PremiumV2 | 200 na aplikację |
 | Izolowana | 200 na aplikację |
 

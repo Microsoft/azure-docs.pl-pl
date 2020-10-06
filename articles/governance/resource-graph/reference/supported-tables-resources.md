@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600606"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740007"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -119,6 +119,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. CDN/profile
 - Microsoft. CDN/profile/punkty końcowe
 - Microsoft. certificateregistration/certificateorders
+- Microsoft. chaos/chaosexperiments
 - Microsoft. classiccompute/DomainNames
 - Microsoft. classiccompute/virtualmachines
 - Microsoft. classicnetwork/networksecuritygroups
@@ -400,6 +401,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. operationalinsights/obszary robocze
 - Microsoft. operationsmanagement/rozwiązania
 - Microsoft. operationsmanagement/widoki
+- Microsoft. Orbita/contactprofiles
+- Microsoft. orbity/statki kosmiczne
 - Microsoft. Komunikacja równorzędna/Komunikacja równorzędna
 - Microsoft. Komunikacja równorzędna/peeringservices
 - Microsoft. Portal/pulpity nawigacyjne
@@ -420,6 +423,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. resources/templatespecs/wersje
 - Microsoft. SaaS/aplikacje
 - Microsoft. Scheduler/jobcollections
+- Microsoft. SCVMM/chmury
+- Microsoft. SCVMM/virtualmachines
+- Microsoft. SCVMM/virtualmachinetemplates
+- Microsoft. SCVMM/virtualnetworks
 - Microsoft. SCVMM/vmmservers
 - Microsoft. Search/searchservices
 - Microsoft. Security/automations
@@ -436,6 +443,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. servicefabricmesh/woluminy
 - Microsoft. serviceshub/łączniki
 - Microsoft. signalrservice/sygnalizujący
+- Microsoft. Singularity/konta
 - Microsoft. Solutions/appliancedefinitions
 - Microsoft. Solutions/urządzenia
 - Microsoft. Solutions/applicationdefinitions
@@ -531,6 +539,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - wandisco. Fusion/fusiongroups/onpremzones
 - wandisco. Fusion/fusiongroups/replicationrules
 - wandisco. Fusion/migrators
+- wandisco. Fusion/migrators/livedatamigrations
 - wandisco. Fusion/migrators/targets
 
 ## <a name="securityresources"></a>securityresources

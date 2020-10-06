@@ -4,14 +4,14 @@ description: Dowiedz się, jak plany App Service działają w Azure App Service,
 keywords: App Service, Azure App Service, skala, skalowalność, skalowalność, plan usługi App Service, koszt usługi App Service
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958516"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742977"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -22,32 +22,32 @@ Po utworzeniu planu App Service w określonym regionie (na przykład Europa Zach
 - Region (Zachodnie stany USA, Wschodnie stany USA itp.)
 - Liczba wystąpień maszyn wirtualnych
 - Rozmiar wystąpień maszyn wirtualnych (mały, średni, duży)
-- Warstwa cenowa (bezpłatna, współdzielona, podstawowa, standardowa, Premium, PremiumV2, izolowana)
+- Warstwa cenowa (bezpłatna, współdzielona, podstawowa, standardowa, Premium, PremiumV2, PremiumV3, izolowana)
 
 _Warstwa cenowa_ planu App Service określa, jakie funkcje App Service uzyskasz i ile płacisz za plan. Warstwy cenowe dzielą się na kilka kategorii:
 
 - **Udostępnione obliczenia**: **bezpłatne** i **udostępnione**, dwie warstwy podstawowe, URUCHAMIAJĄ aplikację na tej samej maszynie wirtualnej platformy Azure, co inne App Service aplikacje, w tym aplikacje innych klientów. Te warstwy określają limity przydziałów procesora CPU dla każdej aplikacji uruchamianej na udostępnionych zasobach, a zasobów nie można skalować w poziomie.
-- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**i **PremiumV2** korzystają z aplikacji na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service korzystają z tych samych zasobów obliczeniowych. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
+- **Dedykowane obliczenia**: warstwy **Basic**, **Standard**, **Premium**, **PremiumV2**i **PremiumV3** uruchamiają aplikacje na dedykowanych maszynach wirtualnych platformy Azure. Jedynie aplikacje w tym samym planie usługi App Service korzystają z tych samych zasobów obliczeniowych. Im wyższa warstwa, tym większa liczba wystąpień maszyn wirtualnych dostępnych na potrzeby zwiększania skali w poziomie.
 - **Izolowane**: Ta warstwa służy do uruchamiania dedykowanych maszyn wirtualnych platformy Azure w dedykowanych sieciach wirtualnych platformy Azure. Zapewnia izolację sieci na poziomie izolacji obliczeniowej dla aplikacji. Ta warstwa daje największe możliwości zwiększania skali w poziomie.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Każda warstwa udostępnia również określony podzbiór funkcji App Service. Te funkcje obejmują domeny niestandardowe oraz certyfikaty TLS/SSL, Skalowanie automatyczne, miejsca wdrożenia, kopie zapasowe, integrację Traffic Manager i wiele innych. Im wyższa warstwa, tym więcej funkcji jest dostępnych. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwie cenowej, zobacz [szczegóły planu App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-<a name="new-pricing-tier-premiumv2"></a>
+<a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Nowa warstwa cenowa **PremiumV2** udostępnia [maszyny wirtualne z serii Dv2](../virtual-machines/dv2-dsv2-series.md) z szybszymi procesorami, magazynem dysków SSD i podwójną proporcją pamięci na rdzeń w porównaniu z warstwą **Standard** . Usługa **PremiumV2** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w planie standardowym. Wszystkie funkcje dostępne w istniejącej warstwie **Premium** są zawarte w **PremiumV2**.
+> Nowa warstwa cenowa **PremiumV3** gwarantuje [maszyny wirtualne z serii Dv3](../virtual-machines/dv3-dsv3-series.md) z szybszymi procesorami, magazynem SSD i czterokrotnym wskaźnikiem pamięci na rdzeń w porównaniu z warstwą **Standard** . Usługa **PremiumV3** obsługuje również wyższą skalę dzięki większej liczbie wystąpień, jednocześnie zapewniając jednocześnie wszystkie zaawansowane możliwości dostępne w warstwie **standardowa** . Wszystkie funkcje dostępne w istniejącej warstwie **PremiumV2** są zawarte w **PremiumV3**.
 >
 > Podobnie jak w przypadku innych dedykowanych warstw, dla tej warstwy są dostępne trzy rozmiary maszyn wirtualnych:
 >
-> - Mały (jeden rdzeń procesora CPU, 3,5 GiB pamięci) 
-> - Średni (dwa rdzenie procesora CPU, 7 GiB pamięci) 
-> - Duże (cztery rdzenie procesora CPU, 14 GiB pamięci)  
+> - Małe (2 rdzenie procesora CPU, 8 GiB pamięci) 
+> - Średni (4 rdzenie procesora CPU, 16 GiB pamięci) 
+> - Duże (8 rdzeni procesora CPU, 32 GiB pamięci)  
 >
-> Aby uzyskać informacje o cenach **PremiumV2** , zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
+> Aby uzyskać informacje o cenach **PremiumV3** , zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> Aby rozpocząć pracę z nową warstwą cenową **PremiumV2** , zobacz [Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md).
+> Aby rozpocząć pracę z nową warstwą cenową **PremiumV3** , zobacz [Konfigurowanie warstwy PremiumV3 dla App Service](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>Jak działa i skalowanie mojej aplikacji?
 
@@ -68,7 +68,7 @@ W tej sekcji opisano sposób rozliczania App Service aplikacji. Aby uzyskać szc
 Z wyjątkiem warstwy **bezpłatna** w planie App Service są naliczane opłaty za zasoby obliczeniowe, których używa.
 
 - W warstwie **udostępnionej** każda aplikacja otrzymuje limit czasu procesora (w minutach), więc dla _każdej aplikacji_ jest naliczana opłata za przydział procesora CPU.
-- W przypadku dedykowanych warstw obliczeniowych (**podstawowa**, **standardowa**, **Premium**, **PremiumV2**) plan App Service definiuje liczbę wystąpień maszyn wirtualnych, do których są skalowane aplikacje, w związku z czym _każde wystąpienie maszyny wirtualnej_ w planie App Service jest obciążane. Te wystąpienia maszyn wirtualnych są obciążane tymi samymi, niezależnie od liczby uruchomionych na nich aplikacji. Aby uniknąć nieoczekiwanych opłat, zobacz [oczyszczanie planu App Service](app-service-plan-manage.md#delete).
+- W przypadku dedykowanych warstw obliczeniowych (**podstawowa**, **standardowa**, **Premium**, **PremiumV2**, **PremiumV3**) plan App Service definiuje liczbę wystąpień maszyn wirtualnych, do których są skalowane aplikacje, w związku z czym _każde wystąpienie maszyny wirtualnej_ w planie App Service jest obciążane. Te wystąpienia maszyn wirtualnych są obciążane tymi samymi, niezależnie od liczby uruchomionych na nich aplikacji. Aby uniknąć nieoczekiwanych opłat, zobacz [oczyszczanie planu App Service](app-service-plan-manage.md#delete).
 - W warstwie **izolowanej** App Service Environment definiuje liczbę izolowanych procesów roboczych, na których działają aplikacje, i _każdy proces roboczy_ jest naliczany. Ponadto istnieje płaska opłata za uruchomienie App Service Environment.
 
 Za korzystanie z funkcji App Service, które są dostępne dla użytkownika (Konfigurowanie domen niestandardowych, certyfikatów TLS/SSL, miejsc wdrożenia, kopii zapasowych itp.), nie jest naliczana opłata. Wyjątki są następujące:

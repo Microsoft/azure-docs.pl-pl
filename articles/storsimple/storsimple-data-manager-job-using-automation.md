@@ -6,14 +6,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514928"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743611"
 ---
-# <a name="use-azure-automation-to-trigger-a-job"></a>Użyj Azure Automation, aby wyzwolić zadanie
+# <a name="use-azure-automation-to-trigger-a-job"></a>Wyzwalanie zadania za pomocą usługi Azure Automation
 
 W tym artykule wyjaśniono, jak można użyć funkcji przekształcania danych w ramach usługi StorSimple Data Manager do przekształcania danych urządzenia StorSimple. Zadanie przekształcania danych można uruchomić na dwa sposoby: 
 
@@ -28,7 +28,7 @@ Przed rozpoczęciem upewnij się, że masz:
 
 *   Azure PowerShell zainstalowany na komputerze klienckim. [Pobierz Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Poprawnie skonfigurowana Definicja zadania w ramach usługi StorSimple Data Manager w grupie zasobów.
-*   Pobierz [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) plik z repozytorium GitHub. 
+*   Pobierz  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) plik z repozytorium GitHub. 
 *   Pobierz [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) skrypt z repozytorium GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedura krok po kroku
@@ -41,7 +41,7 @@ Przed rozpoczęciem upewnij się, że masz:
 
 2. Aby dodać nowe konto usługi Automation, kliknij pozycję **+ Dodaj**.
 
-    ![Utwórz konto usługi Automation as](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Tworzenie konta Uruchom jako usługi Automation 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. W oknie **Dodawanie automatyzacji**:
 
@@ -52,7 +52,7 @@ Przed rozpoczęciem upewnij się, że masz:
    5. Pozostaw wybraną opcję Domyślne **Utwórz konto Uruchom jako** .
    6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij pozycję **Utwórz**.
 
-      ![Utwórz konto usługi Automation as](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Tworzenie konta Uruchom jako usługi Automation 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       Po pomyślnym utworzeniu konta usługi Automation zostanie wyświetlone powiadomienie.
     

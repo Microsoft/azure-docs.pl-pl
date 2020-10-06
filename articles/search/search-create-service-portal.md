@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/05/2020
+ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268370"
+ms.locfileid: "91741010"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -47,7 +47,7 @@ Możesz również [aktywować korzyści dla subskrybentów MSDN](https://azure.m
 
 1. Użyj paska wyszukiwania, aby znaleźć "wyszukiwanie poznawcze platformy Azure" lub przejdź do zasobu za pomocą usługi **Web**  >  **Azure wyszukiwanie poznawcze**.
 
-![Tworzenie zasobu w portalu](./media/search-create-service-portal/find-search3.png "Tworzenie zasobu w portalu")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 ## <a name="choose-a-subscription"></a>Wybierz subskrypcję
 
@@ -59,11 +59,11 @@ Grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania pl
 
 Jeśli zasoby nie są łączone w pojedynczą grupę, a istniejące grupy zasobów są wypełniane zasobami używanymi w niepowiązanych rozwiązaniach, Utwórz nową grupę zasobów tylko dla zasobu usługi Azure Wyszukiwanie poznawcze. 
 
-![Tworzenie nowej grupy zasobów](./media/search-create-service-portal/new-resource-group.png "Tworzenie nowej grupy zasobów")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 W miarę upływu czasu można śledzić bieżące i przewidywane koszty, a także wyświetlać opłaty dla poszczególnych zasobów. Poniższy zrzut ekranu przedstawia rodzaj informacji o kosztach, które można zobaczyć w przypadku łączenia wielu zasobów w jedną grupę.
 
-![Zarządzanie kosztami na poziomie grupy zasobów](./media/search-create-service-portal/resource-group-cost-management.png "Zarządzanie kosztami na poziomie grupy zasobów")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 > [!TIP]
 > Grupy zasobów upraszczają czyszczenie, ponieważ usunięcie grupy powoduje usunięcie wszystkich znajdujących się w niej usług. Umieszczenie w tej samej grupie zasobów wszystkich projektów będących prototypami korzystającymi z wielu usług ułatwia proces czyszczenia po zakończeniu projektu.
@@ -114,11 +114,11 @@ Pamiętaj, że po utworzeniu usługi nie można zmienić warstwy cenowej. Jeśli
 
 Po podaniu niezbędnych danych wejściowych przejdź dalej i Utwórz usługę. 
 
-![Przeglądanie i tworzenie usługi](./media/search-create-service-portal/new-service3.png "Przeglądanie i tworzenie usługi")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 Twoja usługa zostanie wdrożona w ciągu kilku minut. Możesz monitorować postęp za pomocą powiadomień platformy Azure. Rozważ możliwość przypięcia usługi do pulpitu nawigacyjnego w celu ułatwienia dostępu w przyszłości.
 
-![Monitorowanie i Przypinanie usługi](./media/search-create-service-portal/monitor-notifications.png "Monitorowanie i Przypinanie usługi")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Pobieranie klucza i punktu końcowego adresu URL
 
@@ -128,7 +128,7 @@ Jeśli nie korzystasz z portalu, dostęp programistyczny do nowej usługi wymaga
 
 2. Na stronie **klucze** Skopiuj jeden z kluczy administratora (są one równoważne). Klucze interfejsu API administratora są wymagane do tworzenia, aktualizowania i usuwania obiektów w usłudze. Z kolei klucze zapytań zapewniają dostęp do odczytu do zawartości indeksu.
 
-   ![Strona przeglądu usługi z punktem końcowym adresu URL](./media/search-create-service-portal/get-url-key.png "Punkt końcowy adresu URL i inne szczegóły usługi")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 Klucz i punkt końcowy nie są wymagane do zadań wykonywanych w portalu. Portal jest już połączony z zasobem usługi Azure Wyszukiwanie poznawcze z uprawnieniami administratora. Przewodnik po samouczku można rozpocząć od [przewodnika Szybki Start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure w portalu](search-get-started-portal.md).
 
@@ -149,7 +149,7 @@ Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Ka
 2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
 3. Użyj suwaka, aby dodać zasoby wybranego typu.
 
-![Dodaj pojemność](./media/search-create-service-portal/settings-scale.png "Dodawanie pojemności przy użyciu replik i partycji")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Tworzenie zasobu w portalu" border="false":::
 
 > [!Note]
 > Magazyn na partycję i szybkość zwiększają się o wyższe warstwy. Aby uzyskać więcej informacji, zobacz [pojemność i limity](search-limits-quotas-capacity.md).

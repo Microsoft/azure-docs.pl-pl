@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542806"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Samouczek: integracja Azure Active Directory z usługą Brightidea
 
@@ -112,14 +112,14 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Brightidea
 
     c. Po pomyślnym przekazaniu pliku metadanych wartości **Identyfikator** i **Adres URL odpowiedzi** zostaną automatycznie wypełnione w polu tekstowym sekcji Brightidea:
 
-    ![image (obraz)](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     > [!Note]
     > Jeśli wartości **Identyfikator** i **Adres URL odpowiedzi** nie zostaną automatycznie wypełnione, wpisz te wartości ręcznie zgodnie z wymaganiami.
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![image (obraz)](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.brightidea.com`
 
@@ -143,21 +143,21 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Brightidea
 
 2. Aby przejść do funkcji logowania jednokrotnego w systemie Brightidea, przejdź **Enterprise Setup**do  ->  **karty uwierzytelnianie**konfiguracji przedsiębiorstwa. Zobaczysz dwie podkarty: wybór uwierzytelniania & profile SAML.
 
-    ![Konfiguracja aplikacji Brightidea](./media/brightidea-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia witrynę Brightidea z wybraną kartą uwierzytelnianie.](./media/brightidea-tutorial/configure1.png)
 
 3. Wybierz kartę **Auth Selection** (Wybór uwierzytelniania). Domyślnie wyświetlane są tylko dwie metody standardowe: Brightidea logowania & rejestracji. Po dodaniu metody logowania jednokrotnego zostanie ona wyświetlona na liście.
 
-    ![Konfiguracja aplikacji Brightidea](./media/brightidea-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia kartę Uwierzytelnianie Brightidea z wybranym wyborem uwierzytelniania.](./media/brightidea-tutorial/configure2.png)
 
 4. Wybierz pozycję **SAML Profiles** (Profile SAML) i wykonaj następujące czynności:
 
-    ![Konfiguracja aplikacji Brightidea](./media/brightidea-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia kartę Uwierzytelnianie Brightidea z wybranymi profilami SAML, które udostępniają opcje pobierania metadanych i dodawania nowych.](./media/brightidea-tutorial/configure3.png)
 
     a. Kliknij pozycję **Download Metadata** (Pobierz metadane) i przekaż je w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
     b. Kliknij przycisk **Add New** (Dodaj nowe) w obszarze **Identity Provider Setting** (Ustawienie dostawcy tożsamości) i wykonaj następujące kroki:
     
-    ![Konfiguracja aplikacji Brightidea](./media/brightidea-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia ustawienie dostawcy tożsamości Brightidea, w którym wprowadzane są informacje.](./media/brightidea-tutorial/configure4.png)
     
    * W polu **SAML Profile Name** (Nazwa profilu SAML) wprowadź nazwę profilu SAML, na przykład `Azure Ad SSO`
     
@@ -195,7 +195,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -237,7 +237,7 @@ Po kliknięciu kafelka Brightidea na panelu dostępu powinno nastąpić automaty
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

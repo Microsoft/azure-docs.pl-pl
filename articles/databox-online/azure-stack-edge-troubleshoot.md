@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903660"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742030"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Rozwiązywanie problemów z Azure Stack EDGE Pro
 
@@ -55,7 +55,7 @@ Wykonaj następujące czynności, aby zebrać pakiet dla pomocy technicznej.
 
 2. Po utworzeniu pakietu dla pomocy technicznej wybierz pozycję **Pobierz pakiet pomocy technicznej**. Skompresowany pakiet zostanie pobrany w wybranej ścieżce. Można rozpakować pakiet i wyświetlić systemowe pliki dziennika.
 
-    ![Klikanie przycisku Dodaj użytkownika](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
+    ![Kliknij pozycję Dodaj użytkownika 2](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Rozwiązywanie problemów przy użyciu dzienników
 

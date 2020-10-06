@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 02358dcffa6f757e3c61b3c1ae0e7c5298f7d9ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 63d3a874c3d3d55ec1e3af3765ae63119dca287b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542687"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-britive"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Britive
 
@@ -103,7 +103,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -129,11 +129,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę Ustawienia administratora** i wybierz pozycję **zabezpieczenia**.
 
-    ![Konfiguracja Britive](./media/britive-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia witrynę sieci Web Britive z wybranymi ustawieniami i zabezpieczeniami.](./media/britive-tutorial/configure1.png)
 
 1. Wybierz pozycję **Konfiguracja logowania jednokrotnego** i wykonaj następujące czynności:
 
-    ![Konfiguracja Britive](./media/britive-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia konfigurację S O, w której wprowadzane są informacje w tym kroku.](./media/britive-tutorial/configure2.png)
 
     a. Skopiuj wartość **Identyfikator odbiorcy/jednostki** i wklej ją do pola tekstowego **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -147,15 +147,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę Ustawienia administratora** i wybierz pozycję **Administracja użytkownikami**.
 
-    ![Konfiguracja Britive](./media/britive-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia witrynę sieci Web Britive z wybranymi ustawieniami i administracją użytkownika.](./media/britive-tutorial/user1.png)
 
 1. Kliknij pozycję **Dodaj użytkownika**.
 
-    ![Konfiguracja Britive](./media/britive-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia przycisk Dodaj użytkownika.](./media/britive-tutorial/user2.png)
 
 1. Wypełnij wszystkie niezbędne szczegóły użytkownika zgodnie z wymaganiami organizacji, a następnie kliknij pozycję **Dodaj użytkownika**.
 
-    ![Konfiguracja Britive](./media/britive-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia stronę użytkownika usługi AD, na której wprowadzane są informacje o użytkowniku.](./media/britive-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -163,11 +163,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Britive w panelu dostępu należy automatycznie zalogować się do Britive, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

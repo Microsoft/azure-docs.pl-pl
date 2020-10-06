@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a007b8e85440faab6f3d9f35c49ee207ee1597ff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295502"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741411"
 ---
 # <a name="security-control-v2-identity-management"></a>Kontrola zabezpieczeń v2: Zarządzanie tożsamościami
 
 Zarządzanie tożsamościami obejmuje kontrolki służące do nawiązywania bezpiecznej kontroli tożsamości i dostępu przy użyciu Azure Active Directory. Obejmuje to korzystanie z logowania jednokrotnego, silnych uwierzytelnień, tożsamości zarządzanych (i zasad usługi) dla aplikacji, dostępu warunkowego i monitorowania anomalii kont.
 
-## <a name="id-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>Identyfikator-1: ujednolicenie Azure Active Directory jako centralnej systemu tożsamości i uwierzytelniania
+## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>Wiadomość błyskawiczna-1: standaryzacja Azure Active Directory jako centralny system tożsamości i uwierzytelniania
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
+| WIADOMOŚĆ BŁYSKAWICZNA — 1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
 Azure Active Directory (Azure AD) to domyślna usługa zarządzania tożsamościami i dostępem platformy Azure. Należy przeprowadzić standaryzację w usłudze Azure AD, aby zarządzać zarządzaniem tożsamościami i dostępem w organizacji w programie:
 - Zasoby w chmurze firmy Microsoft, takie jak Azure Portal, Azure Storage, Azure Virtual Machines (Linux i Windows), Azure Key Vault, PaaS i SaaS.
@@ -55,11 +55,11 @@ Uwaga: usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, które
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-2-manage-application-identities-securely-and-automatically"></a>Identyfikator — 2: Zarządzaj tożsamościami aplikacji bezpiecznie i automatycznie
+## <a name="im-2-manage-application-identities-securely-and-automatically"></a>Wiadomości błyskawiczne — 2: Zarządzaj tożsamościami aplikacji bezpiecznie i automatycznie
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 2 | Nie dotyczy | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| WIADOMOŚCI BŁYSKAWICZNE — 2 | Brak | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 W przypadku kont nieludzkich, takich jak usługi lub Automatyzacja, Użyj tożsamości zarządzanych przez platformę Azure, zamiast tworzyć bardziej zaawansowane konto w celu uzyskania dostępu do zasobów lub wykonywania kodu. Tożsamości zarządzane przez platformę Azure mogą uwierzytelniać usługi platformy Azure i zasoby, które obsługują uwierzytelnianie usługi Azure AD. Uwierzytelnianie jest włączane przy użyciu wstępnie zdefiniowanych reguł przyznawania dostępu, unikając zakodowanych poświadczeń w kodzie źródłowym lub plikach konfiguracyjnych. 
 
@@ -83,11 +83,11 @@ Użyj Azure Key Vault do rejestracji podmiotu zabezpieczeń: Authentication # Au
 
 - [Zabezpieczenia aplikacji i metodyka DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>Identyfikator-3: Użyj logowania jednokrotnego usługi Azure AD na potrzeby dostępu do aplikacji
+## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>KOMUNIKATOR-3: używanie logowania jednokrotnego usługi Azure AD na potrzeby dostępu do aplikacji
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 3 | 4.4 | IA-2, IA-4 |
+| WIADOMOŚCI BŁYSKAWICZNE — 3 | 4.4 | IA-2, IA-4 |
 
 Usługa Azure AD zapewnia zarządzanie tożsamościami i dostępem do zasobów platformy Azure, aplikacji w chmurze i aplikacji lokalnych. Zarządzanie tożsamościami i dostępem dotyczy tożsamości przedsiębiorstwa, takich jak pracownicy, a także tożsamości zewnętrznych, takich jak partnerzy, dostawcy i dostawcy.
 
@@ -105,11 +105,11 @@ Funkcja logowania jednokrotnego w usłudze Azure AD umożliwia zarządzanie dost
 
 - [Zabezpieczenia aplikacji i metodyka DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>Identyfikator-4: Użyj kontrolek silnego uwierzytelniania dla wszystkich Azure Active Directory na podstawie dostępu
+## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>KOMUNIKATOR-4: Użyj kontrolek silnego uwierzytelniania dla wszystkich Azure Active Directory na podstawie dostępu
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
+| WIADOMOŚCI BŁYSKAWICZNE — 4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
 Usługa Azure AD obsługuje mechanizmy kontroli silnego uwierzytelniania za pomocą uwierzytelniania wieloskładnikowego (MFA) i silnych metod bezhaseł.  
 - Uwierzytelnianie wieloskładnikowe: Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center zarządzaniem tożsamościami i dostępem dla konfiguracji usługi MFA. Usługę MFA można wymusić dla wszystkich użytkowników, wybrać użytkowników lub na poziomie poszczególnych użytkowników na podstawie warunków logowania i czynników ryzyka. 
@@ -140,11 +140,11 @@ Uwaga: uwierzytelnianie oparte na poświadczeniach hasła jest podatne na popula
 
 - [Zabezpieczenia aplikacji i metodyka DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-5-monitor-and-alert-on-account-anomalies"></a>Identyfikator-5: Monitor i alert dotyczący anomalii kont
+## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>KOMUNIKATOR-5: Monitor i alert dotyczący anomalii kont
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 5 | 4,8, 4,9, 16,12, 16,13 | AC-2, AC-3, AC-7, AU-6 |
+| WIADOMOŚCI BŁYSKAWICZNE — 5 | 4,8, 4,9, 16,12, 16,13 | AC-2, AC-3, AC-7, AU-6 |
 
 Usługa Azure AD udostępnia następujące źródła danych: 
 -   Logowania — raport logowania zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
@@ -185,11 +185,11 @@ Azure Advanced Threat Protection (ATP) to rozwiązanie zabezpieczeń, które umo
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-6-restrict-azure-resource-access-based-on-conditions"></a>Identyfikator-6: Ogranicz dostęp do zasobów platformy Azure na podstawie warunków
+## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>Wiadomości błyskawiczne — 6: Ogranicz dostęp do zasobów platformy Azure na podstawie warunków
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 6 | Nie dotyczy | AC-2, AC-3 |
+| WIADOMOŚCI BŁYSKAWICZNE — 6 | Brak | AC-2, AC-3 |
 
 Korzystanie z dostępu warunkowego usługi Azure AD w celu uzyskania bardziej szczegółowej kontroli dostępu na podstawie warunków zdefiniowanych przez użytkownika, takich jak wymaganie logowania użytkowników z określonych zakresów adresów IP do korzystania z usługi MFA. Szczegółowe zarządzanie sesjami uwierzytelniania może być również używane za pomocą zasad dostępu warunkowego usługi Azure AD dla różnych przypadków użycia. 
 
@@ -211,11 +211,11 @@ Korzystanie z dostępu warunkowego usługi Azure AD w celu uzyskania bardziej sz
 
 - [Analiza zagrożeń](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="id-7-eliminate-unintended-credential-exposure"></a>Identyfikator-7: eliminowanie niezamierzonych zagrożeń związanych z poświadczeniami
+## <a name="im-7-eliminate-unintended-credential-exposure"></a>Wiadomości błyskawiczne — 7: eliminowanie niezamierzonego narażenia na poświadczenia
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR 7 | 18,1, 18,7 | IA-5 |
+| WIADOMOŚCI BŁYSKAWICZNE — 7 | 18,1, 18,7 | IA-5 |
 
 Zaimplementuj skaner poświadczeń usługi Azure DevOps, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przechodzenia odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
@@ -233,11 +233,11 @@ W usłudze GitHub można używać funkcji skanowania natywnego klucza tajnego do
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-8-secure-user-access-to-legacy-applications"></a>Identyfikator-8: bezpieczny dostęp użytkowników do starszych aplikacji
+## <a name="im-8-secure-user-access-to-legacy-applications"></a>KOMUNIKATOR-8: bezpieczny dostęp użytkowników do starszych aplikacji
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| IDENTYFIKATOR — 8 | 14,6 | AC-2, AC-3, SC-11 |
+| WIADOMOŚĆ BŁYSKAWICZNA — 8 | 14,6 | AC-2, AC-3, SC-11 |
 
 Upewnij się, że dysponujesz nowoczesnymi kontrolami dostępu i monitorowaniem sesji dla starszych aplikacji oraz przechowywanych i przetwarzanych danych. Gdy sieci VPN są często używane do uzyskiwania dostępu do starszych aplikacji, często mają tylko podstawową kontrolę dostępu i ograniczone monitorowanie sesji.
 
@@ -258,4 +258,3 @@ Alternatywnie Microsoft Cloud App Security to usługa brokera zabezpieczeń dost
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Zabezpieczenia aplikacji i metodyka DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
-

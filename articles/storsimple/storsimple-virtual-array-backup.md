@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183228"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742251"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Tworzenie kopii zapasowej udziałów lub woluminów w macierzy wirtualnej StorSimple
 
@@ -76,13 +76,13 @@ Oprócz zaplanowanych kopii zapasowych można w dowolnym momencie wykonać ręcz
    
     Rozpocznie się tworzenie kopii zapasowej na żądanie i zobaczysz, że uruchomiono zadanie tworzenia kopii zapasowej.
    
-    ![Rozpoczynanie tworzenia kopii zapasowej](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![kopia zapasowa — początek 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Po pomyślnym zakończeniu zadania zostanie wyświetlone powiadomienie. Następnie rozpocznie się proces tworzenia kopii zapasowej.
    
     ![utworzono zadanie tworzenia kopii zapasowej](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
-3. Aby śledzić postęp tworzenia kopii zapasowych i przeglądać szczegóły zadania, kliknij powiadomienie. Spowoduje to przejście do **szczegółów zadań**.
+3. Aby śledzić postęp tworzenia kopii zapasowych i przeglądać szczegóły zadania, kliknij powiadomienie. Spowoduje to przejście do  **szczegółów zadań**.
    
      ![Szczegóły zadania kopii zapasowej](./media/storsimple-virtual-array-backup/takebackup5m.png)
 

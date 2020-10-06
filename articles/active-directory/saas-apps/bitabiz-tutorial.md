@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531094"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Samouczek: integracja Azure Active Directory z usługą BitaBIZ
 
@@ -132,15 +132,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją BitaBIZ, 
 
 2. Kliknij pozycję **SETUP ADMIN** (ADMINISTRATOR KONFIGURACJI).
 
-    ![Konfiguracja aplikacji BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną pozycją administrator instalacji.](./media/bitabiz-tutorial/settings1.png)
 
 3. Kliknij pozycję **Microsoft integrations** (Integracja w rozwiązaniach firmy Microsoft) w sekcji **Add value** (Dodawanie wartości).
 
-    ![Konfiguracja aplikacji BitaBIZ](./media/bitabiz-tutorial/settings2.png)
+    ![Zrzut ekranu przedstawia wybrane wartości Dodaj wartość z integracją firmy Microsoft.](./media/bitabiz-tutorial/settings2.png)
 
 4. Przewiń w dół do sekcji **Microsoft Azure AD (Enable single sign on)** (Usługa Microsoft Azure AD (włącz logowanie jednokrotne)) i wykonaj następujące czynności:
 
-    ![Konfiguracja aplikacji BitaBIZ](./media/bitabiz-tutorial/settings3.png)
+    ![Zrzut ekranu przedstawia sekcję Microsoft Azure D, w której wprowadzane są informacje opisane w tym kroku.](./media/bitabiz-tutorial/settings3.png)
 
     a. Skopiuj wartość z pola tekstowego **Entity ID (”Identifier” in Azure AD)** (Identyfikator jednostki („Identyfikator” w usłudze Azure AD)) i wklej ją w polu tekstowym **Identyfikator** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. 
 
@@ -179,7 +179,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -218,19 +218,19 @@ W przypadku aplikacji BitaBIZ aprowizowanie jest zadaniem ręcznym.
 
 2. Kliknij pozycję **SETUP ADMIN** (ADMINISTRATOR KONFIGURACJI).
 
-    ![Dodawanie użytkownika aplikacji BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybranym administratorem instalacji.](./media/bitabiz-tutorial/settings1.png)
 
 3. Kliknij pozycję **Add users** (Dodaj użytkowników) w sekcji **Organization** (Organizacja).
 
-    ![Dodawanie użytkownika aplikacji BitaBIZ](./media/bitabiz-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia sekcję organizacja z wybraną pozycją Dodaj użytkowników.](./media/bitabiz-tutorial/user1.png)
 
 4. Kliknij przycisk **Add new employee** (Dodaj nowego pracownika).
 
-    ![Dodawanie użytkownika aplikacji BitaBIZ](./media/bitabiz-tutorial/user2.png)
+    ![Zrzut ekranu pokazuje Dodaj użytkowników z wybranym nowym pracownikiem.](./media/bitabiz-tutorial/user2.png)
 
 5. Na stronie okna dialogowego **Add new employee** (Dodawanie nowego pracownika) wykonaj następujące kroki:
 
-    ![Dodawanie użytkownika aplikacji BitaBIZ](./media/bitabiz-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia stronę, na której wprowadzane są informacje opisane w tym kroku.](./media/bitabiz-tutorial/user3.png)
 
     a. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. Britta.
 
@@ -257,6 +257,6 @@ Po kliknięciu kafelka BitaBIZ w panelu dostępu powinno nastąpić automatyczne
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

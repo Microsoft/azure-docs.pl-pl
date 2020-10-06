@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002627"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740874"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Jak utworzyć filtr aspektów w usłudze Azure Wyszukiwanie poznawcze 
 
@@ -29,7 +29,8 @@ Nawigacja aspektowa jest używana do samodzielnego filtrowania wyników zapytani
 
 Zestawy reguł są dynamiczne i zwracane w zapytaniu. Odpowiedzi wyszukiwania przyjmują do nich kategorie aspektów używane do nawigowania po wynikach. Jeśli nie znasz już aspektów, Poniższy przykład jest ilustracją struktury nawigacyjnej aspektu.
 
-  ![Obraz przedstawiający okno dialogowe wyszukiwania z przefiltrowanymi wynikami wyszukiwania pogrupowane według tytułu firmy. Strzałka wskazuje, że wyniki są aspektami, które są wyświetlane w strukturze nawigacji aspektu.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="filtrowane wyniki wyszukiwania&quot;:::
+&quot;Obraz przedstawiający okno dialogowe wyszukiwania z przefiltrowanymi wynikami wyszukiwania pogrupowane według tytułu biznesowego. Strzałka wskazuje, że wyniki są zestawami, które są wyświetlane w strukturze nawigacji zestawu reguł " :::image-end:::
 
 Jesteś nowym w nawigacji aspektowej i chcesz uzyskać więcej szczegółów? Zobacz [, jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](search-faceted-navigation.md).
 

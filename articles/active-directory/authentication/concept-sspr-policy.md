@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531279"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741721"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -41,11 +41,13 @@ Poniższa tabela zawiera opis zasad nazw, które są stosowane do lokalnych kont
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Zasady haseł usługi Azure AD
 
-Zasady dotyczące haseł są stosowane do wszystkich kont użytkowników, które są tworzone i zarządzane bezpośrednio w usłudze Azure AD. Nie można zmodyfikować tych zasad haseł, chociaż można [skonfigurować niestandardowe hasła zabronione dla ochrony hasłem usługi Azure AD](tutorial-configure-custom-password-protection.md).
+Zasady dotyczące haseł są stosowane do wszystkich kont użytkowników, które są tworzone i zarządzane bezpośrednio w usłudze Azure AD. Niektóre z tych ustawień zasad haseł nie mogą być modyfikowane, ale można [skonfigurować niestandardowe hasła zabronione dla ochrony hasłem usługi Azure AD](tutorial-configure-custom-password-protection.md) lub parametrów blokady konta.
 
-Zasady haseł nie mają zastosowania do kont użytkowników synchronizowanych z lokalnego środowiska AD DS przy użyciu Azure AD Connect, o ile nie zostanie włączona EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Domyślnie konto jest blokowane po 10 nieudanych próbach logowania przy użyciu nieprawidłowego hasła. Użytkownik jest zablokowany przez jedną minutę. Więcej nieprawidłowych prób logowania Zablokuj użytkownika w celu zwiększenia czasu trwania. [Inteligentna blokada](howto-password-smart-lockout.md) śledzi ostatnie trzy niewłaściwe skróty haseł, aby uniknąć zwiększenia licznika blokady dla tego samego hasła. Jeśli ktoś wprowadzi to samo złe hasło wielokrotnie, to zachowanie nie spowoduje zablokowania konta. Można zdefiniować próg i czas trwania blokady inteligentnej.
 
-Zdefiniowane są następujące opcje zasad haseł:
+Zasady haseł usługi Azure AD nie dotyczą kont użytkowników synchronizowanych z lokalnego środowiska AD DS przy użyciu Azure AD Connect, o ile nie zostanie włączona *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+Zdefiniowane są następujące opcje zasad haseł usługi Azure AD. O ile nie zaznaczono inaczej, nie można zmienić tych ustawień:
 
 | Właściwość | Wymagania |
 | --- | --- |
@@ -57,7 +59,6 @@ Zdefiniowane są następujące opcje zasad haseł:
 | Wygaśnięcie hasła (niech hasła nigdy nie wygasa) |<ul><li>Wartość domyślna: **false** (wskazuje, że hasło ma datę wygaśnięcia).</li><li>Wartość można skonfigurować dla poszczególnych kont użytkowników przy użyciu `Set-MsolUser` polecenia cmdlet.</li></ul> |
 | Historia zmian haseł | *Nie* można ponownie użyć ostatniego hasła, gdy użytkownik zmieni hasło. |
 | Historia resetowania hasła | Ostatniego hasła *można* użyć ponownie, gdy użytkownik resetuje zapomniane hasło. |
-| Blokada konta | Po 10 nieudanych próbach logowania z nieprawidłowym hasłem użytkownik jest blokowany przez jedną minutę. Więcej nieprawidłowych prób logowania Zablokuj użytkownika w celu zwiększenia czasu trwania. [Inteligentna blokada](howto-password-smart-lockout.md) śledzi ostatnie trzy niewłaściwe skróty haseł, aby uniknąć zwiększenia licznika blokady dla tego samego hasła. Jeśli ktoś wprowadzi to samo złe hasło wielokrotnie, to zachowanie nie spowoduje zablokowania konta. |
 
 ## <a name="administrator-reset-policy-differences"></a>Administrator reset policy differences (Różnice zasad resetowania administratora)
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82561684"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741962"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: łączenie, konfigurowanie, aktywowanie Azure Data Box Gateway
 
@@ -43,7 +43,7 @@ Przed skonfigurowaniem i skonfigurowaniem Data Box Gateway upewnij się, że:
    
    https: \/ /IP-address-of-Network-Interface
    
-   Użyj adresu URL połączenia zanotowanego w poprzednim samouczku. Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
+   Użyj adresu URL połączenia zanotowanego w poprzednim samouczku. Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie informujące o problemie z certyfikatem zabezpieczeń witryny internetowej.
 
 2. Wybierz pozycję **Kontynuuj na tej stronie sieci Web**. Te kroki mogą się różnić w zależności od używanej przeglądarki.
    
@@ -75,12 +75,12 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    
     Podczas konfigurowania ustawień sieciowych należy pamiętać o następujących kwestiach:
 
-    - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, Brama i DNS są przypisywane automatycznie.
+    - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, brama i DNS są przypisywane automatycznie.
     - Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
     - Interfejs sieciowy można skonfigurować jako adres IPv4.
 
      >[!NOTE] 
-     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na DHCP, chyba że masz inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączania do usługi DHCP nie byłoby możliwe określenie adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
+     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na DHCP, chyba że masz inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączenia na protokół DHCP nie będzie możliwości określenia adresu DHCP. Jeśli chcesz zmienić na adres DHCP, zaczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie dokonaj zmiany. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
 
 3. Opcjonalnie skonfiguruj serwer proxy sieci Web. Mimo że konfiguracja serwera proxy sieci Web jest opcjonalna, jeśli używasz serwera proxy sieci Web, możesz go skonfigurować tylko na tej stronie.
    
@@ -95,7 +95,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 
    > [!NOTE]
    > Pliki proxy-autoconfig (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki sieci Web i inni agenci użytkowników mogą automatycznie wybierać odpowiedni serwer proxy (metoda dostępu) do pobierania danego adresu URL.
-   > Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko z własnym certyfikatem) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
+   > Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko własnym certyfikatem) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
    > Zazwyczaj przezroczyste serwery proxy działają dobrze z Azure Data Box Gateway.
 
 4. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia czasu**, a następnie skonfiguruj strefę czasową i serwery NTP w podstawowym i pomocniczym urządzeniu. 
@@ -126,7 +126,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
     
     3. Urządzenie jest aktywowane i aktualizacje krytyczne, jeśli są dostępne, są automatycznie stosowane. Zobaczysz powiadomienie w tym efekcie. Monitoruj postęp aktualizacji za pomocą Azure Portal.
 
-        ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Lokalny interfejs użytkownika sieci Web "Ustawienia chmury" — Strona 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **W oknie dialogowym znajduje się również klucz odzyskiwania, który należy skopiować i zapisać w bezpiecznej lokalizacji. Ten klucz służy do odzyskiwania danych w przypadku, gdy urządzenie nie może się uruchomić.**
 

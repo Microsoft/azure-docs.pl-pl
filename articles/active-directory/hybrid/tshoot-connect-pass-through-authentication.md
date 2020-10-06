@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275927"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741197"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
@@ -96,6 +96,7 @@ Przejdź do **Azure Active Directory**  ->  **logowania** w [centrum administrac
 | 80007 | Agent uwierzytelniania nie może nawiązać połączenia z usługą Active Directory. | Sprawdź, czy Active Directory jest dostępny z poziomu agenta uwierzytelniania.
 | 80010 | Agent uwierzytelniania nie może odszyfrować hasła. | Jeśli problem jest spójnie powtarzalny, zainstaluj i Zarejestruj nowego agenta uwierzytelniania. I Odinstaluj bieżący. 
 | 80011 | Agent uwierzytelniania nie może pobrać klucza odszyfrowującego. | Jeśli problem jest spójnie powtarzalny, zainstaluj i Zarejestruj nowego agenta uwierzytelniania. I Odinstaluj bieżący.
+| 80014 | Żądanie weryfikacji zostało wysłane po osiągnięciu maksymalnego czasu, który upłynął. | Upłynął limit czasu agenta uwierzytelniania. Otwórz bilet pomocy technicznej z kodem błędu, IDENTYFIKATORem korelacji i sygnaturą czasową, aby uzyskać więcej szczegółów dotyczących tego błędu
 
 >[!IMPORTANT]
 >Agenci uwierzytelniania przekazującego uwierzytelniają użytkowników usługi Azure AD, sprawdzając ich nazwy użytkownika i hasła do Active Directory przez wywołanie [interfejsu API Win32 funkcji LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). W związku z tym jeśli ustawisz ustawienie "Logowanie do" w Active Directory, aby ograniczyć dostęp do logowania do stacji roboczej, musisz dodać serwery obsługujące agentów uwierzytelniania przekazywanego do listy "Logowanie do serwerów". Niewykonanie tej czynności uniemożliwi użytkownikom zalogowanie się do usługi Azure AD.

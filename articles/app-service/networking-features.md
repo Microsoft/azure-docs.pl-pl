@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962098"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743050"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
 Aplikacje w Azure App Service można wdrożyć na wiele sposobów. Domyślnie aplikacje hostowane App Service są bezpośrednio dostępne dla Internetu i mogą uzyskiwać dostęp tylko do hostowanych punktów końcowych z Internetu. Wiele aplikacji klienta musi jednak kontrolować ruch sieciowy przychodzący i wychodzący. Istnieje kilka funkcji dostępnych w App Service, aby zaspokoić te wymagania. Wyzwanie polega na Poznaniu funkcji, która powinna być używana do rozwiązywania danego problemu. Ten dokument ma pomóc klientom w ustaleniu, która funkcja powinna być używana w oparciu o przykładowe przypadki użycia.
 
-Istnieją dwa podstawowe typy wdrożeń dla Azure App Service. Istnieje usługa publiczna z wieloma dzierżawcami, która umożliwia hostowanie App Service planów w jednostkach SKU z cenami bezpłatna, współdzielona, podstawowa, standardowa, Premium i Premiumv2. Następnie istnieje pojedynczy dzierżawc App Service Environment (ASE), który hostuje izolowaną jednostkę SKU App Service plany bezpośrednio w Virtual Network platformy Azure. Używane funkcje różnią się w zależności od tego, czy jesteś w usłudze z wieloma dzierżawcami, czy też w środowisku ASE. 
+Istnieją dwa podstawowe typy wdrożeń dla Azure App Service. Istnieje usługa publiczna z wieloma dzierżawcami, która umożliwia hostowanie App Service planów w jednostkach SKU z cenami bezpłatna, współdzielona, podstawowa, standardowa, Premium, PremiumV2 i PremiumV3. Następnie istnieje pojedynczy dzierżawc App Service Environment (ASE), który hostuje izolowaną jednostkę SKU App Service plany bezpośrednio w Virtual Network platformy Azure. Używane funkcje różnią się w zależności od tego, czy jesteś w usłudze z wieloma dzierżawcami, czy też w środowisku ASE. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Wielodostępne funkcje sieciowe App Service 
 
@@ -62,7 +62,7 @@ Następujące wychodzące przypadki użycia sugerują, jak używać funkcji siec
 
 ### <a name="default-networking-behavior"></a>Domyślne zachowanie sieci
 
-Jednostki skalowania Azure App Service obsługują wielu klientów w każdym wdrożeniu. W planach bezpłatna i współdzielona jednostka SKU hostuje obciążenia klientów w przypadku wielu dzierżawców. Plany podstawowe i powyższe są przeznaczone do obsługi obciążeń klientów przeznaczonych tylko do jednego planu App Service (ASP). Jeśli masz plan App Service w warstwie Standardowa, wszystkie aplikacje w tym planie zostaną uruchomione na tym samym procesie roboczym. W przypadku skalowania procesu roboczego wszystkie aplikacje znajdujące się w tej ASP zostaną zreplikowane w nowym procesie roboczym dla każdego wystąpienia w środowisku ASP. Pracownicy, którzy są używani do Premiumv2, różnią się od pracowników używanych w innych planach. Każde wdrożenie App Service ma jeden adres IP, który jest używany przez cały ruch przychodzący do aplikacji w ramach tego App Service wdrożenia. Istnieją jednak od 4 do 11 adresów używanych do wykonywania wywołań wychodzących. Te adresy są udostępniane przez wszystkie aplikacje w tym App Service wdrożeniu. Adresy wychodzące różnią się w zależności od typów procesów roboczych. Oznacza to, że adresy używane przez Nazywaniy bezpłatna, współdzielona, podstawowa, standardowa i Premium są inne niż adresy używane dla wywołań wychodzących z Premiumv2 nazywani. Jeśli szukasz we właściwościach aplikacji, zobaczysz adresy przychodzące i wychodzące, które są używane przez aplikację. Jeśli musisz zablokować zależność z listą ACL protokołu IP, użyj possibleOutboundAddresses. 
+Jednostki skalowania Azure App Service obsługują wielu klientów w każdym wdrożeniu. W planach bezpłatna i współdzielona jednostka SKU hostuje obciążenia klientów w przypadku wielu dzierżawców. Plany podstawowe i powyższe są przeznaczone do obsługi obciążeń klientów przeznaczonych tylko do jednego planu App Service (ASP). Jeśli masz plan App Service w warstwie Standardowa, wszystkie aplikacje w tym planie zostaną uruchomione na tym samym procesie roboczym. W przypadku skalowania procesu roboczego wszystkie aplikacje znajdujące się w tej ASP zostaną zreplikowane w nowym procesie roboczym dla każdego wystąpienia w środowisku ASP. Pracownicy, którzy są używani do PremiumV2 i PremiumV3, różnią się od pracowników używanych w innych planach. Każde wdrożenie App Service ma jeden adres IP, który jest używany przez cały ruch przychodzący do aplikacji w ramach tego App Service wdrożenia. Istnieją jednak od 4 do 11 adresów używanych do wykonywania wywołań wychodzących. Te adresy są udostępniane przez wszystkie aplikacje w tym App Service wdrożeniu. Adresy wychodzące różnią się w zależności od typów procesów roboczych. Oznacza to, że adresy używane przez usługi Free, Shared, Basic, standard i Premium nazywani różnią się od adresów używanych na wywołania wychodzące z PremiumV2 i PremiumV3 nazywani. Jeśli szukasz we właściwościach aplikacji, zobaczysz adresy przychodzące i wychodzące, które są używane przez aplikację. Jeśli musisz zablokować zależność z listą ACL protokołu IP, użyj possibleOutboundAddresses. 
 
 ![Właściwości aplikacji](media/networking-features/app-properties.png)
 

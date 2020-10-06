@@ -3,19 +3,18 @@ title: Zabezpieczenia usługi Azure Key Vault
 description: Zarządzaj uprawnieniami dostępu do Azure Key Vault, kluczy i wpisów tajnych. Obejmuje model uwierzytelniania i autoryzacji dla Key Vault oraz sposób zabezpieczania magazynu kluczy.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596369"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739694"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -76,29 +75,16 @@ Gdy reguły zapory są stosowane, użytkownicy mogą odczytywać dane z Key Vaul
 
 Aby uzyskać więcej informacji na temat Azure Key Vault adresów sieciowych Sprawdź [punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md))
 
-### <a name="tls-and-https"></a>Protokoły TLS i HTTPS
+## <a name="tls-and-https"></a>Protokoły TLS i HTTPS
 
 *   Fronton Key Vault (płaszczyzna danych) to serwer z wieloma dzierżawami. Oznacza to, że magazyny kluczy pochodzące od różnych klientów mogą współużytkować ten sam publiczny adres IP. W celu uzyskania izolacji każde żądanie HTTP jest uwierzytelniane i autoryzowane niezależnie od innych żądań.
 *   Można zidentyfikować starsze wersje protokołu TLS w celu zgłaszania luk w zabezpieczeniach, ale ponieważ publiczny adres IP jest współużytkowany, nie jest możliwe, aby zespół usługi magazynu kluczy mógł wyłączyć stare wersje protokołu TLS dla poszczególnych magazynów kluczy na poziomie transportu.
 *   Protokół HTTPS pozwala klientowi uczestniczyć w negocjacji protokołu TLS. **Klienci mogą wymusić najnowszą wersję protokołu TLS**i zawsze, gdy klient wykonuje takie działania, całe połączenie będzie używać odpowiedniej ochrony na poziomie. Fakt, że Key Vault nadal obsługuje starsze wersje protokołu TLS, nie będzie zakłócać bezpieczeństwa połączeń przy użyciu nowszych wersji protokołu TLS.
 *   Pomimo znanych luk w zabezpieczeniach protokołu TLS nie ma znanego ataku, który zezwoli złośliwemu agentowi na Wyodrębnienie informacji z magazynu kluczy, gdy atakujący inicjuje połączenie z wersją protokołu TLS, która ma luki w zabezpieczeniach. Osoba atakująca nadal musi uwierzytelnić się i autoryzować siebie i tak długo, jak legalni klienci zawsze łączą się z najnowszymi wersjami protokołu TLS, nie ma żadnego sposobu, aby poświadczenia mogły zostać ujawnione w przypadku luk w zabezpieczeniach w starych wersjach protokołu TLS.
 
+## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-## <a name="monitoring"></a>Monitorowanie
-
-Rejestrowanie Key Vault zapisuje informacje o działaniach wykonywanych w magazynie. Key Vault dzienników:
-
-- Wszystkie uwierzytelnione żądania interfejsu API REST, w tym żądania zakończone niepowodzeniem
-  - Operacje w magazynie kluczy. Te operacje obejmują tworzenie, usuwanie, Ustawianie zasad dostępu i aktualizowanie atrybutów magazynu kluczy, takich jak Tagi.
-  - Operacje dotyczące kluczy i wpisów tajnych w magazynie kluczy, w tym:
-    - Tworzenie, modyfikowanie lub usuwanie tych kluczy lub wpisów tajnych.
-    - Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i depakowanie kluczy, pobieranie wpisów tajnych i wyświetlanie listy kluczy i wpisów tajnych (oraz ich wersji).
-- Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Przykłady to żądania, które nie mają tokenu okaziciela, które są źle sformułowane lub wygasłe lub które mają nieprawidłowy token.
-
-Dostęp do informacji o rejestrowaniu można uzyskać w ciągu 10 minut od operacji magazynu kluczy. Można zarządzać dziennikami na koncie magazynu.
-
-- Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
-- Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
+Rejestrowanie Key Vault zapisuje informacje o działaniach wykonywanych w magazynie. Aby uzyskać szczegółowe informacje, zobacz [rejestrowanie Key Vault](logging.md).
 
 Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, zapoznaj się z [przewodnikiem po zabezpieczeniach usługi Azure Storage](../../storage/blobs/security-recommendations.md)
 
@@ -106,4 +92,3 @@ Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, za
 
 - [Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)
-

@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545543"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743441"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -52,7 +52,7 @@ Zastosowanie nowych zasad lub przydziału inicjatywy trwa około 30 minut. Nowe 
 
 Najpierw poczekaj na ukończenie odpowiedniej ilości czasu, aby Ocena została ukończona, a wyniki zgodności staną się dostępne w Azure Portal lub SDK. Aby rozpocząć nowe skanowanie w celu oceny przy użyciu Azure PowerShell lub interfejsu API REST, zobacz [skanowanie na żądanie](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Scenariusz: Obliczanie nie jest zgodne z oczekiwaniami
+### <a name="scenario-compliance-not-as-expected"></a>Scenariusz: zgodność nie jest zgodna z oczekiwaniami
 
 #### <a name="issue"></a>Problem
 
@@ -64,10 +64,21 @@ Zasób nie jest w poprawnym zakresie przypisania zasad lub definicja zasad nie d
 
 #### <a name="resolution"></a>Rozwiązanie
 
-- W przypadku niezgodnego zasobu, który powinien być zgodny, Zacznij od [określenia przyczyn braku zgodności](../how-to/determine-non-compliance.md). Porównanie definicji z obliczoną wartością właściwości wskazuje, dlaczego zasób nie jest zgodny.
-- W przypadku zgodnego zasobu, który powinien być niezgodny, przeczytaj warunek definicji zasad według warunku i Oceń właściwości zasobów. Upewnij się, że operatory logiczne grupują odpowiednie warunki razem i że Twoje warunki nie są odwrócone.
+Wykonaj następujące kroki, aby rozwiązać problemy z definicją zasad:
 
-Jeśli zgodność z przypisaniem zasad zawiera `0/0` zasoby, nie zostały określone żadne zasoby, które mają zastosowanie w zakresie przypisania. Sprawdź zarówno definicję zasad, jak i zakres przypisania.
+1. Najpierw poczekaj na ukończenie odpowiedniej ilości czasu, aby Ocena została ukończona, a wyniki zgodności staną się dostępne w Azure Portal lub SDK. Aby rozpocząć nowe skanowanie w celu oceny przy użyciu Azure PowerShell lub interfejsu API REST, zobacz [skanowanie na żądanie](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Sprawdź, czy parametry przypisania i zakres przypisania są ustawione prawidłowo.
+1. Sprawdź [tryb definicji zasad](../concepts/definition-structure.md#mode):
+   - Tryb "All" dla wszystkich typów zasobów.
+   - Tryb "Indexed", jeśli definicja zasad sprawdza pod kątem tagów lub lokalizacji.
+1. Sprawdź [, czy zakres](../concepts/exemption-structure.md)zasobu nie jest [wykluczony](../concepts/assignment-structure.md#excluded-scopes) ani wykluczony.
+1. Jeśli zgodność z przypisaniem zasad zawiera `0/0` zasoby, nie zostały określone żadne zasoby, które mają zastosowanie w zakresie przypisania. Sprawdź zarówno definicję zasad, jak i zakres przypisania.
+1. W przypadku niezgodnego zasobu, który powinien być zgodny, sprawdź [określenie przyczyn braku zgodności](../how-to/determine-non-compliance.md). Porównanie definicji z obliczoną wartością właściwości wskazuje, dlaczego zasób nie jest zgodny.
+   - Jeśli **wartość docelowa** jest nieprawidłowa, Popraw definicję zasad.
+   - Jeśli **Bieżąca wartość** jest niepoprawna, zweryfikuj ładunek zasobu za pomocą `resources.azure.com` .
+1. Sprawdź [Rozwiązywanie problemów: wymuszanie nie jest zgodne z oczekiwaniami](#scenario-enforcement-not-as-expected) w przypadku innych typowych problemów i rozwiązań.
+
+Jeśli nadal masz problem z zduplikowaną i dostosowaną definicją zasad lub definicją niestandardową, Utwórz bilet pomocy technicznej w obszarze **Tworzenie zasad** w celu poprawnego kierowania problemu.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Scenariusz: wymuszanie nie jest zgodne z oczekiwaniami
 
@@ -81,7 +92,18 @@ Przypisanie zasad zostało skonfigurowane do [wymuszania](../concepts/assignment
 
 #### <a name="resolution"></a>Rozwiązanie
 
-**Zaktualizujmode** do _włączenia_. Ta zmiana umożliwia Azure Policy działanie na zasobach w tym przypisaniu zasad i wysyłanie wpisów do dziennika aktywności. Jeśli **wymuszanie** jest już włączone, zobacz [ocenę nie zgodnie z oczekiwaniami](#scenario-evaluation-not-as-expected) w przypadku kursów akcji.
+Wykonaj następujące kroki, aby rozwiązać problemy z wymuszeniem przypisania zasad:
+
+1. Najpierw poczekaj na ukończenie odpowiedniej ilości czasu, aby Ocena została ukończona, a wyniki zgodności staną się dostępne w Azure Portal lub SDK. Aby rozpocząć nowe skanowanie w celu oceny przy użyciu Azure PowerShell lub interfejsu API REST, zobacz [skanowanie na żądanie](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Sprawdź, czy parametry przypisania i zakres przypisania są ustawione prawidłowo i czy **wymuszanie** jest _włączone_. 
+1. Sprawdź [tryb definicji zasad](../concepts/definition-structure.md#mode):
+   - Tryb "All" dla wszystkich typów zasobów.
+   - Tryb "Indexed", jeśli definicja zasad sprawdza pod kątem tagów lub lokalizacji.
+1. Sprawdź [, czy zakres](../concepts/exemption-structure.md)zasobu nie jest [wykluczony](../concepts/assignment-structure.md#excluded-scopes) ani wykluczony.
+1. Sprawdź, czy ładunek zasobu jest zgodny z logiką zasad. Można to zrobić przez [przechwycenie śledzenia Har](../../../azure-portal/capture-browser-trace.md) lub przejrzenie właściwości szablonu ARM.
+1. Sprawdź [Rozwiązywanie problemów: zgodność nie jest zgodna z oczekiwaniami](#scenario-compliance-not-as-expected) w przypadku innych typowych problemów i rozwiązań.
+
+Jeśli nadal masz problem z zduplikowaną i dostosowaną definicją zasad lub definicją niestandardową, Utwórz bilet pomocy technicznej w obszarze **Tworzenie zasad** w celu poprawnego kierowania problemu.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Scenariusz: odmowa przez Azure Policy
 

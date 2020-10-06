@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891553"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743203"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Rozwiązywanie problemów na urządzeniu z systemem Azure Stack Edge — procesor GPU 
 
@@ -51,7 +51,7 @@ Wykonaj następujące czynności, aby zebrać pakiet dla pomocy technicznej.
  
 2. Po utworzeniu pakietu dla pomocy technicznej wybierz pozycję **Pobierz pakiet pomocy technicznej**. Skompresowany pakiet zostanie pobrany w wybranej ścieżce. Można rozpakować pakiet i wyświetlić systemowe pliki dziennika.
 
-    ![Wybierz pozycję Dodaj użytkownika](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Wybierz pozycję Dodaj użytkownika 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## <a name="gather-advanced-security-logs"></a>Zbierz zaawansowane dzienniki zabezpieczeń
 
@@ -167,7 +167,7 @@ Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowani
 
 2. Sprawdź, czy poprawne moduły programu PowerShell są zainstalowane zgodnie z opisem w [tym miejscu](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
-3. Sprawdź, czy Azure Resource Manager i punkty końcowe logowania są osiągalne. Możesz spróbować wysłać polecenie ping do punktów końcowych. Przykład:
+3. Sprawdź, czy Azure Resource Manager i punkty końcowe logowania są osiągalne. Możesz spróbować wysłać polecenie ping do punktów końcowych. Na przykład:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,7 +196,7 @@ Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu 
 |Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
 |Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu: `Error parsing source location… The SSL connection could not be established` .|Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.|Zainstalowana wersja biblioteki Microsoft Azure Storage dla języka Python nie jest obsługiwana przez urządzenie Data Box. Zobacz Azure Data Box wymagania dotyczące magazynu obiektów BLOB dla obsługiwanych wersji.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu SSL zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. Na przykład na platformie Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu SSL zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Na przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. Na przykład na platformie Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Upłynął limit czasu połączenia.|Zaloguj się do Azure Stack Edge, a następnie sprawdź, czy jest odblokowany. Za każdym razem, gdy urządzenie zostanie ponownie uruchomione, pozostaje ono zablokowane, dopóki ktoś się nie zaloguje.|
 
 

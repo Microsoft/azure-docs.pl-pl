@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120079"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742846"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for MariaDB
 
@@ -25,11 +25,11 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric"></a>Tworzenie reguły alertu dla metryki
+## <a name="create-an-alert-rule-on-a-metric"></a>Tworzenie reguły alertu dotyczącej metryki
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for MariaDB, który chcesz monitorować.
 
 2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** , jak pokazano:
@@ -52,7 +52,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
    Wybierz pozycję **gotowe** po zakończeniu.
 
-   ![Wybierz metrykę](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Wybierz metrykę 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. W sekcji **grupy akcji** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, która będzie otrzymywać powiadomienia dotyczące alertu.
 
@@ -70,7 +70,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 11. Określ nazwę, opis i ważność reguły alertu.
 
-    ![Grupa akcji](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Grupa akcji 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255256"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739917"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
 
@@ -144,7 +144,7 @@ Funkcja zintegrowanej integracji sieci wirtualnej nie ma dodatkowej opłaty za u
 
 Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej wymaganej przez bramę:
 
-* **Opłaty za warstwę cenową planu App Service**: aplikacje muszą być w planie App Service standardowym, Premium lub PremiumV2. Aby uzyskać więcej informacji na temat tych kosztów, zobacz [Cennik usługi App Service][ASPricing].
+* **App Service plan cenowy planu opłaty**: aplikacje muszą być w planie App Service w warstwie Standardowa, Premium, PremiumV2 lub PremiumV3. Aby uzyskać więcej informacji na temat tych kosztów, zobacz [Cennik usługi App Service][ASPricing].
 * **Koszty transferu danych**: naliczane są opłaty za ruch wychodzący, nawet jeśli sieć wirtualna znajduje się w tym samym centrum danych. Te opłaty są opisane w [transfer danych szczegóły cennika][DataPricing].
 * **Koszty bramy sieci VPN**: Istnieje koszt bramy sieci wirtualnej, która jest wymagana dla sieci VPN typu punkt-lokacja. Aby uzyskać więcej informacji, zobacz [Cennik usługi VPN Gateway][VNETPricing].
 

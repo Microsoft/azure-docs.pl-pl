@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 94b8a26a398ad8604a469486185d805fcbb6a8b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43189d40c57ce6c300904207edc35011b0581ecc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545407"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740471"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą BlueJeans dla usługi Azure AD
 
@@ -104,7 +104,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | Nazwa |  Atrybut źródłowy|
     | ---------| --------- |
     | Telefon | user.telephonenumber |
-    | tytuł | user.jobtitle |
+    | title | user.jobtitle |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -124,7 +124,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -150,7 +150,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Wybierz pozycję **ADMIN (ADMINISTRATOR) \> GROUP SETTINGS (USTAWIENIA GRUPY) \> SECURITY (ZABEZPIECZENIA)**.
 
-    ![Administracja](./media/bluejeans-tutorial/ic785868.png "Administrator")
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator z ustawieniem Grupa i zabezpieczenia wybrane.](./media/bluejeans-tutorial/ic785868.png "Administracja")
 
 3. W sekcji **SECURITY** (ZABEZPIECZENIA) wykonaj następujące czynności:
 
@@ -192,14 +192,14 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w BlueJeans dla 
 
 2. Wybierz pozycję **ADMIN (ADMINISTRATOR) \> MANAGE USERS (ZARZĄDZAJ UŻYTKOWNIKAMI) \> ADD USER (DODAJ UŻYTKOWNIKA)**.
 
-    ![Administracja](./media/bluejeans-tutorial/ic785877.png "Administrator")
+    ![Zrzut ekranu przedstawia część okna przeglądarki z wybraną kartą administrator, z opcją Zarządzaj użytkownikami i Dodaj wybranych użytkowników.](./media/bluejeans-tutorial/ic785877.png "Administracja")
 
     > [!IMPORTANT]
     > Karta **ADD USER** (DODAJ UŻYTKOWNIKA) jest dostępna tylko wtedy, gdy na **karcie SECUTIRY** (ZABEZPIECZENIA) nie zaznaczono pola wyboru **Enable automatic provisioning** (Włącz automatyczną aprowizację).
 
 3. W sekcji **Dodawanie użytkownika** wykonaj następujące czynności:
 
-    ![Dodaj użytkownika](./media/bluejeans-tutorial/ic785886.png "Dodaj użytkownika")
+    ![Zrzut ekranu przedstawia sekcję Dodawanie użytkownika, w której wprowadzane są informacje opisane w tym kroku.](./media/bluejeans-tutorial/ic785886.png "Dodaj użytkownika")
 
     a. W polu tekstowym **imię i nazwisko** , wprowadź imię użytkownika, np. **B**.
 
@@ -219,7 +219,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w BlueJeans dla 
 
     i. Kliknij przycisk **Kontynuuj**.
 
-    ![Dodaj użytkownika](./media/bluejeans-tutorial/ic785887.png "Dodaj użytkownika")
+    ![Zrzut ekranu przedstawia sekcję Dodawanie użytkownika, w której można wyświetlić ustawienia i funkcje, po wybraniu przycisku Dodaj użytkownika.](./media/bluejeans-tutorial/ic785887.png "Dodaj użytkownika")
 
     J. Kliknij przycisk **ADD USER** (DODAJ UŻYTKOWNIKA).
 
@@ -232,11 +232,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka BlueJeans dla usługi Azure AD w panelu dostępu należy automatycznie zalogować się do BlueJeans usługi Azure AD, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

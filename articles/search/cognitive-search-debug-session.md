@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936167"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743186"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
 
@@ -35,8 +35,7 @@ Jeśli potok wzbogacania nie zawiera żadnych błędów, sesja debugowania może
 
 Aby rozpocząć sesję debugowania, musisz mieć istniejący potok wzbogacania AI, włącznie z; Źródło danych, zestawu umiejętności, indeksator i indeks. Aby skonfigurować sesję debugowania, należy nazwać sesję i podać konto magazynu ogólnego przeznaczenia, które będzie używane do buforowania wykonywania umiejętności podczas uruchamiania indeksatora. Konieczne będzie również wybranie indeksatora, który będzie uruchomiony. Indeksator ma odwołania przechowywane do źródła danych, zestawu umiejętności i index. Sesja debugowania zostanie domyślnie wykorzystana z pierwszego dokumentu w źródle danych lub można określić dokument w źródle danych, aby wykonać krok.
 
-> [!div class="mx-imgBorder"]
-> ![Tworzenie sesji debugowania](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Tworzenie sesji debugowania":::
 
 ## <a name="debug-session-features"></a>Funkcje debugowania sesji
 
@@ -52,8 +51,7 @@ Widok **Wykres umiejętności** zawiera hierarchiczną, wizualną reprezentację
 
 Wybranie umiejętności na grafie spowoduje wyróżnienie związanych z nim umiejętności, węzłów, które tworzą dane wejściowe i węzły, które akceptują swoje wyjście. Każdy węzeł umiejętności wyświetla jego typ, błędy lub ostrzeżenia oraz liczby wykonań. Na **wykresie umiejętności** można wybrać umiejętność debugowania lub udoskonalania. Po wybraniu kwalifikacji jego szczegóły będą wyświetlane w okienku Szczegóły umiejętności po prawej stronie wykresu.
 
-> [!div class="mx-imgBorder"]
-> ![Wykres umiejętności](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Tworzenie sesji debugowania":::
 
 ## <a name="skill-details"></a>Szczegóły kwalifikacji
 
@@ -75,8 +73,7 @@ Podczas kompilowania niestandardowej umiejętności lub debugowania błędu z ni
 
 Okienko **ulepszona struktura danych** pokazuje wzbogacenia dokumentu za pomocą zestawu umiejętności, szczegółowo kontekst dla każdego wzbogacania i źródłową umiejętność. **Ewaluatora wyrażeń** można także użyć do wyświetlania zawartości dla każdego wzbogacania.
 
-> [!div class="mx-imgBorder"]
-> ![Ulepszona struktura danych](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Tworzenie sesji debugowania":::
 
 ## <a name="expression-evaluator"></a>Ewaluatora wyrażeń
 

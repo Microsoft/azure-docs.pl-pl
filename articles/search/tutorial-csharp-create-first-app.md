@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ddd93341bacea039a40c56a6ed7e36f439e137b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 23cf7cdb75f1889f58cec152b1b520deac3f6839
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667379"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740619"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -23,7 +23,7 @@ W tym samouczku pokazano, jak utworzyć aplikację sieci Web, która wykonuje za
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Konfigurowanie środowiska deweloperskiego
+> * Konfigurowanie środowiska programistycznego
 > * Struktury danych modelu
 > * Utwórz stronę sieci Web, aby zebrać dane wejściowe zapytania i wyświetlić wyniki
 > * Zdefiniuj metodę wyszukiwania

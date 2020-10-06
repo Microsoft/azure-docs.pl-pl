@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927185"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741809"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box Gateway
 
@@ -36,7 +36,7 @@ Diagnozowanie i rozwiązywanie problemów związanych z błędami urządzenia je
  
 2. Po zakończeniu wykonywania testów zostaną wyświetlone wyniki. Jeśli test zakończy się niepowodzeniem, zostanie wyświetlony adres URL zalecanej akcji. Możesz kliknąć adres URL, aby wyświetlić zalecaną akcję. 
  
-    ![Klikanie przycisku Dodaj użytkownika](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Kliknij pozycję Dodaj użytkownika 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Zbieranie pakietu dla pomocy technicznej
@@ -47,11 +47,11 @@ Wykonaj następujące czynności, aby zebrać pakiet dla pomocy technicznej.
 
 1. W lokalnym internetowym interfejsie użytkownika wybierz kolejno pozycje **Rozwiązywanie problemów > Pomoc techniczna**. Kliknij przycisk **Utwórz pakiet dla pomocy technicznej**. System rozpoczyna zbieranie pakietu dla pomocy technicznej. Zbieranie pakietu może potrwać kilka minut.
 
-    ![Klikanie przycisku Dodaj użytkownika](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Kliknij pozycję Dodaj użytkownika 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Po utworzeniu pakietu dla pomocy technicznej kliknij przycisk **Pobierz pakiet dla pomocy technicznej**. Skompresowany pakiet zostanie pobrany w wybranej ścieżce. Można rozpakować pakiet.
 
-    ![Klikanie przycisku Dodaj użytkownika](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Kliknij pozycję Dodaj użytkownika 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Rozwiązywanie problemów przy użyciu dzienników
 
@@ -59,7 +59,7 @@ Wszelkie błędy występujące podczas procesów przekazywania i odświeżania s
 
 1. Aby wyświetlić pliki błędów, przejdź do udziału i kliknij go w celu wyświetlenia jego zawartości. 
 
-      ![Klikanie przycisku Dodaj użytkownika](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Kliknij pozycję Dodaj użytkownika 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Kliknij folder _Microsoft Data Box Gateway_. Ten folder zawiera dwa podfoldery:
 

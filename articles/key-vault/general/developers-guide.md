@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23c64f956821dd2a204a15c37bf0fcdde4d09ba8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716118"
+ms.locfileid: "91743322"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -51,11 +51,10 @@ Aby uzyskać więcej informacji na temat płaszczyzny zarządzania Key Vault, zo
 
 Key Vault używa uwierzytelniania usługi Azure AD, który wymaga podmiotu zabezpieczeń usługi Azure AD, aby udzielić dostępu. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, główną usługą aplikacji, [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)lub grupą dowolnego typu podmiotów zabezpieczeń.
 
-W przypadku bezpiecznych aplikacji zaleca się używanie tożsamości zarządzanej dla aplikacji wdrożonych na platformie Azure. Jeśli usługi platformy Azure, które nie obsługują tożsamości zarządzanej ani aplikacji wdrożonych lokalnie, jednostka [usługi z certyfikatem](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) jest możliwa. Certyfikat powinien być przechowywany w Key Vault i obrócony często. 
+### <a name="authentication-best-practices"></a>Najlepsze rozwiązania dotyczące uwierzytelniania
+Zalecane jest używanie tożsamości zarządzanej dla aplikacji wdrożonych na platformie Azure. W przypadku korzystania z usług platformy Azure, które nie obsługują tożsamości zarządzanej lub jeśli aplikacje są wdrażane lokalnie, jednostka [usługi z certyfikatem](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) jest możliwym alternatywą. W tym scenariuszu certyfikat powinien być przechowywany w Key Vault i obrócony często. Nazwa główna usługi z wpisem tajnym może być używana w środowiskach deweloperskich i testowych, a także lokalnie lub w Cloud Shell przy użyciu podmiotu zabezpieczeń użytkownika.
 
-Nazwa główna usługi z wpisem tajnym może być używana w środowiskach deweloperskich i testowych, a także jest zalecana lokalnie lub w Cloud Shell głównej nazwy użytkownika.
-
-Do tworzenia aplikacji można używać zestawu Azure Identity SDK w różnych środowiskach i platformach bez konieczności zmiany kodu. Tożsamość platformy Azure jest zintegrowana z interfejsem wiersza polecenia platformy Azure, programem Visual Studio, Visual Studio Code i innymi. 
+Powyższe scenariusze uwierzytelniania są obsługiwane przez bibliotekę klienta tożsamości platformy Azure i są zintegrowane z zestawami SDK Key Vault. Biblioteka tożsamości platformy Azure może być używana w różnych środowiskach i platformach bez konieczności zmiany kodu. Usługa Azure Identity również automatycznie pobiera token uwierzytelniania z zalogowanego do użytkownika platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, programu Visual Studio, Visual Studio Code i innych. 
 
 Aby uzyskać więcej informacji, zobacz: 
 

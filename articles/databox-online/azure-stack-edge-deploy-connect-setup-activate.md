@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894249"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743339"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Samouczek: łączenie, Konfigurowanie i aktywowanie Azure Stack EDGE Pro 
 
@@ -22,7 +22,7 @@ W tym samouczku opisano sposób nawiązywania połączenia z usługą, konfiguro
 
 Proces instalacji i aktywacji może potrwać około 20 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -134,7 +134,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 6. W lewym okienku wybierz pozycję **Ustawienia chmury**, a następnie aktywuj urządzenie przy użyciu usługi Azure Stack Edge w Azure Portal.
     
     1. W polu **klucz aktywacji** wprowadź klucz aktywacji uzyskany w ramach elementu [Pobierz klucz aktywacji](azure-stack-edge-deploy-prep.md#get-the-activation-key) dla Azure Stack brzeg Pro.
-    2. Wybierz przycisk **Zastosuj**.
+    2. Wybierz pozycję **Zastosuj**.
        
         ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
@@ -146,7 +146,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 
     4. Po pomyślnym zakończeniu aktualizacji może być konieczne odczekanie kilku minut. Strona zostanie zaktualizowana, aby wskazać, że urządzenie zostało pomyślnie aktywowane.
 
-        ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury" została zaktualizowana](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury" została zaktualizowana 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 Konfiguracja urządzenia została ukończona. Możesz teraz dodawać udziały na urządzeniu.
 

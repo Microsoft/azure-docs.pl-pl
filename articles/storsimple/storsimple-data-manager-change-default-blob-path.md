@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183721"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743577"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Zmiana ścieżki obiektu blob ze ścieżki domyślnej
 
@@ -31,7 +31,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
     ![Wpisz "aplikacja funkcji" w polu wyszukiwania](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 
     ![Przycisk "Utwórz" okna aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
@@ -46,7 +46,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
         ![Wprowadź nowe dane konfiguracji aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Kliknij przycisk **Utwórz**. Zostanie utworzona aplikacja funkcji.
+    7. Kliknij pozycję **Utwórz**. Zostanie utworzona aplikacja funkcji.
      
         ![Utworzono aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
@@ -64,12 +64,12 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
         ![Tworzenie nowej funkcji języka C#](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. Kliknij przycisk **Utwórz**. Zostanie utworzona **Funkcja** .
+    4. Kliknij pozycję **Utwórz**. Zostanie utworzona **Funkcja** .
 
      
 10. W oknie funkcji Uruchom plik _. CSX_ .
 
-    ![Tworzenie nowej funkcji języka C#](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Tworzenie nowej funkcji języka C# 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Wykonaj poniższe kroki.
 
@@ -191,7 +191,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
     2. Kliknij pozycję **+ Dodaj**.
         
-        ![Link "Wyświetl pliki"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Dodaj nową funkcję Dodaj plik](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Wpisz **project.jsw**, a następnie naciśnij klawisz **Enter**. W **project.js** pliku wklej następujący kod:
 
@@ -211,7 +211,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
     
     4. Kliknij pozycję **Zapisz**.
 
-        ![Link "Wyświetl pliki"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![Nowy plik JSON projektu funkcji](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Utworzono funkcję platformy Azure. Ta funkcja jest wyzwalana za każdym razem, gdy nowy obiekt BLOB jest generowany przez zadanie przekształcania danych.
 

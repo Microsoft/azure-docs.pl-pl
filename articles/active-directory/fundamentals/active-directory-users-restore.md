@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 55df425367cc8295ef6a3899e2edb47669fe57b7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321195"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741180"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu Azure Active Directory
 Po usunięciu użytkownika konto pozostaje w stanie wstrzymania przez 30 dni. W tym 30-dniowym oknie można przywrócić konto użytkownika wraz ze wszystkimi jego właściwościami. Po upływie tego 30-dniowego okna użytkownik zostanie automatycznie i trwale usunięty.
@@ -77,7 +77,7 @@ Można trwale usunąć użytkownika z organizacji bez czekania 30 dni na automat
 
 2. Wybierz pozycję **Usuń trwale**.
 
-    ![Strona użytkownicy usunięci użytkownicy z wyróżnioną opcją Przywróć użytkownika](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Strona użytkownicy usunięci użytkownicy z wyróżnioną opcją Usuń użytkownika](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Następne kroki
 Po przywróceniu lub usunięciu użytkowników można wykonywać następujące podstawowe procesy:

@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307725"
+ms.locfileid: "91740935"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 
@@ -35,7 +35,7 @@ Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do tr
 
 W sekcjach na pulpicie nawigacyjnym usługi wyświetlana jest liczba posiadanych już indeksów, indeksatorów i źródeł danych. 
 
-![Listy indeksów, indeksatorów i źródeł danych](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Tworzenie indeksu i ładowanie danych
 
@@ -49,11 +49,11 @@ W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który możn
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć i wypełnić indeks wyszukiwania.
 
-   ![Polecenie importu danych](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 1. W Kreatorze kliknij pozycję **Połącz z danymi**  >  **Samples**  >  **przykładowymi hoteli**. To źródło danych jest wbudowane. Podczas tworzenia własnego źródła danych należy określić nazwę, typ i informacje o połączeniu. Po utworzeniu staje się ono „istniejącym źródłem danych”, które może zostać ponownie użyte w innych operacjach importu.
 
-   ![Wybieranie przykładowego zestawu danych](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 1. Przejdź do następnej strony.
 
@@ -63,7 +63,7 @@ Kreator obsługuje tworzenie [potoku wzbogacania AI](cognitive-search-concept-in
 
 Na razie pominiemy ten krok i przejdziemy bezpośrednio do kroku **Dostosowywanie indeksu docelowego**.
 
-   ![Pomijanie kroku Umiejętności poznawcze](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 > [!TIP]
 > Możesz przejść przez przykładową procedurę indeksowania AI w [przewodniku szybki start](cognitive-search-quickstart-blob.md) lub [samouczku](cognitive-search-tutorial-blob.md).
@@ -87,7 +87,7 @@ Domyślnie kreator skanuje źródło danych w poszukiwaniu unikatowych identyfik
 
    Jeśli ponownie uruchomisz kreatora przy użyciu istniejącego źródła danych hoteli, indeks nie zostanie skonfigurowany z domyślnymi atrybutami. Konieczne będzie ręczne wybranie atrybutów podczas przyszłych importów. 
 
-   ![Wygenerowany indeks hoteli](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 2. Przejdź do następnej strony.
 
@@ -100,7 +100,7 @@ Ten obiekt definiuje proces wykonywalny. Możesz go uruchamiać w ramach harmono
 
 Kliknij przycisk **Prześlij**, aby utworzyć i od razu uruchomić indeksator.
 
-  ![Indeksator hoteli](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 ## <a name="monitor-progress"></a>Monitorowanie postępu
 
@@ -108,7 +108,7 @@ Kreator powinien przenieść Cię do listy Indeksatory, gdzie można monitorowa�
 
 Aktualizacja strony w portalu może wymagać kilku minut, ale na liście powinien być widoczny nowo utworzony indeksator w stanie wskazującym na trwające indeksowanie lub jego pomyślne zakończenie wraz z liczbą zindeksowanych dokumentów.
 
-   ![Komunikat o postępie indeksatora](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 ## <a name="view-the-index"></a>Wyświetlanie indeksu
 
@@ -116,13 +116,13 @@ Strona główna usługi zawiera linki do zasobów utworzonych w usłudze Azure W
 
 Poczekaj na odświeżenie strony portalu. Po kilku minutach powinien zostać wyświetlony indeks z liczbą dokumentów i rozmiarem magazynu.
 
-   ![Lista Indeksy na pulpicie nawigacyjnym usługi](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 Z tej listy możesz kliknąć właśnie utworzony indeks *hoteli* , wyświetlić schemat indeksu. i opcjonalnie dodać nowe pola. 
 
 Karta **Pola** zawiera schemat indeksu. Przewiń listę w dół, aby wprowadzić nowe pole. W większości przypadków nie można zmienić istniejących pól. Istniejące pola mają fizyczną reprezentację w usłudze Azure Wyszukiwanie poznawcze i nie można ich modyfikować, a nawet w kodzie. Aby całkowicie zmienić istniejące pole, utwórz nowy indeks, usuwając poprzednią wersję.
 
-   ![Przykładowa definicja indeksu](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 Inne konstrukcje, takie jak profile oceniania i opcje CORS, można dodać w dowolnym momencie.
 
@@ -140,15 +140,15 @@ Indeks wyszukiwania powinien być teraz gotowy do wykonywania względem niego za
 
 1. Kliknij pozycję **Eksplorator wyszukiwania** na pasku poleceń.
 
-   ![Polecenie Eksploratora wyszukiwania](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 2. Z listy rozwijanej **indeks** wybierz pozycję  *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
 
-   ![Polecenia indeksu i interfejsu API](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 3. Na pasku wyszukiwania wklej poniższe ciągi zapytań, a następnie kliknij pozycję **Wyszukaj**.
 
-   ![Ciąg zapytania i przycisk Wyszukaj](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 

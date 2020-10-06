@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962234"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739837"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Twórz bezpieczne, połączone aplikacje sieci Web dzięki integracji z prywatnymi punktami końcowymi i sieciami wirtualnymi
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono przykład użycia [prywatnego punktu końcowego](..
 - Wdrażanie sieci wirtualnej
 - Utwórz pierwszą podsieć do integracji
 - Utwórz drugą podsieć dla prywatnego punktu końcowego, należy ustawić konkretny parametr, aby wyłączyć zasady sieciowe
-- Wdróż jeden App Service plan typu PremiumV2, minimalną jednostkę SKU wymaganą dla funkcji prywatnego punktu końcowego
+- Wdróż jeden App Service plan typu PremiumV2 lub PremiumV3, wymagany dla funkcji prywatnego punktu końcowego
 - Tworzenie aplikacji sieci Web frontonu przy użyciu określonych ustawień aplikacji do korzystania z prywatnej strefy DNS, [więcej szczegółów](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Łączenie aplikacji sieci Web frontonu z podsiecią integracji
 - Tworzenie aplikacji sieci Web zaplecza
@@ -146,7 +146,7 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 
 > [Dowiedz się więcej o korzystaniu z Terraform na platformie Azure](/azure/developer/terraform/)

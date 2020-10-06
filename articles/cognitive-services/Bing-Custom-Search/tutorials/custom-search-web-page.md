@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921949"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742506"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Samouczek: tworzenie strony internetowej z funkcją wyszukiwania niestandardowego
 
@@ -45,7 +45,7 @@ Aby utworzyć wystąpienie wyszukiwania niestandardowego Bing:
   
 2. Przejdź do [portalu](https://customsearch.ai) wyszukiwania niestandardowego.  
   
-3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz konta MSA, kliknij przycisk **utwórz konto Microsoft**. Jeśli korzystasz z portalu po raz pierwszy, zostanie wyświetlony zapytanie o uprawnienia dostępu do danych. Kliknij przycisk **tak**.  
+3. Zaloguj się do portalu przy użyciu konta Microsoft (MSA). Jeśli nie masz konta MSA, kliknij przycisk **utwórz konto Microsoft**. Jeśli korzystasz z portalu po raz pierwszy, zostanie wyświetlony zapytanie o uprawnienia dostępu do danych. Kliknij przycisk **Yes** (Tak).  
   
 4. Po zalogowaniu się kliknij pozycję **New custom search** (Nowe wyszukiwanie niestandardowe). W oknie **Tworzenie nowego wystąpienia wyszukiwania niestandardowego** wprowadź nazwę zrozumiałą i opisującą typ zawartości zwracanej przez wyszukiwanie. Nazwę można zmienić w dowolnym momencie.  
   
@@ -118,7 +118,7 @@ Wyszukiwanie niestandardowe zapewnia hostowany interfejs użytkownika do rendero
   
 5. Wybierz klucze subskrypcji z list rozwijanych. Alternatywnie możesz ręcznie wprowadzić klucz subskrypcji.
   
-   ![Zrzut ekranu przedstawiający krok wybierania dodatkowych opcji konfiguracji hostowanego interfejsu użytkownika](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Zrzut ekranu klucza subskrypcji hostowanego interfejsu użytkownika](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ W pozostałej części tego samouczka przedstawiono **opcję 1: fragment kodu Ja
   
 4. W oknie **Nowa aplikacja internetowa platformy ASP.NET Core** wybierz pozycję **Aplikacja internetowa** i kliknij przycisk **OK**.  
   
-   ![Zrzut ekranu przedstawiający okno nowego projektu](./media/custom-search-new-webapp.png)  
+   ![Zrzut ekranu przedstawiający nowe okno webapp](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Edytowanie pliku index.cshtml
 

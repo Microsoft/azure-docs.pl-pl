@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 37d2e4c0131569ab50ebf49ff73b6adf7a420713
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996180"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742064"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Jak zapobiec translacji zawartości z tłumaczeniem
 
-Translator umożliwia oznaczanie zawartości w taki sposób, aby nie został przetłumaczony. Na przykład możesz chcieć zakodować kod, nazwę marki lub wyraz/frazę, która nie ma sensu, gdy jest zlokalizowany.
+Translator umożliwia oznaczanie zawartości w taki sposób, aby nie został przetłumaczony. Na przykład można oznaczyć kod, nazwę marki lub wyraz/frazę, która po zlokalizowaniu nie ma sensu.
 
 ## <a name="methods-for-preventing-translation"></a>Metody uniemożliwiające tłumaczenie
 
@@ -37,13 +37,26 @@ Translator umożliwia oznaczanie zawartości w taki sposób, aby nie został prz
    <div>This will be translated. </div>
    ```
 
-2. Użyj [słownika dynamicznego](dynamic-dictionary.md) , aby określić tłumaczenie.
+2. Oznacz swoją zawartość za pomocą `translate="no"` . Działa to tylko wtedy, gdy wejściowy typ texttype jest ustawiony jako HTML
 
-3. Nie przekazuj ciągu do translatora w celu tłumaczenia.
+   Przykład:
 
-4. Translator niestandardowy: Użyj [słownika w translatoru niestandardowym](custom-translator/what-is-dictionary.md) , aby określić tłumaczenie frazy z prawdopodobieństwem 100%.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+
+4. Don't pass the string to the Translator for translation.
+
+5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
-## <a name="next-steps"></a>Następne kroki
+## Next steps
 > [!div class="nextstepaction"]
-> [Unikaj tłumaczenia w wywołaniu translatora](reference/v3-0-translate.md)
+> [Use the Translate operation to translate text](reference/v3-0-translate.md)
