@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79299805"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743713"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Przestarzałe metryki dysku w Azure Portal
 
@@ -44,38 +44,38 @@ Zaktualizuj alerty metryki, aby używać nowych metryk.
 1. W Azure Portal Wyszukaj **alerty**. Następnie w sekcji **usługi** wybierz pozycję **alerty**.
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
+   > ![Usługa alertu](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
 2. Na stronie **alerty** wybierz przycisk **Zarządzaj regułami alertów** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
+   > ![Zarządzaj regułami alertów](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
 3. Z listy rozwijanej **Grupa zasobów** zaznacz pole wyboru **Virtual Machines** i na liście rozwijanej **Typ sygnału** zaznacz pole wyboru **metryki** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/filter-alerts.png)
+   > ![Filtrowanie alertów](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
 4. Na liście metryk Zidentyfikuj warunki, które odnoszą się do dysków. Kliknij nazwę reguły. 
 
    Nazwa jest wyświetlana jako hiperłącze w kolumnie **Nazwa** tabeli.
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+   > ![Znajdź warunki dysku](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
 
 5. W sekcji **warunki** na stronie **Zarządzanie regułami** kliknij warunek alertu. 
 
    Warunek jest wyświetlany jako hiperłącze.  
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/adjust-condition.png)
+   > ![Dostosuj warunki](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
    Zostanie wyświetlona strona **Konfigurowanie logiki sygnału** , a ustawienia warunku zostaną wyświetlone w sekcji **logika alertu** na tej stronie.
 
 6. Zanotuj te ustawienia, ponieważ zostaną usunięte po usunięciu przestarzałej metryki.
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/condition-rules.png)
+   > ![Reguły warunków](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
    > [!TIP] 
    > Rozważ przechwycenie tych ustawień na zrzucie ekranu lub w pliku tekstowym. 
@@ -83,7 +83,7 @@ Zaktualizuj alerty metryki, aby używać nowych metryk.
 7. Kliknij link **Wróć do wyboru sygnału** .
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
+   > ![Wróć do wyboru sygnałów](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
 8. Na stronie **Konfiguruj logikę sygnału** wybierz odpowiednią metrykę wymiany (Nowa Metryka). Użyj [tabeli](#update-metrics) , która występuje wcześniej w tym artykule, aby zidentyfikować nazwę nowej metryki.
 
@@ -91,17 +91,17 @@ Zaktualizuj alerty metryki, aby używać nowych metryk.
    > Zacznij pisać na pasku wyszukiwania, aby zawęzić listę nazw metryk. 
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
+   > ![Wybierz nową metrykę](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
 9. Wybierz przycisk **gotowe** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Opis obrazu](./media/portal-disk-metrics-deprecation/set-new-metric.png)
+   > ![Ustaw nową metrykę](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
 10. Zatwierdź zmiany, wybierając przycisk **Zapisz** . 
 
     > [!div class="mx-imgBorder"]
-    > ![Opis obrazu](./media/portal-disk-metrics-deprecation/save-new-metric.png)
+    > ![Zapisz nową metrykę](./media/portal-disk-metrics-deprecation/save-new-metric.png)
 
 
 

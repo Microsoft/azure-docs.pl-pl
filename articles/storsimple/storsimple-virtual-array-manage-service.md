@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698941"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744138"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Wdróż usługę StorSimple Menedżer urządzeń dla macierzy wirtualnej StorSimple
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi
 #### <a name="to-regenerate-the-service-registration-key"></a>Aby ponownie wygenerować klucz rejestracji usługi
 1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt; ** .
    
-   ![Blok Klucze](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Ponownie blok kluczy](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. W bloku **klucze** kliknij polecenie **Generuj ponownie**.
    
    ![Kliknij pozycję Wygeneruj ponownie](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi
    ![Potwierdź ponowne wygenerowanie klucza](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Zostanie wyświetlony nowy klucz rejestracji usługi.
    
-    ![Potwierdź ponowne wygenerowanie klucza](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Dodatkowy klucz potwierdzenia ponownego wygenerowania](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Skopiuj ten klucz i Zapisz go, aby zarejestrować nowe urządzenia w tej usłudze.
 

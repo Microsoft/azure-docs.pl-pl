@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713046"
+ms.locfileid: "91744223"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozuj problemy z konfiguracją linków prywatnych na Azure Key Vault
 
@@ -22,7 +22,7 @@ Ten artykuł ułatwia użytkownikom diagnozowanie i rozwiązywanie problemów zw
 
 Jeśli jesteś nowym elementem tej funkcji, zobacz [integracja Key Vault z prywatnym łączem platformy Azure](private-link-service.md).
 
-### <a name="symptoms-covered-by-this-article"></a>Objawy omówione w tym artykule
+### <a name="problems-covered-by-this-article"></a>Problemy omówione w tym artykule
 
 - Zapytania DNS nadal zwracają publiczny adres IP dla magazynu kluczy, a nie prywatny adres IP, który powinien być używany przez funkcję linków prywatnych.
 - Wszystkie żądania wykonywane przez danego klienta, który używa linku prywatnego, kończą się niepowodzeniem z przekroczeniem limitu czasu lub błędami sieciowymi, a problem nie jest sporadyczny.
@@ -31,7 +31,7 @@ Jeśli jesteś nowym elementem tej funkcji, zobacz [integracja Key Vault z prywa
 - Magazyn kluczy ma dwa prywatne punkty końcowe. Żądania wykorzystujące jeden z nich działają prawidłowo, ale żądania przy użyciu innych elementów kończą się niepowodzeniem.
 - Masz inną subskrypcję, Magazyn kluczy lub sieć wirtualną używającą linków prywatnych. Chcesz utworzyć nowe podobne wdrożenie, ale nie możesz uzyskać połączeń prywatnych.
 
-### <a name="symptoms-not-covered-by-this-article"></a>Objawy nieobjęte tym artykułem
+### <a name="problems-not-covered-by-this-article"></a>Problemy, które nie zostały omówione w tym artykule
 
 - Występuje tymczasowy problem z łącznością. W danym kliencie zobaczysz, że niektóre żądania działają, a niektóre nie działają. *Sporadyczne problemy zwykle nie są spowodowane problemem z konfiguracją linków prywatnych; są one znakiem przeciążenia sieci lub klienta.*
 - Używasz produktu platformy Azure, który obsługuje BYOK (Bring Your Own Key) lub CMK (klucze zarządzane przez klienta) i że produkt nie może uzyskać dostępu do magazynu kluczy. *Zapoznaj się z dokumentacją innych produktów. Upewnij się, że jawnie stanowi obsługę magazynów kluczy z włączoną zaporą. W razie potrzeby skontaktuj się z pomocą techniczną dotyczącą tego konkretnego produktu.*
@@ -188,7 +188,7 @@ Istotna różnica w stosunku do poprzedniego scenariusza polega na tym, że istn
 
 Nie oznacza to, że żądania wykonywane z maszyn *spoza* Virtual Network (podobnie jak używane) będą używać linków prywatnych — nie będą one. Można sprawdzić, czy nazwa hosta nadal jest rozpoznawana jako publiczny adres IP. Tylko maszyny *połączone z Virtual Network* mogą używać linków prywatnych. Poniższe instrukcje będą się pojawiać.
 
-Jeśli alias nie jest wyświetlany `privatelink` , oznacza to, że magazyn kluczy ma zero połączeń prywatnych punktów końcowych w `Approved` stanie. Kontynuuj odczytywanie tego artykułu.
+Jeśli alias nie jest wyświetlany `privatelink` , oznacza to, że magazyn kluczy ma zero połączeń prywatnych punktów końcowych w `Approved` stanie. Wróć do [tej sekcji](#2-confirm-that-the-connection-is-approved-and-succeeded) przed ponowną próbą.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Magazyn kluczy z prywatnym linkiem do rozwiązywania problemów z Virtual Network
 
@@ -210,7 +210,7 @@ W systemie Linux:
     fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
     fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
 
-Istnieją dwie istotne różnice. Najpierw nazwa jest rozpoznawana jako prywatny adres IP. Musi to być adres IP znaleziony w [odpowiedniej sekcji](#find-the-key-vault-private-ip-address-in-the-virtual-network) tego artykułu. Po drugie nie ma żadnych innych aliasów `privatelink` . Dzieje się tak, ponieważ serwery DNS Virtual Network *przechwycić* łańcuch aliasów i zwracają prywatny adres IP bezpośrednio z nazwy `fabrikam.privatelink.vaultcore.azure.net` . Ten wpis jest w rzeczywistości `A` rekordem w prywatna strefa DNS strefie. Poniższe instrukcje będą się pojawiać.
+Istnieją dwie istotne różnice. Najpierw nazwa jest rozpoznawana jako prywatny adres IP. Musi to być adres IP znaleziony w [odpowiedniej sekcji](#find-the-key-vault-private-ip-address-in-the-virtual-network) tego artykułu. Po drugie nie ma żadnych innych aliasów `privatelink` . Dzieje się tak, ponieważ Virtual Network serwery DNS *przechwytuje* łańcuch aliasów i zwracają prywatny adres IP bezpośrednio z nazwy `fabrikam.privatelink.vaultcore.azure.net` . Ten wpis jest w rzeczywistości `A` rekordem w prywatna strefa DNS strefie. Poniższe instrukcje będą się pojawiać.
 
 >[!NOTE]
 > Wynik powyżej występuje tylko w maszynie wirtualnej połączonej z Virtual Network, w którym utworzono prywatny punkt końcowy. Jeśli nie masz wdrożonej maszyny wirtualnej w Virtual Network zawierającej prywatny punkt końcowy, wdróż ją i Połącz zdalnie z nią, a następnie wykonaj `nslookup` polecenie (Windows) lub `host` polecenie (Linux) powyżej.

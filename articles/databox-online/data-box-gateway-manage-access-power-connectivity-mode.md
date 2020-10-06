@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27b6d8ca61ed10b5c7362e089fe94d8d64164878
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893950"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743866"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Data Box Gateway
 
@@ -53,7 +53,7 @@ Resetowanie przepływu pracy nie wymaga od użytkownika odwoływania starego has
  
 2. Wprowadź nowe hasło, a następnie potwierdź je. Podane hasło musi zawierać od 8 do 16 znaków. Hasło musi zawierać 3 z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne. Kliknij przycisk **Resetuj**.
 
-    ![Resetowanie hasła](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Resetuj hasło 2](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Zarządzenie dostępem do zasobów
 
@@ -119,7 +119,7 @@ Aby zmienić tryb urządzenia, wykonaj następujące kroki:
  
 4. Aby uruchomić urządzenie w trybie rozłączonym, wyłącz **zarządzanie Azure Portal**. Teraz urządzenie można zarządzać tylko za pośrednictwem lokalnego interfejsu użytkownika sieci Web.
 
-    ![Tryb łączności](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Tryb łączności 2](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Zarządzanie mocą
 

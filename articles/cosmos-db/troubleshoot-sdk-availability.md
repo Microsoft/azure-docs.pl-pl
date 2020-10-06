@@ -3,17 +3,17 @@ title: Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK
 description: Więcej informacji o zachowaniu dostępności zestawu SDK usługi Azure Cosmos w przypadku korzystania z wielu środowisk regionalnych.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/24/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330438"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743968"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
 
@@ -24,7 +24,7 @@ Wszystkie zestawy SDK usługi Azure Cosmos umożliwiają dostosowanie preferencj
 * Właściwość [ConnectionPolicy. PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) w zestawie SDK platformy .net v2.
 * Właściwości [CosmosClientOptions. ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) lub [CosmosClientOptions. ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) w programie .NET v3 SDK.
 * Metoda [CosmosClientBuilder. preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) w zestawie SDK języka Java v4.
-* [CosmosClient. preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parametr w zestawie SDK węzła.
+* Parametr [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) w zestawie SDK języka Python.
 * [CosmosClientOptions. ConnectionPolicy. preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) w zestawie SDK js.
 
 Po ustawieniu preferencji regionalnych klient będzie łączył się z regionem, jak wspomniano w poniższej tabeli:
@@ -49,6 +49,8 @@ W przypadku wystąpienia jednego z następujących scenariuszy klient korzystaj�
 * Właściwość *RequestDiagnosticsString* na odpowiedziach w zestawie SDK platformy .net v2.
 * Właściwość *diagnostyki* odpowiedzi i wyjątków w programie .NET v3 SDK.
 * Metoda *Getdiagnostics ()* w przypadku odpowiedzi i wyjątków w zestawie SDK języka Java v4.
+
+Podczas określania następnego regionu w kolejności preferencji klient zestawu SDK użyje listy regionów konta, aby określić priorytety preferowanych regionów (jeśli istnieją).
 
 Aby uzyskać szczegółowe informacje na temat gwarancji SLA w ramach tych zdarzeń, zobacz [umowy SLA for Availability (dostępność](high-availability.md#slas-for-availability)).
 

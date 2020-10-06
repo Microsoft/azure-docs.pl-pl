@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548361"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Samouczek: integracja Azure Active Directory z usługą BorrowBox
 
@@ -100,11 +100,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą BorrowBox, 
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-    ![Informacje o domenie i adresach URL aplikacji [Nazwa aplikacji] na potrzeby logowania jednokrotnego](common/preintegrated.png)
+    ![[Zrzut ekranu przedstawia podstawową konfigurację SAML.] Informacje o rejestracji jednokrotnej w domenach i adresach URL](common/preintegrated.png)
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL aplikacji [Nazwa aplikacji] na potrzeby logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![[Zrzut ekranu pokazuje ustawiony dodatkowy U R LS, gdzie można wprowadzić znak U R L.] Informacje o rejestracji jednokrotnej w domenach i adresach URL](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
@@ -156,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -201,6 +201,6 @@ Po kliknięciu kafelka BorrowBox w panelu dostępu należy automatycznie zalogow
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

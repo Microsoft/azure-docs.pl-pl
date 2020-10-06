@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: af31d909c0fbab7d873b2b583bb731f9d2e8e19e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532878"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743802"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli Keras na dużą skalę za pomocą Azure Machine Learning
 
@@ -144,7 +144,7 @@ dependencies:
 
 Utwórz środowisko usługi Azure ML na podstawie tej specyfikacji środowiska Conda. Środowisko zostanie spakowane w kontenerze platformy Docker w czasie wykonywania.
 
-Domyślnie jeśli nie określono obrazu podstawowego, platforma Azure ML będzie używać obrazu procesora `azureml.core.runconfig.DEFAULT_CPU_IMAGE` jako obrazu podstawowego. Ponieważ w tym przykładzie działa szkolenie w klastrze GPU, należy określić podstawowy obraz procesora GPU, który ma niezbędne sterowniki procesora GPU i zależności. Usługa Azure ML obsługuje zestaw obrazów podstawowych opublikowanych w witrynie Microsoft Container Registry (MCR), których można użyć, aby uzyskać więcej informacji, zobacz repozytorium [Azure/Azure-Containers](https://github.com/Azure/AzureML-Containers) GitHub.
+Domyślnie jeśli nie określono obrazu podstawowego, platforma Azure ML będzie używać obrazu procesora `azureml.core.environment.DEFAULT_CPU_IMAGE` jako obrazu podstawowego. Ponieważ w tym przykładzie działa szkolenie w klastrze GPU, należy określić podstawowy obraz procesora GPU, który ma niezbędne sterowniki procesora GPU i zależności. Usługa Azure ML obsługuje zestaw obrazów podstawowych opublikowanych w witrynie Microsoft Container Registry (MCR), których można użyć, aby uzyskać więcej informacji, zobacz repozytorium [Azure/Azure-Containers](https://github.com/Azure/AzureML-Containers) GitHub.
 
 ```python
 from azureml.core import Environment

@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425246"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745710"
 ---
-| Zasób | Bezpłatna | Udostępniona | Podstawowa | Standardowa (Standard) | Premium (v2) | Izolowana </th> |
+| Zasób | Bezpłatna | Shared | Podstawowa | Standardowa (Standard) | Premium (V3) | Izolowana </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplikacje internetowe, mobilne lub API](https://azure.microsoft.com/services/app-service/) na [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup> |Bez ograniczeń<sup>2</sup>|
 | [Plan App Service](../articles/app-service/overview-hosting-plans.md) |10 na region |10 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów |100 na grupę zasobów|
-| Typ wystąpienia obliczeniowego |Udostępniona |Udostępniona |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup></p> |Dedykowane<sup>3</sup>|
+| Typ wystąpienia obliczeniowego |Shared |Shared |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup> |Dedykowane<sup>3</sup></p> |Dedykowane<sup>3</sup>|
 | [Skalowanie w poziomie](../articles/app-service/manage-scale-up.md) (maksymalna liczba wystąpień) |1 udostępniony |1 udostępniony |3 dedykowane<sup>3</sup> |10 dedykowanych<sup>3</sup> |30 dedykowanych<sup>3</sup>|100 dedykowany<sup>4</sup>|
 | Magazyn<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Przez ponad 250 GB przesłanie żądania pomocy technicznej. |1 TB<sup>5</sup> <br/><br/> Przydział dostępnego magazynu to 999 GB. |
 | Czas procesora CPU (5 minut)<sup>6</sup> |3 minuty |3 minuty |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a> |Nieograniczone, płatność według [stawek](https://azure.microsoft.com/pricing/details/app-service/) standardowych</a>|
@@ -52,7 +52,7 @@ ms.locfileid: "87425246"
 <sup>5</sup> Limit magazynowania to łączny rozmiar zawartości dla wszystkich aplikacji w ramach tego samego planu usługi App Service. Łączny rozmiar zawartości wszystkich aplikacji we wszystkich planach usługi App Service w ramach jednej grupy zasobów i regionu nie może przekroczyć 500 GB.  
 <sup>6</sup> Te zasoby są ograniczone przez zasoby fizyczne w dedykowanych wystąpieniach (rozmiar wystąpienia i liczba wystąpień).  
 <sup>7</sup> W przypadku skalowania aplikacji w warstwie Podstawowa do dwóch wystąpień dla każdego z tych dwóch wystąpień masz 350 połączeń współbieżnych. W przypadku warstwy Standardowa i wyższych nie ma teoretycznych limitów dla gniazd sieci Web, ale inne czynniki mogą ograniczyć liczbę gniazd sieci Web. Na przykład maksymalna dozwolona liczba równoczesnych żądań (zdefiniowanych przez `maxConcurrentRequestsPerCpu` ) to: 7 500 na małą maszynę wirtualną, 15 000 na średnią maszynę wirtualną (7 500 x 2 rdzenie) i 75 000 na dużą maszynę wirtualną 18 750 (rdzenie x 4).  
-<sup>8</sup> Maksymalna liczba połączeń IP jest zależna od wystąpienia i zależy od rozmiaru wystąpienia: 1 920 na wystąpienie B1/S1/P1V2, 3 968 per B2/S2/P2V2, 8 064 dla wystąpienia B3/S3/P3V2.  
+<sup>8</sup> Maksymalna liczba połączeń IP jest zależna od wystąpienia i zależy od rozmiaru wystąpienia: 1 920 na wystąpienie B1/S1/P1V3, 3 968 per B2/S2/P2V3, 8 064 dla wystąpienia B3/S3/P3V3.  
 <sup>9</sup> Limit przydziału Certyfikat usługi App Service na subskrypcję można zwiększyć przez żądanie obsługi do limitu maksymalnego 200.  
 <sup>10</sup> Jednostki SKU izolowana usługa App Service mogą być funkcją wewnętrznego równoważenia obciążenia (ILB) z Azure Load Balancer, dzięki czemu nie ma połączenia publicznego z Internetu. W związku z tym niektóre funkcje ILB App Service izolowanych muszą być używane z maszyn, które mają bezpośredni dostęp do punktu końcowego sieci ILB.  
 <sup>11</sup> Uruchamiaj niestandardowe pliki wykonywalne i/lub skrypty na żądanie, zgodnie z harmonogramem lub w sposób ciągły jako zadanie w tle w ramach wystąpienia App Service. Na potrzeby ciągłego wykonywania zadań WebJob jest wymagana zawsze włączona. Brak wstępnie zdefiniowanego limitu liczby zadań WebJob, które mogą być uruchamiane w wystąpieniu App Service. Istnieją praktyczne ograniczenia, które zależą od tego, co próbuje wykonać kod aplikacji.

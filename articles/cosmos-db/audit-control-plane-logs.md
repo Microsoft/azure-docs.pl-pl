@@ -4,14 +4,14 @@ description: Dowiedz się, jak przeprowadzać inspekcję operacji płaszczyzny k
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462449"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743900"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
 
@@ -69,17 +69,17 @@ Po włączeniu rejestrowania wykonaj następujące kroki, aby śledzić operacje
 
 Poniższe zrzuty ekranu przechwytują dzienniki po zmianie poziomu spójności dla konta usługi Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Po dodaniu sieci wirtualnej są rejestrowane płaszczyzny kontroli":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Włącz rejestrowanie żądań płaszczyzny kontroli":::
 
 Poniższe zrzuty ekranu przechwytują dzienniki, gdy jest tworzona przestrzeń kluczy lub tabela konta Cassandra oraz gdy przepływność zostanie zaktualizowana. Płaszczyzna kontroli rejestruje operacje tworzenia i aktualizowania bazy danych, a kontener jest rejestrowany oddzielnie, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Gdy przepływność jest aktualizowana, dzienniki płaszczyzny kontroli":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Włącz rejestrowanie żądań płaszczyzny kontroli":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Zidentyfikuj tożsamość skojarzoną z określoną operacją
 
 Aby przeprowadzić dalsze debugowanie, można zidentyfikować konkretną operację w **dzienniku aktywności** przy użyciu identyfikatora działania lub sygnatury czasowej operacji. Sygnatura czasowa jest używana dla niektórych klientów Menedżer zasobów, w których identyfikator działania nie został jawnie zakończony. Dziennik aktywności zawiera szczegółowe informacje o tożsamości, z którą została zainicjowana operacja. Poniższy zrzut ekranu przedstawia sposób używania identyfikatora działania i wyszukiwania skojarzonych z nim operacji w dzienniku aktywności:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Użyj identyfikatora działania i Znajdź operacje":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Włącz rejestrowanie żądań płaszczyzny kontroli":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operacje płaszczyzny kontroli dla konta usługi Azure Cosmos
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Zapytanie w celu pobrania aktualizacji indeksu lub czasu wygaśnięcia (TTL). Następnie można porównać dane wyjściowe tego zapytania z wcześniejszą aktualizacją, aby zobaczyć zmianę w indeksie lub czas wygaśnięcia.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**rozdzielczości**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>Następne kroki

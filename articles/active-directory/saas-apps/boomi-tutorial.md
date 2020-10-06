@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 379ae013e9343b14b854386a0a9f486dd2917e94
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712327"
+ms.locfileid: "91744291"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Boomi
 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są automatycznie wypełniane w sekcji Podstawowa konfiguracja SAML.
 
-    ![image (obraz)](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, gdzie są wyświetlane wartości identyfikator i odpowiedź U R L.](common/idp-intiated.png)
 
     d. Wprowadź **adres URL logowania**, taki jak `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
 
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Boomi oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image (obraz)](common/default-attributes.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z wartościami domyślnymi, takimi jak podano użytkownikaname i EmailAddress User. mail.](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja Boomi oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
@@ -176,13 +176,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Boomi, 
 
 1. Po zalogowaniu się przejdź do pozycji **User Management** (Zarządzanie użytkownikami) i wybierz pozycję **Users** (Użytkownicy).
 
-    ![Użytkownicy](./media/boomi-tutorial/tutorial_boomi_001.png "Użytkownicy")
+    ![Zrzut ekranu pokazuje stronę zarządzania użytkownikami z wybranymi użytkownikami.](./media/boomi-tutorial/tutorial_boomi_001.png "Użytkownicy")
 
 1. Kliknij **+**  ikonę i zostanie otwarte okno dialogowe **Dodawanie/obsługa ról użytkownika** .
 
-    ![Użytkownicy](./media/boomi-tutorial/tutorial_boomi_002.png "Użytkownicy")
+    ![Zrzut ekranu przedstawia wybraną ikonę +.](./media/boomi-tutorial/tutorial_boomi_002.png "Użytkownicy")
 
-    ![Użytkownicy](./media/boomi-tutorial/tutorial_boomi_003.png "Użytkownicy")
+    ![Zrzut ekranu przedstawia role użytkownika Dodawanie/obsługa, w których konfigurowany jest użytkownik.](./media/boomi-tutorial/tutorial_boomi_003.png "Użytkownicy")
 
     a. W polu tekstowym **User e-mail address** (Adres e-mail użytkownika) wpisz adres e-mail użytkownika, taki jak B.Simon@contoso.com.
 

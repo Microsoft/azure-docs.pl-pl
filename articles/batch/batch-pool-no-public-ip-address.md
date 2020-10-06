@@ -3,15 +3,15 @@ title: Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 description: Dowiedz się, jak utworzyć pulę bez publicznych adresów IP
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570876"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743662"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 
@@ -24,7 +24,7 @@ Domyślnie wszystkie węzły obliczeniowe w puli konfiguracji Azure Batch maszyn
 Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węzłów z Internetu, można zainicjować obsługę administracyjną puli bez publicznych adresów IP.
 
 > [!IMPORTANT]
-> Obsługa pul bez publicznych adresów IP w programie Azure Batch jest obecnie w publicznej wersji zapoznawczej dla następujących regionów: Francja środkowa, Azja Wschodnia, zachodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Europa Północna, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia.
+> Obsługa pul bez publicznych adresów IP w Azure Batch jest obecnie w publicznej wersji zapoznawczej dla następujących regionów: Francja środkowa, Azja Wschodnia, zachodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA, Europa Północna, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, Północna środkowe stany USA, zachodnie stany USA, Australia Wschodnia, Japonia Wschodnia, Japonia Zachodnia
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne

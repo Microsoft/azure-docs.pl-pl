@@ -1,22 +1,21 @@
 ---
-title: Omówienie usługi Azure Key Vault — Azure Key Vault | Microsoft Docs
+title: Przegląd Azure Key Vault — Azure Key Vault
 description: Azure Key Vault to bezpieczny Magazyn kluczy tajnych, który zapewnia zarządzanie wpisami tajnymi, kluczami i certyfikatami, które są obsługiwane przez sprzętowe moduły zabezpieczeń.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9886b005c5459456e005273dd11e2c3c183176f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421649"
+ms.locfileid: "91744240"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault
 
@@ -24,8 +23,9 @@ Usługa Azure Key Vault pomaga rozwiązać następujące problemy:
 
 - **Zarządzanie wpisami tajnymi** — usługa Azure Key Vault może służyć do bezpiecznego przechowywania i ścisłego kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych.
 - **Zarządzanie kluczami** — usługa Azure Key Vault może być także używana jako rozwiązanie do zarządzania kluczami. Usługa Azure Key Vault ułatwia tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. 
-- **Zarządzanie certyfikatami** — Azure Key Vault to również usługa, która umożliwia łatwe inicjowanie obsługi i wdrażanie publicznych i prywatnych certyfikatów Transport Layer Security/SSL (TLS/SSL) do użycia z platformą Azure i wewnętrznymi zasobami połączonymi. 
-- **Przechowuj wpisy tajne objęte sprzętowymi modułami zabezpieczeń** — wpisy tajne, klucze i certyfikaty w sklepie są szyfrowane przy użyciu klucza oprogramowania (warstwa standardowa) lub FIPS 140-2 Level 2 (warstwa Premium) 
+- **Zarządzanie certyfikatami** — Azure Key Vault to również usługa, która umożliwia łatwe inicjowanie obsługi i wdrażanie publicznych i prywatnych certyfikatów Transport Layer Security/SSL (TLS/SSL) do użycia z platformą Azure i wewnętrznymi zasobami połączonymi.
+
+Azure Key Vault ma dwie warstwy usług: standardowa, która szyfruje za pomocą klucza programowego i warstwy Premium, która obejmuje klucze chronione przez moduł HSM. Aby wyświetlić porównanie warstw standardowa i Premium, zobacz [stronę z cennikiem Azure Key Vault](/pricing/details/key-vault).
 
 ## <a name="why-use-azure-key-vault"></a>Jakie są zalety korzystania z usługi Azure Key Vault?
 
@@ -37,13 +37,11 @@ Twoje aplikacje mogą bezpiecznie uzyskiwać dostęp do potrzebnych informacji z
 
 ### <a name="securely-store-secrets-and-keys"></a>Bezpieczne przechowywanie wpisów tajnych i kluczy
 
-Wpisy tajne i klucze są chronione przez platformę Azure przy użyciu branżowych standardów dotyczących algorytmów, długości klucza i sprzętowych modułów zabezpieczeń (HSM). Używane moduły HSM zostały zweryfikowane pod kątem zgodności ze standardem Federal Information Processing Standards (FIPS) 140-2 Level 2.
-
 Udzielenie dostępu do magazynu kluczy wywołującemu użytkownikowi lub aplikacji wymaga odpowiedniego uwierzytelnienia i autoryzacji. Uwierzytelnianie ustala tożsamość elementu wywołującego, a autoryzacja określa, jakie operacje może on wykonywać.
 
 Uwierzytelnianie jest wykonywane za pośrednictwem usługi Azure Active Directory. Autoryzacja może odbywać się przy użyciu funkcji kontroli dostępu na podstawie ról (RBAC, role-based access control) lub zasad dostępu usługi Key Vault. Funkcja RBAC jest używana do obsługi zarządzania magazynami, a zasady dostępu do magazynu kluczy są używane podczas próby uzyskania dostępu do danych przechowywanych w magazynie.
 
-Usługa Azure Key Vault może być chroniona za pomocą programowego lub sprzętowego modułu HSM. W przypadku sytuacji wymagających dodatkowych zabezpieczeń możesz zaimportować klucz do modułu HSM lub wygenerować w nim klucze, które nigdy nie opuszczają modułu HSM. Firma Microsoft używa oprogramowanie wspomagające nCipher sprzętowych modułów zabezpieczeń. Za pomocą narzędzi oprogramowanie wspomagające nCipher można przenieść klucz z modułu HSM do Azure Key Vault.
+Magazyny kluczy platformy Azure mogą być chronione przez oprogramowanie lub, w Azure Key Vault warstwy Premium, chronione sprzętowo przez sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Klucze chronione przez oprogramowanie, wpisy tajne i certyfikaty są zabezpieczane przez platformę Azure przy użyciu standardowych algorytmów i długości kluczy.  W sytuacjach, gdy wymagana jest dodatkowa gwarancja, można importować lub generować klucze w sprzętowych modułów zabezpieczeń, które nigdy nie pozostawiają granicy modułu HSM. Azure Key Vault korzysta z oprogramowanie wspomagające nCipher sprzętowych modułów zabezpieczeń, które są zweryfikowane w trybie FIPS (Federal Information Processing Standards) 140-2 Level 2. Za pomocą narzędzi oprogramowanie wspomagające nCipher można przenieść klucz z modułu HSM do Azure Key Vault.
 
 Usługa Azure Key Vault została zaprojektowana w taki sposób, aby firma Microsoft nie miała wglądu w Twoje dane ani nie mogła ich wyodrębnić.
 

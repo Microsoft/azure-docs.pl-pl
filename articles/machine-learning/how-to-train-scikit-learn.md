@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 28401b5900640ed7228d7c7caad0cebbabf00a65
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532724"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743747"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Uczenie scikit — uczenie modeli na dużą skalę dzięki Azure Machine Learning
 
@@ -66,9 +66,17 @@ Uwagi:
 
 Aby zdefiniować [środowisko](concept-environments.md) usługi Azure ml, które hermetyzuje zależności skryptu szkoleniowego, można zdefiniować środowisko niestandardowe lub użyć środowiska usługi Azure ml pod opieką.
 
+#### <a name="use-a-curated-environment"></a>Korzystanie z nadzorowanego środowiska
+Opcjonalnie usługa Azure ML udostępnia wstępnie utworzone, nadzorowane środowiska, jeśli nie chcesz definiować własnego środowiska. Aby uzyskać więcej informacji, zobacz [tutaj](resource-curated-environments.md).
+Jeśli chcesz użyć środowiska nadzorowanego, możesz zamiast tego uruchomić następujące polecenie:
+
+```python
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+```
+
 #### <a name="create-a-custom-environment"></a>Tworzenie środowiska niestandardowego
 
-Aby utworzyć własne środowisko niestandardowe, zdefiniuj zależności Conda w pliku YAML; w tym przykładzie plik ma nazwę `conda_dependencies.yml` .
+Możesz również utworzyć własne środowisko niestandardowe. Zdefiniuj zależności Conda w pliku YAML; w tym przykładzie plik ma nazwę `conda_dependencies.yml` .
 
 ```yaml
 dependencies:
@@ -87,14 +95,6 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ```
 
 Aby uzyskać więcej informacji na temat tworzenia i używania środowisk, zobacz [Tworzenie i używanie środowisk oprogramowania w programie Azure Machine Learning](how-to-use-environments.md).
-
-#### <a name="use-a-curated-environment"></a>Korzystanie z nadzorowanego środowiska
-Opcjonalnie usługa Azure ML udostępnia wstępnie utworzone, nadzorowane środowiska, jeśli nie chcesz tworzyć własnego obrazu. Aby uzyskać więcej informacji, zobacz [tutaj](resource-curated-environments.md).
-Jeśli chcesz użyć środowiska nadzorowanego, możesz zamiast tego uruchomić następujące polecenie:
-
-```python
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
-```
 
 ## <a name="configure-and-submit-your-training-run"></a>Konfigurowanie i przesyłanie przebiegu szkoleniowego
 

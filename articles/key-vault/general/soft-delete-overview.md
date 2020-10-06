@@ -6,14 +6,13 @@ ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 03/19/2019
-ms.openlocfilehash: 1affa396407ba9804261c799b559e40928b9b1fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/30/2020
+ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388430"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744206"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
@@ -28,7 +27,7 @@ Funkcja usuwania nietrwałego Key Vault umożliwia Odzyskiwanie usuniętych maga
 
 ## <a name="supporting-interfaces"></a>Interfejsy pomocnicze
 
-Funkcja usuwania nietrwałego jest początkowo dostępna za pomocą interfejsów [rest](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md)i [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , a także [szablonów ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+Funkcja usuwania nietrwałego jest dostępna za pomocą [interfejsu API REST](/rest/api/keyvault/), interfejs [wiersza polecenia platformy Azure](soft-delete-cli.md), [Azure PowerShell](soft-delete-powershell.md)i interfejsy [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , a także [Szablony ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scenariusze
 
@@ -48,13 +47,13 @@ Domyślny okres przechowywania to 90 dni, ale podczas tworzenia magazynu kluczy 
 
 Nie można ponownie użyć nazwy magazynu kluczy, który został usunięty jako nietrwały, dopóki nie upłynie okres przechowywania.
 
-### <a name="purge-protection"></a>Ochrona przeczyszczania 
+### <a name="purge-protection"></a>Ochrona przeczyszczania
 
 Ochrona przed czyszczeniem jest opcjonalnym zachowaniem Key Vault i **nie jest włączona domyślnie**. Ochronę przeczyszczania można włączyć tylko po włączeniu usuwania nietrwałego.  Można ją włączyć za pomocą [interfejsu wiersza polecenia](soft-delete-cli.md#enabling-purge-protection) lub [programu PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
-Gdy ochrona przed przeczyszczeniem jest włączona, nie można wyczyścić magazynu ani obiektu w stanie usuniętym, dopóki nie upłynie okres przechowywania. Nieusunięte magazyny i obiekty nadal mogą być odzyskiwane, co oznacza, że zostaną zastosowane zasady przechowywania. 
+Gdy ochrona przed przeczyszczeniem jest włączona, nie można wyczyścić magazynu ani obiektu w stanie usuniętym, dopóki nie upłynie okres przechowywania. Nieusunięte magazyny i obiekty nadal mogą być odzyskiwane, co oznacza, że zostaną zastosowane zasady przechowywania.
 
-Domyślny okres przechowywania to 90 dni, ale można ustawić interwał zasad przechowywania na wartość z przedziału od 7 do 90 dni za pośrednictwem Azure Portal. Po ustawieniu interwału zasad przechowywania i zapisaniu go nie można go zmienić w tym magazynie. 
+Domyślny okres przechowywania to 90 dni, ale można ustawić interwał zasad przechowywania na wartość z przedziału od 7 do 90 dni za pośrednictwem Azure Portal. Po ustawieniu interwału zasad przechowywania i zapisaniu go nie można go zmienić w tym magazynie.
 
 ### <a name="permitted-purge"></a>Dozwolone przeczyszczanie
 
@@ -63,6 +62,8 @@ Trwałe usuwanie, przeczyszczanie magazynu kluczy jest możliwe za pośrednictwe
 Wyjątki są następujące:
 - Gdy subskrypcja platformy Azure została oznaczona jako *undeletable*. W takim przypadku tylko usługa może wykonać rzeczywiste usunięcie i tak jak w przypadku zaplanowanego procesu. 
 - Gdy `--enable-purge-protection flag` jest włączona w magazynie, W takim przypadku Key Vault będzie czekać przez 90 dni od momentu, gdy oryginalny obiekt tajny został oznaczony do usunięcia, aby usunąć go trwale.
+
+Instrukcje można znaleźć w temacie [How to use Key Vault unsoft-Delete with CLI: przeczyszczanie magazynu kluczy](soft-delete-cli.md#purging-a-key-vault) lub [Korzystanie z Key Vault nietrwałego usuwania przy użyciu programu PowerShell: przeczyszczanie magazynu kluczy](soft-delete-powershell.md#purging-a-key-vault).
 
 ### <a name="key-vault-recovery"></a>Odzyskiwanie magazynu kluczy
 
@@ -79,10 +80,10 @@ W tym samym czasie Key Vault Zaplanuj usunięcie danych źródłowych odpowiadaj
 Zasoby usunięte przez program są przechowywane przez określony czas, 90 dni. Podczas okresu przechowywania nietrwałego usuwania należy zastosować następujące czynności:
 
 - Możesz wyświetlić listę wszystkich magazynów kluczy i obiektów magazynu kluczy w stanie nietrwałego usuwania dla Twojej subskrypcji, a także uzyskać dostęp do informacji dotyczących ich usuwania i odzyskiwania.
-    - Tylko użytkownicy z uprawnieniami specjalnymi mogą wyświetlać usunięte magazyny. Firma Microsoft zaleca, aby naszym użytkownikom utworzyć rolę niestandardową z tymi specjalnymi uprawnieniami do obsługi usuniętych magazynów.
-- Nie można utworzyć magazynu kluczy o tej samej nazwie w tej samej lokalizacji; nie można utworzyć obiektu magazynu kluczy w danym magazynie, jeśli Magazyn kluczy zawiera obiekt o tej samej nazwie i który jest w stanie usunięty. 
+  - Tylko użytkownicy z uprawnieniami specjalnymi mogą wyświetlać usunięte magazyny. Firma Microsoft zaleca, aby naszym użytkownikom utworzyć rolę niestandardową z tymi specjalnymi uprawnieniami do obsługi usuniętych magazynów.
+- Nie można utworzyć magazynu kluczy o tej samej nazwie w tej samej lokalizacji; nie można utworzyć obiektu magazynu kluczy w danym magazynie, jeśli Magazyn kluczy zawiera obiekt o tej samej nazwie i który jest w stanie usunięty.
 - Tylko specjalny użytkownik uprzywilejowany może przywrócić magazyn kluczy lub obiekt magazynu kluczy, wydając polecenie Recover na odpowiednim zasobie serwera proxy.
-    - Użytkownik, członek roli niestandardowej, który ma uprawnienia do tworzenia magazynu kluczy w ramach grupy zasobów, może przywrócić magazyn.
+  - Użytkownik, członek roli niestandardowej, który ma uprawnienia do tworzenia magazynu kluczy w ramach grupy zasobów, może przywrócić magazyn.
 - Tylko użytkownik z uprawnieniami specjalnymi może wymusić usunięcie magazynu kluczy lub obiektu magazynu kluczy, wydając polecenie usunięcia na odpowiednim zasobie serwera proxy.
 
 Jeśli magazyn kluczy lub obiekt magazynu kluczy nie zostanie odzyskany, na końcu interwału przechowywania usługa wykonuje przeczyszczanie usuniętego nietrwałego magazynu kluczy lub obiektu magazynu kluczy i jego zawartości. Nie można ponownie zaplanować usunięcia zasobu.
@@ -100,4 +101,3 @@ Poniższe dwa przewodniki oferują podstawowe scenariusze użycia do korzystania
 
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell](soft-delete-powershell.md) 
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia](soft-delete-cli.md)
-

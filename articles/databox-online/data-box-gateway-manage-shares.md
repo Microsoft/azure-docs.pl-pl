@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883551"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743883"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Zarządzanie udziałami w usłudze Azure Data Box Gateway przy użyciu witryny Azure Portal 
 
@@ -94,7 +94,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udzia
 
 1. W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
 
-   ![Wybieranie udziału](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Wybierz udział 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Kliknij przycisk **Odśwież**. 
 
@@ -124,11 +124,11 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby zsynchronizować k
 1. W zasobie przejdź do sekcji **Przegląd**. 
 2. Z listy udziałów wybierz i kliknij udział skojarzony z kontem magazynu, które ma być synchronizowane. Kliknij pozycję **Synchronizuj klucz magazynu**. 
 
-     ![Synchronizowanie klucza magazynu 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Synchronizowanie klucza magazynu](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. Po zakończeniu synchronizacji zamknij okno dialogowe.
 
-     ![Synchronizowanie klucza magazynu 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Synchronizuj klucz magazynu 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > Wystarczy zrobić to raz dla danego konta magazynu. Nie trzeba powtarzać tej czynności dla wszystkich udziałów powiązanych z tym samym kontem magazynu.

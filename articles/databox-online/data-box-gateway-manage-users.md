@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338978"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743832"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Zarządzanie użytkownikami w usłudze Azure Data Box Gateway przy użyciu witryny Azure Portal
 
@@ -45,7 +45,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby dodać użytkownik
 
 2. Określ nazwę i hasło użytkownika, którego chcesz dodać. Potwierdź hasło, a następnie kliknij przycisk **Dodaj**.
 
-    ![Klikanie przycisku Dodaj użytkownika](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Kliknij pozycję Dodaj użytkownika 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Oto użytkownicy zarezerwowani przez system, których nie należy używać: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -70,11 +70,11 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć użytkown
 
 2. Po wyświetleniu monitu potwierdź usunięcie. 
 
-   ![Usuwanie użytkownika](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Usuwanie użytkownika 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 Lista użytkowników zostanie zaktualizowana w celu uwzględnienia usuniętego użytkownika.
 
-![Usuwanie użytkownika](media/data-box-gateway-manage-users/delete-user-3.png)
+![Usuń użytkownika 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

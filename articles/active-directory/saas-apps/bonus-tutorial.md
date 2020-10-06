@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: fd82d3d2d2a76e0c0671c57d9254ff8c9030d3a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548293"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Samouczek: integracja Azure Active Directory z dodatkowymi
 
@@ -169,7 +169,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -222,11 +222,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania d
 
 1. Kliknij pozycję **Dodaj użytkownika**.
 
-    ![Dodaj użytkownika](./media/bonus-tutorial/ic781044.png "Dodaj użytkownika")
+    ![Zrzut ekranu przedstawia zarządzanie użytkownikami, w których można wybrać opcję Dodaj użytkownika.](./media/bonus-tutorial/ic781044.png "Dodaj użytkownika")
 
 1. W oknie dialogowym **Add User** (Dodawanie użytkownika) wykonaj następujące kroki:
 
-    ![Dodaj użytkownika](./media/bonus-tutorial/ic781045.png "Dodaj użytkownika")  
+    ![Zrzut ekranu przedstawia okno dialogowe Dodawanie użytkownika, w którym można wprowadzić te informacje.](./media/bonus-tutorial/ic781045.png "Dodaj użytkownika")  
 
     a. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika, np. **Britta**.
 
@@ -249,6 +249,6 @@ Po kliknięciu kafelka bonus w panelu dostępu należy automatycznie zalogować 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

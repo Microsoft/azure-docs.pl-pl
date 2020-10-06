@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665096"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743696"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>Tworzenie i ustawianie niestandardowych zasad protokołu IPsec dla połączeń punkt-lokacja
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Tworzenie i ustawianie niestandardowych zasad protokołu IPsec dla połączeń punkt-lokacja (wersja zapoznawcza)
 
 Jeśli środowisko wymaga niestandardowych zasad protokołu IPsec do szyfrowania, można łatwo skonfigurować obiekt zasad z wymaganymi ustawieniami. Ten artykuł pomaga utworzyć obiekt zasad niestandardowych, a następnie ustawić go przy użyciu programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 

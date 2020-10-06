@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962489"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743917"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skalowanie aplikacji w górę w Azure App Service
 
@@ -36,7 +36,7 @@ Aby uzyskać informacje na temat cen i funkcji poszczególnych planów App Servi
 ## <a name="scale-up-your-pricing-tier"></a>Skalowanie w górę warstwy cenowej
 
 > [!NOTE]
-> Aby skalować w górę do warstwy **PremiumV2** , zobacz [Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md).
+> Aby skalować w górę do warstwy **PremiumV3** , zobacz [Konfigurowanie warstwy PremiumV3 dla App Service](app-service-configure-premium-tier.md).
 >
 
 1. W przeglądarce otwórz witrynę [Azure Portal][portal].
@@ -78,7 +78,7 @@ Aby zapoznać się z tabelą limity usług, przydziałów i ograniczeń oraz obs
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md)  
-[Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md)
+[Konfigurowanie warstwy PremiumV3 dla App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

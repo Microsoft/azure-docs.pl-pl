@@ -3,18 +3,18 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c77b2e5b60aef246b513cb852f6231ba7531056
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314304"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743815"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
 W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -45,7 +45,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Kliknij prawym przyciskiem myszy projekt **FabrikamFiber.Web** i wybierz pozycję **Dodaj** > **Obsługa orkiestratora kontenerów**.  Wybierz pozycję **Service Fabric** jako orkiestratora kontenerów i kliknij pozycję **OK**.
 
-2. Kliknij przycisk **Tak**, aby przełączyć serwer Docker na kontenery systemu Windows.
+2. Jeśli zostanie wyświetlony monit, kliknij przycisk **tak** , aby przełączyć teraz kontenery platformy Docker do systemu Windows.
 
    Nowy projekt aplikacji usługi Service Fabric **FabrikamFiber.CallCenterApplication** zostanie utworzony w rozwiązaniu.  Plik Dockerfile zostanie dodany do istniejącego projektu **FabrikamFiber.Web**.  Katalog **PackageRoot** także zostanie dodany do projektu **FabrikamFiber.Web**. Zawiera on manifest usługi i ustawienia dla nowej usługi FabrikamFiber.Web.
 
@@ -144,7 +144,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 Aplikacje usługi Service Fabric działają w klastrze — połączonym z siecią zestawie maszyn wirtualnych lub fizycznych.  Przed wdrożeniem aplikacji na platformie Azure utwórz klaster usługi Service Fabric na platformie Azure.
 
-Można:
+Oto co możesz zrobić:
 
 * Utworzyć klaster testowy z poziomu programu Visual Studio. Ta opcja służy do tworzenia bezpiecznego klastra bezpośrednio z poziomu programu Visual Studio z preferowaną konfiguracją.
 * [Utworzyć zabezpieczony klaster na podstawie szablonu](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

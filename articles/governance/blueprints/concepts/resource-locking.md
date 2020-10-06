@@ -1,14 +1,14 @@
 ---
 title: Zrozumienie blokowania zasobów
 description: Dowiedz się więcej na temat opcji blokowania w planach platformy Azure w celu ochrony zasobów podczas przypisywania planu.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534866"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744019"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
@@ -109,8 +109,8 @@ Akcja Odmów [przypisywania Odmów dostępu](../../../role-based-access-control/
 
 |Tryb |Uprawnienia. akcje |Uprawnienia. nonaruszone |Podmioty zabezpieczeń [i]. Wprowadź |ExcludePrincipals [i]. #C1 | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Tylko do odczytu |**\*** |**\*/read** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
-|Nie usuwaj |**\*/** | |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
+|Tylko do odczytu |**\*** |**\*/read**<br />**Microsoft. Authorization/Locks/Delete**<br />**Microsoft. Network/virtualNetwork/Subnets/Join/Action** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
+|Nie usuwaj |**\*/** | **Microsoft. Authorization/Locks/Delete**<br />**Microsoft. Network/virtualNetwork/Subnets/Join/Action** |SystemDefined (wszyscy) |przypisanie strategii i zdefiniowane przez użytkownika w **excludedPrincipals** |Grupa zasobów — _true_; Zasób — _Fałsz_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager buforuje Szczegóły przydziału roli przez maksymalnie 30 minut. W związku z tym odmowa akcji Odmów przypisań na zasoby strategii może nie być od razu całkowicie w pełni funkcjonalna. W tym czasie może być możliwe usunięcie zasobu przeznaczonego do ochrony przez blokady planu.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 58e199cc3c09e6b4ff333fb53c047598b1ec9b5f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890598"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743679"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Zarządzanie obliczeniami na Azure Stack brzegowej procesora GPU Pro
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki w Azure Portal, aby usunąć istniejącą konfigurac
 
 2. W przypadku usunięcia konfiguracji obliczeniowej należy ponownie skonfigurować urządzenie, jeśli będzie konieczne ponowne użycie obliczeń. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
 
-    ![Wybierz pozycję Usuń obliczenia](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
+    ![Wybierz pozycję Usuń obliczenie 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchronizowanie urządzeń IoT i IoT Edge kluczy dostępu do urządzeń
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61436498"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744110"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box wymagania dotyczące magazynu obiektów BLOB
 
@@ -30,40 +30,27 @@ Zalecamy dokładne zapoznanie się z informacjami przed nawiązaniem połączeni
 |    Szyfrowanie usługi dla danych magazynowanych                  |    256-bitowe szyfrowanie AES                             |    256-bitowe szyfrowanie AES |
 |    Typ konta magazynu                                 |    Konta ogólnego przeznaczenia i usługi Azure Blob Storage    |    Tylko do celu ogólnego przeznaczenia|
 |    Nazwa obiektu blob                                            |    1 024 znaków (2 048 bajtów)                     |    880 znaków (1 760 bajtów)|
-|    Maksymalny rozmiar bloku obiektów BLOB                              |    4,75 TB (100 MB X 50 000 bloków)                   |    4,75 TB (100 MB x 50 000 bloków) dla Azure Data Box v 1,8 lub nowszego.|
+|    Maksymalny rozmiar bloku obiektów BLOB                              |    4,75 TB (100 MB X 50 000 bloków)                   |    4,75 TB (100 MB x 50 000 bloków) dla Azure Data Box v 3,0 lub nowszego.|
 |    Maksymalny rozmiar obiektu BLOB strony                               |    8 TB                                               |    1 TB                   |
 |    Rozmiar strony strony BLOB                                  |    512 bajtów                                          |    4 KB                   |
 
 ## <a name="supported-api-versions"></a>Obsługiwane wersje interfejsu API
 
-Następujące wersje interfejsów API usługi Azure Storage są obsługiwane z użyciem urządzenie Data Box magazynu obiektów blob:
+Następujące wersje interfejsów API usługi Azure Storage są obsługiwane przez urządzenie Data Box magazynu obiektów BLOB.
 
-Azure Data Box 1,8 do wewnątrz
+### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3,0 do wewnątrz
 
-- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
-- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
-- [17.04.2017](/rest/api/storageservices/version-2017-04-17)
-- [2016-05-31](/rest/api/storageservices/version-2016-05-31)
-- [2015-12-11](/rest/api/storageservices/version-2015-12-11)
-- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05)|
+[!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
+
 ## <a name="supported-azure-client-libraries"></a>Obsługiwane biblioteki klienckie platformy Azure
 
-W przypadku usługi urządzenie Data Box BLOB Storage istnieją określone biblioteki klienta i określone wymagania dotyczące sufiksu punktu końcowego. Punkty końcowe magazynu obiektów BLOB urządzenie Data Box nie mają pełnej zgodności z najnowszą wersją interfejsu API REST platformy Azure Blob Storage, zobacz [obsługiwane wersje Azure Data Box 1,8](#supported-api-versions). W przypadku bibliotek klienta magazynu należy mieć świadomość wersji zgodnej z interfejsem API REST.
+W przypadku usługi urządzenie Data Box BLOB Storage istnieją określone biblioteki klienta i określone wymagania dotyczące sufiksu punktu końcowego. Punkty końcowe magazynu obiektów BLOB urządzenie Data Box nie mają pełnej zgodności z najnowszą wersją interfejsu API REST platformy Azure Blob Storage. Zapoznaj się z [obsługiwanymi wersjami Azure Data Box 3,0](#supported-api-versions). W przypadku bibliotek klienta magazynu należy mieć świadomość wersji zgodnej z interfejsem API REST.
 
-### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1,8 do wewnątrz
+### <a name="azure-data-box-30-onwards"></a>Azure Data Box 3,0 do wewnątrz
 
-| Biblioteka kliencka     |urządzenie Data Box obsługiwana wersja magazynu obiektów BLOB     | Link   |     Specyfikacja punktu końcowego      |
-|--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    9.2.0                                           |    Pakiet NuGet:https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Wersja usługi GitHub:https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    Plik app.config                 |
-|    Java                |    7.0.0                                           |    Pakiet Maven:https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Wersja usługi GitHub:https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Konfiguracja parametrów połączenia         |
-|    Node.js             |    2.8.3                                           |    Link NPM: https://www.npmjs.com/package/azure-storage (Run: `npm install azure-storage@2.7.0` )   <br>Wersja usługi GitHub:https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Deklaracja wystąpienia usługi    |
-|    C++                 |    5.2.0                                           |    Pakiet NuGet:https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Wersja usługi GitHub:https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Konfiguracja parametrów połączenia         |
-|    PHP                 |    1.2.0                                           |    Wersja usługi GitHub:<br>Wspólnahttps://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Tworzeniahttps://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Zainstaluj za pośrednictwem programu Composer (aby dowiedzieć się więcej, zobacz szczegóły poniżej).                                                                                                             |    Konfiguracja parametrów połączenia         |
-|    Python              |    1.1.0                                           |    Wersja usługi GitHub:<br>Wspólnahttps://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Tworzeniahttps://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Deklaracja wystąpienia usługi    |
-|    Ruby                |    1.0.1                                           |    Pakiet RubyGems:<br>Wspólnahttps://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Tworzeniahttps://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>Wersja usługi GitHub:<br>Wspólnahttps://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Tworzeniahttps://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Konfiguracja parametrów połączenia         |
+Obsługiwane są następujące wersje biblioteki klienta platformy Azure dla urządzenie Data Box magazynu obiektów BLOB.
 
-
+[!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
 ### <a name="install-php-client-via-composer---current"></a>Zainstaluj klienta PHP przez układacz-Current
 
@@ -83,7 +70,7 @@ Aby zainstalować za pośrednictwem programu Composer: (Zrób obiekt BLOB jako p
 
 ### <a name="endpoint-declaration"></a>Deklaracja punktu końcowego
 
-Punkt końcowy magazynu obiektów Blob Azure Data Box obejmuje dwie części: nazwę regionu i domenę urządzenie Data Box. W zestawie SDK urządzenie Data Box BLOB Storage domyślny punkt końcowy to `\<serial no. of the device>.microsoftdatabox.com` .  Aby uzyskać więcej informacji o punkcie końcowym usługi BLOB Service, przejdź do pozycji [Połącz za pośrednictwem urządzenie Data Box BLOB Storage](data-box-deploy-copy-data-via-rest.md).
+W urządzenie Data Box zestaw SDK magazynu obiektów BLOB — sufiks punktu końcowego — `<device serial number>.microsoftdatabox.com` identyfikuje domenę urządzenie Data Box. Aby uzyskać więcej informacji o punkcie końcowym usługi BLOB Service, przejdź do pozycji [Połącz za pośrednictwem urządzenie Data Box BLOB Storage](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Przykłady
 

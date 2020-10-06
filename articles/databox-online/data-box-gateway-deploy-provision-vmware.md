@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371290"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743951"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
@@ -145,11 +145,11 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
     Na tej samej stronie kliknij pozycję **Add hard disk** (Dodaj dysk twardy), a następnie wybierz pozycję **Existing hard disk** (Istniejący dysk twardy). Wybierz plik VMDK w magazynie danych. Spowoduje to dodanie dysku systemu operacyjnego. 
 
-     ![Dostosuj stronę ustawień](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Dostosuj stronę ustawień 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Przewiń w dół, aż zobaczysz **nowy dysk twardy** i rozwiń go, aby wyświetlić ustawienia. Ustaw opcję **Virtual Device Node** (Węzeł urządzenia wirtualnego) na wartość **IDE controller 0** (Kontroler IDE 0).
 
-     ![Dostosuj stronę ustawień](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Dostosuj stronę ustawień 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Opcjonalnie) *Wykonaj ten krok tylko wtedy, jeśli korzystasz z oprogramowania VMware ESXi Server 6.7*. Na stronie **Customize settings** (Dostosowywanie ustawień) kliknij pozycję **VM options** (Opcje maszyny wirtualnej). Wybierz pozycję **Boot options > Firmware** (Opcje rozruchu > Oprogramowanie układowe) i zmień wartość dla tej opcji na **BIOS**. Domyślnie ustawiona wartość to EFI. Kliknij przycisk **Dalej**.
 
@@ -158,7 +158,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 18. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. Sprawdź, czy ustawienie procesora CPU ma wartość 4, pamięci — 8192 MB, a interfejsu sieciowego — 1 oraz czy dysk twardy 2 ma wybrany kontroler IDE 0. Kliknij przycisk **Zakończ**.
    
     ![Gotowe do ukończenia strony ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-     ![ gotowej do ukończenia](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+     ![ gotowej do ukończenia strony 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Maszyna wirtualna jest teraz aprowizowana. Zostanie wyświetlone odpowiednie powiadomienie, a nowa maszyna wirtualna zostanie dodana do listy maszyn wirtualnych.
 
