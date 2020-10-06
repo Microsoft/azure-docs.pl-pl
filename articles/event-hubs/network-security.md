@@ -3,12 +3,12 @@ title: Zabezpieczenia sieciowe dla Event Hubs platformy Azure
 description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521857"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767791"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Zabezpieczenia sieciowe dla Event Hubs platformy Azure 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w usłudze Azure Event Hubs: 
@@ -16,7 +16,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 - Tagi usługi
 - Reguły zapory adresów IP
 - Punkty końcowe usługi sieciowej
-- Prywatne punkty końcowe (wersja zapoznawcza)
+- Prywatne punkty końcowe
 
 
 ## <a name="service-tags"></a>Tagi usługi
@@ -26,7 +26,7 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Event Hubs platformy Azure. | Wychodzący | Tak | Tak |
+| **EventHub** | Event Hubs platformy Azure. | Outbound | Tak | Tak |
 
 
 ## <a name="ip-firewall"></a>Zapora IP 
@@ -74,9 +74,6 @@ Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie pr
 
 > [!NOTE]
 > Ta funkcja jest obsługiwana tylko w przypadku warstwy **dedykowanej** . Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [omówienie Event Hubs — warstwa dedykowana](event-hubs-dedicated-overview.md). 
->
-> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
-
 
 Aby uzyskać więcej informacji, zobacz [jak skonfigurować prywatne punkty końcowe dla centrum zdarzeń](private-link-service.md)
 

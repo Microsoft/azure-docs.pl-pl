@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336501"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767351"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
 
@@ -59,8 +59,8 @@ Właściwości systemu pomagają identyfikować zawartość i źródło komunika
 | contentEncoding | ciąg | Użytkownik określa typ kodowania wiadomości. Dozwolone wartości to UTF-8, UTF-16, UTF-32, jeśli dla właściwości contentType ustawiono wartość Application/JSON. |
 | iothub-Connection-ID urządzenia | ciąg | Ta wartość jest ustawiana przez IoT Hub i identyfikuje identyfikator urządzenia. Aby wykonać zapytanie, użyj `$connectionDeviceId` . |
 | iothub — enqueuedtime | ciąg | Ta wartość jest ustawiana przez IoT Hub i reprezentuje rzeczywisty czas umieszczenie komunikatu w formacie UTC. Aby wykonać zapytanie, użyj `enqueuedTime` . |
-| DT — schemat elementu | ciąg |  Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). Aby wykonać zapytanie, użyj `$dt-dataschema` . |
-| DT — temat | ciąg | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). Aby wykonać zapytanie, użyj `$dt-subject` . |
+| DT — schemat elementu | ciąg |  Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Aby wykonać zapytanie, użyj `$dt-dataschema` . |
+| DT — temat | ciąg | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Aby wykonać zapytanie, użyj `$dt-subject` . |
 
 Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz powyższych właściwości w poprzedniej tabeli można także wysyłać zapytania **connectionDeviceId**, **connectionModuleId**.
 
@@ -70,7 +70,7 @@ Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Na przykład: 
+Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Przykład: 
 
 Aby wykonać zapytanie o Właściwość system contentEncoding 
 

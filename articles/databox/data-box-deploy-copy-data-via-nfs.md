@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 584cf5d1d7cad4b626aae8fca3cd74d116470839
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619733"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766261"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box za pośrednictwem systemu plików NFS
 
@@ -58,7 +58,7 @@ Jeśli używasz komputera-hosta z systemem Linux, wykonaj następujące czynnoś
 
 1. Podaj adresy IP dozwolonych klientów, którzy mogą uzyskiwać dostęp do udziału. W lokalnym internetowym interfejsie użytkownika przejdź do strony **Połącz i skopiuj**. W obszarze **Ustawienia sieciowego systemu plików** kliknij przycisk **Dostęp klienta do sieciowego systemu plików**. 
 
-    ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Konfigurowanie dostępu klienta NFS](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2b4a572abec8007fe6f1c7e963be19d28c7b48d6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7dfd6bddd19e5559918889da5f6ef38dbe6eef15
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028153"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767496"
 ---
-# <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) za pomocą szablonów Azure Resource Manager
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB Core (SQL) za pomocą szablonów usługi Azure Resource Manager
 
 W tym artykule dowiesz się, jak używać szablonów Azure Resource Manager, aby ułatwić wdrażanie kont Azure Cosmos DB, baz danych i kontenerów oraz zarządzanie nimi.
 
@@ -24,6 +24,7 @@ W tym artykule przedstawiono tylko przykłady Azure Resource Manager szablonów 
 > * Nazwy kont są ograniczone do 44 znaków, wszystkie małe litery.
 > * Aby zmienić wartości przepływności, wdróż ponownie szablon z zaktualizowanymi jednostkami RU/s.
 > * Po dodaniu lub usunięciu lokalizacji na koncie usługi Azure Cosmos nie można jednocześnie modyfikować innych właściwości. Te operacje należy wykonać oddzielnie.
+> * Nie można zmienić nazw zasobów Azure Cosmos DB, ponieważ to narusza sposób, w jaki Azure Resource Manager współpracuje z identyfikatorami URI zasobów.
 
 Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy przykładowy szablon do nowego pliku JSON. Opcjonalnie można utworzyć plik JSON parametrów do użycia podczas wdrażania wielu wystąpień tego samego zasobu z różnymi nazwami i wartościami. Istnieje wiele sposobów wdrażania szablonów Azure Resource Manager, w tym [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 

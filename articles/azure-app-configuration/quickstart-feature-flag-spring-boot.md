@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 220d446990a9c362c30b3352e247af2b76d3d128
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89019746"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767678"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -30,7 +30,7 @@ Biblioteki zarządzania funkcją rozruchu sprężynowego umożliwiają rozbudowa
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
+7. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)

@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d4fe0f54ecd11c197f258d190e9eaef14bf2bb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767768"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji Azure Functions przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -29,7 +29,7 @@ W tym przewodniku szybki start dołączysz usługę Azure App Configuration do a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+7. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -37,7 +37,7 @@ W tym przewodniku szybki start dołączysz usługę Azure App Configuration do a
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-7. Wybierz pozycję **Zastosuj**.
+8. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-functions-app"></a>Tworzenie aplikacji funkcji
 

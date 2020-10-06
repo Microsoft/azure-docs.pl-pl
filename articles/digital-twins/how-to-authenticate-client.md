@@ -8,20 +8,20 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331866"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767829"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
 Po [skonfigurowaniu wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md)można utworzyć aplikację kliencką, która będzie używana do współpracy z wystąpieniem. Po skonfigurowaniu początkowego projektu klienta w tym artykule opisano **sposób pisania kodu w aplikacji klienckiej w celu uwierzytelnienia go** w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
 Istnieją dwa podejścia do przykładowego kodu w tym artykule. Możesz użyć tego, który jest odpowiedni dla Ciebie, w zależności od wybranego języka:
-* Pierwsza sekcja przykładowego kodu używa zestawu Azure Digital bliźniaczych reprezentacji .NET (C#) SDK. Zestaw SDK jest częścią zestawu Azure SDK dla platformy .NET i znajduje się tutaj: [*Biblioteka kliencka Digital bliźniaczych usługi Azure IoT dla platformy .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* Druga sekcja przykładowego kodu dotyczy użytkowników, którzy nie korzystają z zestawu SDK platformy .NET, a zamiast tego używają zestawów SDK generowanych automatycznie w innych językach. Aby uzyskać więcej informacji na temat tej strategii, zobacz [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
+* Pierwsza sekcja przykładowego kodu używa zestawu Azure Digital bliźniaczych reprezentacji .NET (C#) SDK. Zestaw SDK jest częścią zestawu Azure SDK dla platformy .NET i znajduje się tutaj: [*Biblioteka kliencka Digital bliźniaczych usługi Azure IoT dla platformy .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Obsługiwane są również zestawy SDK dla [języka Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) i [języka JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), które mogą być używane w podobny sposób.
+* Druga sekcja przykładowego kodu dotyczy użytkowników, którzy nie korzystają z podanego zestawu SDK, a zamiast tego używają zestawów SDK generowanych automatycznie w innych językach. Aby uzyskać więcej informacji na temat tej strategii, zobacz [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 Więcej informacji na temat interfejsów API i zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji można znaleźć w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md).
 
@@ -32,6 +32,8 @@ Najpierw wykonaj kroki instalacji opisane w temacie [*How to: Set a instance and
 Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienckiej, w którym napisano kod. Jeśli nie masz jeszcze skonfigurowanego projektu aplikacji klienckiej, Utwórz podstawowy projekt w wybranym języku, który ma być używany z tym samouczkiem.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Uwierzytelnianie i tworzenie klienta: zestaw SDK platformy .NET (C#)
+
+W tej sekcji przedstawiono przykład w języku C# dotyczący użycia podanego zestawu .NET SDK.
 
 Najpierw należy uwzględnić następujące pakiety w projekcie, aby można było użyć zestawu .NET SDK i narzędzi do uwierzytelniania:
 * `Azure.DigitalTwins.Core`
@@ -100,7 +102,7 @@ Ponadto, aby użyć uwierzytelniania w funkcji, pamiętaj, aby:
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Uwierzytelnianie za pomocą automatycznie wygenerowanego zestawu SDK
 
-Jeśli nie korzystasz z platformy .NET, możesz zdecydować się na utworzenie biblioteki zestawu SDK w wybranym języku, zgodnie z opisem w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
+Jeśli nie używasz jednego z dostarczonych zestawów SDK (.NET, Java, JavaScript), możesz wybrać bibliotekę zestawu SDK w wybranym przez siebie języku, zgodnie z opisem w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 W tej sekcji opisano sposób uwierzytelniania w tym przypadku.
 

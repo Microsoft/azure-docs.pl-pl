@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714933"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767241"
 ---
 # <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
@@ -36,13 +36,13 @@ Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [W�
 
 Wersja przechwytuje stan obiektu BLOB w danym momencie. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie tworzy nową wersję obiektu BLOB za każdym razem, gdy obiekt BLOB jest modyfikowany lub usuwany.
 
-Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB jest bieżącą wersją obiektu BLOB (lub podstawowy obiekt BLOB). Jeśli następnie zmodyfikujesz ten obiekt BLOB, usługa Azure Storage utworzy wersję, która przechwytuje stan obiektu BLOB przed jego modyfikacją. Zmodyfikowany obiekt BLOB zostanie nowym bieżącą wersją. Nowa wersja jest tworzona za każdym razem, gdy modyfikujesz obiekt BLOB.
+Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB jest bieżącą wersją obiektu BLOB (lub podstawowy obiekt BLOB). Jeśli następnie zmodyfikujesz ten obiekt BLOB, usługa Azure Storage utworzy wersję, która przechwytuje stan obiektu BLOB przed jego modyfikacją. Zmodyfikowany obiekt BLOB zostanie nowym bieżącą wersją. Nowa wersja jest tworzona za każdym razem, gdy modyfikujesz obiekt BLOB. Obiekt BLOB może mieć do 1000 skojarzonych wersji.
 
 Po usunięciu obiektu BLOB z włączoną obsługą wersji usługa Azure Storage tworzy wersję, która przechwytuje stan obiektu BLOB przed jego usunięciem. Bieżąca wersja obiektu BLOB jest następnie usuwana, ale wersje obiektu BLOB są utrwalane, dzięki czemu można je ponownie utworzyć w razie potrzeby. 
 
 Wersje obiektów BLOB są niezmienne. Nie można zmodyfikować zawartości ani metadanych istniejącej wersji obiektu BLOB.
 
-Obsługa wersji obiektów BLOB jest dostępna dla kont ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i BLOB Storage. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
+Obsługa wersji obiektów BLOB jest dostępna dla kont ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i BLOB Storage. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane. 
 
 W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
 
@@ -198,7 +198,7 @@ W poniższej tabeli przedstawiono uprawnienia wymagane przez sygnaturę dostępu
 
 | **Uprawnienie** | **Symbol URI** | **Dozwolone operacje** |
 |----------------|----------------|------------------------|
-| Usuwanie         | x              | Usuń wersję obiektu BLOB. |
+| Usuń         | x              | Usuń wersję obiektu BLOB. |
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 

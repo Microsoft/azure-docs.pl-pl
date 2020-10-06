@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: e546963a7ca90c7494164af7afefbb4e78b2259b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651942"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766663"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
@@ -52,7 +52,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Tworzenie i Konfigurowanie kont
 
-Po utworzeniu konta usługi Automation w Azure Portal automatycznie tworzone jest konto [Uruchom jako](../automation/manage-runas-account.md#types-of-run-as-accounts) . To konto wykonuje następujące akcje:
+Po utworzeniu konta usługi Automation w Azure Portal automatycznie tworzone jest konto [Uruchom jako](../automation/automation-security-overview.md#run-as-accounts) . To konto wykonuje następujące akcje:
 
 * Tworzy aplikację Azure Active Directory (Azure AD) z certyfikatem z podpisem własnym. Samo konto Uruchom jako ma certyfikat, który musi zostać odnowiony domyślnie co roku.
 

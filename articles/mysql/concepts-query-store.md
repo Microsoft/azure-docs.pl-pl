@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402238"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766129"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MySQL przy użyciu magazynu zapytań
 
@@ -87,7 +87,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakresu** |
+| **Parametr** | **Opis** | **Domyślne** | **Zakres** |
 |---|---|---|---|
 | query_store_capture_mode | Włącz/Wyłącz funkcję magazynu zapytań na podstawie wartości. Uwaga: Jeśli performance_schema jest wyłączona, włączenie query_store_capture_mode spowoduje włączenie performance_schema i podzestawu narzędzi schematu wydajności wymaganych dla tej funkcji. | ALL | BRAK, WSZYSTKIE |
 | query_store_capture_interval | Interwał przechwytywania magazynu zapytań (w minutach). Umożliwia określenie interwału, w którym metryki zapytania są agregowane | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakresu** |
+| **Parametr** | **Opis** | **Domyślne** | **Zakres** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Umożliwia włączenie/wyłączenie statystyk oczekiwania. | DAWAJ | BRAK, WSZYSTKIE |
 | query_store_wait_sampling_frequency | Zmienia częstotliwość próbkowania oczekiwania w sekundach. od 5 do 300 sekund. | 30 | 5-300 |
@@ -108,11 +108,11 @@ Użyj [Azure Portal](howto-server-parameters.md)   lub [interfejsu wiersza po
 
 ## <a name="views-and-functions"></a>Widoki i funkcje
 
-Wyświetlanie magazynu zapytań i zarządzanie nim przy użyciu następujących widoków i funkcji. Każda osoba w [roli publicznej Wybieranie uprawnienia](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) może używać tych widoków do wyświetlania danych w magazynie zapytań. Te widoki są dostępne tylko w bazie danych **MySQL** .
+Wyświetlanie magazynu zapytań i zarządzanie nim przy użyciu następujących widoków i funkcji. Każda osoba w [roli publicznej Wybieranie uprawnienia](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) może używać tych widoków do wyświetlania danych w magazynie zapytań. Te widoki są dostępne tylko w bazie danych **MySQL** .
 
 Zapytania są znormalizowane przez przejrzenie ich struktury po usunięciu literałów i stałych. Jeśli dwa zapytania są identyczne z wyjątkiem wartości literału, będą miały ten sam skrót.
 
-### <a name="mysqlquery_store"></a>MySQL. query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Ten widok zwraca wszystkie dane w magazynie zapytań. Dla każdego unikatowego identyfikatora bazy danych, identyfikatora użytkownika i identyfikatora zapytania istnieje jeden wiersz.
 
@@ -145,7 +145,7 @@ Ten widok zwraca wszystkie dane w magazynie zapytań. Dla każdego unikatowego i
 | `first_seen` | sygnatura czasowa| NO| Pierwsze wystąpienie (UTC) zapytania w oknie agregacji|
 | `last_seen` | sygnatura czasowa| NO| Ostatnie wystąpienie (UTC) zapytania w tym oknie agregacji|
 
-### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Ten widok zwraca dane zdarzeń oczekiwania w magazynie zapytań. Istnieje jeden wiersz dla każdego identyfikatora bazy danych, identyfikatora użytkownika, identyfikatora zapytania i zdarzenia.
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 808320f89c4dbeca835fc5a710ea1566199f6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791847"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767615"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Informacje o metrykach IoT Hub
@@ -22,7 +22,7 @@ Metryki IoT Hub zawierają informacje o stanie zasobów usługi Azure IoT w rama
 Metryki są domyślnie włączone. Możesz wyświetlić metryki IoT Hub z Azure Portal.
 
 > [!NOTE]
-> Za pomocą metryk IoT Hub można wyświetlać informacje o urządzeniach Plug and Play IoT podłączonych do IoT Hub. Urządzenia Plug and Play IoT są częścią [publicznej wersji zapoznawczej iot Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+> Za pomocą metryk IoT Hub można wyświetlać informacje o urządzeniach [Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md) podłączonych do IoT Hub.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Jak wyświetlić metryki IoT Hub
 
@@ -46,7 +46,7 @@ IoT Hub zawiera kilka metryk, które umożliwiają przedstawienie informacji o k
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|RoutingDeliveries | Próby dostarczania routingu (wersja zapoznawcza) | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Identyfikator<br>Wynika<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Więcej szczegółowych informacji na temat wymiarów [**znajdziesz tutaj**](#dimensions)*. |
+|RoutingDeliveries | Próby dostarczania routingu (wersja zapoznawcza) | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Identyfikator<br>Wynik:<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Więcej szczegółowych informacji na temat wymiarów [**znajdziesz tutaj**](#dimensions)*. |
 |RoutingDeliveryLatency| Opóźnienie routingu (wersja zapoznawcza) | ) | Średnia |Jest to metryka opóźnienia dostarczania routingu. Wymiary umożliwiają zidentyfikowanie opóźnienia dla określonego punktu końcowego lub dla określonego źródła routingu.| Identyfikator<br>RoutingSource,<br>EndpointType,<br>Nazwapunktukoncowego<br>*Więcej szczegółowych informacji na temat wymiarów [**znajdziesz tutaj**](#dimensions)*.|
 |RoutingDataSizeInBytesDelivered| Rozmiar danych dostarczania routingu (w bajtach) (wersja zapoznawcza)| Bajty | Łącznie |Całkowita liczba bajtów kierowanych przez IoT Hub do niestandardowego punktu końcowego i wbudowanego punktu końcowego. Wymiary umożliwiają identyfikowanie rozmiaru danych kierowanych do określonego punktu końcowego lub dla określonego źródła routingu.| Identyfikator<br>RoutingSource,<br>Punkt końcowy<br>Nazwapunktukoncowego<br>*Więcej szczegółowych informacji na temat wymiarów [**znajdziesz tutaj**](#dimensions)*.|
 |D2C. telemetrię. dane wejściowe.<br>allProtocol|Próby wysłania komunikatów telemetrycznych|Liczba|Łącznie|Liczba komunikatów telemetrycznych z urządzenia do chmury, które próbowano wysłać do centrum IoT Hub|Brak|
@@ -74,7 +74,7 @@ IoT Hub zawiera kilka metryk, które umożliwiają przedstawienie informacji o k
 |D2C. endpoints. opóźnienie.<br>magazyn|Routing: opóźnienie komunikatu dla magazynu|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących w punkcie końcowym magazynu.|Brak|
 |D2C. endpoints. ruch wychodzący.<br>Storage. Bytes|Routing: dane dostarczane do magazynu|Bajty|Łącznie|Ilość danych (w bajtach) IoT Hub Routing dostarczany do punktów końcowych magazynu.|Brak|
 |D2C. endpoints. ruch wychodzący.<br>Storage. Blobs|Routing: obiekty blob dostarczane do magazynu|Liczba|Łącznie|Ile razy usługa Routing IoT Hub dostarczać obiekty blob do punktów końcowych magazynu.|Brak|
-|EventGridDeliveries|Dostawy Event Grid (wersja zapoznawcza)|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|Identyfikator<br/>Wynika<br/>Typ zdarzenia|
+|EventGridDeliveries|Dostawy Event Grid (wersja zapoznawcza)|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|Identyfikator<br/>Wynik:<br/>Typ zdarzenia|
 |EventGridLatency|Opóźnienie Event Grid (wersja zapoznawcza)|)|Średnia|Średnie opóźnienie (w milisekundach) od momentu wygenerowania zdarzenia usługi IoT Hub po opublikowaniu zdarzenia w Event Grid. Ta liczba jest średnia między wszystkimi typami zdarzeń. Użyj wymiaru EventType, aby zobaczyć opóźnienie określonego typu zdarzenia.|Identyfikator<br/>Typ zdarzenia|
 |D2C. splot. Read. Success|Pomyślne odczyty sznurów z urządzeń|Liczba|Łącznie|Liczba wszystkich udanych operacji zainicjowanych przez urządzenie.|Brak|
 |D2C. splot. Read. Failure|Nieudane odczyty sznurów z urządzeń|Liczba|Łącznie|Liczba wszystkich nieudanych operacji zainicjowanych przez urządzenie.|Brak|

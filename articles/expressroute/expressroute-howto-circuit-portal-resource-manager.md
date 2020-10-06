@@ -1,18 +1,18 @@
 ---
-title: 'Szybki Start: Tworzenie i modyfikowanie obwodu za pomocą ExpressRoute'
-description: W tym przewodniku szybki start dowiesz się, jak tworzyć, inicjować, weryfikować, aktualizować, usuwać i cofać aprowizacji obwodu ExpressRoute.
+title: 'Szybki Start: Tworzenie i modyfikowanie obwodu za pomocą ExpressRoute Azure Portal'
+description: W tym przewodniku szybki start dowiesz się, jak tworzyć, inicjować, sprawdzać, aktualizować, usuwać i anulować obsługę obwodu usługi ExpressRoute przy użyciu Azure Portal.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: c944feb6cc77d8337fccb64915baa576e590ef40
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761752"
+ms.locfileid: "91767807"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
 

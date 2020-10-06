@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91000966"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767715"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji Azure Functions
 
@@ -31,14 +31,14 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
+7. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)
 
     `label` `Description` Na razie pozostaw i niezdefiniowane.
 
-7. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
+8. Wybierz pozycję **Zastosuj** , aby zapisać nową flagę funkcji.
 
 ## <a name="create-a-functions-app"></a>Tworzenie aplikacji funkcji
 

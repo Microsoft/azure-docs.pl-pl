@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021242"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766940"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych
 
@@ -126,7 +126,7 @@ Można włączyć/wyłączyć trasę alternatywną w bloku routing wiadomości A
 
 ## <a name="non-telemetry-events"></a>Zdarzenia inne niż telemetrii
 
-Oprócz danych telemetrycznych urządzenia Routing komunikatów umożliwia również wysyłanie zdarzeń zmiany sznurka urządzenia, zdarzeń cyklu życia urządzenia i cyfrowych dróg zmiany (w publicznej wersji zapoznawczej). Na przykład jeśli zostanie utworzona trasa ze źródłem danych ustawionym na **zdarzenia zmiany sznurka urządzenia**, IoT Hub wysyła komunikaty do punktu końcowego, który zawiera zmiany w bliźniaczych urządzeniach. Podobnie w przypadku utworzenia trasy ze źródłem danych ustawionym na **zdarzenia cyklu życia urządzenia**IoT Hub wysyła komunikat informujący o tym, czy urządzenie zostało usunięte lub utworzone. Na koniec w ramach [publicznej wersji zapoznawczej usługi IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)deweloper może utworzyć trasy ze źródłem danych ustawionym na **cyfrowe sznurki zmiany** i IoT Hub wysyłające komunikaty za każdym razem, gdy [Właściwość](../iot-pnp/iot-plug-and-play-glossary.md) pojedynczej dwuosiowej [jest ustawiona](../iot-pnp/iot-plug-and-play-glossary.md) lub zmieniana.
+Oprócz danych telemetrycznych urządzenia Routing komunikatów umożliwia również wysyłanie zdarzeń zmiany sznurka urządzenia, zdarzeń cyklu życia urządzenia i cyfrowych dróg zmiany. Na przykład jeśli zostanie utworzona trasa ze źródłem danych ustawionym na **zdarzenia zmiany sznurka urządzenia**, IoT Hub wysyła komunikaty do punktu końcowego, który zawiera zmiany w bliźniaczych urządzeniach. Podobnie w przypadku utworzenia trasy ze źródłem danych ustawionym na **zdarzenia cyklu życia urządzenia**IoT Hub wysyła komunikat informujący o tym, czy urządzenie zostało usunięte lub utworzone. Na koniec w ramach [Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md)deweloperzy mogą tworzyć trasy ze źródłem danych ustawionym na **cyfrowe, wieloosiowe zdarzenia zmiany** i IoT Hub wysyłają komunikaty za każdym razem, gdy [Właściwość](../iot-pnp/iot-plug-and-play-glossary.md) pojedynczej sieci dwuosiowej jest ustawiona lub zmieniana, zostaje zastąpiona [cyfrą elektroniczną](../iot-pnp/iot-plug-and-play-glossary.md) lub w przypadku wystąpienia zmiany w przypadku podstawowego sznurka urządzenia.
 
 [IoT Hub integruje się również z Azure Event Grid](iot-hub-event-grid.md) , aby publikować zdarzenia urządzeń w celu obsługi integracji w czasie rzeczywistym i automatyzacji przepływów pracy na podstawie tych zdarzeń. Zobacz podstawowe [różnice między routingiem komunikatów i Event Grid](iot-hub-event-grid-routing-comparison.md) , aby dowiedzieć się, co najlepiej sprawdza się w przypadku danego scenariusza.
 
@@ -152,7 +152,7 @@ IoT Hub oferuje kilka metryk związanych z routingiem i punktami końcowymi, aby
 
 Skorzystaj z [przewodnika rozwiązywania problemów, aby](troubleshoot-message-routing.md) uzyskać szczegółowe informacje i obsłużyć proces rozwiązywania problemów z routingiem.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak tworzyć trasy komunikatów, zobacz [proces IoT Hub komunikatów z urządzenia do chmury przy użyciu tras](tutorial-routing.md).
 

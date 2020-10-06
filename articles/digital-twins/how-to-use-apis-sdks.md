@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2af4f2e2148c96a6059836f861cf56d4a4ac005b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252667"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766180"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -61,8 +61,9 @@ Aby używać interfejsów API płaszczyzny danych:
 * Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
    - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Digital bliźniaczych reprezentacji Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
    - można wyświetlić [dokumentację referencyjną zestawu SDK](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
-* Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
+* Możesz użyć zestawu SDK **języka Java** . Aby użyć zestawu Java SDK...
    - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true)
 * Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 Możesz również wykonywać interfejsy API płaszczyzny danych, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [interfejsu wiersza polecenia](how-to-use-cli.md).

@@ -3,14 +3,14 @@ title: Zarządzanie zmiennymi w Azure Automation
 description: W tym artykule opisano sposób pracy ze zmiennymi w elementach Runbook i konfiguracjach DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004568"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766189"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
 
@@ -36,14 +36,14 @@ Azure Automation przechowuje każdą zaszyfrowaną zmienną bezpiecznie. Podczas
 Podczas tworzenia zmiennej przy użyciu Azure Portal należy określić typ danych na liście rozwijanej, aby Portal mógł wyświetlić odpowiednią kontrolkę do wprowadzania wartości zmiennej. Następujące typy zmiennych są dostępne w Azure Automation:
 
 * Ciąg
-* Liczba całkowita
-* Data i godzina
-* Wartość logiczna
+* Integer
+* DateTime
+* Boolean (wartość logiczna)
 * Zero
 
 Zmienna nie jest ograniczona do określonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz `Not defined` , wartość zmiennej jest ustawiona na wartość null. Należy ustawić wartość przy użyciu polecenia cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) lub wewnętrznego `Set-AutomationVariable` polecenia cmdlet.
 
-Nie można użyć Azure Portal do utworzenia lub zmiany wartości typu złożonej zmiennej. Można jednak podać wartość dowolnego typu przy użyciu programu Windows PowerShell. Typy złożone są pobierane jako [parametr PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+Nie można użyć Azure Portal do utworzenia lub zmiany wartości typu złożonej zmiennej. Można jednak podać wartość dowolnego typu przy użyciu programu Windows PowerShell. Typy złożone są pobierane jako [Newtonsoft.Jsw. LINQ. JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) dla złożonego typu obiektu zamiast PSObject typu [parametr PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Można przechowywać wiele wartości w pojedynczej zmiennej przez utworzenie tablicy lub Hashtable i zapisanie jej do zmiennej.
 
@@ -56,7 +56,7 @@ Polecenia cmdlet w poniższej tabeli tworzą zmienne automatyzacji i zarządzaj�
 
 | Polecenie cmdlet | Opis |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Pobiera wartość istniejącej zmiennej. Jeśli wartość jest typu prostego, pobierany jest ten sam typ. Jeśli jest to typ złożony, `PSCustomObject` pobierany jest typ. <br>**Uwaga:**  Nie można użyć tego polecenia cmdlet do pobrania wartości zaszyfrowanej zmiennej. Jedynym sposobem, aby to zrobić, jest użycie wewnętrznego `Get-AutomationVariable` polecenia cmdlet w elemencie Runbook lub konfiguracji DSC. Zobacz [wewnętrzne polecenia cmdlet, aby uzyskać dostęp do zmiennych](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Pobiera wartość istniejącej zmiennej. Jeśli wartość jest typu prostego, pobierany jest ten sam typ. Jeśli jest to typ złożony, `PSCustomObject` pobierany jest typ. <br>**Uwaga:** Nie można użyć tego polecenia cmdlet do pobrania wartości zaszyfrowanej zmiennej. Jedynym sposobem, aby to zrobić, jest użycie wewnętrznego `Get-AutomationVariable` polecenia cmdlet w elemencie Runbook lub konfiguracji DSC. Zobacz [wewnętrzne polecenia cmdlet, aby uzyskać dostęp do zmiennych](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Tworzy nową zmienną i ustawia jej wartość.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Usuwa istniejącą zmienną.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Ustawia wartość istniejącej zmiennej. |
@@ -74,7 +74,7 @@ Wewnętrzne polecenia cmdlet w poniższej tabeli służą do uzyskiwania dostęp
 > Należy unikać używania zmiennych w `Name` parametrze `Get-AutomationVariable` w elemencie Runbook lub konfiguracji DSC. Użycie zmiennych może komplikuje odnajdywanie zależności między elementami Runbook i zmiennymi automatyzacji w czasie projektowania.
 
 `Get-AutomationVariable` Program nie działa w programie PowerShell, ale tylko w konfiguracji elementu Runbook lub DSC. Na przykład aby wyświetlić wartość zaszyfrowanej zmiennej, można utworzyć element Runbook, aby uzyskać zmienną, a następnie zapisać ją w strumieniu danych wyjściowych:
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -123,18 +123,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-Poniższy przykład pokazuje, jak utworzyć zmienną typu złożonego, a następnie pobrać jej właściwości. W tym przypadku jest używany obiekt maszyny wirtualnej z elementu [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) .
+Poniższy przykład pokazuje, jak utworzyć zmienną typu złożonego, a następnie pobrać jej właściwości. W takim przypadku obiekt maszyny wirtualnej z [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) jest używany do określenia podzbioru właściwości.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>Przykłady przykładowych elementów Runbook
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Pobieranie i Ustawianie prostej wartości ze zmiennej

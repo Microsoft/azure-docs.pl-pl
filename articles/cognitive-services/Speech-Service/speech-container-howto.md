@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460054"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766463"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -45,7 +45,7 @@ Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji m
 | Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.5.0 |
 | Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.7.0 |
 | Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.7.0 |
-| wykrywanie języka mowy | Wykrywa język mówiony w plikach audio. | 1,0 |
+| wykrywanie języka mowy | Wykrywa język mówiony w plikach audio. | 1.0 |
 | Neuronowych Zamiana tekstu na mowę | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. | 1.2.0 |
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
@@ -138,6 +138,9 @@ Obrazy kontenerów dla mowy są dostępne w następujących Container Registry.
 | Niestandardowa Zamiana tekstu na mowę | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # <a name="speech-language-detection"></a>[wykrywanie języka mowy](#tab/lid)
+
+> [!TIP]
+> Aby uzyskać najlepsze wyniki, zalecamy korzystanie z kontenera wykrywania języka mowy z kontenerami Zamiana mowy na tekst lub niestandardową funkcją zamiany mowy na tekst. 
 
 | Kontener | Repozytorium |
 |-----------|------------|
@@ -313,7 +316,7 @@ To polecenie:
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizuj tonacji w danych wyjściowych zamiany mowy na tekst 
 
-Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Na przykład: 
+Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Przykład: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575065"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767744"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 
@@ -28,7 +28,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+7. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -36,7 +36,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-7. Wybierz pozycję **Zastosuj**.
+8. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-net-core-console-app"></a>Tworzenie aplikacji konsolowej platformy .NET Core
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: c248755c1f32d41b6926d4492dcc3d0eea2869b8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: c8726801e8becd6533ae5fec099d6c535b63261a
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566877"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767557"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Zarządzanie zasobami usługi Azure Cosmos za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -20,6 +20,9 @@ W poniższym przewodniku opisano typowe polecenia służące do automatyzowania 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+> [!IMPORTANT]
+> Nie można zmienić nazw zasobów Azure Cosmos DB, ponieważ to narusza sposób, w jaki Azure Resource Manager współpracuje z identyfikatorami URI zasobów.
 
 ## <a name="azure-cosmos-accounts"></a>Konta usługi Azure Cosmos
 

@@ -3,12 +3,12 @@ title: Zabezpieczenia sieci dla Azure Service Bus
 description: W tym artykule opisano funkcje zabezpieczeń sieci, takie jak Tagi usług, reguły zapory adresów IP, punkty końcowe usługi i prywatne punkty końcowe.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341137"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766400"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Service Bus: 
@@ -16,7 +16,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 - Tagi usługi
 - Reguły zapory adresów IP
 - Punkty końcowe usługi sieciowej
-- Prywatne punkty końcowe (wersja zapoznawcza)
+- Prywatne punkty końcowe
 
 
 ## <a name="service-tags"></a>Tagi usługi
@@ -26,11 +26,11 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | Azure Service Bus ruch korzystający z warstwy usługi Premium. | Wychodzący | Tak | Tak |
+| **ServiceBus** | Azure Service Bus ruch korzystający z warstwy usługi Premium. | Outbound | Tak | Tak |
 
 
 > [!NOTE]
-> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Na przykład: `nslookup contosons.servicebus.windows.net`. 
+> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Przykład: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Zapora IP 
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -81,8 +81,6 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 
 > [!NOTE]
 > Ta funkcja jest obsługiwana w warstwie **premium** Azure Service Bus. Aby uzyskać więcej informacji na temat warstwy Premium, zobacz artykuł [Service Bus warstwy Premium i Standard Messaging](service-bus-premium-messaging.md) .
->
-> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
 
 
 Aby uzyskać więcej informacji, zobacz [jak skonfigurować prywatne punkty końcowe dla Service Bus przestrzeni nazw](private-link-service.md)

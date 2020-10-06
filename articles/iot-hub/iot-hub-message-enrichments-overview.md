@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290299"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767192"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Wzbogacanie komunikatów dla komunikatów IoT Hub między urządzeniami a chmurą
 
@@ -62,7 +62,7 @@ Wzbogacania można skonfigurować przy użyciu następujących metod:
 
 | **Metoda** | **Polecenie** |
 | ----- | -----| 
-| Portal | [Witryna Azure Portal](https://portal.azure.com) | Zapoznaj się z [samouczkiem dotyczącym wzbogacania komunikatów](tutorial-message-enrichments.md) | 
+| Portal | [Azure Portal](https://portal.azure.com) | Zapoznaj się z [samouczkiem dotyczącym wzbogacania komunikatów](tutorial-message-enrichments.md) | 
 | Interfejs wiersza polecenia platformy Azure   | [AZ IoT Hub Message-wzbogacanie](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
@@ -86,7 +86,7 @@ Aby wypróbować wzbogacanie komunikatów, zobacz [Samouczek dotyczący wzbogaca
 
 * Łączny rozmiar komunikatów, łącznie z wzbogacami, nie może przekroczyć 256 KB. Jeśli rozmiar komunikatu przekracza 256 KB, IoT Hub spowoduje porzucenie komunikatu. Za pomocą [metryk IoT Hub](iot-hub-metrics.md) można identyfikować i debugować błędy podczas usuwania komunikatów. Na przykład można monitorować D2C. telemetrię. ruch wychodzący. nieprawidłowy.
 
-* Wzbogacanie komunikatów nie mają zastosowania do zdarzeń zmiany wieloosiowych (część [Plug and Play publicznej wersji zapoznawczej IoT](../iot-pnp/overview-iot-plug-and-play.md)).
+* Wzbogacania komunikatów nie mają zastosowania do wieloosiowych zdarzeń zmiany.
 
 ## <a name="pricing"></a>Cennik
 

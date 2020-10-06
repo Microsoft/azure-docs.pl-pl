@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496149"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767569"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Klonowanie woluminu przy użyciu usługi Menedżer urządzeń StorSimple w witrynie Azure Portal
 
@@ -64,11 +64,11 @@ Wykonaj następujące kroki, aby utworzyć klon woluminu z wykazu kopii zapasowy
 
       Kopie zapasowe skojarzone z wybranym woluminem lub zasadami tworzenia kopii zapasowych powinny pojawić się na liście zestawów kopii zapasowych.
    
-      ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista zestawów kopii zapasowych 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Rozwiń zestaw kopii zapasowych, aby wyświetlić skojarzony wolumin i wybrać wolumin w zestawie kopii zapasowych. Kliknij prawym przyciskiem myszy, a następnie z menu kontekstowego wybierz polecenie **Klonuj**.
 
-   ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista zestawów kopii zapasowych 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. W bloku **klonowania** wykonaj następujące czynności:
    
@@ -84,17 +84,17 @@ Wykonaj następujące kroki, aby utworzyć klon woluminu z wykazu kopii zapasowy
           
    3. W obszarze **połączone hosty**Określ rekord kontroli dostępu (ACR) dla klonu. Można dodać nowy ACR lub wybrać z istniejącej listy. ACR określi, które hosty mogą uzyskać dostęp do tego klona.
       
-       ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista zestawów kopii zapasowych 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. Kliknij przycisk **Klonuj** , aby ukończyć operację.
 
 4. Zostało zainicjowane zadanie klonowania i zostanie wyświetlone powiadomienie o pomyślnym utworzeniu klona. Kliknij pozycję powiadomienie o zadaniu lub przejdź do bloku **zadania** , aby monitorować zadanie klonowania.
 
-    ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista zestawów kopii zapasowych 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. Po ukończeniu zadania klonowania przejdź do urządzenia, a następnie kliknij pozycję **woluminy**. Na liście woluminów powinien zostać wyświetlony klon, który został właśnie utworzony w tym samym kontenerze woluminów z woluminem źródłowym.
 
-    ![Lista zestawów kopii zapasowych](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista zestawów kopii zapasowych 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 Klon tworzony w ten sposób jest przejściowym klonem. Aby uzyskać więcej informacji o typach klonowania, zobacz [przejściowe i trwałe klony](#transient-vs-permanent-clones).
 

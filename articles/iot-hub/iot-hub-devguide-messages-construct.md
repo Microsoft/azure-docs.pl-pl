@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336722"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766981"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -61,8 +61,8 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 | iothub-Connection-module-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **moduleId** urządzenia, które wysłało wiadomość. | Nie | connectionModuleId |
 | iothub-Connection-auth-Generation-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **connectionDeviceGenerationId** (zgodnie z [właściwościami tożsamości urządzenia](iot-hub-devguide-identity-registry.md#device-identity-properties)) urządzenia, które wysłało komunikat. | Nie |connectionDeviceGenerationId |
 | iothub-Connection-auth-Metoda |Metoda uwierzytelniania ustawiona przez IoT Hub w komunikatach z urządzenia do chmury. Ta właściwość zawiera informacje na temat metody uwierzytelniania używanej do uwierzytelniania urządzenia wysyłającego wiadomość.| Nie | connectionAuthMethod |
-| DT — schemat elementu | Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). | Nie | Brak |
-| DT — temat | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). | Tak | Brak |
+| DT — schemat elementu | Ta wartość jest ustawiana przez Centrum IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator modelu urządzenia ustawiony w ramach połączenia urządzenia. | Nie | Nie dotyczy |
+| DT — temat | Nazwa składnika wysyłającego komunikaty z urządzenia do chmury. | Tak | Nie dotyczy |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Właściwości systemowe komunikatów **C2D** IoT Hub
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 | --- | --- | --- |
 | Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  |Tak|
 | Numer sekwencyjny |Liczba (unikatowa dla kolejki urządzenia) przypisana przez IoT Hub do poszczególnych komunikatów z chmury do urządzenia. |Nie|
-| na |Lokalizacja docelowa określona w komunikatach [z chmury do urządzenia](iot-hub-devguide-c2d-guidance.md) . |Nie|
+| na wartość |Lokalizacja docelowa określona w komunikatach [z chmury do urządzenia](iot-hub-devguide-c2d-guidance.md) . |Nie|
 | bezwzględny czas wygaśnięcia |Data i godzina wygaśnięcia komunikatu. |Nie|   |
 | correlation-id |Właściwość ciągu w komunikacie odpowiedzi, który zwykle zawiera wartość MessageId żądania w wzorcach żądania-odpowiedzi. |Tak|
 | user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}` . |Tak|
@@ -90,7 +90,7 @@ Nazwy właściwości systemu różnią się w zależności od punktu końcowego,
 |Metoda uwierzytelniania połączenia|iothub-Connection-auth-Metoda|connectionAuthMethod|iothub-Connection-auth-Metoda|iothub-Connection-auth-Metoda|
 |contentType|Typ zawartości|contentType|ContentType|iothub-Content-Type|
 |contentEncoding|Kodowanie zawartości|contentEncoding|ContentEncoding|iothub — kodowanie zawartości|
-|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Brak |iothub — enqueuedtime|
+|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Nie dotyczy |iothub — enqueuedtime|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 |DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|DT — schemat elementu|
 |DT — temat|DT — temat|DT — temat|DT — temat|DT — temat|

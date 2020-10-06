@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512033"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766241"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Korzystanie z podsumowania urządzenia w usłudze StorSimple Menedżer urządzeń
 
@@ -86,7 +86,7 @@ Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak stan, mo
 
 * Kafelek **pojemność** przedstawia magazyn podstawowy, który jest inicjowany i pozostały w całym urządzeniu względem łącznego magazynu dostępnego dla tego samego. **Przygotowana odnosi się** do ilości miejsca przeznaczonego do użycia i przystosowanego do użytku, **pozostała** odnosi się do pozostałej pojemności, która może zostać zainicjowana na tym urządzeniu. 
 
-    ![Kafelek użycie](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Kafelek użycie 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Kliknij ten kafelek, aby zobaczyć, jak pojemność jest obsługiwana w warstwach i przypiętych lokalnie. **Pozostała pojemność warstwowa** to dostępna pojemność, która może zostać zainicjowana, w tym w chmurze, a **pozostała wartość jest** równa pozostałej pojemności na dyskach dołączonych do tego urządzenia.
 

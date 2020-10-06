@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514356"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766500"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurowanie protokołu CHAP dla urządzenia StorSimple
 
@@ -58,7 +58,7 @@ W przypadku uwierzytelniania jednokierunkowego element docelowy uwierzytelnia in
    
    3. Potwierdź hasło.
 
-       ![Inicjator protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
+       ![Inicjator protokołu CHAP 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
 3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Aby skonfigurować jednokierunkowe uwierzytelnianie na serwerze hosta z systemem Windows
@@ -112,7 +112,7 @@ W przypadku uwierzytelniania dwukierunkowego obiekt docelowy uwierzytelnia inicj
    2. Podaj **hasło** dla swojego urządzenia.
    3. Potwierdź hasło.
 
-       ![Inicjator protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
+       ![Inicjator protokołu CHAP 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
 4. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Aby skonfigurować uwierzytelnianie dwukierunkowe na serwerze hosta z systemem Windows

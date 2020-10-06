@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586457"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767644"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ze sprężyną Java przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -32,7 +32,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+7. Wybierz kolejno pozycje **Eksplorator konfiguracji**  >  **+ Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -40,7 +40,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-7. Wybierz pozycję **Zastosuj**.
+8. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-spring-boot-app"></a>Tworzenie aplikacji Spring Boot
 

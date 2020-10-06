@@ -2,13 +2,13 @@
 title: Usuwanie w trybie pełnym
 description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w szablonach Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/06/2020
+ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372465"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766718"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
 
@@ -19,6 +19,11 @@ Typy zasobów oznaczone **wartością tak** są usuwane, gdy typ nie jest w szab
 Typy zasobów oznaczone atrybutem **no** nie są automatycznie usuwane, gdy nie znajdują się w szablonie; Jednak są usuwane, jeśli zasób nadrzędny zostanie usunięty. Pełny opis zachowania można znaleźć w temacie [Azure Resource Manager Modes Deployments](deployment-modes.md).
 
 W przypadku wdrożenia w [więcej niż jednej grupie zasobów w szablonie](cross-scope-deployment.md)zasoby w grupie zasobów określonej w operacji wdrażania mogą zostać usunięte. Zasoby w dodatkowych grupach zasobów nie są usuwane.
+
+Zasoby są wyświetlane według przestrzeni nazw dostawcy zasobów. Aby dopasować przestrzeń nazw dostawcy zasobów przy użyciu nazwy usługi platformy Azure, zobacz [dostawcy zasobów dla usług platformy Azure](../management/azure-services-resource-providers.md).
+
+> [!NOTE]
+> Zawsze używaj [operacji działania warunkowego](template-deploy-what-if.md) przed wdrożeniem szablonu w trybie kompletnym. Co oznacza, które zasoby zostaną utworzone, usunięte lub zmodyfikowane. Użyj co do tego, aby uniknąć przypadkowego usunięcia zasobów.
 
 Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="op_single_selector"]

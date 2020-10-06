@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83725673"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766855"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
 
@@ -41,7 +41,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz** , aby dodać następujące pary klucz-wartość:
+7. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -233,7 +233,7 @@ Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji ap
 
 ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/kubernetes-dashboard-secrets.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

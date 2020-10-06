@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4edf48b73ee4d50679cbec377ed47749d2c94776
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d338ca5cf2c794f15d3eb535b5280208236d1e34
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569611"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767763"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -30,7 +30,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
+7. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz**  >  **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -38,15 +38,15 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
-7. Wybierz pozycję **Zastosuj**.
+8. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-net-console-app"></a>Tworzenie aplikacji konsolowej platformy .NET
 
 1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz pozycję **Dalej**.
+1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz opcję **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz pozycję **Utwórz**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 

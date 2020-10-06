@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569430"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767362"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
 
@@ -385,14 +385,13 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
     ![Eksportowanie certyfikatu DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
-2. Zostanie otwarty Kreator certyfikatów. Wybierz format formacie **X. 509 szyfrowany binarnie algorytmem DER (CER)**. Wybierz pozycję **Dalej**.
+2. Zostanie otwarty Kreator certyfikatów. Wybierz format formacie **X. 509 szyfrowany binarnie algorytmem DER (CER)**. Wybierz opcję **Dalej**.
 
     ![Eksportowanie certyfikatu DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Przeglądaj i wybierz lokalizację, w której chcesz wyeksportować plik. cer.
 
     ![Eksportowanie certyfikatu DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
 
 4. Wybierz pozycję **Zakończ**.
 
