@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537005"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Samouczek: integracja Azure Active Directory z usługą Dealpath
 
@@ -128,7 +128,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Dealpath,
 
 2. W prawym górnym rogu kliknij pozycję **Admin Tools** (Narzędzia administracyjne) i przejdź do pozycji **Integrations** (Integracje), a następnie w sekcji **SAML 2.0 Authentication** (Uwierzytelnianie SAML 2.0) kliknij pozycję **Update Settings** (Aktualizuj ustawienia):
 
-    ![Konfiguracja aplikacji Dealpath](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    ![Zrzut ekranu przedstawiający stronę "Narzędzia administracyjne — integracje" z sekcją uwierzytelnianie "S A M L 2,0" i wybraną opcją "Aktualizuj ustawienia".](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. Na stronie **Set up SAML 2.0 authentication** (Konfigurowanie uwierzytelniania SAML 2.0) wykonaj następujące czynności:
 
@@ -165,7 +165,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -207,7 +207,7 @@ Po kliknięciu kafelka Dealpath w panelu dostępu powinno nastąpić automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

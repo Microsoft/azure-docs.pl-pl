@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555743"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775155"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Dropbox Business z Azure Active Directory
 
@@ -113,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -145,27 +145,27 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 3. Jeśli chcesz skonfigurować usługi Dropbox firmy ręcznie, Otwórz nowe okno przeglądarki sieci Web i przejdź do dzierżawy biznesowej usługi Dropbox i zaloguj się do dzierżawy biznesowej usługi Dropbox. i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/ic769509.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający stronę "Logowanie w usłudze Dropbox".](./media/dropboxforbusiness-tutorial/ic769509.png "Konfigurowanie logowania jednokrotnego")
 
 4. Kliknij **ikonę użytkownika** i wybierz kartę **Settings** (Ustawienia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/configure1.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący akcję "ikona użytkownika" i "Ustawienia" wybrane.](./media/dropboxforbusiness-tutorial/configure1.png "Konfigurowanie logowania jednokrotnego")
 
 5. W okienku nawigacji po lewej stronie kliknij pozycję **Admin console** (Konsola administracyjna).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/configure2.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający wybraną wartość "Konsola administracyjna".](./media/dropboxforbusiness-tutorial/configure2.png "Konfigurowanie logowania jednokrotnego")
 
 6. W obszarze **Admin console** (Konsola administracyjna) kliknij pozycję **Settings** (Ustawienia) w okienku nawigacji po lewej stronie.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/configure3.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący wybrane ustawienia.](./media/dropboxforbusiness-tutorial/configure3.png "Konfigurowanie logowania jednokrotnego")
 
 7. Wybierz opcję **Single sign-on** (Logowanie jednokrotne) w sekcji **Authentication** (Uwierzytelnianie).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/configure4.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający sekcję "Authentication" z wybraną pozycją "Logowanie jednokrotne".](./media/dropboxforbusiness-tutorial/configure4.png "Konfigurowanie logowania jednokrotnego")
 
 8. W sekcji **Logowanie** jednokrotne wykonaj następujące czynności:  
 
-    ![Konfigurowanie logowania jednokrotnego](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący ustawienia konfiguracji logowania jednokrotnego.](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurowanie logowania jednokrotnego")
 
     a. Wybierz pozycję **wymagane** jako opcję z listy rozwijanej dla **logowania jednokrotnego**.
 
@@ -194,7 +194,7 @@ Po wybraniu kafelka biznesowego usługi Dropbox w panelu dostępu należy automa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

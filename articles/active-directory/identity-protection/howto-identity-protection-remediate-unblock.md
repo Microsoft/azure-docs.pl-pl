@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463964"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776106"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Korygowanie zagrożeń i odblokowywanie użytkowników
 
@@ -88,6 +88,10 @@ Aby odblokować konto na podstawie ryzyka związanego z logowaniem, Administrato
 1. **Zaloguj się ze znanej lokalizacji lub urządzenia** — typową przyczyną zablokowanych podejrzanych logowań są próby logowania z nieznanych lokalizacji lub urządzeń. Użytkownicy mogą szybko określić, czy powód to powód blokowania, próbując zalogować się ze znajomej lokalizacji lub urządzenia.
 1. **Wykluczanie użytkownika z zasad** — Jeśli sądzisz, że Bieżąca konfiguracja zasad logowania powoduje problemy dla określonych użytkowników, możesz wykluczyć z niej użytkowników. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [jak: Konfigurowanie i Włączanie zasad ryzyka](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Wyłącz zasady** — Jeśli sądzisz, że konfiguracja zasad powoduje problemy dla wszystkich użytkowników, możesz wyłączyć zasady. Aby uzyskać więcej informacji, zobacz artykuł [jak: Konfigurowanie i Włączanie zasad ryzyka](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>Podgląd programu PowerShell
+
+Za pomocą modułu Microsoft Graph programu PowerShell SDK w wersji zapoznawczej organizacje mogą zarządzać ryzykiem przy użyciu programu PowerShell. Moduły w wersji zapoznawczej i przykładowy kod można znaleźć w [repozytorium GitHub usługi Azure AD](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Następne kroki
 

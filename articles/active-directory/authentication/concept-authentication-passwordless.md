@@ -11,30 +11,30 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266619"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773930"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
 Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały sposób na zabezpieczenie organizacji, ale użytkownicy często uzyskują sfrustrowani z dodatkową warstwą zabezpieczeń na potrzeby zapamiętywania haseł. Metody uwierzytelniania bez hasła są wygodniejsze, ponieważ hasło jest usuwane i zastępowane przez użytkownika
 
-| Authentication  | Coś, czego masz | Coś lub wiesz |
+| Authentication  | Coś, co masz | Coś lub wiesz |
 | --- | --- | --- |
 | Logowanie bez hasła | Urządzenia, numery telefonów lub klucze zabezpieczeń systemu Windows 10 | Biometryczna lub PIN |
 
 Każda organizacja ma inne potrzeby związane z uwierzytelnianiem. Firma Microsoft oferuje następujące trzy opcje uwierzytelniania bez hasła, które integrują się z usługą Azure Active Directory (Azure AD):
 
-- Windows Hello dla firm
+- Windows Hello for Business
 - Aplikacja Microsoft Authenticator
 - FIDO2 klucze zabezpieczeń
 
 ![Uwierzytelnianie: zabezpieczenia i wygoda](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello dla firm
+## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 Funkcja Windows Hello dla firm jest idealna w przypadku pracowników przetwarzających informacje, którzy mają własne Wyznaczeni komputery z systemem Windows. Poświadczenia biometryczne i numery PIN są bezpośrednio powiązane z komputerem użytkownika, co uniemożliwia dostęp od nikogo innego niż właściciel. Dzięki integracji infrastruktury kluczy publicznych (PKI) i wbudowanej obsłudze logowania jednokrotnego (SSO) usługa Windows Hello dla firm zapewnia wygodną metodę bezproblemowego uzyskiwania dostępu do zasobów firmy lokalnie i w chmurze.
 
@@ -61,6 +61,8 @@ Możesz również pozwolić, aby telefon pracownika stał się metodą uwierzyte
 ![Zaloguj się do przeglądarki Microsoft Edge przy użyciu aplikacji Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Aplikacja Authenticator włącza każdy telefon z systemem iOS lub Android do silnego poświadczenia bez hasła. Użytkownicy mogą logować się do dowolnej platformy lub przeglądarki, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie używając ich biometrycznych (dotykowych lub ubocznych) lub numerów PIN, aby potwierdzić. Zapoznaj się z artykułem [pobieranie i instalowanie aplikacji Microsoft Authenticator,](../user-help/user-help-auth-app-download-install.md) Aby uzyskać szczegółowe informacje dotyczące instalacji.
+
+Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator w usłudze Azure AD jest obecnie dostępne w wersji zapoznawczej. Korzystanie z aplikacji Microsoft Authenticator na potrzeby dodatkowego uwierzytelniania na platformie Azure Multi-Factor Authentication, samoobsługowego resetowania hasła (SSPR) lub tokenów oprogramowania OATH jest ogólnie dostępne. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Uwierzytelnianie bezhasła przy użyciu aplikacji Authenticator jest zgodne z tym samym wzorcem, co w przypadku usługi Windows Hello dla firm. Jest to nieco bardziej skomplikowany sposób, w jaki użytkownik musi zostać zidentyfikowany, aby usługa Azure AD mogła znaleźć używaną wersję aplikacji Microsoft Authenticator:
 
@@ -162,7 +164,7 @@ Wybór między tymi trzema opcjami bezhaseł zależy od zabezpieczeń, platformy
 
 Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania technologii bezhasło Microsoft:
 
-||**Windows Hello dla firm**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
+||**Windows Hello for Business**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
 |**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1903 lub nowsza<br>Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|

@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ram
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181514"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773369"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -142,6 +142,50 @@ Aby przejść do nowej subskrypcji, podaj `--destination-subscription-id` parame
 
 1. Ustaw/Sprawdź kontrolę dostępu dla grup zasobów.  
 2. Funkcję raportowania i monitorowania kopii zapasowej należy skonfigurować ponownie dla magazynu po zakończeniu przenoszenia. Poprzednia konfiguracja zostanie utracona podczas operacji przenoszenia.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Przenieś maszynę wirtualną platformy Azure do innego magazynu usługi Recovery Service. 
+
+Jeśli chcesz przenieść maszynę wirtualną platformy Azure z włączoną usługą Azure Backup, masz dwie możliwości. Są one zależne od wymagań firmy:
+
+- [Nie trzeba zachować poprzedniej kopii zapasowej danych](#dont-need-to-preserve-previous-backed-up-data)
+- [Należy zachować poprzednie dane kopii zapasowej](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Nie trzeba zachować poprzedniej kopii zapasowej danych
+
+Aby chronić obciążenia w nowym magazynie, bieżąca Ochrona i dane muszą zostać usunięte w starym magazynie, a kopia zapasowa zostanie ponownie skonfigurowana.
+
+>[!WARNING]
+>Następująca operacja jest destrukcyjne i nie można jej cofnąć. Wszystkie dane kopii zapasowej i elementy kopii zapasowej skojarzone z chronionym serwerem zostaną trwale usunięte. Zachowaj przy tym ostrożność.
+
+**Zatrzymaj i Usuń bieżącą ochronę w starym magazynie:**
+
+1. Wyłącz usuwanie nietrwałe we właściwościach magazynu. Wykonaj następujące [kroki](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) , aby wyłączyć usuwanie nietrwałe.
+
+2. Zatrzymaj ochronę i usuń kopie zapasowe z bieżącego magazynu. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej**. Elementy wymienione w tym miejscu, które należy przenieść do nowego magazynu, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa**. Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. Po usunięciu ze starego magazynu, kontynuuj konfigurowanie kopii zapasowych dla obciążenia w nowym magazynie.
+
+### <a name="must-preserve-previous-backed-up-data"></a>Należy zachować poprzednie dane kopii zapasowej
+
+Jeśli potrzebujesz zachować bieżące chronione dane w starym magazynie i kontynuować ochronę w nowym magazynie, dostępne są ograniczone opcje dla niektórych obciążeń:
+
+- W przypadku usługi MARS można [zatrzymać ochronę z zachowaniem zachowanych danych](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) i zarejestrować agenta w nowym magazynie.
+
+  - Usługa Azure Backup będzie nadal utrzymywać wszystkie istniejące punkty odzyskiwania starego magazynu.
+  - Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w starym magazynie.
+  - Będzie można przywrócić dane z kopii zapasowej tylko dla niewygasłych punktów odzyskiwania w starym magazynie.
+  - Należy utworzyć nową początkową replikę danych w nowym magazynie.
+
+- W przypadku maszyny wirtualnej platformy Azure można [zatrzymać ochronę z zachowaniem zachowania danych](backup-azure-manage-vms.md#stop-protecting-a-vm) dla maszyny wirtualnej w starym magazynie, przenieść maszynę wirtualną do innej grupy zasobów, a następnie włączyć ochronę maszyny wirtualnej w nowym magazynie. Zapoznaj się ze [wskazówkami i ograniczeniami](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) dotyczącymi przeniesienia maszyny wirtualnej do innej grupy zasobów.
+
+  Maszyna wirtualna może być chroniona tylko w jednym magazynie naraz. Jednak maszyna wirtualna w nowej grupie zasobów może być chroniona w nowym magazynie, ponieważ jest traktowana jako inna maszyna wirtualna.
+
+  - Usługa Azure Backup zachowa te punkty odzyskiwania, których kopia zapasowa została utworzona w starym magazynie.
+  - Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w starym magazynie (zobacz [Azure Backup cennika](azure-backup-pricing.md) , aby uzyskać szczegółowe informacje).
+  - W razie potrzeby będzie można przywrócić maszynę wirtualną z starego magazynu.
+  - Pierwsza kopia zapasowa w nowym magazynie maszyny wirtualnej w nowym zasobie będzie repliką początkową.
 
 ## <a name="next-steps"></a>Następne kroki
 

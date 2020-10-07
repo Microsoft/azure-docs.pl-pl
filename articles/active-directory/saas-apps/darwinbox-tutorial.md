@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550116"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775443"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Darwinbox
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -143,29 +143,29 @@ Po kliknięciu kafelka Darwinbox w panelu dostępu należy automatycznie zalogow
 
 1. Otwórz aplikację mobilną Darwinbox. Kliknij pozycję **wprowadź adres URL organizacji** , a następnie wprowadź adres URL organizacji w polu tekstowym, a następnie kliknij przycisk strzałki.
 
-    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Zrzut ekranu pokazujący aplikację mobilną "Darwinbox" z wybraną pozycją "wprowadź organizację U R L" oraz wyróżnioną przykładową organizacją i przyciskiem "strzałka".](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Jeśli masz wiele domen, a następnie kliknij domenę.
 
-    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Zrzut ekranu przedstawiający ekran "Wybierz domenę" z wybraną przykładową domeną.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Wprowadź swoje wiadomości e-mail usługi Azure AD w aplikacji Darwinbox, a następnie kliknij przycisk **dalej**.
 
-    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Zrzut ekranu pokazujący ekran "Logowanie" z wyróżnionym przyciskiem "dalej".](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Wprowadź hasło usługi Azure AD w aplikacji Darwinbox, a następnie kliknij przycisk **Zaloguj**.
 
-    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Zrzut ekranu pokazujący ekran "wprowadzanie hasła" z wyróżnionym przyciskiem "dalej".](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Na koniec po pomyślnym zalogowaniu zostanie wyświetlona strona główna aplikacji.
 
     ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

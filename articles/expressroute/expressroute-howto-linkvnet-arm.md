@@ -1,23 +1,23 @@
 ---
-title: 'ExpressRoute: Połącz sieć wirtualną z obwodem: Azure PowerShell'
-description: Ten dokument zawiera omówienie sposobu łączenia sieci wirtualnych (sieci wirtualnych) z obwodami usługi ExpressRoute przy użyciu modelu wdrażania Menedżer zasobów i programu PowerShell.
+title: 'Samouczek: łączenie sieci wirtualnej z obwodem ExpressRoute — Azure PowerShell'
+description: Ten samouczek zawiera omówienie sposobu łączenia sieci wirtualnych (sieci wirtualnych) z obwodami usługi ExpressRoute przy użyciu modelu wdrażania Menedżer zasobów i Azure PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 05/20/2018
+ms.topic: tutorial
+ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 49f259178020dd0e8e4f24aed67869aefd73b037
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b536b0e2601ce1ae9dd3d40723f4cab09a3a4c48
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395846"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772961"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -30,17 +30,23 @@ W tym artykule opisano łączenie sieci wirtualnych (sieci wirtualnych) z obwody
 
 * Jedna sieć wirtualna może być połączona do maksymalnie czterech obwodów usługi ExpressRoute. Wykonaj kroki opisane w tym artykule, aby utworzyć nowy obiekt połączenia dla każdego obwodu usługi ExpressRoute, z którym nawiązujesz połączenie. Obwody usługi ExpressRoute mogą znajdować się w tej samej subskrypcji, różnych subskrypcjach lub kombinacji obu tych elementów.
 
-* Możesz połączyć sieci wirtualne poza regionem geopolitycznym obwodu ExpressRoute lub połączyć większą liczbę sieci wirtualnych z obwodem ExpressRoute, jeśli włączono dodatek ExpressRoute Premium. Zapoznaj się z [często zadawanymi pytaniami](expressroute-faqs.md) , aby uzyskać więcej informacji na temat dodatku Premium.
+* Po włączeniu dodatku ExpressRoute Premium można połączyć sieci wirtualne poza regionem geopolitycznym obwodu ExpressRoute. Dodatek Premium umożliwia również łączenie więcej niż 10 sieci wirtualnych do obwodu ExpressRoute, w zależności od wybranej przepustowości. Zapoznaj się z [często zadawanymi pytaniami](expressroute-faqs.md) , aby uzyskać więcej informacji na temat dodatku Premium.
 
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+> [!div class="checklist"]
+> - Łączenie sieci wirtualnej w ramach tej samej subskrypcji z obwodem
+> - Połączenie sieci wirtualnej w innej subskrypcji z obwodem
+> - Modyfikowanie połączenia sieci wirtualnej
+> - Konfigurowanie ExpressRoute FastPath
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
 * Przed rozpoczęciem konfiguracji zapoznaj się z warunkami [wstępnymi](expressroute-prerequisites.md), [wymaganiami dotyczącymi routingu](expressroute-routing.md)i [przepływami pracy](expressroute-workflows.md) .
 
 * Musisz mieć aktywny obwód usługi ExpressRoute. 
   * Postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](expressroute-howto-circuit-arm.md) i mieć obwód włączony przez dostawcę połączenia. 
   * Upewnij się, że masz skonfigurowaną prywatną komunikację równorzędną Azure dla obwodu. Instrukcje dotyczące routingu można znaleźć w artykule [Konfigurowanie routingu](expressroute-howto-routing-arm.md) . 
-  * Upewnij się, że skonfigurowano prywatną komunikację równorzędną platformy Azure, a Komunikacja równorzędna protokołu BGP między siecią i firmą Microsoft jest w stanie umożliwiającym kompleksową łączność.
+  * Upewnij się, że usługa prywatnej komunikacji równorzędnej Azure jest skonfigurowana i ustanawia komunikację równorzędną BGP między siecią a firmą Microsoft w celu kompleksowej łączności.
   * Upewnij się, że masz utworzoną sieć wirtualną i bramę sieci wirtualnej i została ona w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [utworzyć bramę sieci wirtualnej dla usługi ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Brama sieci wirtualnej dla usługi ExpressRoute używa elementu Gatewaytype "ExpressRoute", a nie sieci VPN.
 
 ### <a name="working-with-azure-powershell"></a>Praca z Azure PowerShell
@@ -61,19 +67,17 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Połączenie sieci wirtualnej w innej subskrypcji z obwodem
 Obwód ExpressRoute można udostępnić w wielu subskrypcjach. Na poniższej ilustracji przedstawiono prosty schemat działania udostępniania dla obwodów usługi ExpressRoute w wielu subskrypcjach.
 
-Każda z mniejszych chmur w ramach dużej chmury służy do reprezentowania subskrypcji należących do różnych działów w organizacji. Każdy dział w organizacji może używać własnej subskrypcji do wdrażania ich usług — ale mogą współdzielić jeden obwód usługi ExpressRoute w celu nawiązania połączenia z siecią lokalną. Pojedynczy dział (w tym przykładzie:) może być własnym obwodem ExpressRoute. Inne subskrypcje w organizacji mogą korzystać z obwodu ExpressRoute.
+Każda z mniejszych chmur w ramach dużej chmury służy do reprezentowania subskrypcji należących do różnych działów w organizacji. Każda z działów w organizacji korzysta z własnej subskrypcji na potrzeby wdrażania ich usług — ale może współdzielić jeden obwód usługi ExpressRoute, aby połączyć się z siecią lokalną. Pojedynczy dział (w tym przykładzie:) może być własnym obwodem ExpressRoute. Inne subskrypcje w organizacji mogą korzystać z obwodu ExpressRoute.
 
 > [!NOTE]
 > Do właściciela subskrypcji zostaną zastosowane opłaty za połączenia i przepustowość dla obwodu usługi ExpressRoute. Wszystkie sieci wirtualne mają tę samą przepustowość.
 > 
-> 
 
-![Łączność między subskrypcjami](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
-
+:::image type="content" source="./media/expressroute-howto-linkvnet-classic/cross-subscription.png" alt-text="Łączność między subskrypcjami":::
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Właściciele obwodów administracyjnych i użytkownicy obwodów
 
-"Właściciel obwodu" jest autoryzowanym użytkownikiem zaawansowanym zasobu obwodu ExpressRoute. Właściciel obwodu może tworzyć autoryzacje, które mogą być zrealizowane przez "użytkowników obwodów". Użytkownicy obwodu to właściciele bram sieci wirtualnej, którzy nie znajdują się w tej samej subskrypcji co obwód usługi ExpressRoute. Użytkownicy obwodów mogą wykorzystać autoryzacje (jedna autoryzacja na sieć wirtualną).
+"Właściciel obwodu" jest autoryzowanym użytkownikiem zaawansowanym zasobu obwodu ExpressRoute. Właściciel obwodu może tworzyć autoryzacje, które mogą być zrealizowane przez "użytkowników obwodów". Użytkownicy obwodu to właściciele bram sieci wirtualnej, którzy nie należą do tej samej subskrypcji co obwód usługi ExpressRoute. Użytkownicy obwodów mogą wykorzystać autoryzacje (jedna autoryzacja na sieć wirtualną).
 
 Właściciel obwodu ma uprawnienia do modyfikowania i odwoływania autoryzacji w dowolnym momencie. Odwoływanie autoryzacji powoduje usunięcie wszystkich połączeń linków z subskrypcji, której dostęp został odwołany.
 
@@ -81,7 +85,7 @@ Właściciel obwodu ma uprawnienia do modyfikowania i odwoływania autoryzacji w
 
 **Aby utworzyć autoryzację**
 
-Właściciel obwodu tworzy autoryzację. Powoduje to utworzenie klucza autoryzacji, który może być używany przez użytkownika obwodu do łączenia ich bram sieci wirtualnych z obwodem ExpressRoute. Autoryzacja jest prawidłowa tylko dla jednego połączenia.
+Właściciel obwodu tworzy autoryzację, która tworzy klucz autoryzacji, który ma być używany przez użytkownika obwodu do łączenia ich bram sieci wirtualnych z obwodem ExpressRoute. Autoryzacja jest prawidłowa tylko dla jednego połączenia.
 
 Poniższy fragment kodu polecenia cmdlet przedstawia sposób tworzenia autoryzacji:
 
@@ -94,8 +98,7 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
-
-Odpowiedź na to będzie zawierać klucz autoryzacji i stan:
+Odpowiedź na poprzednie polecenia będzie zawierać klucz autoryzacji i stan:
 
 ```azurepowershell
 Name                   : MyAuthorization1
@@ -105,8 +108,6 @@ AuthorizationKey       : ####################################
 AuthorizationUseStatus : Available
 ProvisioningState      : Succeeded
 ```
-
-
 
 **Aby przejrzeć autoryzacji**
 
@@ -197,5 +198,16 @@ $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli nie potrzebujesz już połączenia usługi ExpressRoute, w ramach subskrypcji, w której znajduje się brama, użyj `Remove-AzVirtualNetworkGatewayConnection` polecenia, aby usunąć łącze między bramą a obwodem.
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG"
+```
+
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat ExpressRoute, zobacz [często zadawane pytania](expressroute-faqs.md)dotyczące usługi ExpressRoute.
+Aby uzyskać więcej informacji na temat ExpressRoute, zobacz często zadawane pytania dotyczące usługi ExpressRoute.
+
+> [!div class="nextstepaction"]
+> [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md)

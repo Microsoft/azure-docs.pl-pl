@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708320"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776050"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -57,10 +57,9 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 
 Aby uzyskać więcej informacji na temat konfigurowania prywatnego obszaru roboczego łącza, zobacz [jak skonfigurować link prywatny](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Zabezpieczanie kont magazynu platformy Azure za pomocą punktów końcowych usługi
 
-## <a name="secure-azure-storage-accounts"></a>Zabezpieczanie kont usługi Azure Storage
-
-W tej sekcji dowiesz się, jak zabezpieczyć konto usługi Azure Storage za pomocą punktów końcowych usług. Można jednak używać prywatnych punktów końcowych do zabezpieczania usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md).
+Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. W tej sekcji dowiesz się, jak zabezpieczyć konto usługi Azure Storage za pomocą punktów końcowych usług. W przypadku prywatnych punktów końcowych Zobacz następną sekcję.
 
 > [!IMPORTANT]
 > _Konto magazynu domyślnego_ można umieścić dla Azure Machine Learning lub _kont magazynu innych niż domyślne_ w sieci wirtualnej.
@@ -95,9 +94,21 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
    [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Zabezpieczanie kont usługi Azure Storage za pomocą prywatnych punktów końcowych
+
+Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. Jeśli konto magazynu używa prywatnych punktów końcowych, należy skonfigurować dwa prywatne punkty końcowe dla domyślnego konta magazynu:
+1. Prywatny punkt końcowy z zasobem podrzędnym **obiektu BLOB** .
+1. Prywatny punkt końcowy z zasobem podrzędnym **pliku** (dataudziały).
+
+![Zrzut ekranu przedstawiający stronę konfiguracji prywatnego punktu końcowego z użyciem obiektów blob i opcji plików](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Aby skonfigurować prywatny punkt końcowy dla konta magazynu, które **nie** jest domyślnym magazynem, wybierz **docelowy typ zasobu** , który odnosi się do konta magazynu, które chcesz dodać.
+
+Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md)
+
 ## <a name="secure-datastores-and-datasets"></a>Zabezpieczanie magazynów danych
 
-W tej sekcji dowiesz się, jak korzystać ze sklepu danych i użycia DataSet dla środowiska zestawu SDK w sieci wirtualnej. Aby uzyskać więcej informacji na temat środowiska Studio, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md).
+W tej sekcji dowiesz się, jak za pomocą sieci wirtualnej używać magazynu elementów i zestawów danych w środowisku zestawu SDK. Aby uzyskać więcej informacji na temat środowiska Studio, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md).
 
 Aby uzyskać dostęp do danych przy użyciu zestawu SDK, należy użyć metody uwierzytelniania wymaganej przez poszczególne usługi, w których są przechowywane dane. Jeśli na przykład zarejestrujesz magazyn danych w celu uzyskania dostępu do Azure Data Lake Store Gen2, nadal musisz używać nazwy głównej usługi zgodnie z opisem w temacie [Connect to Azure Storage Services](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
@@ -186,7 +197,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
 
 1. Znajdź nazwę Azure Container Registry w obszarze roboczym, korzystając z jednej z następujących metod:
 
-    __Witryna Azure Portal__
+    __Azure Portal__
 
     W sekcji przegląd obszaru roboczego wartość __rejestru__ łączy się z Azure Container Registry.
 

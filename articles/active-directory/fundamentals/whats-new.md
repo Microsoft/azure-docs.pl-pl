@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9bcc356835fcfc080bd381043552d6e8868cc7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446630"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773509"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -57,6 +57,22 @@ Teraz można zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkown
 - [Świadomość zabezpieczeń w programie Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
 Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację przy użyciu funkcji automatycznego inicjowania obsługi kont użytkowników, zobacz [Automatyzacja aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Odświeżanie publicznej wersji zapoznawczej w chmurze
+
+**Typ:** Nowa funkcja  
+**Kategoria usługi:** Funkcja aprowizacji w chmurze usługi Azure AD **:** Zarządzanie cyklem życia tożsamości
+ 
+Azure AD Connect w chmurze Inicjowanie obsługi publicznej wersji zapoznawczej funkcje dwóch głównych ulepszeń opracowanych na podstawie opinii klientów: 
+
+- Korzystanie z mapowania atrybutów za pomocą witryny Azure Portal
+
+    Ta funkcja umożliwia administratorom IT Mapowanie atrybutów użytkowników, grup lub kontaktów z usługi AD do usługi Azure AD przy użyciu różnych typów mapowania obecnych obecnie. Mapowanie atrybutu jest funkcją służącą do standaryzacji wartości atrybutów, które przepływą od Active Directory do Azure Active Directory. Jeden może określić, czy bezpośrednio mapować wartość atrybutu, ponieważ pochodzi ona z usługi AD do usługi Azure AD, lub używać wyrażeń do przekształcania wartości atrybutów podczas aprowizacji użytkowników. [Dowiedz się więcej](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- Inicjowanie obsługi administracyjnej na żądanie lub testowanie środowiska użytkownika
+
+    Po skonfigurowaniu konfiguracji można sprawdzić, czy transformacja użytkownika działa zgodnie z oczekiwaniami przed zastosowaniem do wszystkich użytkowników w zakresie. W przypadku aprowizacji na żądanie Administratorzy IT mogą wprowadzić nazwę wyróżniającą (DN) użytkownika usługi AD i sprawdzić, czy są one zsynchronizowane zgodnie z oczekiwaniami. Inicjowanie obsługi na żądanie zapewnia doskonały sposób, aby zapewnić, że mapowania atrybutów wcześniej działały zgodnie z oczekiwaniami. [Więcej informacji](../cloud-provisioning/how-to-on-demand-provision.md)
  
 ---
 
@@ -106,7 +122,7 @@ Wersja ewaluacyjna ciągłego dostępu (CAE) jest teraz dostępna w publicznej w
 
 ---
 
-### <a name="ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Poproś użytkowników o zażądanie pakietu dostępu dodatkowe pytania, aby usprawnić decyzje dotyczące zatwierdzania
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Publiczna wersja zapoznawcza: Poproś użytkowników o dodatkowe pytania dotyczące podejmowania decyzji o zatwierdzeniu
 
 **Typ:** Nowa funkcja  
 **Kategoria usługi:** Zarządzanie dostępem użytkowników  

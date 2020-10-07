@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711611"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772672"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files monitorowania
 
@@ -71,6 +71,8 @@ Należy również określić jedną z następujących kategorii operacji, dla kt
 | StorageRead | Operacje odczytu na obiektach. |
 | StorageWrite | Operacje zapisu w obiektach. |
 | StorageDelete | Operacje usuwania obiektów. |
+
+Aby uzyskać listę zarejestrowanych operacji SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
@@ -276,7 +278,7 @@ Poniższy przykład pokazuje, jak odczytywać dane metryki z obsługą wielowymi
 
 Można uzyskać dostęp do dzienników zasobów jako obiektów BLOB na koncie magazynu, jako dane zdarzenia lub za pomocą zapytań analitycznych dzienników.
 
-Aby uzyskać szczegółowe informacje na temat pól, które pojawiają się w tych dziennikach, zobacz [informacje dotyczące monitorowania Azure Files platformy Azure](storage-files-monitoring-reference.md).
+Aby uzyskać listę zarejestrowanych operacji SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w warstwie Premium w celu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
@@ -292,7 +294,7 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 - Żądania używające sygnatury dostępu współdzielonego (SAS) lub OAuth, w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
 - Żądania danych analitycznych (klasyczne dane dziennika w **$Logs** kontenera i danych metryk klas w tabelach **$Metric** )
 
-Żądania wykonywane przez samą usługę Azure Files, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](storage-files-monitoring-reference.md).
+Żądania wykonywane przez samą usługę Azure Files, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych żądań SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Rejestruj anonimowe żądania
 
@@ -303,7 +305,7 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 - Błędy przekroczenia limitu czasu dla klienta i serwera
 - Żądania GET zakończone niepowodzeniem z kodem błędu 304 (nie zmodyfikowano)
 
-Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](storage-files-monitoring-reference.md).
+Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych żądań SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Uzyskiwanie dostępu do dzienników na koncie magazynu
 

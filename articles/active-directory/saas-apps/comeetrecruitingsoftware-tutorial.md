@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520146"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem do rekrutacji
 
@@ -99,7 +99,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Comeet Recruiting S
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje na temat domeny i adresów URL logowania jednokrotnego aplikacji Comeet Recruiting Software](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M" konfiguracji z wyróżnioną polem akcja "Zapisz", "Identyfikator" i "odpowiedź U R L".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,7 +116,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Comeet Recruiting S
 
 5. Aplikacja Comeet Recruiting Software oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wybranym przyciskiem "Edytuj".](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** edytuj oświadczenia, korzystając z **ikony edycji**, lub dodaj je za pomocą opcji **Dodaj nowe oświadczenie**, aby skonfigurować atrybut tokenu języka SAML, jak pokazano na ilustracji powyżej, a następnie wykonaj następujące czynności: 
 
@@ -127,7 +127,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Comeet Recruiting S
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający sekcję "oświadczenia użytkownika" z wyróżnionymi akcjami "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -184,7 +184,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -226,7 +226,7 @@ Po kliknięciu kafelka Comeet Recruiting Software w panelu dostępu powinno nast
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

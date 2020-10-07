@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892953"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775689"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Confluence SAML SSO przez firmę Microsoft
 
@@ -133,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -159,11 +159,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Zrzut ekranu pokazujący wybraną ikonę "koło zębate" i "Dodatki" wyróżnioną w menu rozwijanym.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Pobierz wtyczkę z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Ręcznie przekaż wtyczkę udostępnioną przez firmę Microsoft za pomocą menu **Przekazywanie dodatku**. Pobieranie wtyczki jest objęte [umową serwisową firmy Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawiający stronę "Zarządzanie dodatkami" z wybraną akcją "Przekaż dodatek".](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. W celu uruchomienia scenariusza zwrotnego serwera proxy Confluence lub modułu równoważenia obciążenia wykonaj następujące czynności:
 
@@ -174,19 +174,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Zrzut ekranu pokazujący plik "server.xml" z atrybutem dodanym do portu "łącznik".](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Zmień wartość w polu **Podstawowy adres URL** w obszarze **Ustawienia systemu** odpowiednio dla serwera proxy lub modułu równoważenia obciążenia.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Zrzut ekranu przedstawiający stronę "Administracja-ustawienia" z wyróżnioną pozycją "podstawowy adres URL".](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Po zainstalowaniu wtyczki jest ona wyświetlana w sekcji dodatków **Zainstalowane przez użytkownika** w ramach sekcji **Zarządzanie dodatkami**. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Zrzut ekranu pokazujący sekcję "zainstalowane przez użytkownika" z wyróżnionym przyciskiem "Konfiguruj".](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Wykonaj następujące kroki na stronie konfiguracji:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Zrzut ekranu przedstawiający stronę konfiguracji logowania jednokrotnego.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Upewnij się, że tylko jeden certyfikat jest zamapowany do aplikacji, aby zapobiec błędom podczas rozpoznawania metadanych. Jeśli dostępnych jest wiele certyfikatów, administrator otrzyma błąd podczas rozpoznawania metadanych.
@@ -237,7 +237,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się na serwerze lokaln
 
 1. W obszarze Użytkownicy kliknij przycisk **Dodaj użytkowników** kartę. Na stronie **Dodawanie użytkownika** wykonaj następujące czynności:
 
-    ![Dodawanie pracownika](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Zrzut ekranu przedstawiający "Confluence Administration" z wybraną kartą "Dodaj użytkowników" i "Dodaj użytkownika".](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. W polu tekstowym **username** wpisz adres e-mail użytkownika, na przykład B. Simon.
 
@@ -257,11 +257,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Confluence SAML SSO by Microsoft na panelu dostępu powinno nastąpić automatyczne zalogowanie do programu Confluence SAML SSO by Microsoft, dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

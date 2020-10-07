@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1589561968cf1e2974edcee2bfe1cccb4a327
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549252"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775732"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Samouczek: integracja Costpoint z usługą Azure Active Directory
 
@@ -43,7 +43,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 Costpoint konfiguracja logowania jednokrotnego SAML została omówiona w przewodniku **DeltekCostpoint711Security.pdf** . Pobierz ten przewodnik z witryny obsługi Costpoint deltek, a następnie zapoznaj się z sekcją **Konfiguracja logowania**jednokrotnego protokołu SAML  >  **między Costpoint i Microsoft Azure** . Postępuj zgodnie z instrukcjami i wygeneruj plik **XML metadanych Federacji COSTPOINT Sp** . 
 
-![Narzędzie konfiguracji Costpoint](./media/costpoint-tutorial/config-utility.png)
+![Zrzut ekranu przedstawiający "Narzędzie konfiguracji produktu" z wybraną kartą "WebLogic-Security".](./media/costpoint-tutorial/config-utility.png)
 
 ## <a name="add-costpoint-from-the-gallery"></a>Dodaj Costpoint z galerii
 
@@ -176,10 +176,10 @@ Po utworzeniu użytkownika należy zaznaczyć pole wyboru **Metoda uwierzytelnia
 
 Po wybraniu kafelka Costpoint w panelu dostępu należy automatycznie zalogować się do aplikacji Costpoint, ponieważ konfigurujesz Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków umożliwiających integrację aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

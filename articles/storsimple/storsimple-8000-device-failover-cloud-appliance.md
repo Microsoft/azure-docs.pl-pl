@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512067"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774464"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Przechodzenie w tryb failover do urządzenia w chmurze StorSimple
 
@@ -46,15 +46,15 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
     ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Wybierz i kliknij urządzenie źródłowe. Urządzenie źródłowe ma kontenery woluminów do przełączenia w tryb failover. Przejdź do pozycji **ustawienia > kontenery woluminów**.
 
-    ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Wybierz urządzenie 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Wybierz kontener woluminów, który chcesz przełączyć do trybu failover na innym urządzeniu. Kliknij kontener woluminów, aby wyświetlić listę woluminów w tym kontenerze. Wybierz wolumin, kliknij prawym przyciskiem myszy, a następnie kliknij polecenie **Przełącz do trybu offline** , aby przełączyć wolumin w tryb offline.
 
-    ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Wybierz urządzenie 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Powtórz ten proces dla wszystkich woluminów w kontenerze woluminów.
 
-     ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Wybierz urządzenie 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Powtórz poprzedni krok dla wszystkich kontenerów woluminów, które chcesz przełączyć do trybu failover na innym urządzeniu.
 
@@ -81,7 +81,7 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
 
     1. Wybierz urządzenie, które zostało użyte jako cel dla trybu failover.
 
-       ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Wybierz urządzenie 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Kliknij pozycję **kontenery woluminów**. Wszystkie kontenery woluminów oraz woluminy ze starego urządzenia powinny być wymienione na liście.
 

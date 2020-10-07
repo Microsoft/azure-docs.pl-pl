@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897975"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776123"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -84,7 +84,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -98,7 +98,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -156,6 +156,9 @@ Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia et
 
 Ponieważ końcowe etykiety nadal opierają się na danych wejściowych z Labeler, Technologia ta jest czasami wywoływana *przez człowieka w pętli* etykiet.
 
+> [!NOTE]
+> Oznakowanie danych wspomaganych przez ML nie obsługuje domyślnych kont magazynu zabezpieczonych za [siecią wirtualną](how-to-network-security-overview.md). Musisz użyć konta magazynu innego niż domyślne do etykietowania danych z asystą w ML. Konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
+
 ### <a name="clustering"></a>Klastrowanie
 
 Po przesłaniu pewnej liczby etykiet model uczenia maszynowego dla klasyfikacji obrazów zaczyna grupować podobne obrazy.  Te podobne obrazy są prezentowane na etykietach na tym samym ekranie w celu przyspieszenia ręcznego tagowania. Klastrowanie jest szczególnie przydatne, gdy Labeler przegląda siatkę obrazów 4, 6 lub 9. 
@@ -186,18 +189,7 @@ Aby wstrzymać lub ponownie uruchomić projekt, przełącz stan **działania** w
 
 Karta **pulpit nawigacyjny** pokazuje postęp zadania etykietowania.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Pulpit nawigacyjny etykiet danych":::
-
-Wykres postępu pokazuje, ile elementów zostało oznaczonych i ile nie zostało to jeszcze zrobione.  Elementy oczekujące mogą być następujące:
-
-* Jeszcze nie dodano do zadania
-* Uwzględnione w zadaniu, które jest przypisane do elementu Labeler, ale jeszcze nie zostało ukończone 
-* W kolejce zadań, które zostały jeszcze przypisane
-
-Środkowa sekcja pokazuje kolejkę zadań, które zostały jeszcze przypisane. Gdy etykieta z asystą jest wyłączona, w tej sekcji przedstawiono liczbę ręcznych zadań do przypisania. Gdy etykieta z asystą jest włączona, zostanie ona również wyświetlona:
-
-* Zadania zawierające elementy klastrowane w kolejce
-* Zadania zawierające elementy, które są oznaczone jako "w kolejce"
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Kreator tworzenia etykiet dla projektu"
 
 Ponadto, gdy jest włączona etykieta z asystą, na małym przebiegu szkolenia pojawia się mały pasek postępu.  Sekcje eksperymenty zawierają linki do poszczególnych przebiegów uczenia maszynowego.
 

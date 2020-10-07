@@ -1,5 +1,5 @@
 ---
-title: Regiony i Strefy dostępności na platformie Azure
+title: Regiony i strefy dostępności na platformie Azure
 description: Dowiedz się więcej na temat regionów i Strefy dostępności na platformie Azure, aby spełnić wymagania techniczne i prawne.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018675"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773743"
 ---
-# <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
+# <a name="regions-and-availability-zones-in-azure"></a>Regiony i strefy dostępności na platformie Azure
 
 Usługi Microsoft Azure są dostępne globalnie w celu zapewnienia optymalnego poziomu operacji w chmurze. Możesz wybrać najlepszy region dla potrzeb na podstawie zagadnień technicznych i prawnych: możliwości usług, miejsca zamieszkania danych, wymagania dotyczące zgodności i opóźnienia.
 
@@ -94,8 +94,8 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
 > | Application Gateway | Konfiguracja aplikacji | Azure Analysis Services |
 > | Azure Backup | App Service | Usługa Azure Blockchain |
-> | Azure Cosmos DB | Automatyzacja | Azure Blueprints |
-> | Usługa Azure Data Lake Storage 2. generacji | Usługi Azure Active Directory Domain Services | Azure Database for MariaDB |
+> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Dedykowany moduł HSM platformy Azure |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
 > | Cloud Services | Azure Cognitive Search | Azure Digital Twins |
@@ -107,18 +107,18 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Cloud Services: Zastrzeżony adres IP | Azure Databricks | Azure VMware Solution by CloudSimple |
 > | Disk Storage | Azure DDoS Protection | Cloud Services: Seria G |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: Seria H |
-> | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
+> | Usługa Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
 > | Service Bus | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
-> | Usługa Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
+> | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Virtual Machines: Seria Av2 | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: Seria Av2 | Azure Machine Learning | Azure Machine Learning Studio (klasyczny)|
 > | Virtual Machines: BS — seria | Link prywatny platformy Azure | Microsoft Genomics |
 > | Virtual Machines: Seria DSv2 | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: Seria DSv3 | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Seria Dv2 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Seria Dv3 | Azure Stack Hub | Indeksator wideo |
+> | Virtual Machines: Seria Dv3 | Azure Stack Hub | Video Indexer |
 > | Virtual Machines: Seria ESv3 | Usługa Azure Stream Analytics | Virtual Machines: Seria DASv4 |
 > | Virtual Machines: Seria EV3 | Azure Synapse Analytics | Virtual Machines: Seria DAv4 |
 > | Virtual Machines: Seria F | Batch | Virtual Machines: Seria DCsv2 |
@@ -182,7 +182,7 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Utwórz wystąpienie usługi Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Utwórz klaster usługi Azure Kubernetes Service (AKS), który używa Strefy dostępności](../aks/availability-zones.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Regiony obsługujące Strefy dostępności na platformie Azure](az-region.md)
 - [Szablony szybkiego startu](https://aka.ms/azqs)

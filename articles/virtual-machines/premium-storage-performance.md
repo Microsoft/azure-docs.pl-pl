@@ -4,15 +4,15 @@ description: Projektuj aplikacje o wysokiej wydajności przy użyciu dysków zar
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650710"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776157"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -102,7 +102,7 @@ Następnie Zmierz maksymalne wymagania dotyczące wydajności aplikacji przez ca
 | Maksymalnie z Przepływność | | | |
 | Długości. Opóźnienie | | | |
 | Średnie opóźnienie | | | |
-| Maksymalnie z CPU | | | |
+| Maksymalnie z Procesor CPU | | | |
 | Średni procesor CPU | | | |
 | Maksymalnie z Pamięć | | | |
 | Średnia pamięć | | | |
@@ -169,7 +169,7 @@ Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żą
 
 Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
-Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład
+Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Przykład:
 
 * Aplikacja OLTP generuje miliony małych i losowych żądań we/wy. Aby obsłużyć te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większych liczb IOPS.  
 * Aplikacja do magazynowania danych generuje duże i sekwencyjne żądania we/wy. Aby obsługiwać te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większej przepustowości lub przepływności.
@@ -305,45 +305,11 @@ Na przykład można zastosować te wytyczne do SQL Server uruchamiania na Premiu
 
 ## <a name="optimize-performance-on-linux-vms"></a>Optymalizowanie wydajności na maszynach wirtualnych z systemem Linux
 
-Dla wszystkich dysków SSD Premium lub Ultra dysków z pamięcią podręczną ustawioną na wartość **ReadOnly** lub **none**należy wyłączyć "bariery" podczas instalowania systemu plików. W tym scenariuszu nie są potrzebne przeszkody, ponieważ zapisy w usłudze Premium Storage są trwałe dla tych ustawień pamięci podręcznej. Po pomyślnym zakończeniu żądania zapisu dane zostały zapisane w magazynie trwałym. Aby wyłączyć "bariery", użyj jednej z poniższych metod. Wybierz jeden z nich dla systemu plików:
-  
-* Aby wyłączyć bariery w programie **reiserFS**, użyj  `barrier=none` opcji instalacji. (Aby włączyć bariery, użyj `barrier=flush` .)
-* Aby wyłączyć bariery dla **ext3/ext4**, użyj `barrier=0` opcji instalacji. (Aby włączyć bariery, użyj `barrier=1` .)
-* Aby wyłączyć bariery w programie **XFS**, użyj `nobarrier` opcji instalacji. (Aby włączyć bariery, użyj `barrier` .)
-* W przypadku dysków usługi Premium Storage z pamięcią podręczną ustawioną na **ReadWrite**Włącz bariery dla trwałości zapisu.
-* Aby etykiety woluminów były utrwalane po ponownym uruchomieniu maszyny wirtualnej, należy zaktualizować/etc/fstab przy użyciu unikatowych identyfikatorów uniwersalnych (UUID) do dysków. Aby uzyskać więcej informacji, zobacz [Dodawanie dysku zarządzanego do maszyny wirtualnej z systemem Linux](./linux/add-disk.md).
+W przypadku wszystkich dysków SSD Premium lub Ultra dysków można wyłączyć "bariery" dla systemów plików na dysku w celu zwiększenia wydajności, gdy wiadomo, że nie ma żadnych pamięci podręcznych, które mogą spowodować utratę danych.  Jeśli buforowanie dysku platformy Azure ma wartość tylko do odczytu lub brak, można wyłączyć bariery.  Ale jeśli buforowanie jest ustawione na ReadWrite, bariery powinny pozostać włączone, aby zapewnić trwałość zapisu.  Bariery są zwykle domyślnie włączone, ale można wyłączyć bariery, korzystając z jednej z następujących metod, w zależności od typu systemu plików:
 
-Następujące dystrybucje systemu Linux zostały sprawdzone pod kątem usługi Premium dysków SSD. Aby uzyskać lepszą wydajność i stabilność dzięki dysków SSD Premium, zalecamy uaktualnienie maszyn wirtualnych do jednej z tych wersji lub nowszych. 
-
-Niektóre wersje wymagają najnowszych usług integracji z systemem Linux (LIS), v 4.0 dla platformy Azure. Aby pobrać i zainstalować dystrybucję, postępuj zgodnie z linkiem wymienionym w poniższej tabeli. Dodaliśmy obrazy do listy po zakończeniu walidacji. Nasze walidacje pokazują, że wydajność jest różna dla każdego obrazu. Wydajność zależy od charakterystyki obciążenia i ustawień obrazu. Różne obrazy są dostrojone do różnych rodzajów obciążeń.
-
-| Dystrybucja | Wersja | Obsługiwane jądro | Szczegóły |
-| --- | --- | --- | --- |
-| Ubuntu | 12,04 lub nowszy| 3.2.0 — 75.110 + | &nbsp; |
-| Ubuntu | 14,04 lub nowszy| 3.13.0 — 44.73 +  | &nbsp; |
-| Debian | 7. x, 8. x lub nowszy| 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12 lub nowszy| 3.12.36 — 38.1 + | &nbsp; |
-| SUSE | SLES 11 z dodatkiem SP4 lub nowszym| 3.0.101 — 0.63.1 + | &nbsp; |
-| CoreOS | 584.0.0 + lub nowszy| 3.18.4 + | &nbsp; |
-| CentOS | 6,5, 6,6, 6,7, 7,0 lub nowsze| &nbsp; | [LIS4 wymagane](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Zobacz uwagi w następnej sekcji* |
-| CentOS | 7.1 + lub nowszy| 3.10.0-229.1.2. el7 + | [LIS4 zalecane](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Zobacz uwagi w następnej sekcji* |
-| Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + lub nowszy | &nbsp; | &nbsp; |
-| Oracle | 6.0 +, 7.2 + lub nowszy | &nbsp; | UEK4 lub RHCK |
-| Oracle | 7.0 — 7.1 lub nowszy | &nbsp; | UEK4 lub RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4 — 6.7 lub nowszy | &nbsp; | UEK4 lub RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>Sterowniki LIS dla OpenLogic CentOS
-
-Jeśli korzystasz z maszyn wirtualnych OpenLogic CentOS, uruchom następujące polecenie, aby zainstalować najnowsze sterowniki:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-W niektórych przypadkach powyższe polecenie uaktualni również jądro. Jeśli wymagana jest aktualizacja jądra, może być konieczne ponowne uruchomienie powyższych poleceń po ponownym uruchomieniu, aby w pełni zainstalować pakiet Microsoft-Hyper-v.
-
+* W przypadku **reiserFS**należy użyć opcji "bariera = brak instalacji", aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery = Flush.
+* Aby wyłączyć bariery dla **ext3/ext4**, należy użyć opcji instalacji barier = 0.  Aby jawnie włączyć bariery, należy użyć bariery = 1.
+* W przypadku usługi **XFS**należy użyć opcji instalacji bez bariery, aby wyłączyć bariery.  Aby jawnie włączyć bariery, należy użyć bariery.  Należy pamiętać, że w późniejszych wersjach jądra systemu Linux konstrukcja system plików XFS zapewnia trwałość, a wyłączenie barier nie przynosi żadnego efektu.  
 
 ## <a name="disk-striping"></a>Rozkładanie dysku
 

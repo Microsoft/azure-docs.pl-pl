@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578465"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772655"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
@@ -30,18 +30,19 @@ W poniższej tabeli przedstawiono typy ofert komercyjnych portalu Marketplace w 
 
 | **Typ oferty**    | **Opis**  |
 | :------------------- | :-------------------|
-| [Aplikacja platformy Azure: **aplikacja zarządzana**](./marketplace-managed-apps.md) | Użyj aplikacji platformy Azure: typ oferty aplikacji zarządzanej, gdy są wymagane następujące warunki: <br> <ul> <li> Rozwiązanie oparte na subskrypcji można wdrożyć dla klienta przy użyciu maszyny wirtualnej lub całego rozwiązania opartego na IaaS. </li> <li>Ty lub Twój klient wymaga, aby rozwiązanie było zarządzane przez partnera. </li> <ul> |
-| [Aplikacja platformy Azure: **szablon rozwiązania**](./marketplace-solution-templates.md) | Użyj aplikacji platformy Azure: typ oferty szablonu rozwiązania, gdy rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza jedną maszyną wirtualną. Szablony rozwiązań mogą korzystać z wielu różnych rodzajów zasobów platformy Azure, w tym między innymi maszyn wirtualnych.  |
-  | [**Kontener platformy Azure**](./marketplace-containers.md) | Użyj typu oferty kontenera platformy Azure, jeśli Twoje rozwiązanie jest obrazem kontenera Docker, który został zainicjowany jako usługa kontenera platformy Azure oparta na Kubernetes. |
-| [**Maszyna wirtualna platformy Azure**](./marketplace-virtual-machines.md) | Podczas wdrażania urządzenia wirtualnego w ramach subskrypcji skojarzonej z klientem Użyj typu oferty maszyny wirtualnej. |
-| [**Usługa doradcza**](./consulting-services.md) | Usługi doradcze ułatwiają łączenie się z usługami w celu wspierania i zwiększania użytkowania usług Azure, Dynamics 365 i pakietów usługi.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerą program Dynamics 365 Business Central, Dynamics 365 Customer Engagement, aplikacje zaawansowane i aplikacje finansowe i operacyjne.|
-| [**Moduł IoT Edge**](./iot-edge-module.md) | Moduły Azure IoT Edge są najmniejszymi jednostkami obliczeniowymi zarządzanymi przez IoT Edge i mogą zawierać usługi firmy Microsoft (takie jak Azure Stream Analytics), usługi innych firm lub własny kod specyficzny dla rozwiązania. |
-| [**Power BI <br/> Microsoft 365 aplikacji**](./appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerzającą Power BI i Microsoft 365.|
+| [Aplikacja platformy Azure: **aplikacja zarządzana**](marketplace-managed-apps.md) | Użyj aplikacji platformy Azure: typ oferty aplikacji zarządzanej, gdy są wymagane następujące warunki: <br> <ul> <li>Rozwiązanie oparte na subskrypcji można wdrożyć dla klienta przy użyciu maszyny wirtualnej lub całego rozwiązania opartego na IaaS. </li> <li>Ty lub Twój klient wymaga, aby rozwiązanie było zarządzane przez partnera. </li> <ul> |
+| [Aplikacja platformy Azure: **szablon rozwiązania**](marketplace-solution-templates.md) | Użyj aplikacji platformy Azure: typ oferty szablonu rozwiązania, gdy rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza jedną maszyną wirtualną. Szablony rozwiązań mogą korzystać z wielu różnych rodzajów zasobów platformy Azure, w tym między innymi maszyn wirtualnych.  |
+  | [**Kontener platformy Azure**](marketplace-containers.md) | Użyj typu oferty kontenera platformy Azure, jeśli Twoje rozwiązanie jest obrazem kontenera Docker, który został zainicjowany jako usługa kontenera platformy Azure oparta na Kubernetes. |
+| [**Maszyna wirtualna platformy Azure**](marketplace-virtual-machines.md) | Podczas wdrażania urządzenia wirtualnego w ramach subskrypcji skojarzonej z klientem Użyj typu oferty maszyny wirtualnej. |
+| [**Usługa doradcza**](consulting-services.md) | Usługi doradcze ułatwiają łączenie się z usługami w celu wspierania i zwiększania użytkowania usług Azure, Dynamics 365 i pakietów usługi.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerą program Dynamics 365 Business Central, Dynamics 365 Customer Engagement, aplikacje zaawansowane i aplikacje finansowe i operacyjne.|
+| [**Moduł IoT Edge**](iot-edge-module.md) | Moduły Azure IoT Edge są najmniejszymi jednostkami obliczeniowymi zarządzanymi przez IoT Edge i mogą zawierać usługi firmy Microsoft (takie jak Azure Stream Analytics), usługi innych firm lub własny kod specyficzny dla rozwiązania. |
+| [**Usługa zarządzana**](partner-center-portal/create-new-managed-service-offer.md) | Można utworzyć oferty usługi zarządzanej i zarządzać subskrypcjami delegowanymi przez klienta lub grupami zasobów za pomocą [usługi Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Aplikacja Power BI** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerzającą Power BI i Microsoft 365.|
 | [**Oprogramowanie jako usługa**](plan-saas-offer.md) | Użyj typu oferty oprogramowanie jako usługa (SaaS), aby umożliwić klientowi kupowanie rozwiązań technicznych opartych na technologii SaaS w ramach subskrypcji. |
-| [**Zintegrowane rozwiązania**](./integrated-solutions-for-publishers.md) | Możesz publikować zintegrowane i wyrównane do branży rozwiązania, które łączą technologię i usługi w ramach jednej oferty.|
 
-Aby uzyskać informacje o wymaganiach dotyczących rejestracji jednokrotnej przez wystawienie opcji i typów ofert, zobacz [**wymagania dotyczące usługi Azure AD**](./enable-appsource-marketplace-using-azure-ad.md).
+
+Aby uzyskać informacje o wymaganiach dotyczących rejestracji jednokrotnej przez wystawienie opcji i typów ofert, zobacz [**wymagania dotyczące usługi Azure AD**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

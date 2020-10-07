@@ -4,24 +4,19 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743016"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773148"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
-
-> [!Note]
-> Po odświeżeniu wersji zapoznawczej wydano funkcję ochrony danych eksfiltracji.
->
-> Wersja zapoznawcza jest dostępna we wszystkich regionach publicznych dla aplikacji dla systemów Windows i Linux PremiumV2 oraz PremiumV3 i elastycznych funkcji Premium. 
+# <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
 
 Możesz użyć prywatnego punktu końcowego dla aplikacji sieci Web platformy Azure, aby umożliwić klientom znajdującym się w sieci prywatnej bezpieczny dostęp do aplikacji za pośrednictwem prywatnego linku. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a aplikacją sieci Web przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
@@ -99,7 +94,7 @@ Na przykład rozpoznawanie nazw będzie:
 Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net.
 
 
-Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
+Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. Nazwa niestandardowa musi być zweryfikowana, podobnie jak jakakolwiek Nazwa niestandardowa, przy użyciu publicznego rozpoznawania nazw DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
 
 W przypadku konsoli usługi kudu lub interfejsu API REST (na przykład wdrożenia z użyciem platformy Azure DevOps dla agentów) należy utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
 
@@ -118,7 +113,9 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć możliwość nawiązania połączenia z prywatnym punktem końcowym w celu wykonania funkcji w portalu internetowym platformy Azure. 
 
-W trakcie okresu zapoznawczego tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda muszą być osiągalne przez publiczny punkt końcowy.
+Możesz połączyć maksymalnie 100 prywatny punkt końcowy z określoną aplikacją sieci Web.
+
+Prywatny punkt końcowy jest dostępny dla aplikacji sieci Web PremiumV2, PremiumV3, Windows i Linux, kontenerów lub nie, a także planu Azure Functions Premium (czasami określanego jako elastyczny plan Premium). 
 
 Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego. Zapoznaj się z [tym artykułem][pllimitations] , aby uzyskać aktualne informacje o ograniczeniach.
 

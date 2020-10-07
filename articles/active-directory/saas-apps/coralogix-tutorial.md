@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555909"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Coralogix
 
@@ -95,13 +95,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
  1. Aplikacja Coralogix oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z wyróżnionym przyciskiem "Edytuj".](common/edit-attribute.png)
 
 1. W sekcji **oświadczenia użytkownika** w oknie dialogowym **atrybuty użytkownika** Edytuj oświadczenia przy użyciu ikony **Edytuj** . Możesz również dodać oświadczenia za pomocą polecenia **Dodaj nowe oświadczenie** , aby skonfigurować ATRYBUT tokenu SAML, jak pokazano na poprzedniej ilustracji. Następnie wykonaj następujące kroki:
     
     a. Wybierz **ikonę Edytuj** , aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkowników** .
 
-    ![](./media/coralogix-tutorial/tutorial_usermail.png) ![ obraz obrazu](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "atrybuty użytkownika & oświadczenia" z wyróżnionym przyciskiem "Edytuj".](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![obraz](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Z listy **Format identyfikatora** wybierz pozycję **Adres e-mail**.
 
@@ -127,7 +128,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -161,11 +162,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Coralogix w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Coralogix, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

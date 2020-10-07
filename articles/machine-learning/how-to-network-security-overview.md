@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631192"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776021"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby zabezpieczyć obszar roboczy i skojarzone zasob
 
 1. Utwórz [prywatny obszar roboczy z obsługą linków](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) , aby umożliwić komunikację między siecią wirtualną i obszarem roboczym.
 1. Dodaj Azure Key Vault do sieci wirtualnej za pomocą [punktu końcowego usługi](../key-vault/general/overview-vnet-service-endpoints.md) lub [prywatnego punktu końcowego](../key-vault/general/private-link-service.md). Ustaw Key Vault na ["Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Dodawanie konta usługi Azure Storage do sieci wirtualnej przy użyciu [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) lub [prywatnego punktu końcowego](../storage/common/storage-private-endpoints.md)
+1. Dodaj konto usługi Azure Storage do sieci wirtualnej przy użyciu [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Skonfiguruj Azure Container Registry do korzystania z prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) i [Włącz delegowanie podsieci w programie Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Diagram architektury pokazujący, jak obszar roboczy i powiązane zasoby komunikują się ze sobą za pośrednictwem punktów końcowych usługi lub prywatnych punktów końcowych wewnątrz sieci wirtualnej](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ Poniższy diagram sieciowy przedstawia zabezpieczony obszar roboczy Azure Machin
 
 [Zabezpieczanie obszaru roboczego](#secure-the-workspace-and-associated-resources)  >  [Zabezpiecz środowisko](#secure-the-training-environment)  >  szkoleniowe [Zabezpiecz środowisko inferencing](#secure-the-inferencing-environment)  >  **Włącz funkcje**  >  programu Studio [Konfigurowanie ustawień zapory](#configure-firewall-settings)
 
-Chociaż Studio może uzyskać dostęp do danych na koncie magazynu skonfigurowanym za pomocą punktu końcowego usługi, niektóre funkcje są domyślnie wyłączone:
+Jeśli magazyn jest w sieci wirtualnej, należy najpierw wykonać dodatkowe czynności konfiguracyjne, aby włączyć pełną funkcjonalność w programie [Studio](overview-what-is-machine-learning-studio.md). Domyślnie następujące funkcje są wyłączone:
 
 * Podgląd danych w Studio.
 * Wizualizowanie danych w projektancie.
 * Prześlij eksperyment AutoML.
 * Rozpocznij projekt etykietowania.
 
-Aby włączyć pełną funkcjonalność podczas korzystania z punktu końcowego usługi magazynu, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio obsługuje punkty końcowe usługi i prywatne punkty końcowe dla kont magazynu.
+Aby włączyć pełną funkcjonalność programu Studio w ramach sieci wirtualnej, zobacz temat Korzystanie z programu [Azure Machine Learning Studio w środowisku wirtualnym](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Program Studio obsługuje konta magazynu za pomocą punktów końcowych usługi lub prywatnych punktów końcowych.
 
 ### <a name="limitations"></a>Ograniczenia
-- Studio nie może uzyskać dostępu do danych na kontach magazynu skonfigurowanych do używania prywatnych punktów końcowych. Aby uzyskać pełną funkcjonalność, należy użyć punktów końcowych usługi dla magazynu i użyć tożsamości zarządzanej.
+- [Oznakowanie danych](how-to-create-labeling-projects.md#use-ml-assisted-labeling) z pomocą techniczną ml nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne dla etykietowania danych z pomocą typu ML. Należy pamiętać, że konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
 
 ## <a name="configure-firewall-settings"></a>Konfigurowanie ustawień zapory
 

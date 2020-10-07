@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555977"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Samouczek: integracja Azure Active Directory z usługą Datahug
 
@@ -99,7 +99,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Datahug, 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Datahug](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawiający sekcję "podstawowa S A M" konfiguracji z wyróżnionym przyciskiem "Identyfikator", "adres URL odpowiedzi" i "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -167,7 +167,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -206,11 +206,11 @@ W aplikacji Datahug aprowizowanie jest zadaniem ręcznym.
 
 2. Umieść kursor nad **kołem zębatym** w prawym górnym rogu i kliknij pozycję **Settings (Ustawienia)**
    
-    ![Dodawanie pracownika](./media/datahug-tutorial/1.png)
+    ![Zrzut ekranu, na którym jest wyświetlana strona główna "Datahug" z wybraną ikoną "koło zębate" i "Ustawienia" wybraną z menu rozwijanego.](./media/datahug-tutorial/1.png)
 
 3. Wybierz pozycję **People (Osoby)** i kliknij kartę **Add Users (Dodaj użytkowników)**
 
-    ![Dodawanie pracownika](./media/datahug-tutorial/2.png)
+    ![Zrzut ekranu przedstawiający stronę "Ustawienia" z kartą "osoby" i wybraną pozycję "Dodaj użytkowników".](./media/datahug-tutorial/2.png)
 
 4. Wpisz adres e-mail osoby, dla której chcesz utworzyć konto, a następnie kliknij przycisk **Add (Dodaj)**.
 
@@ -230,7 +230,7 @@ Po kliknięciu kafelka Datahug w panelu dostępu powinno nastąpić automatyczne
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

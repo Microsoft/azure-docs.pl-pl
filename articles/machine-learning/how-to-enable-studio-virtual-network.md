@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713363"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776089"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -24,14 +24,15 @@ W tym artykule dowiesz się, jak używać programu Azure Machine Learning Studio
 
 > [!div class="checklist"]
 > - Uzyskaj dostęp do programu Studio z zasobu w sieci wirtualnej.
+> - Skonfiguruj prywatne punkty końcowe dla kont magazynu.
 > - Przyznaj programowi Studio dostęp do danych przechowywanych w sieci wirtualnej.
-> - Dowiedz się, w jaki sposób ma to wpływ na zabezpieczenia magazynu w programie Studio.
+> - Dowiedz się, w jaki sposób Studio ma wpływ na zabezpieczenia magazynu.
 
 Ten artykuł jest częścią piątą serii składającej się z pięciu części, która przeprowadzi Cię przez proces zabezpieczania przepływów pracy Azure Machine Learning. Zdecydowanie zalecamy zapoznanie się z [częścią poniżej: Omówienie sieci wirtualnej](how-to-network-security-overview.md) , aby zrozumieć ogólną architekturę. 
 
 Zapoznaj się z innymi artykułami w tej serii:
 
-[1. Sieć wirtualna — Omówienie](how-to-network-security-overview.md)  >  [2. Zabezpiecz obszar roboczy](how-to-secure-workspace-vnet.md)  >  [3. Zabezpiecz środowisko szkoleniowe](how-to-secure-training-vnet.md)  >  [4. Zabezpiecz środowisko inferencing](how-to-secure-inferencing-vnet.md)  >  [5. Włącz funkcje programu Studio](how-to-enable-studio-virtual-network.md)
+[1. Sieć wirtualna — Omówienie](how-to-network-security-overview.md)  >  [2. Zabezpiecz obszar roboczy](how-to-secure-workspace-vnet.md)  >  [3. Zabezpiecz środowisko szkoleniowe](how-to-secure-training-vnet.md)  >  [4. Zabezpiecz środowisko inferencing](how-to-secure-inferencing-vnet.md)  >  **5. Włącz funkcje programu Studio**
 
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 + Istniejący [obszar roboczy Azure Machine Learning z włączonym linkiem prywatnym](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Istniejące [konto usługi Azure Storage zostało dodane do sieci wirtualnej](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ Istniejące [konto usługi Azure Storage zostało dodane do sieci wirtualnej](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Dostęp do programu Studio z zasobu w sieci wirtualnej
 
@@ -56,7 +57,7 @@ Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zab
 
 ## <a name="access-data-using-the-studio"></a>Uzyskiwanie dostępu do danych przy użyciu programu Studio
 
-Po [dodaniu konta usługi Azure Storage do sieci wirtualnej](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)należy skonfigurować konto magazynu do korzystania z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w celu udzielenia dostępu do danych w programie Studio. Studio obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. Konta magazynu domyślnie korzystają z punktów końcowych usługi. Aby włączyć prywatne punkty końcowe dla magazynu, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md)
+Po dodaniu konta usługi Azure Storage do sieci wirtualnej za pomocą [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)należy skonfigurować konto magazynu tak, aby korzystało z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w celu udzielenia dostępu do danych.
 
 Jeśli nie włączysz tożsamości zarządzanej, zostanie wyświetlony następujący błąd, co `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` spowoduje wyłączenie następujących operacji:
 
@@ -64,6 +65,9 @@ Jeśli nie włączysz tożsamości zarządzanej, zostanie wyświetlony następuj
 * Wizualizowanie danych w projektancie.
 * Prześlij eksperyment AutoML.
 * Rozpocznij projekt etykietowania.
+
+> [!NOTE]
+> [Oznakowanie danych wspomaganych przez ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) nie obsługuje domyślnych kont magazynu zabezpieczonych za siecią wirtualną. Musisz użyć konta magazynu innego niż domyślne do etykietowania danych z asystą w ML. Konto magazynu inne niż domyślne można zabezpieczyć za siecią wirtualną. 
 
 Program Virtual Machines obsługuje odczytywanie danych z następujących typów magazynów w sieci wirtualnej:
 

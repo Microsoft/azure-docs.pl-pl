@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950123"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776140"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph
 
@@ -50,7 +50,7 @@ Aby uzyskać dostęp do danych ochrony tożsamości za poorednictwem Microsoft G
 1. Na stronie **Tworzenie** wykonaj następujące czynności:
    1. W polu tekstowym **Nazwa** wpisz nazwę aplikacji (na przykład: interfejs API wykrywania ryzyka usługi Azure AD).
    1. W obszarze **obsługiwane typy kont**wybierz typ kont, które będą używać interfejsów API.
-   1. Wybierz pozycję **Rejestruj**.
+   1. Wybierz pozycję **Zarejestruj**.
 1. Skopiuj **Identyfikator aplikacji**.
 
 ### <a name="configure-api-permissions"></a>Konfigurowanie uprawnień interfejsu API
@@ -105,6 +105,8 @@ Odpowiedź, jeśli to się powiedzie, jest kolekcją wykrywania ryzyka tożsamo�
 
 ### <a name="sample"></a>Przykład
 
+Ten przykład pokazuje użycie wspólnego klucza tajnego do uwierzytelniania. W środowisku produkcyjnym przechowywanie wpisów tajnych w kodzie jest zwykle niezadowolenie. Organizacje mogą korzystać z zarządzanych tożsamości dla zasobów platformy Azure, aby zabezpieczyć te poświadczenia. Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz artykuł [dotyczący tożsamości zarządzanych dla zasobów platformy Azure](../managed-identities-azure-resources/overview.md).
+
 Oto przykładowy kod służący do uwierzytelniania i wywoływania interfejsu API przy użyciu programu PowerShell.  
 Po prostu Dodaj swój identyfikator klienta, klucz tajny i domenę dzierżawy.
 
@@ -158,7 +160,7 @@ Aby zrozumieć wpływ zasad opartych na zagrożeniu ochrony tożsamości na orga
 GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Gratulacje, wykonano już pierwsze wywołanie do Microsoft Graph!  
 Teraz można wykonywać zapytania dotyczące wykrywania ryzyka tożsamości i używania danych, które są widoczne.

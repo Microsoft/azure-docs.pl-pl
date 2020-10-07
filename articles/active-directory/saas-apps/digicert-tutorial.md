@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c9b85709ae37f1b3b6f4b4b562b7e96531f51b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536504"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Samouczek: integracja Azure Active Directory z usługą DigiCert
 
@@ -105,7 +105,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji DigiCert, 
 
 5. Aplikacja DigiCert oczekuje asercji SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wybranym przyciskiem "Edytuj".](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** edytuj oświadczenia, korzystając z **ikony edycji**, lub dodaj je za pomocą opcji **Dodaj nowe oświadczenie**, aby skonfigurować atrybut tokenu języka SAML, jak pokazano na ilustracji powyżej, a następnie wykonaj następujące czynności: 
 
@@ -120,7 +120,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji DigiCert, 
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający sekcję "oświadczenia użytkownika" z wyróżnionymi przyciskami "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -177,7 +177,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -219,7 +219,7 @@ Po kliknięciu kafelka DigiCert w panelu dostępu powinno nastąpić automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555883"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775146"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu narzędzia Check Point CloudGuard Dome9 Arc
 
@@ -122,7 +122,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -156,11 +156,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Kliknij pozycję **Profile Settings** (Ustawienia profilu) w prawym górnym rogu, a następnie kliknij przycisk **Account Settings** (Ustawienia konta). 
 
-    ![Konfiguracja Arc Check Point CloudGuard Dome9](./media/dome9arc-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący menu "Ustawienia profilu" z wybranymi ustawieniami konta.](./media/dome9arc-tutorial/configure1.png)
 
 3. Przejdź na kartę **SSO** (Logowanie jednokrotne), a następnie kliknij przycisk **ENABLE** (WŁĄCZ).
 
-    ![Konfiguracja Arc Check Point CloudGuard Dome9](./media/dome9arc-tutorial/configure2.png)
+    ![Zrzut ekranu pokazujący kartę "S S" i wybraną pozycję "Włącz".](./media/dome9arc-tutorial/configure2.png)
 
 4. W sekcji SSO Configuration (Konfiguracja logowania jednokrotnego) wykonaj następujące czynności:
 
@@ -189,11 +189,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Check P
 
 2. Kliknij pozycję **Users & Roles** (Użytkownicy i role), a następnie kliknij pozycję **Users** (Użytkownicy).
 
-    ![Dodawanie pracownika](./media/dome9arc-tutorial/user1.png)
+    ![Zrzut ekranu, na którym są wyświetlane "Użytkownicy & role" z wybraną akcją "Użytkownicy".](./media/dome9arc-tutorial/user1.png)
 
 3. Kliknij przycisk **ADD USER** (DODAJ UŻYTKOWNIKA).
 
-    ![Dodawanie pracownika](./media/dome9arc-tutorial/user2.png)
+    ![Zrzut ekranu pokazujący "Użytkownicy & role" z wybranym przyciskiem "Dodaj użytkownika".](./media/dome9arc-tutorial/user2.png)
 
 4. W sekcji **Create User** (Tworzenie użytkownika) wykonaj następujące kroki:
 
@@ -215,11 +215,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Arc Check Point CloudGuard Dome9 w panelu dostępu należy automatycznie zalogować się do łuku usługi Check Point CloudGuard Dome9, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302220"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772638"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Używanie prywatnych pakietów języka Python z Azure Machine Learning
 
@@ -58,7 +58,7 @@ To podejście używa osobistego tokenu dostępu do uwierzytelniania w repozytori
 
  1. [Utwórz osobisty token dostępu](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) dla wystąpienia usługi Azure DevOps. Ustaw zakres tokenu do __spakowania > odczytać__. 
 
- 2. Dodaj adres URL i DevOps platformy Azure jako właściwości obszaru roboczego przy użyciu metody [Workspace. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Dodaj adres URL i DevOps platformy Azure jako właściwości obszaru roboczego przy użyciu metody [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace
@@ -91,7 +91,7 @@ To podejście używa osobistego tokenu dostępu do uwierzytelniania w repozytori
 
 Możesz korzystać z pakietów z konta usługi Azure Storage w ramach zapory w organizacji. Konto magazynu może zawierać nadzorowany zestaw pakietów lub wewnętrzny duplikat pakietów dostępnych publicznie.
 
-Aby skonfigurować taki magazyn prywatny, zobacz temat [Zabezpieczanie obszaru roboczego Azure Machine Learning i skojarzonych zasobów](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Należy również [umieścić Azure Container Registry (ACR) za siecią wirtualną](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+Aby skonfigurować taki magazyn prywatny, zobacz temat [Zabezpieczanie obszaru roboczego Azure Machine Learning i skojarzonych zasobów](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). Należy również [umieścić Azure Container Registry (ACR) za siecią wirtualną](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > Należy wykonać ten krok, aby móc nauczyć lub wdrożyć modele przy użyciu repozytorium pakietu prywatnego.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544528"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Samouczek: integracja Azure Active Directory z usługą Confirmit Horizons
 
@@ -101,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Confirmit H
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Confirmit Horizons domeny i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M" konfiguracji z wyróżnioną polem akcja "Zapisz", "Identyfikator" i "odpowiedź U R L".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
 
@@ -171,7 +171,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -213,7 +213,7 @@ Po kliknięciu kafelka Confirmit Horizons w panelu dostępu należy automatyczni
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

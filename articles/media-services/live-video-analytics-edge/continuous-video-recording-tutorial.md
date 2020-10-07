@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336483"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774032"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -146,7 +146,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
     * Symulator RTSP (Nazwa modułu **rtspsim**)
  
-    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Przygotowanie do monitorowania modułów 
 
@@ -160,58 +160,15 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 
 ## <a name="run-the-program"></a>Uruchamianie programu 
 
-1. W Visual Studio Code przejdź do pozycji src/Cloud-to-Device-App/operations.json.
-1. W węźle **GraphTopologySet** Edytuj następujące elementy:
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Następnie w węźle **GraphInstanceSet** upewnij się, że wartość **topologyname** pasuje do wartości właściwości **name** w poprzedniej topologii wykresu:
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Graf multimedialny":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
-    `"topologyName" : "CVRToAMSAsset"`  
-1. Otwórz [topologię](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) w przeglądarce i zapoznaj się z tematem assetNamePattern. Aby upewnić się, że masz element zawartości o unikatowej nazwie, możesz chcieć zmienić nazwę wystąpienia grafu w operations.jsw pliku (z wartości domyślnej przykład-Graph-1).
-
-    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
-1. Rozpocznij sesję debugowania, wybierając klawisz F5. Zobaczysz kilka komunikatów wydrukowanych w oknie **terminalu** .
-1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy, a następnie Wstrzymuje wybieranie **klawisza ENTER**, jak pokazano poniżej:
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. Po wybraniu **klawisza ENTER** w oknie **terminalu** zostanie wykonany kolejny zestaw wywołań metody bezpośredniej:
-   * Wywołanie GraphTopologySet przy użyciu poprzedniej topologyUrl
-   * Wywołanie GraphInstanceSet przy użyciu następującej treści
-     
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph-1",
-       "properties": {
-         "topologyName": "CVRToAMSAsset",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Graf multimedialny"
            }
          ]
        }

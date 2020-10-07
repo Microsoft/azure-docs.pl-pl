@@ -1,28 +1,28 @@
 ---
-title: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza)
-description: W tym artykule wyjaśniono, jak połączyć się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza).
+title: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
+description: W tym artykule wyjaśniono, jak połączyć się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054538"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772842"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza)
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 
-Prywatny punkt końcowy platformy Azure (wersja zapoznawcza) to podstawowy blok konstrukcyjny dla prywatnego linku platformy Azure. Korzystając z prywatnego punktu końcowego, możesz połączyć się prywatnie z aplikacją sieci Web. W tym artykule dowiesz się, jak wdrożyć aplikację sieci Web przy użyciu prywatnego punktu końcowego, a następnie połączyć się z aplikacją internetową z maszyny wirtualnej.
+Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku platformy Azure. Korzystając z prywatnego punktu końcowego, możesz połączyć się prywatnie z aplikacją sieci Web. W tym artykule dowiesz się, jak wdrożyć aplikację sieci Web przy użyciu prywatnego punktu końcowego, a następnie połączyć się z aplikacją internetową z maszyny wirtualnej.
 
 Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure][privateendpointwebapp].
 
 > [!Note]
-> Prywatny punkt końcowy (wersja zapoznawcza) jest dostępny w regionach publicznych dla PremiumV2 aplikacji sieci Web systemu Windows, aplikacji sieci Web w systemie Linux oraz planu Azure Functions Premium (czasami określanego jako elastyczny plan Premium). 
+> Prywatny punkt końcowy jest dostępny w regionach publicznych dla PremiumV2 warstwy PremiumV3 aplikacji sieci Web systemu Windows, aplikacji sieci Web w systemie Linux oraz planu Azure Functions Premium (czasami określanego jako elastyczny plan Premium). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -53,7 +53,7 @@ Aby utworzyć sieć wirtualną i podsieć, wykonaj następujące czynności:
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający okienko "Dodawanie podsieci".][3]
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. Po pomyślnej weryfikacji wybierz pozycję **Utwórz**.
 
@@ -77,7 +77,7 @@ Aby utworzyć maszynę wirtualną, wykonaj następujące czynności:
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający kartę "Sieć" w okienku "Tworzenie maszyny wirtualnej".][5]
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. Po pomyślnej weryfikacji wybierz pozycję **Utwórz**.
 
@@ -86,7 +86,7 @@ Aby utworzyć maszynę wirtualną, wykonaj następujące czynności:
 W tej sekcji utworzysz prywatną aplikację sieci Web, która używa prywatnego punktu końcowego.
 
 > [!Note]
-> Funkcja prywatnego punktu końcowego jest dostępna tylko dla warstwy PremiumV2.
+> Funkcja prywatnego punktu końcowego jest dostępna tylko dla warstwy PremiumV2 i PremiumV3.
 
 ### <a name="create-the-web-app"></a>Tworzenie aplikacji internetowej
 
@@ -97,26 +97,26 @@ W tej sekcji utworzysz prywatną aplikację sieci Web, która używa prywatnego 
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający kartę "podstawowe" w okienku "aplikacja sieci Web".][6]
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. Po pomyślnej weryfikacji wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
-1. W oknie właściwości aplikacji sieci Web w obszarze **Ustawienia**wybierz pozycję **Sieć**, a następnie w obszarze **połączenia prywatnego punktu końcowego (wersja zapoznawcza)** wybierz pozycję **Konfiguruj połączenia prywatnego punktu końcowego**.
+1. W oknie właściwości aplikacji sieci Web w obszarze **Ustawienia**wybierz pozycję **Sieć**, a następnie w obszarze * * połączenia prywatnych punktów końcowych * * wybierz pozycję **Konfiguruj połączenia prywatnych punktów końcowych**.
 
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający link "Konfigurowanie połączeń prywatnych punktów końcowych" w okienku sieć aplikacji sieci Web.][7]
 
-1. W kreatorze **prywatnych połączeń punktów końcowych (wersja zapoznawcza)** wybierz pozycję **Dodaj**.
+1. W kreatorze **połączeń prywatnych punktów końcowych** wybierz pozycję **Dodaj**.
 
    > [!div class="mx-imgBorder"]
-   > ![Zrzut ekranu przedstawiający przycisk Dodaj w Kreatorze "połączenia prywatne punktów końcowych (wersja zapoznawcza)".][8]
+   > ![Zrzut ekranu przedstawiający przycisk Dodaj w Kreatorze "połączenia prywatne punktów końcowych".][8]
 
 1. Wybierz odpowiednie informacje z listy rozwijanej **subskrypcja**, **Sieć wirtualna**i **podsieć** , a następnie wybierz przycisk **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Zrzut ekranu przedstawiający okienko "Dodawanie prywatnego punktu końcowego (wersja zapoznawcza)".][9]
+   > ![Zrzut ekranu przedstawiający okienko "Dodawanie prywatnego punktu końcowego".][9]
 
 1. Monitoruj postęp tworzenia prywatnego punktu końcowego.
 
@@ -180,9 +180,6 @@ W tej sekcji połączysz się prywatnie z aplikacją internetową przy użyciu p
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający stronę błędu "Błąd 403 — Dostęp zabroniony".][17]
 
-   > [!Important]
-   > Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy ręcznie zarządzać wpisem usługi nazw domen (DNS).
-
    W przypadku systemu DNS wykonaj jedną z następujących czynności:
  
    - Użyj usługi strefy prywatnej Azure DNS.  
@@ -223,7 +220,7 @@ Gdy skończysz korzystać z prywatnego punktu końcowego, aplikacji sieci Web i 
 
 W tym artykule utworzono MASZYNę wirtualną w sieci wirtualnej, aplikacji sieci Web i prywatnym punkcie końcowym. Nawiązano połączenie z maszyną wirtualną z Internetu i bezpiecznie komunikuje się z aplikacją internetową za pomocą linku prywatnego. 
 
-Aby dowiedzieć się więcej na temat prywatnego punktu końcowego (wersja zapoznawcza), zobacz [co to jest prywatny punkt końcowy platformy Azure?][privateendpoint].
+Aby dowiedzieć się więcej o prywatnym punkcie końcowym, zobacz [co to jest prywatny punkt końcowy platformy Azure?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

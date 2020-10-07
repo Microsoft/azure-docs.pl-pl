@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336755"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772791"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
@@ -64,6 +64,13 @@ Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Az
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Korzystanie z usługi Azure RBAC Secret, klucza i certyfikatu z Key Vault
 
 Nowy model uprawnień usługi Azure RBAC dla magazynu kluczy zapewnia alternatywę dla modelu uprawnień zasad dostępu do magazynu. 
+
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Aby dodać przypisania ról, musisz mieć:
+
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Włącz uprawnienia usługi Azure RBAC na Key Vault
 
@@ -217,7 +224,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Dowiedz się więcej
 
 - [Przegląd RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Samouczek ról niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

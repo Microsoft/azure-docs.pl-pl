@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536261"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775171"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Samouczek: integracja z usługą Azure Active Directory
 
@@ -88,15 +88,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja do odtwarzania oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wyróżnioną ikoną "Edytuj".](common/edit-attribute.png)
 
 1. Oprócz powyższych, aplikacja do odtwarzania oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
     a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
-    ![image (obraz)](./media/displayr-tutorial/config04.png)
+    ![Zrzut ekranu przedstawiający sekcję "atrybuty użytkownika & oświadczenia" z ikoną "pióro" obok pozycji "grupy zwrócone w ramach oświadczenia".](./media/displayr-tutorial/config04.png)
 
-    ![image (obraz)](./media/displayr-tutorial/config05.png)
+    ![Zrzut ekranu pokazujący okno "oświadczenia grupy (wersja zapoznawcza) z wybranymi ustawieniami.](./media/displayr-tutorial/config05.png)
 
     b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
@@ -126,11 +126,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. Kliknij pozycję **Ustawienia** , a następnie przejdź do **konta**.
 
-    ![Konfigurowanie](./media/displayr-tutorial/config01.png)
+    ![Zrzut ekranu pokazujący ikonę "Ustawienia" i wybraną wartość "konto".](./media/displayr-tutorial/config01.png)
 
 5. Przejdź do pozycji **Ustawienia** w górnym menu i przewiń w dół stronę, aby kliknąć pozycję **Konfiguruj logowanie jednokrotne (SAML)**.
 
-    ![Konfigurowanie](./media/displayr-tutorial/config02.png)
+    ![Zrzut ekranu pokazujący wybraną kartę "Ustawienia" i wybraną akcję "Konfiguruj logowanie jednokrotne (S A M").](./media/displayr-tutorial/config02.png)
 
 6. Na stronie Logowanie jednokrotne **(SAML)** wykonaj następujące czynności:
 
@@ -160,7 +160,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -190,11 +190,11 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się do programu Play, m
 
 2. Kliknij pozycję **Ustawienia** , a następnie przejdź do **konta**.
 
-    ![Konfiguracja odtwarzania](./media/displayr-tutorial/config01.png)
+    ![Zrzut ekranu pokazujący ikonę "Ustawienia (koło zębate)" z wybraną pozycją "konto".](./media/displayr-tutorial/config01.png)
 
 3. Przejdź do **opcji Ustawienia** w górnym menu i przewiń w dół strony, do momentu, gdy **użytkownik** kliknie pozycję **nowy użytkownik**.
 
-    ![Konfiguracja odtwarzania](./media/displayr-tutorial/config07.png)
+    ![Zrzut ekranu pokazujący kartę "Ustawienia" z wyróżnioną opcją "Użytkownicy" i wybraną przycisk "nowy użytkownik".](./media/displayr-tutorial/config07.png)
 
 4. Na stronie **nowy użytkownik** wykonaj następujące czynności:
 
@@ -216,6 +216,6 @@ Po wybraniu kafelka odtwarzania w panelu dostępu należy automatycznie zalogowa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
