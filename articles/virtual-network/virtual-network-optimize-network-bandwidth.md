@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265147"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812849"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optymalizowanie przepływności sieci dla maszyn wirtualnych platformy Azure
 
@@ -56,12 +56,12 @@ Funkcja RSS jest zawsze włączona domyślnie na maszynie wirtualnej z systemem 
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu dla nowych wdrożeń
 
-Ubuntu jądro platformy Azure zapewnia najlepszą wydajność sieci na platformie Azure i jest domyślnym jądrem od 21 września 2017. Aby można było pobrać to jądro, należy najpierw zainstalować najnowszą obsługiwaną wersję 16,04-LTS w następujący sposób:
+Jądro platformy Azure Ubuntu jest najbardziej zoptymalizowane pod kątem wydajności sieci na platformie Azure. Aby uzyskać najnowsze optymalizacje, najpierw zainstaluj najnowszą obsługiwaną wersję 18,04-LTS w następujący sposób:
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu uaktualnienie jądra platformy Azure dla istniejących maszyn wirtualnych
 
-Znaczną wydajność przepływności można osiągnąć przez uaktualnienie do jądra systemu Linux platformy Azure. Aby sprawdzić, czy masz to jądro, sprawdź wersję jądra.
+Znaczną wydajność przepływności można osiągnąć przez uaktualnienie do jądra systemu Linux platformy Azure. Aby sprawdzić, czy masz to jądro, sprawdź wersję jądra. Powinna być taka sama lub nowsza niż w przypadku przykładu.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -117,7 +117,7 @@ W celu uzyskania najnowszych optymalizacji najlepiej utworzyć maszynę wirtualn
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -152,6 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Dowiedz się więcej o usługach integracji systemu Linux w wersji 4,2 dla funkcji Hyper-V, wyświetlając [stronę pobierania](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Następne kroki
+* Wdrażanie maszyn wirtualnych blisko siebie w przypadku małych opóźnień z [grupą umieszczania w sąsiedztwie](../virtual-machines/windows/co-location.md)
 * Zapoznaj się z zoptymalizowanym wynikiem [testowania przepustowości/przepływności maszyny wirtualnej platformy Azure](virtual-network-bandwidth-testing.md) dla Twojego scenariusza.
 * Przeczytaj o sposobie [przydzielenia przepustowości do maszyn wirtualnych](virtual-machine-network-throughput.md)
 * Dowiedz się więcej na temat [usługi Azure Virtual Network często zadawanych pytań](virtual-networks-faq.md)

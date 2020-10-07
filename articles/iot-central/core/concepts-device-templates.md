@@ -1,6 +1,6 @@
 ---
 title: Co to są szablony urządzeń na platformie Azure IoT Central | Microsoft Docs
-description: Szablony urządzeń IoT Central platformy Azure pozwalają określić zachowanie urządzeń podłączonych do aplikacji.
+description: Szablony urządzeń IoT Central platformy Azure pozwalają określić zachowanie urządzeń podłączonych do aplikacji. Szablon urządzenia określa dane telemetryczne, właściwości i polecenia, które urządzenie musi zaimplementować. Szablon urządzenia definiuje również interfejs użytkownika dla urządzenia w IoT Central, takich jak formularze i pulpity nawigacyjne, które są stosowane przez operatora.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015096"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813172"
 ---
 # <a name="what-are-device-templates"></a>Co to są szablony urządzeń?
 
@@ -26,12 +26,10 @@ Konstruktor rozwiązań dodaje szablony urządzeń do aplikacji IoT Central. Dew
 Szablon urządzenia zawiera następujące sekcje:
 
 - _Model możliwości urządzenia (DCM)_. Ta część szablonu urządzenia określa, jak urządzenie współdziała z Twoją aplikacją. Deweloper urządzenia implementuje zachowania zdefiniowane w DCM.
+    - _Interfejsy_. DCM zawiera jeden lub więcej interfejsów, które definiują dane telemetryczne, właściwości i polecenia, które urządzenie musi zaimplementować.
 - _Właściwości chmury_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania określenie wszelkich metadanych urządzeń do przechowywania. Właściwości chmury nigdy nie są synchronizowane z urządzeniami i istnieją tylko w aplikacji. Właściwości chmury nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
 - _Dostosowania_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania zastąpienie niektórych definicji w DCM. Dostosowania są przydatne, jeśli deweloper rozwiązania chce udoskonalić, jak aplikacja obsługuje wartość, na przykład zmieniając nazwę wyświetlaną właściwości lub kolor używany do wyświetlania wartości telemetrii. Dostosowania nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
 - _Widoki_. Ta część szablonu urządzenia umożliwia deweloperowi rozwiązania Definiowanie wizualizacji do wyświetlania danych z urządzenia oraz formularzy służących do zarządzania urządzeniami i ich kontrolowania. Widoki używają właściwości DCM, Cloud i customizations. Widoki nie wpływają na kod, który Projektant urządzenia zapisuje w celu wdrożenia DCM.
-
-> [!NOTE]
-> [Wersja zapoznawcza publicznej wersji zapoznawczej usługi IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) jest przeznaczona dla deweloperów urządzeń i producentów OEM, aby rozpocząć tworzenie urządzeń, które mogą być certyfikowane na potrzeby usługi IoT Plug and Play przed rozpoczęciem.
 
 ## <a name="device-capability-models"></a>Modele możliwości urządzeń
 
@@ -108,11 +106,11 @@ Interfejs ma niektóre wymagane pola:
 
 Istnieją opcjonalne pola, za pomocą których można dodać więcej szczegółów do modelu możliwości, takie jak nazwa wyświetlana i opis.
 
-### <a name="interface"></a>Interfejs
+## <a name="interfaces"></a>Interfejsy
 
 DTDL umożliwia opisywanie możliwości urządzenia. Powiązane funkcje są pogrupowane w interfejsy. Interfejsy opisują właściwości, dane telemetryczne i polecenia, które są implementowane przez część urządzenia:
 
-- `Properties`. Właściwości to pola danych, które reprezentują stan urządzenia. Użyj właściwości, aby reprezentować stan trwały urządzenia, taki jak stan włączony pompy chłodzącej. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania układowego urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub do zapisu.
+- `Properties`. Właściwości to pola danych, które reprezentują stan urządzenia. Użyj właściwości, aby reprezentować stan trwały urządzenia, taki jak stan włączony pompy chłodzącej. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania układowego urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub do zapisu. Tylko urządzenia mogą aktualizować wartość właściwości tylko do odczytu. Operator może ustawić wartość właściwości zapisywalnej do wysłania do urządzenia.
 - `Telemetry`. Pola telemetrii przedstawiają pomiary z czujników. Za każdym razem, gdy urządzenie przyjmuje pomiar czujnika, należy wysłać zdarzenie telemetrii zawierające dane czujnika.
 - `Commands`. Polecenia reprezentują metody, które użytkownicy urządzenia mogą wykonywać na urządzeniu. Na przykład polecenie Reset lub polecenie umożliwiające włączenie lub wyłączenie wentylatora.
 
@@ -159,7 +157,7 @@ W poniższym przykładzie przedstawiono definicję interfejsu czujnika środowis
 }
 ```
 
-Ten przykład przedstawia dwie właściwości, typ telemetrii i dwa polecenia. Minimalny opis pola ma:
+Ten przykład przedstawia dwie właściwości (jeden tylko do odczytu i jeden zapisywalny), typ telemetrii i dwa polecenia. Minimalny opis pola ma:
 
 - `@type` Aby określić typ możliwości: `Telemetry` , `Property` , lub `Command` .  W niektórych przypadkach typ zawiera typ semantyczny, aby umożliwić IoT Central w celu wprowadzenia pewnych założeń dotyczących obsługi wartości.
 - `name` wartość telemetrii.
@@ -168,7 +166,7 @@ Ten przykład przedstawia dwie właściwości, typ telemetrii i dwa polecenia. M
 
 Opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
 
-### <a name="properties"></a>Właściwości
+## <a name="properties"></a>Właściwości
 
 Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do aplikacji IoT Central. Aplikacja IoT Central nie może ustawić wartości właściwości tylko do odczytu.
 
@@ -180,13 +178,13 @@ Nie używaj właściwości, aby wysyłać dane telemetryczne z urządzenia. Na p
 
 W przypadku właściwości zapisywalnych aplikacja urządzenia zwraca kod stanu żądanego stanu, wersję i opis, aby wskazać, czy został on odebrany i zastosował wartość właściwości.
 
-### <a name="telemetry"></a>Telemetria
+## <a name="telemetry"></a>Telemetria
 
 IoT Central umożliwia wyświetlanie danych telemetrycznych na pulpitach nawigacyjnych i na wykresach oraz stosowanie reguł do wyzwalania akcji po osiągnięciu progów. IoT Central używa informacji w DCM, takich jak typy danych, jednostki i nazwy wyświetlane, aby określić sposób wyświetlania wartości telemetrii.
 
 Za pomocą funkcji eksportu danych IoT Central można przesyłać dane telemetryczne do innych miejsc docelowych, takich jak magazyn lub Event Hubs.
 
-### <a name="commands"></a>Polecenia
+## <a name="commands"></a>Polecenia
 
 Polecenia są synchroniczne lub asynchroniczne. Polecenie synchroniczne musi być wykonywane w ciągu 30 sekund domyślnie, a urządzenie musi być połączone po nadejściu polecenia. Jeśli urządzenie jest w czasie odpowiedzi lub urządzenie nie jest połączone, polecenie kończy się niepowodzeniem.
 

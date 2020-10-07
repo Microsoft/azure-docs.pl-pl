@@ -1,6 +1,6 @@
 ---
 title: Dzienniki aprowizacji w portalu Azure Active Directory (wersja zapoznawcza) | Microsoft Docs
-description: Wprowadzenie do raportów dotyczących działań związanych z obsługą administracyjną w portalu Azure Active Directory
+description: Wprowadzenie do raportów dotyczących aprowizacji dzienników w portalu Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361283"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812560"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
-- **Zabezpieczenia** 
+- **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -42,6 +42,7 @@ Ten temat zawiera omówienie raportu aprowizacji.
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
+* Właściciele aplikacji
 * Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
 * Administratorzy globalni
 
@@ -118,7 +119,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystko
+- Wszystkie
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -129,7 +130,7 @@ Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
 - Aktualizacja
-- Usuń
+- Usuwanie
 - Wyłącz
 - Inne
 
@@ -210,13 +211,11 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
-- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję.
+- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze log Analytics w celu przechowywania danych przez okres dłuższy niż 30 dni. 
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 
 - Obecnie nie ma możliwości pobrania danych aprowizacji jako pliku CSV, ale dane można eksportować przy użyciu [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
-
-- Obecnie nie ma obsługi usługi log Analytics.
 
 - W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
 
@@ -252,3 +251,4 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 
 * [Sprawdź stan aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem.md)
+* [Interfejs API grafu obsługi dzienników aprowizacji](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

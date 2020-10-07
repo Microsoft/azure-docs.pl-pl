@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287087"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813240"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
@@ -25,12 +25,14 @@ Alternatywna Obsługa diagnostyki rozruchu polega na użyciu konta magazynu zarz
 
 > [!IMPORTANT]
 > Klienci platformy Azure nie będą obciążani kosztami magazynu związanymi z diagnostyką rozruchu przy użyciu zarządzanego konta magazynu do 2020 października.
+>
+> Obiekty BLOB danych diagnostyki rozruchu (które składają się z dzienników i obrazów migawek) są przechowywane na zarządzanym koncie magazynu. Klienci będą obciążani wyłącznie GiBs używanymi przez obiekty blob, a nie na dysku o nieobsługiwanym rozmiarze. Liczniki migawek zostaną użyte do rozliczania zarządzanego konta magazynu. Ze względu na to, że konta zarządzane są tworzone przy użyciu standardowej usługi LRS lub standardowej ZRS, w celu uzyskania rozmiaru obiektów BLOB danych diagnostycznych klienci będą obciążani za $0,05/GB miesięcznie. Aby uzyskać więcej informacji na temat tych cen, zobacz [Cennik usługi Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Klienci będą widzieć tę opłatę powiązana z identyfikatorem URI zasobu maszyny wirtualnej. 
 
 ## <a name="boot-diagnostics-view"></a>Widok diagnostyki rozruchu
 W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pomoc techniczna i rozwiązywanie problemów* w Azure Portal. Wybranie opcji Diagnostyka rozruchu spowoduje wyświetlenie zrzutu ekranu i informacji o dzienniku seryjnym. Dziennik seryjny zawiera komunikaty jądra, a zrzut ekranu jest migawką bieżącego stanu maszyn wirtualnych. Na podstawie tego, czy na maszynie wirtualnej jest uruchomiony system Windows lub Linux, decyduje o tym, jak będzie wyglądać oczekiwany zrzut ekranu. W przypadku systemu Windows użytkownicy zobaczą tło pulpitu i system Linux zobaczy monit logowania.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Zrzut ekranu diagnostyki rozruchu systemu Linux":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Zrzut ekranu przedstawiający diagnostykę rozruchu systemu Windows":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Zrzut ekranu diagnostyki rozruchu systemu Linux":::
 
 
 ## <a name="limitations"></a>Ograniczenia

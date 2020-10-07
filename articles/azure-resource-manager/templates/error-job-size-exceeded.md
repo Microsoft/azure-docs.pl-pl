@@ -2,13 +2,13 @@
 title: Błąd przekroczenia rozmiaru zadania
 description: Opisuje sposób rozwiązywania problemów, gdy rozmiar zadania lub szablon jest zbyt duży.
 ms.topic: troubleshooting
-ms.date: 09/25/2020
-ms.openlocfilehash: 06645561964d9634d93061b3be4d100a578cc7e7
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/07/2020
+ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373174"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812900"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Rozwiązano błędy w przypadku przekroczenia rozmiaru zadania
 
@@ -38,6 +38,10 @@ Pierwszą opcją jest uproszczenie szablonu. Ta opcja działa, gdy szablon wdra�
 
 Możesz ustawić inne zasoby jako zależne od szablonu połączonego i [uzyskać wartości z danych wyjściowych połączonego szablonu](linked-templates.md#get-values-from-linked-template).
 
-## <a name="solution-2---use-serial-copy"></a>Rozwiązanie 2 — Korzystanie z kopii seryjnej
+## <a name="solution-2---reduce-name-size"></a>Rozwiązanie 2 — zmniejszanie rozmiaru nazwy
+
+Spróbuj skrócić długość nazw używanych dla [parametrów](template-parameters.md), [zmiennych](template-variables.md)i danych [wyjściowych](template-outputs.md). Gdy te wartości są powtarzane przez pętle kopiowania, duża nazwa jest przemnożona wiele razy. Końcowy rozmiar szablonu jest niekoniecznie duży.
+
+## <a name="solution-3---use-serial-copy"></a>Rozwiązanie 3 — Korzystanie z kopii seryjnej
 
 Drugą opcją jest zmiana pętli kopiowania z [równoległe na przetwarzanie szeregowe](copy-resources.md#serial-or-parallel). Tej opcji należy używać tylko wtedy, gdy podejrzewasz, że błąd pochodzi z wdrażania dużej liczby zasobów za pośrednictwem kopiowania. Ta zmiana może znacząco zwiększyć czas wdrożenia, ponieważ zasoby nie są wdrażane równolegle.

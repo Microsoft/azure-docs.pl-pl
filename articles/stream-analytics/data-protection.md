@@ -5,17 +5,37 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2020
-ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 09/23/2020
+ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045352"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812866"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
 Azure Stream Analytics to w pełni zarządzana platforma jako usługa, która umożliwia tworzenie potoków analizy w czasie rzeczywistym. Wszystkie duże funkcje, takie jak inicjowanie obsługi klastrów, skalowanie węzłów do użycia i zarządzanie wewnętrznymi punktami kontrolnymi, są zarządzane w tle.
+
+## <a name="private-data-assets-that-are-stored"></a>Prywatne zasoby danych, które są przechowywane
+
+Azure Stream Analytics utrzymuje następujące metadane i dane, aby można było je uruchomić: 
+
+* Definicja zapytania i powiązane z nimi konfiguracje  
+
+* Funkcje zdefiniowane przez użytkownika lub agregacje  
+
+* Punkty kontrolne potrzebne przez środowisko uruchomieniowe Stream Analytics
+
+* Migawki danych referencyjnych 
+
+* Szczegóły połączenia zasobów używanych przez zadanie Stream Analytics
+
+Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="in-region-data-residency"></a>Zamieszkania danych w regionie
+Azure Stream Analytics przechowuje dane klienta i inne metadane opisane powyżej. Dane klienta są domyślnie przechowywane przez Azure Stream Analytics w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
+Ponadto możesz wybrać przechowywanie wszystkich zasobów danych (danych klienta i innych metadanych) związanych z zadaniem usługi Stream Analytics w jednym regionie, szyfrując je na wybranym koncie magazynu.
 
 ## <a name="encrypt-your-data"></a>Szyfrowanie danych
 
@@ -28,7 +48,14 @@ To ustawienie należy skonfigurować w momencie Stream Analytics tworzenia zadan
 Nie można zaktualizować ani obrócić kluczy do konta magazynu przy użyciu portalu Stream Analytics. Klucze można aktualizować za pomocą interfejsów API REST.
 
 
-## <a name="configure-storage-account-for-private-data"></a>Skonfiguruj konto magazynu dla prywatnych danych 
+### <a name="configure-storage-account-for-private-data"></a>Skonfiguruj konto magazynu dla prywatnych danych 
+
+
+Zaszyfruj swoje konto magazynu, aby zabezpieczyć wszystkie dane, i jawnie wybierz lokalizację prywatnych danych. 
+
+Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
@@ -46,28 +73,14 @@ Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasob�
 
    ![Ustawienia konta prywatnego magazynu danych](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Prywatne zasoby danych, które są przechowywane
 
-Wszystkie prywatne dane, które są wymagane do utrwalenia przez Stream Analytics są przechowywane na koncie magazynu. Przykłady prywatnych zasobów danych obejmują: 
 
-* Zapytania, które zostały utworzone i powiązane z nimi konfiguracje  
-
-* Funkcje zdefiniowane przez użytkownika 
-
-* Punkty kontrolne potrzebne przez środowisko uruchomieniowe Stream Analytics
-
-* Migawki danych referencyjnych 
-
-Są również przechowywane szczegóły połączenia zasobów, które są używane przez zadanie Stream Analytics. Zaszyfruj konto magazynu, aby zabezpieczyć wszystkie Twoje dane. 
-
-Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-## <a name="known-issues"></a>Znane problemy
-Istnieje znany problem polegający na tym, że zadanie korzystające z klucza zarządzanego przez klienta działa w niepowodzeń podczas korzystania z tożsamości zarządzanej do uwierzytelniania w dowolnych danych wejściowych lub wyjściowych. Poprawka tego problemu jest opracowywana i będzie dostępna w najbliższej przyszłości. 
+### <a name="known-issues"></a>Znane problemy
+Obecnie istnieje znane ograniczenie, w którym zadanie wykorzystujące klucz zarządzany przez klienta działa w niepowodzeń podczas korzystania z tożsamości zarządzanej do uwierzytelniania w dowolnych danych wejściowych lub wyjściowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md)
+* [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md)
 * [Informacje o danych wejściowych dla Azure Stream Analytics](stream-analytics-add-inputs.md)
 * [Pojęcia dotyczące punktów kontrolnych i powtarzania w zadaniach Azure Stream Analytics](stream-analytics-concepts-checkpoint-replay.md)
 * [Używanie danych referencyjnych do wyszukiwania w Stream Analytics](stream-analytics-use-reference-data.md)

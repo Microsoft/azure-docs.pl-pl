@@ -3,12 +3,12 @@ title: Analizuj wideo na żywo dzięki usłudze Live Video Analytics na IoT Edge
 description: Dowiedz się, w jaki sposób używać Custom Vision do kompilowania modelu kontenera, który może wykryć wózek i korzystać z rozszerzalności na żywo wideo w usłudze IoT Edge (LVA) w celu wdrożenia modelu na krawędzi na potrzeby wykrywania wózków zabawki z poziomu strumienia wideo na żywo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 97aa514e2347b3398aab6293d8543afcdc239bdb
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776599"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804150"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -147,37 +147,15 @@ Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następni
 
 Jeśli otworzysz topologię grafu w tym samouczku w przeglądarce, zobaczysz, że wartość inferencingUrl została ustawiona na http://cv:80/image , co oznacza, że serwer wnioskowania zwróci wyniki po wykryciu wózków z zabawkami (jeśli istnieją) w wideo na żywo.
 
-1. Aby rozpocząć sesję debugowania, wybierz klawisz F5. W oknie terminalu są wyświetlane komunikaty.
-1. operations.jsw kodzie zaczyna się od wywołania metod bezpośrednich GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po ukończeniu poprzednich przewodników Szybki Start, proces ten spowoduje zwrócenie pustych list, a następnie wstrzymanie. Aby kontynuować, wybierz klawisz ENTER.
-    
-   W oknie terminalu zostanie wyświetlony następny zestaw wywołań metod bezpośrednich:
-    
-   * Wywołanie GraphTopologySet z poprzednią topologyUrl.
-   * Wywołanie GraphInstanceSet, które korzysta z następującej treści:
-        
-   ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "CustomVisionWithHttpExtension",
-            "description": "Sample graph description",
-            "parameters": [
-              { 
-                "name": "inferencingUrl",
-                "value": "http://cv:80/image"
-              },
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/t2.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Przegląd Custom Vision":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Przegląd Custom Vision"
               }
             ]
           }

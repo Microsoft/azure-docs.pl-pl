@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265181"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812288"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testowanie przepustowości/przepływności (NTTTCP)
 
@@ -26,7 +26,7 @@ Podczas testowania wydajności przepływności sieci na platformie Azure najlepi
 Skopiuj narzędzie do dwóch maszyn wirtualnych platformy Azure o takim samym rozmiarze. Jedna maszyna wirtualna działa jako NADAWCa i inna jako odbiornik.
 
 #### <a name="deploying-vms-for-testing"></a>Wdrażanie maszyn wirtualnych do testowania
-Na potrzeby tego testu dwie maszyny wirtualne powinny znajdować się w tej samej usłudze w chmurze lub w tym samym zestawie dostępności, aby można było używać wewnętrznych adresów IP i wykluczać usługi równoważenia obciążenia z testu. Możliwe jest przetestowanie przy użyciu adresu VIP, ale tego rodzaju testowanie wykracza poza zakres tego dokumentu.
+Na potrzeby tego testu dwie maszyny wirtualne powinny znajdować się w tej samej [grupie położenia sąsiedztwa](../virtual-machines/windows/co-location.md) lub w tym samym zestawie dostępności, aby można było używać wewnętrznych adresów IP i wykluczać usługi równoważenia obciążenia z testu. Możliwe jest przetestowanie przy użyciu adresu VIP, ale tego rodzaju testowanie wykracza poza zakres tego dokumentu.
 
 Zanotuj adres IP odbiorcy. Wywołajmy ten adres IP "a. b. c. r"
 
@@ -52,7 +52,7 @@ Parametry nadawcy: NTttcp-s 10.27.33.7-t 10-n 1-P 1
 
 #### <a name="get-ntttcp-onto-the-vms"></a>Uzyskaj NTTTCP na maszynach wirtualnych.
 
-Pobierz najnowszą wersję:<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Pobierz najnowszą wersję: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
 Lub wyszukaj go, jeśli przeniesiono: <https://www.bing.com/search?q=ntttcp+download> \< --najpierw należy nacisnąć
 
@@ -89,7 +89,7 @@ Poczekaj na wyniki.
 
 ## <a name="testing-vms-running-linux"></a>Testowanie maszyn wirtualnych z systemem LINUX:
 
-Użyj nttcp dla systemu Linux. Jest ona dostępna z<https://github.com/Microsoft/ntttcp-for-linux>
+Użyj nttcp dla systemu Linux. Jest ona dostępna z <https://github.com/Microsoft/ntttcp-for-linux>
 
 Na maszynach wirtualnych z systemem Linux (NADAWCy i odbiornik) Uruchom następujące polecenia, aby przygotować NTttcp dla systemu Linux na maszynach wirtualnych:
 

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118624"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812543"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Poświadczenia hasła właściciela zasobu Microsoft Identity platform i OAuth 2,0
 
@@ -92,7 +92,7 @@ W poniższym przykładzie przedstawiono Pomyślne odpowiedzi tokenu:
 
 | Parametr | Format | Opis |
 | --------- | ------ | ----------- |
-| `token_type` | Ciąg | Zawsze ustawiaj na `Bearer` . |
+| `token_type` | String | Zawsze ustawiaj na `Bearer` . |
 | `scope` | Ciągi rozdzielone spacją | Jeśli został zwrócony token dostępu, ten parametr wyświetla listę zakresów, dla których token dostępu jest prawidłowy. |
 | `expires_in`| int | Liczba sekund, przez jaką jest ważny włączony token dostępu. |
 | `access_token`| Ciąg nieprzezroczysty | Wystawiony dla żądanych [zakresów](v2-permissions-and-consent.md) . |
@@ -112,5 +112,4 @@ Jeśli użytkownik nie podał prawidłowej nazwy użytkownika lub hasła lub kli
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 
-* Wypróbuj usługę ROPC za pomocą [przykładowej aplikacji konsolowej](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Aby określić, czy należy używać punktu końcowego v 2.0, przeczytaj temat [ograniczenia dotyczące platformy tożsamości firmy Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
+Przykład użycia ROPC można znaleźć w przykładowym kodzie [aplikacji konsoli .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) w witrynie GitHub.

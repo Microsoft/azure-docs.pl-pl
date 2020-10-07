@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331254"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812594"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
 
@@ -35,7 +35,8 @@ Architektura raportowania składa się z następujących składników:
 - **Działanie** 
     - **Logowania** — [raport logowania](concept-sign-ins.md) zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
     - **Dzienniki inspekcji** — udostępnia możliwość śledzenia wszystkich zmian wprowadzanych przez różne funkcje usługi Azure AD za pomocą dzienników. Przykłady dzienników inspekcji obejmują zmiany wprowadzone w zasobach w usłudze Azure AD, takie jak dodawanie lub usuwanie użytkowników, aplikacji, grup, ról i zasad.
-- **Zabezpieczenia** 
+    - **Dzienniki aprowizacji**  -  [Dzienniki aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) umożliwiają klientom monitorowanie aktywności przy użyciu usługi aprowizacji, takiej jak tworzenie grupy w usługi ServiceNow lub użytkownik zaimportowany z produktu Workday. 
+- **Bezpieczeństwo** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika. 
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -91,7 +92,7 @@ Dane inspekcji można filtrować w następujących polach:
 
 Filtr **usługi** umożliwia wybranie z listy rozwijanej następujących usług:
 
-- Wszystko
+- Wszystkie
 - ŚRODOWISKO użytkownika zarządzania usługą AAD
 - Przeglądy dostępu
 - Aprowizacja kont
@@ -113,7 +114,7 @@ Filtr **usługi** umożliwia wybranie z listy rozwijanej następujących usług:
 
 Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
 
-- Wszystko
+- Wszystkie
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -140,7 +141,7 @@ Listę wszystkich działań związanych z inspekcją można uzyskać przy użyci
 
 Filtr **stanu** umożliwia filtrowanie na podstawie stanu operacji inspekcji. Może to być jeden z następujących stanów:
 
-- Wszystko
+- Wszystkie
 - Powodzenie
 - Niepowodzenie
 

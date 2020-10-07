@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743322"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812407"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -61,6 +61,11 @@ Aby uzyskać więcej informacji, zobacz:
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+Uwierzytelnianie w Key Vault w aplikacjach:
+- [Uwierzytelnianie w Key Vault w aplikacji hostowanej w maszynie wirtualnej na platformie .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Uwierzytelnianie w Key Vault w aplikacji hostowanej na maszynie wirtualnej w języku Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Uwierzytelnianie w Key Vault przy użyciu App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Zarządzanie kluczami, certyfikatami i wpisami tajnymi
 
@@ -112,9 +117,13 @@ Poniższe artykuły i scenariusze zapewniają wskazówki dotyczące zadań zwią
 
 W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają z Key Vault lub integrują się z nimi.
 
-- [Szyfrowanie w spoczynku z Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [Szyfrowanie w spoczynku](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) umożliwia kodowanie (szyfrowanie) danych, gdy są utrwalane. Klucze szyfrowania danych są często szyfrowane za pomocą klucza szyfrowania kluczy w Azure Key Vault, aby dodatkowo ograniczyć dostęp.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) umożliwia kierownika własnego klucza dzierżawy. Na przykład zamiast firmy Microsoft zarządzającej kluczem dzierżawy (domyślnie) można zarządzać własnym kluczem dzierżawy w celu zapewnienia zgodności z określonymi przepisami obowiązującymi w organizacji. Samodzielne zarządzanie kluczem dzierżawy określa się także mianem strategii BYOK (Bring Your Own Key), czyli „Przynieś własny klucz”.
+- [Usługa link prywatny platformy Azure](private-link-service.md) umożliwia dostęp do usług platformy Azure (na przykład Azure Key Vault, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej.
+- Key Vault integracja z usługą [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  umożliwia użytkownikom otrzymywanie powiadomień o zmianie stanu wpisu tajnego przechowywanego w magazynie kluczy. Nową wersję wpisów tajnych można dystrybuować do aplikacji lub obracać w bliskich okresach tajnych, aby zapobiec awariom.
+- Możesz chronić Twoje wpisy tajne [platformy Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) przed niechcianym dostępem w Key Vault.
+- [Aby nawiązać połączenie z usługą Azure Storage, użyj wpisu tajnego przechowywanego w Key Vault w obszarze datakosteks](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Skonfiguruj i uruchom dostawcę Azure Key Vault dla [sterownika CSI magazynu wpisów tajnych](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) w systemie Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault przeglądy i koncepcje
 

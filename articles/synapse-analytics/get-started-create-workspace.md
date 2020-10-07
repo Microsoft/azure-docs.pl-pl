@@ -8,13 +8,13 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/07/2020
+ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620073"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812322"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -29,16 +29,15 @@ Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasob
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
-1. W obszarze **podstawowe**wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
+1. W obszarze **podstawowe**wprowadź wymagane pola i wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
 1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszy wybór, aby utworzyć nowy. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
     1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
     1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
-    1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**.
+    1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**
 1. Opcja 2 przy użyciu istniejącego konta ADLSGEN2. Zapoznaj się z instrukcjami dotyczącymi **przygotowywania konta magazynu ADLSGEN2** w dolnej części tego dokumentu.
 1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
-
 
 ## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 
@@ -70,7 +69,7 @@ Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wst
     |Ustawienie | Sugerowana wartość | 
     |---|---|---|
     |**Nazwa puli Apache Spark**|**Spark1**
-    |**Rozmiar węzła**| **Mały**|
+    |**Rozmiar węzła**| **Mała**|
     |**Liczba węzłów**| Ustaw wartość minimalną na 3 i wartość maksymalną na 3.|
 
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Pula Apache Spark będzie gotowa w ciągu kilku sekund.
@@ -117,8 +116,8 @@ Skonfiguruj dostęp do konta magazynu z obszaru roboczego. Zarządzane tożsamo�
 1. Przypisz poniższe role lub upewnij się, że są już przypisane. Używamy tej samej nazwy dla tożsamości obszaru roboczego i nazwy obszaru roboczego.
     * W przypadku roli **współautor danych obiektów blob magazynu** na koncie magazynu należy przypisać obszar **roboczy** jako tożsamość obszaru roboczego.
     * Przypisz **jako nazwę obszaru roboczego.**
-
 1. Wybierz pozycję **Zapisz**.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

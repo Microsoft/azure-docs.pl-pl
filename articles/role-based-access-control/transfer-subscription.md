@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: fd8192b48f6923a8fe68abf674d6100c8b8e5a00
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761876"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804184"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -74,7 +74,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure File Sync | Tak | Tak |  |  |
-| Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
+| Dyski zarządzane platformy Azure | Tak | Tak |  |  Jeśli używasz zestawów szyfrowania dysków do szyfrowania Managed Disks przy użyciu kluczy zarządzanych przez klienta, musisz wyłączyć i ponownie włączyć tożsamości przypisane do systemu skojarzone z zestawami szyfrowania dysków. I należy ponownie utworzyć przypisania ról, a tym samym ponownie przyznać wymagane uprawnienia do zestawów szyfrowania dysków w magazynach kluczy. |
 | Azure Container Services dla Kubernetes | Tak | Tak |  |  |
 | Azure Active Directory Domain Services | Tak | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |

@@ -3,12 +3,12 @@ title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178561"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813257"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
@@ -107,7 +107,7 @@ Te kroki obejmują następującą terminologię:
 
 5. Podaj plik poświadczeń magazynu, który odnosi się do przykładowego magazynu, i wybierz pozycję **dalej**.
 
-    Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), Pobierz nowy plik poświadczeń magazynu z przykładowego magazynu w Azure Portal. Po podaniu prawidłowego poświadczenia magazynu zostanie wyświetlona nazwa odpowiedniego magazynu kopii zapasowych.
+    Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), [Pobierz nowy plik poświadczeń magazynu z przykładowego magazynu](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) w Azure Portal. Po podaniu prawidłowego poświadczenia magazynu zostanie wyświetlona nazwa odpowiedniego magazynu kopii zapasowych.
 
 6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz pozycję **Dalej**.
 

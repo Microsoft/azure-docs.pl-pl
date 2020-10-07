@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987355"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812441"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
@@ -50,14 +50,21 @@ Możesz szybko wdrożyć nową aplikację IoT Central, a następnie dostosować 
 
 Jako Konstruktor rozwiązań można utworzyć _szablon urządzenia_ dla urządzeń, które łączą się z aplikacją za pomocą narzędzi sieci Web. Szablon urządzenia to plan, który definiuje charakterystykę i zachowanie typu urządzenia, takiego jak:
 
-- Dane telemetryczne wysyłane przez nią.
-- Właściwości biznesowe, które może modyfikować operator.
-- Właściwości urządzenia ustawiane przez urządzenie, które są tylko do odczytu w aplikacji.
-- Właściwości, które są ustawiane przez operator, które określają zachowanie urządzenia.
+- Dane telemetryczne wysyłane przez nią. Przykładami mogą być temperatury i wilgotności. Dane telemetryczne są przesyłane strumieniowo.
+- Właściwości biznesowe, które może modyfikować operator. Przykładami mogą być adres klienta i Data ostatniego serwisu.
+- Właściwości urządzenia ustawiane przez urządzenie, które są tylko do odczytu w aplikacji. Na przykład stan zaworu jest otwarty lub zamknięty.
+- Właściwości, które są ustawiane przez operator, które określają zachowanie urządzenia. Na przykład docelowa temperatura urządzenia.
+- Polecenia, które operator może wywołać, które są uruchamiane na urządzeniu. Na przykład polecenie zdalnego ponownego uruchomienia urządzenia.
 
 Ten [szablon urządzenia](howto-set-up-template.md) obejmuje następujące:
 
-- _Model możliwości urządzenia_ , który opisuje możliwości implementowane przez urządzenie, takie jak dane telemetryczne, które wysyła, oraz właściwości, które zgłasza.
+- _Model możliwości urządzenia_ opisujący możliwości implementowania urządzenia. Dostępne są następujące możliwości urządzenia:
+
+  - Telemetrię przesyła strumieniowo do IoT Central.
+  - Właściwości tylko do odczytu używające do raportowania stanu do IoT Central.
+  - Właściwości do zapisu odbierane od IoT Central w celu ustawienia stanu urządzenia.
+  - Polecenia wywoływane z IoT Central.
+
 - Właściwości chmury, które nie są przechowywane na urządzeniu.
 - Dostosowania, pulpity nawigacyjne i formularze, które są częścią aplikacji IoT Central.
 
@@ -144,7 +151,6 @@ Każda subskrypcja platformy Azure ma domyślne przydziały, które mogą mieć 
 - Typy schematów tablicy nie są obsługiwane.
 - Obsługiwane są tylko zestawy SDK urządzeń C i Node.js.
 - IoT Central jest obecnie dostępna w lokalizacjach Stany Zjednoczone, Europy, Azja i Pacyfik, Australii, Wielkiej Brytanii i Japonii.
-- Nie można użyć szablonu aplikacji **aplikacja niestandardowa (starsza wersja)** w lokalizacjach w Zjednoczonym Królestwie i w Japonii.
 - Modele możliwości urządzeń muszą mieć wszystkie interfejsy zdefiniowane wewnętrznie w tym samym pliku.
 
 ## <a name="next-steps"></a>Następne kroki

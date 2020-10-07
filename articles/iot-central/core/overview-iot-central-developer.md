@@ -1,6 +1,6 @@
 ---
 title: Opracowywanie urządzeń na platformie Azure IoT Central | Microsoft Docs
-description: Azure IoT Central to platforma aplikacji IoT, która upraszcza tworzenie rozwiązań IoT. Ten artykuł zawiera omówienie tworzenia urządzeń w celu nawiązania połączenia z aplikacją IoT Central.
+description: Azure IoT Central to platforma aplikacji IoT, która upraszcza tworzenie rozwiązań IoT. Ten artykuł zawiera omówienie tworzenia urządzeń w celu nawiązania połączenia z aplikacją IoT Central. Urządzenia używają telemetrii do wysyłania danych i właściwości przesyłania strumieniowego w celu zgłoszenia stanu urządzenia. W usłudze IoT Central można ustawić stan urządzenia przy użyciu właściwości z możliwością zapisu i wywołań poleceń na urządzeniu.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90017527"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812356"
 ---
 # <a name="iot-central-device-development-overview"></a>Omówienie tworzenia urządzenia usługi IoT Central
 
@@ -26,7 +26,7 @@ Aplikacja IoT Central umożliwia monitorowanie milionów urządzeń i zarządzan
 Urządzenia współpracują z aplikacją IoT Central przy użyciu następujących elementów podstawowych:
 
 - _Telemetrię_ to dane wysyłane przez urządzenie do IoT Central. Na przykład strumień wartości temperatury z czujnika dołączania.
-- _Właściwości_ to wartości stanu, które urządzenie ma zgłaszać IoT Central. Na przykład bieżąca wersja oprogramowania układowego urządzenia. Możesz również mieć zapisywalne właściwości, które IoT Central mogą być aktualizowane na urządzeniu.
+- _Właściwości_ to wartości stanu, które urządzenie ma zgłaszać IoT Central. Na przykład bieżąca wersja oprogramowania układowego urządzenia. Możesz również mieć zapisywalne właściwości, które IoT Central mogą być aktualizowane na urządzeniu, takie jak temperatura docelowa.
 - _Polecenia_ są wywoływane z IoT Central w celu sterowania zachowaniem urządzenia. Na przykład aplikacja IoT Central może wywołać polecenie w celu ponownego uruchomienia urządzenia.
 
 Konstruktor rozwiązań jest odpowiedzialny za konfigurowanie pulpitów nawigacyjnych i widoków w interfejsie użytkownika IoT Central sieci Web w celu wizualizowania danych telemetrycznych, zarządzania właściwościami i wywoływania poleceń.
