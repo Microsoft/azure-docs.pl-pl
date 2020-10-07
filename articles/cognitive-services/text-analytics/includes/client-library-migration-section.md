@@ -5,15 +5,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 42789753683d798e8842ee96a1cc0db340875952
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 5f53c3ebe4bd15bc6afa8a62758309e9f40a71f0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143283"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779268"
 ---
 Aby użyć najnowszej wersji biblioteki klienta analiza tekstu v3, należy pobrać najnowszy pakiet oprogramowania z `Azure.AI.TextAnalytics` przestrzeni nazw. Sekcja **Konfigurowanie** w [artykule szybki start](../quickstarts/text-analytics-sdk.md) zawiera listę poleceń, których można użyć dla preferowanego języka, z przykładowym kodem.
 

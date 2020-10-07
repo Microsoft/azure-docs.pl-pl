@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: application-insights
 author: mrbullwinkle
 ms.service: application-insights
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9f398643007271935a434e22978e555e002232
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69982600"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779569"
 ---
 Istnieją pewne ograniczenia dotyczące liczby metryk i zdarzeń dla aplikacji, czyli według klucza Instrumentacji. Ograniczenia zależą od wybranego [planu cenowego](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -25,9 +25,9 @@ Istnieją pewne ograniczenia dotyczące liczby metryk i zdarzeń dla aplikacji, 
 | Przechowywanie szczegółowych wyników [wieloetapowego testu dostępności](../articles/azure-monitor/app/availability-multistep.md) | 90 dni | Ten zasób zapewnia szczegółowe wyniki każdego kroku.
 | Maksymalny rozmiar elementu telemetrii | 64 kB |
 | Maksymalna liczba elementów telemetrii na partię | 64 K |
-| Długość nazwy właściwości i metryki | 150 | Zobacz [schematy typów](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Długość ciągu wartości właściwości | 8192  | Zobacz [schematy typów](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Długość komunikatu śledzenia i wyjątku | 32 768  | Zobacz [schematy typów](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Długość nazwy właściwości i metryki | 150 | Zobacz [schematy typów](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Długość ciągu wartości właściwości | 8192  | Zobacz [schematy typów](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Długość komunikatu śledzenia i wyjątku | 32 768  | Zobacz [schematy typów](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Liczba [testów dostępności](../articles/azure-monitor/app/monitor-web-app-availability.md) na aplikację | 100 |
 | Przechowywanie danych [profilera](../articles/azure-monitor/app/profiler.md) | 5 dni |
 | Dane [profilera](../articles/azure-monitor/app/profiler.md) wysłane dziennie | 10 GB |

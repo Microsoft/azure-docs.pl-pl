@@ -1,21 +1,23 @@
 ---
 title: Migrowanie baz wiedzy — QnA Maker
 description: Migrowanie bazy wiedzy wymaga eksportowania z jednej bazy wiedzy, a następnie importowania do innej.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 4148431ebb4de288ac517c7c006a925e36c5f460
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542925"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777383"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrowanie bazy wiedzy przy użyciu eksportu i importu
 
 Migracja jest procesem tworzenia nowej bazy wiedzy na podstawie istniejącej bazy wiedzy. Można to zrobić z kilku powodów:
 
 * proces tworzenia kopii zapasowej i przywracania
-* Potok ciągłej integracji/ciągłego wdrażania
+* Potok ciągłej integracji/ciągłego dostarczania
 * Przenieś regiony
 
 Migrowanie bazy wiedzy wymaga eksportowania z istniejącej bazy wiedzy, a następnie importowania do innej.
@@ -56,7 +58,7 @@ Proces migracji jest programowo dostępny przy użyciu następujących interfejs
 
 * [Pobierz interfejs API bazy wiedzy](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
 
-**Importuj**
+**Import**
 
 * [Zastąp interfejs API (Załaduj ponownie z tym samym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
 * [Utwórz interfejs API (Załaduj z nowym IDENTYFIKATORem bazy wiedzy)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: effbe8e771922ea07ad908dd4871f8dcdb7c1d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938996"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776565"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Konfigurowanie połączenia sieci VPN typu lokacja-lokacja za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute (wersja zapoznawcza)
 
@@ -72,16 +72,18 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 
 ## <a name="portal-steps"></a><a name="portal"></a>Kroki portalu
 
-1. Skonfiguruj połączenie lokacja-lokacja. Kroki można znaleźć w artykule dotyczącym [konfiguracji lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Upewnij się, że wybrano strefowo nadmiarową jednostkę SKU bramy dla bramy. Jednostki SKU nadmiarowe strefy mają "AZ" na końcu jednostki SKU. Na przykład VpnGw1AZ.
+1. Skonfiguruj połączenie lokacja-lokacja. Kroki można znaleźć w artykule dotyczącym [konfiguracji lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Upewnij się, że wybrano strefowo nadmiarową jednostkę SKU bramy dla bramy. 
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Prywatne adresy IP bramy":::
+   Jednostki SKU nadmiarowe strefy mają "AZ" na końcu jednostki SKU. Na przykład **VpnGw1AZ**. Bramy strefowo nadmiarowych są dostępne tylko w regionach, w których dostępna jest usługa strefy dostępności. Aby uzyskać informacje o regionach, w których obsługiwane są strefy dostępności, zobacz [regiony obsługujące strefy dostępności](../availability-zones/az-region.md).
+
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Rysunek 1":::
 1. Włącz prywatne adresy IP na bramie. Wybierz pozycję **Konfiguracja**, a następnie ustaw opcję **prywatne adresy IP bramy** na **włączone**. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 1. Na stronie **Przegląd** wybierz pozycję **Zobacz więcej** , aby wyświetlić prywatny adres IP. Zapisz te informacje do użycia w dalszej części kroków konfiguracyjnych.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Strona przeglądu" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Rysunek 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
 1. Aby włączyć **Korzystanie z prywatnego adresu IP platformy Azure** w połączeniu, wybierz pozycję  **Konfiguracja**. Ustaw opcję **Użyj prywatnego adresu IP platformy Azure** , aby **włączyć**, a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Prywatne adresy IP bramy — włączone":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Rysunek 1":::
 1. Z poziomu zapory Wyślij polecenie ping do prywatnego adresu IP, który zapisano w kroku 3. Prywatny adres IP powinien być dostępny za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute.
 1. Użyj tego prywatnego adresu IP jako zdalnego adresu IP w zaporze lokalnej, aby nawiązać tunel między lokacjami za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute.
 

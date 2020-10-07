@@ -3,12 +3,12 @@ title: Odtwarzanie wielodniowych zapisów — Azure
 description: W ramach tego samouczka nauczysz się używać interfejsów API usługi Azure Media Service do odtwarzania wielodniowego ciągłego nagrywania wideo.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7641114dbae5a118937e7f4973092d5f0eadbccc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530577"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776378"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Samouczek: Odtwarzanie wielodniowych zapisów  
 
@@ -70,22 +70,15 @@ Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player.
 } 
 ```
 
-W Visual Studio Code można kliknąć ikonę uruchamiania po lewej stronie (lub CTRL + SHIFT + D), aby wyświetlić dostępne aplikacje do uruchomienia:
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
-![Zrzut ekranu przedstawia menu w Visual Studio Code z wybranym elementem Run.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Wybierz aplikację odtwarzacz zasobów usługi AMS w polu listy rozwijanej, jak pokazano poniżej, a następnie naciśnij klawisz F5, aby rozpocząć debugowanie.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
-![Zrzut ekranu przedstawia menu w Visual Studio Code z wybranym odtwarzaczem zasobów AMS.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-Przykładowa aplikacja spowoduje skompilowanie i uruchomienie domyślnej aplikacji przeglądarki i otwarcie strony odtwarzacza zasobów AMS.
-
-> [!NOTE]
-> W zależności od ustawień zabezpieczeń w przeglądarce może pojawić się komunikat ostrzegawczy. Ponieważ strona sieci Web działa lokalnie, możesz wybrać ignorowanie ostrzeżenia.
-
-W odtwarzaczu zasobów AMS zostanie wyświetlony komunikat z prośbą o wprowadzenie nazwy zasobu usługi multimedialnej. Należy użyć nazwy zasobu, który został użyty do nagrywania wideo w [samouczku: ciągłe nagrywanie wideo](continuous-video-recording-tutorial.md).
-
-Po wpisaniu nazwy zasobu i przesłaniania, kod odtwarzacza spowoduje załadowanie adresu URL przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [Przewodnik: odtwarzanie nagrań](playback-recordings-how-to.md). Jeśli zgodnie z zaleceniem nadal nastąpi nagrywanie do elementu zawartości, odtwarzacz wykryje to i podejmie próbę nawiązania odtwarzania z najnowszą częścią zapisanego wideo. Znacznik czasu (w formacie UTC) można zobaczyć w lewym górnym rogu odtwarzacza. Na poniższym zrzucie ekranu Zanotuj, jak przycisk "Live" jest wybrany.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia" jest wybrany.
 
 ![Strumień](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

@@ -1,16 +1,16 @@
 ---
 title: Wykonywanie elementu runbook w usłudze Azure Automation
-description: Ten artykuł zawiera informacje na temat przetwarzania elementów Runbook w programie Azure Automation.
+description: Ten artykuł zawiera omówienie przetwarzania elementów Runbook w programie Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325831"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776293"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -89,7 +89,7 @@ Azure Automation używa [Azure monitor](../azure-monitor/overview.md) do monitor
 
 ### <a name="log-analytics-agent-for-windows"></a>Agent Log Analytics dla systemu Windows
 
-[Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych. Należy skonfigurować agenta w celu raportowania do co najmniej jednego obszaru roboczego Log Analytics.
+[Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych.
 
 >[!NOTE]
 >Agent Log Analytics dla systemu Windows był wcześniej znany jako Microsoft Monitoring Agent (MMA).
@@ -100,9 +100,11 @@ Azure Automation używa [Azure monitor](../azure-monitor/overview.md) do monitor
 
 Konto **nxautomation** z odpowiednimi uprawnieniami sudo musi być obecne podczas [instalacji hybrydowego procesu roboczego elementu Runbook systemu Linux](automation-linux-hrw-install.md). Jeśli spróbujesz zainstalować proces roboczy, a konto nie jest obecne lub nie ma odpowiednich uprawnień, instalacja nie powiedzie się.
 
+Nie należy zmieniać uprawnień do `sudoers.d` folderu ani jego własności. Uprawnienie sudo jest wymagane dla konta **nxautomation** i nie należy usuwać uprawnień. Ograniczenie tego do określonych folderów lub poleceń może spowodować powstanie istotnej zmiany.
+
 Dzienniki dostępne dla agenta Log Analytics i konta **nxautomation** są następujące:
 
-* /var/opt/Microsoft/omsagent/log/omsagent.log — dziennik agenta Log Analytics 
+* /var/opt/Microsoft/omsagent/log/omsagent.log — dziennik agenta Log Analytics
 * /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log — dziennik procesu roboczego usługi Automation
 
 >[!NOTE]
@@ -137,7 +139,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
-| Ukończone |Zadanie zostało ukończone pomyślnie. |
+| Zakończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |
@@ -202,7 +204,7 @@ function Get-ContosoFiles
 }
 ```
 
-## <a name="errors"></a>błędy
+## <a name="errors"></a>Errors
 
 Elementy Runbook muszą obsługiwać błędy. Azure Automation obsługuje dwa typy błędów programu PowerShell, kończenie i niekończenie. 
 
@@ -226,7 +228,7 @@ Usługi zewnętrzne, na przykład Azure DevOps Services i GitHub, mogą uruchomi
 
 Aby udostępnić zasoby między wszystkimi elementami Runbook w chmurze, platforma Azure korzysta z koncepcji o nazwie "uczciwe udziały". Przy użyciu funkcji uczciwego udostępniania platforma Azure tymczasowo zwalnia lub kończy każde zadanie, które zostało uruchomione przez ponad trzy godziny. Zadania dla [elementów Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) i [elementów Runbook języka Python](automation-runbook-types.md#python-runbooks) są zatrzymane i nie są ponownie uruchamiane, a stan zadania zostanie zatrzymany.
 
-W przypadku długotrwałych Azure Automation zadań zaleca się użycie hybrydowego procesu roboczego elementu Runbook. Hybrydowe procesy robocze elementów Runbook nie są ograniczone przez sprawiedliwy udział i nie mają ograniczenia czasu wykonywania elementu Runbook. Pozostałe [limity](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) zadań dotyczą zarówno piaskownic systemu Azure, jak i hybrydowych procesów roboczych elementów Runbook. Chociaż hybrydowe procesy robocze elementów Runbook nie są ograniczone przez 3-godzinny limit udziałów, należy opracować elementy Runbook do działania w ramach procesów roboczych, które obsługują ponowne uruchomienia z nieoczekiwanych problemów z infrastrukturą lokalną.
+W przypadku długotrwałych Azure Automation zadań zaleca się użycie hybrydowego procesu roboczego elementu Runbook. Hybrydowe procesy robocze elementów Runbook nie są ograniczone przez sprawiedliwy udział i nie mają ograniczenia czasu wykonywania elementu Runbook. Pozostałe [limity](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) zadań dotyczą zarówno piaskownic systemu Azure, jak i hybrydowych procesów roboczych elementów Runbook. Gdy hybrydowe procesy robocze elementów Runbook nie są ograniczone przez trzy godziny, należy opracować elementy Runbook do działania w ramach procesów roboczych, które obsługują ponowne uruchomienia z nieoczekiwanych problemów z infrastrukturą lokalną.
 
 Kolejną opcją jest optymalizacja elementu Runbook przy użyciu podrzędnych elementów Runbook. Na przykład element Runbook może przechodzić przez tę samą funkcję do kilku zasobów, na przykład z operacją bazy danych na kilku bazach danych. Tę funkcję można przenieść do [podrzędnego elementu Runbook](automation-child-runbooks.md) i mieć do niej wywołanie elementu Runbook za pomocą polecenia [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Podrzędne elementy Runbook są wykonywane równolegle w oddzielnych procesach.
 

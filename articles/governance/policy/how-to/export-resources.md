@@ -1,17 +1,17 @@
 ---
-title: Eksportowanie zasobów Azure Policy
+title: Eksportowanie zasobów usługi Azure Policy
 description: Dowiedz się, jak eksportować Azure Policy zasobów do usługi GitHub, takich jak definicje zasad i przypisania zasad.
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17f0322390cd2cd89ba182a9e3c7c95843cc135e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604436"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777092"
 ---
-# <a name="export-azure-policy-resources"></a>Eksportowanie zasobów Azure Policy
+# <a name="export-azure-policy-resources"></a>Eksportowanie zasobów usługi Azure Policy
 
 Ten artykuł zawiera informacje na temat eksportowania istniejących zasobów Azure Policy. Eksportowanie zasobów jest przydatne i zalecane na potrzeby tworzenia kopii zapasowych, ale jest to również ważny krok w podróży dzięki zasadom zarządzania chmurą i traktowaniu [zasady jako kodu](../concepts/policy-as-code.md). Zasoby Azure Policy można eksportować za pomocą [Azure Portal](#export-with-azure-portal), [interfejsu wiersza polecenia platformy Azure](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell)i każdego z obsługiwanych zestawów SDK.
 
@@ -84,7 +84,7 @@ Definicje Azure Policy, inicjatywy i przypisania można wyeksportować w formaci
 Oto przykład pobierania pliku JSON dla definicji zasad o **nazwie** _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,14 +1,16 @@
 ---
 title: Gdzie i jak używać programu-Personalizacja
 description: Personalizacja może być stosowana w każdej sytuacji, w której aplikacja może wybrać odpowiedni element, akcję lub produkt do wyświetlenia — w celu lepszego działania, osiągnięcia lepszych wyników firmy lub zwiększenia produktywności.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617684"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777228"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Gdzie i jak używać personalizacji
 
@@ -29,7 +31,7 @@ Personalizacja używa uczenia wzmacniania, aby wybrać akcję (zawartość), kt�
 
 Można zastosować personalizację w sytuacjach, w których są spełnione lub można zaimplementować następujące wytyczne.
 
-|Wytyczna|Wyjaśnienie|
+|Wytyczna|Objaśnienie|
 |--|--|
 |Cel biznesowy|Użytkownik ma cel biznesowy lub użyteczny dla Twojej aplikacji.|
 |Zawartość|Masz miejsce w aplikacji, w którym należy wprowadzić kontekstową decyzję, którą należy pokazać użytkownikom w celu usprawnienia tego celu.|

@@ -3,12 +3,12 @@ title: Analizuj wideo na żywo dzięki usłudze Live Video Analytics na IoT Edge
 description: Dowiedz się, w jaki sposób używać Custom Vision do kompilowania modelu kontenera, który może wykryć wózek i korzystać z rozszerzalności na żywo wideo w usłudze IoT Edge (LVA) w celu wdrożenia modelu na krawędzi na potrzeby wykrywania wózków zabawki z poziomu strumienia wideo na żywo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 022dc5714e7a2e19446ee57e827a08ef4c56413e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 97aa514e2347b3398aab6293d8543afcdc239bdb
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761434"
+ms.locfileid: "91776599"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -56,8 +56,7 @@ Wymagania wstępne dotyczące tego samouczka:
 
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
-
-W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Obejrzyj film wideo, który w przypadku znacznika 36-sekundowego występuje w filmie. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
+W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wideo dotyczący [wywnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv/) . Film wideo można przeanalizować za pomocą aplikacji, takiej jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo dotyczącego wnioskowania samochodu](https://lvamedia.blob.core.windows.net/public/t2.mkv) , aby rozpocząć odtwarzanie. Obejrzyj film wideo, który w przypadku znacznika 36-sekundowego występuje w filmie. Model niestandardowy został przeszkolony w celu wykrywania określonego wózka zabawki. W tym samouczku użyjesz usługi Analiza filmów wideo na żywo na IoT Edge, aby wykryć takie wózki i publikować powiązane zdarzenia wnioskowania do centrum IoT Edge.
 
 ## <a name="overview"></a>Omówienie
 

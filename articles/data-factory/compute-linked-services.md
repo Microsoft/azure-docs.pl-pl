@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5f02a38059ebd27879a3c8d44eee7e473711d0e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483193"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776514"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -29,8 +29,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Klaster HDInsight na żądanie](#azure-hdinsight-on-demand-linked-service) lub [własny klaster usługi HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [świnie](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), usługa [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Niestandardowe](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (klasyczny)](#azure-machine-learning-studio-classic-linked-service) | [Działania Machine Learning Studio (klasyczne): wykonywanie wsadowe i aktualizowanie zasobu](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedura składowana](transform-data-using-stored-procedure.md) |
@@ -121,7 +120,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 | clusterResourceGroup         | Klaster usługi HDInsight jest tworzony w tej grupie zasobów. | Tak      |
 | TimeToLive                   | Dozwolony czas bezczynności dla klastra usługi HDInsight na żądanie. Określa, jak długo klaster usługi HDInsight na żądanie pozostaje aktywny po zakończeniu działania, jeśli nie ma żadnych innych aktywnych zadań w klastrze. Minimalna dozwolona wartość to 5 minut (00:05:00).<br/><br/>Na przykład, Jeśli uruchomienie działania trwa 6 minut, a TimeToLive jest ustawiony na 5 minut, klaster pozostaje aktywny przez 5 minut po 6 minutach przetwarzania działania. Jeśli zostanie wykonane inne uruchomienie działania z oknem 6 minut, jest ono przetwarzane przez ten sam klaster.<br/><br/>Tworzenie klastra usługi HDInsight na żądanie jest kosztowną operacją (może to trochę potrwać), dlatego użyj tego ustawienia w razie potrzeby w celu zwiększenia wydajności fabryki danych przez ponowne użycie klastra usługi HDInsight na żądanie.<br/><br/>Jeśli wartość TimeToLive jest ustawiona na 0, klaster zostanie usunięty zaraz po zakończeniu działania. W przypadku ustawienia wysokiej wartości klaster może pozostać w stanie bezczynności, aby można było zalogować się w celu rozwiązania problemu, ale może to spowodować wysokie koszty. W związku z tym ważne jest, aby ustawić odpowiednią wartość na podstawie Twoich potrzeb.<br/><br/>Jeśli wartość właściwości TimeToLive jest odpowiednio ustawiona, wiele potoków może współdzielić wystąpienie klastra usługi HDInsight na żądanie. | Tak      |
 | clustertype                  | Typ klastra usługi HDInsight, który ma zostać utworzony. Dozwolone wartości to "Hadoop" i "Spark". Jeśli nie zostanie określony, wartością domyślną jest Hadoop. Klastra z włączonym pakiet Enterprise Security nie można utworzyć na żądanie, zamiast tego użyj [istniejącego klastra/przeniesiej własne obliczenia](#azure-hdinsight-linked-service). | Nie       |
-| version                      | Wersja klastra usługi HDInsight. Jeśli nie zostanie określony, używana jest bieżąca wersja domyślna zdefiniowana w usłudze HDInsight. | Nie       |
+| Wersja                      | Wersja klastra usługi HDInsight. Jeśli nie zostanie określony, używana jest bieżąca wersja domyślna zdefiniowana w usłudze HDInsight. | Nie       |
 | hostSubscriptionId           | Identyfikator subskrypcji platformy Azure używany do tworzenia klastra usługi HDInsight. Jeśli nie zostanie określony, używa identyfikatora subskrypcji kontekstu logowania platformy Azure. | Nie       |
 | clusterNamePrefix           | Prefiks nazwy klastra HDI, sygnatura czasowa automatycznie dołączany na końcu nazwy klastra| Nie       |
 | sparkVersion                 | Wersja platformy Spark, jeśli typ klastra to "Spark" | Nie       |
@@ -368,8 +367,8 @@ Jeśli jesteś nowym usługą Azure Batch Service, zobacz następujące artykuł
 | linkedServiceName | Nazwa połączonej usługi Azure Storage skojarzonej z tą Azure Batch połączoną usługą. Ta połączona usługa jest używana na potrzeby plików tymczasowych wymaganych do uruchomienia działania. | Tak      |
 | Właściwością connectvia        | Integration Runtime używany do wysyłania działań do tej połączonej usługi. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio połączona usługa
-Utworzysz połączoną usługę Azure Machine Learning Studio, aby zarejestrować punkt końcowy oceniania Machine Learning partii do fabryki danych.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Połączona usługa Azure Machine Learning Studio (klasyczna)
+Utworzysz połączoną usługę Azure Machine Learning Studio (klasyczną), aby zarejestrować punkt końcowy oceniania Machine Learning Studio (klasyczny) do fabryki danych.
 
 ### <a name="example"></a>Przykład
 
@@ -399,7 +398,7 @@ Utworzysz połączoną usługę Azure Machine Learning Studio, aby zarejestrowa�
 | Typ                   | Właściwość Type powinna mieć wartość: **Azure**. | Tak                                      |
 | mlEndpoint             | Adres URL oceniania partii.                   | Tak                                      |
 | apiKey                 | Interfejs API opublikowanego modelu obszaru roboczego.     | Tak                                      |
-| Właściwości updateresourceendpoint | Adres URL aktualizacji zasobu dla punktu końcowego usługi sieci Web Azure Machine Learning używany do aktualizowania predykcyjnej usługi sieci Web przy użyciu pliku modelu wyszkolonego | Nie                                       |
+| Właściwości updateresourceendpoint | Adres URL aktualizacji zasobu dla Azure Machine Learning Studio (klasyczny) punkt końcowy usługi sieci Web używany do aktualizacji predykcyjnej usługi sieci Web przy użyciu pliku z wyszkolonym modelem | Nie                                       |
 | servicePrincipalId     | Określ identyfikator klienta aplikacji.     | Wymagane, jeśli określono właściwości updateresourceendpoint |
 | servicePrincipalKey    | Określ klucz aplikacji.           | Wymagane, jeśli określono właściwości updateresourceendpoint |
 | dzierżaw                 | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Wymagane, jeśli określono właściwości updateresourceendpoint |

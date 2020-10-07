@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664833"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776361"
 ---
 # <a name="composite-bar-renderer"></a>Moduł renderowania złożonego paska
 
@@ -46,7 +46,7 @@ Program renderowania słupków złożonych jest obsługiwany dla wizualizacji, k
 7. Wybierz pozycję "łącznie" z *kolumn* i wybierz pozycję "pasek złożony" dla *modułu renderowania kolumn*.
 8. Ustaw następujące ustawienia w obszarze *Ustawienia paska złożonego*.
 
-| Nazwa kolumny | Color (Kolor)        |
+| Nazwa kolumny | Kolor        |
 |-------------|--------------|
 | online      | Green (Zielony)        |
 | odzyskiwania  | Yellow       |
@@ -124,17 +124,17 @@ W przypadku wizualizacji siatki Sortowanie wierszy kolumny przy użyciu modułu 
 3. Zmień wizualizację na *kafelki*.
 4. Uruchom zapytanie.
 5. Wybierz pozycję **Ustawienia kafelka**.
-6. Zaznacz pole Tytuł w *lewo* .
+6. Zaznacz *pole* na kafelkach.
 7. Wprowadź poniższe ustawienia w obszarze *Ustawienia pola*.
     1. Użyj kolumny: "serwer".
     2. Renderowanie kolumn: "text".
-8. Wybierz pozycję *dolny* w polu Tytuł.
+8. Wybierz pozycję *dolny* w polach kafelków.
 9. Wprowadź poniższe ustawienia w obszarze *Ustawienia pola*.
     1. Użyj kolumny: "Total".
     2. Renderowanie kolumn: "pasek złożony".
     3. Wprowadź ustawienia następujących ustawień w obszarze "Ustawienia paska złożonego".
 
-    | Nazwa kolumny | Color (Kolor)        |
+    | Nazwa kolumny | Kolor        |
     |-------------|--------------|
     | online      | Green (Zielony)        |
     | odzyskiwania  | Yellow       |
@@ -143,9 +143,9 @@ W przypadku wizualizacji siatki Sortowanie wierszy kolumny przy użyciu modułu 
     4. Dodaj etykietę: `["online"] of ["total"] are healthy` .
 10. Wybierz przycisk **Zastosuj**.
 
-Ustawienia słupków złożonych dla tytułów:
+Ustawienia słupków złożonych dla kafelków:
 
-![Zrzut ekranu przedstawiający ustawienia tytułu paska złożonego z ustawieniami opisanymi powyżej.](./media/workbooks-composite-bar/tiles-settings.png)
+![Zrzut ekranu przedstawiający ustawienia kafelków złożonego paska z ustawieniami opisanymi powyżej.](./media/workbooks-composite-bar/tiles-settings.png)
 
 Widok paska złożonego dla kafelków z powyższymi ustawieniami będzie wyglądać następująco:
 
@@ -157,7 +157,7 @@ Aby wykonać renderowanie złożonego paska dla wizualizacji wykresów (wpisz kl
 
 1. Wybierz pozycję **Dodaj** i *Dodaj zapytanie*.
 2. Zmień źródło danych na JSON, wprowadzając dane z [poprzedniego przykładu](#adding-composite-bar-renderer).
-3. Zmień wizualizację na *kafelki*.
+3. Zmień wizualizację na *grafy*.
 4. Uruchom zapytanie.
 5. Wybierz pozycję **Ustawienia grafu**.
 6. Wybierz pozycję *Wyśrodkuj zawartość* w ustawieniach formatu węzła.
@@ -166,7 +166,7 @@ Aby wykonać renderowanie złożonego paska dla wizualizacji wykresów (wpisz kl
     2. Renderowanie kolumn: "pasek złożony".
     3. Wprowadź następujące ustawienia w obszarze *Ustawienia paska złożonego*.
 
-    |Nazwa kolumny  |     Color (Kolor)    |
+    |Nazwa kolumny  |     Kolor    |
     |-------------|--------------|
     | online      | Green (Zielony)        |
     | odzyskiwania  | Yellow       |

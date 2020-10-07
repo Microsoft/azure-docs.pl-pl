@@ -1,6 +1,6 @@
 ---
-title: Prognoza pogody przy użyciu Azure Machine Learning z danymi IoT Hub
-description: Użyj Azure Machine Learning, aby przewidzieć prawdopodobieństwo oddeszczu w oparciu o dane dotyczące temperatury i wilgotności, które Centrum IoT zbiera z czujnika.
+title: Prognoza pogody przy użyciu Azure Machine Learning Studio (klasyczny) z danymi IoT Hub
+description: Użyj Azure Machine Learning Studio (klasyczny) do przewidywania prawdopodobieństwa oddeszczu na podstawie danych temperatury i wilgotności, które Centrum IoT zbiera z czujnika.
 author: robinsh
 manager: philmea
 keywords: Prognoza pogody — Uczenie maszynowe
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290923"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777160"
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning
+# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning Studio (klasyczny)
 
 ![Diagram kompleksowy](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Uczenie maszynowe to technika analizy danych, która ułatwia komputerom uczenie się na podstawie istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów. Usługa Azure Machine Learning to oparta na chmurze usługa analizy predykcyjnej, która pozwala na szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych.
+Uczenie maszynowe to technika analizy danych, która ułatwia komputerom uczenie się na podstawie istniejących danych w celu przewidywania przyszłych zachowań, rezultatów i trendów. Azure Machine Learning Studio (klasyczny) to usługa analizy predykcyjnej w chmurze, która umożliwia szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych.
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
-Dowiesz się, jak używać Azure Machine Learning do prognozowania pogody (szansa deszczu) przy użyciu danych temperatury i wilgotności z usługi Azure IoT Hub. Szansa deszczu to wyjście przygotowanego modelu przewidywania pogody. Model jest tworzony na podstawie historycznych danych w celu przewidywania szans oddeszczu na podstawie temperatury i wilgotności.
+Dowiesz się, jak używać Azure Machine Learning Studio (klasyczny) do prognozowania pogody (szansa deszczu) przy użyciu danych temperatury i wilgotności z usługi Azure IoT Hub. Szansa deszczu to wyjście przygotowanego modelu przewidywania pogody. Model jest tworzony na podstawie historycznych danych w celu przewidywania szans oddeszczu na podstawie temperatury i wilgotności.
 
 ## <a name="what-you-do"></a>Co robisz
 
@@ -49,7 +49,7 @@ Dowiesz się, jak używać Azure Machine Learning do prognozowania pogody (szans
 - Konto [usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), preferowane jest konto **ogólnego przeznaczenia w wersji 2** , ale będzie również można korzystać z dowolnego konta usługi Azure Storage, które obsługuje usługę Azure Blob Storage.
 
 > [!Note]
-> W tym artykule są wykorzystywane Azure Stream Analytics i kilka innych płatnych usług. Dodatkowe opłaty są naliczane w Azure Stream Analytics, gdy dane muszą być transferowane w regionach platformy Azure. Z tego powodu warto upewnić się, że grupa zasobów, IoT Hub i konto usługi Azure Storage — a także obszar roboczy Machine Learning Studio (klasyczny) i zadanie Azure Stream Analytics dodane w dalszej części tego samouczka — znajdują się w tym samym regionie świadczenia usługi Azure. Obsługę regionalną dla Azure Machine Learning Studio i innych usług platformy Azure można sprawdzić na [stronie Dostępność produktów na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
+> W tym artykule są wykorzystywane Azure Stream Analytics i kilka innych płatnych usług. Dodatkowe opłaty są naliczane w Azure Stream Analytics, gdy dane muszą być transferowane w regionach platformy Azure. Z tego powodu warto upewnić się, że grupa zasobów, IoT Hub i konto usługi Azure Storage — a także obszar roboczy Machine Learning Studio (klasyczny) i zadanie Azure Stream Analytics dodane w dalszej części tego samouczka — znajdują się w tym samym regionie świadczenia usługi Azure. Obsługę regionalną Azure Machine Learning Studio (klasycznej) i innych usług platformy Azure można sprawdzić na [stronie Dostępność produktów na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Wdrażanie modelu przewidywania pogody jako usługi sieci Web
 
@@ -71,7 +71,7 @@ W tej sekcji uzyskasz model prognozowania pogody z Azure AI Gallery i otworzyć 
 
 Aby model działał prawidłowo, dane temperatury i wilgotności muszą być konwertowane na dane liczbowe. W tej sekcji dodasz moduł języka R do modelu przewidywania pogody, który usuwa wszystkie wiersze, które mają wartości danych dla temperatury lub wilgotności, których nie można przekonwertować na wartości liczbowe.
 
-1. Po lewej stronie okna Azure Machine Learning Studio wybierz strzałkę, aby rozwinąć panel Narzędzia. Wprowadź ciąg "Execute" w polu wyszukiwania. Wybierz moduł **wykonywania skryptu języka R** .
+1. Po lewej stronie okna Azure Machine Learning Studio (klasyczne) wybierz strzałkę, aby rozwinąć panel Narzędzia. Wprowadź ciąg "Execute" w polu wyszukiwania. Wybierz moduł **wykonywania skryptu języka R** .
 
    ![Wybierz pozycję wykonaj moduł skryptu języka R](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -148,7 +148,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -246,10 +246,10 @@ Uruchom aplikację kliencką, aby rozpocząć zbieranie i wysyłanie danych doty
 1. Wybierz swoją subskrypcję > **konta magazynu** > Twoje konto magazynu > **kontenery obiektów BLOB** > kontenera.
 1. Pobierz plik CSV, aby zobaczyć wynik. Ostatnia kolumna rejestruje szansę deszczu.
 
-   ![Pobierz wynik prognozy pogody przy użyciu Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![Pobierz wynik prognozy pogody przy użyciu Azure Machine Learning Studio (klasyczny)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Podsumowanie
 
-Pomyślnie użyto Azure Machine Learning do wygenerowania szansy deszczu na podstawie danych temperatury i wilgotności odbieranych przez Centrum IoT.
+Pomyślnie użyto Azure Machine Learning Studio (klasycznego) w celu wygenerowania szansy deszczu na podstawie danych dotyczących temperatury i wilgotności odbieranych przez Centrum IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

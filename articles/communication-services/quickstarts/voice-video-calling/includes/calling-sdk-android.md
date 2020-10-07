@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376647"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779647"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +48,7 @@ Następnie w kompilacji na poziomie modułu. Gradle Dodaj następujące wiersze 
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 
@@ -109,7 +109,7 @@ Context appContext = this.getApplicationContext();
 Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Umieść wywołanie 1:1 z kamerą wideo
+### <a name="place-a-11-call-with-video-camera"></a>Umieszczanie wywołania 1:1 z kamerą wideo
 > [!WARNING]
 > Obecnie tylko jeden wychodzący lokalny strumień wideo jest obsługiwany w przypadku wywołania z filmem wideo, aby wyliczyć aparaty lokalne przy użyciu `deviceManager` `getCameraList` interfejsu API.
 Po wybraniu odpowiedniego aparatu Użyj go, aby skonstruować `LocalVideoStream` wystąpienie i przekazać je do `videoOptions` jako element w `localVideoStream` tablicy do `call` metody.
@@ -136,17 +136,17 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
-## <a name="push-notification"></a>Powiadomienie wypychane
+## <a name="push-notifications"></a>Powiadomienia wypychane
 
 ### <a name="overview"></a>Omówienie
-Mobilne powiadomienia wypychane to powiadomienie wyskakujące odbierane na urządzeniu przenośnym. W przypadku wywoływania funkcji będziemy koncentrować się na powiadomieniach wypychanych (Voice over Internet Protocol). Firma Microsoft oferuje możliwość rejestrowania powiadomień wypychanych, obsługi powiadomień wypychanych i wyrejestrowywania powiadomień wypychanych.
+Mobilne powiadomienia wypychane są wyskakującymi powiadomieniami wyświetlanymi na urządzeniach przenośnych. W przypadku wywoływania usługi będziemy koncentrować się na powiadomieniach wypychanych (Voice over Internet Protocol). Będziemy rejestrować powiadomienia wypychane, obsługiwać powiadomienia wypychane, a następnie wycofać rejestrację powiadomień wypychanych.
 
-### <a name="prerequisite"></a>Wymaganie wstępne
+### <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przyjęto, że masz Firebase konfigurację konta z włączoną obsługą usługi Cloud Messaging (FCM), a obsługa komunikatów w chmurze Firebase jest połączona z wystąpieniem centrum powiadomień platformy Azure (ANH). Zobacz [łączenie Firebase z platformą Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) , aby uzyskać więcej informacji na ten temat.
-Ponadto w samouczku założono, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
+Aby ukończyć tę sekcję, Utwórz konto Firebase i Włącz obsługę komunikatów w chmurze (FCM). Upewnij się, że obsługa komunikatów w chmurze Firebase jest połączona z wystąpieniem usługi Azure Notification Hub (ANH). Aby uzyskać instrukcje [, zobacz Łączenie Firebase z platformą Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
+W tej sekcji przyjęto również założenie, że używasz Android Studio w wersji 3,6 lub nowszej do kompilowania aplikacji.
 
-Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać powiadomienia o komunikatach z FCM. W pliku AndroidManifest.xml Dodaj następujący zestaw uprawnień bezpośrednio po * manifeście<... >* lub poniżej *</application>* tagu
+Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było odbierać komunikaty powiadomień z usługi Firebase Cloud Messaging. W `AndroidManifest.xml` pliku Dodaj następujący zestaw uprawnień bezpośrednio po * manifeście<... >* lub poniżej *</application>* tagu
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -154,39 +154,41 @@ Zestaw uprawnień jest wymagany dla aplikacji systemu Android, aby można było 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### <a name="register-for-push-notification"></a>Rejestrowanie powiadomień wypychanych
+### <a name="register-for-push-notifications"></a>Zarejestruj się w celu otrzymywania powiadomień wypychanych
 
-- Aby można było zarejestrować się na potrzeby powiadomień wypychanych, aplikacja musi wywołać registerPushNotification () w wystąpieniu *CallAgent* z tokenem rejestracji urządzeń.
+Aby zarejestrować się w celu otrzymywania powiadomień wypychanych, aplikacja musi wywołać `registerPushNotification()` wystąpienie *CallAgent* z tokenem rejestracji urządzenia.
 
-- Jak uzyskać token rejestracji urządzeń
-1. Upewnij się, że dodano bibliotekę kliencką Firebase do pliku *Build. Gradle* modułu aplikacji, dodając następujące wiersze w sekcji *zależności* , jeśli jeszcze tego nie zrobiono:
+Aby uzyskać token rejestracji urządzenia, dodaj bibliotekę kliencką Firebase do pliku *Build. Gradle* modułu aplikacji, dodając następujące wiersze w sekcji, jeśli jeszcze `dependencies` tego nie zrobiono:
+
 ```
     // Add the client library for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-2. W pliku *Build. Gradle* na poziomie projektu Dodaj następujące elementy w sekcji *zależności* , jeśli jeszcze nie zostało to zrobione.
+W pliku *Build. Gradle* poziomu projektu Dodaj następujące polecenie w sekcji, jeśli jeszcze `dependencies` nie zostało to zrobione:
+
 ```
     classpath 'com.google.gms:google-services:4.3.3'
 ```
 
-3. Dodaj następującą wtyczkę na początku pliku, jeśli jeszcze nie istnieje
+Dodaj następującą wtyczkę na początku pliku, jeśli jeszcze jej nie ma:
+
 ```
 apply plugin: 'com.google.gms.google-services'
 ```
 
-4. Wybierz pozycję *Synchronizuj teraz* na pasku narzędzi
+Na pasku narzędzi wybierz pozycję *Synchronizuj teraz* . Dodaj następujący fragment kodu, aby uzyskać token rejestracji urządzenia wygenerowany przez bibliotekę klienta usługi Firebase Cloud Messaging dla wystąpienia aplikacji klienta, pamiętaj, aby dodać poniższe elementy Import do nagłówka głównego działania wystąpienia. Są one wymagane do pobrania tokenu dla fragmentu kodu:
 
-5. Dodaj następujący fragment kodu, aby uzyskać token rejestracji urządzenia wygenerowany przez bibliotekę kliencką FCM dla wystąpienia aplikacji klienta 
-- Dodaj te Importy do nagłówka głównego działania wystąpienia. Są one wymagane do pobrania tokenu przez fragment kodu
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 ```
-- Dodaj ten fragment kodu, aby pobrać token
+
+Dodaj ten fragment kodu, aby pobrać token:
+
 ```
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -204,7 +206,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-6. Zarejestruj token rejestracji urządzenia z biblioteką klienta usługi wywołującej dla wywołań przychodzących powiadomień wypychanych
+Zarejestruj token rejestracji urządzenia z biblioteką klienta usługi wywołującej dla przychodzących powiadomień wypychanych:
 
 ```java
 String deviceRegistrationToken = "some_token";
@@ -218,10 +220,9 @@ catch(Exception e) {
 
 ### <a name="push-notification-handling"></a>Obsługa powiadomień wypychanych
 
-- Aby odbierać przychodzące powiadomienia wypychane, wywołaj *handlePushNotification ()* w wystąpieniu *CallAgent* z ładunkiem.
+Aby odbierać przychodzące powiadomienia wypychane, wywołaj *handlePushNotification ()* w wystąpieniu *CallAgent* z ładunkiem.
 
-1. Aby uzyskać ładunek z FCM, należy wykonać następujące czynności:
-- Utwórz nową usługę (plik > nową usługę > usługi >), która rozszerza klasę *FirebaseMessagingService* Firebase Client Library i pamiętaj, aby zastąpić metodę *onMessageReceived* . Ta metoda jest procedura obsługi zdarzeń wywołana, gdy FCM dostarcza powiadomienia wypychane do aplikacji.
+Aby uzyskać ładunek z usługi Firebase Cloud Messaging, Zacznij od utworzenia nowej usługi (plik > nowej usługi > usługi >), która rozszerza klasę *FirebaseMessagingService* Firebase i zastąpi `onMessageReceived` metodę. Ta metoda jest procedura obsługi zdarzeń wywoływana, gdy usługa Firebase Cloud Messaging dostarcza powiadomienia wypychane do aplikacji.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -239,7 +240,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-- Dodaj również następującą definicję usługi do pliku AndroidManifest.xml, wewnątrz <application> znacznika.
+Dodaj następującą definicję usługi do `AndroidManifest.xml` pliku, wewnątrz <application> tagu:
 
 ```
         <service
@@ -251,7 +252,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- Po pobraniu ładunku można go przesłać do biblioteki klienta *usług komunikacyjnych* , aby można było je obsługiwać, wywołując metodę *HandlePushNotification* w wystąpieniu *CallAgent* .
+Po pobraniu ładunku można go przesłać do biblioteki klienta usług komunikacyjnych w celu obsługi przez wywołanie `handlePushNotification` metody w `CallAgent` wystąpieniu.
 
 ```java
 java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
@@ -262,11 +263,12 @@ catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
 }
 ```
+
 Po pomyślnym zarejestrowaniu komunikatu o błędzie powiadomień wypychanych, a programy obsługi wszystkich zdarzeń są zarejestrowane prawidłowo, aplikacja zostanie przekazana.
 
-### <a name="unregister-push-notification"></a>Wyrejestruj Powiadomienie wypychane
+### <a name="unregister-push-notifications"></a>Wyrejestrowywanie powiadomień wypychanych
 
-- Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Wywołaj `unregisterPushNotification()` metodę w callAgent, aby wyrejestrować.
+Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Wywołaj `unregisterPushNotification()` metodę w callAgent, aby wyrejestrować.
 
 ```java
 try {
@@ -281,25 +283,31 @@ catch(Exception e) {
 Można uzyskać dostęp do właściwości wywołania i wykonać różne operacje w trakcie wywołania zarządzania ustawieniami związanymi z wideo i dźwiękiem.
 
 ### <a name="call-properties"></a>Właściwości wywołania
-* Pobierz unikatowy identyfikator dla tego wywołania.
+
+Pobierz unikatowy identyfikator dla tego wywołania:
+
 ```java
 String callId = call.getCallId();
 ```
 
-* Aby dowiedzieć się więcej na temat innych uczestników w kolekcji wywołania inspekcji `remoteParticipant` dla `call` wystąpienia:
+Aby dowiedzieć się więcej na temat innych uczestników w kolekcji wywołania inspekcji `remoteParticipant` dla `call` wystąpienia:
+
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 ```
 
-* Tożsamość obiektu wywołującego, jeśli wywołanie jest przychodzące.
+Tożsamość obiektu wywołującego, jeśli wywołanie jest przychodzące:
+
 ```java
 CommunicationIdentifier callerId = call.getCallerId();
 ```
 
-* Pobierz stan wywołania.
+Pobierz stan wywołania: 
+
 ```java
 CallState callState = call.getState();
 ```
+
 Zwraca ciąg reprezentujący bieżący stan wywołania:
 * "Brak" — stan wywołania początkowego
 * "Przychodzące" — wskazuje, że wywołanie jest przychodzące, musi zostać zaakceptowane lub odrzucone
@@ -312,39 +320,45 @@ Zwraca ciąg reprezentujący bieżący stan wywołania:
 * "Rozłączono" — stan końcowy wywołania
 
 
-* Aby dowiedzieć się, dlaczego wywołanie zostało zakończone, zbadaj `callEndReason` Właściwość.
-Zawiera kod/podkod (link do zrobienia do dokumentacji)
+Aby dowiedzieć się, dlaczego wywołanie zostało zakończone, zbadaj `callEndReason` Właściwość. Zawiera kod/podkod: 
+
 ```java
 CallEndReason callEndReason = call.getCallEndReason();
 int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-* Aby sprawdzić, czy bieżące wywołanie jest wywołaniem przychodzącym, zbadaj `isIncoming` Właściwość:
+Aby sprawdzić, czy bieżące wywołanie jest wywołaniem przychodzącym, zbadaj `isIncoming` Właściwość:
+
 ```java
 boolean isIncoming = call.getIsIncoming();
 ```
 
-*  Aby sprawdzić, czy bieżący mikrofon jest wyciszony, sprawdź `muted` Właściwość:
+Aby sprawdzić, czy bieżący mikrofon jest wyciszony, sprawdź `muted` Właściwość:
+
 ```java
 boolean muted = call.getIsMicrophoneMuted();
 ```
 
-* Aby sprawdzić aktywne strumienie wideo, zapoznaj się z `localVideoStreams` kolekcją:
+Aby sprawdzić aktywne strumienie wideo, zapoznaj się z `localVideoStreams` kolekcją:
+
 ```java
 List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 ```
 
 ### <a name="mute-and-unmute"></a>Wycisz i Wycisz
+
 Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `unmute` asynchronicznych interfejsów API:
+
 ```java
 call.mute().get();
 call.unmute().get();
 ```
 
 ### <a name="start-and-stop-sending-local-video"></a>Uruchamianie i zatrzymywanie wysyłania lokalnego wideo
-Aby uruchomić wideo, należy wyliczyć aparaty fotograficzne przy użyciu `getCameraList` interfejsu API w `deviceManager` obiekcie.
-Następnie utwórz nowe wystąpienie `LocalVideoStream` przekazujące żądany aparat i przekaż je w `startVideo` interfejsie API jako argument
+
+Aby uruchomić wideo, należy wyliczyć aparaty fotograficzne przy użyciu `getCameraList` interfejsu API w `deviceManager` obiekcie. Następnie utwórz nowe wystąpienie `LocalVideoStream` przekazujące żądany aparat i przekaż je w `startVideo` interfejsie API jako argument:
+
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
@@ -355,11 +369,13 @@ startVideoFuture.get();
 ```
 
 Po pomyślnym rozpoczęciu wysyłania wideo `LocalVideoStream` wystąpienie zostanie dodane do `localVideoStreams` kolekcji w wystąpieniu wywołania.
+
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
 Aby zatrzymać lokalne wideo, Przekaż `localVideoStream` wystąpienie dostępne w `localVideoStreams` kolekcji:
+
 ```java
 call.stopVideo(localVideoStream).get();
 ```
@@ -383,7 +399,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [r
 Każdy uczestnik zdalny ma skojarzoną z nim zestaw właściwości i kolekcji:
 
 * Pobierz identyfikator dla tego uczestnika zdalnego.
-Tożsamość to jeden z typów identyfikatora
+Tożsamość jest jednym z typów identyfikatora
 ```java
 CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
@@ -452,7 +468,9 @@ MediaStreamType streamType = remoteParticipantStream.getType(); // of type Media
 ```
  
 Aby renderować `RemoteVideoStream` z uczestnika zdalnego, musisz subskrybować `OnVideoStreamsUpdated` wydarzenie.
-W przypadku zmiany `isAvailable` właściwości na wartość true wskazuje, że uczestnik zdalny aktualnie wysyła strumień, a następnie tworzy nowe wystąpienie `Renderer` , a następnie tworzy nowe `RendererView` za pomocą asynchronicznego `createView` interfejsu API i dołączaj `view.target` w dowolnym miejscu interfejsu użytkownika aplikacji.
+
+W przypadku zmiany `isAvailable` właściwości na wartość true wskazuje, że uczestnik zdalny aktualnie wysyła strumień. Po wykonaniu tej czynności Utwórz nowe wystąpienie klasy `Renderer` , a następnie utwórz nowe `RendererView` przy użyciu asynchronicznego `createView` interfejsu API i Dołącz `view.target` dowolne miejsce w interfejsie użytkownika aplikacji.
+
 Zawsze, gdy jest dostępna zmiana strumienia zdalnego, można wybrać opcję zniszczenia całego modułu renderowania, określonych `RendererView` lub zachowywania, ale spowoduje to wyświetlenie pustej ramki wideo.
 
 ```java

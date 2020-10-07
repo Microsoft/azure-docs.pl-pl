@@ -1,15 +1,17 @@
 ---
 title: Zasugerowane pytania w usłudze Active Learning — QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: bd90ea3cd73fcd6a545d925e3897c6053184d98c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321020"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776497"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -142,7 +144,7 @@ Treść JSON ma kilka ustawień:
 |--|--|--|--|
 |`feedbackRecords`|array|Lista opinii.|
 |`userId`|ciąg|Identyfikator użytkownika osoby akceptującej sugerowane pytania. Format identyfikatora użytkownika jest aktualny. Na przykład adres e-mail może być prawidłowym IDENTYFIKATORem użytkownika w danej architekturze. Opcjonalny.|
-|`userQuestion`|ciąg|Dokładny tekst zapytania użytkownika. Wymagany.|
+|`userQuestion`|ciąg|Dokładny tekst zapytania użytkownika. Wymagane.|
 |`qnaID`|liczba|Identyfikator pytania znaleziony w [odpowiedzi GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Przykładowa treść JSON wygląda następująco:

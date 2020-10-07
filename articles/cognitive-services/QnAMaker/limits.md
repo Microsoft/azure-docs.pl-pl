@@ -1,14 +1,16 @@
 ---
 title: Limity i granice — QnA Maker
 description: QnA Maker ma limity meta dla części bazy wiedzy i usługi. Ważne jest, aby zachować bazę wiedzy w ramach tych limitów w celu testowania i publikowania.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524441"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776259"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
 
@@ -32,8 +34,8 @@ Nazwy plików nie mogą zawierać następujących znaków:
 
 |Nie używaj znaku|
 |--|
-|Pojedynczy cytat`'`|
-|Podwójny cudzysłów`"`|
+|Pojedynczy cytat `'`|
+|Podwójny cudzysłów `"`|
 
 ### <a name="maximum-file-size"></a>Maksymalna wielkość pliku
 
@@ -71,8 +73,8 @@ W poniższej tabeli wymieniono długość i dopuszczalne znaki nazwy i wartości
 
 |Element|Dozwolone znaki|Dopasowanie wzorca wyrażenia regularnego|Maks. liczba znaków|
 |--|--|--|--|
-|Nazwa (klucz)|Udostępnia<br>alfanumeryczne (litery i cyfry)<br>`_`podkreślenia<br> Nie może zawierać spacji.|`^[a-zA-Z0-9_]+$`|100|
-|Wartość|Zezwala na wszystko z wyjątkiem<br>`:`średnikami<br>`|`(potok pionowy)<br>Dozwolona jest tylko jedna wartość.|`^[^:|]+$`|500|
+|Nazwa (klucz)|Udostępnia<br>alfanumeryczne (litery i cyfry)<br>`_` podkreślenia<br> Nie może zawierać spacji.|`^[a-zA-Z0-9_]+$`|100|
+|Wartość|Zezwala na wszystko z wyjątkiem<br>`:` średnikami<br>`|` (potok pionowy)<br>Dozwolona jest tylko jedna wartość.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limity zawartości bazy wiedzy
@@ -81,8 +83,8 @@ Ogólne limity zawartości w bazie wiedzy:
 * Długość tekstu pytania: 1 000
 * Długość tekstu klucza metadanych: 100
 * Długość tekstu wartości metadanych: 500
-* Obsługiwane znaki dla nazwy metadanych: alfabety, cyfry i`_`
-* Obsługiwane znaki dla wartości metadanych: wszystkie oprócz `:` i`|`
+* Obsługiwane znaki dla nazwy metadanych: alfabety, cyfry i `_`
+* Obsługiwane znaki dla wartości metadanych: wszystkie oprócz `:` i `|`
 * Długość nazwy pliku: 200
 * Obsługiwane formaty plików: ". tsv", "PDF", ". txt", "docx", "xlsx".
 * Maksymalna liczba pytań alternatywnych: 300

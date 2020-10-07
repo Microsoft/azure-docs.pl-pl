@@ -1,14 +1,16 @@
 ---
 title: Rozwiązywanie problemów — Personalizacja
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące narzędzia do rozwiązywania problemów dotyczących narzędzia Personalizacja.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
-ms.openlocfilehash: 55b9068dbd7bfbb3ea3972c3381fda6d9cde5076
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126112"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777279"
 ---
 # <a name="personalizer-troubleshooting"></a>Rozwiązywanie problemów z narzędziem Personalizacja
 

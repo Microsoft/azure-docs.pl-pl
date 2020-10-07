@@ -1,14 +1,16 @@
 ---
 title: Wytyczne dotyczące formatu dokumentu importowania — QnA Maker
 description: Skorzystaj z tych wytycznych dotyczących importowania dokumentów, aby uzyskać najlepsze wyniki dla zawartości.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530781"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776735"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Wskazówki dotyczące formatu dla zaimportowanych dokumentów i adresów URL
 
@@ -99,7 +101,7 @@ Po zaimportowaniu pliku para pytań i odpowiedzi znajduje się w bazie wiedzy, j
 
 Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import wymaga pliku ze strukturą. tsv, który zawiera informacje o źródle danych. Te informacje pomagają w QnA Maker zgrupować pary odpowiedzi i atrybutów do określonego źródła danych.
 
-| Pytanie  | Odpowiedź  | Element źródłowy| Metadane (1 klucz: 1 wartość) |
+| Pytanie  | Odpowiedź  | Źródło| Metadane (1 klucz: 1 wartość) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Dobra|    `Key:Value`       |

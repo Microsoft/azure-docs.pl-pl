@@ -1,14 +1,16 @@
 ---
 title: Baza wiedzy o projekcie QnA Maker
 description: Baza wiedzy QnA Maker składa się z zestawu par pytań i odpowiedzi (QnA) oraz opcjonalnych metadanych skojarzonych z poszczególnymi parami QnA.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 1f5bd07a465c3d27dffe54eb853330a952be0d59
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762486"
+ms.locfileid: "91776225"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Pojęcia dotyczące pary pytań i odpowiedzi
 

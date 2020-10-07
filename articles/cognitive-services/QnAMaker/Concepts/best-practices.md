@@ -1,14 +1,16 @@
 ---
 title: Najlepsze rozwiązania — QnA Maker
 description: Skorzystaj z tych najlepszych rozwiązań, aby ulepszyć bazę wiedzy i zapewnić lepsze wyniki dla użytkowników końcowych aplikacji/rozmowy z bot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053132"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777024"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -35,11 +37,11 @@ Dodaj dowolną liczbę pytań alternatywnych, ale zachowuj proste zmiany. Dodani
 
 ### <a name="add-relevant-alternative-questions"></a>Dodawanie istotnych pytań alternatywnych
 
-Użytkownik może wprowadzać pytania z stylem konwersacji tekstowej lub wyszukiwaniem słów `How do I add a toner cartridge to my printer?` kluczowych, takich jak `toner cartridge`. Baza wiedzy powinna mieć oba style pytań, aby prawidłowo zwrócić najlepszą odpowiedź. Jeśli nie masz pewności, jakie słowa kluczowe są wprowadzane przez klienta, użyj Application Insights danych do analizowania zapytań.
+Użytkownik może wprowadzać pytania z stylem konwersacji tekstowej `How do I add a toner cartridge to my printer?` lub wyszukiwaniem słów kluczowych, takich jak `toner cartridge` . Baza wiedzy powinna mieć oba style pytań, aby prawidłowo zwrócić najlepszą odpowiedź. Jeśli nie masz pewności, jakie słowa kluczowe są wprowadzane przez klienta, użyj Application Insights danych do analizowania zapytań.
 
 ### <a name="good-answers"></a>Dobre odpowiedzi
 
-Najlepszym odpowiedziami są proste odpowiedzi, ale nie są one zbyt proste. Nie należy używać odpowiedzi, takich `yes` jak `no`i. Jeśli odpowiedź powinna łączyć się z innymi źródłami lub zapewniać bogate środowisko z nośnikami i łączami, należy użyć [tagowania metadanych](../how-to/edit-knowledge-base.md#add-metadata) do rozróżnienia między odpowiedziami, a `strictFilters` następnie [przesłać zapytanie](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) ze znacznikiem metadanych we właściwości, aby uzyskać poprawną wersję odpowiedzi.
+Najlepszym odpowiedziami są proste odpowiedzi, ale nie są one zbyt proste. Nie należy używać odpowiedzi, takich jak `yes` i `no` . Jeśli odpowiedź powinna łączyć się z innymi źródłami lub zapewniać bogate środowisko z nośnikami i łączami, należy użyć [tagowania metadanych](../how-to/edit-knowledge-base.md#add-metadata) do rozróżnienia między odpowiedziami, a następnie [przesłać zapytanie](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) ze znacznikiem metadanych we `strictFilters` właściwości, aby uzyskać poprawną wersję odpowiedzi.
 
 |Odpowiedź|Follup|
 |--|--|
@@ -54,7 +56,7 @@ Chit — rozmowa jest obsługiwana w [wielu językach](../how-to/chit-chat-knowl
 ### <a name="choosing-a-personality"></a>Wybór charakteru
 Chit — rozmowa jest obsługiwana w przypadku kilku wstępnie zdefiniowanych funkcji osobistych:
 
-|Osobowości |Plik zestawu danych QnA Maker |
+|Osobowość |Plik zestawu danych QnA Maker |
 |---------|-----|
 |Professional Edition |[qna_chitchat_professional. tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |Wyświetlana |[qna_chitchat_friendly. tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
@@ -77,7 +79,7 @@ Zalecamy, aby następujące Chit — czat bazami bardziej szczegółowy:
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Dodawanie niestandardowego Chit-Chat ze znacznikiem metadanych
 
-Jeśli dodasz własne pary Chit-Chat QnA, pamiętaj o dodaniu metadanych, aby zostały zwrócone te odpowiedzi. Para nazwa/wartość metadanych to `editorial:chitchat`.
+Jeśli dodasz własne pary Chit-Chat QnA, pamiętaj o dodaniu metadanych, aby zostały zwrócone te odpowiedzi. Para nazwa/wartość metadanych to `editorial:chitchat` .
 
 ## <a name="searching-for-answers"></a>Wyszukiwanie odpowiedzi
 
@@ -97,12 +99,12 @@ Upewnij się, że masz najlepsze użycie funkcji rankingu QnA Maker obsługiwane
 Domyślny [wynik zaufania](confidence-score.md) używany jako próg to 0, jednak można [zmienić próg](confidence-score.md#set-threshold) dla bazy wiedzy w zależności od potrzeb. Ponieważ każda KB różni się od siebie, należy przetestować i wybrać próg, który jest najlepiej dostosowany do Twojej bazy wiedzy.
 
 ### <a name="choosing-ranker-type"></a>Wybieranie typu rangi
-Domyślnie QnA Maker przeszukuje pytania i odpowiedzi. Jeśli chcesz wyszukać tylko pytania, aby wygenerować odpowiedź, użyj wpisu `RankerType=QuestionOnly` w treści post żądania GenerateAnswer.
+Domyślnie QnA Maker przeszukuje pytania i odpowiedzi. Jeśli chcesz wyszukać tylko pytania, aby wygenerować odpowiedź, użyj `RankerType=QuestionOnly` wpisu w treści post żądania GenerateAnswer.
 
 ### <a name="add-alternate-questions"></a>Dodaj alternatywne pytania
 [Alternatywne pytania](../How-To/edit-knowledge-base.md) zwiększają prawdopodobieństwo dopasowania do zapytania użytkownika. Pytania alternatywne są przydatne w przypadku, gdy istnieje wiele sposobów, w których może zostać wyświetlony monit. Może to obejmować zmiany ze strukturą zdania i stylem wyrazu.
 
-|Oryginalne zapytanie|Zapytania alternatywne|Change|
+|Oryginalne zapytanie|Zapytania alternatywne|Zmiana|
 |--|--|--|
 |Czy parking jest dostępny?|Czy masz zaparkowane samochodu?|Struktura zdania|
  |Cześć|Yo<br>Hej tam!|styl Word lub żargonu|
@@ -130,7 +132,7 @@ Na przykład możesz mieć dwa osobne bazami z następującymi pytaniami:
 |gdzie jest *Lokalizacja* parkingów|
 |gdzie jest *Lokalizacja* ATM|
 
-Ponieważ te dwa bazami są oznaczane podobnymi wyrazami, taka podobieństwo może spowodować bardzo podobne wyniki dla wielu zapytań użytkowników, których frazy są podobne do *"gdzie `<x>` jest lokalizacją"*. Zamiast tego spróbuj wyraźnie odróżnić się od zapytań, takich jak *"gdzie jest to parkingi"* i *"gdzie jest ATM"*, unikając słów takich jak "lokalizacja", które mogą mieć wiele pytań w KB.
+Ponieważ te dwa bazami są oznaczane podobnymi wyrazami, taka podobieństwo może spowodować bardzo podobne wyniki dla wielu zapytań użytkowników, których frazy są podobne do  *"gdzie jest `<x>` lokalizacją"*. Zamiast tego spróbuj wyraźnie odróżnić się od zapytań, takich jak  *"gdzie jest to parkingi"* i *"gdzie jest ATM"*, unikając słów takich jak "lokalizacja", które mogą mieć wiele pytań w KB.
 
 ## <a name="collaborate"></a>Współpraca
 QnA Maker umożliwia użytkownikom [współpracę](../How-to/collaborate-knowledge-base.md) w bazie wiedzy. Aby uzyskać dostęp do baz wiedzy, użytkownicy muszą mieć dostęp do grupy zasobów usługi Azure QnA Maker. Niektóre organizacje mogą chcieć uzyskać informacje o edycji i obsłudze bazy wiedzy oraz nadal mieć możliwość ochrony dostępu do zasobów platformy Azure. Ten model zatwierdzania przez Edytor jest wykonywany przez skonfigurowanie dwóch identycznych [usług QNA Maker](../How-to/set-up-qnamaker-service-azure.md) w różnych subskrypcjach i wybranie jednej z nich dla cyklu edycji. Po zakończeniu testowania zawartość bazy wiedzy zostanie przetransferowana z procesem [importu eksportu](../Tutorials/migrate-knowledge-base.md) do usługi QNA Maker osoby zatwierdzającej, która ostatecznie opublikuje bazę wiedzy i zaktualizuje punkt końcowy.

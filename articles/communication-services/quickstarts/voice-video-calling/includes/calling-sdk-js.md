@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376315"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779318"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -72,9 +72,9 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Umieszczenie 1: n połączenia z użytkownikami i PSTN
-> [!WARNING]
-> Wywołanie PSTN jest obecnie w prywatnej wersji zapoznawczej. Aby uzyskać dostęp, [Zastosuj do programu wczesnego przyjmowanego oprogramowania](https://aka.ms/ACS-EarlyAdopter).
+
 Aby umieścić połączenie 1: n z użytkownikiem i numerem sieci PSTN, należy określić CommunicationUser i numer telefonu dla obu wywoływane.
+
 Zasób usług komunikacyjnych musi być skonfigurowany tak, aby zezwalał na nawiązywanie połączeń PSTN.
 ```js
 

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: d6635696422c22dfdb4250516a9c3dfc8c577e12
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619886"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777075"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -126,7 +126,7 @@ Aby ten test był praktyczny, program rozpoznaje parametr środowiska uruchomien
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection dla ponowienia połączenia
 
-Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection**, użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było używać funkcji ponawiania połączeń. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Tę stronę sieci Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection**, użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było używać funkcji ponawiania połączeń. Aby uzyskać więcej informacji na temat funkcji, zobacz [Właściwość SqlConnection. ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -278,8 +278,8 @@ Poniżej przedstawiono niektóre instrukcje SELECT języka Transact-SQL, które 
 
 | Zapytanie o dziennik | Opis |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Widok [sys. event_log](https://msdn.microsoft.com/library/dn270018.aspx) zawiera informacje o poszczególnych zdarzeniach, które mogą spowodować błędy przejściowe lub błędy łączności.<br/><br/>W idealnym przypadku można skorelować wartości **start_time** lub **end_time** z informacjami o tym, kiedy program kliencki napotkał problemy.<br/><br/>Musisz nawiązać połączenie z bazą danych *Master* , aby uruchomić to zapytanie. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Widok [sys. database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferuje zagregowane liczby typów zdarzeń na potrzeby dodatkowej diagnostyki.<br/><br/>Musisz nawiązać połączenie z bazą danych *Master* , aby uruchomić to zapytanie. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Widok [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) zawiera informacje dotyczące poszczególnych zdarzeń, w tym niektóre, które mogą spowodować błędy przejściowe lub błędy łączności.<br/><br/>W idealnym przypadku można skorelować wartości **start_time** lub **end_time** z informacjami o tym, kiedy program kliencki napotkał problemy.<br/><br/>Musisz nawiązać połączenie z bazą danych *Master* , aby uruchomić to zapytanie. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Widok [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferuje zagregowane liczby typów zdarzeń do dodatkowej diagnostyki.<br/><br/>Musisz nawiązać połączenie z bazą danych *Master* , aby uruchomić to zapytanie. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -312,7 +312,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Kilka zwracanych wierszy z tabeli sys. fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>Kilka zwracanych wierszy z sys.fn_xe_telemetry_blob_target_read_file
 
 Poniższy przykład pokazuje, jak może wyglądać zwrócony wiersz. Wyświetlane wartości null często nie mają wartości null w innych wierszach.
 

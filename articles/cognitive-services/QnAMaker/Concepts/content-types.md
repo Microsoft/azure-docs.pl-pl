@@ -2,14 +2,16 @@
 title: Typy zawartości — QnA Maker
 description: Typy zawartości obejmują wiele standardowych dokumentów strukturalnych, takich jak PDF, DOCX i TXT.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 04d7c46a7aa347718cf6bc593a92a2f0430eb6fd
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 50924ce035d9a7dc7778cf45668dc993ee5486e4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263167"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776990"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Typy zawartości dokumentów, które można dodać do bazy wiedzy
 Typy zawartości obejmują wiele standardowych dokumentów strukturalnych, takich jak PDF, DOC i TXT.

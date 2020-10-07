@@ -1,14 +1,16 @@
 ---
 title: Konfiguracja usługi — QnA Maker
 description: Dowiedz się, jak i gdzie należy skonfigurować zasoby.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1d54b912d2177a3ccd0cf34d57fc0358af653199
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804264"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776718"
 ---
 # <a name="service-configuration"></a>Konfiguracja usługi
 

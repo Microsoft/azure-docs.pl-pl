@@ -5,32 +5,47 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
-ms.openlocfilehash: c5b78d80b1aa958af50b81dc152b4a746ce85f70
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902208"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779140"
 ---
 | Nazwa filtru | Opis | Filtruj schemat tekstu | Obsługiwane wartości | 
 | --- | --- | --- | --- |
-| PRAWDA/FAŁSZ | Umożliwia tworzenie trasy bez filtrowania lub wyłączanie trasy, tak aby żadne zdarzenia nie były wysyłane | `<true/false>` | `true`= Trasa jest włączona bez filtrowania <br> `false`= Trasa jest wyłączona |
+| PRAWDA/FAŁSZ | Umożliwia tworzenie trasy bez filtrowania lub wyłączanie trasy, tak aby żadne zdarzenia nie były wysyłane | `<true/false>` | `true` = Trasa jest włączona bez filtrowania <br> `false` = Trasa jest wyłączona |
 | Typ | [Typ zdarzenia](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `type = '<eventType>'` | Oto możliwe wartości typów zdarzeń: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Źródło | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `source = '<hostname>'`| Oto możliwe wartości nazwy hosta: <br> **Powiadomienia**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Temat | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `subject = '<subject>'` | Oto możliwe wartości tematu: <br>**Powiadomienia**: podmiot jest`<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
-| Schemat danych | Identyfikator modelu DTDL | `dataschema = '<model-dtmi-ID>'` | **W przypadku telemetrii**: schemat danych jest identyfikatorem modelu dwuosiowego lub składnikiem, który emituje dane telemetryczne. Na przykład `dtmi:example:com:floor4;2` <br>**Dla powiadomień**: schemat danych nie jest obsługiwany|
-| Typ zawartości | Typ zawartości wartości danych | `datacontenttype = '<contentType>'` | Typ zawartości to`application/json` |
+| Źródło | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `source = '<hostname>'`| Oto możliwe wartości nazwy hosta: <br> **Powiadomienia**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Temat | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `subject = '<subject>'` | Oto możliwe wartości tematu: <br>**Powiadomienia**: podmiot jest `<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
+| Schemat danych | Identyfikator modelu DTDL | `dataschema = '<model-dtmi-ID>'` | **W przypadku telemetrii**: schemat danych jest identyfikatorem modelu dwuosiowego lub składnikiem, który emituje dane telemetryczne. Na przykład `dtmi:example:com:floor4;2` <br>W **przypadku powiadomień**: dostęp do schematu danych można uzyskać w treści powiadomienia pod adresem`$body.$metadata.$model`|
+| Typ zawartości | Typ zawartości wartości danych | `datacontenttype = '<contentType>'` | Typ zawartości to `application/json` |
 | Wersja specyfikacji | Wersja schematu zdarzeń, którego używasz | `specversion = '<version>'` | Wersja musi być `1.0` . Oznacza to, że schemat CloudEvents w wersji 1,0 |
+| Treść powiadomienia | Odwoływanie się do dowolnej właściwości w `data` polu powiadomienia | `$body.<property>` | Zapoznaj się z tematem [*How to: zrozumieć dane zdarzenia*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) dotyczące przykładów powiadomień. Do każdej właściwości w `data` polu można odwoływać się za pomocą `$body`
 
-Istnieje również możliwość łączenia filtrów przy użyciu następujących operacji:
+Następujące typy danych są obsługiwane jako wartości zwracane przez odwołania do danych powyżej:
 
-| Nazwa filtru | Filtruj schemat tekstu | Przykład | 
-| --- | --- | --- |
-| I/LUB | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
-| I/LUB | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
-| Operacje zagnieżdżone | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
+| Typ danych | Przykład |
+|-|-|-|
+|**Ciąg**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
+|**Całkowitą**|`$body.errorCode > 200`|
+|**Double**|`$body.temperature <= 5.5`|
+|**Logiczna**|`$body.poweredOn = true`|
+|**Null**|`$body.prop != null`|
 
-> [!NOTE]
-> W trakcie okresu zapoznawczego obsługiwane są tylko ciągi równości (=,! =).
+Podczas definiowania filtrów trasy obsługiwane są następujące operatory:
+
+|Family|Operatory|Przykład|
+|-|-|-|
+|Logiczny|AND, OR, ()|`(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')`|
+|Porównanie|<, <=, >, >=, =,! =|`$body.temperature <= 5.5`
+
+Podczas definiowania filtrów trasy obsługiwane są następujące funkcje:
+
+|Funkcja|Opis|Przykład|
+|--|--|--|
+|STARTS_WITH (x, y)|Zwraca wartość true, jeśli wartość zaczyna się od `x` ciągu `y` .|`STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')`|
+|ENDS_WITH (x, y) | Zwraca wartość true, jeśli wartość jest `x` kończąca się ciągiem `y` .|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|
+|ZAWIERA (x, y)| Zwraca wartość true, jeśli wartość `x` zawiera ciąg `y` .|`CONTAINS(subject, '<twinID>')`|
 
 Po zaimplementowaniu lub zaktualizowaniu filtru zmiana może potrwać kilka minut w potoku danych.

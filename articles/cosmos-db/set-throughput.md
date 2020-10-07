@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605741"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777780"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Zalecamy skonfigurowanie przepływności na poziomie szczegółowości kontenera
 
 Na poniższej ilustracji przedstawiono, w jaki sposób partycja fizyczna hostuje co najmniej jedną partycję logiczną kontenera:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partycja fizyczna" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Ustawianie przepływności dla bazy danych
 
@@ -75,7 +75,7 @@ Jeśli konto Azure Cosmos DB zawiera już udostępnioną bazę danych przepływn
 
 Jeśli Twoje obciążenia wymagają usunięcia i ponownego utworzenia wszystkich kolekcji w bazie danych, zaleca się porzucenie pustej bazy danych i ponowne utworzenie nowej bazy danych przed utworzeniem kolekcji. Na poniższej ilustracji przedstawiono, w jaki sposób partycja fizyczna może hostować co najmniej jedną partycję logiczną, która należy do różnych kontenerów w bazie danych:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partycja fizyczna" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ustawianie przepływności dla bazy danych i kontenera
 
@@ -84,7 +84,7 @@ Można połączyć te dwa modele. Przepływność aprowizacji zarówno dla bazy 
 * Można utworzyć bazę danych usługi Azure Cosmos o nazwie *z* w standardowym (ręcznym) przepływności *"K"* jednostek ru. 
 * Następnie utwórz pięć kontenerów o nazwie *a*, *B*, *C*, *D*i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Należy pamiętać, że w przypadku tworzenia bazy danych i kontenera można skonfigurować udostępnioną i dedykowaną przepływność. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ustawianie przepływności na poziomie kontenera":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera":::
 
 * Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a*, *C*, *D*i *E*. Dokładna ilość przepływności *dostępna dla,* *C*, *D*lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
 * Kontener o nazwie *B* jest zagwarantowany do uzyskania jednostek ru przepływności *"P"* przez cały czas. Jest ona obsługiwana przez umowy SLA.
@@ -105,11 +105,11 @@ W celu oszacowania [minimalnej alokowanej przepływności](concepts-limits.md#st
 
 Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji konta. Za pomocą [metryk Azure monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) można wyświetlić historię zainicjowanej przepływności (ru/s) i magazynu w ramach zasobu.
 
-Minimalną przepływność kontenera lub bazy danych można pobrać programowo przy użyciu zestawów SDK lub wyświetlić wartość w Azure Portal. W przypadku korzystania z zestawu .NET SDK Metoda [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) umożliwia skalowanie wartości przepływności. W przypadku korzystania z zestawu SDK języka Java [RequestOptions. setOfferThroughput](sql-api-java-sdk-samples.md) Metoda pozwala skalować wartość przepływności. 
+Minimalną przepływność kontenera lub bazy danych można pobrać programowo przy użyciu zestawów SDK lub wyświetlić wartość w Azure Portal. W przypadku korzystania z zestawu SDK platformy .NET [kontener. Metoda ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) umożliwia skalowanie wartości przepływności alokowanej. W przypadku korzystania z zestawu SDK języka Java [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) Metoda pozwala skalować wartość przepływności.
 
-W przypadku korzystania z zestawu .NET SDK Metoda [DocumentClient. ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) umożliwia pobieranie minimalnej przepływności kontenera lub bazy danych. 
+W przypadku korzystania z zestawu .NET SDK Metoda [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) umożliwia pobieranie minimalnej przepływności kontenera lub bazy danych. 
 
-W dowolnym momencie można skalować zainicjowaną przepływność kontenera lub bazy danych. Po wykonaniu operacji skalowania w celu zwiększenia przepływności może upłynąć dłuższy czas, ponieważ zadania systemowe zainicjują wymagane zasoby. Stan operacji skalowania można sprawdzić w Azure Portal lub programowo przy użyciu zestawów SDK. Korzystając z zestawu SDK platformy .NET, można uzyskać stan operacji skalowania przy użyciu `DocumentClient.ReadOfferAsync` metody.
+W dowolnym momencie można skalować zainicjowaną przepływność kontenera lub bazy danych. Po wykonaniu operacji skalowania w celu zwiększenia przepływności może upłynąć dłuższy czas, ponieważ zadania systemowe zainicjują wymagane zasoby. Stan operacji skalowania można sprawdzić w Azure Portal lub programowo przy użyciu zestawów SDK. Korzystając z zestawu SDK platformy .NET, można uzyskać stan operacji skalowania przy użyciu `Container.ReadThroughputAsync` metody.
 
 ## <a name="comparison-of-models"></a>Porównanie modeli
 W tej tabeli przedstawiono porównanie standardowego (ręcznej) przepływności dla bazy danych i kontenera. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249641"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777814"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Dezaktywacja i usuwanie urządzenia StorSimple
 
@@ -63,16 +63,16 @@ Jeśli chcesz całkowicie usunąć urządzenie i nie chcesz zachować danych na 
         ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. W bloku **Dezaktywuj** wpisz nazwę urządzenia, aby potwierdzić, a następnie kliknij przycisk **Dezaktywuj**. Proces dezaktywowania rozpocznie się i trwa kilka minut.
 
-        ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Dezaktywuj Urządzenie StorSimple 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. Po dezaktywacji urządzenia można całkowicie usunąć. Usunięcie urządzenia spowoduje usunięcie go z listy urządzeń podłączonych do usługi. Usługa nie może już zarządzać usuniętym urządzeniem. Aby usunąć urządzenie, wykonaj następujące czynności:
    
    1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** wybierz dezaktywowane urządzenie, które chcesz usunąć, kliknij prawym przyciskiem myszy, a następnie kliknij polecenie **Usuń**.
 
-        ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Dezaktywuj Urządzenie StorSimple 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. W bloku **Usuń** wpisz nazwę urządzenia, aby potwierdzić, a następnie kliknij przycisk **Usuń**. Usunięcie może potrwać kilka minut.
 
-        ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Dezaktywuj Urządzenie StorSimple 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Po pomyślnym ukończeniu usuwania zostanie wyświetlone powiadomienie. Lista urządzeń jest również aktualizowana w celu odzwierciedlenia usunięcia.
 
 ## <a name="deactivate-and-retain-data"></a>Dezaktywowanie i zachowywanie danych
@@ -85,19 +85,19 @@ Jeśli interesuje Cię usunięcie urządzenia, ale chcesz zachować dane, wykona
    
    1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** wybierz urządzenie, które chcesz dezaktywować, kliknij prawym przyciskiem myszy, a następnie kliknij pozycję **Dezaktywuj**.
 
-         ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Dezaktywuj Urządzenie StorSimple 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. W bloku **Dezaktywuj** wpisz nazwę urządzenia, aby potwierdzić, a następnie kliknij przycisk **Dezaktywuj**. Proces dezaktywowania rozpocznie się i trwa kilka minut.
 
-         ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Dezaktywuj Urządzenie StorSimple 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. Teraz można przechodzić w tryb failover kontenerów woluminów i skojarzonych migawek. W przypadku procedur przejdź do [trybu failover i odzyskiwania po awarii dla urządzenia StorSimple](storsimple-8000-device-failover-disaster-recovery.md).
 3. Po zdezaktywowaniu i przejściu w tryb failover można całkowicie usunąć urządzenie. Usunięcie urządzenia spowoduje usunięcie go z listy urządzeń podłączonych do usługi. Usługa nie może już zarządzać usuniętym urządzeniem. Aby usunąć urządzenie, wykonaj następujące czynności:
    
    1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** wybierz dezaktywowane urządzenie, które chcesz usunąć, kliknij prawym przyciskiem myszy, a następnie kliknij polecenie **Usuń**.
 
-       ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Dezaktywuj Urządzenie StorSimple 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. W bloku **Usuń** wpisz nazwę urządzenia, aby potwierdzić, a następnie kliknij przycisk **Usuń**. Usunięcie może potrwać kilka minut.
 
-       ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Dezaktywuj Urządzenie StorSimple 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Po pomyślnym ukończeniu usuwania zostanie wyświetlone powiadomienie. Lista urządzeń jest również aktualizowana w celu odzwierciedlenia usunięcia.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Dezaktywowanie i usuwanie urządzenia w chmurze

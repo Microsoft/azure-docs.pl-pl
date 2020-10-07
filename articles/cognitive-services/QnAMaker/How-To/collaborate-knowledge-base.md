@@ -1,14 +1,16 @@
 ---
 title: Współpraca z bazą wiedzy — QnA Maker
 description: QnA Maker umożliwia wielu osobom współpracę w bazie wiedzy. Ta funkcja jest dostępna w ramach kontroli dostępu opartej na rolach platformy Azure (Azure RBAC).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8adc02d4b397c2b0bdaf5d3998cfbe229c896d41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926851"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776854"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Współpraca z autorami i edytorami
 
@@ -62,7 +64,7 @@ Gdy osoba, do której udostępniono usługę QnA Maker, loguje się do [portalu 
 
 Po wybraniu bazy wiedzy jej bieżąca rola dla tego zasobu QnA Maker będzie widoczna obok nazwy bazy wiedzy.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Zrzut ekranu bazy wiedzy w trybie edycji z nazwą roli w nawiasach obok nazwy bazy wiedzy w lewym górnym rogu strony sieci Web.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="QnA Maker Dodaj rolę w usłudze IAM.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

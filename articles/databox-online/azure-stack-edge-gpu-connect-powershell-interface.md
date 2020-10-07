@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766289"
+ms.locfileid: "91777774"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem wieloprocesorowym Pro Azure Stack Edge za pośrednictwem programu Windows PowerShell
 
@@ -429,7 +429,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 Kontroler zarządzania płytą główną (BMC) służy do zdalnego monitorowania urządzenia i zarządzania nim. W tej sekcji opisano polecenia cmdlet, których można użyć do zarządzania konfiguracją kontrolera BMC. Przed uruchomieniem dowolnego z tych poleceń cmdlet [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Użyj tego polecenia cmdlet, aby uzyskać właściwości konfiguracji sieci kontrolera BMC, na przykład,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` : 
+- `Get-HcsNetBmcInterface`: Użyj tego polecenia cmdlet, aby uzyskać właściwości konfiguracji sieci kontrolera BMC, na przykład,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
     
     Oto przykładowe dane wyjściowe:
     
@@ -476,7 +476,7 @@ Kontroler zarządzania płytą główną (BMC) służy do zdalnego monitorowania
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: To polecenie cmdlet służy do modyfikowania hasła BMC dla programu `EdgeUser` . 
+- `Set-HcsBmcPassword`: To polecenie cmdlet służy do modyfikowania hasła BMC dla programu `EdgeUser` . Nazwa użytkownika — `EdgeUser` jest rozróżniana wielkość liter.
 
     Oto przykładowe dane wyjściowe: 
 

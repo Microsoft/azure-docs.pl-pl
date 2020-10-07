@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d22b0100074a230451e5c6b3967fa5dbc8ae3f56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515928"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779424"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -32,7 +32,7 @@ W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure
 | Maksymalny rozmiar [identyfikatora sesji](/dotnet/api/microsoft.azure.servicebus.message.sessionid) komunikatu | Jednostka |- | 128 |
 | Rozmiar komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka |Komunikaty przychodzące, które przekraczają te przydziały, są odrzucane i występuje wyjątek przez wywoływany kod. |Maksymalny rozmiar komunikatu: 256 KB dla [warstwy Standardowa](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB dla [warstwy Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Ze względu na obciążenie systemu ten limit jest mniejszy niż te wartości.<br /><br />Maksymalny rozmiar nagłówka: 64 KB.<br /><br />Maksymalna liczba właściwości nagłówka w zbiorze właściwości: **Byte/int. MaxValue**.<br /><br />Maksymalny rozmiar właściwości w zbiorze właściwości: brak jawnego limitu. Ograniczone przez maksymalny rozmiar nagłówka. |
 | Rozmiar właściwości komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka | Wyjątek `SerializationException` jest generowany. |Maksymalny rozmiar właściwości komunikatu dla każdej właściwości to 32 000. Łączny rozmiar wszystkich właściwości nie może przekroczyć 64 000. Ten limit dotyczy całego nagłówka komunikatu obsługiwanego przez [brokera](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), który ma zarówno właściwości użytkownika, jak i właściwości systemu, takie jak [numer sekwencyjny](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)i [Identyfikator wiadomości](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Liczba subskrypcji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych subskrypcji dla tematu są odrzucane. W związku z tym, jeśli zostanie skonfigurowany za pomocą portalu, zostanie wyświetlony komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |2 000 na temat dla warstwy Standardowa. |
+| Liczba subskrypcji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych subskrypcji dla tematu są odrzucane. W związku z tym, jeśli zostanie skonfigurowany za pomocą portalu, zostanie wyświetlony komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |2 000 na temat dla warstwy Standardowa i warstwy Premium. |
 | Liczba filtrów SQL na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |2000 |
 | Liczba filtrów korelacji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |100 000 |
 | Rozmiar filtrów SQL lub akcji |Przestrzeń nazw |Kolejne żądania utworzenia dodatkowych filtrów są odrzucane i występuje wyjątek w wywołaniu kodu. |Maksymalna długość ciągu warunku filtru: 1 024 (1 K).<br /><br />Maksymalna długość ciągu akcji reguły: 1 024 (1 K).<br /><br />Maksymalna liczba wyrażeń na akcję reguły: 32. |

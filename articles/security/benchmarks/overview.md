@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fb6813875858ab6cc438df5abb78a75391adfeac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280661"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777109"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Omówienie testu porównawczego zabezpieczeń platformy Azure (wersja 2)
 
@@ -30,19 +30,17 @@ Do testu porównawczego zabezpieczeń platformy Azure należą następujące kon
 
 | Domeny kontrolek ASB | Opis 
 |--|--|
-| [Zabezpieczenia sieci (NS)](security-controls-v2-network-security.md) | Zabezpieczenia sieci obejmują kontrolki zabezpieczające i chroniące sieci platformy Azure, w tym Zabezpieczanie sieci wirtualnych, ustanawianie prywatnych połączeń, zapobieganie i łagodzenie ataków zewnętrznych oraz Zabezpieczanie systemu DNS. |
-| [Zarządzanie tożsamościami](security-controls-v2-identity-management.md) | Zarządzanie tożsamościami obejmuje kontrolki służące do nawiązywania bezpiecznej kontroli tożsamości i dostępu przy użyciu Azure Active Directory, w tym korzystania z logowania jednokrotnego, silnego uwierzytelniania, tożsamości zarządzanych (i zasad usługi) dla aplikacji, dostępu warunkowego i monitorowania anomalii kont. |
-| [Dostęp uprzywilejowany (PA)](security-controls-v2-privileged-access.md) | Dostęp uprzywilejowany obejmuje kontrolki do ochrony uprzywilejowanego dostępu do dzierżawy i zasobów platformy Azure, w tym zakresu kontroli w celu ochrony modelu administracyjnego, kont administracyjnych i stacji roboczych uprzywilejowanego dostępu przed zamierzonym i przypadkowym ryzykiem. |
-| [Ochrona danych (DP)](security-controls-v2-data-protection.md) | Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tranzycie oraz za pomocą autoryzowanych mechanizmów dostępu, w tym odnajdywania, klasyfikowania, ochrony i monitorowania poufnych zasobów danych przy użyciu funkcji kontroli dostępu, szyfrowania i rejestrowania na platformie Azure. |
-| [Zarządzanie zasobami (AM)](security-controls-v2-asset-management.md) | Zarządzanie zasobami obejmuje kontrolki zapewniające widoczność i nadzór nad zasobami platformy Azure, w tym zalecenia dotyczące uprawnień dla personelu zabezpieczeń, bezpieczeństwa dostępu do spisu zasobów oraz zarządzania zatwierdzeniami usług i zasobów (spis, śledzenie i poprawne). |
-| [Rejestrowanie i wykrywanie zagrożeń (LT)](security-controls-v2-logging-threat-detection.md) | Rejestrowanie i wykrywanie zagrożeń obejmują kontrolę w zakresie wykrywania zagrożeń na platformie Azure oraz włączanie, zbieranie i przechowywanie dzienników inspekcji dla usług platformy Azure, w tym Włączanie procesów wykrywania, badania i korygowania przy użyciu kontrolek w celu generowania alertów o wysokiej jakości z natywnym wykrywaniem zagrożeń w usługach platformy Azure. obejmuje to również zbieranie dzienników z Azure Monitor, scentralizowanie analizy zabezpieczeń dzięki wskaźnikom danych platformy Azure, synchronizacji czasu i przechowywaniu dzienników. |
-| [Odpowiedź na zdarzenia (IR)](security-controls-v2-incident-response.md) | Reagowanie na zdarzenia obejmuje kontrolki dotyczące cyklu życia, wykrywania i analizy, zawierania i działania po zdarzeniu, w tym za pomocą usług platformy Azure, takich jak Azure Security Center i Wskaźnikowanie, w celu zautomatyzowania procesu reagowania na zdarzenia. |
-| [Stan i zarządzanie lukami w zabezpieczeniach (PV)](security-controls-v2-posture-vulnerability-management.md) | Zarządzanie stanami i lukami koncentruje się na kontroli oceny i ulepszaniu usługi Azure Security stan, w tym o skanowaniu luk w zabezpieczeniach, testowaniu i korygowaniu konfiguracji zabezpieczeń, a także śledzeniu, raportowaniu i korekcji w zasobach platformy Azure. |
-| [Zabezpieczenia punktów końcowych](security-controls-v2-endpoint-security.md) | Zabezpieczenia punktu końcowego obejmują kontrolki wykrywania i reagowania punktów końcowych, w tym używanie wykrywania i reagowania punktów końcowych (EDR) oraz usługi ochrony przed złośliwym oprogramowaniem dla punktów końcowych w środowiskach platformy Azure. |
-| [Kopia zapasowa i odzyskiwanie (BR)](security-controls-v2-backup-recovery.md) | Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że kopie zapasowe danych i konfiguracji w różnych warstwach usług są wykonywane, weryfikowane i chronione. |
-| [Zarządzanie i strategia (GS)](security-controls-v2-governance-strategy.md) | Kierownictwo i strategia zapewniają wskazówki dotyczące zapewnienia spójnej strategii zabezpieczeń i udokumentowanego podejścia do nadzoru w zakresie zabezpieczeń i zapewnienia bezpieczeństwa, w tym ustanawiania ról i obowiązków związanych z różnymi funkcjami zabezpieczeń w chmurze, ujednoliconą strategią techniczną oraz obsługą zasad i standardów. |
-
-Możesz również pobrać wzorzec zabezpieczeń platformy Azure w [formacie arkusza kalkulacyjnego](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+| [&nbsp;Zabezpieczenia sieci &nbsp; (NS)](security-controls-v2-network-security.md) | Zabezpieczenia sieci obejmują kontrolki zabezpieczające i chroniące sieci platformy Azure, w tym Zabezpieczanie sieci wirtualnych, ustanawianie prywatnych połączeń, zapobieganie i łagodzenie ataków zewnętrznych oraz Zabezpieczanie systemu DNS. |
+| [Zarządzanie tożsamościami &nbsp; &nbsp;](security-controls-v2-identity-management.md) | Zarządzanie tożsamościami obejmuje kontrolki służące do nawiązywania bezpiecznej kontroli tożsamości i dostępu przy użyciu Azure Active Directory, w tym korzystania z logowania jednokrotnego, silnego uwierzytelniania, tożsamości zarządzanych (i zasad usługi) dla aplikacji, dostępu warunkowego i monitorowania anomalii kont. |
+| [&nbsp;Dostęp uprzywilejowany &nbsp; (PA)](security-controls-v2-privileged-access.md) | Dostęp uprzywilejowany obejmuje kontrolki do ochrony uprzywilejowanego dostępu do dzierżawy i zasobów platformy Azure, w tym zakresu kontroli w celu ochrony modelu administracyjnego, kont administracyjnych i stacji roboczych uprzywilejowanego dostępu przed zamierzonym i przypadkowym ryzykiem. |
+| [&nbsp;Ochrona danych &nbsp; (DP)](security-controls-v2-data-protection.md) | Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tranzycie oraz za pomocą autoryzowanych mechanizmów dostępu, w tym odnajdywania, klasyfikowania, ochrony i monitorowania poufnych zasobów danych przy użyciu funkcji kontroli dostępu, szyfrowania i rejestrowania na platformie Azure. |
+| [&nbsp;Zarządzanie zasobami &nbsp; (am)](security-controls-v2-asset-management.md) | Zarządzanie zasobami obejmuje kontrolki zapewniające widoczność i nadzór nad zasobami platformy Azure, w tym zalecenia dotyczące uprawnień dla personelu zabezpieczeń, bezpieczeństwa dostępu do spisu zasobów oraz zarządzania zatwierdzeniami usług i zasobów (spis, śledzenie i poprawne). |
+| [Rejestrowanie &nbsp; i &nbsp; &nbsp; wykrywanie zagrożeń (lt)](security-controls-v2-logging-threat-detection.md) | Rejestrowanie i wykrywanie zagrożeń obejmują kontrolę w zakresie wykrywania zagrożeń na platformie Azure oraz włączanie, zbieranie i przechowywanie dzienników inspekcji dla usług platformy Azure, w tym Włączanie procesów wykrywania, badania i korygowania przy użyciu kontrolek w celu generowania alertów o wysokiej jakości z natywnym wykrywaniem zagrożeń w usługach platformy Azure. obejmuje to również zbieranie dzienników z Azure Monitor, scentralizowanie analizy zabezpieczeń dzięki wskaźnikom danych platformy Azure, synchronizacji czasu i przechowywaniu dzienników. |
+| [Odpowiedź na zdarzenia &nbsp; &nbsp; (IR)](security-controls-v2-incident-response.md) | Reagowanie na zdarzenia obejmuje kontrolki dotyczące cyklu życia, wykrywania i analizy, zawierania i działania po zdarzeniu, w tym za pomocą usług platformy Azure, takich jak Azure Security Center i Wskaźnikowanie, w celu zautomatyzowania procesu reagowania na zdarzenia. |
+| [Stan &nbsp; i &nbsp; Zarządzanie lukami w zabezpieczeniach &nbsp; &nbsp; (PV)](security-controls-v2-posture-vulnerability-management.md) | Zarządzanie stanami i lukami koncentruje się na kontroli oceny i ulepszaniu usługi Azure Security stan, w tym o skanowaniu luk w zabezpieczeniach, testowaniu i korygowaniu konfiguracji zabezpieczeń, a także śledzeniu, raportowaniu i korekcji w zasobach platformy Azure. |
+| [Zabezpieczenia punktów końcowych &nbsp; &nbsp;](security-controls-v2-endpoint-security.md) | Zabezpieczenia punktu końcowego obejmują kontrolki wykrywania i reagowania punktów końcowych, w tym używanie wykrywania i reagowania punktów końcowych (EDR) oraz usługi ochrony przed złośliwym oprogramowaniem dla punktów końcowych w środowiskach platformy Azure. |
+| [Kopia zapasowa &nbsp; i &nbsp; odzyskiwanie &nbsp; (br)](security-controls-v2-backup-recovery.md) | Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że kopie zapasowe danych i konfiguracji w różnych warstwach usług są wykonywane, weryfikowane i chronione. |
+| [Zarządzanie &nbsp; i &nbsp; strategia &nbsp; (GS)](security-controls-v2-governance-strategy.md) | Kierownictwo i strategia zapewniają wskazówki dotyczące zapewnienia spójnej strategii zabezpieczeń i udokumentowanego podejścia do nadzoru w zakresie zabezpieczeń i zapewnienia bezpieczeństwa, w tym ustanawiania ról i obowiązków związanych z różnymi funkcjami zabezpieczeń w chmurze, ujednoliconą strategią techniczną oraz obsługą zasad i standardów. |
 
 ## <a name="azure-security-benchmark-recommendations"></a>Zalecenia dotyczące usługi Azure Security test
 
@@ -60,7 +58,11 @@ Każde zalecenie zawiera następujące informacje:
 
 Poznamy Twoją szczegółową opinię i aktywne uczestnictwo w pracy z usługą Azure Security test. Jeśli chcesz podać dane wejściowe zespołu usługi Azure Security test, Wypełnij formularz na stronie https://aka.ms/AzSecBenchmark
 
+## <a name="download"></a>Pobierz
 
+Test porównawczy zabezpieczeń platformy Azure można pobrać w [formacie arkusza kalkulacyjnego](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+
+## <a name="next-steps"></a>Następne kroki 
 - Zobacz pierwszą kontrolę zabezpieczeń: [zabezpieczenia sieci](security-control-network-security.md)
 - Przeczytaj [wprowadzenie do usługi Azure Security test](introduction.md)
-- Pobierz [Arkusz kalkulacyjny programu Excel usługi Azure Security Tests w wersji 2](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
+- Poznaj [podstawy zabezpieczeń platformy Azure](../fundamentals/index.yml)

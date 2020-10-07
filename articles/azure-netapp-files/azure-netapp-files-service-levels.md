@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 1c64bd10b34b61797cb3bf3de0cd7d2aa819e795
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743101"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777138"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Poziomy usług dla usługi Azure NetApp Files
 Poziomy usług są atrybutem puli pojemności. Poziomy usług są zdefiniowane i odróżniane przez maksymalną przepustowość dla woluminu w puli pojemności na podstawie przydziału przypisanego do woluminu.
@@ -63,10 +63,10 @@ W przypadku korzystania z ręcznej puli pojemności usługi QoS można niezależ
 
 W przypadku systemu SAP HANA tej puli pojemności można użyć do utworzenia następujących woluminów. Każdy wolumin zapewnia indywidualny rozmiar i przepływność w celu spełnienia wymagań aplikacji:
 
-* Wolumin danych SAP HANA: rozmiar 4 TB z maksymalnie 704 MiB/s
-* Wolumin dziennika SAP HANA: rozmiar 0,5 TB z maksymalnie 256 MiB/s
-* SAP HANA udostępniony wolumin: rozmiar 1 TB z maksymalnie 64 MiB/s
-* Wolumin kopii zapasowej SAP HANA: rozmiar 6,5 TB z maksymalnie 256 MiB/s
+* Wolumin danych SAP HANA: rozmiar 4 TiB z maksymalnie 704 MiB/s
+* SAP HANA wolumin dziennika: rozmiar 0,5 TiB z maksymalnie 256 MiB/s
+* SAP HANA udostępniony wolumin: rozmiar 1 TiB z maksymalnie 64 MiB/s
+* Wolumin kopii zapasowej SAP HANA: rozmiar 4,5 TiB z maksymalnie 256 MiB/s
 
 Na poniższym diagramie przedstawiono scenariusze dotyczące woluminów SAP HANA:
 

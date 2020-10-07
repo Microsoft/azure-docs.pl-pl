@@ -1,14 +1,16 @@
 ---
 title: Pobierz domyślną odpowiedź — QnA Maker
 description: Odpowiedź domyślna jest zwracana, gdy nie ma dopasowania do pytania. Możesz chcieć zmienić domyślną odpowiedź ze standardowego domyślnej odpowiedzi.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: d37e63d84be58e6ccd2f1e23a1344961d39ffa01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054171"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776820"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Zmień domyślną odpowiedź dla zasobu QnA Maker
 
@@ -21,7 +23,7 @@ W bazie wiedzy istnieją dwa typy odpowiedzi domyślnej. Ważne jest, aby zrozum
 
 |Typ pytania|Opis odpowiedzi|
 |--|--|
-|Odpowiedź KB, gdy nie jest określona odpowiedź|`No good match found in KB.`— Gdy [interfejs API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) nie znajdzie odpowiedzi na pytanie, `DefaultAnswer` zostanie zwrócona wartość ustawienia usługi App Service. Wszystkie bazy wiedzy w tym samym QnA Maker zasobów współdzielą ten sam domyślny tekst odpowiedzi.<br>Ustawienie to można zarządzać w Azure Portal za pośrednictwem usługi App Service lub za pomocą interfejsów API REST na potrzeby [pobierania](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) lub [aktualizowania](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) ustawienia.|
+|Odpowiedź KB, gdy nie jest określona odpowiedź|`No good match found in KB.` — Gdy [interfejs API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) nie znajdzie odpowiedzi na pytanie, `DefaultAnswer` zostanie zwrócona wartość ustawienia usługi App Service. Wszystkie bazy wiedzy w tym samym QnA Maker zasobów współdzielą ten sam domyślny tekst odpowiedzi.<br>Ustawienie to można zarządzać w Azure Portal za pośrednictwem usługi App Service lub za pomocą interfejsów API REST na potrzeby [pobierania](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) lub [aktualizowania](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) ustawienia.|
 |Tekst instrukcji monitowania|W przypadku korzystania z monitu monitujące w przepływie konwersacji może nie być potrzebna odpowiedź w parze QnA, ponieważ użytkownik chce wybrać jedną z monitów. W takim przypadku należy ustawić określony tekst przez ustawienie domyślnego tekstu odpowiedzi, który jest zwracany z każdym prognozą dla monitów kolejnych. Tekst jest przeznaczony do wyświetlania jako tekst instruktażowy do wyboru monitów kolejnych. Przykładem dla tego domyślnego tekstu odpowiedzi jest `Please select from the following choices` . Ta konfiguracja została omówiona w kilku następnych sekcjach tego dokumentu. Można również ustawić jako część definicji bazy wiedzy `defaultAnswerUsedForExtraction` przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### <a name="client-application-integration"></a>Integracja aplikacji klienckiej

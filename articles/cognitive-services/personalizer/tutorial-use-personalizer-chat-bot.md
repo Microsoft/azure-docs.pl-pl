@@ -1,15 +1,17 @@
 ---
 title: Korzystanie z programu Personalizacja w programie Chat bot — Personalizacja
 description: Dostosuj bot rozmowy .NET do języka C# przy użyciu pętli personalizacji, aby zapewnić poprawną zawartość użytkownikowi na podstawie akcji (z funkcjami) i funkcji kontekstu.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089891"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777313"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot
 
@@ -176,18 +178,18 @@ Utrzymuj działającą witrynę sieci Web, ponieważ samouczek wyjaśnia, co rob
 
 1. Otwórz emulator bot Framework i wybierz pozycję **Otwórz bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Zrzut ekranu przedstawiający ekran uruchamiania emulatora bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
 
 
 1. Skonfiguruj bot z następującym **adresem URL bot** , a następnie wybierz pozycję **Połącz**:
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Zrzut ekranu przedstawiający ustawienia bot emulatora bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
 
     Emulator nawiązuje połączenie z usługą Chat bot i wyświetla tekst instruktażowy wraz z informacjami dotyczącymi rejestrowania i debugowania przydatną do lokalnego tworzenia.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Zrzut ekranu emulatora bot w pierwszej kolejności konwersacji.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Zrzut ekranu przedstawiający przeglądarkę wyświetlającą witrynę sieci Web czatu bot.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Korzystanie z bot w emulatorze bot
 

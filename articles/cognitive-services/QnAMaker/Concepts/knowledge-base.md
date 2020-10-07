@@ -1,14 +1,16 @@
 ---
 title: Importowanie ze źródeł danych — QnA Maker
 description: Dowiedz się, jak zaimportować pary pytań i odpowiedzi ze źródeł danych — QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: c66f81ccabd77e49ba1c492db25ad9e9edd34e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f609dc27aa1251cfad0249d26ef5140936bfe41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334637"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776956"
 ---
 # <a name="importing-from-data-sources"></a>Importowanie ze źródeł danych
 
@@ -28,7 +30,7 @@ Zestaw zawartości Chit Chat QnA jest oferowany jako kompletne źródło danych 
 
 Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import wymaga pliku strukturalnego `.tsv` , który zawiera pytania i odpowiedzi. Te informacje pomagają w QnA Maker zgrupować pary odpowiedzi i atrybutów do określonego źródła danych.
 
-| Pytanie  | Odpowiedź  | Element źródłowy| Metadane (1 klucz: 1 wartość) |
+| Pytanie  | Odpowiedź  | Źródło| Metadane (1 klucz: 1 wartość) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Dobra|    `Key:Value`       |

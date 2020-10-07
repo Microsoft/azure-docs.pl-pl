@@ -1,14 +1,16 @@
 ---
 title: Zarządzanie bazami wiedzy — QnA Maker
 description: QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień i zawartości bazy wiedzy.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551782"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777735"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Tworzenie bazy wiedzy i zarządzanie ustawieniami
 
@@ -71,7 +73,7 @@ QnA Maker pozwala zarządzać bazami wiedzy, zapewniając dostęp do ustawień b
        |Usuwanie adresu URL|Istniejące adresy URL można usunąć, wybierając ikonę Usuń.|
        |Odśwież zawartość|Jeśli chcesz, aby baza wiedzy przeszukał najnowszą zawartość istniejących adresów URL, zaznacz pole wyboru **Odśwież** . Spowoduje to zaktualizowanie bazy wiedzy przy użyciu najnowszej zawartości adresu URL. Nie jest to ustawienie regularnego harmonogramu aktualizacji.|
        |Dodaj plik|Możesz dodać obsługiwany dokument pliku, który będzie częścią bazy wiedzy, wybierając pozycję **Zarządzaj bazą wiedzy**, a następnie wybierając pozycję **+ Dodaj plik**|
-    |Importuj|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
+    |Import|Możesz również zaimportować każdą istniejącą bazę wiedzy, wybierając przycisk **Importuj bazę wiedzy** . |
     |Aktualizacja|Aktualizacja bazy wiedzy zależy od **warstwy cenowej zarządzania** używanej podczas tworzenia usługi QNA Maker skojarzonej z bazą wiedzy. W razie potrzeby można również zaktualizować warstwę zarządzania z Azure Portal.
 
   1. Po zakończeniu wprowadzania zmian w bazie wiedzy wybierz pozycję **Zapisz i Wyszkol** w prawym górnym rogu strony, aby zachować zmiany.

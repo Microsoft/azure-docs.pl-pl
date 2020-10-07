@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86201784"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776633"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Cognitive Services platformy Azure dla danych Big Data
 
@@ -96,7 +96,7 @@ Gdy masz klaster Spark, następnym krokiem jest nawiązanie połączenia z danym
 
 ## <a name="concepts"></a>Pojęcia
 
-### <a name="spark"></a>Spark
+### <a name="spark"></a>platforma Spark
 
 [Apache Spark &trade; ](http://spark.apache.org/) jest to ujednolicony aparat analityczny do przetwarzania danych na dużą skalę. Jego architektura przetwarzania równoległego zwiększa wydajność danych Big Data i aplikacji analitycznych. Platforma Spark może działać jako system przetwarzania wsadowego i przesyłania strumieniowego bez konieczności zmieniania kodu podstawowego aplikacji.
 
@@ -125,12 +125,14 @@ Cognitive Services dla danych Big Data to przykład integracji inteligentnych us
 - [Dowiedz się więcej o tym, jak Cognitive Services pracy na Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Zapisywanie Leopards śniegu z uczeniem głębokim i przetwarzanie obrazów na platformie Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Podcast badawcze firmy Microsoft: MMLSpark, dodanie AI w dobrej drodze ze znacznikiem Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [Oficjalne oficjalny dokument: inteligentne mikrousługi na dużą skalę](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>Seminaria internetowe i wideo
 
 - [Cognitive Services platformy Azure na platformie Spark: klastry z osadzonymi usługami inteligentnymi](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Prezentację szczytu platformy Spark: skalowalne AI dla dobra](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Cognitive Services danych Big Data w Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Porozmawiaj z inteligentnymi mikrousługami skalowania](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>Następne kroki
 

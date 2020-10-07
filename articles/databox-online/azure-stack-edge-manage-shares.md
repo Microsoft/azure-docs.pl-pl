@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904468"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777211"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack EDGE Pro
 
 W tym artykule opisano sposób zarządzania udziałami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
 
@@ -74,7 +74,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Wybierz pozycję **+ Dodaj udział** na pasku poleceń.
 
-   ![Wybierz pozycję Dodaj udział](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Wybierz pozycję Dodaj udział 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. W obszarze **Dodawanie udziału** określ ustawienia udziału. Podaj unikatową nazwę udziału.
     
@@ -88,7 +88,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz przycisk **Utwórz**. 
+7. Wybierz pozycję **Utwórz**. 
 
    ![Utwórz udział lokalny](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
@@ -106,7 +106,7 @@ Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Z listy udziałów wybierz udział, który chcesz zainstalować. Kolumna **użyta do obliczenia** będzie wyświetlać stan jako **wyłączony** dla wybranego udziału.
 
-   ![Wybieranie udziału](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Wybierz pozycję Udostępnij 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Wybierz pozycję **Zainstaluj**.
 
@@ -130,7 +130,7 @@ Aby odinstalować udział, wykonaj następujące czynności w Azure Portal.
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**.
 
-   ![Wybieranie udziału](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Wybierz pozycję Udostępnij 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. Z listy udziałów wybierz udział, który chcesz odinstalować. Należy upewnić się, że odinstalowany udział nie jest używany przez żadne moduły. Jeśli udział jest używany przez moduł, zobaczysz problemy z odpowiednim modułem. Wybierz pozycję **Odinstaluj**.
 
@@ -150,7 +150,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
 1. Na liście udziałów kliknij udział, który chcesz usunąć.
 
-   ![Wybieranie udziału](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Wybierz udział 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Kliknij polecenie **Usuń**.
 
@@ -175,7 +175,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udzia
 
 1. W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
 
-   ![Wybieranie udziału](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Wybierz pozycję Udostępnij 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Kliknij przycisk **Odśwież**.
 

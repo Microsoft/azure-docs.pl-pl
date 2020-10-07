@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987229"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776276"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -45,6 +45,10 @@ Aby dodać funkcję Change Tracking i spisu do obszaru roboczego, uruchom nastę
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 
 Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) dla obsługiwanego systemu operacyjnego Linux.
+
+>[!NOTE]
+>Po zainstalowaniu agenta Log Analytics dla systemu Linux nie należy zmieniać uprawnień do `sudoers.d` folderu ani jego własności. Dla konta **nxautomation** jest wymagane uprawnienie sudo, które jest kontekstem użytkownika, w którym działa hybrydowy proces roboczy elementu Runbook. Uprawnień nie należy usuwać. Ograniczenie tego do określonych folderów lub poleceń może spowodować powstanie istotnej zmiany.
+>
 
 ### <a name="supported-linux-operating-systems"></a>Obsługiwane systemy operacyjne Linux
 

@@ -1,14 +1,16 @@
 ---
 title: Integracja z innymi aplikacjami — QnA Maker
 description: QnA Maker integruje się z aplikacjami klienckimi, takimi jak Chat botów, a także z innymi usługami przetwarzania języka naturalnego, takimi jak Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: c1edbfb6badfb73ce08a99709da0f8bfb61b7dc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff5e64dd31542b1e31df6d9ca709567b322995ce
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804192"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776531"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Projektowanie bazy wiedzy dla aplikacji klienckich
 

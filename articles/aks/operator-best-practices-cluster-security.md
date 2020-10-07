@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003063"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776310"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
 
@@ -177,7 +177,7 @@ Aby uzyskać więcej informacji na temat dostępnych filtrów, zobacz [Profile z
 
 Kubernetes zwalnia nowe funkcje w szybszym tempie niż w przypadku tradycyjnych platform infrastruktury. Aktualizacje Kubernetes obejmują nowe funkcje i poprawki błędów lub zabezpieczeń. Nowe funkcje zwykle przechodzą przez *alfa* , a następnie stan *wersji beta* , zanim staną się *stabilne* i są ogólnie dostępne i zalecane do użycia w środowisku produkcyjnym. Ten cykl wydawniczy powinien zezwalać na aktualizację Kubernetes bez regularnego napotkania istotnych zmian lub dostosowywania wdrożeń i szablonów.
 
-Program AKS obsługuje cztery drobne wersje programu Kubernetes. Oznacza to, że w przypadku wprowadzenia nowej wersji poprawek mniejszych najstarsza wersja pomocnicza i obsługiwane wersje poprawek zostaną wycofane. Niewielkie aktualizacje Kubernetes są wykonywane okresowo. Upewnij się, że masz proces ładu do sprawdzenia i uaktualnienia w miarę potrzeb, aby nie wyprowadzić pomocy technicznej. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje KUBERNETES AKS][aks-supported-versions]
+AKS obsługuje trzy drobne wersje programu Kubernetes. Oznacza to, że w przypadku wprowadzenia nowej wersji poprawek mniejszych najstarsza wersja pomocnicza i obsługiwane wersje poprawek zostaną wycofane. Niewielkie aktualizacje Kubernetes są wykonywane okresowo. Upewnij się, że masz proces ładu do sprawdzenia i uaktualnienia w miarę potrzeb, aby nie wyprowadzić pomocy technicznej. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje KUBERNETES AKS][aks-supported-versions].
 
 Aby sprawdzić wersje dostępne dla klastra, użyj polecenia [AZ AKS Get-Upgrades][az-aks-get-upgrades] , jak pokazano w następującym przykładzie:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Następnie można uaktualnić klaster AKS za pomocą polecenia [AZ AKS upgrade][az-aks-upgrade] . Proces uaktualniania bezpiecznie cordons i opróżnia jeden węzeł w danym momencie, planuje w pozostałych węzłach, a następnie wdraża nowy węzeł z najnowszymi wersjami systemów operacyjnych i Kubernetes.
+
+Zdecydowanie zaleca się przetestowanie nowych wersji pomocniczych w środowisku testowym deweloperskim, dzięki czemu można sprawdzić poprawność działania w dobrej kondycji w przypadku nowej wersji Kubernetes. Kubernetes mogą przestarzałe interfejsy API, takie jak w wersji 1,16, które mogą być używane przez obciążenia. Podczas wprowadzania nowych wersji do środowiska produkcyjnego należy rozważyć użycie [wielu pul węzłów w różnych wersjach](use-multiple-node-pools.md) i uaktualnienie pojedynczych pul pojedynczo w celu stopniowego wycofania aktualizacji w klastrze. W przypadku uruchamiania wielu klastrów należy uaktualnić jeden klaster jednocześnie, aby stopniowo monitorować wpływ lub zmiany.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

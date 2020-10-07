@@ -2,13 +2,14 @@
 title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598161"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776429"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -19,7 +20,7 @@ W tym artykule przedstawiono informacje z [sekcji Planowanie](production-ready-d
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
-## <a name="deploy-azure-vmware-solution"></a>Wdróż rozwiązanie VMware dla platformy Azure
+## <a name="deploy-azure-vmware-solution"></a>Wdrażanie usługi Azure VMware Solution
 
 Skorzystaj z informacji zebranych w artykule [Planowanie rozwiązania Azure VMware Solution Deployment](production-ready-deployment-steps.md) :
 
@@ -28,17 +29,15 @@ Skorzystaj z informacji zebranych w artykule [Planowanie rozwiązania Azure VMwa
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz temat [rozwiązanie Azure VMware:](https://www.youtube.com/embed/1JLB3L2WDWI) film wideo dotyczący wdrażania. 
 
 ## <a name="create-the-jump-box"></a>Tworzenie pola skoku
 
 >[!IMPORTANT]
 >Jeśli pozostawiłeś opcję **Virtual Network** pustej w kroku wstępnego inicjowania obsługi administracyjnej na ekranie **Tworzenie chmury prywatnej** , **przed** przejściem do tej sekcji Ukończ samouczek [Konfigurowanie sieci dla chmury prywatnej programu VMware](tutorial-configure-networking.md) .  
 
-
-
 Po wdrożeniu rozwiązania Azure VMware można utworzyć pole skoku sieci wirtualnej łączące się z programem vCenter i NSX. Po skonfigurowaniu obwodów usługi ExpressRoute i ExpressRoute Global Reach pole skoku nie jest potrzebne.  Ale warto uzyskać dostęp do programu vCenter i NSX w rozwiązaniu VMware platformy Azure.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 68f54e18cf20680156de8a29c54f7924ca6064d1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91610113"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777194"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
 
@@ -66,11 +66,11 @@ Na poniższej ilustracji przedstawiono ogólny widok zaktualizowanej topologii d
 
 Podsumowanie:
 
-- CENTRALĄ w Europie pozostanie nieExpressRoutee, Europa lokalny kontroler domeny jest w pełni migrowany do platformy Azure i teraz zlikwidowany.
-- Azja i CENTRALĄ pozostaną połączone z prywatną siecią WAN. Wirtualna sieć WAN platformy Azure została teraz użyta do rozszerzenia lokalnej sieci operatora i zapewnienia łączności globalnej.
-- Wirtualne centra sieci WAN platformy Azure wdrożone w regionach Europa Zachodnia i południowe Azja Wschodnia platformy Azure w celu zapewnienia centrum łączności dla urządzeń z ExpressRoute i sieci VPN.
-- Koncentratory zapewniają również zakończenie sieci VPN dla użytkowników mobilnych w wielu typach klientów korzystających z łączności OpenVPN z siecią globalnej siatki, co umożliwia dostęp do nie tylko aplikacji migrowanych do platformy Azure, ale również wszelkich zasobów pozostających w środowisku lokalnym.
-- Łączność z Internetem dla zasobów w sieci wirtualnej udostępnianych przez wirtualną sieć WAN platformy Azure.
+* CENTRALĄ w Europie pozostanie nieExpressRoutee, Europa lokalny kontroler domeny jest w pełni migrowany do platformy Azure i teraz zlikwidowany.
+* Azja i CENTRALĄ pozostaną połączone z prywatną siecią WAN. Wirtualna sieć WAN platformy Azure została teraz użyta do rozszerzenia lokalnej sieci operatora i zapewnienia łączności globalnej.
+* Wirtualne centra sieci WAN platformy Azure wdrożone w regionach Europa Zachodnia i południowe Azja Wschodnia platformy Azure w celu zapewnienia centrum łączności dla urządzeń z ExpressRoute i sieci VPN.
+* Koncentratory zapewniają również zakończenie sieci VPN dla użytkowników mobilnych w wielu typach klientów korzystających z łączności OpenVPN z siecią globalnej siatki, co umożliwia dostęp do nie tylko aplikacji migrowanych do platformy Azure, ale również wszelkich zasobów pozostających w środowisku lokalnym.
+* Łączność z Internetem dla zasobów w sieci wirtualnej udostępnianych przez wirtualną sieć WAN platformy Azure.
 
 Łączność z Internetem dla witryn zdalnych zapewniana również przez wirtualną sieć WAN platformy Azure. Lokalne zagadnień internetowe obsługiwane przez integrację partnerów w celu zoptymalizowanego dostępu do usług SaaS, takich jak Microsoft 365.
 
@@ -83,19 +83,20 @@ W tej sekcji przedstawiono różne kroki migracji do wirtualnej sieci WAN platfo
 Na poniższej ilustracji przedstawiono topologię jednego regionu dla firmy Contoso przed wdrożeniem wirtualnej sieci WAN platformy Azure:
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="koncentrator i szprycha" (IaaS).
-- Usługi zapory IP/routingu są udostępniane przez urządzenie wirtualne sieci innej firmy, co umożliwia routing protokołu IP dla satelity.
-- Internetowe usługi przychodzące/wychodzące, w tym Application Gateway platformy Azure dla przychodzących żądań HTTPS i usług serwera proxy innych firm działające na maszynach wirtualnych na potrzeby filtrowanego dostępu wychodzącego do zasobów internetowych.
-- Brama sieci wirtualnej ExpressRoute i VPN na potrzeby łączności z sieciami lokalnymi.
+* Usługi zapory IP/routingu są udostępniane przez urządzenie wirtualne sieci innej firmy, co umożliwia routing protokołu IP dla satelity.
+* Internetowe usługi przychodzące/wychodzące, w tym Application Gateway platformy Azure dla przychodzących żądań HTTPS i usług serwera proxy innych firm działające na maszynach wirtualnych na potrzeby filtrowanego dostępu wychodzącego do zasobów internetowych.
+* Brama sieci wirtualnej ExpressRoute i VPN na potrzeby łączności z sieciami lokalnymi.
 
 ### <a name="step-2-deploy-virtual-wan-hubs"></a>Krok 2. wdrażanie koncentratorów wirtualnych sieci WAN
 
 Wdróż Wirtualne Centrum sieci WAN w każdym regionie. Skonfiguruj Wirtualne Centrum sieci WAN przy użyciu sieci VPN i funkcji ExpressRoute zgodnie z opisem w następujących artykułach:
 
-- [Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
-- [Samouczek: Tworzenie skojarzenia ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure](virtual-wan-expressroute-portal.md)
+* [Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
+* [Samouczek: Tworzenie skojarzenia ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure](virtual-wan-expressroute-portal.md)
 
 > [!NOTE]
 > Wirtualna sieć WAN platformy Azure musi używać standardowej jednostki SKU do włączania niektórych ścieżek ruchu pokazanych w tym artykule.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="koncentrator i szprycha":::
 **Rysunek 2: zarządzane przez klienta centrum-i-szprycha do migracji wirtualnej sieci WAN**
@@ -106,6 +107,7 @@ Podłącz wirtualne koncentrator sieci WAN do istniejących obwodów usługi Exp
 
 > [!NOTE]
 > Obwody usługi Express Routes muszą zostać uaktualnione do typu SKU Premium, aby połączyć się z koncentratorem wirtualnej sieci WAN.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="koncentrator i szprycha":::
 **Rysunek 3: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
@@ -171,9 +173,9 @@ Ta sekcja zawiera podsumowanie, w jaki sposób Ta topologia spełnia pierwotne w
 
 Ruch jest kierowany w następujący sposób:
 
-- Gałąź Azja jest połączona za pośrednictwem odpornych tuneli z włączonym protokołem BGP w Republice Południowej Azja Wschodnia wirtualnej sieci WAN.
+* Gałąź Azja jest połączona za pośrednictwem odpornych tuneli z włączonym protokołem BGP w Republice Południowej Azja Wschodnia wirtualnej sieci WAN.
 
-- Azja wirtualnego centrum WAN kieruje ruch lokalnie do połączonej sieci wirtualnej.
+* Azja wirtualnego centrum WAN kieruje ruch lokalnie do połączonej sieci wirtualnej.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="koncentrator i szprycha":::
 
@@ -183,9 +185,9 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- CENTRALĄ Europejski jest podłączony za pośrednictwem obwodu ExpressRoute w warstwie Premium do wirtualnego koncentratora sieci WAN Europa Zachodnia.
+* CENTRALĄ Europejski jest podłączony za pośrednictwem obwodu ExpressRoute w warstwie Premium do wirtualnego koncentratora sieci WAN Europa Zachodnia.
 
-- Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu do sieci wirtualnej połączonej w regionie zdalnym.
+* Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu do sieci wirtualnej połączonej w regionie zdalnym.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="koncentrator i szprycha":::
 
@@ -195,11 +197,11 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- Azja jest połączona z lokalnym prywatnym przewoźnikiem sieci WAN.
+* Azja jest połączona z lokalnym prywatnym przewoźnikiem sieci WAN.
 
-- Obwód ExpressRoutey lokalnie kończy się w prywatnej sieci WAN, łączy się z wirtualnym koncentratorem sieci WAN w południowej Azja Wschodnia.
+* Obwód ExpressRoutey lokalnie kończy się w prywatnej sieci WAN, łączy się z wirtualnym koncentratorem sieci WAN w południowej Azja Wschodnia.
 
-- Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu.
+* Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="koncentrator i szprycha":::
 
@@ -209,7 +211,7 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- Łączność globalna między koncentratorem wirtualnej sieci WAN umożliwia natywne tranzyt wszystkich połączonych sieci wirtualnych platformy Azure bez dalszej konfiguracji użytkownika.
+* Łączność globalna między koncentratorem wirtualnej sieci WAN umożliwia natywne tranzyt wszystkich połączonych sieci wirtualnych platformy Azure bez dalszej konfiguracji użytkownika.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="koncentrator i szprycha":::
 
@@ -219,9 +221,9 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- Użytkownicy laptopów i urządzeń przenośnych używają klienta OpenVPN do przezroczystego połączenia w programie z bramą sieci VPN P2S w regionie Europa Zachodnia.
+* Użytkownicy laptopów i urządzeń przenośnych używają klienta OpenVPN do przezroczystego połączenia w programie z bramą sieci VPN P2S w regionie Europa Zachodnia.
 
-- Wirtualne centrum WAN Europa Zachodnia kieruje ruch lokalnie do połączonej sieci wirtualnej.
+* Wirtualne centrum WAN Europa Zachodnia kieruje ruch lokalnie do połączonej sieci wirtualnej.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="koncentrator i szprycha":::
 
@@ -249,9 +251,9 @@ Poniższe ścieżki pokazują ścieżki łączności włączone przy użyciu zab
 
 Ruch jest kierowany w następujący sposób:
 
-- Sieci wirtualne połączone z tym samym zabezpieczonym koncentratorem wirtualnym teraz kierują ruch do za pośrednictwem zapory platformy Azure.
+* Sieci wirtualne połączone z tym samym zabezpieczonym koncentratorem wirtualnym teraz kierują ruch do za pośrednictwem zapory platformy Azure.
 
-- Zapora platformy Azure może stosować zasady do tych przepływów.
+* Zapora platformy Azure może stosować zasady do tych przepływów.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="koncentrator i szprycha":::
 
@@ -261,9 +263,9 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- Sieci wirtualne połączone z bezpiecznym koncentratorem wirtualnym mogą wysyłać ruch do publicznych miejsc w Internecie przy użyciu bezpiecznego centrum jako centralnego punktu dostępu do Internetu.
+* Sieci wirtualne połączone z bezpiecznym koncentratorem wirtualnym mogą wysyłać ruch do publicznych miejsc w Internecie przy użyciu bezpiecznego centrum jako centralnego punktu dostępu do Internetu.
 
-- Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
+* Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="koncentrator i szprycha":::
 
@@ -273,12 +275,12 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-- Gałęzie połączone z bezpiecznym koncentratorem wirtualnym mogą wysyłać ruch do publicznych miejsc docelowych w Internecie przy użyciu bezpiecznego centrum jako centralnego punktu dostępu do Internetu.
+* Gałęzie połączone z bezpiecznym koncentratorem wirtualnym mogą wysyłać ruch do publicznych miejsc docelowych w Internecie przy użyciu bezpiecznego centrum jako centralnego punktu dostępu do Internetu.
 
-- Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
+* Ten ruch może być filtrowany lokalnie przy użyciu reguł FQDN zapory platformy Azure lub wysyłany do usługi zabezpieczeń innej firmy w celu przeprowadzenia inspekcji.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="koncentrator i szprycha":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [usłudze Azure Virtual WAN](virtual-wan-about.md)
+Dowiedz się więcej o [wirtualnej sieci WAN platformy Azure](virtual-wan-about.md).

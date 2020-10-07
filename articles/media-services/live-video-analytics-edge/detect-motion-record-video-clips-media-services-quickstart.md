@@ -3,12 +3,12 @@ title: Wykrywaj ruch, nagrywaj wideo do Azure Media Services
 description: W tym przewodniku szybki start pokazano, jak używać analizy wideo na żywo na IoT Edge w celu wykrywania ruchu w strumieniu wideo na żywo i rejestrowania klipów wideo do Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89569014"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776480"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Szybki Start: wykrywanie ruchu, nagrywanie wideo do Media Services
 
@@ -39,6 +39,16 @@ Po wykonaniu poniższych kroków zostanie użyta usługa analizy wideo na żywo 
 ## <a name="use-direct-method-calls"></a>Używanie wywołań metod bezpośrednich
 
 Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie metod bezpośrednich. Przeczytaj [bezpośrednie metody analizy wideo na żywo na IoT Edge](direct-methods.md) , aby zrozumieć wszystkie metody bezpośrednie dostarczone przez moduł. 
+
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Nagrywanie filmów wideo na podstawie zdarzeń do zasobów na podstawie zdarzeń ruchu":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Nagrywanie filmów wideo na podstawie zdarzeń do zasobów na podstawie zdarzeń ruchu":::
 
 ### <a name="invoke-graphtopologylist"></a>Wywołaj GraphTopologyList
 Ten krok wylicza wszystkie [topologie grafu](media-graph-concept.md#media-graph-topologies-and-instances) w module.

@@ -1,14 +1,16 @@
 ---
 title: Współpracuj z innymi — QnA Maker
 description: ''
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 080e6549579675e27486e6173d5907d92bbaad70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 967fdae49f904f6c1cb450b637a8dbc5c481b135
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724925"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776888"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Współpracuj z innymi autorami i edytorami
 

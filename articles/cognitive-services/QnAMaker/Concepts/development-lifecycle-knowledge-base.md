@@ -1,14 +1,16 @@
 ---
 title: Cykl życia bazy wiedzy — QnA Maker
 description: QnA Maker uczy się najlepiej w iteracyjnym cyklu zmian modelu, wypowiedź przykładów, publikowania i zbierania danych z zapytań punktów końcowych.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 7bbf729fa80e4b41a85b8dfd1080decea1bae108
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612267"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776973"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Cykl życia bazy wiedzy w QnA Maker
 QnA Maker uczy się najlepiej w iteracyjnym cyklu zmian modelu, wypowiedź przykładów, publikowania i zbierania danych z zapytań punktów końcowych.

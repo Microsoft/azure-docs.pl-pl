@@ -1,14 +1,16 @@
 ---
 title: Badanie bazy wiedzy — QnA Maker
 description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220722"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776922"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Zapytanie dotyczące odpowiedzi z bazy wiedzy
 
@@ -42,7 +44,7 @@ Po opublikowaniu bazy wiedzy Usługa tworzy punkt końcowy HTTP oparty na protok
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Żądanie kwerendy użytkownika w celu wygenerowania odpowiedzi
 
-Zapytanie użytkownika to pytanie, że użytkownik końcowy prosi o bazę wiedzy, np `How do I add a collaborator to my app?`.. Zapytanie jest często w formacie języka naturalnego lub kilka słów kluczowych, które reprezentują pytanie, na przykład `help with collaborators`. Zapytanie jest wysyłane do bazy wiedzy z żądania HTTP w aplikacji klienckiej.
+Zapytanie użytkownika to pytanie, że użytkownik końcowy prosi o bazę wiedzy, np `How do I add a collaborator to my app?` .. Zapytanie jest często w formacie języka naturalnego lub kilka słów kluczowych, które reprezentują pytanie, na przykład `help with collaborators` . Zapytanie jest wysyłane do bazy wiedzy z żądania HTTP w aplikacji klienckiej.
 
 ```json
 {

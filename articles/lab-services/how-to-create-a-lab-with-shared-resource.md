@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 9cb5698f95aa220208fb02a35a52ff5363a173ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443370"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776446"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Jak utworzyć laboratorium z udostępnionym zasobem w Azure Lab Services
 
@@ -31,6 +31,20 @@ Udostępniony zasób może być oprogramowaniem uruchomionym na maszynie wirtual
 Na diagramie przedstawiono również sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), która może służyć do ograniczania ruchu pochodzącego z maszyny wirtualnej ucznia.  Można na przykład napisać regułę zabezpieczeń, która określa ruch z adresów IP dla ucznia, może uzyskać dostęp tylko do jednego zasobu udostępnionego i nic innego.  Aby uzyskać więcej informacji na temat ustawiania reguł zabezpieczeń, zobacz [Manage Network Security Group](../virtual-network/manage-network-security-group.md#work-with-security-rules). Jeśli chcesz ograniczyć dostęp do udostępnionego zasobu do określonego laboratorium, Pobierz adres IP dla laboratorium z [ustawień laboratorium z konta laboratorium](manage-labs.md#view-labs-in-a-lab-account) i ustaw regułę ruchu przychodzącego zezwalającą na dostęp tylko z tego adresu IP.  Nie zapomnij zezwolić na porty 49152 do 65535 dla tego adresu IP.  Opcjonalnie możesz znaleźć prywatny adres IP dla maszyn wirtualnych ucznia, korzystając ze [strony Pula maszyn wirtualnych](how-to-set-virtual-machine-passwords.md).
 
 Jeśli zasób udostępniony jest maszyną wirtualną platformy Azure, na której działa wymagane oprogramowanie, może być konieczne zmodyfikowanie domyślnych reguł zapory dla maszyny wirtualnej.
+
+### <a name="tips-for-shared-resources---license-server"></a>Wskazówki dotyczące zasobów udostępnionych — serwer licencji
+Jednym z najpopularniejszych zasobów udostępnionych jest serwer licencji, poniżej przedstawiono kilka wskazówek dotyczących sposobu pomyślnego konfigurowania.
+#### <a name="server-region"></a>Region serwera
+Serwer licencji musi być połączony z siecią wirtualną, która jest połączona z laboratorium, dlatego serwer licencji musi znajdować się w tym samym regionie, w którym znajduje się konto laboratorium.
+
+#### <a name="static-private-ip-and-mac-address"></a>Statyczny prywatny adres IP i MAC
+Domyślnie maszyny wirtualne mają dynamiczny prywatny adres IP, przed skonfigurowaniem [dowolnego oprogramowania Ustaw prywatny adres IP na statyczny](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Spowoduje to skonfigurowanie prywatnego adresu IP i adres MAC, który ma być statyczny.  
+
+#### <a name="control-access"></a>Kontrola dostępu
+Kontrolowanie dostępu do serwera licencji jest kluczem.  Po skonfigurowaniu dostępu do maszyny wirtualnej nadal będzie konieczna konserwacja, rozwiązywanie problemów i aktualizowanie.  Poniżej przedstawiono kilka różnych sposobów wykonania tej czynności.
+- [Konfigurowanie dostępu just in Time (JIT) w Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
+- [Konfigurowanie sieciowej grupy zabezpieczeń w celu ograniczenia dostępu.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Skonfiguruj bastionu, aby umożliwić bezpieczny dostęp do serwera licencji.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Konto laboratorium
 

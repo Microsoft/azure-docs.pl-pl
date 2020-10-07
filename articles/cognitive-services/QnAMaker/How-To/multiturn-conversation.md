@@ -1,14 +1,16 @@
 ---
 title: Konwersacje wieloetapowe — QnA Maker
 description: Użyj wskazówek i kontekstu, aby zarządzać wielokrotnymi przepisaniami, nazywanymi wieloma przełączanymi, dla bot z jednego pytania do innego. Funkcja wielodostępna umożliwia konwersację z poprzednią i przechodzącą, w której kontekście poprzedniego pytania ma wpływ na następne pytanie i odpowiedź.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322839"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777804"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Tworzenie wielu etapów konwersacji za pomocą dodatkowych monitów
 
@@ -92,7 +94,7 @@ Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż kon
 
 Kontekst wielowłączany jest wyświetlany w pierwszej kolumnie.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Zrzut ekranu przedstawia podświetloną sekcję kontekstową." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Zrzut ekranu przedstawia przykład struktury w podręczniku użytkownika." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na powyższym obrazie **#1** oznacza pogrubiony tekst w kolumnie, co oznacza bieżące pytanie. Pytanie nadrzędne to pierwszy element w wierszu. Wszystkie pytania poniżej są połączonymi parami pytań i odpowiedzi. Elementy te są wybierane, dzięki czemu można od razu przejść do innych elementów kontekstu.
 
@@ -167,7 +169,7 @@ Po dodaniu nowej pary pytań i odpowiedzi do bazy wiedzy każda para powinna by�
 
     Pytanie nadrzędne wyświetla nowe pytanie jako jedną z opcji.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Zrzut ekranu przedstawia kolumnę kontekstową dla obu pytań wskazuje, że jest to relacja monitu." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Zrzut ekranu przedstawia przykład struktury w podręczniku użytkownika." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Po dodaniu monitu kliknij pozycję **Zapisz i pouczenie** na górnym pasku nawigacyjnym.
 

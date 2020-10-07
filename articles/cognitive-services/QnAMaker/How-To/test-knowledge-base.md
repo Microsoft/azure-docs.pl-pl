@@ -1,14 +1,16 @@
 ---
 title: Jak przetestować bazę wiedzy QnA Maker
 description: Testowanie bazy wiedzy QnA Maker jest ważną częścią procesu iteracyjnego, aby poprawić dokładność zwracanych odpowiedzi. Bazę wiedzy można przetestować za pośrednictwem rozszerzonego interfejsu czatu, który umożliwia również edycję.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 9c6d7fc9a421ce466ecd91aaac5c2b83f42a1624
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650926"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776837"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Przetestuj bazę wiedzy w QnA Maker
 

@@ -1,16 +1,18 @@
 ---
 title: 'Szybki Start: korzystanie z zestawu SDK do tworzenia bazy wiedzy i zarządzania nią QnA Maker'
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia bazy wiedzy i zarządzania nią przy użyciu zestawu SDK klienta.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: aae9bce5542dc4c610df91d8176916adc459fe86
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 36a38c69c68613e912e7c598495b9370044f13a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253936"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777458"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Szybki Start: QnA Makera Biblioteka kliencka
 
