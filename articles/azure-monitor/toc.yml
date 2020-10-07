@@ -1326,6 +1326,8 @@
       href: samples/policy-reference.md
     - name: Wycofywanie funkcji i interfejsu API
       items:
+        - name: Interfejs OperationalInsights API
+          href: platform/operationalinsights-api-retirement.md
         - name: Klasyczne autoskalowanie i interfejs API metryk
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Klasyczne alerty i monitorowanie

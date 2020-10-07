@@ -226,7 +226,7 @@
       items:
         - name: Skalowanie w górę pojemności serwera
           href: manage-scale-up.md
-        - name: Konfigurowanie warstwy PremiumV2
+        - name: Konfigurowanie warstwy PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Skalowanie w poziomie do wielu wystąpień
           href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
