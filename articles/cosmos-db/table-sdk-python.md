@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 66a53840d6002731910baf63a331a79a6f654078
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5832214b5b0a98249f951915e867db8542c28a71
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167965"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803963"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel SDK dla języka Python: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84167965"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python&preserve-view=true)|
 |**Instrukcje dotyczące instalacji zestawu SDK**|[Instrukcje dotyczące instalacji zestawu SDK języka Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Bieżąca obsługiwana platforma**|[Python 2,7](https://www.python.org/downloads/) lub [python 3,3, 3,4, 3,5 lub 3,6](https://www.python.org/downloads/)|
@@ -60,6 +60,6 @@ Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
 

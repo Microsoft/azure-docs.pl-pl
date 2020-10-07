@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ae15fc59137e9bf6fb7bfd9fedfb410aa4e0931c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337048"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651908"
 ---
 # <a name="analyze-unexpected-charges"></a>Analizowanie nieoczekiwanych opłat
 
@@ -26,7 +26,7 @@ Sposób kupowania usług platformy Azure pomaga określić metodologię i narzę
 
 Poniższe artykuły zawierają szczegółowe kroki przeglądania rachunku na podstawie typu klienta. W każdym artykule znajdują się instrukcje dotyczące pobierania pliku CSV zawierającego dane użycia i szczegóły kosztów dla danego okresu rozliczeniowego.
 
-- [Proces przeglądania rachunku dla płatności zgodnie z rzeczywistym użyciem](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Proces przeglądania rachunku dla płatności zgodnie z rzeczywistym użyciem](review-individual-bill.md#charges)
 - [Proces przeglądania rachunku dla umowy Enterprise Agreement](review-enterprise-agreement-bill.md)
 - [Proces przeglądania dla Umowy z Klientem Microsoft](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Proces przeglądania dla umowy Microsoft Partner Agreement](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

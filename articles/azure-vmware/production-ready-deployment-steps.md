@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583331"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802212"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -19,6 +19,40 @@ Procesy tego przewodnika Szybki Start umożliwiają tworzenie maszyn wirtualnych
 >[!IMPORTANT]
 >Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu. Aby uzyskać więcej informacji, zobacz [How to enable Azure VMware Solution Resource](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Subskrypcja
+
+Określ subskrypcję, która ma zostać użyta do wdrożenia rozwiązania VMware platformy Azure.  Można utworzyć nową subskrypcję lub ponownie użyć istniejącej.
+
+>[!NOTE]
+>Subskrypcja musi być skojarzona z Umowa Enterpriseem firmy Microsoft.
+
+## <a name="resource-group"></a>Grupa zasobów
+
+Zidentyfikuj grupę zasobów, której chcesz użyć dla rozwiązania VMware platformy Azure.  Ogólnie rzecz biorąc, Grupa zasobów jest tworzona dla rozwiązań VMware platformy Azure, ale można użyć istniejącej grupy zasobów.
+
+## <a name="region"></a>Region
+
+Określ region, dla którego ma zostać wdrożone rozwiązanie Azure VMware.  Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem dotyczącym produktów platformy Azure dostępnych według regionów](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## <a name="resource-name"></a>Nazwa zasobu
+
+Zdefiniuj nazwę zasobu, która będzie używana podczas wdrażania.  Nazwa zasobu jest przyjazną i opisową nazwą, w której jest określana Chmura prywatna rozwiązania Azure VMware.
+
+## <a name="size-nodes"></a>Węzły rozmiaru
+
+Określ węzły rozmiaru, które mają być używane podczas wdrażania rozwiązania Azure VMware.  Aby uzyskać pełną listę, zobacz dokumentację [chmur prywatnych i klastrów rozwiązań VMware platformy Azure](concepts-private-clouds-clusters.md#hosts) .
+
+## <a name="number-of-hosts"></a>Liczba hostów
+
+Zdefiniuj liczbę hostów, które chcesz wdrożyć w chmurze prywatnej rozwiązania Azure VMware.  Minimalna liczba węzłów to trzy, a maksymalna to 16 na klaster.  Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [chmury i klastrów prywatnych rozwiązania Azure VMware](concepts-private-clouds-clusters.md#clusters) .
+
+Klaster można zawsze później zwiększyć, jeśli trzeba przekroczyć początkowy numer wdrożenia.
+
+## <a name="vcenter-admin-password"></a>hasło administratora vCenter
+Zdefiniuj hasło administratora vCenter.  Podczas wdrażania utworzysz hasło administratora vCenter. Hasło jest cloudadmin@vsphere.local kontem administratora podczas kompilacji programu vCenter. Będziesz używać go do logowania się do programu vCenter.
+
+## <a name="nsx-t-admin-password"></a>Hasło administratora NSX-T
+Zdefiniuj hasło administratora NSX-T.  Podczas wdrażania utworzysz hasło administratora NSX-T. Hasło jest przypisywane do użytkownika administracyjnego na koncie NSX podczas kompilacji NSX. Zostanie ona użyta do zalogowania się do Menedżera NSX-T.
 
 ## <a name="ip-address-segment"></a>Segment adresów IP
 
@@ -63,41 +97,6 @@ Zidentyfikuj `/29` blok adresów sieciowych CIDR, który jest wymagany do Expres
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identyfikowanie — segment adresów IP" border="false":::
 
-## <a name="subscription"></a>Subskrypcja
-
-Określ subskrypcję, która ma zostać użyta do wdrożenia rozwiązania VMware platformy Azure.  Można utworzyć nową subskrypcję lub ponownie użyć istniejącej.
-
->[!NOTE]
->Subskrypcja musi być skojarzona z Umowa Enterpriseem firmy Microsoft.
-
-## <a name="resource-group"></a>Grupa zasobów
-
-Zidentyfikuj grupę zasobów, której chcesz użyć dla rozwiązania VMware platformy Azure.  Ogólnie rzecz biorąc, Grupa zasobów jest tworzona dla rozwiązań VMware platformy Azure, ale można użyć istniejącej grupy zasobów.
-
-## <a name="region"></a>Region
-
-Określ region, dla którego ma zostać wdrożone rozwiązanie Azure VMware.  Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem dotyczącym produktów platformy Azure dostępnych według regionów](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## <a name="resource-name"></a>Nazwa zasobu
-
-Zdefiniuj nazwę zasobu, która będzie używana podczas wdrażania.  Nazwa zasobu jest przyjazną i opisową nazwą, w której jest określana Chmura prywatna rozwiązania Azure VMware.
-
-## <a name="size-nodes"></a>Węzły rozmiaru
-
-Określ węzły rozmiaru, które mają być używane podczas wdrażania rozwiązania Azure VMware.  Aby uzyskać pełną listę, zobacz dokumentację [chmur prywatnych i klastrów rozwiązań VMware platformy Azure](concepts-private-clouds-clusters.md#hosts) .
-
-## <a name="number-of-hosts"></a>Liczba hostów
-
-Zdefiniuj liczbę hostów, które chcesz wdrożyć w chmurze prywatnej rozwiązania Azure VMware.  Minimalna liczba węzłów to trzy, a maksymalna to 16 na klaster.  Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [chmury i klastrów prywatnych rozwiązania Azure VMware](concepts-private-clouds-clusters.md#clusters) .
-
-Klaster można zawsze później zwiększyć, jeśli trzeba przekroczyć początkowy numer wdrożenia.
-
-## <a name="vcenter-admin-password"></a>hasło administratora vCenter
-Zdefiniuj hasło administratora vCenter.  Podczas wdrażania utworzysz hasło administratora vCenter. Hasło jest cloudadmin@vsphere.local kontem administratora podczas kompilacji programu vCenter. Będziesz używać go do logowania się do programu vCenter.
-
-## <a name="nsx-t-admin-password"></a>Hasło administratora NSX-T
-Zdefiniuj hasło administratora NSX-T.  Podczas wdrażania utworzysz hasło administratora NSX-T. Hasło jest przypisywane do użytkownika administracyjnego na koncie NSX podczas kompilacji NSX. Zostanie ona użyta do zalogowania się do Menedżera NSX-T.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Virtual Network platformy Azure, aby dołączyć rozwiązanie VMware dla platformy Azure
 
 Aby uzyskać dostęp do prywatnej chmury rozwiązania VMware, obwód usługi ExpressRoute, który jest dostarczany z rozwiązaniem VMware platformy Azure, musi zostać dołączony do Virtual Network platformy Azure.  Podczas wdrażania można zdefiniować nową sieć wirtualną lub wybrać istniejącą.
@@ -121,8 +120,6 @@ W obu przypadkach należy udokumentować, co chcesz zrobić w tym kroku.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identyfikowanie — segment adresów IP" border="false":::
 
-
-
 ## <a name="vmware-hcx-network-segments"></a>Segmenty sieci VMware HCX
 
 VMware HCX to technologia dostosowana do rozwiązań VMware platformy Azure. Podstawowym przypadkiem użycia programu VMware HCX są migracje obciążeń i odzyskiwanie po awarii. Jeśli planujesz wykonać te czynności, najlepiej zaplanuj sieć teraz.   W przeciwnym razie możesz pominąć i przejść do następnego kroku.
@@ -133,4 +130,4 @@ VMware HCX to technologia dostosowana do rozwiązań VMware platformy Azure. Pod
 Teraz, po zebraniu i udokumentowaniu wymaganych informacji, przejdź do następnej sekcji, aby utworzyć chmurę prywatną rozwiązania Azure VMware.
 
 > [!div class="nextstepaction"]
-> [Wdróż rozwiązanie VMware dla platformy Azure](deploy-azure-vmware-solution.md)
+> [Wdrażanie usługi Azure VMware Solution](deploy-azure-vmware-solution.md)

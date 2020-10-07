@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 9ecb4d6c5c6701633606bf952c09063a8d96f8d1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778941"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801667"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Szybki Start: wysyłanie wiadomości SMS w Azure Logic Apps przy użyciu usług Azure Communications Services
 
@@ -56,6 +56,8 @@ Aby dodać akcję **Wyślij wiadomość SMS** jako nowy krok w przepływie pracy
    1. Wybierz zasób usługi Azure Communications Services.
 
    1. Wybierz pozycję **Utwórz**.
+
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Zrzut ekranu pokazujący Azure Portal, który jest otwarty w Projektancie aplikacji logiki, i pokazuje przykładową aplikację logiki, która używa akcji Wyślij wiadomość SMS dla łącznika usługi Azure Communications Services.":::
 
 1. W akcji **Wyślij wiadomość SMS** podaj następujące informacje: 
 

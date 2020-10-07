@@ -130,3 +130,7 @@
       href: /rest/api/consumption/usagedetails
     - name: Usługa Cost Management — interfejs Consumption Reservations Details API REST
       href: /rest/api/consumption/reservationsdetails
+- name: Zasoby
+  items:
+    - name: Oszczędzanie pieniędzy dzięki wystąpieniom zarezerwowanym — moduł rozwiązania Learn
+      href: /learn/modules/save-money-with-azure-reserved-instances

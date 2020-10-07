@@ -7,18 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397036"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802934"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB
 
 W przypadku **czasu** wygaśnięcia lub czasu wygaśnięcia usługa Azure Cosmos DB zapewnia możliwość automatycznego usuwania elementów z kontenera po upływie określonego czasu. Domyślnie można ustawić czas na żywo na poziomie kontenera i zastąpić wartość dla każdego elementu. Po ustawieniu czasu wygaśnięcia w kontenerze lub na poziomie elementu Azure Cosmos DB automatycznie usunie te elementy po upływie czasu, od momentu ostatniej modyfikacji. Wartość czasu wygaśnięcia jest konfigurowana w sekundach. W przypadku skonfigurowania czasu wygaśnięcia system automatycznie usunie przeterminowane elementy na podstawie wartości czasu wygaśnięcia, bez konieczności operacji usuwania jawnie wydanej przez aplikację kliencką. Maksymalna wartość parametru TTL to 2147483647.
 
 Usuwanie wygasłych elementów to zadanie w tle, które wykorzystuje [jednostki](request-units.md)żądań od lewej do końca, które są jednostkami żądania, które nie zostały zużyte przez żądania użytkowników. Nawet po wygaśnięciu czasu wygaśnięcia, jeśli kontener jest przeciążony przy użyciu żądań i jeśli nie ma wystarczającej ilości RU, usuwanie danych jest opóźnione. Dane są usuwane, gdy jest wystarczająco dużo jednostek ru dostępne do wykonania operacji usuwania. Mimo że usuwanie danych jest opóźnione, dane nie są zwracane przez żadne zapytania (przez dowolny interfejs API) po wygaśnięciu czasu wygaśnięcia.
+
+> Ta zawartość jest powiązana z Azure Cosmos DBą czasu wygaśnięcia magazynu transakcyjnego. Jeśli szukasz wartości TTL magazynu analitycal, która umożliwia NoETLe scenariusze HTAP za pomocą [linku Synapse platformy Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), kliknij [tutaj](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Czas wygaśnięcia kontenerów i elementów
 

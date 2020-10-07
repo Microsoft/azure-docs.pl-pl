@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561877"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802297"
 ---
 # <a name="graphics-binding"></a>Powiązanie grafiki
 
@@ -120,7 +120,10 @@ Gdzie powyżej `ptr` musi być wskaźnikiem do obiektu natywnego `ABI::Windows::
 
 #### <a name="render-remote-image"></a>Renderowanie obrazu zdalnego
 
-Na początku każdej ramki zdalna ramka musi być renderowana w buforze zaplecza. W tym celu należy wywołać metodę `BlitRemoteFrame` , która spowoduje wypełnienie informacji o kolorach i głębokości do aktualnie powiązanego obiektu docelowego renderowania. Dlatego ważne jest, aby to zrobić po powiązaniu buforu zapasowego jako elementu docelowego renderowania.
+Na początku każdej ramki, zdalna ramka musi być renderowana w buforze zaplecza. W tym celu należy wywołać metodę `BlitRemoteFrame` , która spowoduje wypełnienie zarówno informacji o kolorach, jak i głębokości dla obu oczu w aktualnie powiązanym miejscu docelowym renderowania. W związku z tym ważne jest, aby zrobić to po powiązaniu pełnego buforu jako elementu docelowego renderowania.
+
+> [!WARNING]
+> Po blit — zdalnego obrazu do buforu zapasowego zawartość lokalna powinna być renderowana przy użyciu jednoprzebiegowej techniki renderowania stereo, np. przy użyciu **SV_RenderTargetArrayIndex**. Korzystanie z innych technik renderowania stereo, takich jak renderowanie poszczególnych oczu w oddzielnym przebiegu, może skutkować poważnym obniżeniem wydajności lub artefaktami graficznymi.
 
 ```cs
 AzureSession currentSession = ...;

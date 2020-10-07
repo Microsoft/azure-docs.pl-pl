@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 49c3c7aed94b14f4b75b507184cb0c637b202861
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 720c5190bfc1b4b6a6c3e86052cfc329233c5ed2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710094"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802484"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -82,7 +82,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForLinux | ciąg |
 | typeHandlerVersion | 1.0 | int |
@@ -189,7 +189,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\"<observedCerts>\"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 * Aby wdrożyć rozszerzenie na zestawie skalowania maszyn wirtualnych:
@@ -200,7 +200,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vm-name "<vmName>" `
-        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\"<observedCerts>\"] }}'
+        --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 Należy pamiętać o następujących ograniczeniach/wymaganiach:

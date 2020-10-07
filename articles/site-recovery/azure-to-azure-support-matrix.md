@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: fb2c048580022f44af30178070a6c2b84ce54df1
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 786947a03440cc837f9d104d43e8061c80a0844c
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728747"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803096"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 
 **Wdrożenie** |  **Pomoc techniczna**
 --- | ---
-**Witryna Azure Portal** | Obsługiwane.
+**Azure Portal** | Obsługiwane.
 **Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
 **Interfejs API REST** | Obsługiwane.
 **Interfejs wiersza polecenia** | Nie jest obecnie obsługiwana.
@@ -273,7 +273,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 16
 **Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Karta sieciowa | Maksymalna liczba obsługiwana dla określonego rozmiaru maszyny wirtualnej platformy Azure | Karty sieciowe są tworzone podczas pracy w trybie failover.<br/><br/> Liczba kart sieciowych na maszynie wirtualnej trybu failover zależy od liczby kart sieciowych na źródłowej maszynie wirtualnej, gdy replikacja została włączona. Po dodaniu lub usunięciu karty sieciowej po włączeniu replikacji nie ma to wpływu na liczbę kart sieciowych replikowanych maszyn wirtualnych po przejściu w tryb failover. <br/><br/> Kolejność kart sieciowych po przejściu w tryb failover nie gwarantuje, że jest taka sama jak oryginalna kolejność. <br/><br/> Można zmienić nazwy kart sieciowych w regionie docelowym na podstawie konwencji nazewnictwa w organizacji. Zmiana nazwy karty sieciowej jest obsługiwana przy użyciu programu PowerShell.
-Internetowy moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.
+Internetowy moduł równoważenia obciążenia | Nieobsługiwane | Usługa Azure Site Recovery nie obsługuje publicznego/internetowego modułu równoważenia obciążenia.
 Wewnętrzny moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.
 Publiczny adres IP | Obsługiwane | Skojarz istniejący publiczny adres IP z kartą sieciową. Lub Utwórz publiczny adres IP i skojarz go z kartą sieciową przy użyciu skryptu Azure Automation w planie odzyskiwania.
 SIECIOWEJ grupy zabezpieczeń na karcie sieciowej | Obsługiwane | Skojarz sieciowej grupy zabezpieczeń z kartą sieciową przy użyciu skryptu Azure Automation w planie odzyskiwania.

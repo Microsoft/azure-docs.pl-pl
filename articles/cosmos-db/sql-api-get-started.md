@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 514fe30da9c0e232c168992c2aabbb484644aa99
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015309"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801515"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Samouczek: Tworzenie aplikacji konsolowej .NET do zarządzania danymi w Azure Cosmos DB koncie interfejsu API SQL
 
@@ -70,11 +70,11 @@ Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w rozwiązaniu programu Visual Studio, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 1. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj** i wyszukaj ciąg *Microsoft. Azure. Cosmos*. Wybierz pozycję **Microsoft. Azure. Cosmos** i wybierz pozycję **Zainstaluj**.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Zainstaluj pakiet NuGet dla Azure Cosmos DB klienta SDK":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Konfigurowanie projektu":::
 
    Identyfikator pakietu biblioteki klienta interfejsu API SQL w usłudze Azure Cosmos DB to [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-Doskonale! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Aby zapoznać się z kompletnym projektem tego samouczka, zobacz [Tworzenie aplikacji konsolowej .NET przy użyciu Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
+Świetnie! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Aby zapoznać się z kompletnym projektem tego samouczka, zobacz [Tworzenie aplikacji konsolowej .NET przy użyciu Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Krok 3. Łączenie się z kontem usługi Azure Cosmos DB
 
@@ -121,7 +121,7 @@ Doskonale! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Aby za
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Znajdź konto Azure Cosmos DB, a następnie wybierz pozycję **klucze**.
 
-   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Pobierz klucze Azure Cosmos DB z Azure Portal":::
+   :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Konfigurowanie projektu":::
 
 1. W *program.cs*, Zastąp `<your endpoint URL>` wartość **identyfikatorem URI**. Zamień `<your primary key>` na wartość **klucza podstawowego**.
 
@@ -278,7 +278,7 @@ Gratulacje! Baza danych Azure Cosmos została pomyślnie utworzona.
 >
 >
 
-Kontener można utworzyć przy użyciu metody [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) lub [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) w `CosmosDatabase` klasie. Kontener składa się z elementów (dokumentów JSON, jeśli interfejs API SQL) i skojarzonej logiki aplikacji po stronie serwera w języku JavaScript, na przykład procedury składowane, funkcje zdefiniowane przez użytkownika i wyzwalacze.
+Kontener można utworzyć przy użyciu metody [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) lub [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) w `CosmosDatabase` klasie. Kontener składa się z elementów (dokumentów JSON, jeśli interfejs API SQL) i skojarzonej logiki aplikacji po stronie serwera w języku JavaScript, na przykład procedury składowane, funkcje zdefiniowane przez użytkownika i wyzwalacze.
 
 1. Skopiuj i wklej `CreateContainerAsync` metodę poniżej `CreateDatabaseAsync` metody. `CreateContainerAsync`  Tworzy nowy kontener o IDENTYFIKATORze `FamilyContainer` , jeśli jeszcze nie istnieje, przy użyciu identyfikatora określonego w `containerId` polu partycjonowane według `LastName` właściwości.
 
@@ -304,13 +304,13 @@ Gratulacje! Pomyślnie utworzono kontener usługi Azure Cosmos.
 
 ## <a name="step-6-add-items-to-the-container"></a><a id="CreateDoc"></a>Krok 6. Dodawanie elementów do kontenera
 
-Metoda [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) `CosmosContainer` klasy może utworzyć element. W przypadku korzystania z interfejsu API SQL elementy są rzutowane jako dokumenty zdefiniowane przez użytkownika jako dowolnie zawartość JSON. Teraz można wstawić element do kontenera usługi Azure Cosmos.
+Metoda [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) `CosmosContainer` klasy może utworzyć element. W przypadku korzystania z interfejsu API SQL elementy są rzutowane jako dokumenty zdefiniowane przez użytkownika jako dowolnie zawartość JSON. Teraz można wstawić element do kontenera usługi Azure Cosmos.
 
 Najpierw Utwórzmy `Family` klasę reprezentującą obiekty przechowywane w Azure Cosmos DB w tym przykładzie. Utworzymy również `Parent` klasy, `Child` ,, `Pet` , `Address` które są używane w programie `Family` . Element musi mieć `Id` serializowaną właściwość w formacie `id` JSON.
 
 1. Wybierz kombinację klawiszy Ctrl + Shift + A, aby otworzyć **pozycję Dodaj nowy element**. Dodaj nową klasę `Family.cs` do projektu.
 
-    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Zrzut ekranu przedstawiający Dodawanie nowej klasy Family.cs do projektu":::
+    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Konfigurowanie projektu":::
 
 1. Skopiuj i wklej `Family` klasy, `Parent` , `Child` , `Pet` i `Address` do `Family.cs` .
 
@@ -493,7 +493,7 @@ Aby przywrócić odwołania do zestawu SDK programu Azure Cosmos DB .NET w progr
 
 To wszystko — skompiluj projekt i gotowe!
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Potrzebujesz bardziej złożonego samouczka platformy ASP.NET MVC? Zobacz [Samouczek: Tworzenie aplikacji sieci web ASP.NET Core MVC z Azure Cosmos dB przy użyciu zestawu .NET SDK](sql-api-dotnet-application.md).
 * Chcesz przeprowadzić testowanie skalowalności i wydajności za pomocą Azure Cosmos DB? Zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d50ed62343a7fd0aafb1fed97c0f33f2caaec12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019933"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802994"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -39,7 +39,7 @@ W przypadku systemu Linux i innych nieobsługiwanych platform, w których Servic
 
 Cztery typy aplikacji wymienione tutaj używają domyślnie 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe dla typu aplikacji, wykonaj następujące czynności:
 
-- W **przypadku aplikacji wykonywalnych**: w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) na **x64**.
+- W **przypadku aplikacji wykonywalnych**: w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) na **x64**.
 
 - W **przypadku projektów testowych opartych na VSTest**: w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu**, a następnie ustaw **domyślną architekturę procesora** na **x64**.
 
@@ -126,7 +126,7 @@ Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Az
 
 Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Kolokacja klientów w tym samym regionie." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ustanów połączenie z Azure Cosmos DB przy użyciu różnych trybów połączenia i protokołów." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -199,7 +199,7 @@ Zapytania równoległe zawierają dwa parametry, które można dostosować w cel
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna cofnąć ograniczenie przepustowości dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że poświęcisz minimalny czas oczekiwania między ponownymi próbami. 
 
-Aby uzyskać więcej informacji, zobacz [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Aby uzyskać więcej informacji, zobacz [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Istnieje mechanizm rejestrowania dodatkowych informacji diagnostycznych i rozwiązywania problemów z opóźnieniami, jak pokazano w poniższym przykładzie. Można rejestrować ciąg diagnostyczny dla żądań o wyższym opóźnieniu odczytu. Przechwycony ciąg diagnostyczny pomoże zrozumieć, ile razy otrzymano błąd *429* dla danego żądania.
 
@@ -284,7 +284,7 @@ Aby uzyskać więcej informacji, zobacz [jednostki żądania](request-units.md).
 
 Opłata za żądanie (czyli koszt przetwarzania żądań) określonej operacji jest skorelowana bezpośrednio z rozmiarem dokumentu. Operacje na dużych dokumentach są droższe niż operacje w małych dokumentach.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby skorzystać z przykładowej aplikacji służącej do oceny Azure Cosmos DB w scenariuszach o wysokiej wydajności na kilku komputerach klienckich, zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).
 
 Aby dowiedzieć się więcej na temat projektowania aplikacji pod kątem skalowania i wysokiej wydajności, zobacz [partycjonowanie i skalowanie w Azure Cosmos DB](partition-data.md).

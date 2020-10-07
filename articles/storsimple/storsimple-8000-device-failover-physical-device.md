@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4fc5c44ab0fcee5cbf1faa2338f65fe12d779f37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511782"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803946"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Przechodzenie w tryb failover na urządzenie fizyczne z serii StorSimple 8000
 
@@ -75,7 +75,7 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
    
    1. Wybierz urządzenie, które było używane jako urządzenie docelowe dla procesu przełączania do trybu failover.
 
-       ![Wybierz urządzenie](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Wybierz urządzenie 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Przejdź do bloku **kontenery woluminów** . Wszystkie kontenery woluminów oraz woluminy ze starego urządzenia powinny być wymienione na liście.
 

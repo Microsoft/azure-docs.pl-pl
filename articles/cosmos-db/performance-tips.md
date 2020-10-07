@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008373"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802144"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB i .NET SDK V2
+# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
 
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -42,7 +42,7 @@ Tak więc, jeśli próbujesz poprawić wydajność bazy danych, weź pod uwagę 
 
 Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wydajności. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy jest nawiązywane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania. Następujące typy aplikacji domyślnie korzystają z 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe, wykonaj następujące kroki na podstawie typu aplikacji:
 
-- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) na **x64**  w oknie **właściwości projektu** na karcie **kompilacja** .
+- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) na **x64**  w oknie **właściwości projektu** na karcie **kompilacja** .
 
 - W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
@@ -203,7 +203,7 @@ Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosow
 > [!NOTE] 
 > `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
-Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
+Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -280,7 +280,7 @@ Automatyczne zachowanie ponowienia próby pozwala zwiększyć odporność i uży
 
 Opłata za żądanie (czyli koszt przetwarzania żądań) danej operacji jest skorelowana bezpośrednio z rozmiarem dokumentu. Operacje na dużych dokumentach są droższe niż operacje w małych dokumentach.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby skorzystać z przykładowej aplikacji służącej do oceny Azure Cosmos DB w scenariuszach o wysokiej wydajności na kilku komputerach klienckich, zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).
 

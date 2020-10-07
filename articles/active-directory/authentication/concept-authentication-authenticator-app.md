@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79870bcfc3b2cacb856141841a1f018eb1c50641
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1520f3ef77353e653dca10779228e70488bcbd75
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532768"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801753"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metody uwierzytelniania w aplikacji Azure Active Directory Microsoft Authenticator
 
-Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta służbowego lub szkolnego usługi Azure AD albo konto Microsoft i jest dostępny dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594)i [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Za pomocą aplikacji Microsoft Authenticator użytkownicy mogą uwierzytelniać się w trybie bez hasła podczas logowania lub jako dodatkowa opcja weryfikacji podczas samoobsługowego resetowania hasła (SSPR) lub zdarzeń Multi-Factor Authentication platformy Azure.
+Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta służbowego lub szkolnego usługi Azure AD lub konto Microsoft i jest dostępny dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Za pomocą aplikacji Microsoft Authenticator użytkownicy mogą uwierzytelniać się w trybie bez hasła podczas logowania lub jako dodatkowa opcja weryfikacji podczas samoobsługowego resetowania hasła (SSPR) lub zdarzeń Multi-Factor Authentication platformy Azure.
 
 Użytkownicy mogą otrzymać powiadomienie za pomocą aplikacji mobilnej do zatwierdzenia lub odmowy lub użyć aplikacji Authenticator do wygenerowania kodu weryfikacyjnego OATH, który można wprowadzić w interfejsie logowania. Jeśli włączysz powiadomienie i kod weryfikacyjny, użytkownicy rejestrujący aplikację uwierzytelniania mogą użyć dowolnej metody do zweryfikowania swojej tożsamości.
 

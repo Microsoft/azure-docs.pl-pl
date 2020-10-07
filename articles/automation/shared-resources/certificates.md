@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6220cfb5649995e54338f245b4cb62511b89a2c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: a4cc6a08ab0725f8fa3ceb745b933153842075a6
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004701"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803181"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Zarządzanie certyfikatami w Azure Automation
 
@@ -84,8 +84,7 @@ New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $
 Poniższy przykład ilustruje sposób wdrażania certyfikatu na koncie usługi Automation przy użyciu szablonu Menedżer zasobów za pomocą programu PowerShell:
 
 ```powershell-interactive
-$AutomationAccountName = "<automation account name>"
-$PfxCertPath = '<PFX cert path'
+$PfxCertPath = '<PFX cert path>'
 $CertificatePassword = '<password>'
 $certificateName = '<certificate name>'
 $AutomationAccountName = '<automation account name>'

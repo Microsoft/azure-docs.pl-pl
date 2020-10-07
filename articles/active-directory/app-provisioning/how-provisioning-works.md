@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235727"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801804"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -169,22 +169,42 @@ Wydajność zależy od tego, czy zadanie aprowizacji ma uruchomiony początkowy 
 Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są rejestrowane w dziennikach aprowizacji usługi Azure AD [(wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Dzienniki obejmują wszystkie operacje odczytu i zapisu dokonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji. Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji w Azure Portal, zobacz [Przewodnik po raportowaniu obsługi administracyjnej](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Cofnięcie aprowizacji
+Usługa Azure AD Provisioning przechowuje systemy źródłowe i docelowe w synchronizacji przy użyciu kont bez obsługi administracyjnej, gdy dostęp użytkownika zostanie usunięty.
 
-Usługa Azure AD Provisioning przechowuje systemy źródłowe i docelowe w synchronizacji przy użyciu kont anulowania aprowizacji, gdy użytkownicy nie mają już dostępu. 
+Usługa aprowizacji obsługuje zarówno usuwanie, jak i wyłączanie (czasami nazywane usuwaniem nietrwałym) użytkowników. Dokładne definicje Disable i DELETE różnią się w zależności od implementacji aplikacji docelowej, ale ogólnie wyłączenie wskazuje, że użytkownik nie może się zalogować. Usunięcie wskazuje, że użytkownik został całkowicie usunięty z aplikacji. W przypadku aplikacji Standard scim wyłączenie jest żądaniem ustawienia *aktywnej* właściwości na wartość false na użytkowniku. 
 
-Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji, gdy aplikacja obsługuje usunięcia nietrwałe (żądanie aktualizacji z aktywnym = false) i wystąpią dowolne z następujących zdarzeń:
+**Konfigurowanie aplikacji w celu wyłączenia użytkownika**
 
-* Konto użytkownika zostało usunięte w usłudze Azure AD
-*   Użytkownik nie jest przypisany do aplikacji
-*   Użytkownik nie spełnia już filtru określania zakresu i wykracza poza zakres
-    * Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem](../app-provisioning/skip-out-of-scope-deletions.md).
-*   Właściwość AccountEnabled jest ustawiona na wartość false.
+Upewnij się, że zaznaczono pole wyboru dla aktualizacji.
 
-Jeśli wystąpi jedno z powyższych czterech zdarzeń i aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika z aplikacji. 
+Upewnij się, że masz mapowanie dla aplikacji *aktywnej* . Jeśli używasz aplikacji z galerii aplikacji, mapowanie może być nieco inne. Upewnij się, że używasz domyślnego/wyjściowego mapowania pól dla aplikacji galerii.
 
-po upływie 30 dni od usunięcia użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie w oknie 30-dniowym można [trwale usunąć użytkownika](../fundamentals/active-directory-users-restore.md), co spowoduje wysłanie żądania usunięcia do aplikacji.
 
-Jeśli w mapowaniu atrybutów zostanie wyświetlony atrybut IsSoftDeleted, jest on używany do określenia stanu użytkownika oraz tego, czy do usuwania nietrwałego ma być wysyłany żądanie aktualizacji z aktywnym = false. 
+**Konfigurowanie aplikacji do usuwania użytkownika**
+
+Następujące scenariusze spowodują wyzwolenie wyłączenia lub usunięcia: 
+* Użytkownik został usunięty z nietrwałego usunięcia w usłudze Azure AD (wysyłany do właściwości kosz/AccountEnabled ustawiony na wartość false).
+    po upływie 30 dni od usunięcia użytkownika w usłudze Azure AD zostaną one trwale usunięte z dzierżawy. W tym momencie usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika w aplikacji. W dowolnym momencie w oknie 30-dniowym można [trwale usunąć użytkownika](../fundamentals/active-directory-users-restore.md), co spowoduje wysłanie żądania usunięcia do aplikacji.
+* Użytkownik zostanie trwale usunięty/usunięty z Kosza w usłudze Azure AD.
+* Użytkownik nie jest przypisany do aplikacji.
+* Użytkownik znajduje się w zakresie poza zakresem (nie przekazuje już filtru określania zakresu).
+    
+Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem.](skip-out-of-scope-deletions.md)
+
+Jeśli wystąpi jedno z powyższych czterech zdarzeń i aplikacja docelowa nie obsługuje usuwania nietrwałego, usługa aprowizacji wyśle żądanie usunięcia, aby trwale usunąć użytkownika z aplikacji.
+
+Jeśli w mapowaniu atrybutów zostanie wyświetlony atrybut IsSoftDeleted, jest on używany do określenia stanu użytkownika oraz tego, czy do usuwania nietrwałego ma być wysyłany żądanie aktualizacji z aktywnym = false.
+
+**Znane ograniczenia**
+
+* Jeśli użytkownik, który był wcześniej zarządzany przez usługę aprowizacji, nie jest przypisany z aplikacji lub z grupy przypisanej do aplikacji, wyślemy żądanie wyłączenia. W tym momencie użytkownik nie jest zarządzany przez usługę i nie wyśle żądania usunięcia, gdy zostaną usunięte z katalogu.
+* Inicjowanie obsługi użytkownika, który jest wyłączony w usłudze Azure AD, nie jest obsługiwane. Muszą one być aktywne w usłudze Azure AD przed zainicjowaniem obsługi administracyjnej.
+* Gdy użytkownik przejdzie z nietrwałego usunięcia do aktywnego, usługa Azure AD Provisioning uaktywni użytkownika w aplikacji docelowej, ale nie będzie automatycznie przywraca członkostwa w grupie. Aplikacja docelowa powinna zachować członkostwa w grupach dla użytkownika w stanie nieaktywnym. Jeśli aplikacja docelowa nie obsługuje tego programu, można ponownie uruchomić Inicjowanie obsługi administracyjnej, aby zaktualizować członkostwa w grupach. 
+
+**Zalecenie**
+
+Podczas tworzenia aplikacji program zawsze obsługuje zarówno usuwanie nietrwałe, jak i twarde. Umożliwia ona klientom odzyskiwanie po przypadkowe wyłączenie użytkownika.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

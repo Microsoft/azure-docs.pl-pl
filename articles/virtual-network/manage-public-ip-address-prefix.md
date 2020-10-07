@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: c844b25394d865453e653bfc3ac6bff396d97a47
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035076"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804014"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Tworzenie, zmienianie i usuwanie prefiksu publicznego adresu IP
 
 Dowiedz się więcej na temat prefiksu publicznego adresu IP oraz sposobu tworzenia, zmieniania i usuwania jednego z nich. Prefiks publicznego adresu IP to ciągły zakres adresów na podstawie liczby określonych publicznych adresów IP. Adresy są przypisywane do subskrypcji. Podczas tworzenia zasobu publicznego adresu IP można przypisać statyczny publiczny adres IP z prefiksu i skojarzyć go z maszynami wirtualnymi, modułami równoważenia obciążenia lub innymi zasobami, aby umożliwić łączność z Internetem. Jeśli nie znasz publicznych prefiksów adresów IP, zobacz temat [prefiks publicznego adresu IP — Omówienie](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,7 @@ Alternatywnie możesz użyć poleceń interfejsu wiersza polecenia i PS poniżej
 2. Wybierz nazwę publicznego prefiksu adresu IP, który chcesz wyświetlić, Zmień ustawienia dla lub Usuń z listy.
 3. Wykonaj jedną z następujących czynności, w zależności od tego, czy chcesz wyświetlić, usunąć lub zmienić prefiks publicznego adresu IP.
    - **Widok**: sekcja **Przegląd** zawiera najważniejsze ustawienia dla prefiksu publicznego adresu IP, takie jak prefiks.
-   - **Usuń**: Aby usunąć prefiks publicznego adresu IP, wybierz pozycję **Usuń** w sekcji **Przegląd** . Jeśli adresy w ramach prefiksu są skojarzone z zasobami publicznych adresów IP, należy najpierw usunąć zasoby publicznych adresów IP. Zobacz [usuwanie publicznego adresu IP](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Usuń**: Aby usunąć prefiks publicznego adresu IP, wybierz pozycję **Usuń** w sekcji **Przegląd** . Jeśli adresy w ramach prefiksu są skojarzone z zasobami publicznych adresów IP, należy najpierw usunąć zasoby publicznych adresów IP. Zobacz [usuwanie publicznego adresu IP](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Polecenia**
 

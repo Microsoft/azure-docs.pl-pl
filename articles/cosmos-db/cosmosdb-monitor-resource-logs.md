@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549980"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801422"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 
@@ -71,7 +71,7 @@ Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku
 Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk platformy w artykule platformy Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Rozwiązywanie problemów z zapytaniami diagnostycznymi
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Rozwiązywanie problemów z zapytaniami diagnostycznymi
 
 1. Jak wykonać zapytanie o operacje trwające dłużej niż 3 ms:
 
@@ -104,7 +104,7 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagn
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Jak uzyskać opłaty za żądania dla kosztownych zapytań?
@@ -214,14 +214,6 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagn
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Jak uzyskać statystykę klucza partycji, aby oszacować pochylenie na trzy pierwsze partycje dla konta bazy danych?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Jak uzyskać opóźnienia replikacji poziomie P99 lub P50 dla operacji, zażądać opłaty lub długości odpowiedzi?
 
    ```Kusto
@@ -238,7 +230,7 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagn
  
 1. Jak uzyskać dzienniki Controlplane?
  
-   Pamiętaj, aby przełączyć flagę zgodnie z opisem w temacie [wyłączanie dostępu do zapisu metadanych opartych na kluczach](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand wykonywanie operacji za pośrednictwem Azure PowerShell, interfejsu wiersza polecenia lub ARM.
+   Pamiętaj, aby przełączyć się na flagę, zgodnie z opisem w artykule [wyłączanie dostępu do zapisu metadanych opartych na kluczach](audit-control-plane-logs.md#disable-key-based-metadata-write-access) i wykonywanie operacji przy użyciu Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

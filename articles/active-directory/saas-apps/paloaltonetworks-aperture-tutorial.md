@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: e75369a82ccedb50e542dd43db9639ea4cba5c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304676"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Samouczek: integracja Azure Active Directory ze szczeliną Palo Alto Networks
 
@@ -69,7 +69,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W Azure Portal na stronie integracja aplikacji **Salesforce** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **Palo Alto Networks** , Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -110,7 +110,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -150,7 +150,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
     e. Zapoznaj się z sekcją informacje o dostawcy tożsamościniu z informacji o **szczelinach** i Pobierz certyfikat ze **szczeliny pola klucz** .
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 
 ### <a name="create-palo-alto-networks---aperture-test-user"></a>Tworzenie użytkownika testowego Palo Alto sieci

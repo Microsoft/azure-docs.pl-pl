@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079947"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801600"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Zestaw Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
+* [Zestaw Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [Środowisko Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Witryna internetowa platformy Azure z włączonym środowiskiem uruchomieniowym języka Java (np. Tomcat lub Jetty).](../app-service/quickstart-java.md)
 
@@ -67,7 +67,7 @@ Aby utworzyć aplikację JSP:
 
 1. Najpierw zaczniemy od utworzenia projektu Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli **dynamiczny projekt sieci Web** nie jest wyświetlany na liście dostępnych projektów, wykonaj następujące czynności: kliknij pozycję **plik**, kliknij pozycję **Nowy**, kliknij pozycję **projekt**..., rozwiń węzeł **Sieć Web**, kliknij pozycję **dynamiczny projekt sieci Web**, a następnie kliknij przycisk **dalej**.
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Tworzenie aplikacji Java JSP":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Aplikacja My ToDo List w języku Java":::
 
 1. Wprowadź nazwę projektu w polu **Project name** (Nazwa projektu) i z menu rozwijanego **Target Runtime** (Docelowe środowisko uruchomieniowe) opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Finish** (Zakończ). Wybranie docelowego środowiska uruchomieniowego umożliwia uruchamianie projektu lokalnie za pośrednictwem środowiska Eclipse.
 
@@ -75,7 +75,7 @@ Aby utworzyć aplikację JSP:
 
 1. W oknie dialogowym **New JSP File** (Nowy plik JSP) nazwij plik **index.jsp**. Pozostaw folder **WebContent** jako folder nadrzędny, w sposób pokazany na poniższej ilustracji, a następnie kliknij przycisk **Next** (Dalej).
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Tworzenie nowego pliku JSP — samouczek aplikacji internetowej w języku Java":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Aplikacja My ToDo List w języku Java":::
 
 1. W oknie dialogowym **Select JSP Template** (Wybierz szablon pliku JSP) na potrzeby tego samouczka wybierz szablon **New JSP File (html)**, a następnie kliknij przycisk **Finish** (Zakończ).
 
@@ -87,11 +87,11 @@ Aby utworzyć aplikację JSP:
    </body>
    ```
 
-1. Zapisz plik *pindex.js* .
+1. Zapisz plik * pindex.js* .
 
 1. Jeśli docelowe środowisko uruchomieniowe zostało ustawione w kroku 2, możesz kliknąć pozycję **Project** (Projekt), a następnie pozycję **Run** (Uruchom), aby uruchomić aplikację JSP lokalnie:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Witaj świecie – samouczek aplikacji w języku Java":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Aplikacja My ToDo List w języku Java":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instalowanie zestawu Java SDK usługi SQL
 
@@ -195,7 +195,7 @@ Usługa Azure Web Sites sprawia, że wdrożenie aplikacji Java sprowadza się do
    
    * W polu Projekt sieci Web wprowadź tekst azure-documentdb-java-sample.
    * W polu Miejsce docelowe wybierz miejsce zapisania pliku WAR.
-   * Kliknij przycisk **Zakończ**.
+   * Kliknij przycisk **Finish** (Zakończ).
 
 1. Teraz, gdy masz już plik WAR, możesz go po prostu przesłać do katalogu **webapps** swojej usługi Azure Web Sites. Aby uzyskać instrukcje dotyczące przekazywania pliku, zobacz [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md) (Dodawanie aplikacji Java do usługi Web Apps w usłudze Azure App Service). Po przekazaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że zostało dodane i zostanie automatycznie załadowane.
 

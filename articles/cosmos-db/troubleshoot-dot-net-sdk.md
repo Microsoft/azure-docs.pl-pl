@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330455"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802417"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez public
 * Przypisz [publiczny adres IP do maszyny wirtualnej platformy Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Duże opóźnienie sieci
-Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) w zestawie SDK V2 w wersji 2 lub [Diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
+Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) w zestawie SDK V2 w wersji 2 lub [Diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
 
 Jeśli nie ma [limitów czasu](troubleshoot-dot-net-sdk-request-timeout.md) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste na różnicy między `ResponseTime` i `RequestStartTime` , np. (>300 milisekund w tym przykładzie):
 

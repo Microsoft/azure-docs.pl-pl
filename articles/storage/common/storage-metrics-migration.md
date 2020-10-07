@@ -4,17 +4,17 @@ description: Dowiedz się, jak przechodzić z metryk analityka magazynu (metryki
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708581"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802841"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Przejście do metryk w Azure Monitor
 
@@ -46,6 +46,8 @@ Aby przejść do metryk w Azure Monitor, zalecamy następujące podejście.
 W tej sekcji opisano kilka najważniejszych różnic między tymi dwoma platformami metryk.
 
 Główna różnica polega na tym, jak są zarządzane metryki. Metryki klasyczne są zarządzane przez usługę Azure Storage, a metryki w Azure Monitor są zarządzane przez Azure Monitor. W przypadku metryk klasycznych usługa Azure Storage zbiera wartości metryk, agreguje je i zapisuje je w tabelach, które znajdują się na koncie magazynu. Dzięki metrykom w Azure Monitor usługa Azure Storage wysyła dane metryk do Azure Monitor zaplecza. Azure Monitor zapewnia ujednolicone środowisko monitorowania, które obejmuje dane z Azure Portal, a także dane, które są pozyskiwane. 
+
+Metryki klasyczne są wysyłane i przechowywane na koncie usługi Azure Storage. Metryki Azure Monitor mogą być wysyłane do wielu lokalizacji. Konto magazynu może być jednym z tych lokalizacji, ale nie jest wymagane.  
 
 W odniesieniu do metryk, klasyczne metryki zapewniają metryki **pojemności** tylko dla magazynu obiektów blob platformy Azure. Metryki w Azure Monitor zapewniają metryki pojemności dla obiektów blob, tabel, plików, kolejek i Premium Storage. Metryki klasyczne zapewniają metryki **transakcji** dla obiektów blob, tabel, Azure File i queue storage. Metryki w Azure Monitor dodać do tej listy usługę Premium Storage.
 

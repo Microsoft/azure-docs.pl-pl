@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761199"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801855"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)
 
@@ -164,10 +164,10 @@ Zobacz [przykłady zestawu SDK języka Python](https://github.com/Azure/azure-sd
 > [!IMPORTANT]
 > Wbudowany zestaw SDK języka Python jest obsługiwany tylko w przypadku kont interfejsu API SQL (Core). W przypadku innych interfejsów API konieczne będzie [zainstalowanie odpowiedniego sterownika języka Python](#install-a-new-package) ODPOWIADAJĄCego interfejsowi API. 
 
-## <a name="create-a-custom-instance-of-cosmos_client"></a>Utwórz wystąpienie niestandardowe``cosmos_client``
+## <a name="create-a-custom-instance-of-cosmos_client"></a>Utwórz wystąpienie niestandardowe ``cosmos_client``
 Aby uzyskać większą elastyczność, można utworzyć wystąpienie niestandardowe programu ``cosmos_client`` w celu:
 
-- Dostosowywanie [zasad połączenia](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Dostosowywanie [zasad połączenia](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Wykonywanie operacji na innym koncie usługi Azure Cosmos niż to, w którym znajduje się użytkownik
 
 Możesz uzyskać dostęp do parametrów połączenia i klucza podstawowego bieżącego konta za pomocą [zmiennych środowiskowych](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Resetuj obszar roboczy notesów
 Aby zresetować obszar roboczy notesy do ustawień domyślnych, wybierz pozycję **Zresetuj obszar roboczy** na pasku poleceń. Spowoduje to usunięcie wszystkich zainstalowanych pakietów niestandardowych i ponowne uruchomienie serwera Jupyter. Nie wpłynie to na Twoje notesy, pliki i zasoby platformy Azure Cosmos.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Resetuj obszar roboczy notesów":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Eksplorator danych nteract":::
 
 ## <a name="next-steps"></a>Następne kroki
 
