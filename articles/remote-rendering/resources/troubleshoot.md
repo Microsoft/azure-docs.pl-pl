@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322193"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803827"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -193,7 +193,7 @@ W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięci
 
 Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [Statystyka wydajności](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ARRServiceStats.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
 
-Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Jeśli zobaczysz wyższe wartości, oznacza to, że masz połączenie z centrum danych zbyt daleko.
+Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Wyświetlanie wyższych wartości może wskazywać, że połączenie z centrum danych jest zbyt daleko.
 
 Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ Współrzędne powierzchniowe mogą mieć różne przyczyny:
 
 * Powierzchnie są celowo całkowicie do dotknięcia, takich jak wyróżnianie licencji lub tekst na ściany.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefakty grafiki wykorzystujące wieloprzebiegowe renderowanie stereo w natywnych aplikacjach C++
 
+W niektórych przypadkach niestandardowe natywne aplikacje języka C++, które używają trybu renderowania wieloprzebiegowego dla zawartości lokalnej (renderowanie do lewego i prawego oka w osobnych przebiegach) po wywołaniu [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) może wyzwolić usterkę sterownika. Usterka powoduje niedeterministyczne błędy rasteryzacji, co sprawia, że poszczególne Trójkąty lub części trójkątów zawartości lokalnej są losowo znikane. Ze względu na wydajność zaleca się, aby nie renderować zawartości lokalnej z bardziej nowoczesnym techniką renderowania stereo z wieloma przebiegami, na przykład przy użyciu **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Następne kroki
 

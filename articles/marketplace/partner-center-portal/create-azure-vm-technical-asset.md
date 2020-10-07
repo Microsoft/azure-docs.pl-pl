@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
+title: Utwórz zasoby techniczne dla oferty maszyny wirtualnej portalu Azure Marketplace
 description: Dowiedz się, jak tworzyć i konfigurować zasoby techniczne dla oferty maszyny wirtualnej (VM) dla witryny Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646800"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803521"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Utwórz zasoby techniczne dla oferty maszyny wirtualnej portalu Azure Marketplace
 
 Podczas publikowania obrazów maszyn wirtualnych w portalu Azure Marketplace zespół platformy Azure sprawdza poprawność obrazu maszyny wirtualnej, aby zapewnić jego rozruch, bezpieczeństwo i zgodność z platformą Azure. Jeśli którykolwiek z testów wysokiej jakości zakończy się niepowodzeniem, opublikowanie zakończy się niepowodzeniem z komunikatem zawierającym błąd i możliwe [kroki naprawcze](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
 W tym artykule opisano sposób tworzenia i konfigurowania zasobów technicznych dla oferty maszyny wirtualnej (VM) dla witryny Azure Marketplace. Maszyna wirtualna zawiera dwa składniki: wirtualny dysk twardy (VHD) systemu operacyjnego i opcjonalne skojarzone dyski danych VHD:
 
-1. **Wirtualny dysk twardy systemu operacyjnego** — zawiera system operacyjny i rozwiązanie, które jest wdrażane wraz z ofertą. Proces przygotowywania dysku VHD różni się w zależności od tego, czy jest to maszyna wirtualna oparta na systemie Linux, Windows, czy niestandardowa.
+- **Wirtualny dysk twardy systemu operacyjnego**: zawiera system operacyjny i rozwiązanie, które jest wdrażane wraz z ofertą. Proces przygotowywania dysku VHD różni się w zależności od tego, czy jest to maszyna wirtualna oparta na systemie Linux, Windows, czy niestandardowa.
 
-2. Dyski **VHD z danymi** — dedykowany magazyn trwały dla maszyny wirtualnej. Nie używaj wirtualnego dysku twardego systemu operacyjnego (na przykład dysku C:) do przechowywania informacji trwałych.
+- **Dyski VHD z danymi**: dedykowany, trwały magazyn dla maszyny wirtualnej. Nie używaj wirtualnego dysku twardego systemu operacyjnego (na przykład dysku C:) do przechowywania informacji trwałych.
 
 Obraz maszyny wirtualnej zawiera jeden dysk systemu operacyjnego i maksymalnie 16 dysków z danymi. Użyj jednego wirtualnego dysku twardego na dysk danych, nawet jeśli dysk jest pusty.
 
@@ -98,20 +98,20 @@ Wykonaj następujące kroki, aby utworzyć podstawowy obraz maszyny wirtualnej n
 4. Wybierz pozycję **+ Dodaj** , aby otworzyć **środowisko tworzenia maszyny wirtualnej**.
 5. Wybierz obraz z listy rozwijanej lub wybierz pozycję **Przeglądaj wszystkie obrazy publiczne i prywatne,** aby przeszukać lub przejrzeć wszystkie dostępne obrazy maszyn wirtualnych. Przykład:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Pokazuje przykładowy obraz maszyny wirtualnej.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Pokazuje początek tworzenia grupy zasobów.":::
 
 6. Wybierz rozmiar maszyny wirtualnej do wdrożenia przy użyciu następujących zaleceń:
     1. Jeśli planujesz opracowywanie wirtualnego dysku twardego, rozmiar nie ma znaczenia. Rozważ użycie jednej z mniejszych maszyn wirtualnych.
     2. Jeśli planujesz opracowanie obrazu na platformie Azure, rozważ użycie jednego z zalecanych rozmiarów maszyn wirtualnych dla wybranego obrazu.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Pokazuje wybór rozmiaru maszyny wirtualnej.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Pokazuje początek tworzenia grupy zasobów.":::
 
 7. W sekcji **dyski** rozwiń sekcję **Zaawansowane** i dla opcji **Użyj dysków zarządzanych** ustaw wartość **nie**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Pokazuje opcję używania dysków zarządzanych.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Pokazuje początek tworzenia grupy zasobów.":::
 
 8. Podaj inne wymagane szczegóły, aby utworzyć maszynę wirtualną.
-9. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+9. Wybierz pozycję **Recenzja + Utwórz** , aby przejrzeć wybrane opcje. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 Platforma Azure rozpocznie Inicjowanie obsługi określonej maszyny wirtualnej. Postęp można śledzić, wybierając kartę **Virtual Machines** po lewej stronie. Po jego utworzeniu stan zmieni się na **uruchomiony**.
 
@@ -129,7 +129,7 @@ Utwórz maszynę wirtualną generacji 2 (Gen2) w Azure Portal.
 8. Wybierz zalecany rozmiar [obsługiwanej maszyny wirtualnej i rozmiaru generacji 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) .
 9. Przejdź przez [przepływ tworzenia Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) , aby zakończyć tworzenie maszyny wirtualnej.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Pokazuje opcję wyznaczania generacji maszyny wirtualnej.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Pokazuje początek tworzenia grupy zasobów.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Nawiązywanie połączenia z maszyną wirtualną platformy Azure
 
@@ -157,7 +157,7 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Linux, musisz mieć
 7. Otwórz aplikację.
 8. W oknie dialogowym Konfiguracja konfiguracji wprowadź adres IP lub nazwę DNS maszyny wirtualnej.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Ilustruje ustawienia terminalu wyróżniania pól Nazwa hosta i port.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Pokazuje początek tworzenia grupy zasobów.":::
 
 9. Wybierz pozycję **Otwórz** , aby otworzyć wystawcy Terminal.
 10. Po wyświetleniu monitu wprowadź nazwę konta i hasło do konta maszyny wirtualnej z systemem Linux.

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519000"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803742"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -150,7 +150,7 @@ Aby włączyć strefę, w zestawie skalowania maszyn wirtualnych należy uwzglę
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefę dostępności, w której zostanie wdrożony zestaw skalowania maszyn wirtualnych.
 * Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true.
-* Trzecia wartość to właściwość "faultDomainOverride" w rozszerzeniu zestawu skalowania maszyn wirtualnych Service Fabric. Wartość tej właściwości powinna obejmować region i strefę, w której zostanie umieszczony ten zestaw skalowania maszyn wirtualnych. Przykład: "faultDomainOverride": "Wschód/AZ1" wszystkie zasoby zestawu skalowania maszyn wirtualnych muszą być umieszczone w tym samym regionie, ponieważ klastry usługi Azure Service Fabric nie mają obsługi między regionami.
+* Trzecia wartość to właściwość "faultDomainOverride" w rozszerzeniu zestawu skalowania maszyn wirtualnych Service Fabric. Wartość tej właściwości powinna zawierać tylko strefę, w której zostanie umieszczony ten zestaw skalowania maszyn wirtualnych. Przykład: "faultDomainOverride": "AZ1" wszystkie zasoby zestawu skalowania maszyn wirtualnych muszą być umieszczone w tym samym regionie, ponieważ klastry usługi Azure Service Fabric nie mają obsługi między regionami.
 
 ```json
 {
@@ -183,7 +183,7 @@ Aby włączyć strefę, w zestawie skalowania maszyn wirtualnych należy uwzglę
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

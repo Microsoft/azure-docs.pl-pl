@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443345"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803861"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Używanie języka Transact-SQL (T-SQL) do tworzenia zadań Elastic Database i zarządzania nimi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Dodaje bazę danych lub grupę baz danych do grupy docelowej.
 Nazwa grupy docelowej, do której zostanie dodany członek. target_group_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@ membership_type =** ] "membership_type"  
-Określa, czy element członkowski grupy docelowej zostanie uwzględniony lub wykluczony. target_group_name jest nvarchar (128) z wartością domyślną "include". Prawidłowe wartości dla target_group_name to "include" lub "exclude".
+Określa, czy element członkowski grupy docelowej zostanie uwzględniony lub wykluczony. target_group_name jest nvarchar (128) z wartością domyślną "include". Prawidłowe wartości dla membership_type to "include" lub "exclude".
 
 [ ** \@ target_type =** ] "target_type"  
 Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkich baz danych na serwerze, wszystkich baz danych w puli elastycznej, wszystkich baz danych na mapie fragmentu lub pojedynczej bazy danych. target_type jest nvarchar (128), bez domyślnego. Prawidłowe wartości target_type to "SqlServer", "SqlElasticPool", "SQLDatabase" i "SqlShardMap".
 
 [ ** \@ refresh_credential_name =** ] "refresh_credential_name"  
-Nazwa serwera. refresh_credential_name jest nvarchar (128), bez domyślnego.
+Nazwa poświadczenia w zakresie bazy danych. refresh_credential_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@ server_name =** ] "SERVER_NAME"  
 Nazwa serwera, który ma zostać dodany do określonej grupy docelowej. server_name należy określić, gdy target_type to "SqlServer". server_name jest nvarchar (128), bez domyślnego.
@@ -1041,7 +1041,7 @@ Nazwa bazy danych, która powinna zostać dodana do określonej grupy docelowej.
 Nazwa puli elastycznej, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlElasticPool". elastic_pool_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@ shard_map_name =** ] "shard_map_name"  
-Nazwa puli map fragmentu, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlSqlShardMap". shard_map_name jest nvarchar (128), bez domyślnego.
+Nazwa puli map fragmentu, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlShardMap". shard_map_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@ target_id =** ] target_group_id dane wyjściowe  
 Docelowy numer identyfikacyjny przypisany do elementu członkowskiego grupy docelowej, jeśli został dodany do grupy docelowej. target_id to zmienna wyjściowa typu o unikatowych wartościach z wartością NULL.

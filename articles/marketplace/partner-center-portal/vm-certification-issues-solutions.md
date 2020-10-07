@@ -1,20 +1,20 @@
 ---
-title: Certyfikacja maszyn wirtualnych — problemy i rozwiązania
-description: W tym artykule opisano typowe komunikaty o błędach dla obrazów maszyn wirtualnych. Omówiono w nim również powiązane rozwiązania
+title: Typowe problemy występujące podczas certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace
+description: W tym artykule opisano typowe komunikaty o błędach i problemy podczas testowania i certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace. Omówiono w nim również powiązane rozwiązania.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296454"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803470"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Typowe problemy występujące podczas certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace
 
 W przypadku publikowania obrazu maszyny wirtualnej w portalu Azure Marketplace zespół platformy Azure sprawdza jego poprawność, aby zapewnić jego rozruch, bezpieczeństwo i zgodność z platformą Azure. Jeśli którykolwiek z testów wysokiej jakości zakończy się niepowodzeniem, publikowanie zakończy się niepowodzeniem i zostanie wyświetlony komunikat o błędzie opisujący problem.
 
@@ -29,7 +29,7 @@ Gdy wyślesz żądanie ponownego opublikowania obrazu przy użyciu aktualizacji,
 
 Ten błąd występuje, gdy używany jest podstawowy obraz, który należy do innego wydawcy i został zaktualizowany. W tej sytuacji nie będzie można opublikować Twojego obrazu.
 
-Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Obrazy systemu Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
@@ -66,7 +66,7 @@ Przed przesłaniem oferty upewnij się, że masz rygorystyczne podejście do ini
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|Scenariusz|Error|Przyczyna|Rozwiązanie|
+|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
@@ -114,7 +114,7 @@ Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będ
 
 Poniższa tabela zawiera listę typowych błędów znalezionych podczas wykonywania poprzednich przypadków testowych:
  
-|Scenariusz|Przypadek testowy|Error|Rozwiązanie|
+|Scenariusz|Przypadek testowy|Błąd|Rozwiązanie|
 |---|---|---|---|
 |1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Zaktualizuj wersję agenta systemu Linux i powinna być 2,241 lub nowsza. Więcej informacji można znaleźć na [stronie aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, Zainstaluj wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadź żądane zmiany (na przykład Usuń pliki historii *. bash* ), aby zmniejszyć rozmiar do 1 KB.|
@@ -264,7 +264,7 @@ Sprawdź, czy w ramach konta, na którym są uruchomione przypadki samotestowe, 
     
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
-|Scenariusz|Error|Przyczyna|Rozwiązanie|
+|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
@@ -310,7 +310,7 @@ Aby uzyskać więcej informacji na temat tego narzędzia, zobacz temat [przygoto
 
 W przypadku rozwiązań błędów, które są związane z dyskiem danych, należy użyć poniższej tabeli:
 
-|Error|Przyczyna|Rozwiązanie|
+|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Ten błąd może wystąpić z powodu nieprawidłowego numeru określonego dla numeru jednostki logicznej (LUN) podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
 |`DataDisk- NotFound:`|Ten błąd może wystąpić z powodu braku lokalizacji dysku danych w określonym adresie URL sygnatury dostępu współdzielonego.|Sprawdź, czy dysk danych znajduje się w adresie URL sygnatury dostępu współdzielonego, który jest określony w żądaniu.|
@@ -332,7 +332,7 @@ Krok 1. Wdróż maszynę wirtualną i kliknij opcję "Uruchom polecenie" na Azur
 
 Krok 2. Wybierz pierwszą opcję "RunShellScript" i uruchom poniższe polecenie.
 
-Polecenie: "Cat/dev/null > ~/. bash_history && History-c" ![ polecenie History bash na Azure Portal](./media/vm-certification-issues-solutions-4.png)
+Polecenie: "Cat/dev/null > ~/.bash_history && History-c" ![ polecenie History bash na Azure Portal](./media/vm-certification-issues-solutions-4.png)
 
 Krok 3. Po pomyślnym wykonaniu polecenia Uruchom ponownie maszynę wirtualną.
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019244"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803793"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji usługi Azure IoT Central
 
@@ -171,6 +171,21 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji polecenia:
 | Opis | Opis możliwości polecenia. |
 | Żądanie | Jeśli ta funkcja jest włączona, definicja parametru żądania, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
 | Reakcja | Jeśli ta funkcja jest włączona, definicja odpowiedzi polecenia, w tym: nazwa, nazwa wyświetlana, schemat, jednostka i jednostka wyświetlania. |
+
+#### <a name="offline-commands"></a>Polecenia w trybie offline
+
+Możesz wybrać polecenia kolejki, jeśli urządzenie jest obecnie w trybie offline, włączając opcję **kolejki w trybie offline** dla polecenia w szablonie urządzenia.
+
+Ta opcja służy IoT Hub komunikatów z chmury do urządzeń w celu wysyłania powiadomień do urządzeń. Aby dowiedzieć się więcej, zapoznaj się z artykułem IoT Hub [wysyłanie komunikatów z chmury do urządzenia](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Komunikaty z chmury do urządzenia:
+
+- Są jednokierunkowymi powiadomieniami na urządzeniu z rozwiązania.
+- Gwarancja dostarczania wiadomości co najmniej raz. IoT Hub utrzymuje komunikaty z chmury do urządzenia w kolejkach poszczególnych urządzeń, co gwarantuje odporność na łączność i awarie urządzeń.
+- Wymagaj, aby urządzenie zaimplementował procedurę obsługi komunikatów w celu przetworzenia komunikatu z chmury do urządzenia.
+
+> [!NOTE]
+> Ta opcja jest dostępna tylko w interfejsie użytkownika sieci Web IoT Central. To ustawienie nie jest uwzględniane w przypadku eksportowania modelu lub interfejsu z szablonu urządzenia.
 
 ## <a name="manage-an-interface"></a>Zarządzanie interfejsem
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602816"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803504"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 
@@ -49,7 +49,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | blob  | Tak |
 | boolean  | Tak |
 | counter  | Tak |
-| data  | Tak |
+| date  | Tak |
 | decimal  | Tak |
 | double  | Tak |
 | float  | Tak |
@@ -71,6 +71,8 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 | tuples | Tak | 
 | udts  | Tak |
 | map (mapa) | Tak |
+
+Statyczny jest obsługiwany dla deklaracji typu danych.
 
 ## <a name="cql-functions"></a>Funkcje języka CQL
 
@@ -186,7 +188,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>narzędzia 
+## <a name="tools"></a>Narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 
@@ -273,7 +275,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## <a name="secondary-index"></a>Indeks pomocniczy
+Interfejs API Cassandra obsługuje indeksy pomocnicze dla wszystkich typów danych, z wyjątkiem zablokowanych typów kolekcji, dziesiętnych i typów wariantów. 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Użycie zasad ponawiania próby połączenia bazy danych Cassandra
 

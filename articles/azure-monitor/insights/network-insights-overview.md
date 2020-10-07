@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330970"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803810"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor dla sieci (wersja zapoznawcza)
 Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji.  Zapewnia również dostęp do wszystkich możliwości monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Analiza ruchu](../../network-watcher/traffic-analytics.md)i inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
@@ -108,6 +108,43 @@ Zestaw narzędzi diagnostycznych zapewnia dostęp do wszystkich funkcji diagnost
 
 ![Karta zestawu narzędzi diagnostycznych](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów 
+
+Ogólne wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule dotyczącym szczegółowych informacji o [rozwiązywaniu problemów](troubleshoot-workbooks.md)opartych na skoroszycie.
+
+Ta sekcja pomoże w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor dla sieci. Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
+
+### <a name="resolving-performance-issues-or-failures"></a>Rozwiązywanie problemów z wydajnością lub niepowodzeń
+
+Aby pomóc w rozwiązywaniu problemów związanych z siecią, które są identyfikowane za pomocą Azure Monitor dla sieci, zapoznaj się z dokumentacją rozwiązywania problemów dotyczących nieprawidłowego zasobu. Poniżej znajdują się linki do rozwiązywania problemów z dużymi używanymi usługami.
+* Virtual Network (Sieć wirtualna)
+* Application Gateway
+* VPN Gateway
+* ExpressRoute 
+* Moduł równoważenia obciążenia 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Dlaczego nie widzę zasobów ze wszystkich wybranych subskrypcji
+
+W usłudze Network Insights można wyświetlać tylko zasoby z 5 subskrypcji jednocześnie. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Chcę wprowadzić zmiany lub dodać dodatkowe wizualizacje do usługi Network Insights, jak to zrobić
+
+Aby wprowadzić zmiany, wybierz pozycję "Edytuj tryb", aby zmodyfikować skoroszyt, a następnie Zapisz swoją służbę jako nowy skoroszyt powiązany z określoną subskrypcją i grupą zasobów.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Co to jest ziarno czasu, gdy przypinam wszystkie części skoroszytów
+
+Wykorzystujemy ziarno czasu "Auto", dlatego zależy od tego, jaki zakres czasu jest wybrany.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Jaki jest zakres czasu, gdy dowolna część skoroszytu jest przypięta
+
+Zakres czasu zależy od ustawień pulpitu nawigacyjnego.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>Co zrobić, jeśli chcę zobaczyć inne dane lub utworzyć własne wizualizacje? Jak mogę wprowadzić zmiany w usłudze Network Insights
+
+Możesz edytować skoroszyt widoczny w dowolnym panelu bocznym i szczegółowy widok metryki, korzystając z trybu edycji, a następnie zapisać swoją służbę jako nowy skoroszyt, który będzie zawierał wszystkie nowe zmiany.
+
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o monitorowaniu sieci na [platformie Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).
+- Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
