@@ -20,10 +20,14 @@
       items:
         - name: Uzyskiwanie numeru telefonu
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Dodawanie połączenia telefonicznego do aplikacji
+          href: quickstarts/voice-video-calling/pstn-call.md
         - name: Wysyłanie wiadomości SMS
           href: quickstarts/telephony-sms/send.md
         - name: Obsługiwanie zdarzeń SMS
           href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Wysyłanie wiadomości SMS w usłudze Azure Logic Apps
+          href: quickstarts/telephony-sms/logic-app.md
     - name: Połączenia głosowe i wideo
       items:
         - name: Dodawanie połączenia głosowego do aplikacji
