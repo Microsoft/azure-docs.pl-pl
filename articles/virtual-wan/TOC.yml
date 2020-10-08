@@ -134,14 +134,12 @@
       items:
         - name: Instalowanie usługi Azure Firewall w centrum
           href: howto-firewall.md
+        - name: Konfigurowanie łączności usługi Private Link
+          href: howto-private-link.md
     - name: Monitorowanie
       items:
         - name: Dzienniki i metryki
           href: logs-metrics.md
-    - name: Private Link
-      items:
-        - name: Konfigurowanie łączności usługi Private Link
-          href: howto-private-link.md
 - name: Dokumentacja
   items:
     - name: Azure PowerShell

@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Referencyjny projekt z wieloma systemami DRM
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Przetwarzanie za pomocą indeksatora
-          href: media-services-index-content.md
-          items:
-            - name: Ustawienie wstępne zadania
-              href: indexer-task-preset.md
     - name: Analizowanie zawartości
       items:
+        - name: Przetwarzanie za pomocą indeksatora
+          href: media-services-index-content.md
+        - name: Ustawienie wstępne zadania
+          href: indexer-task-preset.md
         - name: Przetwarzanie za pomocą usługi Face Redactor
           href: media-services-face-redaction.md
         - name: Przewodnik po usłudze Face Redactor

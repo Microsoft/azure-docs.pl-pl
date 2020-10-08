@@ -384,6 +384,9 @@
             - name: Migrowanie aplikacji z biblioteki ADAL do biblioteki MSAL
               href: msal-migration.md
               displayName: migration
+    - name: Biblioteka internetowa tożsamości firmy Microsoft
+      href: microsoft-identity-web.md
+      displayName: 'auth, library, .NET Core'
     - name: Protokoły uwierzytelniania
       displayName: Auth protocol
       items:
@@ -532,10 +535,6 @@
     - name: Konfiguracja aplikacji
       displayName: App configuration
       items:
-        - name: Przewodnik szkoleniowy na temat rejestracji aplikacji w witrynie Azure Portal
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Środowisko rejestracji aplikacji w witrynie Azure Portal
-          href: app-registration-portal-training-guide.md
         - name: Konwertowanie aplikacji z jedną dzierżawą na aplikację z wieloma dzierżawami
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Tworzenie nazwy głównej usługi
