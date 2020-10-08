@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086334"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821691"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie oprogramowania Apache HBase z usługą Apache Ambari w usłudze Azure HDInsight
 
@@ -89,7 +89,7 @@ Im większy rozmiar pliku regionu, tym mniejsza jest liczba podziałów. Można 
 
 ## <a name="define-memstore-size"></a>Zdefiniuj rozmiar magazynu
 
-Rozmiar magazynu jest definiowany przez `hbase.regionserver.global.memstore.UpperLimit` Parametry i `hbase.regionserver.global.memstore.LowerLimit` . Ustawienie tych wartości w taki sposób, że zmniejsza przerwy podczas operacji zapisu (co również powoduje częstsze opróżnianie) i skutkuje zwiększoną wydajnością zapisu.
+Rozmiar magazynu jest definiowany przez `hbase.regionserver.global.memstore.upperLimit` Parametry i `hbase.regionserver.global.memstore.lowerLimit` . Ustawienie tych wartości w taki sposób, że zmniejsza przerwy podczas operacji zapisu (co również powoduje częstsze opróżnianie) i skutkuje zwiększoną wydajnością zapisu.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Ustaw bufor przydziału lokalnego magazynu
 

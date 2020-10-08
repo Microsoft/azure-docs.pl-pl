@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906790"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822321"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -28,13 +28,13 @@ Temat dotyczący routingu znacznie pokrywa się z pojęciami dotyczącymi uwierz
 
 Zobacz [przykładowy plik trasy](#example-route-file) , aby uzyskać szczegółowe informacje.
 
-## <a name="location"></a>Location
+## <a name="location"></a>Lokalizacja
 
 _routes.js_ pliku musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji. Jeśli aplikacja sieci Web zawiera krok kompilacji, który kopiuje skompilowane pliki z określonego folderu do folderu artefaktów kompilacji, wówczas _routes.jsw_ pliku musi istnieć w tym konkretnym folderze.
 
 W poniższej tabeli wymieniono odpowiednie lokalizacje, w których należy umieścić _routes.jsw_ pliku dla wielu platform i bibliotek frontonu.
 
-|Struktura/Biblioteka | Location  |
+|Struktura/Biblioteka | Lokalizacja  |
 |---------|----------|
 | Angular | _stanu_   |
 | React   | _public_  |
@@ -52,7 +52,7 @@ Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes`
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Tak      | nie dotyczy          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \* _ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index.html_.</ul>|
 | `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve` wartości muszą wskazywać na rzeczywiste pliki.  |
-| `allowedRoles` | Nie       | anonimowe     | Tablica nazw ról. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola `anonymous` ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników.<li>Wbudowana rola `authenticated` ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ . Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.<li>Indywidualni użytkownicy są skojarzeni z rolami za pomocą [zaproszeń](authentication-authorization.md).</ul> |
+| `allowedRoles` | Nie       | anonimowe     | Tablica nazw ról. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola `anonymous` ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników.<li>Wbudowana rola `authenticated` ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ . Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.<li>Indywidualni użytkownicy są skojarzeni z rolami przy użyciu [zaproszeń](authentication-authorization.md).</ul> |
 | `statusCode`   | Nie       | 200           | Odpowiedź na [kod stanu HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) dla żądania. |
 
 ## <a name="securing-routes-with-roles"></a>Zabezpieczanie tras przy użyciu ról

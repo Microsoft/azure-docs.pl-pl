@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714699"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822271"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
 
@@ -47,7 +47,7 @@ Wbudowane role, które przyznają uprawnienia do wywoływania operacji zarządza
 |    Rola na platformie Azure    |    Opis    |    Czy obejmuje dostęp do kluczy konta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Właściciel** | Może zarządzać wszystkimi zasobami magazynu i dostępem do zasobów.  | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
-| **Współautor**  | Może zarządzać wszystkimi zasobami magazynu, ale nie może zarządzać przypisaniem do zasobów. | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
+| **Współautor**  | Może zarządzać wszystkimi zasobami magazynu, ale nie może zarządzać dostępem do zasobów. | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
 | **Czytelnik** | Można wyświetlić informacje o koncie magazynu, ale nie może wyświetlić kluczy konta. | Nie. |
 | **Współautor konta magazynu** | Może zarządzać kontem magazynu, uzyskiwać informacje o grupach zasobów i zasobach subskrypcji oraz tworzyć wdrożenia grup zasobów subskrypcji i zarządzać nimi. | Tak, zapewnia uprawnienia do wyświetlania i ponownego generowania kluczy konta magazynu. |
 | **Administrator dostępu użytkowników** | Może zarządzać dostępem do konta magazynu.   | Tak, umożliwia podmiotowi zabezpieczeń przypisanie wszelkich uprawnień do siebie i innych. |

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd95e3ed6b4c31072d7e754c731e748f12db3329
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322397"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821961"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu dla wyzwalaczy i typów akcji w Azure Logic Apps
 
@@ -827,7 +827,7 @@ Poniżej przedstawiono niektóre powszechnie używane typy akcji:
 | [**Analiza JSON**](#parse-json-action) | Tworzy przyjazne dla użytkownika tokeny na podstawie właściwości w zawartości JSON. Następnie można odwołać się do tych właściwości, dołączając tokeny w aplikacji logiki. | 
 | [**Zapytanie**](#query-action) | Tworzy tablicę z elementów w innej tablicy na podstawie warunku lub filtru. | 
 | [**Reakcji**](#response-action) | Tworzy odpowiedź na wywołanie przychodzące lub żądanie. | 
-| [**Wybierz pozycję**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
+| [**Zaznaczenia**](#select-action) | Tworzy tablicę z obiektami JSON przez transformowanie elementów z innej tablicy na podstawie określonej mapy. | 
 | [**Tabele**](#table-action) | Tworzy tabelę CSV lub HTML z tablicy. | 
 | [**Zakończ**](#terminate-action) | Powoduje zatrzymanie aktywnie działającego przepływu pracy. | 
 | [**Trwa**](#wait-action) | Wstrzymuje przepływ pracy przez określony czas lub do określonej daty i godziny. | 
@@ -2396,7 +2396,7 @@ Można zmienić domyślne zachowanie wyzwalaczy i akcji z `operationOptions` wł
 
 | Opcja operacji | Typ | Opis | Wyzwalacz lub Akcja | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Wykonywanie akcji opartych na protokole HTTP synchronicznie, a nie asynchronicznie. <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie akcji synchronicznie](#disable-asynchronous-pattern). | Wykonane <p>[ApiConnection](#apiconnection-action), <br>[Protokół http](#http-action), <br>[Odpowiedź](#response-action) | 
+| `DisableAsyncPattern` | String | Wykonywanie akcji opartych na protokole HTTP synchronicznie, a nie asynchronicznie. <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie akcji synchronicznie](#disable-asynchronous-pattern). | Akcje: <p>[ApiConnection](#apiconnection-action), <br>[Protokół http](#http-action), <br>[Odpowiedź](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | String | W przypadku aplikacji logiki, które [umożliwiają Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) w celu autoryzowania dostępu do wywołań przychodzących do punktu końcowego wyzwalacza opartego na żądaniach, Uwzględnij `Authorization` Nagłówek z tokenu dostępu OAuth w danych wyjściowych wyzwalacza. Aby uzyskać więcej informacji, zobacz [dołączanie nagłówka "Authorization" w danych wyjściowych wyzwalacza żądania](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Wyzwalacze <p>[Żądanie](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `OptimizedForHighThroughput` | String | Zmień [domyślny limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) liczby wykonań akcji na 5 minut na [maksymalny limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Aby ustawić tę opcję, zobacz [Uruchamianie w trybie wysokiej przepływności](#run-high-throughput-mode). | Wszystkie akcje | 
 | `Sequential` | String | Uruchom "dla każdej" iteracji pętli pojedynczo, a nie wszystkie w tym samym czasie równolegle. <p>Ta opcja działa tak samo jak ustawienie `runtimeConfiguration.concurrency.repetitions` właściwości na `1` . Można ustawić każdą właściwość, ale nie obie jednocześnie. <p><p>Aby ustawić tę opcję, zobacz [Uruchom polecenie "for each" w sposób sekwencyjny](#sequential-for-each).| Działanie: <p>[Spowodował](#foreach-action) | 
@@ -2416,8 +2416,6 @@ Poniżej przedstawiono kilka kwestii, dla których należy włączyć współbie
 * Po włączeniu współbieżności [Limit SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) został znacząco zredukowany w przypadku [tablic odwsadowych](#split-on-debatch). Jeśli liczba elementów przekracza ten limit, funkcja SplitOn jest wyłączona.
 
 * Nie można wyłączyć współbieżności po włączeniu kontroli współbieżności.
-
-* Po włączeniu współbieżności [Limit SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) został znacząco zredukowany w przypadku [tablic odwsadowych](#split-on-debatch). Jeśli liczba elementów przekracza ten limit, funkcja SplitOn jest wyłączona.
 
 * Po włączeniu współbieżności długotrwałe wystąpienie aplikacji logiki może spowodować, że nowe wystąpienia aplikacji logiki będą mogły wprowadzić stan oczekiwania. Ten stan uniemożliwia Azure Logic Apps tworzenia nowych wystąpień i występuje nawet wtedy, gdy liczba współbieżnych uruchomień jest mniejsza niż określona maksymalna liczba współbieżnych uruchomień.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985887"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821174"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze GitHub
 
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 5. Aplikacja GitHub oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie **Identyfikator unikatowych użytkowników (identyfikator nazwy)** jest mapowany na **User. userPrincipalName**. Aplikacja usługi GitHub oczekuje, że **unikatowy identyfikator użytkownika (identyfikator nazwy)** ma być mapowany do **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wybraną ikoną "Edytuj".](common/edit-attribute.png)
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -149,11 +149,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do karty **Settings** (Ustawienia) i kliknij pozycję **Security** (Zabezpieczenia)
 
-    ![Ustawienia](./media/github-tutorial/security.png)
+    ![Zrzut ekranu przedstawiający menu "Ustawienia organizacji" serwisu GitHub z wybranym ustawieniem "zabezpieczenia".](./media/github-tutorial/security.png)
 
 3. Zaznacz pole **Enable SAML authentication** (Włącz uwierzytelnianie SAML), aby aktywować pola konfiguracji logowania jednokrotnego. wykonaj następujące czynności:
 
-    ![Ustawienia](./media/github-tutorial/saml-sso.png)
+    ![Zrzut ekranu pokazujący sekcję "S A M L Logowanie jednokrotne" z wyróżnionymi polami tekstowymi "Enable S A M L".](./media/github-tutorial/saml-sso.png)
 
     a. Skopiuj wartość **adresu URL logowania** jednokrotnego i wklej tę wartość do pola tekstowego **adres URL logowania** w **podstawowej konfiguracji SAML** w Azure Portal.
     
@@ -161,7 +161,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Skonfiguruj następujące pola:
 
-    ![Ustawienia](./media/github-tutorial/configure.png)
+    ![Zrzut ekranu pokazujący pola tekstowe "Sign on URL", "wystawca" i "certyfikat publiczny".](./media/github-tutorial/configure.png)
 
     a. W polu tekstowym **Sign on URL** (Adres URL logowania) wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
 
@@ -208,7 +208,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w aplikacji 
 
     b. Kliknij przycisk **Send Invitation** (Wyślij zaproszenie).
 
-    ![Zapraszanie osób](./media/github-tutorial/send-invitation.png "Zapraszanie osób")
+    ![Zrzut ekranu przedstawiający stronę okna dialogowego "zapraszanie członka" z wybraną pozycją "członek" i wybraną przycisk "Wyślij zaproszenie".](./media/github-tutorial/send-invitation.png "Zapraszanie osób")
 
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem, którego użyje w celu potwierdzenia konta, zanim stanie się ono aktywne.

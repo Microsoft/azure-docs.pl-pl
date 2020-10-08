@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550983"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Samouczek: integracja z programem Azure Active Directory z przodu
 
@@ -128,23 +128,23 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Front, wy
 
 2. Przejdź do sekcji **Settings (ikona koła zębatego na dole lewego paska bocznego) > Preferences** (Ustawienia > Preferencje).
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/front-tutorial/tutorial_front_000.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Ustawienia (ikonę koło zębate)" z wyróżnioną opcją "Preferences" (Preferencje).](./media/front-tutorial/tutorial_front_000.png)
 
 3. Kliknij link **Single Sign On** (logowanie jednokrotne).
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/front-tutorial/tutorial_front_001.png)
+    ![Zrzut ekranu przedstawiający sekcję "Preferencje firmy" z wybranym linkiem "Logowanie jednokrotne".](./media/front-tutorial/tutorial_front_001.png)
 
 4. Wybierz pozycję **SAML** na liście rozwijanej **Single Sign On** (Logowanie jednokrotne).
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/front-tutorial/tutorial_front_002.png)
+    ![Zrzut ekranu pokazujący listę rozwijaną "Logowanie jednokrotne" z wybraną pozycją "S A M L".](./media/front-tutorial/tutorial_front_002.png)
 
 5. W polu tekstowym **Entry Point** (Punkt wejścia) wstaw wartość **adresu URL logowania** z kreatora konfiguracji aplikacji usługi Azure AD.
     
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/front-tutorial/tutorial_front_003.png)
+    ![Zrzut ekranu pokazujący pole tekstowe "punkt wejścia".](./media/front-tutorial/tutorial_front_003.png)
 
 6. Otwórz pobrany plik **certyfikatu (Base64)** w Notatniku, skopiuj zawartość do schowka, a następnie wklej ją w polu tekstowym **Signing certificate** (Certyfikat podpisywania).
     
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/front-tutorial/tutorial_front_004.png)
+    ![Zrzut ekranu pokazujący podświetloną pozycję "certyfikat podpisywania" z polem tekstowym szarym.](./media/front-tutorial/tutorial_front_004.png)
 
 7. W sekcji **Service provider settings** (Ustawienia dostawcy usług) wykonaj następujące czynności:
 
@@ -221,7 +221,7 @@ Po kliknięciu kafelka Front w panelu dostępu powinno nastąpić automatyczne z
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
