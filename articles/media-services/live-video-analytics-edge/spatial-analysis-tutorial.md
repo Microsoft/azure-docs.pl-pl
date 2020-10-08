@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 72063cdefdf349eaad1b1d2fd760bb30b42786da
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649765"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824134"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ W tym samouczku wykonasz następujące instrukcje:
 > * Przejrzyj kod.
 > * Uruchom przykładowy kod.
 > * Monitoruj zdarzenia.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="suggested-pre-reading"></a>Sugerowane przed odczytem
@@ -200,7 +200,16 @@ Następnie można znaleźć `lvaEdge` , `rtspsim` `spatialAnalysis` i `rtspsim` 
 
 Aby wyświetlić te zdarzenia, wykonaj następujące kroki:
 
-1. Otwórz okienko Eksploratora w Visual Studio Code i Wyszukaj usługę Azure IoT Hub w lewym dolnym rogu.
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Analiza przestrzenna — Omówienie":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Analiza przestrzenna — Omówienie":::
+1. Otwórz okienko Eksploratora i Znajdź IoT Hub platformy Azure w lewym dolnym rogu.
 1. Rozwiń węzeł urządzenia.
 1. Kliknij prawym przyciskiem myszy Azure Stack krawędź i wybierz pozycję Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia.
     

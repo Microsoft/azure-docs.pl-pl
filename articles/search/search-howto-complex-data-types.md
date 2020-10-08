@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530858"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824475"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Jak modelować złożone typy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -35,11 +35,13 @@ Aby rozpocząć, zalecamy użycie [zestawu danych hoteli](https://github.com/Azu
 
 Poniższy dokument JSON składa się z pól prostych i złożonych. Złożone pola, takie jak `Address` i `Rooms` , mają pola podrzędne. `Address` zawiera jeden zestaw wartości dla tych podpól, ponieważ jest to pojedynczy obiekt w dokumencie. W przeciwieństwie, `Rooms` ma wiele zestawów wartości dla swoich pól podrzędnych, jeden dla każdego obiektu w kolekcji.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,17 +50,26 @@ Poniższy dokument JSON składa się z pól prostych i złożonych. Złożone po
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
+
+<nazwa = "indeksowanie-typy złożone></a>
+
+## <a name="indexing-complex-types"></a>Indeksowanie typów złożonych
+
+Podczas indeksowania można mieć maksymalnie 3000 elementów we wszystkich złożonych kolekcjach w ramach jednego dokumentu. Element kolekcji złożonej jest członkiem tej kolekcji, więc w przypadku pokojów (jedyną złożoną kolekcją w przykładzie hotelu) Każdy pokój jest elementem. W powyższym przykładzie, jeśli "tajny punkt Motel" miał 500 pokojów, dokument hotelowy będzie zawierał elementy pokoju 500. W przypadku zagnieżdżonych kolekcji złożonych każdy zagnieżdżony element jest również traktowany jako uzupełnienie elementu zewnętrznego (nadrzędnego).
+
+Ten limit dotyczy tylko kolekcji złożonych, a nie typów złożonych (takich jak adres) lub kolekcji ciągów (takich jak tagi).
 
 ## <a name="creating-complex-fields"></a>Tworzenie pól złożonych
 
@@ -93,7 +104,7 @@ Poniższy przykład przedstawia schemat indeksu JSON z prostymi polami, kolekcja
 
 ## <a name="updating-complex-fields"></a>Aktualizowanie pól złożonych
 
-Wszystkie reguły ponownego [indeksowania](search-howto-reindex.md) stosowane do pól ogólnie obowiązują nadal dotyczą pól złożonych. W tym miejscu należy ponownie określić kilka głównych reguł, dodanie pola nie wymaga ponownego zakompilowania indeksu, ale większość modyfikacji ma.
+Wszystkie reguły ponownego [indeksowania](search-howto-reindex.md) stosowane do pól ogólnie obowiązują nadal dotyczą pól złożonych. W tym miejscu należy ponownie określić kilka głównych reguł, Dodawanie pola do typu złożonego nie wymaga ponownego zakompilowania indeksu, ale większość modyfikacji ma.
 
 ### <a name="structural-updates-to-the-definition"></a>Aktualizacje strukturalne do definicji
 

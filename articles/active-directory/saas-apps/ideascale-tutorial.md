@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547503"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Samouczek: integracja Azure Active Directory z usługą IdeaScale
 
@@ -137,7 +137,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD przy użyciu aplikacji
 
 3. Wybierz pozycję **Security \> Single Signon Settings** (Ustawienia > Ustawienia logowania jednokrotnego).
 
-    ![Pojedyncze ustawienia jednokrotnego](./media/ideascale-tutorial/ic790848.png "Pojedyncze ustawienia jednokrotnego")
+    ![Zrzut ekranu przedstawia pojedyncze ustawienia jednokrotnego wybrane z menu zabezpieczenia.](./media/ideascale-tutorial/ic790848.png "Pojedyncze ustawienia jednokrotnego")
 
 4. W polu **Single-Signon Type** (Typ logowania jednokrotnego) wybierz opcję **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD przy użyciu aplikacji
 
 5. W oknie dialogowym **Single Signon Settings** (Ustawienia logowania jednokrotnego) wykonaj następujące kroki:
 
-    ![Pojedyncze ustawienia jednokrotnego](./media/ideascale-tutorial/ic790850.png "Pojedyncze ustawienia jednokrotnego")
+    ![Zrzut ekranu przedstawia pojedyncze okno dialogowe ustawień jednokrotnego.](./media/ideascale-tutorial/ic790850.png "Pojedyncze ustawienia jednokrotnego")
 
     a. W polu tekstowym **SAML IdP Entity ID** (Identyfikator jednostki dostawcy tożsamości SAML) wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure Portal.
 
@@ -248,7 +248,7 @@ Po kliknięciu kafelka IdeaScale w panelu dostępu powinno nastąpić automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

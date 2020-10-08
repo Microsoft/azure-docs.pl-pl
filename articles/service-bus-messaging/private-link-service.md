@@ -3,14 +3,14 @@ title: Integracja Azure Service Bus z usługą konsolidacji prywatnej platformy 
 description: Dowiedz się, jak zintegrować Azure Service Bus z usługą Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.topic: article
-ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 54649c47a896937a512a6041e485abfb03ca88dd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716626"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824977"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
 
@@ -189,7 +189,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 1. Na pasku wyszukiwania wpisz w **Service Bus**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 4f540c7e853efe370c84b7c4d0a7d74911b8cd6c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986461"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823936"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Przykładowe scenariusze użytkowników dla interfejs API analizy tekstu
 
@@ -41,7 +41,7 @@ Użyj wyodrębnianie kluczowych fraz i rozpoznawania jednostek, aby przetwarzać
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Monitoruj źródła danych mediów społecznościowych produktu
 
-Monitoruj Opinie użytkowników o produkcie na stronie serwisu Twitter lub w serwisie Facebook. Za pomocą danych można analizować tonacji klientów w kierunku nowych produktów, wyodrębniać kluczowe frazy dotyczące funkcji i żądań funkcji lub rozwiązywać reklamacje klientów w miarę ich występowania. Zapoznaj się z przykładowym [szablonem Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Monitoruj Opinie użytkowników o produkcie na stronie serwisu Twitter lub w serwisie Facebook. Za pomocą danych można analizować tonacji klientów w kierunku nowych produktów, wyodrębniać kluczowe frazy dotyczące funkcji i żądań funkcji lub rozwiązywać reklamacje klientów w miarę ich występowania. Zobacz przykład [szablonu Microsoft energooszczędny](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Obraz opisujący sposób monitorowania produktu i opinii firmy na nośnikach społecznościowych przy użyciu wyodrębniania kluczowych fraz](media/use-cases/social-feed.svg)
 

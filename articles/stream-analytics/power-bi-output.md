@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891988"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823005"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
 
@@ -43,6 +43,9 @@ Przewodnik konfigurowania Power BI danych wyjściowych i pulpitu nawigacyjnego z
 Azure Stream Analytics tworzy Power BI zestaw danych i schemat tabeli dla użytkownika, jeśli jeszcze nie istnieją. We wszystkich innych przypadkach tabela jest aktualizowana o nowe wartości. Obecnie w zestawie danych może istnieć tylko jedna tabela. 
 
 Power BI używa zasad przechowywania w pierwszej kolejności (FIFO). Dane będą zbierane w tabeli, dopóki nie trafią 200 000 wierszy.
+
+> [!NOTE]
+> Nie zalecamy używania wielu wyjść do zapisu w tym samym zestawie danych, ponieważ może to powodować kilka problemów. Każde dane wyjściowe próbuje utworzyć zestaw danych Power BI niezależnie, co może spowodować utworzenie wielu danych o tej samej nazwie. Ponadto jeśli dane wyjściowe nie mają spójnych schematów, zestaw danych zmieni schemat przy każdym zapisie, który prowadzi do zbyt wielu żądań zmiany schematu. Nawet jeśli te problemy są uniknięcie, wiele wyjść będzie mniej wydajnych niż pojedyncze scalone dane wyjściowe.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Konwertuj typ danych z Stream Analytics na Power BI
 

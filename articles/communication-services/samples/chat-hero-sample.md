@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a01036eb4856d9fd306a50958285bd469791f24
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460564"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823874"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -110,7 +110,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 >[!div class="nextstepaction"] 
 >[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - Informacje o [pojęciach związanych z rozmowami](../concepts/chat/concepts.md)
 - Zapoznaj się z naszą [biblioteką klienta czatu](../concepts/chat/sdk-features.md)
@@ -119,6 +119,6 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) — Znajdź więcej przykładów i informacji na oficjalnej stronie GitHub
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
-- [FluentUI](https://developer.microsoft.com/fluentui#/) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
+- [FluentUI](https://aka.ms/fluent-ui) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) — platforma do tworzenia aplikacji sieci Web

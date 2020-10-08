@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486446"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823187"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -308,11 +308,11 @@ Aby skonfigurować usługę Live Video Analytics na IoT Edge module do generowan
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > To polecenie wiąże foldery dzienników między urządzeniem brzegowym i kontenerem. Jeśli chcesz zebrać dzienniki w innej lokalizacji, użyj następującego polecenia, zastępując **$LOG _LOCATION_ON_EDGE_DEVICE** lokalizacją, której chcesz użyć:`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > To polecenie wiąże foldery dzienników między urządzeniem brzegowym i kontenerem. Jeśli chcesz zebrać dzienniki w innej lokalizacji, użyj następującego polecenia, zastępując **$LOG _LOCATION_ON_EDGE_DEVICE** lokalizacją, której chcesz użyć: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Wybierz pozycję **Aktualizuj**.
 1. Wybierz pozycję **Recenzja + Utwórz**. Komunikat o pomyślnym sprawdzeniu poprawności jest ogłaszany na zielonym banerze.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Zaktualizuj **sznury identyfikacyjne modułu** , aby wskazywały na DebugLogsDirectory parametr, który wskazuje katalog, w którym zbierane są dzienniki:
 
     a. W obszarze tabela **modułów** wybierz pozycję **lvaEdge**.  
@@ -321,9 +321,11 @@ Aby skonfigurować usługę Live Video Analytics na IoT Edge module do generowan
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > To polecenie wiąże foldery dzienników między urządzeniem brzegowym i kontenerem. Jeśli chcesz zebrać dzienniki w innej lokalizacji, użyj następującego polecenia, zastępując **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** lokalizacją, której chcesz użyć:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > To polecenie wiąże foldery dzienników między urządzeniem brzegowym i kontenerem. Jeśli chcesz zebrać dzienniki w innej lokalizacji na urządzeniu:
+    > 1. Utwórz powiązanie dla lokalizacji dziennika debugowania w sekcji **powiązania** , zastępując **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** i **$Debug _LOG_LOCATION** z wybraną lokalizacją: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Użyj następującego polecenia, zastępując **$DEBUG _LOG_LOCATION** lokalizacją używaną w poprzednim kroku:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Wybierz pozycję **Zapisz**.
 
 1. Odtwórz problem.

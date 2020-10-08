@@ -1,5 +1,5 @@
 ---
-title: Mapowanie UNPIVOT przepływu danych przez transformację
+title: Przekształcanie UNPIVOT w przepływie danych mapowania
 description: Przekształcenie Unpivot przepływu danych mapowania Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541655"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823585"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory przekształcenie Unpivot
+# <a name="unpivot-transformation-in-mapping-data-flow"></a>Przekształcanie UNPIVOT w przepływie danych mapowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

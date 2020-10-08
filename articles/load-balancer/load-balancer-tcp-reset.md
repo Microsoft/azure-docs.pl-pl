@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651279"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823207"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer Resetowanie i limit czasu bezczynności protokołu TCP
 
@@ -40,7 +40,11 @@ Uważnie Przeanalizuj cały kompleksowy scenariusz, aby zdecydować, czy można 
 
 ## <a name="configurable-tcp-idle-timeout"></a>Konfigurowalny limit czasu bezczynności TCP
 
-Azure Load Balancer ma ustawienie limitu czasu bezczynności wynoszące 4 minuty do 120 minut. Wartość domyślna to 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze.
+Azure Load Balancer ma następujący zakres limitów czasu bezczynności:
+-  4 minuty do 100 minut dla reguł ruchu wychodzącego
+-  4 minuty do 30 minut dla reguł Load Balancer i reguł NAT dla ruchu przychodzącego
+
+Wartość domyślna to 4 minuty. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana między klientem a usługą w chmurze.
 
 Gdy połączenie zostanie zamknięte, aplikacja kliencka może otrzymać następujący komunikat o błędzie: "Połączenie podstawowe zostało zamknięte: połączenie, które było oczekiwać aktywności, zostało zamknięte przez serwer".
 

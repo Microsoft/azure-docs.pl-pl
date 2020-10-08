@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761128"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823612"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
@@ -137,7 +137,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Przykład:
+   Na przykład:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -259,7 +259,7 @@ Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiąza�
 
 1. Limit czasu połączenia wynosi 20 sekund. Upewnij się, że serwer SFTP ma dobrą wydajność, a urządzenia intermidiate, takie jak zapora, nie zwiększają nakładu pracy. 
 
-2. Jeśli istnieje Zapora, upewnij się, że adresy **IP łącznika zarządzanego** to listy dozwolonych. Te adresy IP można znaleźć dla regionu aplikacji logiki [**tutaj**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. Jeśli istnieje Zapora, upewnij się, że adresy **IP łącznika zarządzanego** są dodawane do listy zatwierdzonych. Te adresy IP można znaleźć dla regionu aplikacji logiki [**tutaj**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. Jeśli ten problem występuje sporadycznie, Przetestuj ustawienia ponawiania, aby zobaczyć, czy większa liczba ponownych prób od domyślnego 4 może pomóc.
 
@@ -279,4 +279,3 @@ Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego �
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
-

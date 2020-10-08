@@ -8,28 +8,31 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df71f0804b62eb4b17ff8d2f652b076b5c64c959
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84905629"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822827"
 ---
-Możesz uzyskać dostęp do dzienników konsoli wygenerowanych z wewnątrz kontenera. Najpierw Włącz rejestrowanie kontenerów, uruchamiając następujące polecenie w Cloud Shell:
+Możesz uzyskać dostęp do dzienników konsoli wygenerowanych z wewnątrz kontenera.
+
+Najpierw Włącz rejestrowanie kontenerów, uruchamiając następujące polecenie:
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
+
+Zamień `<app-name>` i na `<resource-group-name>` nazwy odpowiednie dla aplikacji sieci Web.
 
 Po włączeniu rejestrowania kontenerów uruchom następujące polecenie, aby wyświetlić strumień dziennika:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
 Jeśli nie widzisz dzienników konsoli, sprawdź ponownie w ciągu 30 sekund.
 
-> [!NOTE]
-> Pliki dzienników można także sprawdzać w przeglądarce pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
 
-Aby w dowolnym momencie zatrzymać przesyłanie strumieniowe dzienników, naciśnij kombinację klawiszy `Ctrl`+`C`.
+Pliki dzienników można także sprawdzić w przeglądarce pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .

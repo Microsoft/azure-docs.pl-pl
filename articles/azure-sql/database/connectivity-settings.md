@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443851"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824141"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443851"
 W tym artykule wprowadzono ustawienia kontrolujące łączność z serwerem dla Azure SQL Database i usługi Azure Synapse Analytics. Te ustawienia mają zastosowanie do **wszystkich** baz danych SQL Database i Azure Synapse skojarzonych z serwerem.
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**
+> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
 
 Ustawienia łączności są dostępne z ekranu **zapory i sieci wirtualne** , jak pokazano na poniższym zrzucie ekranu:
 
@@ -38,6 +38,9 @@ Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, doz
  ![Zrzut ekranu z łącznością z odmową dostępu do sieci publicznej][2]
 
 Wszystkie próby ustawienia **Odmów dostępu do sieci publicznej** na **wartość tak** bez żadnych istniejących prywatnych punktów końcowych na serwerze logicznym zakończą się niepowodzeniem z komunikatem o błędzie podobnym do:  
+
+> [!NOTE]
+> Aby zdefiniować reguły zapory sieci wirtualnej na serwerze logicznym, który jest już skonfigurowany za pomocą prywatnych punktów końcowych, ustaw opcję **Odmów dostępu do sieci publicznej** na wartość **nie**.
 
 ```output
 Error 42102

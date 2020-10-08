@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555119"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Samouczek: integracja Azure Active Directory z usługą FilesAnywhere
 
@@ -101,7 +101,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FilesAnyw
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez **dostawcę tożsamości**, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następującą czynność:
 
-    ![Domena i adresy URL aplikacji FilesAnywhere — informacje dotyczące logowania jednokrotnego](common/both-replyurl.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M L" konfiguracji z wyróżnionym polem "odpowiedź U R L" i wybranym przyciskiem "Zapisz".](common/both-replyurl.png)
 
     W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,9 +116,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FilesAnyw
 
 6. Aplikacja FilesAnywhere oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę Edytuj, aby dodać atrybuty.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty użytkownika" z wybranym przyciskiem "Edytuj".](common/edit-attribute.png)
 
-    Gdy użytkownicy logują się za pomocą aplikacji FilesAnywhere, uzyskują wartość atrybutu **clientid** od [zespołu ds. aplikacji FilesAnywhere](mailto:support@FilesAnywhere.com). Należy dodać atrybut „Client Id” z unikatową wartością dostarczoną przez FilesAnywhere.
+    Gdy użytkownicy logują się za pomocą aplikacji FilesAnywhere, uzyskują wartość atrybutu **clientid** od [zespołu ds. aplikacji FilesAnywhere](mailto:support@FilesAnywhere.com). Musisz dodać atrybut "Client ID" z unikatową wartością podaną przez FilesAnywhere.
 
 7. Oprócz powyższych aplikacja FilesAnywhere oczekuje jeszcze kilku atrybutów, które powinny zostać przekazane w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -128,7 +128,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FilesAnyw
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "oświadczenia użytkownika" z wybraną pozycją "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -142,7 +142,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FilesAnyw
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -227,7 +227,7 @@ Po kliknięciu kafelka FilesAnywhere w panelu dostępu powinno nastąpić automa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
