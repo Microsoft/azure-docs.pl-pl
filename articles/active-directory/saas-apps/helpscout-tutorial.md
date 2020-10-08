@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548144"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Samouczek: integracja Azure Active Directory z Help Scout
 
@@ -89,7 +89,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Help Scout](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. **Identyfikator** to wartość **Audience URI (Service Provider Entity ID)** (Identyfikator URI odbiorców — identyfikator jednostki usługodawcy) z aplikacji Help Scout, która zaczyna się od: `urn:`
 
@@ -100,7 +100,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Help Scout
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Help Scout](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Manage** (Zarządzaj) w górnym menu, a następnie wybierz pozycję **Company** (Firma) z menu rozwijanego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/helpscout-tutorial/settings1.png)
+    ![Zrzut ekranu przedstawia menu Zarządzaj z wybraną firmą.](./media/helpscout-tutorial/settings1.png)
 
 1. Wybierz pozycję **Authentication** (Uwierzytelnianie) z okienka nawigacji po lewej stronie.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/helpscout-tutorial/settings2.png)
+    ![Zrzut ekranu przedstawia wybrane uwierzytelnianie.](./media/helpscout-tutorial/settings2.png)
 
 1. Spowoduje to przejście do sekcji ustawień języka SAML w celu wykonania następujących czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/helpscout-tutorial/settings3.png)
+    ![Zrzut ekranu przedstawia kartę logowania jednokrotnego, w której wprowadzane są określone informacje.](./media/helpscout-tutorial/settings3.png)
 
     a. Skopiuj wartość **Post-back URL (Assertion Consumer Service URL)** (Zwrotny adres URL — adres URL usługi Assertion Consumer Service) i wklej ją w polu tekstowym **Adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
@@ -199,7 +199,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Włącz ustawienie **Enable SAML** (Włącz SAML) i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/helpscout-tutorial/settings4.png)
+    ![Zrzut ekranu przedstawia kartę logowania jednokrotnego, w której można włączyć protokół SAML i dodać inne informacje.](./media/helpscout-tutorial/settings4.png)
 
     a. W polu tekstowym **adres URL** logowania jednokrotnego wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
@@ -209,7 +209,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Ponadto możesz włączyć ustawienie **Force SAML Sign-on** (Wymuszaj logowanie SAML), jeśli użytkownicy mają logować się w aplikacji Help Scout tylko za pośrednictwem tej metody. Jeśli chcesz pozostawić im opcję logowania się przy użyciu poświadczeń aplikacji Help Scout, możesz pozostawić to ustawienie wyłączone. Nawet jeśli to ustawienie jest włączone, właściciel konta zawsze będzie mógł zalogować się w aplikacji Help Scout za pomocą hasła do swojego konta.
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-help-scout-test-user"></a>Tworzenie użytkownika testowego aplikacji Help Scout
 
@@ -225,7 +225,7 @@ Po kliknięciu kafelka Help Scout w panelu dostępu powinno nastąpić automatyc
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550616"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Samouczek: integracja Azure Active Directory z usługą HighGear
 
@@ -99,7 +99,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w systemie HighGear, w
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL pojedynczego logowania aplikacji HighGear](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wklej wartość **identyfikatora jednostki usługodawcy**, która znajduje się na stronie ustawień logowania jednokrotnego w systemie HighGear.
 
@@ -116,7 +116,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w systemie HighGear, w
 
     c. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-     ![Informacje o domenie i adresach URL pojedynczego logowania aplikacji HighGear](common/metadata-upload-additional-signon.png)
+     ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
      W polu tekstowym **Adres URL logowania** wklej wartość **identyfikatora jednostki usługodawcy**, która znajduje się na stronie ustawień logowania jednokrotnego w systemie HighGear. (Ten identyfikator jednostki jest również podstawowym adresem URL systemu HighGear, który ma być używany w przypadku logowania jednokrotnego zainicjowanego przez usługodawcę).
 
@@ -252,7 +252,7 @@ Po kliknięciu kafelka HighGear w panelu dostępu powinno nastąpić automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

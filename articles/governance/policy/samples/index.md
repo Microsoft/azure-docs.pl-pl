@@ -3,12 +3,12 @@ title: Indeks przykładów zasad
 description: Indeks wbudowanych elementów dla usługi Azure Policy. Tagi kategorii, zgodność z przepisami, magazyn kluczy, Kubernetes, konfiguracja gościa i inne.
 ms.date: 07/20/2020
 ms.topic: sample
-ms.openlocfilehash: b4f76c42eb23ce368875dfb91f2f7b9e7ee1bd50
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 9fec7c7b0db554d424f8faee7e4e10e6121f1caa
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481566"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812526"
 ---
 # <a name="azure-policy-samples"></a>Przykłady dla usługi Azure Policy
 
@@ -27,7 +27,7 @@ Poniżej znajdują się przykłady różnych wzorców stosujących język i oper
 - [Pola](./pattern-fields.md)
 - [Parametry](./pattern-parameters.md)
 - [Szczegóły efektu](./pattern-effect-details.md)
-- [Używanie tagów](./pattern-effect-details.md)
+- [Używanie tagów](./pattern-tags.md)
 - [Operator wartości](./pattern-value-operator.md)
 - [Operator liczby](./pattern-count-operator.md)
 - [Grupowanie definicji zasad w ramach inicjatywy](./pattern-group-with-initiative.md)

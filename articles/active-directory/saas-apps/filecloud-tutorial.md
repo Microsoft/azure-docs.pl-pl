@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555180"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Samouczek: integracja Azure Active Directory z usługą FileCloud
 
@@ -130,19 +130,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją FileCloud
 
 2. W okienku nawigacji po lewej stronie kliknij pozycję **Settings** (Ustawienia). 
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Zrzut ekranu pokazujący "Ustawienia" wyróżnionego w okienku nawigacji po lewej stronie.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Kliknij kartę **SSO** (Logowanie jednokrotne) w sekcji Settings (Ustawienia). 
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Zrzut ekranu pokazujący sekcję "Ustawienia" z wybraną kartą "S S".](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Wybierz wartość **SAML** w polu **Default SSO Type** (Domyślny typ logowania jednokrotnego) na panelu **Single Sign On (SSO) Settings** (Ustawienia logowania jednokrotnego).
    
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Zrzut ekranu przedstawiający panel Ustawienia "Logowanie jednokrotne" z wybraną opcją "S A M L".](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. W polu tekstowym **IdP End Point URL** (Adres URL punktu końcowego dostawcy tożsamości) wklej wartość **identyfikatora usługi Azure AD** skopiowaną z witryny Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Zrzut ekranu przedstawiający sekcję "S A M L Settings" z wyróżnioną pozycją "I d P punkt końcowy" U R L ".](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Otwórz pobrany plik certyfikatu w Notatniku, skopiuj zawartość do schowka, a następnie wklej ją w polu tekstowym **IdP Meta Data** (Metadane dostawcy tożsamości) na panelu **SAML Settings** (Ustawienia języka SAML).
 
@@ -218,7 +218,7 @@ Po kliknięciu kafelka FileCloud w panelu dostępu powinno nastąpić automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

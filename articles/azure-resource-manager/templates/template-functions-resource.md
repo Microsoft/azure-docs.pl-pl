@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 4f788af065db5ef5f23f9a8e96c2d45405959614
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: dd040715cc8fb1339c6054c53007dbcd08e2cbdb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369199"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816810"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -144,7 +144,6 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. ApiManagement/Service/skojarzeni | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft. ApiManagement/Service/namedValues | [Wartość listy](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft. AppPlatform/Sprężyna | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -337,8 +336,6 @@ W następnym przykładzie pokazano funkcję listy, która przyjmuje parametr. W 
 "sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
-Przykład listKeyValue można znaleźć w sekcji [Szybki Start: Wdrażanie maszyny wirtualnej z konfiguracją aplikacji i szablonem Menedżer zasobów](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
-
 ## <a name="pickzones"></a>pickZones
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
@@ -352,7 +349,7 @@ Określa, czy typ zasobu obsługuje strefy dla regionu.
 | providerNamespace | Tak | ciąg | Przestrzeń nazw dostawcy zasobów dla typu zasobu, aby sprawdzić obsługę strefy. |
 | resourceType | Tak | ciąg | Typ zasobu służący do sprawdzania obsługi strefy. |
 | location | Tak | ciąg | Region, w którym ma zostać wyszukana obsługa strefy. |
-| numberOfZones | Nie | liczba całkowita | Liczba stref logicznych do zwrócenia. Domyślnym ustawieniem jest 1. Liczba musi być dodatnią liczbą całkowitą z przedziału od 1 do 3.  W przypadku zasobów z jedną strefą Użyj wartości 1. W przypadku zasobów z obsługą wielu stref wartość musi być mniejsza lub równa liczbie obsługiwanych stref. |
+| numberOfZones | Nie | liczba całkowita | Liczba stref logicznych do zwrócenia. Wartość domyślna to 1. Liczba musi być dodatnią liczbą całkowitą z przedziału od 1 do 3.  W przypadku zasobów z jedną strefą Użyj wartości 1. W przypadku zasobów z obsługą wielu stref wartość musi być mniejsza lub równa liczbie obsługiwanych stref. |
 | przesunięcie | Nie | liczba całkowita | Przesunięcie od początkowej strefy logicznej. Funkcja zwraca błąd, jeśli Offset plus numberOfZones przekracza liczbę obsługiwanych stref. |
 
 ### <a name="return-value"></a>Wartość zwracana

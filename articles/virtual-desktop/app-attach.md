@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3b02be8f35ff33f758aebe03c89287c51c9ffef7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010161"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816334"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
@@ -342,20 +342,25 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Skrypt zrzutów programu PowerShell
 
-Dla tego skryptu Zastąp symbol zastępczy **$PackageName** nazwą testowanego pakietu.
+Dla tego skryptu Zastąp symbol zastępczy **$PackageName** nazwą testowanego pakietu. W przypadku wdrożenia produkcyjnego najlepiej jest uruchomić to przy zamykaniu.
 
 ```powershell
 #MSIX app attach de staging sample
 
+$vhdSrc="<path to vhd>"
+
 #region variables
 $packageName = "<package name>"
-$msixJunction = "C:\temp\AppAttach\"
+$msixJunction = "C:\temp\AppAttach"
 #endregion
 
 #region deregister
 Remove-AppxPackage -AllUsers -Package $packageName
-cd $msixJunction
-rmdir $packageName -Force -Verbose
+Remove-Item "$msixJunction\$packageName" -Recurse -Force -Verbose
+#endregion
+
+#region Detach VHD
+Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
@@ -380,8 +385,8 @@ Poniżej przedstawiono sposób konfigurowania licencji do użytku w trybie offli
 
 1. Pobierz pakiet aplikacji, licencje i wymagane platformy z Microsoft Store dla firm. Wymagane są zarówno zakodowane, jak i niezakodowane pliki licencji. Szczegółowe instrukcje dotyczące pobierania można znaleźć [tutaj](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Zaktualizuj następujące zmienne w skrypcie dla kroku 3:
-      1. `$contentID`jest wartością identyfikatorze z niezakodowanego pliku licencji (XML). Możesz otworzyć plik licencji w wybranym edytorze tekstu.
-      2. `$licenseBlob`to cały ciąg dla obiektu BLOB licencji w zakodowanym pliku licencji (bin). Możesz otworzyć zakodowany plik licencji w wybranym edytorze tekstu.
+      1. `$contentID` jest wartością identyfikatorze z niezakodowanego pliku licencji (XML). Możesz otworzyć plik licencji w wybranym edytorze tekstu.
+      2. `$licenseBlob` to cały ciąg dla obiektu BLOB licencji w zakodowanym pliku licencji (bin). Możesz otworzyć zakodowany plik licencji w wybranym edytorze tekstu.
 3. Uruchom następujący skrypt z wiersza polecenia administratora programu PowerShell. Dobrym miejscem do przeprowadzenia instalacji licencji jest koniec [skryptu przemieszczania](#stage-powershell-script) , który również należy uruchomić z poziomu monitu administratora.
 
 ```powershell

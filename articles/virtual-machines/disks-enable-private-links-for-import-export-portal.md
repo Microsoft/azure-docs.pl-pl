@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4387bf8067b399165b32ab1cdbb9e6ce55ab5f59
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815865"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816358"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Użyj Azure Portal, aby ograniczyć dostęp do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
@@ -30,12 +30,6 @@ Właściwość NetworkAccessPolicy można ustawić tak, aby `DenyAll` uniemożli
 ## <a name="regional-availability"></a>Dostępność regionalna
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Aby można było używać prywatnych punktów końcowych do eksportowania i importowania dysków zarządzanych, funkcja musi zostać włączona w Twojej subskrypcji. Wyślij wiadomość e-mail do mdprivatelinks@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
-
-Należy zwrócić uwagę na sieć wirtualną maszyny wirtualnej, do której są dołączone dyski. Sieć wirtualna jest wymagana podczas konfigurowania prywatnego punktu końcowego.
 
 ## <a name="create-a-disk-access-resource"></a>Tworzenie zasobu dostępu do dysku
 

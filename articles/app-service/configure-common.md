@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 18463c4350895401c9bf73dc249ce93218a44f7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264647"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816426"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -83,6 +83,32 @@ Ustawienia aplikacji mają następujące formatowanie JSON:
   ...
 ]
 ```
+
+### <a name="automate-app-settings-with-the-azure-cli"></a>Automatyzowanie ustawień aplikacji za pomocą interfejsu wiersza polecenia platformy Azure
+
+Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć ustawienia i zarządzać nimi z poziomu wiersza poleceń.
+
+- Przypisz wartość do ustawienia przy użyciu [AZ webapp config Settings Set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    Zamień na `<setting-name>` nazwę ustawienia i `<value>` wartość, która ma zostać przypisana do niego. To polecenie powoduje utworzenie ustawienia, jeśli jeszcze nie istnieje.
+    
+- Pokaż wszystkie ustawienia i ich wartości za pomocą właściwości [AZ webapp config AppSettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Usuń co najmniej jedno ustawienie przy użyciu [AZ webapp config ustawienia aplikacji Delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Zamień na `<names>` rozdzieloną spacjami listę nazw ustawień.
 
 ## <a name="configure-connection-strings"></a>Konfigurowanie parametrów połączenia
 
@@ -164,7 +190,12 @@ W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybie
 
 Tutaj można skonfigurować niektóre typowe ustawienia dla aplikacji. Niektóre ustawienia wymagają [skalowania do wyższych warstw cenowych](manage-scale-up.md).
 
-- **Ustawienia stosu**: stos oprogramowania do uruchamiania aplikacji, w tym wersje język i zestaw SDK. W przypadku aplikacji systemu Linux i niestandardowych aplikacji kontenerów można również ustawić opcjonalne lub plik startowy.
+- **Ustawienia stosu**: stos oprogramowania do uruchamiania aplikacji, w tym wersje język i zestaw SDK.
+
+    W przypadku aplikacji systemu Linux i niestandardowych aplikacji kontenera można wybrać wersję środowiska uruchomieniowego języka i ustawić opcjonalne **polecenie uruchamiania** lub plik poleceń uruchomieniowych.
+
+    ![Ustawienia ogólne dla kontenerów systemu Linux](./media/configure-common/open-general-linux.png)
+
 - **Ustawienia platformy**: umożliwia skonfigurowanie ustawień platformy hostingu, w tym:
     - Liczba **bitów**: 32-bitowe lub 64-bitowe.
     - **Protokół WebSocket**: na przykład dla [ASP.NET signaler] lub [Socket.IO](https://socket.io/).

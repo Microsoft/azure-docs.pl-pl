@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718105"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817735"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -34,7 +34,7 @@ Każdy klaster wymaga jednego **podstawowego typu węzła**, który uruchamia kr
 
 **Typy węzłów innych niż podstawowe** mogą służyć do definiowania ról aplikacji (takich jak usługi *frontonu* i *zaplecza* ) oraz do fizycznego izolowania usług w ramach klastra. Klastry Service Fabric mogą mieć zero lub więcej typów węzłów innych niż podstawowe.
 
-Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w definicji typu węzła w szablonie wdrażania Azure Resource Manager. Zobacz [obiekt NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) , aby uzyskać pełną listę właściwości typu węzła. Na przykład, Otwórz dowolny *AzureDeploy.js* w pliku w [Service Fabric przykładach klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) i *Znajdź na stronie* wyszukiwanie `nodetTypes` obiektu.
+Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w definicji typu węzła w szablonie wdrażania Azure Resource Manager. Zobacz [obiekt NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) , aby uzyskać pełną listę właściwości typu węzła. Na przykład, Otwórz dowolny *AzureDeploy.js* w pliku w [Service Fabric przykładach klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) i *Znajdź na stronie* wyszukiwanie `nodeTypes` obiektu.
 
 ### <a name="node-type-planning-considerations"></a>Zagadnienia dotyczące planowania typu węzła
 

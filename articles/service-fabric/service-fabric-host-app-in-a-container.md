@@ -3,18 +3,18 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 7c77b2e5b60aef246b513cb852f6231ba7531056
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743815"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817639"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
 W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Aktualizowanie konfiguracji internetowej
 
-W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **web.config**, aby wskazywały na program SQL Server w kontenerze.  Zaktualizuj część *Server* parametrów połączenia do poziomu nazwy serwera utworzonej przez poprzedni skrypt. Powinna to być informacja podobna do „fab-fiber-751718376.database.windows.net”.
+W projekcie **FabrikamFiber.Web** zaktualizuj parametry połączenia w pliku **web.config**, aby wskazywały na program SQL Server w kontenerze.  Zaktualizuj część *Server* parametrów połączenia do poziomu nazwy serwera utworzonej przez poprzedni skrypt. Powinna to być informacja podobna do „fab-fiber-751718376.database.windows.net”. W poniższym kodzie XML należy zaktualizować tylko `connectionString` atrybut; `providerName` `name` atrybuty i nie muszą być zmieniane.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -144,7 +144,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 Aplikacje usługi Service Fabric działają w klastrze — połączonym z siecią zestawie maszyn wirtualnych lub fizycznych.  Przed wdrożeniem aplikacji na platformie Azure utwórz klaster usługi Service Fabric na platformie Azure.
 
-Oto co możesz zrobić:
+Można:
 
 * Utworzyć klaster testowy z poziomu programu Visual Studio. Ta opcja służy do tworzenia bezpiecznego klastra bezpośrednio z poziomu programu Visual Studio z preferowaną konfiguracją.
 * [Utworzyć zabezpieczony klaster na podstawie szablonu](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

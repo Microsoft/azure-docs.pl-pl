@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555319"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817065"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Samouczek: integracja wydatków z Azure Active Directory
 
@@ -135,11 +135,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **administrator** w górnej części strony, a następnie przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Dodaj dostawcę**.
 
-     ![Konfiguracja wydatków](./media/expenseIn-tutorial/config01.png)
+     ![Zrzut ekranu pokazujący kartę "Administrator" oraz "Logowanie jednokrotne" i "Dodaj dostawcę" wybrane.](./media/expenseIn-tutorial/config01.png)
 
 1. W oknie podręcznym **Nowy dostawca tożsamości** wykonaj następujące czynności:
 
-    ![Konfiguracja wydatków](./media/expenseIn-tutorial/config02.png)
+    ![Zrzut ekranu przedstawiający okno podręczne "Edytuj dostawcę tożsamości" z wprowadzonymi wartościami.](./media/expenseIn-tutorial/config02.png)
 
     a. W polu tekstowym **Nazwa dostawcy** wpisz nazwę; na przykład platforma Azure.
 
@@ -163,7 +163,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrow
 
 2. Kliknij pozycję **administrator** w górnej części strony, a następnie przejdź do obszaru **Użytkownicy** i kliknij pozycję **nowy użytkownik**.
 
-     ![Konfiguracja wydatków](./media/expenseIn-tutorial/config03.png)
+     ![Zrzut ekranu pokazujący kartę "Administrator" i stronę "Zarządzaj użytkownikami" z wybranym elementem "nowy użytkownik".](./media/expenseIn-tutorial/config03.png)
 
 3. W oknie podręcznym **szczegóły** wykonaj następujące czynności:
 
@@ -181,11 +181,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrow
 
 Po wybraniu kafelka wydatki w panelu dostępu należy automatycznie zalogować się do wydatków, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

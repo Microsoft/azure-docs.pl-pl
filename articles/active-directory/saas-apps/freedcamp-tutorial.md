@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551034"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817039"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Samouczek: integracja Freedcamp z usługą Azure Active Directory
 
@@ -108,11 +108,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 4. W prawym górnym rogu strony kliknij pozycję **profil** , a następnie przejdź do **obszaru Moje konto**.
 
-    ![Konfiguracja Freedcamp](./media/freedcamp-tutorial/config01.png)
+    ![Zrzut ekranu pokazujący, że wybrano "profil" i "Moje konto".](./media/freedcamp-tutorial/config01.png)
 
 5. Z lewej strony paska menu kliknij pozycję Logowanie **jednokrotne** i na stronie **połączenia logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfiguracja Freedcamp](./media/freedcamp-tutorial/config02.png)
+    ![Zrzut ekranu pokazujący "S S" wybrany na pasku menu po lewej stronie i na stronie "połączenia S S" z wprowadzonymi wartościami i wybranym przyciskiem "Prześlij".](./media/freedcamp-tutorial/config02.png)
 
     a. W polu tekstowym **tytuł** wpisz tytuł.
 
@@ -162,13 +162,13 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się do usługi Freedcam
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się, aby Freedcamp jako administrator zabezpieczeń.
 
-2. W górnym rogu strony kliknij pozycję **profil** , a następnie przejdź do obszaru **Zarządzanie systemem**.
+2. W prawym górnym rogu strony kliknij pozycję **profil** , a następnie przejdź do obszaru **Zarządzanie systemem**.
 
     ![Konfiguracja Freedcamp](./media/freedcamp-tutorial/config03.png)
 
 3. Po prawej stronie strony Zarządzanie systemem wykonaj następujące czynności:
 
-    ![Konfiguracja Freedcamp](./media/freedcamp-tutorial/config04.png)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Dodaj lub Zaproś użytkowników", wyróżniono pole "E-mail" oraz wybrany przycisk "Dodaj użytkownika".](./media/freedcamp-tutorial/config04.png)
 
     a. Kliknij pozycję **Dodaj lub Zaproś użytkowników**.
 
@@ -184,6 +184,6 @@ Po wybraniu kafelka Freedcamp w panelu dostępu należy automatycznie zalogować
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

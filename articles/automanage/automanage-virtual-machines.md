@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447921"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816822"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -134,20 +134,20 @@ Aby to zrobić, w Azure Portal przejdź do strony **Autozarządzanie — najleps
 
 Uważnie przeczytaj wiadomości w wyskakującym okienku, aby wyrazić zgodę na **wyłączenie**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> Wyłączenie autozarządzania w maszynie wirtualnej powoduje następujące zachowanie:
+>
+> - Konfiguracja maszyny wirtualnej i usług, które nie zostały zmienione.
+> - Opłaty naliczane przez te usługi pozostają w obciążeniu i nadal będą naliczane.
+> - Wszystkie zachowania autozarządzaj natychmiast Zatrzymaj.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Najpierw nie należy wyłączać maszyny wirtualnej z dowolnych usług, które zostały do niej dołączone i skonfigurowane. W związku z tym wszelkie opłaty naliczane przez te usługi będą nadal obciążane opłatami. Jeśli to konieczne, należy w razie potrzeby wyłączyć. Każde zachowanie autozarządzania zostanie natychmiast zatrzymane. Na przykład nie będziemy już monitorować maszyny wirtualnej pod kątem dryfowania.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule wyjaśniono, że Autozarządzanie maszynami wirtualnymi zapewnia rozwiązanie, dla którego można wyeliminować konieczność znajomości, dołączania i konfigurowania usług Azure Best Practices. Ponadto, jeśli komputer, do którego chcesz przeprowadzić Autozarządzanie Virtual Machines dryfami z skonfigurowanych profilów konfiguracji, zostanie automatycznie przywrócony do zgodności.
+W tym artykule wyjaśniono, że Autozarządzanie maszynami wirtualnymi zapewnia rozwiązanie, dla którego można wyeliminować konieczność znajomości, dołączania i konfigurowania usług Azure Best Practices. Ponadto, jeśli komputer, do którego chcesz przeprowadzić Autozarządzanie w przypadku przechodzenia maszyn wirtualnych z skonfigurowanych profilów konfiguracji, zostanie automatycznie przywrócony do zgodności.
 
 Spróbuj włączyć Autozarządzanie dla maszyn wirtualnych w Azure Portal.
 

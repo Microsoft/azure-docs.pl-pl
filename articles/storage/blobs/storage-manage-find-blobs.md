@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713691"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817540"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -72,8 +72,11 @@ Do tagów indeksów obiektów BLOB mają zastosowanie następujące ograniczenia
 - Klucze i wartości tagów są rozróżniane wielkości liter
 - Klucze i wartości tagów obsługują tylko typy danych String; wszystkie liczby, daty, godziny lub znaki specjalne zostaną zapisane jako ciągi
 - Klucze i wartości tagów muszą być zgodne z następującymi regułami nazewnictwa:
-  - Znaki alfanumeryczne: a-z, A-Z, 0-9
-  - Znaki specjalne: Space, plus, minus, kropka, dwukropek, Equals, podkreślenie, ukośnik
+  - Znaki alfanumeryczne:
+    - **od a** do **z** (małe litery)
+    - **Od A** do **z** (wielkie litery)
+    - **od 0** do **9** (liczba)
+  - Prawidłowe znaki specjalne: Space, plus, minus, kropka, dwukropek, Equals, podkreślenie, ukośnik ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Pobieranie i wyświetlanie listy tagów indeksów obiektów BLOB
 

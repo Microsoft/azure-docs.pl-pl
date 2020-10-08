@@ -4,16 +4,16 @@ description: Monitorowanie aplikacji .NET Core/. NET Framework bez protokołu HT
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760482"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816391"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights aplikacji usługi Worker (aplikacje inne niż HTTP)
 
-Application Insights udostępnia nowy zestaw SDK, `Microsoft.ApplicationInsights.WorkerService` który jest najlepiej dostosowany do obciążeń innych niż http, takich jak obsługa komunikatów, zadania w tle, aplikacje konsolowe itp. Te typy aplikacji nie mają pojęcia przychodzącego żądania HTTP, takiego jak tradycyjna aplikacja sieci Web ASP.NET/ASP.NET Core, a tym samym nie są obsługiwane pakiety Application Insights dla aplikacji [ASP.NET](asp-net.md) i [ASP.NET Core](asp-net-core.md) .
+[Zestaw Application Insights SDK dla usługi Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) to nowy zestaw SDK, który najlepiej nadaje się do obciążeń innych niż http, takich jak obsługa komunikatów, zadania w tle, aplikacje konsolowe itp. Te typy aplikacji nie mają pojęcia przychodzącego żądania HTTP, takiego jak tradycyjna aplikacja sieci Web ASP.NET/ASP.NET Core, a tym samym nie są obsługiwane pakiety Application Insights dla aplikacji [ASP.NET](asp-net.md) i [ASP.NET Core](asp-net-core.md) .
 
 Nowy zestaw SDK nie wykonuje żadnej kolekcji telemetrii. Zamiast tego wywołuje inne dobrze znane Application Insights, takie jak [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) itd. Ten zestaw SDK udostępnia metody rozszerzające na `IServiceCollection` potrzeby włączania i konfigurowania zbierania danych telemetrycznych.
 
@@ -138,7 +138,7 @@ W [tym](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=a
 
 Pełny przykład jest udostępniany [tutaj](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Zainstaluj aplikację Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) pakiet dla aplikacji).
+1. Zainstaluj pakiet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) w aplikacji.
 2. Dodaj `services.AddApplicationInsightsTelemetryWorkerService();` do `ConfigureServices()` metody, jak w poniższym przykładzie:
 
 ```csharp
@@ -225,7 +225,7 @@ Jak wspomniano na początku tego artykułu, nowy pakiet może służyć do włą
 
 Pełny przykład jest udostępniany [tutaj](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Zainstaluj aplikację Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) pakiet dla aplikacji).
+1. Zainstaluj pakiet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) w aplikacji.
 
 2. Zmodyfikuj Program.cs, jak pokazano poniżej.
 
@@ -293,7 +293,7 @@ Ta Aplikacja konsolowa również używa tego samego ustawienia domyślnego `Tele
 
 ## <a name="run-your-application"></a>Uruchamianie aplikacji
 
-Uruchom aplikację. Przykładowi pracownicy ze wszystkich powyższych powyżej wykonuje wywołanie http co sekundę do bing.com, a także emitują kilka dzienników przy użyciu ILogger. Te wiersze są zawijane wewnątrz `StartOperation` wywołania `TelemetryClient` , które jest używane do tworzenia operacji (w tym przykładzie `RequestTelemetry` o nazwie "Operation"). Application Insights będzie zbierać te dzienniki ILogger (domyślnie ostrzegawcze lub powyżej) oraz zależności i zostaną one skorelowane z `RequestTelemetry` relacją with Parent-podrzędny. Korelacja działa również między granicami procesu i sieci. Na przykład jeśli wywołanie zostało wykonane w innym monitorowanym składniku, zostanie ono skorelowane również z tym elementem nadrzędnym.
+Uruchom aplikację. Przykładowi pracownicy ze wszystkich powyższych elementów wysyłają wywołania http co sekundę do bing.com, a także emitują kilka dzienników przy użyciu `ILogger` . Te wiersze są zawijane wewnątrz `StartOperation` wywołania `TelemetryClient` , które jest używane do tworzenia operacji (w tym przykładzie `RequestTelemetry` o nazwie "Operation"). Application Insights będzie zbierać te dzienniki ILogger (domyślnie ostrzegawcze lub powyżej) oraz zależności i zostaną one skorelowane z `RequestTelemetry` relacją with Parent-podrzędny. Korelacja działa również między granicami procesu i sieci. Na przykład jeśli wywołanie zostało wykonane w innym monitorowanym składniku, zostanie ono skorelowane również z tym elementem nadrzędnym.
 
 Ta niestandardowa operacja `RequestTelemetry` może być uważana za odpowiednik przychodzącego żądania sieci Web w typowej aplikacji sieci Web. Chociaż nie jest to konieczne do używania operacji, najlepiej pasuje do [modelu danych korelacji Application Insights](./correlation.md) — `RequestTelemetry` działając jako operacja nadrzędna, a każda Telemetria wygenerowana wewnątrz iteracji procesu roboczego jest traktowana jako logicznie należący do tej samej operacji. Takie podejście gwarantuje również, że wszystkie wygenerowane dane telemetryczne (automatyczne i ręczne) będą takie same `operation_id` . Jak próbkowanie jest oparte na `operation_id` , algorytm próbkowania utrzymuje lub porzuca wszystkie dane telemetryczne z jednej iteracji.
 

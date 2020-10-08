@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031402"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816786"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
 
@@ -131,7 +131,7 @@ Dostępne opcje to:
 
 > [!NOTE]
 >
-> - Analizatory Roslyn są zintegrowane z kompilatorem i mogą być uruchamiane tylko w ramach kompilacji csc.exe. W związku z tym to zadanie wymaga, aby polecenie kompilatora uruchomione wcześniej w kompilacji zostało powtórzone lub ponownie uruchomione. To odtwarzanie lub uruchamianie jest wykonywane przez przeszukiwanie Visual Studio Team Services (VSTS) dla dzienników zadań kompilacji programu MSBuild.
+> - Analizatory Roslyn są zintegrowane z kompilatorem i mogą być uruchamiane tylko w ramach kompilacji csc.exe. W związku z tym to zadanie wymaga, aby polecenie kompilatora uruchomione wcześniej w kompilacji zostało powtórzone lub ponownie uruchomione. To odtwarzanie lub uruchamianie jest wykonywane przez wykonanie zapytania dotyczącego usługi Azure DevOps (dawniej Visual Studio Team Services) w przypadku dzienników zadań kompilacji programu MSBuild.
 >
 >   Nie istnieje żaden inny sposób, aby zadanie niezawodnie pobrać wiersz polecenia kompilacji MSBuild z definicji kompilacji. Rozważamy Dodawanie dowolnego pola tekstowego, aby umożliwić użytkownikom wprowadzanie ich linii poleceń. Jednak będzie trudno zachować aktualność tych wierszy poleceń i synchronizować ją z główną kompilacją.
 >

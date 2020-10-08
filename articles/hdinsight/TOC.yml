@@ -8,6 +8,7 @@
         - name: Co to jest usługa Azure HDInsight?
           href: ./hdinsight-overview.md
     - name: Samouczki
+      expanded: true
       items:
         - name: Tworzenie klastrów usługi HDInsight
           href: ./hdinsight-hadoop-provision-linux-clusters.md

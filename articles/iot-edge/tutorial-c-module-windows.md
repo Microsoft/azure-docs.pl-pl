@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: edfe0a383ab68b640b5bc7e7e0a1fdd038d0fa38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f6ed981ab0b67aacaca5300dc3f77894805e3d1b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318334"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816373"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C dla urządzeń z systemem Windows
 
@@ -346,6 +346,7 @@ Komputer deweloperski ma teraz dostęp do rejestru kontenerów, a Twoje urządze
 
 Użyj programu Visual Studio Cloud Explorer i rozszerzenia narzędzi Azure IoT Edge, aby wdrożyć projekt modułu na urządzeniu IoT Edge. Istnieje już manifest wdrożenia przygotowany dla danego scenariusza, **deployment.windows-amd64.jsna** pliku w folderze konfiguracyjnym. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
 
+
 Upewnij się, że urządzenie IoT Edge zostało uruchomione.
 
 1. W programie Visual Studio Cloud Explorer rozwiń zasoby, aby wyświetlić listę urządzeń IoT.
@@ -356,7 +357,7 @@ Upewnij się, że urządzenie IoT Edge zostało uruchomione.
 
 4. W Eksploratorze plików wybierz plik **Deployment. Windows-amd64** w folderze config Twojego rozwiązania.
 
-5. Odśwież Eksploratora chmury, aby zobaczyć wdrożone moduły wymienione na urządzeniu.
+5. Odśwież program Cloud Explorer, aby zobaczyć wdrożone moduły wymienione na urządzeniu.
 
 ## <a name="view-generated-data"></a>Wyświetlanie wygenerowanych danych
 
