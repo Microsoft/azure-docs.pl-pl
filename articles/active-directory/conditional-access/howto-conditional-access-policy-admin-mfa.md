@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049353"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818336"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla administratorów
 
@@ -24,11 +24,12 @@ Kontami przypisanymi prawami administracyjnymi są osoby atakujące. Wymaganie u
 
 Firma Microsoft zaleca wymaganie uwierzytelniania wieloskładnikowego na następujących rolach:
 
+* Administrator uwierzytelniania
 * Administrator rozliczeń
 * Administrator dostępu warunkowego
 * Administrator programu Exchange
 * Administrator globalny
-* Administrator pomocy technicznej (hasło)
+* Administrator pomocy technicznej
 * Administrator haseł
 * Administrator zabezpieczeń
 * Administrator programu SharePoint
@@ -70,9 +71,9 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przy
       > Zasady dostępu warunkowego nie obsługują użytkowników, którym przypisano rolę katalogu [zakresu do jednostki administracyjnej](../users-groups-roles/roles-admin-units-assign-roles.md) lub ról katalogu w zakresie bezpośrednio do obiektu, na przykład za pomocą [ról niestandardowych](../users-groups-roles/roles-create-custom.md).
 
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** w obszarze **Wybierz aplikacje klienckie te zasady zostaną zastosowane, aby** pozostawić wszystkie ustawienia domyślne, a następnie wybierz pozycję **gotowe**.
+1. W **obszarze warunki**  >  **aplikacje klienta**Przełącz pozycję **Konfiguruj** na **wartość tak** , a następnie w obszarze **Wybierz aplikacje klienckie, które będą stosowane przez te zasady** , a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.

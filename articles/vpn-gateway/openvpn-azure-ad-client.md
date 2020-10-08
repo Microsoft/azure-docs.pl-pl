@@ -5,24 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 279c66fa16ac82335a074da60bce35325d4b4499
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439467"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819759"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Uwierzytelnianie Azure Active Directory: Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN
 
 Ten artykuł pomaga skonfigurować klienta sieci VPN do łączenia się z siecią wirtualną przy użyciu sieci VPN typu punkt-lokacja i uwierzytelniania Azure Active Directory. Aby można było nawiązać połączenie i uwierzytelnić się za pomocą usługi Azure AD, należy najpierw skonfigurować dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie dzierżawy usługi Azure AD](openvpn-azure-ad-tenant.md).
 
-> [!NOTE]
-> Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN®.
->
-> Uwierzytelnianie usługi Azure AD wymaga klienta sieci VPN platformy Azure, który jest dostępny tylko dla systemu Windows 10.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Praca z profilami klientów
 
@@ -194,7 +190,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsser
 ```
 
 > [!NOTE]
-> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all` . Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) w programie PowerShell.
+> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all` . Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) w programie PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak mogę dodać trasy niestandardowe do klienta sieci VPN?
@@ -235,7 +231,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<excluderoutes> \<rou
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Czy mogę zaimportować profil z wiersza polecenia?
 
-Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig.xml** w folderze **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
+Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig.xml** w folderze **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
 
 ```
 azurevpn -i azurevpnconfig.xml 

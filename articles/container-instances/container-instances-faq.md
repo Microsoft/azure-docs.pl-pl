@@ -1,15 +1,16 @@
 ---
 title: Często zadawane pytania
 description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure Container Instances
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421284"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818481"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
@@ -39,7 +40,7 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 #### <a name="windows-server-2016-base-images"></a>Podstawowe obrazy systemu Windows Server 2016
 
 * [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` lub nowszy
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` , `10.0.14393.3506` lub nowszy
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` ,  `10.0.14393.3506` lub nowszy
 
 > [!NOTE]
 > Obrazy systemu Windows oparte na półrocze w wersji 1709 lub 1803 nie są obsługiwane.
@@ -52,7 +53,7 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Jakiej warstwy obrazu platformy .NET lub platformy .NET Core należy używać w moim kontenerze? 
 
-Użyj najmniejszego obrazu, który spełnia Twoje wymagania. W przypadku systemu Linux można użyć obrazu .NET Core *środowiska uruchomieniowego* , który jest obsługiwany od wersji programu .net Core 2,1. W przypadku systemu Windows, jeśli używasz pełnego .NET Framework, musisz użyć obrazu systemu Windows Server Core (obrazu tylko do środowiska uruchomieniowego, takiego jak *4.7.2-windowsservercore-ltsc2016*). Obrazy tylko w środowisku uruchomieniowym są mniejsze, ale nie obsługują obciążeń, które wymagają zestawu .NET SDK.
+Użyj najmniejszego obrazu, który spełnia Twoje wymagania. W przypadku systemu Linux można użyć obrazu .NET Core *środowiska uruchomieniowego* , który jest obsługiwany od wersji programu .net Core 2,1. W przypadku systemu Windows, jeśli używasz pełnego .NET Framework, musisz użyć obrazu systemu Windows Server Core (obrazu tylko do środowiska uruchomieniowego, takiego jak  *4.7.2-windowsservercore-ltsc2016*). Obrazy tylko w środowisku uruchomieniowym są mniejsze, ale nie obsługują obciążeń, które wymagają zestawu .NET SDK.
 
 ## <a name="availability-and-quotas"></a>Dostępność i limity przydziału
 
@@ -91,7 +92,7 @@ Obecnie skalowanie nie jest dostępne dla kontenerów lub grup kontenerów. Jeś
 
 Możesz [wdrożyć grupy kontenerów w wybranej sieci wirtualnej platformy Azure](container-instances-vnet.md) i delegować prywatne adresy IP do grup kontenerów, aby kierować ruchem sieciowym w sieci wirtualnej przez zasoby platformy Azure. W przypadku scenariuszy sieciowych i ograniczeń dotyczących Azure Container Instances, zobacz [scenariusze i zasoby sieci wirtualnej](container-instances-virtual-network-concepts.md).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 ### <a name="when-does-the-meter-start-running"></a>Kiedy licznik zacznie działać?
 

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998462"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819791"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
@@ -61,19 +61,19 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 1. Wybierz pozycję **Eksplorator danych** a następnie wybierz pozycję **Nowa baza danych**.
 
-   ![Tworzenie nowej bazy danych](media/tutorial-multiple-data-sources/cosmos-newdb.png "Tworzenie nowej bazy danych")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Wprowadź nazwę **"pokoje hotelowe — baza danych"**. Zaakceptuj wartości domyślne pozostałych ustawień.
 
-   ![Konfiguruj bazę danych](media/tutorial-multiple-data-sources/cosmos-dbname.png "Konfiguruj bazę danych")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Utwórz nowy kontener. Użyj właśnie utworzonej bazy danych. Wprowadź **Hotele** dla nazwy kontenera, a następnie użyj **/HotelId** dla klucza partycji.
 
-   ![Dodawanie kontenera](media/tutorial-multiple-data-sources/cosmos-add-container.png "Dodawanie kontenera")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Wybierz pozycję **elementy** w **hotelach**, a następnie kliknij pozycję **Przekaż element** na pasku poleceń. Przejdź do, a następnie wybierz plik **cosmosdb/HotelsDataSubset_CosmosDb.js** w folderze projektu.
 
-   ![Przekaż do kolekcji Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Przekaż do kolekcji Cosmos DB")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Użyj przycisku Odśwież, aby odświeżyć widok elementów w kolekcji hoteli. Powinien być widoczny na liście siedem nowych dokumentów bazy danych.
 
@@ -83,11 +83,11 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md) o nazwie **pokoje hotelowe** , aby zapisać przykładowe pliki JSON pokoju hotelowego. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
 
-   ![Tworzenie kontenera obiektów blob](media/tutorial-multiple-data-sources/blob-add-container.png "Tworzenie kontenera obiektów blob")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Po utworzeniu kontenera Otwórz go i wybierz pozycję **Przekaż** na pasku poleceń. Przejdź do folderu zawierającego pliki przykładowe. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż**.
 
-   ![Przekazywanie plików](media/tutorial-multiple-data-sources/blob-upload.png "Przekazywanie plików")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 Po zakończeniu przekazywania pliki powinny pojawić się na liście kontenera danych.
 
@@ -105,7 +105,7 @@ Aby można było korzystać z usługi Azure Wyszukiwanie poznawcze, wymagany jes
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-   ![Pobieranie nazwy usługi i administratora oraz kluczy zapytań](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -115,7 +115,7 @@ Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplik
 
 1. Na karcie **Przeglądaj** Znajdź i zainstaluj **program Microsoft. Azure. Search** (w wersji 9.0.1 lub nowszej). Aby ukończyć instalację, trzeba będzie kliknąć dodatkowe okna dialogowe.
 
-    ![Dodawanie bibliotek platformy Azure przy użyciu narzędzia NuGet](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 1. Wyszukaj **Microsoft.Extensions.Configuration.Jsw** pakiecie NuGet i zainstaluj go również.
 
@@ -352,7 +352,7 @@ Można eksplorować wypełniony indeks wyszukiwania po uruchomieniu programu prz
 
 W Azure Portal Otwórz stronę **Przegląd** usługi wyszukiwania i Znajdź na liście **indeksów** pozycję **Pokój z przemieszczeń hotelowych** .
 
-  ![Lista indeksów usługi Azure Wyszukiwanie poznawcze](media/tutorial-multiple-data-sources/index-list.png "Lista indeksów usługi Azure Wyszukiwanie poznawcze")
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Tworzenie nowej bazy danych" border="false":::
 
 Na liście kliknij indeks pokojów hotelowych — przykład. Zostanie wyświetlony interfejs Eksploratora wyszukiwania dla indeksu. Wprowadź zapytanie dla terminu takiego jak "możliwość zaprojektowania". W wynikach powinien być widoczny co najmniej jeden dokument, a ten dokument powinien zawierać listę obiektów Room w tablicy pokojów.
 
@@ -370,7 +370,7 @@ Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć z
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy znasz koncepcję pozyskiwania danych z wielu źródeł, przyjrzyjmy się bliżej konfiguracji indeksatora, rozpoczynając od Cosmos DB.
 

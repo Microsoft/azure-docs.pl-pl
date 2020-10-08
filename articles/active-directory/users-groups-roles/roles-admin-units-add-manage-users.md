@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e223dd46806551fbba05127b70a9119a5d9c75
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661146"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818175"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie użytkowników i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
 
@@ -31,21 +31,30 @@ Aby dowiedzieć się, jak przygotować się do korzystania z programu PowerShell
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Użytkowników można przypisywać do jednostek administracyjnych na dwa sposoby.
+Użytkowników można przypisywać do jednostek administracyjnych pojedynczo lub w ramach operacji zbiorczej.
 
-1. Przypisanie indywidualne
+- Przypisanie indywidualne z profilu użytkownika
 
-    1. Możesz przejść do usługi Azure AD w portalu i wybrać opcję Użytkownicy i wybrać użytkownika, który ma zostać przypisany do jednostki administracyjnej. Następnie możesz wybrać jednostki administracyjne w lewym panelu. Użytkownika można przypisać do co najmniej jednej jednostki administracyjnej, klikając pozycję * * Przypisz do jednostki administracyjnej i wybierając jednostki administracyjne, do których użytkownik ma zostać przypisany.
+   1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com) przy użyciu uprawnień administratora ról uprzywilejowanych.
+   1. Wybierz pozycję **Użytkownicy** i wybierz użytkownika, który ma zostać przypisany do jednostki administracyjnej, aby otworzyć profil użytkownika.
+   1. Wybierz pozycję **jednostki administracyjne**. Użytkownika można przypisać do co najmniej jednej jednostki administracyjnej, wybierając pozycję **Przypisz do jednostki administracyjnej** i wybierając jednostki administracyjne, do których użytkownik ma zostać przypisany.
 
        ![Wybierz pozycję Dodaj, a następnie wprowadź nazwę jednostki administracyjnej](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Możesz przejść do usługi Azure AD w portalu i wybrać jednostki administracyjne w lewym okienku, a następnie wybrać jednostkę administracyjną, do której użytkownicy mają być przypisani. Wybierz pozycję **Wszyscy użytkownicy** , a następnie wybierz pozycję **Dodaj członka**. Następnie można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do jednostki administracyjnej z okienka po prawej stronie.
+- Przypisanie indywidualne z jednostki administracyjnej
+
+   1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com) przy użyciu uprawnień administratora ról uprzywilejowanych.
+   1. Wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, do której użytkownicy mają być przypisani.
+   1. Wybierz pozycję **Wszyscy użytkownicy** , a następnie wybierz pozycję **Dodaj członka** , aby wybrać co najmniej jednego użytkownika, który ma zostać przypisany do jednostki administracyjnej z okienka **Dodawanie elementu członkowskiego** .
 
         ![Wybierz jednostkę administracyjną, a następnie wybierz pozycję Dodaj członka](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. Przydział zbiorczy
+- Przydział zbiorczy
 
-    Przejdź do usługi Azure AD w portalu i wybierz pozycję jednostki administracyjne. Wybierz jednostkę administracyjną, w której użytkownicy mają zostać dodani. Kliknij pozycję Wszyscy użytkownicy — > Dodaj członków z pliku CSV. Następnie można pobrać szablon CSV i edytować plik. Format jest prosty i wymaga dodania pojedynczej nazwy UPN w każdym wierszu. Gdy plik jest gotowy, Zapisz go w odpowiedniej lokalizacji, a następnie Przekaż go w kroku 3 jako wyróżniony w migawce.
+   1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com) przy użyciu uprawnień administratora ról uprzywilejowanych.
+   1. Wybierz pozycję **jednostki administracyjne**.
+   1. Wybierz jednostkę administracyjną, w której użytkownicy mają zostać dodani.
+   1. Otwórz przystawkę **Wszyscy użytkownicy**  >  **Dodaj członków z pliku CSV**. Następnie można pobrać szablon wartości rozdzielonych przecinkami (CSV) i edytować plik. Format jest prosty i wymaga dodania pojedynczej nazwy głównej użytkownika w każdym wierszu. Gdy plik jest gotowy, Zapisz go w odpowiedniej lokalizacji, a następnie Przekaż go w ramach tego kroku.
 
     ![zbiorcze przypisywanie użytkowników do jednostki administracyjnej](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 

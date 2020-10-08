@@ -5,22 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 9a98383c359135f90fd787008704d1ce389a4d57
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425001"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819673"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Utwórz dzierżawę usługi Active Directory (AD) dla połączeń protokołu P2S OpenVPN
 
 Podczas nawiązywania połączenia z siecią wirtualną można użyć uwierzytelniania opartego na certyfikatach lub uwierzytelniania usługi RADIUS. Jednak w przypadku korzystania z otwartego protokołu sieci VPN można również użyć uwierzytelniania Azure Active Directory. Jeśli chcesz, aby inny zestaw użytkowników mógł łączyć się z różnymi bramami sieci VPN, możesz zarejestrować wiele aplikacji w usłudze AD i połączyć je z innymi bramami sieci VPN. Ten artykuł ułatwia skonfigurowanie dzierżawy usługi Azure AD na potrzeby uwierzytelniania P2S OpenVPN i tworzenie i rejestrowanie wielu aplikacji w usłudze Azure AD w celu umożliwienia różnym użytkownikom i grupom dostępu do różnych użytkowników.
 
-> [!NOTE]
-> Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN®.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
@@ -30,7 +28,7 @@ W tym kroku zostanie włączone uwierzytelnianie usługi Azure AD na bramie siec
 
 1. Włącz uwierzytelnianie usługi Azure AD na bramie sieci VPN, przechodząc do **konfiguracji typu punkt-lokacja** i wybierając **OpenVPN (SSL)** jako **Typ tunelu**. Wybierz **Azure Active Directory** jako **Typ uwierzytelniania** , a następnie wypełnij informacje w sekcji **Azure Active Directory** .
 
-    ![Sieć VPN platformy Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+    ![Widok Azure Portal](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > Nie używaj identyfikatora aplikacji klienta sieci VPN platformy Azure: przyznaje wszystkim użytkownikom dostęp do bramy sieci VPN. Użyj identyfikatora zarejestrowanej aplikacji.

@@ -2,14 +2,14 @@
 title: Omówienie serwerów z obsługą usługi Azure Arc
 description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc do zarządzania serwerami hostowanymi poza platformą Azure, takimi jak zasób platformy Azure.
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 9fcac35f943eefb15a200e9b148b22ce67cc3941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90887542"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818745"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -21,7 +21,7 @@ Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą 
 
 Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona wykonywanie następujących zadań związanych z zarządzaniem konfiguracją i monitorowaniem:
 
-- Przypisanie [Azure Policy konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) przy użyciu tego samego środowiska co przypisanie zasad dla maszyn wirtualnych platformy Azure.
+- Przypisanie [Azure Policy konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) przy użyciu tego samego środowiska co przypisanie zasad dla maszyn wirtualnych platformy Azure. Obecnie większość zasad konfiguracji gościa nie stosuje konfiguracji, ale tylko ustawienia inspekcji w obrębie maszyny. Aby zrozumieć koszt używania Azure Policy zasad konfiguracji Gościa z serwerami z włączoną funkcją ARC, zobacz Azure Policy [Przewodnik po cenach](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 - Raport dotyczący zmian w konfiguracji dotyczących zainstalowanego oprogramowania, usług firmy Microsoft, rejestru systemu Windows i demonów Linux na monitorowanych serwerach przy użyciu Azure Automation [Change Tracking i spisu](../../automation/change-tracking.md).
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909415"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819381"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -41,6 +41,9 @@ Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych p
 
 - **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem proxy aplikacji i Instalowanie łącznika](../manage-apps/application-proxy-enable.md) oraz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md).
 - **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
+
+   > [!NOTE]
+   > Podczas konfigurowania usługi Azure serwer proxy aplikacji usługi Azure AD upewnij się, że w polu **tożsamość logowania delegowanego** jest ustawiona wartość **główna nazwa użytkownika** (domyślnie) dla logowania jednokrotnego IWA.
 
    W przypadku scenariusza użytkownika B2B dostępne są dwie metody, których można użyć do utworzenia obiektów użytkownika-gościa, które są wymagane do autoryzacji w katalogu lokalnym:
 

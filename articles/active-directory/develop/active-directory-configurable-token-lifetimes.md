@@ -13,12 +13,12 @@ ms.date: 09/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: a9bf992a65914afb8fa800041b57ad9f44ba4fa0
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595619"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819441"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -85,20 +85,20 @@ Można użyć zasad, aby ustawić czas po wydaniu pierwszego tokenu sesji, poza 
 Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły okresu istnienia tokenu. Użyj właściwości zasad do kontrolowania określonych okresów istnienia tokenu. Jeśli nie ustawiono żadnych zasad, system wymusza domyślną wartość okresu istnienia.
 
 ### <a name="configurable-token-lifetime-properties"></a>Konfigurowalne właściwości okresu istnienia tokenu
-| Właściwość | Ciąg właściwości zasad | Mową | Domyślny | Minimum | Maksimum |
+| Właściwość | Ciąg właściwości zasad | Mową | Domyślne | Minimum | Maksimum |
 | --- | --- | --- | --- | --- | --- |
 | Okres istnienia tokenu dostępu |AccessTokenLifetime<sup>2</sup> |Tokeny dostępu, tokeny identyfikatorów, tokeny SAML2 |1 godzina |10 minut |1 dzień |
 | Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime |Odśwież tokeny |90 dni |10 minut |90 dni |
 | Maksymalny wiek tokenu odświeżania pojedynczego czynnika |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
-| Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) | 180 dni |10 minut |Do odwołania<sup>1</sup> |
+| Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) | 180 dni |10 minut |180 dni<sup>1</sup> |
 | Maksymalny wiek tokenu sesji pojedynczego czynnika |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
-| Maksymalny wiek tokenu sesji wieloskładnikowe |MaxAgeSessionMultiFactor |Tokeny sesji (trwałe i nietrwałe) | 180 dni |10 minut |Do odwołania<sup>1</sup> |
+| Maksymalny wiek tokenu sesji wieloskładnikowe |MaxAgeSessionMultiFactor |Tokeny sesji (trwałe i nietrwałe) | 180 dni |10 minut | 180 dni<sup>1</sup> |
 
 * <sup>1</sup>365 dni to maksymalna jawna długość, którą można ustawić dla tych atrybutów.
 * <sup>2</sup> Aby zapewnić działanie klienta sieci Web Microsoft Teams, zaleca się pozostawienie AccessTokenLifetime do ponad 15 minut dla Microsoft Teams.
 
 ### <a name="exceptions"></a>Wyjątki
-| Właściwość | Mową | Domyślny |
+| Właściwość | Mową | Domyślne |
 | --- | --- | --- |
 | Maksymalny wiek tokenu odświeżania (wystawiony dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |Odśwież tokeny (wystawione dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |12 godzin |
 | Maksymalny czas nieaktywności tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |90 dni |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258716"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818358"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -49,6 +49,9 @@ Dostęp warunkowy usługi Azure AD obsługuje następujące platformy urządzeń
 - macOS
 
 W przypadku zablokowania starszego uwierzytelniania przy użyciu warunku **other clients** można również ustawić warunek platformy urządzenia.
+
+> [!IMPORTANT]
+> Firma Microsoft zaleca stosowanie zasad dostępu warunkowego dla nieobsługiwanych platform urządzeń. Jeśli na przykład chcesz zablokować dostęp do zasobów firmowych z systemu Linux lub innych nieobsługiwanych klientów, należy skonfigurować zasady z warunkiem platformy urządzeń, które obejmują wszystkie urządzenia i wykluczyć obsługiwane platformy urządzeń i przyznać zestawowi sterowania blokowanie dostępu.
 
 ## <a name="locations"></a>Lokalizacje
 
@@ -165,7 +168,7 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 | Outlook 2016 (Office for macOS) | Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), Skype dla firm (z nowoczesnego uwierzytelniania) | Exchange Online | Windows 8.1, Windows 7 |
 | Aplikacja mobilna Outlook | Exchange Online | Android, iOS |
-| Aplikacja Power BI | Usługa Power BI | Windows 10, Windows 8.1, Windows 7, Android i iOS |
+| Aplikacja Power BI | w usłudze Power BI | Windows 10, Windows 8.1, Windows 7, Android i iOS |
 | Skype dla firm | Exchange Online| Android, iOS |
 | Aplikacja Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS i Android |
 
@@ -177,7 +180,7 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 
 Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe** , których użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje uwierzytelniania wieloskładnikowego.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Blokuj starsze uwierzytelnianie przy użyciu dostępu warunkowego](block-legacy-authentication.md)
 - [Wymaganie zatwierdzonych aplikacji klienckich z dostępem warunkowym](app-based-conditional-access.md)

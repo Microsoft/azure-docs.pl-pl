@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550575"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Samouczek: integracja Azure Active Directory z programem infor retails — zarządzanie informacjami
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Infor retails — informacje o rejestracji jednokrotnej w adresach URL i domenach zarządzania informacjami](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
@@ -112,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Infor retails — informacje o rejestracji jednokrotnej w adresach URL i domenach zarządzania informacjami](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<company name>.mingle.infor.com/<company code>`
 
@@ -201,6 +201,6 @@ Po kliknięciu kafelka infor retails (zarządzanie informacjami) w panelu dostę
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

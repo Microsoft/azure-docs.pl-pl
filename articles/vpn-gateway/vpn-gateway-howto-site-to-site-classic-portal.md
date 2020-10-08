@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445926"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818986"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91445926"
 Ten artykuł pokazuje, jak używać witryny Azure Portal do tworzenia połączenia bramy sieci VPN lokacja-lokacja z sieci lokalnej do sieci wirtualnej. Kroki opisane w tym artykule mają zastosowanie do klasycznego modelu wdrażania i nie mają zastosowania do bieżącego modelu wdrażania Menedżer zasobów. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [Interfejs wiersza polecenia](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -104,7 +104,7 @@ Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliw
 
 Lokacja lokalna zazwyczaj oznacza lokalizację lokalną. Zawiera ona adres IP urządzenia sieci VPN, z którym będzie tworzone połączenie, oraz zakresy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do tego urządzenia sieci VPN.
 
-1. Na stronie sieci wirtualnej w obszarze **Ustawienia**kliknij pozycję **Diagram**.
+1. Na stronie sieci wirtualnej w obszarze **monitorowanie**kliknij pozycję **Diagram**.
 1. Na stronie **połączenia sieci VPN** kliknij pozycję **nie masz żadnych istniejących połączeń sieci VPN. Kliknij tutaj, aby**rozpocząć.
 1. W obszarze **Typ połączenia**pozostaw wybraną opcję **lokacja-lokacja** .
 4. Kliknij pozycję **Lokacja lokalna — Skonfiguruj wymagane ustawienia**, aby otworzyć stronę **Lokacja lokalna**. Skonfiguruj ustawienia, a następnie kliknij przycisk **OK**, aby je zapisać.

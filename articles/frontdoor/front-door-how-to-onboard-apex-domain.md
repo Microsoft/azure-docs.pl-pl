@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 6be33df90ed58dc448009fb0e26ca49c800d1931
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766027"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819078"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub domeny wierzchołkowej do usługi Front Door
 Drzwi frontonu platformy Azure używają rekordów CNAME do weryfikowania własności domeny do dołączania domen niestandardowych. Drzwi z przodu nie ujawniają adresu IP frontonu skojarzonego z Twoim profilem drzwi. W związku z tym nie można zmapować domeny Apex na adres IP, jeśli zamierzasz dołączyć ją do usługi Azure front-drzwi.
@@ -54,7 +54,7 @@ Możesz użyć Azure Portal do dołączenia domeny wierzchołka na swoich drzwia
 
 1. Wybierz pozycję **Zapisz** , aby przesłać zmiany.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
 
 1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME &quot;afdverify":::
 
@@ -64,12 +64,12 @@ Możesz użyć Azure Portal do dołączenia domeny wierzchołka na swoich drzwia
 
 1. Wybierz  **Typ zarządzania certyfikatami** , aby *użyć swojego certyfikatu*.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Rekord aliasu dla wierzchołka strefy&quot;:::
 
 1. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem przednim, a także mapowania rekordu CNAME &quot;afdverify":::    
 
-    > [!WARNING]
-    > Typ zarządzania certyfikatami z przodu nie jest obecnie obsługiwany dla wierzchołków lub domen głównych. Jedyną opcją dostępną w przypadku włączania protokołu HTTPS na wierzchołku lub domenie głównej dla drzwi zewnętrznych jest użycie własnego niestandardowego certyfikatu TLS/SSL hostowanego na Azure Key Vault.
+   > [!WARNING]
+   > Typ zarządzania certyfikatami z przodu nie jest obecnie obsługiwany dla wierzchołków lub domen głównych. Jedyną opcją dostępną w przypadku włączania protokołu HTTPS na wierzchołku lub domenie głównej dla drzwi zewnętrznych jest użycie własnego niestandardowego certyfikatu TLS/SSL hostowanego na Azure Key Vault.
 
 1. Przed przejściem do następnego kroku upewnij się, że skonfigurowano odpowiednie uprawnienia do czołowych drzwi w celu uzyskania dostępu do magazynu kluczy, który został wskazany w interfejsie użytkownika.
 

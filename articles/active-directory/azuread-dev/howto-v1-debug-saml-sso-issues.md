@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116142"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819323"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debugowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach w usłudze Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "88116142"
 
 Dowiedz się, jak znaleźć i naprawić problemy związane z [logowaniem](../manage-apps/what-is-single-sign-on.md) jednokrotnym dla aplikacji w usłudze Azure Active Directory (Azure AD) obsługującej [SAML (SAML) 2,0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Zalecamy zainstalowanie [rozszerzenia moje aplikacje bezpieczne logowanie](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). To rozszerzenie przeglądarki ułatwia zbieranie informacji o żądaniach SAML i odpowiedzi SAML, które są potrzebne do rozwiązywania problemów z logowaniem jednokrotnym. Jeśli nie można zainstalować rozszerzenia, w tym artykule opisano sposób rozwiązywania problemów z zainstalowanym rozszerzeniem i bez niego.
 
@@ -86,7 +86,7 @@ Jeśli nie podano rozwiązania dla błędu logowania, sugerujemy użycie pola te
 
 Możesz zalogować się pomyślnie, a następnie na stronie aplikacji zostanie wyświetlony komunikat o błędzie. Dzieje się tak, gdy usługa Azure AD wystawił token do aplikacji, ale aplikacja nie akceptuje odpowiedzi.
 
-Aby rozwiązać ten problem, wykonaj następujące kroki:
+Aby rozwiązać ten problem, wykonaj następujące kroki lub Obejrzyj ten [Krótki film wideo dotyczący sposobu rozwiązywania problemów z logowaniem JEDNOkrotnym za pomocą usługi Azure AD](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8):
 
 1. Jeśli aplikacja znajduje się w galerii usługi Azure AD, sprawdź, czy zostały wykonane wszystkie czynności związane z integracją aplikacji z usługą Azure AD. Aby znaleźć instrukcje dotyczące integracji dla aplikacji, zobacz [listę samouczków integracji aplikacji SaaS](../saas-apps/tutorial-list.md).
 1. Pobieranie odpowiedzi SAML.

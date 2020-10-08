@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708122"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819938"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
@@ -158,11 +158,11 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
     To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczników HTML. Aby uzyskać dodatkowe wskazówki, zobacz [Napisz doskonały opis aplikacji](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
 - **Instrukcje wprowadzenie**: Jeśli wybierzesz opcję sprzedaży oferty za poorednictwem firmy Microsoft (oferta z transakcją), to pole jest wymagane. Są to instrukcje ułatwiające klientom nawiązywanie połączenia z ofertą SaaS. Możesz dodać do 3 000 znaków tekstu i linki do bardziej szczegółowej dokumentacji online.
-- **Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w portalu Marketplace. Nie musisz zawierać **nazwy** oferty i **opisu**: ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
+- **Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepach online. Nie musisz zawierać **nazwy** oferty i **opisu**: ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
 - **Link zasad ochrony prywatności**: adres URL firmowych zasad zachowania poufności informacji. Należy podać prawidłowe zasady ochrony prywatności i są one odpowiedzialne za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności.
 - **Informacje kontaktowe**: należy wyznaczyć następujące kontakty z Twojej organizacji:
   - **Kontakt z pomocą techniczną**: Podaj nazwę, numer telefonu i adres E-mail partnerów firmy Microsoft do użycia, gdy klienci otworzą bilety. Należy również uwzględnić adres URL witryny sieci Web pomocy technicznej.
-  - **Kontakt inżynieryjny**: Podaj nazwę, numer telefonu i adres E-mail firmy Microsoft do użycia bezpośrednio w przypadku wystąpienia problemów z ofertą. Te informacje kontaktowe nie są wymienione w portalu Marketplace.
+  - **Kontakt inżynieryjny**: Podaj nazwę, numer telefonu i adres E-mail firmy Microsoft do użycia bezpośrednio w przypadku wystąpienia problemów z ofertą. Te informacje kontaktowe nie są wymienione na rynku komercyjnym.
   - **Kontakt programu z programem CSP** (opcjonalnie): Podaj nazwę, numer telefonu i adres e-mail, Jeśli zrezygnujesz z programu CSP, aby ci partnerzy mogli skontaktować się z Tobą w odpowiedzi na pytania. Możesz również dodać adres URL do materiałów marketingowych.
 - **Przydatne linki** (opcjonalnie): możesz udostępnić linki do różnych zasobów użytkownikom oferty. Na przykład fora, często zadawane pytania i informacje o wersji.
 - **Dokumenty pomocnicze**: można dostarczyć do trzech dokumentów dostępnych dla klientów, takich jak oficjalne dokumenty, broszury, listy kontrolne lub prezentacje programu PowerPoint.
@@ -174,9 +174,9 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
 
   Te logo są używane w różnych miejscach w sklepach online:
 
-  -  Małe logo pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania.
-  -  Średnie logo pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
-  -  Duże logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
+  - Małe logo pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania.
+  - Średnie logo pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
+  - Duże logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
 
 - **Zrzuty ekranu**: należy dodać co najmniej jeden i maksymalnie pięć zrzutów ekranu z następującymi wymaganiami, które pokazują, jak działa Twoja oferta:
   - 1280 x 720 pikseli

@@ -8,14 +8,14 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6654b97f914ce4c1e3e55d38f47bd5bde0a4891e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000770"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818019"
 ---
-# <a name="managed-hsm-role-management"></a>Zarządzane zarządzanie rolami modułu HSM
+# <a name="managed-hsm-role-management"></a>Zarządzanie rolami zarządzanego modułu HSM
 
 > [!NOTE]
 > Key Vault obsługuje dwa typy zasobów: magazyny i zarządzane sprzętowych modułów zabezpieczeń. Ten artykuł zawiera informacje o **zarządzanym module HSM**. Jeśli chcesz dowiedzieć się, jak zarządzać magazynem, zobacz [zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../general/manage-with-cli2.md).
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem inter
 
 ### <a name="assign-roles-for-all-keys"></a>Przypisz role dla wszystkich kluczy
 
-Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika **user2@contoso.com** dla wszystkich  **kluczy** (zakres `/keys` ) w ContosoHSM.
+Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika ** \@ contoso.com** dla wszystkich  **kluczy** (zakres `/keys` ) w ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Przypisywanie roli dla określonego klucza
 
-Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika **user2@contoso.com** dla określonego klucza o nazwie **myrsakey**.
+Użyj `az keyvault role assignment create` polecenia, aby przypisać **zarządzaną rolę oficera kryptograficznego modułu HSM** do użytkownika identyfikowanego przez główną nazwę użytkownika o nazwie ** \@ contoso.com** dla określonego klucza o nazwie **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Usuwanie przypisania roli
 
-Użyj `az keyvault role assignment delete` polecenia, aby usunąć **zarządzaną rolę oficera kryptograficznego modułu HSM** przypisaną do użytkownika **user2@contoso.com** na potrzeby usługi Key **myrsakey2**.
+Użyj `az keyvault role assignment delete` polecenia, aby usunąć **zarządzaną rolę oficera kryptograficznego modułu HSM** przypisaną do użytkownika ** \@ contoso.com** dla usługi Key **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

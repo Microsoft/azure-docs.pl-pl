@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450379"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817978"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -38,8 +38,10 @@ Administrator licencji  |  Można przypisywać, usuwać i aktualizować przypisa
 Administrator haseł  |  Można resetować hasła dla administratorów nie będących administratorami i haseł tylko w ramach przypisanej jednostki administracyjnej.
 Administrator użytkowników  |  Może zarządzać wszystkimi aspektami użytkowników i grup, włącznie z resetowaniem haseł dla ograniczonych administratorów tylko w przypisanej jednostce administracyjnej.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Podmioty zabezpieczeń, które można przypisać do roli z zakresem funkcji AU
-Następujące podmioty zabezpieczeń można przypisać do roli z zakresem funkcji AU:
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>Podmioty zabezpieczeń, które mogą być przypisane do roli o określonym zakresie
+
+Następujące podmioty zabezpieczeń można przypisać do roli z zakresem jednostki administracyjnej:
+
 * Użytkownicy
 * Grupy w chmurze, które można przypisać do ról (wersja zapoznawcza)
 * Główna nazwa usługi

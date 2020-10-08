@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549161"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z logowaniem jednokrotnym w usłudze HRworks
 
@@ -144,7 +144,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. W Notatniku otwórz plik XML metadanych pobrany z Azure Portal, skopiuj jego zawartość, a następnie wklej go do pola tekstowego **metadanych** .
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-hrworks-single-sign-on-test-user"></a>Utwórz użytkownika testowego logowania jednokrotnego HRworks
 
@@ -156,15 +156,15 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się, aby korzystać z l
 
 1. Kliknij pozycję **administratorzy**  >  **osoby**  >  **Persons**  >  **New person** z lewej strony na pasku menu.
 
-     ![Konfigurowanie logowania jednokrotnego](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Zrzut ekranu przedstawia zrzut ekranu przedstawiający stronę c R Works z wybranymi osobami i nową osobą.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. W oknie podręcznym kliknij przycisk **dalej**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Zrzut ekranu przedstawia listę krajów, które można wybrać dla osoby.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. Na wyskakującym okienku **Utwórz nową osobę z krajem dla warunków prawnych** Wypełnij odpowiednie szczegóły, takie jak **imię**i nazwisko **, nazwisko, a następnie** kliknij przycisk **Utwórz**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Zrzut ekranu przedstawia pola tekstowe, w których można wprowadzić imiona i nazwiska osoby.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -172,11 +172,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka logowania jednokrotnego HRworks w panelu dostępu należy automatycznie zalogować się do logowania jednokrotnego HRworks, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

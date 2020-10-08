@@ -9,15 +9,15 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830686"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818535"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Troubleshooting autoscale with Virtual Machine Scale Sets (Rozwiązywanie problemów ze skalowaniem automatycznym przy użyciu zestawów skalowania maszyn wirtualnych)
-**Problem** — utworzono infrastrukturę skalowania automatycznego w Azure Resource Manager przy użyciu zestawów skalowania maszyn wirtualnych — na przykład przez wdrożenie szablonu takiego jak ten: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale — masz zdefiniowane reguły skalowania i działają doskonale, bez względu na to, ile obciążeń zostało umieszczonych na maszynach wirtualnych, nie jest to automatyczne skalowanie.
+**Problem** — utworzono infrastrukturę skalowania automatycznego w Azure Resource Manager przy użyciu zestawów skalowania maszyn wirtualnych — na przykład przez wdrożenie szablonu takiego jak ten: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  — masz zdefiniowane reguły skalowania i działają doskonale, bez względu na to, ile obciążeń zostało umieszczonych na maszynach wirtualnych, nie jest to automatyczne skalowanie.
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 Oto kilka rzeczy, które należy wziąć pod uwagę:
@@ -62,7 +62,7 @@ Oto kilka rzeczy, które należy wziąć pod uwagę:
     
     Jeśli usługa Insights nie może odczytać danych z maszyn wirtualnych, należy wysłać do Ciebie wiadomość e-mail. Na przykład otrzymujesz wiadomość e-mail, jeśli maszyny wirtualne nie działają. Pamiętaj o sprawdzeniu poczty e-mail pod adresem e-mail określonym podczas tworzenia konta platformy Azure.
     
-    Możesz również sprawdzić dane. Zapoznaj się z kontem usługi Azure Storage za pomocą Eksploratora chmury. Na przykład za pomocą programu [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)Zaloguj się i wybierz subskrypcję platformy Azure, której używasz. Następnie Sprawdź nazwę konta magazynu diagnostyki, do którego istnieje odwołanie w definicji rozszerzenia diagnostyki w szablonie wdrożenia.
+    Możesz również sprawdzić dane. Zapoznaj się z kontem usługi Azure Storage za pomocą Eksploratora chmury. Na przykład za pomocą [programu Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2)Zaloguj się i wybierz subskrypcję platformy Azure, której używasz. Następnie Sprawdź nazwę konta magazynu diagnostyki, do którego istnieje odwołanie w definicji rozszerzenia diagnostyki w szablonie wdrożenia.
     
     ![Cloud Explorer][explorer]
     

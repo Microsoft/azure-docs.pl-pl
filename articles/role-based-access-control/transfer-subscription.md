@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804184"
+ms.locfileid: "91819710"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD
 
@@ -24,7 +24,7 @@ Organizacje mogą mieć kilka subskrypcji platformy Azure. Każda subskrypcja je
 W tym artykule opisano podstawowe czynności, które można wykonać w celu przeniesienia subskrypcji do innego katalogu usługi Azure AD i ponownego utworzenia niektórych zasobów po przeniesieniu.
 
 > [!NOTE]
-> W przypadku subskrypcji dostawców usług w chmurze platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
+> W przypadku subskrypcji dostawcy rozwiązań w chmurze platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
 
 ## <a name="overview"></a>Omówienie
 

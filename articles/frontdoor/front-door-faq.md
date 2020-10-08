@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324063"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819028"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -248,6 +248,10 @@ W przypadku pomyślnego nawiązania połączenia HTTPS z zaplecem niezależnie o
 1. **Niezgodność nazwy podmiotu certyfikatu**: w przypadku połączeń HTTPS, drzwiczki z przodu oczekują, że zaplecze przedstawia certyfikat z prawidłowego urzędu certyfikacji z nazwami podmiotu pasującymi do nazwy hosta zaplecza. Jeśli na przykład nazwa hosta zaplecza jest ustawiona na, `myapp-centralus.contosonews.net` a certyfikat, którego zaplecze prezentuje się podczas uzgadniania protokołu TLS `myapp-centralus.contosonews.net` , nie ma ani `*myapp-centralus*.contosonews.net` w nazwie podmiotu, drzwi tylne odmówią połączenia i spowodują wystąpienie błędu. 
     1. **Rozwiązanie**: Chociaż nie jest to zalecane w punktu widzenia zgodności, można obejść ten błąd, wyłączając Sprawdzanie nazwy podmiotu certyfikatu dla drzwi z przodu. Ta opcja jest dostępna w obszarze Ustawienia w Azure Portal i w obszarze BackendPoolsSettings w interfejsie API.
 2. **Certyfikat hostingu zaplecza z nieprawidłowego urzędu certyfikacji**: można używać tylko certyfikatów z [prawidłowych urzędów certyfikacji](/azure/frontdoor/front-door-troubleshoot-allowed-ca) w zapleczu z przednimi drzwiami. Certyfikaty z wewnętrznych urzędów certyfikacji lub certyfikatów z podpisem własnym są niedozwolone.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Czy mogę używać uwierzytelniania klienta/wzajemnego na platformie Azure
+
+Nie. Mimo że platforma Azure front-drzwi obsługuje protokół TLS 1,2, który wprowadził uwierzytelnianie klienta/wzajemnego uwierzytelniania w [dokumencie RFC 5246](https://tools.ietf.org/html/rfc5246), obecnie nie jest obsługiwane uwierzytelnianie klienta/uwierzytelniania wzajemnego.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 

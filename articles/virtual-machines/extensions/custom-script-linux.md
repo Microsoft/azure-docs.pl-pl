@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085728"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818810"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Używanie rozszerzenia niestandardowego skryptu platformy Azure w wersji 2 z maszynami wirtualnymi z systemem Linux
 Rozszerzenie skryptu niestandardowego wersja 2 pobiera i uruchamia skrypty na maszynach wirtualnych platformy Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania lub innych zadań związanych z konfiguracją/zarządzaniem. Skrypty można pobrać z usługi Azure Storage lub innej dostępnej lokalizacji w Internecie lub można je udostępnić do środowiska uruchomieniowego rozszerzenia. 
@@ -55,8 +55,9 @@ Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie 
 * Upewnij się, że skrypty nie wymagają wprowadzania danych przez użytkownika po ich uruchomieniu.
 * Aby skrypt mógł zostać uruchomiony, może być 90 min, co spowoduje niepowodzenie aprowizacji rozszerzenia.
 * Nie należy umieszczać ponownych uruchomień wewnątrz skryptu, co spowoduje problemy z innymi zainstalowanymi rozszerzeniami i po ponownym uruchomieniu, rozszerzenie nie będzie kontynuowane po ponownym uruchomieniu. 
+* Nie zaleca się uruchamiania skryptu, który spowoduje zatrzymanie lub aktualizację agenta maszyny wirtualnej. Może to spowodować pozostawienie rozszerzenia w stanie przejścia i prowadzić do przekroczenia limitu czasu.
 * Jeśli masz skrypt, który spowoduje ponowne uruchomienie komputera, zainstaluj aplikacje i Uruchom skrypty itp. Należy zaplanować ponowny rozruch przy użyciu zadania firmy CRONUS lub użyć narzędzi takich jak DSC lub Chef Puppet.
-* Rozszerzenie spowoduje uruchomienie skryptu tylko raz, aby uruchomić skrypt na każdym rozruchu, a następnie użyć [obrazu Cloud-init](../linux/using-cloud-init.md) i użyć [skryptów dla modułu rozruchu](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) . Alternatywnie możesz użyć skryptu, aby utworzyć systemową jednostkę usługi.
+* Rozszerzenie spowoduje uruchomienie skryptu tylko raz, aby uruchomić skrypt na każdym rozruchu, a następnie użyć [obrazu Cloud-init](../linux/using-cloud-init.md)  i użyć [skryptów dla modułu rozruchu](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) . Alternatywnie możesz użyć skryptu, aby utworzyć systemową jednostkę usługi.
 * Do maszyny wirtualnej może być zastosowana tylko jedna wersja rozszerzenia. W celu uruchomienia drugiego skryptu niestandardowego należy usunąć rozszerzenie niestandardowego skryptu i ponownie zastosować je do zaktualizowanego skryptu. 
 * Jeśli chcesz zaplanować uruchomienie skryptu, użyj rozszerzenia, aby utworzyć zadanie firmy cronus. 
 * W trakcie działania skryptu będziesz widzieć tylko stan „przechodzenie” z witryny Azure Portal lub interfejsu wiersza polecenia. Jeśli chcesz więcej częste aktualizacje stanu uruchomionego skryptu, musisz utworzyć własne rozwiązanie.
@@ -113,12 +114,12 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | data |
+| apiVersion | 2019-03-01 | date |
 | publisher | Microsoft. COMPUTE. Extensions | ciąg |
 | typ | CustomScript | ciąg |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| Sekcji commandtoexecute (np.) | MyPythonScript.py Python\<my-param1> | ciąg |
+| Sekcji commandtoexecute (np.) | MyPythonScript.py Python \<my-param1> | ciąg |
 | skrypt | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | ciąg |
 | skipDos2Unix (np.) | fałsz | boolean |
 | Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
@@ -127,9 +128,9 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 | managedIdentity (np.) | {} lub {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} lub {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | Obiekt JSON |
 
 ### <a name="property-value-details"></a>Szczegóły wartości właściwości
-* `apiVersion`: Najbardziej aktualne apiVersion można znaleźć za pomocą [Eksplorator zasobów](https://resources.azure.com/) lub z interfejsu wiersza polecenia platformy Azure przy użyciu następującego polecenie`az provider list -o json`
+* `apiVersion`: Najbardziej aktualne apiVersion można znaleźć za pomocą [Eksplorator zasobów](https://resources.azure.com/) lub z interfejsu wiersza polecenia platformy Azure przy użyciu następującego polecenie `az provider list -o json`
 * `skipDos2Unix`: (opcjonalne, wartość logiczna) Pomiń dos2unix konwersję adresów URL lub skryptu plików opartych na skryptach.
-* `timestamp`(opcjonalnie, 32-bitową liczbę całkowitą) Użyj tego pola tylko do wyzwalania ponownego uruchomienia skryptu przez zmianę wartości tego pola.  Dopuszczalna jest dowolna wartość całkowita; musi on być inny niż Poprzednia wartość.
+* `timestamp` (opcjonalnie, 32-bitową liczbę całkowitą) Użyj tego pola tylko do wyzwalania ponownego uruchomienia skryptu przez zmianę wartości tego pola.  Dopuszczalna jest dowolna wartość całkowita; musi on być inny niż Poprzednia wartość.
 * `commandToExecute`: (**wymagane** , jeśli skrypt nie jest ustawiony, String) skrypt punktu wejścia do wykonania. Użyj tego pola zamiast tego, jeśli polecenie zawiera wpisy tajne, takie jak hasła.
 * `script`: (**wymagane** , jeśli sekcji commandtoexecute nie został ustawiony, String) skrypt kodowany algorytmem Base64 (i opcjonalnie gzip'ed) wykonywany przez/bin/sh.
 * `fileUris`: (opcjonalne, tablica ciągów) adresy URL dla plików do pobrania.

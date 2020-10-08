@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad usługi Azure Storage
 description: Zawiera listę wbudowanych definicji zasad Azure Policy usługi Azure Storage. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0bd63284696ee9be71349702aa4314d4f51f2087
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 27d0c246754c05b80518fc2151ab5e1526cd8cac
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819517"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Azure Policy wbudowane definicje dla usługi Azure Storage
 

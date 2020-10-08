@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432088"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819960"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Wskazówki dotyczące ograniczania usługi Azure Key Vault
 
@@ -43,7 +43,7 @@ Jeśli okaże się, że powyższy kod nadal nie spełnia Twoich potrzeb, Wypełn
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Klucz | Znak | EC | P-256 | Nie | 200 | 1000 |
 
-\*Aby uzyskać pełną listę możliwych wartości, zobacz [Azure Key Vault operacji](/rest/api/keyvault/key-operations).
+\* Aby uzyskać pełną listę możliwych wartości, zobacz [Azure Key Vault operacji](/rest/api/keyvault/key-operations).
 
 W przypadku zatwierdzenia dodatkowej pojemności należy zwrócić uwagę na następujące kwestie w wyniku wzrostu pojemności:
 1. Zmiany modelu spójności danych. Gdy magazyn jest dozwolony na liście z dodatkową przepływność, usługa Key Vault gwarancja spójności danych usług (niezbędna do spełnienia wyższego RPS pliku woluminu, ponieważ nie można zatrzymać podstawowej usługi magazynu platformy Azure).  W Nutshell:
@@ -75,7 +75,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);
@@ -96,7 +96,7 @@ W przypadku błędu HTTP o kodzie 429 Rozpocznij ograniczanie klienta przy użyc
 
 W tym momencie nie należy otrzymywać kodów odpowiedzi HTTP 429.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby uzyskać bardziej szczegółowe ukierunkowanie ograniczania przepływności na Microsoft Cloud, zobacz [Ograniczanie poziomu wzorca](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

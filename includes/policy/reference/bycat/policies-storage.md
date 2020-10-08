@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: d7768f4d82b355c96bfe12f671457a6272b91480
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f4d53888e736a4c897b376ab68659ce490de3b09
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982639"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820765"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -23,5 +23,6 @@ ms.locfileid: "90982639"
 |[Do szyfrowania na koncie magazynu należy używać klucza zarządzanego przez klienta](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |Zabezpiecz swoje konto magazynu, zapewniając większą elastyczność przy użyciu kluczy zarządzanych przez klienta (CMKs). Po określeniu CMK ten klucz jest używany do ochrony i kontroli dostępu do klucza, który szyfruje dane. Korzystanie z usługi CMKs zapewnia dodatkowe możliwości sterowania obrotem klucza szyfrowania klucza lub kryptograficznego usuwania danych. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
 |[Konta magazynu powinny zezwalać na dostęp z zaufanych usług firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |Niektóre usługi firmy Microsoft, które współdziałają z kontami magazynu, działają z sieci, do których nie można uzyskać dostępu za pośrednictwem reguł sieci. Aby zapewnić działanie tego typu usługi zgodnie z oczekiwaniami, zezwól zestawowi zaufanych usług firmy Microsoft na pomijanie reguł sieci. Te usługi będą następnie używały silnego uwierzytelniania w celu uzyskania dostępu do konta magazynu. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
 |[Konta magazynu należy migrować do nowych zasobów Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37e0d2fe-28a5-43d6-a273-67d37d1f5606) |Użyj nowych Azure Resource Manager dla kont magazynu w celu zapewnienia ulepszeń zabezpieczeń, takich jak: silniejsza kontrola dostępu (RBAC), lepsza Inspekcja, oparte na Azure Resource Managerach wdrożenie i zarządzanie, dostęp do tożsamości zarządzanych, dostęp do magazynu kluczy dla wpisów tajnych, uwierzytelnianie oparte na usłudze Azure AD i obsługa tagów i grup zasobów w celu łatwiejszego zarządzania zabezpieczeniami |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Classic_AuditForClassicStorages_Audit.json) |
+|[Konta magazynu powinny mieć szyfrowanie infrastruktury](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4733ea7b-a883-42fe-8cac-97454c2a9e4a) |Włącz szyfrowanie infrastruktury dla wyższego poziomu pewności, że dane są bezpieczne. Po włączeniu szyfrowania infrastruktury dane na koncie magazynu są szyfrowane dwa razy. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountInfrastructureEncryptionEnabled_Audit.json) |
 |[Konta magazynu powinny ograniczać dostęp do sieci](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |Dostęp sieciowy do kont magazynu powinien być ograniczony. Skonfiguruj reguły sieciowe, tak aby tylko aplikacje z dozwolonych sieci mogły uzyskiwać dostęp do konta magazynu. Aby zezwolić na połączenia z określonych klientów internetowych lub lokalnych, można udzielić dostępu do ruchu z określonych sieci wirtualnych platformy Azure lub do publicznych zakresów adresów IP w Internecie |Inspekcja, Odmów, wyłączone |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 |[Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a1a9cdf-e04d-429a-8416-3bfb72a1b26f) |Ochrona kont magazynu przed potencjalnymi zagrożeniami przy użyciu reguł sieci wirtualnej jako preferowanej metody filtrowania opartego na protokole IP. Zablokowanie filtrowania opartego na protokole IP uniemożliwia dostęp do kont magazynu przez publiczne adresy IP. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountOnlyVnetRulesEnabled_Audit.json) |

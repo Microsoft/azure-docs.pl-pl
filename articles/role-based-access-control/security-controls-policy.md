@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla usług Azure RBAC
 description: Wyświetla listę kontroli zgodności z przepisami Azure Policy dostępnych dla kontroli dostępu opartej na rolach (Azure RBAC). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 594f414d389bf6cab53525658b19b46222921b45
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 37d65dd3746c74af742c2a2b1550f359f1100892
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971729"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819829"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Azure Policy kontroli zgodności z przepisami dla usług Azure RBAC
 

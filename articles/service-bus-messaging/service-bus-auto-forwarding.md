@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób łańcucha kolejki Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333685"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819572"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Łączenie Service Bus jednostek z funkcją autoprzesyłania dalej
 
@@ -52,6 +52,8 @@ Podczas łączenia poszczególnych tematów w celu uzyskania złożonego tematu 
 Service Bus weksle jednej operacji dla każdego przesyłanego dalej komunikatu. Na przykład w przypadku wysyłania komunikatu do tematu z 20 subskrypcjami każda z nich została skonfigurowana do przesyłania dalej wiadomości do innej kolejki lub tematu, jest rozliczana jako 21 operacji, jeśli wszystkie subskrypcje pierwszego poziomu otrzymają kopię wiadomości.
 
 Aby utworzyć subskrypcję, która jest łańcuchem do innej kolejki lub tematu, twórca subskrypcji musi mieć uprawnienia do **zarządzania** zarówno dla jednostki źródłowej, jak i docelowej. Wysyłanie komunikatów do tematu źródłowego wymaga tylko uprawnień do **wysyłania** w temacie źródłowym.
+
+Nie twórz łańcucha, który przekracza 4 przeskoki. Komunikaty przekraczające 4 przeskoki są utracone.
 
 ## <a name="next-steps"></a>Następne kroki
 
