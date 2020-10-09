@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203388"
 ---
 # <a name="social-accounts-claims-transformations"></a>Przekształceń oświadczeń dotyczących kont społecznościowych
@@ -82,7 +82,7 @@ Dodaje `AlternativeSecurityId` do `alternativeSecurityIdCollection` żądania.
 Poniższy przykład łączy nową tożsamość społecznościową z istniejącym kontem. Aby połączyć nową tożsamość społecznościową:
 1. W profilach technicznych usługi **AAD-UserReadUsingAlternativeSecurityId** i **AAD-UserReadUsingObjectId** dane wyjściowe żądania **alternativeSecurityIds** użytkownika.
 1. Poproszenie użytkownika o zalogowanie się za pomocą jednego z dostawców tożsamości, które nie są skojarzone z tym użytkownikiem.
-1. Przy użyciu transformacji oświadczeń **CreateAlternativeSecurityId** Utwórz nowy typ oświadczenia **alternativeSecurityId** o nazwie`AlternativeSecurityId2`
+1. Przy użyciu transformacji oświadczeń **CreateAlternativeSecurityId** Utwórz nowy typ oświadczenia **alternativeSecurityId** o nazwie `AlternativeSecurityId2`
 1. Wywołaj transformację oświadczeń **AddItemToAlternativeSecurityIdCollection** , aby dodać oświadczenie **AlternativeSecurityId2** do istniejącego oświadczenia **AlternativeSecurityIds** .
 1. Utrwalanie żądania **alternativeSecurityIds** na koncie użytkownika
 

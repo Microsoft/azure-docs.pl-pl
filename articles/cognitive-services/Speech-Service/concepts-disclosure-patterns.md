@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776626"
 ---
 # <a name="disclosure-design-patterns"></a>Wzorce projektowania ujawniania
@@ -62,7 +62,7 @@ Przed rozpoczęciem pracy z głosem należy wprowadzić asystenta cyfrowego prze
 *Głos syntetyczny jest wprowadzany podczas dołączania nowego użytkownika.*
 
 Zalecenia
-- Opisz, że głos jest sztuczny (np &quot;.&quot;cyfrowo)
+- Opisz, że głos jest sztuczny (np. &quot; cyfrowo &quot; )
 - Opisz, do czego służy Agent
 - Jawnie porzucaj źródła danych głosowych&#39;
 - Oferowanie punktu wejścia, aby dowiedzieć się więcej o głosowaniu syntetycznym
@@ -141,7 +141,7 @@ Zalecenia
 - Kierowanie obiektów docelowych jako głównych odbiorców do ujawnienia
 - Zachęcanie rodziców do przekazywania informacji do ich elementów podrzędnych
 - Punkty wejścia oferty, aby dowiedzieć się więcej o wystawionym głosie
-- Podawanie informacji na temat obsługi przez zadawanie rodzica prostego &quot;pytania zabezpieczającego&quot; , aby pokazać, że odczytaje ujawnienie
+- Podawanie informacji na temat obsługi przez zadawanie rodzica prostego &quot; pytania zabezpieczającego, &quot; Aby pokazać, że odczytaje ujawnienie
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Zapewnianie możliwości Dowiedz się więcej o tym, jak nastąpiło głos
 
@@ -193,13 +193,13 @@ Gdy konwersacje znajdują się w nieoczekiwanych ścieżkach, warto wziąć pod 
 ![Obsługa nieoczekiwanych ścieżek](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-Pytania poza zadaniami &quot;lub&quot; osobistymi kierowanymi do agenta to dobry moment, aby przypominać użytkowników o syntetycznym charakterze agenta i kierować je do odpowiednich osób lub przekierowywać je do rzeczywistej osoby.
+Pytania poza zadaniami lub &quot; osobistymi &quot; kierowanymi do agenta to dobry moment, aby przypominać użytkowników o syntetycznym charakterze agenta i kierować je do odpowiednich osób lub przekierowywać je do rzeczywistej osoby.
 
 ![Obsługa z pytaniami dotyczącymi zadań](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>Kiedy należy ujawnić
 
-Istnieje wiele możliwości ujawniania informacji w trakcie podróży użytkownika. Zaprojektuj na pierwsze użycie, drugie użycie, n..., ale również w razie potrzeby, &quot;aby&quot; wyróżnić nieprzezroczystość — tak jak w przypadku wystąpienia błędu systemu lub gdy użytkownik odkryje ograniczenie możliwości&#39;agenta.
+Istnieje wiele możliwości ujawniania informacji w trakcie podróży użytkownika. Zaprojektuj na pierwsze użycie, drugie użycie, n..., ale również w razie potrzeby, &quot; &quot; Aby wyróżnić nieprzezroczystość — tak jak w przypadku wystąpienia błędu systemu lub gdy użytkownik odkryje ograniczenie możliwości&#39;agenta.
 
 ![Możliwości ujawniania informacji w trakcie podróży użytkownika](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 
@@ -239,7 +239,7 @@ Użyj ujawnienia jako możliwości bezproblemowego niepowodzenia.
 
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 - [Wytyczne dotyczące bot firmy Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Wskazówki dotyczące projektowania Cortany](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
 - [Wskazówki dotyczące projektowania mowy w systemie Microsoft Windows platformy UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)

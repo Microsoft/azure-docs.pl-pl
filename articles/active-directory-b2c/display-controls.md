@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202300"
 ---
 # <a name="display-controls"></a>Kontrolki wyświetlania
@@ -32,7 +32,7 @@ Na poniższej ilustracji przedstawiono samodzielną stronę rejestracji z dwoma 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
- W sekcji [Metadata](self-asserted-technical-profile.md#metadata) w [profilu technicznym](self-asserted-technical-profile.md), do którego istnieje odwołanie, [ContentDefinition](contentdefinitions.md) musi mieć `DataUri` ustawiony na stronę z wersją 2.0.0 lub wyższą. Przykład:
+ W sekcji [Metadata](self-asserted-technical-profile.md#metadata) w [profilu technicznym](self-asserted-technical-profile.md), do którego istnieje odwołanie, [ContentDefinition](contentdefinitions.md) musi mieć `DataUri` ustawiony na stronę z wersją 2.0.0 lub wyższą. Na przykład:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">
@@ -48,7 +48,7 @@ Element **DisplayControl** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator używany do kontrolki wyświetlania. Można się [do niego odwoływać](#referencing-display-controls). |
+| Id | Tak | Identyfikator używany do kontrolki wyświetlania. Można się [do niego odwoływać](#referencing-display-controls). |
 | UserInterfaceControlType | Tak | Typ kontrolki wyświetlania. Obecnie obsługiwane jest [VerificationControl](display-control-verification.md) |
 
 Element **DisplayControl** zawiera następujące elementy:
@@ -80,7 +80,7 @@ Każdy typ kontrolki wyświetlania wymaga innego zestawu oświadczeń wyświetla
 
 Podobnie jak w przypadku **oświadczeń wyświetlanych** zdefiniowanych w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#display-claims), oświadczenia wyświetlane reprezentują oświadczenia, które mają być zbierane od użytkownika w kontrolce wyświetlania. Element **ClaimType** , do którego istnieje odwołanie, musi określać element **UserInputType** dla typu danych wejściowych użytkownika obsługiwanego przez Azure AD B2C, na przykład `TextBox` lub `DropdownSingleSelect` . Jeśli wartość żądania wyświetlania jest wymagana przez **akcję**, należy ustawić **wymagany** atrybut, aby `true` wymusić użytkownikowi podanie wartości dla tego konkretnego żądania wyświetlania.
 
-Niektóre typy kontrolek wyświetlania są wymagane przez określone oświadczenia ekranu. Na przykład **VerificationCode** jest wymagany dla kontrolki Display typu **VerificationControl**. Użyj atrybutu **ControlClaimType** , aby określić, który DisplayClaim jest wyznaczono dla tego wymaganego żądania. Przykład:
+Niektóre typy kontrolek wyświetlania są wymagane przez określone oświadczenia ekranu. Na przykład **VerificationCode** jest wymagany dla kontrolki Display typu **VerificationControl**. Użyj atrybutu **ControlClaimType** , aby określić, który DisplayClaim jest wyznaczono dla tego wymaganego żądania. Na przykład:
 
 ```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -129,7 +129,7 @@ W poniższym przykładzie kod jest wysyłany w wiadomości e-mail lub wiadomośc
 
 Kontrolki wyświetlania są przywoływane w [wyświetlanych oświadczeniach](self-asserted-technical-profile.md#display-claims) [profilu technicznego z potwierdzeniem](self-asserted-technical-profile.md).
 
-Przykład:
+Na przykład:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74806066"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Jak utworzyć transkrypcje z etykietami ludzkimi
@@ -31,7 +31,7 @@ Oto kilka przykładów:
 
 | Znaki do uniknięcia | Podstawienie | Uwagi |
 | ------------------- | ------------ | ----- |
-| "Hello World" | "Hello World" | Znaczniki otwierania i zamykania cudzysłowu zostały zastąpione odpowiednimi znakami ASCII. |
+| "Hello World" | „Hello world” | Znaczniki otwierania i zamykania cudzysłowu zostały zastąpione odpowiednimi znakami ASCII. |
 | Dzień Jan | Dzień Jan | Apostrof został zastąpiony odpowiednim znakiem ASCII. |
 | to dobry — nie, był doskonały! | to dobry — nie, był doskonały! | Pauza została zastąpiona dwoma łącznikami. |
 
@@ -76,7 +76,7 @@ Poniżej przedstawiono kilka przykładów normalizacji, które są wykonywane au
 | 104 Elm ulica                         | 1 0 4 Elm ulica            |
 | Dostosuj do 102,7                          | Dostosuj do 1 0 2 punktu siedmiu    |
 | Pi jest około 3,14                       | Pi ma około trzy punkty 1 4  |
-| Koszty \$IT 3,14                        | koszty IT 3 14           |
+| Koszty IT \$ 3,14                        | koszty IT 3 14           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Chińskie mandarynki (zh-CN)
 
@@ -133,7 +133,7 @@ Normalizacja tekstu to transformacja wyrazów w spójnym formacie używanym podc
 - Zapisz punkty dziesiętne jako ",", a nie ".".
 - Napisz separatory czasu jako ":", a nie "." (na przykład: 12:00 Uhr).
 - Skróty, takie jak "CA". nie są zastępowane. Zalecamy używanie pełnego formularza mówionego.
-- Cztery główne operatory matematyczne (+,-, \*i/) są usuwane. Zalecamy zastępowanie ich w formie zapisanej: "+", "" minus, "" źle, "i" geteilt ".
+- Cztery główne operatory matematyczne (+,-, \* i/) są usuwane. Zalecamy zastępowanie ich w formie zapisanej: "+", "" minus, "" źle, "i" geteilt ".
 - Operatory porównania są usuwane (=, < i >). Zalecamy zastępowanie ich przy użyciu "Gleich", "Kleiner ALS" i "grösser ALS".
 - Zapisz ułamki, takie jak 3/4, w formie pisanej (na przykład: "Drei Viertel" zamiast 3/4).
 - Zamień symbol "€" na jego zapisaną formę "euro".
@@ -167,5 +167,5 @@ Poniżej przedstawiono kilka przykładów normalizacji, które są wykonywane au
 - [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 - [Oceń dane](how-to-custom-speech-evaluate-data.md)
-- [Trenowanie modelu](how-to-custom-speech-train-model.md)
+- [Szkolenie modelu](how-to-custom-speech-train-model.md)
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

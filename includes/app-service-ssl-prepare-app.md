@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78301010"
 ---
 ## <a name="prepare-your-web-app"></a>Przygotowywanie aplikacji internetowej
@@ -21,7 +21,7 @@ Aby utworzyć niestandardowe powiązania zabezpieczeń lub włączyć certyfikat
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Otwórz [witrynę Azure Portal](https://portal.azure.com).
+Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Przejdź do swojej aplikacji internetowej
 
@@ -51,7 +51,7 @@ Niestandardowy protokół SSL nie jest obsługiwany w warstwie **F1** ani **D1**
 
 Wybierz jedną z płatnych warstw (**B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, kliknij pozycję **Wyświetl dodatkowe opcje**.
 
-Kliknij przycisk **Zastosuj**.
+Kliknij pozycję **Zastosuj**.
 
 ![Wybieranie warstwy cenowej](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

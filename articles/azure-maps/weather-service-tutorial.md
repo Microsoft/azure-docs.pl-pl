@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310105"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
 Energia wiatru jest jednym Alternatywnym źródłem energii dla paliw kopalnych, aby zwalczać zmiany klimatyczne. Ze względu na to, że wiatr nie jest spójny z natury, operatory siły wiatru muszą kompilować modele uczenia maszynowego (ML), aby przewidzieć moc wiatru. To prognozowanie jest niezbędne do spełnienia wymagań dotyczących energii elektrycznej i zapewnienia stabilności siatki. W tym samouczku opisano sposób, w jaki Azure Maps dane prognozy pogody są łączone z danymi demonstracyjnymi dla odczytów pogodowych. Dane prognozy pogody są żądane przez wywołanie Azure Maps usługi pogodowej.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Pracuj z plikami danych w [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) w chmurze.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
 ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78228091"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Usługi mowy z niesuwerennymi chmurami
@@ -23,11 +23,11 @@ ms.locfileid: "78228091"
 
 Tylko Federalne Stany USA, Stany, lokalne i plemienne rządy oraz ich partnerzy mają dostęp do tego dedykowanego wystąpienia z operacjami kontrolowanymi przez obywateli Stanów Zjednoczonych.
 - Regiony: US Gov Wirginia
-- Wirtualizacja SR in SpeechSDK:*config. FromHost ("WSS://Virginia.STT.Speech.Azure.us", "\<Twój klucz\>");*
-- TTS in SpeechSDK: *config. FromHost ("https[]()://Virginia.TTS.Speech.Azure.us", "\<Twój klucz\>");*
-- Tokeny uwierzytelniania:[]()https://Virginia.API.Cognitive.Microsoft.us/STS/v1.0/issueToken
-- Witryna Azure Portal:https://portal.azure.us  
-- Portal Custom Speech:https://virginia.cris.azure.us/Home/CustomSpeech
+- Wirtualizacja SR in SpeechSDK:*config. FromHost ("WSS://Virginia.STT.Speech.Azure.us", " \<your-key\> ");*
+- TTS in SpeechSDK: *config. FromHost ("https []() ://Virginia.TTS.Speech.Azure.us", " \<your-key\> ");*
+- Tokeny uwierzytelniania: https []() ://Virginia.API.Cognitive.Microsoft.us/STS/v1.0/issueToken
+- Witryna Azure Portal: https://portal.azure.us  
+- Portal Custom Speech: https://virginia.cris.azure.us/Home/CustomSpeech
 - Dostępne jednostki SKU: S0
 - Obsługiwane funkcje:
   - Zamiana mowy na tekst
@@ -52,11 +52,11 @@ Tylko Federalne Stany USA, Stany, lokalne i plemienne rządy oraz ich partnerzy 
 
 W Chinach centrum danych platformy Azure z bezpośrednim dostępem do urządzeń przenośnych w Chinach, z Chin Telecom, Chin Unicom i innych głównych sieci szkieletowych przewoźników, w przypadku chińskich użytkowników w celu zapewnienia wysokiego i stabilnego lokalnego środowiska dostępu do sieci.
 - Regiony: Chiny Wschodnie 2 (Szanghaj)
-- Wirtualizacja SR in SpeechSDK: *config. FromHost ("WSS://chinaeast2.STT.Speech.Azure.CN", "\<Twój klucz\>");*
-- TTS in SpeechSDK: *config. FromHost ("https[]()://chinaeast2.TTS.Speech.Azure.CN", "\<Twój klucz\>");*
-- Tokeny uwierzytelniania:[]()https://chinaeast2.API.Cognitive.Azure.CN/STS/v1.0/issueToken
-- Witryna Azure Portal:https://portal.azure.cn
-- Portal Custom Speech:https://speech.azure.cn/CustomSpeech
+- Wirtualizacja SR in SpeechSDK: *config. FromHost ("WSS://chinaeast2.STT.Speech.Azure.CN", " \<your-key\> ");*
+- TTS in SpeechSDK:  *config. FromHost ("https []() ://chinaeast2.TTS.Speech.Azure.CN", " \<your-key\> ");*
+- Tokeny uwierzytelniania: https []() ://chinaeast2.API.Cognitive.Azure.CN/STS/v1.0/issueToken
+- Witryna Azure Portal: https://portal.azure.cn
+- Portal Custom Speech: https://speech.azure.cn/CustomSpeech
 - Dostępne jednostki SKU: S0
 - Obsługiwane funkcje:
   - Zamiana mowy na tekst

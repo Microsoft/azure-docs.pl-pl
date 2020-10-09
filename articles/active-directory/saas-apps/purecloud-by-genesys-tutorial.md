@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553295"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą PureCloud przez Genesys
@@ -73,8 +73,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj następujące kroki:
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie **PureCloud przez Genesys** integrację aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
+1. Na stronie **Wybierz pojedynczą Sign-On metodę** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** wybierz ikonę pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -120,10 +120,10 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
-    | E-mail | user.userprincipalname |
+    | Poczta e-mail | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -139,9 +139,9 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: username@companydomain.extension . Na przykład: `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: username@companydomain.extension . Przykład: `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -209,7 +209,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do PureCloud przez
 
     b. W polu **adres e-mail** wprowadź adres e-mail użytkownika. Na przykład: **b. simon \@ contoso.com**.
 
-    c. Wybierz pozycję **Utwórz**.
+    c. Wybierz przycisk **Utwórz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 

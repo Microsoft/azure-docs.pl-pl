@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252971"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
@@ -26,12 +26,12 @@ Poniżej znajduje się lista ustawień, które mają być przenoszone lub tworzo
 
 W poniższej tabeli znajduje się podsumowanie informacji o urządzeniach i typach kont obsługiwanych przez środowisko synchronizacji, wykonywania kopii zapasowych i przywracania w systemie Windows 10.
 
-| Typ konta i operacja | Klasyczna | Aplikacje mobilne |
+| Typ konta i operacja | Klasyczna | Komórkowy |
 | --- | --- | --- |
-| Azure Active Directory: synchronizacja |Yes |Nie |
+| Azure Active Directory: synchronizacja |Tak |Nie |
 | Azure Active Directory: kopia zapasowa/przywracanie |Nie |Nie |
 | Konto Microsoft: synchronizacja |Tak |Tak |
-| Konto Microsoft: kopia zapasowa/przywracanie |Nie |Yes |
+| Konto Microsoft: kopia zapasowa/przywracanie |Nie |Tak |
 
 ## <a name="what-is-backup"></a>Co to jest kopia zapasowa?
 
@@ -43,7 +43,7 @@ Następujące grupy ustawień są dostępne dla użytkowników końcowych do wł
 
 * Motyw: tło pulpitu, kafelek użytkownika, położenie paska zadań itp. 
 * Ustawienia programu Internet Explorer: historia przeglądania, wpisywane adresy URL, Ulubione itd. 
-* Hasła: Menedżer poświadczeń systemu Windows, w tym profile sieci Wi-Fi 
+* Hasła: Menedżer poświadczeń systemu Windows, w tym profile Wi-Fi 
 * Preferencje językowe: słownik pisowni, ustawienia języka systemu 
 * Łatwość dostępu: Narrator, klawiatura ekranowa, Lupa 
 * Inne ustawienia systemu Windows: Zobacz szczegóły ustawień systemu Windows
@@ -69,11 +69,11 @@ W poniższej tabeli inne wpisy w kolumnie grupa ustawień odnoszą się do ustaw
 Wpisy wewnętrzne w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko w ramach samej aplikacji lub wyłączając synchronizację dla całego urządzenia za pomocą ustawień zarządzania urządzeniami przenośnymi (MDM) lub zasady grupy.
 Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należeć do grupy.
 
-| Ustawienia | Klasyczna | Aplikacje mobilne | Grupa |
+| Ustawienia | Klasyczna | Komórkowy | Group (Grupa) |
 | --- | --- | --- | --- |
 | **Konta**: obraz konta |synchronizacja |X |Motyw |
 | **Konta**: inne ustawienia konta |X |X | |
-| **Advanced Mobile szerokopasmowa**: Nazwa sieci udostępniania połączenia internetowego (umożliwia Autowykrywanie mobilnych hotspotów Wi-Fi za pośrednictwem połączenia Bluetooth) |X |X |Hasła |
+| **Advanced Mobile szerokopasmowa**: Nazwa sieci udostępniania połączenia internetowego (umożliwia Autowykrywanie hotspotów Wi-Fi mobilnych za pośrednictwem połączenia Bluetooth) |X |X |Hasła |
 | **Dane aplikacji**: poszczególne aplikacje mogą synchronizować dane |Synchronizuj kopię zapasową |Synchronizuj kopię zapasową |internal |
 | **Lista aplikacji**: lista zainstalowanych aplikacji |X |kopia zapasowa |Inne |
 | **Bluetooth**: wszystkie ustawienia Bluetooth |X |X | |
@@ -95,7 +95,7 @@ Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należe�
 | **Personalizacja pulpitu**: tapeta pokazu slajdów |synchronizacja |X |Motyw |
 | **Personalizacja pulpitu**: ustawienia paska zadań (pozycja, Autoukrywanie itp.) |synchronizacja |X |Motyw |
 | **Personalizacja pulpitu**: układ ekranu startowego |X |kopia zapasowa | |
-| **Urządzenia**: udostępnione drukarki, z którymi nawiązano połączenie |X |X |inne |
+| **Urządzenia**: udostępnione drukarki, z którymi nawiązano połączenie |X |X |other |
 | **Przeglądarka Microsoft Edge**: odczytywanie listy |synchronizacja |synchronizacja |internal |
 | **Przeglądarka Microsoft Edge**: Ulubione |synchronizacja |synchronizacja |internal |
 | **Przeglądarka Microsoft Edge**: najważniejsze witryny <sup> [[1]](#footnote-1)</sup> |synchronizacja |synchronizacja |internal |
@@ -152,8 +152,8 @@ Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należe�
 | **Lupa**: śledzenie — postępuj zgodnie z fokusem klawiatury |synchronizacja |X |Łatwość dostępu |
 | **Lupa**: śledzenie — postępuj zgodnie z kursorem myszy |synchronizacja |X |Łatwość dostępu |
 | **Lupa**: Rozpocznij, gdy użytkownicy logują się (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
-| **Mysz**: zmiana rozmiaru kursora myszy |synchronizacja |X |inne |
-| **Mysz**: zmiana koloru kursora myszy |synchronizacja |X |inne |
+| **Mysz**: zmiana rozmiaru kursora myszy |synchronizacja |X |other |
+| **Mysz**: zmiana koloru kursora myszy |synchronizacja |X |other |
 | **Mysz**: wszystkie inne ustawienia |X |X | |
 | **Narrator**: szybkie uruchamianie |synchronizacja |X |Łatwość dostępu |
 | **Narrator**: użytkownicy mogą zmieniać wysokość głosu Narratora |synchronizacja |X |Łatwość dostępu |
@@ -178,7 +178,7 @@ Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należe�
 | **Wpisywanie**: Użyj wielkich liter po dwukrotnym naciśnięciu klawisza Shift |synchronizacja |kopia zapasowa |Język |
 | **Wpisywanie**: Odtwórz dźwięki klawiszy podczas pisania |synchronizacja |kopia zapasowa |Język |
 | **Wpisywanie**: dane personalizacji dla klawiatury dotykowej |synchronizacja |kopia zapasowa |Język |
-| **Wi-Fi**: profile sieci Wi-Fi (tylko WPA) |synchronizacja |synchronizacja |Hasła |
+| **Wi-Fi**: profile Wi-Fi (tylko WPA) |synchronizacja |synchronizacja |Hasła |
 
 ###### <a name="footnote-1"></a>Przypis 1
 
