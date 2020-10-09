@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554968"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Samouczek: integracja Azure Active Directory ze stadem
 
@@ -128,7 +128,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Flock, wyk
 
 2. Wybierz kartę **Authentication** (Uwierzytelnianie) z panelu nawigacyjnego po lewej stronie, a następnie pozycję **SAML Authentication** (Uwierzytelnianie SAML).
 
-    ![Konfigurowanie aplikacji Flock](./media/flock-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący kartę "Authentication" z wybraną opcją "S A M L Authentication".](./media/flock-tutorial/configure1.png)
 
 3. W sekcji **SAML Authentication** (Uwierzytelnianie SAML) wykonaj następujące kroki:
 
@@ -140,7 +140,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Flock, wyk
 
     c. Otwórz **certyfikat (Base64)** pobrany z witryny Azure Portal w programie Notatnik i wklej jego zawartość w polu tekstowym **Public Certificate** (Certyfikat publiczny).
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -203,11 +203,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Flock
 
 2. Kliknij pozycję **Manage Team** (Zarządzaj zespołem) na panelu nawigacyjnym po lewej stronie.
 
-    ![Dodawanie pracownika](./media/flock-tutorial/user1.png)
+    ![Zrzut ekranu przedstawiający wybraną wartość "Zarządzaj zespołem".](./media/flock-tutorial/user1.png)
 
 3. Kliknij kartę **Add Member** (Dodaj członka), a następnie pozycję **Team Members** (Członkowie zespołu).
 
-    ![Dodawanie pracownika](./media/flock-tutorial/user2.png)
+    ![Zrzut ekranu, na którym jest zaznaczona karta "Dodaj członka" i "członkowie zespołu".](./media/flock-tutorial/user2.png)
 
 4. Wprowadź adres e-mail użytkownika, taki jak **Brittasimon \@ contoso.com** , a następnie wybierz pozycję **Dodaj użytkowników**.
 
@@ -223,7 +223,7 @@ Po kliknięciu kafelka Flock w panelu dostępu powinno nastąpić automatyczne z
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

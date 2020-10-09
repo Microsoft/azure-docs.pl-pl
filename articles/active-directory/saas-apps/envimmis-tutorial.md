@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551748"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Samouczek: integracja Azure Active Directory z usługą ENVI MMIS
 
@@ -99,7 +99,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Envi MMIS,
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Envi MMIS](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionym przyciskiem "Identyfikator", "odpowiedź U R L" i "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Envi MMIS,
 
 2. Kliknij kartę **My Domain (Moja domena)**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący menu "użytkownik" z wybraną pozycją "moja domena".](./media/envimmis-tutorial/configure1.png)
 
 3. Kliknij pozycję **Edytuj**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure2.png)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Edytuj".](./media/envimmis-tutorial/configure2.png)
 
 4. Zaznacz pole wyboru **Use remote authentication (Użyj zdalnego uwierzytelniania)**, a następnie wybierz pozycję **HTTP Redirect (Przekierowanie HTTP)** z listy rozwijanej **Authentication Type (Typ uwierzytelniania)**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure3.png)
+    ![Zrzut ekranu pokazujący kartę "Szczegóły" z opcją "Użyj uwierzytelniania zdalnego" zaznaczone i "H T T P redirect" zaznaczone.](./media/envimmis-tutorial/configure3.png)
 
 5. Wybierz kartę **Resources (Zasoby)**, a następnie kliknij pozycję **Upload Metadata (Przekaż metadane)**.
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure4.png)
+    ![Zrzut ekranu pokazujący kartę "zasoby" z wybraną akcją "Przekaż metadane".](./media/envimmis-tutorial/configure4.png)
 
 6. W menu podręcznym **Upload Metadata (Przekaż metadane)** wykonaj następujące kroki:
 
-    ![Konfigurowanie przycisku Zapisz logowania jednokrotnego](./media/envimmis-tutorial/configure5.png)
+    ![Zrzut ekranu przedstawiający okno podręczne "przekazywanie metadanych" z wybraną opcją "plik" i ikonę "Wybierz plik" i "OK".](./media/envimmis-tutorial/configure5.png)
 
     a. Wybierz opcję **File (Plik)** z listy rozwijanej **Upload From (Przekaż z)**.
 
@@ -223,11 +223,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w aplikacji Envi M
 
 2. Kliknij kartę **User List (Lista użytkowników)**.
 
-    ![Dodawanie pracownika](./media/envimmis-tutorial/user1.png)
+    ![Zrzut ekranu pokazujący menu "użytkownik" z wybraną pozycją "Lista użytkowników".](./media/envimmis-tutorial/user1.png)
 
 3. Kliknij przycisk **Add User (Dodaj użytkownika)**.
 
-    ![Dodawanie pracownika](./media/envimmis-tutorial/user2.png)
+    ![Zrzut ekranu pokazujący sekcję "Użytkownicy" z wybranym przyciskiem "Dodaj użytkownika".](./media/envimmis-tutorial/user2.png)
 
 4. W sekcji **Add User (Dodaj użytkownika)** wykonaj następujące kroki:
 
@@ -245,7 +245,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w aplikacji Envi M
 
     f. W polu tekstowym **Nazwa użytkownika logowania jednokrotnego** wpisz nazwę użytkownika konta Britta Simon, takie jak **brittasimon \@ contoso.com**.
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -257,7 +257,7 @@ Po kliknięciu kafelka Envi MMIS w panelu dostępu powinno nastąpić automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

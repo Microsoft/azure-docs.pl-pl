@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: c29e0f687e36eb679875ea7899aa1a0cd91bd122
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169497"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826819"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Jak używać funkcji Twilio do obsługi głosu i SMS w języku PHP
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -146,7 +146,7 @@ catch (Exception $e)
 
 Jak wspomniano, ten kod używa witryny dostarczonej przez Twilio do zwrócenia odpowiedzi TwiML. Zamiast tego możesz użyć własnej lokacji, aby zapewnić odpowiedź TwiML; Aby uzyskać więcej informacji, zobacz artykuł [jak zapewnić odpowiedzi TwiML z własnej witryny sieci Web](#howto_provide_twiml_responses).
 
-* **Uwaga**: Aby rozwiązać problemy z błędami walidacji certyfikatu TLS/SSL, zobacz[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Uwaga**: Aby rozwiązać problemy z błędami walidacji certyfikatu TLS/SSL, zobacz [https://www.twilio.com/docs/api/errors][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Instrukcje: wysyłanie wiadomości SMS
 Poniżej przedstawiono sposób wysyłania wiadomości SMS przy użyciu klasy **Services_Twilio** . Numer **od** jest dostarczany przez Twilio dla kont próbnych do wysyłania wiadomości SMS. Przed uruchomieniem **kodu należy zweryfikować numer konta** usługi Twilio.
@@ -210,7 +210,7 @@ print $response;
 
 Aby uzyskać więcej informacji na temat TwiML, zobacz [https://www.twilio.com/docs/api/twiml][twiml_reference] . 
 
-Po skonfigurowaniu strony PHP do udostępniania odpowiedzi TwiML Użyj adresu URL strony PHP jako adresu URL przekazaną w `Services_Twilio->account->calls->create` metodzie. Na przykład jeśli masz aplikację sieci Web o nazwie **MyTwiML** wdrożoną dla usługi hostowanej na platformie Azure, a nazwa strony PHP to **MyTwiML. php**, adres URL można przesłać do **konta Services_Twilio->Account->Calls->Create** , jak pokazano w następującym przykładzie:
+Po skonfigurowaniu strony PHP do udostępniania odpowiedzi TwiML Użyj adresu URL strony PHP jako adresu URL przekazaną w  `Services_Twilio->account->calls->create`  metodzie. Na przykład jeśli masz aplikację sieci Web o nazwie **MyTwiML** wdrożoną dla usługi hostowanej na platformie Azure, a nazwa strony PHP to **MyTwiML. php**, adres URL można przesłać do  **konta Services_Twilio->Account->Calls->Create**  , jak pokazano w następującym przykładzie:
 
 ```php
 require_once 'Services/Twilio.php';

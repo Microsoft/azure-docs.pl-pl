@@ -3,14 +3,14 @@ title: Wdróż na dedykowanym hoście
 description: Użyj dedykowanego hosta, aby osiągnąć prawdziwą izolację na poziomie hosta dla obciążeń Azure Container Instances
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259647"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825615"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Wdrażanie na dedykowanych hostach
 
@@ -31,8 +31,8 @@ Dedykowana jednostka SKU jest odpowiednia dla obciążeń kontenera, które wyma
 Począwszy od interfejsu API w wersji 2019-12-01, istnieje `sku` Właściwość w sekcji Właściwości grupy kontenerów szablonu wdrożenia, który jest wymagany do wdrożenia ACI. Obecnie można użyć tej właściwości jako części szablonu wdrażania Azure Resource Manager ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](./container-instances-multi-container-group.md). 
 
 `sku`Właściwość może mieć jedną z następujących wartości:
-* `Standard`— wybór standardowego wdrożenia ACI, który nadal gwarantuje zabezpieczenia na poziomie funkcji hypervisor 
-* `Dedicated`— służy do izolacji poziomu obciążenia z dedykowanymi hostami fizycznymi dla grupy kontenerów.
+* `Standard` — wybór standardowego wdrożenia ACI, który nadal gwarantuje zabezpieczenia na poziomie funkcji hypervisor 
+* `Dedicated` — służy do izolacji poziomu obciążenia z dedykowanymi hostami fizycznymi dla grupy kontenerów.
 
 ## <a name="modify-your-json-deployment-template"></a>Modyfikowanie szablonu wdrożenia JSON
 

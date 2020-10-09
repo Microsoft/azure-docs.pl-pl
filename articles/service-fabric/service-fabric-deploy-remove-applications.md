@@ -3,12 +3,12 @@ title: Wdrażanie Service Fabric platformy Azure za pomocą programu PowerShell
 description: Dowiedz się więcej o usuwaniu i wdrażaniu aplikacji na platformie Azure Service Fabric i sposobach wykonywania tych akcji w programie PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 8bc4557c5d0d59330c7e91a4b3fdce83cfbf334c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611456"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827436"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell
 
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 Jeśli pakiet aplikacji jest duży i/lub zawiera wiele plików, można [go skompresować](service-fabric-package-apps.md#compress-a-package). Kompresja zmniejsza rozmiar i liczbę plików.
-Efekt uboczny polega na tym, że rejestrowanie i Wyrejestrowanie typu aplikacji jest szybsze. Czas przekazywania może być obecnie wolniejszy, szczególnie w przypadku dołączenia czasu do skompresowania pakietu. 
+Powoduje to szybsze rejestrowanie i Wyrejestrowywanie typu aplikacji. Czas przekazywania może być obecnie wolniejszy, szczególnie w przypadku dołączenia czasu do skompresowania pakietu. 
 
 Aby skompresować pakiet, użyj tego samego polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) . Kompresję można wykonać niezależnie od przekazywania, przy użyciu `SkipCopy` flagi lub razem z operacją przekazywania. Zastosowanie kompresji w skompresowanym pakiecie to no-op.
 Aby zdekompresować skompresowany pakiet, użyj tego samego polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) z `UncompressPackage` przełącznikiem.

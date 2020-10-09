@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825898"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Zagadnienia dotyczące zabezpieczeń dotyczące zdalnego uzyskiwania dostępu do aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -83,7 +83,7 @@ Aby zwiększyć bezpieczeństwo aplikacji publikowanych przez usługę Azure ser
 
 #### <a name="azure-ddos-protection-service"></a>Usługa Azure DDoS Protection
 
-Aplikacje publikowane za poorednictwem serwera proxy aplikacji są chronione przed atakami typu "odmowa usługi" (DDoS). **Azure DDoS Protection** to usługa oferowana przez platformę Azure do ochrony zasobów platformy Azure przed atakami typu "odmowa usługi". **Podstawowa** warstwa usług jest włączana automatycznie, zapewniając monitorowanie ruchu w czasie rzeczywistym i łagodzenie typowych ataków na poziomie sieci. Aby uzyskać szczegółowe informacje, zobacz [omówienie Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Aplikacje publikowane za poorednictwem serwera proxy aplikacji są chronione przed atakami typu "odmowa usługi" (DDoS). Ta ochrona jest zarządzana przez firmę Microsoft i jest automatycznie włączana we wszystkich naszych centrach danych. Usługa Azure DDoS Protection oferuje zawsze włączone monitorowanie ruchu i łagodzenie w czasie rzeczywistym typowych ataków na poziomie sieci. 
 
 ## <a name="under-the-hood"></a>Kulisy
 

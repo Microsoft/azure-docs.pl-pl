@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Cognitive Services
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Cognitive Services platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bea774a1b09921415f0014adee19c2838f867c7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 612c288df1b9329b20088d42843239197e9be8d3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986332"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826573"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Azure Policy wbudowane definicje zasad dla platformy Azure Cognitive Services
 

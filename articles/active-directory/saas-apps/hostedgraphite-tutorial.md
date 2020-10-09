@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521879"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Samouczek: integracja Azure Active Directory z hostowaniem grafitu
 
@@ -100,7 +100,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Hosted Gr
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Hosted Graphite](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Hosted Gr
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Hosted Graphite](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Hosted Gr
 
 2. Przejdź na **stronę konfiguracji SAML** na pasku bocznym (**Access -> SAML Setup** [Dostęp -> Ustawienia SAML]).
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Zrzut ekranu przedstawia menu dostęp z wybranym ustawieniem SAML.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Upewnij się, że te identyfikatory URI są zgodne z konfiguracją wykonaną w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację protokołu SAML.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. W polach tekstowych **Entity or Issuer ID** (Identyfikator użytkownika lub jednostki) i **SSO Login URL** (Adres URL logowania dla logowania jednokrotnego) wklej wartości **identyfikatora usługi Azure AD** i **adresu URL logowania** skopiowane z witryny Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Zrzut ekranu przedstawia wpisy dla dostawcy tożsamości.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Wybierz opcję **Read-only** (Tylko do odczytu) dla pozycji **Default User Role** (Domyślna rola użytkownika).
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Zrzut ekranu przedstawia domyślną rolę użytkownika, która jest tylko do odczytu.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Otwórz w Notatniku swój certyfikat zakodowany w formacie base-64 pobrany z witryny Azure Portal, skopiuj zawartość do schowka, a następnie wklej ją w polu tekstowym **Certyfikat X.509**.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Zrzut ekranu przedstawia certyfikat X dot 509.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Kliknij przycisk **Save** (Zapisz).
 
@@ -223,7 +223,7 @@ Po kliknięciu kafelka Hosted Graphite na panelu dostępu powinno nastąpić aut
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

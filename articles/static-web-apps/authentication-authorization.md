@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297073"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826545"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)
 
 Usługa Azure static Web Apps usprawnia proces uwierzytelniania, zarządzając uwierzytelnianiem przy użyciu następujących dostawców:
 
-- Usługa Azure Active Directory
+- Azure Active Directory
 - GitHub
 - Facebook
 - Google<sup>1</sup>
@@ -55,7 +55,7 @@ Zaproszenia są specyficzne dla poszczególnych dostawców autoryzacji, dlatego 
 
 | Dostawca autoryzacji | Uwidacznia użytkownikowi  |
 | ---------------------- | ----------------- |
-| Usługa Azure Active Directory | Adres e-mail     |
+| Azure Active Directory | Adres e-mail     |
 | Facebook               | Adres e-mail     |
 | GitHub                 | nazwa użytkownika          |
 | Google<sup>1</sup>     | Adres e-mail     |
@@ -131,7 +131,7 @@ Skorzystaj z poniższej tabeli, aby znaleźć trasę logowania specyficzną dla 
 
 | Dostawca autoryzacji | Trasa logowania             |
 | ---------------------- | ----------------------- |
-| Usługa Azure Active Directory | `/.auth/login/aad`      |
+| Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
 | Google<sup>1</sup>     | `/.auth/login/google`   |

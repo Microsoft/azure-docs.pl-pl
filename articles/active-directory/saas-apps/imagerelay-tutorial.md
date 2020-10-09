@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545254"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Samouczek: integracja Azure Active Directory z usługą Image Relay
 
@@ -128,27 +128,27 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD przy użyciu aplikacji
 
 2. Na górnym pasku narzędzi kliknij obciążenie **Users & Permissions** (Użytkownicy i uprawnienia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Zrzut ekranu przedstawia użytkowników, & uprawnienia wybrane z paska narzędzi.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Kliknij pozycję **Create New Permission** (Utwórz nowe uprawnienie).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Zrzut ekranu przedstawia pole tekstowe służące do wprowadzania tytułu uprawnień i opcji wyboru typu uprawnienia.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. W obciążeniu **Single Sign On Settings** (Ustawienia logowania jednokrotnego) zaznacz pole wyboru **This Group can only sign-in via Single Sign On** (Ta grupa może logować się tylko za pośrednictwem logowania jednokrotnego), a następnie kliknij pozycję **Save** (Zapisz).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Zrzut ekranu przedstawia ustawienia logowania jednokrotnego, w którym można wybrać opcję.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Przejdź do pozycji **Account Settings** (Ustawienia konta).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Zrzut ekranu przedstawia opcję paska narzędzi ustawienia konta.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Przejdź do obciążenia **Single Sign On Settings** (Ustawienia logowania jednokrotnego).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Zrzut ekranu przedstawia opcję menu Ustawienia logowania jednokrotnego.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. W oknie dialogowym **SAML Settings** (Ustawienia SAML) wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Ustawienia SAML, w którym można wprowadzić informacje.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. W polu tekstowym **Login URL** (Adres URL logowania) wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
 
@@ -160,21 +160,21 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD przy użyciu aplikacji
 
     e. W obszarze **x.509 Certificate** (Certyfikat x.509) kliknij pozycję **Update Certificate** (Zaktualizuj certyfikat).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Zrzut ekranu przedstawia opcję aktualizacji certyfikatu.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Otwórz pobrany certyfikat w programie Notatnik, skopiuj zawartość, a następnie wklej ją w polu tekstowym **x.509 Certificate** (Certyfikat x.509).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Zrzut ekranu przedstawia certyfikat x dot 509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     przykład W sekcji **Just-In-Time User Provisioning** (Aprowizowanie użytkowników typu just in time) wybierz pozycję **Enable Just-In-Time User Provisioning** (Włącz aprowizowanie użytkowników typu just in time).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Zrzut ekranu przedstawia sekcję Inicjowanie obsługi użytkowników just in Time z wybraną opcją Włącz kontrolkę.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Wybierz grupę uprawnień (na przykład **SSO Basic** (Logowanie jednokrotne — podstawowe)), która umożliwia logowanie tylko za pośrednictwem logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Zrzut ekranu przedstawia sekcję "Inicjowanie obsługi użytkowników just in Time" z wybraną pozycją S S O Basic.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
-    i. Kliknij pozycję **Zapisz**.
+    i. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -237,11 +237,11 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji Image Rela
 
 2. Przejdź do obszaru **Users & Permissions** (Użytkownicy i uprawnienia) i wybierz pozycję **Create SSO User** (Utwórz użytkownika logowania jednokrotnego).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Zrzut ekranu przedstawia wybraną z menu użytkownika Create S O.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Wprowadź wartości następujących pól: **Email** (Adres e-mail), **First Name** (Imię), **Last Name** (Nazwisko) i **Company** (Firma) dla użytkownika, którego chcesz aprowizować, i wybierz grupę uprawnień (np. SSO Basic (Logowanie jednokrotne — podstawowe)), czyli grupę umożliwiającą logowania tylko za pośrednictwem logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Zrzut ekranu pokazuje stronę użytkownika, na której można wprowadzić wymagane informacje.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Kliknij przycisk **Utwórz**.
 
@@ -255,6 +255,6 @@ Po kliknięciu kafelka Image Relay w panelu dostępu powinno nastąpić automaty
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

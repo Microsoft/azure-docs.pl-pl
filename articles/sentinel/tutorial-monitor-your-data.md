@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 8d8f1343d92f66dc464ab7064949bbabb813268e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798531"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826558"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Samouczek: wizualizowanie i monitorowanie danych
 
@@ -44,19 +44,19 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Szablony** , aby wyświetlić pełną listę wbudowanych skoroszytów platformy Azure. Aby zobaczyć, które są istotne dla połączonych typów danych, pole **wymagane typy danych** w każdym skoroszycie wyświetli typ danych obok zielonego znacznika wyboru, jeśli dane są już strumieniowo powiązane z platformą Azure.
   ![Przejdź do skoroszytów](./media/tutorial-monitor-data/access-workbooks.png)
-1. Kliknij przycisk **Wyświetl skoroszyt** , aby wyświetlić szablon wypełniony danymi.
+1. Kliknij przycisk **Wyświetl szablon** , aby wyświetlić szablon wypełniony danymi.
   
 1. Aby edytować skoroszyt, wybierz pozycję **Zapisz**, a następnie wybierz lokalizację, w której chcesz zapisać plik JSON dla szablonu. 
 
    > [!NOTE]
-   > Spowoduje to utworzenie zasobu platformy Azure na podstawie odpowiedniego szablonu i zapisanie samego szablonu pliku JSON, a nie danych.
+   > Spowoduje to utworzenie zasobu platformy Azure na podstawie odpowiedniego szablonu i zapisanie pliku JSON skoroszytu, a nie danych.
 
 
-1. Wybierz pozycję **Wyświetl skoroszyt**. Następnie kliknij przycisk **Edytuj** znajdujący się u góry. Możesz teraz edytować skoroszyt i dostosować go zgodnie z potrzebami. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md).
+1. Wybierz pozycję **Wyświetl zapisany skoroszyt**. Następnie kliknij przycisk **Edytuj** znajdujący się u góry. Możesz teraz edytować skoroszyt i dostosować go zgodnie z potrzebami. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md).
 ![Wyświetl skoroszyty](./media/tutorial-monitor-data/workbook-graph.png)
 1. Po wprowadzeniu zmian można zapisać skoroszyt. 
 
-1. Można również sklonować skoroszyt: wybierz pozycję **Edytuj** , a następnie pozycję **Zapisz jako**, a następnie zapisz go przy użyciu innej nazwy w ramach tej samej subskrypcji i grupy zasobów. Te skoroszyty są wyświetlane na karcie **Moje skoroszyty** .
+1. Można również sklonować skoroszyt: wybierz pozycję **Edytuj** , a następnie pozycję **Zapisz jako**, a następnie zapisz go przy użyciu innej nazwy w ramach tej samej subskrypcji i grupy zasobów. Te sklonowane skoroszyty są wyświetlane na karcie **Moje skoroszyty** .
 
 
 ## <a name="create-new-workbook"></a>Utwórz nowy skoroszyt
@@ -66,9 +66,9 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 1. Aby edytować skoroszyt, wybierz opcję **Edytuj**, a następnie w razie potrzeby Dodaj tekst, zapytania i parametry. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). 
 
-1. Podczas kompilowania zapytania Ustaw **Źródło danych** na wartość **dzienniki**, **typ zasobu** jest ustawiony na **log Analytics** a następnie wybierz odpowiednie obszary robocze. 
+1. Podczas kompilowania zapytania upewnij się, że **Źródło danych** ma ustawioną wartość **dzienniki** i **typ zasobu** jest ustawiony na **log Analytics**, a następnie wybierz odpowiednie obszary robocze. 
 
-1. Po utworzeniu skoroszytu Zapisz skoroszyt, aby upewnić się, że jest on zapisany w ramach subskrypcji i grupy zasobów obszaru roboczego wskaźnikowego platformy Azure.
+1. Po utworzeniu skoroszytu Zapisz skoroszyt, a następnie zapisz go w obszarze subskrypcji i grupy zasobów obszaru roboczego wskaźnikowego platformy Azure.
 
 1. Jeśli chcesz zezwolić innym osobom w organizacji na korzystanie ze skoroszytu, w obszarze **Zapisz** wybierz **raporty udostępnione**. Jeśli chcesz, aby ten skoroszyt był dostępny tylko dla Ciebie, wybierz pozycję **Moje raporty**.
 
@@ -79,15 +79,13 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 ## <a name="how-to-delete-workbooks"></a>Jak usunąć skoroszyty
 
-Można usuwać skoroszyty, które zostały utworzone na podstawie szablonu wskaźnikowego platformy Azure. 
-
-Aby usunąć dostosowany skoroszyt, na stronie skoroszyty wybierz zapisany skoroszyt, który chcesz usunąć, a następnie wybierz pozycję **Usuń**. Spowoduje to usunięcie zapisanego skoroszytu.
+Aby usunąć zapisany skoroszyt (zapisany szablon lub dostosowany skoroszyt), na stronie skoroszyty wybierz zapisany skoroszyt, który chcesz usunąć, a następnie wybierz pozycję **Usuń**. Spowoduje to usunięcie zapisanego skoroszytu.
 
 > [!NOTE]
-> Spowoduje to usunięcie zasobu, a także wszelkich zmian wprowadzonych w szablonie. Oryginalny szablon pozostanie dostępny.
+> Spowoduje to usunięcie zasobu skoroszytu oraz wszelkich zmian wprowadzonych w szablonie. Oryginalny szablon pozostanie dostępny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób wyświetlania danych na platformie Azure — wskaźnik.
+W tym samouczku przedstawiono sposób wizualizacji danych w usłudze Azure wskaźnikowej przy użyciu skoroszytów platformy Azure.
 
 Aby dowiedzieć się, jak zautomatyzować odpowiedzi na zagrożenia, zobacz [Konfigurowanie zautomatyzowanych reakcji na zagrożenia na platformie Azure](tutorial-respond-threats-playbook.md).

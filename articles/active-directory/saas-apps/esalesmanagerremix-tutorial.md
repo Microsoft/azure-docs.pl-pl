@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555393"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826741"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integracja Azure Active Directory z programem E Sales Manager Remix
 
@@ -121,7 +121,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
 
 1. W obszarze **E Sales Manager Remix Configuration (Konfiguracja**) wybierz pozycję **Konfiguruj E Sales Manager Remix**.
 
-    ![Remix konfiguracja programu E Sales Manager](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Zrzut ekranu przedstawiający sekcję "Konfiguracja Remixa Menedżera sprzedaży" z wybraną pozycją "Konfiguruj E Sales Manager Remix".](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     Zostanie otwarte okno **Konfigurowanie logowania** .
 
@@ -253,7 +253,7 @@ W tej sekcji włączasz Britta użytkownika do korzystania z logowania jednokrot
 
 1. W oknie **Użytkownicy i grupy** na liście **Użytkownicy** wybierz pozycję **Britta Simon**.
 
-1. Wybierz przycisk **Wybierz** .
+1. Wybierz przycisk **Wybierz**.
 
 1. W oknie **Dodawanie przypisania** wybierz pozycję **Przypisz**.
     
@@ -265,10 +265,10 @@ Po wybraniu kafelka Remix E Sales Manager w panelu dostępu użytkownik powinien
 
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

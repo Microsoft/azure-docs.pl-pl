@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818031"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827803"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 
@@ -67,8 +67,22 @@ Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-detai
 
 Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows. 
 
+Możesz również zbadać informacje o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach dodatkowych. Elementy `meterName` i `skuName` będą zawierać `Spot` .
 
 W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział.
+
+## <a name="pricing-and-eviction-history"></a>Historia cen i wykluczeń
+
+Możesz wyświetlić historyczne ceny i stawki wykluczenia według rozmiaru w regionie w portalu. Wybierz pozycję **Wyświetl historię cen i Porównaj ceny w pobliżu regiony** , aby wyświetlić tabelę lub Graf cenowy o określonym rozmiarze.  Stawki cen i wykluczeń w poniższych obrazach są tylko przykłady. 
+
+**Wykres**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Zrzut ekranu przedstawiający opcje regionu z różnicą cen i stawek wykluczenia jako wykresu.":::
+
+**Tabela**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Zrzut ekranu przedstawiający opcje regionu z różnicą cen i stawek wykluczenia jako wykresu.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -98,7 +112,7 @@ Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu p
 Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [elementu Q&a](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Następne kroki
-Wdrażaj maszyny wirtualne za pomocą [interfejsu wiersza polecenia](./linux/spot-cli.md), [portalu](./windows/spot-portal.md), [ARM](./linux/spot-template.md)lub [programu PowerShell](./windows/spot-powershell.md) .
+Wdrażaj maszyny wirtualne za pomocą [interfejsu wiersza polecenia](./linux/spot-cli.md), [portalu](spot-portal.md), [ARM](./linux/spot-template.md)lub [programu PowerShell](./windows/spot-powershell.md) .
 
 Możesz również wdrożyć [zestaw skalowania z wystąpieniami maszyn wirtualnych](../virtual-machine-scale-sets/use-spot.md).
 

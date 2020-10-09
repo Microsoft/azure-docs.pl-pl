@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462517"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825498"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych 
 
 <sup>1</sup> podstawowe usługi utworzone przed grudnia 2017 mają niższe limity (5 zamiast 15) w indeksach. Warstwa Podstawowa jest jedyną jednostką SKU z niższym limitem 100 pól na indeks.
 
-<sup>2</sup> posiadanie bardzo dużej liczby elementów w złożonych kolekcjach dla dokumentu powoduje obecnie duże wykorzystanie magazynu. Jest to znany problem. W międzyczasie limit 3000 jest bezpieczny górną granicą dla wszystkich warstw usług. Ten limit jest wymuszany tylko w przypadku operacji indeksowania, które wykorzystują najwcześniejszą ogólnie dostępną wersję interfejsu API, która obsługuje pola typu złożonego ( `2019-05-06` ). Aby nie przerywać klientów, którzy mogą korzystać z wcześniejszych wersji programu Preview API (które obsługują pola typu złożonego), nie będzie wymuszany ten limit dla operacji indeksowania korzystających z tych wersji programu Preview API. Należy pamiętać, że wersji zapoznawczej interfejsu API nie można używać w scenariuszach produkcyjnych, a firma Microsoft zaleca klientom przejście do najnowszej wersji interfejsu API o wysokiej dostępności.
+<sup>2</sup> dla elementów istnieje górny limit, ponieważ jego duża liczba powoduje duże wykorzystanie magazynu. Element kolekcji złożonej jest zdefiniowany jako element członkowski tej kolekcji. Załóżmy na przykład, że [dokument hotelu ma złożoną kolekcję pokojów](search-howto-complex-data-types.md#indexing-complex-types), każdy pokój w kolekcji pokojów jest traktowany jako element. Podczas indeksowania aparat indeksowania może bezpiecznie przetwarzać maksymalnie 3000 elementów w całym dokumencie. [Ten limit](search-api-migration.md#upgrade-to-2019-05-06) został wprowadzony w `api-version=2019-05-06` i ma zastosowanie tylko do złożonych kolekcji, a nie do kolekcji ciągów lub do pól złożonych.
 
 <a name="document-limits"></a>
 
@@ -78,15 +78,15 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 | Zasób | Bezpłatnie &nbsp; <sup>1</sup> | Podstawowa &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Nie dotyczy |10 |10 |
-| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
-| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
-| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Nie dotyczy |Bez ograniczeń |Bez ograniczeń |
+| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Brak |10 |10 |
+| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
+| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
+| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Brak |Bez ograniczeń |Bez ograniczeń |
 | Minimalny harmonogram | 5 min |5 min |5 min |5 min |5 min |5 min |5 min | 5 min |
-| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Nie dotyczy  |24 godziny |24 godziny |
-| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Nie dotyczy  |2 godziny |2 godziny |
-| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Nie dotyczy  |256 |256 |
-| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Nie dotyczy |4 &nbsp; mln |4 &nbsp; mln |
+| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Brak  |24 godziny |24 godziny |
+| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Brak  |2 godziny |2 godziny |
+| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Brak  |256 |256 |
+| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Brak |4 &nbsp; mln |4 &nbsp; mln |
 
 <sup>1</sup> bezpłatne usługi mają maksymalny czas wykonywania indeksatora wynoszący 3 minuty dla źródeł obiektów blob i 1 minuty dla wszystkich innych źródeł danych. W przypadku indeksowania AI, które wywołuje Cognitive Services, bezpłatne usługi są ograniczone do 20 bezpłatnych transakcji dziennie, gdzie transakcja jest definiowana jako dokument, który został pomyślnie przeszedł przez potok wzbogacania.
 
@@ -106,11 +106,11 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 > [!NOTE]
 > Indeksatory mogą bezpiecznie uzyskiwać dostęp do zasobów za pośrednictwem prywatnych punktów końcowych zarządzanych za pośrednictwem [udostępnionego interfejsu API zasobów linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) zgodnie z opisem w [tym przewodniku](search-indexer-howto-access-private.md)
 
-| Zasób | Bezpłatna | Podstawowe | S1 | S2 | S3 | S3 (wysoka gęstość) | L1 | L2
+| Zasób | Bezpłatna | Podstawowy | S1 | S2 | S3 | S3 (wysoka gęstość) | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Wsparcie dla prywatnego indeksatora punktu końcowego | Nie | Tak | Tak | Tak | Tak | Nie | Tak | Tak |
 | Obsługa prywatnego punktu końcowego dla indeksatorów z zestawu umiejętności<sup>1</sup> | Nie | Nie | Nie | Tak | Tak | Nie | Tak | Tak |
-| Maksymalna liczba prywatnych punktów końcowych | Nie dotyczy | 10 lub 30 | 100 | 400 | 400 | Nie dotyczy | 20 | 20 |
+| Maksymalna liczba prywatnych punktów końcowych | Brak | 10 lub 30 | 100 | 400 | 400 | Brak | 20 | 20 |
 | Maksymalna liczba różnych typów zasobów<sup>2</sup> | Nie dotyczy | 4 | 7 | 15 | 15 | Nie dotyczy | 4 | 4 |
 
 <sup>1</sup> wzbogacanie programu AI i analiza obrazów są intensywnie czasochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej, dlatego w przypadku mniejszych warstw usług wyszukiwania, które umożliwiają uruchamianie ich w środowisku prywatnym, mogą mieć negatywny wpływ na wydajność i stabilność usługi wyszukiwania.
@@ -121,7 +121,7 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 Maksymalna liczba map synonimów jest zależna od warstwy. Każda reguła może mieć do 20 rozszerzeń, w których rozwinięcie jest równoważne. Na przykład podaną "Cat", skojarzenie z "Kitty", "Feline" i "Felis" (rodzaj dla kotów) będzie liczona jako 3 rozszerzenia.
 
-| Zasób | Bezpłatna | Podstawowe | S1 | S2 | S3 | S3 — HD |L1 | L2 |
+| Zasób | Bezpłatna | Podstawowy | S1 | S2 | S3 | S3 — HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maksymalne mapy synonimów |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maksymalna liczba reguł na mapę |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |

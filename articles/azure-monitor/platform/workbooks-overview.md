@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977564"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825779"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
-Skoroszyty zapewniają elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w ramach Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. 
+Skoroszyty udostępniają elastyczną kanwę do analizy danych i tworzenia zaawansowanych raportów wizualnych w witrynie Azure Portal. Umożliwiają one naciskanie na wiele źródeł danych z platformy Azure i łączenie ich w ujednolicone interaktywne środowiska. 
 
 Oto przewodnik wideo dotyczący tworzenia skoroszytów.
 
@@ -25,11 +25,11 @@ Oto przewodnik wideo dotyczący tworzenia skoroszytów.
 
 ## <a name="data-sources"></a>Źródła danych
 
-Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł na platformie Azure. Autorzy skoroszytów mogą przekształcić te dane, aby zapewnić wgląd w dostępność, wydajność, użycie i ogólną kondycję podstawowych składników. Na przykład analizowanie dzienników wydajności z maszyn wirtualnych w celu zidentyfikowania dużych wystąpień procesora lub małej ilości pamięci oraz wyświetlenie wyników jako siatki w raportach interaktywnych.
+Skoroszyty umożliwiają wykonywanie zapytań o dane z wielu źródeł na platformie Azure. Autorzy skoroszytów mogą przekształcać te dane, aby zapewnić wgląd w dostępność, wydajność, użycie i ogólną kondycję składników. Na przykład analizowanie dzienników wydajności z maszyn wirtualnych w celu zidentyfikowania dużych wystąpień procesora lub małej ilości pamięci oraz wyświetlenie wyników jako siatki w raportach interaktywnych.
   
-Jednak rzeczywista siła skoroszytów to możliwość łączenia danych z różnych źródeł w ramach jednego raportu. Pozwala to na tworzenie złożonych widoków zasobów lub sprzężeń między zasobami, co umożliwia bogatsze dane i szczegółowe informacje, które w przeciwnym razie byłyby niemożliwe.
+Jednak największą zaletą skoroszytów jest możliwość połączenia danych z różnych źródeł w jednym raporcie. Pozwala to na tworzenie złożonych widoków zasobów lub sprzężeń między zasobami, co umożliwia bogatsze dane i szczegółowe informacje, które w przeciwnym razie byłyby niemożliwe.
 
-Skoroszyty są obecnie zgodne z następującymi źródłami danych:
+Aktualnie skoroszyty są zgodne z następującymi źródłami danych:
 
 * [Dzienniki](workbooks-data-sources.md#logs)
 * [Metryki](workbooks-data-sources.md#metrics)

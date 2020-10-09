@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545213"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826358"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Samouczek: integracja iLMS z usługą Azure Active Directory
 
@@ -108,7 +108,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -130,29 +130,29 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 2. Kliknij pozycję **Logowanie jednokrotne: SAML** na karcie **Ustawienia** , aby otworzyć ustawienia SAML, i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/1.png)
+    ![Zrzut ekranu przedstawia kartę Ustawienia I L M S, w której można wybrać polecenie S S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Rozwiń sekcję **dostawca usług** i skopiuj wartość **Identyfikator** i **punkt końcowy (adres URL)** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/2.png) 
+    ![Zrzut ekranu przedstawia ustawienia protokołu SAML, w których można uzyskać wartości.](./media/ilms-tutorial/2.png) 
 
 4. W obszarze **dostawca tożsamości** kliknij pozycję **Importuj metadane**.
 
 5. Wybierz plik **metadanych Federacji** pobrany z Azure Portal z sekcji **certyfikat podpisywania SAML** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Zrzut ekranu przedstawia ustawienia protokołu SAML, w których można wybrać plik metadanych.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Jeśli chcesz włączyć Inicjowanie obsługi JIT, aby utworzyć konta usługi iLMS dla użytkowników nierozpoznających, wykonaj następujące czynności:
 
     a. Zaznacz pole wyboru **Utwórz nierozpoznane konto użytkownika**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Zrzut ekranu przedstawia opcję Utwórz nierozpoznane konto użytkownika.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mapuj atrybuty w usłudze Azure AD o atrybuty w iLMS. W kolumnie atrybut Określ nazwę atrybutów lub wartość domyślną.
 
     c. Przejdź do karty **reguły biznesowe** i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/5.png)
+    ![Zrzut ekranu przedstawia ustawienia reguł firmy, w których można wprowadzić informacje w tym kroku.](./media/ilms-tutorial/5.png)
 
     d. Zaznacz **opcję Utwórz nierozpoznane regiony, działy i działy** , aby utworzyć regiony, działy i działy, które jeszcze nie istnieją w czasie rejestracji jednokrotnej.
 
@@ -164,7 +164,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 7. Kliknij przycisk **Zapisz**, aby zapisać ustawienia.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/ilms-tutorial/save.png)
+    ![Zrzut ekranu przedstawia przycisk Zapisz.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -206,11 +206,11 @@ Jeśli musisz ręcznie utworzyć użytkownika, wykonaj następujące czynności:
 
 2. Kliknij pozycję **zarejestruj użytkownika** na karcie **Użytkownicy** , aby otworzyć stronę **Rejestrowanie użytkownika** .
 
-   ![Dodawanie pracownika](./media/ilms-tutorial/3.png)
+   ![Zrzut ekranu przedstawia kartę Ustawienia I L M S, w której można wybrać pozycję Zarejestruj użytkownika.](./media/ilms-tutorial/3.png)
 
 3. Na stronie **Rejestrowanie użytkownika** wykonaj następujące czynności.
 
-    ![Dodawanie pracownika](./media/ilms-tutorial/create_testuser_add.png)
+    ![Zrzut ekranu przedstawia stronę rejestrowanie użytkownika, na której wprowadzane są określone informacje.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. W polu tekstowym **imię i nazwisko** wpisz imię, np. Britta.
 
@@ -224,7 +224,7 @@ Jeśli musisz ręcznie utworzyć użytkownika, wykonaj następujące czynności:
 
     f. Z listy rozwijanej **dział** wybierz wartość dla działu.
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
     > [!NOTE]
     > Możesz wysłać wiadomość e-mail z rejestracją do użytkownika, zaznaczając pole wyboru **Wyślij wiadomość e-mail z rejestracją** .
@@ -237,6 +237,6 @@ Po wybraniu kafelka iLMS w panelu dostępu należy automatycznie zalogować się
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

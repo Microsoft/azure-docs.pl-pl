@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554976"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Samouczek: integracja Azure Active Directory z plikami Flatter
 
@@ -121,11 +121,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Flatter Fi
 
 2. Kliknij pozycję **DASHBOARD** (Pulpit nawigacyjny). 
    
-    ![Konfigurowanie logowania jednokrotnego](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Zrzut ekranu pokazujący "pulpit NAWIGACYJNy" wybrany w aplikacji "pliki Flatter".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Kliknij pozycję **Settings** (Ustawienia), a następnie wykonaj następujące czynności na karcie **Company** (Firma): 
    
-    ![Konfigurowanie logowania jednokrotnego](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Zrzut ekranu przedstawiający kartę "Firma" z opcją "Użyj S A M L 2,0 do uwierzytelnienia" i wybranym przyciskiem "Konfiguruj S A M L".](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Wybierz pozycję **Use SAML 2.0 For Authentication** (Użyj protokołu SAML 2.0 na potrzeby uwierzytelniania).
     
@@ -207,7 +207,7 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w aplikacji Flatter Fi
 
 2. W okienku nawigacji po lewej stronie kliknij pozycję **Settings** (Ustawienia), a następnie kartę **Users** (Użytkownicy).
    
-    ![Tworzenie użytkownika aplikacji Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Zrzut ekranu przedstawiający stronę "Ustawienia" z wybraną kartą "Użytkownicy".](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Kliknij pozycję **Dodaj użytkownika**. 
 
@@ -234,7 +234,7 @@ Po kliknięciu kafelka Flatter Files w panelu dostępu powinno nastąpić automa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

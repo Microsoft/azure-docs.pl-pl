@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776021"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825502"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -158,6 +158,12 @@ Aby włączyć pełną funkcjonalność programu Studio w ramach sieci wirtualne
 Skonfiguruj zaporę, aby kontrolować dostęp do zasobów obszaru roboczego Azure Machine Learning i publicznego Internetu. Mimo że zalecamy korzystanie z zapory platformy Azure, do zabezpieczenia sieci należy używać innych produktów zapory. Jeśli masz pytania dotyczące sposobu zezwalania na komunikację za pośrednictwem zapory, zapoznaj się z dokumentacją używanej zapory.
 
 Aby uzyskać więcej informacji na temat ustawień zapory, zobacz [Używanie obszaru roboczego za zaporą](how-to-access-azureml-behind-firewall.md).
+
+## <a name="custom-dns"></a>Niestandardowe DNS
+
+Jeśli musisz użyć niestandardowego rozwiązania DNS dla sieci wirtualnej, musisz dodać rekordy hosta dla obszaru roboczego.
+
+Aby uzyskać więcej informacji na temat wymaganych nazw domen i adresów IP, zobacz [jak używać obszaru roboczego z niestandardowym serwerem DNS](how-to-custom-dns.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,16 +12,16 @@ ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 96a722ba3570cda7a3a5d1ee82955ddc3f0014e8
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90894435"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827590"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
-Usługa Azure Cognitive Services to usługi w chmurze z interfejsami API REST, a także dostępne zestawy SDK dla deweloperów, które ułatwiają deweloperom tworzenie analiz poznawczych w aplikacjach, bez konieczności bezpośredniego sztucznej analizy danych lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji przy użyciu rozwiązań poznawczych, które widzą, słyszą, mówią, wiedzą, a nawet z przyczyn.
+Usługa Azure Cognitive Services to usługi oparte na chmurze, które udostępniają interfejsy API REST i zestawy SDK klienta dostępne, aby ułatwić deweloperom tworzenie analiz poznawczych w aplikacjach, bez konieczności bezpośredniego sztucznej analizy lub znajomości informacji lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji przy użyciu rozwiązań poznawczych, które widzą, słyszą, mówią, wiedzą, a nawet z przyczyn.
 
 Katalog usług AI, który zapewnia zrozumienie wiedzy, jest podzielony na pięć głównych filarów:
 
@@ -42,13 +42,13 @@ Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cogniti
 |[Rozpoznawanie twarzy](https://docs.microsoft.com/azure/cognitive-services/face/ "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów.|
 |[Aparat rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Rozpoznawanie formularzy") (wersja zapoznawcza)|Aparat rozpoznawania formularzy identyfikuje i wyodrębnia pary klucz-wartość oraz dane tabeli z dokumentów formularzy; następnie dane są wyprowadzane z uwzględnieniem relacji w oryginalnym pliku.|
 |[Aparat rozpoznawania atramentu](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
+|[Indeksator wideo](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Indeksator wideo")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
 
 ## <a name="speech-apis"></a>Interfejsy API mowy
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Usługa mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji.|
+|[Usługa rozpoznawania mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji.|
 |[Interfejs API rozpoznawania osoby mówiącej](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Interfejs API rozpoznawania osoby mówiącej") (wersja zapoznawcza)|Interfejs API rozpoznawania osoby mówiącej zapewnia algorytmy identyfikacji i weryfikacji osoby mówiącej.|
 |[Rozpoznawanie mowy Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Rozpoznawanie mowy Bing") (wycofywanie)|Interfejs API rozpoznawania mowy Bing zapewnia łatwy sposób tworzenia funkcji z obsługą mowy w aplikacjach.|
 |[Tłumaczenie mowy w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tłumaczenie mowy w usłudze Translator") (wycofywanie)|Tłumaczenie mowy w usłudze Translator to usługa tłumaczenia maszynowego.|
@@ -95,7 +95,7 @@ Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cogniti
 
 Dowiedz się więcej na temat tworzenia zasobów Cognitive Services za pomocą praktycznych przewodników Szybki Start, korzystając z:
 
-* [Witryna Azure Portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure Portal")
+* [Azure Portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure Portal")
 * [Interfejs wiersza polecenia platformy Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "Interfejs wiersza polecenia platformy Azure")
 * [Biblioteki klienckie zestawu Azure SDK](cognitive-services-apis-create-account-cli.md?tabs=windows "poznawcze-Services-API-Create-Account-Client-Library? pivots = programowanie-Language-CSharp")
 * [Szablony usługi Azure Resource Manager (ARM)](resource-manager-template.md?tabs=portal "Szablony usługi Azure Resource Manager (ARM)")

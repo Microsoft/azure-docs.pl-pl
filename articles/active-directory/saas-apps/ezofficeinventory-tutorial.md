@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f9f56967c03556def3aa221f84ccd290c6090fd1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ff6ba71f4606b3caf51007a9d75f3ca36bc99cda
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551153"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826482"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą EZOfficeInventory
 
@@ -151,7 +151,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W prawym górnym rogu strony kliknij pozycję **profil** , a następnie przejdź do obszaru **Ustawienia**  >  **Dodatki**.
 
-    ![Konfiguracja EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
+    ![Zrzut ekranu przedstawiający stronę "Ustawienia" z wybraną akcją "Dodaj".](./media/ezofficeinventory-tutorial/configure01.png)
 
 1. Przewiń w dół do sekcji **integracja SAML** , wykonaj następujące czynności:
 
@@ -185,11 +185,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka EZOfficeInventory w panelu dostępu należy automatycznie zalogować się do EZOfficeInventory, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

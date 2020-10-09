@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322091"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825422"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
 
 
-W tym artykule opisano architekturę, składniki i procesy używane podczas wdrażania odzyskiwania po awarii dla maszyn wirtualnych platformy Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) . Po skonfigurowaniu odzyskiwania po awarii maszyny wirtualne platformy Azure są ciągle replikowane z programu do innego regionu docelowego. Jeśli wystąpi awaria, możesz przejść do trybu failover maszyn wirtualnych do regionu pomocniczego i uzyskać do nich dostęp. Po ponownym uruchomieniu wszystkiego można wrócić do trybu failover i kontynuować pracę w lokalizacji głównej.
+W tym artykule opisano architekturę, składniki i procesy używane podczas wdrażania odzyskiwania po awarii dla maszyn wirtualnych platformy Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) . Po skonfigurowaniu odzyskiwania po awarii maszyny wirtualne platformy Azure są ciągle replikowane do innego regionu docelowego. Jeśli wystąpi awaria, możesz przejść do trybu failover maszyn wirtualnych do regionu pomocniczego i uzyskać do nich dostęp. Po ponownym uruchomieniu wszystkiego można wrócić do trybu failover i kontynuować pracę w lokalizacji głównej.
 
 
 
@@ -130,11 +130,11 @@ Jeśli dostęp wychodzący dla maszyn wirtualnych jest kontrolowany za pomocą a
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
-| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Zezwala na dostęp do włączania replikacji dla maszyn wirtualnych z obsługą ADE za pośrednictwem portalu |
+| Usługa Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Zezwala na dostęp do włączania replikacji dla maszyn wirtualnych z obsługą ADE za pośrednictwem portalu |
 | Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Umożliwia włączenie autouaktualnienia agenta mobilności dla zreplikowanego elementu za pośrednictwem portalu |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Połączenia ruchu wychodzącego dla zakresów adresów IP

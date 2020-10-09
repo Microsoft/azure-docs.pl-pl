@@ -3,12 +3,12 @@ title: Azure Service Bus — Przeglądanie komunikatów
 description: Przeglądanie i wgląd Service Bus komunikaty umożliwiają klientowi Azure Service Bus Wyliczenie wszystkich komunikatów znajdujących się w kolejce lub subskrypcji.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341235"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827445"
 ---
 # <a name="message-browsing"></a>Przeglądanie komunikatów
 
@@ -30,7 +30,7 @@ Gdy jest wywoływana wielokrotnie, Metoda wglądu wylicza wszystkie komunikaty z
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) pobiera wiele komunikatów i zwraca je jako Wyliczenie. Jeśli żadne komunikaty nie są dostępne, obiekt wyliczenia jest pusty, a nie null.
 
-Można również umieścić Przeciążenie metody z [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) , od którego należy zacząć, a następnie wywołać Przeciążenie metody bez parametrów, aby wyliczyć więcej. **PeekBatch** funkcje są równoważne, ale Pobiera zestaw komunikatów jednocześnie.
+Można również użyć przeciążenia metody z [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) , od którego należy zacząć, a następnie wywołać Przeciążenie metody bez parametrów, aby wyliczyć więcej. **PeekBatch** funkcje są równoważne, ale Pobiera zestaw komunikatów jednocześnie.
 
 ## <a name="next-steps"></a>Następne kroki
 

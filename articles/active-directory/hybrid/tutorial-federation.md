@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287036"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826533"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Samouczek: Sfederować jednego środowiska lasu usługi AD do chmury
 
@@ -87,7 +87,7 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 4. Na ekranie uruchamiania systemu Windows Server wybierz język i kliknij przycisk **Dalej**.
 5. Kliknij pozycję **Zainstaluj teraz**.
 6. Wprowadź klucz licencji i kliknij przycisk **Dalej**.
-7. Zaznacz opcję **Akceptuję postanowienia licencyjne, a następnie kliknij przycisk **Dalej**.
+7. Zaznacz pole **Akceptuję postanowienia licencyjne** i kliknij przycisk **dalej**.
 8. Wybierz **niestandardowe: tylko Zainstaluj system Windows (Zaawansowane)**
 9. Kliknij przycisk **dalej** .
 10. Po zakończeniu instalacji uruchom ponownie maszynę wirtualną, zaloguj się i uruchom aktualizacje systemu Windows, aby upewnić się, że maszyna wirtualna została zaktualizowana.  Zainstaluj najnowsze aktualizacje.
@@ -204,7 +204,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz przycisk **Utwórz**.</br>
+4. Wybierz pozycję **Utwórz**.</br>
 ![Zrzut ekranu pokazujący sposób tworzenia dzierżawy usługi Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.

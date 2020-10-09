@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112782"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826851"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Partycja logiczna składa się z zestawu elementów, które mają ten sam klucz 
 
 Partycja logiczna definiuje również zakres transakcji bazy danych. Można aktualizować elementy w ramach partycji logicznej przy użyciu [transakcji z izolacją migawki](database-transactions-optimistic-concurrency.md). Gdy nowe elementy są dodawane do kontenera, nowe partycje logiczne są w sposób niewidoczny dla użytkownika tworzone przez system.
 
-W kontenerze nie ma żadnego limitu liczby partycji logicznych. Każda partycja logiczna może przechowywać do 20 GB danych. Dobre opcje kluczy partycji mają szeroką gamę możliwych wartości. Na przykład w kontenerze, w którym wszystkie elementy zawierają `foodGroup` Właściwość, dane znajdujące się w `Beef Products` partycji logicznej mogą ROSNĄĆ do 20 GB. [Wybór klucza partycji](partitioning-overview.md#choose-partitionkey) z szerokim zakresem możliwych wartości zapewnia możliwość skalowania kontenera.
+W kontenerze nie ma żadnego limitu liczby partycji logicznych. Każda partycja logiczna może przechowywać do 20 GB danych. Dobre opcje kluczy partycji mają szeroką gamę możliwych wartości. Na przykład w kontenerze, w którym wszystkie elementy zawierają `foodGroup` Właściwość, dane w ramach `Beef Products` partycji logicznej mogą rosnąć do 20 GB. [Wybór klucza partycji](partitioning-overview.md#choose-partitionkey) z szerokim zakresem możliwych wartości zapewnia możliwość skalowania kontenera.
 
 ## <a name="physical-partitions"></a>Partycje fizyczne
 
@@ -36,7 +36,7 @@ Liczba partycji fizycznych w kontenerze Cosmos zależy od następujących czynni
 
 Brak limitu całkowitej liczby partycji fizycznych w kontenerze. W miarę zwiększania się przepustowości lub rozmiaru danych Azure Cosmos DB automatycznie utworzy nowe partycje fizyczne, dzieląc istniejące. Podział partycji fizycznych nie ma wpływu na dostępność aplikacji. Po podziale partycji fizycznej wszystkie dane w jednej partycji logicznej nadal będą przechowywane na tej samej partycji fizycznej. Podział partycji fizycznej po prostu tworzy nowe mapowanie partycji logicznych na partycje fizyczne.
 
-Obsługa przepływności dla kontenera jest dzielona równomiernie między partycjami fizycznymi. Projekt klucza partycji, który nie dystrybuuje żądań przepływności nawet może tworzyć partycje "gorąca". Partycje gorącą mogą spowodować ograniczenie szybkości i niewydajne wykorzystanie przepływności i wyższych kosztów.
+Obsługa przepływności dla kontenera jest dzielona równomiernie między partycjami fizycznymi. Projekt klucza partycji, który nie dystrybuuje żądań nawet może spowodować, że zbyt wiele żądań skierowanych do małego podzestawu partycji, które staną się "gorąca". Partycje gorącą prowadzą do niewydajnego korzystania z zainicjowanej przepływności, co może spowodować zmniejszenie stawki i zwiększenie kosztów.
 
 Partycje fizyczne kontenera można zobaczyć w sekcji **Magazyn** w **bloku metryki** Azure Portal:
 
@@ -54,7 +54,7 @@ Większość małych kontenerów Cosmos wymaga tylko pojedynczej partycji fizycz
 
 Na poniższej ilustracji przedstawiono, jak partycje logiczne są mapowane na partycje fizyczne dystrybuowane globalnie:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Obraz, który demonstruje Azure Cosmos DB partycjonowanie" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Wyświetlanie liczby partycji fizycznych" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

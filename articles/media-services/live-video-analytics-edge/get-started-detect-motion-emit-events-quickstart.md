@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773408"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825930"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -81,7 +81,7 @@ Postępuj zgodnie z tymi instrukcjami, aby nawiązać połączenie z Centrum IoT
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Analiza wideo na żywo oparta na wykrywaniu ruchu":::
-1. <!--In Visual Studio Code-->Wybierz pozycję **Widok**  >  **Eksplorator**. Lub wybierz kombinację klawiszy Ctrl + Shift + E.
+1. Wybierz pozycję **Widok**  >  **Eksplorator**. Lub wybierz kombinację klawiszy Ctrl + Shift + E.
 1. W lewym dolnym rogu karty **Eksplorator** wybierz pozycję **Azure IoT Hub**.
 1. Wybierz ikonę **więcej opcji** , aby wyświetlić menu kontekstowe. Następnie wybierz pozycję **ustaw IoT Hub parametry połączenia**.
 1. Po wyświetleniu pola wejściowego wprowadź parametry połączenia IoT Hub. W Cloud Shell można uzyskać parametry połączenia z *~/clouddrive/lva-sample/appsettings.jswłączone*.

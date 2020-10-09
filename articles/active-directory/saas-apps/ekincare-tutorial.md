@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: abd6382a9bf07f198e0344b8730c585cff0f96ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 987a8676fa9f738b788b183a1f3d964c0d0b88ad
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544287"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Samouczek: integracja Azure Active Directory z usługą eKincare
 
@@ -112,7 +112,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji eKincare, 
 
 5. Aplikacja eKincare oczekuje asercji SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z wybranym przyciskiem "Edytuj".](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** edytuj oświadczenia, korzystając z **ikony edycji**, lub dodaj je za pomocą opcji **Dodaj nowe oświadczenie**, aby skonfigurować atrybut tokenu języka SAML, jak pokazano na ilustracji powyżej, a następnie wykonaj następujące czynności: 
 
@@ -124,7 +124,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji eKincare, 
     
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "oświadczenia użytkownika" z wybranymi przyciskami "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -138,7 +138,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji eKincare, 
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -223,7 +223,7 @@ Po kliknięciu kafelka eKincare na panelu dostępu powinno nastąpić automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

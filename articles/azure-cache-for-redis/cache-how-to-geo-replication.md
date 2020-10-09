@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461346"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825328"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
@@ -111,6 +111,7 @@ Po skonfigurowaniu replikacji geograficznej, następujące ograniczenia mają za
 - [Dlaczego operacja kończy się niepowodzeniem podczas próby usunięcia połączonej pamięci podręcznej?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Jakiego regionu należy używać dla mojej pomocniczej połączonej pamięci podręcznej?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Jak działa przechodzenie w tryb failover do pomocniczej połączonej pamięci podręcznej?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Czy można skonfigurować zaporę z replikacją geograficzną?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Czy można używać replikacji geograficznej z pamięcią podręczną warstwy Standardowa lub podstawowa?
 
@@ -185,7 +186,12 @@ Automatyczne przełączanie w tryb failover w regionach platformy Azure nie jest
 
 Aby uruchomić tryb failover zainicjowany przez klienta, najpierw Odłącz pamięci podręczne. Następnie zmień klienta programu Redis tak, aby używał punktu końcowego połączenia (dawniej połączony) pomocniczej pamięci podręcznej. Po odłączeniu dwóch pamięci podręcznych pomocnicza pamięć podręczna jest ponownie regularna w pamięci podręcznej odczytu i zapisu oraz akceptuje żądania bezpośrednio od klientów Redis.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Czy można skonfigurować zaporę z replikacją geograficzną?
+
+Tak, można skonfigurować [zaporę](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) z replikacją geograficzną. Aby można było obsłużyć replikację geograficzną obok zapory, należy się upewnić, że adres IP pomocniczej pamięci podręcznej jest dodawany do reguł zapory podstawowej pamięci podręcznej.
+
 ## <a name="next-steps"></a>Następne kroki
+
 Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
 * [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)

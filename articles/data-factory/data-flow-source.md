@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: d850bcf2ffbd3867ab28d7dee54df3f8b427fd6e
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404755"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827852"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformacja źródła w strumieniu danych mapowania 
 
@@ -57,7 +57,9 @@ Usługa Azure Data Factory ma dostęp do ponad [90 natywnych łączników](conne
 
 ## <a name="source-settings"></a>Ustawienia źródła
 
-Po dodaniu źródła skonfiguruj go za pomocą karty **Ustawienia źródła** . W tym miejscu możesz wybrać lub utworzyć zestaw danych, do którego prowadzi punkty źródłowe. Możesz również wybrać opcje schematu i próbkowania dla danych.
+Po dodaniu źródła skonfiguruj go za pomocą karty **Ustawienia źródła** . W tym miejscu możesz wybrać lub utworzyć zestaw danych, do którego prowadzi punkty źródłowe. Możesz również wybrać opcje schematu i próbkowania dla danych. 
+
+Wartości programistyczne dla parametrów zestawu danych można skonfigurować w [ustawieniach debugowania](concepts-data-flow-debug-mode.md) (wymaga włączenia trybu debugowania).
 
 ![Karta Ustawienia źródła](media/data-flow/source1.png "Karta Ustawienia źródła")
 

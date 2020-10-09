@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4da177644a1cdb648c00e8309c18031a905d7f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82181787"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825950"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Omówienie biblioteki uwierzytelniania firmy Microsoft (MSAL)
-Biblioteka Microsoft Authentication Library (MSAL) umożliwia deweloperom uzyskanie [tokenów](developer-glossary.md#security-token) z punktu końcowego platformy tożsamości firmy Microsoft w celu uzyskania dostępu do zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web innych firm lub własny internetowy interfejs API. MSAL jest dostępny dla platform .NET, JavaScript, Android i iOS, które obsługują wiele różnych architektur i platform aplikacji.
+Biblioteka Microsoft Authentication Library (MSAL) umożliwia deweloperom uzyskanie [tokenów](developer-glossary.md#security-token) z punktu końcowego platformy tożsamości firmy Microsoft w celu uzyskania dostępu do zabezpieczonych interfejsów API sieci Web. Te interfejsy API sieci Web mogą być Microsoft Graph, inne interfejsy API firmy Microsoft, interfejsy API sieci Web innych firm lub własny internetowy interfejs API. MSAL jest dostępny dla platform .NET, JavaScript, Java, Python, Android i iOS, które obsługują wiele różnych architektur i platform aplikacji.
 
 MSAL zapewnia wiele sposobów uzyskiwania tokenów z spójnym interfejsem API dla wielu platform. Korzystanie z usługi MSAL zapewnia następujące korzyści:
 

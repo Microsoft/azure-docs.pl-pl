@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 22225d9810c7b913505cb003a1ed2ce8f1a144e1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b22bf4ee3ff830a80ee97851f08173257697c50d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555344"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826494"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu programu Evernote
 
@@ -92,7 +92,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 7. Aby zmodyfikować opcje **podpisywania** , kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **certyfikat podpisywania SAML** .
 
-    ![image (obraz)](common/edit-certificate.png) 
+    ![Zrzut ekranu przedstawiający okno dialogowe "S A M L Signing Certificate" z wybranym przyciskiem "Edytuj".](common/edit-certificate.png) 
 
     ![image (obraz)](./media/evernote-tutorial/samlassertion.png)
 
@@ -181,7 +181,7 @@ W aplikacji Evernote aprowizowanie jest zadaniem ręcznym.
 
 3. Z obszaru **Admin Console** (Konsola administracyjna) przejdź do pozycji **Add users** (Dodaj użytkowników).
 
-    ![Dodawanie użytkownika testowego](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Zrzut ekranu pokazujący menu "Użytkownicy" z wybraną pozycją "Dodaj użytkowników".](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. W obszarze **Add team members** (Dodaj członków zespołu) w polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail konta użytkownika i kliknij pozycję **Invite** (Zaproś).
 
@@ -195,11 +195,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Evernote na panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Evernote, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

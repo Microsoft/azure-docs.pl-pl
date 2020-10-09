@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 2cfc0324a06b4d950fc289b9c8ef033e77ffa53f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627911"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825915"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z jednostronicowej aplikacji (SPA) języka JavaScript
 
@@ -72,7 +72,7 @@ Upewnij się, że zainstalowano [Node.js](https://nodejs.org/en/download/) , a n
    npm install morgan --save
    ```
 
-1. Teraz Utwórz plik. js o nazwie `index.js` , a następnie Dodaj następujący kod:
+1. Teraz Utwórz plik. js o nazwie `server.js` , a następnie Dodaj następujący kod:
 
    ```JavaScript
    const express = require('express');
@@ -279,7 +279,7 @@ Przed kontynuowaniem uwierzytelniania Zarejestruj swoją aplikację na **Azure A
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ustaw adres URL przekierowania dla Node.js
 >
-> W przypadku Node.js można ustawić port serwera sieci Web w pliku *index.js* . W tym samouczku jest używany port 3000, ale można użyć dowolnego innego dostępnego portu.
+> W przypadku Node.js można ustawić port serwera sieci Web w pliku *server.js* . W tym samouczku jest używany port 3000, ale można użyć dowolnego innego dostępnego portu.
 >
 > Aby skonfigurować adres URL przekierowania w informacjach rejestracyjnych aplikacji, Wróć do okienka **rejestracji aplikacji** i wykonaj jedną z następujących czynności:
 >
@@ -513,3 +513,4 @@ Zajrzyj do aplikacji jednostronicowej (SPA) na platformie tożsamości firmy Mic
 
 > [!div class="nextstepaction"]
 > [Scenariusz: aplikacja jednostronicowa](scenario-spa-overview.md)
+

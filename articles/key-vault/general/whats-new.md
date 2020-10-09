@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 324e8b86c42f991fa7b0d566bf71b50ca69a53a6
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728764"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826923"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Co nowego w Azure Key Vault
 
@@ -31,7 +31,7 @@ Przed końcem 2020, **usuwanie nietrwałe będzie domyślnie włączone dla wszy
 
 ### <a name="azure-tls-certificate-changes"></a>Zmiany certyfikatu protokołu TLS platformy Azure  
 
-Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta zmiana jest wykonywana, ponieważ bieżące certyfikaty urzędu certyfikacji nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki.
+Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta zmiana jest wykonywana, ponieważ bieżące certyfikaty urzędu certyfikacji [nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### <a name="when-will-this-change-happen"></a>Kiedy to nastąpi zmiana?
 

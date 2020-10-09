@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 26f0c18fee8fe56a9bc0fa163ef59dfe0977cad5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032813"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825333"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -687,7 +687,7 @@ static async Task GetATokenForGraph()
  if (accounts.Any())
  {
   result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                    .ExecuteAync();
+                    .ExecuteAsync();
  }
  else
  {

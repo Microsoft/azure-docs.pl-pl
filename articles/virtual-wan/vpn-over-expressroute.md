@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317637"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828013"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób korzystania z usługi Azure Virtual Network do na
 
 Na poniższym diagramie przedstawiono przykład łączności sieci VPN za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute:
 
-![Sieć VPN przez ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="Sieć VPN przez ExpressRoute":::
 
 Diagram przedstawia sieć w sieci lokalnej połączonej z bramą sieci VPN usługi Azure Hub przez prywatną komunikację równorzędną ExpressRoute. Przedsiębiorstwo łączności jest proste:
 
@@ -76,7 +76,7 @@ Zasób lokacji jest taki sam jak Lokacje sieci VPN inne niż ExpressRoute dla wi
 >
 
 1. Przejdź do Azure Portal w przeglądarce. 
-1. Wybierz utworzoną sieć WAN. Na stronie sieć WAN w obszarze **łączność**wybierz pozycję **Lokacje sieci VPN**.
+1. Wybierz utworzone centrum. Na stronie wirtualnego centrum sieci WAN w obszarze **łączność**wybierz pozycję **Lokacje sieci VPN**.
 1. Na stronie **witryny sieci VPN** wybierz pozycję **+ Utwórz lokację**.
 1. Na stronie **Tworzenie lokacji** wypełnij następujące pola:
    * **Subskrypcja**: Sprawdź subskrypcję.
@@ -104,12 +104,17 @@ Zasób lokacji jest taki sam jak Lokacje sieci VPN inne niż ExpressRoute dla wi
 Po utworzeniu witryny sieci VPN i nawiązaniu połączenia z centrum wykonaj następujące kroki, aby skonfigurować połączenie do korzystania z prywatnej komunikacji równorzędnej ExpressRoute:
 
 1. Wróć do strony zasobów wirtualnej sieci WAN, a następnie wybierz zasób centrum. Lub przejdź między lokacją sieci VPN a podłączonym koncentratorem.
-1. W obszarze **łączność**wybierz pozycję **Sieć VPN (lokacja-lokacja)**.
-1. Wybierz wielokropek (**...**) w witrynie sieci VPN za pośrednictwem ExpressRoute, a następnie wybierz pozycję **Edytuj połączenie sieci VPN z tym centrum**.
-1. W obszarze **Użyj prywatnego adresu IP platformy Azure**wybierz pozycję **tak**. Ustawienie konfiguruje bramę sieci VPN Hub do używania prywatnych adresów IP w ramach zakresu adresów koncentratora na bramie dla tego połączenia zamiast publicznych adresów IP. Zapewni to, że ruch z sieci lokalnej przechodzi przez prywatne ścieżki komunikacji równorzędnej ExpressRoute zamiast używać publicznego Internetu dla tego połączenia sieci VPN. Poniższy zrzut ekranu przedstawia ustawienie.
 
-   ![Ustawienie dla korzystania z prywatnego adresu IP dla połączenia sieci VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Sieć VPN przez ExpressRoute":::
+1. W obszarze **łączność**wybierz pozycję **Sieć VPN (lokacja-lokacja)**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Sieć VPN przez ExpressRoute":::
+1. Wybierz wielokropek (**...**) w witrynie sieci VPN za pośrednictwem ExpressRoute, a następnie wybierz pozycję **Edytuj połączenie sieci VPN z tym centrum**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Sieć VPN przez ExpressRoute":::
+1. W obszarze **Użyj prywatnego adresu IP platformy Azure**wybierz pozycję **tak**. Ustawienie konfiguruje bramę sieci VPN Hub do używania prywatnych adresów IP w ramach zakresu adresów koncentratora na bramie dla tego połączenia zamiast publicznych adresów IP. Zapewni to, że ruch z sieci lokalnej przechodzi przez prywatne ścieżki komunikacji równorzędnej ExpressRoute zamiast używać publicznego Internetu dla tego połączenia sieci VPN. Poniższy zrzut ekranu przedstawia ustawienie:
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Sieć VPN przez ExpressRoute" border="false":::
 1. Wybierz pozycję **Zapisz**.
 
 Po zapisaniu zmian Brama sieci VPN centrum będzie używać prywatnych adresów IP w bramie sieci VPN do nawiązywania połączeń protokołu IPsec/IKE z lokalnym urządzeniem sieci VPN za pośrednictwem usługi ExpressRoute.
@@ -225,11 +230,11 @@ Jeśli chcesz wiedzieć, jak skonfigurować urządzenie, możesz skorzystać z i
 1. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum.
 1. W sekcji **centra i połączenia** można wyświetlić stan połączenia centrum, witryny, regionu i sieci VPN. Możesz również wyświetlić bajty i wychodzące.
 
-## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. monitorowanie połączenia
+## <a name="6-monitor-a-connection"></a><a name="connectmon"></a>6. monitorowanie połączenia
 
 Utwórz połączenie, aby monitorować komunikację między maszyną wirtualną platformy Azure a lokacją zdalną. Aby uzyskać informacje dotyczące konfigurowania monitora połączeń, zobacz [Monitorowanie komunikacji sieciowej](~/articles/network-watcher/connection-monitor.md). Pole Źródło jest adresem IP maszyny wirtualnej na platformie Azure, a docelowy adres IP to adres IP lokacji.
 
-## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Wyczyść zasoby
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Wyczyść zasoby
 
 Jeśli te zasoby nie są już potrzebne, możesz usunąć grupę zasobów i wszystkie znajdujące się w niej zasoby, używając polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Uruchom następujące polecenie programu PowerShell i Zastąp ciąg `myResourceGroup` nazwą grupy zasobów:
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029549"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827774"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Zresetuj hasło służbowe przy użyciu informacji zabezpieczających
 
@@ -69,7 +69,7 @@ Jeśli nie możesz uzyskać dostępu do konta usługi Azure Active Directory (Az
 
     3. Wpisz i Potwierdź nowe hasło, a następnie wybierz pozycję **Zakończ**.
 
-- **Zresetuj hasło, używając numeru telefonu.** Wysyła wiadomość SMS na numer telefonu, który został wcześniej skonfigurowany w informacjach zabezpieczających. Jeśli administrator włączył środowisko informacje zabezpieczające, można znaleźć więcej informacji na temat konfigurowania numeru telefonu w artykule [Konfigurowanie informacji zabezpieczających do korzystania z połączenia telefonicznego (wersja zapoznawcza)](security-info-setup-phone-number.md) . Jeśli jeszcze nie korzystasz z informacji zabezpieczających, możesz znaleźć więcej informacji na temat konfigurowania numeru telefonu w artykule [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md) .
+- **Zresetuj hasło, używając numeru telefonu.** Umieszcza automatyczne połączenie głosowe z wcześniej skonfigurowanym numerem telefonu w informacjach zabezpieczających. Jeśli administrator włączył środowisko informacje zabezpieczające, można znaleźć więcej informacji na temat konfigurowania numeru telefonu w artykule [Konfigurowanie informacji zabezpieczających do korzystania z połączenia telefonicznego (wersja zapoznawcza)](security-info-setup-phone-number.md) . Jeśli jeszcze nie korzystasz z informacji zabezpieczających, możesz znaleźć więcej informacji na temat konfigurowania numeru telefonu w artykule [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-first-time.md) .
 
     1. Wybierz pozycję **Zadzwoń na mój telefon komórkowy**, wpisz numer telefonu, a następnie wybierz pozycję **Połącz**.
 

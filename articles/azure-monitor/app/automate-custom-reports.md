@@ -4,12 +4,12 @@ description: Automatyzowanie niestandardowych raportów codziennych/cotygodniowy
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320412"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827734"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatyzowanie niestandardowych raportów za pomocą usługi Azure Application Insights Data
 
@@ -153,5 +153,5 @@ Te kroki mają zastosowanie tylko wtedy, gdy nie masz jeszcze skonfigurowanego k
 * Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../log-query/get-started-queries.md).
 * Dowiedz się więcej na temat [programowo przeszukiwania danych Application Insights](https://dev.applicationinsights.io/)
 * Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
-* Dowiedz się więcej o [Microsoft Flow](https://ms.flow.microsoft.com).
+* Dowiedz się więcej o [programie Microsoft PowerShell](https://ms.flow.microsoft.com).
 

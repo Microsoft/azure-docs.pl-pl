@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297318"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Hightail
 
@@ -97,7 +97,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | -------- |-------- |
     | FirstName (Imię) | user.givenname |
     | LastName (Nazwisko) | user.surname |
-    | E-mail | user.mail |
+    | Poczta e-mail | user.mail |
     | Tożsamość użytkownika | user.mail |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
@@ -155,15 +155,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę użytkownika** w prawym górnym rogu strony. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hightail-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia ikonę użytkownika.](./media/hightail-tutorial/configure1.png)
 
 1. Kliknij pozycję **Wyświetl kartę Konsola administracyjna** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hightail-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia przycisk Wyświetl konsolę administracyjną dla użytkownika.](./media/hightail-tutorial/configure2.png)
 
 1. W menu u góry kliknij kartę **SAML** i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hightail-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia kartę SAML, w której można wprowadzić nazwę logowania U R L i certyfikat SAML.](./media/hightail-tutorial/configure3.png)
 
     a. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
@@ -190,7 +190,7 @@ Po kliknięciu kafelka Hightail w panelu dostępu należy automatycznie zalogowa
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

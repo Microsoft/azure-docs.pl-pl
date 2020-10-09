@@ -2,18 +2,17 @@
 title: Samouczek — nowe przypisanie zasad z Azure Portal
 description: W tym samouczku użyto Azure Portal do utworzenia przypisania Azure Policy w celu zidentyfikowania niezgodnych zasobów.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321870"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826596"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Samouczek: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów
 
-Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów.
-Ten samouczek przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania komputerów z włączonym usługą Azure Arc i zidentyfikowania maszyn, na których nie zainstalowano agenta Log Analytics na maszynach z włączonym funkcją Azure Arc.
+Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów. Azure Policy obsługuje inspekcję stanu serwera z włączonym łukiem przy użyciu zasad konfiguracji gościa. Zasady konfiguracji gościa nie dotyczą konfiguracji, ale tylko ustawienia inspekcji w obrębie maszyny. Ten samouczek przeprowadzi Cię przez proces tworzenia i przypisywania zasad, co oznacza, że na serwerach z obsługą łuku nie zainstalowano agenta Log Analytics.
 
 Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny, na których nie zainstalowano agenta Log Analytics dla systemu Windows lub Linux. Są one _niezgodne_ z przypisaniem zasad.
 
@@ -23,7 +22,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
-W tym samouczku utworzysz przypisanie zasad i przypiszesz _maszyny wirtualne inspekcji, które nie używają_ definicji zasad dotyczących dysków zarządzanych.
+W tym samouczku utworzysz przypisanie zasad i przypiszesz _ \[ Podgląd]: Agent log Analytics powinien być zainstalowany w definicji zasad komputera z systemem Linux Azure_ .
 
 1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
 
@@ -31,11 +30,11 @@ W tym samouczku utworzysz przypisanie zasad i przypiszesz _maszyny wirtualne ins
 
 1. Wybierz pozycję **Przypisania** w lewej części strony usługi Azure Policy. Przypisanie to zasady, które zostały przypisane do określonego zakresu.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Strona wybierania przydziałów na stronie Przegląd zasad" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
 
 1. Wybierz pozycję **Przypisz zasady** w górnej części strony **Zasady — Przypisania**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Przypisywanie definicji zasad ze strony przypisań" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
 
 1. Na stronie **Przypisywanie zasad** wybierz **Zakres**, klikając wielokropek i wybierając grupę zarządzania lub subskrypcję. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Następnie kliknij przycisk **Wybierz** w dolnej części strony **Zakres**.
 
@@ -53,7 +52,7 @@ W tym samouczku utworzysz przypisanie zasad i przypiszesz _maszyny wirtualne ins
 
 1. Przeszukaj listę definicji zasad, aby znaleźć wersję _ \[ zapoznawczą]: na komputerze z systemem Windows należy zainstalować agenta log Analytics w definicji komputerów z systemem Windows Azure_ . W przypadku komputera z systemem Linux Znajdź odpowiednią wersję _ \[ zapoznawczą]: Agent log Analytics powinien być zainstalowany w definicji zasad komputera z systemem Linux Azure_ . Kliknij te zasady, a następnie kliknij pozycję **Wybierz**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Wyszukiwanie prawidłowej definicji zasad" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
 
 1. W polu **Nazwa przypisania** jest automatycznie wpisywana nazwa wybranej zasady, ale można ją zmienić. Na potrzeby tego przykładu pozostaw wersję _ \[ zapoznawczą]: Agent log Analytics powinien być zainstalowany na komputerze z systemem Windows Azure ARC lub w_ _ \[ wersji zapoznawczej]: Agent log Analytics należy zainstalować na komputerach z systemem Linux Azure Arc_ , w zależności od tego, który został wybrany. Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące danego przypisania zasad.
    Pole **Przypisane przez** jest wypełniane automatycznie w zależności od tego, kto jest zalogowany. To pole jest opcjonalne, dzięki czemu można wprowadzić wartości niestandardowe.
@@ -68,7 +67,7 @@ Teraz możesz zidentyfikować niezgodne zasoby, aby zrozumieć stan zgodności �
 
 Wybierz pozycję **Zgodność** w lewej części strony. Następnie zlokalizuj ** \[ Podgląd]: Agent log Analytics powinien być zainstalowany na komputerze z systemem Windows Azure ARC lub w** ** \[ wersji zapoznawczej]: Agent log Analytics powinien być zainstalowany w** utworzonym przypisaniu zasad komputera z systemem Linux Azure.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Szczegóły zgodności na stronie zgodność zasad" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
 
 Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone w obszarze **Niezgodne zasoby**.
 
@@ -92,7 +91,7 @@ Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy przypisanie zasad i wybierz polecenie **Usuń przypisanie**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Usuwanie przypisania ze strony zgodność" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

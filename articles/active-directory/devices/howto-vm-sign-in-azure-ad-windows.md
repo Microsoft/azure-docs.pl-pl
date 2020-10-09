@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287104"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826661"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -236,7 +236,7 @@ Aby maszyna wirtualna mogła ukończyć proces przyłączania do usługi Azure A
 
    > [!NOTE]
    > Jeśli rozszerzenie zostanie ponownie uruchomione po awarii początkowej, dziennik z błędem wdrożenia zostanie zapisany jako CommandExecution_YYYYMMDDHHMMSSSSS. log. "
-1. Otwórz wiersz polecenia na maszynie wirtualnej i sprawdź, czy te zapytania dotyczą punktu końcowego Instance Metadata Service (IMDS) uruchomionego na hoście platformy Azure:
+1. Otwórz wiersz polecenia programu PowerShell na maszynie wirtualnej i sprawdź, czy te zapytania dotyczą punktu końcowego Instance Metadata Service (IMDS) uruchomionego na hoście platformy Azure:
 
    | Polecenie do uruchomienia | Oczekiwane dane wyjściowe |
    | --- | --- |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705541"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825958"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrukcje: Zarządzanie nieodświeżonymi urządzeniami w usłudze Azure AD
 
@@ -163,9 +163,9 @@ Skonfigurowane klucze funkcji BitLocker dla urządzeń z systemem Windows 10 są
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Dlaczego należy się martwić o urządzenia z systemem Windows
 
 Po usunięciu urządzenia usługi Azure AD, które zostało skojarzone z obiektem autopilotażu systemu Windows, następujące trzy scenariusze mogą wystąpić, jeśli urządzenie zostanie przecelowo w przyszłości:
-- W przypadku wdrożeń opartych na użytkownikach w systemie Windows przy użyciu aplikacji typu "autopilotażowe" bez używania białych dokładne zostanie utworzone nowe urządzenie usługi Azure AD, ale nie będzie ono otagowane przy użyciu ZTDID.
+- W przypadku wdrożeń opartych na użytkownikach w systemie Windows, które nie korzystają z funkcji wstępnej aprowizacji, zostanie utworzone nowe urządzenie usługi Azure AD, ale nie będzie ono otagowane przy użyciu ZTDID.
 - W przypadku wdrożeń w trybie samoobsługowego wdrażania automatycznego systemu Windows nie będą one działać, ponieważ nie można odnaleźć skojarzenia z urządzeniem usługi Azure AD.  (Jest to mechanizm zabezpieczeń, aby upewnić się, że żadne urządzenia "nie będące skrytkami" próbują dołączyć do usługi Azure AD bez poświadczeń). Błąd będzie wskazywać niezgodność ZTDID.
-- W przypadku wdrożeń dokładne z systemem Windows przy użyciu środowiska autopilota nie powiedzie się, ponieważ nie można znaleźć skojarzonego urządzenia usługi Azure AD. (W tle, białe wdrożenia dokładne używają tego samego procesu samoobsługowego wdrażania, więc wymuszają te same mechanizmy zabezpieczeń).
+- W przypadku wdrożeń wstępnego inicjowania obsługi administracyjnej w systemie Windows nie będą one działać, ponieważ nie można znaleźć skojarzonego urządzenia usługi Azure AD. (W tle wdrożenia wstępnej aprowizacji używają tego samego procesu samoobsługowego wdrażania, więc wymuszają te same mechanizmy zabezpieczeń).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Jak mogę sprawdzić, czy wszystkie typy urządzeń zostały dołączone?
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816545"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825133"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Wdrażanie maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>Symulowanie wykluczenia
+
+Możesz [symulować wykluczenie](/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej na miejscu, aby przetestować, w jaki sposób aplikacja będzie odistnieć do nagłego wykluczenia. 
+
+Zastąp następujące informacje następującymi informacjami: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz również utworzyć maszynę wirtualną na miejscu przy użyciu [interfejsu wiersza polecenia platformy Azure](../linux/spot-cli.md), [portalu](spot-portal.md) lub [szablonu](../linux/spot-template.md).
+Możesz również utworzyć maszynę wirtualną na miejscu przy użyciu [interfejsu wiersza polecenia platformy Azure](../linux/spot-cli.md), [portalu](../spot-portal.md) lub [szablonu](../linux/spot-template.md).
+
+Zapoznaj się z bieżącymi informacjami o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach dodatkowych. Elementy `meterName` i `skuName` będą zawierać `Spot` .
 
 Jeśli wystąpi błąd, zobacz [kody błędów](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827613"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacja telemetrii w Application Insights
 
@@ -46,7 +46,7 @@ Dane telemetryczne mogą być analizowane przez uruchomienie zapytania:
 
 Zwróć uwagę, że wszystkie elementy telemetrii korzystają z katalogu głównego `operation_Id` . Po wykonaniu wywołania AJAX ze strony nowy unikatowy identyfikator ( `qJSXU` ) jest przypisywany do telemetrii zależności, a identyfikator pageView jest używany jako `operation_ParentId` . Żądanie serwera używa identyfikatora AJAX jako `operation_ParentId` .
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID (Identyfikator)           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Strona giełdowa                |              | STYz               | STYz         |
 | zależności | Pobierz/Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -74,71 +74,17 @@ Application Insights również definiuje [rozszerzenie](https://github.com/lmolk
 Modele danych w [kontekście śledzenia W3C](https://w3c.github.io/trace-context/) i Application Insights są mapowane w następujący sposób:
 
 | Application Insights                   | TraceContext — śledzenie W3C                                      |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `SpanKind` czy serwer jest synchroniczny; `SpanKind` jest konsumentem, jeśli asynchronicznie                    |
-| `Dependency`                           | `SpanKind` jest klientem w przypadku synchronicznego; `SpanKind` jest producentem, jeśli asynchronicznie                   |
-| `Id` z `Request` i `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `SpanId` z zakresu nadrzędnego tego zakresu. Jeśli jest to zakres główny, to pole musi być puste.     |
+|------------------------------------    |-------------------------------------------------|
+| `Id` z `Request` i `Dependency`     | [Identyfikator elementu nadrzędnego](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [Identyfikator śledzenia](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | [Identyfikator elementu nadrzędnego](https://w3c.github.io/trace-context/#parent-id) tego zakresu. Jeśli jest to zakres główny, to pole musi być puste.     |
+
 
 Aby uzyskać więcej informacji, zobacz [Application Insights model danych telemetrii](../../azure-monitor/app/data-model.md).
 
-### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla klasycznych aplikacji ASP.NET
- 
-  > [!NOTE]
-  >  Począwszy od `Microsoft.ApplicationInsights.Web` i `Microsoft.ApplicationInsights.DependencyCollector` , nie jest wymagana żadna konfiguracja.
+### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla aplikacji platformy .NET
 
-Obsługa funkcji śledzenia W3C jest zaimplementowana w sposób zgodny z poprzednimi wersjami. Oczekuje się, że korelacja będzie współdziałać z aplikacjami, które są Instrumentacją z poprzednimi wersjami zestawu SDK (bez pomocy technicznej W3C).
-
-Aby nadal korzystać z starszego `Request-Id` protokołu, można wyłączyć kontekst śledzenia przy użyciu tej konfiguracji:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-Jeśli uruchamiasz starszą wersję zestawu SDK, zalecamy jej aktualizację lub zastosowanie poniższej konfiguracji w celu włączenia kontekstu śledzenia.
-Ta funkcja jest dostępna w `Microsoft.ApplicationInsights.Web` `Microsoft.ApplicationInsights.DependencyCollector` pakietach i, począwszy od wersji 2.8.0-beta1.
-Jest on domyślnie wyłączony. Aby je włączyć, wprowadź następujące zmiany `ApplicationInsights.config` :
-
-- W obszarze `RequestTrackingTelemetryModule` Dodaj `EnableW3CHeadersExtraction` element i ustaw jego wartość na `true` .
-- W obszarze `DependencyTrackingTelemetryModule` Dodaj `EnableW3CHeadersInjection` element i ustaw jego wartość na `true` .
-- Dodaj `W3COperationCorrelationTelemetryInitializer` poniżej `TelemetryInitializers` . Będzie wyglądać podobnie do tego przykładu:
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla aplikacji ASP.NET Core
-
- > [!NOTE]
-  > Począwszy od `Microsoft.ApplicationInsights.AspNetCore` wersji 2.8.0, nie jest wymagana żadna konfiguracja.
- 
-Obsługa funkcji śledzenia W3C jest zaimplementowana w sposób zgodny z poprzednimi wersjami. Oczekuje się, że korelacja będzie współdziałać z aplikacjami, które są Instrumentacją z poprzednimi wersjami zestawu SDK (bez pomocy technicznej W3C).
-
-Aby nadal korzystać z starszego `Request-Id` protokołu, można wyłączyć kontekst śledzenia przy użyciu tej konfiguracji:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-Jeśli uruchamiasz starszą wersję zestawu SDK, zalecamy jej aktualizację lub zastosowanie poniższej konfiguracji w celu włączenia kontekstu śledzenia.
-
-Ta funkcja jest w `Microsoft.ApplicationInsights.AspNetCore` wersji 2.5.0-beta1 i w `Microsoft.ApplicationInsights.DependencyCollector` wersji 2.8.0-beta1.
-Jest on domyślnie wyłączony. Aby je włączyć, ustaw opcję `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` na `true` :
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+Śledzenie rozproszone oparte na TraceContext — śledzenieach jest domyślnie włączone we wszystkich najnowszych zestawach SDK .NET Framework/. NET Core oraz zgodność z poprzednimi wersjami przy użyciu starszego protokołu żądania ID.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla aplikacji Java
 
@@ -304,24 +250,9 @@ Dane dziennika można wyeksportować za pomocą polecenia `AzureLogHandler` . Ab
 
 ## <a name="telemetry-correlation-in-net"></a>Korelacja telemetrii w programie .NET
 
-W miarę upływu czasu platforma .NET określiła kilka sposobów skorelowania dzienników telemetrii i diagnostyki:
+Środowisko uruchomieniowe platformy .NET obsługuje dystrybucję z użyciem [działań](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) i [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
-- `System.Diagnostics.CorrelationManager` umożliwia śledzenie elementów [LogicalOperationStack i ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
-- `System.Diagnostics.Tracing.EventSource` i śledzenie zdarzeń systemu Windows (ETW) definiują metodę [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) .
-- `ILogger` używa [zakresów dzienników](/aspnet/core/fundamentals/logging#log-scopes).
-- Windows Communication Foundation (WCF) i HTTP — "bieżące" Propagacja kontekstu.
-
-Jednak te metody nie umożliwiały automatycznej obsługi śledzenia rozproszonego. `DiagnosticSource` obsługuje automatyczną korelację między maszynami. Biblioteki .NET obsługują `DiagnosticSource` i zezwalają na automatyczne propagowanie między maszynami kontekstu korelacji przy użyciu transportu, takiego jak http.
-
-[Podręcznik użytkownika działania](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) w programie `DiagnosticSource` objaśnia podstawy śledzenia działań.
-
-ASP.NET Core 2,0 obsługuje wyodrębnianie nagłówków HTTP i uruchamianie nowych działań.
-
-`System.Net.Http.HttpClient`począwszy od wersji 4.1.0, obsługuje automatyczne wstrzyknięcie nagłówków HTTP korelacji i śledzenie wywołań HTTP jako działania.
-
-Istnieje nowy moduł HTTP, [Microsoft. ASPNET. TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), dla klasycznego ASP.NET. Ten moduł implementuje korelację telemetrii za pomocą `DiagnosticSource` . Uruchamia działanie na podstawie przychodzących nagłówków żądań. Wiąże się to również z danymi telemetrycznymi z różnych etapów przetwarzania żądań, nawet gdy przetwarzanie poszczególnych etapów Internet Information Services (IIS) przebiega w innym zarządzanym wątku.
-
-Zestaw Application Insights SDK, zaczynając od wersji 2.4.0-beta1, używa `DiagnosticSource` i `Activity` do zbierania danych telemetrycznych i kojarzenia go z bieżącym działaniem.
+Application Insights .NET SDK używa `DiagnosticSource` i `Activity` do zbierania i skorelowania telemetrii.
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Korelacja telemetrii w języku Java

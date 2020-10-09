@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83597030"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825665"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Przeglądanie żądań ściągnięcia w środowiskach przedprodukcyjnych w usłudze Azure Static Web Apps (wersja zapoznawcza)
 
@@ -51,11 +51,11 @@ Zacznij od wprowadzenia zmiany w repozytorium. Możesz to zrobić bezpośrednio 
 
 1. Przejdź do folderu _aplikacji_ i zmień treść tekstu. Na przykład można zmienić tytuł lub akapit. Po znalezieniu pliku do edycji kliknij przycisk **Edytuj** , aby wprowadzić zmiany.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Przycisk Edytuj plik w interfejsie GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 1. Po wprowadzeniu zmian kliknij pozycję **Zatwierdź zmiany** , aby zatwierdzić zmiany w gałęzi.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Przycisk zatwierdzania zmian w interfejsie GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 ## <a name="create-a-pull-request"></a>Tworzenie żądania ściągnięcia
 
@@ -63,13 +63,13 @@ Następnie Utwórz żądanie ściągnięcia z tej zmiany.
 
 1. Otwórz kartę **żądanie ściągnięcia** projektu w witrynie GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Karta żądanie ściągnięcia w repozytorium GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 1. Kliknij przycisk **porównaj & ściągania żądania ściągnięcia** gałęzi.
 
 1. Opcjonalnie możesz wypełnić niektóre szczegółowe informacje o zmianach, a następnie kliknąć pozycję **Utwórz żądanie ściągnięcia**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Tworzenie żądania ściągnięcia w serwisie GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 W razie potrzeby można przypisywać recenzentów i dodawać komentarze w celu omówienia zmian.
 
@@ -80,9 +80,9 @@ W razie potrzeby można przypisywać recenzentów i dodawać komentarze w celu o
 
 Po utworzeniu żądania ściągnięcia przepływ pracy wdrożenia [akcji usługi GitHub](https://github.com/features/actions) uruchamia i wdraża zmiany w środowisku przedprodukcyjnym.
 
-Gdy przepływ pracy zakończy Kompilowanie i wdrażanie aplikacji, bot GitHub dodaje komentarz do żądania ściągnięcia, który zawiera adres URL środowiska przedprodukcyjnego. Możesz kliknąć ten link, aby zobaczyć zmiany etapowe.
+Gdy przepływ pracy zakończy Kompilowanie i wdrażanie aplikacji, bot GitHub dodaje komentarz do żądania ściągnięcia, który zawiera adres URL środowiska przedprodukcyjnego. Możesz kliknąć to łącze, aby zobaczyć przygotowane zmiany.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Komentarz dotyczący żądania ściągnięcia ze wstępnie produkcyjnym adresem URL":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 Kliknij wygenerowany adres URL, aby zobaczyć zmiany.
 
@@ -96,7 +96,7 @@ Po zatwierdzeniu zmian można opublikować zmiany w środowisku produkcyjnym, sc
 
 Kliknij pozycję **żądanie ściągnięcia scalania**:
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Przycisk scalania żądania ściągnięcia w interfejsie GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Tworzenie nowej gałęzi przy użyciu interfejsu GitHub":::
 
 Scalanie kopiuje zmiany do śledzonej gałęzi (gałąź "produkcyjna"). Następnie przepływ pracy wdrożenia jest uruchamiany w śledzonej gałęzi, a zmiany są aktywne po ponownym skompilowaniu aplikacji.
 

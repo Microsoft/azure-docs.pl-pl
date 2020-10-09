@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629151"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826214"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Rejestrowanie poufnej aplikacji klienckiej w Azure Active Directory
 
@@ -50,7 +50,7 @@ Po zarejestrowaniu aplikacji należy wybrać uprawnienia interfejsu API, dla kt�
 
 1. Wybierz pozycję **Dodaj uprawnienie**.
 
-    Jeśli używasz interfejsu API platformy Azure dla usługi FHIR, dodasz uprawnienie do interfejsów API usługi Azure opieki IT, wyszukując **interfejsy API usługi Azure opieki zdrowotnej** w obszarze **interfejsy API używane przez moją organizację**. 
+    Jeśli używasz interfejsu API platformy Azure dla usługi FHIR, dodasz uprawnienie do interfejsów API usługi Azure opieki IT, wyszukując **interfejsy API usługi Azure opieki zdrowotnej** w obszarze **interfejsy API używane przez moją organizację**. Można to sprawdzić tylko wtedy [, gdy wdrożono już interfejs API platformy Azure dla usługi FHIR](fhir-paas-powershell-quickstart.md).
 
     Jeśli odwołujesz się do innej aplikacji zasobów, wybierz [rejestrację aplikacji interfejsu API FHIR](register-resource-azure-ad-client-app.md) utworzoną wcześniej w obszarze **Moje interfejsy API**.
 
@@ -75,9 +75,7 @@ Po zarejestrowaniu aplikacji należy wybrać uprawnienia interfejsu API, dla kt�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób rejestrowania poufnej aplikacji klienckiej w Azure Active Directory. Teraz można przystąpić do wdrażania [interfejsu API platformy Azure dla usługi FHIR](fhir-paas-powershell-quickstart.md).
-
-Po wdrożeniu interfejsu API platformy Azure dla usługi FHIR możesz przejrzeć dodatkowe dostępne ustawienia.
+W tym artykule przedstawiono sposób rejestrowania poufnej aplikacji klienckiej w Azure Active Directory. Następnie możesz uzyskać dostęp do serwera FHIR za pomocą programu Poster
  
 >[!div class="nextstepaction"]
->[Wdrażanie usługi Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster](access-fhir-postman-tutorial.md)

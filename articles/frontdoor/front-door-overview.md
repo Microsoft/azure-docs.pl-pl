@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773454"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825648"
 ---
 # <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
 
 Drzwi frontonu platformy Azure to globalny, skalowalny punkt wejścia, który używa sieci Microsoft Global Edge do tworzenia szybkich, bezpiecznych i skalowalnych aplikacji sieci Web. Za pomocą przednich drzwi możesz przekształcić globalne aplikacje dla użytkowników i przedsiębiorstw na niezawodne, wysoce wydajne, nowoczesne aplikacje zawierające zawartość, która dociera do odbiorców globalnych za pomocą platformy Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Architektura z drzwiami przednimi":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 Drzwiczki z przodu działają w warstwie 7 (warstwie HTTP/HTTPS) przy użyciu protokołu emisji pojedynczej z podziałem sieci globalnej TCP i firmy Microsoft, aby poprawić łączność globalną. Na podstawie metody routingu można upewnić się, że drzwi z przodu będą kierować żądania klientów do najszybszych i najbardziej dostępnych zaplecza aplikacji. Zaplecze aplikacji to dowolna internetowa usługa hostowana wewnątrz platformy Azure lub poza nią. Drzwi frontonu udostępniają szereg [metod routingu ruchu](front-door-routing-methods.md) i [opcji monitorowania kondycji zaplecza](front-door-health-probes.md) , aby odpowiadały różnym potrzebom aplikacji i automatycznym scenariuszom pracy awaryjnej. Podobnie jak w przypadku [Traffic Manager](../traffic-manager/traffic-manager-overview.md), tylne drzwi są odporne na awarie, w tym niepowodzenia w całym regionie świadczenia usługi Azure.
 

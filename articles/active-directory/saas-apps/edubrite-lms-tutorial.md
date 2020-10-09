@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b206d5e8721ee87b699765c0fc2a7df6177fc8cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d753aef3c7cd855b1ab137e85a233a1bca27c25a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544421"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS EduBrite
 
@@ -101,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu system
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o rejestracji jednokrotnej w systemie LMS EduBrite i adresach URL](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionym przyciskiem "Identyfikator", "odpowiedź U R L" i "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<customer-specific>.edubrite.com`
 
@@ -198,7 +198,7 @@ Po kliknięciu kafelka systemu LMS EduBrite w panelu dostępu należy automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

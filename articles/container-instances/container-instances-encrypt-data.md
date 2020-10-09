@@ -3,14 +3,14 @@ title: Szyfrowanie danych wdrożenia
 description: Informacje o szyfrowaniu danych utrwalonych dla zasobów wystąpień kontenera i sposobach szyfrowania danych za pomocą klucza zarządzanego przez klienta
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259716"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825681"
 ---
 # <a name="encrypt-deployment-data"></a>Szyfrowanie danych wdrożenia
 

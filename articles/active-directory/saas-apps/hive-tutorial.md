@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544083"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826140"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Hive
 
@@ -147,11 +147,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **profil użytkownika** , a następnie kliknij **swój obszar roboczy**.
 
-    ![Konfiguracja programu Hive](./media/hive-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia witrynę sieci Web programu Hive z wybranym obszarem roboczym z menu.](./media/hive-tutorial/configure1.png)
 
 1. Kliknij pozycję **uwierzytelnianie** i wykonaj następujące czynności:
 
-    ![Konfiguracja programu Hive](./media/hive-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia stronę uwierzytelniania, na której opisano zadania.](./media/hive-tutorial/configure2.png)
 
     a. Skopiuj **Identyfikator obszaru roboczego** i dołącz go do **adresu URL jednokrotnego** i  **adresu URL odpowiedzi** w **sekcji Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -171,11 +171,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Hive w panelu dostępu należy automatycznie zalogować się do gałęzi, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

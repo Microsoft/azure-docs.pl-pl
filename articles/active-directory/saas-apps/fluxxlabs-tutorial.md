@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554866"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FluxX Labs
 
@@ -139,15 +139,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Wybierz pozycję **administrator** poniżej sekcji **Ustawienia** .
 
-    ![Konfiguracja FluxX Labs](./media/fluxxlabs-tutorial/config1.png)
+    ![Zrzut ekranu pokazujący sekcję "Ustawienia" z wybraną pozycją "Administrator".](./media/fluxxlabs-tutorial/config1.png)
 
 3. W panelu administratora wybierz opcję integracje dodatków **plug-in**,  >  **Integrations** a następnie wybierz pozycję **SAML SSO — (wyłączone).**
 
-    ![Konfiguracja FluxX Labs](./media/fluxxlabs-tutorial/config2.png)
+    ![Zrzut ekranu pokazujący kartę "integracje" z wybraną opcją "S A M L s s O-(disabled).](./media/fluxxlabs-tutorial/config2.png)
 
 4. W sekcji atrybut wykonaj następujące czynności:
 
-    ![Konfiguracja FluxX Labs](./media/fluxxlabs-tutorial/config3.png)
+    ![Zrzut ekranu pokazujący sekcję "atrybuty" z zaznaczonym przyciskiem "S A M L s O", wartości wprowadzonych w polach i wybranym przycisku "Zapisz".](./media/fluxxlabs-tutorial/config3.png)
 
     a. Zaznacz pole wyboru **SAML SSO** .
 
@@ -165,7 +165,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     h. W polu tekstowym **Format identyfikatora nazwy** wprowadź wartość `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` .
 
-    i. Kliknij pozycję **Zapisz**.
+    i. Kliknij przycisk **Zapisz**.
 
     > [!NOTE]
     > Po zapisaniu zawartości pole będzie wyświetlane jako puste dla zabezpieczeń, ale wartość została zapisana w konfiguracji.
@@ -180,11 +180,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do FluxX Labs, mus
 
 2. Kliknij poniżej wyświetlaną **ikonę**.
 
-    ![Konfiguracja FluxX Labs](./media/fluxxlabs-tutorial/config6.png)
+    ![Zrzut ekranu pokazujący Opcje administratora z ikoną "plus" wybraną w obszarze "pulpit nawigacyjny jest pusty".](./media/fluxxlabs-tutorial/config6.png)
 
 3. Na pulpicie nawigacyjnym kliknij poniżej ikonę wyświetlaną, aby otworzyć kartę **nowe osoby** .
 
-    ![Konfiguracja FluxX Labs](./media/fluxxlabs-tutorial/config4.png)
+    ![Zrzut ekranu pokazujący menu "Zarządzanie kontaktem" z ikoną "plus" obok wybranej pozycji "osoby".](./media/fluxxlabs-tutorial/config4.png)
 
 4. W sekcji **nowe osoby** wykonaj następujące czynności:
 
@@ -192,7 +192,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do FluxX Labs, mus
 
     a. FluxX Labs używają poczty e-mail jako unikatowego identyfikatora logowania jednokrotnego (SSO). Wypełnij pole **UID logowania jednokrotnego** , podając adres e-mail użytkownika, który jest zgodny z adresem e-mail, który jest używany jako logowanie za pomocą logowania jednokrotnego.
 
-    b. Kliknij pozycję **Zapisz**.
+    b. Kliknij przycisk **Zapisz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -200,11 +200,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka FluxX Labs w panelu dostępu należy automatycznie zalogować się do laboratoriów FluxX, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 43f7cddfa6fb887fd421d1f90a41145c6182654d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517147"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Samouczek: integracja Azure Active Directory z usługą Silverback
 
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Silverback,
 
     h.  Wybierz **kolor** tła przycisku.
 
-    i.  Kliknij pozycję **Zapisz**.
+    i.  Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -160,7 +160,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
@@ -213,13 +213,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Silverb
 
     c. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, np. **Simon**.
 
-    d. W polu tekstowym **adres e-mail** Wprowadź wiadomość e-mail użytkownika **Brittasimon@contoso.com** .
+    d. W polu tekstowym **adres e-mail** wprowadź wiadomości e-mail użytkownika, takie jak **Brittasimon \@ contoso.com**.
 
     e. W polu tekstowym **hasło** wprowadź hasło.
 
     f. W polu tekstowym **Potwierdź hasło** wprowadź ponownie hasło i potwierdź.
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
 > Jeśli nie chcesz tworzyć każdego użytkownika ręcznie, zaznacz pole wyboru **dynamiczne tworzenie użytkownika** w obszarze **Admin**  >  **dostawca uwierzytelniania**administratora.
@@ -234,7 +234,7 @@ Po kliknięciu kafelka Silverback w panelu dostępu należy automatycznie zalogo
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 88cb54a7a9e20e643d9a19f57dc83d3f1ea8004d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761213"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826898"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 
 |Najważniejsze korzyści|Opis|
 |----|----|
-|Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym. Możesz również skonfigurować Zdalne programowanie VS Code przy użyciu protokołu [SSH](how-to-set-up-vs-code-remote.md) |
+|Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym.<br/> Możesz również użyć [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) z wystąpieniami obliczeniowymi.
 |Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>-Autoudostępnianie z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
 |Wstępnie skonfigurowane &nbsp; dla &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
@@ -47,9 +47,11 @@ Można [utworzyć wystąpienie obliczeniowe](how-to-create-manage-compute-instan
 
 Wystąpienie obliczeniowe Azure Machine Learning umożliwia tworzenie, uczenie i wdrażanie modeli w pełni zintegrowane środowisko notesu w obszarze roboczym.
 
+Notesy Jupyter można uruchamiać w [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) przy użyciu wystąpienia obliczeniowego jako serwera zdalnego bez konieczności używania protokołu SSH. Możesz również włączyć integrację VS Code za pośrednictwem [zdalnego rozszerzenia SSH](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
 Można [zainstalować pakiety](how-to-create-manage-compute-instance.md#install-packages) i [dodać jądra](how-to-create-manage-compute-instance.md#add-new-kernels) do wystąpienia obliczeniowego.  
 
-Te narzędzia i środowiska są już zainstalowane w wystąpieniu obliczeniowym: 
+Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obliczeniowym: 
 
 |Narzędzia ogólne & środowiska|Szczegóły|
 |----|:----:|
@@ -143,7 +145,7 @@ Dedykowane rdzenie dla poszczególnych regionów na poszczególne regiony i łą
 ### <a name="create-on-behalf-of-preview"></a>Utwórz w imieniu (wersja zapoznawcza)
 
 Jako administrator możesz utworzyć wystąpienie obliczeniowe w imieniu Analityka danych i przypisać do nich wystąpienie:
-* [Szablon Azure Resource Manager](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
+* [Szablon Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Aby uzyskać szczegółowe informacje na temat sposobu wyszukiwania TenantID i ObjectID wymaganych w tym szablonie, zobacz [Znajdowanie identyfikatorów obiektów tożsamości dla konfiguracji uwierzytelniania](../healthcare-apis/find-identity-object-ids.md).  Te wartości można również znaleźć w portalu Azure Active Directory.
 * Interfejs API REST
 
 Analityk danych tworzy wystąpienie obliczeniowe wymagające następujących uprawnień RBAC: 

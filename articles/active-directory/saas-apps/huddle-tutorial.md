@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 77472e27a11614b7b5600f48e020afcceaeb967c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1cbc47820f4a9eeffc4e9fa3cf01290f7c35fd14
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525908"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Samouczek: integracja Azure Active Directory z usługą Huddle
 
@@ -102,7 +102,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Huddle, w
     > [!NOTE]
     > Wystąpienie aplikacji Huddle zostanie wykryte automatycznie na podstawie domeny wprowadzonej poniżej.
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Huddle](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL:
 
@@ -121,7 +121,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Huddle, w
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Huddle](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
 

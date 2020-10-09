@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057218"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826937"
 ---
 # <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
@@ -43,8 +43,8 @@ Skorzystaj z poniższej tabeli, aby określić potrzeby dostępu do zasobów Cus
 
 |Rola  |Uprawnienia  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Pełny dostęp do projektów, w tym możliwość tworzenia, edytowania lub usuwania projektu.        |
-|`Cognitive Service Custom Vision Trainer`     | Pełny dostęp z wyjątkiem możliwości tworzenia lub usuwania projektu. Instruktorzy mogą wyświetlać i edytować projekty oraz uczenie, publikować, cofać Publikowanie lub eksportować modele.        |
-|`Cognitive Service Custom Vision Labeler`     | Możliwość przekazywania, edytowania lub usuwania obrazów szkoleniowych oraz tworzenia, dodawania, usuwania lub usuwania tagów. Etykiety mogą wyświetlać projekty, ale nie mogą aktualizować niczego innego niż obrazy szkoleniowe i Tagi.         |
-|`Cognitive Service Custom Vision Deployment`     | Możliwość publikowania, cofania publikacji lub eksportowania modeli. Narzędzia wdrażania mogą wyświetlać projekty, ale nie mogą aktualizować projektu, obrazów szkoleniowych ani tagów.        |
-|`Cognitive Service Custom Vision Reader`     | Możliwość wyświetlania projektów. Czytelnicy nie mogą wprowadzać żadnych zmian.        |
+|`Cognitive Services Custom Vision Contributor`     | Pełny dostęp do projektów, w tym możliwość tworzenia, edytowania lub usuwania projektu.        |
+|`Cognitive Services Custom Vision Trainer`     | Pełny dostęp z wyjątkiem możliwości tworzenia lub usuwania projektu. Instruktorzy mogą wyświetlać i edytować projekty oraz uczenie, publikować, cofać Publikowanie lub eksportować modele.        |
+|`Cognitive Services Custom Vision Labeler`     | Możliwość przekazywania, edytowania lub usuwania obrazów szkoleniowych oraz tworzenia, dodawania, usuwania lub usuwania tagów. Etykiety mogą wyświetlać projekty, ale nie mogą aktualizować niczego innego niż obrazy szkoleniowe i Tagi.         |
+|`Cognitive Services Custom Vision Deployment`     | Możliwość publikowania, cofania publikacji lub eksportowania modeli. Narzędzia wdrażania mogą wyświetlać projekty, ale nie mogą aktualizować projektu, obrazów szkoleniowych ani tagów.        |
+|`Cognitive Services Custom Vision Reader`     | Możliwość wyświetlania projektów. Czytelnicy nie mogą wprowadzać żadnych zmian.        |

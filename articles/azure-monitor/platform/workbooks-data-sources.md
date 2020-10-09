@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081427"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825740"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -114,4 +114,3 @@ Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas 
 * [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
 * [Wskazówki dotyczące optymalizacji zapytań Log Analytics](../log-query/query-optimization.md)
-* 
