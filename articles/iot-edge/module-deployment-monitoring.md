@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85194794"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informacje na temat IoT Edge wdrożeń automatycznych dla pojedynczych urządzeń lub na dużą skalę
@@ -98,7 +98,7 @@ Domyślnie wszystkie wdrożenia są raportowane według czterech metryk:
 
 Ponadto można definiować własne metryki niestandardowe w celu ułatwienia monitorowania wdrożenia i zarządzania nim.
 
-Metryki zawierają podsumowanie liczb różnych stanów, które urządzenia mogą raportować z powrotem w wyniku zastosowania konfiguracji wdrożenia. Metryki mogą wykonywać zapytania dotyczące [właściwości w module edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), takich jak *lastDesiredStatus* lub *lastConnectTime*. Przykład:
+Metryki zawierają podsumowanie liczb różnych stanów, które urządzenia mogą raportować z powrotem w wyniku zastosowania konfiguracji wdrożenia. Metryki mogą wykonywać zapytania dotyczące [właściwości w module edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), takich jak *lastDesiredStatus* lub *lastConnectTime*. Na przykład:
 
 ```sql
 SELECT deviceId FROM devices

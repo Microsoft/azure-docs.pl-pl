@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.openlocfilehash: a1f052df9b233fd564ed7e16c04c32c0c7234e1a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555676"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą dynaTrace
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. **Opcja podpisywania** jest wstępnie wypełniona. Sprawdź ustawienia zgodnie z potrzebami organizacji.
 
-    b. Kliknij pozycję **Zapisz**.
+    b. Kliknij przycisk **Zapisz**.
 
     ![Opcja podpisywania Communifire](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
@@ -151,7 +151,7 @@ Po kliknięciu kafelka dynaTrace w panelu dostępu należy automatycznie zalogow
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

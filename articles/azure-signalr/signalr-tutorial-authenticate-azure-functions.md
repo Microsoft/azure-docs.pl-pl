@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327622"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Samouczek: Uwierzytelnianie usługi Azure SignalR Service za pomocą usługi Azure Functions
@@ -52,7 +52,7 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
 
 1. Kliknij przycisk **Utwórz zasób** ( **+** ), aby utworzyć nowy zasób platformy Azure.
 
-1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij pozycję **Utwórz**.
+1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij przycisk **Utwórz**.
 
     ![Nowa usługa SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
@@ -65,7 +65,7 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
     | Lokalizacja | Wybierz bliską Ci lokalizację |
     | Warstwa cenowa | Bezpłatna |
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 1. Po wdrożeniu wystąpienia otwórz je w portalu i Znajdź jego stronę ustawień. Zmień ustawienie trybu usługi na *bezserwerowy*.
 
@@ -350,7 +350,7 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
 
 1. W polu **Nazwa dokumentu indeksu**wprowadź *index.html*.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Zostanie wyświetlony **podstawowy punkt końcowy** . Zwróć uwagę na tę wartość. Będzie ona wymagana do skonfigurowania aplikacji funkcji.
 
@@ -434,7 +434,7 @@ Uwierzytelnianie usługi App Service obsługuje uwierzytelnianie za pomocą kont
     - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
     - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
     - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [konto Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
+    - [Konto Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
     - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
 
 ### <a name="update-the-web-app"></a>Aktualizowanie aplikacji internetowej

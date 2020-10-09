@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85078135"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Wyświetlanie raportów i dzienników w usłudze Azure AD uprawnień zarządzania
@@ -85,7 +85,7 @@ Aby uzyskać dodatkowe informacje o tym, jak użytkownik zażądał i otrzymał 
 
 1. W górnej części Zmień **kategorię** na `EntitlementManagement` lub, w zależności od `UserManagement` szukanego rekordu inspekcji.  
 
-1. Kliknij przycisk **Zastosuj**.
+1. Kliknij pozycję **Zastosuj**.
 
 1. Aby pobrać dzienniki, kliknij przycisk **Pobierz**.
 

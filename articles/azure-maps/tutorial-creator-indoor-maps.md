@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371426"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora
@@ -102,7 +102,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
  Teraz, gdy pakiet do rysowania zostanie przekazany, zostanie użyty `udid` dla przekazanego pakietu do przekonwertowania pakietu na dane mapy. Interfejs API konwersji używa długotrwałej transakcji implementującej wzorzec zdefiniowany w [tym miejscu](creator-long-running-operation.md). Po zakończeniu operacji będziemy korzystać z programu `conversionId` w celu uzyskania dostępu do przekonwertowanych danych. Wykonaj poniższe kroki, aby uzyskać `conversionId` .
 
-1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**.
 
 2. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekonwertować przekazany pakiet rysowania na dane mapy. Użyj `udid` do przekazanego pakietu.
 

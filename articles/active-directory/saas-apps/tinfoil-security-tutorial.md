@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 35ff822b4439a48a922fe5ccd4530dfb5d40ffae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tinfoil-security"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z zabezpieczeniami usługa TINFOIL
@@ -145,7 +145,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Security** (Zabezpieczenia).
 
-    ![Bezpieczeństwo](./media/tinfoil-security-tutorial/ic798972.png "Zabezpieczenia")
+    ![Zabezpieczenia](./media/tinfoil-security-tutorial/ic798972.png "Zabezpieczenia")
 
 1. Na stronie konfiguracji **Single Sign On** (Logowanie jednokrotne) wykonaj następujące kroki:
 
@@ -161,7 +161,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
   
     e. Skopiuj wartość **identyfikatora konta** i wklej wartość w polu tekstowym **atrybut źródłowy** w obszarze **atrybuty użytkownika & oświadczenia** w Azure Portal.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-tinfoil-security-test-user"></a>Utwórz użytkownika testowego zabezpieczeń usługa TINFOIL
 
@@ -186,7 +186,7 @@ Po kliknięciu kafelka zabezpieczenia usługa TINFOIL w panelu dostępu należy 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

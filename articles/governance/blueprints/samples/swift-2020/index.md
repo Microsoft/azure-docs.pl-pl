@@ -4,10 +4,10 @@ description: Omówienie przykładowej strategii SWIFT CSP-CSCF v2020. Ten przyk�
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 8c6eb7a609f1103f0b20a83e45bef9e18ae4d5c4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88612694"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Omówienie przykładowej strategii SWIFT CSP-CSCF v2020

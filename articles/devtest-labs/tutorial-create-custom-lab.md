@@ -4,10 +4,10 @@ description: W tym samouczku utworzysz laboratorium w Azure DevTest Labs przy u�
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324284"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Samouczek: konfigurowanie laboratorium przy użyciu usługi Azure DevTest Labs
@@ -96,7 +96,7 @@ W następnym samouczku pokazano, jak użytkownik laboratorium może przejąć ma
 1. Wybierz pozycję **Usuń grupę zasobów** z paska narzędzi. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w grupie, łącznie z laboratorium. 
 
     ![Grupa zasobów laboratorium](./media/tutorial-create-custom-lab/lab-resource-group.png)
-1. Powtórz te czynności, aby usunąć dodatkową utworzoną grupę zasobów o nazwie `<your resource group name><random numbers>`. Na przykład: `splab3988722144001`. Maszyny wirtualne są tworzone w tej grupie zasobów, a nie w grupie zasobów, w której istnieje laboratorium. 
+1. Powtórz te czynności, aby usunąć dodatkową utworzoną grupę zasobów o nazwie `<your resource group name><random numbers>`. Przykład: `splab3988722144001`. Maszyny wirtualne są tworzone w tej grupie zasobów, a nie w grupie zasobów, w której istnieje laboratorium. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku utworzono laboratorium z maszyną wirtualną i udzielono użytkownikowi dostępu do laboratorium. Aby dowiedzieć się, jak uzyskać dostęp laboratorium jako użytkownik laboratorium, przejdź do następnego samouczka:

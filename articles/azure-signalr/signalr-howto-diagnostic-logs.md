@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85132020"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Dzienniki zasobów usługi Azure Signal Service
@@ -84,7 +84,7 @@ properties | Szczegółowe właściwości dotyczące tego zdarzenia dziennika. A
 Nazwa | Opis
 ------- | -------
 typ | Typ zdarzenia dziennika. Obecnie udostępniamy informacje o łączności z usługą Azure Signal Service. `ConnectivityLogs`Dostępny jest tylko typ
- — kolekcja | Kolekcja zdarzenia dziennika. Dozwolone wartości to: `Connection` , `Authorization` i`Throttling`
+ — kolekcja | Kolekcja zdarzenia dziennika. Dozwolone wartości to: `Connection` , `Authorization` i `Throttling`
 connectionId | Tożsamość połączenia
 transportType | Typ transportu połączenia. Dozwolone wartości to: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 Element ConnectionType | Typ połączenia. Dozwolone wartości to: `Server` \| `Client` . `Server`: połączenie po stronie serwera; `Client`: połączenie po stronie klienta
@@ -131,7 +131,7 @@ Kolumny dzienników archiwalnych zawierają elementy wymienione w poniższej tab
 Nazwa | Opis
 ------- | ------- 
 TimeGenerated | Czas zdarzenia dziennika
-Kolekcja | Kolekcja zdarzenia dziennika. Dozwolone wartości to: `Connection` , `Authorization` i`Throttling`
+Kolekcja | Kolekcja zdarzenia dziennika. Dozwolone wartości to: `Connection` , `Authorization` i `Throttling`
 OperationName | Nazwa operacji dla zdarzenia
 Lokalizacja | Lokalizacja usługi Azure Signal
 Poziom | Poziom zdarzeń dziennika

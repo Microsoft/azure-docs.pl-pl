@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88587960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Spotinst
@@ -81,7 +81,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
    1. W obszarze **Stan przekazywania**wprowadź identyfikator organizacji Spotinst, który można także potwierdzić na karcie **Logowanie jednokrotne** .
    1. **Adres URL logowania** musi być pusty.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Aplikacja Spotinst oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | -----| --------------- |
-    | E-mail | user.mail |
+    | Poczta e-mail | user.mail |
     | FirstName (Imię) | user.givenname |
     | LastName (Nazwisko) | user.surname |
 
@@ -189,7 +189,7 @@ Po kliknięciu kafelka Spotinst w panelu dostępu należy automatycznie zalogowa
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

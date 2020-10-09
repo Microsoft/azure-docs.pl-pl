@@ -15,7 +15,7 @@ ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858119"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Samouczek: integracja systemu LMS z usługą Knowledge gdziekolwiek z Azure Active Directory

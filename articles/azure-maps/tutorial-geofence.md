@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335198"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
@@ -209,19 +209,19 @@ Następnie utworzysz dwa punkty końcowe [aplikacji logiki](https://docs.microso
 
 7. Wybierz typ wyzwalacza. Przewiń w dół do sekcji **Rozpocznij od typowego wyzwalacza** . Wybierz **po odebraniu żądania HTTP**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Zrzut ekranu przedstawiający tworzenie wyzwalacza HTTP aplikacji logiki.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 8. W prawym górnym rogu projektanta aplikacji logiki wybierz pozycję **Zapisz**. **Adres URL post protokołu HTTP** jest generowany automatycznie. Zapisz adres URL. Jest ona potrzebna w następnej sekcji, aby utworzyć punkt końcowy zdarzenia.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Zrzut ekranu przedstawiający adres URL żądania HTTP aplikacji logiki i kod JSON.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 9. Wybierz pozycję **+ nowy krok**. Teraz wybierzesz akcję. Wpisz `outlook.com email` w polu wyszukiwania. Na liście **Akcje** przewiń w dół i wybierz pozycję **Wyślij wiadomość E-mail (wersja 2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Zrzut ekranu przedstawiający tworzenie projektanta aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 10. Zaloguj się do konta programu Outlook. Upewnij się, że wybierz opcję **tak** , aby zezwolić aplikacji logiki na dostęp do konta. Wypełnij pola do wysyłania wiadomości e-mail.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Zrzut ekranu przedstawiający krok tworzenia wiadomości e-mail z aplikacji logiki.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
     >[!TIP]
     > Możesz pobrać dane odpowiedzi GEOJSON, takie jak `geometryId` lub `deviceId` , w powiadomieniach e-mail. Logic Apps można skonfigurować w celu odczytania danych wysyłanych przez Event Grid. Aby uzyskać informacje na temat sposobu konfigurowania Logic Apps do korzystania z danych zdarzeń i przekazywania ich do powiadomień e-mail, zobacz [Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń platformy Azure IoT Hub przy użyciu Event Grid i Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
@@ -238,11 +238,11 @@ Poniższe kroki pokazują, jak utworzyć subskrypcję zdarzeń dla zdarzeń wej�
 
 1. Przejdź do swojego konta Azure Maps. Na pulpicie nawigacyjnym wybierz pozycję **subskrypcje**. Wybierz nazwę subskrypcji, a następnie wybierz pozycję **zdarzenia** z menu Ustawienia.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Zrzut ekranu przedstawiający przechodzenie do Azure Maps zdarzeń konta.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 2. Aby utworzyć subskrypcję zdarzeń, wybierz pozycję **+ subskrypcja zdarzeń** na stronie zdarzenia.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie subskrypcji zdarzeń Azure Maps.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 3. Na stronie **Tworzenie subskrypcji zdarzeń** wprowadź następujące wartości:
     * **Nazwa** subskrypcji zdarzeń.
@@ -252,7 +252,7 @@ Poniższe kroki pokazują, jak utworzyć subskrypcję zdarzeń dla zdarzeń wej�
     * W obszarze **Typ punktu końcowego**wybierz opcję `Web Hook` .
     * W przypadku **punktu końcowego**Skopiuj adres URL post protokołu HTTP dla aplikacji logiki wprowadź punkt końcowy, który został utworzony w poprzedniej sekcji. Jeśli nie pamiętasz go zapisać, możesz po prostu wrócić do projektanta aplikacji logiki i skopiować go z kroku wyzwalacza HTTP.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający szczegóły subskrypcji zdarzeń Azure Maps.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji logiki.":::
 
 4. Wybierz przycisk **Utwórz**.
 

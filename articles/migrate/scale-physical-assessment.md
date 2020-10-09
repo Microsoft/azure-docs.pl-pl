@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85081076"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Ocenianie dużej liczby serwerów fizycznych na potrzeby migracji na platformę Azure
@@ -48,7 +48,7 @@ Użyj limitów podsumowania w tej tabeli w celu zaplanowania.
 --- | --- 
 **Projekty Azure Migrate** | Oceń do 35 000 serwerów w projekcie.
 **Urządzenie usługi Azure Migrate** | Urządzenie może wykryć do 1000 serwerów.<br/> Urządzenie może być skojarzone tylko z pojedynczym projektem Azure Migrate.<br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem Azure Migrate. <br/><br/> 
-**Group** | Można dodać maksymalnie 35 000 serwerów w jednej grupie.
+**Grupa** | Można dodać maksymalnie 35 000 serwerów w jednej grupie.
 **Ocena Azure Migrate** | W ramach jednej oceny można ocenić do 35 000 serwerów.
 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
 ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85080863"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Umiejętność wyodrębniania dokumentów
@@ -42,7 +42,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Parametr konfiguracji   | Dozwolone wartości | Opis |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ustaw na `none` Ignorowanie osadzonych obrazów lub plików obrazów w zestawie danych. Domyślnie włączone. <br/>Aby przeprowadzić [analizę obrazów przy użyciu umiejętności poznawczych](cognitive-search-concept-image-scenarios.md), ustaw opcję na wartość `generateNormalizedImages` tak, aby umiejętność utworzyła tablicę znormalizowanych obrazów jako część pęknięcia dokumentu. Ta akcja wymaga, aby ustawiono wartość `parsingMode` `default` i `dataToExtract` został ustawiony na `contentAndMetadata` . Znormalizowany obraz odnosi się do dodatkowego przetwarzania, w wyniku którego dane wyjściowe są jednorodne, skalowane i obracane, aby podwyższyć poziom renderowania, gdy dołączysz obrazy do wyników wyszukiwania wizualnego (na przykład zdjęcia o tym samym rozmiarze w kontrolce wykresu, jak widać w [demonstracji JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Te informacje są generowane dla każdego obrazu przy użyciu tej opcji.  <br/>Jeśli ustawisz `generateNormalizedImagePerPage` opcję, plik PDF będzie traktowany inaczej, w przeciwieństwie do wyodrębniania obrazów osadzonych, każda strona będzie renderowana jako obraz i znormalizowana.  Typy plików inne niż PDF będą traktowane tak samo, jak w przypadku `generateNormalizedImages` Ustawienia.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ustaw na `none` Ignorowanie osadzonych obrazów lub plików obrazów w zestawie danych. Jest to opcja domyślna. <br/>Aby przeprowadzić [analizę obrazów przy użyciu umiejętności poznawczych](cognitive-search-concept-image-scenarios.md), ustaw opcję na wartość `generateNormalizedImages` tak, aby umiejętność utworzyła tablicę znormalizowanych obrazów jako część pęknięcia dokumentu. Ta akcja wymaga, aby ustawiono wartość `parsingMode` `default` i `dataToExtract` został ustawiony na `contentAndMetadata` . Znormalizowany obraz odnosi się do dodatkowego przetwarzania, w wyniku którego dane wyjściowe są jednorodne, skalowane i obracane, aby podwyższyć poziom renderowania, gdy dołączysz obrazy do wyników wyszukiwania wizualnego (na przykład zdjęcia o tym samym rozmiarze w kontrolce wykresu, jak widać w [demonstracji JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Te informacje są generowane dla każdego obrazu przy użyciu tej opcji.  <br/>Jeśli ustawisz `generateNormalizedImagePerPage` opcję, plik PDF będzie traktowany inaczej, w przeciwieństwie do wyodrębniania obrazów osadzonych, każda strona będzie renderowana jako obraz i znormalizowana.  Typy plików inne niż PDF będą traktowane tak samo, jak w przypadku `generateNormalizedImages` Ustawienia.
 | `normalizedImageMaxWidth` | Dowolna liczba całkowita z zakresu od 50-10000 | Maksymalna szerokość (w pikselach) dla wygenerowanych znormalizowanych obrazów. Wartość domyślna to 2000. | 
 | `normalizedImageMaxHeight` | Dowolna liczba całkowita z zakresu od 50-10000 | Maksymalna wysokość (w pikselach) dla wygenerowanych znormalizowanych obrazów. Wartość domyślna to 2000. |
 
@@ -146,7 +146,7 @@ Ten obiekt odwołania do pliku może być wygenerowany jeden z trzech sposobów:
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

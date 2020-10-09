@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Samouczek: integracja Azure Active Directory z podstawą umiejętności
@@ -77,7 +77,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z podstawą umiejętności, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj podstawowe logowanie](#configure-skills-base-single-sign-on)** jednokrotne, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj podstawowe logowanie](#configure-skills-base-single-sign-on)** jednokrotne dla umiejętności, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Tworzenie podstawowego użytkownika testowego umiejętności](#create-skills-base-test-user)** — Aby uzyskać odpowiednik Britta Simon w bazie umiejętności, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -108,7 +108,7 @@ Aby skonfigurować rejestrację jednokrotną usługi Azure AD przy użyciu podst
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE]
-    > Możesz uzyskać adres URL logowania z poziomu aplikacji podstawowej. Zaloguj się jako administrator i przejdź do pozycji Administrator-> ustawienia — > szczegóły wystąpienia-> link skrótu. Skopiuj adres URL logowania i wklej go w powyższym polu tekstowym.
+    > Możesz uzyskać adres URL Sign-On z aplikacji podstawowej. Zaloguj się jako administrator i przejdź do pozycji Administrator-> ustawienia — > szczegóły wystąpienia-> link skrótu. Skopiuj adres URL Sign-On i wklej go w powyższym polu tekstowym.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -124,7 +124,7 @@ Aby skonfigurować rejestrację jednokrotną usługi Azure AD przy użyciu podst
 
     c. Adres URL wylogowywania
 
-### <a name="configure-skills-base-single-sign-on"></a>Skonfiguruj podstawowe Logowanie jednokrotne
+### <a name="configure-skills-base-single-sign-on"></a>Skonfiguruj jedną Sign-On podstawową dla umiejętności
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do umiejętności podstawowych jako administrator zabezpieczeń.
 
@@ -132,7 +132,7 @@ Aby skonfigurować rejestrację jednokrotną usługi Azure AD przy użyciu podst
 
     ![Administrator](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. Na stronie **uwierzytelnianie** wybierz pozycję Logowanie jednokrotne jako element **SAML 2**.
+3. Na stronie **uwierzytelnianie** wybierz pojedyncze Sign-On jako **SAML 2**.
 
     ![Logowanie jednokrotne](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
@@ -145,7 +145,7 @@ Aby skonfigurować rejestrację jednokrotną usługi Azure AD przy użyciu podst
     > [!Note]
     > Możesz również sprawdzić poprawność metadanych dostawcy tożsamości za pomocą narzędzia **sprawdzania poprawności metadanych** , jak zostało to wyróżnione na poniższym zrzucie ekranu.
 
-    b. Kliknij pozycję **Zapisz**.
+    b. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -215,6 +215,6 @@ Po kliknięciu kafelka podstawy umiejętności w panelu dostępu należy automat
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

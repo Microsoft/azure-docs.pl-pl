@@ -13,7 +13,7 @@ ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854685"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż Node.js aplikacje obsługiwane przez Azure Cosmos DB z DevOps Starter

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: 9c49f7ac744ee516aefc1571d50264132035ba8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73890607"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Tworzenie Centrum IoT Hub przy użyciu polecenia cmdlet New-AzIotHub
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Tworzenie Centrum IoT Hub za pomocą polecenia cmdlet New-AzIotHub
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -47,7 +47,7 @@ Aby utworzyć grupę zasobów dla usługi IoT Hub, użyj polecenia [New-AzResour
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Aby utworzyć Centrum IoT w grupie zasobów utworzonej w poprzednim kroku, użyj polecenia [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) . Ten przykład tworzy centrum **S1** o nazwie **MyTestIoTHub** w regionie **Wschodnie stany USA** :
 

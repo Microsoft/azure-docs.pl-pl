@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ab03aecf8226662eeb03a5bb3f8adc85013375d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Samouczek: integracja Azure Active Directory z kartą Five9 plus (CTI, agenci centrum kontaktów)
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą karty Five9 plus (CTI, agenci centrum kontaktów), należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Konfigurowanie logowania jednokrotnego na **[karcie Five9 plus (CTI)](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. Konfigurowanie logowania jednokrotnego za pomocą **[karty Five9 plus (CTI)](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** — umożliwia skonfigurowanie pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Tworzenie karty Five9 plus (CTI, agenci centrum kontaktów) test użytkownika](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** — Aby uzyskać odpowiednik Britta Simon w Five9 Plus adapter (CTI, agenci centrum kontaktu), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -131,7 +131,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą karty Five9
 
     c. Adres URL wylogowywania
 
-### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurowanie logowania jednokrotnego za pomocą karty Five9 plus (CTI)
+### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurowanie Five9 Plus adapter (CTI, agenci centrum kontaktów) pojedynczy Sign-On
 
 1. Aby skonfigurować Logowanie jednokrotne na **karcie Five9 plus (CTI, agenci centrum kontaktów)** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL do [karty Five9 plus (CTI, agenci centrum styku)](https://www.five9.com/about/contact). Ponadto, aby dodatkowo skonfigurować Logowanie jednokrotne, wykonaj poniższe czynności zgodnie z kartą:
 
@@ -205,7 +205,7 @@ Po kliknięciu kafelka Five9 plus (CTI, Contact Center Agents w panelu dostępu 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

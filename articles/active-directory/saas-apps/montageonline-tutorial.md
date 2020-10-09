@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 415d1b8fd8b950aec96a89965e798dfb92a3efae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Samouczek: integracja Azure Active Directory z usługą Montage online
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD w usłudze Montage online, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-montage-online-single-sign-on)** jednokrotne w usłudze Montage online — Aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne w usłudze Montage online](#configure-montage-online-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego usługi Montage online](#create-montage-online-test-user)** , aby uzyskać odpowiednik Britta Simon w Montage online, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD w usłudze Montage onl
 
     c. Adres URL wylogowywania
 
-### <a name="configure-montage-online-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Montage online
+### <a name="configure-montage-online-single-sign-on"></a>Konfigurowanie pojedynczej Sign-On online Montage
 
 Aby skonfigurować Logowanie jednokrotne na stronie **Montage online** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej online Montage](https://www.montage.co.nz/contact-us/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -199,7 +199,7 @@ Po kliknięciu kafelka Montage online w panelu dostępu należy automatycznie za
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118954"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Zmień wzorce projektowe kanału informacyjnego w Azure Cosmos DB
@@ -38,7 +38,7 @@ Możesz również wybiórczo wyzwalać powiadomienie lub wysyłać wywołanie do
 Kanału informacyjnego zmiany Azure Cosmos DB można użyć do przetwarzania strumieniowego w czasie rzeczywistym na potrzeby przetwarzania w usłudze IoT lub analizy w czasie rzeczywistym na danych operacyjnych.
 Na przykład można odbierać i przechowywać dane zdarzeń z urządzeń, czujników, infrastruktury i aplikacji, a następnie przetwarzać te zdarzenia w czasie rzeczywistym przy użyciu [platformy Spark](../hdinsight/spark/apache-spark-overview.md). Na poniższej ilustracji przedstawiono sposób implementacji architektury lambda przy użyciu Azure Cosmos DB za pośrednictwem źródła zmian:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Potok lambda oparty na Azure Cosmos DBach na potrzeby pozyskiwania i zapytania" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Korzystanie z kanału informacyjnego zmiany Azure Cosmos DB do analiz w czasie rzeczywistym i scenariuszy obliczeniowych opartych na zdarzeniach" border="false":::
 
 W wielu przypadkach implementacje przetwarzania strumieniowego najpierw odbierają dużą ilość danych przychodzących do tymczasowej kolejki komunikatów, takiej jak usługa Azure Event Hub lub Apache Kafka. Kanał informacyjny zmiany jest doskonałym rozwiązaniem alternatywnym ze względu na zdolność Azure Cosmos DB do obsługi pozyskanej wysokiej szybkości pozyskiwania danych z gwarantowanym małym opóźnieniem odczytu i zapisu. Zalety Azure Cosmos DB kanału informacyjnego zmiany przez kolejkę komunikatów obejmują:
 

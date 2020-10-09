@@ -7,13 +7,13 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 76016da2ec542091aa57d5081e275a1f9f6671cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85114269"
 ---
-# <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia Azure Cosmos DB
+# <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia usługi Azure Cosmos DB
 Ten artykuł zawiera omówienie kilku typowych przypadków użycia Azure Cosmos DB.  Zalecenia przedstawione w tym artykule stanowią punkt wyjścia podczas opracowywania aplikacji przy użyciu Cosmos DB.   
 
 Po przeczytaniu tego artykułu będzie można odpowiedzieć na następujące pytania: 
@@ -57,16 +57,16 @@ Scenariusze użycia danych wykazu obejmują przechowywanie i wykonywanie zapyta�
 
 Rozważmy przykład katalogu produktów dla dostawcy części motoryzacyjnych. Każda część może mieć własne atrybuty oprócz wspólnych atrybutów, które są udostępniane przez wszystkie części. Ponadto atrybuty dla określonej części mogą zmieniać następujący rok po wydaniu nowego modelu. Azure Cosmos DB obsługuje elastyczne schematy i dane hierarchiczne, więc jest to dobrze dopasowane do przechowywania danych katalogu produktów.
 
-:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Azure Cosmos DB architektura referencyjna katalogu sieci sprzedaży" border="false":::
+:::image type="content" source="./media/use-cases/product-catalog.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
 Azure Cosmos DB jest często używana w przypadku określania źródła zdarzeń do architektur opartych na zdarzeniach, przy użyciu funkcji [źródła zmian](change-feed.md) . Kanał informacyjny zmiany zapewnia mikrousługom podrzędnym możliwość niezawodnego i przyrostowego odczytu operacji wstawiania i aktualizacji (na przykład wydarzeń związanych z kolejnością) do Azure Cosmos DB. Ta funkcja może być używana w celu zapewnienia trwałego magazynu zdarzeń jako brokera komunikatów dla zdarzeń zmieniania stanu i przepływu pracy przetwarzania kolejności dysków między wieloma mikrousługami (które można zaimplementować jako [bezserwerowe Azure Functions](https://azure.com/serverless)).
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB uporządkowanie architektury referencyjnej potoku" border="false":::
+:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
 Ponadto dane przechowywane w Azure Cosmos DB mogą być zintegrowane z usługą HDInsight na potrzeby analizy danych Big Data za pośrednictwem Apache Spark zadań. Aby uzyskać szczegółowe informacje na temat łącznika Spark dla Azure Cosmos DB, zobacz [Uruchamianie zadania Spark za pomocą Cosmos DB i usługi HDInsight](spark-connector.md).
 
 ## <a name="gaming"></a>Gry
-Warstwa bazy danych jest kluczowym elementem aplikacji do gier. Nowoczesne gry wykonują przetwarzanie graficzne na klientach mobilnych/konsolowych, ale polegają na chmurze w celu dostarczania dostosowanej i spersonalizowanej zawartości, takiej jak Statystyka w grach, integracja z mediami społecznościowymi i rankingi o wysokiej jakości. Gry często wymagają opóźnień pojedynczej milisekund dla operacji odczytu i zapisu, aby zapewnić zaangażowanie w grę. Baza danych gier musi być szybka i być w stanie obsługiwać ogromne wzrosty szybkości żądań podczas nowych uruchomień gier i aktualizacji funkcji.
+Warstwa bazy danych jest kluczowym elementem składowym aplikacji gier. Współczesne gry wykonują przetwarzanie graficzne na klientach mobilnych/konsolowych, ale to technologia chmury dostarcza odpowiednio dostosowaną i spersonalizowaną zawartość, taką jak statystyki uzyskane podczas gry, zestawienia najlepszych wyników czy integracja z mediami społecznościowymi. Gry często wymagają opóźnień pojedynczej milisekund dla operacji odczytu i zapisu, aby zapewnić zaangażowanie w grę. Baza danych w przypadku gier musi być szybka i musi być w stanie obsłużyć ogromne ilości żądań podczas uruchomień nowych gier i aktualizacji funkcji.
 
 Azure Cosmos DB jest używany przez gry, takie jak pochodzenie przez [nie martwe się: Brak gruntów człowieku](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) w [następnych grach](https://www.nextgames.com/)i [Halo 5: opiekunów](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB oferuje deweloperom gier następujące korzyści:
 
@@ -76,10 +76,10 @@ Azure Cosmos DB jest używany przez gry, takie jak pochodzenie przez [nie martwe
 * Funkcje społecznościowe, w tym wiadomości czatu z rozmowy w grach, członkostwo w programie Player Guild, zakończyły się wyzwania, rankingi o wysokiej jakości i wykresy społecznościowe, są łatwiejsze do wdrożenia przy użyciu elastycznego schematu.
 * Azure Cosmos DB jako zarządzana platforma jako usługa (PaaS) wymagała minimalnej instalacji i zarządzania, aby umożliwić szybką iterację i skrócenie czasu wprowadzenia na rynek.
 
-:::image type="content" source="./media/use-cases/gaming.png" alt-text="Architektura referencyjna Azure Cosmos DB gier" border="false":::
+:::image type="content" source="./media/use-cases/gaming.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
 ## <a name="web-and-mobile-applications"></a>Aplikacje internetowe i mobilne
-Azure Cosmos DB jest często używana w aplikacjach sieci Web i mobilnych, a także jest dobrym rozwiązaniem w przypadku modelowania interakcji społecznościowych, integracji z usługami innych firm oraz tworzenia rozbudowanych spersonalizowanych środowisk. Zestawy SDK Cosmos DB mogą być używane do tworzenia rozbudowanych aplikacji dla systemów iOS i Android przy użyciu popularnej [platformy Xamarin](mobile-apps-with-xamarin.md).  
+Azure Cosmos DB jest często używana w aplikacjach internetowych i mobilnych. Dobrze nadaje się do modelowania interakcji społecznościowych, integracji z usługami innych firm oraz do tworzenia bogatych, spersonalizowanych środowisk. Zestawy SDK Cosmos DB mogą być używane do tworzenia rozbudowanych aplikacji dla systemów iOS i Android przy użyciu popularnej [platformy Xamarin](mobile-apps-with-xamarin.md).  
 
 ### <a name="social-applications"></a>Aplikacje społecznościowe
 Typowym zastosowaniem Azure Cosmos DB jest przechowywanie i wykonywanie zapytań dotyczących zawartości wygenerowanej przez użytkownika (UGC) dla aplikacji sieci Web, urządzeń przenośnych i mediów społecznościowych. Przykładami UGC są sesje rozmowy, Tweety, wpisy w blogu, oceny i komentarze. Często UGC w aplikacjach mediów społecznościowych to mieszanka tekstu, właściwości, tagów i relacji, które nie są ograniczone przez sztywną strukturę. Zawartość, taka jak rozmowy, komentarze i wpisy, może być przechowywana w Cosmos DB bez konieczności przekształceń ani złożonego obiektu do warstw mapowania relacyjnego.  Właściwości danych mogą być łatwo dodawane lub modyfikowane w celu dopasowania do wymagań, gdy deweloperzy przechodzą przez kod aplikacji, a tym samym promowanie szybkiego rozwoju.  
@@ -88,14 +88,14 @@ Aplikacje, które integrują się z sieciami społecznościowymi innych firm, mu
 
 Wiele aplikacji społecznościowych działa na skalę globalną i może wykazywać nieprzewidywalne wzorce użycia. Elastyczność skalowania magazynu danych jest niezbędna, ponieważ warstwa aplikacji jest skalowana w celu dopasowania do zapotrzebowania na użycie.  Możesz skalować w poziomie przez dodanie dodatkowych partycji danych w ramach konta Cosmos DB.  Ponadto można również utworzyć dodatkowe konta Cosmos DB w wielu regionach. Aby uzyskać dostęp do Cosmos DB regionu usługi, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Architektura referencyjna aplikacji sieci Web Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/apps-with-global-reach.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
 ### <a name="personalization"></a>Personalizacja
 Obecnie, nowoczesne aplikacje są dostarczane z złożonymi widokami i środowiskami. Są one zazwyczaj dynamiczne, zbiorowe względem preferencji użytkownika lub nastrój i potrzeby znakowania. W związku z tym aplikacje muszą mieć możliwość skutecznego pobierania spersonalizowanych ustawień w celu szybkiego renderowania elementów interfejsu użytkownika i środowiska. 
 
 Format JSON, obsługiwany przez Cosmos DB, to efektywny format do reprezentowania danych układu interfejsu użytkownika, ponieważ nie jest on tylko lekki, ale również może być łatwo interpretowany przez JavaScript. Cosmos DB oferuje poziomy spójności możliwość dostosowania, które umożliwiają szybkie odczyty z zapisami o małym opóźnieniu. W związku z tym przechowywanie danych układu interfejsu użytkownika z uwzględnieniem spersonalizowanych ustawień jako dokumentów JSON w Cosmos DB jest skutecznym sposobem na uzyskanie tych danych w sieci.
 
-:::image type="content" source="./media/use-cases/personalization.png" alt-text="Architektura referencyjna aplikacji sieci Web Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/use-cases/personalization.png" alt-text="Architektura referencyjna Azure Cosmos DB IoT" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

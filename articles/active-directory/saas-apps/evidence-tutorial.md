@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 2c2cc76b47257682c9d9f74f5cd315556a862f5f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555281"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evidencecom"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Evidence.com
@@ -151,7 +151,7 @@ Aby użytkownicy usługi Azure AD mogli się logować, należy ich zaaprowizowa�
 
 3. Kliknij pozycję **Dodaj użytkownika**.
 
-4. Kliknij przycisk **Dodaj**.
+4. Kliknij przycisk **Dodaj** .
 
 5. **Adres e-mail** dodanego użytkownika musi odpowiadać nazwie użytkownika w usłudze Azure AD, któremu chcesz udzielić dostępu. Jeśli nazwa użytkownika i adres e-mail nie są tą samą wartością w Twojej organizacji, możesz skorzystać z sekcji **Evidence.com > Atrybuty > Logowanie jednokrotne** w witrynie Azure Portal, aby zmienić identyfikator nazwy wysyłany do aplikacji Evidence.com na adres e-mail.
 
@@ -165,7 +165,7 @@ Po kliknięciu kafelka Evidence.com w panelu dostępu powinno nastąpić automat
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

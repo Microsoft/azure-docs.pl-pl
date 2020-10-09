@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: ef57db315fa29a70a604f180671091a5b372f316
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Samouczek: integracja Azure Active Directory z dokumentacją
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą dokumentacji, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego do dokumentacji](#configure-dossier-single-sign-on)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania jednokrotnego do dokumentacji](#configure-dossier-single-sign-on)** — w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz dokumentację testową użytkownika](#create-dossier-test-user)** — Aby uzyskać odpowiednik Britta Simon w dokumentacji, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą dokumentacj
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [dokumentacją zespołu ds. pomocy technicznej](mailto:support@intellimedia.ca) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-4. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** z określonych opcji zgodnie z wymaganiami i zapisać je na komputerze.
+4. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** z określonych opcji zgodnie z wymaganiami i zapisać je na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
@@ -138,7 +138,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą dokumentacj
 
     c. Adres URL wylogowywania
 
-### <a name="configure-dossier-single-sign-on"></a>Konfigurowanie logowania jednokrotnego do dokumentacji
+### <a name="configure-dossier-single-sign-on"></a>Konfigurowanie jednej Sign-On dokumentacji
 
 Aby skonfigurować Logowanie jednokrotne po stronie **dokumentacji** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej](mailto:support@intellimedia.ca)dotyczącej dokumentacji. Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -206,7 +206,7 @@ Po kliknięciu kafelka dokumentacja w panelu dostępu należy automatycznie zalo
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

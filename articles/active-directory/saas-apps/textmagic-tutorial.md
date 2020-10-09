@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 81dc3a4f55b214ea6ca7ad0388e57f4b4fdc7124
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą TextMagic
@@ -151,7 +151,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfiguracja TextMagic](./media/textmagic-tutorial/config1.png)
 
-5. Kliknij kartę Logowanie jednokrotne **(SSO)** i wypełnij następujące pola:  
+5. Kliknij kartę **Single Sign-On (SSO)** i wypełnij następujące pola:  
 
     ![Konfiguracja TextMagic](./media/textmagic-tutorial/config2.png)
 
@@ -163,7 +163,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Otwórz **certyfikat zakodowany w formacie Base-64** w Notatniku pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do **publicznego certyfikatu x509:** TextBox.
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-textmagic-test-user"></a>Utwórz użytkownika testowego TextMagic
 
@@ -180,7 +180,7 @@ Po kliknięciu kafelka TextMagic w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

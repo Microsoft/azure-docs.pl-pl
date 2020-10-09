@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Samouczek: integracja Azure Active Directory z usługą Mixpanel
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Mixpanel, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-mixpanel-single-sign-on)** jednokrotne w usłudze Mixpanel, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-mixpanel-single-sign-on)** jednokrotne w usłudze Mixpanel, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego Mixpanel](#create-mixpanel-test-user)** , aby uzyskać odpowiednik Britta Simon w Mixpanel, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -120,13 +120,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Mixpanel, w
 
     c. Adres URL wylogowywania
 
-### <a name="configure-mixpanel-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Mixpanel
+### <a name="configure-mixpanel-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Mixpanel
 
 1. W innym oknie przeglądarki Zaloguj się do aplikacji Mixpanel jako administrator.
 
 2. W dolnej części strony kliknij ikonę małego **koła zębatego** w lewym rogu. 
    
-    ![Mixpanel Logowanie jednokrotne](./media/mixpanel-tutorial/tutorial_mixpanel_06.png) 
+    ![Mixpanel pojedyncze Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_06.png) 
 
 3. Kliknij kartę **zabezpieczenia dostępu** , a następnie kliknij przycisk **Zmień ustawienia**.
    
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Mixpanel, w
    
     ![Ustawienia Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
-6. Kliknij przycisk **Gotowe**.
+6. Kliknij pozycję **Gotowe**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -222,7 +222,7 @@ Po kliknięciu kafelka Mixpanel w panelu dostępu należy automatycznie zalogowa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

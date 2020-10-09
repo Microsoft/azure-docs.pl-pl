@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: bc11dd6113bbf5b07e19b83735c83e4895e4a796
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323600"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Nuxt.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
@@ -62,7 +62,7 @@ Przejdź do strony `http://localhost:3000` , aby otworzyć aplikację, w której
 
 Po kliknięciu architektury/biblioteki powinna zostać wyświetlona strona szczegółów wybranego elementu:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Strona szczegółów":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 ## <a name="generate-a-static-website-from-nuxtjs-build"></a>Generuj statyczną witrynę sieci Web na podstawie kompilacji Nuxt.js
 
@@ -130,7 +130,7 @@ Poniższe kroki pokazują, jak połączyć aplikację przekazana do usługi GitH
 1. Z listy rozwijanej *region* wybierz region znajdujący się najbliżej siebie.
 1. Wybierz pozycję **bezpłatnie** z listy rozwijanej jednostka SKU.
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Tworzenie statycznej aplikacji sieci Web":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 ### <a name="add-a-github-repository"></a>Dodawanie repozytorium GitHub
 
@@ -141,7 +141,7 @@ Nowe konto statyczne Web Apps musi mieć dostęp do repozytorium za pomocą apli
 1. Znajdź i wybierz nazwę utworzonego wcześniej repozytorium.
 1. Wybierz opcję **wzorzec** jako gałąź z listy rozwijanej *rozgałęzienie* .
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Łączenie z usługą GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 ### <a name="configure-the-build-process"></a>Skonfiguruj proces kompilacji
 
@@ -149,7 +149,7 @@ Usługa Azure static Web Apps jest wbudowana w taki sposób, aby automatycznie w
 
 1. Kliknij kartę **kompilacja** , aby skonfigurować statyczny folder wyjściowy.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Karta kompilacja":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 1. Wpisz **wartość w polu tekstowym** *Lokalizacja artefaktu aplikacji* .
 
@@ -178,7 +178,7 @@ Wróć do terminalu i uruchom następujące polecenie `git pull origin master` .
 
 Przejdź do nowo wdrożonej lokacji i kliknij jeden z logo struktury lub biblioteki. Zamiast pobierania strony szczegółów pojawia się strona błędu 404.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 na trasach dynamicznych":::
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 Przyczyną tego jest Nuxt.js wygenerowana lokacja statyczna. w tym celu będzie ona istniała tylko dla strony głównej. Nuxt.js może generować równoważne `.html` pliki statyczne dla każdego `.vue` pliku stron, ale wystąpił wyjątek. 
 
@@ -215,7 +215,7 @@ Jeśli strona jest stroną dynamiczną, na przykład `_id.vue` nie będzie miał
 
 2. Wypchnij nowe zmiany do repozytorium GitHub i poczekaj kilka minut, a akcje usługi GitHub ponownie kompilują lokację. Po zakończeniu kompilacji błąd 404 zniknie.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 przy stałych trasach dynamicznych":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="Uruchom aplikację Nuxt.js":::
 
 > [!div class="nextstepaction"]
 > [Skonfiguruj domenę niestandardową](custom-domain.md)

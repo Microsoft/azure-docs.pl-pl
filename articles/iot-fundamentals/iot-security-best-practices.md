@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: 61ddad58a9f61589aae137fb66ad75b37a0cbbe9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73931172"
 ---
 # <a name="security-best-practices-for-internet-of-things-iot"></a>Najlepsze rozwiązania w zakresie zabezpieczeń dotyczące Internet rzeczy (IoT)
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania utworzonego przez akcelerator rozwiązań IoT, zobacz temat [Zabezpieczanie wdrożenia IoT](iot-security-deployment.md).
 

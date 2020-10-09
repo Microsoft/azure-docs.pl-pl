@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a828b194d1e274183d581e0cdc2c5e894d6c0148
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Samouczek: integracja Azure Active Directory z usługą MobiControl
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi MobiControl, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-mobicontrol-single-sign-on)** jednokrotne w usłudze MobiControl, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-mobicontrol-single-sign-on)** jednokrotne w usłudze MobiControl, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego MobiControl](#create-mobicontrol-test-user)** , aby uzyskać odpowiednik Britta Simon w MobiControl, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -112,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą MobiControl
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-mobicontrol-single-sign-on"></a>Konfigurowanie logowania jednokrotnego MobiControl
+### <a name="configure-mobicontrol-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On MobiControl
 
 Aby skonfigurować Logowanie jednokrotne na stronie **MobiControl** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej MobiControl](https://www.soti.net/about/contact-us/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -180,7 +180,7 @@ Po kliknięciu kafelka MobiControl w panelu dostępu należy automatycznie zalog
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361912"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
@@ -114,7 +114,7 @@ Konfigurowanie obszaru roboczego usługi log Analytics składa się z dwóch gł
 
     2. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**a następnie wybierz nowy obszar roboczy usługi log Analytics. 
    
-    3. Kliknij pozycję **Zapisz**. 
+    3. Kliknij przycisk **Zapisz**. 
 
 ## <a name="run-queries"></a>Uruchamianie zapytań  
 
@@ -268,7 +268,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     3. Kliknij pozycję **Przejrzyj i utwórz**. 
 
-    4. Kliknij pozycję **Utwórz**.
+    4. Kliknij przycisk **Utwórz**.
 
 
 15. W obszarze **Dostosowywanie akcji**wykonaj następujące czynności:

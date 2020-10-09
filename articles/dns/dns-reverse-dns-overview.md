@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76932296"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure
@@ -87,7 +87,7 @@ Wyszukiwanie wsteczne dla zapytań adresu IP "192.0.2.129" dla rekordu PTR o naz
 
 ### <a name="ipv6"></a>Protokół IPv6
 
-Nazwa strefy wyszukiwania wstecznego IPv6 powinna mieć następującą postać:`<IPv6 network prefix in reverse order>.ip6.arpa`
+Nazwa strefy wyszukiwania wstecznego IPv6 powinna mieć następującą postać: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Na przykład. W przypadku tworzenia strefy odwrotnej w celu hostowania rekordów o adresach IP, które znajdują się w prefiksie 2001: db8:1000: ABDC::/64, nazwa strefy zostanie utworzona przez wyodrębnienie prefiksu sieci adresu (2001: db8: ABDC::). Następnie rozwiń prefiks sieci IPv6 w celu usunięcia [kompresji zerowej](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), jeśli został on użyty do skrócenia prefiksu adresu IPv6 (2001:0db8: ABDC: 0000::). Odwróć kolejność, używając okresu jako ogranicznika między każdą liczbą szesnastkową w prefiksie, aby skompilować odwrócony prefiks sieci ( `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2` ) i dodać sufiks `.ip6.arpa` .
 

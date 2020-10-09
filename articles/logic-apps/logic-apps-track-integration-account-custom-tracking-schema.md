@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76903053"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Tworzenie niestandardowych schematów śledzenia, które monitorują kompleksowe przepływy pracy w usłudze Azure Logic A
@@ -53,19 +53,19 @@ Azure Logic Apps ma wbudowane śledzenie, które można włączyć dla części 
 
 | Właściwość | Wymagany | Typ | Opis |
 |----------|----------|------|-------------|
-| sourceType | Tak | String | Typ źródła przebiegu z tymi dozwolonymi wartościami: `Microsoft.Logic/workflows` ,`custom` |
+| sourceType | Tak | Ciąg | Typ źródła przebiegu z tymi dozwolonymi wartościami: `Microsoft.Logic/workflows` , `custom` |
 | source | Tak | Ciąg lub JToken | Jeśli typ źródła to `Microsoft.Logic/workflows` , informacje źródłowe muszą być zgodne z tym schematem. Jeśli typem źródła jest `custom` , schemat jest JToken. |
-| systemId | Tak | String | Identyfikator systemu aplikacji logiki |
-| runId | Tak | String | Identyfikator przebiegu aplikacji logiki |
-| operationName | Tak | String | Nazwa operacji, na przykład akcja lub wyzwalacz |
-| repeatItemScopeName | Tak | String | Powtórz nazwę elementu, jeśli akcja znajduje się wewnątrz `foreach` `until` pętli lub |
-| repeatItemIndex | Tak | Integer | Wskazuje, że akcja znajduje się wewnątrz `foreach` `until` pętli lub i jest numerem indeksu powtarzanego elementu. |
-| trackingId | Nie | String | Identyfikator śledzenia do skorelowania komunikatów |
-| correlationId | Nie | String | Identyfikator korelacji do skorelowania komunikatów |
-| Identyfikatorem żądania klienta | Nie | String | Klient może wypełnić tę właściwość w celu skorelowania komunikatów |
-| eventLevel | Tak | String | Poziom zdarzenia |
+| systemId | Tak | Ciąg | Identyfikator systemu aplikacji logiki |
+| runId | Tak | Ciąg | Identyfikator przebiegu aplikacji logiki |
+| operationName | Tak | Ciąg | Nazwa operacji, na przykład akcja lub wyzwalacz |
+| repeatItemScopeName | Tak | Ciąg | Powtórz nazwę elementu, jeśli akcja znajduje się wewnątrz `foreach` `until` pętli lub |
+| repeatItemIndex | Tak | Liczba całkowita | Wskazuje, że akcja znajduje się wewnątrz `foreach` `until` pętli lub i jest numerem indeksu powtarzanego elementu. |
+| trackingId | Nie | Ciąg | Identyfikator śledzenia do skorelowania komunikatów |
+| correlationId | Nie | Ciąg | Identyfikator korelacji do skorelowania komunikatów |
+| Identyfikatorem żądania klienta | Nie | Ciąg | Klient może wypełnić tę właściwość w celu skorelowania komunikatów |
+| eventLevel | Tak | Ciąg | Poziom zdarzenia |
 | eventTime | Tak | DateTime | Godzina zdarzenia w formacie UTC: *RRRR-MM-DDTgg: mm: SS. 00000Z* |
-| recordType | Tak | String | Typ rekordu śledzenia z tą dozwoloną wartością:`custom` |
+| recordType | Tak | Ciąg | Typ rekordu śledzenia z tą dozwoloną wartością: `custom` |
 | rejestrowanie | Tak | JToken | Typ rekordu niestandardowego z tylko formatem JToken |
 |||||
 

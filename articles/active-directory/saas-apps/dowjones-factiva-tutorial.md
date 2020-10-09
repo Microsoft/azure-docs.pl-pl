@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.openlocfilehash: dff1f204f9ac01f036ce7e700965f1c3a89fc4e0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Samouczek: integracja Azure Active Directory z usługą Dow Kowalski Factiva
@@ -184,7 +184,7 @@ Po kliknięciu kafelka Dow Jones Factiva w panelu dostępu powinno nastąpić au
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

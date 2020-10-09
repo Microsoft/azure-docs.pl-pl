@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
 ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84871701"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Włączanie rejestrowania diagnostycznego w usłudze Azure API for FHIR®
@@ -50,24 +50,24 @@ W tej chwili usługa Azure API for FHIR® zwraca następujące pola w dzienniku 
 |Nazwa pola  |Typ  |Uwagi  |
 |---------|---------|---------|
 |CallerIdentity|Dynamiczny|Ogólny zbiór właściwości zawierający informacje o tożsamości
-|CallerIdentityIssuer|String|Wystawca 
-|CallerIdentityObjectId|String|Object_Id 
-|CallerIPAddress|String|Adres IP wywołującego 
-|CorrelationId|String| Identyfikator korelacji
-|FhirResourceType|String|Typ zasobu, dla którego wykonano operację
-|LogCategory|String|Kategoria dziennika (obecnie zwracamy "AuditLogs" LogCategory)
-|Lokalizacja|String|Lokalizacja serwera, który przetworzył żądanie (np. Południowo-środkowe stany USA)
+|CallerIdentityIssuer|Ciąg|Wystawca 
+|CallerIdentityObjectId|Ciąg|Object_Id 
+|CallerIPAddress|Ciąg|Adres IP wywołującego 
+|CorrelationId|Ciąg| Identyfikator korelacji
+|FhirResourceType|Ciąg|Typ zasobu, dla którego wykonano operację
+|LogCategory|Ciąg|Kategoria dziennika (obecnie zwracamy "AuditLogs" LogCategory)
+|Lokalizacja|Ciąg|Lokalizacja serwera, który przetworzył żądanie (np. Południowo-środkowe stany USA)
 |OperationDuration|int|Czas, jaki zajęło wykonanie tego żądania w ciągu kilku sekund
-|OperationName|String| Opisuje typ operacji (np. Update, Search-Type)
-|RequestUri|String|Identyfikator URI żądania 
-|Result|String|Dostępne wartości są obecnie **uruchomione**, **zakończone powodzeniem**lub **niepowodzeniem** .
+|OperationName|Ciąg| Opisuje typ operacji (np. Update, Search-Type)
+|RequestUri|Ciąg|Identyfikator URI żądania 
+|ResultType|Ciąg|Dostępne wartości są obecnie **uruchomione**, **zakończone powodzeniem**lub **niepowodzeniem** .
 |Stanu|int|Kod stanu HTTP. (np. 200) 
 |TimeGenerated|DateTime|Data i godzina zdarzenia|
-|Właściwości|String| Opisuje właściwości fhirResourceType
-|SourceSystem|String| System źródłowy (zawsze platforma Azure w tym przypadku)
-|TenantId|String|Identyfikator dzierżawy
-|Typ|String|Typ dziennika (zawsze MicrosoftHealthcareApisAuditLog w tym przypadku)
-|_ResourceId|String|Szczegóły zasobu
+|Właściwości|Ciąg| Opisuje właściwości fhirResourceType
+|SourceSystem|Ciąg| System źródłowy (zawsze platforma Azure w tym przypadku)
+|TenantId|Ciąg|Identyfikator dzierżawy
+|Typ|Ciąg|Typ dziennika (zawsze MicrosoftHealthcareApisAuditLog w tym przypadku)
+|_ResourceId|Ciąg|Szczegóły zasobu
 
 ## <a name="sample-queries"></a>Przykładowe zapytania
 

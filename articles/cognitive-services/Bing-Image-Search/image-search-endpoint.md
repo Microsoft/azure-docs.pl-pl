@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072626"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Punkty końcowe dla interfejs API wyszukiwania obrazów Bing
@@ -25,18 +25,18 @@ ms.locfileid: "74072626"
 
 Aby uzyskać wyniki obrazu przy użyciu interfejsu API Bing, Wyślij żądanie do jednego z następujących punktów końcowych. Użyj nagłówków i parametrów adresu URL, aby zdefiniować dalsze specyfikacje.
 
-**Punkt końcowy 1:** Zwraca obrazy, które są istotne dla zapytania wyszukiwania użytkownika zdefiniowanego przez `?q=""`.
+**Punkt końcowy 1:** Zwraca obrazy, które są istotne dla zapytania wyszukiwania użytkownika zdefiniowanego przez `?q=""` .
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**Punkt końcowy 2:** Zwraca szczegółowe informacje o obrazie przy użyciu albo `GET` lub. `POST`
+**Punkt końcowy 2:** Zwraca szczegółowe informacje o obrazie przy użyciu albo `GET` lub `POST` .
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 Żądanie GET zwraca szczegółowe informacje o obrazie, takie jak strony sieci Web, które zawierają obraz. Dołącz parametr [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do `GET` żądania.
 
-Można również dołączyć obraz binarny w treści `POST` żądania i ustawić parametr [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na. `RecognizedEntities` Spowoduje to zwrócenie [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) do użycia jako parametru w kolejnym `GET` żądaniu, które zwraca informacje o osobach w obrazie.  Ustaw `modules` , `All` Aby uzyskać wszystkie szczegółowe informacje, z wyjątkiem `RecognizedEntities` wyników `POST` bez tworzenia innego wywołania przy użyciu `insightsToken`.
+Można również dołączyć obraz binarny w treści `POST` żądania i ustawić parametr [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `RecognizedEntities` . Spowoduje to zwrócenie [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) do użycia jako parametru w kolejnym `GET` żądaniu, które zwraca informacje o osobach w obrazie.  Ustaw `modules` `All` , aby uzyskać wszystkie szczegółowe informacje, z wyjątkiem `RecognizedEntities` wyników `POST` bez tworzenia innego wywołania przy użyciu `insightsToken` .
 
 
 **Punkt końcowy 3:** Zwraca obrazy, które są trendem na podstawie żądań wyszukiwania wykonywanych przez inne osoby. Obrazy są rozdzielone na różne kategorie, na przykład na podstawie wartych osób lub wydarzeń.

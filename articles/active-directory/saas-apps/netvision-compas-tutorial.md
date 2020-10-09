@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 8f92ff60dacd78687207c7523504182521700a7b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą COMPAS
@@ -146,7 +146,7 @@ W tej sekcji włączasz Logowanie jednokrotne SAML w **COMPAS**.
 1. Wprowadź znaczące wartości dla pól **Nazwa wyświetlana** i **Opis** .
 1. Przypisz użytkowników **COMPAS** do dostawcy tożsamości, wybierając z listy **dostępne użytkownicy** , a następnie wybierając przycisk **Dodaj wybrane** . Użytkownicy mogą również być przypisani do dostawcy tożsamości podczas procedury aprowizacji.
 1. Dla opcji SAML **metadanych** kliknij przycisk **Wybierz plik** i wybierz plik metadanych, który został wcześniej zapisany na komputerze.
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
     ![Edytuj dostawcy tożsamości](media/netvision-compas-tutorial/idp-edit.png)
 
@@ -186,7 +186,7 @@ Po kliknięciu kafelka COMPAS programu Visioning w panelu dostępu należy autom
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334734"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w Language Understanding (LUIS)
@@ -116,9 +116,9 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
     |Znormalizowana wartość|Synonimy|
     |--|--|
-    |Mały|SM, SML, mały, najmniejszy|
+    |Mała|SM, SML, mały, najmniejszy|
     |Średniaa|MD, MDM, regularne, średnie, środkowe|
-    |Duży|LG, LRG, Big|
+    |Duża|LG, LRG, Big|
     |XLarge|XL, największe, bardzo duże|
 
 

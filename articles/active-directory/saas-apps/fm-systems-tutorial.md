@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 2d6ad7daf68d9cd3ffbf4d489e3c170eef4dbe7f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Samouczek: integracja Azure Active Directory z FM: systemy
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, relacja linku między użytkownikiem usłu
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu systemu FM:, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania](#configure-fmsystems-single-sign-on)** jednokrotnego (FM): systemy — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania](#configure-fmsystems-single-sign-on)** jednokrotnego (FM): systemy — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz Radio: systemy testowe użytkownika](#create-fmsystems-test-user)** — Aby uzyskać odpowiednik Britta Simon w FM: systemach, które są połączone z reprezentacją użytkownika w usłudze Azure AD.
@@ -120,7 +120,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu system
 
     c. Adres URL wylogowywania
 
-### <a name="configure-fmsystems-single-sign-on"></a>Konfigurowanie systemu FM: Logowanie jednokrotne w systemach
+### <a name="configure-fmsystems-single-sign-on"></a>Konfigurowanie systemu FM: systemy pojedyncze Sign-On
 
 Aby skonfigurować Logowanie jednokrotne w systemie **FM: Systems** , musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [FM: system obsługi zespołu](https://fmsystems.com/support-services/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -180,7 +180,7 @@ Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logow
 
 2. Przejdź do pozycji **Administracja systemu \> Zarządzaj \> \> Lista użytkowników użytkowników zabezpieczeń**.
    
-    ![Administracja systemu](./media/fm-systems-tutorial/ic795905.png "Administracja systemu")
+    ![Administrowanie systemami](./media/fm-systems-tutorial/ic795905.png "Administrowanie systemami")
 
 3. Kliknij pozycję **Utwórz nowego użytkownika**.
    
@@ -204,7 +204,7 @@ Po kliknięciu kafelka FM: Systems w panelu dostępu należy automatycznie zalog
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889233"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Zintegruj rozwiązanie do zdalnego monitorowania z usługą Azure Data Lake Store
@@ -38,7 +38,7 @@ Utwórz dedykowaną grupę odbiorców w centrum IoT w rozwiązaniu do monitorowa
 > [!NOTE]
 > Grupy konsumentów są używane przez aplikacje do ściągania danych z usługi Azure IoT Hub. Dla każdego pięciu odbiorców wyjściowych należy utworzyć nową grupę odbiorców. Można utworzyć maksymalnie 32 grup odbiorców.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 1. W Azure Portal kliknij przycisk **Cloud Shell** .
 
@@ -67,7 +67,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
 
 1. Upewnij się, że środowisko hostingu ma pozostać w **chmurze**domyślnej.
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
     ![Tworzenie zadania Stream Analytics](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -89,7 +89,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
 
     ![Wybierz dane wejściowe](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Na stronie Przegląd kliknij pozycję dane **wyjściowe**.
 
@@ -118,7 +118,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
     > [!NOTE]
     > Jeśli w oknie podręcznym zostanie wyświetlony błąd, Otwórz nowe okno przeglądarki w trybie incognito i spróbuj ponownie.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 ## <a name="edit-the-stream-analytics-query"></a>Edytuj zapytanie Stream Analytics
 
@@ -141,7 +141,7 @@ Azure Stream Analytics używa języka zapytań przypominających SQL, aby okreś
 
     ![Zapytanie Stream Analytics](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 1. Kliknij przycisk **tak** , aby zatwierdzić zmiany.
 
 ## <a name="start-the-stream-analytics-job"></a>Uruchamianie zadania Stream Analytics

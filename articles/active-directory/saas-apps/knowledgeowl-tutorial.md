@@ -15,7 +15,7 @@ ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858102"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą KnowledgeOwl

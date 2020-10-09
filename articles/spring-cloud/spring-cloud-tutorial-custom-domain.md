@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326154"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
@@ -38,7 +38,7 @@ Aby przekazać certyfikat do magazynu kluczy:
 1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu**wybierz opcję `Import` .
 1. W obszarze **Przekaż plik certyfikatu**przejdź do lokalizacji certyfikatu i wybierz ją.
 1. W obszarze **hasło**wprowadź klucz prywatny certyfikatu.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
     ![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
@@ -50,7 +50,7 @@ Aby przyznać usłudze Azure sprężynowy dostęp do magazynu kluczy przed zaimp
 
 | Uprawnienie tajne | Uprawnienie do certyfikatu | Wybierz podmiot zabezpieczeń |
 |--|--|--|
-| Pobierz, Wyświetl | Pobierz, Wyświetl | Zarządzanie domenami chmury Azure wiosną |
+| Pobierz, Wyświetl | Pobierz, Wyświetl | Domain-Management chmury z wiosną platformy Azure |
 
 ![Importuj certyfikat 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
@@ -146,7 +146,7 @@ az spring-cloud app custom-domain list --app <app name> --resource-group <resour
 ## <a name="add-ssl-binding"></a>Dodawanie powiązania SSL
 W tabeli domena niestandardowa wybierz pozycję **Dodaj powiązanie SSL** , jak pokazano na poprzedniej ilustracji.  
 1. Wybierz **certyfikat** lub zaimportuj go.
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
     ![Dodawanie powiązania SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: sudbalas
 ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88585937"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault kopia zapasowa
@@ -84,7 +84,7 @@ Wykonaj kroki opisane w tej sekcji, aby utworzyć kopię zapasową i przywróci�
     ![Zrzut ekranu przedstawiający miejsce wybrania opcji Przywróć kopię zapasową w magazynie kluczy.](../media/backup-4.png)
     
 5. Przejdź do lokalizacji, w której zapisano zaszyfrowany obiekt BLOB.
-6. Kliknij przycisk **OK**.
+6. Wybierz przycisk **OK**.
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Tworzenie kopii zapasowej i przywracanie danych przy użyciu interfejsu wiersza polecenia platformy Azure
 

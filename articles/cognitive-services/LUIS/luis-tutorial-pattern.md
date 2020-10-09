@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324658"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
@@ -217,7 +217,7 @@ Aby wzorzec pasował do elementu wypowiedź, _najpierw_ jednostki w wypowiedź m
 
 **Wzorce umożliwiają dostarczenie mniejszej liczby wypowiedzi przykładowych, jednak jeśli jednostki nie zostaną wykryte, nie zostanie znalezione dopasowanie dla wzorca.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Dodaj wzorce dla zamiaru schematu organizacyjnego — Menedżer
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Dodaj wzorce dla zamiaru OrgChart-Manager
 
 1. Wybierz pozycję **Build** (Kompiluj) w górnym menu.
 

@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85125467"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Automatyczne skalowanie AKSów przy użyciu metryk Application Gateway (beta)
 
 W miarę zwiększania się ruchu przychodzącego jest on decydujący o skalowaniu aplikacji na żądanie.
 
-W poniższym samouczku wyjaśniono, jak można użyć `AvgRequestCountPerHealthyHost` metryki Application Gateway do skalowania aplikacji w górę. `AvgRequestCountPerHealthyHost`Mierzy średnie żądania wysyłane do określonej puli zaplecza i kombinacji ustawień protokołu HTTP zaplecza.
+W poniższym samouczku wyjaśniono, jak można użyć `AvgRequestCountPerHealthyHost` metryki Application Gateway do skalowania aplikacji w górę. `AvgRequestCountPerHealthyHost` Mierzy średnie żądania wysyłane do określonej puli zaplecza i kombinacji ustawień protokołu HTTP zaplecza.
 
 Będziemy używać następujących dwóch składników:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)— Użyjemy karty metryki, aby udostępnić metryki Application Gateway za pomocą serwera metryk. Karta metryki usługi Azure Kubernetes to projekt Open Source na platformie Azure podobny do kontrolera Application Gateway transferu danych przychodzących. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)-Będziemy używać usługi HPA do używania metryk Application Gateway i określania celu skalowania.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) — Użyjemy karty metryki, aby udostępnić metryki Application Gateway za pomocą serwera metryk. Karta metryki usługi Azure Kubernetes to projekt Open Source na platformie Azure podobny do kontrolera Application Gateway transferu danych przychodzących. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) -Będziemy używać usługi HPA do używania metryk Application Gateway i określania celu skalowania.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurowanie karty metryki usługi Azure Kubernetes
 
