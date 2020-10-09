@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81767013"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Zestaw SDK urządzeń Azure IoT dla języka C — więcej informacji na temat serializatora
@@ -65,7 +65,7 @@ Nie przedstawiono tego przykładu w tym przykładzie są to dodatkowe typy danyc
 
 Następujące typy danych są obsługiwane w modelach utworzonych przy użyciu biblioteki **serializatorów** :
 
-| Typ | Opis |
+| Type | Opis |
 | --- | --- |
 | double |liczba zmiennoprzecinkowa o podwójnej precyzji |
 | int |32-bitowa liczba całkowita |
@@ -74,8 +74,8 @@ Następujące typy danych są obsługiwane w modelach utworzonych przy użyciu b
 | Int8 \_ t |8-bitowa liczba całkowita |
 | Int16 \_ t |16-bitowa liczba całkowita |
 | Int32 \_ t |32-bitowa liczba całkowita |
-| Int64 \_ t |64-bitowa liczba całkowita |
-| bool |wartość logiczna |
+| Int64 \_ t |64-bitowe liczby całkowite |
+| bool |boolean |
 | ASCII \_ char \_ PTR |Ciąg ASCII |
 | \_przesunięcie daty i \_ godziny \_ dla modelu EDM |przesunięcie daty i godziny |
 | \_Identyfikator GUID modelu EDM |GUID |

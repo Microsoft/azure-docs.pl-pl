@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
 ms.openlocfilehash: 3414f50d6d0fc4983b7a05226a2f768e7ead81dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319677"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrowanie aplikacji internetowej z usługi Google Maps
@@ -1504,7 +1504,7 @@ Użyj `atlas.layer.ImageLayer` klasy do nakładania obrazów ze spisem. Ta klasa
 
 ### <a name="add-kml-data-to-the-map"></a>Dodawanie danych KML do mapy
 
-Zarówno platforma Azure, jak i usługa Google Maps mogą importować i renderować dane KML, KMZ i GeoRSS na mapie. Azure Maps obsługuje również GPX, GML, przestrzenne pliki CSV, GEOJSON, dobrze znany tekst (WKT), usługi mapowania sieci Web (WMS), usługi kafelków mapowania sieci Web (WMTS) i usługi Web Feature Services (WFS). Azure Maps odczytuje pliki lokalnie do pamięci i w większości przypadków może obsłużyć znacznie większe pliki KML. 
+Zarówno platforma Azure, jak i usługa Google Maps mogą importować i renderować dane KML, KMZ i GeoRSS na mapie. Azure Maps obsługuje również GPX, GML, przestrzenne pliki CSV, GEOJSON, dobrze znany tekst (WKT), Web-Mapping Services (WMS), usługi Web-Mapping kafelków () i usługi Web Feature Services (WFS). Azure Maps odczytuje pliki lokalnie do pamięci i w większości przypadków może obsłużyć znacznie większe pliki KML. 
 
 #### <a name="before-google-maps"></a>Wcześniej: Google Maps
 

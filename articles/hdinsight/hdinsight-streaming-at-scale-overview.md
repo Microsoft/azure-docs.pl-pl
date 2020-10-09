@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435393"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Przesyłanie strumieniowe na dużą skalę w usłudze HDInsight
@@ -35,7 +35,7 @@ Apache Storm to rozproszony, odporny na uszkodzenia system obliczeniowy typu ope
 
 Aby uzyskać więcej informacji, zobacz [co to jest Apache Storm w usłudze Azure HDInsight?](storm/apache-storm-overview.md).
 
-## <a name="spark-streaming"></a>Przesyłanie strumieniowe Spark
+## <a name="spark-streaming"></a>Spark Streaming
 
 Przetwarzanie strumieniowe Spark to rozszerzenie platformy Spark, które umożliwia ponowne użycie tego samego kodu, który jest używany do przetwarzania wsadowego. W tej samej aplikacji można łączyć zarówno zapytania wsadowe, jak i interakcyjne. W przeciwieństwie do burzy, przesyłanie strumieniowe w usłudze Spark zapewnia bezstanowe przetwarzanie semantyki. Gdy jest używany w połączeniu z [interfejsem API Direct Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), który zapewnia, że wszystkie dane Kafka są odbierane przez funkcję przesyłania strumieniowego usługi Spark dokładnie jeden raz, możliwe jest osiągnięcie kompleksowych danych. Jedną z mocnych funkcji przesyłania strumieniowego platformy Spark jest funkcja odporna na uszkodzenia, która umożliwia szybkie odzyskiwanie węzłów o błędach w przypadku używania wielu węzłów w klastrze.
 
@@ -49,7 +49,7 @@ Istnieją zalety oddzielania technologii. Na przykład Kafka jest technologią b
 
 ### <a name="scale-the-stream-buffering-layer"></a>Skalowanie warstwy buforowania strumienia
 
-Technologie buforowania strumienia Event Hubs i Kafka obu używają partycji, a konsumenci odczytują te partycje. Skalowanie przepływności danych wejściowych wymaga skalowania w górę liczby partycji, a Dodawanie partycji umożliwia zwiększenie równoległości. W Event Hubs nie można zmienić liczby partycji po wdrożeniu, dlatego ważne jest, aby zacząć od docelowej skali. Za pomocą Kafka można [dodawać partycje](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)nawet wtedy, gdy Kafka przetwarza dane. Kafka udostępnia narzędzie do ponownego przypisywania partycji `kafka-reassign-partitions.sh` . Usługa HDInsight udostępnia [Narzędzie ponownego równoważenia repliki partycji](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py` . To narzędzie do ponownego równoważenia wywołuje `kafka-reassign-partitions.sh` Narzędzie w taki sposób, że każda replika znajduje się w oddzielnej domenie błędów i domenie aktualizacji, co sprawia, że Kafka stojaka i zwiększa odporność na uszkodzenia.
+Technologie buforowania strumienia Event Hubs i Kafka obu używają partycji, a konsumenci odczytują te partycje. Skalowanie przepływności danych wejściowych wymaga skalowania w górę liczby partycji, a Dodawanie partycji umożliwia zwiększenie równoległości. W Event Hubs nie można zmienić liczby partycji po wdrożeniu, dlatego ważne jest, aby zacząć od docelowej skali. Za pomocą Kafka można [dodawać partycje](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion)nawet wtedy, gdy Kafka przetwarza dane. Kafka udostępnia narzędzie do ponownego przypisywania partycji  `kafka-reassign-partitions.sh` . Usługa HDInsight udostępnia [Narzędzie ponownego równoważenia repliki partycji](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py` . To narzędzie do ponownego równoważenia wywołuje `kafka-reassign-partitions.sh` Narzędzie w taki sposób, że każda replika znajduje się w oddzielnej domenie błędów i domenie aktualizacji, co sprawia, że Kafka stojaka i zwiększa odporność na uszkodzenia.
 
 ### <a name="scale-the-stream-processing-layer"></a>Skalowanie warstwy przetwarzania strumienia
 

@@ -4,10 +4,10 @@ description: W tym samouczku użyto przykładu strategii do utworzenia definicji
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048736"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Samouczek: Tworzenie środowiska na podstawie przykładu strategii
@@ -18,8 +18,8 @@ Poniższy samouczek korzysta z **grup zasobów z** przykładowym planem RBAC, ab
 
 > [!div class="checklist"]
 > - Utwórz nową definicję planu z przykładu
-> - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
-> - Przypisz swoją kopię planu do istniejącej subskrypcji
+> - Oznaczanie swojej kopii przykładu jako **opublikowanej**
+> - Przypisywanie kopii strategii do istniejącej subskrypcji
 > - Sprawdzanie wdrożonych zasobów do przypisania
 > - Cofnij przypisanie planu w celu usunięcia blokad
 
@@ -33,54 +33,54 @@ Najpierw Zaimplementuj przykład strategii. Importowanie powoduje utworzenie now
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Na stronie **pierwsze kroki** z lewej strony wybierz przycisk **Utwórz** w obszarze _Utwórz plan_.
+1. Na stronie **Wprowadzenie** z lewej strony wybierz przycisk **Utwórz** w obszarze _Tworzenie strategii_.
 
 1. Znajdź **grupy zasobów z** przykładowym planem RBAC w obszarze _inne przykłady_ i wybierz je.
 
-1. Wprowadź _podstawy_ przykładu planu:
+1. Wprowadź _podstawowe_ informacje dotyczące tego przykładu strategii:
 
    - **Nazwa**planu: Podaj nazwę kopii przykładu strategii. W tym samouczku zostanie użyta nazwa _2-RGS-with-role-przypisań_.
    - **Lokalizacja definicji**: Użyj wielokropka i wybierz grupę zarządzania lub subskrypcję, w której ma zostać zapisana kopia przykładu.
 
-1. Wybierz kartę _artefakty_ w górnej części strony lub **Następny: artefakty** w dolnej części strony.
+1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
 
 1. Zapoznaj się z listą artefaktów, które składają się na przykład strategii. Ten przykład definiuje dwie grupy zasobów z nazwami wyświetlanymi _ProdRG_ i _PreProdRG_. Końcowa nazwa i lokalizacja każdej grupy zasobów są ustawiane podczas przypisywania planu. Do grupy zasobów _ProdRG_ jest przypisana rola _współautor_ , a grupa zasobów _PreProdRG_ jest przypisana do ról _właściciel_ i _czytelnicy_ . Role przypisane w definicji są statyczne, ale użytkownik, aplikacja lub Grupa, do której przypisano rolę, jest ustawiana podczas przypisywania strategii.
 
-1. Wybierz pozycję **Zapisz wersję roboczą** po zakończeniu przeglądania przykładu planu.
+1. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
 
 W tym kroku zostanie utworzona kopia przykładowej definicji planu w wybranej grupie zarządzania lub subskrypcji. Zapisana definicja planu jest zarządzana jak każdy plan utworzony od podstaw. Przykład można zapisać do grupy zarządzania lub subskrypcji dowolną liczbę razy. Jednak każda kopia musi mieć unikatową nazwę.
 
 Po **pomyślnym** wyświetleniu powiadomienia portalu dotyczącego zapisywania definicji planu przejdź do następnego kroku.
 
-## <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładowej
+## <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 
-Twoja kopia przykładu strategii została teraz utworzona w Twoim środowisku. Jest on tworzony w trybie **wersji roboczej** i musi być **opublikowany** , aby można go było przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i wymagań. W tym samouczku nie wprowadzimy żadnych zmian.
+Twoja kopia przykładu strategii została utworzona w środowisku. Została ona utworzona w trybie **wersji roboczej** i musi zostać **opublikowana**, zanim będzie można ją przypisać i wdrożyć. Kopię przykładowej strategii można dostosować do środowiska i wymagań. W tym samouczku nie wprowadzimy żadnych zmian.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję strategii _dwurgs-with-role-przypisania_ , a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć definicję strategii _dwurgs-with-role-przypisania_ , a następnie wybierz ją.
 
-1. Wybierz pozycję **Publikuj plan** w górnej części strony. W nowym okienku po prawej stronie Podaj **wersję** _1,0_ dla kopii przykładu planu. Ta właściwość jest przydatna w przypadku późniejszej modyfikacji. Podaj **Informacje o zmianach** , takie jak "Pierwsza wersja opublikowana z grup zasobów przy użyciu przykładowego planu RBAC". Następnie wybierz pozycję **Publikuj** w dolnej części strony.
+1. W górnej części strony wybierz pozycję **Publikuj strategię**. W nowym okienku po prawej stronie Podaj **wersję** _1,0_ dla kopii przykładu planu. Ta właściwość jest przydatna w przypadku dokonywania późniejszych modyfikacji. Podaj **Informacje o zmianach** , takie jak "Pierwsza wersja opublikowana z grup zasobów przy użyciu przykładowego planu RBAC". Następnie wybierz pozycję **Publikuj** w dolnej części strony.
 
 Ten krok umożliwia przypisanie planu do subskrypcji. Po opublikowaniu można nadal wprowadzać zmiany. Dodatkowe zmiany wymagają opublikowania z nową wartością **wersji** , aby śledzić różnice między różnymi wersjami tej samej definicji planu.
 
 Po **pomyślnym** wyświetleniu powiadomienia portalu publikowanie definicji strategii przejdź do następnego kroku.
 
-## <a name="assign-the-sample-copy"></a>Przypisz przykładową kopię
+## <a name="assign-the-sample-copy"></a>Przypisywanie kopii przykładu
 
-Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. Ten krok polega na tym, że parametry są dostarczane, aby każde wdrożenie kopii przykładowej strategii było unikatowe.
+Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisać do subskrypcji w grupie zarządzania, w której został on zapisany. W tym kroku udostępniane są parametry, dzięki którym każde wdrożenie kopii przykładowej strategii będzie unikatowe.
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję strategii _dwurgs-with-role-przypisania_ , a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć definicję strategii _dwurgs-with-role-przypisania_ , a następnie wybierz ją.
 
-1. Wybierz pozycję **Przypisz plan** w górnej części strony definicji planu.
+1. Wybierz pozycję **Przypisz strategię** w górnej części strony definicji strategii.
 
-1. Podaj wartości parametrów dla przypisania planu:
+1. Podaj wartości parametrów dla przypisania strategii:
 
    - Podstawy
 
-     - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
+     - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji dla każdej z nich zostanie utworzone przypisanie przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy definicji planu.
      - **Lokalizacja**: Wybierz region, w którym ma zostać utworzona zarządzana tożsamość. Usługa Azure Blueprint używa tej tożsamości zarządzanej do wdrażania wszystkich artefaktów w przypisanej strategii. Aby dowiedzieć się więcej, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Na potrzeby tego samouczka wybierz pozycję _Wschodnie stany USA 2_.
@@ -96,7 +96,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
    - Parametry artefaktu
 
-     Parametry zdefiniowane w tej sekcji dotyczą artefaktu, w ramach którego jest zdefiniowany. Parametry te są [parametrami dynamicznymi](../concepts/parameters.md#dynamic-parameters) , ponieważ są one definiowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na wartości zdefiniowane w kolumnie **wartość** . W obszarze `{Your ID}` Wybierz swoje konto użytkownika platformy Azure.
+     Parametry zdefiniowane w tej sekcji mają zastosowanie do artefaktu w ramach którego zostały zdefiniowane. Parametry te są [parametrami dynamicznymi](../concepts/parameters.md#dynamic-parameters) , ponieważ są one definiowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na wartości zdefiniowane w kolumnie **wartość** . W obszarze `{Your ID}` Wybierz swoje konto użytkownika platformy Azure.
 
      |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Wartość|Opis|
      |-|-|-|-|-|

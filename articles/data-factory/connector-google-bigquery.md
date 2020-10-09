@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417319"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Google BigQuery przy użyciu Azure Data Factory
@@ -38,7 +38,7 @@ Data Factory udostępnia wbudowany sterownik umożliwiający nawiązywanie poł�
 >[!NOTE]
 >Ten łącznik usługi Google BigQuery został utworzony na podstawie interfejsów API BigQuery. Należy pamiętać, że BigQuery ogranicza maksymalną częstotliwość żądań przychodzących i wymusza odpowiednie przydziały dla poszczególnych projektów, zapoznaj się z [Przydziałami & limity — żądania interfejsu API](https://cloud.google.com/bigquery/quotas#api_requests). Upewnij się, że nie Wyzwalasz zbyt wielu współbieżnych żądań do konta.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

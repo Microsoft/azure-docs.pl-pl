@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81461654"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric
@@ -60,7 +60,7 @@ Istnieją trzy [scenariusze](../../service-fabric/service-fabric-cluster-securit
 -   Zabezpieczenia między węzłami: ten scenariusz zabezpiecza komunikację między maszynami wirtualnymi i komputerami w klastrze. Ta forma zabezpieczeń zapewnia, że tylko komputery autoryzowane do przyłączenia do klastra mogą hostować aplikacje i usługi w klastrze.
 W tym scenariuszu klastry działające na platformie Azure lub autonomiczne klastry działające w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](../../service-fabric/service-fabric-windows-cluster-x509-security.md) lub dla maszyn z [systemem Windows Server](../../service-fabric/service-fabric-windows-cluster-windows-security.md) .
 -   Zabezpieczenia klient-węzeł: ten scenariusz zabezpiecza komunikację między klientem Service Fabric i poszczególnymi węzłami w klastrze.
--   Access Control oparte na rolach (RBAC): w tym scenariuszu są używane oddzielne tożsamości (certyfikaty, Azure AD i tak dalej) dla każdej roli klienta i administratora, która uzyskuje dostęp do klastra. Tożsamości ról są określane podczas tworzenia klastra.
+-   Role-Based Access Control (RBAC): w tym scenariuszu są używane oddzielne tożsamości (certyfikaty, usługa Azure AD itd.) dla każdej roli klienta i administratora, która uzyskuje dostęp do klastra. Tożsamości ról są określane podczas tworzenia klastra.
 
 >[!NOTE]
 >**Zalecenia dotyczące zabezpieczeń klastrów platformy Azure:** Użyj zabezpieczeń usługi Azure AD do uwierzytelniania klientów i certyfikatów na potrzeby zabezpieczeń między węzłami.

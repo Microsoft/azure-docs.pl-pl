@@ -4,13 +4,13 @@ description: Zawiera opis deklaratywnej składni JSON dla szablonów Azure Resou
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82203832"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach Azure Resource Manager
+# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach usługi Azure Resource Manager
 
 Podstawowa składnia szablonu to JSON. Można jednak użyć wyrażeń do rozszerania wartości JSON dostępnych w ramach szablonu.  Wyrażenia zaczynają się i kończą nawiasami kwadratowymi: odpowiednio `[` i `]`. Wartość wyrażenia jest obliczana podczas wdrażania szablonu. Wyrażenie może zwrócić ciąg, liczbę całkowitą, wartość logiczną, tablicę lub obiekt.
 

@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252879"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
@@ -21,7 +21,7 @@ Poniżej znajduje się lista map filmów dotyczących przepływu danych, które 
 
 Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały dodane lub inne funkcje w bieżącym środowisku użytkownika Azure Data Factory.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="getting-started"></a>Getting Started
 
 [Wprowadzenie do mapowania przepływów danych w Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 

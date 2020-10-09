@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683167"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurowanie biblioteki OpenSSL dla systemu Linux
@@ -31,7 +31,7 @@ Dane wyjściowe w systemach opartych na systemie Ubuntu/Debian powinny być nast
 OPENSSLDIR: "/usr/lib/ssl"
 ```
 
-Sprawdź, czy w `certs` obszarze OPENSSLDIR znajduje się podkatalog. W powyższym przykładzie będzie to możliwe `/usr/lib/ssl/certs`.
+Sprawdź, czy `certs` w obszarze OPENSSLDIR znajduje się podkatalog. W powyższym przykładzie będzie to możliwe `/usr/lib/ssl/certs` .
 
 * Jeśli istnieje `/usr/lib/ssl/certs` i zawiera wiele pojedynczych plików certyfikatów (z `.crt` lub `.pem` rozszerzeniem), nie ma potrzeby wykonywania dalszych czynności.
 
@@ -39,14 +39,14 @@ Sprawdź, czy w `certs` obszarze OPENSSLDIR znajduje się podkatalog. W powyższ
 
 ## <a name="examples"></a>Przykłady
 
-- OPENSSLDIR `/opt/ssl`. `certs` Istnieje podkatalog z wieloma `.crt` plikami lub `.pem` .
-Ustaw zmienną `SSL_CERT_DIR` środowiskową, aby `/opt/ssl/certs` wskazywała przed uruchomieniem programu korzystającego z zestawu Speech SDK. Przykład:
+- OPENSSLDIR `/opt/ssl` . Istnieje `certs` podkatalog z wieloma `.crt` `.pem` plikami lub.
+Ustaw zmienną środowiskową `SSL_CERT_DIR` , aby wskazywała `/opt/ssl/certs` przed uruchomieniem programu korzystającego z zestawu Speech SDK. Na przykład:
 ```bash
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR jest `/etc/pki/tls` (podobnie jak w systemach opartych na RHEL/CentOS). `certs` Istnieje podkatalog z plikiem pakietu certyfikatów, na przykład `ca-bundle.crt`.
-Ustaw zmienną `SSL_CERT_FILE` środowiskową na ten plik przed uruchomieniem programu korzystającego z zestawu Speech SDK. Przykład:
+- OPENSSLDIR jest `/etc/pki/tls` (podobnie jak w systemach opartych na RHEL/CentOS). Istnieje `certs` podkatalog z plikiem pakietu certyfikatów, na przykład `ca-bundle.crt` .
+Ustaw zmienną środowiskową `SSL_CERT_FILE` na ten plik przed uruchomieniem programu korzystającego z zestawu Speech SDK. Na przykład:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```

@@ -7,15 +7,15 @@ ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021072"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Samouczek: poprawianie materiałów, oświetlenia i efektów
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -928,7 +928,7 @@ Ponieważ modyfikujemy tylko pierwszy materiał siatki, może nie być widoczna 
 
 ![Przykład edycji materiału](./media/material-edit-example.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Gratulacje! Wdrożono wszystkie podstawowe funkcje renderowania zdalnego na platformie Azure. W następnym rozdziale dowiesz się, jak zabezpieczać zdalne renderowanie i magazyn obiektów BLOB na platformie Azure. Poniżej przedstawiono pierwsze kroki umożliwiające wydanie komercyjnej aplikacji używającej renderowania zdalnego platformy Azure.
 

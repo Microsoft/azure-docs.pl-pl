@@ -9,10 +9,10 @@ ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069327"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
@@ -65,7 +65,7 @@ Grupa zasobów zawiera wszystkie zasoby wymagane w tym samouczku.
 3. W obszarze **Nazwa grupy zasobów**wprowadź polecenie *test-PD-RG*.
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W polu **Lokalizacja grupy zasobów** wybierz lokalizację. Wszystkie inne zasoby, które tworzysz, muszą znajdować się w tej samej lokalizacji.
-6. Wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-vnet"></a>Tworzenie sieci wirtualnej
 
@@ -159,7 +159,7 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 5. W polu **Subskrypcja** wybierz subskrypcję.
 6. W obszarze **Grupa zasobów**wybierz pozycję **test-PD-RG**.
 7. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Wybierz pozycję **Odśwież**, a następnie wybierz tabelę **Zapora trasy tras** .
 10. Wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz**.
 11. Wybierz pozycję **Virtual Network**  >  **test-PD-VN**.
@@ -217,7 +217,7 @@ Jest to reguła sieci, która umożliwia ruchowi wychodzącemu dostęp do dwóch
 
 ## <a name="configure-a-dnat-rule"></a>Konfigurowanie reguły DNAT
 
-Ta reguła umożliwia połączenie pulpitu zdalnego z maszyną wirtualną SRV w ramach zapory.
+Ta reguła umożliwia połączenie pulpitu zdalnego z maszyną wirtualną Srv-Work za pomocą zapory.
 
 1. Wybierz kartę **Kolekcja reguł translatora adresów sieciowych** .
 2. Wybierz pozycję **Dodaj kolekcję reguł NAT**.

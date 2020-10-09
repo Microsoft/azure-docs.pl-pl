@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316430"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
@@ -28,7 +28,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Emulator bota](https://aka.ms/abs/build/emulatordownload)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Tworzenie zasobu bot aplikacji sieci Web
 

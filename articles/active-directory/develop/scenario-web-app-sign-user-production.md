@@ -12,10 +12,10 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82181634"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplikacja internetowa, która loguje użytkowników: Przenieś do środowiska produkcyjnego
@@ -49,7 +49,7 @@ Pakiet NuGet Microsoft. Identity. Web obsługuje najczęstsze problemy z SameSit
 Gdy aplikacja sieci Web loguje się do użytkowników, może wywoływać interfejsy API sieci Web w imieniu zalogowanych użytkowników. Wywoływanie interfejsów API sieci Web z aplikacji sieci Web jest obiektem następującego scenariusza:
 
 > [!div class="nextstepaction"]
-> [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md)
+> [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Głębokie szczegółowe: samouczek aplikacji sieci Web ASP.NET Core
 
@@ -63,7 +63,7 @@ Ten samouczek progresywny zawiera kod gotowy do użycia w środowisku produkcyjn
 - Twoja organizacja
 - Wiele organizacji
 - Konta służbowe lub osobiste konta Microsoft
-- [Funkcje B2C platformy Azure](https://aka.ms/aadb2c)
+- [Azure AD B2C](https://aka.ms/aadb2c)
 - Chmury narodowe
 
 ## <a name="sample-code-java-web-app"></a>Przykładowy kod: aplikacja internetowa Java

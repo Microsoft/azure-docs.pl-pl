@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81680719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej
@@ -56,7 +56,7 @@ W tym temacie opisano Konfigurowanie routingu w centrum IoT Hub w celu wysyłani
 * Dodanie niestandardowego punktu końcowego i reguły routingu do centrum IoT Hub w celu rozesłania komunikatów zawierających alert dotyczący temperatury do kolejki Service Bus.
 * Utwórz, skonfiguruj i przetestuj aplikację logiki, aby korzystać z komunikatów z kolejki Service Bus i wysyłać wiadomości e-mail z powiadomieniem do żądanego odbiorcy.
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
 * Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
 
@@ -84,7 +84,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Utwórz przestrzeń nazw usługi Service Bus w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Wybierz pozycję **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
+1. Wybierz przycisk **Utwórz**. Przed przejściem do następnego kroku poczekaj na zakończenie wdrożenia.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Dodawanie kolejki Service Bus do przestrzeni nazw
 
@@ -124,7 +124,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki Service Bus do centrum IoT Hub i
 
    ![Dodaj punkt końcowy do centrum IoT Hub w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Wybierz pozycję **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
+1. Wybierz przycisk **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
 
 ### <a name="add-a-routing-rule"></a>Dodawanie reguły rozsyłania
 
@@ -152,7 +152,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
 1. Wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
-1. Wprowadź następujące informacje.
+1. Wprowadź następujące informacje:
 
    **Name**: Nazwa aplikacji logiki.
 
@@ -162,7 +162,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
    ![Tworzenie aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurowanie wyzwalacza aplikacji logiki
 
@@ -185,7 +185,7 @@ W poprzedniej sekcji skonfigurujesz Centrum IoT Hub do przesyłania komunikatów
 
       ![Utwórz połączenie usługi Service Bus dla aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Wybierz zasady usługi Service Bus (RootManageSharedAccessKey). Następnie wybierz pozycję **Utwórz**.
+   1. Wybierz zasady usługi Service Bus (RootManageSharedAccessKey). Następnie wybierz pozycję  **Utwórz**.
 
       ![Utwórz połączenie usługi Service Bus dla aplikacji logiki w Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 

@@ -10,10 +10,10 @@ ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051302"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
@@ -71,7 +71,7 @@ W następnej sekcji utworzysz nową aplikację ASP.NET Core MVC.
 
 1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz **ASP.NET Core aplikacji sieci Web** dla języka C#. Wybierz przycisk **Dalej**, aby kontynuować.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Utwórz nowy projekt aplikacji sieci Web ASP.NET Core":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt do *zrobienia* i wybierz pozycję **Utwórz**.
 
@@ -89,7 +89,7 @@ Teraz, gdy mamy najwięcej ASP.NET Core kodu platformy MVC dla tego rozwiązania
 
 1. W **Menedżerze pakietów NuGet**Wyszukaj i wybierz pozycję **Microsoft. Azure. Cosmos**. Wybierz pozycję **Zainstaluj**.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Zainstaluj pakiet NuGet":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
    Program Visual Studio pobiera i instaluje pakiet Azure Cosmos DB wraz z jego zależnościami.
 
@@ -139,7 +139,7 @@ Następnie Dodajmy następujące widoki.
    * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
    * Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Dodawanie widoku MVC":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
 
@@ -262,7 +262,7 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
 1. W obszarze **Dodawanie szkieletu**wybierz pozycję **kontroler MVC — puste** i wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Wybierz kontroler MVC — pusty w obszarze Dodawanie szkieletu":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 1. Nazwij nowy kontroler *ItemController*.
 
@@ -280,19 +280,19 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Naciśnij klawisz F5 w programie Visual Studio, aby skompilować aplikację w trybie debugowania. Powinno to spowodować skompilowanie aplikacji i uruchomienie przeglądarki z wyświetloną stroną z pustą siatką, którą widzieliśmy wcześniej:
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web z listą rzeczy do zrobienia utworzoną przez ten samouczek":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
    
    Jeśli aplikacja zostanie otwarta na stronie głównej, Dołącz `/Item` do adresu URL.
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz pozycję **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
-    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu":::
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
   
 1. Wybierz pozycję **Edytuj** obok **elementu** na liście. Aplikacja otwiera widok **edycji** , w którym można zaktualizować każdą właściwość obiektu, łącznie z flagą **ukończoną** . Jeśli wybierzesz pozycję **ukończono** i wybierzesz pozycję **Zapisz**, aplikacja wyświetli **element** jako wykonany na liście.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu z zaznaczonym polem ukończono":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 1. Sprawdź stan danych w usłudze Azure Cosmos DB przy użyciu [Eksploratora Cosmos](https://cosmos.azure.com) lub Eksplorator danych emulatora Azure Cosmos DB.
 
@@ -312,7 +312,7 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą Azure Cosmos DB, wdr
 
 1. Znajdź swój profil, a następnie wybierz przycisk **OK**. Następnie wyszukaj wymaganą usługę Azure App Service i wybierz przycisk **OK**.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Okno dialogowe usługi App Service w programie Visual Studio":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 Innym rozwiązaniem jest utworzenie nowego profilu:
 
@@ -324,7 +324,7 @@ Innym rozwiązaniem jest utworzenie nowego profilu:
 
 1. W **App Service**wprowadź nazwę aplikacji sieci Web i odpowiednią subskrypcję, grupę zasobów i plan hostingu, a następnie wybierz pozycję **Utwórz**.
 
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Okno dialogowe Tworzenie usługi App Service w programie Visual Studio":::
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 W ciągu kilku sekund program Visual Studio opublikuje aplikację sieci Web i uruchomi przeglądarkę, w której można zobaczyć swój projekt uruchomiony na platformie Azure.
 

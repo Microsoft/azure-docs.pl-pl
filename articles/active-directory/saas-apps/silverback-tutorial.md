@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Samouczek: integracja Azure Active Directory z usługą Silverback
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Silverback, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-silverback-single-sign-on)** jednokrotne w usłudze Silverback, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-silverback-single-sign-on)** jednokrotne w usłudze Silverback, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego Silverback](#create-silverback-test-user)** , aby uzyskać odpowiednik Britta Simon w Silverback, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -114,7 +114,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Silverback,
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Silverback
+### <a name="configure-silverback-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Silverback
 
 1. W innej przeglądarce internetowej Zaloguj się do serwera Silverback jako administrator.
 

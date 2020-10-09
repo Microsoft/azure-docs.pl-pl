@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81729159"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informacje o cenach usługi Azure IoT Hub
@@ -45,7 +45,7 @@ ms.locfileid: "81729159"
 
 ## <a name="example-1"></a>Przykład #1
 
-Urządzenie wysyła jeden komunikat z urządzenia do chmury o godzinie 1 KB do IoT Hub, który jest następnie odczytywany przez Azure Stream Analytics. Zaplecze rozwiązania wywołuje metodę (z 512-bajtowym ładunkiem) na urządzeniu co 10 minut, aby wyzwolić konkretną akcję. Urządzenie odpowiada na metodę z wynikiem 200 bajtów.
+Urządzenie wysyła komunikat z urządzenia do chmury 1 1-KB na minutę do IoT Hub, który jest następnie odczytywany przez Azure Stream Analytics. Zaplecze rozwiązania wywołuje metodę (z 512-bajtowym ładunkiem) na urządzeniu co 10 minut, aby wyzwolić konkretną akcję. Urządzenie odpowiada na metodę z wynikiem 200 bajtów.
 
 Urządzenie zużywa:
 

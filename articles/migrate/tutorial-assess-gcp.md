@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: adf936d6d1b99bf81a8c055237ca597020452bd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716585"
 ---
 # <a name="tutorial-assess-google-cloud-platform-gcp-vm-instances-for-migration-to-azure"></a>Samouczek: Ocena wystąpień maszyn wirtualnych Google Cloud Platform (GCP) na potrzeby migracji na platformę Azure
@@ -17,7 +17,7 @@ W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, 
 
 W tym artykule opisano sposób oceny wystąpień maszyn wirtualnych Google Cloud Platform (GCP) na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate:.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 - Uruchom ocenę na podstawie metadanych maszyn i informacji o konfiguracji.
 - Uruchom ocenę na podstawie danych wydajności.

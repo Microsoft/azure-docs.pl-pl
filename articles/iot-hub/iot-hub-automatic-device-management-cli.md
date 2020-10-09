@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024969"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatyczne zarządzanie urządzeniami i modułami IoT przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -105,7 +105,7 @@ Oto przykłady zapytań metryk:
 }
 ```
 
-Zapytania dotyczące metryk dla modułów są również podobne do zapytań dotyczących urządzeń, ale wybierasz opcję `moduleId` z `devices.modules` . Przykład: 
+Zapytania dotyczące metryk dla modułów są również podobne do zapytań dotyczących urządzeń, ale wybierasz opcję `moduleId` z `devices.modules` . Na przykład: 
 
 ```json
 {
@@ -134,7 +134,7 @@ Użyj następującego polecenia, aby utworzyć konfigurację:
 
 * --**zawartość** w formacie JSON lub ścieżka pliku do zawartości docelowej, która ma zostać ustawiona jako wartość właściwości "bliźniaczych". 
 
-* --**Hub-Name** -Name Centrum IoT, w którym zostanie utworzona konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* --**Hub-Name** -Name Centrum IoT, w którym zostanie utworzona konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`
 
 * --**warunek docelowy** — wprowadź warunek docelowy, aby określić, które urządzenia lub moduły będą ukierunkowane na tę konfigurację.W przypadku automatycznej konfiguracji urządzenia warunek jest oparty na tagach sznurka urządzenia lub odpowiednich właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład: `tags.environment='test'` lub `properties.desired.devicemodel='4000x'`.W przypadku automatycznej konfiguracji modułu warunek jest oparty na tagach wieloosiowych modułu lub odpowiednich właściwościach modułu. Na przykład: `from devices.modules where tags.environment='test'` lub `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
@@ -153,7 +153,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia`az account set -s [subscription name]`
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`
 
 Sprawdź konfigurację w oknie poleceń.Właściwość **metryki** zawiera liczbę dla każdej metryki ocenianej przez poszczególne centra:
 
@@ -203,7 +203,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**Ustaw** — zaktualizuj właściwość w konfiguracji. Można zaktualizować następujące właściwości:
 
-    * targetCondition — na przykład`targetCondition=tags.location.state='Oregon'`
+    * targetCondition — na przykład `targetCondition=tags.location.state='Oregon'`
 
     * Etykieta 
 

@@ -4,10 +4,10 @@ description: Artykuł opisujący obsługiwane jednostki SKU maszyny wirtualnej (
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82183623"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Obsługiwane jednostki SKU maszyny wirtualnej dla usługi Azure Policy
@@ -68,10 +68,10 @@ SUSE | SLES — HPC | 12. X
 SUSE | SLES-HPC — priorytet | 12. X
 SUSE | SLES — SAP | 12. X
 SUSE | SLES — SAP-BYOS | 12. X
-SUSE | SLES — priorytet | 12. X
+SUSE | SLES-Priority | 12. X
 SUSE | SLES — BYOS | 12. X
 SUSE | SLES — SAPCAL | 12. X
-SUSE | SLES — Standard | 12. X
+SUSE | SLES-Standard | 12. X
 Canonical | UbuntuServer | 14.04.0 — LTS
 Canonical | UbuntuServer | 14.04.1 — LTS
 Canonical | UbuntuServer | 14.04.2-LTS
@@ -84,7 +84,7 @@ Canonical | UbuntuServer | 16.04-LTS
 Canonical | UbuntuServer | 16.04.0 — LTS
 Canonical | UbuntuServer | 18,04 — CODZIENNIE — LTS
 Canonical | UbuntuServer | 18,04 – LTS
-Oracle | Oracle — Linux | 6,8, 6,9, 6,10, 7,3, 7,4, 7,5, 7,6
+Oracle | Oracle-Linux | 6,8, 6,9, 6,10, 7,3, 7,4, 7,5, 7,6
 OpenLogic | CentOS | 6. X, 7. X
 OpenLogic | CentOS – LVM | 6. X, 7. X
 OpenLogic | CentOS – sterownik | 6. X, 7. X

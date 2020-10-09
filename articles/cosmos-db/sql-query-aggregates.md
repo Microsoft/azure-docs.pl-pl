@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79464465"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funkcje agregujące w Azure Cosmos DB
@@ -61,7 +61,7 @@ Wyniki są następujące:
 
 ## <a name="types-of-aggregate-functions"></a>Typy funkcji agregujących
 
-Interfejs API SQL obsługuje następujące funkcje agregujące. `SUM`i `AVG` operować na wartościach liczbowych, i, `COUNT` `MIN` i `MAX` pracować na liczbach, ciągach, wartościach logicznych i wartościach null.
+Interfejs API SQL obsługuje następujące funkcje agregujące. `SUM` i `AVG` operować na wartościach liczbowych, i, `COUNT` `MIN` i `MAX` pracować na liczbach, ciągach, wartościach logicznych i wartościach null.
 
 | Funkcja | Opis |
 |-------|-------------|

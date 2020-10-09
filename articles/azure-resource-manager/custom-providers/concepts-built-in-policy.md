@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190133"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Wdróż skojarzenia dla dostawcy niestandardowego przy użyciu Azure Policy
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji na temat skojarzeń, zobacz Dołączanie [zasob�
 ### <a name="prerequisites"></a>Wymagania wstępne
 Jeśli niestandardowy dostawca wymaga uprawnień do zakresu zasad w celu wykonania akcji, wdrożenie zasad zasobu skojarzenia nie będzie działać bez udzielania uprawnień.
 
-### <a name="policy-assignment"></a>Przypisywanie zasad
+### <a name="policy-assignment"></a>Przypisanie zasad
 Aby użyć wbudowanych zasad, Utwórz przypisanie zasad i przypisz skojarzenia wdrażania dla niestandardowych zasad dostawcy. Zasady będą identyfikować niezgodne zasoby i wdrażać skojarzenia dla tych zasobów.
 
 ![Przypisywanie wbudowanych zasad](media/concepts-built-in-policy/assign-builtin-policy-customprovider.png)

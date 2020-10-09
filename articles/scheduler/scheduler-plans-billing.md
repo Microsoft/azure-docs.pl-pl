@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78898475"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Plany i rozliczenia w usłudze Azure Scheduler
@@ -28,7 +28,7 @@ W usłudze Azure Scheduler kolekcja zadań zawiera określoną liczbę zadań. K
 
 | Plan zbierania zadań | Maksymalna liczba zadań na kolekcję | Maksymalny cykl | Maksymalna liczba kolekcji zadań na subskrypcję | Limity | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standardowa (Standard)** | 50 zadań na kolekcję | Jeden na minutę. Nie można uruchamiać zadań częściej niż jeden na minutę. | Każda subskrypcja platformy Azure może mieć do 100 kolekcji zadań w warstwie Standardowa. | Dostęp do pełnego zestawu funkcji usługi Scheduler | 
+| **Standardowa** | 50 zadań na kolekcję | Jeden na minutę. Nie można uruchamiać zadań częściej niż jeden na minutę. | Każda subskrypcja platformy Azure może mieć do 100 kolekcji zadań w warstwie Standardowa. | Dostęp do pełnego zestawu funkcji usługi Scheduler | 
 | **P10 Premium** | 50 zadań na kolekcję | Jeden na minutę. Nie można uruchamiać zadań częściej niż jeden na minutę. | Każda subskrypcja platformy Azure może mieć do 10 000 P10 Premium kolekcji zadań. Aby uzyskać więcej kolekcji, <a href="mailto:wapteams@microsoft.com">skontaktuj się z nami</a>. | Dostęp do pełnego zestawu funkcji usługi Scheduler |
 | **P20 Premium** | 1000 zadań na kolekcję | Jeden na minutę. Nie można uruchamiać zadań częściej niż jeden na minutę. | Każda subskrypcja platformy Azure może mieć do 5 000 P20 Premium kolekcji zadań. Aby uzyskać więcej kolekcji, <a href="mailto:wapteams@microsoft.com">skontaktuj się z nami</a>. | Dostęp do pełnego zestawu funkcji usługi Scheduler |
 |||||| 

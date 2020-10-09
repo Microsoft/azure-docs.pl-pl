@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683742"
 ---
 # <a name="understand-the-device-model-schema"></a>Opis schematu modelu urządzenia
@@ -88,8 +88,8 @@ W `Simulation` sekcji definiujesz wewnętrzny stan symulowanego urządzenia. Wsz
 
 Definicja stanu urządzenia ma dwa elementy:
 
-* `InitialState`definiuje początkowe wartości dla wszystkich właściwości obiektu stanu urządzenia.
-* `Script`identyfikuje plik JavaScript, który jest uruchamiany zgodnie z harmonogramem w celu zaktualizowania stanu urządzenia. Ten plik skryptu służy do losowego generowania wartości telemetrycznych wysyłanych przez urządzenie.
+* `InitialState` definiuje początkowe wartości dla wszystkich właściwości obiektu stanu urządzenia.
+* `Script` identyfikuje plik JavaScript, który jest uruchamiany zgodnie z harmonogramem w celu zaktualizowania stanu urządzenia. Ten plik skryptu służy do losowego generowania wartości telemetrycznych wysyłanych przez urządzenie.
 
 Aby dowiedzieć się więcej na temat pliku JavaScript, który aktualizuje obiekt stanu urządzenia, zobacz [Omówienie zachowania modelu urządzenia](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
@@ -119,7 +119,7 @@ Usługa symulacji uruchamia plik **chiller-01-state.js** co pięć sekund, aby z
 
 ## <a name="properties"></a>Właściwości
 
-`Properties`Sekcja schematu definiuje wartości właściwości, które urządzenie zgłasza do rozwiązania. Przykład:
+`Properties`Sekcja schematu definiuje wartości właściwości, które urządzenie zgłasza do rozwiązania. Na przykład:
 
 ```json
 "Properties": {
@@ -158,17 +158,17 @@ Poniższy przykład wysyła komunikat telemetrii JSON co 10 sekund przy użyciu 
 ]
 ```
 
-`MessageTemplate`definiuje strukturę komunikatu JSON wysyłanego przez symulowane urządzenie. Symbole zastępcze w `MessageTemplate` użyciu składni `${NAME}` gdzie `NAME` jest kluczem z [obiektu stanu urządzenia](#simulation). Ciągi powinny być ujęte w cudzysłowy.
+`MessageTemplate` definiuje strukturę komunikatu JSON wysyłanego przez symulowane urządzenie. Symbole zastępcze w `MessageTemplate` użyciu składni `${NAME}` gdzie `NAME` jest kluczem z [obiektu stanu urządzenia](#simulation). Ciągi powinny być ujęte w cudzysłowy.
 
-`MessageSchema`definiuje schemat wiadomości wysyłanej przez symulowane urządzenie. Schemat komunikatów jest również publikowany w IoT Hub, aby umożliwić aplikacjom zaplecza ponowne użycie informacji w celu interpretacji przychodzącej telemetrii.
+`MessageSchema` definiuje schemat wiadomości wysyłanej przez symulowane urządzenie. Schemat komunikatów jest również publikowany w IoT Hub, aby umożliwić aplikacjom zaplecza ponowne użycie informacji w celu interpretacji przychodzącej telemetrii.
 
 Obecnie można używać tylko schematów wiadomości JSON. Pola wymienione w schemacie mogą być następujące:
 
 * Serializacja obiektu za pomocą kodu JSON
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
-* Boolean
-* Integer
+* Boolean (wartość logiczna)
+* Liczba całkowita
 * Double
 * DateTime
 

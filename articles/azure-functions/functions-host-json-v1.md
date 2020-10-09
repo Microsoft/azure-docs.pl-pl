@@ -4,10 +4,10 @@ description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowi
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81757519"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsw odwołaniu dla Azure Functions 1. x
@@ -138,7 +138,7 @@ Ustawienia konfiguracji dla [wyzwalacza Azure Cosmos DB i powiązań](functions-
 
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
-|Bramamode|Brama|Tryb połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB. Dostępne są opcje `Direct` i`Gateway`|
+|Bramamode|Brama|Tryb połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB. Dostępne są opcje `Direct` i `Gateway`|
 |Protokół|Schemat|Protokół połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB.  Przeczytaj [tutaj, aby uzyskać wyjaśnienie obu trybów](../cosmos-db/performance-tips.md#networking)|
 |leasePrefix|nie dotyczy|Prefiks dzierżawy do użycia we wszystkich funkcjach w aplikacji.|
 
@@ -340,7 +340,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 
 *Wersja 1. x*
 
-Ustawienia konfiguracji dla dzienników utworzonych przy użyciu `TraceWriter` obiektu. Zobacz [Rejestrowanie w języku C#](functions-reference-csharp.md#logging) i [RejestrowanieNode.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Ustawienia konfiguracji dla dzienników utworzonych przy użyciu `TraceWriter` obiektu. Zobacz [Rejestrowanie w języku C#](functions-reference-csharp.md#logging) i [ RejestrowanieNode.js](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {

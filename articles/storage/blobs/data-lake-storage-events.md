@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005483"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Samouczek: implementowanie wzorca przechwytywania danych w celu zaktualizowania tabeli różnicowej datakostki
@@ -22,7 +22,7 @@ W tym samouczku pokazano, jak obsługiwać zdarzenia na koncie magazynu, które 
 
 Utworzysz małe rozwiązanie, które umożliwi użytkownikowi wypełnianie tabeli różnicowej datakostki przez przekazanie pliku wartości rozdzielanych przecinkami (CSV) opisującego zamówienie sprzedaży. To rozwiązanie zostanie skompilowane, łącząc się z subskrypcją Event Grid, funkcją platformy Azure i [zadaniem](https://docs.azuredatabricks.net/user-guide/jobs.html) w Azure Databricks.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Utwórz subskrypcję Event Grid, która wywołuje funkcję platformy Azure.
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-events/new-databricks-notebook.png "Tworzenie notesu w kostkach")
 
-    Wybierz pozycję **Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Tworzenie i wypełnianie tabeli różnicowej datakostki
 
@@ -411,7 +411,7 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu zaznacz grupę zasobów konta magazynu i wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Reagowanie na zdarzenia usługi Blob Storage](storage-blob-event-overview.md)

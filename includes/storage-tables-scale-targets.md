@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: tamram
 ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78941807"
 ---
 W poniższej tabeli opisano elementy docelowe pojemności, skalowalności i wydajności dla usługi Table Storage.
 
-| Zasób | Środowisko docelowe |
+| Zasób | Cel |
 |----------|---------------|
 | Liczba tabel na koncie usługi Azure Storage | Ograniczone tylko pojemności konta magazynu |
 | Liczba partycji w tabeli | Ograniczone tylko pojemności konta magazynu |

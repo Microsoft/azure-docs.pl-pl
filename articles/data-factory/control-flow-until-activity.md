@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417950"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Do działania w Azure Data Factory
@@ -55,10 +55,10 @@ Działanie Until udostępnia te same funkcje, co struktura pętli do-until w ję
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa `Until` działania. | String | Tak
-typ | Musi być ustawiona na wartość **until**. | String | Tak
+name | Nazwa `Until` działania. | Ciąg | Tak
+typ | Musi być ustawiona na wartość **until**. | Ciąg | Tak
 expression | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenia.  | Tak
-timeout | Pętla do-until przekroczy limit czasu po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`(lub) `hh:mm:ss` . Domyślna wartość to 7 dni. Wartość maksymalna to: 90 dni. | Nie
+timeout | Pętla do-until przekroczy limit czasu po upływie określonego czasu. | Ciąg. `d.hh:mm:ss` (lub) `hh:mm:ss` . Domyślna wartość to 7 dni. Wartość maksymalna to: 90 dni. | Nie
 Działania | Zestaw działań, które są wykonywane, dopóki wyrażenie nie zostanie oszacowane `true` . | Tablica działań. |  Tak
 
 ## <a name="example-1"></a>Przykład 1

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024850"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Konfigurowanie protokołu TLS dla aplikacji na platformie Azure
@@ -166,7 +166,7 @@ Teraz, gdy wdrożenie jest uruchomione na platformie Azure, możesz połączyć 
    ![Podgląd witryny](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Jeśli chcesz użyć protokołu TLS do wdrożenia przejściowego, a nie wdrożenia produkcyjnego, musisz najpierw określić adres URL używany do wdrożenia przejściowego. Po wdrożeniu usługi w chmurze adres URL środowiska tymczasowego jest określany przez **Identyfikator GUID identyfikatora wdrożenia** w tym formacie:`https://deployment-id.cloudapp.net/`  
+   > Jeśli chcesz użyć protokołu TLS do wdrożenia przejściowego, a nie wdrożenia produkcyjnego, musisz najpierw określić adres URL używany do wdrożenia przejściowego. Po wdrożeniu usługi w chmurze adres URL środowiska tymczasowego jest określany przez **Identyfikator GUID identyfikatora wdrożenia** w tym formacie: `https://deployment-id.cloudapp.net/`  
    >
    > Utwórz certyfikat z nazwą pospolitą (CN) równą adresowi URL opartemu na identyfikatorze GUID (na przykład **328187776e774ceda8fc57609d404462.cloudapp.NET**). Użyj portalu, aby dodać certyfikat do usługi w chmurze przemieszczanej. Następnie należy dodać informacje o certyfikacie do plików CSDEF i CSCFG, ponownie spakować aplikację i zaktualizować wdrożenie przemieszczane, aby użyć nowego pakietu.
    >

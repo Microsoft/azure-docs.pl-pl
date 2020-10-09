@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319575"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migruj usługę sieci Web z usługi Google Maps
@@ -94,7 +94,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *Nie dotyczy*     |
+| `location_type`             | *Brak*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -138,9 +138,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *Nie dotyczy*                               |
+| `fields`                  | *Brak*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *Nie dotyczy*                               |
+| `inputtype`               | *Brak*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
@@ -157,13 +157,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *Nie dotyczy*                               |
-| `minprice`                  | *Nie dotyczy*                               |
+| `maxprice`                  | *Brak*                               |
+| `minprice`                  | *Brak*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *Nie dotyczy*                               |
+| `opennow`                   | *Brak*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *Nie dotyczy*                               |
+| `rankby`                    | *Brak*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -243,10 +243,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *Nie dotyczy*                              |
+| `scale`                     | *Brak*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *Nie dotyczy*                              |
-| `visible`                   | *Nie dotyczy*                              |
+| `style`                     | *Brak*                              |
+| `visible`                   | *Brak*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -315,7 +315,7 @@ W Azure Maps lokalizacja numeru PIN musi być w formacie "Długość geograficzn
 - `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
 - `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
 
-Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Na przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
+Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
 
 - `al` — Określa nieprzezroczystość (alfa) znacznika. Wybierz liczbę z zakresu od 0 do 1.
 - `an` — Określa kotwicę numeru PIN. Określ wartości X i y pikseli w formacie "X y".

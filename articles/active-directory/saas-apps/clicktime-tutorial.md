@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Samouczek: integracja Azure Active Directory z usługą ClickTime
@@ -140,7 +140,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji ClickTime,
    
     c.  Otwórz w programie **Notatnik****certyfikat zakodowany w formacie Base-64** pobrany z witryny Azure Portal, skopiuj jego zawartość, a następnie wklej go w polu tekstowym **Certyfikat X.509**.
    
-    d.  Kliknij pozycję **Zapisz**.
+    d.  Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -165,7 +165,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -224,7 +224,7 @@ W przypadku aplikacji ClickTime aprowizowanie jest zadaniem ręcznym.
     > [!NOTE]
     > Jeśli chcesz, możesz ustawić dodatkowe właściwości obiektu nowej osoby.
    
-    c.  Kliknij pozycję **Zapisz**.
+    c.  Kliknij przycisk **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -232,7 +232,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ClickTime w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji ClickTime, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
