@@ -1,6 +1,6 @@
 ---
 title: Ograniczanie dostępu przy użyciu sygnatur dostępu współdzielonego — Azure HDInsight
-description: Dowiedz się, jak używać sygnatur dostępu współdzielonego, aby ograniczyć dostęp usługi HDInsight do danych przechowywanych w obiektach Blob magazynu Azure.
+description: Dowiedz się, jak używać sygnatur dostępu współdzielonego w celu ograniczenia dostępu usługi HDInsight do danych przechowywanych w usłudze Azure Blob Storage.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006317"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856568"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Używanie sygnatur dostępu współdzielonego do usługi Azure Storage w celu ograniczenia dostępu do danych w usłudze HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Używanie sygnatur dostępu współdzielonego usługi Azure Blob Storage w celu ograniczenia dostępu do danych w usłudze HDInsight
 
-Usługa HDInsight ma pełny dostęp do danych na kontach usługi Azure Storage skojarzonych z klastrem. Sygnatury dostępu współdzielonego można użyć w kontenerze obiektów BLOB w celu ograniczenia dostępu do danych. Sygnatury dostępu współdzielonego (SAS) są funkcją kont usługi Azure Storage, która pozwala ograniczyć dostęp do danych. Na przykład zapewnianie dostępu tylko do odczytu do danych.
+Usługa HDInsight ma pełny dostęp do danych na kontach usługi Azure Blob Storage skojarzonych z klastrem. Sygnatury dostępu współdzielonego można użyć w kontenerze obiektów BLOB w celu ograniczenia dostępu do danych. Sygnatury dostępu współdzielonego (SAS) są funkcją kont usługi Azure Blob Storage, która umożliwia ograniczenie dostępu do danych. Na przykład zapewnianie dostępu tylko do odczytu do danych.
 
 > [!IMPORTANT]  
 > W przypadku rozwiązania korzystającego z platformy Apache Ranger Rozważ użycie przyłączonej do domeny usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Konfigurowanie przyłączonych do domeny](./domain-joined/apache-domain-joined-configure.md) dokumentów usługi HDInsight.
@@ -39,7 +39,7 @@ Usługa HDInsight ma pełny dostęp do danych na kontach usługi Azure Storage s
 
 * W przypadku korzystania z języka C# Program Visual Studio musi mieć wersję 2013 lub nowszą.
 
-* Schemat identyfikatora URI dla konta magazynu. Ten schemat dotyczy `wasb://` usługi Azure Storage, `abfs://` Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` .
+* Schemat identyfikatora URI dla konta magazynu. Ten schemat powinien dotyczyć `wasb://` usługi Azure Blob Storage, `abfs://` Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli włączono bezpieczny transfer dla usługi Azure Blob Storage, identyfikator URI zostałby `wasbs://` .
 
 * Istniejący klaster usługi HDInsight, do którego ma zostać dodana sygnatura dostępu współdzielonego. W przeciwnym razie można użyć Azure PowerShell do utworzenia klastra i dodania sygnatury dostępu współdzielonego podczas tworzenia klastra.
 
@@ -48,7 +48,7 @@ Usługa HDInsight ma pełny dostęp do danych na kontach usługi Azure Storage s
   * Projekt programu Visual Studio, który umożliwia utworzenie kontenera magazynu, przechowywanych zasad i sygnatury dostępu współdzielonego w celu użycia z usługą HDInsight
   * Skrypt języka Python, który umożliwia utworzenie kontenera magazynu, przechowywanych zasad i sygnatury dostępu współdzielonego do użycia z usługą HDInsight
   * Skrypt programu PowerShell, który może utworzyć klaster usługi HDInsight i skonfigurować go do korzystania z sygnatury dostępu współdzielonego. Zaktualizowana wersja jest używana poniżej.
-  * Przykładowy plik:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Przykładowy plik: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Sygnatury dostępu współdzielonego
 
@@ -357,7 +357,7 @@ Jeśli masz istniejący klaster, możesz dodać sygnaturę dostępu współdziel
 
 1. Rozwiń sekcję **niestandardowa lokacja podstawowa** , przewiń do końca, a następnie wybierz pozycję **Dodaj właściwość..**.. Użyj następujących wartości **klucza** i **wartości**:
 
-    * **Klucz**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Klucz**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Wartość**: Sygnatura dostępu współdzielonego zwrócona przez jedną z metod wcześniej wykonanych.
 
     Zamień na `CONTAINERNAME` nazwę kontenera używaną w aplikacji C# lub SAS. Zamień `STORAGEACCOUNTNAME` na użytą nazwę konta magazynu.

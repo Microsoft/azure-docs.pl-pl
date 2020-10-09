@@ -5,20 +5,20 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538249"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857728"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
-W tej sekcji omówiono różne sposoby uwierzytelniania w zakotwiczeniach przestrzennych platformy Azure z poziomu aplikacji lub usługi sieci Web, a także sposoby używania Access Control opartych na rolach w usłudze Azure Directory (Azure AD) w celu kontrolowania dostępu do kont zakotwiczeń przestrzennych.
+W tej sekcji omówiono różne sposoby uwierzytelniania w zakotwiczeniach przestrzennych platformy Azure z poziomu aplikacji lub usługi sieci Web oraz sposoby korzystania z Role-Based Access Control w usłudze Azure Active Directory (Azure AD) w celu kontrolowania dostępu do kont zakotwiczeń przestrzennych.
 
 ## <a name="overview"></a>Omówienie
 
@@ -95,28 +95,28 @@ Gdy to zrobisz, zestaw SDK będzie obsługiwał wymianę klucza konta dla tokenu
 W przypadku aplikacji przeznaczonych dla użytkowników Azure Active Directory Zalecanym podejściem jest użycie tokenu usługi Azure AD dla użytkownika, który można uzyskać przy użyciu [biblioteki MSAL](../../active-directory/develop/msal-overview.md). Należy wykonać czynności opisane w sekcji [Rejestrowanie przewodnika Szybki Start](../../active-directory/develop/quickstart-register-app.md)dotyczącego aplikacji, co obejmuje:
 
 1. Konfiguracja w Azure Portal
-    1.  Zarejestruj swoją aplikację w usłudze Azure AD jako **aplikację natywną**. W ramach rejestracji należy określić, czy aplikacja powinna mieć dostęp do wielu dzierżawców, a także podać adresy URL przekierowania dozwolone dla aplikacji.
+    1.    Zarejestruj swoją aplikację w usłudze Azure AD jako **aplikację natywną**. W ramach rejestracji należy określić, czy aplikacja powinna mieć dostęp do wielu dzierżawców, a także podać adresy URL przekierowania dozwolone dla aplikacji.
         1.  Przejdź do karty **uprawnienia interfejsu API**
         2.  Wybierz pozycję **Dodaj uprawnienie**
-            1.  Wybierz pozycję **Microsoft Mixed Reality** w obszarze **interfejsy API Moja organizacja używa** karty
+            1.  Wybieranie **dostawcy zasobów rzeczywistości mieszanej** w obszarze **interfejsy API Moja organizacja używa** karty
             2.  Wybierz **uprawnienia delegowane**
             3.  Zaznacz pole wyboru dla **mixedreality. Zaloguj się** w obszarze **mixedreality**
             4.  Wybierz pozycję **Dodaj uprawnienia**
         3.  Wybierz pozycję **Udziel zgody administratora**
-    2.  Udziel aplikacji lub użytkownikom dostępu do zasobu:
-        1.  Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
-        2.  Przełącz na kartę **Kontrola dostępu (IAM)**
-        3.  Trafienie **Dodaj przypisanie roli**
-            1.  [Wybierz rolę](#role-based-access-control)
-            2.  W polu **SELECT (Wybieranie** ) wprowadź nazwę użytkowników, grup i/lub aplikacji, do których chcesz przypisać prawa dostępu.
-            3.  Wybierz pozycję **Zapisz**.
+    2.    Udziel aplikacji lub użytkownikom dostępu do zasobu:
+        1.    Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
+        2.    Przełącz na kartę **Kontrola dostępu (IAM)**
+        3.    Trafienie **Dodaj przypisanie roli**
+            1.    [Wybierz rolę](#role-based-access-control)
+            2.    W polu **SELECT (Wybieranie** ) wprowadź nazwę użytkowników, grup i/lub aplikacji, do których chcesz przypisać prawa dostępu.
+            3.    Wybierz pozycję **Zapisz**.
 2. W kodzie:
-    1.  Upewnij się, że używasz **identyfikatora aplikacji** i identyfikatora **URI przekierowania** własnej aplikacji usługi Azure AD jako **identyfikatora klienta** i parametrów **RedirectUri** w MSAL
-    2.  Ustaw informacje o dzierżawie:
-        1.  Jeśli aplikacja obsługuje **tylko moją organizację**, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.Microsoft.com)
-        2.  Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość **organizacją**
-        3.  Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, Zastąp tę wartość **wspólną**
-    3.  Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default ". Ten zakres wskaże usługę Azure AD, że aplikacja żąda tokenu dla usługi tokenu zabezpieczeń rzeczywistości mieszanej (STS).
+    1.    Upewnij się, że używasz **identyfikatora aplikacji** i identyfikatora **URI przekierowania** własnej aplikacji usługi Azure AD jako **identyfikatora klienta** i parametrów **RedirectUri** w MSAL
+    2.    Ustaw informacje o dzierżawie:
+        1.    Jeśli aplikacja obsługuje **tylko moją organizację**, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.Microsoft.com)
+        2.    Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość **organizacją**
+        3.    Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, Zastąp tę wartość **wspólną**
+    3.    Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default ". Ten zakres wskaże usługę Azure AD, że aplikacja żąda tokenu dla usługi tokenu zabezpieczeń rzeczywistości mieszanej (STS).
 
 Dzięki temu aplikacja powinna być w stanie uzyskać od MSAL tokenu usługi Azure AD; Możesz ustawić ten token usługi Azure AD jako **authenticationToken** w obiekcie konfiguracji sesji w chmurze.
 
@@ -170,24 +170,24 @@ W tym miejscu zakłada się, że aplikacja używa własnego mechanizmu (na przyk
 
 Token dostępu usługi Azure AD jest pobierany przy użyciu [biblioteki MSAL](../../active-directory/develop/msal-overview.md). Należy wykonać czynności opisane w sekcji [Rejestrowanie przewodnika Szybki Start](../../active-directory/develop/quickstart-register-app.md)dotyczącego aplikacji, co obejmuje:
 
-1.  Konfiguracja w Azure Portal:
-    1.  Zarejestruj swoją aplikację w usłudze Azure AD:
-        1.  W Azure Portal przejdź do **Azure Active Directory**i wybierz pozycję **rejestracje aplikacji**
-        2.  Wybierz pozycję **rejestracja nowej aplikacji**
-        3.  Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Następnie kliknij przycisk **Utwórz**.
-        4.  W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania i przycisk **Dodaj**. Pamiętaj, aby zapisać wartość wpisu tajnego, ponieważ będzie ona musiała zostać uwzględniona w kodzie usługi sieci Web.
-    2.  Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
-        1.  Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
-        2.  Przełącz na kartę **Kontrola dostępu (IAM)**
-        3.  Trafienie **Dodaj przypisanie roli**
-        1.  [Wybierz rolę](#role-based-access-control)
-        2.  W polu **Wybierz** wprowadź nazwę utworzonych aplikacji i, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, należy zarejestrować wiele aplikacji w usłudze Azure AD i przypisać je do każdej innej roli. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
-        3.  Zwróć uwagę, że w polu **Dodaj przypisanie roli** ma być **ustawiona wartość "** użytkownik, Grupa lub główna usługa" usługi Azure AD.
-    3.  Wybierz pozycję **Zapisz**.
-2.  W kodzie (Uwaga: możesz użyć przykładu usługi dostępnego w witrynie GitHub):
-    1.  Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w MSAL
-    2.  Ustaw identyfikator dzierżawy na własny identyfikator dzierżawy platformy Azure, w parametrze urzędu w MSAL.
-    3.  Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default "
+1.    Konfiguracja w Azure Portal:
+    1.    Zarejestruj swoją aplikację w usłudze Azure AD:
+        1.    W Azure Portal przejdź do **Azure Active Directory**i wybierz pozycję **rejestracje aplikacji**
+        2.    Wybierz pozycję **rejestracja nowej aplikacji**
+        3.    Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Następnie kliknij przycisk **Utwórz**.
+        4.    W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania i przycisk **Dodaj**. Pamiętaj, aby zapisać wartość wpisu tajnego, ponieważ będzie ona musiała zostać uwzględniona w kodzie usługi sieci Web.
+    2.    Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
+        1.    Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
+        2.    Przełącz na kartę **Kontrola dostępu (IAM)**
+        3.    Trafienie **Dodaj przypisanie roli**
+        1.    [Wybierz rolę](#role-based-access-control)
+        2.    W polu **Wybierz** wprowadź nazwę utworzonych aplikacji i, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, należy zarejestrować wiele aplikacji w usłudze Azure AD i przypisać je do każdej innej roli. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
+        3.    Zwróć uwagę, że w polu **Dodaj przypisanie roli** ma być **ustawiona wartość "** użytkownik, Grupa lub główna usługa" usługi Azure AD.
+    3.    Wybierz pozycję **Zapisz**.
+2.    W kodzie (Uwaga: możesz użyć przykładu usługi dostępnego w witrynie GitHub):
+    1.    Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w MSAL
+    2.    Ustaw identyfikator dzierżawy na własny identyfikator dzierżawy platformy Azure, w parametrze urzędu w MSAL.
+    3.    Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default "
 
 Dzięki temu usługa zaplecza może pobrać token usługi Azure AD. Następnie może go wymienić na token MR, który zwróci zwrot do klienta. Użycie tokenu usługi Azure AD w celu pobrania tokenu MR odbywa się za pośrednictwem wywołania REST. Oto przykładowe wywołanie:
 

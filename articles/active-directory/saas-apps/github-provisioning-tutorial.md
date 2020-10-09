@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358325"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857541"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub na potrzeby automatycznego aprowizacji użytkowników
 
@@ -28,6 +28,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 * Dzierżawa usługi Azure Active Directory
 * Organizacja usługi GitHub utworzona w [chmurze usługi GitHub dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise), która wymaga [planu rozliczeniowego usługi GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Konto użytkownika w usłudze GitHub z uprawnieniami administratora do organizacji
+* [Protokół SAML skonfigurowany dla organizacji chmury w chmurze dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Upewnij się, że dostęp OAuth został podany dla Twojej organizacji, zgodnie z opisem w [tym miejscu](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * Inicjowanie obsługi administracyjnej Standard scim w pojedynczej organizacji jest obsługiwane tylko wtedy, gdy Logowanie jednokrotne jest włączone na poziomie organizacji
 
@@ -51,9 +52,6 @@ Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, k
 ## <a name="configuring-user-provisioning-to-github"></a>Konfigurowanie aprowizacji użytkowników w usłudze GitHub
 
 Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprowizacji usługi Azure AD do konta użytkownika usługi GitHub, a następnie Konfigurując usługę aprowizacji do tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w usłudze GitHub na podstawie przypisywania użytkowników i grup w usłudze Azure AD.
-
-> [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla usługi GitHub, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi konta użytkownika w usłudze GitHub w usłudze Azure AD
 
@@ -79,7 +77,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 8. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach dotyczących aprowizacji w polu **E-mail powiadomienia** , i zaznacz pole wyboru "Wyślij powiadomienie e-mail, gdy wystąpi błąd".
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do serwisu GitHub**.
 
@@ -87,7 +85,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 12. Aby włączyć usługę Azure AD Provisioning dla usługi GitHub, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-13. Kliknij pozycję **Zapisz**.
+13. Kliknij przycisk **Zapisz**.
 
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do usługi GitHub w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji.
 

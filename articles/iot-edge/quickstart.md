@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56f17f6c60f30a38431ee347c7bdfc5b200b641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328597"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856963"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -22,12 +22,10 @@ Wypróbuj Azure IoT Edge w tym przewodniku Szybki Start, wdrażając kod kontene
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
-> [!div class="checklist"]
->
-> * Utwórz centrum IoT.
-> * Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
-> * Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
-> * Zdalne wdrażanie modułu do urządzenia usługi IoT Edge i wysyłanie telemetrii do usługi IoT Hub.
+* Utwórz centrum IoT.
+* Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
+* Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
+* Zdalne wdrażanie modułu do urządzenia usługi IoT Edge i wysyłanie telemetrii do usługi IoT Hub.
 
 ![Diagram — architektura przewodnika Szybki start dla urządzenia i chmury](./media/quickstart/install-edge-full.png)
 
@@ -162,7 +160,7 @@ Pobierz i zainstaluj środowisko uruchomieniowe usługi IoT Edge za pomocą prog
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Komputer może zostać automatycznie uruchomiony ponownie. Jeśli zostanie wyświetlony monit o polecenie Deploy-IoTEdge w celu ponownego uruchomienia, zrób to teraz.
+4. Komputer może zostać automatycznie uruchomiony ponownie. Jeśli zostanie wyświetlony monit Deploy-IoTEdge polecenie w celu ponownego uruchomienia systemu, zrób to teraz.
 
 5. Uruchom ponownie program PowerShell jako administrator.
 

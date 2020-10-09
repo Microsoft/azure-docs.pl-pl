@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536752"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856198"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight
 
 Podczas tworzenia klastrów usługi HDInsight można wybrać kilka różnych usług magazynu platformy Azure:
 
-* [Azure Storage](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Usługa Azure Data Lake Storage 1. generacji](./overview-data-lake-storage-gen1.md)
+* [Magazyn obiektów blob platformy Azure z usługą HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2 z usługą HDInsight](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1 z usługą HDInsight](./overview-data-lake-storage-gen1.md)
 
 Ten artykuł zawiera omówienie tych typów magazynu i ich unikatowych funkcji.
 
@@ -31,11 +31,11 @@ Poniższa tabela zawiera podsumowanie usług Azure Storage, które są obsługiw
 
 | Usługa magazynu | Typ konta | Typ przestrzeni nazw | Obsługiwane usługi | Obsługiwane warstwy wydajności | Obsługiwane warstwy dostępu | Wersja usługi HDInsight | Typ klastra |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Ogólnego przeznaczenia w wersji 2 | Hierarchiczny (system plików) | Obiekt blob | Standard | Gorąca, chłodna, archiwalna | 3.6 + | Wszystkie z wyjątkiem platformy Spark 2,1 i 2,2|
-|Azure Storage| Ogólnego przeznaczenia w wersji 2 | Obiekt | Obiekt blob | Standard | Gorąca, chłodna, archiwalna | 3.6 + | Wszystko |
-|Azure Storage| Ogólnego przeznaczenia w wersji 1 | Obiekt | Obiekt blob | Standard | Nie dotyczy | Wszystko | Wszystko |
-|Azure Storage| Blob Storage * * | Obiekt | Blokowy obiekt BLOB | Standard | Gorąca, chłodna, archiwalna | Wszystko | Wszystko |
-|Usługa Azure Data Lake Storage 1. generacji| Nie dotyczy | Hierarchiczny (system plików) | Nie dotyczy | Nie dotyczy | Nie dotyczy | tylko 3,6 | Wszystkie z wyjątkiem HBase |
+|Usługa Azure Data Lake Storage 2. generacji| Ogólnego przeznaczenia w wersji 2 | Hierarchiczny (system plików) | Obiekt blob | Standardowa | Gorąca, chłodna, archiwalna | 3.6 + | Wszystkie z wyjątkiem platformy Spark 2,1 i 2,2|
+|Azure Storage| Ogólnego przeznaczenia w wersji 2 | Obiekt | Obiekt blob | Standardowa | Gorąca, chłodna, archiwalna | 3.6 + | Wszystkie |
+|Azure Storage| Ogólnego przeznaczenia w wersji 1 | Obiekt | Obiekt blob | Standardowa | Brak | Wszystko | Wszystkie |
+|Azure Storage| Blob Storage * * | Obiekt | Blokowy obiekt BLOB | Standardowa | Gorąca, chłodna, archiwalna | Wszystkie | Wszystkie |
+|Usługa Azure Data Lake Storage 1. generacji| Brak | Hierarchiczny (system plików) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | tylko 3,6 | Wszystkie z wyjątkiem HBase |
 
 * * W przypadku klastrów usługi HDInsight tylko konta magazynu pomocniczego mogą być typu BlobStorage, a obiekt BLOB nie jest obsługiwaną opcją magazynu.
 
@@ -48,17 +48,17 @@ Można tworzyć klastry przy użyciu kombinacji usług dla podstawowego i opcjon
 | Wersja usługi HDInsight | Magazyn podstawowy | Magazyn pomocniczy | Obsługiwane |
 |---|---|---|---|
 | 3,6 & 4,0 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2, BlobStorage (blokowe obiekty blob) | Tak |
-| 3,6 & 4,0 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2 | Data Lake Storage Gen2 | Nie |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Tak |
+| 3,6 & 4,0 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2 | Usługa Data Lake Storage 2. generacji | Nie |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Usługa Data Lake Storage 2. generacji | Tak |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2, BlobStorage (blokowe obiekty blob) | Tak |
-| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nie |
+| 3,6 & 4,0 | Usługa Data Lake Storage 2. generacji | Data Lake Storage Gen1 | Nie |
 | 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Tak |
 | 3,6 | Data Lake Storage Gen1 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2, BlobStorage (blokowe obiekty blob) | Tak |
 | 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nie |
-| 4.0 | Data Lake Storage Gen1 | Dowolne | Nie |
-| 4.0 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2 | Data Lake Storage Gen1 | Nie |
+| 4,0 | Data Lake Storage Gen1 | Dowolne | Nie |
+| 4,0 | Ogólnego przeznaczenia V1, Ogólnego przeznaczenia v2 | Data Lake Storage Gen1 | Nie |
 
-* = Może to być jedno lub wiele kont Data Lake Storage Gen2, o ile są one skonfigurowane do używania tej samej tożsamości zarządzanej na potrzeby dostępu do klastra.
+* = Może to być jeden lub wiele Data Lake Storage Gen2, pod warunkiem, że są one skonfigurowane do używania tej samej tożsamości zarządzanej na potrzeby dostępu do klastra.
 
 > [!NOTE]
 > Magazyn podstawowy Data Lake Storage Gen2 nie jest obsługiwany w przypadku klastrów Spark 2,1 lub 2,2.
@@ -71,8 +71,8 @@ Możesz sprawdzić, czy Usługa HDInsight została prawidłowo skonfigurowana do
  
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie usługi Azure Storage](./overview-azure-storage.md)
-* [Omówienie usługi Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
-* [Omówienie usługi Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Wprowadzenie do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Omówienie usługi Azure Storage w usłudze HDInsight](./overview-azure-storage.md)
+* [Przegląd Azure Data Lake Storage Gen1 w usłudze HDInsight](./overview-data-lake-storage-gen1.md)
+* [Przegląd Azure Data Lake Storage Gen2 w usłudze HDInsight](./overview-data-lake-storage-gen2.md)
+* [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f4569a45b9ed0eee7c375e660df97925335313b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5dcd705719510cce3a113c5b0fdc46d016313b6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549810"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856416"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu podniesienia uprawnień serwisu LinkedIn
 
@@ -144,11 +144,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W **Centrum kont** kliknij przycisk **Ustawienia globalne** w obszarze **Ustawienia**. Ponadto wybierz z listy rozwijanej pozycję **Podnieś poziom na podniesienie** poziomu usługi AAD.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![Zrzut ekranu przedstawia ustawienia globalne, w których można wybrać podnoszenie poziomu testu D.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Kliknij **lub kliknij tutaj, aby załadować i skopiować pojedyncze pola z formularza** , i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On, w których można wprowadzić podane wartości.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
     a. Skopiuj **Identyfikator jednostki** i wklej go do pola tekstowego **Identyfikator** w **podstawowej konfiguracji SAML** w Azure Portal.
 
@@ -156,11 +156,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do sekcji **LinkedIn Admin Settings** (Ustawienia administratora LinkedIn). Przekaż pobrany plik XML z Azure Portal, klikając opcję Przekaż plik XML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Zrzut ekranu przedstawia Konfigurowanie ustawień dostawcy usług LinkedIn, w których można przekazać plik X M L.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Kliknij przycisk **On** (Włącz), aby włączyć funkcję logowania jednokrotnego. Stan rejestracji jednokrotnej zmieni się z **niepołączone** na **połączone**
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On, w których można wybrać opcję automatycznego przypisywania licencji.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-elevate-test-user"></a>Utwórz użytkownika testowego podniesienia uprawnień w serwisie LinkedIn
 
@@ -178,7 +178,7 @@ Po kliknięciu kafelka podnoszenie uprawnień w serwisie LinkedIn w panelu dost�
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521573"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SignalFx
 
@@ -144,7 +144,7 @@ Te instrukcje umożliwiają użytkownikom testowym korzystanie z rejestracji jed
 1. Obok pozycji **certyfikat (base64)** kliknij pozycję **Przekaż plik**, a następnie zlokalizuj plik **certyfikatu zakodowany algorytmem Base64** , który został wcześniej pobrany z Azure Portal.
 1. W obszarze **Identyfikator usługi Azure AD**wklej wartość **identyfikatora usługi Azure AD** skopiowaną wcześniej z Azure Portal. 
 1. W polu **adres URL metadanych Federacji**wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną wcześniej z Azure Portal. 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 ## <a name="step-7-test-sso"></a>Krok 7. Testowanie rejestracji jednokrotnej
 
@@ -159,7 +159,7 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
         * Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * Dostęp do aplikacji SignalFx można uzyskać z panelu dostępu lub za pośrednictwem niestandardowej strony logowania przypisanej do organizacji. Użytkownik testowy powinien przetestować integrację, rozpoczynając od jednej z tych lokalizacji.
-    * Użytkownik testowy może użyć poświadczeń utworzonych wcześniej w tym procesie dla programu **b.simon@contoso.com** .
+    * Użytkownik testowy może użyć poświadczeń utworzonych wcześniej w tym procesie dla **b. simon \@ contoso.com**.
 
 ### <a name="first-time-logins"></a>Logowanie przy pierwszym czasie
 
@@ -171,7 +171,7 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303815"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856392"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Przykład: jak analizować filmy wideo w czasie rzeczywistym
 
@@ -70,7 +70,7 @@ while (true)
 }
 ```
 
-Ten kod umożliwia uruchamianie poszczególnych analiz w oddzielnych zadaniach, które działają w tle, gdy są przechwytywane klatki. Ta metoda umożliwia uniknięcie zablokowania głównego wątku podczas oczekiwania na zakończenie wywołania interfejsu API, lecz przy utracie niektórych gwarancji dawanych przez prostą wersję. Wiele wywołań interfejsu API może nastąpić równolegle, a wyniki mogą być zwracane w nieprawidłowej kolejności. Może to także spowodować równoczesne wejście wielu wątków do funkcji ConsumeResult(), co może okazać się ryzykowne, jeśli funkcja ta nie jest bezpieczna wątkowo. Wreszcie ten prosty kod nie śledzi tworzonych zadań, dlatego wyjątki nie będą zauważane. W związku z tym końcowym krokiem jest dodanie wątku „konsumenta”, który będzie śledzić zadania analizy, zgłaszać wyjątki, zabijać długo trwające zadania i gwarantować, że wyniki będą używane w odpowiedniej kolejności.
+Ten kod umożliwia uruchamianie poszczególnych analiz w oddzielnych zadaniach, które działają w tle, gdy są przechwytywane klatki. Ta metoda umożliwia uniknięcie zablokowania głównego wątku podczas oczekiwania na zakończenie wywołania interfejsu API, lecz przy utracie niektórych gwarancji dawanych przez prostą wersję. Wiele wywołań interfejsu API może nastąpić równolegle, a wyniki mogą być zwracane w nieprawidłowej kolejności. Może to także spowodować równoczesne wprowadzenie wielu wątków do funkcji ConsumeResult(), co może okazać się ryzykowne, jeśli funkcja ta nie jest bezpieczna wątkowo. Wreszcie ten prosty kod nie śledzi tworzonych zadań, dlatego wyjątki nie będą zauważane. W związku z tym końcowym krokiem jest dodanie wątku „konsumenta”, który będzie śledzić zadania analizy, zgłaszać wyjątki, zabijać długo trwające zadania i gwarantować, że wyniki będą używane w odpowiedniej kolejności.
 
 ### <a name="a-producer-consumer-design"></a>Wzorzec producent — konsument
 
@@ -79,13 +79,13 @@ W naszym docelowym systemie „producent — konsument” mamy wątek producenta
 ```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -119,10 +119,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -137,7 +137,7 @@ while (true)
 
 ## <a name="implementing-the-solution"></a>Implementowanie rozwiązania
 
-### <a name="getting-started"></a>Wprowadzenie
+### <a name="getting-started"></a>Getting Started
 
 Aby skonfigurować i uruchomić aplikację tak szybko, jak to możliwe, użyjesz elastycznej implementacji systemu opisanej powyżej. Aby uzyskać dostęp do kodu, przejdź do [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) .
 
@@ -145,52 +145,7 @@ Biblioteka zawiera klasę FrameGrabber, która implementuje omówiony powyżej s
 
 Dwie przykładowe aplikacje korzystające z tej biblioteki ilustrują niektóre z tych możliwości. Pierwsza z nich to prosta aplikacja konsolowa, której uproszczoną wersję przedstawiono poniżej. Pokryją one ramki z domyślnej kamery internetowej i przesyła je do usługi kroju na potrzeby wykrywania.
 
-```csharp
-using System;
-using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
-namespace VideoFrameConsoleApplication
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face Client. Insert your Face API key here.
-            private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
-
-            // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
-
-            // Set up a listener for when we receive a new result from an API call. 
-            grabber.NewResultAvailable += (s, e) =>
-            {
-                if (e.Analysis != null)
-                    Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
-            };
-            
-            // Tell grabber to call the Face API every 3 seconds.
-            grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
-
-            // Start running.
-            grabber.StartProcessingCameraAsync().Wait();
-
-            // Wait for keypress to stop
-            Console.WriteLine("Press any key to stop...");
-            Console.ReadKey();
-            
-            // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/analyze.cs":::
 
 Druga przykładowa aplikacja jest trochę bardziej interesująca i umożliwia wybranie, który interfejs API może przyjmować ramki wideo. Po lewej stronie aplikacja przedstawia podgląd wideo na żywo, a po prawej stronie pokazuje najnowszy wynik interfejsu API nałożony na odpowiadającą mu ramkę.
 
@@ -208,7 +163,7 @@ Aby zacząć pracę z tym przykładem, wykonaj następujące kroki:
    - [Do rozpoznawania](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Po wdrożeniu zasobów kliknij pozycję **Przejdź do zasobu** , aby zebrać klucz i punkt końcowy dla każdego zasobu. 
 3. Klonuj repozytorium [poznawcze-przykłady-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 4. Otwórz przykład w programie Visual Studio i skompiluj i uruchom przykładowe aplikacje:
-    - W przypadku BasicConsoleSample klucz czołowy jest zakodowany bezpośrednio w [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - W przypadku BasicConsoleSample klucz czołowy jest zakodowany bezpośrednio w [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - W przypadku aplikacji LiveCameraSample klucze należy wprowadzić w okienku Ustawienia aplikacji. Zostaną one utrwalone pomiędzy sesjami jako dane użytkownika.
         
 
@@ -218,7 +173,7 @@ Gdy wszystko będzie gotowe do integracji, możesz **po prostu przywoływać bib
 
 W tym przewodniku pokazano, jak przeprowadzać analizę niemal w czasie rzeczywistym dla transmisji strumieniowych wideo na żywo przy użyciu interfejsów API rozpoznawania twarzy, przetwarzania obrazów i rozpoznawania emocji oraz przedstawiono, jak można wykorzystać przykładowy kod, aby rozpocząć pracę.
 
-Zachęcamy do przekazywania opinii i sugestii w [repozytorium GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lub, w przypadku bardziej obszernych informacji zwrotnych dotyczących interfejsów API, w naszej [witrynie UserVoice](https://cognitive.uservoice.com/).
+Możesz bezpłatnie przekazać Opinie i sugestie w [repozytorium GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lub, aby uzyskać bardziej szczegółowe informacje o interfejsie API w naszej [witrynie UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Tematy pokrewne
 - [Wykrywanie twarzy na obrazie](HowtoDetectFacesinImage.md)

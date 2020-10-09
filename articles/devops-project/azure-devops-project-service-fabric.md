@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: ce35f3af38b98f43ebbd0d3f42136ab8358b19a5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233724"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856028"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET Core na platformie Azure Service Fabric przy użyciu usługi Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter również:
 * Tworzy i konfiguruje potok wydania w usłudze Azure DevOps, który konfiguruje potok ciągłej integracji/ciągłego wdrażania.
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter, aby utworzyć aplikację ASP.NET Core i wdrożyć ją w Service Fabric
@@ -158,4 +158,4 @@ Opcjonalnie możesz zmodyfikować potok ciągłej integracji/ciągłego wdrażan
 Aby dowiedzieć się więcej na temat usługi Service Fabric i mikrousług, zobacz:
 
 > [!div class="nextstepaction"]
-> [Use a microservices approach for building applications (Korzystanie z mikrousług podczas tworzenia aplikacji)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Use a microservices approach for building applications (Korzystanie z mikrousług podczas tworzenia aplikacji)](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

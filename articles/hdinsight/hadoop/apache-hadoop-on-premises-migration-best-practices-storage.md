@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0394a7db6776e00ea031a2f40ab4de01540982a6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cd27babee4b78d22bbd49ab53c1ed2fe5a54a0da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080214"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856691"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono zalecenia dotyczące magazynu danych w systemach us
 
 ## <a name="choose-right-storage-system-for-hdinsight-clusters"></a>Wybieranie odpowiedniego systemu magazynu dla klastrów usługi HDInsight
 
-Strukturę katalogów lokalnego systemu plików Apache Hadoop (HDFS) można utworzyć w usłudze Azure Storage lub Azure Data Lake Storage. Następnie można bezpiecznie usunąć klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika. Obie usługi mogą być używane zarówno jako domyślny system plików, jak i dodatkowy system plików dla klastra usługi HDInsight. Klaster usługi HDInsight i konto magazynu muszą być hostowane w tym samym regionie.
+Strukturę katalogów lokalnego systemu plików Apache Hadoop (HDFS) można utworzyć w usłudze Azure Blob Storage lub Azure Data Lake Storage. Następnie można bezpiecznie usunąć klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika. Obie usługi mogą być używane zarówno jako domyślny system plików, jak i dodatkowy system plików dla klastra usługi HDInsight. Klaster usługi HDInsight i konto magazynu muszą być hostowane w tym samym regionie.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -70,7 +70,7 @@ Sprawdź, czy dodany certyfikat znajduje się w magazynie zaufania
 keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 ```
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Korzystanie z usługi Azure Storage z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Elementy docelowe skalowalności dla kont magazynu w warstwie Standardowa](../../storage/common/scalability-targets-standard-account.md)
@@ -81,18 +81,18 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 ### <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
 
-Azure Data Lake Storage implementuje model kontroli dostępu do stylu systemu plików HDFS i POSIX. Zapewnia ona integrację pierwszej klasy z usługą AAD w celu zapewnienia precyzyjnej kontroli dostępu. Nie ma ograniczeń dotyczących rozmiaru danych, które mogą być przechowywane, lub zdolności do uruchamiania analizy równoległej.
+Azure Data Lake Storage Gen1 implementuje model kontroli dostępu do stylu systemu plików HDFS i POSIX. Zapewnia ona integrację pierwszej klasy z usługą Azure AD w celu uzyskania szczegółowej kontroli dostępu. Nie ma ograniczeń dotyczących rozmiaru danych, które mogą być przechowywane, lub zdolności do uruchamiania analizy równoległej.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-- [Tworzenie klastrów usługi HDInsight z Data Lake Storage przy użyciu Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Używanie Data Lake Storage z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
+- [Tworzenie klastrów usługi HDInsight z Data Lake Storage Gen1 przy użyciu Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ### <a name="azure-data-lake-storage-gen2"></a>Usługa Azure Data Lake Storage 2. generacji
 
-Azure Data Lake Storage Gen2 to Najnowsza oferta magazynu. Łączy podstawowe możliwości od pierwszej generacji Azure Data Lake Storage za pomocą punktu końcowego systemu plików zgodnego z usługą Hadoop bezpośrednio zintegrowanego z platformą Azure Blob Storage. To ulepszenie umożliwia łączenie skalowalności i kosztów magazynu obiektów z niezawodnością i wydajnością zwykle skojarzoną tylko z lokalnymi systemami plików.
+Azure Data Lake Storage Gen2 to Najnowsza oferta magazynu. Łączy podstawowe możliwości od pierwszej generacji Azure Data Lake Storage Gen1 za pomocą punktu końcowego systemu plików zgodnego z usługą Hadoop bezpośrednio zintegrowanego z platformą Azure Blob Storage. To ulepszenie umożliwia łączenie skalowalności i kosztów magazynu obiektów z niezawodnością i wydajnością zwykle skojarzoną tylko z lokalnymi systemami plików.
 
-ADLS Gen 2 jest oparta na [usłudze Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) i umożliwia interfejsowanie danych przy użyciu zarówno odmian systemu plików, jak i magazynu obiektów. Funkcje z [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), takie jak semantyka systemu plików, zabezpieczenia na poziomie plików i skalowanie, są połączone z niskimi kosztami magazynowymi, wysoką dostępnością/odzyskiwaniem po awarii oraz dużym ekosystemem w [usłudze Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). W Data Lake Storage Gen2, wszystkie jakości magazynu obiektów pozostaną, dodając zalety interfejsu systemu plików zoptymalizowanego pod kątem obciążeń analitycznych.
+Azure Data Lake Storage Gen 2 jest oparta na [usłudze Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) i umożliwia interfejsowanie danych przy użyciu zarówno odmian systemu plików, jak i magazynu obiektów. Funkcje z [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), takie jak semantyka systemu plików, zabezpieczenia na poziomie plików i skalowanie, są połączone z niskimi kosztami magazynowymi, wysoką dostępnością/odzyskiwaniem po awarii oraz dużym ekosystemem w [usłudze Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). W Data Lake Storage Gen2, wszystkie jakości magazynu obiektów pozostaną, dodając zalety interfejsu systemu plików zoptymalizowanego pod kątem obciążeń analitycznych.
 
 Podstawową funkcją Data Lake Storage Gen2 jest dodanie [hierarchicznej przestrzeni nazw](../../storage/data-lake-storage/namespace.md)   do usługi BLOB Storage, która organizuje obiekty/pliki w hierarchii katalogów na potrzeby wykonywania dostępu do danych.Struktura hierarchiczna umożliwia wykonywanie operacji, takich jak zmiana nazwy lub usuwanie katalogu, aby były jednocyfrowymi operacjami metadanych w katalogu, a nie wyliczeniem i przetwarzaniem wszystkich obiektów, które współużytkują prefiks nazwy katalogu.
 
@@ -112,9 +112,9 @@ Jeden z następujących formatów może służyć do uzyskiwania dostępu do dan
 - `abfs:///`: Dostęp do Data Lake Storage domyślnego klastra.
 - `abfs://file_system@account_name.dfs.core.windows.net`: Używane podczas komunikowania się z Data Lake Storageem innym niż domyślny.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-- [Wprowadzenie do Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
+- [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [Sterownik systemu plików obiektów blob platformy Azure (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
@@ -153,7 +153,7 @@ Usługa HDInsight domyślnie ma pełny dostęp do danych na kontach usługi Azur
 
 ### <a name="using-the-sas-token-created-with-python"></a>Korzystanie z tokenu sygnatury dostępu współdzielonego utworzonego przy użyciu języka Python
 
-1. Otwórz plik [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) i Zmień następujące wartości:
+1. Otwórz plik  [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) i Zmień następujące wartości:
 
     |Właściwość tokenu|Opis|
     |---|---|
@@ -165,9 +165,9 @@ Usługa HDInsight domyślnie ma pełny dostęp do danych na kontach usługi Azur
 
 2. Plik SASToken.py zawiera `ContainerPermissions.READ + ContainerPermissions.LIST` uprawnienia i można go dostosować w zależności od przypadku użycia.
 
-3. Wykonaj skrypt w następujący sposób:`python SASToken.py`
+3. Wykonaj skrypt w następujący sposób: `python SASToken.py`
 
-4. Po zakończeniu działania skryptu jest wyświetlany token sygnatury dostępu współdzielonego podobny do następującego:`sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
+4. Po zakończeniu działania skryptu jest wyświetlany token sygnatury dostępu współdzielonego podobny do następującego: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. Aby ograniczyć dostęp do kontenera z sygnaturą dostępu współdzielonego, Dodaj niestandardowy wpis do konfiguracji lokacja podstawowa dla klastra w obszarze Ambari HDFS config zaawansowane niestandardowe rdzeń-lokacja Dodaj właściwość.
 
@@ -197,19 +197,19 @@ Wszystkie dane zapisywane w usłudze Azure Storage są automatycznie szyfrowane 
 
 - [Magazyn lokalnie nadmiarowy (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Magazyn strefowo nadmiarowy (ZRS)](../../storage/common/storage-redundancy-zrs.md)
-- [Magazyn Geograficznie nadmiarowy (GRS)](../../storage/common/storage-redundancy-grs.md)
+- [Magazyn geograficznie nadmiarowy (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)](../../storage/common/storage-redundancy.md)
 
-Azure Data Lake Storage zapewnia Magazyn lokalnie nadmiarowy (LRS), ale należy również skopiować krytyczne dane na inne konto Data Lake Storage w innym regionie o częstotliwości dopasowanej do potrzeb planu odzyskiwania po awarii.Istnieją różne metody kopiowania danych, w tym [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [pomocą distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)lub [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md).Zaleca się również wymuszenie zasad dostępu dla konta Data Lake Storage, aby zapobiec przypadkowemu usunięciu.
+Usługa Azure Storage zapewnia Magazyn lokalnie nadmiarowy (LRS), ale dane o kluczowym znaczeniu należy kopiować na inne konto usługi Azure Storage w innym regionie o częstotliwości dopasowanej do potrzeb planu odzyskiwania po awarii.Istnieją różne metody kopiowania danych, w tym [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [pomocą distcp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)lub [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md).Zaleca się również wymuszenie zasad dostępu dla konta usługi Azure Storage, aby zapobiec przypadkowemu usunięciu.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Replikacja usługi Azure Storage](../../storage/common/storage-redundancy.md)
-- [Wskazówki dotyczące awarii dla Azure Data Lake Storage (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
+- [Wskazówki dotyczące awarii dla Azure Data Lake Storage Gen1 (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Dołącz dodatkowe konta usługi Azure Storage do klastra
 
-Podczas procesu tworzenia usługi HDInsight jako domyślny system plików jest wybierane konto magazynu platformy Azure lub konto Azure Data Lake Storage. Oprócz tego domyślnego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia klastra lub po utworzeniu klastra.
+Podczas procesu tworzenia usługi HDInsight jako domyślny system plików jest wybierane konto magazynu platformy Azure, Azure Data Lake Storage Gen1 lub Azure Data Lake Storage Gen2. Oprócz tego domyślnego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia klastra lub po utworzeniu klastra.
 
 Dodatkowe konto magazynu można dodać na jeden z następujących sposobów:
 - Konfiguracja Ambari HDFS — zaawansowane niestandardowe rdzeń — lokacja Dodaj nazwę i klucz konta magazynu, aby ponownie uruchomić usługi

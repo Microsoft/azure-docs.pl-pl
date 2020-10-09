@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078968"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856232"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
-Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu platformy Azure do usługi HDInsight. Kroki opisane w tym dokumencie umożliwiają dodanie *konta* magazynu do istniejącego klastra usługi HDInsight. Ten artykuł dotyczy *kont* magazynu (nie domyślnego konta magazynu klastra), a nie dodatkowego magazynu, takiego jak [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) i [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
+Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu platformy Azure do usługi HDInsight. Kroki opisane w tym dokumencie umożliwiają dodanie *konta* magazynu do istniejącego klastra usługi HDInsight. Ten artykuł dotyczy *kont* magazynu (nie domyślnego konta magazynu klastra), a nie dodatkowego magazynu, takiego jak [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) i [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > Informacje przedstawione w tym dokumencie dotyczą dodawania dodatkowych kont magazynu do klastra po jego utworzeniu. Aby uzyskać informacje na temat dodawania kont magazynu podczas tworzenia klastra, zobacz [Konfigurowanie klastrów w usłudze HDInsight przy użyciu Apache Hadoop, Apache Spark, Apache Kafka i innych](hdinsight-hadoop-provision-linux-clusters.md).
@@ -55,8 +55,8 @@ Użyj [akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#script-action-
 |Typy węzłów|Head|
 |Parametry|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opcjonalnie)|
 
-* `ACCOUNTNAME`jest nazwą konta magazynu, które ma zostać dodane do klastra usługi HDInsight.
-* `ACCOUNTKEY`jest kluczem dostępu dla `ACCOUNTNAME` .
+* `ACCOUNTNAME` jest nazwą konta magazynu, które ma zostać dodane do klastra usługi HDInsight.
+* `ACCOUNTKEY` jest kluczem dostępu dla `ACCOUNTNAME` .
 * Parametr `-p` jest opcjonalny. Jeśli ta wartość jest określona, klucz nie jest szyfrowany i jest przechowywany w pliku core-site.xml jako zwykły tekst.
 
 ## <a name="verification"></a>Weryfikacja

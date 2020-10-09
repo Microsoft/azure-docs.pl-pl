@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ce9de630af5854b965db27487379cd9eea4cfd1a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829989"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857400"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
 
@@ -296,7 +296,7 @@ W manifeście wdrożenia użyto sznurka modułu JavaModule w celu ustawienia pro
 
 6. Monitoruj przychodzące komunikaty z urządzenia do chmury. Komunikaty powinny zostać zatrzymane do momentu osiągnięcia nowego progu temperatury.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego.
 
@@ -306,7 +306,7 @@ W przeciwnym razie możesz usunąć konfigurację lokalną i zasoby platformy Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono moduł IoT Edge, który filtruje dane pierwotne wygenerowane przez urządzenie IoT Edge. Gdy wszystko będzie gotowe do tworzenia własnych modułów, możesz dowiedzieć się więcej na temat [opracowywania modułów IoT Edge](module-development.md) lub tworzenia [modułów z Visual Studio Code](how-to-vs-code-develop-module.md). Zobacz przykłady [modułów IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) dla przykładów kodu, w tym moduł symulowanej temperatury.
+W tym samouczku utworzono moduł IoT Edge, który filtruje dane pierwotne wygenerowane przez urządzenie IoT Edge.
 
 Przejdź do kolejnych samouczków, aby dowiedzieć się, jak Azure IoT Edge pomaga wdrożyć usługi Azure Cloud Services w celu przetwarzania i analizowania danych na krawędzi.
 

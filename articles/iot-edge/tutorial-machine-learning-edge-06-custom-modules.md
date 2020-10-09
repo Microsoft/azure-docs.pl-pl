@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997935"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857439"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
 
@@ -614,7 +614,7 @@ W przypadku routera i klasyfikatora oczekuje się otrzymywania zwykłych komunik
 
 1. Wybierz opcję **trasa testowa**. Jeśli test zakończy się pomyślnie, zobaczysz komunikat pasujący do zapytania.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 #### <a name="update-turbofandevicedatatostorage-route"></a>Aktualizowanie trasy turbofanDeviceDataToStorage
 
@@ -804,19 +804,11 @@ Logując się do urządzenia IoT Edge (maszyna wirtualna z systemem Linux w nasz
    sudo docker exec -it avroFileWriter bash
    ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule utworzyliśmy IoT Edge rozwiązanie w Visual Studio Code z trzema modułami: klasyfikatorem, routerem i składnikiem zapisywania/obiektu przekazującego. Skonfigurujemy trasy, aby umożliwić modułom komunikowanie się ze sobą na urządzeniu brzegowym. Zmodyfikowano konfigurację urządzenia brzegowego i Zaktualizowano wieloetapowe dockerfile w celu zainstalowania zależności i dodania instalacji powiązań do kontenerów modułów. 
 
 Następnie Zaktualizowaliśmy konfigurację IoT Hub w celu rozesłania komunikatów opartych na typie i obsłudze przekazywania plików. We wszystkich miejscach wdrożono moduły na urządzeniu IoT Edge i upewnimy się, że moduły działały prawidłowo.
-
-Więcej wskazówek można znaleźć w następujących artykułach:
-
-* [Learn how to deploy modules and establish routes in IoT Edge (Dowiedz się, jak wdrażać moduły i ustanawiać trasy w usłudze IoT Edge)](module-composition.md).
-* [Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub Routing komunikatów: teraz z routingiem w treści wiadomości](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Przekazywanie plików za pomocą usługi IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Przekaż pliki z urządzenia do chmury za pomocą IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Przejdź do następnego artykułu, aby rozpocząć wysyłanie danych i zobaczyć rozwiązanie w działaniu.
 

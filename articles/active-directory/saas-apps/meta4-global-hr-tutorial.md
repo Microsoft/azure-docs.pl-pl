@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552581"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Samouczek: integracja Azure Active Directory z globalną HR META4
 
@@ -77,7 +77,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą META4 Global HR, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj globalne logowanie](#configure-meta4-global-hr-single-sign-on)** jednokrotne w usłudze META4, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj globalne logowanie](#configure-meta4-global-hr-single-sign-on)** jednokrotne w usłudze META4, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testu globalnego HR META4](#create-meta4-global-hr-test-user)** , aby uzyskać odpowiednik Britta Simon w META4 globalnym HR, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -103,13 +103,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą META4 Globa
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![META4 globalną domenę HR i adresy URL Logowanie jednokrotne](common/both-replyurl.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić odpowiedź U R L i wybrać pozycję Zapisz.](common/both-replyurl.png)
 
     W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![META4 globalną domenę HR i adresy URL Logowanie jednokrotne](common/both-signonurl.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both-signonurl.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.meta4globalhr.com`
 
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą META4 Globa
 
     c. Adres URL wylogowywania
 
-### <a name="configure-meta4-global-hr-single-sign-on"></a>Skonfiguruj globalne Logowanie jednokrotne w usłudze META4
+### <a name="configure-meta4-global-hr-single-sign-on"></a>Skonfiguruj META4 globalne HR o pojedynczej Sign-On
 
 Aby skonfigurować Logowanie jednokrotne na **globalnej stronie META4** , musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [META4 globalnego zespołu pomocy technicznej HR](mailto:victors@meta4.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -198,6 +198,6 @@ Po kliknięciu kafelka META4 Global HR w panelu dostępu należy automatycznie z
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

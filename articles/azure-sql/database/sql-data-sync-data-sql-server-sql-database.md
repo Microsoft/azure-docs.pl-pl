@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332968"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856113"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -126,7 +126,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 > - Dane między centrami i elementami członkowskimi mogą zostać utracone nawet wtedy, gdy synchronizacja nie zgłasza żadnego problemu.
 > - Synchronizacja może zakończyć się niepowodzeniem, ponieważ tabela śledzenia ma nieistniejący wiersz ze źródła ze względu na zmianę klucza podstawowego.
 
-- Izolacji migawki musi być włączona. Aby uzyskać więcej informacji, zobacz [Izolacja migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Izolacja migawki musi być włączona zarówno dla elementów członkowskich synchronizacji, jak i dla centrum. Aby uzyskać więcej informacji, zobacz [Izolacja migawki w programie SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Ogólne ograniczenia
 
@@ -137,7 +137,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 - Nazwy obiektów (baz danych, tabel i kolumn) nie mogą zawierać kropki do drukowalnego znaku (.), lewego nawiasu kwadratowego ([) lub prawego nawiasu kwadratowego (]).
 - Uwierzytelnianie Azure Active Directory nie jest obsługiwane.
 - Tabele o tej samej nazwie, ale innym schemacie (na przykład dbo. Customers i Sales. Customers) nie są obsługiwane.
-- Kolumny z typami danych zdefiniowanymi przez użytkownika nie są obsługiwane
+- Kolumny z User-Defined typami danych nie są obsługiwane
 - Przeniesienie serwerów między różnymi subskrypcjami nie jest obsługiwane. 
 
 #### <a name="unsupported-data-types"></a>Nieobsługiwane typy danych
@@ -224,7 +224,7 @@ Aby zapoznać się z jedną zalecaną techniką tworzenia kopii zapasowych, zoba
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Czy zaszyfrowane tabele i kolumny synchronizacji synchronizacji danych
 
 - Jeśli baza danych używa Always Encrypted, można synchronizować tylko tabele i kolumny, które *nie* są zaszyfrowane. Nie można zsynchronizować zaszyfrowanych kolumn, ponieważ synchronizacja danych nie może odszyfrować danych.
-- Jeśli kolumna używa szyfrowania na poziomie kolumny (CLE), możesz zsynchronizować kolumnę, o ile rozmiar wiersza jest mniejszy niż rozmiar maksymalny wynoszący 24 MB. Synchronizacja danych traktuje kolumnę zaszyfrowaną przez klucz (CLE) jako normalne dane binarne. Aby odszyfrować dane w innych elementach członkowskich synchronizacji, musisz mieć ten sam certyfikat.
+- Jeśli kolumna używa szyfrowania Column-Level (CLE), możesz zsynchronizować kolumnę, o ile rozmiar wiersza jest mniejszy niż rozmiar maksymalny wynoszący 24 MB. Synchronizacja danych traktuje kolumnę zaszyfrowaną przez klucz (CLE) jako normalne dane binarne. Aby odszyfrować dane w innych elementach członkowskich synchronizacji, musisz mieć ten sam certyfikat.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Sortowanie jest obsługiwane w SQL Data Sync
 

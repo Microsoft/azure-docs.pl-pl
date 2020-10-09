@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 50cc53e7e8a5f39b53d6dcd39de61894cbbb3842
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4d325eb0dbd5d30e94df07ebad21ff30316bcbb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518934"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Samouczek: integracja Azure Active Directory z usługą MaxxPoint
 
@@ -99,11 +99,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji MaxxPoint,
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez **dostawcę tożsamości**, w sekcji **Podstawowa konfiguracja protokołu SAML** nie musisz wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji MaxxPoint](common/preintegrated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację protokołu SAML.](common/preintegrated.png)
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji MaxxPoint](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:  `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
@@ -193,7 +193,7 @@ Po kliknięciu kafelka MaxxPoint na panelu dostępu powinno nastąpić automatyc
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,20 +2,20 @@
 title: Rezydencja danych
 description: Zamieszkania danych i informacje o serwerach z obsługą usługi Azure Arc.
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 10/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 73acb07b8caa3c1368c936463f04969c29d37985
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327769"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856453"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Serwery z obsługą usługi Azure ARC: dane w miejscu
 
 W tym artykule wyjaśniono koncepcję zamieszkania danych i sposób jej zastosowania w przypadku serwerów z obsługą usługi Azure Arc.
 
-Serwery z obsługą usługi Azure Arc są **[dostępne](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** w **Stany Zjednoczone, Europie, Zjednoczonym królestwie lub Azja i Pacyfik**.
+Serwery z obsługą usługi Azure Arc są **[dostępne](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** w **Stany Zjednoczone, Europie, Zjednoczonym Królestwie, Australii i Azja i Pacyfik**.
 
 ## <a name="data-residency"></a>Rezydencja danych
 

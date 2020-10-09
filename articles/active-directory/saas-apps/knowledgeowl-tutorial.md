@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549895"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858102"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą KnowledgeOwl
 
@@ -111,7 +111,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     ```
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Musisz zaktualizować te wartości z rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania, co zostało wyjaśnione w dalszej części tego samouczka.
+    > Te wartości nie są prawdziwe. Musisz zaktualizować te wartości z rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On, co zostało wyjaśnione w dalszej części tego samouczka.
 
 1. Aplikacja KnowledgeOwl oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -167,11 +167,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **zabezpieczenia**.
 
-    ![Konfiguracja KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia zabezpieczenia wybrane w menu Ustawienia.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Przewiń do **integracji SAML SSO** i wykonaj następujące czynności:
 
-    ![Konfiguracja KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia integrację protokołu SAML S O, w której można wprowadzić zmiany opisane tutaj.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. Wybierz pozycję **Włącz logowanie jednokrotne SAML**.
 
@@ -189,7 +189,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     h. Kliknij pozycję **Mapuj atrybuty SAML** , aby mapować atrybuty, i wykonaj następujące czynności:
 
-    ![Konfiguracja KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia Mapowanie atrybutów SAML, w których można wprowadzać zmiany w tym miejscu.](./media/knowledgeowl-tutorial/configure3.png)
 
     * Wprowadź `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` do pola tekstowego **identyfikatora logowania jednokrotnego**
     * Wprowadź tekst `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` w polu tekstowym **username/email** .
@@ -199,7 +199,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     i. Kliknij przycisk **Zapisz** w dolnej części strony.
 
-    ![Konfiguracja KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia przycisk Zapisz.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Utwórz użytkownika testowego KnowledgeOwl
 
@@ -218,7 +218,7 @@ Po kliknięciu kafelka KnowledgeOwl w panelu dostępu należy automatycznie zalo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

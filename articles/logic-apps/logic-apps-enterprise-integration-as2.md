@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
-ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078643"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856674"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów AS2 w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą Pakietu integracyjnego dla przedsiębiorstw
 
 > [!IMPORTANT]
 > Oryginalny łącznik AS2 jest przestarzały, więc jeśli nie potrzebujesz możliwości śledzenia, użyj łącznika **AS2 (v2)** . Z wyjątkiem śledzenia, łącznik v2 zapewnia te same funkcje co wersja oryginalna, jest natywny dla środowiska uruchomieniowego Logic Apps i ma znaczący wzrost wydajności w zakresie rozmiaru komunikatów, przepływności i opóźnień. Ponadto łącznik v2 nie wymaga utworzenia połączenia z kontem integracji. Zamiast tego, zgodnie z opisem w sekcji wymagania wstępne, należy się upewnić, że konto integracji zostało połączone z aplikacją logiki, w której zamierzasz korzystać z łącznika.
 
-Aby pracować z komunikatami specyfikacji AS2 w usłudze Azure Logic Apps, można użyć łącznika AS2, który udostępnia wyzwalacze i akcje zarządzania komunikacją AS2. Aby na przykład nawiązać bezpieczeństwo i niezawodność podczas przesyłania komunikatów, możesz użyć następujących akcji:
+Aby korzystać z komunikatów AS2 w Azure Logic Apps, można użyć łącznika AS2, który udostępnia wyzwalacze i akcje obsługujące komunikację AS2 (w wersji 1,2) i zarządzanie nią. Aby na przykład nawiązać bezpieczeństwo i niezawodność podczas przesyłania komunikatów, możesz użyć następujących akcji:
 
 * [ **AS2 zakodować** akcję](#encode) w celu zapewnienia szyfrowania, podpisywania cyfrowego i potwierdzeń poprzez powiadomienia o dyspozycjach komunikatów (powiadomienia MDN), które ułatwiają odrzucanie. Na przykład ta akcja stosuje nagłówki AS2/HTTP i wykonuje te zadania po skonfigurowaniu:
 

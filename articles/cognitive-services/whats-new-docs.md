@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 73a097907a5b44c77ba5e1a9ead4cb4e3a8077c6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777751"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857813"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services docs: co nowego w 1 września 2020 — 30 września 2020
 
@@ -22,7 +22,7 @@ Witamy w nowościach Cognitive Services dokumentach od 1 września 2020 do 31 wr
 
 ### <a name="updated-articles"></a>Zaktualizowane artykuły
 
-- [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu wiersza polecenia platformy Azure (CLI)](cognitive-services-apis-create-account-cli.md)
+- [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu Azure Command-Line Interface (CLI)](cognitive-services-apis-create-account-cli.md)
 - [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu biblioteki klienta zarządzania Azure](cognitive-services-apis-create-account-client-library.md)
 - [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu Azure Portal](cognitive-services-apis-create-account.md)
 - [Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM](create-account-resource-manager-template.md)
@@ -99,3 +99,5 @@ Następujące osoby współczyniły do Cognitive Services dokumentów w tym okre
 - [iAmBipinPaul](https://github.com/iAmBipinPaul) – Bipin Paul (1)
 - [rexwan](https://github.com/rexwan) -narzędzia Rex Wang (1)
 - [rglidden](https://github.com/rglidden) -Richard Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

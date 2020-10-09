@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 191c1d88654cd13ce88e522e6c617d2b39ce9f5c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439362"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856732"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -59,7 +59,7 @@ Centrum to sieć wirtualna, która może zawierać bramy do funkcji lokacja-loka
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="create-a-site"></a><a name="site"></a>Tworzenie lokacji
+## <a name="create-a-site"></a><a name="site"></a>Tworzenie witryny
 
 Teraz można przystąpić do tworzenia lokacji odpowiadających Twoim lokalizacji fizycznej. Możesz utworzyć dowolną liczbę lokacji, tak aby odpowiadała liczbie lokalizacji fizycznych. Jeśli na przykład masz oddziały w Nowym Jorku, Londynie i Los Angeles, należy utworzyć trzy oddzielne lokacje. W tych lokacjach znajdują się punkty końcowe lokalnych urządzeń sieci VPN. W wirtualnej sieci WAN można utworzyć maksymalnie 1000 witryn na koncentratorze wirtualnym. Jeśli masz wiele centrów, możesz utworzyć 1000 dla każdego z tych centrów. Jeśli masz urządzenie z wirtualnym partnerem WAN (link INSERT), skontaktuj się z nimi, aby dowiedzieć się więcej o automatyzacji na platformie Azure. Zwykle Automatyzacja oznacza proste środowisko klikania, które umożliwia eksportowanie informacji o gałęziach o dużej skali na platformę Azure oraz Konfigurowanie łączności z CPE do bramy sieci VPN Azure Virtual WAN. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące automatyzacji od platformy Azure do partnerów CPE](virtual-wan-configure-automation-providers.md).
 

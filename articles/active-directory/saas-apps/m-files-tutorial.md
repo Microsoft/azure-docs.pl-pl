@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554842"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Samouczek: integracja Azure Active Directory z plikami M
 
@@ -133,11 +133,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
 
 1. Otwórz okno **M-Files Desktop Settings** (Ustawienia pulpitu M-Files). Następnie kliknij przycisk **Add** (Dodaj).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Zrzut ekranu przedstawia ustawienia pulpitu M-Files, w których można wybrać opcję Dodaj.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. W oknie **Document Vault Connection Properties** (Właściwości połączenia magazynu dokumentów) wykonaj następujące kroki:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Zrzut ekranu przedstawia właściwości połączenia magazynu dokumentów, w których można wprowadzić podane wartości.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     W obszarze typu sekcji serwera użyj następujących wartości:  
 
@@ -151,7 +151,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji M-Files, w
 
     e. W obszarze **Vault on Server** (Magazyn na serwerze) wybierz odpowiedni magazyn na serwerze.
  
-    f. Kliknij pozycję **OK**.
+    f. Kliknij przycisk **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -218,7 +218,7 @@ Po kliknięciu kafelka M-Files w panelu dostępu powinno nastąpić automatyczne
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 4c758c63ea08768df226e3d6e4fbf0295334a142
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91844059"
+ms.locfileid: "91857779"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Ciągłość biznesowa usługi Azure HDInsight
 
@@ -128,8 +128,6 @@ Poprawa ciągłości działania przy użyciu funkcji odzyskiwania awaryjnego o w
 
 Aby dowiedzieć się więcej na temat elementów omówionych w tym artykule, zobacz:
 
-* [Dokumentacja REST Ambari Apache](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalowanie i Konfigurowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Zainstaluj i skonfiguruj moduł Azure PowerShell AZ](/powershell/azure/)
-* [Zarządzanie usługą HDInsight przy użyciu usługi Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Inicjowanie obsługi klastrów usługi HDInsight opartych na systemie Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [Architektury ciągłości biznesowej usługi Azure HDInsight](./hdinsight-business-continuity-architecture.md)
+* [Analiza przypadku architektury rozwiązania o wysokiej dostępności usługi Azure HDInsight](./hdinsight-high-availability-case-study.md)
+* [Co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?](./hadoop/hdinsight-use-hive.md)

@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606307"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856731"
 ---
 1. Wybierz pozycję **Połącz Lokacje sieci VPN** , aby otworzyć stronę **łączenie witryn** .
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606307"
    Wypełnij następujące pola:
 
    * Wprowadź klucz wstępny. Jeśli klucz nie zostanie wprowadzony, platforma Azure automatycznie wygeneruje je automatycznie.
-   * Wybierz protokół i ustawienia protokołu IPsec. Zapoznaj się z tematem [domyślne/niestandardowe szczegóły protokołu IPSec] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Wybierz protokół i ustawienia protokołu IPsec. Aby uzyskać więcej informacji, zobacz [domyślne/niestandardowe protokołu IPSec](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Wybierz odpowiednią opcję **propagacji trasy domyślnej**. Opcja **Włącz** umożliwia koncentratorowi wirtualnemu propagowanie rozkierowanej trasy domyślnej do tego połączenia. Ta flaga włącza propagację trasy domyślnej do połączenia tylko wtedy, gdy trasa domyślna jest już wykorzystana przez koncentrator wirtualnych sieci WAN w wyniku wdrożenia zapory w koncentratorze lub jeśli w innej połączonej lokacji włączono tunelowanie wymuszone. Trasa domyślna nie pochodzi z wirtualnego koncentratora sieci WAN.
 
 2. Wybierz pozycję **Połącz**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528904"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Samouczek: integracja Azure Active Directory z łącznikiem meta Networks
 
@@ -101,7 +101,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Meta Networks Connector](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Meta Networks Connector](common/both-advanced-urls.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/both-advanced-urls.png)
 
     a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
@@ -120,7 +120,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
 
 6. Aplikacja Meta Networks Connector oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika z wybraną ikoną Edytuj.](common/edit-attribute.png)
     
 7. Oprócz powyższych, aplikacja Meta Networks Connector oczekuje jeszcze kilku atrybutów, które powinny zostać przekazane w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
     
@@ -134,9 +134,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawia oświadczenia użytkownika z opcją dodania nowego oświadczenia.](common/new-save-attribute.png)
 
-    ![image (obraz)](common/new-attribute-details.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Zarządzanie oświadczeniami użytkowników, w którym można wprowadzić podane wartości.](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -148,7 +148,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -173,19 +173,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
     
 2. Przejdź do obszaru **Administrator**, a następnie wybierz pozycję **Settings (Ustawienia)**.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia ustawienia wybrane z menu Administracja.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Upewnij się, że ustawienia **Log Internet Traffic (Rejestruj ruch internetowy)** i **Force VPN MFA (Wymuś uwierzytelnianie wieloskładnikowe w sieci VPN)** są wyłączone.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia wyłączenie tych ustawień.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Przejdź do obszaru **Administrator**, a następnie wybierz pozycję **SAML**.
     
-    ![Konfigurowanie logowania jednokrotnego](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia element SAML wybrany z menu Administracja.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Wykonaj następujące kroki opisane na stronie **DETAILS (SZCZEGÓŁY)**:
     
-    ![Konfigurowanie logowania jednokrotnego](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia stronę szczegółów, na której można wprowadzić podane wartości.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Skopiuj wartość pola **SSO URL (Adres URL logowania jednokrotnego)** i wklej ją w polu tekstowym **Sign-In URL (Adres URL logowania)** w sekcji **Meta Networks Connector Domain and URLs (Adresy URL i domena aplikacji Meta Networks Connector)**.
     
@@ -197,7 +197,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Meta Netwo
     
 6. Na karcie **GENERAL (OGÓLNE)** wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Zrzut ekranu przedstawia stronę ogólne, na której można wprowadzić podane wartości.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. W polu **Identity Provider Single Sign-On URL (Adres URL logowania jednokrotnego dostawcy tożsamości)** wklej wartość pola **Adres URL logowania** skopiowaną z witryny Azure Portal.
 
@@ -275,7 +275,7 @@ Po kliknięciu kafelka Meta Networks Connector na panelu dostępu powinno nastą
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

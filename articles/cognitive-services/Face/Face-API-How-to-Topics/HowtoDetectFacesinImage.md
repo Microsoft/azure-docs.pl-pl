@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 231f30f5532d0934ba41e591aa821d56b11d5856
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 500099753ee4fe47f02e7f09d9732b71aa3bae36
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928007"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856369"
 ---
 # <a name="get-face-detection-data"></a>Pobieranie danych wykrywania kroju
 
@@ -36,71 +36,29 @@ Ten przewodnik koncentruje się na konkretnych wywołaniach wykrywania, takich j
 
 ## <a name="get-basic-face-data"></a>Pobieranie danych podstawowych
 
-Aby znaleźć powierzchnie i uzyskać ich lokalizacje w obrazie, wywołaj metodę z parametrem _returnFaceId_ ustawionym na **wartość true**. Jest to ustawienie domyślne.
+Aby znaleźć powierzchnie i uzyskać ich lokalizacje w obrazie, wywołaj metodę [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet) lub [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet) z parametrem _returnFaceId_ ustawioną na **wartość true**. Jest to ustawienie domyślne.
 
-```csharp
-IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
 Można wysyłać zapytania do zwracanych obiektów [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) dla ich unikatowych identyfikatorów i prostokąta, który zapewnia współrzędne pikseli powierzchni.
 
-```csharp
-foreach (var face in faces)
-{
-    string id = face.FaceId.ToString();
-    FaceRectangle rect = face.FaceRectangle;
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 
 Aby uzyskać informacje na temat analizowania lokalizacji i wymiarów kroju, zobacz [FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet). Zazwyczaj ten prostokąt zawiera oczy, eyebrows, nos i jamy ustnej. Góra z Ears i Chin nie są uwzględniane. Aby przy użyciu prostokąta czołowego przyciąć kompletną stronę główną lub uzyskać pionowy zrzut, na przykład dla obrazu typu zdjęcia, można rozwinąć prostokąt w każdym kierunku.
 
 ## <a name="get-face-landmarks"></a>Pobierz punkty orientacyjne
 
-[Punkty orientacyjne](../concepts/face-detection.md#face-landmarks) są zestawem łatwych do znalezienia punktów na stronie, takich jak uczniowie lub pozostała część nosa. Aby uzyskać dane punktu orientacyjnego, ustaw _returnFaceLandmarks_ dla parametru returnFaceLandmarks **wartość true**.
+[Punkty orientacyjne](../concepts/face-detection.md#face-landmarks) są zestawem łatwych do znalezienia punktów na stronie, takich jak uczniowie lub pozostała część nosa. Aby uzyskać dane punktu orientacyjnego, należy ustawić parametr _detectionModel_ na wartość **detectionModel. Detection01** i parametr _returnFaceLandmarks_ na **true**.
 
-```csharp
-IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks1":::
 
 Poniższy kod demonstruje, jak można pobrać lokalizacje nosa i uczniów:
 
-```csharp
-foreach (var face in faces)
-{
-    var landmarks = face.FaceLandmarks;
-
-    double noseX = landmarks.NoseTip.X;
-    double noseY = landmarks.NoseTip.Y;
-
-    double leftPupilX = landmarks.PupilLeft.X;
-    double leftPupilY = landmarks.PupilLeft.Y;
-
-    double rightPupilX = landmarks.PupilRight.X;
-    double rightPupilY = landmarks.PupilRight.Y;
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks2":::
 
 Można również użyć danych punktów orientacyjnych, aby dokładnie obliczyć kierunek działania. Na przykład można zdefiniować rotację kroju jako wektora z środka usta do środka oczu. Poniższy kod oblicza ten wektor:
 
-```csharp
-var upperLipBottom = landmarks.UpperLipBottom;
-var underLipTop = landmarks.UnderLipTop;
-
-var centerOfMouth = new Point(
-    (upperLipBottom.X + underLipTop.X) / 2,
-    (upperLipBottom.Y + underLipTop.Y) / 2);
-
-var eyeLeftInner = landmarks.EyeLeftInner;
-var eyeRightInner = landmarks.EyeRightInner;
-
-var centerOfTwoEyes = new Point(
-    (eyeLeftInner.X + eyeRightInner.X) / 2,
-    (eyeLeftInner.Y + eyeRightInner.Y) / 2);
-
-Vector faceDirection = new Vector(
-    centerOfTwoEyes.X - centerOfMouth.X,
-    centerOfTwoEyes.Y - centerOfMouth.Y);
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="direction":::
 
 Gdy znasz kierunek działania, możesz obrócić prostokątną ramkę czołową, aby odpowiednio dostosować ją. Aby przyciąć twarze na obrazie, możesz programistycznie obrócić obraz, aby powierzchnie były zawsze wyświetlane w poziomie pionowym.
 
@@ -108,36 +66,13 @@ Gdy znasz kierunek działania, możesz obrócić prostokątną ramkę czołową,
 
 Oprócz prostokątów i punktów orientacyjnych interfejs API wykrywania powierzchni może analizować kilka atrybutów pojęciowych powierzchni. Aby zapoznać się z pełną listą, zobacz sekcję dotyczącą pojęć dotyczących [atrybutów](../concepts/face-detection.md#attributes) .
 
-Aby analizować atrybuty kroju, ustaw parametr _returnFaceAttributes_ na listę wartości [wyliczenia FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) .
+Aby analizować atrybuty kroju, należy ustawić parametr _detectionModel_ na **detectionModel. Detection01** i parametr _ReturnFaceAttributes_ na listę wartości [wyliczeniowych FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) .
 
-```csharp
-var requiredFaceAttributes = new FaceAttributeType[] {
-    FaceAttributeType.Age,
-    FaceAttributeType.Gender,
-    FaceAttributeType.Smile,
-    FaceAttributeType.FacialHair,
-    FaceAttributeType.HeadPose,
-    FaceAttributeType.Glasses,
-    FaceAttributeType.Emotion
-};
-var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
 
 Następnie Pobierz odwołania do zwracanych danych i wykonaj więcej operacji zgodnie z potrzebami.
 
-```csharp
-foreach (var face in faces)
-{
-    var attributes = face.FaceAttributes;
-    var age = attributes.Age;
-    var gender = attributes.Gender;
-    var smile = attributes.Smile;
-    var facialHair = attributes.FacialHair;
-    var headPose = attributes.HeadPose;
-    var glasses = attributes.Glasses;
-    var emotion = attributes.Emotion;
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes2":::
 
 Aby dowiedzieć się więcej na temat każdego z atrybutów, zobacz Przewodnik dotyczący [wykrywania i atrybutów czołowych](../concepts/face-detection.md) .
 

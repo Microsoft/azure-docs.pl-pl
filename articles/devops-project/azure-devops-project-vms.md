@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 80a590ff97cc6595f2da6d1e573820324a46c2d5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: ce11fe5b65cd49cc880713eb4e47b081b6f3b44f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82231518"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855977"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET na maszynach wirtualnych platformy Azure przy użyciu usługi Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter również:
 * Konfiguruje potok wydania na potrzeby ciągłego wdrażania. 
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Wdrażanie aplikacji ASP.NET przy użyciu programu DevOps Starter
@@ -198,4 +198,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie wieloetapowego potoku ciągłego wdrażania](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

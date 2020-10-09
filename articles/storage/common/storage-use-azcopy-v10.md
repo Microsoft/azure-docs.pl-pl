@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716051"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856788"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -32,7 +32,7 @@ Najpierw Pobierz plik wykonywalny AzCopy v10 do dowolnego katalogu na komputerze
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86 — 64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Te pliki są kompresowane jako plik zip (Windows i Mac) lub plik tar (Linux). Aby pobrać i zdekompresować plik tar w systemie Linux, zapoznaj się z dokumentacją dystrybucji systemu Linux.
 
@@ -50,7 +50,9 @@ Aby wyświetlić listę poleceń, wpisz, `azcopy -h` a następnie naciśnij klaw
 
 Aby dowiedzieć się więcej na temat konkretnego polecenia, należy dołączyć nazwę polecenia (na przykład: `azcopy list -h` ).
 
-![Wbudowana pomoc](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Wbudowana pomoc](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 Aby znaleźć szczegółową dokumentację referencyjną dla każdego polecenia i parametru polecenia, zobacz [AzCopy](storage-ref-azcopy.md)
 

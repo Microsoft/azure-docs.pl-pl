@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961816"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856589"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -101,15 +101,15 @@ Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hado
 
 W większości dystrybucji usługi Hadoop dane są przechowywane w systemie plików HDFS. System plików HDFS jest objęty magazynem lokalnym na maszynach w klastrze. Korzystanie z magazynu lokalnego może być kosztowne dla rozwiązania opartego na chmurze, w którym opłata jest naliczana co godzinę lub za minutę w przypadku zasobów obliczeniowych.
 
-W przypadku korzystania z usługi HDInsight pliki danych są przechowywane w sposób dostosowywalny i odporny w chmurze przy użyciu Blob Storage platformy Azure i opcjonalnie Azure Data Lake Storage. Te usługi zapewniają następujące korzyści:
+W przypadku korzystania z usługi HDInsight pliki danych są przechowywane w sposób dostosowywalny i odporny w chmurze przy użyciu usług Azure Blob Storage i opcjonalnie Azure Data Lake Storage Gen1/Gen2. Te usługi zapewniają następujące korzyści:
 
 * Tanie przechowywanie długoterminowe.
 * Ułatwienia dostępu z usług zewnętrznych, takich jak witryny sieci Web, narzędzia do przekazywania/pobierania plików, różne zestawy SDK języka i przeglądarki sieci Web.
 * Duża pojemność pliku i duża możliwość dostosowania magazynu.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Aby uzyskać więcej informacji, zobacz [Azure Blob Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-W przypadku korzystania z usługi Azure Storage lub Data Lake Storage nie trzeba wykonywać żadnych specjalnych działań w usłudze HDInsight, aby uzyskiwać dostęp do danych. Na przykład następujące polecenie wyświetla listę plików w folderze, niezależnie od tego, `/example/data` czy są one przechowywane w usłudze Azure Storage, czy Data Lake Storage:
+W przypadku korzystania z usługi Azure Blob Storage lub Data Lake Storage Gen1/Gen2 nie trzeba wykonywać żadnych specjalnych działań w usłudze HDInsight, aby uzyskiwać dostęp do danych. Na przykład następujące polecenie wyświetla listę plików w folderze, niezależnie od tego, `/example/data` czy są one przechowywane w usłudze Azure Storage, czy Data Lake Storage:
 
 ```console
 hdfs dfs -ls /example/data
@@ -135,7 +135,7 @@ W przypadku korzystania z [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Używane podczas komunikacji z kontem magazynu innym niż domyślne. Na przykład jeśli masz dodatkowe konto magazynu lub dostęp do danych przechowywanych na publicznie dostępnym koncie magazynu.
 
-Korzystając z [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), użyj jednego z następujących schematów URI:
+Korzystając z [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), użyj jednego z następujących schematów URI:
 
 * `adl:///`: Dostęp do Data Lake Storage domyślnego klastra.
 
@@ -159,11 +159,11 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 To polecenie zwraca wartość podobną do następujących identyfikatorów URI:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`w przypadku korzystania z konta usługi Azure Storage.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` w przypadku korzystania z konta usługi Azure Storage.
 
     Nazwa konta jest nazwą konta usługi Azure Storage. Nazwa kontenera jest kontenerem obiektów blob, który jest katalogiem głównym magazynu klastra.
 
-* `adl://home`w przypadku korzystania z Azure Data Lake Storage. Aby uzyskać nazwę Data Lake Storage, użyj następującego wywołania REST:
+* `adl://home` w przypadku korzystania z Azure Data Lake Storage. Aby uzyskać nazwę Data Lake Storage, użyj następującego wywołania REST:
 
      ```bash
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
@@ -189,9 +189,9 @@ Informacje o magazynie można także znaleźć za pomocą Azure Portal, wykonuj�
 
 Istnieją różne sposoby uzyskiwania dostępu do danych spoza klastra usługi HDInsight. Poniżej przedstawiono kilka linków do narzędzi i zestawów SDK, których można użyć do pracy z danymi:
 
-W przypadku korzystania z __usługi Azure Storage__zobacz następujące linki, aby poznać sposoby dostępu do danych:
+Jeśli korzystasz z __usługi Azure Blob Storage__, Skorzystaj z poniższych linków, aby uzyskać dostęp do danych:
 
-* Interfejs wiersza polecenia [platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): polecenia w wierszu poleceń umożliwiające pracę z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
+* Interfejs [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line poleceń interfejsu do pracy z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): skrypt języka Python służący do pracy z obiektami BLOB w usłudze Azure Storage.
 * Różne zestawy SDK:
 
@@ -203,7 +203,7 @@ W przypadku korzystania z __usługi Azure Storage__zobacz następujące linki, a
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Interfejs API REST magazynu](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Jeśli używasz __Azure Data Lake Storage__, zobacz następujące linki, aby poznać sposoby dostępu do danych:
+Jeśli używasz __Azure Data Lake Storage Gen1__, zobacz następujące linki, aby poznać sposoby dostępu do danych:
 
 * [Przeglądarka sieci Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Program PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

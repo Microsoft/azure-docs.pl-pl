@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604396"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856158"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Opis zakresu kontroli RBAC platformy Azure
 
@@ -25,6 +25,10 @@ ms.locfileid: "91604396"
 Na platformie Azure można określić zakres na czterech poziomach: [Grupa zarządzania](../governance/management-groups/overview.md), subskrypcja, [Grupa zasobów](../azure-resource-manager/management/overview.md#resource-groups)i zasób. Zakresy mają strukturę opartą na relacji nadrzędny-podrzędny. Każdy poziom hierarchii sprawia, że zakres jest bardziej szczegółowy. Role można przypisywać na dowolnym z tych poziomów zakresu. Wybrany poziom określa, jak szeroko ma być stosowana rola. Niższe poziomy dziedziczą uprawnienia roli z wyższego poziomu. 
 
 ![Zakres w przypisaniu roli](./media/scope-overview/rbac-scope-no-label.png)
+
+Grupy zarządzania to poziom zakresu powyżej subskrypcji, ale grupy zarządzania obsługują bardziej złożone hierarchie. Na poniższym diagramie przedstawiono przykład hierarchii grup zarządzania i subskrypcji, które można zdefiniować. Aby uzyskać więcej informacji na temat grup zarządzania, zobacz [co to są grupy zarządzania systemu Azure?](../governance/management-groups/overview.md)
+
+![Grupa zarządzania i hierarchia subskrypcji](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>Format zakresu
 
@@ -118,6 +122,6 @@ Można stosunkowo łatwo określić zakres dla grupy zarządzania, subskrypcji l
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Procedura dodawania przypisania roli](role-assignments-steps.md)
+- [Kroki umożliwiające dodanie przypisania roli](role-assignments-steps.md)
 - [Dostawcy zasobów dla usług platformy Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md)
+- [Co to są grupy zarządzania platformy Azure?](../governance/management-groups/overview.md)

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: b6a7b9d4e4b8a7caf79e2dbcc1059adc3c9122d7
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843979"
+ms.locfileid: "91857745"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Jak używać replikacji Apache Hive w klastrach usługi Azure HDInsight
 
@@ -224,8 +224,7 @@ Poniższa sekwencja kodu zawiera przykład, jak można zaimplementować uruchami
 
 Aby dowiedzieć się więcej na temat elementów omówionych w tym artykule, zobacz:
 
-- [Dokumentacja REST Ambari Apache](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-- [Instalowanie i Konfigurowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-- [Zainstaluj i skonfiguruj moduł Azure PowerShell AZ](/powershell/azure/)
-- [Zarządzanie usługą HDInsight przy użyciu usługi Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
-- [Inicjowanie obsługi klastrów usługi HDInsight opartych na systemie Linux](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Ciągłość biznesowa usługi Azure HDInsight](../hdinsight-business-continuity.md)
+- [Architektury ciągłości biznesowej usługi Azure HDInsight](../hdinsight-business-continuity-architecture.md)
+- [Analiza przypadku architektury rozwiązania o wysokiej dostępności usługi Azure HDInsight](../hdinsight-high-availability-case-study.md)
+- [Co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?](../hadoop/hdinsight-use-hive.md)

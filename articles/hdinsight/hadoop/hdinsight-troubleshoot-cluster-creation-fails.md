@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8be230044d868cc3ec03f6dc3fc2d21e102f121
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996414"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856300"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Rozwiązywanie problemów z błędami tworzenia klastra za pomocą usługi Azure HDInsight
 
@@ -29,9 +29,9 @@ Następujące problemy są Najczęstszymi przyczynami głównych niepowodzeń tw
 
 ## <a name="permissions-issues"></a>Problemy z uprawnieniami
 
-Jeśli używasz Azure Data Lake Storage Gen2 i otrzymasz komunikat o błędzie `AmbariClusterCreationFailedErrorCode` : " :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: ", Otwórz Azure Portal, przejdź do konta magazynu i w obszarze Access Control (IAM), upewnij się, że **współautor danych obiektów blob magazynu** lub rola **właściciela danych obiektu blob magazynu** ma przypisany dostęp do **tożsamości zarządzanej przypisanej do użytkownika** dla subskrypcji. Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie uprawnień dla tożsamości zarządzanej na koncie Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Jeśli używasz Azure Data Lake Storage Gen2 i otrzymasz komunikat o błędzie `AmbariClusterCreationFailedErrorCode` : " :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: ", Otwórz Azure Portal, przejdź do konta magazynu i w obszarze Access Control (IAM), upewnij się, że **współautor danych obiektów blob magazynu** lub rola **właściciela danych obiektu blob magazynu** ma przypisany dostęp do **tożsamości zarządzanej przypisanej do użytkownika** dla subskrypcji. Aby uzyskać szczegółowe instrukcje [, zobacz Konfigurowanie uprawnień dla tożsamości zarządzanej na Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2) .
 
-Jeśli używasz Azure Data Lake Storage Gen1, zobacz instrukcje dotyczące instalacji i konfiguracji w [tym miejscu](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 nie jest obsługiwana w przypadku klastrów HBase i nie jest obsługiwana w usłudze HDInsight w wersji 4,0.
+Jeśli używasz Azure Data Lake Storage Gen1, zobacz instrukcje dotyczące instalacji i konfiguracji [używają Azure Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md). Data Lake Storage Gen1 nie jest obsługiwana w przypadku klastrów HBase i nie jest obsługiwana w usłudze HDInsight w wersji 4,0.
 
 W przypadku korzystania z usługi Azure Storage upewnij się, że nazwa konta magazynu jest prawidłowa podczas tworzenia klastra.
 
@@ -53,10 +53,10 @@ Zezwalaj na ruch z adresów IP w poniższej tabeli.
 
 | Źródłowy adres IP | Element docelowy | Kierunek |
 |---|---|---|
-| 168.61.49.99 | *: 443 | Przychodzący |
-| 23.99.5.239 | *: 443 | Przychodzący |
-| 168.61.48.131 | *: 443 | Przychodzący |
-| 138.91.141.162 | *: 443 | Przychodzący |
+| 168.61.49.99 | *: 443 | Inbound |
+| 23.99.5.239 | *: 443 | Inbound |
+| 168.61.48.131 | *: 443 | Inbound |
+| 138.91.141.162 | *: 443 | Inbound |
 
 Należy również dodać adresy IP specyficzne dla regionu, w którym jest tworzony klaster. Zobacz [adresy IP zarządzania usługą HDInsight](../hdinsight-management-ip-addresses.md) , aby uzyskać listę adresów dla każdego regionu świadczenia usługi Azure.
 

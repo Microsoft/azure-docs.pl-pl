@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85318628"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856011"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET i kodu Azure SQL Database za pomocą usługi Azure DevOps Starter
 
@@ -25,7 +25,7 @@ DevOps Starter również:
 * Konfiguruje potok wydania na potrzeby ciągłego wdrażania. 
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Użyj platformy Azure DevOps Starter, aby wdrożyć aplikację ASP.NET i kod Azure SQL Database
@@ -34,7 +34,7 @@ W tym samouczku wykonasz następujące czynności:
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
 > * Łączenie z bazą danych Azure SQL Database 
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +56,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz pozycję **Dodaj bazę danych**, a następnie wybierz pozycję **Dalej**. Wybrana w poprzednim kroku struktura aplikacji decyduje o dostępnym w tym miejscu typie celu wdrożenia usługi platformy Azure. 
     
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurowanie usługi Azure DevOps i subskrypcji platformy Azure
 
@@ -66,7 +66,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz usługi subskrypcji platformy Azure. Możesz również wybrać link **Zmień**, aby wyświetlić dodatkowe ustawienia konfiguracji platformy Azure, a następnie określić nazwę użytkownika w sekcji **Szczegóły logowania na serwerze bazy danych**. Zachowaj nazwę użytkownika, aby użyć jej w dalszych krokach tego samouczka. Jeśli możesz wykonać ten krok opcjonalny, zamknij obszar konfiguracji platformy Azure przed wybraniem pozycji **Gotowe**.
  
-1. Kliknij **Gotowe**. Po kilku minutach proces zostanie ukończony i zostanie otwarty pulpit nawigacyjny DevOps Starter w Azure Portal. Możesz również przejść do pulpitu nawigacyjnego bezpośrednio z obszaru **Wszystkie zasoby** w witrynie Azure Portal. Po prawej stronie wybierz pozycję **Przeglądaj**, aby wyświetlić uruchomioną aplikację.
+1. Wybierz pozycję **Gotowe**. Po kilku minutach proces zostanie ukończony i zostanie otwarty pulpit nawigacyjny DevOps Starter w Azure Portal. Możesz również przejść do pulpitu nawigacyjnego bezpośrednio z obszaru **Wszystkie zasoby** w witrynie Azure Portal. Po prawej stronie wybierz pozycję **Przeglądaj**, aby wyświetlić uruchomioną aplikację.
     
 ## <a name="examine-the-ci-pipeline"></a>Badanie potoku ciągłej integracji
 
@@ -163,7 +163,7 @@ Musisz mieć odpowiednie uprawnienia, aby nawiązać połączenie z Azure SQL Da
    > [!NOTE]
    > Jeśli zmienisz hasło dla logowania SQL, musisz zmienić hasło w zmiennej potoku wydania, zgodnie z opisem w sekcji [Sprawdzanie potoku dysku CD](#examine-the-cd-pipeline) .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy nie są już potrzebne, możesz usunąć Azure SQL Database i powiązane zasoby, które zostały utworzone w tym samouczku. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
@@ -185,12 +185,12 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
 > * Łączenie z bazą danych Azure SQL Database 
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie wieloetapowego potoku ciągłego wdrażania](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Filmy wideo
 

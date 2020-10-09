@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7bb4974620323de45fd621ae2ed73d3655244d8b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606824"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856730"
 ---
 1. Na stronie portalu wirtualnej sieci WAN w sekcji **połączenie** wybierz pozycję **Lokacje sieci VPN** , aby otworzyć stronę witryny sieci VPN.
 2. Na stronie **Lokacje sieci VPN** kliknij pozycję **+Utwórz lokację**.
@@ -26,6 +26,10 @@ ms.locfileid: "90606824"
     * **Dostawca urządzenia** — nazwa dostawcy urządzenia sieci VPN (na przykład: Citrix, Cisco, Barracuda). Dzięki temu zespół platformy Azure może lepiej zrozumieć swoje środowisko w celu dodania do niego dodatkowych możliwości optymalizacji lub ułatwienia rozwiązywania problemów.
     * Wartość Włącz **Border Gateway Protocol** oznacza, że wszystkie połączenia z lokacji będą włączone przy użyciu protokołu BGP. Ostatecznie skonfigurujemy informacje protokołu BGP dla każdego łącza z witryny sieci VPN w sekcji linki. Konfigurowanie protokołu BGP w wirtualnej sieci WAN jest równoznaczne z konfiguracją protokołu BGP na sieci VPN bramy sieci wirtualnej platformy Azure. Adres lokalnego elementu równorzędnego protokołu BGP nie może być taki sam jak publiczny adres IP sieci VPN do urządzenia lub przestrzeni adresowej sieci wirtualnej witryny sieci VPN. Użyj innego adresu IP na urządzeniu sieci VPN dla adresu IP elementu równorzędnego protokołu BGP. Może być adresem przypisanym do interfejsu sprzężenia zwrotnego na urządzeniu. Określ ten adres w odpowiedniej witrynie sieci VPN reprezentującej lokalizację. Wymagania wstępne dotyczące protokołu BGP zawiera temat [Informacje o protokole BGP z platformą Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Można zawsze edytować połączenie sieci VPN, aby zaktualizować jego parametry protokołu BGP (Komunikacja równorzędna w ramach łącza i jako #) po włączeniu ustawienia protokołu BGP witryny sieci VPN.
     * **Prywatna przestrzeń adresowa** — przestrzeń adresów IP znajdująca się w lokacji lokalnej. Ruch do tej przestrzeni adresowej jest kierowany do lokacji lokalnej. Jest to wymagane, gdy dla lokacji nie jest włączony protokół BGP.
+    
+      >[!NOTE]
+      >Jeśli edytujesz przestrzeń adresową po utworzeniu lokacji (na przykład Dodaj dodatkową przestrzeń adresową), po ponownym utworzeniu składników może upłynąć 8-10 minut, aby zaktualizować obowiązujące trasy.
+      >
     * **Hubs — centrum** , z którym chcesz połączyć się z lokacją. Lokację można podłączyć tylko do centrów, które mają VPN Gateway. Jeśli nie widzisz centrum, najpierw utwórz bramę sieci VPN w tym centrum.
 4. Wybierz **linki** , aby dodać informacje o fizycznych linkach w gałęzi. Jeśli masz urządzenie z wirtualnym partnerem sieci WAN CPE, skontaktuj się z nimi, aby sprawdzić, czy te informacje są wymieniane z platformą Azure w ramach przekazywania informacji o gałęziach skonfigurowanych na podstawie ich systemów.
 

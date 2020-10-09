@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519835"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Samouczek: integracja Azure Active Directory z usługą LaunchDarkly
 
@@ -100,7 +100,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie platformy LaunchDarkly i logowaniu jednokrotnym](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://app.launchdarkly.com`
 
-    ![Informacje o domenie platformy LaunchDarkly i logowaniu jednokrotnym](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -135,19 +135,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją [Applicat
 
 2. Wybierz pozycję **Ustawienia konta** w panelu nawigacji po lewej stronie.
 
-    ![Konfigurowanie platformy LaunchDarkly](./media/launchdarkly-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia element ustawień konta wybrany w obszarze produkcja.](./media/launchdarkly-tutorial/configure1.png)
 
 3. Kliknij kartę **Zabezpieczenia**.
 
-    ![Konfigurowanie platformy LaunchDarkly](./media/launchdarkly-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia kartę Zabezpieczenia ustawień konta.](./media/launchdarkly-tutorial/configure2.png)
 
 4. Kliknij pozycję **WŁĄCZ LOGOWANIE JEDNOKROTNE**, a następnie pozycję **EDYTUJ KONFIGURACJĘ SAML**.
 
-    ![Konfigurowanie platformy LaunchDarkly](./media/launchdarkly-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia stronę logowania jednokrotnego, na której można włączyć S s i edytować konfigurację SAML.](./media/launchdarkly-tutorial/configure3.png)
 
 5. W sekcji **Edytowanie konfiguracji protokołu SAML** wykonaj następujące czynności:
 
-    ![Konfigurowanie platformy LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawia sekcję edytowanie konfiguracji języka SAML, w której można wprowadzić zmiany opisane w tym miejscu.](./media/launchdarkly-tutorial/configure4.png)
 
     a. Skopiuj **adres URL usługi konsumenckiej SAML** na potrzeby wystąpienia i wklej go w polu tekstowym Adres URL odpowiedzi w sekcji **Adresy URL i domena platformy LaunchDarkly** w witrynie Azure Portal.
 
@@ -225,6 +225,6 @@ Po kliknięciu kafelka LaunchDarkly w panelu dostępu powinno nastąpić automat
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

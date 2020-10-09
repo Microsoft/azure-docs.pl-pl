@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: d598017c8b41dffc486bfef4b9af63c6942cef58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fde0bcdb70384e791d7337d212d7353b6ea168bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549799"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856410"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-learning"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu uczenia LinkedIn
 
@@ -141,19 +141,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. W **Centrum kont** kliknij przycisk **Ustawienia globalne** w obszarze **Ustawienia**. Wybierz również opcję **Learning - Default** (Learning — domyślna) z listy rozwijanej.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Zrzut ekranu przedstawia ustawienia globalne, w których można wybrać opcję domyślny.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Kliknij przycisk **LUB kliknij tutaj, aby załadować i skopiować poszczególne pola formularza**, a także skopiuj **identyfikator jednostki** oraz **adres URL usługi Assertion Consumer Service (ACS)** i wklej go w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On, w których można wprowadzić podane wartości.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Przejdź do sekcji **LinkedIn Admin Settings** (Ustawienia administratora LinkedIn). Przekaż plik XML pobrany z witryny Azure Portal, klikając opcję **Przekaż plik XML**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Zrzut ekranu przedstawia Konfigurowanie ustawień dostawcy usług LinkedIn, w których można przekazać plik X M L.](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Kliknij przycisk **On** (Włącz), aby włączyć funkcję logowania jednokrotnego. Stan funkcji logowania jednokrotnego zmieni się z **Not Connected** (Niepołączona) na **Connected** (Połączona)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Zrzut ekranu przedstawia pojedyncze Sign-On, na których można włączyć uwierzytelnianie użytkowników za pomocą S S O.](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-learning-test-user"></a>Tworzenie użytkownika testowego aplikacji LinkedIn Learning
 
@@ -171,7 +171,7 @@ Po kliknięciu kafelka LinkedIn Learning w panelu dostępu powinno nastąpić au
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

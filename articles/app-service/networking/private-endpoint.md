@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773148"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857269"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
 
@@ -114,6 +114,8 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć możliwość nawiązania połączenia z prywatnym punktem końcowym w celu wykonania funkcji w portalu internetowym platformy Azure. 
 
 Możesz połączyć maksymalnie 100 prywatny punkt końcowy z określoną aplikacją sieci Web.
+
+Funkcja debugowania zdalnego jest niedostępna, gdy dla aplikacji sieci Web jest włączony prywatny punkt końcowy. Zalecenie polega na wdrożeniu kodu w miejscu i zdalnym debugowaniu.
 
 Prywatny punkt końcowy jest dostępny dla aplikacji sieci Web PremiumV2, PremiumV3, Windows i Linux, kontenerów lub nie, a także planu Azure Functions Premium (czasami określanego jako elastyczny plan Premium). 
 

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318623"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856215"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania w Azure Pipelines dla Node.js za pomocą usługi Azure DevOps Starter
 
@@ -73,7 +73,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
     ![Pulpit nawigacyjny usługi Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. W projekcie usługi Azure DevOps możesz zapraszać członków zespołu do współpracy i nawiązywać tablicę Kanban, aby zacząć śledzić swoją pracę. Aby uzyskać więcej informacji, zobacz [tutaj](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. W projekcie usługi Azure DevOps możesz zapraszać członków zespołu do współpracy i nawiązywać tablicę Kanban, aby zacząć śledzić swoją pracę. Aby uzyskać więcej informacji, zobacz [tutaj](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
 
 ![Azure DevOps — Omówienie](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,5 +195,4 @@ Można usuwać Azure App Service i inne powiązane zasoby, które zostały utwor
 Podczas konfigurowania procesu ciągłej integracji/ciągłego tworzenia potoki kompilacji i wydania są tworzone automatycznie. Możesz zmienić te potoki kompilacji i wydań, aby zaspokoić potrzeby zespołu. Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie procesu ciągłego wdrażania](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
-
+> [Dostosowywanie procesu ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

@@ -3,18 +3,18 @@ title: Rozpoczynanie pracy z usługą Azure queue storage przy użyciu platformy
 description: Usługa Azure Queues zapewnia niezawodne, asynchroniczne przesyłanie komunikatów między składnikami aplikacji. Przesyłanie komunikatów za pomocą chmury umożliwia składnikom aplikacji niezależne skalowanie.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001114"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855926"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -33,9 +33,6 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Wspólna Biblioteka klienta usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Biblioteka kliencka kolejki usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - [Konto usługi Azure Storage](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -95,11 +92,6 @@ Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące k
 1. Wyszukaj w trybie online pozycję "Microsoft.Azure.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować usługę Azure Configuration Manager.
 
 ---
-
-> [!NOTE]
-> Pakiety bibliotek klienta magazynu są również dołączone do [zestawu Azure SDK dla platformy .NET](https://azure.microsoft.com/downloads/). Zaleca się jednak również zainstalowanie bibliotek klienta usługi Storage z programu NuGet, aby upewnić się, że zawsze masz najnowsze wersje.
->
-> Zależności ODataLib w bibliotekach klienta usługi Storage dla platformy .NET są rozwiązywane przez pakiety ODataLib dostępne w pakiecie NuGet, a nie z Usługi danych programu WCF. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez biblioteki klienta magazynu to [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)i [przestrzenne](https://nuget.org/packages/System.Spatial/). Chociaż te biblioteki są używane przez klasy magazynu tabel platformy Azure, są one wymagane do programowania w bibliotekach klienta magazynu.
 
 ### <a name="determine-your-target-environment"></a>Określanie środowiska docelowego
 
@@ -185,7 +177,7 @@ Klasa [QueueClient](/dotnet/api/azure.storage.queues.queueclient) umożliwia pob
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Klasa [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) umożliwia pobieranie kolejek przechowywanych w usłudze Queue Storage. Oto jeden ze sposobów tworzenia klienta usługi:
+Klasa [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) umożliwia pobieranie kolejek przechowywanych w usłudze Queue Storage. Oto jeden ze sposobów tworzenia klienta usługi:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ Aby wstawić komunikat do istniejącej kolejki, wywołaj metodę [SendMessage](/
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Następnie wywołaj metodę [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy). `CloudQueueMessage`Można utworzyć na podstawie `string` (w formacie UTF-8) lub `byte` tablicy. Oto kod, który tworzy kolejkę (jeśli nie istnieje) i wstawia komunikat "Hello, World":
+Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Następnie wywołaj metodę [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true). `CloudQueueMessage`Można utworzyć na podstawie `string` (w formacie UTF-8) lub `byte` tablicy. Oto kod, który tworzy kolejkę (jeśli nie istnieje) i wstawia komunikat "Hello, World":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ Możesz uzyskać wgląd w wiadomości w kolejce bez usuwania ich z kolejki, wywo
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując metodę [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy).
+Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując metodę [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true).
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ Anuluj kolejkowanie komunikatu z kolejki w dwóch krokach. Po wywołaniu [Receiv
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), uzyskasz następny komunikat w kolejce. Komunikat zwrócony z programu `GetMessage` stał się niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać funkcję [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie będzie w stanie przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu będzie w stanie uzyskać ten sam komunikat i ponowić próbę. Kod wywołuje `DeleteMessage` się bezpośrednio po przetworzeniu komunikatu.
+Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), uzyskasz następny komunikat w kolejce. Komunikat zwrócony z programu `GetMessage` stał się niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać funkcję [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie będzie w stanie przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu będzie w stanie uzyskać ten sam komunikat i ponowić próbę. Kod wywołuje `DeleteMessage` się bezpośrednio po przetworzeniu komunikatu.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -406,7 +398,7 @@ Poniższy przykład kodu używa metody [ReceiveMessages](/dotnet/api/azure.stora
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Poniższy przykład kodu wykorzystuje metodę [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy), aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `foreach` pętli. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu. Należy zauważyć, że 5 minut rozpoczyna się dla wszystkich komunikatów w tym samym czasie, więc po upływie 5 minut od wywołania do `GetMessages` , wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
+Poniższy przykład kodu wykorzystuje metodę [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true), aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `foreach` pętli. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu. Należy zauważyć, że 5 minut rozpoczyna się dla wszystkich komunikatów w tym samym czasie, więc po upływie 5 minut od wywołania do `GetMessages` , wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda [GetProperti
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) prosi usługę kolejki o pobranie atrybutów kolejki, w tym liczby komunikatów. Właściwość [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) zwraca ostatnią wartość pobraną przez `FetchAttributes` metodę bez wywoływania usługa kolejki.
+Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) prosi usługę kolejki o pobranie atrybutów kolejki, w tym liczby komunikatów. Właściwość [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) zwraca ostatnią wartość pobraną przez `FetchAttributes` metodę bez wywoływania usługa kolejki.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę [D
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) na obiekcie kolejki.
+Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) na obiekcie kolejki.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -492,23 +484,15 @@ queue.Delete();
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
 - Przejrzyj dokumentację referencyjną usługi kolejki, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
   - [Dokumentacja biblioteki klienta usługi Storage dla platformy .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [Dokumentacja interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179355)
-- Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
   - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md), aby przechowywać dane strukturalne.
   - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
   - [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md), aby zapisać dane relacyjne.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

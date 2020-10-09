@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997884"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857252"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
 
@@ -232,11 +232,14 @@ Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samoucz
 
 1. Jeśli certyfikaty zostały utworzone lokalnie, Usuń folder c: \\ edgeCertificates.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule użyto naszej maszyny wirtualnej do programowania, aby symulować dane dotyczące czujnika i danych operacyjnych urządzenia liścia na naszym urządzeniu IoT Edge. Sprawdzono, że moduły na urządzeniu są kierowane, sklasyfikowane i utrwalane oraz przekazane do danych przez badanie działania urządzenia brzegowego w czasie rzeczywistym i przeglądanie plików przekazanych do konta magazynu.
 
 Więcej informacji można znaleźć na następujących stronach:
 
-* [Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge](how-to-connect-downstream-device.md)
-* [Przechowuj dane na krawędzi za pomocą usługi Azure Blob Storage na IoT Edge (wersja zapoznawcza)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Przechowuj dane na krawędzi za pomocą usługi Azure Blob Storage na IoT Edge (wersja zapoznawcza)](how-to-store-data-blob.md)

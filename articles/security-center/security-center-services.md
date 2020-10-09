@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439420"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858017"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -107,6 +107,6 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak Security Center zbiera dane i log Analytics agenta](security-center-enable-data-collection.md).
+- Dowiedz się [, jak Security Center zbiera dane przy użyciu agenta log Analytics](security-center-enable-data-collection.md).
 - Dowiedz się [, jak Security Center zarządza i zabezpiecza dane](security-center-data-security.md).
 - Przejrzyj [platformy, które obsługują Centrum zabezpieczeń](security-center-os-coverage.md).
