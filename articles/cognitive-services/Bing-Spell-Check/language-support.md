@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390166"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Obsługa języka i regionu sprawdzanie pisowni Bing API
 
 Te języki są obsługiwane przez interfejs API sprawdzanie pisowni Bing (tylko w `spell` trybie).
 
-Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `mkt` powinien być ustawiony i albo `Accept-Language` `setLang` musi być ustawiony, ponieważ został opisany w [interfejs API sprawdzania pisowni odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Należy pamiętać, że aby korzystać z dowolnego innego języka niż `en-US` , `mkt` powinien być ustawiony i albo `Accept-Language` `setLang` musi być ustawiony, ponieważ został opisany w [interfejs API sprawdzania pisowni odwołanie wersji 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Język    | Kod języka |
 |:----------- |:-------------:|
@@ -29,7 +29,7 @@ Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `
 | Chiński (Chińska Republika Ludowa)     | `zh-CN`          |
 | Chiński (Hongkong SAR)    | `zh-HK`          |
 | Chiński (Tajwan)     | `zh-TW`          |
-| duński      | `da`          |
+| Duński      | `da`          |
 | Holenderski (Belgia)       | `nl-BE`          |
 | Niderlandzki (Holandia)      | `nl-NL`          |
 | Angielski (Australia)    | `en-AU`          |
@@ -42,7 +42,7 @@ Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `
 | Angielski (Republika Południowej Afryki)    | `en-ZA`          |
 | Angielski (Zjednoczone Królestwo)    | `en-GB`          |
 | Angielski (Stany Zjednoczone)    | `en-US`          |
-| fiński     | `fi`          |
+| Fiński     | `fi`          |
 | Francuski (Belgia)     | `fr-BE`          |
 | francuski (Kanada)     | `fr-CA`          |
 | Francuski (Francja)     | `fr-FR`          |
@@ -52,9 +52,9 @@ Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `
 | Niemiecki (Szwajcaria)      | `de-CH`          |
 | Włoski     | `it`          |
 | japoński    | `ja`          |
-| koreański      | `ko`          |
+| Koreański      | `ko`          |
 | Norweski   | `no`          |
-| Polski      | `pl`          |
+| polski      | `pl`          |
 | portugalski (Brazylia)   | `pt-BR`|
 | Portugalski (Portugalia) | `pt-PT`|
 | Rosyjski     | `ru`          |
@@ -63,10 +63,10 @@ Należy pamiętać, że aby korzystać z dowolnego innego języka `en-US`niż, `
 | Hiszpański (Meksyk)    | `es-MX`          |
 | hiszpański (Hiszpania)    | `es-ES`          |
 | Hiszpański (Stany Zjednoczone)    | `es-US`          |
-| szwedzki     | `sv`          |
+| Szwedzki     | `sv`          |
 | Turecki     | `tr`          |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Strona dokumentacji usług Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Strona produktu usług Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

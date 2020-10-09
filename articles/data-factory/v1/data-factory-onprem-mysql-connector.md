@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281290"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872106"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Przenoszenie danych z programu MySQL przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -70,7 +70,7 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej us�
 | typ |Właściwość Type musi mieć wartość: **OnPremisesMySql** |Tak |
 | serwer |Nazwa serwera MySQL. |Tak |
 | database |Nazwa bazy danych MySQL. |Tak |
-| schematy |Nazwa schematu w bazie danych programu. |Nie |
+| schema |Nazwa schematu w bazie danych programu. |Nie |
 | authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych MySQL. Możliwe wartości to: `Basic` . |Tak |
 | userName |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych MySQL. |Tak |
 | hasło |Określ hasło dla podanego konta użytkownika. |Tak |
@@ -300,44 +300,44 @@ Podczas przeniesienia danych do programu MySQL następujące mapowania są używ
 
 | Typ bazy danych MySQL | Typ programu .NET Framework |
 | --- | --- |
-| bigint bez znaku |Wartość dziesiętna |
+| bigint bez znaku |Liczba dziesiętna |
 | bigint |Int64 |
-| bit |Wartość dziesiętna |
+| bit |Liczba dziesiętna |
 | blob |Byte [] |
 | bool |Boolean |
-| char |String |
+| char |Ciąg |
 | date |Datetime (data/godzina) |
 | datetime |Datetime (data/godzina) |
-| decimal |Wartość dziesiętna |
+| decimal |Liczba dziesiętna |
 | Podwójna precyzja |Double |
 | double |Double |
-| enum |String |
-| float |Pojedyncze |
+| enum |Ciąg |
+| float |Pojedynczy |
 | int bez znaku |Int64 |
 | int |Int32 |
 | Liczba całkowita bez znaku |Int64 |
 | liczba całkowita |Int32 |
 | Long varbinary |Byte [] |
-| Long varchar |String |
+| Long varchar |Ciąg |
 | longblob |Byte [] |
-| longtext |String |
+| longtext |Ciąg |
 | mediumblob |Byte [] |
 | MEDIUMINT bez znaku |Int64 |
 | mediumint |Int32 |
-| mediumtext |String |
-| numeryczne |Wartość dziesiętna |
+| mediumtext |Ciąg |
+| numeryczne |Liczba dziesiętna |
 | liczba rzeczywista |Double |
-| set |String |
+| set |Ciąg |
 | smallint bez znaku |Int32 |
 | smallint |Int16 |
-| tekst |String |
+| tekst |Ciąg |
 | time |przedział_czasu |
 | sygnatura czasowa |Datetime (data/godzina) |
 | tinyblob |Byte [] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |String |
+| tinytext |Ciąg |
+| varchar |Ciąg |
 | rok |int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia

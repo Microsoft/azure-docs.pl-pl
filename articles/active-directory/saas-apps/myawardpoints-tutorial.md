@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 06104964c06b0853498a7de272a62d2913b10be6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88518656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Samouczek: integracja Azure Active Directory z moimi punktami nagrody górny/górny zespół
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu moich punktów nagrody górnego/górnego zespołu, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **Skonfiguruj moje punkty nagrody górną/górną rejestrację** jednokrotną, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **Skonfiguruj moje punkty nagrody górną/górną rejestrację** jednokrotną, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **Utwórz moje punkty nagrody u góry/najwyższego zespołu testowego użytkownika** — Aby uzyskać odpowiednik Britta Simon w moich punktach nagrody górny zespół, który jest połączony z reprezentacją usługi Azure AD.
@@ -123,7 +123,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu moich 
     >[!NOTE]
     >Dołącz skopiowaną wartość identyfikatora usługi Azure AD przy użyciu adresu URL logowania w miejscu `<Azure AD Identifier>` w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>Skonfiguruj moje punkty nagrody górny/górny Logowanie jednokrotne do zespołu
+### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>Skonfiguruj moje punkty nagrody górne i górne Sign-On jednego zespołu
 
 Aby skonfigurować Logowanie jednokrotne na stronie **moje punkty przyznawania górnego/górnego zespołu** , musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [moich punktów nagrody najwyższego/górnego zespołu pomocy technicznej](mailto:myawardpoints@biworldwide.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -192,6 +192,6 @@ Po kliknięciu kafelka Moje punkty nagrody górny/górny zespół w panelu dost�
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272203"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871970"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
 
@@ -58,7 +58,7 @@ W tym przykładzie dwie istniejące kolejki (**domyślne** i **thriftsvr**) są 
 
 Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘDZy.
 
-### <a name="additional-reading"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a>Materiały uzupełniające
 
 - [Apache Hadoop PRZĘDZy CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
@@ -129,7 +129,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
 
     To polecenie tworzy plik dziennika o nazwie containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Materiały uzupełniające
 
 - [Nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop koncepcji i aplikacji PRZĘDZy](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

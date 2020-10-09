@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79254757"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871817"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Rozpakowywanie, montowanie w stojaku i Podłączanie kabli do urządzenia z systemem StorSimple 8600
 
@@ -192,7 +192,7 @@ Urządzenie jest w konfiguracji aktywnego stanu gotowości: w dowolnym momencie 
 Aby można było obsługiwać ten nadmiarowy kontroler przełączania do trybu failover, należy podłączyć sieć urządzenia, jak pokazano w poniższych krokach.
 
 #### <a name="to-cable-for-network-connection"></a>Do kabla dla połączenia sieciowego
-1. Urządzenie ma sześć interfejsów sieciowych na każdym kontrolerze: cztery 1 GB/s i porty Ethernet 2 10 GB/s. Zapoznaj się z poniższą ilustracją, aby zidentyfikować porty danych na urządzeniu.
+1. Urządzenie ma sześć interfejsów sieciowych na każdym kontrolerze: 4 1 GB/s i 2 10 GB/s. Zapoznaj się z poniższą ilustracją, aby zidentyfikować porty danych na urządzeniu.
    
      ![Płyta montażowa urządzeń z 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    

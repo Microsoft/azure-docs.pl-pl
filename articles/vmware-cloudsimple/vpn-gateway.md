@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279496"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872004"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Konfigurowanie bram sieci VPN w sieci CloudSimple
 
@@ -103,7 +103,7 @@ Brama sieci VPN typu punkt-lokacja umożliwia zdefiniowanie zasad automatycznego
 
     * Opcje **automatycznie Dodaj** ustawiają globalne zasady dla bramy. Ustawienia dotyczą bieżącej bramy. Ustawienia można przesłonić w obszarze **wyboru** .
     * Wybierz pozycję **Dodaj sieci VLAN zarządzania/podsieci chmur prywatnych**. 
-    * Aby dodać wszystkie zdefiniowane przez użytkownika podsieci/sieci VLAN, kliknij opcję **Dodaj zdefiniowane przez użytkownika sieci VLAN/podsieci**.
+    * Aby dodać wszystkie zdefiniowane przez użytkownika podsieci/sieci VLAN, kliknij opcję  **Dodaj zdefiniowane przez użytkownika sieci VLAN/podsieci**.
     * **Wybrane** ustawienia zastępują ustawienia globalne w obszarze **Automatyczne dodawanie**.
 
 7. Kliknij przycisk **dalej** , aby przejrzeć ustawienia. Kliknij ikonę Edytuj, aby wprowadzić zmiany.

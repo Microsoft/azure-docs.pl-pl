@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510933"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Samouczek: Tworzenie komercyjnej gotowej aplikacji do zdalnego renderowania platformy Azure
@@ -44,7 +44,7 @@ Integrowanie narzędzi analitycznych ułatwia zarządzanie, śledzenie i ulepsza
 
 Aby uzyskać pełną listę dostępnych dla Ciebie zasobów analitycznych, odwiedź:
 
-* [Usługi analiz platformy Azure](https://azure.microsoft.com/product-categories/analytics/)
+* [Usługi analityczne platformy Azure](https://azure.microsoft.com/product-categories/analytics/)
 
 ### <a name="tracking-usage-for-billing"></a>Śledzenie użycia na potrzeby rozliczeń
 
@@ -257,7 +257,7 @@ Więcej informacji:
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
 * [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
 
-### <a name="security"></a>Bezpieczeństwo
+### <a name="security"></a>Zabezpieczenia
 
 Niezwykle ważne jest, aby utworzyć kompleksowe rozwiązanie do zdalnego renderowania na platformie Azure w celu zapewnienia bezpieczeństwa od podstaw. Istnieje wiele aspektów zabezpieczeń, które należy wziąć pod uwagę w projekcie kompleksowego rozwiązania, w tym:
 

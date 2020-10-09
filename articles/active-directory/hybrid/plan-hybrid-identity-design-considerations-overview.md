@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60381493"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Zagadnienia dotyczące projektowania tożsamości hybrydowej usługi Azure Active Directory
@@ -42,7 +42,7 @@ W tym celu Przewodnik po zagadnieniach dotyczących projektowania tożsamości h
 ## <a name="how-can-this-guide-help-you"></a>W czym może być pomocny ten przewodnik?
 Korzystając z tego przewodnika, można zrozumieć, jak zaprojektować rozwiązanie do obsługi tożsamości hybrydowej, które jest w stanie zintegrować oparty na chmurze system zarządzania tożsamościami z obecnym lokalnym rozwiązaniem do obsługi tożsamości. 
 
-Na poniższej ilustracji przedstawiono przykładowe rozwiązanie do obsługi tożsamości hybrydowej, które umożliwia administratorom IT integrację bieżącego rozwiązania z systemem Windows Server Active Directory w środowisku lokalnym z Microsoft Azure Active Directory, aby umożliwić użytkownikom korzystanie z funkcji logowania jednokrotnego (SSO) w aplikacjach w chmurze i lokalnie.
+Na poniższej ilustracji przedstawiono przykładowe rozwiązanie do obsługi tożsamości hybrydowej, które umożliwia administratorom IT zarządzanie systemem Windows Server Active Directory, które znajdują się w środowisku lokalnym z Microsoft Azure Active Directory, aby umożliwić użytkownikom korzystanie z pojedynczych Sign-On (SSO) w aplikacjach znajdujących się w chmurze i lokalnie.
 
 ![Przykład](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 

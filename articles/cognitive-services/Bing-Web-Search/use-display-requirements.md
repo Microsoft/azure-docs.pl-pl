@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60499889"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Wymagania dotyczące użycia i wyświetlania interfejsu API wyszukiwania Bing
@@ -27,17 +27,17 @@ Te wymagania dotyczące użycia i wyświetlania dotyczą wszelkich implementacji
 - Wyszukiwanie wiadomości (Bing)
 - Wyszukiwanie klipów wideo w usłudze Bing
 - Wyszukiwanie wizualne Bing
-- Wyszukiwanie w sieci Web (Bing)
+- Wyszukiwanie w Internecie Bing
 - Sprawdzanie pisowni Bing
 - Automatyczne sugerowanie Bing
 
 ## <a name="definitions"></a>Definicje
 
 
-|Termin  |Opis  |
+|Okres  |Opis  |
 |---------|---------|
 |Odpowiedź     | Kategoria wyników zwróconych w odpowiedzi. Na przykład odpowiedź z interfejs API wyszukiwania w sieci Web Bing może zawierać odpowiedzi w kategoriach wyników, obrazów, wideo, wizualizacji i wiadomości strony sieci Web. |
-|Odpowiedź     | Wszystkie odpowiedzi i skojarzone dane odebrane w odpowiedzi na jedno wywołanie interfejsu API wyszukiwania. |
+|Reakcja     | Wszystkie odpowiedzi i skojarzone dane odebrane w odpowiedzi na jedno wywołanie interfejsu API wyszukiwania. |
 |Wynik    | Element informacji w odpowiedzi. Na przykład zestaw danych połączonych z pojedynczym artykułem z wiadomościami jest wynikiem odpowiedzi na wiadomość. |
 |Interfejsy API wyszukiwania    | zbiorowo wyszukiwanie niestandardowe Bing, wyszukiwanie jednostek, wyszukiwanie obrazów, wyszukiwanie wiadomości, wyszukiwanie wideo, wyszukiwanie wizualne, lokalne wyszukiwanie biznesowe i interfejsy API wyszukiwanie w sieci Web. |
 

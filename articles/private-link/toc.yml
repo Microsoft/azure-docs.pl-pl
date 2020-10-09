@@ -28,6 +28,8 @@
   items:
     - name: Łączenie się z kontem magazynu
       href: tutorial-private-endpoint-storage-portal.md
+    - name: Łączenie się z kontem usługi Cosmos DB
+      href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy
@@ -42,8 +44,6 @@
           href: security-baseline.md
 - name: Instrukcje
   items:
-    - name: Prywatne połączenie z kontem usługi Cosmos DB
-      href: create-private-endpoint-cosmosdb-portal.md
     - name: Prywatne połączenie z aplikacją internetową
       href: create-private-endpoint-webapp-portal.md
     - name: Wyłączanie zasad sieciowych dla prywatnego punktu końcowego
