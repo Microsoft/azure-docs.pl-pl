@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61443015"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importowanie pakietu usługi IoT Edge do akceleratora rozwiązania do monitorowania zdalnego
@@ -33,7 +33,7 @@ Użyj Azure Portal, aby wyeksportować manifest wdrożenia ze środowiska progra
 
 1. Kliknij wdrożenie z konfiguracją wdrożenia, której chcesz użyć. Zostanie wyświetlona strona **Szczegóły wdrożenia** : ![ IoT Edge Szczegóły wdrożenia](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Kliknij pozycję **pobierz IoT Edge manifest**: ![ Pobierz manifest wdrożenia](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Kliknij pozycję **pobierz IoT Edge manifest**:  ![ Pobierz manifest wdrożenia](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. Zapisz plik JSON jako plik lokalny o nazwie **deploymentmanifest.json**.
 
@@ -43,11 +43,11 @@ Teraz masz plik, który zawiera manifest wdrożenia. W następnej sekcji zaimpor
 
 Wykonaj poniższe kroki, aby zaimportować manifest wdrożenia programu Edge jako pakiet do rozwiązania:
 
-1. Przejdź do strony **pakiety** w interfejsie użytkownika sieci Web do monitorowania zdalnego: ![ pakiety](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
+1. Przejdź do strony **pakiety** w interfejsie użytkownika sieci Web do monitorowania zdalnego:  ![ pakiety](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
 
-1. Kliknij pozycję **+ nowy pakiet**, wybierz opcję **manifest graniczny** jako typ pakietu, a następnie kliknij przycisk **Przeglądaj** , aby wybrać **deploymentmanifest.jsw** pliku zapisanym w poprzedniej sekcji: ![ SELECT manifest](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+1. Kliknij pozycję **+ nowy pakiet**, wybierz opcję **manifest graniczny** jako typ pakietu, a następnie kliknij przycisk **Przeglądaj** , aby wybrać **deploymentmanifest.jsw** pliku zapisanym w poprzedniej sekcji:  ![ SELECT manifest](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
 
-1. Kliknij przycisk **Przekaż** , aby dodać pakiet do rozwiązania do monitorowania zdalnego: ![ przekazany pakiet](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
+1. Kliknij przycisk **Przekaż** , aby dodać pakiet do rozwiązania do monitorowania zdalnego:  ![ przekazany pakiet](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
 
 Plik manifestu wdrażania IoT Edge został przekazany jako pakiet. Na stronie **wdrożenia** można wdrożyć ten pakiet na podłączonych urządzeniach IoT Edge.
 

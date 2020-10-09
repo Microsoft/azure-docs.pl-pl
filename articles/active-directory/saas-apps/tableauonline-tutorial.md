@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88542525"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Tableau online
@@ -185,7 +185,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     c. Skopiuj wartość przestrzeni nazw dla tych atrybutów: imięname, email i nazwisko, wykonując następujące czynności:
 
-   ![Logowanie jednokrotne w usłudze Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Pojedynczy Sign-On usługi Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Kliknij pozycję **użytkownik. dana** wartośćname
 
@@ -229,7 +229,7 @@ Po kliknięciu kafelka Tableau online w panelu dostępu należy automatycznie za
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

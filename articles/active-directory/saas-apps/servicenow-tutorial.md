@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
@@ -90,7 +90,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-   ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego przy użyciu strony SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający Konfigurowanie pojedynczego Sign-On ze stroną SAML z wyróżnioną ikoną pióra](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
@@ -130,7 +130,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W obszarze **Nazwa**wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika**wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -204,7 +204,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. Wyszukaj **integrację — Instalator logowania**jednokrotnego dla wielu dostawców.
 
-     ![Zrzut ekranu strony Dodatki systemowe z integracją — wyróżniono Instalatora Logowanie jednokrotne z wieloma dostawcami](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktywuj wtyczkę")
+     ![Zrzut ekranu strony Dodatki systemowe z integracją — wyróżniono pojedynczy Instalator Sign-On jednego dostawcy](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktywuj wtyczkę")
 
     c. Wybierz wtyczkę. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Aktywuj/Uaktualnij**.
 
@@ -366,11 +366,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi Servic
 
 2. W lewym okienku wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Zrzut ekranu aplikacji usługi ServiceNow Express z wyróżnionym logowaniem jednokrotnym](./media/servicenow-tutorial/ic7694980ex.png "Konfiguruj adres URL aplikacji")
+    ![Zrzut ekranu aplikacji usługi ServiceNow Express z wyróżnionym pojedynczym Sign-On](./media/servicenow-tutorial/ic7694980ex.png "Konfiguruj adres URL aplikacji")
 
 3. W oknie dialogowym **Logowanie** jednokrotne wybierz ikonę konfiguracji w prawym górnym rogu, a następnie ustaw następujące właściwości:
 
-    ![Zrzut ekranu okna dialogowego Logowanie jednokrotne](./media/servicenow-tutorial/ic7694981ex.png "Konfiguruj adres URL aplikacji")
+    ![Zrzut ekranu przedstawiający okno dialogowe z pojedynczym Sign-On](./media/servicenow-tutorial/ic7694981ex.png "Konfiguruj adres URL aplikacji")
 
     a. Przestaw przełącznik **Enable multiple provider SSO** (Włącz logowanie jednokrotne u wielu dostawców) w prawo.
 
@@ -380,7 +380,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi Servic
 
 4. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **Dodaj nowy certyfikat**.
 
-    ![Zrzut ekranu okna dialogowego Logowanie jednokrotne z wyróżnionym przyciskiem Dodaj nowy certyfikat](./media/servicenow-tutorial/ic7694973ex.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu okna dialogowego pojedyncze Sign-On z wyróżnionym przyciskiem Dodaj nowy certyfikat](./media/servicenow-tutorial/ic7694973ex.png "Konfigurowanie logowania jednokrotnego")
 
 5. W oknie dialogowym **certyfikaty X. 509** wykonaj następujące czynności:
 
@@ -396,11 +396,11 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi Servic
 
     e. Otwórz certyfikat szyfrowanego algorytmem Base64 pobrany z Azure Portal w Notatniku. Skopiuj zawartość IT do schowka, a następnie wklej ją do pola tekstowego **certyfikat PEM** .
 
-    f. Wybierz **aktualizację**
+    f. Wybierz pozycję **Aktualizuj**
 
 6. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **Dodaj nowy dostawcy tożsamości**.
 
-    ![Zrzut ekranu okna dialogowego logowania jednokrotnego z wyróżnioną pozycją Dodaj nowe dostawcy tożsamości](./media/servicenow-tutorial/ic7694976ex.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający okno dialogowe pojedyncze Sign-On z wyróżnioną pozycją Dodaj nowe dostawcy tożsamości](./media/servicenow-tutorial/ic7694976ex.png "Konfigurowanie logowania jednokrotnego")
 
 7. W oknie dialogowym **Dodawanie nowego dostawcy tożsamości** w obszarze **Konfigurowanie dostawcy tożsamości**wykonaj następujące czynności:
 
@@ -482,7 +482,7 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

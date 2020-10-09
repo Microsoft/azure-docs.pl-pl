@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60878889"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Aplikacje danych Big Data dla programu Open Source, które działają z Azure Data Lake Storage Gen1
@@ -38,6 +38,6 @@ W tym artykule wymieniono aplikacje danych Big Data dla programu Open Source, kt
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3,4, 3,5 i 3,6 |
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

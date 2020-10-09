@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61447191"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Wybory dotyczące architektury związane z monitorowaniem zdalnym
@@ -59,7 +59,7 @@ W przypadku łączności z urządzeniem IoT można użyć:
 
 W przypadku przetwarzania strumieniowego rozwiązanie do zdalnego monitorowania używa Azure Stream Analytics do przetwarzania złożonych reguł. Jeśli chcesz używać prostszych reguł, jest to niestandardowa mikrousługa z obsługą przetwarzania prostej reguły, chociaż ta konfiguracja nie jest częścią wdrożenia wbudowanego. Architektura referencyjna zaleca Azure Functions do przetwarzania prostych reguł i Azure Stream Analytics do przetwarzania złożonych reguł.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 W przypadku usługi Storage Akcelerator rozwiązania do zdalnego monitorowania używa zarówno Azure Time Series Insights, jak i Azure Cosmos DB. Azure Time Series Insights przechowuje komunikaty przychodzące przez IoT Hub z połączonych urządzeń. Akcelerator rozwiązania używa Azure Cosmos DB dla wszystkich innych magazynów, takich jak chłodny magazyn, definicje reguł, alerty i ustawienia konfiguracji.
 

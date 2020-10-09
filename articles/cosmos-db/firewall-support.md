@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66241081"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Zapora bazująca na adresach IP w usłudze Azure Cosmos DB
@@ -19,7 +19,7 @@ Aby zabezpieczyć dane przechowywane na koncie, Azure Cosmos DB obsługuje model
 
 ## <a name="ip-access-control-overview"></a><a id="ip-access-control-overview"></a>Kontrola dostępu do adresu IP — Omówienie
 
-Domyślnie konto usługi Azure Cosmos jest dostępne z Internetu, o ile do żądania dołączono prawidłowy token autoryzacji. Aby skonfigurować kontrolę dostępu opartą na zasadach IP, użytkownik musi podać zestaw adresów IP lub zakresy adresów IP w notacji CIDR (bezklasowe Routing między domenami), który ma zostać uwzględniony jako lista dozwolonych adresów IPv4 klienta w celu uzyskania dostępu do danego konta usługi Azure Cosmos. Po zastosowaniu tej konfiguracji wszystkie żądania pochodzące z maszyn spoza tej listy dozwolonych otrzymują odpowiedź 403 (dostęp zabroniony). W przypadku korzystania z zapory IP zaleca się umożliwienie Azure Portal dostępu do Twojego konta. Dostęp jest wymagany, aby umożliwić korzystanie z Eksploratora danych oraz pobieranie metryk dla konta, które są wyświetlane na Azure Portal. W przypadku korzystania z Eksploratora danych, oprócz zezwalania Azure Portal na dostęp do konta, należy również zaktualizować ustawienia zapory, aby dodać bieżący adres IP do reguł zapory. Należy pamiętać, że zmiany w zaporze mogą zająć do 15 min. 
+Domyślnie konto usługi Azure Cosmos jest dostępne z Internetu, o ile do żądania dołączono prawidłowy token autoryzacji. Aby skonfigurować kontrolę dostępu opartą na zasadach IP, użytkownik musi podać zestaw adresów IP lub zakresy adresów IP w formularzu CIDR (bezklasowe Inter-Domain Routing), który będzie uwzględniony jako lista dozwolonych adresów IPv4 klienta, aby uzyskać dostęp do danego konta usługi Azure Cosmos. Po zastosowaniu tej konfiguracji wszystkie żądania pochodzące z maszyn spoza tej listy dozwolonych otrzymują odpowiedź 403 (dostęp zabroniony). W przypadku korzystania z zapory IP zaleca się umożliwienie Azure Portal dostępu do Twojego konta. Dostęp jest wymagany, aby umożliwić korzystanie z Eksploratora danych oraz pobieranie metryk dla konta, które są wyświetlane na Azure Portal. W przypadku korzystania z Eksploratora danych, oprócz zezwalania Azure Portal na dostęp do konta, należy również zaktualizować ustawienia zapory, aby dodać bieżący adres IP do reguł zapory. Należy pamiętać, że zmiany w zaporze mogą zająć do 15 min. 
 
 Zaporę opartą na protokole IP można połączyć z kontrolą dostępu do podsieci i sieci wirtualnej. Łącząc je, można ograniczyć dostęp do dowolnego źródła, które ma publiczny adres IP i/lub z określonej podsieci w sieci wirtualnej. Aby dowiedzieć się więcej o korzystaniu z funkcji kontroli dostępu opartej na podsieci i sieci wirtualnej, zobacz [dostęp Azure Cosmos DB zasobów z sieci wirtualnych](vnet-service-endpoint.md).
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 3184f4f11f47dfad54a8dabdac68f3c48c431aff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88539423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Samouczek: integracja Azure Active Directory z usługą 15Five
@@ -199,7 +199,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji 15Fiv
 
     a. W polach tekstowych **First Name** (Imię), **Last Name** (Nazwisko), **Title** (Tytuł), **Email address** (Adres e-mail) wprowadź odpowiednie dane prawidłowego konta usługi Azure Active Directory, które chcesz aprowizować.
 
-    b. Kliknij przycisk **Gotowe**.
+    b. Kliknij pozycję **Gotowe**.
 
     > [!NOTE]
     > Właściciel konta usługi Azure AD otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.
@@ -214,6 +214,6 @@ Po kliknięciu kafelka 15Five w panelu dostępu powinno nastąpić automatyczne 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

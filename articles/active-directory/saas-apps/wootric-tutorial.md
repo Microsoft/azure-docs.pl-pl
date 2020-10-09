@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: e96cdaf6b8d1d3127753c1f186fa8c0c227f6bde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88541384"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wootric"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Wootric
@@ -135,18 +135,18 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **ikonę Ustawienia** w górnym menu.
 
-    ![Konfigurowanie ](./media/wootric-tutorial/configure-1.PNG)
+    ![Konfiguracja ](./media/wootric-tutorial/configure-1.PNG)
 
 1. W obszarze **integracje**wybierz pozycję **uwierzytelnianie** w menu po lewej stronie, a następnie kliknij pozycję **Włącz logowanie jednokrotne przy użyciu Azure Active Directory**.
 
-    ![Konfigurowanie ](./media/wootric-tutorial/configure-2.PNG)
+    ![Konfiguracja ](./media/wootric-tutorial/configure-2.PNG)
 
 1. Wykonaj następujące czynności na poniższej stronie:
 
-    ![Konfigurowanie ](./media/wootric-tutorial/configure-3.PNG)
+    ![Konfiguracja ](./media/wootric-tutorial/configure-3.PNG)
 
 
-    a. W polu tekstowym **adres URL rejestracji** jednokrotnej dostawcy tożsamości wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    a. W polu tekstowym **adres URL pojedynczego Sign-On dostawcy tożsamości** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
     b. W polu tekstowym **wystawca dostawcy tożsamości** wklej wartość **identyfikatora jednostki** skopiowaną z Azure Portal.
 
@@ -170,7 +170,7 @@ Po kliknięciu kafelka Wootric w panelu dostępu należy automatycznie zalogowa�
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,10 +13,10 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66383436"
 ---
 # <a name="get-trending-images-from-the-web"></a>Pobieranie obrazów trendów z sieci Web
@@ -39,7 +39,7 @@ Interfejs API obrazów trendów obsługuje obecnie tylko następujące rynki:
 - en-AU (angielski, Australia)  
 - zh-CN (chiński, Chiny)
 
-Odpowiedź zawiera obiekt [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) , który wyświetla listę obrazów według kategorii. Użyj kategorii, `title` aby grupować obrazy w środowisku użytkownika. Kategorie mogą zmieniać się codziennie.  
+Odpowiedź zawiera obiekt [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) , który wyświetla listę obrazów według kategorii. Użyj kategorii, `title` Aby grupować obrazy w środowisku użytkownika. Kategorie mogą zmieniać się codziennie.  
 
 ```json
 {

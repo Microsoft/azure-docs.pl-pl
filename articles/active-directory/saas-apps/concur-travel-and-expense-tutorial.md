@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 6797d169dbdfdd63ae9cc96ac9fed133bc8d1adc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu podróży i wydatków Concur
@@ -34,7 +34,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja podróży i wydatków usługi Concur.
-* Rola "administrator firmy" w ramach konta użytkownika Concur. Możesz sprawdzić, czy masz odpowiednie uprawnienia dostępu, przechodząc do narzędzia samoobsługowego [logowania jednokrotnego Concur](https://www.concursolutions.com/nui/authadmin/ssoadmin). Jeśli nie masz dostępu, skontaktuj się z pomocą techniczną Concur lub zaimplementowanie menedżera projektu. 
+* Rola "administrator firmy" w ramach konta użytkownika Concur. Możesz sprawdzić, czy masz odpowiednie uprawnienia dostępu, przechodząc do [Concur Self-Service rejestracji jednokrotnej](https://www.concursolutions.com/nui/authadmin/ssoadmin). Jeśli nie masz dostępu, skontaktuj się z pomocą techniczną Concur lub zaimplementowanie menedżera projektu. 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Identyfikator (identyfikator jednostki) i adres URL odpowiedzi (adres URL usługi Konsumenckej potwierdzenia) są specyficzne dla regionu. Wybierz pozycję na podstawie centrum danych jednostki Concur. Jeśli nie znasz centrum danych jednostki Concur, skontaktuj się z pomocą techniczną Concur. 
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby zmienić ustawienia **atrybutu użytkownika** . Unikatowy identyfikator użytkownika musi pasować do login_id użytkownika Concur. Zwykle należy zmienić **User. userPrincipalName** na **User. mail**.
+5. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra dla **atrybutu użytkownika** , aby edytować ustawienia. Unikatowy identyfikator użytkownika musi pasować do login_id użytkownika Concur. Zwykle należy zmienić **User. userPrincipalName** na **User. mail**.
 
     ![Edytowanie atrybutu użytkownika](common/edit-attribute.png)
 
@@ -125,7 +125,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Konfigurowanie Concur podróży i wydatków logowania jednokrotnego
 
-1. Aby skonfigurować Logowanie jednokrotne na stronie **Concur podróże i wydatki** , musisz przekazać pobrany **XML metadanych Federacji** do narzędzia samoobsługowego logowania [jednokrotnego Concur](https://www.concursolutions.com/nui/authadmin/ssoadmin) i zalogować się przy użyciu konta z rolą "administrator firmy". 
+1. Aby skonfigurować Logowanie jednokrotne na stronie **Concur podróży i wydatków** , musisz przekazać pobrany **XML metadanych Federacji** do [Narzędzia Concur Self-Service logowania jednokrotnego](https://www.concursolutions.com/nui/authadmin/ssoadmin) i zalogować się przy użyciu konta z rolą "administrator firmy". 
 
 1. Kliknij pozycję **Dodaj**.
 1. Wprowadź niestandardową nazwę dostawcy tożsamości, na przykład "Azure AD (US)". 
@@ -149,7 +149,7 @@ Aby włączyć logowanie jednokrotne w usłudze Concur Mobile, należy przyznać
 1. Kopiuj **adres URL dostępu użytkowników** i nadaj temu adresowi URL obsługę Concur
 
 > [!NOTE]
-> Opcja samoobsługowego konfigurowania logowania jednokrotnego jest niedostępna, aby współpraca z zespołem pomocy technicznej Concur mógł włączyć logowanie jednokrotne dla urządzeń przenośnych. 
+> Opcja Self-Service konfigurowania logowania jednokrotnego jest niedostępna, dlatego należy skontaktować się z zespołem pomocy technicznej Concur. 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -161,7 +161,7 @@ Po kliknięciu kafelka podróży i wydatków usługi Concur w panelu dostępu na
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

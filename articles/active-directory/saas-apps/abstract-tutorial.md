@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 3f19733f01cf601c1145d5e2bb5deb58db828dc4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88538335"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Samouczek: Integrowanie abstrakcyjne z Azure Active Directory
@@ -60,7 +60,7 @@ Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą narz�
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą abstrakcyjnej, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj abstrakcyjne logowanie JEDNOkrotne](#configure-abstract-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj abstrakcyjne logowanie JEDNOkrotne](#configure-abstract-sso)** — w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika test abstrakcyjny](#create-abstract-test-user)** , aby uzyskać odpowiednik Britta Simon w postaci abstrakcyjnej, który jest połączony z reprezentacją użytkownika usługi Azure AD.
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją **abstrakcyjną** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -90,7 +90,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 Upewnij się, że pobierasz `App Federation Metadata Url` i `Azure AD Identifier` z Azure Portal, ponieważ będą potrzebne do skonfigurowania logowania jednokrotnego na abstrakcyjnym.
 
-Te informacje znajdują się na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** :
+Te informacje znajdują się na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** :
 
 * Znajduje się `App Federation Metadata Url` w sekcji **certyfikat podpisywania SAML** .
 * Znajduje się `Azure AD Identifier` w sekcji **Konfigurowanie abstrakcyjne** .
@@ -162,7 +162,7 @@ Po kliknięciu kafelka abstract w panelu dostępu należy automatycznie zalogowa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

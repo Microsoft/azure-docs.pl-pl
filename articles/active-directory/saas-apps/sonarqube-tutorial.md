@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
 ms.openlocfilehash: b3790c52598b2857f56cac54acad156b3ba0bf51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545011"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SonarQube
@@ -158,7 +158,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     i. W polu tekstowym **atrybut e-mail użytkownika SAML** wprowadź wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` .
 
-    j. Kliknij pozycję **Zapisz**.
+    j. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-sonarqube-test-user"></a>Utwórz użytkownika testowego SonarQube
 
@@ -174,7 +174,7 @@ Po kliknięciu kafelka SonarQube w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

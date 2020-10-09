@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Samouczek: integracja Azure Active Directory z usługą ThirdLight
@@ -91,7 +91,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ThirdLight,
 
     ![Wybierz metodę logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** :
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** :
 
     ![Ikona Edytuj](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ThirdLight,
        > [!NOTE]
        > Te wartości są symbolami zastępczymi. Musisz użyć rzeczywistego adresu URL logowania i identyfikatora. Skontaktuj się z [zespołem pomocy technicznej ThirdLight](https://www.thirdlight.com/support) , aby uzyskać wartości. Można również odnieść się do wzorców przedstawionych w oknie dialogowym podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** obok pozycji **XML metadanych Federacji**, zgodnie z wymaganiami, a następnie Zapisz plik na komputerze:
+5. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** obok pozycji **XML metadanych Federacji**, zgodnie z wymaganiami, a następnie Zapisz plik na komputerze:
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ThirdLight,
 
 1. Przejdź do **Configuration**  >  **SAML2 administracyjnego systemu**konfiguracji  >  **SAML2**:
 
-    ![Administracja systemu](./media/thirdlight-tutorial/ic805843.png "Administracja systemu")
+    ![Administrowanie systemami](./media/thirdlight-tutorial/ic805843.png "Administrowanie systemami")
 
 1. W sekcji Konfiguracja SAML2 wykonaj następujące czynności.
   
@@ -166,7 +166,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -210,7 +210,7 @@ Aby utworzyć konto użytkownika, wykonaj następujące czynności:
 
 1. Wprowadź nazwę użytkownika, nazwę lub opis oraz adres e-mail prawidłowego konta usługi Azure AD, które chcesz udostępnić. Wybierz wstępnie ustawioną lub grupę nowych członków.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 > [!NOTE]
 > Do udostępniania kont użytkowników usługi Azure AD można używać dowolnego narzędzia do tworzenia konta użytkownika lub interfejsu API dostarczonego przez ThirdLight.
@@ -225,6 +225,6 @@ Po wybraniu kafelka ThirdLight w panelu dostępu należy automatycznie zalogowa�
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

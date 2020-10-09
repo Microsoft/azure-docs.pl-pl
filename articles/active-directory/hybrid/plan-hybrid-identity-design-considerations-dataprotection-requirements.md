@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "64918775"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planowanie zwiększenia bezpieczeństwa danych za pomocą rozwiązania silnej tożsamości
@@ -73,7 +73,7 @@ Dane przesyłane między urządzeniem a centrum danych lub między urządzeniem 
 * Czy usługa zarządzania tożsamościami w chmurze utrzymuje ruch do i w obrębie magazynu katalogów (w ramach i między centrami danych) podpisanym?
 
 ## <a name="compliance"></a>Zgodność
-Przepisy, przepisy i wymagania dotyczące zgodności będą się różnić w zależności od branży firmy. Firmy w branżach o wysokiej regulowanej branży muszą rozwiązywać problemy związane z zarządzaniem tożsamościami dotyczące problemów ze zgodnością. Regulacje, takie jak Sarbanes-Oxley (SOX), przenośność i czynność odpowiedzialności ubezpieczeniowej (HIPAA), g-wymywania-Bliley Act (GLBA) i Payment Card Industry Data Security Standard (PCI DSS) są rygorystyczne względem tożsamości i dostępu. Rozwiązanie do obsługi tożsamości hybrydowej, które zostanie przyjęte przez firmę, musi mieć podstawowe możliwości, które spełniają wymagania jednego lub kilku z tych rozporządzeń. W przypadku tego obszaru upewnij się, że są zadawane następujące pytania:
+Przepisy, przepisy i wymagania dotyczące zgodności będą się różnić w zależności od branży firmy. Firmy w branżach o wysokiej regulowanej branży muszą rozwiązywać problemy związane z zarządzaniem tożsamościami dotyczące problemów ze zgodnością. Przepisy takie jak Sarbanes-Oxley (SOX), przenośność i odpowiedzialność z tytułu ubezpieczenia kondycji (HIPAA), Bliley Act (GLBA) i Payment Card Industry Data Security Standard (PCI DSS) są rygorystyczne względem tożsamości i dostępu. Rozwiązanie do obsługi tożsamości hybrydowej, które zostanie przyjęte przez firmę, musi mieć podstawowe możliwości, które spełniają wymagania jednego lub kilku z tych rozporządzeń. W przypadku tego obszaru upewnij się, że są zadawane następujące pytania:
 
 * Czy rozwiązanie tożsamości hybrydowej jest zgodne z wymaganiami prawnymi firmy?
 * Czy rozwiązanie do tworzenia tożsamości hybrydowej zostało skompilowane 

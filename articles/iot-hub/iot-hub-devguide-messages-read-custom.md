@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61244348"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Używanie tras komunikatów i niestandardowych punktów końcowych dla komunikatów z urządzenia do chmury
@@ -24,7 +24,7 @@ IoT Hub [Routing komunikatów](iot-hub-devguide-routing-query-syntax.md) umożli
 | Właściwość      | Opis |
 | ------------- | ----------- |
 | **Nazwa**      | Unikatowa nazwa identyfikująca zapytanie. |
-| **Element źródłowy**    | Pochodzenie strumienia danych, z którym ma zostać podjęta próba. Na przykład dane telemetryczne urządzenia. |
+| **Źródło**    | Pochodzenie strumienia danych, z którym ma zostać podjęta próba. Na przykład dane telemetryczne urządzenia. |
 | **Warunek** | Wyrażenie zapytania dla kwerendy routingu, która jest uruchamiana względem właściwości aplikacji komunikatów, właściwości systemu, treści wiadomości, tagów sznurów urządzenia i właściwości sznurów urządzenia, aby określić, czy jest to dopasowanie do punktu końcowego. Aby uzyskać więcej informacji na temat konstruowania zapytania, zobacz [Składnia zapytania dotyczącego routingu komunikatów](iot-hub-devguide-routing-query-syntax.md) |
 | **Punkt końcowy**  | Nazwa punktu końcowego, w którym IoT Hub wysyła wiadomości pasujące do zapytania. Zalecamy wybranie punktu końcowego w tym samym regionie, w którym znajduje się centrum IoT. |
 

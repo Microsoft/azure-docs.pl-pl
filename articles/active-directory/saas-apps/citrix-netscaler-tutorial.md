@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 4ff6154e17408b9e2daaf3c81321ae31693de3aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym przy użyciu usługi Citrix datascaleer (uwierzytelnianie oparte na protokole Kerberos)
@@ -91,7 +91,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD przy użyciu Azure Port
 
 1. W okienku **Wybierz metodę logowania** jednokrotnego wybierz pozycję **SAML**.
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **edycji** pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz ikonę **edycji** pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD przy użyciu Azure Port
     > * Adresy URL używane w tej sekcji nie są wartościami rzeczywistymi. Zaktualizuj te wartości przy użyciu wartości rzeczywistych dla identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem obsługi klienta Citrix](https://www.citrix.com/contact/technical-support.html) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
     > * Aby skonfigurować Logowanie jednokrotne, adresy URL muszą być dostępne z publicznych witryn sieci Web. Aby enble usługę Azure AD w celu opublikowania tokenu pod skonfigurowanym adresem URL, należy włączyć zaporę lub inne ustawienia zabezpieczeń na stronie Citrix.
 
-1. W okienku **Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** dla **adresu URL metadanych federacji aplikacji**Skopiuj adres URL i Zapisz go w Notatniku.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** dla **adresu URL metadanych federacji aplikacji**Skopiuj adres URL i Zapisz go w Notatniku.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -133,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie napisz lub skopiuj wartość wyświetlaną w polu **hasło**.
 
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -197,7 +197,7 @@ Aby skonfigurować moduł równoważenia obciążenia:
     * **Adres IP**
     * **Port**
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Konfiguracja serwera Citrix — podstawowe okienko ustawień](./media/citrix-netscaler-tutorial/load01.png)
 
@@ -245,7 +245,7 @@ Aby utworzyć zasady uwierzytelniania:
     
     ![Konfiguracja serwera Citrix — Tworzenie zasad uwierzytelniania — okienko](./media/citrix-netscaler-tutorial/policy01.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-an-authentication-saml-server"></a>Tworzenie serwera SAML uwierzytelniania
 
@@ -261,7 +261,7 @@ Aby utworzyć serwer uwierzytelniania SAML, przejdź do okienka **Tworzenie uwie
     
 1. W polu **Nazwa wystawcy**wprowadź odpowiedni adres URL.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ![Konfiguracja programu Citrix webscalenia — tworzenie okienka uwierzytelniania serwera SAML](./media/citrix-netscaler-tutorial/server01.png)
 
@@ -279,7 +279,7 @@ Aby utworzyć serwer wirtualny uwierzytelniania:
 
     1. W obszarze **Protokół**wybierz pozycję **SSL**.
 
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
     
 1. Wybierz pozycję **Continue** (Kontynuuj).
 
@@ -360,7 +360,7 @@ Aby skonfigurować konto KCD AAA platformy Citrix, należy:
 
     * Zaznacz pole wyboru **hasło dla delegowanego użytkownika** , a następnie wprowadź i Potwierdź hasło.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
  
     ![Konfiguracja Citrix KCD — Konfigurowanie okienka konta](./media/citrix-netscaler-tutorial/kerberos03.png)
 
@@ -382,7 +382,7 @@ Aby skonfigurować zasady ruchu Citrix i profil ruchu:
 
     * **Konto KCD**: wybierz konto KCD utworzone w poprzedniej sekcji.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Konfiguracja rozwiązania Citrix Trafficer — Konfigurowanie okienka profilu ruchu](./media/citrix-netscaler-tutorial/kerberos04.png)
  
@@ -398,7 +398,7 @@ Aby skonfigurować zasady ruchu Citrix i profil ruchu:
 
     * **Wyrażenie**: wprowadź **wartość true**.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Konfiguracja rozwiązania Citrix Trafficer — Konfigurowanie okienka zasad ruchu](./media/citrix-netscaler-tutorial/kerberos05.png)
 
@@ -453,7 +453,7 @@ Po wybraniu kafelka Citrix datascaleer w panelu dostępu należy automatycznie z
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

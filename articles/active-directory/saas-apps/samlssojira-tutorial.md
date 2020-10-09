@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym SAML dla JIRA przez rozwiązanie GmbH
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację połączenia m
 Aby skonfigurować i przetestować Logowanie jednokrotne, należy wykonać następujące czynności:
 
 1. **[Konfigurowanie aplikacji Azure AD Enterprise na potrzeby logowania jednokrotnego](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** — Skonfiguruj aplikację Azure AD Enterprise dla logowania jednokrotnego
-2. **[Skonfiguruj wtyczkę SSO protokołu SAML wystąpienia JIRA](#configure-the-saml-sso-plugin-of-your-jira-instance)** — Skonfiguruj ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj wtyczkę SSO protokołu SAML wystąpienia JIRA](#configure-the-saml-sso-plugin-of-your-jira-instance)** — Skonfiguruj ustawienia pojedynczej Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — Tworzenie użytkownika testowego w usłudze Azure AD.
 1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — włączenie użytkownika testowego do korzystania z logowania jednokrotnego po stronie platformy Azure.
 1. **[Utwórz użytkownika testowego w JIRA](#create-the-test-user-also-in-jira)** — Utwórz odpowiedni użytkownika testowego w JIRA dla użytkownika testowego usługi Azure AD.
@@ -114,7 +114,7 @@ Aby skonfigurować Logowanie jednokrotne przy użyciu protokołu SAML SSO dla JI
     > [!NOTE]
     > Aby uzyskać identyfikator, adres URL odpowiedzi i adres URL logowania, należy zastąpić **\<server-base-url>** podstawowy adres URL wystąpienia JIRA. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. Jeśli wystąpił problem, skontaktuj się z nami przy [użyciu protokołu SAML SSO dla usługi JIRA przez rozwiązanie GmbH Client Support Team](https://www.resolution.de/go/support).
 
-4. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Pobierz **plik XML metadanych Federacji** i Zapisz go na komputerze.
+4. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Pobierz **plik XML metadanych Federacji** i Zapisz go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -315,7 +315,7 @@ Po aktywowaniu opcji można nadal uzyskać dostęp do monitu o podanie nazwy uż
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

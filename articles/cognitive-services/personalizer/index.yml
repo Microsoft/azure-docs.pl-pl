@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Usługa Personalizacja platformy Azure to chmurowa usługa interfejsu API, która pozwala wybrać najlepsze środowiska dla użytkowników na podstawie ich zachowania w czasie rzeczywistym.
   ms.openlocfilehash: 28197f7408ea93ed07d09e1ae44e7924f4605a14
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/18/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "88506553"
 landingContent:
 - title: Informacje o usłudze Personalizacja

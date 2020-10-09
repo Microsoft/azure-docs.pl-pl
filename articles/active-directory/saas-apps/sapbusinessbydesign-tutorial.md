@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 6959b7e819ad906f04a18661d6bd4aa2d82f8984
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Samouczek: integracja usługi Azure Active Directory z oprogramowaniem SAP Business ByDesign
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania SAP Business ByDesign, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego SAP Business ByDesign](#configure-sap-business-bydesign-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania jednokrotnego SAP Business ByDesign](#configure-sap-business-bydesign-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego SAP Business ByDesign](#create-sap-business-bydesign-test-user)** , aby dysponować odpowiednikiem Britta Simon w oprogramowaniu SAP Business ByDesign, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
     c. Z listy rozwijanej **parametr 1** Wybierz atrybut użytkownika, którego chcesz użyć dla implementacji. Na przykład jeśli chcesz użyć identyfikatora EmployeeID jako unikatowego identyfikatora użytkownika, a wartość atrybutu jest przechowywana w elemencie ExtensionAttribute2, wybierz pozycję user.extensionattribute2.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramo
 
     c. Adres URL wylogowywania
 
-### <a name="configure-sap-business-bydesign-single-sign-on"></a>Konfigurowanie logowania jednokrotnego SAP Business ByDesign
+### <a name="configure-sap-business-bydesign-single-sign-on"></a>Konfigurowanie jednego Sign-On SAP Business ByDesign
 
 1. Zaloguj się do portalu SAP Business ByDesign z uprawnieniami administratora.
 
@@ -250,6 +250,6 @@ Po kliknięciu kafelka SAP Business ByDesign w panelu dostępu należy automatyc
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

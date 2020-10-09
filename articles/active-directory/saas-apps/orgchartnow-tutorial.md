@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: a28bfbb7fcfd357dc3aac521db24788607cd2212
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Samouczek: Azure Active Directory integrację z schematem organizacyjnym teraz
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby teraz skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą schematu organizacyjnego, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj teraz Logowanie jednokrotne schematu organizacyjnego](#configure-orgchart-now-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj teraz Logowanie jednokrotne schematu organizacyjnego](#configure-orgchart-now-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz teraz schemat organizacyjny, aby przetestować użytkownika](#create-orgchart-now-test-user)** jako odpowiednik Britta Simon w schemat organizacyjny, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -126,7 +126,7 @@ Aby teraz skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą schem
 
     c. Adres URL wylogowywania
 
-### <a name="configure-orgchart-now-single-sign-on"></a>Skonfiguruj teraz Logowanie jednokrotne schematu organizacyjnego
+### <a name="configure-orgchart-now-single-sign-on"></a>Skonfiguruj teraz pojedynczy Sign-On schematu organizacyjnego
 
 Aby skonfigurować Logowanie jednokrotne w obszarze **schemat organizacyjny teraz** , należy wysłać pobrane **XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [schematu organizacyjnego teraz obsługiwać zespół](mailto:ocnsupport@officeworksoftware.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -231,7 +231,7 @@ Po kliknięciu kafelka schemat organizacyjny teraz w panelu dostępu należy aut
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

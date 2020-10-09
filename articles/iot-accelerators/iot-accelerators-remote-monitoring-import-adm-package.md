@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61443449"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Zaimportuj automatyczny pakiet zarządzania urządzeniami do akceleratora rozwiązania do monitorowania zdalnego
@@ -47,7 +47,7 @@ Teraz masz plik zawierający automatyczną konfigurację zarządzania urządzeni
 
 Wykonaj poniższe kroki, aby zaimportować automatyczną konfigurację zarządzania urządzeniami jako pakiet do rozwiązania:
 
-1. Przejdź do strony **pakiety** w interfejsie użytkownika sieci Web do monitorowania zdalnego: ![ pakiety](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Przejdź do strony **pakiety** w interfejsie użytkownika sieci Web do monitorowania zdalnego:  ![ pakiety](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Kliknij pozycję **+ nowy pakiet**, wybierz opcję **Konfiguracja** jako typ pakietu, a następnie kliknij przycisk **Przeglądaj** , aby wybrać **configuration.jsw** pliku zapisanym w poprzedniej sekcji:
 

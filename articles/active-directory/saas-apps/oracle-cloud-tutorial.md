@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543843"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Samouczek: Integrowanie konsoli infrastruktury chmurowej Oracle z Azure Active Directory
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **konsoli infrastruktury w chmurze firmy Oracle** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -95,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
       > [!NOTE]
       > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z firmą [Oracle Cloud Infrastructure Client Console Support Team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfiguruj pojedyncze Sign-On za pomocą elementu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
    ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy**.
  
-   1. Kliknij pozycję **Zapisz**.
+   1. Kliknij przycisk **Zapisz**.
 
       ![image (obraz)](./media/oracle-cloud-tutorial/config07.png)
     
@@ -127,7 +127,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz polecenie `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Kliknij pozycję **Zapisz**.
+   1. Kliknij przycisk **Zapisz**.
 
       ![image (obraz)](./media/oracle-cloud-tutorial/config08.png)
 
@@ -173,15 +173,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij po lewej stronie menu i kliknij pozycję **tożsamość** , a następnie przejdź do **Federacji**.
 
-   ![Konfigurowanie](./media/oracle-cloud-tutorial/config01.png)
+   ![Konfiguracja](./media/oracle-cloud-tutorial/config01.png)
 
 1. Zapisz **plik metadanych dostawcy usług** , klikając link **Pobierz ten dokument** i przekaż go do sekcji **Podstawowa konfiguracja SAML** w Azure Portal a następnie kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-   ![Konfigurowanie](./media/oracle-cloud-tutorial/config02.png)
+   ![Konfiguracja](./media/oracle-cloud-tutorial/config02.png)
 
 1. W oknie podręcznym **Dodawanie dostawcy tożsamości** wykonaj następujące czynności:
 
-   ![Konfigurowanie](./media/oracle-cloud-tutorial/config03.png)
+   ![Konfiguracja](./media/oracle-cloud-tutorial/config03.png)
 
    1. W polu tekstowym **Nazwa** wprowadź swoją nazwę.
 
@@ -193,7 +193,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    1. Kliknij przycisk **Kontynuuj** i w sekcji **Edytuj dostawcę tożsamości** wykonaj następujące czynności:
 
-      ![Konfigurowanie](./media/oracle-cloud-tutorial/config09.png)
+      ![Konfiguracja](./media/oracle-cloud-tutorial/config09.png)
 
    1. **Grupa dostawców tożsamości** powinna być wybrana jako Grupa niestandardowa. Grupa musi być IDENTYFIKATORem GUID grupy z Azure Active Directory. Grupa musi być zamapowana z odpowiednią grupą w polu **Grupa OCI** .
 
@@ -209,13 +209,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Po wybraniu kafelka konsola infrastruktury w chmurze Oracle w panelu dostępu nastąpi przekierowanie do strony logowania do konsoli infrastruktury w chmurze firmy Oracle. Wybierz **dostawcę tożsamości** z menu rozwijanego, a następnie kliknij pozycję **Kontynuuj** , jak pokazano poniżej, aby się zalogować. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-![Konfigurowanie](./media/oracle-cloud-tutorial/config10.png)
+![Konfiguracja](./media/oracle-cloud-tutorial/config10.png)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

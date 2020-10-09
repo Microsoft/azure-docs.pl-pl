@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60931721"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Jak wysyłać wiadomości E-mail przy użyciu usługi SendGrid z Node.js
@@ -212,8 +212,8 @@ Usługa SendGrid oferuje interfejsy API oparte na sieci Web, których można uż
 Teraz, gdy znasz już podstawy usługi poczty E-mail SendGrid, Skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 * Repozytorium modułów Node.js SendGrid: [SendGrid-NodeJS][sendgrid-nodejs]
-* Dokumentacja interfejsu API SendGrid:<https://sendgrid.com/docs>
-* Oferta Specjalna SendGrid dla klientów platformy Azure:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Dokumentacja interfejsu API SendGrid: <https://sendgrid.com/docs>
+* Oferta Specjalna SendGrid dla klientów platformy Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

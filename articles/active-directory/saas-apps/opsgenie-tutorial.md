@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543911"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą OpsGenie
@@ -129,7 +129,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Kliknij pozycję **Ustawienia**, a następnie kliknij kartę **Logowanie** jednokrotne.
    
-    ![OpsGenie Logowanie jednokrotne](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
+    ![OpsGenie pojedyncze Sign-On](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
 
 3. Aby włączyć logowanie jednokrotne, wybierz pozycję **włączone**.
    
@@ -175,7 +175,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w OpsGenie.
    
     b. W polu tekstowym **pełna nazwa** wpisz **B. Simon**.
    
-    c. Kliknij pozycję **Zapisz**. 
+    c. Kliknij przycisk **Zapisz**. 
 
 > [!NOTE]
 > B. Simon Pobiera wiadomość e-mail z instrukcjami dotyczącymi konfigurowania profilu.
@@ -190,7 +190,7 @@ Po kliknięciu kafelka OpsGenie w panelu dostępu należy automatycznie zalogowa
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

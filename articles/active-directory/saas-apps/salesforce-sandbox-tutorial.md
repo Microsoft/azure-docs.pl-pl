@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 277acbc84ab435ce1076c30a1e49f6ffdd2a0586
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543724"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z piaskownicą usługi Salesforce
@@ -175,7 +175,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-9. Na stronie **Ustawienia rejestracji** jednokrotnej kliknij przycisk **Pobierz metadane** , aby pobrać plik metadanych dostawcy usług. Użyj tego pliku w sekcji **Podstawowa konfiguracja SAML** w Azure Portal, aby skonfigurować niezbędne adresy URL, jak wyjaśniono powyżej.
+9. Na stronie **Ustawienia pojedynczej Sign-On** kliknij przycisk **Pobierz metadane** , aby pobrać plik metadanych dostawcy usług. Użyj tego pliku w sekcji **Podstawowa konfiguracja SAML** w Azure Portal, aby skonfigurować niezbędne adresy URL, jak wyjaśniono powyżej.
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure4.png)
 
@@ -224,7 +224,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. Na stronie **Ustawienia rejestracji** jednokrotnej protokołu SAML pola są wypełniane automatycznie, wpisz nazwę konfiguracji (na przykład: *SPSSOWAAD_Test*), w polu tekstowym **Nazwa** , a następnie kliknij przycisk Zapisz.
+19. Na stronie **Ustawienia pojedynczej Sign-On SAML** pola wypełniają automatycznie, wpisz nazwę konfiguracji (na przykład: *SPSSOWAAD_Test*), w polu tekstowym **Nazwa** , a następnie kliknij przycisk Zapisz.
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -241,7 +241,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-23. W sekcji **konfiguracja uwierzytelniania** jako **Usługa uwierzytelniania**wybierz nazwę ustawienia Logowanie jednokrotne SAML, które zostało ustawione podczas konfigurowania logowania jednokrotnego w piaskownicy usługi Salesforce, a następnie kliknij przycisk **Zapisz**.
+23. W sekcji **konfiguracja uwierzytelniania** jako **Usługa uwierzytelniania**wybierz nazwę ustawienia Single Sign-On SAML, które zostało ustawione podczas konfigurowania logowania jednokrotnego w piaskownicy usługi Salesforce, a następnie kliknij przycisk **Zapisz**.
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure2.png)
 
@@ -259,7 +259,7 @@ Po kliknięciu kafelka piaskownicy usługi Salesforce w panelu dostępu należy 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

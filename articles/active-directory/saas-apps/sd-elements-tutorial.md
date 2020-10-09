@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 323d6324bc99028a3df4cb9cada133ad8cd990aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543267"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z elementami SD
@@ -145,7 +145,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
-1. W oknie dialogowym **Ustawienia logowania** jednokrotnego wykonaj następujące czynności:
+1. W oknie dialogowym **pojedyncze ustawienia Sign-On** wykonaj następujące czynności:
 
     ![Konfigurowanie logowania jednokrotnego](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
@@ -153,9 +153,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. W polu tekstowym **Identyfikator jednostki dostawcy tożsamości** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
 
-    c. W polu tekstowym usługa rejestracji jednokrotnej **dostawcy tożsamości** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
+    c. W polu tekstowym **Sign-On usługi dostawca tożsamości** , wklej wartość **adresu URL logowania**, którą skopiowano z Azure Portal.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-sd-elements-test-user"></a>Tworzenie użytkownika testowego elementów SD
 
@@ -197,7 +197,7 @@ Po kliknięciu kafelka elementy SD w panelu dostępu należy automatycznie zalog
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

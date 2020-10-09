@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: d2990b5950cf8812367c3a59c6cace39e4085e2a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88261909"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Tworzenie kopii zapasowej serwerów z systemem Windows na platformie Azure
@@ -104,7 +104,7 @@ Agent usługi Microsoft Azure Recovery Services umożliwia zaplanowanie tworzeni
 
 3. Wybierz pozycję **dalej** , aby przejść do strony **Wybierz elementy do utworzenia kopii zapasowej** .
 
-4. Wybierz pozycję **Dodaj elementy** , a następnie w otwartym oknie dialogowym wybierz pozycję **stan systemu** i pliki lub foldery, dla których chcesz utworzyć kopię zapasową. Następnie wybierz pozycję **OK**.
+4. Wybierz pozycję **Dodaj elementy** , a następnie w otwartym oknie dialogowym wybierz pozycję **stan systemu** i pliki lub foldery, dla których chcesz utworzyć kopię zapasową. Następnie wybierz przycisk **OK**.
 
 5. Wybierz opcję **Dalej**.
 

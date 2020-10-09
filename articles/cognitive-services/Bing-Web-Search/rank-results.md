@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390135"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Jak używać klasyfikacji do wyświetlania wyników interfejs API wyszukiwania w sieci Web Bing  
@@ -24,9 +24,9 @@ Każda odpowiedź wyszukiwania zawiera odpowiedź [RankingResponse](https://docs
 
 W każdej grupie (linii głównej lub Sidebar) tablica [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identyfikuje kolejność, w której zawartość musi być wyświetlana. Każdy element zawiera następujące dwa sposoby identyfikacji wyniku w odpowiedzi.  
 
--   `answerType`i `resultIndex` — `answerType` pole Identyfikuje odpowiedź (na przykład stronę sieci Web lub wiadomości) i `resultIndex` identyfikuje wynik w odpowiedzi (na przykład artykuł wiadomości). Indeks jest oparty na zero.  
+-   `answerType` i `resultIndex` — `answerType` pole Identyfikuje odpowiedź (na przykład stronę sieci Web lub wiadomości) i `resultIndex` identyfikuje wynik w odpowiedzi (na przykład artykuł wiadomości). Indeks jest oparty na zero.  
 
--   `value`— `value` Pole zawiera identyfikator, który odpowiada identyfikatorowi odpowiedzi lub wynikowi w odpowiedzi. Odpowiedź lub wyniki zawierają identyfikator, ale nie oba jednocześnie.  
+-   `value` — `value` Pole zawiera identyfikator, który odpowiada identyfikatorowi odpowiedzi lub wynikowi w odpowiedzi. Odpowiedź lub wyniki zawierają identyfikator, ale nie oba jednocześnie.  
 
 Korzystanie z tego identyfikatora jest prostsze, ponieważ wystarczy dopasować identyfikator klasyfikacji z IDENTYFIKATORem odpowiedzi lub jednym z jej wyników. Jeśli obiekt odpowiedzi zawiera `id` pole, Wyświetl wszystkie wyniki odpowiedzi ze sobą. Na przykład jeśli `News` obiekt zawiera `id` pole, Wyświetl wszystkie artykuły z wiadomościami ze sobą. Jeśli `News` obiekt nie zawiera `id` pola, każdy artykuł z wiadomości zawiera `id` pole, a odpowiedź dotycząca rankingu łączy artykuły z wiadomościami z wynikami z innych odpowiedzi.  
 

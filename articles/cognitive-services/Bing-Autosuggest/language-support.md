@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60547340"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Obsługa języka i regionu dla interfejs API automatycznego sugerowania Bing
@@ -27,7 +27,7 @@ Poniżej wymieniono języki obsługiwane przez interfejs API automatycznego suge
 | Chiński (Chińska Republika Ludowa)     | `zh-CN`          |
 | Chiński (Hongkong SAR)    | `zh-HK`          |
 | Chiński (Tajwan)     | `zh-TW`          |
-| duński      | `da`          |
+| Duński      | `da`          |
 | Holenderski (Belgia)       | `nl-BE`          |
 | Niderlandzki (Holandia)      | `nl-NL`          |
 | Angielski (Australia)    | `en-AU`          |
@@ -40,7 +40,7 @@ Poniżej wymieniono języki obsługiwane przez interfejs API automatycznego suge
 | Angielski (Republika Południowej Afryki)    | `en-ZA`          |
 | Angielski (Zjednoczone Królestwo)    | `en-GB`          |
 | Angielski (Stany Zjednoczone)    | `en-US`          |
-| fiński     | `fi`          |
+| Fiński     | `fi`          |
 | Francuski (Belgia)     | `fr-BE`          |
 | francuski (Kanada)     | `fr-CA`          |
 | Francuski (Francja)     | `fr-FR`          |
@@ -50,9 +50,9 @@ Poniżej wymieniono języki obsługiwane przez interfejs API automatycznego suge
 | Niemiecki (Szwajcaria)      | `de-CH`          |
 | Włoski     | `it`          |
 | japoński    | `ja`          |
-| koreański      | `ko`          |
+| Koreański      | `ko`          |
 | Norweski   | `no`          |
-| Polski      | `pl`          |
+| polski      | `pl`          |
 | portugalski (Brazylia)   | `pt-BR`|
 | Portugalski (Portugalia) | `pt-PT`|
 | Rosyjski     | `ru`          |
@@ -61,10 +61,10 @@ Poniżej wymieniono języki obsługiwane przez interfejs API automatycznego suge
 | Hiszpański (Meksyk)    | `es-MX`          |
 | hiszpański (Hiszpania)    | `es-ES`          |
 | Hiszpański (Stany Zjednoczone)    | `es-US`          |
-| szwedzki     | `sv`          |
+| Szwedzki     | `sv`          |
 | Turecki     | `tr`          |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Strona dokumentacji usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Strona produktu Cognitive Services platformy Azure](https://azure.microsoft.com/services/cognitive-services/)

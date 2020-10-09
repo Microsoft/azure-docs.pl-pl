@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 80d5b153e66ab109ac1f2496464bbd8f557f8d1b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88538573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą 4me
@@ -170,7 +170,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. W polu tekstowym **Certificate fingerprint** (Odcisk palca certyfikatu) wklej wartość **THUMBPRINT** (ODCISK PALCA) oddzieloną dwukropkiem w kolejności znaków podwójnych (AA:BB:CC:DD:EE:FF:GG:HH:II), która została skopiowana z witryny Azure Portal.
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-4me-test-user"></a>Tworzenie użytkownika testowego aplikacji 4me
 
@@ -189,7 +189,7 @@ Po kliknięciu kafelka 4me w panelu dostępu powinno nastąpić automatyczne zal
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

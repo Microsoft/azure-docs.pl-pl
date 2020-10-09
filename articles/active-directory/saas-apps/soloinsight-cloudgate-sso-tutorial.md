@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Soloinsight — CloudGate | Microsoft Docs'
+title: 'Samouczek: integracja Azure Active Directory z Soloinsight-CloudGate Logowanie jednokrotne | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Soloinsight-CloudGate SSO.
 services: active-directory
 author: jeevansd
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 5ac0f0777ea341036950550e19c5d8e7fb71a91f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545067"
 ---
-# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Samouczek: Integrowanie logowania jednokrotnego Soloinsight-CloudGate z usługą Azure Active Directory
+# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Samouczek: integracja Soloinsight-CloudGate rejestracji jednokrotnej z usługą Azure Active Directory
 
-W tym samouczku dowiesz się, jak zintegrować Logowanie jednokrotne w usłudze Soloinsight-CloudGate z usługą Azure Active Directory (Azure AD). Gdy integrujesz Logowanie jednokrotne w usłudze Soloinsight-CloudGate z usługą Azure AD, możesz:
+W tym samouczku dowiesz się, jak zintegrować Soloinsight-CloudGate Logowanie jednokrotne z usługą Azure Active Directory (Azure AD). Podczas integrowania Soloinsight-CloudGate Logowanie jednokrotne z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do logowania jednokrotnego w usłudze Soloinsight-CloudGate.
-* Zezwól użytkownikom na automatyczne logowanie do usługi logowania jednokrotnego (Soloinsight-CloudGate) przy użyciu kont w usłudze Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do Soloinsight-CloudGate rejestracji jednokrotnej.
+* Zezwól użytkownikom na automatyczne logowanie się, aby Soloinsight-CloudGate Logowanie jednokrotne przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -33,11 +33,11 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi Soloinsight — CloudGate.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Soloinsight-CloudGate.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Soloinsight-CloudGate Logowanie jednokrotne obsługuje usługę **SP** zainicjowaną przez usługę SSO
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Soloinsight-CloudGate Logowanie jednokrotne obsługuje zainicjowane przez usługę **SP** SSO.
 
 ## <a name="adding-soloinsight-cloudgate-sso-from-the-gallery"></a>Dodawanie aplikacji Soloinsight-CloudGate SSO z galerii
 
@@ -52,15 +52,15 @@ Aby skonfigurować integrację aplikacji Soloinsight-CloudGate SSO z usługą Az
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego Soloinsight-CloudGate przy użyciu użytkownika testowego o nazwie **Britta Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Soloinsight-CloudGate SSO.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD Soloinsight-CloudGate za pomocą logowania jednokrotnego przy użyciu użytkownika testowego o nazwie **Britta Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Soloinsight-CloudGate rejestracji jednokrotnej.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Soloinsight-CloudGate, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Logowanie jednokrotne w usłudze Soloinsight-CloudGate](#configure-soloinsight-cloudgate-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Soloinsight-CloudGate Logowanie jednokrotne](#configure-soloinsight-cloudgate-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
 3. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą Britta Simon.
 4. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego logowania jednokrotnego (Soloinsight-CloudGate](#create-soloinsight-cloudgate-sso-test-user)** ), aby uzyskać odpowiednik Britta Simon w Soloinsight-CloudGate SSO, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+5. **[Utwórz Soloinsight-CloudGate użytkownika testowego logowania jednokrotnego](#create-soloinsight-cloudgate-sso-test-user)** , aby uzyskać odpowiednik usługi Britta Simon w Soloinsight-CloudGate rejestracji jednokrotnej, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **SSO Soloinsight-CloudGate** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -82,25 +82,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
    > [!NOTE]
    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania, co zostało wyjaśnione poniżej w sekcji **Konfigurowanie logowania jednokrotnego w aplikacji Soloinsight-CloudGate SSO** samouczka.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
    ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie Soloinsight-CLOUDGATE SSO** skopiuj odpowiednie adresy URL na podstawie wymagania.
+1. W sekcji **konfigurowanie Soloinsight-CloudGate rejestracji jednokrotnej** skopiuj odpowiednie adresy URL na podstawie wymagań.
 
    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="configure-soloinsight-cloudgate-sso"></a>Konfigurowanie rejestracji jednokrotnej Soloinsight-CloudGate
+### <a name="configure-soloinsight-cloudgate-sso"></a>Skonfiguruj Soloinsight-CloudGate Logowanie jednokrotne
 
-1. Aby zautomatyzować konfigurację w ramach rejestracji jednokrotnej Soloinsight-CloudGate, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
+1. Aby zautomatyzować konfigurację w ramach Soloinsight-CloudGate rejestracji jednokrotnej, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
     ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Setup Soloinsight-CloudGate Logowanie jednokrotne** spowoduje przekierowanie do aplikacji SSO Soloinsight-CloudGate. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi logowania jednokrotnego w usłudze Soloinsight-CloudGate. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-8.
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **instalator Soloinsight-CloudGate Logowanie jednokrotne** spowoduje przekierowanie do aplikacji Soloinsight-CloudGate Logowanie jednokrotne. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do Soloinsight-CloudGate rejestracji jednokrotnej. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-8.
 
     ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-3. Jeśli chcesz ręcznie skonfigurować Soloinsight-CloudGate Logowanie jednokrotne, Otwórz nowe okno przeglądarki sieci Web i zaloguj się w witrynie firmy Soloinsight-CloudGate SSO jako administrator i wykonaj następujące czynności:
+3. Jeśli chcesz ręcznie skonfigurować Soloinsight-CloudGate Logowanie jednokrotne, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do witryny firmowej Soloinsight-CloudGate rejestracji jednokrotnej jako administrator i wykonaj następujące czynności:
 
 4. Aby uzyskać wartości, które mają zostać wklejone w Azure Portal podczas konfigurowania podstawowego protokołu SAML, zaloguj się do portalu sieci Web CloudGate przy użyciu swoich poświadczeń, a następnie uzyskaj dostęp do ustawień logowania jednokrotnego, które znajdują się w poniższej ścieżce **głównej>administracja>ustawienia systemowe>ogólne**.
 
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 8. **Adres URL identyfikatora usługi AD i adres URL logowania**
 
-    * Skopiowanego **adresu URL logowania** z Azure Portal **konfigurowania konfiguracji logowania jednokrotnego w usłudze Soloinsight-CloudGate** należy wprowadzić w sekcji ustawień logowania jednokrotnego w portalu sieci Web CloudGate.
+    * Skopiowany **adres URL logowania** z Azure Portal **skonfigurowany Soloinsight-CloudGate konfiguracja logowania jednokrotnego** jest wprowadzany w sekcji Ustawienia rejestracji jednokrotnej w portalu sieci Web CloudGate.
 
     * Wklej link **adresu URL logowania** z Azure Portal w polu **adres URL logowania usługi AD** w portalu sieci Web CloudGate.
 
@@ -156,7 +156,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji zostanie włączone Logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do usługi Soloinsight-CloudGate SSO.
+W tej sekcji zostanie włączone Logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do Soloinsight-CloudGate logowania jednokrotnego.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Soloinsight-CloudGate SSO**.
@@ -180,12 +180,12 @@ Aby utworzyć użytkownika testowego, wybierz pozycję **Employees** z menu gł�
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Po wybraniu kafelka rejestracji jednokrotnej Soloinsight-CloudGate w panelu dostępu należy automatycznie zalogować się do logowania jednokrotnego Soloinsight-CloudGate, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po Soloinsight-CloudGate wybraniu kafelka rejestracji jednokrotnej w panelu dostępu należy automatycznie zalogować się do Soloinsight-CloudGate logowania jednokrotnego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540626"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego za pomocą narzędzia Citrix datascaleer (uwierzytelnianie oparte na nagłówkach)
@@ -89,7 +89,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD przy użyciu Azure Port
 
 1. W okienku **Wybierz metodę logowania** jednokrotnego wybierz pozycję **SAML**.
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **edycji** pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz ikonę **edycji** pióra dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD przy użyciu Azure Port
     > * Adresy URL używane w tej sekcji nie są wartościami rzeczywistymi. Zaktualizuj te wartości przy użyciu wartości rzeczywistych dla identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem obsługi klienta Citrix](https://www.citrix.com/contact/technical-support.html) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
     > * Aby skonfigurować Logowanie jednokrotne, adresy URL muszą być dostępne z publicznych witryn sieci Web. Aby enble usługę Azure AD w celu opublikowania tokenu pod skonfigurowanym adresem URL, należy włączyć zaporę lub inne ustawienia zabezpieczeń na stronie Citrix.
 
-1. W okienku **Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** dla **adresu URL metadanych federacji aplikacji**Skopiuj adres URL i Zapisz go w Notatniku.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** dla **adresu URL metadanych federacji aplikacji**Skopiuj adres URL i Zapisz go w Notatniku.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -155,7 +155,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie napisz lub skopiuj wartość wyświetlaną w polu **hasło**.
 
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -221,7 +221,7 @@ Aby skonfigurować moduł równoważenia obciążenia:
     * **Adres IP**
     * **Port**
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Konfiguracja serwera Citrix — podstawowe okienko ustawień](./media/header-citrix-netscaler-tutorial/load01.png)
 
@@ -269,7 +269,7 @@ Aby utworzyć zasady uwierzytelniania:
     
     ![Konfiguracja serwera Citrix — Tworzenie zasad uwierzytelniania — okienko](./media/header-citrix-netscaler-tutorial/policy01.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-an-authentication-saml-server"></a>Tworzenie serwera SAML uwierzytelniania
 
@@ -285,7 +285,7 @@ Aby utworzyć serwer uwierzytelniania SAML, przejdź do okienka **Tworzenie uwie
     
 1. W polu **Nazwa wystawcy**wprowadź odpowiedni adres URL.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ![Konfiguracja programu Citrix webscalenia — tworzenie okienka uwierzytelniania serwera SAML](./media/header-citrix-netscaler-tutorial/server01.png)
 
@@ -303,7 +303,7 @@ Aby utworzyć serwer wirtualny uwierzytelniania:
 
     1. W obszarze **Protokół**wybierz pozycję **SSL**.
 
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 
     ![Konfiguracja programu Citrix The configurationer — okienko uwierzytelniania wirtualnego serwera](./media/header-citrix-netscaler-tutorial/server02.png)
     
@@ -360,7 +360,7 @@ Aby skonfigurować program Citrix ADC na potrzeby uwierzytelniania opartego na n
 
     1. W obszarze **wyrażenie**wprowadź **AAA. Użytkownicy. ATRYBUT ("mySecretID")**, gdzie **mySecretID** to Deklaracja SAML usługi Azure AD, która została wysłana do programu Citrix ADC.
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     ![Konfiguracja platformy Citrix — tworzenie okienka akcja Utwórz ponownie](./media/header-citrix-netscaler-tutorial/header02.png)
  
@@ -378,7 +378,7 @@ Aby skonfigurować program Citrix ADC na potrzeby uwierzytelniania opartego na n
 
     1. Dla **wyrażenia**wprowadź **wartość true**.
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     ![Konfiguracja platformy Citrix — tworzenie okienka zasad](./media/header-citrix-netscaler-tutorial/header04.png)
 
@@ -408,7 +408,7 @@ Aby powiązać zasady ponownego zapisywania z serwerem wirtualnym przy użyciu g
 
     ![Konfiguracja platformy Citrix — okno dialogowe zasady](./media/header-citrix-netscaler-tutorial/header07.png)
 
-1.  Kliknij przycisk **OK**. Komunikat na pasku stanu wskazuje, że zasady zostały pomyślnie skonfigurowane.
+1.  Wybierz przycisk **OK**. Komunikat na pasku stanu wskazuje, że zasady zostały pomyślnie skonfigurowane.
 
 ### <a name="modify-the-saml-server-to-extract-attributes-from-a-claim"></a>Modyfikowanie serwera SAML w celu wyodrębnienia atrybutów z roszczeń
 
@@ -443,7 +443,7 @@ Po wybraniu kafelka Citrix datascaleer w panelu dostępu należy automatycznie z
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
