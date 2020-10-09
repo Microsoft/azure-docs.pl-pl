@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258609"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841156"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services
 
@@ -206,11 +206,11 @@ Implementacja obejmuje następujące kroki:
 
 7. Utwórz aplikację ASP.NET MVC do hostowania odtwarzacza wideo. Ta aplikacja ASP.NET jest chroniona przy użyciu uwierzytelniania użytkownika w przypadku dzierżawy usługi Azure AD. W tokenach dostępu uzyskanych po uwierzytelnieniu użytkownika są zawarte odpowiednie oświadczenia. Zalecamy OpenID Connect Connect API dla tego kroku. Zainstaluj następujące pakiety NuGet:
 
-   * Install-package Microsoft. Azure. ActiveDirectory. GraphClient
-   * Install-package Microsoft. Owin. Security. OpenIdConnect
-   * Install-package Microsoft. Owin. Security. cookies
-   * Install-package Microsoft.Owin.Host.SystemWeb
-   * Install-package Microsoft. IdentityModel. clients. ActiveDirectory
+   * Install-Package Microsoft. Azure. ActiveDirectory. GraphClient
+   * Install-Package Microsoft. Owin. Security. OpenIdConnect
+   * Install-Package Microsoft. Owin. Security. cookies
+   * Install-Package Microsoft.Owin.Host.SystemWeb
+   * Install-Package Microsoft. IdentityModel. clients. ActiveDirectory
 
 8. Utwórz odtwarzacz przy użyciu [interfejsu API Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Użyj [interfejsu API Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) , aby określić technologię DRM, która ma być używana na różnych platformach DRM.
 
@@ -421,11 +421,11 @@ Poniższe zrzuty ekranu przedstawiają różne strony logowania używane przez r
 
 **Niestandardowe konto domeny dzierżawy usługi Azure AD**: dostosowana Strona logowania niestandardowej domeny dzierżawy usługi Azure AD.
 
-![Niestandardowe konto domeny dzierżawy usługi Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Zrzut ekranu pokazujący dostosowaną stronę logowania niestandardowej domeny dzierżawy platformy Azure A D.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Konto domeny Microsoft z kartą inteligentną**: Strona logowania dostosowana przez firmę Microsoft w firmie przy użyciu uwierzytelniania dwuskładnikowego.
 
-![Niestandardowe konto domeny dzierżawy usługi Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Zrzut ekranu przedstawiający stronę logowania dostosowaną przez firmę Microsoft w firmach I T z uwierzytelnianiem dwuskładnikowym.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Konto Microsoft**: strona logowania konto Microsoft dla użytkowników.
 
@@ -488,6 +488,6 @@ Ten dokument omawiający CENC z wielonatywną obsługą technologii DRM i kontro
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

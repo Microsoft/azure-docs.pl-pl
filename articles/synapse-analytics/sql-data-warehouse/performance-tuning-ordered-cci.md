@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795613"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841598"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  
 
@@ -48,9 +48,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
-
->[!TIP]
-> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 > [!NOTE] 
 > W tabeli uporządkowanej WIK nowe dane, które wynikają z tej samej partii operacji ładowania DML lub danych, są sortowane w tej partii, nie istnieje sortowanie globalne dla wszystkich danych w tabeli.  Użytkownicy mogą odbudować uporządkowaną WIK, aby posortować wszystkie dane w tabeli.  W Synapse SQL, ponowne KOMPILOWAnie indeksu magazynu kolumn jest operacją offline.  W przypadku partycjonowanej tabeli ponowne KOMPILOWAnie wykonuje jedną partycję w danym momencie.  Dane w partycji, która jest ponownie skompilowana, są w trybie offline i niedostępne do momentu ukończenia odbudowy dla tej partycji. 
@@ -98,7 +95,7 @@ Wydajność ładowania danych do uporządkowanej tabeli WIK jest podobna do tabe
 
 Poniżej przedstawiono przykładowe porównanie wydajności ładowania danych do tabel z różnymi schematami.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Wykres słupkowy przedstawiający porównanie wydajności ładowania danych do tabel z różnymi schematami.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Oto przykładowe porównanie wydajności zapytań między WIK i uporządkowaną WIK.
@@ -139,7 +136,7 @@ Tworzenie uporządkowanej WIK jest operacją offline.  W przypadku tabel bez par
 
 ## <a name="examples"></a>Przykłady
 
-**A. Aby sprawdzić uporządkowane kolumny i numer porządkowy zamówienia:**
+**Z. Aby sprawdzić uporządkowane kolumny i numer porządkowy zamówienia:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -148,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Aby zmienić numer porządkowy kolumny, Dodaj lub Usuń kolumny z listy Order lub aby zmienić z WIK na uporządkowaną WIK:**
+**B. Aby zmienić numer porządkowy kolumny, dodać lub usunąć kolumny z listy Order lub zmienić z WIK na uporządkowaną WIK:**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales

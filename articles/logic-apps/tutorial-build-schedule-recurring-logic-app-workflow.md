@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574735"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842567"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Samouczek: Tworzenie przepływów pracy automatyzacji opartych na harmonogramie i cyklicznych za pomocą Azure Logic Apps
 
@@ -360,18 +360,18 @@ Aplikacja logiki kontynuuje działanie do momentu wyłączenia lub usunięcia ap
 
 1. W polu wyszukiwania Azure Portal wprowadź nazwę utworzonej grupy zasobów. Z wyników w obszarze **grupy zasobów**wybierz grupę zasobów.
 
-   Ten przykład utworzył grupę zasobów o nazwie `LA-TravelTime-RG` . 
+   Ten przykład utworzył grupę zasobów o nazwie `LA-TravelTime-RG` .
 
    ![Zrzut ekranu przedstawiający pole usługi Azure Search z opcją "La-podróże-Time-RG", które zostało wprowadzone i * * LA-TravelTime-RG * * zaznaczone.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Jeśli na stronie głównej platformy Azure zostanie wyświetlona Grupa zasobów w obszarze **ostatnie zasoby**, możesz wybrać grupę ze strony głównej.
 
-1. W menu Grupa zasobów Sprawdź, czy jest zaznaczona wartość **Przegląd** . Na pasku narzędzi okienka **Przegląd** wybierz pozycję **Usuń grupę zasobów**. 
+1. W menu Grupa zasobów Sprawdź, czy jest zaznaczona wartość **Przegląd** . Na pasku narzędzi okienka **Przegląd** wybierz pozycję **Usuń grupę zasobów**.
 
    ![Zrzut ekranu przedstawiający okienko "przegląd" grupy zasobów i na pasku narzędzi okienka jest zaznaczona wartość "Usuń grupę zasobów".](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. W okienku potwierdzenia wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+1. W wyświetlonym okienku potwierdzenia wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

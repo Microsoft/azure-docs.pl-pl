@@ -1,17 +1,15 @@
 ---
 title: Omówienie klastrów Service Fabric platformy Azure i autonomicznych
 description: Klastry Service Fabric można tworzyć na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server lub Linux. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku, w którym znajduje się zestaw komputerów z systemem Windows Server lub Linux, które są połączone lokalnie, Microsoft Azure lub z dowolnym dostawcą usług w chmurze.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751141"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842601"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Porównywanie klastrów platformy Azure i autonomicznych Service Fabric w systemach Windows Server i Linux
 
@@ -28,7 +26,7 @@ Na platformie Azure zapewniamy integrację z innymi funkcjami i usługami platfo
 * **Service Fabric klaster jako zasób platformy Azure** Klaster Service Fabric jest zasobem platformy Azure, dzięki czemu można modelować go tak jak inne zasoby na platformie Azure.
 * **Integracja z infrastrukturą platformy Azure** Service Fabric koordynuje z podstawową infrastrukturą platformy Azure dla systemu operacyjnego, sieci i innych uaktualnień, aby zwiększyć dostępność i niezawodność aplikacji.  
 * **Diagnostyka:** Na platformie Azure zapewniamy integrację z usługą Azure Diagnostics i dziennikami Azure Monitor.
-* **Skalowanie automatyczne:** W przypadku klastrów na platformie Azure zapewniamy wbudowaną funkcję automatycznego skalowania ze względu na zestawy skalowania maszyn wirtualnych. W środowisku lokalnym i w innych środowiskach chmurowych musisz ręcznie utworzyć własną funkcję automatycznego skalowania, korzystając z interfejsów API, które Service Fabric uwidaczniają do skalowania klastrów.
+* **Skalowanie automatyczne:** W przypadku klastrów na platformie Azure zapewniamy wbudowaną funkcję skalowania automatycznego za pomocą zestawów skalowania maszyn wirtualnych. W środowiskach lokalnych i innych w chmurze należy utworzyć własną funkcję automatycznego skalowania lub skalować ją ręcznie przy użyciu interfejsów API, które Service Fabric uwidacznia na potrzeby skalowania klastrów.
 
 ## <a name="benefits-of-standalone-clusters"></a>Zalety klastrów autonomicznych
 

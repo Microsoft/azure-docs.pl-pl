@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542159"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841360"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -87,6 +87,7 @@ Aby utworzyć zestaw danych w programie Studio:
 1. Wybierz **tabelaryczną** lub **plik** dla typu zestawu danych.
 1. Wybierz pozycję **dalej** , aby otworzyć formularz **Magazyn danych i wybór pliku** . Na tym formularzu wybierz lokalizację, w której ma zostać zachowany zestaw danych, a także wybierz pliki danych, które mają być używane dla zestawu danych.
     1. Włącz weryfikację pomijania, jeśli dane są w sieci wirtualnej. Dowiedz się więcej o [izolacji i prywatności sieci wirtualnej](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. W przypadku tabelarycznych zestawów danych można określić cechę "szeregów czasowych", aby włączyć operacje związane z czasem na tym elemencie dataset. Dowiedz się [, jak dodać cechy szeregów czasowych do zestawu danych](how-to-monitor-datasets.md#studio-dataset).
 1. Wybierz pozycję **dalej** , aby wypełnić **Ustawienia, Podgląd** i formularze **schematów** ; są one inteligentnie wypełniane na podstawie typu pliku i można później skonfigurować zestaw danych przed utworzeniem w tych formularzach. 
 1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](#profile).
 1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
@@ -114,7 +115,7 @@ W każdym przypadku profil danych Azure Machine Learning DataSet obejmuje:
 
 |Statystyka|Opis
 |------|------
-|Cechy| Nazwa sumowanej kolumny.
+|Cecha| Nazwa sumowanej kolumny.
 |Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 |Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 |Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.

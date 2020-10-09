@@ -6,24 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609169"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842584"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
- W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
+W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
  
 > [!NOTE]
 > Komunikacja bezpłatna bez opłat
 >
 > Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
 >
-
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktura wysokiej dostępności
 
@@ -43,7 +42,7 @@ Ta infrastruktura składa się z wielu usług i składników oprogramowania, z k
 
 ![Infrastruktura wysokiej dostępności](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-Istnieją również inne usługi o wysokiej dostępności, które są obsługiwane przez składniki Apache niezawodności programu "open source". Te składniki są również obecne w klastrach usługi HDInsight:
+Istnieją również inne usługi wysokiej dostępności, które są obsługiwane przez składniki Apache niezawodności Open Source. Te składniki są również obecne w klastrach usługi HDInsight:
 
 - System plików Hadoop (HDFS) NameNode
 - Datasourcemanager
@@ -57,7 +56,7 @@ Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższ
 
 | Usługa | Węzły klastra | Typy klastrów | Przeznaczenie |
 |---|---|---|---|
-| Serwer Apache Ambari| Aktywne węzła głównego | Wszystko | Monitoruje klaster i zarządza nim.|
+| Serwer Apache Ambari| Aktywne węzła głównego | Wszystkie | Monitoruje klaster i zarządza nim.|
 | Serwer Oś czasu aplikacji dla PRZĘDZy Apache | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje informacje debugowania dotyczące zadań PRZĘDZy uruchomionych w klastrze.|
 | Serwer historii zadań dla usługi Hadoop MapReduce | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje dane debugowania dla zadań MapReduce.|
 | Apache Livy | Aktywne węzła głównego | platforma Spark | Umożliwia łatwą interakcję z klastrem Spark za pośrednictwem interfejsu REST |
@@ -100,7 +99,7 @@ Master-ha-Service jest uruchamiany tylko na aktywnych węzła głównegoach, a u
 
 ![proces trybu failover](./media/hdinsight-high-availability-components/failover-steps.png)
 
-Monitor kondycji jest uruchamiany na każdym węzła głównego wraz z głównym kontrolerem trybu failover w celu wysyłania powiadomień hearbeat do kworum dozorcy. Węzła głównego jest uznawana za usługę HA w tym scenariuszu. Monitor kondycji sprawdza, czy każda usługa wysokiej dostępności jest w dobrej kondycji i czy jest gotowa do przyłączenia do wyboru lidera. Jeśli tak, ten węzła głównego będzie konkurować w wyborze. Jeśli nie, zostanie zamknięty wybór, dopóki nie zostanie ponownie przygotowana.
+Monitor kondycji jest uruchamiany na każdym węzła głównego wraz z głównym kontrolerem trybu failover w celu wysyłania powiadomień pulsu do dozorcy kworum. Węzła głównego jest uznawana za usługę HA w tym scenariuszu. Monitor kondycji sprawdza, czy każda usługa wysokiej dostępności jest w dobrej kondycji i czy jest gotowa do przyłączenia do wyboru lidera. Jeśli tak, ten węzła głównego będzie konkurować w wyborze. Jeśli nie, zostanie zamknięty wybór, dopóki nie zostanie ponownie przygotowana.
 
 Jeśli stan gotowości węzła głównego kiedykolwiek osiągnie lidera i stanie się aktywny (na przykład w przypadku awarii w poprzednim aktywnym węźle), jego główny kontroler trybu failover rozpocznie uruchamianie wszystkich usług HDInsight HA na tym komputerze. Główny kontroler trybu failover również zatrzymuje te usługi na innych węzła głównego.
 
