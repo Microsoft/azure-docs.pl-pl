@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76263765"
 ---
 # <a name="notification-hubs-security"></a>Zabezpieczenia Notification Hubs
@@ -64,11 +64,11 @@ Użyj zasad dostępu na poziomie przestrzeni nazw (poświadczeń) dla operacji n
 
 Aby utworzyć nowe zabezpieczenia lub wyświetlić istniejące klucze SAS, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Wybierz pozycję **Wszystkie zasoby**.
 3. Wybierz nazwę centrum powiadomień, dla którego chcesz utworzyć lub wyświetlić klucz sygnatury dostępu współdzielonego.
 4. W menu po lewej stronie wybierz pozycję **zasady dostępu**.
-5. Wybierz pozycję **nowe zasady** , aby utworzyć nowe zabezpieczenia. Nadaj zasadom nazwę i wybierz uprawnienia, które chcesz udzielić. Następnie wybierz pozycję **OK**.
+5. Wybierz pozycję **nowe zasady** , aby utworzyć nowe zabezpieczenia. Nadaj zasadom nazwę i wybierz uprawnienia, które chcesz udzielić. Następnie wybierz przycisk **OK**.
 6. Pełne parametry połączenia (łącznie z nowym kluczem SAS) są wyświetlane w oknie zasady dostępu. Możesz skopiować ten ciąg do Schowka w celu późniejszego użycia.
 
 Aby wyodrębnić klucz sygnatury dostępu współdzielonego z określonych zasad, wybierz przycisk **Kopiuj** obok zasad zawierających odpowiedni klucz SAS. Wklej tę wartość do tymczasowej lokalizacji, a następnie skopiuj część klucza sygnatury dostępu współdzielonego parametrów połączenia. W tym przykładzie używa Notification Hubs przestrzeni nazw o nazwie **mytestnamespace1**i zasad o nazwie **policy2**. Klucz sygnatury dostępu współdzielonego to wartość znajdująca się blisko końca ciągu, określona przez **SharedAccessKey**:

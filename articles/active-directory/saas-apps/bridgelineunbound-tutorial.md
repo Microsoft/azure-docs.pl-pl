@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.openlocfilehash: 1d17c2d1a9ca41965bff7f7f72e2e753374a0fe2
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Samouczek: integracja Azure Active Directory z niezwiązanym bridgeline
@@ -156,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

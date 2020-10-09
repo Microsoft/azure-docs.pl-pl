@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73666979"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
@@ -87,7 +87,7 @@ Wycinki zestawu danych w fabryce danych mogą mieć jeden z następujących stan
 
 <table>
 <tr>
-    <th align="left">Stan</th><th align="left">Podstanu</th><th align="left">Opis</th>
+    <th align="left">State</th><th align="left">Podstanu</th><th align="left">Opis</th>
 </tr>
 <tr>
     <td rowspan="8">Oczekiwanie</td><td>ScheduleTime</td><td>Czas, który nie jest przeznaczony dla wycinka do uruchomienia.</td>
@@ -105,7 +105,7 @@ Wycinki zestawu danych w fabryce danych mogą mieć jeden z następujących stan
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać wycinków do momentu wznowienia działania.</td>
 </tr>
 <tr>
-<td>Ponów próbę</td><td>Trwa ponawianie wykonywania działania.</td>
+<td>Ponawianie próby</td><td>Trwa ponawianie wykonywania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Sprawdzanie poprawności nie zostało jeszcze rozpoczęte.</td>
@@ -178,7 +178,7 @@ Potoki można wstrzymywać/wstrzymywanie przy użyciu polecenia cmdlet **Suspend
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Przykład:
+Na przykład:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ Po rozwiązaniu problemu z potokiem można wznowić wstrzymany potok, uruchamiaj
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Przykład:
+Na przykład:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +222,7 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Przykład:
+   Na przykład:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +236,7 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Przykład:
+    Na przykład:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72949510"
 ---
-# <a name="supported-browsers-for-azure-iot-central"></a>Obsługiwane przeglądarki dla usługi Azure IoT Central
+# <a name="supported-browsers-for-azure-iot-central"></a>Obsługiwane przeglądarki w usłudze Azure IoT Central
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 

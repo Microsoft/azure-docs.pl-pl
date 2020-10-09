@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75976623"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Tworzenie Centrum IoT Hub przy użyciu szablonu Azure Resource Manager (PowerShell)
@@ -21,15 +21,15 @@ ms.locfileid: "75976623"
 
 Dowiedz się, jak utworzyć IoT Hub i grupę odbiorców przy użyciu szablonu Azure Resource Manager. Szablony usługi Resource Manager są plikami JSON definiującymi zasoby, które należy wdrożyć dla danego rozwiązania. Aby uzyskać więcej informacji na temat opracowywania szablonów Menedżer zasobów, zobacz [dokumentację usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Szablon Menedżer zasobów używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Oto kopia szablonu:
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-Szablon tworzy usługę Azure IoT Hub z trzema punktami końcowymi (eventhub, Cloud-to-Device i Messaging) oraz z grupą konsumentów. Aby uzyskać więcej przykładów dotyczących szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Schemat szablonu w usłudze IoT Hub można znaleźć [tutaj](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+Szablon tworzy usługę Azure IoT Hub z trzema punktami końcowymi (eventhub, Cloud-to-Device i Messaging) oraz z grupą konsumentów. Aby uzyskać więcej przykładów dotyczących szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Schemat szablonu w usłudze IoT Hub można znaleźć  [tutaj](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
 Istnieje kilka metod wdrażania szablonu.  Używasz Azure PowerShell w tym samouczku.
 

@@ -1,5 +1,5 @@
 ---
-title: Dostosuj przycisk czytnika immersyjny
+title: Dostosowywanie przycisku czytnika immersyjnego
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano sposób dostosowywania przycisku uruchamiającego czytnik immersyjny.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75946211"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Jak dostosować przycisk czytnika immersyjny
@@ -23,7 +23,7 @@ W tym artykule pokazano, jak dostosować przycisk, który uruchamia czytnik imme
 
 ## <a name="add-the-immersive-reader-button"></a>Dodaj przycisk czytnika immersyjny
 
-Zestaw SDK czytnika immersyjny zawiera domyślne style dla przycisku uruchamiającego czytnik immersyjny. Użyj atrybutu `immersive-reader-button` Class, aby włączyć ten styl.
+Zestaw SDK czytnika immersyjny zawiera domyślne style dla przycisku uruchamiającego czytnik immersyjny. Użyj `immersive-reader-button` atrybutu Class, aby włączyć ten styl.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -31,7 +31,7 @@ Zestaw SDK czytnika immersyjny zawiera domyślne style dla przycisku uruchamiaj�
 
 ## <a name="customize-the-button-style"></a>Dostosuj styl przycisku
 
-Użyj atrybutu `data-button-style` , aby ustawić styl przycisku. Dozwolone wartości to `icon`, `text`, i. `iconAndText` Wartością domyślną jest `icon`.
+Użyj `data-button-style` atrybutu, aby ustawić styl przycisku. Dozwolone wartości to `icon` , `text` , i `iconAndText` . Wartość domyślna to `icon`.
 
 ### <a name="icon-button"></a>Przycisk ikony
 

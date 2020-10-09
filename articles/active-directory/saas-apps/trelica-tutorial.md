@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: dcc304febe6fcebe3aba3047d1773e695b80f9e2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551944"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Trelica
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-   ![Strona Konfigurowanie logowania jednokrotnego za pomocą języka SAML z ikoną ołówka dla podstawowej konfiguracji języka SAML wyróżniona](common/edit-urls.png)
+   ![Strona Konfigurowanie pojedynczego Sign-On ze stroną SAML z ikoną ołówka dla podstawowej konfiguracji języka SAML została wyróżniona](common/edit-urls.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wprowadź następujące wartości:
 
@@ -102,9 +102,9 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 1. W górnej części ekranu wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wpisz **B. Simon**.
-   1. W polu **Nazwa użytkownika** wpisz **B. Simon@**_formacie_**.** _rozszerzenie_. Na przykład B.Simon@contoso.com.
+   1. W polu **Nazwa użytkownika** wprowadź **B.Simon@**_formacie_**.** _rozszerzenie_. Na przykład B.Simon@contoso.com.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -144,7 +144,7 @@ Po wybraniu kafelka Trelica w portalu My Apps użytkownik zostanie automatycznie
 
 - [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

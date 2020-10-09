@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925655"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759908"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Jeśli podczas odblokowywania dysków wystąpią jakiekolwiek problemy, zobacz j
     
 8. Po odblokowaniu dysku możesz przejść do punktu instalacji i wyświetlić zawartość dysku. Możesz teraz przystąpić do kopiowania danych do folderów *BlockBlob* lub *PageBlob*. 
 
-    ![Zawartość urządzenia Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Zawartość urządzenia Data Box Disk 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 Jeśli podczas odblokowywania dysków wystąpią jakiekolwiek problemy, zobacz jak [rozwiązywać problemy z odblokowywaniem](data-box-disk-troubleshoot-unlock.md). 

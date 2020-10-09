@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73682203"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Wybieranie odpowiedniego rozmiaru maszyny wirtualnej dla klastra usługi Azure HDInsight
@@ -41,9 +41,9 @@ Rodziny maszyn wirtualnych na platformie Azure są zoptymalizowane pod kątem zg
 | Typ                     | Rozmiary           |    Opis       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Poziom wejścia](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Mają wydajność procesora CPU i konfiguracje pamięci, które najlepiej pasują do obciążeń poziomu wejścia, takich jak programowanie i testowanie. Są one ekonomiczne i zapewniają tanią opcję rozpoczęcia pracy z platformą Azure. |
-| [Zastosowania ogólne](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Zrównoważony współczynnik procesora CPU do pamięci. Idealne rozwiązanie na potrzeby testowania i wdrażania, małych i średnich baz danych oraz serwerów internetowych o małym lub średnim ruchu. |
-| [Optymalizacja pod kątem obliczeń](../virtual-machines/linux/sizes-compute.md)        | F           | Wysoki współczynnik procesora CPU do pamięci. Dobre dla serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji.        |
-| [Optymalizacja pod kątem pamięci](../virtual-machines/linux/sizes-memory.md)         | Esv3, EV3  | Duże proporcje pamięci i procesora CPU. Opcja bardzo dobra w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
+| [Ogólnego przeznaczenia](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Zrównoważony współczynnik mocy procesora CPU w stosunku do pamięci. Idealne rozwiązanie na potrzeby testowania i wdrażania, małych i średnich baz danych oraz serwerów internetowych o małym lub średnim ruchu. |
+| [Optymalizacja pod kątem obliczeń](../virtual-machines/linux/sizes-compute.md)        | F           | Duży współczynnik mocy procesora CPU w stosunku do pamięci. Dobre dla serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji.        |
+| [Optymalizacja pod kątem pamięci](../virtual-machines/linux/sizes-memory.md)         | Esv3, EV3  | Duży współczynnik pamięci w stosunku do mocy procesora CPU. Opcja bardzo dobra w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
 
 - Aby uzyskać informacje o cenach dostępnych wystąpień maszyn wirtualnych w regionach obsługiwanych przez usługi HDInsight, zobacz [Cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -55,10 +55,10 @@ W poniższej tabeli opisano typy klastrów i typy węzłów, które można tworz
 
 | Typ klastra | Wersja | Węzeł procesu roboczego | Węzeł główny | Węzeł dozorcy |
 |---|---|---|---|---|
-| platforma Spark | Wszystko | F4 i nowsze | nie | nie |
-| Hadoop | Wszystko | F4 i nowsze | nie | nie |
-| Kafka | Wszystko | F4 i nowsze | nie | nie |
-| HBase | Wszystko | F4 i nowsze | nie | nie |
+| platforma Spark | Wszystkie | F4 i nowsze | nie | nie |
+| Hadoop | Wszystkie | F4 i nowsze | nie | nie |
+| Kafka | Wszystkie | F4 i nowsze | nie | nie |
+| HBase | Wszystkie | F4 i nowsze | nie | nie |
 | LLAP | wyłączone | nie | nie | nie |
 | Storm | wyłączone | nie | nie | nie |
 | Usługa ML | TYLKO HDI 3,6 | F4 i nowsze | nie | nie |
@@ -74,4 +74,4 @@ Aby uzyskać więcej informacji na temat tworzenia wzorców dla jednostek SKU ma
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfiguracje węzłów obsługiwane przez usługę Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md) (Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure)

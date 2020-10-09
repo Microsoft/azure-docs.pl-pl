@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895230"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Rozwiązywanie problemów z technologią Apache Hive za pomocą usługi Azure HDInsight)
@@ -41,7 +41,7 @@ Zapoznaj się z najważniejszymi pytaniami i ich rozwiązaniami podczas pracy z 
 
 Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są takie same jak ścieżki danych w starym klastrze. Jeśli ścieżki danych są różne, można ręcznie edytować wygenerowany `alltables.sql` plik w celu odzwierciedlenia zmian.
 
-### <a name="additional-reading"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a>Materiały uzupełniające
 
 - [Nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +69,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a>Materiały uzupełniające
 
 - [Nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +95,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a>Materiały uzupełniające
 
 - [Właściwości konfiguracji programu Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
@@ -132,7 +132,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
     - **TaskConcurrencyAnalyzer**: Wydrukuj szczegóły współbieżności zadania w Dag
     - **VertexLevelCriticalPathAnalyzer**: Znajdź ścieżkę krytyczną na poziomie wierzchołka w Dag
 
-### <a name="additional-reading"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a>Materiały uzupełniające
 
 - [Nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -142,7 +142,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
 
 Istnieją dwa sposoby zbierania danych tez DAG:
 
-- W wierszu polecenia:
+- Za pomocą wiersza polecenia:
 
     Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. W wierszu polecenia wpisz następujące polecenie:
 
@@ -157,7 +157,7 @@ Istnieją dwa sposoby zbierania danych tez DAG:
   3. Wybierz DAG, które chcesz wyświetlić.
   4. Wybierz pozycję **Pobierz dane**.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>Dodatkowy odczyt
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Materiały uzupełniające
 
 [Nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 

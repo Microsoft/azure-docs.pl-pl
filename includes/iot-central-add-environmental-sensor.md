@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,10 +9,10 @@ ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002050"
 ---
 ## <a name="create-a-device-template"></a>Tworzenie szablonu urządzenia
@@ -34,8 +34,8 @@ Model możliwości urządzenia obejmuje dwa interfejsy: standardowy interfejs **
 | Właściwość | Stan urządzenia     | Stan urządzenia. Dostępne są dwa stany online/offline. |
 | Właściwość (zapisywalny) | Nazwa klienta    | Nazwa klienta, na którym aktualnie działa urządzenie. |
 | Właściwość (zapisywalny) | Poziom jasności | Poziom jasności światła na urządzeniu. Może być określona jako 1 (wysoka), 2 (średnia), 3 (niska). |
-| Telemetry | Temperatura | Bieżąca temperatura wykryta przez urządzenie. |
-| Telemetry | Wilgotność    | Bieżąca wilgotność wykryta przez urządzenie. |
+| Telemetria | Temperatura | Bieżąca temperatura wykryta przez urządzenie. |
+| Telemetria | Wilgotność    | Bieżąca wilgotność wykryta przez urządzenie. |
 | Polecenie | wskaźnika          | Rozpocznij miganie diody LED na urządzeniu dla danego interwału czasu. |
 | Polecenie | wlacza         | Włącz diodę LED na urządzeniu. |
 | Polecenie | Wyłączanie        | Wyłącz diodę LED na urządzeniu. |

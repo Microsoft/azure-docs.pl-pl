@@ -110,18 +110,26 @@
   items:
     - name: Przypisywanie użytkowników i zarządzanie dostępem do aplikacji
       items:
-        - name: Konfigurowanie zgody użytkownika
-          href: configure-user-consent.md
-        - name: Ocenianie żądań zgody i zarządzanie nimi
-          href: manage-consent-requests.md
-        - name: Udzielanie zgody administratora całej dzierżawy
-          href: grant-admin-consent.md
-        - name: Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
-          href: configure-admin-consent-workflow.md
+        - name: Zgoda i uprawnienia
+          items:
+            - name: Konfigurowanie zgody użytkownika
+              href: configure-user-consent.md
+            - name: Konfigurowanie zgody właściciela grupy
+              href: configure-user-consent-groups.md
+            - name: Konfigurowanie klasyfikacji uprawnień
+              href: configure-permission-classifications.md
+            - name: Zarządzanie zasadami wyrażania zgody aplikacji
+              href: manage-app-consent-policies.md
+            - name: Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
+              href: configure-admin-consent-workflow.md
+            - name: Ocenianie żądań zgody i zarządzanie nimi
+              href: manage-consent-requests.md
+            - name: Udzielanie zgody administratora całej dzierżawy
+              href: grant-admin-consent.md
+            - name: Przeglądanie uprawnień przyznanych aplikacjom
+              href: manage-application-permissions.md
         - name: Zarządzanie przypisaniem użytkowników do aplikacji
           href: assign-user-or-group-access-portal.md
-        - name: Przeglądanie uprawnień przyznanych aplikacjom
-          href: manage-application-permissions.md
         - name: Tworzenie kolekcji w Moich aplikacjach
           href: access-panel-collections.md
         - name: Używanie dostępu do aplikacji samoobsługowej

@@ -8,10 +8,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75666673"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Komunikaty programu Exchange EDI jako partie lub grupy między partnerami handlowymi w Azure Logic Apps
@@ -70,7 +70,7 @@ W przypadku tego odbiorcy usługi Batch należy określić tryb wsadowy, nazwę,
    | **Nazwa partii** | TestBatch | Dostępne tylko z **wbudowanym** trybem wsadowym | 
    | **Kryteria wydania** | Na podstawie liczby komunikatów na podstawie harmonogramu | Dostępne tylko z **wbudowanym** trybem wsadowym | 
    | **Liczba komunikatów** | 10 | Dostępne tylko w przypadku kryteriów wydania **opartych na liczbie komunikatów** | 
-   | **Dat** | 10 | Dostępne tylko w przypadku kryteriów wydania **opartych na harmonogramie** | 
+   | **Interwał** | 10 | Dostępne tylko w przypadku kryteriów wydania **opartych na harmonogramie** | 
    | **Częstotliwość** | minuta | Dostępne tylko w przypadku kryteriów wydania **opartych na harmonogramie** | 
    ||| 
 

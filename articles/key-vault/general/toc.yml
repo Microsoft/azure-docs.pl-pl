@@ -106,6 +106,8 @@
       items:
         - name: Przewodnik dewelopera usługi Azure Key Vault
           href: developers-guide.md
+        - name: Używanie usługi Azure Resource Manager do wdrożenia usługi Key Vault
+          href: vault-create-template.md
         - name: Zapisywanie wpisów tajnych aplikacji internetowych
           href: vs-secure-secret-appsettings.md
         - name: Uwierzytelnianie między usługami za pomocą platformy .NET

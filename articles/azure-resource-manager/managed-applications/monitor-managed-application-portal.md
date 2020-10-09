@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651750"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorowanie wdrożonego wystąpienia aplikacji zarządzanej
@@ -22,7 +22,7 @@ Po wdrożeniu aplikacji zarządzanej w ramach subskrypcji platformy Azure warto 
 
    ![Wybierz aplikację zarządzaną](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. Wybierz **Resource Health**.
+1. Wybierz pozycję **Kondycja zasobów**.
 
    ![Wybierz kondycję zasobu](./media/monitor-managed-application-portal/select-resource-health.png)
 

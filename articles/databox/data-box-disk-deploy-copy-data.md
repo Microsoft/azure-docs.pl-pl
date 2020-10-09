@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d33f53ef3d6ea0ef6a3040a82ec17b3089075949
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927117"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766843"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,7 @@ Przed skopiowaniem danych na dyski należy zapoznać się z następującymi kwes
 
 Aby podłączyć urządzenia Data Box Disk do komputera i skopiować na nie dane, wykonaj poniższe czynności.
 
-1. Wyświetl zawartość odblokowanego dysku. Lista wstępnie utworzonych folderów i podfolderów na dysku jest różna w zależności od opcji wybranych podczas zamawiania urządzenia Data Box Disk.
+1. Wyświetl zawartość odblokowanego dysku. Lista wstępnie utworzonych folderów i podfolderów na dysku jest różna w zależności od opcji wybranych podczas zamawiania urządzenia Data Box Disk. Jeśli wstępnie utworzony folder nie istnieje, nie twórz go, ponieważ przekazanie na platformę Azure folderu utworzonego przez użytkownika zakończy się niepowodzeniem.
 
     |Wybrane miejsce docelowe magazynu  |Typ konta magazynu|Typ przejściowego konta magazynu |Foldery i podfoldery  |
     |---------|---------|---------|------------------|
@@ -212,15 +212,15 @@ Ta opcjonalna procedura może być używana w przypadku korzystania z wielu dysk
 3. Określ źródło danych do skopiowania. Na przykład w tym przypadku:
     - Zidentyfikowano następujące dane blokowego obiektu blob.
 
-         ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Dzielenie skopiowanych danych 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Zidentyfikowano następujące dane stronicowego obiektu blob.
 
-         ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Dzielenie skopiowanych danych 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Przejdź do folderu, w którym wyodrębniono oprogramowanie. Znajdź plik `SampleConfig.json` w tym folderze. Jest to plik tylko do odczytu, który można modyfikować i zapisywać.
 
-   ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Dzielenie skopiowanych danych 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Zmodyfikuj plik `SampleConfig.json`.
  
@@ -229,11 +229,11 @@ Ta opcjonalna procedura może być używana w przypadku korzystania z wielu dysk
    - Wprowadź litery dysku odpowiadające dyskom docelowym. Dane zostaną pobrane ze ścieżki źródłowej i skopiowane na wiele dysków.
    - Podaj ścieżkę dla plików dziennika. Domyślnie są one wysyłane do bieżącego katalogu, w którym znajduje się plik `.exe`.
 
-     ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Dzielenie skopiowanych danych 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Aby zweryfikować format pliku, przejdź do narzędzia `JSONlint`. Zapisz plik jako `ConfigFile.json`. 
 
-     ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Dzielenie skopiowanych danych 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Otwórz okno wiersza polecenia. 
 
@@ -241,24 +241,24 @@ Ta opcjonalna procedura może być używana w przypadku korzystania z wielu dysk
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Dzielenie skopiowanych danych 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Naciśnij klawisz Enter, aby kontynuować wykonywanie skryptu.
 
-    ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Dzielenie skopiowanych danych 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. W czasie dzielenia i kopiowania zestawu danych zostanie wyświetlone podsumowanie sesji kopiowania przekazane przez narzędzie do dzielenia skopiowanych dysków. Poniżej pokazano przykładowe dane wyjściowe.
 
-    ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Dzielenie skopiowanych danych 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Upewnij się, że dane zostały rozdzielone między dyski docelowe. 
  
-    ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Dzielenie skopiowanych danych 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Dzielenie skopiowanych danych 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Jeśli sprawdzisz zawartość dysku `n:`, zobaczysz, że dwa tworzone podfoldery odpowiadają formatowi danych blokowego obiektu blob i stronicowego obiektu blob.
     
-     ![Dzielenie skopiowanych danych](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Dzielenie skopiowanych danych 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Jeśli sesja kopiowania zakończy się niepowodzeniem, użyj następującego polecenia, aby odzyskać dane i wznowić operację:
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415304"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w Azure Data Factory
@@ -41,10 +41,10 @@ Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy 
 
 | **Właściwość**  | **Opis** | **Dozwolone wartości** | **Wymagane** |
 | --- | --- | --- | --- |
-| name  | Nazwa działania w potoku  | String | tak |
-| typ  | Typ działania to "AzureFunctionActivity" | String | tak |
+| name  | Nazwa działania w potoku  | Ciąg | tak |
+| typ  | Typ działania to "AzureFunctionActivity" | Ciąg | tak |
 | połączona usługa | Połączona usługa funkcji platformy Azure dla odpowiednich aplikacja funkcji platformy Azure  | Odwołanie do połączonej usługi | tak |
-| Nazwa funkcji  | Nazwa funkcji w aplikacja funkcji platformy Azure, którą wywołuje to działanie | String | tak |
+| Nazwa funkcji  | Nazwa funkcji w aplikacja funkcji platformy Azure, którą wywołuje to działanie | Ciąg | tak |
 | method  | Metoda interfejsu API REST dla wywołania funkcji | Obsługiwane typy ciągów: "GET", "POST", "PUT"   | tak |
 | header  | Nagłówki wysyłane do żądania. Na przykład, aby ustawić język i typ dla żądania: "heads": {"Accept-Language": "en-us", "Content-Type": "Application/JSON"} | Ciąg (lub wyrażenie z typem ResultType ciągu) | Nie |
 | body  | treść, która jest wysyłana wraz z żądaniem do metody interfejsu API funkcji  | Ciąg (lub wyrażenie z typem ResultType String) lub Object.   | Wymagane dla metod PUT/POST |
@@ -54,7 +54,7 @@ Zobacz schemat ładunku żądania w sekcji [schematu ładunku żądania](contro
 
 ## <a name="routing-and-queries"></a>Routing i zapytania
 
-Działanie funkcji platformy Azure obsługuje **Routing**. Jeśli na przykład funkcja platformy Azure ma punkt końcowy `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , `functionName` do użycia w działaniu funkcji platformy Azure znajduje się wartość `<functionName>/<value>` . Tę funkcję można Sparametryzuj, aby zapewnić odpowiednie `functionName` środowisko uruchomieniowe.
+Działanie funkcji platformy Azure obsługuje **Routing**. Jeśli na przykład funkcja platformy Azure ma punkt końcowy  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>` , `functionName` do użycia w działaniu funkcji platformy Azure znajduje się wartość `<functionName>/<value>` . Tę funkcję można Sparametryzuj, aby zapewnić odpowiednie `functionName` środowisko uruchomieniowe.
 
 Działanie funkcji platformy Azure obsługuje również **zapytania**. Zapytanie musi zostać dołączone jako część elementu `functionName` . Na przykład, gdy nazwa funkcji jest `HttpTriggerCSharp` i zapytanie, które chcesz dołączyć `name=hello` , można utworzyć `functionName` w działaniu funkcji platformy Azure jako `HttpTriggerCSharp?name=hello` . Ta funkcja może być sparametryzowana, aby można było określić wartość w czasie wykonywania.
 

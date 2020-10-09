@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81413672"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Spłaszcz transformację w strumieniu danych mapowania
@@ -66,7 +66,7 @@ Zapoznaj się z poniższym obiektem JSON, aby zapoznać się z poniższymi przyk
 
 ### <a name="no-unroll-root-with-string-array"></a>Brak elementu głównego Unroll z tablicą ciągów
 
-| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Rzut |
 | --------- | ----------- | ---------- |
 | towary. klienci | Brak | name <br> Klient = towary. Klient |
 
@@ -84,7 +84,7 @@ Zapoznaj się z poniższym obiektem JSON, aby zapoznać się z poniższymi przyk
 
 ### <a name="no-unroll-root-with-complex-array"></a>Brak elementu głównego odwrócenia z tablicą złożoną
 
-| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Rzut |
 | --------- | ----------- | ---------- |
 | towary. Orders. wydana. orderItems | Brak | name <br> IDZamówienia = towary. Orders. IDZamówienia <br> itemName = towary. Orders. orderItems. itemName <br> itemQty = towary. Orders. orderItems. itemQty <br> Lokalizacja = Lokalizacja |
 
@@ -105,7 +105,7 @@ Zapoznaj się z poniższym obiektem JSON, aby zapoznać się z poniższymi przyk
 
 ### <a name="same-root-as-unroll-array"></a>Ten sam katalog główny jako odrzut macierzy
 
-| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Rzut |
 | --------- | ----------- | ---------- |
 | towary. zamówienia | towary. zamówienia | name <br> Items. Orders. <br> towary. klienci <br> location |
 
@@ -121,7 +121,7 @@ Zapoznaj się z poniższym obiektem JSON, aby zapoznać się z poniższymi przyk
 
 ### <a name="unroll-root-with-complex-array"></a>Odwrócenie elementu głównego za pomocą złożonej tablicy
 
-| Odwrócenie według | Odwrócenie elementu głównego | Projekcja |
+| Odwrócenie według | Odwrócenie elementu głównego | Rzut |
 | --------- | ----------- | ---------- |
 | towary. Orders. wydana. orderItem | towary. zamówienia |name <br> IDZamówienia = towary. Orders. IDZamówienia <br> itemName = towary. Orders. orderItems. itemName <br> itemQty = towary. Orders. orderItems. itemQty <br> Lokalizacja = Lokalizacja |
 

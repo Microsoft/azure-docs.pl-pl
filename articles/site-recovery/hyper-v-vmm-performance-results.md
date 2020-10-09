@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73663174"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Wyniki testu dla replikacji funkcji Hyper-V do lokacji dodatkowej
@@ -150,7 +150,7 @@ Wyniki jasno pokazują, że Site Recovery, w połączeniu z funkcją Hyper-V Rep
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Serwer plików |50 |1 |2 |552 |22 |
-| Pulpit |149 |.5 |1 |80 |6 |
+| Infrastruktura VDI |149 |.5 |1 |80 |6 |
 | Serwer sieci Web |149 |.5 |1 |80 |6 |
 | SUMA |470 | | |96,83 TB |4108 |
 

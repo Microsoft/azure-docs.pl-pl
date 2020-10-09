@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053545"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766314"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **SMB**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
-    ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Uzyskiwanie poświadczeń udziałów SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Kliknij przycisk **OK**.
     
-    ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Uzyskiwanie nazwy użytkownika i hasła udziału](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*utsac1* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
 
@@ -97,11 +97,11 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK**, aby otworzyć Eksploratora plików.
     
-    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Teraz udziały powinny być widoczne jako foldery.
     
-    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Udziały widoczne w Eksploratorze plików](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Zawsze należy utworzyć w udziale folder na pliki, które chcesz skopiować, a następnie skopiować pliki do tego folderu**. Folder utworzony w ramach udziałów blokowych obiektów blob i stronicowych obiektów blob reprezentuje kontener, do którego dane są przekazywane w postaci obiektów blob. Plików nie można kopiować bezpośrednio do folderu *głównego* na koncie magazynu.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Po nawiązaniu połączenia z udziałami urządzenia Data Box następnym krokiem jest skopiowanie danych. Przed rozpoczęciem kopiowania danych należy uwzględnić następujące kwestie:
 
 * Upewnij się, że dane są kopiowane do udziałów odpowiadających właściwym formatom danych. To znaczy na przykład, że dane blokowych obiektów blob są kopiowane do udziału dla blokowych obiektów blob. Skopiuj wirtualne dyski twarde do stronicowego obiektu blob. Jeśli format danych nie pasuje do odpowiedniego typu udziału, na późniejszym etapie przekazywanie danych na platformę Azure zakończy się niepowodzeniem.
-* Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z ograniczeniami rozmiaru opisanymi w temacie [Limity usługi Azure Storage i urządzenia Data Box](data-box-limits.md).
+* Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z ograniczeniami rozmiaru opisanymi w temacie [Limity rozmiaru konta magazynu na platformie Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Jeśli dane przekazywane przy użyciu urządzenia Data Box będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
 * Zalecenia:
   * Nie używaj protokołów SMB i NFS w tym samym czasie.
@@ -225,15 +225,15 @@ Aby uzyskać więcej informacji na temat polecenia Robocopy, przejdź do artyku�
 
 Jeśli podczas kopiowania wystąpią błędy, zostanie wyświetlone powiadomienie.
 
-![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-1.png)
+![Powiadomienie o błędzie kopiowania na stronie Łączenie i kopiowanie](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Wybierz pozycję **Pobierz listę problemów**.
 
-![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-2.png)
+![Błędy pobierania i wyświetlania na stronie Łączenie i kopiowanie 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Otwórz listę, aby wyświetlić szczegóły błędu, a następnie wybierz adres URL rozwiązania, aby wyświetlić zalecane rozwiązanie.
 
-![Błędy pobierania i wyświetlania na stronie Połącz i skopiuj](media/data-box-deploy-copy-data/view-errors-3.png)
+![Błędy pobierania i wyświetlania na stronie Łączenie i kopiowanie 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Aby uzyskać więcej informacji, zobacz [Wyświetlanie dzienników błędów podczas kopiowania danych na urządzenie Data Box](data-box-logs.md#view-error-log-during-data-copy). Aby uzyskać szczegółową listę błędów występujących podczas kopiowania danych, zobacz [Rozwiązywanie problemów z urządzeniem Data Box](data-box-troubleshoot.md).
 

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408587"
 ---
 # <a name="security-control-data-recovery"></a>Kontrola zabezpieczeń: odzyskiwanie danych
@@ -32,7 +32,7 @@ Włącz Azure Backup i skonfiguruj Źródło kopii zapasowej (maszyny wirtualne 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9,2 | 10.2 | Klient |
+| 9,2 | 10,2 | Klient |
 
 Włącz Azure Backup i docelowe maszyny wirtualne, a także żądaną częstotliwość i okres przechowywania. Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
@@ -56,19 +56,19 @@ Pamiętaj, aby okresowo wykonywać przywracanie danych w Azure Backup. Testowani
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 9.4 | 10,4 | Klient |
+| 9,4 | 10,4 | Klient |
 
 W przypadku kopii zapasowych w środowisku lokalnym szyfrowanie danych w spoczynku odbywa się przy użyciu hasła podanego podczas tworzenia kopii zapasowej na platformie Azure. W przypadku maszyn wirtualnych platformy Azure dane są szyfrowane w spoczynku przy użyciu szyfrowania usługi Storage (SSE). Za pomocą kontroli dostępu opartej na rolach można chronić kopie zapasowe i klucze zarządzane przez klienta.  
 
-Włącz ochronę przed usuwaniem i przeczyszczaniem w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych, należy włączyć funkcję usuwania nietrwałego w celu zapisywania i odzyskiwania danych po usunięciu obiektów blob lub migawek obiektów BLOB. 
+Włącz ochronę Soft-Delete i przeczyszczania w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  Jeśli usługa Azure Storage jest używana do przechowywania kopii zapasowych, należy włączyć funkcję usuwania nietrwałego w celu zapisywania i odzyskiwania danych po usunięciu obiektów blob lub migawek obiektów BLOB. 
 
 - [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-- [Jak włączyć ochronę przed usuwaniem i Przeczyszczaniem w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć ochronę Soft-Delete i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz następną kontrolę zabezpieczeń: [odpowiedź na zdarzenie](security-control-incident-response.md)
+- Zobacz następną kontrolę zabezpieczeń:  [odpowiedź na zdarzenie](security-control-incident-response.md)

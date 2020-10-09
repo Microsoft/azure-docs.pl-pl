@@ -3,18 +3,18 @@ title: Dokumentacja poświęcona platformie tożsamości firmy Microsoft
 summary: Platforma tożsamości firmy Microsoft to usługa uwierzytelniania, biblioteki open-source i narzędzia do zarządzania aplikacjami. Dowiedz się, jak tworzyć nowoczesne, oparte na standardach rozwiązania do uwierzytelniania, korzystając z przewodników Szybki start, samouczków i przykładów kodu. Twórz aplikacje, do których użytkownicy i klienci logują się przy użyciu tożsamości firmy Microsoft lub kont społecznościowych, a także autoryzuj dostęp do interfejsów API lub interfejsów API firmy Microsoft, takich jak Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/26/2020
+  ms.date: 10/07/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: d80d722594e717319bda473e2cb86551acc8d9f0
-  ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+  ms.openlocfilehash: b6dfd02b11c972ae4877e45e7424d3e35f0d0874
+  ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/28/2020
-  ms.locfileid: "91403147"
+  ms.lasthandoff: 10/07/2020
+  ms.locfileid: "91801889"
 landingContent:
 - title: Informacje o platformie tożsamości firmy Microsoft
   linkLists:
@@ -120,6 +120,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Przegląd biblioteki Microsoft Identity Web
+      url: microsoft-identity-web.md
     - text: 'Samouczek: Blazor Server'
       url: tutorial-blazor-server.md
     - text: 'Szybki start: Ochrona internetowego interfejsu API platformy ASP.NET Core'

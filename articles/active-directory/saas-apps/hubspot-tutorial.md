@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Samouczek: integracja Azure Active Directory z usługą HubSpot
@@ -95,7 +95,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     ![Opcja Ustaw dodatkowe adresy URL](common/metadata-upload-additional-signon.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **certyfikat (base64)**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **certyfikat (base64)**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
 
     ![Opcja pobierania certyfikatu (base64)](common/certificatebase64.png)
 
@@ -154,7 +154,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     1. W HubSpot, w polu **Identyfikator dostawcy tożsamości lub adres URL wystawcy** , wklej wartość **identyfikatora usługi Azure AD** skopiowaną w Azure Portal.
 
-    1. W HubSpot, w polu **adres URL** logowania jednokrotnego dostawcy tożsamości, wklej wartość **adresu URL loginu** skopiowanego w Azure Portal.
+    1. W HubSpot, w polu **adres URL Single Sign-On dostawcy tożsamości** , wklej wartość **adresu URL logowania** skopiowanego w Azure Portal.
 
     1. W Notatniku systemu Windows Otwórz pobrany plik certyfikatu (base64). Wybierz i skopiuj zawartość pliku. Następnie w HubSpot wklej go w polu **certyfikat X. 509** .
 
@@ -182,7 +182,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     ![Okienko użytkownika](common/user-properties.png)
 
@@ -236,7 +236,7 @@ Aby zainicjować obsługę administracyjną konta użytkownika w programie HubSp
 
     ![Pole Dodaj adresy e-mail w sekcji Tworzenie użytkowników w HubSpot](./media/hubspot-tutorial/user3.png)
 
-1. W sekcji **Tworzenie użytkowników** wybierz każdą kartę. Na każdej karcie Ustaw odpowiednie opcje i uprawnienia dla użytkownika. Następnie wybierz przycisk **dalej**.
+1. W sekcji **Tworzenie użytkowników** wybierz każdą kartę. Na każdej karcie Ustaw odpowiednie opcje i uprawnienia dla użytkownika. Następnie wybierz pozycję **Dalej**.
 
     ![Karty w sekcji Tworzenie użytkowników w HubSpot](./media/hubspot-tutorial/user4.png)
 

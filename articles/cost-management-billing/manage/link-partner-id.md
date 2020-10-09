@@ -4,16 +4,16 @@ description: Śledź kontakty z klientami platformy Azure, łącząc identyfikat
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371834"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772723"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Łączenie identyfikatora partnera z kontami platformy Azure
 
@@ -43,7 +43,7 @@ Jeśli masz dostęp do zasobów klienta, użyj witryny Azure Portal, programu Po
 
 2. Zaloguj się do Portalu Azure.
 
-3. Wprowadź identyfikator partnera firmy Microsoft. Identyfikator partnera to identyfikator programu [Microsoft Partner Network](https://partner.microsoft.com/) dla organizacji.
+3. Wprowadź identyfikator partnera firmy Microsoft. Identyfikator partnera to identyfikator programu [Microsoft Partner Network](https://partner.microsoft.com/) dla organizacji. Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera.
 
    ![Zrzut ekranu przedstawiający sekcję Łączenie z identyfikatorem partnera](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Jeśli masz dostęp do zasobów klienta, użyj witryny Azure Portal, programu Po
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Połącz się z nowym identyfikatorem partnera. Identyfikator partnera to identyfikator programu [Microsoft Partner Network](https://partner.microsoft.com/) dla organizacji.
+3. Połącz się z nowym identyfikatorem partnera. Identyfikator partnera to identyfikator programu [Microsoft Partner Network](https://partner.microsoft.com/) dla organizacji. Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ Hiperlink jest skojarzony na poziomie konta użytkownika. Tylko Ty możesz edyto
 
 **Którego identyfikatora MPN należy użyć, jeśli moja firma ma ich wiele?**
 
-Do połączenia identyfikatora partnera należy użyć kont Partner Location Account i powiązanych identyfikatorów MPN.  Dowiedz się więcej na temat [kont partnerów](https://docs.microsoft.com/partner-center/account-structure).
+Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera.
 
 **Gdzie można znaleźć uwzględnione raportowanie przychodów dla połączonego identyfikatora partnera?**
 

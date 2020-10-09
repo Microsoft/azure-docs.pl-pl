@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76275167"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 Series Update 5 — informacje o wersji
@@ -44,9 +44,9 @@ W aktualizacji Update 5 wprowadzono następujące ulepszenia dotyczące kluczy i
 
 Poniższa tabela zawiera podsumowanie problemów, które zostały rozwiązane w aktualizacji Update 5.
 
-| Nie | Cecha | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie | Promowanie | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- |
-| 1 |Komunikacja zdalna programu Windows PowerShell |W poprzedniej wersji użytkownik Wystąpił błąd podczas próby nawiązania połączenia zdalnego z urządzeniem w chmurze StorSimple za pośrednictwem programu Windows PowerShell. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Nie |Yes |
+| 1 |Komunikacja zdalna programu Windows PowerShell |W poprzedniej wersji użytkownik Wystąpił błąd podczas próby nawiązania połączenia zdalnego z urządzeniem w chmurze StorSimple za pośrednictwem programu Windows PowerShell. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Nie |Tak |
 | 2 |Szablony przepustowości |W starszej wersji wystąpił problem z szablonami przepustowości, które spowodowały zmniejszenie przepustowości niż to, dla którego urządzenie zostało skonfigurowane. Ten problem został rozwiązany w tej wersji. |Tak |Tak |
 | 3 |Tryb failover |W poprzedniej wersji, gdy urządzenie z dużą liczbą woluminów zostało przełączone w tryb failover na inne urządzenie z aktualizacją Update 4, proces zakończy się niepowodzeniem podczas próby zastosowania rekordów kontroli dostępu. Ten problem został rozwiązany w tej wersji. |Tak |Tak |
 

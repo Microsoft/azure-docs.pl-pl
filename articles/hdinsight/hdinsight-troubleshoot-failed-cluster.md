@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895314"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących wolnego działania lub niepowodzenia zadania w klastrze usługi HDInsight
@@ -63,7 +63,7 @@ az hdinsight list --resource-group <ResourceGroup>
 az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Inną opcją jest użycie programu PowerShell. Aby uzyskać więcej informacji, zobacz [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight z Azure PowerShell](hdinsight-administer-use-powershell.md).
+Inną opcją jest użycie programu PowerShell. Aby uzyskać więcej informacji, zobacz  [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight z Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Krok 2. Weryfikowanie środowiska klastra usługi HDInsight
 
@@ -148,7 +148,7 @@ W poniższych sekcjach opisano niektóre możliwe przyczyny przekroczenia limitu
 
 ##### <a name="webhcat-level-timeout"></a>Limit czasu WebHCat poziomu
 
-Gdy WebHCat jest w obciążeniu, z więcej niż 10 otwartymi gniazdami, trwa już nawiązywanie nowych połączeń gniazda, co może spowodować przekroczenie limitu czasu. Aby wyświetlić listę połączeń sieciowych z i z WebHCat, użyj `netstat` na bieżącym aktywnym węzła głównego:
+Gdy WebHCat jest w obciążeniu, z więcej niż 10 otwartymi gniazdami, trwa już nawiązywanie nowych połączeń gniazda, co może spowodować przekroczenie limitu czasu. Aby wyświetlić listę połączeń sieciowych z i z WebHCat, użyj `netstat`  na bieżącym aktywnym węzła głównego:
 
 ```bash
 netstat | grep 30111
@@ -202,11 +202,11 @@ Aby zdiagnozować te problemy:
 
     Mogą wystąpić sytuacje, w których interakcje z usługą WebHCat są pomyślne, ale zadania kończą się niepowodzeniem.
 
-    Templeton zbiera dane wyjściowe konsoli zadań w `stderr` programie `statusdir` , co jest często przydatne do rozwiązywania problemów. `stderr`zawiera identyfikator aplikacji PRZĘDZy rzeczywistego zapytania.
+    Templeton zbiera dane wyjściowe konsoli zadań w `stderr` programie `statusdir` , co jest często przydatne do rozwiązywania problemów. `stderr` zawiera identyfikator aplikacji PRZĘDZy rzeczywistego zapytania.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Krok 4. przegląd stosu i wersji środowiska
 
-Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usług klastra i historii wersji usługi.  Niepoprawna wersja biblioteki usługi Hadoop może być przyczyną awarii klastra.  W interfejsie użytkownika Ambari wybierz menu **administrator** , a następnie kliknij **stosy i wersje**.  Wybierz kartę **wersje** na stronie, aby wyświetlić informacje o wersji usługi:
+Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są informacje na temat konfiguracji usług klastra i historii wersji usługi.  Niepoprawna wersja biblioteki usługi Hadoop może być przyczyną awarii klastra.  W interfejsie użytkownika Ambari wybierz menu **administrator** , a następnie kliknij  **stosy i wersje**.  Wybierz kartę **wersje** na stronie, aby wyświetlić informacje o wersji usługi:
 
 ![Stos i wersje oprogramowania Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 

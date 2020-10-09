@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Samouczek: integracja Azure Active Directory z usługą Agiloft
@@ -154,7 +154,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Agiloft, w
 
 3. Kliknij przycisk **Configure SAML 2.0 Single Sign-On (Skonfiguruj logowanie jednokrotne SAML 2.0)**.
 
-    ![Zrzut ekranu, który podświetla przycisk konfiguruje Logowanie jednokrotne w protokole SAML 2,0.](./media/agiloft-tutorial/setup2.png)
+    ![Zrzut ekranu, który podświetla przycisk konfiguruje pojedyncze Sign-On SAML 2,0.](./media/agiloft-tutorial/setup2.png)
 
 4. Pojawi się okno dialogowe kreatora. W oknie dialogowym kliknij pozycję **Identity Provider Details (Szczegóły dostawcy tożsamości)** i wypełnij następujące pola:  
 
@@ -193,7 +193,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

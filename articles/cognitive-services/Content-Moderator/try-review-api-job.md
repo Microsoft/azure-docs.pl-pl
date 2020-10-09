@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72935932"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definiowanie i używanie zadań moderowania (REST)
@@ -45,13 +45,13 @@ Wprowadź następujące wartości, aby skonstruować wywołanie REST:
 
 ### <a name="fill-in-the-request-body"></a>Wypełnij treść żądania
 
-Treść wywołania REST zawiera jedno pole, **ContentValue**. Wklej w nieprzetworzonej zawartości tekstowej w przypadku moderowania tekstu lub wprowadź obraz lub adres URL wideo w przypadku moderowania obrazu lub wideo. Możesz użyć następującego przykładowego adresu URL obrazu:[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Treść wywołania REST zawiera jedno pole, **ContentValue**. Wklej w nieprzetworzonej zawartości tekstowej w przypadku moderowania tekstu lub wprowadź obraz lub adres URL wideo w przypadku moderowania obrazu lub wideo. Możesz użyć następującego przykładowego adresu URL obrazu: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Zadanie — Tworzenie parametrów zapytania konsoli, nagłówków i pola treści żądania](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Prześlij żądanie
 
-Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK`, a w polu **zawartość odpowiedzi** zostanie wyświetlony Identyfikator zadania. Skopiuj ten identyfikator, aby użyć go w poniższych krokach.
+Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlony Identyfikator zadania. Skopiuj ten identyfikator, aby użyć go w poniższych krokach.
 
 ![Przegląd — Tworzenie pola zawartość odpowiedzi konsoli wyświetla identyfikator przeglądu](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Aby uzyskać informacje o stanie i szczegóły zadania uruchomionego lub ukończ
 
 ![Zadanie — pobieranie wybranego regionu](images/test-drive-region.png)
 
-Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **JobID** jest unikatowym ciągiem identyfikatora, który został otrzymany podczas tworzenia zadania. Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK`, a w polu **zawartość odpowiedzi** zostanie wyświetlone zadanie w formacie JSON, na przykład:
+Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **JobID** jest unikatowym ciągiem identyfikatora, który został otrzymany podczas tworzenia zadania. Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlone zadanie w formacie JSON, na przykład:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **
 
 ### <a name="examine-the-new-reviews"></a>Zbadaj nowe przeglądy
 
-Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj** > **Image**/**Text**/**wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego punktu końcowego wywołania zwrotnego.
+Jeśli zadanie zawartości spowodowało utworzenie przeglądu, możesz je wyświetlić w [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com). Wybierz pozycję **Przeglądaj**  >  **Image** / **Text** / **wideo** tekst obrazu (w zależności od użytej zawartości). Zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi. Gdy moderator ludzki przegląda wstępnie przypisane znaczniki i dane prognoz i przesyła ostateczną decyzję o moderowaniu, interfejs API zadań przesyła wszystkie te informacje do wyznaczonego punktu końcowego punktu końcowego wywołania zwrotnego.
 
 ## <a name="next-steps"></a>Następne kroki
 
