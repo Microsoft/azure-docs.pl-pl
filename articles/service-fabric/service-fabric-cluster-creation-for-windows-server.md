@@ -1,16 +1,14 @@
 ---
 title: Tworzenie autonomicznego klastra usługi Azure Service Fabric
 description: Utwórz klaster Service Fabric platformy Azure na dowolnym komputerze (fizycznym lub wirtualnym) z systemem Windows Server, niezależnie od tego, czy jest on lokalny, czy w dowolnej chmurze.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.author: dekapur
-ms.openlocfilehash: 6fa27008ea22e1a2bd9a83ce3888370cf2213935
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458080"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843196"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie klastra autonomicznego działającego w systemie Windows Server
 Za pomocą usługi Azure Service Fabric można tworzyć klastry Service Fabric na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku zawierającym zestaw połączonych komputerów z systemem Windows Server, być lokalnym lub dowolnym dostawcą chmury. Service Fabric udostępnia pakiet instalacyjny do tworzenia klastrów Service Fabric o nazwie autonomiczny pakiet systemu Windows Server. Tradycyjne Service Fabric klastrów na platformie Azure są dostępne jako usługa zarządzana, natomiast autonomiczne klastry Service Fabric są samoobsługowe. Aby uzyskać więcej informacji na temat różnic, zobacz [porównywanie klastrów na platformie Azure i autonomicznych Service Fabric](./service-fabric-deploy-anywhere.md).

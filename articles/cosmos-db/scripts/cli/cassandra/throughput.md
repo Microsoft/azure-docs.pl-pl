@@ -1,30 +1,30 @@
 ---
-title: Zaktualizuj RU/s dla Cassandra przestrzeni kluczy i tabeli dla Azure Cosmos DB
-description: Aktualizowanie RU/s dla Cassandra przestrzeni kluczy i tabeli dla Azure Cosmos DB
+title: Skrypty interfejsu wiersza polecenia platformy Azure dla operacji przepływności (RU/s) dla zasobów interfejs API Cassandra Azure Cosmos DB
+description: Skrypty interfejsu wiersza polecenia platformy Azure dla operacji przepływności (RU/s) dla zasobów interfejs API Cassandra Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: c0026202e8f110123a7360a5fda521947ed8e9ee
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.date: 10/07/2020
+ms.openlocfilehash: 09ea092afcfee6223330b1ad887d73ea2f78db59
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803657"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843043"
 ---
-# <a name="update-rus-for-a-cassandra-keyspace-and-table-using-azure-cli"></a>Aktualizowanie RU/s dla Cassandraej przestrzeni kluczy i tabeli przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operacje przepływności (RU/s) za pomocą interfejsu wiersza polecenia platformy Azure dla przestrzeni kluczy lub tabeli dla Azure Cosmos DB-interfejs API Cassandra
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Ten skrypt tworzy przestrzeń kluczy Cassandra z udostępnioną przepływność i tabelę Cassandra z dedykowaną przepływność, a następnie aktualizuje przepływność zarówno dla obszaru kluczy, jak i tabeli.
+Ten skrypt tworzy przestrzeń kluczy Cassandra z udostępnioną przepływność i tabelę Cassandra z dedykowaną przepływność, a następnie aktualizuje przepływność zarówno dla obszaru kluczy, jak i tabeli. Skrypt jest następnie migrowany z warstwy Standardowa do automatycznego skalowania, a następnie odczytuje wartość przepływności automatycznego skalowania po migracji.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/cassandra/throughput.sh "Update RU/s for Cassandra keyspace and table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/cassandra/throughput.sh "Throughput operations for Cassandra keyspace and table.")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
@@ -44,8 +44,10 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy konto usługi Azure Cosmos DB. |
 | [AZ cosmosdb Cassandra Create Space](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Tworzy przestrzeń kluczy Cassandra usługi Azure Cosmos. |
 | [AZ cosmosdb Cassandra Table Create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Tworzy tabelę usługi Azure Cosmos Cassandra. |
-| [AZ cosmosdb Cassandra — przepływność przestrzeni kluczy](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest&preserve-view=true#az-cosmosdb-cassandra-keyspace-throughput-update) | Zaktualizuj RU/s dla przestrzeni kluczy usługi Azure Cosmos Cassandra. |
+| [AZ cosmosdb Cassandra — przepływność przestrzeni kluczy](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az-cosmosdb-cassandra-keyspace-throughput-update) | Zaktualizuj RU/s dla przestrzeni kluczy usługi Azure Cosmos Cassandra. |
 | [AZ cosmosdb Cassandra — aktualizacja przepływności tabeli](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Aktualizowanie RU/s dla tabeli usługi Azure Cosmos Cassandra. |
+| [AZ cosmosdb Cassandra, przeprowadzenie migracji przepływności przestrzeni kluczy](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az_cosmosdb_cassandra_keyspace_throughput_migrate) | Migruj przepływność dla przestrzeni kluczy usługi Azure Cosmos Cassandra. |
+| [AZ cosmosdb Cassandra tabela przepływność migracji](/cli/azure/cosmosdb/cassandra/table/throughput#az_cosmosdb_cassandra_table_throughput_migrate) | Migrowanie przepływności tabeli usługi Azure Cosmos Cassandra. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki

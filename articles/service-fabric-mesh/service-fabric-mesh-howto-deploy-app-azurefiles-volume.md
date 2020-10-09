@@ -1,17 +1,17 @@
 ---
 title: Używanie woluminu opartego na Azure Files w aplikacji Service Fabric siatki
 description: Dowiedz się, jak przechowywać informacje o stanie w aplikacji sieci Service Fabricej na platformie Azure, instalując wolumin oparty na Azure Files w ramach usługi przy użyciu interfejsu wiersza polecenia platformy Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260098"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842791"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Zainstaluj wolumin oparty na Azure Files w aplikacji Service Fabric siatkę 
 
@@ -21,7 +21,7 @@ Aby zainstalować wolumin w usłudze, należy utworzyć zasób woluminu w aplika
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!NOTE]
-> **Znany problem dotyczący wdrażania na komputerze deweloperskim RS5 systemu Windows:** Istnieje otwarta usterka z poleceniem cmdlet programu PowerShell New-SmbGlobalMapping na maszynach z systemem Windows RS5, które uniemożliwiają zainstalowanie woluminów Azurefile. Poniżej znajduje się przykładowy błąd, który pojawia się, gdy wolumin oparty na AzureFile jest instalowany na lokalnym komputerze deweloperskim.
+> **Znany problem dotyczący wdrażania na komputerze deweloperskim RS5 systemu Windows:** Istnieje otwarta usterka z poleceniem cmdlet programu PowerShell New-SmbGlobalMapping na maszynach z systemem RS5 Windows, które uniemożliwiają zainstalowanie woluminów Azurefile. Poniżej znajduje się przykładowy błąd, który pojawia się, gdy wolumin oparty na AzureFile jest instalowany na lokalnym komputerze deweloperskim.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Te wartości można również znaleźć w [Azure Portal](https://portal.azure.com):
-* `<storageAccountName>`-W obszarze **konta magazynu**nazwa konta magazynu użytego do utworzenia udziału plików.
-* `<storageAccountKey>`-Wybierz konto magazynu w obszarze **konta magazynu** , a następnie wybierz pozycję **klucze dostępu** i użyj wartości w obszarze **Klucz1**.
-* `<fileShareName>`— Wybierz konto magazynu w obszarze **konta magazynu** , a następnie wybierz pozycję **pliki**. Nazwa do użycia to nazwa utworzonego udziału plików.
+* `<storageAccountName>` -W obszarze **konta magazynu**nazwa konta magazynu użytego do utworzenia udziału plików.
+* `<storageAccountKey>` -Wybierz konto magazynu w obszarze **konta magazynu** , a następnie wybierz pozycję **klucze dostępu** i użyj wartości w obszarze **Klucz1**.
+* `<fileShareName>` — Wybierz konto magazynu w obszarze  **konta magazynu** , a następnie wybierz pozycję **pliki**. Nazwa do użycia to nazwa utworzonego udziału plików.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarowanie zasobu woluminu i aktualizowanie zasobu usługi (JSON)
 
@@ -85,7 +85,7 @@ Dodaj parametry `<fileShareName>` , `<storageAccountName>` i `<storageAccountKey
 
 Utwórz zasób woluminu jako element równorzędny zasobu aplikacji. Określ nazwę i dostawcę ("SFAzureFile", aby użyć woluminu na podstawie Azure Files). W programie `azureFileParameters` Określ parametry `<fileShareName>` , `<storageAccountName>` i `<storageAccountKey>` wartości, które zostały znalezione w poprzednim kroku.
 
-Aby zainstalować wolumin w usłudze, należy dodać `volumeRefs` `codePackages` element do elementu usługi.  `name`jest IDENTYFIKATORem zasobu dla woluminu (lub parametrem szablonu wdrożenia dla zasobu woluminu) i nazwą woluminu zadeklarowanego w pliku zasobów woluminu. YAML.  `destinationPath`jest katalogiem lokalnym, do którego zostanie zainstalowany wolumin.
+Aby zainstalować wolumin w usłudze, należy dodać `volumeRefs` `codePackages` element do elementu usługi.  `name` jest IDENTYFIKATORem zasobu dla woluminu (lub parametrem szablonu wdrożenia dla zasobu woluminu) i nazwą woluminu zadeklarowanego w pliku zasobów woluminu. YAML.  `destinationPath` jest katalogiem lokalnym, do którego zostanie zainstalowany wolumin.
 
 ```json
 {
@@ -210,7 +210,7 @@ volume:
         accountKey: <storageAccountKey>
 ```
 
-Zaktualizuj plik *Service. YAML* w katalogu *zasobów usługi* , aby zainstalować wolumin w usłudze.  Dodaj `volumeRefs` element do `codePackages` elementu.  `name`jest IDENTYFIKATORem zasobu dla woluminu (lub parametrem szablonu wdrożenia dla zasobu woluminu) i nazwą woluminu zadeklarowanego w pliku zasobów woluminu. YAML.  `destinationPath`jest katalogiem lokalnym, do którego zostanie zainstalowany wolumin.
+Zaktualizuj plik *Service. YAML* w katalogu *zasobów usługi* , aby zainstalować wolumin w usłudze.  Dodaj `volumeRefs` element do `codePackages` elementu.  `name` jest IDENTYFIKATORem zasobu dla woluminu (lub parametrem szablonu wdrożenia dla zasobu woluminu) i nazwą woluminu zadeklarowanego w pliku zasobów woluminu. YAML.  `destinationPath` jest katalogiem lokalnym, do którego zostanie zainstalowany wolumin.
 
 ```yaml
 ## Service definition ##

@@ -1,16 +1,14 @@
 ---
 title: Konfigurowanie autonomicznego klastra platformy Azure Service Fabric
 description: Dowiedz się, jak skonfigurować autonomiczny lub lokalny klaster usługi Azure Service Fabric.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: dekapur
-ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246575"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843162"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Ustawienia konfiguracji dla autonomicznego klastra systemu Windows
 W tym artykule opisano ustawienia konfiguracji autonomicznego klastra Service Fabric platformy Azure, które można ustawić w *ClusterConfig.js* pliku. Ten plik będzie używany do określania informacji o węzłach klastra, konfiguracjach zabezpieczeń, a także topologii sieci pod względem błędów i domen uaktualniania.  Po zmianie lub dodaniu ustawień konfiguracji można [utworzyć autonomiczny klaster](service-fabric-cluster-creation-for-windows-server.md) lub [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).

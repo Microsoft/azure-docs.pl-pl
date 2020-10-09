@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975350"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842856"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Pojęcia dotyczące ponownego inicjowania obsługi administracyjnej urządzenia IoT Hub
 
@@ -32,7 +32,7 @@ Ponowne Inicjowanie obsługi administracyjnej w ramach usługi Device Provisioni
 
 Dane stanu urządzenia [składają się z urządzeń i urządzeń](../iot-hub/iot-hub-devguide-device-twins.md) . Te dane są przechowywane w wystąpieniu usługi Device Provisioning i centrum IoT, do którego urządzenie jest przypisane.
 
-![Inicjowanie obsługi administracyjnej przy użyciu usługi Device Provisioning](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagram pokazujący, jak obsługa administracyjna współpracuje z usługą Device Provisioning.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 Po wstępnym aprowizacji urządzenia za pomocą wystąpienia usługi Device Provisioning należy wykonać następujące czynności:
 
@@ -52,13 +52,13 @@ W zależności od scenariusza urządzenie zazwyczaj wysyła żądanie do wystąp
 
 * **Ponowne Inicjowanie obsługi administracyjnej i Migrowanie danych**: te zasady są domyślne dla nowych wpisów rejestracji. Te zasady podejmują akcję, gdy urządzenia skojarzone z wpisem rejestracji przesyłają nowe żądanie (1). W zależności od konfiguracji wpisu rejestracji urządzenie może zostać ponownie przypisane do innego Centrum IoT Hub. Jeśli urządzenie zmienia centra IoT, Rejestracja urządzenia z początkowym Centrum IoT Hub zostanie usunięta. Zaktualizowane informacje o stanie urządzenia z tego początkowej usługi IoT Hub zostaną zmigrowane do nowego centrum IoT Hub (2). Podczas migracji stan urządzenia będzie raportowany jako **przypisanie**.
 
-    ![Inicjowanie obsługi administracyjnej przy użyciu usługi Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagram pokazujący, że zasady podejmują akcję, gdy urządzenia skojarzone z wpisem rejestracji przesyłają nowe żądanie.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Ponownie Zainicjuj obsługę administracyjną i Zresetuj do konfiguracji początkowej**: te zasady podejmują akcję, gdy urządzenia skojarzone z wpisem rejestracji prześlą nowe żądanie aprowizacji (1). W zależności od konfiguracji wpisu rejestracji urządzenie może zostać ponownie przypisane do innego Centrum IoT Hub. Jeśli urządzenie zmienia centra IoT, Rejestracja urządzenia z początkowym Centrum IoT Hub zostanie usunięta. Początkowe dane konfiguracji, które otrzymały wystąpienie usługi aprowizacji po przyłączeniu urządzenia do nowego centrum IoT Hub (2). Podczas migracji stan urządzenia będzie raportowany jako **przypisanie**.
 
     Te zasady są często używane do resetowania do ustawień fabrycznych bez zmiany centrów IoT.
 
-    ![Inicjowanie obsługi administracyjnej przy użyciu usługi Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagram pokazujący, jak zasady podejmują akcję, gdy urządzenia skojarzone z wpisem rejestracji przesyłają nowe żądanie aprowizacji.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Nigdy nie należy ponownie**udostępniać: urządzenie nigdy nie jest przypisywane do innego centrum. Te zasady zapewniają zarządzanie zgodnością z poprzednimi wersjami.
 

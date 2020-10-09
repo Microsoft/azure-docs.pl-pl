@@ -1,17 +1,15 @@
 ---
 title: Tworzenie infrastruktury dla klastra w systemie AWS
 description: W tym samouczku dowiesz się, jak skonfigurować infrastrukturę usług AWS na potrzeby uruchamiania klastra usługi Service Fabric.
-author: dkkapur
 ms.topic: tutorial
 ms.date: 05/11/2018
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75613979"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842907"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury usług AWS do obsługi klastra usługi Service Fabric
 

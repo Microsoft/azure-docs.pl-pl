@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826558"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843077"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Samouczek: wizualizowanie i monitorowanie danych
 
@@ -62,7 +62,7 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 ## <a name="create-new-workbook"></a>Utwórz nowy skoroszyt
 
 1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Dodaj skoroszyt** , aby utworzyć nowy skoroszyt od podstaw.
-  ![Przejdź do skoroszytów](./media/tutorial-monitor-data/create-workbook.png)
+  ![Zrzut ekranu pokazujący nowy ekran skoroszytu.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Aby edytować skoroszyt, wybierz opcję **Edytuj**, a następnie w razie potrzeby Dodaj tekst, zapytania i parametry. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 1. Jeśli chcesz zezwolić innym osobom w organizacji na korzystanie ze skoroszytu, w obszarze **Zapisz** wybierz **raporty udostępnione**. Jeśli chcesz, aby ten skoroszyt był dostępny tylko dla Ciebie, wybierz pozycję **Moje raporty**.
 
-1. Aby przełączać się między skoroszytami w obszarze roboczym, możesz wybrać opcję **Otwórz** ![ skoroszyty ](./media/tutorial-monitor-data/switch.png) w górnym okienku dowolnego skoroszytu. W oknie, które jest otwierane z prawej strony, przełącz się między skoroszytami.
+1. Aby przełączać się między skoroszytami w obszarze roboczym, możesz wybrać ikonę **Otwórz** ![ do otwierania skoroszytu. ](./media/tutorial-monitor-data/switch.png) w górnym okienku dowolnego skoroszytu. W oknie, które jest otwierane z prawej strony, przełącz się między skoroszytami.
 
    ![Przełącz skoroszyty](./media/tutorial-monitor-data/switch-workbooks.png)
 

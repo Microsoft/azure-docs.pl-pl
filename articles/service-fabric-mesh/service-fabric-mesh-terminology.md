@@ -1,16 +1,16 @@
 ---
 title: Terminologia dotycząca usługi Azure Service Fabric siatka
 description: W tym artykule szczegółowo opisano terminologię używaną przez usługę Azure Service Fabric siatkę, która pomaga lepiej zrozumieć terminy używane w dokumentacji.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: fcd17c64ac41056420a22e328d13862e52bd99bd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d82df6ee598664c2b85cfa82395ac66f3865cf7f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246728"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843010"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia dotycząca Service Fabric siatki
 

@@ -1,17 +1,17 @@
 ---
 title: Wprowadzenie do usługi Azure Service Fabric Networking
 description: Informacje na temat sieci, bram i inteligentnego routingu ruchu w Service Fabric siatki.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75459134"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842703"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Wprowadzenie do sieci w aplikacjach Service Fabric siatki
 W tym artykule opisano różne typy modułów równoważenia obciążenia, sposób łączenia sieci z aplikacjami z innymi sieciami oraz sposób kierowania ruchu między usługami w aplikacjach.

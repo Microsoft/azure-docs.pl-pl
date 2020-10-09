@@ -1,17 +1,17 @@
 ---
 title: Automatyczne skalowanie aplikacji działającej na platformie Azure Service Fabric siatką
 description: Dowiedz się, jak skonfigurować zasady automatycznego skalowania dla usług aplikacji siatki Service Fabric.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461980"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843060"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Tworzenie zasad automatycznego skalowania dla aplikacji siatki Service Fabric
 Jedną z głównych zalet wdrażania aplikacji do Service Fabric siatki jest możliwość łatwego skalowania usług do lub wyprowadzenia. Ta usługa powinna być używana do obsługi różnych ilości obciążeń w usługach lub do zwiększenia dostępności. Możesz ręcznie skalować usługi w lub wychodzące lub skonfigurować zasady skalowania automatycznego.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566339"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843111"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
@@ -119,11 +119,11 @@ Po rozwiązaniu konkretnego zdarzenia (na przykład po osiągnięciu jego wniosk
 - Fałszywie dodatnie — nieprawidłowe dane
 - Nieokreślony
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Zrzut ekranu, który wyróżnia klasyfikacje dostępne na liście wybierz klasyfikację.":::
 
 Po wybraniu odpowiedniej klasyfikacji Dodaj tekst opisowy w polu **komentarz** . Będzie to przydatne w przypadku, gdy należy odwołać się do tego zdarzenia. Po zakończeniu kliknij pozycję **Zastosuj** , a zdarzenie zostanie zamknięte.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Zrzut ekranu, który wyróżnia klasyfikacje dostępne na liście wybierz klasyfikację.":::
 
 ## <a name="next-steps"></a>Następne kroki
 W ramach tego samouczka nauczysz się rozpocząć badanie zdarzeń przy użyciu platformy Azure — wskaźnik. Przejdź do samouczka dotyczącego [sposobu reagowania na zagrożenia przy użyciu zautomatyzowanego elementy PlayBook](tutorial-respond-threats-playbook.md).

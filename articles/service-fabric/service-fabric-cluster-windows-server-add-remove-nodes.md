@@ -1,19 +1,20 @@
 ---
 title: Dodawanie lub usuwanie węzłów w autonomicznym klastrze Service Fabric
 description: Dowiedz się, jak dodawać lub usuwać węzły do klastra Service Fabric platformy Azure na maszynie fizycznej lub wirtualnej z systemem Windows Server, która może być lokalna lub w dowolnej chmurze.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258718"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842924"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Dodawanie węzłów do autonomicznego klastra usługi Service Fabric uruchomionego na serwerze Windows Server lub usuwanie go
-Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Windows Server](service-fabric-cluster-creation-for-windows-server.md), wymagania (biznesowe) mogą ulec zmianie i trzeba będzie dodać lub usunąć węzły do klastra. Ten artykuł zawiera szczegółowe instrukcje, aby to osiągnąć. Należy pamiętać, że funkcje Dodaj/Usuń węzeł nie są obsługiwane w lokalnych klastrach programistycznych.
+Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Windows Server](service-fabric-cluster-creation-for-windows-server.md)potrzeby (biznesowe) mogą ulec zmianie i trzeba będzie dodać lub usunąć węzły do klastra zgodnie z opisem w tym artykule.
+
+> [!NOTE]
+> Funkcje dodawania i usuwania węzłów nie są obsługiwane w lokalnych klastrach programistycznych.
 
 ## <a name="add-nodes-to-your-cluster"></a>Dodawanie węzłów do klastra
 
@@ -29,7 +30,7 @@ Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Win
 
 5. Uruchom program PowerShell z podwyższonym poziomem uprawnień i przejdź do lokalizacji rozpakowanego pakietu.
 
-6. Uruchom skrypt *AddNode.ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, z typem NodeType0 i adresem IP 182.17.34.52, do UD1 i FD:/DC1/R0. `ExistingClusterConnectionEndPoint`jest punktem końcowym połączenia dla węzła znajdującego się już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
+6. Uruchom skrypt *AddNode.ps1* z parametrami opisującymi nowy węzeł do dodania. Poniższy przykład dodaje nowy węzeł o nazwie VM5, z typem NodeType0 i adresem IP 182.17.34.52, do UD1 i FD:/DC1/R0. `ExistingClusterConnectionEndPoint` jest punktem końcowym połączenia dla węzła znajdującego się już w istniejącym klastrze, który może być adresem IP *dowolnego* węzła w klastrze. 
 
    Niezabezpieczone (prototypowanie):
 
@@ -132,7 +133,7 @@ Dodaj parametr "NodesToBeRemoved" do sekcji "Setup" w sekcji "FabricSettings". "
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Usuwanie typów węzłów z klastra
-Przed usunięciem typu węzła należy sprawdzić, czy istnieją węzły odwołujące się do typu węzła. Usuń te węzły przed usunięciem odpowiedniego typu węzła. Po usunięciu odpowiednich węzłów można usunąć NodeType z konfiguracji klastra i rozpocząć uaktualnianie konfiguracji przy użyciu polecenia [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Przed usunięciem typu węzła Sprawdź, czy istnieją węzły odwołujące się do typu węzła. Usuń te węzły przed usunięciem odpowiedniego typu węzła. Po usunięciu odpowiednich węzłów można usunąć NodeType z konfiguracji klastra i rozpocząć uaktualnianie konfiguracji przy użyciu polecenia [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Zastąp podstawowe węzły klastra

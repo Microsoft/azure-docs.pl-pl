@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251885"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842771"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji urządzenia symulowanego i prezentuje sposób obsługi aktualizacji żądanej właściwości **maxTemperature**. Możesz zapoznać się ze sposobem uruchamiania procedury obsługi najwyższego poziomu oraz procedur obsługi składnika climate:
 
-![Symulowane urządzenie](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Zrzut ekranu pokazujący, jak działa program obsługi najwyższego poziomu i programy obsługi składników klimatycznych.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezentuje sposób wysłania aktualizacji do żądanej właściwości **maxTemperature**:
 
-![Aplikacja zaplecza](./media/tutorial-device-twins/BackEnd1.png)
+![Zrzut ekranu pokazujący dane wyjściowe aplikacji zaplecza oraz informacje o sposobie wysyłania aktualizacji.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>Odbieranie informacji o stanie
 

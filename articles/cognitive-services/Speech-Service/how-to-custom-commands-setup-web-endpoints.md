@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362114"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843128"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurowanie internetowych punktów końcowych
 
@@ -79,7 +79,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
     W obszarze **Prosty edytor** wprowadź wartość `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Akcja wywoływania internetowych punktów końcowych w przypadku powodzenia](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Zrzut ekranu, na którym jest wyświetlany ekran o powodzeniu działania do wykonania.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Ustawienie | Sugerowana wartość | Opis |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ W tym artykule dowiesz się, jak skonfigurować internetowe punkty końcowe w ap
 - Odpowiedź w przypadku powodzenia\
 Zapisz, przeprowadź szkolenie i przetestuj
    > [!div class="mx-imgBorder"]
-   > ![Akcja wywoływania internetowych punktów końcowych w przypadku powodzenia](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Zrzut ekranu przedstawiający odpowiedź na powodzenie.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Odpowiedź w przypadku niepowodzenia\
 Usuń jeden z parametrów zapytania, zapisz, przeprowadź ponowne szkolenie i przetestuj
    > [!div class="mx-imgBorder"]

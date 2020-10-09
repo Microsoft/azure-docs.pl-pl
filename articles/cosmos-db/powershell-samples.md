@@ -4,14 +4,14 @@ description: Pobierz przykłady Azure PowerShell, aby wykonywać typowe zadania 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506658"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842975"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Przykłady sla programu Azure PowerShell dla usługi Azure Cosmos DB
 
@@ -37,8 +37,7 @@ Poniższa tabela zawiera linki do często używanych skryptów Azure PowerShell 
 |[Tworzenie kontenera z dużym kluczem partycji](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Utwórz kontener z dużym kluczem partycji. |
 |[Tworzenie kontenera bez zasad indeksu](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Utwórz kontener usługi Azure Cosmos z wyłączonymi zasadami indeksu.|
 |[Wyświetlanie listy lub pobieranie baz danych lub kontenerów](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetlanie listy lub pobieranie bazy danych lub kontenerów. |
-|[Uzyskiwanie informacji o przepływności](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uzyskaj przepływność dla bazy danych lub kontenera. |
-|[Przepustowość aktualizacji](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aktualizowanie przepływności dla bazy danych lub kontenera. |
+|[Operacje przepływności](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operacje przepływności dla bazy danych lub kontenera, w tym pobieranie, aktualizowanie i Migrowanie między funkcją automatycznego skalowania i standardową przepływność. |
 |[Zablokuj zasoby przed usunięciem](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||
 
@@ -49,8 +48,7 @@ Poniższa tabela zawiera linki do często używanych skryptów Azure PowerShell 
 |[Tworzenie konta, przestrzeni kluczy i tabeli](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos, przestrzeń kluczy i tabelę. |
 |[Tworzenie konta, przestrzeni kluczy i tabeli przy użyciu funkcji automatycznego skalowania](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos, przestrzeń kluczy i tabelę z funkcją automatycznego skalowania. |
 |[Wyświetlanie lub pobieranie miejsc lub tabel](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetlanie lub pobieranie miejsc lub tabel. |
-|[Uzyskiwanie informacji o przepływności](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uzyskaj przepływność dla przestrzeni kluczy lub tabeli. |
-|[Przepustowość aktualizacji](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aktualizowanie przepływności dla przestrzeni kluczy lub tabeli. |
+|[Operacje przepływności](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operacje przepływności dla przestrzeni kluczy lub tabeli, w tym pobieranie, aktualizowanie i Migrowanie między funkcją automatycznego skalowania i standardową przepływność. |
 |[Zablokuj zasoby przed usunięciem](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||
 
@@ -61,8 +59,7 @@ Poniższa tabela zawiera linki do często używanych skryptów Azure PowerShell 
 |[Tworzenie konta, bazy danych i kolekcji](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto, bazę danych i kolekcję usługi Azure Cosmos. |
 |[Tworzenie konta, bazy danych i kolekcji z funkcją automatycznego skalowania](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos, bazę danych i kolekcję z funkcją automatycznego skalowania. |
 |[Wyświetlanie listy lub pobieranie baz danych lub kolekcji](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetlanie listy lub pobieranie bazy danych lub kolekcji. |
-|[Uzyskiwanie informacji o przepływności](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uzyskaj przepływność dla bazy danych lub kolekcji. |
-|[Przepustowość aktualizacji](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aktualizowanie przepływności dla bazy danych lub kolekcji. |
+|[Operacje przepływności](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operacje przepływności dla bazy danych lub kolekcji, w tym pobieranie, aktualizowanie i Migrowanie między funkcją automatycznego skalowania i standardową przepływność. |
 |[Zablokuj zasoby przed usunięciem](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||
 
@@ -73,8 +70,7 @@ Poniższa tabela zawiera linki do często używanych skryptów Azure PowerShell 
 |[Tworzenie konta, bazy danych i grafu](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos, bazę danych i Graf. |
 |[Tworzenie konta, bazy danych i grafu przy użyciu funkcji automatycznego skalowania](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos, bazę danych i Graf z automatycznym skalowaniem. |
 |[Wyświetlanie listy lub pobieranie baz danych lub wykresów](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetl lub Pobierz bazę danych lub Graf. |
-|[Uzyskiwanie informacji o przepływności](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uzyskaj przepływność dla bazy danych lub grafu. |
-|[Przepustowość aktualizacji](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aktualizowanie przepływności dla bazy danych lub grafu. |
+|[Operacje przepływności](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operacje przepływności dla bazy danych lub grafu, w tym pobieranie, aktualizowanie i Migrowanie między funkcją automatycznego skalowania i standardową przepływność. |
 |[Zablokuj zasoby przed usunięciem](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||
 
@@ -85,7 +81,6 @@ Poniższa tabela zawiera linki do często używanych skryptów Azure PowerShell 
 |[Tworzenie konta i tabeli](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto i tabelę platformy Azure Cosmos. |
 |[Tworzenie konta i tabeli przy użyciu funkcji automatycznego skalowania](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy konto usługi Azure Cosmos i automatyczne skalowanie tabeli. |
 |[Wyświetlanie listy lub Pobieranie tabel](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Wyświetl listę lub Pobierz tabele. |
-|[Uzyskiwanie informacji o przepływności](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uzyskaj przepływność dla tabeli. |
-|[Przepustowość aktualizacji](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Aktualizowanie przepływności dla tabeli. |
+|[Operacje przepływności](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operacje przepływności dla tabeli, w tym pobieranie, aktualizowanie i Migrowanie między funkcją automatycznego skalowania i standardową przepływność. |
 |[Zablokuj zasoby przed usunięciem](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||

@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308320"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842822"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
 
@@ -184,7 +184,7 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji urządzenia symul
 
 Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezentuje sposób, w jaki tworzy ona konfigurację w celu aktualizacji żądanych właściwości oprogramowania układowego:
 
-![Aplikacja zaplecza](./media/tutorial-firmware-update/BackEnd1.png)
+![Zrzut ekranu pokazujący dane wyjściowe aplikacji zaplecza.](./media/tutorial-firmware-update/BackEnd1.png)
 
 Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i prezentuje sposób, w jaki monitoruje ona metryki aktualizacji oprogramowania układowego z urządzenia symulowanego:
 

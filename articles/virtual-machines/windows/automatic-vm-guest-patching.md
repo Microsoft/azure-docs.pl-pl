@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669071"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842873"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Wersja zapoznawcza: automatyczna poprawka gościa maszyny wirtualnej dla maszyn wirtualnych z systemem Windows na platformie Azure
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Wersja zapoznawcza: automatyczne stosowanie poprawek gościa maszyny wirtualnej dla maszyn wirtualnych z systemem Windows na platformie Azure
 
 Włączenie automatycznej poprawki gościa maszyny wirtualnej dla maszyn wirtualnych z systemem Windows ułatwia zarządzanie aktualizacjami przez bezpieczne i automatyczne poprawianie maszyn wirtualnych w celu zachowania zgodności z zabezpieczeniami.
 
@@ -162,7 +162,7 @@ Po zarejestrowaniu tej funkcji dla subskrypcji Ukończ proces akceptacji, propag
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
 ```
-## <a name="enable-automatic-vm-guest-patching"></a>Włącz automatyczną poprawkę gościa maszyny wirtualnej
+## <a name="enable-automatic-vm-guest-patching"></a>Włączanie automatycznego stosowania poprawek gościa maszyny wirtualnej
 Aby włączyć automatyczną poprawkę gościa maszyny wirtualnej, upewnij się, że właściwość *osProfile. windowsConfiguration. enableAutomaticUpdates* ma *wartość true* w definicji szablonu maszyny wirtualnej. Tę właściwość można ustawić tylko podczas tworzenia maszyny wirtualnej.
 
 ### <a name="rest-api"></a>Interfejs API REST
@@ -251,8 +251,10 @@ Wyniki instalacji poprawek dla maszyny wirtualnej można przejrzeć pod `lastPat
 ## <a name="on-demand-patch-assessment"></a>Ocena poprawek na żądanie
 Jeśli automatyczne stosowanie poprawek gościa maszyny wirtualnej jest już włączone dla maszyny wirtualnej, okresową ocenę poprawek przeprowadza się na maszynie wirtualnej w godzinach poza godzinami pracy maszyny wirtualnej. Ten proces jest automatyczny, a wyniki najnowszej oceny można przejrzeć w widoku wystąpienia maszyny wirtualnej zgodnie z opisem we wcześniejszej części tego dokumentu. Możesz również wyzwolić ocenę poprawek na żądanie dla maszyny wirtualnej w dowolnym momencie. Ocena poprawek może potrwać kilka minut, a stan najnowszej oceny zostanie zaktualizowany w widoku wystąpienia maszyny wirtualnej.
 
+Włączenie funkcji w wersji zapoznawczej wymaga jednorazowej zgody na funkcję *InGuestPatchVMPreview* na subskrypcję. Wersję zapoznawczą funkcji oceny poprawek na żądanie można włączyć zgodnie z wcześniejszym [procesem włączania wersji zapoznawczej](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) na potrzeby automatycznej poprawki gościa maszyny wirtualnej.
+
 > [!NOTE]
->Ocena poprawek na żądanie nie powoduje automatycznego zainstalowania poprawki. Ocenione i odpowiednie poprawki dla maszyny wirtualnej zostaną zainstalowane tylko w godzinach poza godzinami pracy maszyny wirtualnej, zgodnie z procesem stosowania poprawek w pierwszej kolejności opisanej wcześniej w tym dokumencie.
+>Ocena poprawek na żądanie nie powoduje automatycznego wyzwolenia instalacji poprawki. Ocenione i odpowiednie poprawki dla maszyny wirtualnej zostaną zainstalowane tylko w godzinach poza godzinami pracy maszyny wirtualnej, zgodnie z procesem stosowania poprawek w pierwszej kolejności opisanej wcześniej w tym dokumencie.
 
 ### <a name="rest-api"></a>Interfejs API REST
 ```
