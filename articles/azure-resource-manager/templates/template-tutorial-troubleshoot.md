@@ -6,10 +6,10 @@ ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119348"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów ARM
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > - Tworzenie problematycznego szablonu
 > - Rozwiązywanie problemów z błędami weryfikacji
 > - Usuwanie błędów związanych z wdrażaniem
-> - Oczyszczanie zasobów
+> - Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -117,7 +117,7 @@ Użyj programu Visual Studio Code, aby naprawić ten błąd, a następnie ponown
 
 Aby zapoznać się z listą typowych błędów, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md) (Rozwiązywanie typowych błędów z wdrożeniem na platformie Azure w usłudze Azure Resource Manager).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

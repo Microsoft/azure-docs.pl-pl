@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015004"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Samouczek: Tworzenie elementu Runbook programu PowerShell
@@ -119,7 +119,7 @@ Utworzony element Runbook jest nadal w trybie wersji roboczej. Aby można było 
 
    ![Wszystkie dzienniki](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-9. Zamknij okienko strumieni i okienko zadania, aby powrócić do strony MyFirstRunbook-PowerShell.
+9. Zamknij okienko strumieni i okienko zadania, aby wrócić do strony MyFirstRunbook-PowerShell.
 
 10. W obszarze **szczegóły**kliknij pozycję **zadania** , aby otworzyć stronę zadania dla tego elementu Runbook. Ta strona zawiera listę wszystkich zadań utworzonych przez element Runbook. Tylko jedno zadanie jest widoczne na liście, ponieważ zadanie jest uruchamiane tylko raz.
 

@@ -10,17 +10,17 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 01a58207d893b6e4dcadf0b8b295d4bf7ed2ec31
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319035"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-java"></a>Jak utworzyć i zlokalizować kotwice przy użyciu bardzo dużej lokalizacji w języku Java
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
-> * [Obiektowy C](set-up-coarse-reloc-objc.md)
+> * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [System Android Java](set-up-coarse-reloc-java.md)
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)

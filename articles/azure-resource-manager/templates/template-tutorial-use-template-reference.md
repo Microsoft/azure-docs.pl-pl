@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86118515"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu Menedżer zasobów
@@ -139,7 +139,7 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
  Podczas wdrażania szablonu należy określić parametr **storageAccountType** z nowo dodaną wartością, na przykład **Standard_RAGRS**. Wdrożenie zakończy się niepowodzeniem, jeśli zostanie użyty oryginalny szablon szybkiego startu, ponieważ **Standard_RAGRS** nie jest dozwoloną wartością.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

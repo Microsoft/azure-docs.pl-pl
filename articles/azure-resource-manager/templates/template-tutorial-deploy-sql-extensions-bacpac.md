@@ -6,10 +6,10 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86101889"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
@@ -245,7 +245,7 @@ W Azure Portal wybierz bazę danych z nowo wdrożonej grupy zasobów. Wybierz po
 
 ![Edytor zapytań (wersja zapoznawcza)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
@@ -259,4 +259,4 @@ Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby
 W tym samouczku wdrożono serwer i bazę danych oraz zaimportowano plik BACPAC. Aby dowiedzieć się, jak rozwiązywać problemy z wdrażaniem szablonów, zobacz:
 
 > [!div class="nextstepaction"]
-> [Rozwiązywanie problemów z wdrożeniami szablonów ARM](./template-tutorial-troubleshoot.md)
+> [Rozwiązywanie problemów z wdrażaniem szablonów usługi ARM](./template-tutorial-troubleshoot.md)

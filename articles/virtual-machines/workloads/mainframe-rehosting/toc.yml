@@ -2,7 +2,7 @@
   items:
     - name: Omówienie
       items:
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           href: overview.md
         - name: Obciążenia
           href: partner-workloads.md

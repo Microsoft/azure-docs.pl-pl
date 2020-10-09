@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461276"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Samouczek: Monitorowanie zmian maszyn wirtualnych przy użyciu usług Azure Event Grid i Logic Apps
@@ -190,7 +190,7 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
 1. Jeśli nie masz jeszcze połączenia z dostawcą poczty e-mail, po wyświetleniu monitu o uwierzytelnienie zaloguj się do swojego konta e-mail.
 
-1. Zmień nazwę akcji Wyślij pocztą e-mail na ten tytuł:`Send email when virtual machine updated`
+1. Zmień nazwę akcji Wyślij pocztą e-mail na ten tytuł: `Send email when virtual machine updated`
 
 1. Podaj informacje o wiadomości e-mail zgodnie z opisem w poniższej tabeli:
 
@@ -201,9 +201,9 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
-   | **Do** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Działanie** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat** | Tak | `Resource updated:` **Temat** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
-   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:`**Typ zdarzenia**<p>`Event ID:` **ID**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
+   | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:` **Typ zdarzenia**<p>`Event ID:` **ID (Identyfikator)**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
    ||||
 
    > [!NOTE]
@@ -248,7 +248,7 @@ Za pomocą usług Event Grid i Logic Apps możesz także monitorować inne zmian
 * Dodanie lub usunięcie dysków dla maszyny wirtualnej.
 * Przypisanie publicznego adresu IP do karty sieciowej maszyny wirtualnej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ten samouczek używa zasobów i wykonuje akcje, które mogą spowodować naliczenie opłat w ramach Twojej subskrypcji platformy Azure. Gdy ukończysz pracę z samouczkiem i testowanie, upewnij się, że zostały wyłączone lub usunięte wszelkie zasoby, dla których nie chcesz naliczenia opłat.
 

@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961102"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
@@ -30,11 +30,11 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
 1. Przejdź do karty **notesy** , wybierz pozycję `…` dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Tworzenie nowego notesu":::
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Tworzenie nowego notesu&quot;:::
 
 1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
 
-1. Następnie utworzysz bazę danych o nazwie "RetailDemo" i kontener o nazwie "WebsiteData" w celu przechowywania danych detalicznych. Możesz użyć/CartID jako klucza partycji. Skopiuj i wklej następujący kod do nowej komórki w notesie i uruchom go:
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData" w celu przechowywania danych detalicznych. Możesz użyć/CartID jako klucza partycji. Skopiuj i wklej następujący kod do nowej komórki w notesie i uruchom go:
 
    ```python
    import azure.cosmos
@@ -49,7 +49,11 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
    Aby uruchomić komórkę, zaznacz `Shift + Enter` lub zaznacz komórkę i wybierz opcję **Uruchom aktywną komórkę** na pasku nawigacyjnym Eksploratora danych.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Uruchamianie aktywnej komórki":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
    Baza danych i kontener są tworzone na bieżącym koncie usługi Azure Cosmos. Obsługa kontenera ma 400 RU/s. Po utworzeniu bazy danych i kontenera zostaną wyświetlone następujące dane wyjściowe. 
 
@@ -60,23 +64,11 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
    Możesz również odświeżyć kartę **dane** i wyświetlić nowo utworzone zasoby:
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Odśwież kartę dane, aby zobaczyć nowy kontener":::
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Tworzenie nowego notesu&quot;:::
 
-1. Następnie zaimportujesz przykładowe dane sprzedaży detalicznej do kontenera usługi Azure Cosmos. Oto format elementu z danych detalicznych:
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
 
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData"
     }
    ```
 
@@ -135,7 +127,11 @@ W nowej komórce notesu uruchom następujący kod, aby odczytać pierwsze 10 ele
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Uruchom zapytanie, aby uzyskać 10 pierwszych elementów":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Uruchamianie zapytań i analizowanie danych
 
@@ -148,7 +144,11 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Łączny wynik przychodu sprzedaży":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
 * **Query2:** Aby uzyskać listę pięciu pierwszych zakupionych elementów, Otwórz nową komórkę notesu i uruchom następujący kod:
 
@@ -159,7 +159,11 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Pięć najważniejszych zakupionych elementów":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
 ## <a name="visualize-your-data"></a>Wizualizacja danych  
 
@@ -235,7 +239,11 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
    Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje/regiony z najwyższym przychodem do najniższego przychodu.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Wizualizacja mapy przychodu krajów/regionów":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
 1. Przyjrzyjmy się innemu przypadku wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy przeglądali element, dodani do swojego koszyka i kupili ten element. Przyjrzyjmy się współczynnikowi konwersji zakupionych elementów. Uruchom następujący kod w nowej komórce, aby wizualizować szybkość konwersji dla każdego elementu:
 
@@ -286,7 +294,11 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Wizualizacja kursu konwersji":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Tworzenie nowego notesu&quot;:::
+
+1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
+
+1. Następnie utworzysz bazę danych o nazwie &quot;RetailDemo&quot; i kontener o nazwie &quot;WebsiteData":::
 
 ## <a name="next-steps"></a>Następne kroki
 

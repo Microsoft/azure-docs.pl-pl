@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419635"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Samouczek: Użyj wykrywania ryzyka dla logowania użytkowników, aby wyzwolić zmiany w usłudze Azure Multi-Factor Authentication lub hasła
@@ -95,7 +95,7 @@ Aby włączyć te zasady, wykonaj następujące czynności:
 
 1. Z menu po lewej stronie wybierz pozycję **zasady ryzyka użytkownika** .
 1. Domyślnie zasady mają zastosowanie do *wszystkich użytkowników*. W razie potrzeby wybierz pozycję **przypisania**, a następnie wybierz użytkowników lub grupy, dla których mają zostać zastosowane zasady.
-1. W obszarze *warunki*wybierz **pozycję Wybierz warunki > wybierz poziom ryzyka**, a następnie wybierz *średni i powyżej*.
+1. W obszarze *warunki*wybierz  **pozycję Wybierz warunki > wybierz poziom ryzyka**, a następnie wybierz *średni i powyżej*.
 1. Wybierz pozycję **Wybierz**, a następnie opcję **gotowe**.
 1. W obszarze *dostęp*wybierz pozycję **dostęp**. Upewnij się, że opcja **Zezwalaj na dostęp** i *Wymagaj zmiany hasła* jest zaznaczona, a następnie wybierz **pozycję Wybierz**.
 1. Ustaw ustawienie **Wymuszaj zasady** na *włączone*, a następnie wybierz pozycję **Zapisz**.
@@ -110,7 +110,7 @@ Aby włączyć te zasady, wykonaj następujące czynności:
 
 1. Z menu po lewej stronie wybierz **zasady dotyczące ryzyka związanego z logowaniem** .
 1. Domyślnie zasady mają zastosowanie do *wszystkich użytkowników*. W razie potrzeby wybierz pozycję **przypisania**, a następnie wybierz użytkowników lub grupy, dla których mają zostać zastosowane zasady.
-1. W obszarze *warunki*wybierz **pozycję Wybierz warunki > wybierz poziom ryzyka**, a następnie wybierz *średni i powyżej*.
+1. W obszarze *warunki*wybierz  **pozycję Wybierz warunki > wybierz poziom ryzyka**, a następnie wybierz *średni i powyżej*.
 1. Wybierz pozycję **Wybierz**, a następnie opcję **gotowe**.
 1. W obszarze *dostęp*wybierz **pozycję Wybierz formant**. Upewnij się, że opcja **Zezwalaj na dostęp** i *Wymagaj uwierzytelniania wieloskładnikowego* jest zaznaczona, a następnie wybierz **pozycję Wybierz**.
 1. Ustaw ustawienie **Wymuszaj zasady** na *włączone*, a następnie wybierz pozycję **Zapisz**.
@@ -123,7 +123,7 @@ Większość zdarzeń logowania użytkownika nie wyzwala zasad opartych na ryzyk
 
 Aby przetestować zasady Azure AD Identity Protection utworzone w poprzednich krokach, trzeba zasymulować ryzykowne zachowanie lub potencjalne ataki. Kroki prowadzące do tych testów różnią się w zależności od zasad Azure AD Identity Protection, które chcesz zweryfikować. Aby uzyskać więcej informacji o scenariuszach i krokach, zobacz [symulowanie wykrywania ryzyka w Azure AD Identity Protection](../identity-protection/howto-identity-protection-simulate-risk.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zostały zakończone testy i nie chcesz już korzystać z zasad opartych na ryzyku, Wróć do poszczególnych zasad, które chcesz wyłączyć, a następnie ustaw ustawienie **Wymuszaj zasady** na *wyłączone*.
 

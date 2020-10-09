@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86189821"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Przykłady języka Python dla Cognitive Services danych Big Data
@@ -245,7 +245,7 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 
 ### <a name="expected-result"></a>Oczekiwany wynik
 
-| sygnatura czasowa            |   wartość | isanomalia   |
+| sygnatura czasowa            |   value | isanomalia   |
 |:---------------------|--------:|:------------|
 | 1972 R-01-01T00:00:00Z |     826 | Fałsz       |
 | 1972 — 02-01T00:00:00Z |     799 | Fałsz       |
@@ -301,7 +301,7 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 | br | [{"page": 1, "Pages": 1, "per_page": "50", "Total": 1}, [{"ID": "BRA", "iso2Code": "BR", "name": "Brazylia", "region": {"ID": "LCN", "iso2Code": "ZJ", "value": "Ameryka Łacińska & Karaibów"}, "adminregion": {"ID": "LAC", "iso2Code": "XJ", "value": "Ameryka Łacińska & Karaibów (z wyłączeniem wysokich dochodów)"}, "incomeLevel": {"ID": "UMC", "iso2Code": "XT", "value": "górny dochód środkowy"}, "kredytytype": {"ID": "IBD", "iso2Code": "XF", "value": "IBRD"}, "capitalCity": "Brazylia", "Długość geograficzna": "-47.9292", "Latitude": "-15,7801"}]] |
 | poniżej  | [{"page": 1, "strony": 1, "per_page": "50", "łącznie": 1}, [{"ID": "USA", "iso2Code": "US", "name": "Stany Zjednoczone", "region": {"ID": "NAC", "iso2Code": "XU", "value": "Ameryka Północna"}, "adminregion": {"ID": "", "iso2Code": "", "value": ""}, "incomeLevel": {"ID": "HIC", "iso2Code": "XD", "value": "High dochodu"}, "użyczenitype": {"ID": "LNX", "iso2Code": "XX", "value": "nie sklasyfikowano"}, "capitalCity": "Waszyngton Waszyngtonie", "Długość geograficzna": "-77.032", "Latitude": "38.8895"}]] |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przepis: wykrywanie anomalii](./recipes/anomaly-detection.md)
 * [Przepis: Eksplorator grafiki](./recipes/art-explorer.md)

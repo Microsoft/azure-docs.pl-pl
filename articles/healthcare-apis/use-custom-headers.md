@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081847"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Dodawanie danych do dzienników inspekcji przy użyciu niestandardowych nagłówków HTTP
@@ -24,7 +24,7 @@ Na przykład, gdy użytkownik interfejsu API jest uwierzytelniany przez system z
 
 Ten przepływ danych można zobaczyć na poniższym diagramie:
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram niestandardowych nagłówków":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram niestandardowych nagłówków&quot;:::
 
 Możesz użyć niestandardowych nagłówków do przechwytywania kilku typów informacji. Na przykład:
 
@@ -47,9 +47,9 @@ Te nagłówki HTTP znajdują się w zbiorze właściwości, który jest dodawany
 Te informacje są następnie serializowane do formatu JSON, gdy zostanie on dodany do kolumny właściwości w dzienniku. Na przykład:
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234" }
 ```
  
 Podobnie jak w przypadku dowolnego nagłówka HTTP, taka sama nazwa nagłówka może być powtórzona przy użyciu różnych wartości. Na przykład:

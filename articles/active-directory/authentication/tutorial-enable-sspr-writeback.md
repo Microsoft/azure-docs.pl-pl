@@ -12,10 +12,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419652"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
@@ -57,8 +57,8 @@ Azure AD Connect pozwala synchronizować użytkowników, grupy i poświadczenia 
 Aby poprawnie współpracować z funkcją zapisywania zwrotnego SSPR, konto określone w Azure AD Connect musi mieć ustawione odpowiednie uprawnienia i opcje. Jeśli nie masz pewności, które konto jest aktualnie używane, Otwórz Azure AD Connect i wybierz opcję **Wyświetl bieżącą konfigurację** . Konto, do którego należy dodać uprawnienia, znajduje się na liście **zsynchronizowane katalogi**. Następujące uprawnienia i opcje muszą zostać ustawione na koncie:
 
 * **Resetowanie hasła**
-* **Uprawnienia do zapisu** w`lockoutTime`
-* **Uprawnienia do zapisu** w`pwdLastSet`
+* **Uprawnienia do zapisu** w `lockoutTime`
+* **Uprawnienia do zapisu** w `pwdLastSet`
 * **Rozszerzone prawa** do "niewygasania hasła" w obiekcie głównym *poszczególnych domen* w tym lesie, jeśli nie zostały one jeszcze ustawione.
 
 Jeśli te uprawnienia nie zostaną przypisane, zapisanie zwrotne może być prawidłowo skonfigurowane, ale użytkownicy napotykają błędy podczas zarządzania hasłami lokalnymi w chmurze. Do **tego obiektu i wszystkich obiektów zależnych,** które mają być wyświetlane, należy zastosować uprawnienia.  
@@ -127,7 +127,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 

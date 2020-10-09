@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
 ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372454"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Samouczek: Tworzenie funkcji w języku Java przy użyciu wyzwalacza centrum zdarzeń i powiązania danych wyjściowych Azure Cosmos DB
@@ -436,7 +436,7 @@ Twoje funkcje działają teraz na platformie Azure i kontynuują gromadzenie dan
 
 ![Application Insights blok wydajności](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z zasobami platformy Azure, które zostały utworzone w tym samouczku, można je usunąć za pomocą następującego polecenia:
 

@@ -8,15 +8,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135650"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów funkcji Hyper-V do odzyskiwania po awarii do platformy Azure
 
-W tym artykule opisano sposób przygotowania lokalnej infrastruktury funkcji Hyper-V w celu skonfigurowania odzyskiwania po awarii maszyn wirtualnych na platformie Azure przy użyciu [Azure Site Recovery](site-recovery-overview.md).
+W tym artykule opisano sposób przygotowania lokalnej infrastruktury funkcji Hyper-V w celu skonfigurowania odzyskiwania po awarii Hyper-VMs na platformie Azure przy użyciu [Azure Site Recovery](site-recovery-overview.md).
 
 
 Jest to drugi samouczek z serii, który pokazuje, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla lokalnych maszyn wirtualnych funkcji Hyper-V. W pierwszym samouczku [skonfigurujemy składniki platformy Azure, które](tutorial-prepare-azure.md) są związane z odzyskiwaniem po awarii funkcji Hyper-V.

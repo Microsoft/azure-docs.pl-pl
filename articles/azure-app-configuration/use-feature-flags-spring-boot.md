@@ -15,10 +15,10 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326600"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Samouczek: używanie flag funkcji w aplikacji do rozruchu sprężynowego
@@ -37,7 +37,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 ## <a name="set-up-feature-management"></a>Konfigurowanie zarządzania funkcjami
 
-Menedżer funkcji sprężynowego rozruchu `FeatureManager` Pobiera flagi funkcji z macierzystego systemu konfiguracji platformy. W związku z tym można zdefiniować flagi funkcji aplikacji przy użyciu dowolnego źródła konfiguracji obsługiwanego przez rozruch sprężynowy, w tym lokalnego pliku *Bootstrap. yml* lub zmiennych środowiskowych. `FeatureManager`opiera się na iniekcji zależności. Usługi zarządzania funkcjami można zarejestrować przy użyciu standardowych konwencji:
+Menedżer funkcji sprężynowego rozruchu `FeatureManager` Pobiera flagi funkcji z macierzystego systemu konfiguracji platformy. W związku z tym można zdefiniować flagi funkcji aplikacji przy użyciu dowolnego źródła konfiguracji obsługiwanego przez rozruch sprężynowy, w tym lokalnego pliku *Bootstrap. yml* lub zmiennych środowiskowych. `FeatureManager` opiera się na iniekcji zależności. Usługi zarządzania funkcjami można zarejestrować przy użyciu standardowych konwencji:
 
 ```java
 private FeatureManager featureManager;
@@ -94,9 +94,9 @@ feature-management:
 
 Zgodnie z Konwencją `feature-management` sekcja tego dokumentu YML jest używana dla ustawień flagi funkcji. W poprzednim przykładzie pokazano trzy flagi funkcji z filtrami zdefiniowanymi we `EnabledFor` Właściwości:
 
-* `feature-a`jest *włączony*.
-* `feature-b`jest *wyłączona*.
-* `feature-c`określa filtr o nazwie `Percentage` z `parameters` właściwością. `Percentage`jest konfigurowalnym filtrem. W tym przykładzie `Percentage` określa 50-procentowe prawdopodobieństwo, że `feature-c` flaga będzie *włączona*.
+* `feature-a` jest *włączony*.
+* `feature-b` jest *wyłączona*.
+* `feature-c` określa filtr o nazwie `Percentage` z `parameters` właściwością. `Percentage` jest konfigurowalnym filtrem. W tym przykładzie `Percentage` określa 50-procentowe prawdopodobieństwo, że `feature-c` flaga będzie *włączona*.
 
 ## <a name="feature-flag-checks"></a>Sprawdzanie flag funkcji
 

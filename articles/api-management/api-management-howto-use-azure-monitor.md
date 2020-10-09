@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243243"
 ---
 # <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
@@ -178,7 +178,7 @@ API Management obecnie udostępnia dzienniki zasobów (wsadowe co godzinę) doty
 
 | Właściwość  | Typ | Opis |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | wartość logiczna | Wartość true, jeśli żądanie HTTP zostało zakończone z kodem stanu odpowiedzi z zakresu 2xx lub 3xx |
+| isRequestSuccess | boolean | Wartość true, jeśli żądanie HTTP zostało zakończone z kodem stanu odpowiedzi z zakresu 2xx lub 3xx |
 | time | data i godzina | Sygnatura czasowa rozpoczęcia przetwarzania żądania przez bramę |
 | operationName | ciąg | Wartość stała „Microsoft.ApiManagement/GatewayLogs” |
 | category | ciąg | Wartość stała „GatewayLogs” |

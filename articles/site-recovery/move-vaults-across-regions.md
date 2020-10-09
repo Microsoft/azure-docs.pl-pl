@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87422644"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Przenoszenie magazynu Recovery Services i konfiguracji Azure Site Recovery do innego regionu platformy Azure
@@ -73,7 +73,7 @@ Dla każdej zreplikowanej maszyny wirtualnej platformy Azure przejdź do **pozyc
 Wykonaj kroki opisane w tych artykułach w zależności od wymagań związanych z przenoszeniem maszyn wirtualnych platformy Azure do regionu docelowego:
 
 - [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](azure-to-azure-tutorial-migrate.md)
-- [Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności](move-azure-VMs-AVset-Azone.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do Strefy dostępności](move-azure-VMs-AVset-Azone.md)
 
 ## <a name="set-up-site-recovery-based-on-the-new-source-region-for-the-vms"></a>Skonfiguruj Site Recovery w oparciu o nowy region źródłowy dla maszyn wirtualnych
 

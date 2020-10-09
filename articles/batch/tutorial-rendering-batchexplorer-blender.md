@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964808"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Samouczek: renderowanie sceny programu Blender przy użyciu narzędzia Batch Explorer
@@ -127,7 +127,7 @@ Szablon zlecenia określa również, że pliki wyjściowe ramki i dziennika są 
 
 Po zakończeniu wszystkich zadań zlecenie zostanie oznaczone jako ukończone: ![Zlecenie i wszystkie zadania ukończone](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!WARNING]
 > Pula musi zostać usunięta (można również zmienić jej rozmiar na zero węzłów), aby zatrzymać naliczanie opłat za maszyny wirtualne dla subskrypcji platformy Azure.

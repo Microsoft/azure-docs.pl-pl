@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
 ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169446"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service

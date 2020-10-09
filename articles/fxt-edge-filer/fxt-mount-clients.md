@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231356"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Samouczek: Instalowanie klastra
@@ -49,7 +49,7 @@ Inne metody równoważenia obciążenia mogą być odpowiednie w przypadku duży
 
 Z poziomu klienta ``mount`` polecenie mapuje serwer wirtualny (vserver) w klastrze plików usługi Azure FXT Edge do ścieżki w lokalnym systemie plików.
 
-Format jest``mount <FXT cluster path> <local path> {options}``
+Format jest ``mount <FXT cluster path> <local path> {options}``
 
 Istnieją trzy elementy polecenia instalacji:
 
@@ -77,7 +77,7 @@ Adres IP jest jednym z adresów IP skierowanych do klienta zdefiniowanych dla vs
 
 Połącz adres IP i ścieżkę przestrzeni nazw, aby utworzyć ścieżkę klastra dla polecenia instalacji.
 
-Przykładowe polecenie instalacji klienta:``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
+Przykładowe polecenie instalacji klienta: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
 
 ### <a name="create-the-local-path"></a>Utwórz ścieżkę lokalną
 

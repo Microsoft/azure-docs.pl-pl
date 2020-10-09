@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
 ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419975"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Sieć na platformie Azure Red Hat w systemie OpenShift 4

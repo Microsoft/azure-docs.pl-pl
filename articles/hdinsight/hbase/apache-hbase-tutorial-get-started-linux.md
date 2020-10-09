@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
 ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85958365"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
@@ -302,7 +302,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
    - zadania
    - atrybuty oprogramowania
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia HBase `disable 'Contacts'` . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
@@ -310,11 +310,11 @@ Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunię
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka.
-1. Kliknij polecenie **Usuń**. Kliknij przycisk **tak**.
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób tworzenia klastra Apache HBase. I jak tworzyć tabele i wyświetlać dane w tych tabelach z poziomu powłoki HBase. Wiesz również, jak używać zapytania Hive dla danych w tabelach HBase. I jak używać interfejsów API REST HBase języka C# do tworzenia tabeli HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym samouczku przedstawiono sposób tworzenia klastra Apache HBase. I jak tworzyć tabele i wyświetlać dane w tych tabelach z poziomu powłoki HBase. Wiesz również, jak używać zapytania Hive dla danych w tabelach HBase. I jak używać interfejsów API REST HBase języka C# do tworzenia tabeli HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz:
 
 > [!div class="nextstepaction"]
 > [HBase usługi HDInsight — Omówienie](./apache-hbase-overview.md)

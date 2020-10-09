@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87439413"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Samouczek: wdrażanie Azure Stream Analytics jako modułu IoT Edge
@@ -69,7 +69,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych dla IoT Edge przewodników Szybki Start i samouczków. Na przykład **IoTEdgeResources**. |
    | Nazwa | Wprowadź unikatową nazwę konta magazynu. |
-   | Location | Wybierz bliską lokalizację. |
+   | Lokalizacja | Wybierz bliską lokalizację. |
 
 1. Zachowaj wartości domyślne dla innych pól i wybierz kolejno pozycje **Recenzja + Utwórz**.
 
@@ -86,10 +86,10 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Nazwa zadania | Podaj nazwę zadania. Na przykład **IoTEdgeJob** |
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub. |
    | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych tworzonych podczas pracy z przewodnikami Szybki Start i samouczkami usługi IoT Edge. Na przykład **IoTEdgeResources**. |
-   | Location | Wybierz bliską lokalizację. |
+   | Lokalizacja | Wybierz bliską lokalizację. |
    | Środowisko hostingu | Wybierz pozycję **Edge**. |
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-job"></a>Konfigurowanie zadania
 
@@ -238,7 +238,7 @@ Teraz możesz przejść do urządzenia IoT Edge, aby sprawdzić interakcję mię
 
    ![Resetowanie danych wyjściowych polecenia do dzienników modułu](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego.
 

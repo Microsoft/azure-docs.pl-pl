@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87491141"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services z zaawansowanymi opcjami konfiguracji
@@ -165,7 +165,7 @@ Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy 
 
     ![Wykonaj pełną synchronizację użytkowników i grup z usługi Azure AD](./media/tutorial-create-instance-advanced/sync-all.png)
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 ## <a name="deploy-the-managed-domain"></a>Wdróż domenę zarządzaną
 
