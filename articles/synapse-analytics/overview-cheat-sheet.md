@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91620277"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858442"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -22,25 +22,25 @@ ms.locfileid: "91620277"
 
 Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podstawowe pojęcia związane z usługą i ważnymi poleceniami. Ten artykuł jest pomocny w przypadku nowych osób, które chcą uzyskać najważniejsze tematy dotyczące usługi Azure Synapse.
 
-## <a name="basics"></a>Informacje podstawowe
+## <a name="basics"></a>Podstawy
 
 **Obszar roboczy Synapse** to zabezpieczana granica współpracy służąca do przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów.
 
 Obszar roboczy umożliwia wykonywanie analiz przy użyciu programów SQL i Apache Spark. Zasoby dostępne dla usługi SQL i programu Spark Analytics są zorganizowane w **Pule**SQL i Spark. 
 
 ## <a name="synapse-sql"></a>Synapse SQL
-**Synapse SQL** to możliwość wykonywania analiz opartych na języku T-SQL w obszarze roboczym Synapse. Program Synapse SQL ma dwa modele użycia: dedykowany i bezserwerowy.  W przypadku modelu dedykowanego Użyj dedykowanych **pul SQL**. Obszar roboczy może mieć dowolne NUBMER z tych pul. Aby użyć modelu bezserwerowego, użyj bezserwerowej puli SQL o nazwie "SQL on-demand". Każdy obszar roboczy ma jedną z tych pul.
+**Synapse SQL** to możliwość wykonywania analiz opartych na języku T-SQL w obszarze roboczym Synapse. Program Synapse SQL ma dwa modele użycia: dedykowany i bezserwerowy.  W przypadku modelu dedykowanego Użyj dedykowanych **pul SQL**. Obszar roboczy może mieć dowolną liczbę tych pul. Aby użyć modelu bezserwerowego, użyj bezserwerowej puli SQL o nazwie "SQL on-demand". Każdy obszar roboczy ma jedną z tych pul.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark Synapse
 Aby korzystać z usługi Spark Analytics, Utwórz **pulę Spark** i używaj ich w obszarze roboczym Synapse.
 
 ## <a name="sql-terminology"></a>Terminologia SQL
-| Termin                         | Definicja      |
+| Okres                         | Definicja      |
 |:---                                 |:---                 |
 | **Żądanie SQL**  |   Operacje, takie jak zapytanie, są wykonywane za pomocą puli SQL lub SQL na żądanie. |
 
 ## <a name="spark-terminology"></a>Terminologia platformy Spark
-| Termin                         | Definicja      |
+| Okres                         | Definicja      |
 |:---                                 |:---                 |
 |**Apache Spark Synapse** | Czas wykonywania platformy Spark używany w puli platformy Spark. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
 | **Pula Apache Spark**  | w obszarze roboczym można wdrożyć zasoby z obsługą od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |

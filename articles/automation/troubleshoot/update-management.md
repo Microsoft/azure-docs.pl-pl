@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713507"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858408"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -57,27 +57,25 @@ Stare aktualizacje są wyświetlane dla konta usługi Automation jako brakujące
 
 ### <a name="cause"></a>Przyczyna
 
-Zastąpione aktualizacje nie są poprawnie wskazywane jako odrzucone, aby można je było uznać za niemające zastosowania.
+Zastąpione aktualizacje nie są odrzucane w Windows Server Update Services (WSUS), dzięki czemu można je traktować jako niemające zastosowania.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Gdy zastąpiona aktualizacja nie ma zastosowania do 100%, należy zmienić stan zatwierdzenia tej aktualizacji na `Declined` . Aby zmienić stan zatwierdzenia dla wszystkich aktualizacji:
+Gdy zastąpiona aktualizacja nie ma zastosowania do 100%, należy zmienić stan zatwierdzenia tej aktualizacji na `Declined` w programie WSUS. Aby zmienić stan zatwierdzenia dla wszystkich aktualizacji:
 
 1. Na koncie usługi Automation wybierz pozycję **Update Management** , aby wyświetlić stan komputera. Zobacz [Wyświetlanie ocen aktualizacji](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Sprawdź zastąpioną aktualizację, aby upewnić się, że nie ma jej na 100%.
 
-3. Oznacz aktualizację jako odrzucony, o ile nie masz pytania dotyczącego aktualizacji.
+3. Na serwerze programu WSUS, na którym są zgłaszane komputery, [Odrzuć aktualizację](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Wybierz pozycję **komputery** , a w kolumnie **zgodność** Wymuś ponowne skanowanie pod kątem zgodności. Zobacz [Zarządzanie aktualizacjami maszyn wirtualnych](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Powtórz powyższe kroki dla innych zastępowanych aktualizacji.
 
-6. Uruchom Kreatora oczyszczania, aby usunąć pliki z odrzuconych aktualizacji. 
+6. W przypadku Windows Server Update Services (WSUS) wyczyść wszystkie zastąpione aktualizacje, aby odświeżyć infrastrukturę za pomocą [Kreatora oczyszczania serwera](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)programu WSUS.
 
-7. W przypadku Windows Server Update Services (WSUS) ręcznie Wyczyść wszystkie zastąpione aktualizacje, aby odświeżyć infrastrukturę.
-
-8. Powtórz tę procedurę regularnie, aby poprawić problem z wyświetlaniem i zminimalizować ilość miejsca na dysku używanego do zarządzania aktualizacjami.
+7. Powtórz tę procedurę regularnie, aby poprawić problem z wyświetlaniem i zminimalizować ilość miejsca na dysku używanego do zarządzania aktualizacjami.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Scenariusz: maszyny nie są wyświetlane w portalu w obszarze Update Management
 

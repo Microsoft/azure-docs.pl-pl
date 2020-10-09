@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539342"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858272"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST rozpoznawania twarzy i biblioteki cURL
 
@@ -34,9 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
  
 Użyjesz polecenia, takiego jak następujące, aby wywołać interfejs API rozpoznawania twarzy i pobrać dane atrybutów kroju z obrazu. Najpierw skopiuj kod do edytora tekstów &mdash; konieczne będzie wprowadzenie zmian w niektórych częściach polecenia przed jego uruchomieniem.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>Klucz subskrypcji
 Zastąp wartość `<Subscription Key>` prawidłowym kluczem subskrypcji interfejsu API rozpoznawania twarzy.
@@ -46,14 +44,6 @@ Zastąp wartość `<Subscription Key>` prawidłowym kluczem subskrypcji interfej
 Adres URL `https://<My Endpoint String>.com/face/v1.0/detect` wskazuje punkt końcowy interfejsu API rozpoznawania twarzy platformy Azure. Może zajść konieczność zmiany pierwszej części tego adresu URL w celu dopasowania do punktu końcowego, który odpowiada kluczowi subskrypcji.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>Ciąg zapytania adresu URL
-
-Ciąg zapytania adresu URL punktu końcowego interfejs API rozpoznawania twarzy określa atrybuty twarzy do pobrania. Możesz zmienić ten ciąg w zależności od zamierzonego użycia.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>Adres URL źródła obrazu
 Źródłowy adres URL wskazuje obraz, który zostanie użyty jako dane wejściowe. Można to zmienić tak, aby wskazywał dowolny obraz, który ma zostać przeanalizowany.
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>Uruchamianie polecenia
 
 Po dokonaniu zmian otwórz wiersz polecenia i wprowadź nowe polecenie. Informacje o twarzy powinny zostać wyświetlone jako dane JSON w oknie konsoli. Na przykład:
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>Wyodrębnij atrybuty kroju
+ 
+Aby wyodrębnić atrybuty kroju, użyj modelu wykrywania 1 i Dodaj `returnFaceAttributes` parametr zapytania. Polecenie powinno teraz wyglądać podobnie do poniższego. Tak jak wcześniej, Wstaw klucz subskrypcji i punkt końcowy Twojej usługi.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+Zwrócone informacje o przedstronie są teraz uwzględnione w atrybutach czcionki. Na przykład:
 
 ```json
 [

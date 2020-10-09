@@ -9,18 +9,18 @@ ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47862469c074e85484227876caaef0ade64080de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: caa343b0715e3e4b33c45fcc9ba6441533c3d056
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003399"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858510"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Jak utworzyć i zlokalizować kotwice przy użyciu kotwic Azure przestrzennego w środowisku Unity
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
-> * [Obiektowy C](create-locate-anchors-objc.md)
+> * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [System Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
@@ -300,7 +300,7 @@ Dowiedz się więcej na temat delegata [AnchorLocatedDelegate](https://docs.micr
 Dowiedz się więcej o metodzie [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) .
 
 ```csharp
-    await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
+    await this.cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
 

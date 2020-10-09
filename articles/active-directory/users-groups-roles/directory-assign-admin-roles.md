@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304224"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858131"
 ---
-# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
 Za pomocą Azure Active Directory (Azure AD) można wyznaczyć ograniczonych administratorów do zarządzania zadaniami tożsamości w rolach z niższymi uprawnieniami. Administratorzy mogą być przypisani do takich celów, jak dodawanie lub zmiana użytkowników, przypisywanie ról administracyjnych, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników i zarządzanie nazwami domen. [Domyślne uprawnienia użytkownika](../fundamentals/users-default-permissions.md) można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
 
@@ -274,7 +274,7 @@ Ta rola była wcześniej nazywana "administratorem haseł" w [Azure Portal](http
 
 ### <a name="hybrid-identity-administrator"></a>[Administrator tożsamości hybrydowej](#hybrid-identity-administrator-permissions)
 
-Użytkownicy w tej roli mogą włączać i konfigurować usługi oraz ustawienia związane z włączaniem tożsamości hybrydowej w usłudze Azure AD oraz zarządzać nimi. Ta rola zapewnia możliwość skonfigurowania usługi Azure AD na jednej z trzech obsługiwanych metod uwierzytelniania, synchronizacji skrótów haseł (PHS), uwierzytelniania przekazywanego (PTA) lub Federacji (AD FS lub dostawcy Federacji innej firmy) oraz do wdrożenia powiązanej infrastruktury lokalnej w celu jej włączenia. Infrastruktura Premium obejmuje Inicjowanie obsługi administracyjnej i agentów PTA. Ta rola zapewnia możliwość włączenia bezproblemowego logowania jednokrotnego (SSO) w celu zapewnienia bezproblemowego uwierzytelniania na urządzeniach z systemem innym niż Windows 10 lub komputerach z systemem innym niż Windows Server 2016. Ponadto ta rola zapewnia możliwość wyświetlania dzienników logowania i uzyskiwania dostępu do kondycji i analizy na potrzeby monitorowania i rozwiązywania problemów. 
+Użytkownicy w tej roli mogą tworzyć i wdrażać ustawienia konfiguracji aprowizacji z usługi AD w usłudze Azure AD przy użyciu aprowizacji w chmurze, a także zarządzać ustawieniami federacyjnymi. Użytkownicy mogą również rozwiązywać problemy i monitorować dzienniki przy użyciu tej roli.  
 
 ### <a name="insights-administrator"></a>[Administrator usługi Insights](#insights-administrator-permissions)
 Użytkownicy w tej roli mogą uzyskać dostęp do pełnego zestawu funkcji administracyjnych w [aplikacji M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ta rola ma możliwość odczytywania informacji o katalogu, monitorowania kondycji usługi, biletów pomocy technicznej dotyczącej plików i uzyskiwania dostępu do aspektów ustawień administratora szczegółowego.
@@ -1216,9 +1216,6 @@ Włączanie, wdrażanie, konfigurowanie, monitorowanie i rozwiązywanie problem�
 | Microsoft. Directory/cloudProvisioning/allProperties/allTasks | Odczytaj i skonfiguruj wszystkie właściwości usługi Azure AD Cloud Provisioning. |
 | Microsoft. Directory/procedurze/allProperties/allTasks | Zarządzanie wszystkimi aspektami Active Directory usług federacyjnych (AD FS) lub dostawcy Federacji innej firmy w usłudze Azure AD. |
 | Microsoft. Directory/Organization/dirSync/Update | Zaktualizuj Właściwość Organization. dirSync w Azure Active Directory. |
-| Microsoft. Directory/passwordHashSync/allProperties/allTasks | Zarządzanie wszystkimi aspektami synchronizacji skrótów haseł (PHS) w usłudze Azure AD. |
-| Microsoft. Directory/passThroughAuthentication/allProperties/allTasks | Zarządzanie wszystkimi aspektami uwierzytelniania przekazywanego (PTA) w usłudze Azure AD. |
-| Microsoft. Directory/seamlessSSO/allProperties/allTasks | Zarządzaj wszystkimi aspektami bezproblemowego logowania jednokrotnego (SSO) w usłudze Azure AD. |
 | Microsoft. Directory/serviceprincipals/odbiorcy/aktualizacja | Aktualizacja właściwości serviceprincipals. odbiorca w Azure Active Directory. |
 | Microsoft. Directory/serviceprincipals/Authentication/Update | Aktualizacja właściwości serviceprincipals. Authentication w Azure Active Directory. |
 | Microsoft. Directory/serviceprincipals/Basic/Update | Zaktualizuj podstawowe właściwości obiektów serviceprincipals w Azure Active Directory. |

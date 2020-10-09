@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333022"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858476"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agent synchronizacji danych dla SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Synchronizuj dane z bazami danych SQL Server przez zainstalowanie i skonfigurowa
 
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
-Aby pobrać agenta synchronizacji danych, przejdź do [SQL Data Sync agenta](https://www.microsoft.com/download/details.aspx?id=27693).
+Aby pobrać agenta synchronizacji danych, przejdź do [SQL Data Sync agenta](https://www.microsoft.com/download/details.aspx?id=27693). Aby uaktualnić agenta synchronizacji danych, Zainstaluj agenta w tej samej lokalizacji, w której znajduje się stary Agent, i zastąpi oryginalny plik.
 
 ### <a name="install-silently"></a>Instaluj w trybie dyskretnym
 
