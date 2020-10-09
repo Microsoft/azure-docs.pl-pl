@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75350137"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Samouczek: filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu Azure Portal
 
-Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej możesz filtrować za pomocą sieciowej grupy zabezpieczeń. Sieciowe grupy zabezpieczeń zawierają reguły zabezpieczeń, które filtrują ruch sieciowy według adresów IP, portów i protokołów. Reguły zabezpieczeń są stosowane do zasobów wdrożonych w podsieci. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej możesz filtrować za pomocą sieciowej grupy zabezpieczeń. Sieciowe grupy zabezpieczeń zawierają reguły zabezpieczeń, które filtrują ruch sieciowy według adresów IP, portów i protokołów. Reguły zabezpieczeń są stosowane do zasobów wdrożonych w podsieci. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieciowej grupy zabezpieczeń i reguł zabezpieczeń
@@ -149,7 +149,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne.
     |Nazwa|myVmWeb|
     |Lokalizacja| Wybierz pozycję **Wschodnie stany USA**.|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 
@@ -184,7 +184,7 @@ Podczas tworzenia maszyn wirtualnych przez portal dla każdej maszyny wirtualnej
 1. Połącz się z maszyną wirtualną *myVmMgmt*. Wprowadź nazwę *myVmMgmt* w polu wyszukiwania w górnej części portalu. Gdy pozycja **myVmMgmt** pojawi się w wynikach wyszukiwania, wybierz ją. Wybierz przycisk **Połącz**.
 2. Wybierz pozycję **Pobierz plik RDP**.
 3. Otwórz pobrany plik RDP i wybierz pozycję **Połącz**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może okazać się konieczne wybranie pozycji **Więcej opcji**, a następnie pozycji **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
-4. Wybierz przycisk **OK**.
+4. Wybierz pozycję **OK**.
 5. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj**, aby nawiązać połączenie.
 
     Połączenie powiedzie się, ponieważ port 3389 zezwala na ruch przychodzący z Internetu do grupy zabezpieczeń aplikacji *myAsgMgmtServers*, w której znajduje się interfejs sieciowy dołączony do maszyny wirtualnej *myVmMgmt*.

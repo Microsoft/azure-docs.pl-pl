@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73501771"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Tworzenie testu analizatora internetowego przy użyciu portalu (wersja zapoznawcza)
@@ -42,7 +42,7 @@ Publiczna wersja zapoznawcza jest dostępna do użycia globalnie; jednak magazyn
 
 7. Po zakończeniu określania ustawień profilu kliknij pozycję **Przegląd + Utwórz**.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Wykonanie podstawowych kroków jest wymaganiem wstępnym do konfigurowania testu i osadzania klienta JavaScript. Po utworzeniu profilu przejdź do pozycji **ustawienia > konfiguracja** , aby skonfigurować pierwszy test.
 

@@ -8,7 +8,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Wprowadzenie
+    - name: Rozpoczęcie pracy
       href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: Przewodniki z instrukcjami
   items:
@@ -38,7 +38,7 @@
       href: 'https://api-portal.videoindexer.ai/'
 - name: Zasoby
   items:
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'

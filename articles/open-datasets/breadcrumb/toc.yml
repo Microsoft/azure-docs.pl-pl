@@ -2,6 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Zestawy danych licencji Open
+    - name: Open Datasets
       tocHref: /azure/machine-learning/service
       topicHref: /azure/open-datasets/index

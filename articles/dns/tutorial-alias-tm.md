@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77149953"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Samouczek: konfigurowanie rekordu aliasu w celu obsługi nazw domen wierzchołkowych przy użyciu usługi Traffic Manager 
@@ -20,7 +20,7 @@ ms.locfileid: "77149953"
 Można utworzyć rekord aliasu wierzchołka nazwy domeny, aby odwoływać się do profilu usługi Azure Traffic Manager. Przykładowa domena to contoso.com. Zamiast używać usługi przekierowania, skonfiguruj usługę Azure DNS, aby odwoływać się do profilu usługi Traffic Manager bezpośrednio z poziomu strefy. 
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej hosta i infrastruktury sieciowej.

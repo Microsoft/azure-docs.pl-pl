@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76845204"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z routingiem sieciowym na maszynie wirtualnej przy użyciu witryny Azure Portal
 
-Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej
@@ -52,7 +52,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |---|---|
     |Nazwa|myVm|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
     |Lokalizacja| Wybierz **Wschodnie stany USA**|

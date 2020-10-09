@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75443696"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Samouczek: niestandardowe deserializacji platformy .NET dla Azure Stream Analytics
@@ -20,7 +20,7 @@ Azure Stream Analytics ma [wbudowaną obsługę trzech formatów danych](stream-
 
 W tym samouczku przedstawiono sposób tworzenia niestandardowej deserializacji platformy .NET dla zadania Azure Stream Analytics w chmurze przy użyciu programu Visual Studio. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz niestandardową deserializatorę dla buforu protokołu.
@@ -78,7 +78,7 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
 
    |Ustawienie|Sugerowana wartość|
    |-------|---------------|
-   |Element źródłowy|Blob Storage|
+   |Źródło|Blob Storage|
    |Zasób|Wybierz źródło danych z bieżącego konta|
    |Subskrypcja|< subskrypcję >|
    |Konto magazynu|< konta magazynu >|

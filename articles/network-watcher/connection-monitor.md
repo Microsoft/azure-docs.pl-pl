@@ -16,15 +16,15 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76834658"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
-Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych
@@ -52,7 +52,7 @@ Utwórz dwie maszyny wirtualne.
     |---|---|
     |Nazwa|myVm1|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
     |Lokalizacja| Wybierz **Wschodnie stany USA**|
@@ -93,7 +93,7 @@ Utwórz monitor połączeń na potrzeby monitorowania komunikacji na porcie TCP 
     | Ustawienie                  | Wartość               |
     | ---------                | ---------           |
     | Nazwa                     | myVm1-myVm2(22)     |
-    | Element źródłowy                   |                     |
+    | Źródło                   |                     |
     | Maszyna wirtualna          | myVm1               |
     | Element docelowy              |                     |
     | Wybierz maszynę wirtualną |                     |

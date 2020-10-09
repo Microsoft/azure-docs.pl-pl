@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60199418"
 ---
-# <a name="pricing"></a>Ceny
+# <a name="pricing"></a>Cennik
 Bash w Cloud Shell i program PowerShell w Cloud Shell podlegają poniższym informacjom.
 
 ## <a name="compute-cost"></a>Koszt obliczeń

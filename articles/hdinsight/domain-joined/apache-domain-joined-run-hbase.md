@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73044640"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Samouczek: Konfigurowanie zasad Apache HBase w usłudze HDInsight przy użyciu pakiet Enterprise Security
 
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger na potrzeby klastrów Apache HBase pakietów Enterprise Security Package (ESP). Klastry ESP są łączone z domeną, co pozwala użytkownikom na uwierzytelnianie przy użyciu poświadczeń domeny. W tym samouczku utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do różnych rodzin kolumn w tabeli bazy danych HBase.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie użytkowników domeny
@@ -239,7 +239,7 @@ Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster 
 2. W polu **Wyszukaj** w górnej części wpisz **HDInsight**. 
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij polecenie **Usuń**. Kliknij przycisk **tak**.
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
 
 ## <a name="next-steps"></a>Następne kroki
 

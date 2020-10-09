@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77471333"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Samouczek: używanie Data Box Heavy do importowania danych jako dysków zarządzanych na platformie Azure
 
 W tym samouczku opisano, jak używać Azure Data Box Heavy do migrowania lokalnych dysków VHD do dysków zarządzanych na platformie Azure. Wirtualne dyski twarde z lokalnych maszyn wirtualnych są kopiowane do Data Box Heavy jako stronicowe obiekty blob i są przekazywane do platformy Azure jako dyski zarządzane. Te dyski zarządzane można następnie dołączyć do maszyn wirtualnych platformy Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przegląd wymagań wstępnych
@@ -116,7 +116,7 @@ Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, a
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij pozycję **OK**.
+2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 

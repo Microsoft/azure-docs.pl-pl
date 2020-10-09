@@ -10,7 +10,7 @@
   items:
     - name: Interfejs API REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
@@ -20,11 +20,11 @@
   items:
     - name: Wysyłanie danych pisma odręcznego do interfejsu API rozpoznawania pisma odręcznego
       href: concepts/send-ink-data.md
-- name: Przykłady
+- name: Samples
   items:
-    - name: 'C# i platforma uniwersalna systemu Windows (UWP)'
+    - name: C# i platforma uniwersalna systemu Windows (UWP)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# i Windows Presentation Foundation (WPF)'
+    - name: C# i Windows Presentation Foundation (WPF)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: Aplikacja języka JavaScript dla przeglądarki internetowej
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
@@ -32,11 +32,11 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
     - name: Aplikacja mobilna języka Swift i systemu iOS
       href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
-- name: Dokumentacja
+- name: Tematy pomocy
   items:
     - name: Dokumentacja interfejsu API REST
       href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
-    - name: Program PowerShell
+    - name: PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Interfejs wiersza polecenia platformy Azure
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'

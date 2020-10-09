@@ -9,17 +9,17 @@ metadata:
   ms.service: mariadb
   ms.topic: landing-page
   ms.openlocfilehash: bd4bb93a43bd493069ed03f6197595fe782d605a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "70735376"
 landingContent:
 - title: Azure Database for MariaDB — informacje
   linkLists:
   - linkListType: overview
     links:
-    - text: Czym jest usługa Azure Database for MariaDB?
+    - text: Co to jest usługa Azure Database for MariaDB?
       url: overview.md
   - linkListType: whats-new
     links:

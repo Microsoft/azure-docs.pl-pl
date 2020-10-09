@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74186369"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Samouczek: ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi dla sieci wirtualnej z użyciem witryny Azure Portal
 
-Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej. Możesz również uniemożliwić dostęp internetowy do zasobów. Punkty końcowe usługi zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure, umożliwiając korzystanie z prywatnej przestrzeni adresowej sieci wirtualnej w celu uzyskiwania dostępu do usług platformy Azure. Ruch kierowany do zasobów platformy Azure za pośrednictwem punktów końcowych usługi zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej. Możesz również uniemożliwić dostęp internetowy do zasobów. Punkty końcowe usługi zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure, umożliwiając korzystanie z prywatnej przestrzeni adresowej sieci wirtualnej w celu uzyskiwania dostępu do usług platformy Azure. Ruch kierowany do zasobów platformy Azure za pośrednictwem punktów końcowych usługi zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej z jedną podsiecią
@@ -56,11 +56,11 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
    |Subskrypcja| Wybierz swoją subskrypcję|
    |Grupa zasobów | Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
    |Lokalizacja| Wybierz **Wschodnie stany USA** |
-   |Nazwa podsieci| Publiczny|
+   |Nazwa podsieci| Public|
    |Zakres adresów podsieci| 10.0.0.0/24|
-   |Ochrona przed atakami DDOS| Podstawowe|
+   |Ochrona przed atakami DDOS| Podstawowy|
    |Punkty końcowe usługi| Disabled|
-   |Firewall| Disabled|
+   |Zapora| Disabled|
 
    ![Wprowadzanie podstawowych informacji o sieci wirtualnej](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -77,7 +77,7 @@ Punkty końcowe usługi są włączane dla poszczególnych usług i podsieci. Ut
 
     |Ustawienie|Wartość|
     |----|----|
-    |Nazwa| Prywatne |
+    |Nazwa| Private |
     |Zakres adresów| 10.0.1.0/24|
     |Punkty końcowe usługi| Wybierz pozycję **Microsoft.Storage** w obszarze **Usługi**|
 
@@ -219,7 +219,7 @@ Aby przetestować dostęp sieciowy do konta magazynu, należy wdrożyć maszynę
    |----|----|
    |Nazwa| myVmPublic|
    |Nazwa użytkownika|Wprowadź wybraną nazwę użytkownika.|
-   |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subskrypcja| Wybierz subskrypcję.|
    |Grupa zasobów| Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroup**.|
    |Lokalizacja| Wybierz pozycję **Wschodnie stany USA**.|
@@ -247,7 +247,7 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Nie należy przechodzić do na
 
 2. Po wybraniu przycisku **Połącz** zostanie utworzony i pobrany na komputer plik Remote Desktop Protocol (rdp).  
 3. Otwórz pobrany plik rdp. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może okazać się konieczne wybranie pozycji **Więcej opcji**, a następnie pozycji **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej. 
-4. Wybierz przycisk **OK**.
+4. Wybierz pozycję **OK**.
 5. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj**, aby nawiązać połączenie.
 6. Na maszynie wirtualnej *myVmPrivate* mapuj udział plików platformy Azure na dysk Z przy użyciu programu PowerShell. Przed uruchomieniem poniższych poleceń zastąp zmienne `<storage-account-key>` i `<storage-account-name>` wartościami podanymi i pobranymi w sekcji [Tworzenie konta magazynu](#create-a-storage-account).
 

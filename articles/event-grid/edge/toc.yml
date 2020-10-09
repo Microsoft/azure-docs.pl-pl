@@ -18,7 +18,7 @@
       href: forward-events-iothub.md
     - name: Reagowanie na zdarzenia usługi Blob Storage lokalnie
       href: react-blob-storage-events-locally.md
-- name: Przykłady
+- name: Samples
   href: 'https://github.com/Azure/event-grid-iot-edge'
 - name: Pojęcia
   items:
@@ -42,7 +42,7 @@
       items:
         - name: Linux
           href: persist-state-linux.md
-        - name: System Windows
+        - name: Windows
           href: persist-state-windows.md
     - name: Monitorowanie tematów i subskrypcji
       href: monitor-topics-subscriptions.md

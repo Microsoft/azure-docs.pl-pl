@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
 ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183581"
 ---
 ### <a name="retrieve-output-files"></a>Pobieranie plików wyjściowych
 
 Przy użyciu witryny Azure Portal można pobrać wyjściowe pliki MP3 wygenerowane przez zadania ffmpeg. 
 
-1. Kliknij pozycję **wszystkie usługi** > **konta magazynu**, a następnie kliknij nazwę konta magazynu.
-2. Kliknij pozycję **obiekty blob** > *dane wyjściowe*.
+1. Kliknij pozycję **wszystkie usługi**  >  **konta magazynu**, a następnie kliknij nazwę konta magazynu.
+2. Kliknij pozycję **obiekty blob**  >  *dane wyjściowe*.
 3. Kliknij prawym przyciskiem myszy jeden z wyjściowych plików MP3, a następnie kliknij polecenie **Pobierz**. Postępuj zgodnie z monitami wyświetlanymi w przeglądarce, aby otworzyć lub zapisać plik.
 
 ![Pobieranie pliku wyjściowego](./media/batch-common-tutorial-download/download.png)

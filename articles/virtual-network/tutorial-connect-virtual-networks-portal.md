@@ -14,15 +14,15 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77201302"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Samouczek: łączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych z użyciem witryny Azure Portal
 
-Sieci wirtualne możesz łączyć ze sobą za pomocą komunikacji równorzędnej sieci wirtualnych. Te sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach (określane także jako globalne wirtualne sieci równorzędne). Po połączeniu sieci wirtualnych za pomocą komunikacji równorzędnej zasoby w obu sieciach wirtualnych mogą komunikować się ze sobą przy takim samym opóźnieniu i z taką samą przepustowością, jakby zasoby były w tej samej sieci wirtualnej. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Sieci wirtualne możesz łączyć ze sobą za pomocą komunikacji równorzędnej sieci wirtualnych. Te sieci wirtualne mogą znajdować się w tym samym regionie lub w różnych regionach (określane także jako globalne wirtualne sieci równorzędne). Po połączeniu sieci wirtualnych za pomocą komunikacji równorzędnej zasoby w obu sieciach wirtualnych mogą komunikować się ze sobą przy takim samym opóźnieniu i z taką samą przepustowością, jakby zasoby były w tej samej sieci wirtualnej. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch sieci wirtualnych
@@ -48,7 +48,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |---|---|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
-    |Region (Region)| Wybierz pozycję **Wschodnie stany USA**.|
+    |Region| Wybierz pozycję **Wschodnie stany USA**.|
     |Nazwa|myVirtualNetwork1|
 
 4. Na karcie **adresy IP** wprowadź wartość 10.0.0.0/16 dla pola **przestrzeń adresowa** . Kliknij przycisk **Dodaj podsieć** poniżej i wprowadź *Subnet1* dla **nazwy podsieci** i 10.0.0.0/24 dla **zakresu adresów podsieci**.
@@ -104,7 +104,7 @@ Utwórz maszynę wirtualną w każdej sieci wirtualnej, dzięki czemu będzie mo
     |Nazwa|myVm1|
     |Lokalizacja| Wybierz pozycję **Wschodnie stany USA**.|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Wybierz rozmiar maszyny wirtualnej dla opcji **rozmiar** .
 5. Wybierz następujące wartości w obszarze **Sieć**:

@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71121935"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Samouczek: używanie języka R w kontekście obliczeń Spark w usłudze Azure HDInsight
 
 Ten samouczek zawiera instrukcje krok po kroku dotyczące korzystania z funkcji R w programie Apache Spark uruchomionym w klastrze usługi Azure HDInsight Machine Learning Services.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Pobieranie przykładowych danych do magazynu lokalnego
@@ -363,7 +363,7 @@ Aby usunąć klaster, zobacz [usuwanie klastra usługi HDInsight przy użyciu pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób korzystania z funkcji R w Apache Spark uruchomionych w klastrze usługi HDInsight Machine Learning. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+W tym samouczku przedstawiono sposób korzystania z funkcji R w Apache Spark uruchomionych w klastrze usługi HDInsight Machine Learning. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [Opcje kontekstu obliczeniowego dla klastra usług Machine Learning usługi Azure HDInsight](r-server-compute-contexts.md)
 * [Funkcje języka R dla platformy Spark w usłudze Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

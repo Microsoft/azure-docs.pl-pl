@@ -9,17 +9,17 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74011361"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Samouczek: Tworzenie bramy aplikacji, która usprawnia dostęp do aplikacji sieci Web
 
 Jeśli jesteś administratorem IT i chcesz poprawić dostęp do aplikacji internetowych, możesz zoptymalizować bramę aplikacji, aby była skalowana na podstawie potrzeb klientów i obejmowała wiele stref dostępności. Ten samouczek pomoże Ci skonfigurować funkcje usługi Azure App Gateway pod kątem skalowania automatycznego, nadmiarowości stref i zastrzeżonych wirtualnych adresów IP (statycznych adresów IP). Aby rozwiązać problem, użyjesz poleceń cmdlet programu Azure PowerShell i modelu wdrażania usługi Azure Resource Manager.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie certyfikatu z podpisem własnym
