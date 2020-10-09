@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.openlocfilehash: fc3b5b096e339d0c0f4bca7afc92d7315246fcd4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Samouczek: integracja Azure Active Directory z SAP HANA
@@ -135,7 +135,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w oprogramowaniu SAP H
 
     c. Z listy **Parametr 1** wybierz pozycję **user.mail**.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -242,7 +242,7 @@ Jeśli potrzebujesz utworzyć użytkownika ręcznie, wykonaj następujące kroki
 
 3. Wybierz pozycję **Add** (Dodaj), aby dodać dostawcę tożsamości SAML.  Wybierz odpowiedniego dostawcę tożsamości SAML, a następnie wybierz pozycję **OK**.
 
-4. Dodaj **tożsamość zewnętrzną** (w tym przypadku BrittaSimon) lub wybierz pozycję **Any** (Dowolna). Następnie wybierz pozycję **OK**.
+4. Dodaj **tożsamość zewnętrzną** (w tym przypadku BrittaSimon) lub wybierz pozycję **Any** (Dowolna). Następnie wybierz przycisk **OK**.
 
    > [!Note]
    > Jeśli pole wyboru **Any** (Dowolna) nie jest zaznaczone, nazwa użytkownika w oprogramowaniu HANA musi dokładnie pasować do głównej nazwy użytkownika przed sufiksem domeny. (Na przykład BrittaSimon@contoso.com to BrittaSimon w oprogramowaniu HANA).
@@ -266,7 +266,7 @@ Po kliknięciu kafelka SAP HANA na panelu dostępu powinno nastąpić automatycz
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

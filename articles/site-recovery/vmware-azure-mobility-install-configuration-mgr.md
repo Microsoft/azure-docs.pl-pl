@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77252231"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatyzowanie instalacji usługi mobilności
@@ -342,7 +342,7 @@ cd /tmp
 1. Kliknij prawym przyciskiem myszy pozycję **pakiety**  >  **Utwórz pakiet**.
 1. Podaj szczegóły pakietu, takie jak nazwa, opis, producent, język i wersja.
 1. Wybierz opcję **ten pakiet zawiera pliki źródłowe**.
-1. Kliknij przycisk **Przeglądaj**, a następnie wybierz udział sieciowy i folder zawierający odpowiedni Instalator (_MobSvcWindows_ lub _MobSvcLinux_). Następnie wybierz przycisk **dalej**.
+1. Kliknij przycisk **Przeglądaj**, a następnie wybierz udział sieciowy i folder zawierający odpowiedni Instalator (_MobSvcWindows_ lub _MobSvcLinux_). Następnie wybierz pozycję **Dalej**.
 
    ![Zrzut ekranu przedstawiający Kreatora tworzenia pakietu i programu](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 

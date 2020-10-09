@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617001"
 ---
 # <a name="onboarding-requirements"></a>Wymagania dotyczące dołączania
@@ -61,7 +61,7 @@ Aby uzyskać informacje na temat macierzy zgodności systemów operacyjnych i op
 > W tym momencie jest obsługiwana tylko wersja systemu operacyjnego SLES 12 SP2. 
 
 
-**Baza danych**
+**Database** (Baza danych)
 
 - Licencje i składniki instalacji oprogramowania dla SAP HANA (platforma lub Enterprise Edition).
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85319724"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory planowanie i wykonywanie
@@ -25,7 +25,7 @@ ms.locfileid: "85319724"
 W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Azure Data Factory. W tym artykule założono, że rozumiesz podstawowe informacje dotyczące Data Factory pojęć modelu aplikacji, w tym działań, potoków, połączonych usług i zestawów danych. Podstawowe pojęcia dotyczące Azure Data Factory można znaleźć w następujących artykułach:
 
 * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
-* [Pipelines](data-factory-create-pipelines.md)
+* [Potoki](data-factory-create-pipelines.md)
 * [Zestawy danych](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Czasy rozpoczęcia i zakończenia potoku
@@ -268,12 +268,12 @@ Zasady mają wpływ na zachowanie działania w czasie wykonywania, w odróżnien
 
 | Właściwość | Dozwolone wartości | Wartość domyślna | Opis |
 | --- | --- | --- | --- |
-| współbieżność |Integer <br/><br/>Wartość maksymalna: 10 |1 |Liczba współbieżnych wykonań działania.<br/><br/>Określa liczbę równoległych wykonań działań, które mogą być wykonywane na różnych wycinkach. Na przykład, jeśli działanie wymaga przechodzenia przez duży zestaw dostępnych danych, dzięki czemu większa wartość współbieżności przyspiesza przetwarzanie danych. |
+| współbieżność |Liczba całkowita <br/><br/>Wartość maksymalna: 10 |1 |Liczba współbieżnych wykonań działania.<br/><br/>Określa liczbę równoległych wykonań działań, które mogą być wykonywane na różnych wycinkach. Na przykład, jeśli działanie wymaga przechodzenia przez duży zestaw dostępnych danych, dzięki czemu większa wartość współbieżności przyspiesza przetwarzanie danych. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Określa kolejność wycinkiów danych, które są przetwarzane.<br/><br/>Na przykład, jeśli masz 2 wycinków (jedno zdarza się o 16:00, a drugi w 17:00), i oba są oczekujące na wykonanie. Jeśli ustawisz executionPriorityOrder jako NewestFirst, najpierw zostanie przetworzony wycink o wartości 5 PM. Podobnie, jeśli ustawisz executionPriorityORder jako OldestFIrst, zostanie przetworzony wycinek o godzinie 4 PM. |
-| retry |Integer<br/><br/>Maksymalna wartość może być równa 10 |0 |Liczba ponownych prób przed przetworzeniem danych dla wycinka jest oznaczona jako niepowodzenie. Wykonanie działania dla wycinka danych zostanie ponowione z określoną liczbą ponownych prób. Ponowienie próby jest wykonywane najszybciej, jak to możliwe po awarii. |
+| retry |Liczba całkowita<br/><br/>Maksymalna wartość może być równa 10 |0 |Liczba ponownych prób przed przetworzeniem danych dla wycinka jest oznaczona jako niepowodzenie. Wykonanie działania dla wycinka danych zostanie ponowione z określoną liczbą ponownych prób. Ponowienie próby jest wykonywane najszybciej, jak to możliwe po awarii. |
 | timeout |przedział_czasu |00:00:00 |Limit czasu dla działania. Przykład: 00:10:00 (implikuje limit czasu 10 min)<br/><br/>Jeśli wartość nie jest określona lub jest równa 0, limit czasu jest nieskończony.<br/><br/>Jeśli czas przetwarzania danych na wycinku przekracza wartość limitu czasu, zostanie anulowany, a system próbuje ponowić próbę przetwarzania. Liczba ponownych prób zależy od właściwości retry. Gdy wystąpi limit czasu, stan jest ustawiany na TimedOut. |
 | opóźnienie |przedział_czasu |00:00:00 |Określ opóźnienie przed rozpoczęciem przetwarzania danych wycinka.<br/><br/>Wykonywanie działań dla wycinka danych jest uruchamiane po upływie oczekiwanego czasu wykonania.<br/><br/>Przykład: 00:10:00 (oznacza opóźnienie 10 min) |
-| longRetry |Integer<br/><br/>Wartość maksymalna: 10 |1 |Liczba długotrwałych ponownych prób przed wykonaniem wycinka nie powiodła się.<br/><br/>longRetry próbuje longRetryInterval. Dlatego jeśli musisz określić godzinę między ponownymi próbami, użyj longRetry. Jeśli określono zarówno ponowną próbę, jak i longRetry, każda próba longRetry obejmuje ponowną próbę i maksymalną liczbę prób ponawiania prób * longRetry.<br/><br/>Na przykład jeśli w zasadach działania istnieją następujące ustawienia:<br/>Ponów próbę: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Załóżmy, że istnieje tylko jeden wycinek do wykonania (stan oczekuje), a wykonywanie działania kończy się za każdym razem. Początkowo będą podejmowane trzy kolejne próby wykonania. Po każdej próbie będzie można ponowić próbę. Po wykonaniu pierwszych 3 prób zostanie wyświetlony stan wycinka LongRetry.<br/><br/>Po godzinie (czyli longRetryInteval wartość) może istnieć kolejny zestaw trzech kolejnych prób wykonania. Po tym stanie wycinka zostanie zakończona niepowodzeniem i nie będzie podejmowanych dalszych prób. W związku z tym wykonano ogólne 6 prób.<br/><br/>Jeśli jakiekolwiek wykonanie zakończy się pomyślnie, stan wycinka będzie gotowy i nie będą podejmowane żadne dalsze próby.<br/><br/>longRetry mogą być używane w sytuacjach, gdy dane zależne docierają do niedeterministycznych czasów lub w ogólnym środowisku, w którym odbywa się przetwarzanie danych. W takich przypadkach ponawianie próby jedna po drugiej może nie pomóc i wykonać to po upływie przedziału czasu w żądanych danych wyjściowych.<br/><br/>Uwaga: nie ustawiaj wysokich wartości dla longRetry lub longRetryInterval. Zazwyczaj wyższe wartości oznaczają inne problemy systemowe. |
+| longRetry |Liczba całkowita<br/><br/>Wartość maksymalna: 10 |1 |Liczba długotrwałych ponownych prób przed wykonaniem wycinka nie powiodła się.<br/><br/>longRetry próbuje longRetryInterval. Dlatego jeśli musisz określić godzinę między ponownymi próbami, użyj longRetry. Jeśli określono zarówno ponowną próbę, jak i longRetry, każda próba longRetry obejmuje ponowną próbę i maksymalną liczbę prób ponawiania prób * longRetry.<br/><br/>Na przykład jeśli w zasadach działania istnieją następujące ustawienia:<br/>Ponów próbę: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Załóżmy, że istnieje tylko jeden wycinek do wykonania (stan oczekuje), a wykonywanie działania kończy się za każdym razem. Początkowo będą podejmowane trzy kolejne próby wykonania. Po każdej próbie będzie można ponowić próbę. Po wykonaniu pierwszych 3 prób zostanie wyświetlony stan wycinka LongRetry.<br/><br/>Po godzinie (czyli longRetryInteval wartość) może istnieć kolejny zestaw trzech kolejnych prób wykonania. Po tym stanie wycinka zostanie zakończona niepowodzeniem i nie będzie podejmowanych dalszych prób. W związku z tym wykonano ogólne 6 prób.<br/><br/>Jeśli jakiekolwiek wykonanie zakończy się pomyślnie, stan wycinka będzie gotowy i nie będą podejmowane żadne dalsze próby.<br/><br/>longRetry mogą być używane w sytuacjach, gdy dane zależne docierają do niedeterministycznych czasów lub w ogólnym środowisku, w którym odbywa się przetwarzanie danych. W takich przypadkach ponawianie próby jedna po drugiej może nie pomóc i wykonać to po upływie przedziału czasu w żądanych danych wyjściowych.<br/><br/>Uwaga: nie ustawiaj wysokich wartości dla longRetry lub longRetryInterval. Zazwyczaj wyższe wartości oznaczają inne problemy systemowe. |
 | longRetryInterval |przedział_czasu |00:00:00 |Opóźnienie między długimi próbami ponowienia |
 
 Aby uzyskać więcej informacji, zobacz artykuł [potoki](data-factory-create-pipelines.md) . 
@@ -695,7 +695,7 @@ Oto przykładowy kod JSON potoku:
 
 Zwróć uwagę, że w przykładzie wyjściowy zestaw danych pierwszego działania kopiowania (Dataset2) jest określony jako dane wejściowe dla drugiego działania. W związku z tym drugie działanie jest uruchamiane tylko wtedy, gdy wyjściowy zestaw danych z pierwszego działania jest gotowy.  
 
-W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Przykład:
+W przykładzie CopyActivity2 może mieć inne dane wejściowe, takie jak Dataset3, ale jako dane wejściowe do CopyActivity2 należy określić Dataset2, więc działanie nie jest uruchamiane do momentu zakończenia plik copyactivity1. Na przykład:
 
 Plik copyactivity1
 

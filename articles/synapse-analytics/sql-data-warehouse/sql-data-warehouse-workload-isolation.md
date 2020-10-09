@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: a9ebee68c7abd90f5fb3345eec1ee929fc30ca20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212313"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Izolacja grupy obciążeń usługi Azure Synapse Analytics
@@ -50,14 +50,14 @@ Użytkownicy powinni unikać rozwiązania do zarządzania obciążeniami, które
 
 ## <a name="workload-containment"></a>Zawieranie obciążeń
 
-Zawieranie obciążenia odnosi się do ograniczenia ilości zasobów, które może zużywać Grupa obciążeń.  Zawieranie obciążenia jest osiągane przez skonfigurowanie parametru CAP_PERCENTAGE_RESOURCE na wartość mniejszą niż 100 w składni [tworzenia grupy obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Rozważmy scenariusz, w którym użytkownicy muszą mieć dostęp do odczytu do systemu, aby można było uruchomić analizę analizy warunkowej za pośrednictwem zapytań ad hoc.  Te typy żądań mogą mieć negatywny wpływ na inne obciążenia działające w systemie.  Skonfigurowanie zawierania gwarantuje, że ilość zasobów jest ograniczona.
+Zawieranie obciążenia odnosi się do ograniczenia ilości zasobów, które może zużywać Grupa obciążeń.  Zawieranie obciążenia jest osiągane przez skonfigurowanie parametru CAP_PERCENTAGE_RESOURCE na wartość mniejszą niż 100 w składni [tworzenia grupy obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  .  Rozważmy scenariusz, w którym użytkownicy muszą mieć dostęp do odczytu do systemu, aby można było uruchomić analizę analizy warunkowej za pośrednictwem zapytań ad hoc.  Te typy żądań mogą mieć negatywny wpływ na inne obciążenia działające w systemie.  Skonfigurowanie zawierania gwarantuje, że ilość zasobów jest ograniczona.
 
 Konfigurowanie zawiera niejawnie zdefiniowanie maksymalnego poziomu współbieżności.  Mając CAP_PERCENTAGE_RESOURCE ustawioną na 60% i REQUEST_MIN_RESOURCE_GRANT_PERCENT ustawioną na 1%, do grupy obciążeń jest dozwolony poziom współbieżności 60.  Rozważmy metodę uwzględnioną poniżej w celu określenia maksymalnej współbieżności:
 
 [Maks. współbieżność] = [ `CAP_PERCENTAGE_RESOURCE` ]/[ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
-> Efektywna CAP_PERCENTAGE_RESOURCE grupy obciążeń nie osiągnie 100%, gdy tworzone są grupy obciążeń z MIN_PERCENTAGE_RESOURCE na poziomie większym niż zero.  Zobacz sekcję [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać efektywne wartości środowiska uruchomieniowego.
+> Efektywna CAP_PERCENTAGE_RESOURCE grupy obciążeń nie osiągnie 100%, gdy tworzone są grupy obciążeń z MIN_PERCENTAGE_RESOURCE na poziomie większym niż zero.  Zobacz [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać efektywne wartości środowiska uruchomieniowego.
 
 ## <a name="resources-per-request-definition"></a>Zasoby na definicję żądania
 
@@ -71,7 +71,7 @@ Tak jak w przypadku wybrania klasy zasobów, skonfigurowanie REQUEST_MIN_RESOURC
 Skonfigurowanie REQUEST_MAX_RESOURCE_GRANT_PERCENT do wartości większej niż REQUEST_MIN_RESOURCE_GRANT_PERCENT pozwala systemowi przydzielić więcej zasobów na żądanie.  Podczas planowania żądania system określa rzeczywistą alokację zasobów do żądania, która jest między REQUEST_MIN_RESOURCE_GRANT_PERCENT i REQUEST_MAX_RESOURCE_GRANT_PERCENT, na podstawie dostępności zasobów w puli udostępnionej i bieżącego obciążenia systemu.  Zasoby muszą znajdować się w [udostępnionej puli](#shared-pool-resources) zasobów po zaplanowaniu zapytania.  
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT i REQUEST_MAX_RESOURCE_GRANT_PERCENT mają obowiązujące wartości, które są zależne od obowiązujących wartości MIN_PERCENTAGE_RESOURCE i CAP_PERCENTAGE_RESOURCE.  Zobacz sekcję [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać efektywne wartości środowiska uruchomieniowego.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT i REQUEST_MAX_RESOURCE_GRANT_PERCENT mają obowiązujące wartości, które są zależne od obowiązujących wartości MIN_PERCENTAGE_RESOURCE i CAP_PERCENTAGE_RESOURCE.  Zobacz [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać efektywne wartości środowiska uruchomieniowego.
 
 ## <a name="execution-rules"></a>Reguły wykonywania
 

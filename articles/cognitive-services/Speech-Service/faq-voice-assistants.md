@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74110348"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Często zadawane pytania dotyczące asystentów głosowych
@@ -25,7 +25,7 @@ Jeśli nie możesz znaleźć odpowiedzi na pytania w tym dokumencie, zapoznaj si
 
 **P: co to jest asystent głosowy?**
 
-Odp **.:** Podobnie jak Cortana, asystent głosowy to rozwiązanie, które nasłuchuje w wyrażenia długości mówionym przez użytkownika, analizuje zawartość tych wyrażenia długości w znaczenie, wykonuje co najmniej jedną akcję w odpowiedzi na intencje wypowiedź, a następnie dostarcza odpowiedzi użytkownikowi, który często zawiera wymawiany składnik. Jest to "głosowanie", co prowadzi do korzystania z systemu. Autorzy asystentów głosowych tworzą aplikację na urządzeniu przy `DialogServiceConnector` użyciu zestawu SDK mowy do komunikowania się z asystentem utworzonym za pomocą [poleceń niestandardowych (wersja zapoznawcza)](custom-commands.md) lub kanałem [mowy liniowej](direct-line-speech.md) bot Framework. Ci Asystenci mogą używać niestandardowych słów kluczowych, niestandardowej mowy i niestandardowego głosu, aby zapewnić środowisko dostosowane do Twojej marki lub produktu.
+Odp **.:** Podobnie jak Cortana, asystent głosowy to rozwiązanie, które nasłuchuje w wyrażenia długości mówionym przez użytkownika, analizuje zawartość tych wyrażenia długości w znaczenie, wykonuje co najmniej jedną akcję w odpowiedzi na intencje wypowiedź, a następnie dostarcza odpowiedzi użytkownikowi, który często zawiera wymawiany składnik. Jest to "głosowanie", co prowadzi do korzystania z systemu. Autorzy asystentów głosowych tworzą aplikację na urządzeniu przy użyciu `DialogServiceConnector` zestawu SDK mowy do komunikowania się z asystentem utworzonym za pomocą [poleceń niestandardowych (wersja zapoznawcza)](custom-commands.md) lub kanałem [mowy liniowej](direct-line-speech.md) bot Framework. Ci Asystenci mogą używać niestandardowych słów kluczowych, niestandardowej mowy i niestandardowego głosu, aby zapewnić środowisko dostosowane do Twojej marki lub produktu.
 
 **P: czy należy używać poleceń niestandardowych (wersja zapoznawcza) czy bezpośredniej linii mowy? Jaka jest różnica?**
 
@@ -43,9 +43,9 @@ Odp **.:** Najlepszym sposobem, aby zacząć od tworzenia niestandardowych polec
 
 **P: gdzie jest mój wpis tajny kanału?**
 
-Odp **.:** W przypadku korzystania z wersji zapoznawczej bezpośredniego rozpoznawania mowy lub odczytywania powiązanej dokumentacji może być konieczne znalezienie klucza tajnego na stronie rejestracji kanału mowy w linii bezpośredniej. Metoda `FromBotSecret` fabryki v `DialogServiceConfig` 1.7 w zestawie mowy SDK również oczekuje tej wartości.
+Odp **.:** W przypadku korzystania z wersji zapoznawczej bezpośredniego rozpoznawania mowy lub odczytywania powiązanej dokumentacji może być konieczne znalezienie klucza tajnego na stronie rejestracji kanału mowy w linii bezpośredniej. `DialogServiceConfig`Metoda fabryki v 1.7 `FromBotSecret` w zestawie mowy SDK również oczekuje tej wartości.
 
-Najnowsza wersja funkcji bezpośredniej obsługi liniowej nie pozwala na nawiązywanie kontaktu z bot z urządzenia. Na stronie Rejestracja kanału lista rozwijana na górze kojarzy swoją rejestrację kanału mowy z linią głosową z zasobem mowy. Po skojarzeniu zestaw SDK mowy v 1.8 zawiera metodę `BotFrameworkConfig::FromSubscription` fabryki, która spowoduje skonfigurowanie programu `DialogServiceConnector` w celu skontaktowania się z botą skojarzoną z Twoją subskrypcją.
+Najnowsza wersja funkcji bezpośredniej obsługi liniowej nie pozwala na nawiązywanie kontaktu z bot z urządzenia. Na stronie Rejestracja kanału lista rozwijana na górze kojarzy swoją rejestrację kanału mowy z linią głosową z zasobem mowy. Po skojarzeniu zestaw SDK mowy v 1.8 zawiera `BotFrameworkConfig::FromSubscription` metodę fabryki, która spowoduje skonfigurowanie programu `DialogServiceConnector` w celu skontaktowania się z botą skojarzoną z Twoją subskrypcją.
 
 Jeśli aplikacja kliencka nadal jest migrowana z wersji 1.7 do wersji 1.8, `DialogServiceConfig::FromBotSecret` może nadal korzystać z niepustej wartości innej niż null dla parametru tajnego kanału, np. poprzedniego użytego klucza tajnego. Zostanie ona po prostu zignorowana w przypadku korzystania z subskrypcji mowy skojarzonej z nowszą rejestracją kanału. Należy pamiętać, że wartość nie _może_ mieć wartości null i nie jest pusta, ponieważ są one sprawdzane na urządzeniu przed zastosowaniem skojarzenia po stronie usługi.
 
@@ -57,14 +57,14 @@ Odp **.:** Podczas zarządzania subskrypcją w Azure Portal upewnij się, że u�
 
 ![poprawna subskrypcja dla bezpośredniej linii mowy](media/voice-assistants/faq-supported-subscription.png "przykład zgodnej subskrypcji mowy")
 
-**P: otrzymuję tekst rozpoznawania z mojego `DialogServiceConnector`, ale widzę komunikat o błędzie "1011" i niczego nie bot. Zalet?**
+**P: otrzymuję tekst rozpoznawania z mojego `DialogServiceConnector` , ale widzę komunikat o błędzie "1011" i niczego nie bot. Zalet?**
 
 Odp **.:** Ten błąd wskazuje na problem z komunikacją między asystentem a usługą asystenta głosowego.
 
 - W przypadku poleceń niestandardowych (wersja zapoznawcza) Upewnij się, że aplikacja poleceń niestandardowych (wersja zapoznawcza) została opublikowana
 - W przypadku bezpośredniej obsługi mowy w wierszu upewnij się, że [nawiązano połączenie z usługą bot z kanałem mowy z linią Direct](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [Dodano obsługę protokołu przesyłania strumieniowego](https://aka.ms/botframework/addstreamingprotocolsupport) do bot (z obsługą obsługiwanego gniazda sieci Web), a następnie sprawdź, czy bot odpowiada na żądania przychodzące z kanału.
 
-**P: ten kod nadal nie działa i/lub występuje inny błąd podczas korzystania z `DialogServiceConnector`. Co mam zrobić?**
+**P: ten kod nadal nie działa i/lub występuje inny błąd podczas korzystania z `DialogServiceConnector` . Co mam zrobić?**
 
 Odp **.:** Rejestrowanie na podstawie plików zapewnia znacznie bardziej szczegółowe informacje i może ułatwić przyspieszenie żądań pomocy technicznej. Aby włączyć tę funkcję, zobacz [jak korzystać z rejestrowania plików](how-to-use-logging.md).
 

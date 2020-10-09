@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019625"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Nawiązywanie połączenia z poziomu lokalnego z CloudSimple za pomocą ExpressRoute
@@ -47,7 +47,7 @@ Aby nawiązać połączenie z usługą ExpressRoute, należy utworzyć autoryzac
 
 ### <a name="create-expressroute-authorization"></a>Utwórz autoryzację ExpressRoute
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Na górnym pasku wyszukiwania Wyszukaj pozycję **obwód usługi ExpressRoute** , a następnie kliknij pozycję **ExpressRoute obwody** w obszarze **usługi**.
     [![Obwody usługi ExpressRoute](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)

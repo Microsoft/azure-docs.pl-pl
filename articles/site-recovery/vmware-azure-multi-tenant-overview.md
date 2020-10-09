@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74083987"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Omówienie obsługi wielu dzierżawców na potrzeby odzyskiwania po awarii oprogramowania VMware na platformie Azure przy użyciu dostawcy usług kryptograficznych
@@ -91,7 +91,7 @@ Skonfiguruj serwer konfiguracji przy użyciu konta, do którego jest przypisana 
 
 >| Obiekt | Rola | Uwagi |
 >| --- | --- | --- |
->| vCenter | Tylko do odczytu | Jest to konieczne tylko w celu umożliwienia dostępu vCenter do zarządzania różnymi obiektami. To uprawnienie można usunąć, jeśli konto nigdy nie zostanie przekazane dzierżawcy lub nie będzie używane do żadnych operacji zarządzania w programie vCenter. |
+>| vCenter | Read-Only | Jest to konieczne tylko w celu umożliwienia dostępu vCenter do zarządzania różnymi obiektami. To uprawnienie można usunąć, jeśli konto nigdy nie zostanie przekazane dzierżawcy lub nie będzie używane do żadnych operacji zarządzania w programie vCenter. |
 >| Centrum danych | Azure_Site_Recovery |  |
 >| Host i klaster hostów | Azure_Site_Recovery | Umożliwia ponowne zagwarantowanie dostępu na poziomie obiektu, tak aby tylko dostępne hosty miały maszyny wirtualne dzierżawcy przed przełączeniem w tryb failover i po awarii. |
 >| Magazyn danych i klaster magazynów danych | Azure_Site_Recovery | Analogicznie jak powyżej. |

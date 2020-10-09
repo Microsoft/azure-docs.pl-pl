@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FluxX Labs
@@ -155,7 +155,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. W polu tekstowym **ścieżka wywołania zwrotnego** wpisz **/AUTH/SAML/callback**.
 
-    d. W polu tekstowym **adres URL usługi konsumenckej potwierdzenia (adres URL logowania** jednokrotnego) wprowadź wartość **adresu URL odpowiedzi** wprowadzoną w Azure Portal.
+    d. W polu tekstowym **adres URL usługi konsumenckej potwierdzenia (pojedynczy adres url Sign-On)** wprowadź wartość **adresu URL odpowiedzi** wprowadzoną w Azure Portal.
 
     e. W polu tekstowym **odbiorcy (identyfikator jednostki SP)** wprowadź wartość **identyfikatora** , która została wprowadzona w Azure Portal.
 
@@ -200,7 +200,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka FluxX Labs w panelu dostępu należy automatycznie zalogować się do laboratoriów FluxX, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

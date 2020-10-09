@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74483535"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Odzyskiwanie po awarii przy użyciu usług Azure DNS i Traffic Manager
@@ -51,7 +51,7 @@ Aby dowiedzieć się więcej o trybie failover i wysokiej dostępności, zobacz 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planowanie architektury odzyskiwania po awarii
 
 Istnieją dwa aspekty techniczne dotyczące konfigurowania architektury odzyskiwania po awarii:
--  Używanie mechanizmu wdrażania do replikowania wystąpień, danych i konfiguracji między środowiskami podstawowymi i w stanie gotowości. Ten typ odzyskiwania po awarii można przeprowadzić w sposób natywny za pośrednictwem usługi Azure Site-Recovery za pośrednictwem Microsoft Azure urządzeń/usług partnerskich, takich jak Veritas lub NetApp. 
+-  Używanie mechanizmu wdrażania do replikowania wystąpień, danych i konfiguracji między środowiskami podstawowymi i w stanie gotowości. Ten typ odzyskiwania po awarii można przeprowadzić natywnie za pośrednictwem usługi Azure Site-Recovery za pośrednictwem Microsoft Azure urządzeń/usług partnerskich, takich jak Veritas lub NetApp. 
 - Tworzenie rozwiązania do przekierowywania ruchu sieciowego/sieci Web z lokacji głównej do lokacji w stanie wstrzymania. Ten typ odzyskiwania po awarii można osiągnąć za pośrednictwem Azure DNS, Azure Traffic Manager (DNS) lub globalnych modułów równoważenia obciążenia innych firm.
 
 Ten artykuł jest ograniczony do podejścia za pośrednictwem przekierowywania ruchu sieciowego i sieci Web. Aby uzyskać instrukcje dotyczące konfigurowania Azure Site Recovery, zobacz [dokumentację usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).

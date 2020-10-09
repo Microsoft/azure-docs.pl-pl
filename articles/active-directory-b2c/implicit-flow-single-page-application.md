@@ -12,10 +12,10 @@ ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201858"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Jednostronicowe Logowanie przy użyciu niejawnego przepływu OAuth 2,0 w Azure Active Directory B2C
@@ -60,7 +60,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Nie | Identyfikator URI przekierowania aplikacji, w którym odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu, z tą różnicą, że musi być zakodowany w adresie URL. |
 | response_mode | Nie | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji.  W przypadku niejawnych przepływów Użyj `fragment` . |
 | scope | Tak | Rozdzielana spacjami lista zakresów. Pojedyncza wartość zakresu wskazuje na usługę Azure AD oba wymagane uprawnienia. `openid`Zakres wskazuje uprawnienia do logowania użytkownika i pobieranie danych o użytkowniku w postaci tokenów identyfikatorów. `offline_access`Zakres jest opcjonalny dla aplikacji sieci Web. Oznacza to, że aplikacja wymaga tokenu odświeżania na potrzeby długotrwałego dostępu do zasobów. |
-| state | Nie | Wartość zawarta w żądaniu, która również jest zwracana w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości, która ma być używana. Zwykle jest używana losowo generowana wartość unikatowa, aby zapobiec atakom na fałszerstwo żądań między lokacjami. Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, np. na stronie, w której znajdowały się. |
+| stan | Nie | Wartość zawarta w żądaniu, która również jest zwracana w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości, która ma być używana. Zwykle jest używana losowo generowana wartość unikatowa, aby zapobiec atakom na fałszerstwo żądań między lokacjami. Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, np. na stronie, w której znajdowały się. |
 | jednorazow | Tak | Wartość dołączona do żądania (wygenerowanego przez aplikację), która jest uwzględniona w tokenie zwracanego identyfikatora jako jako element Claim. Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Zazwyczaj wartość jest wartością losową i unikatowym ciągiem, który może służyć do identyfikowania pochodzenia żądania. |
 | pytać | Nie | Typ interakcji z użytkownikiem, która jest wymagana. Obecnie jedyna prawidłowa wartość to `login` . Ten parametr wymusza, aby użytkownik wprowadził swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie obowiązuje. |
 
@@ -88,7 +88,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | Długość czasu ważności tokenu dostępu (w sekundach). |
 | scope | Zakresy, dla których token jest ważny. Można również użyć zakresów do buforowania tokenów do późniejszego użycia. |
 | id_token | Token identyfikatora, którego żądała aplikacja. Możesz użyć tokenu identyfikatora, aby zweryfikować tożsamość użytkownika i rozpocząć sesję z użytkownikiem. Aby uzyskać więcej informacji o tokenach identyfikatorów i ich zawartości, zobacz [Informacje o tokenach Azure AD B2C](tokens-overview.md). |
-| state | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
+| stan | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 
 ### <a name="error-response"></a>Odpowiedź na błąd
 Odpowiedzi na błędy można także wysyłać do identyfikatora URI przekierowania, aby aplikacja mogła je odpowiednio obsłużyć:
@@ -102,9 +102,9 @@ error=access_denied
 
 | Parametr | Opis |
 | --------- | ----------- |
-| Błąd | Kod używany do klasyfikowania typów błędów, które występują. |
+| error | Kod używany do klasyfikowania typów błędów, które występują. |
 | error_description | Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
-| state | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne.|
+| stan | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne.|
 
 ## <a name="validate-the-id-token"></a>Weryfikowanie tokenu identyfikatora
 
@@ -129,7 +129,7 @@ Aby określić, który przepływ użytkownika był używany do podpisywania toke
 Po pobraniu dokumentu metadanych z punktu końcowego metadanych OpenID Connect Connect można użyć kluczy publicznych RSA-256 (znajdujących się w tym punkcie końcowym), aby zweryfikować podpis tokenu identyfikatora. W tym punkcie końcowym może istnieć wiele kluczy, z których każdy jest identyfikowany przez `kid` . Nagłówek `id_token` zawiera również element `kid` Claim. Wskazuje, które z tych kluczy użyto do podpisania tokenu identyfikatora. Aby uzyskać więcej informacji, w tym informacje dotyczące [sprawdzania poprawności tokenów](tokens-overview.md), zobacz [Informacje o tokenach Azure AD B2C](tokens-overview.md).
 <!--TODO: Improve the information on this-->
 
-Po sprawdzeniu podpisu tokenu identyfikatora kilka oświadczeń wymaga weryfikacji. Przykład:
+Po sprawdzeniu podpisu tokenu identyfikatora kilka oświadczeń wymaga weryfikacji. Na przykład:
 
 * Sprawdź poprawność `nonce` roszczeń, aby zapobiec atakom metodą powtórzeń tokenu. Jej wartość powinna być określona w żądaniu logowania.
 * Sprawdź poprawność `aud` roszczeń, aby upewnić się, że token identyfikatora został wystawiony dla aplikacji. Wartość powinna być IDENTYFIKATORem aplikacji w aplikacji.
@@ -173,7 +173,7 @@ zasad| Wymagane| Przepływ użytkownika do uruchomienia. Określ nazwę przepły
 | redirect_uri |Zalecane |Identyfikator URI przekierowania aplikacji, w którym odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu, z tą różnicą, że musi być zakodowany w adresie URL. |
 | scope |Wymagane |Rozdzielana spacjami lista zakresów.  W przypadku uzyskiwania tokenów Uwzględnij wszystkie zakresy wymagane dla zamierzonego zasobu. |
 | response_mode |Zalecane |Określa metodę, która jest używana do wysyłania zwróconego tokenu z powrotem do aplikacji. Dla niejawnego przepływu Użyj `fragment` . Można określić dwa inne tryby, `query` `form_post` ale nie działają w niejawnym przepływie. |
-| state |Zalecane |Wartość zawarta w żądaniu, która jest zwracana w odpowiedzi tokenu.  Może to być ciąg dowolnej zawartości, która ma być używana.  Zwykle jest używana losowo generowana wartość unikatowa, aby zapobiec atakom na fałszerstwo żądań między lokacjami.  Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia. Na przykład strona lub widok użytkownika. |
+| stan |Zalecane |Wartość zawarta w żądaniu, która jest zwracana w odpowiedzi tokenu.  Może to być ciąg dowolnej zawartości, która ma być używana.  Zwykle jest używana losowo generowana wartość unikatowa, aby zapobiec atakom na fałszerstwo żądań między lokacjami.  Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia. Na przykład strona lub widok użytkownika. |
 | jednorazow |Wymagane |Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która jest uwzględniona w tokenie zwracanego identyfikatora jako jako element Claim.  Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Zazwyczaj wartość jest losowo unikatowym ciągiem, który identyfikuje źródło żądania. |
 | pytać |Wymagane |Aby odświeżyć i uzyskać tokeny w ukrytym elemencie iframe, użyj, `prompt=none` Aby upewnić się, że element IFRAME nie zostanie zablokowany na stronie logowania i natychmiast zwraca wartość. |
 | login_hint |Wymagane |Aby odświeżyć i uzyskać tokeny w ukrytym elemencie iframe, należy dołączyć nazwę użytkownika w tej instrukcji w celu rozróżnienia między wieloma sesjami, które użytkownik może mieć w danym momencie. Można wyodrębnić nazwę użytkownika ze starszej rejestracji przy użyciu `preferred_username` roszczeń ( `profile` zakres jest wymagany w celu otrzymania `preferred_username` żądania). |
@@ -197,7 +197,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |Token żądany przez aplikację. |
 | token_type |Typ tokenu zawsze będzie miał wartość Bearer. |
-| state |Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
+| stan |Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 | expires_in |Jak długo token dostępu jest prawidłowy (w sekundach). |
 | scope |Zakresy, dla których token dostępu jest prawidłowy. |
 
@@ -212,7 +212,7 @@ error=user_authentication_required
 
 | Parametr | Opis |
 | --- | --- |
-| Błąd |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
+| error |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują. Można również użyć ciągu do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może pomóc w zidentyfikowaniu głównej przyczyny błędu uwierzytelniania. |
 
 Jeśli ten błąd wystąpi w żądaniu iframe, użytkownik musi interaktywnie zalogować się ponownie, aby pobrać nowy token.
@@ -223,7 +223,7 @@ Tokeny identyfikatorów i tokeny dostępu wygasają po krótkim czasie. Aby okre
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 Aby podpisać użytkownika poza aplikacją, należy przekierować użytkownika do usługi Azure AD w celu wylogowania. Jeśli nie przekierujesz użytkownika, może być możliwe ponowne uwierzytelnienie w aplikacji bez konieczności ponownego wprowadzania poświadczeń, ponieważ mają ważną sesję logowania jednokrotnego z usługą Azure AD.
 
-Można po prostu przekierować użytkownika do programu `end_session_endpoint` , który znajduje się na liście w tym samym dokumencie metadanych OpenID Connect Connect opisanym w [ZWERYFIKUJ token ID](#validate-the-id-token). Przykład:
+Można po prostu przekierować użytkownika do programu `end_session_endpoint` , który znajduje się na liście w tym samym dokumencie metadanych OpenID Connect Connect opisanym w [ZWERYFIKUJ token ID](#validate-the-id-token). Na przykład:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -234,7 +234,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | dzierżaw | Tak | Nazwa dzierżawy Azure AD B2C |
 | zasad | Tak | Przepływ użytkownika, którego chcesz użyć do podpisania użytkownika z poziomu aplikacji. |
 | post_logout_redirect_uri | Nie | Adres URL, do którego użytkownik powinien zostać przekierowany po pomyślnym wylogowaniu. Jeśli ta wartość nie jest uwzględniona, Azure AD B2C pokazuje, że użytkownik jest komunikatem ogólnym. |
-| state | Nie | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
+| stan | Nie | Jeśli `state` parametr zostanie uwzględniony w żądaniu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy `state` wartości w żądaniu i odpowiedzi są identyczne. |
 
 
 > [!NOTE]

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74326720"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Wysyłanie zapytań i odpowiedzi interfejsu API wyszukiwania lokalnego usługi Bing oraz korzystanie z nich
@@ -23,7 +23,7 @@ Możesz uzyskać wyniki lokalne z interfejsu API wyszukiwania lokalnego usługi 
 
 ## <a name="creating-a-request"></a>Tworzenie żądania
 
-Aby wysłać żądanie do interfejsu API wyszukiwania lokalnego usługi Bing, Dołącz termin wyszukiwania do `q=` parametru przed dodaniem go do punktu końcowego interfejsu API, a w `Ocp-Apim-Subscription-Key` tym nagłówek. Przykład:
+Aby wysłać żądanie do interfejsu API wyszukiwania lokalnego usługi Bing, Dołącz termin wyszukiwania do `q=` parametru przed dodaniem go do punktu końcowego interfejsu API, a w tym `Ocp-Apim-Subscription-Key` nagłówek. Na przykład:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -60,7 +60,7 @@ Wyniki JSON zwrócone przez interfejs API zawierają następujące atrybuty:
 * adres
 * entityPresentationInfo
 * geograficznie
-* id
+* identyfikator
 * name
 * routeablePoint
 * telefon
@@ -74,7 +74,7 @@ Aby uzyskać ogólne informacje o nagłówkach, parametrach, kodach rynku, obiek
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
-Następująca odpowiedź JSON zawiera wyniki wyszukiwania określone przez zapytanie `?q=restaurant+in+Bellevue`.
+Następująca odpowiedź JSON zawiera wyniki wyszukiwania określone przez zapytanie `?q=restaurant+in+Bellevue` .
 
 ```json
 Vary: Accept-Encoding

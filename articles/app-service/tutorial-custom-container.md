@@ -8,10 +8,10 @@ keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312060"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
@@ -64,7 +64,7 @@ Ponieważ ta aplikacja używa zainstalowanej czcionki, nie może ona działać w
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz pozycję **Dodaj** > **Obsługa aranżacji kontenerów**.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Zrzut ekranu okna Eksplorator rozwiązań, w którym zaznaczono elementy menu obsługa projektu, Dodawanie i kontenery usługi Orchestrator.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
 Wybierz pozycję **Docker Compose**  >  **OK**.
 
@@ -98,13 +98,13 @@ Usługa [Azure Container Registry](../container-registry/index.yml) może przech
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz polecenie **Publikuj**.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Zrzut ekranu przedstawiający Eksplorator rozwiązań pokazujący projekt CustomFontSample i publikowanie wybranych elementów.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
 ### <a name="create-registry-and-publish"></a>Tworzenie rejestru i publikowanie
 
 W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz nowy Azure Container Registry**  >  **Publikuj**.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Zrzut ekranu Kreatora publikacji prezentujący Container Registry, Utwórz nowy Azure Container Registry i wybierz przycisk Publikuj.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
 ### <a name="sign-in-with-azure-account"></a>Logowanie się za pomocą konta platformy Azure
 

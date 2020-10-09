@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203099"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -40,7 +40,7 @@ Element **TrustFrameworkPolicy** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Tak | Wersja schematu, która ma zostać użyta do wykonania zasad. Wartość musi być równa`0.3.0.0` |
+| PolicySchemaVersion | Tak | Wersja schematu, która ma zostać użyta do wykonania zasad. Wartość musi być równa `0.3.0.0` |
 | TenantObjectId | Nie | Unikatowy identyfikator obiektu dzierżawy Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Tak | Unikatowy identyfikator dzierżawy, do której należy ta zasada. |
 | PolicyId | Tak | Unikatowy identyfikator zasad. Ten identyfikator musi być poprzedzony *B2C_1A_* |

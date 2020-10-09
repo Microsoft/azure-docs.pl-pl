@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817065"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Samouczek: integracja wydatków z Azure Active Directory
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie rozliczenia **wydatków** aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://app.expensein.com/saml`
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** , a następnie kliknij pozycję **Pobierz** , aby pobrać **certyfikat (base64)** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** , a następnie kliknij pozycję **Pobierz** , aby pobrać **certyfikat (base64)** i zapisać go na komputerze.
 
    ![Link do pobierania certyfikatu](./media/expensein-tutorial/copy-metdataurl-certificate.png)
 
@@ -135,7 +135,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **administrator** w górnej części strony, a następnie przejdź do **logowania jednokrotnego** , a następnie kliknij pozycję **Dodaj dostawcę**.
 
-     ![Zrzut ekranu pokazujący kartę "Administrator" oraz "Logowanie jednokrotne" i "Dodaj dostawcę" wybrane.](./media/expenseIn-tutorial/config01.png)
+     ![Zrzut ekranu, na którym jest wyświetlana karta "Administrator" i "pojedynczy Sign-On-dostawcy" oraz wybrana wartość "Dodaj dostawcę".](./media/expenseIn-tutorial/config01.png)
 
 1. W oknie podręcznym **Nowy dostawca tożsamości** wykonaj następujące czynności:
 
@@ -181,7 +181,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu zarejestrow
 
 Po wybraniu kafelka wydatki w panelu dostępu należy automatycznie zalogować się do wydatków, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

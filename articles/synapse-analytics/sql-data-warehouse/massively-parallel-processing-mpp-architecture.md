@@ -11,15 +11,15 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85210970"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
 
-Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse udostępnia te dwa światy wraz z ujednoliconym doświadczeniem do pozyskiwania, przygotowywania, zarządzania i obsługi danych w celu natychmiastowej analizy biznesowej i uczenia maszynowego.
+Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy w ujednolicone środowisko umożliwiające pozyskiwanie, przygotowywanie i udostępnianie danych oraz zarządzanie nimi na potrzeby natychmiastowej analizy biznesowej oraz uczenia maszynowego.
 
  Usługa Azure Synapse ma cztery składniki:
 
@@ -48,7 +48,7 @@ Z rozdzielonym magazynem i funkcją obliczeniową w przypadku korzystania z Syna
 - Niezależnie od potrzeb związanych z magazynem bez względu na wielkość mocy obliczeniowej.
 - Zwiększ lub Zmniejsz moc obliczeniową w puli SQL (hurtowni danych) bez przeniesienia danych.
 - Wstrzymywać zasoby obliczeniowe bez wpływu na dane, płacąc tylko za przestrzeń dyskową.
-- Wznawiać moc obliczeniową w godzinach działania.
+- Wznawiać zasoby obliczeniowe w godzinach pracy.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -60,13 +60,13 @@ Synapse SQL wykorzystuje usługę Azure Storage, aby zapewnić bezpieczeństwo d
 
 ### <a name="control-node"></a>Węzeł kontrolny
 
-Węzeł kontrolny jest mózgiem architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. Aparat MPP działa na węźle kontrolnym, optymalizując i koordynując zapytania równolegle. Po przesłaniu zapytania T-SQL węzeł kontrolny przekształca go w zapytania, które są wykonywane równolegle do każdej dystrybucji.
+Węzeł kontrolny to mózg całej architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. Aparat MPP działa na węźle kontrolnym, optymalizując i koordynując zapytania równolegle. Po przesłaniu zapytania T-SQL węzeł kontrolny przekształca go w zapytania, które są wykonywane równolegle do każdej dystrybucji.
 
 ### <a name="compute-nodes"></a>Węzły obliczeniowe
 
 Węzły obliczeniowe zapewniają moc obliczeniową. Dystrybucje są mapowane na węzły obliczeniowe do przetwarzania. Ponieważ płacisz za więcej zasobów obliczeniowych, dystrybucje są ponownie mapowane na dostępne węzły obliczeniowe. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla Synapse SQL.
 
-Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy zaczynają się od sys. pdw_nodes. Aby zapoznać się z listą tych widoków systemowych, zobacz [widoki systemowe MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Aby zapoznać się z listą tych widoków systemowych, zobacz [widoki systemowe MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Usługa przenoszenia danych
 

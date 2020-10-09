@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Samouczek: integracja Azure Active Directory z programem infor retails — zarządzanie informacjami
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi infor retails — zarządzanie informacjami, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania](#configure-infor-retail--information-management-single-sign-on)** jednokrotnego w programie infor — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania](#configure-infor-retail--information-management-single-sign-on)** jednokrotnego (infor) — zarządzanie informacjami — umożliwia skonfigurowanie pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz infor sprzedaż detaliczną — Użytkownik testowy do zarządzania informacjami](#create-infor-retail--information-management-test-user)** , aby dysponować odpowiednikiem Britta Simon w infor detalicznym — zarządzanie informacjami powiązanymi z reprezentacją użytkownika w usłudze Azure AD.
@@ -133,7 +133,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     c. Adres URL wylogowywania
 
-### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurowanie logowania jednokrotnego do programu infor — zarządzanie informacjami
+### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurowanie infor detalicznych — Sign-On zarządzania informacjami
 
 Aby skonfigurować Logowanie jednokrotne na stronie **infor retails (zarządzanie informacjami** ), należy wysłać pobrany **kod XML metadanych** i odpowiednie skopiowane adresy URL z Azure Portal do [infor handlu detalicznego — zespół pomocy technicznej zarządzania informacjami](mailto:innovate@infor.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 

@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203456"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj własny profil techniczny w Azure Active Directory B2C zasad niestandardowych
@@ -26,7 +26,7 @@ Wszystkie interakcje w Azure Active Directory B2C (Azure AD B2C), w których uż
 
 ## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C, dla własnego potwierdzenia:`Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C, dla własnego potwierdzenia: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 Poniższy przykład przedstawia profil techniczny z własnym potwierdzeniem do rejestracji w wiadomościach e-mail:
 
@@ -197,9 +197,9 @@ Możesz również wywołać profil techniczny interfejsu API REST z logiką bizn
 | EnforceEmailVerification | Nie | W przypadku rejestrowania lub edytowania profilu wymusza weryfikację poczty e-mail. Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
 | Ustawianie. retryLimit | Nie | Określa, ile razy użytkownik może próbować podać dane, które są sprawdzane względem profilu technicznego weryfikacji. Na przykład użytkownik próbuje zarejestrować się przy użyciu konta, które już istnieje, i kontynuuje podejmowanie prób aż do osiągnięcia limitu.
 | SignUpTarget <sup>1</sup>| Nie | Docelowy identyfikator wymiany programu Exchange. Gdy użytkownik kliknie przycisk rejestracji, Azure AD B2C wykonuje określony identyfikator programu Exchange. |
-| Ustawianie. showCancelButton | Nie | Wyświetla przycisk Anuluj. Możliwe wartości: `true` (ustawienie domyślne) lub`false` |
-| Ustawianie. showContinueButton | Nie | Wyświetla przycisk Kontynuuj. Możliwe wartości: `true` (ustawienie domyślne) lub`false` |
-| Ustawianie. showSignupLink <sup>2</sup>| Nie | Wyświetla przycisk rejestracji. Możliwe wartości: `true` (ustawienie domyślne) lub`false` |
+| Ustawianie. showCancelButton | Nie | Wyświetla przycisk Anuluj. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
+| Ustawianie. showContinueButton | Nie | Wyświetla przycisk Kontynuuj. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
+| Ustawianie. showSignupLink <sup>2</sup>| Nie | Wyświetla przycisk rejestracji. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
 | Ustawianie. forgotPasswordLinkLocation <sup>2</sup>| Nie| Wyświetla łącze zapomniane hasło. Możliwe wartości: `AfterInput` (domyślnie) łącze jest wyświetlane w dolnej części strony lub `None` usuwa łącze zapomniane hasło.|
 | Ustawianie. enableRememberMe <sup>2</sup>| Nie| Wyświetla pole wyboru nie wylogowuj [mnie](custom-policy-keep-me-signed-in.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |

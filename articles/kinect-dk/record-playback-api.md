@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, Głębokość, RGB, nagrywanie, odtwarzanie, Matroska, MKV
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277469"
 ---
 # <a name="the-azure-kinect-playback-api"></a>Interfejs API odtwarzania usługi Azure urządzenia Kinect
@@ -134,24 +134,24 @@ Poniżej znajduje się lista wszystkich znaczników domyślnych, które mogą by
 
 Jeśli tag nie istnieje, przyjmuje się, że ma wartość domyślną.
 
-| Nazwa tagu                     | Wartość domyślna      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html)Polami | Uwagi     |
+| Nazwa tagu                     | Wartość domyślna      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Polami | Uwagi     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | Logowanie              | `color_format` / `color_resolution`  | Możliwe wartości: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P" itd.                                      |
 | `K4A_DEPTH_MODE`             | Logowanie              | `depth_mode` / `depth_track_enabled` | Możliwe wartości: "OFF", "NFOV_UNBINNED", "PASSIVE_IR" itd.                                                |
 | `K4A_IR_MODE`                | Logowanie              | `depth_mode` / `ir_track_enabled`    | Możliwe wartości: "OFF", "ACTIVE", "PASYWNe"                                                                    |
 | `K4A_IMU_MODE`               | Logowanie              | `imu_track_enabled`                  | Możliwe wartości: "ON", "OFF"                                                                                   |
-| `K4A_CALIBRATION_FILE`       | "calibration.json" | Nie dotyczy                                  | Wyświetlania[`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_CALIBRATION_FILE`       | "calibration.json" | Brak                                  | Wyświetlania [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
 | `K4A_DEPTH_DELAY_NS`         | „0”                | `depth_delay_off_color_usec`         | Wartość przechowywana w nanosekundach, interfejs API udostępnia mikrosekundy.                                                        |
 | `K4A_WIRED_SYNC_MODE`        | AUTONOMICZNEJ       | `wired_sync_mode`                    | Możliwe wartości: "STANDALONE", "MASTER", "podrzędny"                                                         |
 | `K4A_SUBORDINATE_DELAY_NS`   | „0”                | `subordinate_delay_off_master_usec`  | Wartość przechowywana w nanosekundach, interfejs API udostępnia mikrosekundy.                                                        |
-| `K4A_COLOR_FIRMWARE_VERSION` | ""                 | Nie dotyczy                                  | Wersja oprogramowania układowego koloru urządzenia, na przykład "1. x. XX"                                                            |
-| `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | Nie dotyczy                                  | Wersja oprogramowania układowego głębi urządzenia, na przykład "1. x. XX"                                                            |
-| `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | Nie dotyczy                                  | Rejestrowanie numeru seryjnego urządzenia                                                                                 |
+| `K4A_COLOR_FIRMWARE_VERSION` | ""                 | Brak                                  | Wersja oprogramowania układowego koloru urządzenia, na przykład "1. x. XX"                                                            |
+| `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | Brak                                  | Wersja oprogramowania układowego głębi urządzenia, na przykład "1. x. XX"                                                            |
+| `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | Brak                                  | Rejestrowanie numeru seryjnego urządzenia                                                                                 |
 | `K4A_START_OFFSET_NS`        | „0”                | `start_timestamp_offset_usec`        | Zobacz [synchronizację sygnatur czasowych](record-playback-api.md#timestamp-synchronization) poniżej.                       |
-| `K4A_COLOR_TRACK`            | Brak               | Nie dotyczy                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
-| `K4A_DEPTH_TRACK`            | Brak               | Nie dotyczy                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
-| `K4A_IR_TRACK`               | Brak               | Nie dotyczy                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
-| `K4A_IMU_TRACK`              | Brak               | Nie dotyczy                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
+| `K4A_COLOR_TRACK`            | Brak               | Brak                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
+| `K4A_DEPTH_TRACK`            | Brak               | Brak                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
+| `K4A_IR_TRACK`               | Brak               | Brak                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
+| `K4A_IMU_TRACK`              | Brak               | Brak                                  | Zobacz [Rejestrowanie formatu pliku — identyfikowanie ścieżek](record-file-format.md#identifying-tracks).                     |
 
 ## <a name="timestamp-synchronization"></a>Synchronizacja sygnatury czasowej
 

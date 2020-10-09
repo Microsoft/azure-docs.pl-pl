@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77085207"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Instrukcje: Konfigurowanie MSAL dla systemów iOS i macOS w celu korzystania z różnych dostawców tożsamości
@@ -26,7 +26,7 @@ W tym artykule opisano sposób konfigurowania aplikacji biblioteki uwierzytelnia
 
 ## <a name="default-authority-configuration"></a>Domyślna konfiguracja urzędu
 
-`MSALPublicClientApplication`jest skonfigurowany przy użyciu domyślnego adresu URL urzędu `https://login.microsoftonline.com/common` , który jest odpowiedni dla większości scenariuszy Azure Active Directory (AAD). Chyba że wdrażasz zaawansowane scenariusze, takie jak chmury krajowe, lub pracujesz z programem B2C, nie musisz go zmieniać.
+`MSALPublicClientApplication` jest skonfigurowany przy użyciu domyślnego adresu URL urzędu `https://login.microsoftonline.com/common` , który jest odpowiedni dla większości scenariuszy Azure Active Directory (AAD). Chyba że wdrażasz zaawansowane scenariusze, takie jak chmury krajowe, lub pracujesz z programem B2C, nie musisz go zmieniać.
 
 > [!NOTE]
 > Nowoczesne uwierzytelnianie z Active Directory Federation Services jako dostawca tożsamości (ADFS) nie jest obsługiwane (szczegółowe informacje można znaleźć [w usługach ADFS dla deweloperów](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) ). Usługi ADFS są obsługiwane za poorednictwem Federacji.
@@ -180,7 +180,7 @@ Może być konieczne przekazanie różnych zakresów do poszczególnych suwerenn
 
 Jeśli adres URL urzędu jest ustawiony na `"login.microsoftonline.com/common"` , użytkownik zostanie zalogowany do swojej dzierżawy domowej. Niektóre aplikacje mogą jednak wymagać podpisania użytkownika w innej dzierżawie, a niektóre aplikacje współpracują tylko z jedną dzierżawą.
 
-Aby podpisać użytkownika w określonej dzierżawie, należy skonfigurować `MSALPublicClientApplication` z określonym Urzędem. Przykład:
+Aby podpisać użytkownika w określonej dzierżawie, należy skonfigurować `MSALPublicClientApplication` z określonym Urzędem. Na przykład:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
@@ -240,11 +240,11 @@ Poniżej znajdują się klasy `MSALAuthority` , które można utworzyć w zależ
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`reprezentuje urząd usługi AAD. Adres URL urzędu powinien mieć następujący format, gdzie `<port>` jest opcjonalny:`https://<host>:<port>/<tenant>`
+`MSALAADAuthority` reprezentuje urząd usługi AAD. Adres URL urzędu powinien mieć następujący format, gdzie `<port>` jest opcjonalny: `https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`reprezentuje urząd B2C. Domyślnie adres URL urzędu B2C powinien mieć następujący format, gdzie `<port>` jest opcjonalny: `https://<host>:<port>/tfp/<tenant>/<policy>` . Jednak MSAL obsługuje również inne B2Ce formaty urzędów certyfikacji.
+`MSALB2CAuthority` reprezentuje urząd B2C. Domyślnie adres URL urzędu B2C powinien mieć następujący format, gdzie `<port>` jest opcjonalny: `https://<host>:<port>/tfp/<tenant>/<policy>` . Jednak MSAL obsługuje również inne B2Ce formaty urzędów certyfikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

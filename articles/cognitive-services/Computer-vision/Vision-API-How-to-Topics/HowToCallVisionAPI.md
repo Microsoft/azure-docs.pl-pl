@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 085da17a29e1d5ff1fa69a62e0029fb917d56bb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936337"
 ---
 # <a name="call-the-computer-vision-api"></a>Wywoływanie interfejsu API przetwarzania obrazów
@@ -182,7 +182,7 @@ Pole | Typ | Zawartość
 Tagi  | `object` | Obiekt najwyższego poziomu dla tablicy tagów.
 tags[].Name | `string`    | Słowo kluczowe ze klasyfikatora tagów.
 tags[].Score    | `number`    | Wynik pewności z zakresu od 0 do 1.
-opis     | `object`    | Obiekt najwyższego poziomu opisu.
+description     | `object`    | Obiekt najwyższego poziomu opisu.
 description.tags[] |    `string`    | Lista tagów.  W przypadku niewystarczającego zaufania do tworzenia podpisów Tagi mogą być jedynymi informacjami dostępnymi dla obiektu wywołującego.
 description.captions[].text    | `string`    | Fraza opisująca obraz.
 description.captions[].confidence    | `number`    | Wynik pewności dla frazy.

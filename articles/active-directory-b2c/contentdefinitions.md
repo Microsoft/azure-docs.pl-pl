@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202861"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -44,7 +44,7 @@ Poniższy przykład pokazuje identyfikator definicji zawartości i definicję zl
     ...
 ```
 
-Metadane **LocalAccountSignUpWithLogonEmail** z własnym profilem technicznym zawiera identyfikator definicji zawartości **ContentDefinitionReferenceId** ustawiony na`api.localaccountsignup`
+Metadane **LocalAccountSignUpWithLogonEmail** z własnym profilem technicznym zawiera identyfikator definicji zawartości **ContentDefinitionReferenceId** ustawiony na `api.localaccountsignup`
 
 ```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -63,7 +63,7 @@ Element **ContentDefinition** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator definicji zawartości. Wartość jest określona w sekcji **identyfikatorów definicji zawartości** w dalszej części tej strony. |
+| Id | Tak | Identyfikator definicji zawartości. Wartość jest określona w sekcji **identyfikatorów definicji zawartości** w dalszej części tej strony. |
 
 Element **ContentDefinition** zawiera następujące elementy:
 
@@ -83,7 +83,7 @@ Element **DataUri** jest używany do określania identyfikatora strony. Azure AD
 | ----- | ----------- |
 | `globalexception` | Wyświetla stronę błędu w przypadku napotkania wyjątku lub błędu. |
 | `providerselection`, `idpselection` | Wyświetla listę dostawców tożsamości, spośród których użytkownicy mogą wybierać podczas logowania.  |
-| `unifiedssp` | Wyświetla formularz służący do logowania się przy użyciu konta lokalnego, które jest oparte na adresie e-mail lub nazwie użytkownika. Ta wartość udostępnia również funkcję "Przechowuj mnie" i "nie pamiętasz hasła?". powiązań. |
+| `unifiedssp` | Wyświetla formularz służący do logowania się przy użyciu konta lokalnego, które jest oparte na adresie e-mail lub nazwie użytkownika. Ta wartość udostępnia również funkcję "Przechowuj mnie" i "nie pamiętasz hasła?". . |
 | `unifiedssd` | Wyświetla formularz służący do logowania się przy użyciu konta lokalnego, które jest oparte na adresie e-mail lub nazwie użytkownika. |
 | `multifactor` | Weryfikuje numery telefonów przy użyciu tekstu lub głosu podczas rejestracji lub logowania. |
 | `selfasserted` | Wyświetla formularz służący do zbierania danych od użytkownika. Na przykład umożliwia użytkownikom tworzenie lub aktualizowanie profilu. |
@@ -188,7 +188,7 @@ Aby dowiedzieć się, jak dodać obsługę lokalizacji do definicji zawartości,
 
 Atrybut ID elementu **ContentDefinition** określa typ strony, która odnosi się do definicji zawartości. Element definiuje kontekst, który ma zostać zastosowany do niestandardowego szablonu HTML5/CSS. W poniższej tabeli opisano zbiór identyfikatorów definicji zawartości rozpoznawanych przez platformę obsługi tożsamości oraz typy stron, które odnoszą się do nich. Możesz tworzyć własne definicje zawartości przy użyciu dowolnego identyfikatora.
 
-| ID | Szablon domyślny | Opis |
+| ID (Identyfikator) | Szablon domyślny | Opis |
 | -- | ---------------- | ----------- |
 | **Interfejs API. błąd** | [Exception. cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu** — wyświetla stronę błędu w przypadku napotkania wyjątku lub błędu. |
 | **API. idpselections** | [idpSelector. cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Strona wyboru dostawcy tożsamości** — wyświetla listę dostawców tożsamości, spośród których użytkownicy mogą wybierać podczas logowania. Te opcje są zwykle dostawcami tożsamości przedsiębiorstwa, dostawcami tożsamości społecznościowych, takimi jak Facebook, Google + lub kontami lokalnymi. |

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202963"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -37,7 +37,7 @@ Element **ClaimsTransformation** zawiera następujące atrybuty:
 
 | Atrybut |Wymagane | Opis |
 | --------- |-------- | ----------- |
-| Identyfikator |Tak | Identyfikator, który jest używany do jednoznacznego identyfikowania transformacji roszczeń. Identyfikator jest przywoływany z innych elementów XML w zasadach. |
+| Id |Tak | Identyfikator, który jest używany do jednoznacznego identyfikowania transformacji roszczeń. Identyfikator jest przywoływany z innych elementów XML w zasadach. |
 | TransformationMethod | Tak | Metoda transformacji do użycia w transformacji oświadczeń. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
@@ -94,7 +94,7 @@ Element **InputParameters** zawiera następujący element:
 
 | Atrybut | Wymagane |Opis |
 | --------- | ----------- |----------- |
-| Identyfikator | Tak | Identyfikator, który jest odwołaniem do parametru metody przekształcania oświadczeń. Każda metoda transformacji oświadczeń ma swoje własne wartości. Zobacz tabelę transformacji oświadczeń, aby uzyskać pełną listę dostępnych wartości. |
+| Id | Tak | Identyfikator, który jest odwołaniem do parametru metody przekształcania oświadczeń. Każda metoda transformacji oświadczeń ma swoje własne wartości. Zobacz tabelę transformacji oświadczeń, aby uzyskać pełną listę dostępnych wartości. |
 | typ_danych | Tak | Typ danych parametru, taki jak String, Boolean, int lub DateTime jako na Wyliczenie typu danych w schemacie XML zasad niestandardowych. Ten typ jest używany do poprawnego wykonywania operacji arytmetycznych. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
 | Wartość | Tak | Wartość, która jest przenoszona Verbatim do transformacji. Niektóre wartości są dowolne, ale niektóre z nich wybiera się z metody przekształcania oświadczeń. |
 
@@ -160,8 +160,8 @@ Można na przykład przechowywać w ostatniej wersji usługi, która zaakceptowa
 Przykłady przekształceń oświadczeń można znaleźć na następujących stronach odniesienia:
 
 - [Boolean](boolean-transformations.md)
-- [Date](date-transformations.md)
-- [Całkowitą](integer-transformations.md)
+- [Data](date-transformations.md)
+- [Liczba całkowita](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numer telefonu](phone-number-claims-transformations.md)
 - [Ogólne](general-transformations.md)

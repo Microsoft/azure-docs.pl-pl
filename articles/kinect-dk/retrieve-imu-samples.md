@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, konfiguracja, Głębokość, kolor, RBG, kamera, czujnik, zestaw SDK, IMU, czujnik ruchu, ruch, żyroskop, Gyro, przyspieszeniomierz, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277499"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Pobierz przykłady usługi Azure urządzenia Kinect IMU
@@ -63,7 +63,7 @@ Ponieważ istnieje pewna wewnętrzna Kolejka przykładów IMU, można użyć nas
 3. Pobierz wszystkie Zakolejkowane próbki IMU.
 4. Poczekaj na następne przechwycenie.
 
-Aby pobrać wszystkie dostępne w kolejce próbki IMU, można wywołać [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) z wartością `timeout_in_ms` 0 w pętli do momentu zwrócenia funkcji `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT`wskazuje, że nie ma żadnych próbek umieszczonych w kolejce i nie dotarły do określonego limitu czasu.
+Aby pobrać wszystkie dostępne w kolejce próbki IMU, można wywołać [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) z wartością `timeout_in_ms` 0 w pętli do momentu zwrócenia funkcji `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT` wskazuje, że nie ma żadnych próbek umieszczonych w kolejce i nie dotarły do określonego limitu czasu.
 
 ## <a name="usage-example"></a>Przykład użycia
 

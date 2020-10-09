@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203439"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
@@ -80,8 +80,8 @@ Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowa
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parametry wejściowe:
   - **stringComparison**: ordinalIgnoreCase
 - Wynik: zgłoszono błąd
@@ -115,11 +115,11 @@ Ta transformacja oświadczenia umożliwia zmianę dowolnego typu oświadczenia c
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **adres e-mail**:SomeOne@contoso.com
+  - **adres e-mail**: SomeOne@contoso.com
 - Parametry wejściowe:
     - **toCase**: niższy
 - Oświadczenia wyjściowe:
-  - **adres e-mail**:someone@contoso.com
+  - **adres e-mail**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -127,7 +127,7 @@ Tworzy na podstawie podanego parametru wejściowego wyrażenie typu String.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | wartość | ciąg | Ciąg, który ma zostać ustawiony. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions). |
+| InputParameter | value | ciąg | Ciąg, który ma zostać ustawiony. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions). |
 | Oświadczenie outputclaim | createdClaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń, z wartością określoną w parametrze wejściowym. |
 
 Użyj tej transformacji oświadczeń, aby ustawić wartość typu oświadczenia ciągu.
@@ -159,8 +159,8 @@ Ustal, czy jedno z nich jest równe innemu. Wynik jest nowym obiektem logicznym 
 | Oświadczenie inputclaim | inputClaim1 | ciąg | Typ pierwszego wystąpienia, który ma zostać porównany. |
 | Oświadczenie inputclaim | inputClaim2 | ciąg | Drugi typ zgłoszenia, który ma zostać porównany. |
 | InputParameter | operator | ciąg | Możliwe wartości: `EQUAL` lub `NOT EQUAL` . |
-| InputParameter | ignoreCase | wartość logiczna | Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
+| InputParameter | ignoreCase | boolean | Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
 Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie jest równe innemu oświadczenia. Na przykład następujące przekształcenia oświadczeń sprawdzają, czy wartość oświadczenia **adresu e-mail** jest równa **Zweryfikowanemu oświadczenia adresu e-mail** .
 
@@ -183,8 +183,8 @@ Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie jest ró
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parametry wejściowe:
     - **operator**: nie równa się
     - **IgnoreCase**: true
@@ -200,8 +200,8 @@ Określa, czy wartość żądania jest równa wartości parametru wejściowego.
 | Oświadczenie inputclaim | inputClaim1 | ciąg | Typ zgłoszenia, który ma zostać porównany. |
 | InputParameter | operator | ciąg | Możliwe wartości: `EQUAL` lub `NOT EQUAL` . |
 | InputParameter | compareTo | ciąg | porównanie ciągów, jedna z wartości: numer porządkowy, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | wartość logiczna | Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
+| InputParameter | ignoreCase | boolean | Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
 Możesz użyć tej transformacji oświadczeń, aby sprawdzić, czy oświadczenie jest równe określonej wartości. Na przykład następujące przekształcenia oświadczeń sprawdzają, czy wartość oświadczenia **termsOfUseConsentVersion** jest równa `v1` .
 
@@ -239,9 +239,9 @@ Tworzy losowy ciąg przy użyciu generatora liczb losowych. Jeśli generator lic
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | ciąg | Określa wartość losową do wygenerowania `GUID` (unikatowy identyfikator globalny) lub `INTEGER` (liczba). |
 | InputParameter | StringFormat — | ciąg | Obowiązkowe Sformatuj wartość losową. |
-| InputParameter | base64 | wartość logiczna | Obowiązkowe Konwertuj wartość losową na format Base64. Jeśli format ciągu jest stosowany, wartość po formacie ciągu jest zaszyfrowana do Base64. |
-| InputParameter | maximumNumber | int | Obowiązkowe `INTEGER`Tylko dla randomGeneratorType. Określ maksymalną liczbę. |
-| InputParameter | sadzenia  | int | Obowiązkowe `INTEGER`Tylko dla randomGeneratorType. Określ inicjator dla losowej wartości. Uwaga: ten sam inicjator zwraca tę samą sekwencję liczb losowych. |
+| InputParameter | base64 | boolean | Obowiązkowe Konwertuj wartość losową na format Base64. Jeśli format ciągu jest stosowany, wartość po formacie ciągu jest zaszyfrowana do Base64. |
+| InputParameter | maximumNumber | int | Obowiązkowe `INTEGER` Tylko dla randomGeneratorType. Określ maksymalną liczbę. |
+| InputParameter | sadzenia  | int | Obowiązkowe `INTEGER` Tylko dla randomGeneratorType. Określ inicjator dla losowej wartości. Uwaga: ten sam inicjator zwraca tę samą sekwencję liczb losowych. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Oświadczenia są tworzone po wywołaniu tej transformacji oświadczeń. Wartość losowa. |
 
 Poniższy przykład generuje globalnie unikatowy identyfikator. Ta transformacja oświadczeń służy do tworzenia losowej nazwy UPN (główna nazwa użytkownika).
@@ -297,7 +297,7 @@ Sformatuj wierzytelność zgodnie z podanym ciągiem formatu. Ta transformacja u
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | Oświadczenie inputclaim |ciąg |Wartość oświadczenia, która działa jako parametr formatu ciągu {0} . |
-| InputParameter | StringFormat — | ciąg | Format ciągu, łącznie z {0} parametrem. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions).  |
+| InputParameter | StringFormat — | ciąg | Format ciągu, łącznie z {0}  parametrem. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions).  |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
 Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym parametrem {0} . Poniższy przykład tworzy element **userPrincipalName**. Wszystkie profile techniczne dostawcy tożsamości społecznościowej, takie jak `Facebook-OAUTH` wywołanie **CreateUserPrincipalName** elementu **userPrincipalName**.
@@ -323,7 +323,7 @@ Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym 
 - Parametry wejściowe:
     - **StringFormat —**: cpim_ {0} @ {RelyingPartyTenantId}
 - Oświadczenia wyjściowe:
-  - **oświadczenie outputclaim**:cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **oświadczenie outputclaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -484,7 +484,7 @@ Wyszukaj wartość roszczeń z listy wartości na podstawie wartości innego ż�
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | inputParameterId | ciąg | Zgłoszenie zawierające wartość wyszukiwania |
 | InputParameter | |ciąg | Kolekcja inputParameters. |
-| InputParameter | errorOnFailedLookup | wartość logiczna | Kontrolowanie, czy błąd jest zwracany w przypadku braku zgodnego wyszukiwania. |
+| InputParameter | errorOnFailedLookup | boolean | Kontrolowanie, czy błąd jest zwracany w przypadku braku zgodnego wyszukiwania. |
 | Oświadczenie outputclaim | inputParameterId | ciąg | Oświadczenia są tworzone po wywołaniu tej transformacji oświadczeń. Wartość dopasowywania `Id` . |
 
 Poniższy przykład wyszukuje nazwę domeny w jednej z kolekcji inputParameters. Transformacja oświadczeń wyszukuje nazwę domeny w identyfikatorze i zwraca jej wartość (Identyfikator aplikacji).
@@ -602,7 +602,7 @@ Użyj tej transformacji oświadczeń, aby przeanalizować nazwę domeny po znaku
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **EmailAddress**:joe@outlook.com
+  - **EmailAddress**: joe@outlook.com
 - Oświadczenia wyjściowe:
     - **domena**: Outlook.com
 
@@ -615,9 +615,9 @@ Sprawdza, czy oświadczenie ciągu `claimToMatch` i `matchTo` parametr wejściow
 | Oświadczenie inputclaim | claimToMatch | ciąg | Typ zgłoszenia, który ma zostać porównany. |
 | InputParameter | matchTo | ciąg | Wyrażenie regularne do dopasowania. |
 | InputParameter | outputClaimIfMatched | ciąg | Wartość, która ma zostać ustawiona, jeśli ciągi są równe. |
-| InputParameter | extractGroups | wartość logiczna | Obowiązkowe Określa, czy dopasowanie wyrażenia regularnego powinna wyodrębniać wartości grup. Możliwe wartości: `true` , lub `false` (wartość domyślna). | 
+| InputParameter | extractGroups | boolean | Obowiązkowe Określa, czy dopasowanie wyrażenia regularnego powinna wyodrębniać wartości grup. Możliwe wartości: `true` , lub `false` (wartość domyślna). | 
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Jeśli wyrażenie regularne jest zgodne, to zgłoszenie danych wyjściowych zawiera wartość `outputClaimIfMatched` parametru wejściowego. Lub wartość null, jeśli nie są zgodne. |
-| Oświadczenie outputclaim | regexCompareResultClaim | wartość logiczna | Wyrażenie regularne dopasowuje typ zgłoszenia wynikowego, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik dopasowywania. |
+| Oświadczenie outputclaim | regexCompareResultClaim | boolean | Wyrażenie regularne dopasowuje typ zgłoszenia wynikowego, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik dopasowywania. |
 | Oświadczenie outputclaim| Nazwa żądania| ciąg | Jeśli parametr wejściowy extractGroups ma wartość true, lista typów oświadczeń, które są tworzone po wywołaniu tej transformacji oświadczeń. Nazwa oświadczenia musi być zgodna z nazwą grupy wyrażeń regularnych. | 
 
 ### <a name="example-1"></a>Przykład 1
@@ -674,7 +674,7 @@ Sprawdza, czy podany adres e-mail jest prawidłowy, i zwraca alias adresu e-mail
 - Oświadczenia wejściowe:
     - **claimToMatch**: " emily@contoso.com "
 - Parametry wejściowe:
-    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
     - **outputClaimIfMatched**: "isemail"
     - **extractGroups**: true
 - Oświadczenia wyjściowe:
@@ -695,7 +695,7 @@ Sprawdza, czy oświadczenie ciągu i `matchTo` parametr wejściowy są równe, a
 | InputParameter | stringMatchMsgCode | ciąg | Druga wartość, która ma zostać ustawiona, jeśli ciągi są równe. |
 | Oświadczenie outputclaim | outputClaim1 | ciąg | Jeśli ciągi są równe, to zgłoszenie wyjściowe zawiera wartość `stringMatchMsg` parametru wejściowego. |
 | Oświadczenie outputclaim | outputClaim2 | ciąg | Jeśli ciągi są równe, to zgłoszenie wyjściowe zawiera wartość `stringMatchMsgCode` parametru wejściowego. |
-| Oświadczenie outputclaim | stringCompareResultClaim | wartość logiczna | Typ zgłoszenia wynikowego porównania, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik porównania. |
+| Oświadczenie outputclaim | stringCompareResultClaim | boolean | Typ zgłoszenia wynikowego porównania, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik porównania. |
 
 Możesz użyć tej transformacji oświadczeń, aby sprawdzić, czy oświadczenie jest równe określonej wartości. Na przykład następujące przekształcenia oświadczeń sprawdzają, czy wartość oświadczenia **termsOfUseConsentVersion** jest równa `v1` . Jeśli tak, Zmień wartość na `v2` .
 
@@ -742,7 +742,7 @@ Sprawdza, czy oświadczenie ciągu i `matchTo` parametr wejściowy są równe, a
 | InputParameter | stringComparison | ciąg | Możliwe wartości: `Ordinal` lub `OrdinalIgnoreCase` . |
 | InputParameter | outputClaimIfMatched | ciąg | Wartość, która ma zostać ustawiona, jeśli ciągi są równe. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Jeśli ciągi są równe, to zgłoszenie wyjściowe zawiera wartość `outputClaimIfMatched` parametru wejściowego. Lub wartość null, jeśli ciągi nie są zgodne. |
-| Oświadczenie outputclaim | stringCompareResultClaim | wartość logiczna | Typ zgłoszenia wynikowego porównania, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik porównania. |
+| Oświadczenie outputclaim | stringCompareResultClaim | boolean | Typ zgłoszenia wynikowego porównania, który ma zostać ustawiony jako `true` lub `false` w oparciu o wynik porównania. |
 
 Na przykład następujące przekształcenia oświadczeń sprawdzają, czy wartość oświadczenia **grupy wiekowej** jest równa `Minor` . Jeśli tak, zwróć wartość do `B2C_V1_90001` .
 
@@ -778,7 +778,7 @@ Na przykład następujące przekształcenia oświadczeń sprawdzają, czy warto�
 
 ## <a name="stringcontains"></a>StringContains
 
-Ustal, czy określony podciąg występuje w ramach żądania wejściowego. Wynik jest nowym obiektem logicznym ClaimType z wartością `true` lub `false` . `true`Jeśli parametr value występuje w tym ciągu, w przeciwnym razie `false` .
+Ustal, czy określony podciąg występuje w ramach żądania wejściowego. Wynik jest nowym obiektem logicznym ClaimType z wartością `true` lub `false` . `true` Jeśli parametr value występuje w tym ciągu, w przeciwnym razie `false` .
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
@@ -823,7 +823,7 @@ Wyodrębnia części typu "String", rozpoczynając od znaku w określonej pozycj
 | Oświadczenie inputclaim | Oświadczenie inputclaim | ciąg | Typ zgłoszenia, który zawiera ciąg. |
 | InputParameter | Indeks | int | Początkowa pozycja znaku w podciągu w tym wystąpieniu (liczony od zera). |
 | InputParameter | length | int | Liczba znaków w podciągu. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Ciąg, który jest odpowiednikiem podciągu długości, który rozpoczyna się od elementu startIndex w tym wystąpieniu, lub pusty, jeśli wartość startIndex jest równa długości tego wystąpienia, a długość wynosi zero. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Ciąg, który jest odpowiednikiem podciągu długości, który rozpoczyna się od elementu startIndex w tym wystąpieniu, lub pusty, jeśli wartość startIndex jest równa długości tego wystąpienia, a długość wynosi zero. |
 
 Na przykład Pobierz prefiks kraju/regionu numeru telefonu.
 
@@ -860,8 +860,8 @@ Wyszukuje ciąg typu dla określonej wartości i zwraca nowy ciąg typu, w któr
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | Oświadczenie inputclaim | ciąg | Typ zgłoszenia, który zawiera ciąg. |
 | InputParameter | oldValue | ciąg | Ciąg, który ma być przeszukiwany. |
-| InputParameter | newValue | ciąg | Ciąg, w którym mają zostać zamienione wszystkie wystąpienia elementu`oldValue` |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Ciąg, który jest odpowiednikiem bieżącego ciągu, z wyjątkiem tego, że wszystkie wystąpienia wartości oldValue są zastępowane przez newValue. Jeśli w bieżącym wystąpieniu nie znaleziono oldValue, metoda zwraca bieżące wystąpienie bez zmian. |
+| InputParameter | newValue | ciąg | Ciąg, w którym mają zostać zamienione wszystkie wystąpienia elementu `oldValue` |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Ciąg, który jest odpowiednikiem bieżącego ciągu, z wyjątkiem tego, że wszystkie wystąpienia wartości oldValue są zastępowane przez newValue. Jeśli w bieżącym wystąpieniu nie znaleziono oldValue, metoda zwraca bieżące wystąpienie bez zmian. |
 
 Na przykład Normalizuj numer telefonu, usuwając `-` znaki
 

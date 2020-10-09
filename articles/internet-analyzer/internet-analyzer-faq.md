@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74184251"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Azure Internet Analyzer — często zadawane pytania (wersja zapoznawcza)
@@ -64,19 +64,19 @@ Każdy test tworzony w programie Internet Analyzer obejmuje dwa punkty końcowe 
 * Dwa [niestandardowe punkty końcowe](internet-analyzer-custom-endpoint.md) (jeden niestandardowy punkt końcowy musi znajdować się na platformie Azure).
 
 Następujące wstępnie skonfigurowane punkty końcowe są dostępne w trakcie okresu zapoznawczego:
-* **Regiony świadczenia usługi Azure**
-    * Brazylia Południowa
+* **Regiony platformy Azure**
+    * Brazil South
     * Indie Środkowe
-    * Środkowe stany USA
+    * Central US
     * Azja Wschodnia
-    * Wschodnie stany USA
+    * East US
     * Japonia Zachodnia
     * Europa Północna
     * Północna Republika Południowej Afryki
-    * Azja Południowo-Wschodnia
+    * Southeast Asia
     * Północne Zjednoczone Emiraty Arabskie
     * Zachodnie Zjednoczone Królestwo  
-    * Europa Zachodnia
+    * West Europe
     * Zachodnie stany USA
     * Zachodnie stany USA 2
 * **Wiele kombinacji regionów platformy Azure**

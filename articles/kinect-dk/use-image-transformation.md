@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, system współrzędnych, kalibracja, projekt, unprojekt, transformacja, RGB-d, Chmura punktów
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277458"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Korzystanie z transformacji obrazu zestawu SDK usługi Azure urządzenia Kinect
@@ -72,7 +72,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 #### <a name="parameters"></a>Parametry
 
-Parametry wejściowe są uchwytem transformacji, obrazem głębokości i obrazem koloru. Rozdzielczości obrazów głębi i kolorów muszą być zgodne depth_mode i color_resolution określone podczas tworzenia uchwytu transformacji. Dane wyjściowe to przekształcony obraz koloru, który musi zostać przydzielony przez użytkownika za pośrednictwem wywołania [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). Rozdzielczość przekształconego obrazu koloru musi być zgodna depth_resolution określona podczas tworzenia dojścia transformacji. Obraz wyjściowy przechowuje cztery 8-bitowe wartości przedstawiające BGRA na każdy piksel. W związku z tym krok obrazu to ```width * 4 * sizeof(uint8_t)``` . Kolejność danych jest przeplatana na piksel, czyli niebieska wartość — piksel 0, Zielona wartość — piksel 0, czerwony wartość — piksel 0, wartość alfa — piksel 0, niebieska wartość — piksel 1 i tak dalej.
+Parametry wejściowe są uchwytem transformacji, obrazem głębokości i obrazem koloru. Rozdzielczości obrazów głębi i kolorów muszą być zgodne depth_mode i color_resolution określone podczas tworzenia uchwytu transformacji. Dane wyjściowe to przekształcony obraz koloru, który musi zostać przydzielony przez użytkownika za pośrednictwem wywołania [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). Rozdzielczość przekształconego obrazu koloru musi być zgodna depth_resolution określona podczas tworzenia dojścia transformacji. Obrazy wyjściowe przechowują wartości 4 8-bitowe reprezentujące BGRA na każdy piksel. W związku z tym krok obrazu to ```width * 4 * sizeof(uint8_t)``` . Kolejność danych jest przeplatana na piksel, czyli niebieska wartość — piksel 0, Zielona wartość — piksel 0, czerwony wartość — piksel 0, wartość alfa — piksel 0, niebieska wartość — piksel 1 i tak dalej.
 
 ### <a name="k4a_transformation_depth_image_to_point_cloud"></a>k4a_transformation_depth_image_to_point_cloud
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776389"
 ---
 # <a name="disclosure-design-guidelines"></a>Wytyczne dotyczące projektowania ujawniania
@@ -56,9 +56,9 @@ Biorąc pod uwagę ogromną część wytycznych dotyczących projektowania w zak
 3. [**Kiedy ujawniać**](concepts-disclosure-patterns.md#when-to-disclose): optymalny czas na ujawnienie w trakcie podróży użytkownika
 
 ## <a name="disclosure-assessment"></a>Ocena ujawniania
-Należy wziąć pod uwagę, że użytkownicy&#39;ą oczekiwania na interakcję i kontekst, w którym będą mogli napotkać głos. Jeśli kontekst wyraźnie oznacza, że głos syntetyczny jest &quot;wymawiany&quot; , ujawnienie może być minimalne, dwuosobowe lub nawet zbędne. Główne typy kontekstu, które mają wpływ na ujawnienie, obejmują typ osoby, typ scenariusza i poziom narażenia. Pomaga również rozważyć, kto może nasłuchiwać.
+Należy wziąć pod uwagę, że użytkownicy&#39;ą oczekiwania na interakcję i kontekst, w którym będą mogli napotkać głos. Jeśli kontekst wyraźnie oznacza, że głos syntetyczny jest &quot; wymawiany, &quot; ujawnienie może być minimalne, dwuosobowe lub nawet zbędne. Główne typy kontekstu, które mają wpływ na ujawnienie, obejmują typ osoby, typ scenariusza i poziom narażenia. Pomaga również rozważyć, kto może nasłuchiwać.
 
-### <a name="understand-context"></a>Opis kontekstu
+### <a name="understand-context"></a>Omówienie kontekstu
 
 Ten arkusz służy do określania kontekstu Twojego środowiska głosu syntetycznego. Zostanie ona zastosowana w następnym kroku, w którym określisz poziom ujawniania.
 

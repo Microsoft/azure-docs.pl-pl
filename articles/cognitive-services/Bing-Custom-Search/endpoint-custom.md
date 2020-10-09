@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072788"
 ---
 # <a name="custom-search"></a>Wyszukiwanie niestandardowe
@@ -23,7 +23,7 @@ Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wysz
 ## <a name="custom-search-endpoint"></a>Niestandardowy punkt końcowy wyszukiwania
 Aby uzyskać wyniki przy użyciu interfejs API wyszukiwania niestandardowego Bing, Wyślij `GET` żądanie do poniższego punktu końcowego. Użyj nagłówków i parametrów adresu URL, aby zdefiniować dalsze specyfikacje.
 
-Punkt końcowy: zwraca sugestie wyszukiwania jako wyniki JSON, które są istotne dla danych wejściowych użytkownika zdefiniowanych `?q=""`przez.
+Punkt końcowy: zwraca sugestie wyszukiwania jako wyniki JSON, które są istotne dla danych wejściowych użytkownika zdefiniowanych przez `?q=""` .
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```

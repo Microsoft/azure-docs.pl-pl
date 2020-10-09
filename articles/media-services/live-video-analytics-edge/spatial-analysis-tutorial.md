@@ -4,10 +4,10 @@ description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824134"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
@@ -51,7 +51,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące łączenia modułu analizy 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Analiza przestrzenna — Omówienie":::
  
-Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer protokołu przesyłania strumieniowego w czasie rzeczywistym (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła procesora MediaGraphCognitiveServicesVisionExtension.
+Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer Real-Time Streaming Protocol (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła procesora MediaGraphCognitiveServicesVisionExtension.
 
 Węzeł MediaGraphCognitiveServicesVisionExtension odgrywa rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem **pamięci współdzielonej** do innego modułu brzegowego, który uruchamia operacje AI za punktem końcowym gRPC. W tym przykładzie modułem brzegowym jest moduł analizy przestrzennej. Węzeł procesora MediaGraphCognitiveServicesVisionExtension wykonuje dwie czynności:
 
@@ -184,7 +184,7 @@ Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a nast�
 1. Po około 30 sekundach w lewym dolnym rogu okna Odśwież IoT Hub platformy Azure. Na urządzeniu brzegowym są teraz wyświetlane następujące wdrożone moduły:
     
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu: lvaEdge).
-    * Symulator protokołu przesyłania strumieniowego w czasie rzeczywistym (RTSP) (Nazwa modułu rtspsim).
+    * Symulator protokołu przesyłania strumieniowego Real-Time (RTSP) (Nazwa modułu rtspsim).
     * Analiza przestrzenna (Nazwa modułu spatialAnalysis).
     
 W przypadku pomyślnego wdrożenia w danych wyjściowych zostanie wyświetlony komunikat podobny do tego:

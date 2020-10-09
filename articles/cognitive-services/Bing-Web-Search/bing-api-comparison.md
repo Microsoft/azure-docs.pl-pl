@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74775544"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Co to jest interfejsy API wyszukiwania Bing?
@@ -33,11 +33,11 @@ Poniższe interfejsy API wyszukiwania Bing zwracają określoną zawartość z s
 
 | Interfejs API Bing | Opis |
 | -- | -- |
-| [Wyszukiwanie jednostek](../Bing-Entities-Search/overview.md) | Interfejs API wyszukiwania jednostek Bing zwraca wyniki wyszukiwania zawierające jednostki, które mogą być osobami, miejscami lub elementami. W zależności od zapytania interfejs API zwróci co najmniej jedną jednostkę, która spełnia zapytanie wyszukiwania. Zapytanie wyszukiwania może obejmować pojedyncze osoby, lokalne firmy, punkty orientacyjne i inne. |
+| [wyszukiwanie jednostek](../Bing-Entities-Search/overview.md) | Interfejs API wyszukiwania jednostek Bing zwraca wyniki wyszukiwania zawierające jednostki, które mogą być osobami, miejscami lub elementami. W zależności od zapytania interfejs API zwróci co najmniej jedną jednostkę, która spełnia zapytanie wyszukiwania. Zapytanie wyszukiwania może obejmować pojedyncze osoby, lokalne firmy, punkty orientacyjne i inne. |
 | [Wyszukiwanie obrazów](../Bing-Image-Search/overview.md) | Interfejs API wyszukiwania obrazów Bing pozwala wyszukiwać i znajdować wysokiej jakości obrazy statyczne i animowane podobne do [Bing.com/images](https://www.Bing.com/images). Możesz udoskonalać wyszukiwanie, aby uwzględnić lub wykluczyć obrazy według atrybutów, w tym rozmiaru, koloru, licencji i aktualności. Możesz również wyszukać popularne obrazy, przekazać obrazy, aby uzyskać szczegółowe informacje o nich i wyświetlić podglądy miniatur. |
 | [Wyszukiwanie wiadomości](../Bing-News-Search/search-the-web.md) | Interfejs API wyszukiwania wiadomości Bing pozwala znaleźć historie Aktualności podobne do [Bing.com/news](https://www.Bing.com/news). Interfejs API zwraca artykuły z wiadomości z wielu źródeł lub określonych domen. Możesz przeszukiwać w różnych kategoriach, aby uzyskać popularne artykuły, najważniejsze historie i nagłówki. |
 | [Wyszukiwanie wideo](../Bing-Video-Search/overview.md) | Interfejs API wyszukiwania wideo Bing umożliwia znalezienie filmów wideo w sieci Web. Uzyskaj popularne wideo, powiązaną zawartość i podglądy miniatur. |
-| [Wyszukiwanie wizualne](../Bing-visual-search/overview.md) | Przekaż obraz lub użyj adresu URL, aby uzyskać szczegółowe informacje na jego temat, takie jak produkty podobne do wizualizacji, obrazy i wyszukiwania pokrewne. |
+| [wyszukiwanie wizualne](../Bing-visual-search/overview.md) | Przekaż obraz lub użyj adresu URL, aby uzyskać szczegółowe informacje na jego temat, takie jak produkty podobne do wizualizacji, obrazy i wyszukiwania pokrewne. |
  [Lokalne wyszukiwanie biznesowe](../bing-local-business-search/overview.md) | Interfejs API wyszukiwania lokalnego usługi Bing umożliwia aplikacjom Znajdowanie informacji o kontakcie i lokalizacji na temat lokalnych firm w oparciu o zapytania wyszukiwania. |
 
 ## <a name="the-bing-custom-search-api"></a>interfejs API wyszukiwania niestandardowego Bing

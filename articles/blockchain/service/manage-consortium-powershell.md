@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: zeyadr
 ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211344"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Zarządzanie członkami konsorcjum w usłudze Azure łańcucha bloków Service przy użyciu programu PowerShell
@@ -140,7 +140,7 @@ Użyj tego polecenia cmdlet, aby uzyskać szczegóły elementu członkowskiego l
 | Parametr | Opis | Wymagane |
 |-----------|-------------|:--------:|
 | Nazwa | Nazwa elementu członkowskiego usługi łańcucha bloków, dla którego chcesz pobrać szczegóły. Po wprowadzeniu nazwy zwraca szczegóły elementu członkowskiego. Po pominięciu nazwy zwraca listę wszystkich członków konsorcjum. | Nie |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład
@@ -171,8 +171,8 @@ Użyj tego polecenia cmdlet, aby usunąć element członkowski łańcucha blokó
 | Parametr | Opis | Wymagane |
 |-----------|-------------|:--------:|
 | Nazwa | Nazwa elementu członkowskiego do usunięcia | Tak |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
-| Web3Account | Obiekt Web3Account uzyskany z importu Web3Account | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
+| Web3Account | Obiekt Web3Account uzyskany z Import-Web3Account | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład
@@ -199,8 +199,8 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 | Nazwa | Nazwa elementu członkowskiego łańcucha bloków | Tak |
 | Nazwa wyświetlana | Nowa nazwa wyświetlana | Nie |
 | AccountAddress | Adres konta | Nie |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
-| Web3Account | Obiekt Web3Account uzyskany z importu Web3Account | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
+| Web3Account | Obiekt Web3Account uzyskany z Import-Web3Account | Tak |
 | Web3Client |  Obiekt Web3Client uzyskany z New-Web3Connection| Tak |
 
 #### <a name="example"></a>Przykład
@@ -228,8 +228,8 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 |-----------|-------------|:--------:|
 | SubscriptionId | Identyfikator subskrypcji platformy Azure dla elementu członkowskiego do zaproszenia | Tak |
 | Rola | Rola konsorcjum. Wartości mogą być administratora lub użytkownika. Administrator jest rolą administratora konsorcjum. Użytkownik jest rolą członka konsorcjum. | Tak |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
-| Web3Account | Obiekt Web3Account uzyskany z importu Web3Account | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
+| Web3Account | Obiekt Web3Account uzyskany z Import-Web3Account | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład
@@ -249,7 +249,7 @@ To polecenie cmdlet umożliwia pobranie lub wyświetlenie stanu zaproszenia czł
 | Parametr | Opis | Wymagane |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identyfikator subskrypcji platformy Azure dla elementu członkowskiego, który ma zostać zaproszony. W przypadku podanego identyfikatora subskrypcji funkcja zwraca szczegóły dotyczące zaproszenia identyfikatora subskrypcji. Jeśli identyfikator subskrypcji zostanie pominięty, zwraca listę wszystkich zaproszeń członków. | Nie |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład
@@ -280,8 +280,8 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 | Parametr | Opis | Wymagane |
 |-----------|-------------|:--------:|
 | SubscriptionId | Identyfikator subskrypcji platformy Azure do odwołania | Tak |
-| Elementy członkowskie | Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
-| Web3Account | Obiekt Web3Account uzyskany z importu Web3Account | Tak |
+| Elementy członkowskie | Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
+| Web3Account | Obiekt Web3Account uzyskany z Import-Web3Account | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład
@@ -305,8 +305,8 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 |-----------|-------------|:--------:|
 | SubscriptionId | Identyfikator subskrypcji platformy Azure dla elementu członkowskiego do zaproszenia | Tak |
 | Rola | Nowa rola konsorcjum dla zaproszenia. Wartością może być **użytkownik** lub **administrator**. | Tak |
-| Elementy członkowskie |  Obiekt składowych uzyskany z importu-ConsortiumManagementContracts | Tak |
-| Web3Account | Obiekt Web3Account uzyskany z importu Web3Account | Tak |
+| Elementy członkowskie |  Obiekt składowych uzyskany z Import-ConsortiumManagementContracts | Tak |
+| Web3Account | Obiekt Web3Account uzyskany z Import-Web3Account | Tak |
 | Web3Client | Obiekt Web3Client uzyskany z New-Web3Connection | Tak |
 
 #### <a name="example"></a>Przykład

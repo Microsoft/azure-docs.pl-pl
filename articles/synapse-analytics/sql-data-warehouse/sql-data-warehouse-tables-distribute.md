@@ -12,13 +12,13 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85214013"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania tabel rozproszonych w puli SQL Synapse
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania tabel rozproszonych w puli Synapse SQL
 
 Zalecenia dotyczące projektowania tabel rozproszonych rozproszonych i rozmieszczonych w trybie okrężnym w Synapse pulach SQL.
 
@@ -143,7 +143,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 Aby określić, które tabele mają więcej niż 10% pochylenia danych:
 
 1. Utwórz widok dbo. vTableSizes, który jest widoczny w artykule [Przegląd tabel](sql-data-warehouse-tables-overview.md#table-size-queries) .  
-2. Uruchom zapytanie:
+2. Uruchom poniższe zapytanie:
 
 ```sql
 select *

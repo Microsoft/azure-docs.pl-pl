@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76983116"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Wywoływanie wystąpienia wyszukiwanie niestandardowe Bing z portalu
@@ -42,7 +42,7 @@ Kliknięcie **dodatkowych parametrów** ujawnia następujące parametry:
 
 |Parametr  |Opis  |
 |---------|---------|
-|Bezpieczne wyszukiwanie     | Filtr używany do filtrowania stron sieci Web na potrzeby zawartości dla dorosłych. Dostępne tylko dla punktów końcowych sieci Web, obrazów, wideo i hostowanego interfejsu użytkownika. Należy pamiętać, że niestandardowe wyszukiwanie wideo Bing obsługuje tylko dwie `moderate` wartości `strict`: i.        |
+|Bezpieczne wyszukiwanie     | Filtr używany do filtrowania stron sieci Web na potrzeby zawartości dla dorosłych. Dostępne tylko dla punktów końcowych sieci Web, obrazów, wideo i hostowanego interfejsu użytkownika. Należy pamiętać, że niestandardowe wyszukiwanie wideo Bing obsługuje tylko dwie wartości: `moderate` i `strict` .        |
 |Język interfejsu użytkownika    | Język używany dla ciągów interfejsu użytkownika. Na przykład jeśli włączysz obrazy i wideo w hostowanym interfejsie użytkownika, karty **obrazu** i **wideo** używają określonego języka.        |
 |Liczba     | Liczba wyników wyszukiwania do zwrócenia w odpowiedzi. Dostępne tylko dla punktów końcowych sieci Web, obrazów i wideo.         |
 |Przesunięcie    | Liczba wyników wyszukiwania do pominięcia przed zwróceniem wyników. Dostępne tylko dla punktów końcowych sieci Web, obrazów i wideo.        |

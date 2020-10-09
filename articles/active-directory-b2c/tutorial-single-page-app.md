@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258918"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
@@ -150,13 +150,13 @@ Ta przykładowa aplikacja obsługuje rejestrowanie, logowanie i resetowanie has�
 
     Użyj prawidłowego adresu e-mail i przeprowadź weryfikację przy użyciu kodu weryfikacyjnego. Ustaw hasło. Wprowadź wartości żądanych atrybutów.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Strona rejestracji wyświetlana przez Azure AD B2C przepływ użytkownika":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć konto lokalne w katalogu Azure AD B2C.
 
 Po wybraniu opcji **Utwórz**aplikacja wyświetli nazwę zalogowanego użytkownika.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca jednostronicową aplikację zalogowanego użytkownika":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
 
 Jeśli chcesz przetestować logowanie, wybierz przycisk **Wyloguj** się, a następnie wybierz pozycję **Zaloguj** się i zaloguj się przy użyciu adresu e-mail i hasła wprowadzonego podczas rejestracji.
 
