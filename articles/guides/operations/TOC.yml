@@ -1,20 +1,20 @@
 - name: Platforma Azure dla operatorów IT
   items:
-    - name: Rozpoczynanie pracy z platformą Azure
+    - name: Pierwsze kroki z platformą Azure
       href: azure-operations-guide.md
-    - name: Przewodniki Szybki start
+    - name: Przewodniki Szybki Start
       items:
-        - name: Maszyny wirtualne
+        - name: Virtual Machines
           items:
-            - name: Maszyny wirtualne z systemem Windows
+            - name: Windows Virtual Machines
               href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-            - name: Maszyny wirtualne z systemem Linux
+            - name: Linux Virtual Machines
               href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Sieci wirtualne
           items:
             - name: Tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
               href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-        - name: Bezpieczeństwo
+        - name: Zabezpieczenia
           items:
             - name: Zarządzanie zasobami za pomocą przypisań ról
               href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
@@ -32,7 +32,7 @@
               href: ../../site-recovery/azure-to-azure-quickstart.md
     - name: Samouczki
       items:
-        - name: Maszyny wirtualne
+        - name: Virtual Machines
           items:
             - name: Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią
               href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
@@ -60,4 +60,4 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Przegląd witryny Microsoft Azure Portal
           href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
-    - name: Dokumentacja
+    - name: Odwołania

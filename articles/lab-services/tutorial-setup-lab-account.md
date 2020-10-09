@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować konto laboratorium przy użyciu Az
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445070"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Samouczek: konfigurowanie konta laboratorium przy użyciu usługi Azure Lab Services
@@ -38,7 +38,7 @@ Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab
     4. W polu **Lokalizacja**wybierz lokalizację/region, w którym chcesz utworzyć konto laboratorium. 
 
         ![Konto laboratorium — Strona podstawowe](./media/tutorial-setup-lab-account/lab-account-basics-page.png)
-    5. Wybierz pozycję **Przejrzyj i utwórz**.
+    5. Wybierz pozycję **Przeglądanie + tworzenie**.
     6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz**. 
 
         ![Przejrzyj i Utwórz > Utwórz](./media/tutorial-setup-lab-account/create-button.png)    

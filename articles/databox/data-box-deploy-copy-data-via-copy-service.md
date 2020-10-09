@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84219163"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Samouczek: używanie usługi kopiowania danych do kopiowania danych do Azure Data Box (wersja zapoznawcza)
@@ -120,7 +120,7 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
 
     - W kolumnie **Stan** można wyświetlić stan zadania kopiowania. Możliwe stany to:
         - **Uruchomienie**
-        - **Niepowodzenie**
+        - **Awarii**
         - **Powiodło się**
         - **Wstrzymywanie**
         - **Wstrzymano**

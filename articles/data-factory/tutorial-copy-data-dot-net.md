@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513266"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych z obiektu blob platformy Azure do bazy danych Azure SQL Database przy użyciu usługi Azure Data Factory
@@ -97,7 +97,7 @@ Za pomocą programu Visual Studio Utwórz aplikację konsolową .NET C#.
 
 1. Otwórz program Visual Studio.
 2. W oknie **uruchamiania** wybierz pozycję **Utwórz nowy projekt**.
-3. W oknie **Tworzenie nowego projektu** wybierz wersję języka C# **aplikacji konsolowej (.NET Framework)** z listy typów projektów. Następnie wybierz przycisk **Dalej**.
+3. W oknie **Tworzenie nowego projektu** wybierz wersję języka C# **aplikacji konsolowej (.NET Framework)** z listy typów projektów. Następnie wybierz pozycję **Dalej**.
 4. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu** *ADFv2Tutorial*. W polu **Lokalizacja**przejdź do katalogu i/lub Utwórz katalog, w którym ma zostać zapisany projekt. Następnie wybierz przycisk **Utwórz**. Nowy projekt zostanie wyświetlony w środowisku IDE programu Visual Studio.
 
 ## <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet

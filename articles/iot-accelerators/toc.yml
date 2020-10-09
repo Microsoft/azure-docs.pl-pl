@@ -23,7 +23,7 @@
       href: iot-accelerators-device-simulation-overview.md
     - name: Konserwacja zapobiegawcza
       href: iot-accelerators-predictive-walkthrough.md
-- name: Przewodniki Szybki start
+- name: Przewodniki Szybki Start
   expanded: true
   items:
     - name: Testowanie rozwiązania do monitorowania zdalnego
@@ -90,7 +90,7 @@
               href: iot-accelerators-remote-monitoring-deploy-local-java.md
             - name: Wdrażanie lokalne za pomocą platformy Docker
               href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-        - name: Podłączanie rzeczywistego urządzenia
+        - name: Łączenie z rzeczywistym urządzeniem
           items:
             - name: C w systemie Windows
               href: iot-accelerators-connecting-devices.md
@@ -220,9 +220,9 @@
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Zdalne monitorowanie
       items:
         - name: Przewodnik informacyjny dla deweloperów (.NET)
@@ -254,7 +254,7 @@
     - name: Architektura referencyjna
       href: iot-accelerators-architecture-overview.md
       items:
-        - name: Pobieranie
+        - name: Pobierz
           href: 'https://aka.ms/iotrefarchitecture'
         - name: Implementacje partnerów
           items:
@@ -264,7 +264,7 @@
               href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
             - name: Rozwiązania oznakowania cyfrowego
               href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
-    - name: Często zadawane pytania
+    - name: Najczęściej zadawane pytania
       href: iot-accelerators-faq.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'

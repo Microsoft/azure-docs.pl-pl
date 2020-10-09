@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711412"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal
@@ -68,14 +68,14 @@ Teraz utworzymy maszynę wirtualną do korzystania z usługi translatora adresó
 3. Na karcie **Sieć** upewnij się, że wybrano następujące elementy:
    - **Sieć wirtualna**: **myVnet**
    - **Subnet**: Moja **podsieć**
-   - > **publicznego adresu IP** wybierz pozycję **Utwórz nowy**.  W oknie **Tworzenie publicznego adresu IP** wpisz **MyPublicIPVM** w polu **Nazwa** , a następnie wybierz pozycję **standardowa** dla **jednostki SKU**.  Kliknij pozycję **OK**.
+   - > **publicznego adresu IP** wybierz pozycję **Utwórz nowy**.  W oknie **Tworzenie publicznego adresu IP** wpisz **MyPublicIPVM** w polu **Nazwa** , a następnie wybierz pozycję **standardowa** dla **jednostki SKU**.  Kliknij przycisk **OK**.
    - **Grupa zabezpieczeń sieci karty sieciowej**: wybierz pozycję **podstawowa**.
    - **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty**.
    - **Wybierz porty wejściowe**: Upewnij się, że wybrano protokół **SSH** .
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przejrzyj i utwórz**. 
+5. Wybierz pozycję **Przeglądanie + tworzenie**. 
 
 6. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
 
@@ -139,7 +139,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
    - **Virtual Network**: wybierz pozycję **myResourceGroupNAT**  >  **myVnet**.
    - **Nazwa podsieci**: zaznacz pole wyboru obok pozycji moja **podsieć**.
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -163,7 +163,7 @@ ssh <username>@<ip-address-destination>
 
 Teraz można przystąpić do korzystania z usługi translatora adresów sieciowych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń**.
 

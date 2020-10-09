@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660993"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage
@@ -186,13 +186,13 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
  
     ![Nowa połączona usługa (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** dla SqlServerDataset. Wykonaj następujące kroki:
+1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** dla SqlServerDataset. Wykonaj następujące czynności:
 
     a. Upewnij się, że dla ustawienia **Połączona usługa** jest wyświetlana wartość **SqlServerLinkedService**.
 
     b. W obszarze **Nazwa tabeli**wybierz pozycję **[dbo]. [ EMP]**.
     
-    c. Kliknij **OK**.
+    c. Wybierz przycisk **OK**.
 
 1. Przejdź do karty z elementem **SQLServerToBlobPipeline** lub wybierz pozycję **SQLServerToBlobPipeline** w widoku drzewa.
 
@@ -208,7 +208,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako nazwę, a następnie wybierz konto magazynu z listy Nazwa **konta magazynu** . Test connection, a następnie wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** . Kliknij **OK**.
+1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** . Wybierz przycisk **OK**.
 
 1. Otwórz zestaw danych ujścia. Na karcie **Połączenie** wykonaj następujące kroki:
 

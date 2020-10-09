@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykład użycia właściwości p
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85565723"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Wzorzec Azure Policy: właściwości pola

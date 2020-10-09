@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85105943"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Samouczek: konfigurowanie zasad platformy Apache Kafka w usłudze HDInsight przy użyciu pakietu Enterprise Security (wersja zapoznawcza)
@@ -142,7 +142,7 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 3. Wykonaj krok 3 w sekcji **Tworzenie i wdrażanie przykładu** w [samouczku: użyj interfejsów API Apache Kafka producenta i klienta](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) , aby upewnić się, że `kafka-producer-consumer.jar` jest również dostępna do **sales_user**.
 
    > [!NOTE]  
-   > W tym samouczku Użyj Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-klient, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
+   > W tym samouczku Użyj Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w obszarze Projekt Producer-Consumer, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
 
 4. Upewnij się, że użytkownik **sales_user1** może tworzyć do tematu `salesevents`, wykonując następujące polecenie:
 
@@ -214,7 +214,7 @@ Aby tworzyć i używać tematów w ESP Kafka przy użyciu konsoli programu:
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
    ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster Kafka, który został utworzony w następujących krokach:
 
@@ -222,10 +222,10 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster Kafka, który 
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij polecenie **Usuń**. Kliknij przycisk **tak**.
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **Yes** (Tak).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Jeśli plik Kafka-Producer-Consumer. jar nie działa w klastrze przyłączonym do domeny, upewnij się, że używasz Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-klient, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
+Jeśli Kafka-Producer-Consumer. jar nie działa w klastrze przyłączonym do domeny, upewnij się, że używasz Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w obszarze Projekt Producer-Consumer, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
 
 ## <a name="next-steps"></a>Następne kroki
 

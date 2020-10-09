@@ -9,10 +9,10 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85296206"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji dla systemu Android przy użyciu kotwic przestrzennych platformy Azure
@@ -30,7 +30,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następujący
 
 Rozpocznij Android Studio. W oknie **Witamy w Android Studio** kliknij pozycję **rozpocznij nowy projekt Android Studio**. Lub, jeśli masz już otwarty projekt, wybierz pozycję **plik** -> **Nowy projekt**.
 
-W oknie **Tworzenie nowego projektu** w obszarze **telefon i tablet** wybierz pozycję **puste działanie**, a następnie kliknij przycisk **dalej**. Następnie w obszarze **minimalny poziom interfejsu API**wybierz `API 26: Android 8.0 (Oreo)` pozycję i upewnij się, że **Język** jest ustawiony na `Java` . Możesz chcieć zmienić nazwę projektu & lokalizacji i nazwę pakietu. Pozostaw inne opcje. Kliknij przycisk **Zakończ**. Zostanie uruchomiony **Instalator składnika** . Po zakończeniu kliknij przycisk **Zakończ**. Po zakończeniu niektórych operacji Android Studio otworzy środowisko IDE.
+W oknie **Tworzenie nowego projektu** w obszarze **telefon i tablet** wybierz pozycję **puste działanie**, a następnie kliknij przycisk **dalej**. Następnie w obszarze **minimalny poziom interfejsu API**wybierz `API 26: Android 8.0 (Oreo)` pozycję i upewnij się, że **Język** jest ustawiony na `Java` . Możesz chcieć zmienić nazwę projektu & lokalizacji i nazwę pakietu. Pozostaw inne opcje. Kliknij przycisk **Finish** (Zakończ). Zostanie uruchomiony **Instalator składnika** . Po zakończeniu kliknij przycisk **Zakończ**. Po zakończeniu niektórych operacji Android Studio otworzy środowisko IDE.
 
 ## <a name="trying-it-out"></a>Trwa próba
 
@@ -134,7 +134,7 @@ dependencies {
 }
 ```
 
-Kliknij prawym przyciskiem myszy `app\java\<PackageName>` -> **nową** -> **klasę Java**. Ustaw **nazwę** na _mojapierwszaaplikacja_i **Superklasa** na system _Android. app. Application_. Pozostaw inne opcje. Kliknij pozycję **OK**. Zostanie utworzony plik o nazwie `MyFirstApp.java` . Dodaj do niego następujący import:
+Kliknij prawym przyciskiem myszy `app\java\<PackageName>` -> **nową** -> **klasę Java**. Ustaw **nazwę** na _mojapierwszaaplikacja_i **Superklasa** na system _Android. app. Application_. Pozostaw inne opcje. Kliknij przycisk **OK**. Zostanie utworzony plik o nazwie `MyFirstApp.java` . Dodaj do niego następujący import:
 
 ```java
 import com.microsoft.CloudServices;
@@ -227,6 +227,6 @@ Teraz przechwytuje kod, który zostanie wywołany, gdy zakotwiczenie zostanie um
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Gotowe. Ponownie [Wdróż](#trying-it-out) aplikację po raz ostatni, aby wypróbować cały scenariusz. Poruszaj się po urządzeniu i umieść swoją czarną sferę. Następnie kontynuuj przeniesienie urządzenia do przechwytywania klatek kamer, dopóki sfera nie zmieni się na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
+To wszystko. Ponownie [Wdróż](#trying-it-out) aplikację po raz ostatni, aby wypróbować cały scenariusz. Poruszaj się po urządzeniu i umieść swoją czarną sferę. Następnie kontynuuj przeniesienie urządzenia do przechwytywania klatek kamer, dopóki sfera nie zmieni się na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

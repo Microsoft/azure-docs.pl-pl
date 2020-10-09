@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84417841"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal i testowanie usługi translatora adresów sieciowych
@@ -83,7 +83,7 @@ Możesz również utworzyć tę maszynę wirtualną bez publicznego adresu IP i 
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
 
@@ -147,7 +147,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
    - **Virtual Network**: wybierz pozycję **myResourceGroupNAT**  >  **myVnetsource**.
    - **Nazwa podsieci**: zaznacz pole wyboru obok pozycji **mySubnetsource**.
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -200,7 +200,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -301,7 +301,7 @@ hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 
 To polecenie spowoduje wygenerowanie 100 żądań, 10 współbieżnie, z limitem czasu 30 sekund i bez ponownego użycia połączenia TCP.  Każde żądanie spowoduje pobranie 100 kilobajtów.  Na końcu przebiegu **zostanie** zaraportowana Statystyka dotycząca tego, jak dobrze była usługa translatora adresów sieciowych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń**.
 

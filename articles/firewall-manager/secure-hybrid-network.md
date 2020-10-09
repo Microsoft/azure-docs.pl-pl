@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85563644"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure
@@ -47,11 +47,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Sieć hybrydowa używa modelu architektury Hub i szprych do kierowania ruchu między usługą Azure sieci wirtualnych i sieciami lokalnymi. Architektura gwiazdy i szprych ma następujące wymagania:
 
-- Ustaw **AllowGatewayTransit** podczas komunikacji równorzędnej między koncentratorem a siecią wirtualną-szprych. W architekturze sieci typu Hub i szprych, tranzyt bramy umożliwia sieciom wirtualnym współużytkowanie bramy sieci VPN w centrum, a nie wdrażanie bram sieci VPN w każdej sieci wirtualnej szprych. 
+- Ustaw **AllowGatewayTransit** , gdy Komunikacja równorzędna VNet-Hub się z siecią VNET-szprych. W architekturze sieci typu Hub i szprych, tranzyt bramy umożliwia sieciom wirtualnym współużytkowanie bramy sieci VPN w centrum, a nie wdrażanie bram sieci VPN w każdej sieci wirtualnej szprych. 
 
    Ponadto trasy do sieci wirtualnych podłączonych do bramy lub sieci lokalnych będą automatycznie propagowane do tabel routingu dla równorzędnych sieci wirtualnych przy użyciu tranzytu bramy. Aby uzyskać więcej informacji, zobacz [Konfigurowanie tranzytu bramy sieci VPN dla komunikacji równorzędnej sieci wirtualnych](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Ustaw **useremotegateways o wartości** podczas komunikacji równorzędnej między sieciami wirtualnymi i koncentratorem. Jeśli ustawiono opcję **useremotegateways o wartości** i **AllowGatewayTransit** na zdalnej komunikacji równorzędnej, Sieć wirtualna szprych używa bram zdalnej sieci wirtualnej do tranzytu.
+- Ustaw **useremotegateways o wartości** podczas komunikacji równorzędnej z koncentratorem VNet-Spoke sieci wirtualnej. Jeśli ustawiono opcję **useremotegateways o wartości** i **AllowGatewayTransit** na zdalnej komunikacji równorzędnej, Sieć wirtualna szprych używa bram zdalnej sieci wirtualnej do tranzytu.
 - Aby skierować ruch podsieci szprych przez zaporę centrum, potrzebna jest trasa zdefiniowana przez użytkownika (UDR), która wskazuje zaporę z wyłączonym ustawieniem **propagacji trasy bramy sieci wirtualnej** . Ta opcja uniemożliwia dystrybucję tras do podsieci szprych. Zapobiega to wyznaniom tras spowodowanych konfliktami z UDR.
 - Skonfiguruj UDR w podsieci bramy centrum, która wskazuje adres IP zapory w następnym przeskoku do sieci szprych. W podsieci usługi Azure Firewall nie jest wymagana trasa zdefiniowana przez użytkownika, ponieważ uzyskuje ona informacje o trasach na podstawie protokołu BGP.
 
@@ -152,7 +152,7 @@ Po wdrożeniu sieci wirtualnej należy utworzyć drugą podsieć dla bramy.
 2. Wybierz pozycję **+ podsieć**.
 3. W obszarze **Nazwa**wpisz **GatewaySubnet**.
 4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
-5. Kliknij **OK**.
+5. Wybierz przycisk **OK**.
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
@@ -236,7 +236,7 @@ W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej 
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-lokalnego**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Kliknij **OK**.
+8. Wybierz przycisk **OK**.
 
 Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentratora. Ten krok jest podobny do poprzedniego, jednak w tym przypadku tworzysz połączenie z sieci VNet-Onprem do sieci VNet-hub. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
@@ -247,7 +247,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-Hub**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Kliknij **OK**.
+8. Wybierz przycisk **OK**.
 
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
@@ -267,7 +267,7 @@ Teraz nawiąż komunikację równorzędną pomiędzy siecią wirtualną koncentr
 5. Dla **sieci wirtualnej**wybierz opcję Sieć wirtualna **-szprycha**
 6. Aby uzyskać nazwę komunikacji równorzędnej z VNetSpoke do koncentratora sieci wirtualnej, wpisz **SpoketoHub**.
 7. Wybierz pozycję **Zezwalaj na tranzyt bramy**.
-8. Kliknij **OK**.
+8. Wybierz przycisk **OK**.
 
 ### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurowanie dodatkowych ustawień komunikacji równorzędnej SpoketoHub
 
@@ -301,7 +301,7 @@ Następnie należy utworzyć kilka tras:
 14. Dla prefiksu adresu wpisz **10.6.0.0/16**.
 15. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 16. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-17. Kliknij **OK**.
+17. Wybierz przycisk **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -309,7 +309,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna**wybierz pozycję Virtual **-Hub**.
 5. W obszarze **podsieć**wybierz pozycję **GatewaySubnet**.
-6. Kliknij **OK**.
+6. Wybierz przycisk **OK**.
 
 Teraz Utwórz trasę domyślną z podsieci szprych.
 
@@ -329,7 +329,7 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 6. Dla prefiksu adresu wpisz **0.0.0.0/0**.
 7. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 8. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-9. Kliknij **OK**.
+9. Wybierz przycisk **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -337,7 +337,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna**wybierz pozycję **VNET-szprychy**.
 5. W obszarze **podsieć**wybierz pozycję **SN-obciążenie**.
-6. Kliknij **OK**.
+6. Wybierz przycisk **OK**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -435,7 +435,7 @@ Następnie zmień ustawienie akcji kolekcji reguł sieci zapory na **Odmów**, a
 
 Zamknij wszystkie istniejące Pulpity zdalne i przeglądarki na **maszynie wirtualnej-lokalnego** przed przetestowaniem zmienionych reguł. Po zakończeniu aktualizacji kolekcji reguł ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
 
