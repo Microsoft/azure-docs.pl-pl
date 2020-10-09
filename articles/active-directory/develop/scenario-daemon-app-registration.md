@@ -12,17 +12,17 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80885484"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — Rejestracja aplikacji
 
 Poniżej przedstawiono informacje o tym, co należy wiedzieć podczas rejestrowania aplikacji.
 
-## <a name="supported-account-types"></a>Obsługiwane typy konta
+## <a name="supported-account-types"></a>Obsługiwane typy kont
 
 Aplikacje demonów mają sens tylko w dzierżawach usługi Azure AD. Dlatego podczas tworzenia aplikacji należy wybrać jedną z następujących opcji:
 

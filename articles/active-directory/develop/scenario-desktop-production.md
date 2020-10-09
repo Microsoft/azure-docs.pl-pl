@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882883"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Przenieś do środowiska produkcyjnego
@@ -35,8 +35,8 @@ Nie można uzyskać tokenu dla kilku zasobów jednocześnie z punktem końcowym 
 
 Przykładowo mogą istnieć dwa zasoby, które mają dwa zakresy:
 
-- `https://mytenant.onmicrosoft.com/customerapi`z zakresami `customer.read` i`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`z zakresami `vendor.read` i`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` z zakresami `customer.read` i `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` z zakresami `vendor.read` i `vendor.write`
 
 W tym przykładzie Użyj `.WithAdditionalPromptToConsent` modyfikatora, który ma `extraScopesToConsent` parametr.
 

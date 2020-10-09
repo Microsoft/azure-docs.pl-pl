@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76021183"
 ---
-1. Zaloguj się w witrynie [Azure Portal][Azure portal].
+1. Zaloguj się do [Azure portal][Azure portal].
 1. Wybierz pozycję **Utwórz zasób**. Następnie wybierz pozycję **Integration**  >  **Relay**. Jeśli nie widzisz pozycji **Relay** na liście, wybierz pozycję **Zobacz wszystko** w prawym górnym rogu.
 1. Wybierz pozycję **Utwórz**, a następnie wprowadź nazwę przestrzeni nazw w polu **Nazwa** . Azure Portal sprawdza, czy nazwa jest dostępna.
 1. Wybierz subskrypcję platformy Azure, w której chcesz utworzyć przestrzeń nazw.

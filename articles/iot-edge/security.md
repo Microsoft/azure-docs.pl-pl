@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76760117"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Standardy zabezpieczeń Azure IoT Edge
@@ -24,7 +24,7 @@ IoT Edge działa na różnych urządzeniach i modelach sprzętu, obsługuje kilk
 * Własność rozwiązania
 * Lokalizacja geograficzna wdrożenia
 * Czułość danych
-* Ochrona prywatności
+* Prywatność
 * Aplikacja w pionie
 * Wymagania prawne
 
@@ -48,7 +48,7 @@ Zasada najniższych uprawnień oznacza, że użytkownicy i składniki systemu po
 
 Inne schematy autoryzacji obejmują prawa do podpisywania certyfikatu oraz kontrolę dostępu opartą na rolach (RBAC).
 
-## <a name="attestation"></a>Zaświadczania o
+## <a name="attestation"></a>Zaświadczanie
 
 Zaświadczanie gwarantuje integralność bitów oprogramowania, co jest ważne w przypadku wykrywania i zapobiegania złośliwemu oprogramowaniu. Azure IoT Edge Framework zabezpieczeń klasyfikuje zaświadczanie w ramach trzech głównych kategorii:
 

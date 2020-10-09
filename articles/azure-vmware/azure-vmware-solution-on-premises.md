@@ -4,10 +4,10 @@ description: Dowiedz się, jak połączyć rozwiązanie VMware firmy Azure ze ś
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.openlocfilehash: 2a0cb641df00f3e580e87e38aff382d8e8101fc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91583340"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>Łączenie rozwiązania VMware z platformą Azure z środowiskiem lokalnym
@@ -44,4 +44,4 @@ Ponadto z poziomu maszyny wirtualnej w segmencie NSX-T można uzyskać dostęp d
 Przejdź do następnej sekcji, aby wdrożyć i skonfigurować oprogramowanie VMware HCX
 
 > [!div class="nextstepaction"]
-> [Wdrażanie i Konfigurowanie programu VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Wdrażanie i konfigurowanie usługi VMware HCX](tutorial-deploy-vmware-hcx.md)

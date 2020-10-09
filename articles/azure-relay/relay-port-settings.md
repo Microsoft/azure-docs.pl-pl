@@ -4,10 +4,10 @@ description: Ten artykuł zawiera tabelę opisującą wymaganą konfigurację wa
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85314268"
 ---
 # <a name="azure-relay-port-settings"></a>Ustawienia portu Azure Relay
@@ -24,20 +24,20 @@ Połączenia hybrydowe używa obiektów WebSockets na porcie 443 przy użyciu pr
 |-------------|------------------------|----------|  
 |[BasicHttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Tak|HTTPS| 
 |" |Nie|HTTP|  
-|[BasicHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[BasicHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (usługa)|Dowolny|9351/HTTP|  
 |[NetEventRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Tak|9351/HTTPS|  
 |" |Nie|9350/HTTP|  
-|[NetEventRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (usługa)|Żadnego|9351/HTTP|  
-|[NetTcpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klient/usługa)|Żadnego|5671/9352/HTTP (9352/9353, jeśli używasz hybrydowej)|  
+|[NetEventRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (usługa)|Dowolny|9351/HTTP|  
+|[NetTcpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klient/usługa)|Dowolny|5671/9352/HTTP (9352/9353, jeśli używasz hybrydowej)|  
 |[NetOnewayRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Tak|9351/HTTPS|  
 |" |Nie|9350/HTTP|  
-|[NetOnewayRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[NetOnewayRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (usługa)|Dowolny|9351/HTTP|  
 |[WebHttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Tak|HTTPS|  
 |" |Nie|HTTP|  
-|[WebHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (usługa)|Żadnego|9351/HTTP|  
+|[WebHttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (usługa)|Dowolny|9351/HTTP|  
 |[WS2007HttpRelayBinding — Klasa](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (klient)|Tak|HTTPS|  
 |" |Nie|HTTP|  
-|[WS2007HttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (usługa)|Żadnego|9351/HTTP|
+|[WS2007HttpRelayBinding, Klasa](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (usługa)|Dowolny|9351/HTTP|
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat Azure Relay, odwiedź następujące linki:

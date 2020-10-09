@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878395"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Pojęcia, terminologia i jednostki w usłudze Azure Scheduler
@@ -148,7 +148,7 @@ W obiekcie **startTime** możesz określić godzinę rozpoczęcia i przesunięci
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>akcja
 
 Twoje zadanie usługi Scheduler uruchamia **akcję** podstawową na podstawie określonego harmonogramu. Usługa Scheduler obsługuje akcje HTTP, akcje kolejki usługi Storage, akcje kolejki usługi Service Bus i akcje tematów usługi Service Bus. Jeśli **akcja** podstawowa zakończy się niepowodzeniem, usługa Scheduler może uruchomić pomocniczą akcję [**errorAction**](#erroraction), która obsługuje błąd. Obiekt **action** opisuje następujące elementy:
 
@@ -248,8 +248,8 @@ Zadanie jest uruchamiane cyklicznie, jeśli definicja JSON zadania zawiera obiek
 
 | Właściwość | Wymagany | Wartość | Opis | 
 |----------|----------|-------|-------------| 
-| **jaką** | Tak, gdy jest używany obiekt **recurrence** | „Minute”, „Hour”, „Day”, „Week”, „Month”, „Year” | Jednostka czasu między wystąpieniami | 
-| **dat** | Nie | od 1 do 1000 (włącznie) | Dodatnia liczba całkowita określająca liczbę jednostek czasu między każdym wystąpieniem na podstawie właściwości **frequency** (częstotliwość) | 
+| **frequency** | Tak, gdy jest używany obiekt **recurrence** | „Minute”, „Hour”, „Day”, „Week”, „Month”, „Year” | Jednostka czasu między wystąpieniami | 
+| **interval** | Nie | od 1 do 1000 (włącznie) | Dodatnia liczba całkowita określająca liczbę jednostek czasu między każdym wystąpieniem na podstawie właściwości **frequency** (częstotliwość) | 
 | **rozkład** | Nie | Różnie | Szczegółowe informacje dla bardziej złożonych i zaawansowanych harmonogramów. Zobacz właściwości **hours**, **minutes**, **weekDays**, **months** i **monthDays** | 
 | **liczb** | Nie | Od 1 do 24 | Tablica z oznaczeniami godzin dla czasu uruchomienia zadania | 
 | **minut** | Nie | od 0 do 59 | Tablica z oznaczeniami minut dla czasu uruchomienia zadania | 
@@ -287,7 +287,7 @@ Aby uzyskać więcej informacji, zobacz [Wysoka dostępność i niezawodność](
 
 <a name="status"></a>
 
-## <a name="state"></a>state
+## <a name="state"></a>stan
 
 Stan zadania może mieć wartość **Enabled** (włączone), **Disabled** (wyłączone), **Completed** (ukończone) lub **Faulted** (wystąpił błąd), na przykład: 
 
@@ -308,7 +308,7 @@ Po rozpoczęciu zadania usługa Scheduler zwraca informacje dotyczące statusu z
 * Liczba niepowodzeń, jeśli wystąpiły
 * Liczba błędów, jeśli wystąpiły
 
-Przykład:
+Na przykład:
 
 ```json
 "status": {

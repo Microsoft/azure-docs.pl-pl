@@ -4,10 +4,10 @@ description: Analizuje różnice i podobieństwa między dwoma typami kolejek of
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337641"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
@@ -41,7 +41,7 @@ Jako architekt rozwiązań/deweloper należy **rozważyć użycie kolejek Servic
 * Aplikacja ma przetwarzać komunikaty jako Parallel długotrwałe strumienie (komunikaty są skojarzone ze strumieniem przy użyciu właściwości [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) w komunikacie). W tym modelu każdy węzeł w aplikacji zużywanej konkuruje o strumienie, w przeciwieństwie do komunikatów. Gdy strumień jest przyznany w węźle zużywanym, węzeł może przeanalizować stan strumienia aplikacji przy użyciu transakcji.
 * Twoje rozwiązanie wymaga transakcyjnego zachowania i niepodzielności podczas wysyłania lub otrzymywania wielu komunikatów z kolejki.
 * Aplikacja obsługuje komunikaty, które mogą przekraczać 64 KB, ale prawdopodobnie nie zbliża się do limitu 256 KB.
-* Istnieje wymóg, aby zapewnić model dostępu oparty na rolach dla kolejek i różne prawa/uprawnienia dla nadawców i odbiorników. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+* Istnieje wymóg, aby zapewnić model dostępu oparty na rolach dla kolejek i różne prawa/uprawnienia dla nadawców i odbiorników. Aby uzyskać więcej informacji zobacz następujące artykuły:
     - [Uwierzytelnianie przy użyciu tożsamości zarządzanych](service-bus-managed-service-identity.md)
     - [Uwierzytelnianie przy użyciu aplikacji](authenticate-application.md)
 * Rozmiar kolejki nie przekroczy 80 GB.

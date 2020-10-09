@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80880754"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Instrukcje: Logowanie jednokrotne między aplikacjami ADAL i MSAL w systemach macOS i iOS
@@ -41,15 +41,15 @@ MSAL i ADAL używają różnych identyfikatorów kont. Biblioteka ADAL używa na
 
 Gdy otrzymasz `MSALAccount` obiekt w wyniku MSAL, zawiera on identyfikator konta we `identifier` właściwości. Aplikacja powinna używać tego identyfikatora dla kolejnych żądań dyskretnych.
 
-Oprócz `identifier` , `MSALAccount` obiekt zawiera identyfikator, który został wywołany `username` . Który jest tłumaczony na `userId` w bibliotece ADAL. `username`nie jest uznawany za unikatowy identyfikator i może się zmienić w dowolnym czasie, więc należy go używać tylko w scenariuszach zgodności z poprzednimi wersjami z biblioteką ADAL. MSAL obsługuje zapytania pamięci podręcznej przy użyciu albo `username` lub `identifier` , gdzie `identifier` jest zalecane wykonywanie zapytań.
+Oprócz `identifier` , `MSALAccount` obiekt zawiera identyfikator, który został wywołany `username` . Który jest tłumaczony na `userId` w bibliotece ADAL. `username` nie jest uznawany za unikatowy identyfikator i może się zmienić w dowolnym czasie, więc należy go używać tylko w scenariuszach zgodności z poprzednimi wersjami z biblioteką ADAL. MSAL obsługuje zapytania pamięci podręcznej przy użyciu albo `username` lub `identifier` , gdzie `identifier` jest zalecane wykonywanie zapytań.
 
 Poniższa tabela zawiera podsumowanie różnic identyfikatorów kont między bibliotekami ADAL i MSAL:
 
 | Identyfikator konta                | BIBLIOTEKA MSAL                                                         | Biblioteka ADAL 2.7. x      | Starsza wersja ADAL (przed ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | Identyfikator, który ma być odtwarzany            | `username`                                                   | `userId`        | `userId`                       |
-| unikatowy identyfikator, który nie jest odtwarzany | `identifier`                                                 | `homeAccountId` | Nie dotyczy                            |
-| Brak znanego identyfikatora konta               | Wykonywanie zapytania dotyczącego wszystkich kont za poorednictwem `allAccounts:` interfejsu API w`MSALPublicClientApplication` | Nie dotyczy             | Nie dotyczy                            |
+| unikatowy identyfikator, który nie jest odtwarzany | `identifier`                                                 | `homeAccountId` | Brak                            |
+| Brak znanego identyfikatora konta               | Wykonywanie zapytania dotyczącego wszystkich kont za poorednictwem `allAccounts:` interfejsu API w `MSALPublicClientApplication` | NIE DOTYCZY             | NIE DOTYCZY                            |
 
 Jest to `MSALAccount` interfejs udostępniający te identyfikatory:
 
@@ -99,9 +99,9 @@ Biblioteka ADAL 2.7. x zwraca wartość `homeAccountId` w `ADUserInformation` ob
 @property (readonly) NSString *homeAccountId;
 ```
 
-`homeAccountId`w bibliotece ADAL jest równoważne `identifier` w MSAL. Ten identyfikator można zapisać do użycia w programie MSAL na potrzeby wyszukiwania kont przy użyciu `accountForIdentifier:error:` interfejsu API.
+`homeAccountId` w bibliotece ADAL jest równoważne `identifier` w MSAL. Ten identyfikator można zapisać do użycia w programie MSAL na potrzeby wyszukiwania kont przy użyciu `accountForIdentifier:error:` interfejsu API.
 
-#### <a name="adals-userid"></a>Biblioteka ADAL`userId`
+#### <a name="adals-userid"></a>Biblioteka ADAL `userId`
 
 Jeśli `homeAccountId` Funkcja jest niedostępna lub masz tylko możliwy do odtworzenia identyfikator, można użyć biblioteki ADAL `userId` do przeszukania konta w MSAL.
 
@@ -203,7 +203,7 @@ Ponieważ usługa `homeAccountId` jest niedostępna w starszych wersjach ADAL, n
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Przykład:
+Na przykład:
 
 Cel-C:
 

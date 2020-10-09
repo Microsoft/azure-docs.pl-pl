@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80804626"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Deploy the Azure Blob Storage on IoT Edge module to your device (Wdrażanie modułu usługi Azure Blob Storage w usłudze IoT Edge na urządzeniu)
@@ -47,12 +47,12 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 
    Przykłady:
   
-   - **Nazwa modułu IoT Edge**:`azureblobstorageoniotedge`
-   - **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-blob-storage:latest`
+   - **Nazwa modułu IoT Edge**: `azureblobstorageoniotedge`
+   - **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![Ustawienia sznurka modułu](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera**i **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
+   Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera**i  **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
 
    > [!IMPORTANT]
    > W Azure IoT Edge jest rozróżniana wielkość liter podczas wykonywania wywołań do modułów, a zestaw SDK magazynu jest również domyślnie pisany małymi literami. Mimo że nazwa modułu w [witrynie Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) to **AzureBlobStorageonIoTEdge**, zmiana nazwy na małe jest pomocne, aby upewnić się, że połączenia z usługą Azure Blob Storage na IoT Edge module nie zostaną przerwane.
@@ -88,10 +88,10 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 
    - Zamień `<storage mount>` według systemu operacyjnego kontenera. Podaj nazwę [woluminu](https://docs.docker.com/storage/volumes/) lub ścieżkę bezwzględną do istniejącego katalogu na urządzeniu IoT Edge, w którym moduł obiektów BLOB będzie przechowywał swoje dane. Instalacja magazynu mapuje lokalizację na urządzeniu dostarczaną do lokalizacji zestawu w module.
 
-     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Przykład:
-         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Na przykład:
+         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Przykład:
+     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Na przykład:
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - Zamiast korzystać z dysku lokalnego, możesz zmapować lokalizację sieciową SMB, aby uzyskać więcej informacji, zobacz [Używanie udziału SMB jako magazynu lokalnego](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) .
@@ -165,7 +165,7 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
 
    | Pole | Wartość |
    | ----- | ----- |
-   | Wybierz folder | Wybierz lokalizację na komputerze deweloperskim, aby Visual Studio Code utworzyć pliki rozwiązania. |
+   | Wybieranie folderu | Wybierz lokalizację na komputerze deweloperskim, aby Visual Studio Code utworzyć pliki rozwiązania. |
    | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania lub zaakceptuj nazwę domyślną **EdgeSolution**. |
    | Wybierz szablon modułu | Wybierz **istniejący moduł (wprowadź pełny obraz URL)**. |
    | Podaj nazwę modułu | Wprowadź wszystkie małe nazwy dla modułu, takie jak **azureblobstorageoniotedge**.<br/><br/>Ważne jest używanie małych nazw dla Blob Storage platformy Azure na IoT Edge module. W IoT Edge jest rozróżniana wielkość liter podczas odwoływania się do modułów, a zestaw SDK magazynu jest domyślnie pisany małymi literami. |
@@ -200,8 +200,8 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
 
 1. Zamień `<storage mount>` według systemu operacyjnego kontenera. Podaj nazwę [woluminu](https://docs.docker.com/storage/volumes/) lub ścieżkę bezwzględną do katalogu na urządzeniu IoT Edge, w którym moduł obiektów BLOB ma przechowywać swoje dane. Instalacja magazynu mapuje lokalizację na urządzeniu dostarczaną do lokalizacji zestawu w module.  
 
-     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Przykład:
-         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+     - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Na przykład:
+         - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Na przykład
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .

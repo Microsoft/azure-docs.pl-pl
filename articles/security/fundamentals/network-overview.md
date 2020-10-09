@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80811080"
 ---
 # <a name="azure-network-security-overview"></a>Omówienie zabezpieczeń sieci platformy Azure
@@ -46,7 +46,7 @@ Platforma Azure wymaga, aby maszyny wirtualne były połączone z usługą Virtu
 
 Więcej informacji:
 
-* [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
+* [Omówienie sieci wirtualnej](../../virtual-network/virtual-networks-overview.md)
 
 ## <a name="network-access-control"></a>Kontrola dostępu do sieci
 
@@ -132,7 +132,7 @@ Dostęp do tych zaawansowanych funkcji zabezpieczeń sieci można uzyskać przy 
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
-Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora oferowana jako usługa, z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze. Dostępne są następujące funkcje:
+Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora oferowana jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze. Dostępne są następujące funkcje:
 
 * Wysoka dostępność
 * Skalowalność chmury
@@ -210,7 +210,7 @@ Więcej informacji:
 
 * [Konfigurowanie połączenia między sieciami wirtualnymi przy użyciu Azure Resource Manager i programu PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-Innym sposobem łączenia sieci wirtualnych jest wirtualne połączenie [równorzędne](../../virtual-network/virtual-network-peering-overview.md). Ta funkcja umożliwia łączenie dwóch sieci platformy Azure, dzięki czemu komunikacja między nimi odbywa się za pośrednictwem infrastruktury sieci szkieletowej firmy Microsoft bez konieczności przechodzenia przez Internet. Wirtualne sieci równorzędne mogą łączyć dwa sieci wirtualnych w tym samym regionie lub dwa sieci wirtualnych w różnych regionach platformy Azure. Sieciowych grup zabezpieczeń może służyć do ograniczania łączności między różnymi podsieciami lub systemami.
+Innym sposobem łączenia sieci wirtualnych jest wirtualne połączenie  [równorzędne](../../virtual-network/virtual-network-peering-overview.md). Ta funkcja umożliwia łączenie dwóch sieci platformy Azure, dzięki czemu komunikacja między nimi odbywa się za pośrednictwem infrastruktury sieci szkieletowej firmy Microsoft bez konieczności przechodzenia przez Internet. Wirtualne sieci równorzędne mogą łączyć dwa sieci wirtualnych w tym samym regionie lub dwa sieci wirtualnych w różnych regionach platformy Azure. Sieciowych grup zabezpieczeń może służyć do ograniczania łączności między różnymi podsieciami lub systemami.
 
 ## <a name="availability"></a>Dostępność
 
@@ -265,7 +265,7 @@ Na platformie Azure możesz uzyskać korzyści wynikające z globalnego równowa
 
 Więcej informacji:
 
-* [Co to jest Traffic Manager?](../../traffic-manager/traffic-manager-overview.md)
+* [Co to jest usługa Traffic Manager?](../../traffic-manager/traffic-manager-overview.md)
 
 ## <a name="name-resolution"></a>Rozpoznawanie nazw
 
@@ -283,7 +283,7 @@ Do rozpoznawania nazw wewnętrznych są dostępne dwie opcje:
 
 Więcej informacji:
 
-* [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
+* [Omówienie sieci wirtualnej](../../virtual-network/virtual-networks-overview.md)
 * [Zarządzanie serwerami DNS używanymi przez sieć wirtualną](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 W przypadku rozpoznawania nazw zewnętrznych dostępne są dwie opcje:

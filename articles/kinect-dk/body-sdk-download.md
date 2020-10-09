@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, urządzenia Kinect, SDK, Pobierz aktualizację, Najnowsza, dostępna, Zainstaluj, treść, śledzenie
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277582"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Pobierz zestaw SDK śledzenia treści usługi Azure urządzenia Kinect
@@ -109,9 +109,9 @@ Jeśli polecenie zakończy się pomyślnie, zestaw SDK jest gotowy do użycia.
 
 * [Istotna zmiana] Obniżono zależność zestawu SDK do CUDA 10,0 (od CUDA 10,1). Środowisko uruchomieniowe ONNX jest oficjalnie obsługiwane tylko do CUDA 10,0.
 * [Istotna zmiana] Przełączono do środowiska uruchomieniowego ONNX zamiast środowiska uruchomieniowego Tensorflow. Zmniejsza czas uruchamiania pierwszej ramki i użycie pamięci. Zmniejsza również rozmiar binarny zestawu SDK.
-* [Zmiana interfejsu API] Zmieniono nazwę `k4abt_tracker_queue_capture()` na`k4abt_tracker_enqueue_capture()`
+* [Zmiana interfejsu API] Zmieniono nazwę `k4abt_tracker_queue_capture()` na `k4abt_tracker_enqueue_capture()`
 * [Zmiana interfejsu API] Pozłamane `k4abt_frame_get_body()` dwie osobne funkcje: `k4abt_frame_get_body_skeleton()` i `k4abt_frame_get_body_id()` . Teraz możesz wysyłać zapytania o identyfikator treści bez zawsze kopiowania całej struktury szkieletowej.
-* [Zmiana interfejsu API] Dodano `k4abt_frame_get_timestamp_usec()` funkcję ułatwiającą wykonywanie zapytań dotyczących sygnatury czasowej ramki treści przez użytkowników.
+* [Zmiana interfejsu API] Dodano  `k4abt_frame_get_timestamp_usec()` funkcję ułatwiającą wykonywanie zapytań dotyczących sygnatury czasowej ramki treści przez użytkowników.
 * Ulepszona dokładność algorytmu śledzenia treści i niezawodność śledzenia
 
 ## <a name="next-steps"></a>Następne kroki

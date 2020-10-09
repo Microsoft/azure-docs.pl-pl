@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318913"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory — przykłady
@@ -24,15 +24,15 @@ ms.locfileid: "85318913"
 
 
 ## <a name="samples-on-github"></a>Przykłady w serwisie GitHub
-[Repozytorium GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) zawiera kilka przykładów, które ułatwiają szybkie podwyższenie poziomu usługi Azure Data Factory (lub) modyfikowanie skryptów i używanie ich w aplikacji. Folder Samples\JSON zawiera fragmenty kodu JSON dla typowych scenariuszy.
+[Repozytorium Azure-DataFactory GitHub](https://github.com/azure/azure-datafactory) zawiera kilka przykładów, które pomagają szybko uzyskać dostęp do Azure Data Factory usługi (lub) zmodyfikować skrypty i używać ich w aplikacji. Folder Samples\JSON zawiera fragmenty kodu JSON dla typowych scenariuszy.
 
-| Przykład | Opis |
+| Sample | Opis |
 |:--- |:--- |
 | [Przewodnik po podajniku APD](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Ten przykład zawiera kompleksowy przewodnik dotyczący przetwarzania plików dzienników przy użyciu Azure Data Factory do przekształcania danych z plików dziennika w szczegółowe informacje. <br/><br/>W tym instruktażu potok Data Factory zbiera przykładowe dzienniki, przetwarza i wzbogaca dane z dzienników o dane referencyjne i przekształca je w celu ocenienia skuteczności kampanii marketingowej, która była ostatnio uruchomiona. |
 | [Przykłady JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Ten przykład zawiera przykłady JSON dla typowych scenariuszy. |
 | [Przykład pobierania danych http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Ten przykład przedstawia pobieranie danych z punktu końcowego HTTP do usługi Azure Blob Storage przy użyciu niestandardowego działania programu .NET. |
 | [Przykład działania z kropką NET w wielu domenach](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Ten przykład umożliwia utworzenie niestandardowego działania platformy .NET, które nie jest ograniczone do wersji zestawu używanych przez program do uruchamiania ADF (na przykład WindowsAzure. Storage v 4.3.0, Newtonsoft.Jsw wersji v 6.0. x itd.). |
-| [Uruchom skrypt języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Ten przykład zawiera Data Factory niestandardowe działanie, które może służyć do wywoływania RScript.exe. Ten przykład działa tylko z własnym klastrem usługi HDInsight (nie na żądanie), na którym jest już zainstalowany język R. |
+| [Uruchamianie skryptu języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Ten przykład zawiera Data Factory niestandardowe działanie, które może służyć do wywoływania RScript.exe. Ten przykład działa tylko z własnym klastrem usługi HDInsight (nie na żądanie), na którym jest już zainstalowany język R. |
 | [Wywoływanie zadań platformy Spark w klastrze usługi HDInsight Hadoop](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Ten przykład pokazuje, jak używać działania MapReduce do wywołania programu Spark. Program Spark kopiuje dane z jednego kontenera obiektów blob platformy Azure do innego. |
 | [Analiza usługi Twitter przy użyciu działania oceniania usługi Batch Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Ten przykład pokazuje, jak używać elementu AzureMLBatchScoringActivity do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
 | [Analiza usługi Twitter przy użyciu działania niestandardowego](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Ten przykład pokazuje, jak używać niestandardowego działania platformy .NET do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |

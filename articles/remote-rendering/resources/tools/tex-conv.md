@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80680026"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv — narzędzie konwersji tekstury
@@ -31,9 +31,9 @@ Najbardziej prosty wiersz polecenia jest następujący:
 TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 ```
 
-- `-out`Określa plik i format danych wyjściowych
-- `-in0`Określa pierwszy obraz wejściowy
-- `-rgba`informuje o tym, że obraz wyjściowy powinien używać wszystkich czterech kanałów i że powinny być pobierane 1:1 z obrazu wejściowego
+- `-out` Określa plik i format danych wyjściowych
+- `-in0` Określa pierwszy obraz wejściowy
+- `-rgba` informuje o tym, że obraz wyjściowy powinien używać wszystkich czterech kanałów i że powinny być pobierane 1:1 z obrazu wejściowego
 
 ## <a name="multiple-input-files"></a>Wiele plików wejściowych
 
@@ -68,9 +68,9 @@ Każde mapowanie każdego kanału zapewnia największą elastyczność. Dla wygo
 Dostępne są następujące opcje mapowania kanału:
 
 - `-r`, `-g` , `-b` , `-a` : Określają przypisania pojedynczego kanału
-- `-rg`: Określ przydziały czerwieni i zielonego kanału.
-- `-rgb`: Określ przydziały czerwony, zielony i niebieski kanał.
-- `-rgba`: Określa wszystkie cztery przypisania kanałów.
+- `-rg` : Określ przydziały czerwieni i zielonego kanału.
+- `-rgb` : Określ przydziały czerwony, zielony i niebieski kanał.
+- `-rgba` : Określa wszystkie cztery przypisania kanałów.
 
 Wspominając tylko kanał R, RG lub RGB, instruuje TexConv, aby utworzył plik wyjściowy tylko odpowiednio 1, 2 lub 3 kanały.
 
@@ -78,14 +78,14 @@ Wspominając tylko kanał R, RG lub RGB, instruuje TexConv, aby utworzył plik w
 
 Po określeniu, która tekstura danych wejściowych powinna wypełnić kanał wyjściowy, jeden może Swizzle dane wejściowe:
 
-- `-rgba in0`jest równoważne`-rgba in0.rgba`
-- `-rgba in0.bgra`będzie Swizzle kanały wejściowe
-- `-rgb in0.rrr`duplikuje kanał czerwony do wszystkich kanałów
+- `-rgba in0` jest równoważne `-rgba in0.rgba`
+- `-rgba in0.bgra` będzie Swizzle kanały wejściowe
+- `-rgb in0.rrr` duplikuje kanał czerwony do wszystkich kanałów
 
 Jeden może również wypełnić kanały kolorem czarnym lub białym:
 
-- `-rgb in0 -a white`utworzy 4-teksturę wyjściową kanału, ale ustawi alfa na całkowicie nieprzezroczysty
-- `-rg black -b white`utworzy całkowicie niebieską teksturę
+- `-rgb in0 -a white` utworzy 4-teksturę wyjściową kanału, ale ustawi alfa na całkowicie nieprzezroczysty
+- `-rg black -b white` utworzy całkowicie niebieską teksturę
 
 ## <a name="common-options"></a>Typowe opcje
 
@@ -93,41 +93,41 @@ Poniżej przedstawiono najbardziej interesujące opcje. Więcej opcji znajduje s
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 
-- `-type 2D`: Dane wyjściowe będą zwykłym obrazem 2D.
-- `-type Cubemap`: Dane wyjściowe będą obrazem mapy sześciennej. Obsługiwane tylko dla plików wyjściowych DDS. Gdy ta wartość jest określona, jeden może złożyć mapy sześciennej z 6 zwykłych obrazów wejściowych 2D.
+- `-type 2D` : Dane wyjściowe będą zwykłym obrazem 2D.
+- `-type Cubemap` : Dane wyjściowe będą obrazem mapy sześciennej. Obsługiwane tylko dla plików wyjściowych DDS. Gdy ta wartość jest określona, jeden może złożyć mapy sześciennej z 6 zwykłych obrazów wejściowych 2D.
 
 ### <a name="image-compression"></a>Kompresja obrazu
 
-- `-compression none`: Obraz wyjściowy zostanie odkompresowany.
-- `-compression medium`: Jeśli jest obsługiwana, obraz wyjściowy będzie używać kompresji bez poświęcania zbyt dużej jakości.
-- `-compression high`: Jeśli jest obsługiwana, obraz danych wyjściowych będzie używać kompresji i poświęcać jakość na rzecz mniejszego pliku.
+- `-compression none` : Obraz wyjściowy zostanie odkompresowany.
+- `-compression medium` : Jeśli jest obsługiwana, obraz wyjściowy będzie używać kompresji bez poświęcania zbyt dużej jakości.
+- `-compression high` : Jeśli jest obsługiwana, obraz danych wyjściowych będzie używać kompresji i poświęcać jakość na rzecz mniejszego pliku.
 
 ### <a name="mipmaps"></a>Mipmapy
 
 Domyślnie TexConv generuje mipmapy, gdy obsługuje go format danych wyjściowych.
 
-- `-mipmaps none`: Mipmapy nie zostanie wygenerowany.
-- `-mipmaps Linear`: Jeśli jest obsługiwana, mipmapy zostanie wygenerowane przy użyciu filtra Box.
+- `-mipmaps none` : Mipmapy nie zostanie wygenerowany.
+- `-mipmaps Linear` : Jeśli jest obsługiwana, mipmapy zostanie wygenerowane przy użyciu filtra Box.
 
 ### <a name="usage-srgb--gamma-correction"></a>Użycie (Korekcja sRGB/gamma)
 
 `-usage`Opcja określa przeznaczenie danych wyjściowych, a tym samym informuje TexConv o tym, czy zastosować korekcję gamma do plików wejściowych i wyjściowych. Użycie ma wpływ tylko na kanały RGB. Kanał alfa jest zawsze uznawany za zawierający wartości "liniowe". Jeśli użycie nie zostanie określone, tryb "automatycznie" podejmie próbę wykrycia użycia z formatu i nazwy pierwszego obrazu wejściowego. Na przykład formaty danych wyjściowych o pojedynczym i podwójnym kanale są zawsze liniowe. Sprawdź dane wyjściowe, aby zobaczyć, jakie decyzje TexConv.
 
-- `-usage Linear`: Obraz wyjściowy zawiera wartości, które nie reprezentują kolorów. Jest to zazwyczaj przypadek dla tekstur metalicznych i niesztywnych, a także wszystkich rodzajów masek.
+- `-usage Linear` : Obraz wyjściowy zawiera wartości, które nie reprezentują kolorów. Jest to zazwyczaj przypadek dla tekstur metalicznych i niesztywnych, a także wszystkich rodzajów masek.
 
-- `-usage Color`: Obraz wyjściowy reprezentuje kolor, taki jak mapy rozproszone/albedo. Flaga sRGB zostanie ustawiona w nagłówku danych wyjściowych.
+- `-usage Color` : Obraz wyjściowy reprezentuje kolor, taki jak mapy rozproszone/albedo. Flaga sRGB zostanie ustawiona w nagłówku danych wyjściowych.
 
-- `-usage HDR`: Plik wyjściowy powinien używać więcej niż 8 bitów na piksel do kodowania. W związku z tym wszystkie wartości są przechowywane w przestrzeni liniowej. W przypadku tekstury HDR nie ma znaczenia, czy dane reprezentują kolor lub inne dane.
+- `-usage HDR` : Plik wyjściowy powinien używać więcej niż 8 bitów na piksel do kodowania. W związku z tym wszystkie wartości są przechowywane w przestrzeni liniowej. W przypadku tekstury HDR nie ma znaczenia, czy dane reprezentują kolor lub inne dane.
 
-- `-usage NormalMap`: Obraz wyjściowy reprezentuje mapę normalną przestrzeni stycznej. Wartości zostaną znormalizowane, a obliczenia mipmappingu będą nieznacznie zoptymalizowane.
+- `-usage NormalMap` : Obraz wyjściowy reprezentuje mapę normalną przestrzeni stycznej. Wartości zostaną znormalizowane, a obliczenia mipmappingu będą nieznacznie zoptymalizowane.
 
-- `-usage NormalMap_Inverted`: Dane wyjściowe to w postaci zwykłej mapy normalnej ze znakiem Y, wskazując w odwrotnym kierunku niż dane wejściowe.
+- `-usage NormalMap_Inverted` : Dane wyjściowe to w postaci zwykłej mapy normalnej ze znakiem Y, wskazując w odwrotnym kierunku niż dane wejściowe.
 
 ### <a name="image-rescaling"></a>Ponowne skalowanie obrazu
 
-- `-minRes 64`: Określa minimalną rozdzielczość danych wyjściowych. Jeśli obraz wejściowy jest mniejszy, zostanie on przeskalowany.
-- `-maxRes 1024`: Określa maksymalną rozdzielczość danych wyjściowych. Jeśli obraz wejściowy jest większy, zostanie pobrany downscaled.
-- `-downscale 1`: Jeśli wartość jest większa niż 0, obrazy wejściowe będą wypadać w rozdzielczości N razy. Służy do zastosowania ogólnej redukcji jakości.
+- `-minRes 64` : Określa minimalną rozdzielczość danych wyjściowych. Jeśli obraz wejściowy jest mniejszy, zostanie on przeskalowany.
+- `-maxRes 1024` : Określa maksymalną rozdzielczość danych wyjściowych. Jeśli obraz wejściowy jest większy, zostanie pobrany downscaled.
+- `-downscale 1` : Jeśli wartość jest większa niż 0, obrazy wejściowe będą wypadać w rozdzielczości N razy. Służy do zastosowania ogólnej redukcji jakości.
 
 ## <a name="examples"></a>Przykłady
 

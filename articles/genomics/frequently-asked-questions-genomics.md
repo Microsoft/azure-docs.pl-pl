@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76986040"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: typowe pytania
@@ -25,7 +25,7 @@ W tym artykule wymieniono najważniejsze zapytania, które mogą być powiązane
 W pliku config.txt usługi Microsoft Genomics Określ process_name `gatk4` . Pamiętaj, że opłaty są naliczane według zwykłych stawek za rozliczanie.
 
 ## <a name="how-do-i-enable-output-compression"></a>Jak mogę włączyć kompresji wyjściowej?
-Można skompresować dane wyjściowe VCF lub gvcf za pomocą opcjonalnego argumentu kompresji danych wyjściowych. Jest to równoznaczne z uruchomieniem `-bgzip` , a następnie `-tabix` na danych wyjściowych VCF lub gvcf, do produkcji `.gz` (bgzip Output) i `.tbi` (Tabix Output). `bgzip`kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Argument jest wartością logiczną, która jest `false` domyślnie ustawiona dla danych wyjściowych VCF i `true` Domyślnie dla danych wyjściowych gcvf. Aby użyć w wierszu polecenia, określ `-bz` lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub `false` . Aby użyć tego argumentu w pliku config.txt, Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
+Można skompresować dane wyjściowe VCF lub gvcf za pomocą opcjonalnego argumentu kompresji danych wyjściowych. Jest to równoznaczne z uruchomieniem `-bgzip` , a następnie `-tabix` na danych wyjściowych VCF lub gvcf, do produkcji `.gz` (bgzip Output) i `.tbi` (Tabix Output). `bgzip` kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Argument jest wartością logiczną, która jest `false` domyślnie ustawiona dla danych wyjściowych VCF i `true` Domyślnie dla danych wyjściowych gcvf. Aby użyć w wierszu polecenia, określ `-bz` lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub `false` . Aby użyć tego argumentu w pliku config.txt, Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Co to jest umowa SLA dla Microsoft Genomics?
 Gwarantujemy, że przez 99,9% czasu usługa Microsoft Genomics będzie dostępna do odbierania żądań interfejsu API przepływu pracy. Aby uzyskać więcej informacji, zobacz [Umowa SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -63,7 +63,7 @@ Klucz konta magazynu służy do tworzenia krótkoterminowych tokenów dostępu d
 
 Te odwołania są obsługiwane:
 
- |Dokumentacja              | Wartość`-pa/--process-args` |
+ |Tematy pomocy              | Wartość `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

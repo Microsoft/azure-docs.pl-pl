@@ -12,10 +12,10 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882135"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplikacja jednostronicowa: wywoływanie interfejsu API sieci Web
@@ -26,7 +26,7 @@ Zalecamy wywołanie `acquireTokenSilent` metody w celu uzyskania lub odnowienia 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Użyj tokenu uzyskanego dostępu jako okaziciela w żądaniu HTTP w celu wywołania dowolnego internetowego interfejsu API, takiego jak Microsoft Graph API. Przykład:
+Użyj tokenu uzyskanego dostępu jako okaziciela w żądaniu HTTP w celu wywołania dowolnego internetowego interfejsu API, takiego jak Microsoft Graph API. Na przykład:
 
 ```javascript
     var headers = new Headers();
@@ -53,4 +53,4 @@ Otoka kątowa MSAL wykorzystuje Interceptor HTTP, aby automatycznie uzyskiwać t
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przenieś do środowiska produkcyjnego](scenario-spa-production.md)
+> [Przenoszenie do środowiska produkcyjnego](scenario-spa-production.md)

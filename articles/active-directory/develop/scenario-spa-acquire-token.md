@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882322"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplikacja jednostronicowa: uzyskiwanie tokenu do wywoływania interfejsu API
@@ -24,8 +24,8 @@ Wzorcem uzyskiwania tokenów dla interfejsów API z MSAL.js jest najpierw próba
 
 Żądania tokenu dyskretnego do usługi Azure AD mogą się nie powieść z przyczyn takich jak wygasła sesja usługi Azure AD lub zmiana hasła. W takim przypadku można wywołać jedną z metod interaktywnych (co spowoduje wyświetlenie monitu użytkownika) o uzyskanie tokenów:
 
-* [Okno podręczne](#acquire-a-token-with-a-pop-up-window), przy użyciu`acquireTokenPopup`
-* [Przekieruj](#acquire-a-token-with-a-redirect)przy użyciu`acquireTokenRedirect`
+* [Okno podręczne](#acquire-a-token-with-a-pop-up-window), przy użyciu `acquireTokenPopup`
+* [Przekieruj](#acquire-a-token-with-a-redirect)przy użyciu `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Wybierz między podręcznym lub przekierowaniami
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 Otoka kątowa MSAL zapewnia Interceptor HTTP, który automatycznie uzyskuje tokeny dostępu w trybie dyskretnym i dołącza je do żądań HTTP do interfejsów API.
 
-W opcji konfiguracji można określić zakresy interfejsów API `protectedResourceMap` . `MsalInterceptor`Program będzie żądać tych zakresów podczas automatycznego uzyskiwania tokenów.
+W opcji konfiguracji można określić zakresy interfejsów API `protectedResourceMap` . `MsalInterceptor` Program będzie żądać tych zakresów podczas automatycznego uzyskiwania tokenów.
 
 ```javascript
 // app.module.ts

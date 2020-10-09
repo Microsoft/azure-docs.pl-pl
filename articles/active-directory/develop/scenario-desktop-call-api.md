@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882968"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Wywoływanie interfejsu API sieci Web w programie MSAL dla systemów iOS i macOS
 
-Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` Właściwość, która może służyć do wywoływania internetowego interfejsu API. Dodaj token dostępu do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
+Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult` uwidacznia `accessToken` Właściwość, która może służyć do wywoływania internetowego interfejsu API. Dodaj token dostępu do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
 
 Cel-C:
 
@@ -130,4 +130,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przenieś do środowiska produkcyjnego](scenario-desktop-production.md)
+> [Przenoszenie do środowiska produkcyjnego](scenario-desktop-production.md)

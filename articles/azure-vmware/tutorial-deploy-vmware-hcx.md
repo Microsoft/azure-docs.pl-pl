@@ -4,13 +4,13 @@ description: Dowiedz się, jak wdrażać i konfigurować rozwiązanie VMware HCX
 ms.topic: tutorial
 ms.date: 10/02/2020
 ms.openlocfilehash: 69832d1537f0f1be95d3283f543ef6e54187b58d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91583346"
 ---
-# <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i Konfigurowanie programu VMware HCX
+# <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
 W tym artykule omówiono procedury wdrażania i konfigurowania programu VMware HCX dla chmury prywatnej rozwiązania Azure VMWare. Program VMware HCX umożliwia migrację obciążeń oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji przy użyciu różnych typów migracji.
 

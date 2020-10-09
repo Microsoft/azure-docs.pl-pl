@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80875082"
 ---
 # <a name="create-containers-for-reuse"></a>Tworzenie kontenerów do ponownego użycia
@@ -25,11 +25,11 @@ Po utworzeniu nowej warstwy kontenera (z ustawieniami) i przetestowaniu jej loka
 
 ## <a name="docker-run-syntax"></a>Składnia uruchomienia platformy Docker
 
-Wszystkie `docker run` przykłady w tym dokumencie zakładają konsolę systemu Windows `^` z znakiem kontynuacji wiersza. Do własnego użytku należy wziąć pod uwagę następujące kwestie:
+Wszystkie `docker run` przykłady w tym dokumencie zakładają konsolę systemu Windows z `^` znakiem kontynuacji wiersza. Do własnego użytku należy wziąć pod uwagę następujące kwestie:
 
 * Nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
 * Jeśli używasz systemu operacyjnego innego niż Windows lub konsoli innej niż konsola systemu Windows, użyj prawidłowej konsoli/terminalu, składni folderu dla instalacji i znaku kontynuacji wiersza dla konsoli i systemu.  Ponieważ kontener Cognitive Services jest systemem operacyjnym Linux, instalacja docelowa używa składni folderu w stylu systemu Linux.
-* `docker run`Przykładowo użyj katalogu poza `c:` dyskiem, aby uniknąć konfliktów uprawnień w systemie Windows. Jeśli musisz użyć określonego katalogu jako katalogu wejściowego, może być konieczne przyznanie uprawnienia usługi Docker.
+* `docker run` Przykładowo użyj katalogu poza `c:` dyskiem, aby uniknąć konfliktów uprawnień w systemie Windows. Jeśli musisz użyć określonego katalogu jako katalogu wejściowego, może być konieczne przyznanie uprawnienia usługi Docker.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Nie przechowuj ustawień konfiguracji w obrazie
 
@@ -50,7 +50,7 @@ Utwórz pliku dockerfile, pobierając z istniejącego kontenera Cognitive Servic
 
 Ten przykład:
 
-* Ustawia punkt końcowy rozliczeń `{BILLING_ENDPOINT}` od klucza środowiska hosta za pomocą `ENV`polecenia.
+* Ustawia punkt końcowy rozliczeń `{BILLING_ENDPOINT}` od klucza środowiska hosta za pomocą polecenia `ENV` .
 * Ustawia klucz interfejsu API rozliczeń `{ENDPOINT_KEY}` z klucza środowiska hosta przy użyciu funkcji ENV.
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>Ponownie Użyj przepisu: Zapisz ustawienia rozliczeń za pomocą kontenera
@@ -70,9 +70,9 @@ Kompiluj i uruchamiaj kontener [lokalnie](#how-to-use-container-on-your-local-ho
 
 Ten przykład pokazuje, jak używać Language Understanding, zapisywania rozliczeń i modeli z pliku dockerfile.
 
-* Kopiuje plik modelu Language Understanding (LUIS) z systemu plików hosta za pomocą polecenia `COPY`.
+* Kopiuje plik modelu Language Understanding (LUIS) z systemu plików hosta za pomocą polecenia `COPY` .
 * Kontener LUIS obsługuje więcej niż jeden model. Jeśli wszystkie modele są przechowywane w tym samym folderze, wszystkie wymagają jednej `COPY` instrukcji.
-* Uruchom plik platformy Docker z względnego elementu nadrzędnego katalogu wejściowego modelu. W poniższym przykładzie Uruchom polecenia `docker build` i `docker run` z względnego elementu nadrzędnego. `/input` Pierwszym `/input` `COPY` poleceniem jest katalog komputera hosta. Drugi `/input` jest katalogiem kontenera.
+* Uruchom plik platformy Docker z względnego elementu nadrzędnego katalogu wejściowego modelu. W poniższym przykładzie Uruchom `docker build` `docker run` polecenia i z względnego elementu nadrzędnego `/input` . Pierwszym `/input` `COPY` poleceniem jest katalog komputera hosta. Drugi `/input` jest katalogiem kontenera.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -86,13 +86,13 @@ Kompiluj i uruchamiaj kontener [lokalnie](#how-to-use-container-on-your-local-ho
 
 ## <a name="how-to-use-container-on-your-local-host"></a>Jak używać kontenera na hoście lokalnym
 
-Aby skompilować plik platformy Docker, Zastąp `<your-image-name>` ciąg nową nazwą obrazu, a następnie użyj:
+Aby skompilować plik platformy Docker, Zastąp ciąg `<your-image-name>` nową nazwą obrazu, a następnie użyj:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Aby uruchomić obraz i usunąć go po zatrzymaniu kontenera (`--rm`):
+Aby uruchomić obraz i usunąć go po zatrzymaniu kontenera ( `--rm` ):
 
 ```console
 docker run --rm <your-image-name>
@@ -106,9 +106,9 @@ Wykonaj następujące kroki, aby użyć pliku dockerfile i umieścić nowy obraz
 
 1. Zamień wszystkie wartości w nawiasach kątowych na własne wartości.
 
-1. Skompiluj plik do obrazu w wierszu polecenia lub terminalu przy użyciu poniższego polecenia. Zastąp wartości w nawiasach `<>`kątowych, przy użyciu własnej nazwy kontenera i znacznika.  
+1. Skompiluj plik do obrazu w wierszu polecenia lub terminalu przy użyciu poniższego polecenia. Zastąp wartości w nawiasach kątowych, `<>` przy użyciu własnej nazwy kontenera i znacznika.  
 
-    Opcja tag, `-t`, jest sposobem dodawania informacji o zmianach w kontenerze. Na przykład nazwa kontenera `modified-LUIS` wskazuje, że oryginalny kontener został warstwowy. Nazwa tagu `with-billing-and-model` wskazuje sposób modyfikacji kontenera Language UNDERSTANDING (Luis).
+    Opcja tag, `-t` , jest sposobem dodawania informacji o zmianach w kontenerze. Na przykład nazwa kontenera `modified-LUIS` wskazuje, że oryginalny kontener został warstwowy. Nazwa tagu `with-billing-and-model` wskazuje sposób modyfikacji kontenera Language Understanding (Luis).
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby użyć pliku dockerfile i umieścić nowy obraz
 
 1. Zaloguj się do prywatnego rejestru przy użyciu interfejsu wiersza polecenia platformy Azure z konsoli programu.
 
-    Zastąp wartości w nawiasach `<my-registry>`kątowych, przy użyciu własnej nazwy rejestru.  
+    Zastąp wartości w nawiasach kątowych, `<my-registry>` przy użyciu własnej nazwy rejestru.  
 
     ```azurecli
     az acr login --name <my-registry>
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby użyć pliku dockerfile i umieścić nowy obraz
     docker login <my-registry>.azurecr.io
     ```
 
-1. Oznacz kontener przy użyciu lokalizacji w rejestrze prywatnym. Zastąp wartości w nawiasach `<my-registry>`kątowych, przy użyciu własnej nazwy rejestru. 
+1. Oznacz kontener przy użyciu lokalizacji w rejestrze prywatnym. Zastąp wartości w nawiasach kątowych, `<my-registry>` przy użyciu własnej nazwy rejestru. 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>

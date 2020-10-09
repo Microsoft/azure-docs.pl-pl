@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874215"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurowanie Language Understanding kontenerów platformy Docker 
@@ -26,7 +26,7 @@ ms.locfileid: "80874215"
 
 Ten kontener ma następujące ustawienia konfiguracji:
 
-|Wymagany|Ustawienie|Przeznaczenie|
+|Wymagane|Ustawienie|Przeznaczenie|
 |--|--|--|
 |Tak|[ApiKey](#apikey-setting)|Służy do śledzenia informacji dotyczących rozliczeń.|
 |Nie|[ApplicationInsights](#applicationinsights-setting)|Umożliwia dodanie obsługi telemetrii [usługi Azure Application Insights](https://docs.microsoft.com/azure/application-insights) do kontenera.|
@@ -38,11 +38,11 @@ Ten kontener ma następujące ustawienia konfiguracji:
 |Tak|[Instaluje](#mount-settings)|Odczytaj i Zapisz dane z komputera hosta do kontenera oraz z kontenera z powrotem do komputera hosta.|
 
 > [!IMPORTANT]
-> Ustawienia [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), i [`Eula`](#eula-setting) są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat tworzenia wystąpienia kontenera przy użyciu tych ustawień konfiguracji, zobacz [rozliczenia](luis-container-howto.md#billing).
+> [`ApiKey`](#apikey-setting)Ustawienia, [`Billing`](#billing-setting) , i [`Eula`](#eula-setting) są używane razem i należy podać prawidłowe wartości dla wszystkich trzech z nich; w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji na temat tworzenia wystąpienia kontenera przy użyciu tych ustawień konfiguracji, zobacz [rozliczenia](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>Ustawienie ApiKey
 
-`ApiKey` Ustawienie określa klucz zasobów platformy Azure służący do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość ApiKey, a wartość musi być prawidłowym kluczem dla zasobu _Cognitive Services_ określonego dla ustawienia [`Billing`](#billing-setting) konfiguracji.
+`ApiKey`Ustawienie określa klucz zasobów platformy Azure służący do śledzenia informacji rozliczeniowych dla kontenera. Należy określić wartość ApiKey, a wartość musi być prawidłowym kluczem dla zasobu _Cognitive Services_ określonego dla [`Billing`](#billing-setting) Ustawienia konfiguracji.
 
 To ustawienie można znaleźć w następujących miejscach:
 
@@ -57,14 +57,14 @@ Nie używaj klucza początkowego ani klucza tworzenia.
 
 ## <a name="billing-setting"></a>Ustawienie rozliczeń
 
-`Billing` Ustawienie określa identyfikator URI punktu końcowego zasobu _Cognitive Services_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _Cognitive Services_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
+`Billing`Ustawienie określa identyfikator URI punktu końcowego zasobu _Cognitive Services_ na platformie Azure używany do mierzenia informacji rozliczeniowych dla kontenera. Należy określić wartość tego ustawienia konfiguracji, a wartość musi być prawidłowym identyfikatorem URI punktu końcowego dla zasobu _Cognitive Services_ na platformie Azure. Kontener zgłasza użycie co 10 do 15 minut.
 
 To ustawienie można znaleźć w następujących miejscach:
 
-* Azure Portal: **Cognitive Services** Omówienie, etykieta`Endpoint`
+* Azure Portal: **Cognitive Services** Omówienie, etykieta `Endpoint`
 * Portal LUIS: Strona **Ustawienia klucze i punkt końcowy** jako część identyfikatora URI punktu końcowego.
 
-| Wymagany | Nazwa | Typ danych | Opis |
+| Wymagane | Nazwa | Typ danych | Opis |
 |----------|------|-----------|-------------|
 | Tak      | `Billing` | ciąg | Identyfikator URI punktu końcowego rozliczenia. Aby uzyskać więcej informacji na temat uzyskiwania identyfikatora URI rozliczeń, zobacz [zbieranie wymaganych parametrów](luis-container-howto.md#gathering-required-parameters). Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -94,31 +94,31 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 
 W poniższej tabeli opisano obsługiwane ustawienia.
 
-|Wymagany| Nazwa | Typ danych | Opis |
+|Wymagane| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Tak| `Input` | String | Obiekt docelowy instalacji wejściowej. Wartością domyślną jest `/input`. Jest to lokalizacja plików pakietu LUIS. <br><br>Przykład:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Nie| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartością domyślną jest `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników zapytań LUIS i dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Tak| `Input` | Ciąg | Obiekt docelowy instalacji wejściowej. Wartość domyślna to `/input`. Jest to lokalizacja plików pakietu LUIS. <br><br>Przykład:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Nie| `Output` | Ciąg | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników zapytań LUIS i dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker
 
 W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](luis-container-howto.md#stop-the-container) .
 
-* W tych przykładach można użyć katalogu `C:` poza dyskiem, aby uniknąć konfliktów uprawnień w systemie Windows. Jeśli musisz użyć określonego katalogu jako katalogu wejściowego, może być konieczne przyznanie uprawnienia usługi Docker. 
+* W tych przykładach można użyć katalogu poza `C:` dyskiem, aby uniknąć konfliktów uprawnień w systemie Windows. Jeśli musisz użyć określonego katalogu jako katalogu wejściowego, może być konieczne przyznanie uprawnienia usługi Docker. 
 * Nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
-* W przypadku korzystania z innego systemu operacyjnego należy użyć właściwej konsoli/terminalu, składni folderu dla instalacji i znaku kontynuacji wiersza dla systemu. W poniższych przykładach założono, że konsola systemu Windows `^`ma znak kontynuacji wiersza. Ponieważ kontener jest systemem operacyjnym Linux, instalacja docelowa używa składni folderu w stylu systemu Linux.
+* W przypadku korzystania z innego systemu operacyjnego należy użyć właściwej konsoli/terminalu, składni folderu dla instalacji i znaku kontynuacji wiersza dla systemu. W poniższych przykładach założono, że konsola systemu Windows ma znak kontynuacji wiersza `^` . Ponieważ kontener jest systemem operacyjnym Linux, instalacja docelowa używa składni folderu w stylu systemu Linux.
 
 Zastąp ciąg {_argument_name_} własnymi wartościami:
 
 | Symbol zastępczy | Wartość | Format lub przykład |
 |-------------|-------|---|
 | **{API_KEY}** | Klucz punktu końcowego `LUIS` zasobu na stronie kluczy platformy Azure `LUIS` . | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczenia jest dostępna na stronie `LUIS` przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](luis-container-howto.md#gathering-required-parameters) dla jawnych przykładów. |
+| **{ENDPOINT_URI}** | Wartość punktu końcowego rozliczenia jest dostępna na `LUIS` stronie Przegląd platformy Azure.| Zobacz [zbieranie wymaganych parametrów](luis-container-howto.md#gathering-required-parameters) dla jawnych przykładów. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji, zobacz [rozliczenia](luis-container-howto.md#billing).
-> Wartość ApiKey jest **kluczem** ze strony klucze i punkty końcowe w portalu Luis i jest również dostępna na stronie klucze zasobów platformy Azure `Cognitive Services` . 
+> `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji, zobacz [rozliczenia](luis-container-howto.md#billing).
+> Wartość ApiKey jest **kluczem** ze strony klucze i punkty końcowe w portalu Luis i jest również dostępna na `Cognitive Services` stronie klucze zasobów platformy Azure. 
 
 ### <a name="basic-example"></a>Przykład podstawowy
 
@@ -151,7 +151,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### <a name="logging-example"></a>Przykład rejestrowania 
 
-Następujące polecenie ustawia poziom rejestrowania, `Logging:Console:LogLevel`aby skonfigurować poziom rejestrowania na. [`Information`](https://msdn.microsoft.com) 
+Następujące polecenie ustawia poziom rejestrowania, `Logging:Console:LogLevel` Aby skonfigurować poziom rejestrowania na [`Information`](https://msdn.microsoft.com) . 
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^

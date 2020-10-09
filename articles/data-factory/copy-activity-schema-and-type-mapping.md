@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85249656"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mapowanie schematu i typu danych w działaniu kopiowania
@@ -39,7 +39,7 @@ Można również określić jawne mapowanie, aby dostosować mapowanie kolumn/p�
 2. Stosuje zdefiniowane mapowanie.
 3. Zapisuje dane do ujścia.
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 - [Źródło tabelaryczne z obiektem sink tabelarycznych](#tabular-source-to-tabular-sink)
 - [Źródło hierarchiczne do obiektu sink tabelaryczne](#hierarchical-source-to-tabular-sink)
@@ -51,7 +51,7 @@ Mapowanie można skonfigurować na karcie Data Factory tworzenia interfejsu uży
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Nazwa źródła lub kolumny/pola ujścia. Zastosuj do tabelarycznego źródła i ujścia. | Tak      |
 | liczbą  | Indeks kolumn. Zacznij od 1. <br>Zastosuj i wymagane w przypadku używania tekstu rozdzielanego bez wiersza nagłówka. | Nie       |
-| ścieżka     | Wyrażenie ścieżki JSON dla każdego pola do wyodrębnienia lub zamapowania. Zastosuj do hierarchicznego źródła i ujścia, na przykład Cosmos DB, MongoDB lub łączników REST.<br>W przypadku pól w obiekcie głównym ścieżka JSON zaczyna się `$` od elementu root; w przypadku pól wewnątrz tablicy wybranej przez `collectionReference` Właściwość ścieżka JSON zaczyna się od element array bez `$` . | Nie       |
+| path     | Wyrażenie ścieżki JSON dla każdego pola do wyodrębnienia lub zamapowania. Zastosuj do hierarchicznego źródła i ujścia, na przykład Cosmos DB, MongoDB lub łączników REST.<br>W przypadku pól w obiekcie głównym ścieżka JSON zaczyna się `$` od elementu root; w przypadku pól wewnątrz tablicy wybranej przez `collectionReference` Właściwość ścieżka JSON zaczyna się od element array bez `$` . | Nie       |
 | typ     | Data Factory pośredni typ danych kolumny źródłowej lub ujścia. Ogólnie rzecz biorąc nie trzeba określać ani zmieniać tej właściwości. Dowiedz się więcej o [mapowaniu typu danych](#data-type-mapping). | Nie       |
 | kultura  | Kultura kolumny źródłowej lub ujścia. Zastosuj, gdy typ jest `Datetime` lub `Datetimeoffset` . Wartość domyślna to `en-us`.<br>Ogólnie rzecz biorąc nie trzeba określać ani zmieniać tej właściwości. Dowiedz się więcej o [mapowaniu typu danych](#data-type-mapping). | Nie       |
 | format   | Ciąg formatu, który ma być używany, gdy typem jest `Datetime` lub `Datetimeoffset` . Zapoznaj się z [niestandardowymi ciągami formatu daty i godziny](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) na potrzeby formatowania daty i godziny. Ogólnie rzecz biorąc nie trzeba określać ani zmieniać tej właściwości. Dowiedz się więcej o [mapowaniu typu danych](#data-type-mapping). | Nie       |
@@ -283,16 +283,16 @@ Działanie kopiowania obsługuje obecnie następujące pośrednie typy danych: B
 
 Następujące konwersje typu danych są obsługiwane między typami tymczasowymi ze źródła do ujścia.
 
-| Source\Sink | Boolean | Tablica bajtów | Wartość dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | String | przedział_czasu |
+| Source\Sink | Boolean | Tablica bajtów | Liczba dziesiętna | Data/godzina <small>(1)</small> | Zmiennoprzecinkowe <small>(2)</small> | GUID | Liczba całkowita <small>(3)</small> | Ciąg | przedział_czasu |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Tablica bajtów  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/godzina   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Wartość dziesiętna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Liczba dziesiętna     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Zmiennoprzecinkowe | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| Liczba całkowita     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Ciąg      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | przedział_czasu    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) Data/godzina obejmuje wartości DateTime i DateTimeOffset.
@@ -311,7 +311,7 @@ Następujące właściwości są obsługiwane w działaniu kopiowania dla konwer
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Włącz nowe środowisko konwersji typu danych. <br>Wartość domyślna to false ze względu na zgodność z poprzednimi wersjami.<br><br>W przypadku nowych działań kopiowania utworzonych za pośrednictwem interfejsu użytkownika tworzenia Data Factory od momentu do czerwca 2020 ta konwersja typu danych jest domyślnie włączona w celu uzyskania najlepszego środowiska, a na karcie Mapowanie > działania kopiowania można zobaczyć poniższe ustawienia konwersji typów. <br>Aby programowo utworzyć potok, należy jawnie ustawić `typeConversion` Właściwość na wartość true, aby ją włączyć.<br>W przypadku istniejących działań kopiowania utworzonych przed udostępnieniem tej funkcji nie będzie można zobaczyć opcji konwersji typów w interfejsie użytkownika Data Factory tworzenia w celu zapewnienia zgodności z poprzednimi wersjami. | Nie       |
 | typeConversionSettings           | Grupa ustawień konwersji typu. Zastosuj `typeConversion` , gdy jest ustawiony na `true` . W tej grupie są wszystkie następujące właściwości. | Nie       |
-| *Systemie`typeConversionSettings`* |                                                              |          |
+| *Systemie `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Zezwalaj na obcinanie danych podczas konwertowania danych źródłowych na ujścia przy użyciu innego typu podczas kopiowania, na przykład z Decimal do Integer, od DatetimeOffset do DateTime. <br>Wartość domyślna to True. | Nie       |
 | treatBooleanAsNumber             | Traktuj wartości logiczne jako liczby, na przykład prawda jako 1.<br>Wartość domyślna to false. | Nie       |
 | dateTimeFormat                   | Ciąg formatu podczas konwersji między datami bez przesunięcia strefy czasowej i ciągów, na przykład `yyyy-MM-dd HH:mm:ss.fff` .  Aby uzyskać szczegółowe informacje, zapoznaj się z [ciągami niestandardowego formatu daty i godziny](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) . | Nie       |
@@ -526,4 +526,4 @@ Skonfiguruj regułę mapowania schematu jako przykład JSON działania kopiowani
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)

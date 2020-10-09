@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85248687"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP przy użyciu Application Gateway
@@ -156,7 +156,7 @@ Można oszacować żądanie HTTP lub nagłówek odpowiedzi dla obecności nagł�
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Może to być spowodowane zwykle z nagłówkiem Set-cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Ponowne zapisanie jednego z nagłówków zestawu plików cookie w tym scenariuszu może spowodować usunięcie innego nagłówka deplika cookie z odpowiedzi.
+- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Zwykle może się to zdarzyć z nagłówkiem Set-Cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-Cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Ponowne napisanie jednego z nagłówków Set-Cookie w tym scenariuszu może spowodować usunięcie innego nagłówka Set-Cookie z odpowiedzi.
 
 - Ponowne zapisywanie nie jest obsługiwane, gdy Brama aplikacji jest skonfigurowana do przekierowywania żądań lub wyświetlania niestandardowej strony błędu.
 
@@ -168,5 +168,5 @@ Można oszacować żądanie HTTP lub nagłówek odpowiedzi dla obecności nagł�
 
 Aby dowiedzieć się, jak ponownie napisać nagłówki HTTP, zobacz:
 
-- [Zapisz ponownie nagłówki HTTP przy użyciu Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Ponowne zapisywanie nagłówków HTTP przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 - [Zapisz ponownie nagłówki HTTP przy użyciu Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

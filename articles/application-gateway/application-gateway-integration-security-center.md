@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76277188"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Omówienie integracji między Application Gateway i Azure Security Center
@@ -40,7 +40,7 @@ Klikając aplikację sieci Web o krytycznym problemie, uzyskasz dostęp do stron
 
 Kliknij pozycję **Dodaj zaporę aplikacji sieci Web** w obszarze **zalecenia** , aby otworzyć stronę **Dodawanie zapory aplikacji sieci Web** .
 
-Jeśli nie masz istniejącego Application Gateway lub chcesz utworzyć nowy, kliknij pozycję **Utwórz nowy** i w obszarze **Utwórz nową zaporę aplikacji sieci Web**, a następnie kliknij pozycję **Microsoft-Application Gateway**. Przeprowadzimy Cię przez kroki tworzenia bramy aplikacji. W tym momencie aplikacja sieci Web zostanie dodana jako zasób chroniony, Security Center teraz śledzi, że ten zasób jest chroniony przez zaporę aplikacji sieci Web. Nie dodaje go jako członka puli zaplecza.
+Jeśli nie masz istniejącego Application Gateway lub chcesz utworzyć nowy, kliknij pozycję **Utwórz nowy** i w obszarze  **Utwórz nową zaporę aplikacji sieci Web**, a następnie kliknij pozycję **Microsoft-Application Gateway**. Przeprowadzimy Cię przez kroki tworzenia bramy aplikacji. W tym momencie aplikacja sieci Web zostanie dodana jako zasób chroniony, Security Center teraz śledzi, że ten zasób jest chroniony przez zaporę aplikacji sieci Web. Nie dodaje go jako członka puli zaplecza.
 
 Jeśli masz istniejącą bramę aplikacji, możesz wybrać ją w obszarze **Użyj istniejącego rozwiązania**
 
