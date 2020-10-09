@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146542"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849493"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -109,7 +109,7 @@ Zadania mogą być przesyłane pojedynczo lub w kolekcjach. Przesyłaj zadania w
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Odpowiednio ustaw maksymalną liczbę zadań na węzeł
 
-Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle (w puli z `maxTasksPerNode = 8` ).
+Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle (w puli z `taskSlotsPerNode = 8` ).
 
 ### <a name="design-for-retries-and-re-execution"></a>Projektowanie na potrzeby ponownych prób i ponownego wykonywania
 
@@ -217,6 +217,6 @@ Azure Batch tworzy i zarządza zestawem użytkowników i grup na maszynie wirtua
 
 ### <a name="file-cleanup"></a>Czyszczenie pliku
 
-Zadanie wsadowe aktywnie próbuje oczyścić katalog roboczy, w którym są uruchamiane zadania, po upływie okresu przechowywania. Wszystkie pliki zapisywane poza tym katalogiem są [odpowiedzialne za wyczyszczenie](#manage-task-lifetime) w celu uniknięcia wypełniania miejsca na dysku. 
+Zadanie wsadowe aktywnie próbuje oczyścić katalog roboczy, w którym są uruchamiane zadania, po upływie okresu przechowywania. Wszystkie pliki zapisywane poza tym katalogiem są [odpowiedzialne za wyczyszczenie](#manage-task-lifetime) w celu uniknięcia wypełniania miejsca na dysku.
 
 Automatyczne czyszczenie katalogu roboczego zostanie zablokowane, jeśli uruchomisz usługę w systemie Windows z katalogu roboczego startTask, ponieważ folder nadal jest używany. Spowoduje to spadek wydajności. Aby rozwiązać ten problem, Zmień katalog dla tej usługi na oddzielny katalog, który nie jest zarządzany przez usługę Batch.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312613"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850905"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie stada na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,15 +54,15 @@ Przed skonfigurowaniem stada na potrzeby automatycznego aprowizacji użytkownik�
 
 1. Zaloguj się do [stada](https://web.flock.com/?). Kliknij pozycję **Ustawienia ikona**  >  **Zarządzanie zespołem**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Zrzut ekranu witryny internetowej dotyczącej stada. Ikona Ustawienia zostanie wyróżniona, a jego menu skrótów jest widoczne. W tym menu, zarządzanie zespołem jest wyróżnione." border="false":::
 
 2. Wybierz pozycję **uwierzytelnianie i obsługa administracyjna**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Zrzut ekranu witryny internetowej dotyczącej stada. Ikona Ustawienia zostanie wyróżniona, a jego menu skrótów jest widoczne. W tym menu, zarządzanie zespołem jest wyróżnione." border="false":::
 
 3. Skopiuj **token interfejsu API**. Te wartości zostaną wprowadzone w polu **token tajny** na karcie aprowizacji aplikacji do stada w Azure Portal.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Zrzut ekranu witryny internetowej dotyczącej stada. Ikona Ustawienia zostanie wyróżniona, a jego menu skrótów jest widoczne. W tym menu, zarządzanie zespołem jest wyróżnione." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Dodaj stado z galerii
@@ -120,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do stada**.
 

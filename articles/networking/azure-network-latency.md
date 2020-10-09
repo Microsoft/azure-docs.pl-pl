@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/05/2020
 ms.author: kumud
-ms.openlocfilehash: a1ae6386ddbf9e8bc226598b0b9218ba20669356
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 72168a56bfb4e08c7f44c84c773d9f6599cfa607
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336358"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848890"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statystyka opóźnienia w sieci platformy Azure
 
@@ -22,9 +22,9 @@ Platforma Azure nieustannie monitoruje opóźnienia (szybkość) podstawowych ob
 
 Pomiary opóźnienia są zbierane od agentów ThousandEyes, hostowanych w regionach chmury platformy Azure na całym świecie, które w sposób ciągły wysyłają sondy sieci między sobą w interwałach 1-minutowych. Statystyki miesięczne opóźnienia pochodzą od średniej zebranych próbek przez miesiąc.
 
-## <a name="august-2020-round-trip-latency-figures"></a>Dane o opóźnieniu rundy z sierpnia 2020
+## <a name="september-2020-round-trip-latency-figures"></a>Dane o opóźnieniu rundy z września 2020
 
-Poniżej przedstawiono średni miesięczny czas błądzenia między regionami platformy Azure w ciągu ostatnich 31 dni (od 31 sierpnia 2020). Następujące pomiary są obsługiwane przez [ThousandEyes](https://thousandeyes.com).
+Poniżej przedstawiono średni miesięczny czas błądzenia między regionami platformy Azure w ciągu ostatnich 30 dni (od 30 września 2020). Następujące pomiary są obsługiwane przez [ThousandEyes](https://thousandeyes.com).
 
 [![Statystyka opóźnień między regionami platformy Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

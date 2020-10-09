@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 40fd048e1ace56af7a9198088d6129925033be93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331220"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850136"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 15Five na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,19 +54,19 @@ Przed skonfigurowaniem usługi 15Five na potrzeby automatycznego inicjowania obs
 
 1. Zaloguj się do [konsoli administracyjnej 15Five](https://my.15five.com/). Przejdź do **opcji funkcje > integracji**.
 
-    ![Konsola administracyjna 15Five](media/15five-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
 
 2.  Kliknij pozycję **standard scim 2,0**.
 
-    ![Konsola administracyjna 15Five](media/15five-provisioning-tutorial/image00.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
 
 3.  Przejdź do **Standard scim integration > wygenerowania tokenu OAuth**.
 
-    ![15Five Dodaj Standard scim](media/15five-provisioning-tutorial/image02.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
 
 4.  Skopiuj wartości dla **podstawowego adresu URL standard scim 2,0** i **tokenu dostępu**. Ta wartość zostanie wprowadzona w polu **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji 15Five w Azure Portal.
     
-    ![15Five Dodaj Standard scim](media/15five-provisioning-tutorial/image03.png)
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną 15Five. Integracja jest wyświetlana w obszarze funkcje w menu, a obie funkcje i integracje są wyróżnione." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie 15Five z galerii aplikacji usługi Azure AD
 
@@ -110,7 +110,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do 15Five**.
 
@@ -126,10 +126,10 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
    |externalId|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: Location|String|
-   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: startDate|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: Location|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: Extension: 15Five: 2.0: User: startDate|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do 15Five**.
 

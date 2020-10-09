@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552802"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Samouczek: integracja Azure Active Directory z usługą ITRP
 
@@ -92,9 +92,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ITRP, wykon
 
     ![Wybierz metodę logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** :
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** :
 
-    ![Ikona Edytuj](common/edit-urls.png)
+    ![Zrzut ekranu przedstawia stronę Konfigurowanie pojedynczego Sign-On ze stroną SAML z wybraną ikoną Edytuj.](common/edit-urls.png)
 
 4. W oknie dialogowym **Podstawowa konfiguracja SAML** wykonaj następujące czynności.
 
@@ -113,7 +113,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ITRP, wykon
 
 5. W sekcji **certyfikat podpisywania SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **certyfikat podpisywania SAML** :
 
-    ![Ikona Edytuj](common/edit-certificate.png)
+    ![Zrzut ekranu przedstawia stronę certyfikatu podpisywania SAML z wybraną ikoną Edytuj.](common/edit-certificate.png)
 
 6. W oknie dialogowym **certyfikat podpisywania SAML** skopiuj wartość **odcisku palca** i Zapisz ją:
 
@@ -139,13 +139,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ITRP, wykon
 
 1. W lewym okienku wybierz pozycję **Logowanie jednokrotne**:
 
-    ![Wybierz Logowanie jednokrotne](./media/itrp-tutorial/ic775571.png "Wybierz Logowanie jednokrotne")
+    ![Wybierz Logowanie jednokrotne](./media/itrp-tutorial/ic775571.png "Wybierz pojedynczą Sign-On")
 
 1. W sekcji Konfiguracja **logowania** jednokrotnego wykonaj następujące czynności.
 
-    ![Sekcja logowania jednokrotnego](./media/itrp-tutorial/ic775572.png "Sekcja logowania jednokrotnego")
+    ![Zrzut ekranu pokazuje sekcję z opcją Single Sign-On z włączonym zaznaczeniem.](./media/itrp-tutorial/ic775572.png "Pojedyncza sekcja Sign-On")
 
-    ![Sekcja logowania jednokrotnego](./media/itrp-tutorial/ic775573.png "Sekcja logowania jednokrotnego")
+    ![Zrzut ekranu przedstawia sekcję z pojedynczym Sign-On, w której można dodać informacje opisane w tym kroku.](./media/itrp-tutorial/ic775573.png "Pojedyncza sekcja Sign-On")
 
     1. Wybierz pozycję **Włączone**.
 
@@ -179,7 +179,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -248,6 +248,6 @@ Po wybraniu kafelka ITRP w panelu dostępu należy automatycznie zalogować się
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

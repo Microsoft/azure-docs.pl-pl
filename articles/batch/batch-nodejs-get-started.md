@@ -2,17 +2,17 @@
 title: Samouczek — używanie Azure Batch biblioteki klienckiej dla Node.js
 description: Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js.
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 10/08/2020
+ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83780179"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850612"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
-Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](/javascript/api/overview/azure/batch). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
+Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](/javascript/api/overview/azure/batch). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Node.js oraz znasz system Linux. Przyjęto również założenie, że masz skonfigurowane konto platformy Azure z prawami dostępu do tworzenia usług Batch i Storage.
@@ -174,7 +174,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         {
             if(error.statusCode==404)
             {
-                console.log("Pool not found yet returned 404...");    
+                console.log("Pool not found yet returned 404...");
 
             }
             else
@@ -241,7 +241,7 @@ Poniżej przedstawiono przykładowy obiekt wyniku zwrócony przez funkcję pool.
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
@@ -252,7 +252,7 @@ Zadanie usługi Azure Batch jest logiczną grupą podobnych zadań podrzędnych.
 Dzięki usłudze Azure Batch zadania podrzędne będą wykonywane równolegle i wdrażane w wielu węzłach.
 
 > [!Tip]
-> Aby określić maksymalną liczbę zadań podrzędnych uruchamianych jednocześnie w jednym węźle, można użyć właściwości [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add).
+> Możesz użyć właściwości [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) , aby określić maksymalną liczbę zadań, które mogą być uruchamiane współbieżnie w jednym węźle.
 >
 >
 
@@ -317,7 +317,7 @@ Zakładamy, że mamy cztery kontenery: „con1”, „con2”, „con3” i „c
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -325,7 +325,7 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
@@ -339,7 +339,7 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-Kod dodaje wiele zadań podrzędnych do puli. Poszczególne zadania podrzędne są wykonywane w węźle utworzonej puli maszyn wirtualnych. Jeśli liczba zadań podrzędnych przekracza liczbę maszyn wirtualnych w puli lub wartość właściwości maxTasksPerNode, zadania podrzędne nie będą wykonywane do momentu udostępnienia węzła. Takie ograniczenia są zapewniane przez usługę Azure Batch automatycznie.
+Kod dodaje wiele zadań podrzędnych do puli. Poszczególne zadania podrzędne są wykonywane w węźle utworzonej puli maszyn wirtualnych. Jeśli liczba zadań przekracza liczbę maszyn wirtualnych w puli lub właściwość taskSlotsPerNode, zadania czekają na udostępnienie węzła. Takie ograniczenia są zapewniane przez usługę Azure Batch automatycznie.
 
 W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zadań podrzędnych. Można również skorzystać z listy, aby poznać funkcje w ramach zestawu Azure Node SDK. Szczegółowe informacje znajdują się w dokumentacji, do której prowadzi ten [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 

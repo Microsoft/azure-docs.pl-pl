@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331167"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850459"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Foodee na potrzeby automatycznego aprowizacji użytkowników
 
@@ -55,7 +55,7 @@ Przed skonfigurowaniem Foodee na potrzeby automatycznego inicjowania obsługi ad
 
 1. Zaloguj się do [Foodee](https://www.food.ee/login/), a następnie wybierz swój identyfikator dzierżawy.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 1. W obszarze **Enterprise Portal**wybierz pozycję **Logowanie**jednokrotne.
 
@@ -63,7 +63,7 @@ Przed skonfigurowaniem Foodee na potrzeby automatycznego inicjowania obsługi ad
 
 1. Skopiuj wartość w polu **token interfejsu API** w celu późniejszego użycia. Wprowadzisz ją w polu **token tajny** na karcie **aprowizacji** aplikacji Foodee w Azure Portal.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Dodaj Foodee z galerii
 
@@ -130,20 +130,20 @@ Skonfiguruj automatyczne Inicjowanie obsługi użytkowników dla Foodee w usłud
 
 1. W obszarze **mapowania**wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby Foodee**.
 
-    ![Foodee mapowania użytkowników](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 1. W obszarze **mapowania atrybutów**Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Foodee. Atrybuty, które są wybrane jako **pasujące** właściwości są używane do dopasowywania do *kont użytkowników* w Foodee dla operacji aktualizacji. 
 
-    ![Foodee mapowania użytkowników](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 1. Aby zatwierdzić zmiany, wybierz pozycję **Zapisz**.
 1. W obszarze **mapowania**wybierz pozycję **Synchronizuj grupy Azure Active Directory do Foodee**.
 
-    ![Foodee mapowania użytkowników](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 1. W obszarze **mapowania atrybutów**Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Foodee. Atrybuty, które są wybrane jako **pasujące** właściwości są używane do dopasowania do *kont grupy* w Foodee dla operacji aktualizacji.
 
-    ![Foodee mapowania użytkowników](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Zrzut ekranu przedstawiający menu główne witryny Foodee Enterprise Portal. Symbol zastępczy identyfikatora dzierżawy jest widoczny w menu." border="false":::
 
 1. Aby zatwierdzić zmiany, wybierz pozycję **Zapisz**.
 1. Skonfiguruj filtry zakresu. Aby dowiedzieć się, jak to zrobić, zapoznaj się z instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

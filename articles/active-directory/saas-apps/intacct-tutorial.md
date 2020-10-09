@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535847"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850578"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Samouczek: Integrowanie programu Sage Intacct z Azure Active Directory
 
@@ -62,7 +62,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-2. **[Skonfiguruj Logowanie jednokrotne w programie Sage Intacct](#configure-sage-intacct-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne w programie Sage Intacct](#configure-sage-intacct-sso)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
     1. **[Utwórz użytkownika testowego Intacct](#create-sage-intacct-test-user)** w programie Sage, aby dysponować odpowiednikiem B. Simon w programie Sage Intacct, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji w programie **Sage Intacct** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -103,9 +103,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -153,7 +153,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **zabezpieczenia** , a następnie kliknij przycisk **Edytuj**.
 
-    ![Bezpieczeństwo](./media/intacct-tutorial/ic790038.png "Zabezpieczenia")
+    ![Zabezpieczenia](./media/intacct-tutorial/ic790038.png "Zabezpieczenia")
 
 1. W sekcji Logowanie jednokrotne **(SSO)** wykonaj następujące czynności:
 
@@ -169,7 +169,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Otwórz certyfikat zakodowany w formacie **Base-64** w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola **certyfikat** .
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-sage-intacct-test-user"></a>Utwórz użytkownika testowego Intacct Sage
 
@@ -189,7 +189,7 @@ Aby skonfigurować użytkowników usługi Azure AD, aby mogli się zalogować do
 
 1. W sekcji **Informacje o użytkowniku** wykonaj następujące czynności:
 
-    ![Informacje o użytkowniku](./media/intacct-tutorial/ic790043.png "Informacje o użytkowniku")
+    ![Zrzut ekranu przedstawia sekcję Informacje o użytkowniku, w której można wprowadzić informacje w tym kroku.](./media/intacct-tutorial/ic790043.png "Informacje o użytkowniku")
 
     a. Wprowadź **Identyfikator użytkownika**, **nazwisko**, **imię**i nazwisko, **adres E-mail**, **tytuł**oraz **numer telefonu** konta usługi Azure AD, które chcesz udostępnić w sekcji **Informacje o użytkowniku** .
 
@@ -198,13 +198,13 @@ Aby skonfigurować użytkowników usługi Azure AD, aby mogli się zalogować do
 
     b. Wybierz **uprawnienia administratora** konta usługi Azure AD, które chcesz udostępnić.
 
-    c. Kliknij pozycję **Zapisz**. 
+    c. Kliknij przycisk **Zapisz**. 
     
     d. Posiadacz konta usługi Azure AD otrzymuje wiadomość e-mail, a następnie łączy się z linkiem, aby potwierdzić swoje konto.
 
 1. Kliknij kartę **Logowanie jednokrotne** i upewnij się, że **Identyfikator użytkownika federacyjnego logowania jednokrotnego** na poniższym zrzucie ekranu oraz wartość **atrybutu źródłowego** , która jest mapowana za pomocą `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` w sekcji **atrybuty użytkownika** w Azure Portal powinna być taka sama.
 
-    ![Informacje o użytkowniku](./media/intacct-tutorial/ic790044.png "Informacje o użytkowniku")
+    ![Zrzut ekranu przedstawia sekcję Informacje o użytkowniku, w której można wprowadzić federacyjne i d.](./media/intacct-tutorial/ic790044.png "Informacje o użytkowniku")
 
 > [!NOTE]
 > Aby zainicjować obsługę kont użytkowników usługi Azure AD, możesz użyć innych narzędzi do tworzenia kont użytkowników w programie Sage Intacct i interfejsów API udostępnianych przez program Sage Intacct.
@@ -219,7 +219,7 @@ Po kliknięciu kafelka Sage Intacct w panelu dostępu należy automatycznie zalo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

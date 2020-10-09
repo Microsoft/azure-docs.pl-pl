@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547107"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Jive
 
@@ -140,7 +140,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W menu u góry kliknij pozycję **SAML**.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Zrzut ekranu przedstawia kartę SAML z włączonym zaznaczeniem.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Na karcie **Ogólne** wybierz pozycję **włączone** .
 
@@ -148,7 +148,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do karty **metadane dostawcy tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Zrzut ekranu przedstawia zaznaczone metadane karty SAML I D P.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Skopiuj zawartość pobranego pliku XML metadanych, a następnie wklej go do pola tekstowego **metadanych dostawcy tożsamości (dostawcy tożsamości)** .
 
@@ -156,7 +156,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wybierz kartę **Mapowanie atrybutu użytkownika** .
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Zrzut ekranu przedstawia kartę SAML z wybranym MAPOWANIEm atrybutu użytkownika.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. W polu tekstowym **adres e-mail** skopiuj i wklej nazwę atrybutu wartość **poczty** .
 
@@ -180,7 +180,7 @@ Po kliknięciu kafelka Jive w panelu dostępu należy automatycznie zalogować s
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

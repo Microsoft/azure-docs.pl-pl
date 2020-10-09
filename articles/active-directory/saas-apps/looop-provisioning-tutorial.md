@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333566"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850697"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Looop na potrzeby automatycznego aprowizacji użytkowników
 
@@ -55,11 +55,11 @@ Przed skonfigurowaniem usługi Looop do automatycznego aprowizacji użytkownikó
 
 1. Zaloguj się do [konsoli administracyjnej Looop](https://app.looop.co/#/login) i wybierz pozycję **konto**. W obszarze **Ustawienia konta** wybierz pozycję **uwierzytelnianie**.
 
-    ![Looop Dodaj Standard scim](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Looop. Karta konto jest wyróżniona i otwarta. W obszarze Ustawienia konta zostanie wyróżnione uwierzytelnianie." border="false":::
 
 2. Wygeneruj nowy token, klikając pozycję **Zresetuj token** w obszarze **integracja z standard scim**.
 
-    ![Looop Dodaj Standard scim](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Looop. Karta konto jest wyróżniona i otwarta. W obszarze Ustawienia konta zostanie wyróżnione uwierzytelnianie." border="false":::
 
 3. Skopiuj **punkt końcowy Standard scim** i **token**. Te wartości zostaną wprowadzone w polach **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji Looop w Azure Portal. 
 
@@ -127,7 +127,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Looop**.
 

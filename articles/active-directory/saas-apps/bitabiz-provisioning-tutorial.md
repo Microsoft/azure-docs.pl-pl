@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329197"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849348"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie BitaBIZ na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,11 +54,11 @@ Przed skonfigurowaniem usługi BitaBIZ na potrzeby automatycznego inicjowania ob
 
 1. Zaloguj się do [konsoli administracyjnej BitaBIZ](https://www.bitabiz.com/login?lang=en). Kliknij pozycję **SETUP ADMIN** (ADMINISTRATOR KONFIGURACJI).
 
-    ![Konsola administracyjna BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną BitaBIZ z wyróżnionym administratorem ustawień." border="false":::
 
 2.  Przejdź do **integracji**.
 
-    ![Konsola administracyjna BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną BitaBIZ z wyróżnionym administratorem ustawień." border="false":::
 
 2.  Przejdź do **Microsoft Azure AD aprowizacji**.  Wybierz pozycję **włączone** w obszarze Automatyczne Inicjowanie obsługi użytkowników. Skopiuj wartości dla **adresu URL punktu końcowego aprowizacji Standard scim** i  **tokenu okaziciela**. Te wartości zostaną wprowadzone w polach adres URL dzierżawy i klucz tajny tokenu na karcie aprowizacji aplikacji BitaBIZ w Azure Portal.
 
@@ -120,7 +120,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do BitaBIZ**.
 

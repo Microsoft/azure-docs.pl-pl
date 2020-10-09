@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273527"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849252"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie łącznika meta Networks dla automatycznej aprowizacji użytkowników
 
@@ -60,7 +60,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 3.  Ustaw **nazwę klucza interfejsu API** i **Opis klucza interfejsu API**.
 
-    ![Tworzenie tokenu łącznika meta Networks](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną łącznika meta Networks z wyróżnioną nazwą i kluczem p i i kluczowym opisem wartości systemu Azure A D i klawiszem P." border="false":::
 
 4.  Włącz uprawnienia do **zapisu** dla **grup** i **użytkowników**.
 
@@ -68,7 +68,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 5.  Kliknij przycisk **Dodaj**. Skopiuj **klucz tajny** i Zapisz go, ponieważ będzie można go wyświetlić. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji łącznika meta Networks w Azure Portal.
 
-    ![Tworzenie tokenu łącznika meta Networks](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną łącznika meta Networks z wyróżnioną nazwą i kluczem p i i kluczowym opisem wartości systemu Azure A D i klawiszem P." border="false":::
 
 6.  Dodaj dostawcy tożsamości, przechodząc do **ustawień administracja > > dostawcy tożsamości > Utwórz nowy**.
 
@@ -143,7 +143,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy do łącznika meta Networks**.
 

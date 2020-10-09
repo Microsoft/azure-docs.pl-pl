@@ -2,22 +2,22 @@
 title: Metryki, alerty i dzienniki diagnostyczne
 description: Rejestruj i Analizuj zdarzenia dziennika diagnostycznego dla zasobów konta Azure Batch, takich jak pule i zadania.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145093"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848691"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
- 
+
 W tym artykule wyjaśniono, jak monitorować konto usługi Batch przy użyciu funkcji programu [Azure monitor](../azure-monitor/overview.md). Azure Monitor zbiera [metryki](../azure-monitor/platform/data-platform-metrics.md) i [dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md) dla zasobów na koncie usługi Batch. Zbieraj te dane i korzystaj z nich na wiele sposobów, aby monitorować konto w usłudze Batch i diagnozować problemy. Możesz również skonfigurować [alerty metryk](../azure-monitor/platform/alerts-overview.md) , aby otrzymywać powiadomienia, gdy Metryka osiągnie określoną wartość.
 
 ## <a name="batch-metrics"></a>Metryki wsadowe
 
-Metryki to dane telemetryczne platformy Azure (nazywane również licznikami wydajności), które są emitowane przez zasoby platformy Azure i zużywane przez usługę Azure Monitor. Przykłady metryk na koncie wsadowym to zdarzenia tworzenia puli, liczba węzłów o niskim priorytecie oraz zdarzenia ukończenia zadania.
+Metryki to dane telemetryczne platformy Azure (nazywane również licznikami wydajności), które są emitowane przez zasoby platformy Azure i zużywane przez usługę Azure Monitor. Przykłady metryk na koncie w usłudze Batch to zdarzenia tworzenia puli, Low-Priority liczbę węzłów i zdarzenia ukończenia zadania.
 
 Zapoznaj się z [listą obsługiwanych metryk wsadowych](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -34,7 +34,7 @@ W Azure Portal stronie **Przegląd** dla konta będą domyślnie wyświetlane me
 Aby wyświetlić wszystkie metryki konta w usłudze Batch w Azure Portal:
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**  >  **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
-2. W obszarze **monitorowanie**wybierz pozycję **metryki**.
+2. W obszarze **Monitorowanie** wybierz pozycję **Metryki**.
 3. Wybierz pozycję **Dodaj metrykę** , a następnie wybierz metrykę z listy rozwijanej.
 4. Wybierz opcję **agregacji** dla metryki. W przypadku metryk opartych na liczbie (takich jak "dedykowana liczba rdzeni" lub "Liczba węzłów o niskim priorytecie") Użyj **średniej** agregacji. W przypadku metryk opartych na zdarzeniach (takich jak "wszystkie zdarzenia dotyczące zmiany rozmiaru puli") Użyj agregacji " **Count**".
 
@@ -57,7 +57,7 @@ Można skonfigurować *alerty metryk* niemal w czasie rzeczywistym, które wyzwa
 
 Alerty wyzwalające pojedynczy punkt danych nie są zalecane, ponieważ metryki podlegają dostawie, utracie danych i/lub duplikacji. Podczas tworzenia alertów można użyć progów, aby uwzględnić te niespójności.
 
-Można na przykład skonfigurować alert metryki, gdy liczba rdzeni o niskim priorytecie przepada na określony poziom, aby można było dostosować skład pul. Aby uzyskać najlepsze wyniki, należy ustawić okres co najmniej 10 minut, gdzie wyzwalane są alerty, jeśli średnia liczba rdzeni o niskim priorytecie spadnie poniżej wartości progowej dla całego okresu. Pozwala to na więcej czasu na agregowanie metryk, dzięki czemu można uzyskać dokładniejsze wyniki. 
+Można na przykład skonfigurować alert metryki, gdy liczba rdzeni o niskim priorytecie przepada na określony poziom, aby można było dostosować skład pul. Aby uzyskać najlepsze wyniki, należy ustawić okres co najmniej 10 minut, gdzie wyzwalane są alerty, jeśli średnia liczba rdzeni o niskim priorytecie spadnie poniżej wartości progowej dla całego okresu. Pozwala to na więcej czasu na agregowanie metryk, dzięki czemu można uzyskać dokładniejsze wyniki.
 
 Aby skonfigurować alert dotyczący metryki w Azure Portal:
 
@@ -87,11 +87,11 @@ Typowym scenariuszem jest wybranie konta usługi Azure Storage jako miejsca doce
 
 Alternatywnie można:
 
-- Zdarzenia dziennika diagnostycznego usługi Stream Part strumienia do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-about.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym. 
+- Zdarzenia dziennika diagnostycznego usługi Stream Part strumienia do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-about.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym.
 - Wyślij dzienniki diagnostyczne do [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md), gdzie można je analizować lub wyeksportować do analizy w programie Power BI lub Excel.
 
 > [!NOTE]
-> Za pomocą usług platformy Azure mogą być naliczane dodatkowe koszty związane z przechowywaniem lub przetwarzaniem danych dzienników diagnostycznych. 
+> Za pomocą usług platformy Azure mogą być naliczane dodatkowe koszty związane z przechowywaniem lub przetwarzaniem danych dzienników diagnostycznych.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Włącz zbieranie dzienników diagnostycznych partii
 
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Przykład:
+Na przykład:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -155,7 +155,7 @@ Azure Batch dzienniki usług, jeśli są zbierane, zawierają zdarzenia emitowan
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Zdarzenia dziennika usługi emitowane przez usługę Batch obejmują następują
 - [Ukończono Usuwanie puli](batch-pool-delete-complete-event.md)
 - [Początek zmiany rozmiaru puli](batch-pool-resize-start-event.md)
 - [Ukończono Zmienianie rozmiaru puli](batch-pool-resize-complete-event.md)
+- [Automatyczne skalowanie puli](batch-pool-autoscale-event.md)
 - [Rozpoczęcie zadania](batch-task-start-event.md)
 - [Zadanie zakończone](batch-task-complete-event.md)
 - [Niepowodzenie zadania](batch-task-fail-event.md)
+- [Niepowodzenie harmonogramu zadań](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

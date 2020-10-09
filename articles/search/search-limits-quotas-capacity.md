@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825498"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843434"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -50,7 +50,7 @@ Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych 
 
 <sup>1</sup> podstawowe usługi utworzone przed grudnia 2017 mają niższe limity (5 zamiast 15) w indeksach. Warstwa Podstawowa jest jedyną jednostką SKU z niższym limitem 100 pól na indeks.
 
-<sup>2</sup> dla elementów istnieje górny limit, ponieważ jego duża liczba powoduje duże wykorzystanie magazynu. Element kolekcji złożonej jest zdefiniowany jako element członkowski tej kolekcji. Załóżmy na przykład, że [dokument hotelu ma złożoną kolekcję pokojów](search-howto-complex-data-types.md#indexing-complex-types), każdy pokój w kolekcji pokojów jest traktowany jako element. Podczas indeksowania aparat indeksowania może bezpiecznie przetwarzać maksymalnie 3000 elementów w całym dokumencie. [Ten limit](search-api-migration.md#upgrade-to-2019-05-06) został wprowadzony w `api-version=2019-05-06` i ma zastosowanie tylko do złożonych kolekcji, a nie do kolekcji ciągów lub do pól złożonych.
+<sup>2</sup> dla elementów istnieje górny limit, ponieważ jego duża liczba znacząco zwiększa magazyn wymagany dla Twojego indeksu. Element kolekcji złożonej jest zdefiniowany jako element członkowski tej kolekcji. Załóżmy na przykład, że [dokument hotelu ma złożoną kolekcję pokojów](search-howto-complex-data-types.md#indexing-complex-types), każdy pokój w kolekcji pokojów jest traktowany jako element. Podczas indeksowania aparat indeksowania może bezpiecznie przetwarzać maksymalnie 3000 elementów w całym dokumencie. [Ten limit](search-api-migration.md#upgrade-to-2019-05-06) został wprowadzony w `api-version=2019-05-06` i ma zastosowanie tylko do złożonych kolekcji, a nie do kolekcji ciągów lub do pól złożonych.
 
 <a name="document-limits"></a>
 

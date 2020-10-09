@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546836"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850714"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Kanbanize
 
@@ -153,15 +153,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5. Na stronie Panel administracji z lewej strony menu kliknij pozycję **integracje** , a następnie Włącz **Logowanie jednokrotne**.
 
-    ![Integracje Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Zrzut ekranu przedstawia panel Administracja z wybraną integracją.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
-6. W obszarze integracje kliknij pozycję **Konfiguruj** , aby otworzyć stronę **integracja z logowaniem** jednokrotnym.
+6. W obszarze integracje kliknij pozycję **Konfiguruj** , aby otworzyć stronę **integracja z pojedynczym Sign-On** .
 
     ![Konfiguracja Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
 
-7. Na stronie **integracja z logowaniem** jednokrotnym w obszarze **konfiguracje**wykonaj następujące czynności:
+7. Na stronie **integracja o pojedynczej Sign-On** w obszarze **konfiguracje**wykonaj następujące czynności:
 
-    ![Integracje Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Zrzut ekranu przedstawia stronę integracja z pojedynczym Sign-On, na której wprowadzane są wartości w tym kroku.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. W polu tekstowym **Identyfikator jednostki dostawcy tożsamości** wklej wartość **identyfikatora usługi Azure AD**, która została skopiowana z Azure Portal.
 
@@ -198,7 +198,7 @@ Po kliknięciu kafelka Kanbanize w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

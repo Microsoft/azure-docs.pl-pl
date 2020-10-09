@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328075"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848963"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Dialpad na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,13 +54,13 @@ Przed skonfigurowaniem usługi Dialpad do automatycznego aprowizacji użytkownik
 
 1. Zaloguj się do [konsoli administracyjnej Dialpad](https://dialpadbeta.com/login) i wybierz pozycję **Ustawienia administratora**. Upewnij się, że na liście rozwijanej wybrano **moją firmę** . Przejdź do **uwierzytelniania > klucze interfejsu API**.
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
 2. Wygeneruj nowy klucz, klikając pozycję **Dodaj klucz** i konfigurując właściwości tokenu tajnego.
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
 3. Kliknij przycisk **kliknij, aby pokazać wartość** dla ostatnio utworzonego klucza interfejsu API i skopiuj pokazaną wartość. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Dialpad w Azure Portal. 
 
@@ -89,19 +89,19 @@ Aby skonfigurować Dialpad do automatycznego aprowizacji użytkowników w usłud
 
 5. Przejdź do **adresu URL** wyróżnionego poniżej w oddzielnej przeglądarce. 
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
 6. W prawym górnym rogu wybierz pozycję **Zaloguj się > Użyj Dialpad online**.
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
 7. Ponieważ Dialpad jest aplikacją OpenIDConnect, wybierz logowanie do Dialpad przy użyciu konta służbowego firmy Microsoft.
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
 8. Po pomyślnym uwierzytelnieniu Zaakceptuj monit o zgodę na stronie zgody. Aplikacja zostanie następnie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta Dialpad.
 
-    ![Dialpad Dodaj Standard scim](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Zrzut ekranu konsoli administracyjnej Dialpad z wyróżnioną ikoną ustawienia, moją firmą, uwierzytelnianiem i kluczami P i wybraną przez firmę." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurowanie automatycznej aprowizacji użytkowników do Dialpad
 
@@ -133,7 +133,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Dialpad**.
 

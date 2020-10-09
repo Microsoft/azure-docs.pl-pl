@@ -2,13 +2,13 @@
 title: Zdarzenie ukończenia zadania Azure Batch
 description: Odwołanie do zdarzenia ukończenia zadania wsadowego. To zdarzenie jest emitowane po zakończeniu zadania, niezależnie od kodu zakończenia.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 42860836e294780649616b0843db6ba19718dd64
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965182"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850895"
 ---
 # <a name="task-complete-event"></a>Zdarzenie ukończenia zadania
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965182"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 0,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -45,35 +46,36 @@ ms.locfileid: "85965182"
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
-|`jobId`|String|Identyfikator zadania zawierającego zadanie.|
-|`id`|String|Identyfikator zadania.|
-|`taskType`|String|Typ zadania. Może to być "JobManager" wskazujący, że jest to zadanie Menedżera zadań lub "użytkownika" wskazujące, że nie jest to zadanie Menedżera zadań. To zdarzenie nie jest emitowane w przypadku zadań związanych z przygotowaniem zadania, zadań wydania zadania lub uruchamiania zadań.|
+|`jobId`|Ciąg|Identyfikator zadania zawierającego zadanie.|
+|`id`|Ciąg|Identyfikator zadania.|
+|`taskType`|Ciąg|Typ zadania. Może to być "JobManager" wskazujący, że jest to zadanie Menedżera zadań lub "użytkownika" wskazujące, że nie jest to zadanie Menedżera zadań. To zdarzenie nie jest emitowane w przypadku zadań związanych z przygotowaniem zadania, zadań wydania zadania lub uruchamiania zadań.|
 |`systemTaskVersion`|Int32|Jest to wewnętrzny licznik ponownych prób dla zadania. Wewnętrznie usługa Batch może ponowić zadanie, aby uwzględnić przejściowe problemy. Te problemy mogą obejmować wewnętrzne błędy planowania lub próby odzyskania z węzłów obliczeniowych w nieprawidłowym stanie.|
+|`requiredSlots`|Int32|Wymagane miejsca do uruchomienia zadania.|
 |[`nodeInfo`](#nodeInfo)|Typ złożony|Zawiera informacje o węźle obliczeniowym, na którym uruchomiono zadanie.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Typ złożony|Określa, że zadanie jest zadaniem z wieloma wystąpieniami wymagającymi wielu węzłów obliczeniowych.  [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task)Aby uzyskać szczegółowe informacje, zobacz.|
 |[`constraints`](#constraints)|Typ złożony|Ograniczenia wykonywania, które są stosowane do tego zadania.|
 |[`executionInfo`](#executionInfo)|Typ złożony|Zawiera informacje o wykonywaniu zadania.|
 
-###  <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
-|`poolId`|String|Identyfikator puli, w której uruchomiono zadanie.|
-|`nodeId`|String|IDENTYFIKATOR węzła, w którym uruchomiono zadanie.|
+|`poolId`|Ciąg|Identyfikator puli, w której uruchomiono zadanie.|
+|`nodeId`|Ciąg|IDENTYFIKATOR węzła, w którym uruchomiono zadanie.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Liczba węzłów obliczeniowych wymaganych przez zadanie.|
 
-###  <a name="constraints"></a><a name="constraints"></a>powiązanych
+###  <a name="constraints"></a><a name="constraints"></a> powiązanych
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Maksymalna liczba prób wykonania zadania. Usługa Batch ponawia próbę wykonania zadania, jeśli jego kod zakończenia jest różny od zera.<br /><br /> Należy zauważyć, że ta wartość kontroluje liczbę ponownych prób. Usługa Batch spróbuje wykonać zadanie jeden raz, a następnie ponowić próbę wykonania tego limitu. Jeśli na przykład maksymalna liczba ponownych prób wynosi 3, zadanie wsadowe próbuje wykonać zadania do 4 razy (jedna początkowa próba i 3 ponownych prób).<br /><br /> Jeśli maksymalna liczba ponownych prób wynosi 0, usługa Batch nie wykonuje żadnych ponownych prób wykonywania zadań.<br /><br /> Jeśli maksymalna liczba ponownych prób wynosi-1, usługa Batch ponawia zadania bez ograniczeń.<br /><br /> Wartość domyślna to 0 (brak ponownych prób).|
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|

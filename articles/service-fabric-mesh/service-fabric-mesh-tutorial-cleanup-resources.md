@@ -1,17 +1,17 @@
 ---
 title: Samouczek — Oczyszczanie zasobów siatki usługi Azure Service Fabric
 description: Dowiedz się, jak usunąć zasoby usługi Azure Service Fabric Mesh, aby uniknąć naliczania opłat za nieużywane już zasoby.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d594001340f76c6dde9f3e00de2d76ee4e5104b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246757"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843332"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Samouczek: usuwanie zasobów platformy Azure
 

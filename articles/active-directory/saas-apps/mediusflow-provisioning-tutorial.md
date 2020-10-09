@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360620"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850085"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  Zaloguj się do [konsoli administracyjnej MediusFlow](https://office365.cloudapp.mediusflow.com/) , podając identyfikator dzierżawy.
 
-    ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 2. Sprawdź połączenie z usługą MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Zapisz konfigurację.
 
-    ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 5. Wybierz pozycję Inicjowanie obsługi użytkowników i kliknij przycisk **OK**.
 
-    ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 6. Kliknij pozycję **Generuj klucz tajny**. Skopiuj i Zapisz tę wartość. Ta wartość zostanie wprowadzona w polu **token tajny** na karcie **aprowizacji** aplikacji MediusFLow w Azure Portal.
 
-    ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 7. Kliknij przycisk **OK**.
 
-    ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 8. Aby użytkownicy zaimportowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
 
-    ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 9. Podaj ustawienia domyślne dla użytkowników. W tym widoku można ustawić domyślny atrybut. Jeśli ustawienia standardowe są poprawne, wystarczy podać prawidłową nazwę firmy. Ponieważ te ustawienia konfiguracji są pobierane z MediusFlow, należy najpierw je skonfigurować. Aby uzyskać więcej informacji, zobacz sekcję **wymagania wstępne** w tym artykule.
 
-    ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 10. Kliknij przycisk **Zapisz** , aby zapisać konfigurację użytkownika.
 
-    ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 11. Aby uzyskać link aprowizacji użytkowników, kliknij **link Kopiuj Standard scim**. Skopiuj i Zapisz tę wartość. Ta wartość jest wprowadzana w polu **adres URL dzierżawy** na karcie **aprowizacji** aplikacji MediusFLow w Azure Portal.
  
-    ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną MediusFlow. Pole nazwy dzierżawy MediusFlow i przycisk uwierzytelniania są wyróżnione w pierwszym kroku integracji." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie MediusFlow z galerii aplikacji usługi Azure AD
 
@@ -159,13 +159,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |---|---|
    |userName|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |Nazwa. displayName|String|
+   |Nazwa. displayName|Ciąg|
    |aktywne|Wartość logiczna|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |externalID|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |Nazwa. sformatowana|Ciąg|
+   |externalID|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
 
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do MediusFlow**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546953"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla Bamboo
 
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Kantega dla Bamboo, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie JEDNOkrotne w usłudze Kantega dla usługi Bamboo Single](#configure-kantega-sso-for-bamboo-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie JEDNOkrotne w usłudze Kantega](#configure-kantega-sso-for-bamboo-single-sign-on)** , aby móc skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz Kantega Logowanie jednokrotne dla użytkownika testowego](#create-kantega-sso-for-bamboo-test-user)** , aby uzyskać odpowiednik Britta Simon w Kantega SSO dla Bamboo, który jest połączony z reprezentacją usługi Azure AD użytkownika.
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Kantega Logowanie jednokrotne dla domeny Bamboo i adresów URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Kantega Logowanie jednokrotne dla domeny Bamboo i adresów URL logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -128,53 +128,53 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
     c. Adres URL wylogowywania
 
-### <a name="configure-kantega-sso-for-bamboo-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Kantega do usługi Bamboo Single-on
+### <a name="configure-kantega-sso-for-bamboo-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Kantega dla Bamboo pojedynczej Sign-On
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się na serwerze lokalnym Bamboo jako administrator.
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![Zrzut ekranu przedstawia Dodatki wybrane z menu Ustawienia.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. W sekcji karty Dodatki kliknij pozycję **Znajdź nowe dodatki**. Wyszukaj **Kantega Logowanie jednokrotne dla Bamboo (SAML & Kerberos)** i kliknij przycisk **Instaluj** , aby zainstalować nową wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawia administrację Bamboo z Kantega S S dla Bamboo.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. Rozpocznie się instalacja wtyczki.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![Zrzut ekranu przedstawia postęp instalacji dla Kantega S S dla Bamboo.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![Zrzut ekranu przedstawia przycisk Zamknij.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. Kliknij pozycję **Zarządzaj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![Zrzut ekranu przedstawia przycisk Zarządzaj.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![Zrzut ekranu przedstawia dodatki zainstalowane przez użytkownika z wybraną pozycją Konfiguruj.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. W sekcji **SAML** . Wybierz pozycję **Azure Active Directory (Azure AD)** z listy rozwijanej **Dodaj dostawcę tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![Zrzut ekranu przedstawia Kantega pojedyncze Sign-On z platformą Azure A D wybraną jako dostawca tożsamości.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![Zrzut ekranu przedstawia przygotowanie platformy Azure A D z zaznaczoną opcją podstawowa.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![Zrzut ekranu przedstawia sekcję właściwości aplikacji, w której można podać informacje w tym kroku.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
-    a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+    a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
     b. Kliknij przycisk **Dalej**.
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawia sekcję Importowanie metadanych, w której można przejść do pliku metadanych.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
@@ -182,7 +182,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![Zrzut ekranu przedstawia nazwę i lokalizację S, gdzie Azure A D jest nazwą dostawcy tożsamości.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
@@ -190,29 +190,29 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![Zrzut ekranu przedstawia weryfikację podpisu.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. W sekcji **konta użytkowników Bamboo** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![Zrzut ekranu przedstawia konta użytkowników Bamboo, w których można utworzyć użytkowników.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym Bamboo** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
     b. Kliknij przycisk **Dalej**.
 
-1. Kliknij przycisk **Zakończ**.
+1. Kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![Zrzut ekranu przedstawia stronę podsumowania.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. W sekcji **znane domeny dla usługi Azure AD** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawia znane domeny dla systemu Azure A D, gdzie można wykonać te kroki.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. Wybierz opcję **znane domeny** w lewym panelu strony.
 
     b. Wprowadź nazwę domeny w polu tekstowym **znane domeny** .
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -275,11 +275,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Bamboo,
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia zarządzanie użytkownikami wybrane z menu Ustawienia.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. Kliknij pozycję **Użytkownicy**. W sekcji **Dodawanie użytkownika** wykonaj następujące czynności:
 
-    ![Dodawanie pracownika](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia okienko Dodawanie użytkownika, w którym można wykonać te kroki.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
@@ -291,7 +291,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Bamboo,
 
     e. W polu tekstowym **Email** (Adres e-mail) wpisz adres e-mail użytkownika, np. Brittasimon@contoso.com.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
@@ -303,6 +303,6 @@ Po kliknięciu kafelka SSO Kantega dla Bamboo w panelu dostępu należy automaty
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

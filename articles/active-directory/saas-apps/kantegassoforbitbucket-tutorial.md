@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 36d843e80f024408747c1f94512a3ccc04c6709b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6acb5f30268f0e771d80489dff52f03eb58234a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546917"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla BitBucket
 
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Kantega dla BitBucket, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie JEDNOkrotne w usłudze Kantega dla usługi BitBucket Single](#configure-kantega-sso-for-bitbucket-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie JEDNOkrotne w usłudze Kantega](#configure-kantega-sso-for-bitbucket-single-sign-on)** , aby móc skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz Kantega Logowanie jednokrotne dla użytkownika testowego](#create-kantega-sso-for-bitbucket-test-user)** , aby uzyskać odpowiednik Britta Simon w Kantega SSO dla BitBucket, który jest połączony z reprezentacją usługi Azure AD użytkownika.
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Kantega Logowanie jednokrotne dla domeny Bitbucket i adresów URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Kantega Logowanie jednokrotne dla domeny Bitbucket i adresów URL logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -128,53 +128,53 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
     c. Adres URL wylogowywania
 
-### <a name="configure-kantega-sso-for-bitbucket-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Kantega do usługi BitBucket Single-on
+### <a name="configure-kantega-sso-for-bitbucket-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Kantega dla BitBucket pojedynczej Sign-On
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do portalu administratora BitBucket jako administrator.
 
 1. Kliknij pozycję koło zębate, a następnie kliknij pozycję **Znajdź nowe**dodatki.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon1.png)
+    ![Zrzut ekranu przedstawia administrowanie BitBucket z wybranym dodatkiem Znajdź nowe dodatki.](./media/kantegassoforbitbucket-tutorial/addon1.png)
 
 1. Wyszukaj **Kantega Logowanie jednokrotne dla BITBUCKET SAML & Kerberos** i kliknij przycisk **Instaluj** , aby zainstalować nową wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawia Kantega Logowanie jednokrotne dla BitBucket SAML & Kerberos z opcją instalacji.](./media/kantegassoforbitbucket-tutorial/addon2.png)
 
 1. Rozpocznie się instalacja wtyczki.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon31.png)
+    ![Zrzut ekranu przedstawia postęp instalacji.](./media/kantegassoforbitbucket-tutorial/addon31.png)
 
 1. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon33.png)
+    ![Zrzut ekranu przedstawia przycisk Zamknij.](./media/kantegassoforbitbucket-tutorial/addon33.png)
 
 1. Kliknij pozycję **Zarządzaj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon34.png)
+    ![Zrzut ekranu przedstawia przycisk Zarządzaj.](./media/kantegassoforbitbucket-tutorial/addon34.png)
 
 1. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon35.png)
+    ![Zrzut ekranu przedstawia dodatki zainstalowane przez użytkownika z wybraną pozycją Konfiguruj.](./media/kantegassoforbitbucket-tutorial/addon35.png)
 
 1. W sekcji **SAML** . Wybierz pozycję **Azure Active Directory (Azure AD)** z listy rozwijanej **Dodaj dostawcę tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon4.png)
+    ![Zrzut ekranu przedstawia Kantega pojedyncze Sign-On z platformą Azure A D wybraną jako dostawca tożsamości.](./media/kantegassoforbitbucket-tutorial/addon4.png)
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon5.png)
+    ![Zrzut ekranu przedstawia przygotowanie platformy Azure A D z zaznaczoną opcją podstawowa.](./media/kantegassoforbitbucket-tutorial/addon5.png)
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon6.png)
+    ![Zrzut ekranu przedstawia sekcję właściwości aplikacji, w której można podać informacje w tym kroku.](./media/kantegassoforbitbucket-tutorial/addon6.png)
 
-    a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+    a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
     b. Kliknij przycisk **Dalej**.
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawia sekcję Importowanie metadanych, w której można przejść do pliku metadanych.](./media/kantegassoforbitbucket-tutorial/addon7.png)
 
     a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
@@ -182,7 +182,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon8.png)
+    ![Zrzut ekranu przedstawia nazwę i lokalizację S, gdzie Azure A D jest nazwą dostawcy tożsamości.](./media/kantegassoforbitbucket-tutorial/addon8.png)
 
     a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
@@ -190,29 +190,29 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon9.png)
+    ![Zrzut ekranu przedstawia weryfikację podpisu.](./media/kantegassoforbitbucket-tutorial/addon9.png)
 
 1. W sekcji **konta użytkowników BitBucket** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon10.png)
+    ![Zrzut ekranu przedstawia konta użytkowników BitBucket, w których można utworzyć użytkowników.](./media/kantegassoforbitbucket-tutorial/addon10.png)
 
     a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym BitBucket** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
     b. Kliknij przycisk **Dalej**.
 
-1. Kliknij przycisk **Zakończ**.
+1. Kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon11.png)
+    ![Zrzut ekranu przedstawia stronę podsumowania.](./media/kantegassoforbitbucket-tutorial/addon11.png)
 
 1. W sekcji **znane domeny dla usługi Azure AD** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforbitbucket-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawia znane domeny dla systemu Azure A D, gdzie można wykonać te kroki.](./media/kantegassoforbitbucket-tutorial/addon12.png)
 
     a. Wybierz opcję **znane domeny** w lewym panelu strony.
 
     b. Wprowadź nazwę domeny w polu tekstowym **znane domeny** .
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -275,19 +275,19 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze BitBuck
 
 1. Kliknij ikonę Ustawienia.
 
-    ![Dodawanie pracownika](./media/kantegassoforbitbucket-tutorial/user1.png) 
+    ![Zrzut ekranu przedstawia ikonę Ustawienia.](./media/kantegassoforbitbucket-tutorial/user1.png) 
 
 1. W sekcji karta **Administracja** kliknij pozycję **Użytkownicy**.
 
-    ![Dodawanie pracownika](./media/kantegassoforbitbucket-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia administrację BitBucket z wybranym użytkownikami. ](./media/kantegassoforbitbucket-tutorial/user2.png)
 
 1. Kliknij pozycję **Utwórz użytkownika**.
 
-    ![Dodawanie pracownika](./media/kantegassoforbitbucket-tutorial/user3.png)   
+    ![Zrzut ekranu przedstawia administrację BitBucket z wybranym użytkownikiem.](./media/kantegassoforbitbucket-tutorial/user3.png)   
 
 1. Na stronie **Tworzenie użytkownika** wykonaj następujące czynności:
 
-    ![Dodawanie pracownika](./media/kantegassoforbitbucket-tutorial/user4.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie użytkownika, w którym można wykonać te kroki.](./media/kantegassoforbitbucket-tutorial/user4.png) 
 
     a. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
@@ -311,7 +311,7 @@ Po kliknięciu kafelka SSO Kantega dla BitBucket w panelu dostępu należy autom
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

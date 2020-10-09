@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 4b47646e2f051a8fbfefbc36aa879bb80e9eca68
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439031"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851072"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptacyjne Zabezpieczanie sieci w Azure Security Center
-Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Azure Security Center.
+Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Security Center.
 
 ## <a name="availability"></a>Dostępność
 |Aspekt|Szczegóły|
@@ -37,20 +37,22 @@ Zastosowanie [sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń)](htt
 
 Adaptacyjne zwiększanie przepustowości sieci zapewnia rekomendacje w celu dalszej ochrony reguł sieciowej grupy zabezpieczeń. Używa algorytmu uczenia maszynowego, który ma czynniki w rzeczywistym ruchu, znanej zaufanej konfiguracji, analizie zagrożeń i innych wskaźnikach naruszenia, a następnie udostępnia zalecenia zezwalające na ruch tylko z konkretnych krotek IP/portów.
 
-Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń ma zezwalać na ruch z 140.20.30.10/24 na porcie 22. Zalecane zalecenie dotyczące ograniczania przepustowości sieci oparte na analizie zawęża zakres i zezwala na ruch z 140.23.30.10/29 — który jest węższym zakresem adresów IP i odmówi cały ruch do tego portu.
+Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń ma zezwalać na ruch z 140.20.30.10/24 na porcie 22. W oparciu o analizę ruchu, adaptacyjne Zabezpieczanie sieci może zalecać zawężenie zakresu, aby umożliwić ruch z 140.23.30.10/29 i odmówić całego ruchu do tego portu.
 
->[!TIP]
+>[!Note]
 > Zalecenia dotyczące ograniczania przepustowości sieci są obsługiwane tylko na następujących portach (dla protokołów UDP i TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333 , 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
-![Widok ograniczania funkcjonalności sieci](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+## <a name="view-and-manage-hardening-alerts-and-rules"></a>Wyświetl alerty i reguły ograniczania i zarządzaj nimi
 
+1. Z menu Security Center, Otwórz pulpit nawigacyjny **usługi Azure Defender** i wybierz kafelek adaptacyjnej ochrony sieci (1) lub element panelu usługi Insights związany z podadaptacyjną funkcjonalnością sieci (2). 
 
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Uzyskiwanie dostępu do narzędzi adaptacyjnego zabezpieczania sieci" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
+    > [!TIP]
+    > Panel Insights (szczegółowe informacje) pokazuje procent maszyn wirtualnych, które są aktualnie obronne dzięki adaptacyjnej funkcjonalności sieci. 
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Wyświetl alerty i reguły ograniczania przepustowości sieci
-
-1. W Security Center wybierz pozycję **Sieć**  ->  **adaptacyjne Zabezpieczanie sieci**. Sieci maszyn wirtualnych są wymienione na trzech oddzielnych kartach:
+1. Na stronie szczegółów **zalecanych zaleceń dotyczących ograniczania przepustowości sieci należy zastosować zalecenie dotyczące maszyn wirtualnych** mających dostęp do Internetu. spowoduje to otwarcie z sieci maszyny wirtualne pogrupowane na trzy karty:
    * **Zasoby w złej kondycji**: maszyny wirtualne, które aktualnie mają zalecenia i alerty, które zostały wyzwolone przez uruchomienie adaptacyjnego algorytmu ograniczania przepustowości sieci. 
    * **Dobra kondycja**: maszyny wirtualne bez alertów i zaleceń.
    * **Niezeskanowane zasoby**: maszyny wirtualne, na których algorytm ograniczania funkcjonalności sieci nie może zostać uruchomiony z jednego z następujących powodów:
@@ -58,33 +60,28 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
       * Brak **wystarczającej ilości danych**: w celu wygenerowania dokładnego zalecenia dotyczącego ograniczania ruchu, Security Center wymaga co najmniej 30 dni danych ruchu.
       * **Maszyna wirtualna nie jest chroniona przez usługę Azure Defender**: dla tej funkcji kwalifikują się tylko maszyny wirtualne chronione za pomocą [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) .
 
-     ![zasoby w złej kondycji](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Uzyskiwanie dostępu do narzędzi adaptacyjnego zabezpieczania sieci":::
 
-2. Na karcie **zasoby w złej kondycji** wybierz maszynę wirtualną, aby wyświetlić jej alerty i zalecane reguły ograniczania funkcjonalności, które mają zostać zastosowane.
+1. Na karcie **zasoby w złej kondycji** wybierz maszynę wirtualną, aby wyświetlić jej alerty i zalecane reguły ograniczania funkcjonalności, które mają zostać zastosowane.
 
-    ![Ograniczanie funkcjonalności alertów](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    - Na karcie **reguły** znajduje się lista reguł, które zaleca się dodanie
+    - Na karcie **alerty** znajduje się lista alertów, które zostały wygenerowane z powodu ruchu, przepływających do zasobu, który nie należy do zakresu adresów IP dozwolony w zalecanych regułach.
 
+1. Opcjonalnie można edytować reguły:
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Przeglądanie i stosowanie zalecanych reguł ograniczania funkcjonalności sieci
-
-1. Na karcie **zasoby w złej kondycji** wybierz maszynę wirtualną. Są wyświetlane alerty i zalecane reguły ograniczania funkcjonalności.
-
-     ![Zasady ograniczania funkcjonalności](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
-
-   > [!NOTE]
-   > Na karcie **reguły** znajduje się lista reguł, które zaleca się dodanie. Na karcie **alerty** znajduje się lista alertów, które zostały wygenerowane z powodu ruchu, przepływających do zasobu, który nie należy do zakresu adresów IP dozwolony w zalecanych regułach.
-
-2. Jeśli chcesz zmienić niektóre parametry reguły, możesz ją zmodyfikować, zgodnie z opisem w [Modyfikuj regułę](#modify-rule).
-   > [!NOTE]
-   > Możesz również [usunąć](#delete-rule) lub [dodać](#add-rule) regułę.
+    - [Modyfikowanie reguły](#modify-rule)
+    - [Usuwanie reguły](#delete-rule) 
+    - [Dodawanie reguły](#add-rule)
 
 3. Wybierz reguły, które chcesz zastosować w sieciowej grupy zabezpieczeń, a następnie kliknij pozycję **Wymuszaj**.
 
+    > [!TIP]
+    > Jeśli dozwolone źródłowe zakresy adresów IP są wyświetlane jako "Brak", oznacza to, że zalecaną regułą jest reguła *Odmów* , w przeciwnym razie jest to reguła *zezwalania* .
+
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Uzyskiwanie dostępu do narzędzi adaptacyjnego zabezpieczania sieci":::
+
       > [!NOTE]
       > Zasady wymuszane są dodawane do sieciowej grupy ZABEZPIECZEŃów chroniących maszynę wirtualną. (Maszyna wirtualna może być chroniona przez sieciowej grupy zabezpieczeń, która jest skojarzona z kartą sieciową lub podsieć, w której znajduje się maszyna wirtualna, lub obie)
-
-    ![Wymuś reguły](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
-
 
 ### <a name="modify-a-rule"></a>Modyfikowanie reguły <a name ="modify-rule"> </a>
 

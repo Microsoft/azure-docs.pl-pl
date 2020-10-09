@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552989"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843383"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych sieci wirtualnych
 
@@ -54,6 +54,10 @@ Oznacza to, że rozwiązania w chmurze dotyczące zabezpieczeń nie tylko uzysku
 Powiązanie przestrzeni nazw Service Bus z siecią wirtualną jest procesem dwuetapowym. Najpierw należy utworzyć **punkt końcowy usługi Virtual Network** w podsieci Virtual Network i włączyć ją dla elementu **Microsoft. ServiceBus** , zgodnie z opisem w temacie [Omówienie punktu końcowego usługi][vnet-sep]. Po dodaniu punktu końcowego usługi należy powiązać z nim przestrzeń nazw Service Bus z **regułą sieci wirtualnej**.
 
 Reguła sieci wirtualnej jest skojarzeniem przestrzeni nazw Service Bus z podsiecią sieci wirtualnej. Chociaż reguła istnieje, wszystkie obciążenia powiązane z podsiecią mają udzielony dostęp do przestrzeni nazw Service Bus. Sama Service Bus nigdy nie ustanawia połączeń wychodzących, nie musi uzyskiwać dostępu i dlatego nigdy nie udzielono dostępu do podsieci przez włączenie tej reguły.
+
+> [!NOTE]
+> Należy pamiętać, że punkt końcowy usługi sieciowej zapewnia aplikacjom działającym w sieci wirtualnej dostęp do przestrzeni nazw Service Bus. Sieć wirtualna kontroluje osiągalność punktu końcowego, ale nie można wykonywać operacji na Service Bus jednostkach (kolejkach, tematach lub subskrypcjach). Użyj Azure Active Directory (Azure AD), aby autoryzować operacje, które aplikacje mogą wykonywać w przestrzeni nazw i jej jednostkach. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie i Autoryzowanie aplikacji za pomocą usługi Azure AD w celu uzyskania dostępu do jednostek Service Bus](authenticate-application.md).
+
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy użyciu Azure Portal. Aby ograniczyć dostęp, należy zintegrować punkt końcowy usługi sieci wirtualnej dla tej Event Hubs przestrzeni nazw.
@@ -108,7 +112,7 @@ Parametry szablonu:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> na
+> na wartość
 > ```json
 > "defaultAction": "Deny"
 > ```

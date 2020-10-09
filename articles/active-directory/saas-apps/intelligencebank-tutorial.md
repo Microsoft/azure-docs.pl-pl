@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 5956623876646d976c2c93b4953adab33e8231b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429820f41025eda262742ac9aec1de3b646b141f
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535598"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850555"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą IntelligenceBank
 
@@ -137,11 +137,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **wystawca uwierzytelnienia** i kliknij pozycję **Dodaj nowe**
 
-    ![Konfiguracja IntelligenceBank](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![Zrzut ekranu przedstawia wybraną kartę administrator i Dodaj nową ikonę.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Wykonaj następujące czynności:
 
-    ![Konfiguracja IntelligenceBank](./media/intelligencebank-tutorial/urls.PNG)
+    ![Zrzut ekranu przedstawia pola, w których wprowadzane są informacje w tym kroku.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. W polu tekstowym **Nazwa** wprowadź nazwę na przykład `azureadsso` .
 
@@ -165,11 +165,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do pozycji użytkownicy **administracyjni**  ->  **Users** i wybierz **ikonę Dodaj nową użytkownika** , aby dodać **użytkownika**.
 
-    ![Konfiguracja IntelligenceBank](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![Zrzut ekranu przedstawia ikonę Użytkownicy wybraną na karcie Użytkownicy.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Wypełnij niezbędne pola zgodnie z wymaganiami organizacji, a następnie kliknij przycisk **Zapisz**.
 
-    ![Konfiguracja IntelligenceBank](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Zrzut ekranu przedstawia stronę Dodawanie nowego użytkownika, w której wprowadzane są informacje o użytkowniku.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -181,7 +181,7 @@ Po kliknięciu kafelka IntelligenceBank w panelu dostępu należy automatycznie 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305022"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850906"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie infor CloudSuite dla automatycznej aprowizacji użytkowników
 
@@ -68,11 +68,11 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
     
     ![Infor CloudSuite hasło](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Identyfikator CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną infor CloudSuite z wyróżnionym wierszem tabeli. Ten wiersz zawiera identyfikator użytkownika, hasła i sygnaturę czasową." border="false":::
 
 5. Aby wygenerować token okaziciela, skopiuj **Identyfikator użytkownika** i **hasło Standard scim**. Wklej je w Notatniku + + oddzielone dwukropkiem. Zakoduj wartość ciągu, przechodząc do **wtyczek > narzędzia MIME > kodowanie Basic64**. 
 
-    ![Identyfikator CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną infor CloudSuite z wyróżnionym wierszem tabeli. Ten wiersz zawiera identyfikator użytkownika, hasła i sygnaturę czasową." border="false":::
 
 3.  Skopiuj token okaziciela. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji infor CloudSuite w Azure Portal.
 
@@ -134,7 +134,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby infor CloudSuite**.
 

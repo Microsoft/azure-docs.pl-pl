@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552972"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850556"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą InVision
 
@@ -133,15 +133,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **zespół** i wybierz pozycję **Ustawienia**.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/config1.png)
+    ![Zrzut ekranu przedstawia kartę zespół z wybranymi ustawieniami.](./media/invision-tutorial/config1.png)
 
 1. Przewiń w dół do okna **rejestracja** jednokrotna, a następnie kliknij przycisk **Zmień**.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/config3.png)
+    ![Zrzut ekranu przedstawia przycisk Zmień na potrzeby logowania jednokrotnego.](./media/invision-tutorial/config3.png)
 
 1. Na stronie **Logowanie** jednokrotne wykonaj następujące czynności:
 
-    ![Konfiguracja InVision](./media/invision-tutorial/config4.png)
+    ![Zrzut ekranu przedstawia stronę logowania jednokrotnego, na której wprowadzane są wartości w tym kroku.](./media/invision-tutorial/config4.png)
 
     a. Zmień **wymaganie logowania jednokrotnego dla każdego elementu członkowskiego < nazwy konta >** na **włączone**.
 
@@ -169,19 +169,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **zespół** i wybierz pozycję **osoby**.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/config2.png)
+    ![Zrzut ekranu przedstawia kartę zespołu z wybranymi osobami.](./media/invision-tutorial/config2.png)
 
 1. Kliknij **ikonę +** , aby dodać nowego użytkownika.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia ikonę +, aby dodać użytkownika.](./media/invision-tutorial/user1.png)
 
 1. Wprowadź adres e-mail użytkownika, a następnie kliknij przycisk **dalej**.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia okno dialogowe zapraszanie do, w którym można wprowadzać adresy.](./media/invision-tutorial/user2.png)
 
 1. Zweryfikuj adres e-mail, a następnie kliknij pozycję **Zaproś**.
 
-    ![Konfiguracja InVision](./media/invision-tutorial/user3.png)
+    ![Zrzut ekranu przedstawia okno dialogowe zaproszenia, w którym można wybrać opcję Zapraszanie do wykonania.](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -193,7 +193,7 @@ Po kliknięciu kafelka InVision w panelu dostępu należy automatycznie zalogowa
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

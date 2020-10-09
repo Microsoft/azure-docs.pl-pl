@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891610"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850527"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą JIRA SAML SSO przez firmę Microsoft
 
@@ -156,11 +156,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/addon1.png)
+    ![Zrzut ekranu przedstawia Dodatki wybrane z menu Ustawienia.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Pobierz wtyczkę z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Ręcznie przekaż wtyczkę udostępnioną przez firmę Microsoft za pomocą menu **Przekazywanie dodatku**. Pobieranie wtyczki jest objęte [umową serwisową firmy Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawia Zarządzanie dodatkami za pomocą linku Przekaż dodatek o nazwie.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. Aby uruchomić scenariusz ze zwrotnym serwerem proxy lub modułem równoważenia obciążenia usługi JIRA, wykonaj następujące kroki:
 
@@ -171,19 +171,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![Zrzut ekranu przedstawia plik dot. x m l w edytorze z dodanym nowym wierszem.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. Zmień wartość w polu **Podstawowy adres URL** w obszarze **Ustawienia systemu** odpowiednio dla serwera proxy lub modułu równoważenia obciążenia.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![Zrzut ekranu przedstawia ustawienia administracyjne, w których można zmienić podstawową U R L.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Po zainstalowaniu wtyczki jest ona wyświetlana w sekcji dodatków **Zainstalowane przez użytkownika** w ramach sekcji **Zarządzanie dodatkami**. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/addon14.png)
+    ![Zrzut ekranu przedstawia sekcję "Logowanie jednokrotne SAML usługi Azure A D" dla JIRA z wybraną pozycją Konfiguruj.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Wykonaj następujące kroki na stronie konfiguracji:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jiramicrosoft-tutorial/addon54.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji logowania jednokrotnego Microsoft Azure Active Directory dla JIRA.](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Upewnij się, że tylko jeden certyfikat jest zamapowany do aplikacji, aby zapobiec błędom podczas rozpoznawania metadanych. Jeśli jest dostępnych wiele certyfikatów podczas rozpoznawania metadanych, administrator otrzyma błąd.
@@ -230,19 +230,19 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się na serwerze lokaln
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/jiramicrosoft-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia zarządzanie użytkownikami wybrane z menu Ustawienia.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. Nastąpi przekierowanie do strony dostępu administratora. Podaj wartość w polu **Password** (Hasło) i kliknij przycisk **Confirm** (Potwierdź).
 
-    ![Dodawanie pracownika](./media/jiramicrosoft-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia stronę dostępu administratora, na której wprowadzane są poświadczenia.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. W sekcji karty **User management** (Zarządzanie użytkownikami) kliknij pozycję **create user** (utwórz użytkownika).
 
-    ![Dodawanie pracownika](./media/jiramicrosoft-tutorial/user3.png) 
+    ![Zrzut ekranu przedstawia kartę Zarządzanie użytkownikami, w której można utworzyć użytkownika.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. Na stronie okna dialogowego **„Create new user”** (Tworzenie nowego użytkownika) wykonaj następujące kroki:
 
-    ![Dodawanie pracownika](./media/jiramicrosoft-tutorial/user4.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie nowego użytkownika, w którym można wprowadzić informacje w tym kroku.](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. W polu tekstowym **Email address** (Adres e-mail) wpisz adres e-mail użytkownika, na przykład B.simon@contoso.com.
 
@@ -264,7 +264,7 @@ Po kliknięciu kafelka JIRA SAML SSO by Microsoft na panelu dostępu powinno nas
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

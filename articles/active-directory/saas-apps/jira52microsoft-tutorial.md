@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547562"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Samouczek: integracja Azure Active Directory z usługą JIRA SAML SSO przez firmę Microsoft (V 5.2)
 
@@ -146,23 +146,23 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w programie JIRA SAML 
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jira52microsoft-tutorial/addon1.png)
+    ![Zrzut ekranu przedstawia Dodatki wybrane z menu Ustawienia.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. W sekcji karty Dodatki kliknij pozycję **Zarządzaj dodatkami**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jira52microsoft-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawia Dodatki zarządzania wybrane na karcie dodatki.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Pobierz wtyczkę z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=56521). Ręcznie przekaż wtyczkę udostępnioną przez firmę Microsoft za pomocą menu **Przekazywanie dodatku**. Pobieranie wtyczki jest objęte [umową serwisową firmy Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jira52microsoft-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawia Zarządzanie dodatkami za pomocą linku Przekaż dodatek o nazwie.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Po zainstalowaniu wtyczki jest ona wyświetlana w sekcji dodatków **Zainstalowane przez użytkownika**. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jira52microsoft-tutorial/addon13.png)
+    ![Zrzut ekranu przedstawia sekcję "Logowanie jednokrotne SAML usługi Azure A D" dla JIRA z wybraną pozycją Konfiguruj.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Wykonaj następujące kroki na stronie konfiguracji:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/jira52microsoft-tutorial/addon52.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji łącznika Microsoft JIRA S s.](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Upewnij się, że tylko jeden certyfikat jest zamapowany do aplikacji, aby zapobiec błędom podczas rozpoznawania metadanych. Jeśli jest dostępnych wiele certyfikatów podczas rozpoznawania metadanych, administrator otrzyma błąd.
@@ -251,19 +251,19 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się na serwerze lokaln
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/jira52microsoft-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia zarządzanie użytkownikami wybrane z menu Ustawienia.](./media/jira52microsoft-tutorial/user1.png)
 
 3. Nastąpi przekierowanie do strony dostępu administratora. Podaj wartość w polu **Password** (Hasło) i kliknij przycisk **Confirm** (Potwierdź).
 
-    ![Dodawanie pracownika](./media/jira52microsoft-tutorial/user2.png)
+    ![Zrzut ekranu przedstawia stronę dostępu administratora, na której wprowadzane są poświadczenia.](./media/jira52microsoft-tutorial/user2.png)
 
 4. W sekcji karty **User management** (Zarządzanie użytkownikami) kliknij pozycję **create user** (utwórz użytkownika).
 
-    ![Dodawanie pracownika](./media/jira52microsoft-tutorial/user3.png) 
+    ![Zrzut ekranu przedstawia kartę Zarządzanie użytkownikami, w której można utworzyć użytkownika.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. Na stronie okna dialogowego **„Create new user”** (Tworzenie nowego użytkownika) wykonaj następujące kroki:
 
-    ![Dodawanie pracownika](./media/jira52microsoft-tutorial/user4.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie nowego użytkownika, w którym można wprowadzić informacje w tym kroku.](./media/jira52microsoft-tutorial/user4.png)
 
     a. W polu tekstowym **Email address** (Adres e-mail) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
@@ -285,6 +285,6 @@ Po kliknięciu kafelka JIRA SAML SSO by Microsoft (V5.2) na panelu dostępu powi
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

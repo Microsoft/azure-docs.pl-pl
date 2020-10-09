@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5d4900713cd8d96180bf74b300a738a8b676421e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bd47a528b6c9aef354df8e52da63409002f6fb32
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547158"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Samouczek: integracja Azure Active Directory z pomocą techniczną Jitbit
 
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pomocy technicznej Jitbit, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-jitbit-helpdesk-single-sign-on)** jednokrotne w usłudze Jitbit, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w **[Jitbit pomocy technicznej](#configure-jitbit-helpdesk-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego pomocy technicznej Jitbit](#create-jitbit-helpdesk-test-user)** , aby dysponować odpowiednikiem Britta Simon w pomocy technicznej Jitbit, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
@@ -127,7 +127,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
 
     c. Adres URL wylogowywania
 
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w ramach pomocy technicznej Jitbit
+### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurowanie Sign-On pomocy technicznej Jitbit
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny pomocy technicznej Jitbit jako administrator.
 
@@ -137,13 +137,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
 
 1. Kliknij pozycję **Ustawienia ogólne**.
 
-    ![Użytkownicy, firmy i uprawnienia](./media/jitbit-helpdesk-tutorial/ic777680.png "Użytkownicy, firmy i uprawnienia")
+    ![Zrzut ekranu przedstawia link Ustawienia ogólne.](./media/jitbit-helpdesk-tutorial/ic777680.png "Użytkownicy, firmy i uprawnienia")
 
 1. W sekcji Konfiguracja **ustawień uwierzytelniania** wykonaj następujące czynności:
 
     ![Ustawienia uwierzytelniania](./media/jitbit-helpdesk-tutorial/ic777683.png "Ustawienia uwierzytelniania")
 
-    a. Wybierz pozycję Włącz logowanie jednokrotne w protokole **SAML 2,0**, aby zalogować się przy użyciu logowania jednokrotnego (SSO) z **OneLogin**.
+    a. Wybierz pozycję Włącz logowanie jednokrotne w protokole **SAML 2,0**, aby zalogować się przy użyciu jednego Sign-On (SSO) z **OneLogin**.
 
     b. W polu tekstowym **adres URL punktu końcowego** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
@@ -249,6 +249,6 @@ Po kliknięciu kafelka pomocy technicznej Jitbit w panelu dostępu należy autom
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

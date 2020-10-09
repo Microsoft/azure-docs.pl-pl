@@ -2,26 +2,28 @@
 title: Obciążenia kontenera
 description: Dowiedz się, jak uruchamiać i skalować aplikacje z obrazów kontenerów na Azure Batch. Utwórz pulę węzłów obliczeniowych, które obsługują Uruchamianie zadań kontenera.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018513"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843451"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera na Azure Batch
 
 Azure Batch umożliwia uruchamianie i skalowanie wielu zadań przetwarzania wsadowego na platformie Azure. Zadania wsadowe mogą być uruchamiane bezpośrednio na maszynach wirtualnych (węzłach) w puli wsadowej, ale można również skonfigurować pulę wsadową do uruchamiania zadań w kontenerach zgodnych z platformą Docker w węzłach. W tym artykule pokazano, jak utworzyć pulę węzłów obliczeniowych, które obsługują Uruchamianie zadań kontenera, a następnie uruchamiać zadania kontenera w puli.
 
-Należy zapoznać się z pojęciami dotyczącymi kontenera i sposobami tworzenia puli i zadań wsadowych. Przykłady kodu używają zestawów SDK dla programu Batch .NET i języka Python. Można również użyć innych zestawów SDK i narzędzi partii, w tym Azure Portal, aby utworzyć pule wsadowe z obsługą kontenerów i uruchamiać zadania kontenera.
+Przykłady kodu korzystają z zestawów SDK programu Batch .NET i języka Python. Można również użyć innych zestawów SDK i narzędzi partii, w tym Azure Portal, aby utworzyć pule wsadowe z obsługą kontenerów i uruchamiać zadania kontenera.
 
 ## <a name="why-use-containers"></a>Dlaczego warto korzystać z kontenerów?
 
 Używanie kontenerów zapewnia łatwy sposób uruchamiania zadań wsadowych bez konieczności zarządzania środowiskiem i zależnościami w celu uruchamiania aplikacji. Kontenery wdrażają aplikacje jako uproszczone, przenośne, samoobsługowe jednostki, które mogą działać w kilku różnych środowiskach. Na przykład Utwórz i przetestuj kontener lokalnie, a następnie Przekaż obraz kontenera do rejestru na platformie Azure lub w innym miejscu. Model wdrażania kontenerów zapewnia, że środowisko uruchomieniowe aplikacji jest zawsze prawidłowo zainstalowane i skonfigurowane wszędzie tam, gdzie hostuje aplikację. Zadania oparte na kontenerach w usłudze Batch mogą również korzystać z funkcji zadań nienależących do kontenera, w tym pakietów aplikacji i zarządzania plikami zasobów i plików wyjściowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+Należy zapoznać się z pojęciami dotyczącymi kontenera i sposobami tworzenia puli i zadań wsadowych.
 
 - **Wersje zestawu SDK**: w usłudze Batch SDK są obsługiwane obrazy kontenerów w następujących wersjach:
   - Interfejs API REST usługi Batch w wersji 2017 -09 — 01.6.0
@@ -282,6 +284,12 @@ Aby uruchomić zadanie kontenera w puli z obsługą kontenerów, określ ustawie
 - Użyj `ContainerSettings` właściwości klas zadań, aby skonfigurować ustawienia specyficzne dla kontenera. Te ustawienia są definiowane przez klasę [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Należy pamiętać, że `--rm` opcja kontenera nie wymaga dodatkowej `--runtime` opcji, ponieważ jest ona traktowana przez partię.
 
 - W przypadku uruchamiania zadań na obrazach kontenerów zadanie w [chmurze](/dotnet/api/microsoft.azure.batch.cloudtask) i [Menedżer zadań](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) wymagają ustawień kontenera. Jednak zadanie [Uruchom zadanie](/dotnet/api/microsoft.azure.batch.starttask), [zadanie przygotowania zadania](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)i [zwolnienia zadania](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) nie wymaga ustawień kontenera (oznacza to, że mogą być uruchamiane w ramach kontekstu kontenera lub bezpośrednio w węźle).
+
+- W przypadku systemu Windows zadania muszą być uruchamiane z [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) ustawionym na `admin` . 
+
+- W przypadku systemu Linux program Batch mapuje uprawnienie użytkownika/grupy do kontenera. Jeśli dostęp do dowolnego folderu w kontenerze wymaga uprawnień administratora, może być konieczne uruchomienie zadania jako zakresu puli z poziomem podniesienia uprawnień administratora. Pozwoli to zagwarantować, że partia uruchomi zadanie jako element główny w kontekście kontenera. W przeciwnym razie użytkownik niebędący administratorem może nie mieć dostępu do tych folderów.
+
+- W przypadku pul kontenerów z sprzętem opartym na procesorach GPU funkcja Batch automatycznie włączy procesor GPU dla zadań kontenera, więc nie należy uwzględniać `–gpus` argumentu.
 
 ### <a name="container-task-command-line"></a>Wiersz polecenia zadania kontenera
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5abfa26f5d897ade963253da81927a48cc65d781
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394078"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843264"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Jak skonfigurować protokół BGP na bramach sieci VPN platformy Azure przy użyciu programu PowerShell
 W tym artykule przedstawiono kroki umożliwiające włączenie protokołu BGP w ramach połączenia sieci VPN między lokacjami (S2S) i połączenia między sieciami wirtualnymi przy użyciu modelu wdrażania Menedżer zasobów i programu PowerShell.
@@ -109,7 +109,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Utwórz bramę sieci VPN przy użyciu numeru AS
-Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Protokół BGP wymaga bramy sieci VPN opartej na trasach, a także parametru dodawania,-ASN, aby ustawić ASN (jako numer) dla sieci testvnet1. Jeśli parametr ASN nie zostanie ustawiony, zostanie przypisany numer ASN 65515. Tworzenie bramy może potrwać co najmniej 30 minut.
+Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Protokół BGP wymaga Route-Based bramy sieci VPN, a także parametru dodawania,-ASN, aby ustawić ASN (numer AS) dla sieci testvnet1. Jeśli parametr ASN nie zostanie ustawiony, zostanie przypisany numer ASN 65515. Tworzenie bramy może potrwać co najmniej 30 minut.
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
@@ -214,7 +214,7 @@ Połączenie jest nawiązywane po kilku minutach, a sesja komunikacji równorzę
 
 Ta sekcja dodaje połączenie między sieciami wirtualnymi przy użyciu protokołu BGP, jak pokazano na poniższym diagramie:
 
-![Protokół BGP dla połączeń między sieciami wirtualnymi](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagram przedstawiający połączenie sieciowe w języku V do V.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 Poniższe instrukcje są kontynuowane w poprzednich krokach. Należy ukończyć [część i](#enablebgp) , aby utworzyć i skonfigurować sieci testvnet1 oraz VPN Gateway przy użyciu protokołu BGP. 
 

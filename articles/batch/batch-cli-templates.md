@@ -2,14 +2,14 @@
 title: Uruchamianie zadań na koniec do końca przy użyciu szablonów
 description: Korzystając tylko z poleceń interfejsu wiersza polecenia, można utworzyć pulę, przekazać dane wejściowe, utworzyć zadania i skojarzone zadania i pobrać wynikowe dane wyjściowe.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494931"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848725"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
 
@@ -65,7 +65,7 @@ Szablony Azure Batch są podobne do szablonów Azure Resource Manager, w funkcji
 -   **Parametry**
 
     -   Zezwalaj na określenie wartości właściwości w sekcji treści, z uwzględnieniem tylko wartości parametrów, które mają być dostarczone, gdy szablon jest używany. Na przykład pełna definicja puli może zostać umieszczona w treści i tylko jeden parametr zdefiniowany dla `poolId` ; w związku z tym należy podać tylko ciąg identyfikatora puli, aby utworzyć pulę.
-        
+
     -   Treść szablonu może zostać utworzona przez kogoś z wiedzą na temat partii i aplikacji, które mają być uruchamiane przez program Batch; gdy szablon jest używany, należy podać tylko wartości parametrów zdefiniowanych przez autora. Użytkownik bez szczegółowej wiedzy o partiach i/lub aplikacji może korzystać z szablonów.
 
 -   **Zmienne**
@@ -121,7 +121,7 @@ Poniżej przedstawiono przykładowy szablon, który tworzy pulę maszyn wirtualn
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ Poniżej przedstawiono przykładowy szablon, który tworzy zadanie do transkodow
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Grupa plików jest równa kontenerowi tworzonego na koncie usługi Azure Storage
 Rozszerzenie interfejsu wiersza polecenia usługi Batch umożliwia wysyłanie plików z klienta do określonej grupy plików i pobieranie plików z określonej grupy plików na klienta.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

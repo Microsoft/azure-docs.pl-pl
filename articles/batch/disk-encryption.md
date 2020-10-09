@@ -3,15 +3,15 @@ title: Tworzenie puli z włączonym szyfrowaniem dysku
 description: Dowiedz się, jak za pomocą konfiguracji szyfrowania dysków szyfrować węzły z kluczem zarządzanym przez platformę.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267052"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849266"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Tworzenie puli z włączonym szyfrowaniem dysku
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób tworzenia puli wsadowej z włączonym szyfrowanie
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Dlaczego warto używać puli z konfiguracją szyfrowania dysków?
 
-Za pomocą puli wsadowej można uzyskać dostęp do danych i przechowywać je w systemie operacyjnym oraz na dyskach tymczasowych w węźle obliczeniowym. Szyfrowanie dysku po stronie serwera za pomocą klucza zarządzanego przez platformę zapewnia ochronę tych danych przy niskim obciążeniu i wygodie.  
+Za pomocą puli wsadowej można uzyskać dostęp do danych i przechowywać je w systemie operacyjnym oraz na dyskach tymczasowych w węźle obliczeniowym. Szyfrowanie dysku po stronie serwera za pomocą klucza zarządzanego przez platformę zapewnia ochronę tych danych przy niskim obciążeniu i wygodie.
 
 Program Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłach obliczeniowych na podstawie konfiguracji puli i regionalnej obsługi.
 
@@ -35,8 +35,8 @@ Program Batch zastosuje jedną z tych technologii szyfrowania dysków w węzłac
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Nie będzie można określić, która metoda szyfrowania ma być stosowana do węzłów w puli. Zamiast tego należy podać dyski docelowe, które mają zostać zaszyfrowane w swoich węzłach, a w usłudze Batch można wybrać odpowiednią metodę szyfrowania, co zapewni zaszyfrowanie określonych dysków w węźle obliczeniowym.
- 
-## <a name="azure-portal"></a>Azure Portal 
+
+## <a name="azure-portal"></a>Azure Portal
 
 Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **TemporaryDisk** lub **OsAndTemporaryDisk** w obszarze **Konfiguracja szyfrowania dysku**.
 
@@ -44,7 +44,7 @@ Podczas tworzenia puli zadań wsadowych w Azure Portal wybierz opcję **Temporar
 
 Po utworzeniu puli w sekcji **Właściwości** puli można zobaczyć cele konfiguracji szyfrowania dysków.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu przedstawiający elementy docelowe konfiguracji szyfrowania dysków w Azure Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Zrzut ekranu opcji Konfiguracja szyfrowania dysku w Azure Portal.":::
 
 ## <a name="examples"></a>Przykłady
 
@@ -87,7 +87,7 @@ Treść żądania:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812322"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850383"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -29,8 +29,9 @@ Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasob
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
 1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
-1. W obszarze **podstawowe**wprowadź wymagane pola i wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
-1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszy wybór, aby utworzyć nowy. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
+1. W obszarze **podstawowe**wpisz swoją preferowaną **subskrypcję**, **grupę zasobów**, **region**, a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
+1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2 i kontener na tym koncie. Najprostszy wybór, aby utworzyć nowy. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
+    1. Obszar roboczy Synapse będzie używać tego kontenera jako lokalizacji domyślnej do przechowywania dzienników platformy Spark i danych dla tabel Spark.
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
     1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
     1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.

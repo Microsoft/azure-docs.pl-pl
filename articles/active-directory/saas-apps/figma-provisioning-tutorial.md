@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322040"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850910"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Figma na potrzeby automatycznego aprowizacji użytkowników
 
@@ -53,23 +53,23 @@ Przed skonfigurowaniem usługi Figma do automatycznego aprowizacji użytkownikó
 
 1. Zaloguj się do [konsoli administracyjnej Figma](https://www.Figma.com/). Kliknij ikonę koła zębatego obok dzierżawy.
 
-    ![FigmaFigma — obsługa administracyjna](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
 
 2. Przejdź do **ogólne > Aktualizuj logowanie w ustawieniach**.
 
-    ![FigmaFigma — obsługa administracyjna](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
 
 3. Skopiuj **Identyfikator dzierżawy**. Ta wartość zostanie użyta do skonstruowania adresu URL punktu końcowego Standard scim, który zostanie wprowadzony do pola **adresu URL dzierżawy** na karcie aprowizacji aplikacji Figma w Azure Portal.
 
-    ![Utwórz token Figma](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
 
 4. Przewiń w dół i kliknij pozycję **Generuj token interfejsu API**.
 
-    ![Utwórz token Figma](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
 
 5. Skopiuj wartość  **tokenu interfejsu API** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Figma w Azure Portal. 
 
-    ![Utwórz token Figma](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Figma. Jest widoczny dzierżawca o nazwie test D Standard scim. Obok dzierżawy zostanie wyróżniona ikona koła zębatego." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Dodaj Figma z galerii
 
@@ -124,7 +124,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Figma**.
 

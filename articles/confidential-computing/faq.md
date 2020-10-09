@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987997"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848912"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Często zadawane pytania dotyczące usługi Azure poufnego przetwarzania
 
@@ -49,13 +49,17 @@ Upewnij się, że wybrano [dostępny region](https://azure.microsoft.com/global-
 
 [Utwórz żądanie obsługi, aby zwiększyć limit przydziału](../azure-portal/supportability/per-vm-quota-requests.md). Subskrypcje bezpłatnej wersji próbnej nie mają przydziału dla maszyn wirtualnych służących do przetwarzania poufnego. 
 
-**Jaka jest różnica między maszynami wirtualnymi serii DCsv2 i kontrolerów domeny?**
+**Jaka jest różnica między maszynami wirtualnymi DCsv2-Series i DC-Series?**
 
-Maszyny wirtualne z serii DC działają na starszych, 6-rdzeniowych procesorach Intel z technologią Intel SGX i mają mniej łączną ilość pamięci, mniej enklawy pamięć podręczną strony (EPC) i są dostępne tylko w dwóch regionach (Wschodnie stany USA i Europa Zachodnia w Standard_DC2s i Standard_DC4s rozmiaru). Nie ma żadnych planów, aby te maszyny wirtualne były ogólnie dostępne i nie są zalecane do użycia w środowisku produkcyjnym. Aby wdrożyć te maszyny wirtualne, użyj wystąpienia portalu Marketplace z  [obsługą poufnego przetwarzania kontrolerów domen (wersja zapoznawcza)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
+DC-Series maszyny wirtualne działają na starszym 6-rdzeniowych procesorach Intel z technologią Intel SGX i mają mniej łączną ilość pamięci, mniej enklawy pamięć podręczną strony (EPC) i są dostępne tylko w dwóch regionach (Wschodnie stany USA i Europa Zachodnia w systemach Standard_DC2s i Standard_DC4s). Nie ma żadnych planów, aby te maszyny wirtualne były ogólnie dostępne i nie są zalecane do użycia w środowisku produkcyjnym. Aby wdrożyć te maszyny wirtualne, użyj wystąpienia portalu Marketplace dotyczącego  [przetwarzania poufnego DC-Series maszyny wirtualnej [wersja zapoznawcza]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
 
 **Czy maszyny wirtualne DCsv2 są dostępne globalnie?**
 
 Nie. W tej chwili te maszyny wirtualne są dostępne tylko w wybranych regionach. Zapoznaj się ze [stroną produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) , aby uzyskać najnowsze dostępne regiony. 
+
+**Czy funkcja Hyper-Threading jest wyłączona na tych maszynach?**
+
+Funkcja Hyper-Threading jest wyłączona dla wszystkich poufnych klastrów obliczeniowych platformy Azure.
 
 **Jak mogę zainstalować zestaw SDK open enklawy na maszynach wirtualnych DCsv2?**
    

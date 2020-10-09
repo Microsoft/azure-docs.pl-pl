@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321360"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848861"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 |**Umowa SLA dla czasu działania**|99,99%|99,99%|99,99%|
 |**Maksymalne przechowywanie kopii zapasowych**|7 dni|35 dni|35 dni|
 |**Procesor CPU**|Niski|Niski, średni, wysoki|Średni, wysoki|
-|**Przepływność we/wy (przybliżona)** |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
+|**Operacje we/wy (przybliżone)**\* |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
 |**Opóźnienie we/wy (przybliżone)**|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
-|**Indeksowanie magazynu kolumn** |Nie dotyczy|S3 i nowsze|Obsługiwane|
+|**Indeksowanie magazynu kolumn** |Brak|S3 i nowsze|Obsługiwane|
 |**Przetwarzanie OLTP w pamięci**|NIE DOTYCZY|NIE DOTYCZY|Obsługiwane|
 
+\* Wszystkie operacje we/wy odczytu i zapisu dla plików danych, w tym w przypadku tworzenia w tle (Checkpoint i składnika zapisywania z opóźnieniem)
+
 > [!IMPORTANT]
-> Warstwy usług podstawowa, standardowa S0, S1 i S2 zapewniają mniej niż jeden rdzeń wirtualny (CPU).  W przypadku obciążeń intensywnie korzystających z procesora CPU zaleca się użycie warstwy usług S3 lub wyższej. 
+> Cele usługi Basic, S0, S1 i S2 zapewniają mniej niż jeden rdzeń wirtualny (CPU).  W przypadku obciążeń intensywnie korzystających z procesora CPU zaleca się przeznaczenie usługi S3 lub wyższej. 
 >
->W odniesieniu do magazynu danych warstwy usług podstawowa, standardowa S0 i S1 są umieszczane na stronach standardowych obiektów BLOB. Standardowe obiekty blob stronicowe korzystają z nośników magazynowania opartych na dyskach twardych i najlepiej nadają się do tworzenia, testowania i innych rzadko używanych obciążeń, które są mniej wrażliwe na zmienności wydajności.
+> W celach usługi Basic, S0 i S1 pliki bazy danych są przechowywane w usłudze Azure Standard Storage, która używa nośnika magazynu opartego na dysku twardym (dysk twardy). Te cele usługi najlepiej nadają się do programowania, testowania i innych rzadko używanych obciążeń, które są mniej wrażliwe na zmienności wydajności.
 >
+
+> [!TIP]
+> Aby wyświetlić rzeczywiste limity [ładu zasobów](resource-limits-logical-server.md#resource-governance) dla bazy danych lub puli elastycznej, wykonaj zapytanie do widoku [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > Możesz uzyskać bezpłatną bazę danych w Azure SQL Database w podstawowej warstwie usług w połączeniu z bezpłatnym kontem platformy Azure, aby poznać platformę Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie zarządzanej bazy danych w chmurze przy użyciu bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/services/sql-database/).
@@ -68,7 +73,7 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Limity liczby jednostek eDTU puli elastycznej, magazynu i bazy danych w puli
 
-|| **Podstawowa** | **Standardowa** | **Premium** |
+|| **Podstawowe** | **Standardowa** | **Premium** |
 | :-- | --: | --: | --: |
 | **Maksymalny rozmiar magazynu na bazę danych**  | 2 GB | 1 TB | 1 TB |
 | **Maksymalny rozmiar magazynu na pulę** | 156 GB | 4 TB | 4 TB |
@@ -118,7 +123,7 @@ Obciążenie obejmuje dziewięć typów transakcji, jak pokazano w poniższej ta
 | Aktualizuj ciężki |AKTUALIZACJI przede wszystkim nie w pamięci; Odczyt i zapis |
 | Wstaw Lite |WSTAWIENIA w pamięci; Odczyt i zapis |
 | Wstaw ciężki |WSTAWIENIA przede wszystkim nie w pamięci; Odczyt i zapis |
-| Usuń |USUNIĘTY mieszanie w pamięci, a nie w pamięci; Odczyt i zapis |
+| Usuwanie |USUNIĘTY mieszanie w pamięci, a nie w pamięci; Odczyt i zapis |
 | Duże użycie procesora |ZAZNACZENIA w pamięci; relatywnie duże obciążenie procesora CPU; tylko do odczytu |
 
 ### <a name="workload-mix"></a>Mieszanie obciążeń
@@ -134,7 +139,7 @@ Transakcje są wybierane losowo z dystrybucji ważonej przy użyciu następując
 | Aktualizuj ciężki |3 |
 | Wstaw Lite |3 |
 | Wstaw ciężki |2 |
-| Usuń |2 |
+| Usuwanie |2 |
 | Duże użycie procesora |10 |
 
 ### <a name="users-and-pacing"></a>Użytkownicy i tempem

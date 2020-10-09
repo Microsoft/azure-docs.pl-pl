@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552730"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850044"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą iSAMs
 
@@ -132,16 +132,16 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Przejdź do panelu sterowania i otwórz moduł **uwierzytelniania** .
 1. Z menu po prawej stronie wybierz pozycję **dostawcy tożsamości**
 
-    ![Konfigurowanie](./media/isams-tutorial/click-identity-provider.png)
+    ![Zrzut ekranu przedstawia konfigurację Active Directory z wybranymi dostawcami tożsamości.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Wybierz pozycję **Dodaj dostawcę**
 
-    ![Konfigurowanie](./media/isams-tutorial/add-identity-provider.png)
+    ![Zrzut ekranu przedstawia dostawców tożsamości z wybranymi Dodaj dostawców.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Wykonaj następujące czynności na poniższej stronie:
 
-    ![Konfigurowanie](./media/isams-tutorial/configure-isams.png)
+    ![Zrzut ekranu przedstawia kreatora dostawców tożsamości, w którym można wykonać opisane kroki.](./media/isams-tutorial/configure-isams.png)
 
     a. W polu tekstowym **Nazwa** nadaj poprawną nazwę, taką jak `Saml2 Azure` . To jest nazwa, która będzie wyświetlana na stronie logowania.
 
@@ -159,12 +159,12 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2.  Przejdź do **Panelu sterowania**  ->  **zabezpieczenia główne & uprawnienia**  ->  **konta użytkowników**  ->  **Opcje użytkownika & zadania**  ->  **Modyfikuj właściwości użytkownika**
 
-    ![Użytkownik testowy](./media/isams-tutorial/modify-user-properties.png)
+    ![Zrzut ekranu przedstawia stronę konta użytkowników z wybranymi właściwościami Modyfikuj użytkownika.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. W wyświetlonym oknie podręcznym wybierz kartę **szczegóły konta** i Zmień **autoryzację** na nowo utworzonego dostawcę tożsamości.
 
-    ![Użytkownik testowy](./media/isams-tutorial/account-details.png)
+    ![Zrzut ekranu przedstawia szczegóły konta z wartością do autoryzacji.](./media/isams-tutorial/account-details.png)
 
 4. Kliknij pozycję **zapisz & Zamknij**.
 
@@ -178,7 +178,7 @@ Po kliknięciu kafelka usługi iSAM w panelu dostępu należy automatycznie zalo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
