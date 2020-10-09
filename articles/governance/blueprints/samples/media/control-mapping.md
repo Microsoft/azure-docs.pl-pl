@@ -4,10 +4,10 @@ description: Sterowanie mapowaniem przykładów planu multimediów. Każda kontr
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208470"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu multimediów
@@ -47,7 +47,7 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="ac-1-21---separation-of-duties-must-be-enforced-through-appropriate-assignment-of-role"></a>AC-1-21 — separacja obowiązków musi być wymuszana przez odpowiednie przypisanie roli.
 
-- [Wersja zapoznawcza \] : Access Control oparty na rolach (RBAC) powinna być używana w usługach Kubernetes Services
+- [Wersja zapoznawcza \] : Role-Based Access Control (RBAC) powinna być używana w usługach Kubernetes Services
 
 ### <a name="ac-140--ensure-that-systems-are-not-connecting-trusted-network-and-untrusted-networks-at-the-same-time"></a>AC-1,40 — upewnij się, że systemy nie łączą zaufanych sieci i niezaufanych sieci w tym samym czasie.
 
@@ -63,7 +63,7 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="ac-154--ensure-multi-factor-authentication-mfa-is-enabled-for-all-cloud-console-users"></a>AC-1,54 — upewnij się, że uwierzytelnianie wieloskładnikowe (MFA) jest włączone dla wszystkich użytkowników konsoli w chmurze.
 
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 - Multi-Factor Authentication (MFA) powinna być włączona dla wszystkich kont subskrypcji z uprawnieniami do zapisu, aby zapobiec naruszeniu kont lub zasobów.
 
 ## <a name="auditing--logging"></a>Inspekcja & rejestrowanie

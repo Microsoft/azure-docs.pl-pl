@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852620"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Samouczek: konwertowanie eksperymentów ML do kodu w języku Python produkcji
@@ -431,7 +431,7 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`mogą teraz być wywoływane z terminalu przez uruchomienie `python train.py` .
+`train.py` mogą teraz być wywoływane z terminalu przez uruchomienie `python train.py` .
 Funkcje z `train.py` mogą również być wywoływane z innych plików.
 
 `train_aml.py`Plik znaleziony w `diabetes_regression/training` katalogu w repozytorium MLOpsPython wywołuje funkcje zdefiniowane w `train.py` kontekście uruchomienia eksperymentu Azure Machine Learning. Funkcje mogą być również wywoływane w testach jednostkowych, omówione w dalszej części tego przewodnika.
@@ -493,7 +493,7 @@ def init():
 
 Czwarty, Utwórz testy jednostkowe dla funkcji języka Python. Testy jednostkowe chronią kod przed regresją funkcjonalną i ułatwiają ich obsługę. W tej sekcji utworzysz testy jednostkowe dla funkcji w programie `train.py` .
 
-`train.py`zawiera wiele funkcji, ale utworzymy tylko jeden test jednostkowy dla `train_model` funkcji przy użyciu struktury Pytest w tym samouczku. Pytest nie jest jedyną strukturą testów jednostkowych w języku Python, ale jest jednym z najczęściej używanych. Aby uzyskać więcej informacji, odwiedź stronę [Pytest](https://pytest.org).
+`train.py` zawiera wiele funkcji, ale utworzymy tylko jeden test jednostkowy dla `train_model` funkcji przy użyciu struktury Pytest w tym samouczku. Pytest nie jest jedyną strukturą testów jednostkowych w języku Python, ale jest jednym z najczęściej używanych. Aby uzyskać więcej informacji, odwiedź stronę [Pytest](https://pytest.org).
 
 Test jednostkowy zwykle zawiera trzy główne akcje:
 

@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905956"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: używanie programu PowerShell do zbiorczego zapraszania użytkowników współpracy B2B usługi Azure AD
@@ -128,7 +128,7 @@ Aby sprawdzić, czy zaproszeni użytkownicy zostali dodani do usługi Azure AD, 
 
 Zobaczysz użytkowników, którzy zaprosił, z główną nazwą użytkownika (UPN) w formacie *emailaddress*#EXT # \@ *Domain*. Na przykład *lstokes_fabrikam. com # EXT # \@ contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Testowe konta użytkowników możesz usunąć z katalogu, gdy nie będą już potrzebne. Uruchom następujące polecenie, aby usunąć konto użytkownika:
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
 ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88209204"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
@@ -665,7 +665,7 @@ W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacj
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
-   | **Password** (Hasło) | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
+   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
    | **Lokalizacja** | *East US* | Wybierz ten sam region, w którym utworzono pamięć podręczną i usługę App Service. |
 
 1. Kliknij pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie pozycję **Utwórz**, aby utworzyć nową bazę danych i nowy serwer.
@@ -727,7 +727,7 @@ Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć u�
 2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...**.
 3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów**.
 
-    ![Usuń](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Usuwanie](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

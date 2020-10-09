@@ -16,10 +16,10 @@ ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054028"
 ---
 # <a name="create-a-nat-gateway-using-azure-cli"></a>Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure

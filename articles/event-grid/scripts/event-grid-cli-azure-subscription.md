@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: fe81be64ea4672d233564726cfdae5b60951057d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494336"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Subskrybowanie do zdarzeń dla subskrypcji platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure

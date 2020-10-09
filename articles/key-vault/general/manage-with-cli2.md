@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504538"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure 
@@ -44,10 +44,10 @@ Aby zapoznać się z omówieniem Azure Key Vault, zobacz [co to jest Azure Key V
 Aby korzystać z poleceń interfejsu wiersza polecenia platformy Azure w tym artykule, należy dysponować następującymi elementami:
 
 * Subskrypcja platformy Microsoft Azure. Jeśli go nie masz, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial).
-* Interfejs wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby zainstalować najnowszą wersję, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* Interfejs Command-Line platformy Azure w wersji 2,0 lub nowszej. Aby zainstalować najnowszą wersję, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Aplikacja, która zostanie skonfigurowana do korzystania z klucza lub hasła utworzonego w tym artykule. Przykładowa aplikacja jest dostępna w [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=45343). Aby uzyskać instrukcje, zobacz zawarty plik Readme.
 
-### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Uzyskiwanie pomocy dotyczącej międzyplatformowego interfejsu wiersza polecenia platformy Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Uzyskiwanie pomocy dotyczącej międzyplatformowego interfejsu Command-Line platformy Azure
 
 W tym artykule założono, że znasz interfejs wiersza polecenia (bash, Terminal, wiersz polecenia).
 
@@ -58,7 +58,7 @@ az account set --help
 az account set -h
 ```
 
-Możesz również zapoznać się z następującymi artykułami, aby zapoznać się z Azure Resource Manager w wieloplatformowym interfejsie wiersza polecenia platformy Azure:
+Możesz również zapoznać się z następującymi artykułami, aby zapoznać się z Azure Resource Manager w interfejsie Command-Line na wielu platformach platformy Azure:
 
 * [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 * [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)
@@ -92,7 +92,7 @@ Określ subskrypcję z parametrem subskrypcji.
 az account set --subscription <subscription name or ID>
 ```
 
-Aby uzyskać więcej informacji na temat konfigurowania wieloplatformowego interfejsu wiersza polecenia platformy Azure, zobacz [Install Azure CLI](/cli/azure/install-azure-cli).
+Aby uzyskać więcej informacji na temat konfigurowania interfejsu Command-Line międzyplatformowego platformy Azure, zobacz [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-a-new-resource-group"></a>Tworzenie nowej grupy zasobów
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Użyj `az keyvault create` polecenia, aby utworzyć magazyn kluczy. Ten skrypt ma trzy obowiązkowe parametry: nazwę grupy zasobów, nazwę magazynu kluczy i lokalizację geograficzną.
 
-Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault**, w grupie zasobów **ContosoResourceGroup**, znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
+Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault**, w grupie zasobów  **ContosoResourceGroup**, znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -219,7 +219,7 @@ Aby autoryzować tę samą aplikację do odczytu wpisów tajnych w magazynie, wp
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a>Ustawianie zaawansowanych zasad dostępu magazynu kluczy
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Ustawianie zaawansowanych zasad dostępu magazynu kluczy
 
 Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć zaawansowane zasady dla magazynu kluczy.
 
@@ -271,7 +271,7 @@ Następne polecenie importuje pakiet "Przenieś własny klucz" (BYOK). Umożliwi
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
-Aby uzyskać szczegółowe instrukcje dotyczące sposobu generowania tego pakietu BYOK, zobacz [jak używać kluczy chronionych przez moduł HSM z Azure Key Vault](../keys/hsm-protected-keys.md).
+Aby uzyskać szczegółowe instrukcje dotyczące sposobu generowania tego pakietu BYOK, zobacz [jak używać kluczy HSM-Protected z Azure Key Vault](../keys/hsm-protected-keys.md).
 
 ## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Usuwanie magazynu kluczy oraz skojarzonych kluczy i wpisów tajnych
 
@@ -327,4 +327,4 @@ az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 
 - Aby uzyskać informacje dotyczące programowania, zobacz [przewodnik dewelopera Azure Key Vault](developers-guide.md)
 
-- Aby uzyskać informacje na temat Azure Key Vault i sprzętowych modułów zabezpieczeń, zobacz [jak używać kluczy chronionych przez moduł HSM z Azure Key Vault](../keys/hsm-protected-keys.md).
+- Aby uzyskać informacje na temat Azure Key Vault i sprzętowych modułów zabezpieczeń, zobacz [jak używać kluczy HSM-Protected z Azure Key Vault](../keys/hsm-protected-keys.md).

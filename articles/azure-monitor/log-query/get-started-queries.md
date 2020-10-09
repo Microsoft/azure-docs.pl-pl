@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874065"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
@@ -130,7 +130,7 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Wartości mogą mieć różne typy, więc może być konieczne rzutowanie ich w celu przeprowadzenia porównania w poprawnym typie. Na przykład kolumna *poziomu* SecurityEvent jest typu String, więc musisz rzutować ją na typ liczbowy, na przykład *int* lub *Long*, zanim będzie można używać operatorów numerycznych:`SecurityEvent | where toint(Level) >= 10`
+> Wartości mogą mieć różne typy, więc może być konieczne rzutowanie ich w celu przeprowadzenia porównania w poprawnym typie. Na przykład kolumna *poziomu* SecurityEvent jest typu String, więc musisz rzutować ją na typ liczbowy, na przykład *int* lub *Long*, zanim będzie można używać operatorów numerycznych: `SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Określ zakres czasu
 
@@ -151,7 +151,7 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-W filtrze powyżej " `ago(30m)` 30 minut temu", więc to zapytanie zwraca tylko rekordy z ostatnich 30 minut. Inne jednostki czasu obejmują dni (2D), minuty (25m) i sekundy (dziesiątkach).
+W filtrze powyżej "  `ago(30m)` 30 minut temu", więc to zapytanie zwraca tylko rekordy z ostatnich 30 minut. Inne jednostki czasu obejmują dni (2D), minuty (25m) i sekundy (dziesiątkach).
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projekt i rozszerzona: Wybieranie i kolumny obliczeniowe

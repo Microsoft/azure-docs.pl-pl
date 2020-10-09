@@ -5,7 +5,7 @@
   items:
     - name: Informacje o usłudze Service Fabric Mesh
       href: service-fabric-mesh-overview.md
-- name: Przewodniki Szybki start
+- name: Przewodniki Szybki Start
   items:
     - name: Wdrażanie aplikacji Hello World
       href: service-fabric-mesh-quickstart-deploy-container.md
@@ -75,7 +75,7 @@
       href: move-across-regions.md
     - name: Znajdowanie przykładów
       href: service-fabric-mesh-howto-find-samples.md
-- name: Dokumentacja
+- name: Tematy pomocy
   items:
     - name: Interfejsy API REST dostawcy zasobów usługi Service Fabric Mesh
       href: /rest/api/servicefabric/sfmeshrp-index

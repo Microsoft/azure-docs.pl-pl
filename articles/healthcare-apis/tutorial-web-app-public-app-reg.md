@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852977"
 ---
 # <a name="client-application-registration"></a>Rejestracja aplikacji klienta
@@ -21,7 +21,7 @@ W poprzednim samouczku wdrożono i skonfigurowano interfejs API platformy Azure 
 
 1. Przejdź do Azure Active Directory
 1. Wybierz pozycję **Rejestracja aplikacji**  -->  **Nowa rejestracja**
-1. Nazwij aplikację i skonfiguruj identyfikator URI przekierowania nahttps://www.getpostman.com/oauth2/callback
+1. Nazwij aplikację i skonfiguruj identyfikator URI przekierowania na https://www.getpostman.com/oauth2/callback
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Zrzut ekranu przedstawiający okienko Zarejestruj aplikację oraz przykładową nazwę aplikacji i adres URL przekierowania.":::
 
@@ -29,7 +29,7 @@ W poprzednim samouczku wdrożono i skonfigurowano interfejs API platformy Azure 
 
 Po zarejestrowaniu aplikacji klienckiej Skopiuj identyfikator aplikacji (klienta) i identyfikator dzierżawy ze strony przegląd. Te dwie wartości będą potrzebne później podczas uzyskiwania dostępu do klienta.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Zrzut ekranu przedstawiający okienko ustawienia aplikacji klienckiej z wyróżnionymi identyfikatorami aplikacji i katalogów.":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Zrzut ekranu przedstawiający okienko Zarejestruj aplikację oraz przykładową nazwę aplikacji i adres URL przekierowania.":::
 
 ### <a name="connect-with-web-app"></a>Łączenie z aplikacją sieci Web
 
@@ -43,7 +43,7 @@ Jeśli [aplikacja sieci Web została zapisywana](tutorial-web-app-write-web-app.
 
 1. Zaznacz pola wyboru **token dostępu** i **token identyfikatora** .
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Zrzut ekranu przedstawiający blok ustawień uwierzytelniania aplikacji z instrukcjami dodawania wyróżnionej platformy.":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Zrzut ekranu przedstawiający okienko Zarejestruj aplikację oraz przykładową nazwę aplikacji i adres URL przekierowania.":::
 
 ## <a name="add-api-permissions"></a>Dodawanie uprawnień do interfejsu API
 
@@ -53,7 +53,7 @@ Teraz, po skonfigurowaniu prawidłowego uwierzytelniania, Ustaw uprawnienia inte
 1. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj interfejsy API usługi Azure opieki zdrowotnej.
 1. Wybierz **user_impersonation** i kliknij przycisk **Dodaj uprawnienia**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Zrzut ekranu przedstawiający blok Dodawanie uprawnień interfejsu API z wyróżnionymi krokami dodawania uprawnień interfejsu API.":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Zrzut ekranu przedstawiający okienko Zarejestruj aplikację oraz przykładową nazwę aplikacji i adres URL przekierowania.":::
 
 ## <a name="next-steps"></a>Następne kroki
 Masz teraz publiczną aplikację kliencką. W następnym samouczku będziemy przeprowadzać testy i uzyskiwać dostęp do tej aplikacji za pomocą programu Poster.

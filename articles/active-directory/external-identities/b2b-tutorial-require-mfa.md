@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905964"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Samouczek: wymuszanie uwierzytelniania wieloskładnikowego dla użytkowników-gości B2B
@@ -32,7 +32,7 @@ Przykład:
 3.  Użytkownik jest proszony o ukończenie testu usługi MFA. 
 4.  Użytkownik konfiguruje usługę MFA w firmie A i wybiera jej opcję usługi MFA. Użytkownik może uzyskiwać dostęp do aplikacji.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Testowanie środowiska logowania przed uruchomieniem instalacji usługi MFA.
@@ -81,7 +81,7 @@ Do ukończenia scenariusza zaprezentowanego w tym samouczku potrzebne są nastę
 7.  Na stronie **Użytkownicy i grupy** wybierz pozycję **Wybierz użytkowników i grupy**, a następnie wybierz pozycję **Wszyscy użytkownicy-goście (wersja zapoznawcza)**.
 
     ![Zrzut ekranu przedstawiający wybieranie wszystkich użytkowników-Gości](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  Kliknij **Gotowe**.
+9.  Wybierz pozycję **Gotowe**.
 10. Na stronie **Nowy** w sekcji **Przypisania** wybierz pozycję **Aplikacje w chmurze**.
 11. Na stronie **Aplikacje w chmurze** wybierz pozycję **Wybierz aplikację**, a następnie wybierz pozycję **Wybierz**.
 
@@ -131,7 +131,7 @@ Do ukończenia scenariusza zaprezentowanego w tym samouczku potrzebne są nastę
  
 3.  Wyloguj się.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, Usuń użytkownika testowego i testowe zasady dostępu warunkowego.
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
 2.  W lewym okienku wybierz pozycję **Azure Active Directory**.

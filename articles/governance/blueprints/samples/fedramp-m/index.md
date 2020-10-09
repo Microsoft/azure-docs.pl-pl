@@ -4,10 +4,10 @@ description: Omówienie przykładu strategii FedRAMP Moderate. Ten przykład str
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: 6d0ec128a09f3426dbcec63353f04395ed92996d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495798"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Omówienie przykładu strategii FedRAMP Moderate

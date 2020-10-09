@@ -10,13 +10,13 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502396"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Przełączanie w tryb failover i ponowne Włączanie ochrony maszyn wirtualnych platformy Azure między regionami
+# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Praca awaryjna i ponowna ochrona maszyn wirtualnych platformy Azure między regionami
 
 W tym samouczku opisano sposób przełączenia maszyny wirtualnej platformy Azure w tryb failover na pomocniczy region platformy Azure z usługą [Azure Site Recovery](site-recovery-overview.md) . Po przełączeniu w tryb failover ponownie Włącz ochronę maszyny wirtualnej. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 

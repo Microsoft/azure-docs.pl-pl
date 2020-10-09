@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503654"
 ---
 # <a name="azure-storage-samples"></a>Przykłady usługi Azure Storage
@@ -43,7 +43,7 @@ Aby zapoznać się z przykładami języka Python, Pobierz [bibliotekę klienta m
 
 ## <a name="nodejs-samples"></a>Przykłady dla platformy Node.js
 
-Aby zapoznać się z przykładami Node.js, Pobierz [bibliotekę klienckąNode.js Storage](https://github.com/Azure/azure-storage-node).
+Aby zapoznać się z przykładami Node.js, Pobierz [ bibliotekę klienckąNode.js Storage](https://github.com/Azure/azure-storage-node).
 
 * [Przykłady usługi Azure Storage korzystające z języka JavaScript/Node.js](storage-samples-javascript.md)
 
@@ -59,7 +59,7 @@ Aby zapoznać się z przykładami języka C++, Pobierz [bibliotekę kliencką us
 
 Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-* [Wprowadzenie do interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)
+* [Rozpocznij pracę z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli)
 * [Przykłady usługi Azure Storage korzystające z interfejsu wiersza polecenia platformy Azure](/azure/storage/blobs/storage-samples-blobs-cli)
 * [Popularne artykuły dotyczące korzystania z interfejsu wiersza polecenia platformy Azure z usługą Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
@@ -70,7 +70,7 @@ Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Z
 | .NET | [Dokumentacja biblioteki klienta platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi .NET Storage](https://github.com/Azure/azure-storage-net) |
 | Java | [Dokumentacja biblioteki klienta Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi Java Storage](https://github.com/azure/azure-storage-java) |
 | Python | [Dokumentacja biblioteki klienta języka Python](https://azure-storage.readthedocs.io/) | [Kod źródłowy biblioteki klienta usługi Python Storage](https://github.com/Azure/azure-storage-python) |
-| Node.js | [Dokumentacja biblioteki klientaNode.js](https://azure.github.io/azure-storage-node) | [Kod źródłowy biblioteki klienta Node.js Storage](https://github.com/Azure/azure-storage-node) |
+| Node.js | [ Dokumentacja biblioteki klientaNode.js](https://azure.github.io/azure-storage-node) | [Kod źródłowy biblioteki klienta Node.js Storage](https://github.com/Azure/azure-storage-node) |
 | C++ | [Dokumentacja biblioteki klienta C++](https://azure.github.io/azure-storage-cpp/) | [Kod źródłowy biblioteki klienta usługi C++ Storage](https://github.com/Azure/azure-storage-cpp)|
 | Interfejs wiersza polecenia platformy Azure | [Dokumentacja biblioteki interfejsu wiersza polecenia platformy Azure](/cli/azure/storage) | [Kod źródłowy biblioteki klienta magazynu interfejsu wiersza polecenia platformy Azure](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054344"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
@@ -109,11 +109,11 @@ Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy uży
 
 * Klucz **prywatny** jest stosowany do domeny zarządzanej.
     * Ten klucz prywatny jest używany do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej i nie jest rozpowszechniany na komputerach klienckich.
-    * Certyfikat zawierający klucz prywatny używa *. *Format pliku PFX.
+    * Certyfikat zawierający klucz prywatny używa *. * Format pliku PFX.
     * Algorytm szyfrowania dla certyfikatu musi być *TripleDES-SHA1*.
 * Na komputerach klienckich jest stosowany klucz **publiczny** .
     * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
-    * Certyfikaty bez klucza prywatnego korzystają z programu *. *Format pliku CER.
+    * Certyfikaty bez klucza prywatnego korzystają z programu *. * Format pliku CER.
 
 Te dwa klucze, *prywatne* i *publiczne* klucze, należy upewnić się, że tylko odpowiednie komputery mogą pomyślnie komunikować się ze sobą. Jeśli używasz publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa, zostanie wystawiony certyfikat zawierający klucz prywatny i można go zastosować do domeny zarządzanej. Klucz publiczny powinien już być znany i zaufany przez komputery klienckie.
 
@@ -121,7 +121,7 @@ W tym samouczku utworzono certyfikat z podpisem własnym z kluczem prywatnym, dl
 
 ### <a name="export-a-certificate-for-azure-ad-ds"></a>Eksportowanie certyfikatu dla AD DS platformy Azure
 
-Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną, należy wyeksportować certyfikat do programu *. *Plik certyfikatu PFX, który zawiera klucz prywatny.
+Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z domeną zarządzaną, należy wyeksportować certyfikat do programu *. * Plik certyfikatu PFX, który zawiera klucz prywatny.
 
 1. Aby otworzyć okno dialogowe *uruchamiania* , wybierz klucze **systemu Windows**  +  **R** .
 1. Otwórz program Microsoft Management Console (MMC), wprowadzając **program MMC** w oknie dialogowym *uruchamiania* , a następnie wybierz przycisk **OK**.
@@ -142,7 +142,7 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 1. Należy wyeksportować klucz prywatny dla certyfikatu. Jeśli klucz prywatny nie jest uwzględniony w wyeksportowanym certyfikacie, Akcja włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej nie powiedzie się.
 
     Na stronie **Eksportowanie klucza prywatnego** wybierz opcję **tak, eksportuj klucz prywatny**, a następnie wybierz przycisk **dalej**.
-1. Domeny zarządzane obsługują tylko *. *Format pliku certyfikatu PFX, który zawiera klucz prywatny. Nie Eksportuj certyfikatu jako *. *Format pliku certyfikatu CER bez klucza prywatnego.
+1. Domeny zarządzane obsługują tylko *. * Format pliku certyfikatu PFX, który zawiera klucz prywatny. Nie Eksportuj certyfikatu jako *. * Format pliku certyfikatu CER bez klucza prywatnego.
 
     Na stronie **Format pliku eksportu** wybierz opcję **wymiana informacji osobistych — PKCS #12 (. PFX)** jako format pliku dla wyeksportowanego certyfikatu. Zaznacz pole wyboru *Dołącz wszystkie certyfikaty ze ścieżki certyfikacji, jeśli jest to możliwe*:
 
@@ -150,9 +150,9 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 
 1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła nie można zastosować certyfikatu do usługi.
 
-    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. *Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
+    Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *. * Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS.pfx*. Zanotuj hasło i lokalizację *. Plik PFX* , ponieważ te informacje będą wymagane w następnych krokach.
-1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. *Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. * Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 1. Pozostaw otwarty program MMC do użycia w poniższej sekcji.
 
 ### <a name="export-a-certificate-for-client-computers"></a>Eksportowanie certyfikatu dla komputerów klienckich
@@ -169,12 +169,12 @@ W tym samouczku zostanie użyty certyfikat z podpisem własnym i Wygenerowano ce
     ![Wybierz opcję Wyeksportuj certyfikat w formacie X. 509 z kodowaniem Base-64 (. CER) — format pliku](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
-1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. *Plik certyfikatu CER. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
+1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *. * Plik certyfikatu CER. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 
 *. *Plik certyfikatu CER może być teraz dystrybuowany do komputerów klienckich, które muszą ufać bezpiecznemu połączeniu LDAP z domeną zarządzaną. Zainstalujmy certyfikat na komputerze lokalnym.
 
-1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której zapisano plik *. *Plik certyfikatu cer, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
-1. Kliknij prawym przyciskiem myszy *. *Plik certyfikatu cer, a następnie wybierz pozycję **Zainstaluj certyfikat**.
+1. Otwórz Eksploratora plików i przejdź do lokalizacji, w której zapisano plik *. * Plik certyfikatu cer, taki jak *C:\Users\accountname\azure-AD-DS-Client.cer*.
+1. Kliknij prawym przyciskiem myszy *. * Plik certyfikatu cer, a następnie wybierz pozycję **Zainstaluj certyfikat**.
 1. W **Kreatorze importu certyfikatów**wybierz opcję przechowywania certyfikatu na *komputerze lokalnym*, a następnie wybierz pozycję **dalej**:
 
     ![Wybierz opcję importowania certyfikatu do lokalnego magazynu maszynowego](./media/tutorial-configure-ldaps/import-cer-file.png)
@@ -286,7 +286,7 @@ Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania 
 
 1. Na komputerze lokalnym Otwórz *Notatnik* jako administrator
 1. Przeglądaj i Otwórz plik *C:\Windows\System32\drivers\etc\hosts*
-1. Usuń wiersz dla dodanego rekordu, taki jak`168.62.205.103    ldaps.aaddscontoso.com`
+1. Usuń wiersz dla dodanego rekordu, taki jak `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Następne kroki
 

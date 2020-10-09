@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142115"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Samouczek: zwracanie Azure Data Box (wersja zapoznawcza)
@@ -47,7 +47,7 @@ Następne czynności są zależne od lokalizacji, z której zwracasz urządzenie
 
 Upewnij się, że kopia danych z urządzenia została ukończona, a **przygotowanie do wysłania** uruchomienie zakończyło się pomyślnie. W zależności od regionu, w którym jest wysyłane urządzenie, procedura jest inna.
 
-## <a name="us-canada-europe"></a>[USA, Kanada, Europa](#tab/in-us-canada-europe)
+## <a name="us-canada-europe"></a>[W Stanach Zjednoczonych, Kanadzie, Europie](#tab/in-us-canada-europe)
 
 W przypadku zwrotu urządzenia w Stanach Zjednoczonych, Kanadzie lub Europie wykonaj następujące czynności.
 
@@ -71,7 +71,7 @@ W przypadku centrów danych w Australii obowiązuje dodatkowe zabezpieczenie. Za
 2. Upewnij się, że kopiowanie danych na urządzenie zostało ukończone, a **przygotowanie do wysłania** zakończyło się pomyślnie.
 3. Wyłącz urządzenie i odłącz kable.
 4. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.
-5. Zarezerwuj do pobrania w trybie online za pomocą [linku DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
+5. Zarezerwuj odbiór online na stronie [Link do firmy DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ## <a name="japan"></a>[Japonia](#tab/in-japan)
 
@@ -135,7 +135,7 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
 4. Aby zaksięgować pobranie z DHL, wybierz jedną z następujących opcji:
 
     * Wywołaj centrum kontaktowe działu obsługi klienta przed 2:00 PM w dniu **+ 27 (0) 11 9213600**, wybierz opcję 1, a następnie określ numer telefonu.
-    * Wyślij wiadomość e-mail [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) , aby użyć następującego szablonu:
+    * Wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), korzystając z następującego szablonu:
 
     ```output
     To: Priority.Support@dhl.com
@@ -145,20 +145,20 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```
 
-    * Alternatywnie możesz porzucić pakiet w najbliższym punkcie usługi DHL.
+    * Alternatywnie możesz dostarczyć paczkę do najbliższego punktu obsługującego usługę firmy DHL.
 
-5. Jeśli napotkasz jakiekolwiek problemy, Wyślij wiadomość e-mail [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o wykrytych problemach i umieść numer list kontrolnych w wierszu subject:. Możesz również wywołać metodę + 27 (0) 119213902.
+5. W przypadku napotkania problemów wyślij wiadomość e-mail na adres [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) ze szczegółowymi informacjami o napotkanych problemach, a w wierszu tematu podaj numer listu przewozowego. Możesz również zadzwonić pod numer +27(0)119213902.
 
-## <a name="hong-kong"></a>[Hongkong SAR](#tab/in-hk)
+## <a name="hong-kong"></a>[SRA Hongkong](#tab/in-hk)
 
-1. Pakowanie urządzenia w celu wysłania zwrotnego w oryginalnym polu.
+1. Na potrzeby wysyłki zwrotnej zapakuj urządzenie w oryginalne pudełko.
 2. Zanotuj numer odwołania (numer śledzenia dla wysyłki odwrotnej) widoczny w lokalnym interfejsie użytkownika sieci Web urządzenia. Ta liczba jest wyświetlana po pomyślnym **uruchomieniu przygotowanie do wysłania** .
 3. Pobierz i wydrukuj etykietę wysyłkową, która jest dostępna w lokalnym interfejsie użytkownika sieci Web urządzenia i umieścić ją w pakiecie dostarczania.
 4. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.
-5. Wywołaj **Quantium Solutions** **(852) 2318 1213** w godzinach pracy (9:00 do 18:00, od poniedziałku do piątku).  
-6. Oferta Microsoft Azure pobrania i numer referencyjny oraz numer śledzenia (powyżej kodu kreskowego) na etykiecie wysyłki zwrotnej do rozmieszczenia dla kolekcji.
-7. Otrzymasz słowne potwierdzenie terminu odbioru. Jeśli Courier nie dotarł do kolekcji, wywołaj metodę Quantium Solutions, aby zapoznać się z alternatywnymi rozwiązaniami.
-8. Po zarezerwacji odbioru za pomocą usługi Quantium, Udostępnij potwierdzenie z [Microsoft urządzenie Data Box Operations Azja](mailto:adbo@microsoft.com) przy użyciu następującego szablonu:
+5. Zadzwoń na infolinię firmy **Quantium Solutions** pod numer **(852) 2318 1213** w godzinach jej pracy (od 9:00 do 18:00, od poniedziałku do piątku).  
+6. Powołaj się na odbiór przesyłki w ramach platformy Microsoft Azure i podaj numer referencyjny oraz numer śledzenia (powyższy kod kreskowy) na zwrotnej etykiecie wysyłkowej w celu zorganizowania odbioru urządzenia.
+7. Otrzymasz słowne potwierdzenie terminu odbioru. Jeśli kurier nie zjawi się po odbiór przesyłki, zadzwoń na infolinię firmy Quantium Solutions, aby zaplanować odbiór alternatywny.
+8. Po zarezerwowaniu odbioru za pośrednictwem firmy Quantium udostępnij potwierdzenie działowi [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com), korzystając z następującego szablonu:
 
     ```output
     To: adbo@microsoft.com
@@ -176,7 +176,7 @@ W przypadku wystąpienia jakichkolwiek problemów urządzenie Data Box operacji 
 
 ## <a name="self-managed"></a>[Samodzielne zarządzanie](#tab/in-selfmanaged)
 
-Jeśli używasz urządzenie Data Box w Japonii, Singapur, Korea, Indie, RPA lub Europa Zachodnia i wybrano opcję wysyłki samozarządzanej podczas tworzenia zamówienia, postępuj zgodnie z tymi instrukcjami.
+Jeśli korzystasz z urządzenia Data Box w Japonii, Singapurze, Korei, Indiach, Republice Południowej Afryki lub Europie Zachodniej oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi instrukcjami podczas tworzenia zamówienia.
 
 1. Zanotuj kod autoryzacji widoczny na stronie przygotowywania do wysyłki w lokalnym internetowym interfejsie użytkownika urządzenia Data Box po pomyślnym ukończeniu tego kroku.
 2. Wyłącz urządzenie i odłącz kable. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.

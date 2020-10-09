@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
 ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848190"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Przykłady usługi Azure Storage korzystające z bibliotek klienckich V12 Python
@@ -24,7 +24,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="blob-samples"></a>Przykłady obiektów BLOB
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -283,7 +283,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="azure-files-samples"></a>Przykłady Azure Files
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -427,7 +427,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
 
 ## <a name="queue-samples"></a>Przykładowe kolejki
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -502,7 +502,7 @@ Poniższe tabele zawierają omówienie naszych repozytorium przykładów oraz sc
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Wiadomość
+### <a name="message"></a>Komunikat
 
 :::row:::
    :::column span="":::

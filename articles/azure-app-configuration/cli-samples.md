@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d6e644a73a18cdfda71ae6a4e5360b713c08f4f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504402"
 ---
 # <a name="azure-cli-samples"></a>Przykłady interfejsu wiersza polecenia platformy Azure
@@ -22,7 +22,7 @@ Poniższa tabela zawiera linki do skryptów bash dla konfiguracji aplikacji plat
 |-|-|
 |**Utwórz**||
 | [Tworzenie magazynu konfiguracji aplikacji](./scripts/cli-create-service.md) | Tworzy grupę zasobów i wystąpienie magazynu konfiguracji aplikacji.  |
-|**Używanych**||
+|**Zastosowanie**||
 | [Pracuj z wartościami klucza](./scripts/cli-work-with-keys.md) | Tworzy, przegląda, aktualizuje i usuwa wartości klucza. |
 | [Importuj wartości klucza](./scripts/cli-import.md) | Importuje wartości klucza z innych źródeł. |
 | [Eksportuj wartości klucza](./scripts/cli-export.md) | Eksportuje wartości klucza do innych elementów docelowych. |

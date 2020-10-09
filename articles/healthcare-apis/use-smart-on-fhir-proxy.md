@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846979"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Samouczek: Azure Active Directory INTELIGENTNEgo serwera proxy FHIR
@@ -27,7 +27,7 @@ W tym samouczku opisano, jak używać serwera proxy do włączania inteligentnyc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Wystąpienie interfejsu API platformy Azure dla usługi FHIR
-- [.NET Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 ## <a name="configure-azure-ad-registrations"></a>Konfigurowanie rejestracji w usłudze Azure AD
 

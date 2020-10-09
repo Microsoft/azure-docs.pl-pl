@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042449"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs
@@ -60,11 +60,11 @@ Wygeneruj plik żądania podpisania certyfikatu (CSR), którego firma Apple uży
 
 3. Wybierz **adres E-mail użytkownika**, wprowadź wartość **Nazwa pospolita**   , upewnij się, że określono opcję **Zapisano na dysku**, a następnie wybierz pozycję **Kontynuuj**. Pozostaw puste **adresy E-mail urzędu certyfikacji**   , ponieważ nie jest to wymagane.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Wymagane informacje o certyfikacie":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Dostęp do łańcucha kluczy":::
 
 4. Wprowadź nazwę pliku CSR w obszarze **Zapisz jako**, wybierz lokalizację w **miejscu**, a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Wybierz nazwę pliku":::
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Dostęp do łańcucha kluczy":::
 
    Ta akcja zapisuje plik CSR w wybranej lokalizacji. Domyślna lokalizacja to **Desktop**. Zapamiętaj wybraną lokalizację pliku.
 
@@ -76,26 +76,26 @@ Aby wysyłać powiadomienia wypychane do aplikacji systemu iOS, zarejestruj swoj
 
 1. Jeśli aplikacja nie została jeszcze zarejestrowana, przejdź do [portalu aprowizacji systemu iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456)   w centrum deweloperów firmy Apple. Zaloguj się do portalu przy użyciu identyfikatora Apple ID, a następnie wybierz pozycję **identyfikatory**. Następnie wybierz pozycję  **+**   , aby zarejestrować nową aplikację.
 
-   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Strona identyfikatorów aplikacji":::
+   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Dostęp do łańcucha kluczy":::
 
 2. Na ekranie **Rejestrowanie nowego identyfikatora**   Wybierz przycisk radiowy **identyfikatory aplikacji**   . Następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Rejestracja nowej strony identyfikatora":::
+   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Dostęp do łańcucha kluczy":::
 
 3. Zaktualizuj następujące trzy wartości dla nowej aplikacji, a następnie wybierz pozycję **Kontynuuj**:
 
    - **Opis**: wpisz nazwę opisową aplikacji.
    - **Identyfikator pakietu**: Wprowadź identyfikator pakietu formularza **identyfikator organizacji. Nazwa produktu**   , jak wspomniano w [przewodniku po dystrybucji aplikacji](https://help.apple.com/xcode/mac/current/#/dev91fe7130a).  **Identyfikator organizacji**   i wartości **nazwy produktu**   muszą być zgodne z identyfikatorem organizacji i nazwą produktu używaną podczas tworzenia projektu Xcode. Na poniższym zrzucie ekranu wartość **NotificationHubs**   jest używana jako identyfikator organizacji, a wartość **getstarted**   jest używana jako nazwa produktu. Upewnij się, że wartość **identyfikatora pakietu**   pasuje do wartości w projekcie Xcode, tak aby Xcode używała poprawnego profilu publikacji.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Zarejestruj identyfikator aplikacji":::
+      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Dostęp do łańcucha kluczy":::
 
    - **Powiadomienia wypychane**: zaznacz opcję **powiadomienia wypychane**   w sekcji **możliwości**   .
 
-      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Zarejestruj nowy identyfikator aplikacji":::
+      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Dostęp do łańcucha kluczy":::
 
       Ta akcja spowoduje wygenerowanie identyfikatora aplikacji i żądań potwierdzających informacje. Wybierz pozycję **Kontynuuj**, a następnie wybierz pozycję **zarejestruj**,   Aby potwierdzić nowy identyfikator aplikacji.
 
-      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Potwierdź nowy identyfikator aplikacji":::
+      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Dostęp do łańcucha kluczy":::
 
       Po wybraniu pozycji **zarejestruj**nowy identyfikator aplikacji zostanie wyświetlony na stronie **certyfikaty, identyfikatory & profile**   .
 
@@ -118,11 +118,11 @@ Druga opcja ma wiele korzyści w porównaniu z użyciem certyfikatów, zgodnie z
 
 1. Przewiń w dół do opcji sprawdzone **powiadomienia wypychane**   , a następnie wybierz pozycję **Konfiguruj**,   Aby utworzyć certyfikat.
 
-   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="Identyfikator aplikacji":::
+   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="Dostęp do łańcucha kluczy":::
 
 2. Zostanie wyświetlone okno **Certyfikaty SSL usługi powiadomień wypychanych firmy Apple**   . Wybierz przycisk **Utwórz certyfikat**   w sekcji **programowanie certyfikatu SSL**   .
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Utwórz certyfikat":::
+   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Dostęp do łańcucha kluczy":::
 
    Zostanie wyświetlony ekran **Utwórz nowy certyfikat**   .
 
@@ -133,11 +133,11 @@ Druga opcja ma wiele korzyści w porównaniu z użyciem certyfikatów, zgodnie z
 
 4. Po utworzeniu certyfikatu przez portal wybierz przycisk **Pobierz**   . Zapisz certyfikat i Zapamiętaj lokalizację, w której został zapisany.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Pobieranie certyfikatu":::
+   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Dostęp do łańcucha kluczy":::
 
    Certyfikat zostanie pobrany i zapisany w folderze **pobierania**   .
 
-   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Lokalizowanie pliku certyfikatu":::
+   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Dostęp do łańcucha kluczy":::
 
    Domyślnie pobrany certyfikat programistyczny nosi nazwę **aps_development. cer**.
 
@@ -149,7 +149,7 @@ Druga opcja ma wiele korzyści w porównaniu z użyciem certyfikatów, zgodnie z
 
 6. W oknie dostęp do łańcucha kluczy kliknij prawym przyciskiem myszy nowy certyfikat wypychania utworzony w kategorii **Certyfikaty**   . Wybierz pozycję **Eksportuj**, Nazwij plik, wybierz format **. p12**   , a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Eksportowanie certyfikatu":::
+   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Dostęp do łańcucha kluczy":::
 
    Możesz zdecydować się na ochronę certyfikatu hasłem, ale jest to opcjonalne. Kliknij przycisk **OK**   , jeśli chcesz pominąć tworzenie haseł. Zanotuj nazwę pliku i lokalizację wyeksportowanego certyfikatu .p12. Są one używane do włączania uwierzytelniania przy użyciu usługi APNS.
 
@@ -201,11 +201,11 @@ Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotycz
 
 2. Wybierz pozycję **Programowanie aplikacji dla systemu iOS**   w obszarze **programowanie**   jako typ profilu aprowizacji, a następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Lista profili aprowizacji":::
+   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Dostęp do łańcucha kluczy":::
 
 3. Następnie wybierz identyfikator aplikacji utworzony na podstawie listy rozwijanej **Identyfikator aplikacji**   , a następnie wybierz pozycję **Kontynuuj**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Wybierz identyfikator aplikacji":::
+   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Dostęp do łańcucha kluczy":::
 
 4. W oknie **Wybieranie certyfikatów**   Wybierz certyfikat programistyczny używany do podpisywania kodu, a następnie wybierz pozycję **Kontynuuj**. Ten certyfikat nie jest utworzonym certyfikatem wypychania. Jeśli taki nie istnieje, należy go utworzyć. Jeśli certyfikat istnieje, przejdź do następnego kroku. Aby utworzyć certyfikat programistyczny, jeśli taki nie istnieje:
 
@@ -224,7 +224,7 @@ Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotycz
 
 8. Na koniec wybierz nazwę profilu w polu **Nazwa profilu aprowizacji**, a następnie wybierz pozycję **Generuj**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Wybierz nazwę profilu aprowizacji":::
+   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Dostęp do łańcucha kluczy":::
 
 9. Po utworzeniu nowego profilu aprowizacji wybierz pozycję **Pobierz**. Zapamiętaj lokalizację, w której została zapisana.
 
@@ -238,11 +238,11 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
 
 2. W menu po lewej stronie wybierz pozycję **wszystkie usługi**   , a następnie wybierz pozycję **Notification Hubs**   w sekcji **mobilnej**   . Wybierz ikonę gwiazdki obok nazwy usługi, aby dodać usługę do sekcji **Ulubione**   w menu po lewej stronie. Po dodaniu **Notification Hubs**   do **ulubionych**wybierz ją.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Witryna Azure Portal":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Dostęp do łańcucha kluczy":::
 
 3. Na stronie **Notification Hubs**   Wybierz pozycję **Dodaj**   na pasku narzędzi.
 
-   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Przycisk Dodaj na pasku narzędzi":::
+   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Dostęp do łańcucha kluczy":::
 
 4. Na stronie **Notification Hubs**   wykonaj następujące czynności:
 
@@ -252,18 +252,18 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
    4. Wybierz istniejącą grupę zasobów w **grupie zasobów**lub Utwórz nową grupę zasobów.
    5. Wybierz pozycję  **Utwórz**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Ustawianie właściwości":::
+   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Dostęp do łańcucha kluczy":::
 
 5. Wybierz pozycję **powiadomienia**   (ikona dzwonka), a następnie wybierz pozycję **Przejdź do zasobu**. Możesz również odświeżyć listę na stronie **Notification Hubs**   i wybrać centrum.
 
-   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Powiadomienia portalu":::
+   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Dostęp do łańcucha kluczy":::
 
 6. Wybierz z listy pozycję **zasady dostępu**   . Należy pamiętać, że dwa parametry połączenia są dostępne dla Ciebie. Będą one potrzebne później do obsługi powiadomień wypychanych.
 
    > [!IMPORTANT]
    > Nie należy używać zasad **DefaultFullSharedAccessSignatureymi** w aplikacji. Jest to przeznaczone tylko do użycia w zapleczu.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Parametry połączeń":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Dostęp do łańcucha kluczy":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Konfigurowanie centrum powiadomień przy użyciu informacji dotyczących usługi APNS
 
@@ -284,7 +284,7 @@ W obszarze **usługi powiadomień**wybierz pozycję **Apple (APNs)**, a nastę
 
 5. Wybierz tryb **piaskownicy**   .
 
-   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Ustaw opcję":::
+   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Dostęp do łańcucha kluczy":::
 
 6. Wybierz pozycję **Zapisz**.
 

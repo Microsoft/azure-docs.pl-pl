@@ -11,10 +11,10 @@ ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922198"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: Tworzenie dzierżawy usługi Azure Active Directory B2C
@@ -61,7 +61,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     ![Utwórz formularz dzierżawy przy użyciu przykładowych wartości w Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Przejrzyj ustawienia katalogu. Następnie wybierz przycisk **Utwórz**.
 
 Możesz połączyć wiele dzierżawców Azure AD B2C z pojedynczą subskrypcją platformy Azure na potrzeby rozliczeń. Aby połączyć dzierżawcę, musisz być administratorem w dzierżawie Azure AD B2C i mieć przypisaną co najmniej rolę współautor w ramach subskrypcji platformy Azure. Aby dowiedzieć się, jak [połączyć dzierżawę Azure AD B2C z subskrypcją](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).

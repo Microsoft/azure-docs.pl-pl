@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: victorh
 ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205580"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Samouczek: Tworzenie bramy aplikacji z regułami routingu opartymi na ścieżce przy użyciu Azure Portal
@@ -62,7 +62,7 @@ W tym przykładzie utworzysz trzy maszyny wirtualne, które będą używane jako
    - *10.0.1.0/24* — dla przestrzeni adresów podsieci.
    - *myAGSubnet* — dla drugiej nazwy podsieci.
    - *10.0.0.0/24* — jako przestrzeń adresową podsieci.
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
 8. Upewnij się, że w obszarze **interfejs sieciowy**został wybrany **myBackendSubnet** dla podsieci, a następnie wybierz pozycję **Dalej: Zarządzanie**.
 9. Wybierz pozycję **wyłączone** , aby wyłączyć diagnostykę rozruchu.

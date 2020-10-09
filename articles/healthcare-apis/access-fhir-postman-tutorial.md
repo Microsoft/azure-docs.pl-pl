@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
 ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844851"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
@@ -24,14 +24,14 @@ Aplikacja kliencka uzyskuje dostęp do interfejsu API FHIR za pomocą [interfejs
 
 - Punkt końcowy FHIR na platformie Azure. Można skonfigurować, aby korzystać z zarządzanego interfejsu API platformy Azure dla FHIR lub serwera Open Source FHIR dla platformy Azure. Skonfiguruj zarządzany interfejs API platformy Azure dla usługi FHIR przy użyciu [Azure Portal](fhir-paas-portal-quickstart.md), [programu PowerShell](fhir-paas-powershell-quickstart.md)lub [interfejsu wiersza polecenia platformy Azure](fhir-paas-cli-quickstart.md).
 - [Aplikacja kliencka](register-confidential-azure-ad-client-app.md) , która będzie używana w celu uzyskania dostępu do usługi FHIR
-- Zainstalowano notkę. Możesz uzyskać od[https://www.getpostman.com](https://www.getpostman.com)
+- Zainstalowano notkę. Możesz uzyskać od [https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>FHIR serwer i szczegóły uwierzytelniania
 
 Aby można było użyć programu Poster, konieczne są następujące informacje:
 
-- Adres URL serwera FHIR, na przykład`https://MYACCOUNT.azurehealthcareapis.com`
-- Dostawca tożsamości `Authority` dla serwera FHIR, na przykład`https://login.microsoftonline.com/{TENANT-ID}`
+- Adres URL serwera FHIR, na przykład `https://MYACCOUNT.azurehealthcareapis.com`
+- Dostawca tożsamości `Authority` dla serwera FHIR, na przykład `https://login.microsoftonline.com/{TENANT-ID}`
 - Skonfigurowane `audience` . Jest to zazwyczaj adres URL serwera FHIR, np. `https://MYACCOUNT.azurehealthcareapis.com` lub tylko `https://azurehealthcareapis.com` .
 - `client_id`(Lub identyfikator aplikacji) [aplikacji klienckiej](register-confidential-azure-ad-client-app.md) , która będzie używana do uzyskiwania dostępu do usługi FHIR.
 - `client_secret`(Lub klucz tajny aplikacji) aplikacji klienckiej.
@@ -67,12 +67,12 @@ Konieczna będzie pewna część szczegółów:
 | Nazwa tokenu            | Mój TOKEN                                                                                                         | Wybrana nazwa          |
 | Typ udzielenia            | Kod autoryzacji                                                                                              |                            |
 | Adres URL wywołania zwrotnego          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
-| Adres URL uwierzytelniania              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience`jest `https://MYACCOUNT.azurehealthcareapis.com` przeznaczony dla interfejsu API platformy Azure dla FHIR |
+| Adres URL uwierzytelniania              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` jest `https://MYACCOUNT.azurehealthcareapis.com` przeznaczony dla interfejsu API platformy Azure dla FHIR |
 | Adres URL tokenu dostępu      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
 | Identyfikator klienta             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Identyfikator aplikacji             |
 | Klucz tajny klienta         | `XXXXXXXX`                                                                                                        | Klucz klienta tajnego          |
 | Zakres | `<Leave Blank>` |
-| Stan                 | `1234`                                                                                                            |                            |
+| State                 | `1234`                                                                                                            |                            |
 | Uwierzytelnianie klienta | Wyślij poświadczenia klienta w treści                                                                                 |                 
 
 Trafij "token żądania" i przejdziesz przez przepływ uwierzytelniania Azure Active Directory, a token zostanie zwrócony do programu Poster. Jeśli wystąpią problemy, Otwórz konsolę programu Poster (z elementu menu "widok->Pokaż konsolę wpisów").
