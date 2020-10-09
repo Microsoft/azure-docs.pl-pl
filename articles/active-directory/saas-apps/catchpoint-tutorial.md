@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530311"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą punkt przechwytywania
@@ -74,7 +74,7 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Na stronie integracja aplikacji **punkt przechwytywania** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę pióra, aby edytować **podstawowe ustawienia konfiguracji SAML** .
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę pióra, aby edytować **podstawowe ustawienia konfiguracji SAML** .
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
     > [!NOTE]
     > To `namespace` zastrzeżenie musi być zamapowane przy użyciu nazwy konta. Ta nazwa konta powinna być skonfigurowana z rolą w usłudze Azure AD, aby mogła zostać przeniesiona z powrotem w odpowiedzi SAML. Aby uzyskać więcej informacji na temat ról w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-1. Przejdź do strony **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** . W sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby zapisać certyfikat na komputerze.
+1. Przejdź do strony **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** . W sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby zapisać certyfikat na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ W tej sekcji użyjesz Azure Portal, aby utworzyć użytkownika testowego usługi
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład wprowadź `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** . Zanotuj wartość wyświetlaną hasło.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -158,7 +158,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    Pole | Wartość
    ----- | ----- 
-   **Przestrzeń nazw** | Prawidłowa wartość przestrzeni nazw.
+   **Obszaru** | Prawidłowa wartość przestrzeni nazw.
    **Wystawca dostawcy tożsamości** | `Azure AD Identifier`Wartość z Azure Portal.
    **Adres URL logowania jednokrotnego** | `Login URL`Wartość z Azure Portal.
    **Certyfikat** | Zawartość pobranego `Certificate (Base64)` pliku z Azure Portal. Użyj Notatnika, aby wyświetlić i skopiować.
@@ -186,7 +186,7 @@ Po wybraniu kafelka punkt przechwytywania w portalu My Apps należy automatyczni
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

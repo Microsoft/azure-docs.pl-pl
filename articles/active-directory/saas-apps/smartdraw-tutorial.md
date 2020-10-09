@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
 ms.openlocfilehash: f99993792c2d5f4300025f26d8409207382553d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88527625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SmartDraw
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Wartość adresu URL logowania nie jest prawdziwa. Ta wartość adresu URL logowania zostanie zaktualizowana przy użyciu rzeczywistego adresu URL logowania, co objaśniono w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Aplikacja SmartDraw oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -97,7 +97,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | ---------------| --------------- |
     | FirstName (Imię) | user.givenname |
     | LastName (Nazwisko) | user.surname |
-    | E-mail | user.mail |
+    | Poczta e-mail | user.mail |
     | Grupy | User. Groups |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
@@ -184,7 +184,7 @@ Po kliknięciu kafelka SmartDraw w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

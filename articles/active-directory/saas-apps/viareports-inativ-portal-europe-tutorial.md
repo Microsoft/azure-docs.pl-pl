@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.openlocfilehash: c4c1ffa4d8e9b175ced40671f1ac3d092b51c8c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532022"
 ---
 # <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>Samouczek: integracja Viareport (Europa) z Azure Active Directory
@@ -60,7 +60,7 @@ Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Viare
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Viareport (Europa), wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego (Europa) Viareport](#configure-viareport-europe-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj rejestrację jednokrotną Viareport (Europa)](#configure-viareport-europe-sso)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
 4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
 5. **[Utwórz użytkownika testowego Viareport (Europa)](#create-viareport-europe-test-user)** , aby dysponować odpowiednikiem B. Simon w Viareport (Europa), która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Viareport (Europa)** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -138,7 +138,7 @@ Po kliknięciu kafelka Viareport (Europa) w panelu dostępu należy automatyczni
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

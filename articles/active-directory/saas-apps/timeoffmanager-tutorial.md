@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88527319"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą TimeOffManager
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | --- | --- |
     | Firstname |Użytkownik. podanąname |
     | Lastname |User. nazwisko |
-    | E-mail |User.mail |
+    | Poczta e-mail |User.mail |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -144,13 +144,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny TimeOffManager jako administrator.
 
-2. Przejdź do pozycji konto **konta \> Opcje \> logowania jednokrotnego**.
+2. Przejdź do ** \> opcji konta konta \> Ustawienia pojedyncze Sign-On**.
    
-    ![Ustawienia logowania jednokrotnego](./media/timeoffmanager-tutorial/ic795917.png "Ustawienia logowania jednokrotnego")
+    ![Ustawienia pojedynczego Sign-On](./media/timeoffmanager-tutorial/ic795917.png "Ustawienia pojedynczego Sign-On")
 
-3. W sekcji **Ustawienia logowania** jednokrotnego wykonaj następujące czynności:
+3. W sekcji **Ustawienia pojedynczej Sign-On** wykonaj następujące czynności:
    
-    ![Ustawienia logowania jednokrotnego](./media/timeoffmanager-tutorial/ic795918.png "Ustawienia logowania jednokrotnego")
+    ![Ustawienia pojedynczego Sign-On](./media/timeoffmanager-tutorial/ic795918.png "Ustawienia pojedynczego Sign-On")
    
     a. Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej cały certyfikat do pola tekstowego **certyfikatu X. 509** .
    
@@ -168,7 +168,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Na stronie **Ustawienia logowania** jednokrotnego skopiuj wartość **adres URL usługi** konsumenckej potwierdzenia i wklej ją w polu tekstowym **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal. 
 
-      ![Ustawienia logowania jednokrotnego](./media/timeoffmanager-tutorial/ic795915.png "Ustawienia logowania jednokrotnego")
+      ![Ustawienia pojedynczego Sign-On](./media/timeoffmanager-tutorial/ic795915.png "Ustawienia pojedynczego Sign-On")
 
 ### <a name="create-timeoffmanager-test-user"></a>Utwórz użytkownika testowego TimeOffManager
 
@@ -187,7 +187,7 @@ Po kliknięciu kafelka TimeOffManager w panelu dostępu należy automatycznie za
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 33c2893ebbd4ccbb9bbb14d5c2c96bac8c03817b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88535718"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grok-learning"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Grok Learning
@@ -159,7 +159,7 @@ Po kliknięciu kafelka uczenie Grok w panelu dostępu należy automatycznie zalo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

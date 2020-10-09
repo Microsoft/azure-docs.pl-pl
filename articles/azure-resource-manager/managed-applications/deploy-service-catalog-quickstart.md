@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81391707"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Szybki Start: wdrażanie aplikacji katalogu usług za Azure Portal
@@ -28,11 +28,11 @@ W Azure Portal wykonaj następujące czynności:
 
    ![Wyszukaj aplikację katalogu usług](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. Zobaczysz Opis usługi zarządzanej aplikacji. Wybierz pozycję **Utwórz**.
+1. Zobaczysz Opis usługi zarządzanej aplikacji. Wybierz przycisk **Utwórz**.
 
    ![Wybieranie pozycji Utwórz](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. W portalu zostaną wyświetlone definicje aplikacji zarządzanych, do których masz dostęp. Z dostępnych definicji Wybierz ten, który chcesz wdrożyć. W tym przewodniku szybki start Użyj definicji **zarządzanego konta magazynu** utworzonej w poprzednim przewodniku Szybki Start. Wybierz pozycję **Utwórz**.
+1. W portalu zostaną wyświetlone definicje aplikacji zarządzanych, do których masz dostęp. Z dostępnych definicji Wybierz ten, który chcesz wdrożyć. W tym przewodniku szybki start Użyj definicji **zarządzanego konta magazynu** utworzonej w poprzednim przewodniku Szybki Start. Wybierz przycisk **Utwórz**.
 
    ![Wybierz definicję do wdrożenia](./media/deploy-service-catalog-quickstart/select-definition.png)
 

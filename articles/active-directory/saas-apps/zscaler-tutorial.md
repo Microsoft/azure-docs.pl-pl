@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.openlocfilehash: e22d86f85b82af1109e79789073d7e442c51cf24
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545764"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą rozwiązania Zscaler
@@ -62,7 +62,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Logowanie jednokrotne](#configure-zscaler-sso)** w usłudze rozwiązania Zscaler, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-zscaler-sso)** w usłudze rozwiązania Zscaler, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
     1. **[Utwórz użytkownika testowego rozwiązania Zscaler](#create-zscaler-test-user)** , aby dysponować odpowiednikiem B. Simon w rozwiązania Zscaler, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **rozwiązania Zscaler** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -103,12 +103,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
     > [!NOTE]
     > Kliknij [tutaj](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management), aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -198,7 +198,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
 
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij przycisk **Zapisz**.
 
 1. Na stronie okna dialogowanie **Konfigurowanie uwierzytelniania użytkownika** wykonaj następujące kroki:
 
@@ -257,7 +257,7 @@ Po kliknięciu kafelka rozwiązania Zscaler w panelu dostępu należy automatycz
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

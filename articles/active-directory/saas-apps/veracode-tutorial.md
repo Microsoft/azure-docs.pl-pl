@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: a8c7c70e7956868bf069704eb5fe34db014dd135
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532470"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Veracode
@@ -71,7 +71,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-   ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego przy użyciu języka SAML z wyróżnioną ikoną ołówka](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający Konfigurowanie pojedynczego Sign-On przy użyciu protokołu SAML z wyróżnioną ikoną ołówka](common/edit-urls.png)
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** aplikacja została wstępnie skonfigurowana i wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Wybierz pozycję **Zapisz**.
 
@@ -146,7 +146,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W obszarze **Nazwa**wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika**wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -183,7 +183,7 @@ Po wybraniu opcji **Veracode** w panelu dostępu należy automatycznie zalogowa�
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

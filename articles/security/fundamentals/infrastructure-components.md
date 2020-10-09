@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727213"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Składniki i granice systemu informacji platformy Azure
@@ -97,7 +97,7 @@ Pracownicy (lub wykonawcy) firmy Microsoft są uznawani za użytkowników wewnę
 | Inżynierowie wdrożeń platformy Azure | Wewnętrzny | Dostęp do danych klienta | Wdrażaj i uaktualniaj składniki platformy, oprogramowanie i zaplanowane zmiany konfiguracji w ramach obsługi platformy Azure. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
 | Obsługa awarii klienta platformy Azure (dzierżawa) | Wewnętrzny | Dostęp do danych klienta | Debugowanie i diagnozowanie awarii platformy i błędów dla indywidualnych dzierżawców obliczeniowych i kont platformy Azure. Analizuj błędy. Ważne poprawki dotyczące platformy lub klienta oraz zapewnianie ulepszeń technicznych w ramach pomocy technicznej. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
 | Inżynierowie usługi Azure Live site (inżynierowie monitorowania) i incydent | Wewnętrzny | Dostęp do danych klienta | Diagnozuj i łagodzenie kondycji platformy przy użyciu narzędzi diagnostycznych. Poprawki dysków dla sterowników woluminów, Naprawianie elementów wynikających z awarii i pomoc w akcjach przywracania przestojów. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
-|Klienci platformy Azure | Zewnętrzna | Nie dotyczy | Nie dotyczy | Nie dotyczy |
+|Klienci platformy Azure | Zewnętrzna | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 
 Platforma Azure korzysta z unikatowych identyfikatorów do uwierzytelniania użytkowników w organizacji i klientów (lub procesów działających w imieniu użytkowników w organizacji). Dotyczy to wszystkich zasobów i urządzeń, które są częścią środowiska platformy Azure.
 

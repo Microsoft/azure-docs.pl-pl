@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 164c483ad5d1faaa443287e17853e92597eb55e2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Samouczek: integracja Azure Active Directory z usługą HireVue
@@ -106,14 +106,14 @@ Aby skonfigurować funkcję logowania jednokrotnego usługi Azure AD z aplikacj�
     | Środowisko | Adres URL |
     |-------------|---|
     | Produkcja | `https://<companyname>.hirevue.com` |
-    | Podział na etapy    | `https://<companyname>.stghv.com` |
+    | Przygotowanie    | `https://<companyname>.stghv.com` |
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
 
     | Środowisko | Nazwa URN |
     |-------------|-----|
     | Produkcja |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Podział na etapy    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Przygotowanie    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji HireVue](mailto:samlsupport@hirevue.com), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -201,6 +201,6 @@ Po kliknięciu kafelka HireVue w panelu dostępu powinno nastąpić automatyczne
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

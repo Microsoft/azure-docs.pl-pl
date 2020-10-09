@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68934885"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Wdrażanie bezpiecznych aplikacji na platformie Azure
@@ -25,10 +25,10 @@ W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, któ
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Wydanie
-- Odpowiedź
+- Release
+- Reakcja
 
-## <a name="release"></a>Wydanie
+## <a name="release"></a>Release
 Fokus fazy wydania jest gotowy do projektu dla wydania publicznego.
 Obejmuje to planowanie sposobów efektywnego wykonywania zadań obsługi po wydaniu i rozwiązywania luk w zabezpieczeniach, które mogą wystąpić później.
 
@@ -54,7 +54,7 @@ Przygotowanie planu reagowania na zdarzenia jest kluczowe, aby pomóc w rozwiąz
 
 Certyfikowanie oprogramowania przed wydaniem pomaga upewnić się, że spełnione są wymagania dotyczące zabezpieczeń i ochrony prywatności. Archiwizowanie wszystkich odpowiednich danych jest niezbędne do wykonywania zadań obsługi po wydaniu. Archiwizowanie pomaga również w obniżeniu długoterminowych kosztów związanych z ciągłym inżynierią oprogramowania.
 
-## <a name="response"></a>Odpowiedź
+## <a name="response"></a>Reakcja
 Centra fazy końcowej odpowiedzi są dostępne w zespole programistycznym, które są w stanie reagować na odpowiednie raporty dotyczące nowych zagrożeń oprogramowania i luk w zabezpieczeniach.
 
 ### <a name="execute-the-incident-response-plan"></a>Wykonaj plan reagowania na zdarzenia

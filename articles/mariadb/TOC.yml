@@ -128,13 +128,13 @@
           href: howto-create-manage-server-portal.md
     - name: Reguły zapory
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-manage-firewall-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-manage-firewall-cli.md
     - name: Przywracanie serwera
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restore-server-cli.md
@@ -162,7 +162,7 @@
           href: howto-redirection.md
     - name: Konfigurowanie parametrów serwera
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-server-parameters-cli.md
@@ -170,7 +170,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Automatyczne zwiększanie rozmiaru magazynu
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-auto-grow-storage-cli.md
@@ -184,13 +184,13 @@
       items:
         - name: Dzienniki wolnych zapytań
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-logs-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-logs-cli.md
         - name: Dzienniki inspekcji
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-audit-logs-cli.md
@@ -220,19 +220,19 @@
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-manage-vnet-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-manage-vnet-cli.md
     - name: Link prywatny
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-configure-privatelink-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-privatelink-cli.md
     - name: Ponowne uruchamianie serwera
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restart-server-cli.md

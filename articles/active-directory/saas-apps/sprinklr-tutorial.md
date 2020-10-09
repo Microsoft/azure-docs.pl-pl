@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 02b9adcb72b4d26a19b6514d19ce94a70a2415ed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88534221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Samouczek: integracja Azure Active Directory z zraszaczem
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu zraszacz, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-sprinklr-single-sign-on)** jednokrotne w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania](#configure-sprinklr-single-sign-on)** jednokrotnego dla programu zraszacze — w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego programu zraszaczego](#create-sprinklr-test-user)** , aby uzyskać odpowiednik Britta Simon w programie zraszacz, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -122,7 +122,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
     c. Adres URL wylogowywania
 
-### <a name="configure-sprinklr-single-sign-on"></a>Konfigurowanie logowania jednokrotnego dla instalacji
+### <a name="configure-sprinklr-single-sign-on"></a>Konfigurowanie jednego Sign-On zraszacza
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej lokacji programu zraszacz jako administrator.
 
@@ -136,11 +136,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
 1. Kliknij pozycję **+ Dodaj Logowanie jednokrotne**.
 
-    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782909.png "Logowanie jednokrotne")
+    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782909.png "Pojedyncze Sign-Ons")
 
 1. Na stronie **Logowanie** jednokrotne wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782910.png "Logowanie jednokrotne")
+    ![Logowanie jednokrotne](./media/sprinklr-tutorial/ic782910.png "Pojedyncze Sign-Ons")
 
     a. W polu tekstowym **Nazwa** wpisz nazwę konfiguracji (na przykład: *WAADSSOTest*).
 
@@ -160,7 +160,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu zr
 
     i. Jako **lokalizację identyfikatora użytkownika SAML**wybierz pozycję **Identyfikator użytkownika w elemencie identyfikator nazwy w instrukcji subject**.
 
-    j. Kliknij pozycję **Zapisz**.
+    j. Kliknij przycisk **Zapisz**.
 
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
@@ -269,6 +269,6 @@ Po kliknięciu kafelka zraszacza w panelu dostępu należy automatycznie zalogow
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

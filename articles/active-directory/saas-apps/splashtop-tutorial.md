@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Splashtop
@@ -139,7 +139,7 @@ W tej sekcji należy zastosować nową metodę rejestracji jednokrotnej z [porta
 
     ![obraz ](media/splashtop-tutorial/cert-1.png) obrazu ![ obrazu ](media/splashtop-tutorial/cert-2.png) ![](media/splashtop-tutorial/azure-sso-2.png)
 
-1. Gotowe. Kliknij przycisk **Zapisz** i Splashtop Weryfikacja logowania jednokrotnego skontaktuje się z Tobą w celu uzyskania informacji weryfikacyjnych, a następnie aktywuj metodę rejestracji jednokrotnej.
+1. To wszystko. Kliknij przycisk **Zapisz** i Splashtop Weryfikacja logowania jednokrotnego skontaktuje się z Tobą w celu uzyskania informacji weryfikacyjnych, a następnie aktywuj metodę rejestracji jednokrotnej.
 
 ### <a name="create-splashtop-test-user"></a>Utwórz użytkownika testowego Splashtop
 
@@ -153,7 +153,7 @@ W tej sekcji należy zastosować nową metodę rejestracji jednokrotnej z [porta
 
 1. Możesz również zmienić istniejące konto Splashtop na konto logowania jednokrotnego, aby zapoznać się z [instrukcjami](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
-1. Gotowe. Możesz użyć konta logowania jednokrotnego, aby zalogować się w portalu internetowym Splashtop lub aplikacji biznesowej Splashtop.
+1. To wszystko. Możesz użyć konta logowania jednokrotnego, aby zalogować się w portalu internetowym Splashtop lub aplikacji biznesowej Splashtop.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -165,7 +165,7 @@ Po kliknięciu kafelka Splashtop w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -4,10 +4,10 @@ description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) 
 ms.date: 09/14/2020
 ms.topic: sample
 ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531699"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Omówienie przykładowej strategii Microsoft Cloud Adoption Framework for Azure Foundation

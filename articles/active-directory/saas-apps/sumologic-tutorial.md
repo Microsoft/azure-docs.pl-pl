@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: a14235cb4fc20147accc8eb8a0e421cbc4df90f8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533642"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SumoLogic
@@ -216,7 +216,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze SumoLog
   
     c. Jako **stan**wybierz pozycję **aktywny**.
   
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników SumoLogic i interfejsów API udostępnionych przez usługę SumoLogic.
@@ -231,7 +231,7 @@ Po kliknięciu kafelka SumoLogic w panelu dostępu należy automatycznie zalogow
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 501f19b2022d221ad6facd66c483790b13491ba0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu zarządzania procesem zmiany
@@ -73,11 +73,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie **Zarządzanie** integracją aplikacji **zarządzania procesem** wybierz pozycję **Logowanie jednokrotne**w sekcji Zarządzaj.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
    ![Przycisk ołówek dla podstawowej konfiguracji języka SAML](common/edit-urls.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wykonaj następujące czynności:
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** wykonaj następujące czynności:
 
     a. W polu **Identyfikator** wprowadź adres URL w następującym wzorcu: `https://<hostname>:8443/`
 
@@ -86,7 +86,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Poprzedni **Identyfikator** i wartości **adresu URL odpowiedzi** nie są rzeczywistymi wartościami, których należy użyć. Aby uzyskać rzeczywiste wartości, skontaktuj się z [zespołem pomocy technicznej ds. zarządzania procesem zmiany](mailto:support@realtech-us.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -104,7 +104,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 
@@ -141,7 +141,7 @@ Po wybraniu kafelka zarządzanie procesem w panelu dostępu należy automatyczni
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

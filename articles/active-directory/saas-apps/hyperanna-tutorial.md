@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.openlocfilehash: e6c7b112e8ac60833b22f07590e357e096ba859c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88525313"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Samouczek: integracja HyperAnna z usługą Azure Active Directory
@@ -60,7 +60,7 @@ Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Hyper
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą HyperAnna, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Logowanie jednokrotne](#configure-hyperanna-sso)** w usłudze HyperAnna, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne](#configure-hyperanna-sso)** w usłudze HyperAnna, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego HyperAnna](#create-hyperanna-test-user)** , aby uzyskać odpowiednik Britta Simon w HyperAnna, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **HyperAnna** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -94,7 +94,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     https://anna.hyperanna.com/
     ```
 
-4. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+4. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -149,7 +149,7 @@ Po kliknięciu kafelka HyperAnna w panelu dostępu należy automatycznie zalogow
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

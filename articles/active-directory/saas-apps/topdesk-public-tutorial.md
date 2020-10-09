@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: a18cb583b246c3cfbf09f43b9921497de37a3613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Samouczek: integracja Azure Active Directory z usługą TOPdesk — Public
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi TOPdesk — Public, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj TOPdesk — publiczne logowanie](#configure-topdesk---public-single-sign-on)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj TOPdesk — publiczne logowanie](#configure-topdesk---public-single-sign-on)** jednokrotne — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego TOPdesk —](#create-topdesk---public-test-user)** Aby uzyskać odpowiednik Britta Simon w TOPdesk-Public, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -121,7 +121,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
     f. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie są automatycznie wypełniane, należy wprowadzić je ręcznie. W przypadku identyfikatora należy postępować zgodnie z wzorcem wymienionym powyżej i uzyskać wartość adresu URL odpowiedzi z sekcji **Konfigurowanie TOPdesk — publiczna Rejestracja jednokrotna** , która została omówiona w dalszej części tego samouczka. Wartość **adresu URL logowania** nie jest prawdziwa, dlatego należy zaktualizować wartość przy użyciu rzeczywistego adresu URL logowania. Contact [TOPdesk — zespół pomocy technicznej dla klientów publicznych](https://help.topdesk.com/saas/enterprise/user/) w celu uzyskania wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie są automatycznie wypełniane, należy wprowadzić je ręcznie. W przypadku identyfikatora należy postępować zgodnie z wzorcem wymienionym powyżej i uzyskać wartość adresu URL odpowiedzi z sekcji **Konfigurowanie TOPdesk — publiczna Rejestracja jednokrotna** , która została omówiona w dalszej części tego samouczka. Wartość **adresu URL logowania** nie jest prawdziwa, dlatego należy zaktualizować wartość przy użyciu rzeczywistego adresu URL Sign-On. Contact [TOPdesk — zespół pomocy technicznej dla klientów publicznych](https://help.topdesk.com/saas/enterprise/user/) w celu uzyskania wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -137,7 +137,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
 
     c. Adres URL wylogowywania
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Konfigurowanie TOPdesk — publiczne Logowanie jednokrotne
+### <a name="configure-topdesk---public-single-sign-on"></a>Konfigurowanie TOPdesk-Public Single Sign-On
 
 1. Zaloguj się do witryny firmy **TOPdesk-Public** jako administrator.
 
@@ -195,7 +195,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą TOPdesk-Pub
 
     e. W polu tekstowym **Display name** (Nazwa wyświetlana) wpisz nazwę konfiguracji.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -257,7 +257,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do TOPdesk-Public,
 
 2. W menu u góry kliknij pozycję **TOPdesk \> nowe \> pliki obsługi \> **.
    
-    ![Person (Osoba)](./media/topdesk-public-tutorial/ic790628.png "Person (Osoba)")
+    ![Osoba](./media/topdesk-public-tutorial/ic790628.png "Osoba")
 
 3. W oknie dialogowym Nowa osoba wykonaj następujące czynności:
    
@@ -269,7 +269,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do TOPdesk-Public,
  
     c. Wybierz **witrynę** dla konta.
  
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
 > Do udostępniania kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników TOPdesk i interfejsów API udostępnianych przez usługę TOPdesk — Public.
@@ -284,6 +284,6 @@ Po kliknięciu kafelka TOPdesk-Public w panelu dostępu należy automatycznie za
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

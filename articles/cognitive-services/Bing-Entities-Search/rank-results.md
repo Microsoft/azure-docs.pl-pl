@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423918"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Używanie klasyfikacji do wyświetlania wyników wyszukiwania jednostek  
@@ -26,10 +26,10 @@ W każdej grupie tablica [Items](https://docs.microsoft.com/rest/api/cognitivese
 
 |Pole | Opis  |
 |---------|---------|
-|`answerType` i `resultIndex` | `answerType`Identyfikuje odpowiedź (jednostkę lub miejsce) i `resultIndex` identyfikuje wynik w odpowiedzi (na przykład jednostki). Indeks zaczyna się od 0.|
-|`value`    | `value`Zawiera identyfikator, który odpowiada IDENTYFIKATORowi odpowiedzi lub wynikowi w odpowiedzi. Odpowiedź lub wyniki zawierają identyfikator, ale nie oba jednocześnie. |
+|`answerType` i `resultIndex` | `answerType` Identyfikuje odpowiedź (jednostkę lub miejsce) i `resultIndex` identyfikuje wynik w odpowiedzi (na przykład jednostki). Indeks zaczyna się od 0.|
+|`value`    | `value` Zawiera identyfikator, który odpowiada IDENTYFIKATORowi odpowiedzi lub wynikowi w odpowiedzi. Odpowiedź lub wyniki zawierają identyfikator, ale nie oba jednocześnie. |
   
-Korzystanie z `answerType` i `resultIndex` jest procesem dwuetapowym. Najpierw użyj `answerType` , aby zidentyfikować odpowiedź, która zawiera wyniki do wyświetlenia. Następnie użyj `resultIndex` do indeksowania wyników odpowiedzi, aby uzyskać wynik do wyświetlenia. ( `answerType` Wartość jest nazwą pola w obiekcie [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) ). Jeśli chcesz wyświetlić wszystkie wyniki odpowiedzi razem, element odpowiedzi rankingu nie zawiera `resultIndex` pola.
+Korzystanie z `answerType` i `resultIndex` jest procesem dwuetapowym. Najpierw użyj, `answerType` Aby zidentyfikować odpowiedź, która zawiera wyniki do wyświetlenia. Następnie użyj `resultIndex` do indeksowania wyników odpowiedzi, aby uzyskać wynik do wyświetlenia. ( `answerType` Wartość jest nazwą pola w obiekcie [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) ). Jeśli chcesz wyświetlić wszystkie wyniki odpowiedzi razem, element odpowiedzi rankingu nie zawiera `resultIndex` pola.
 
 Użycie identyfikatora wymaga dopasowania identyfikatora klasyfikacji z IDENTYFIKATORem odpowiedzi lub jednym z jej wyników. Jeśli obiekt odpowiedzi zawiera `id` pole, Wyświetl wszystkie wyniki odpowiedzi ze sobą. Na przykład jeśli `Entities` obiekt zawiera `id` pole, Wyświetl wszystkie artykuły dotyczące jednostek razem. Jeśli `Entities` obiekt nie zawiera `id` pola, każda jednostka zawiera `id` pole, a odpowiedź rankingu miesza jednostki z wynikami.  
   

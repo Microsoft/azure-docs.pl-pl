@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Samouczek: integracja Azure Active Directory z programem rozwiązania Zscaler beta
@@ -94,7 +94,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja SAML** .
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz pozycję **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -131,14 +131,14 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
 
     e. Na liście **Atrybut źródłowy** podaj wartość atrybutu pokazanego dla tego wiersza.
 
-    f. Kliknij przycisk **OK**.
+    f. Wybierz przycisk **OK**.
 
     przykład Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
     > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)**. Zapisz go na komputerze.
+7. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)**. Zapisz go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -251,7 +251,7 @@ Utwórz użytkownika testowego w Azure Portal o nazwie Britta Simon.
 
     c. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz pozycję **Utwórz**.
+    d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -301,6 +301,6 @@ Po wybraniu kafelka rozwiązania Zscaler beta w panelu dostępu należy automaty
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

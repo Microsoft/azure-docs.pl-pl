@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727827"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool zagrożenia
@@ -40,12 +40,12 @@ Aby lepiej pomóc w formułowaniu tych rodzajów pytań, firma Microsoft korzyst
 
 | Kategoria | Opis |
 | -------- | ----------- |
-| **Fałszowanie zawartości** | Polega na niedozwolonym dostępie, a następnie użyciu informacji o uwierzytelnianiu innego użytkownika, takich jak nazwa użytkownika i hasło. |
-| **Manipulowanie** | Obejmuje złośliwe modyfikacje danych. Przykładami mogą być nieautoryzowane zmiany wprowadzone do trwałych danych, takie jak przechowywane w bazie danych, oraz zmiana danych w miarę ich przepływu między dwoma komputerami za pośrednictwem otwartej sieci, na przykład Internetu. |
-| **Rzuca** | Powiązane z użytkownikami, którzy odmówią wykonania akcji bez innych stron mających na celu udowodnienie inaczej — na przykład użytkownik wykonuje niedozwoloną operację w systemie, który nie ma możliwości śledzenia zabronionych operacji. Odrzucanie odnosi się do zdolności systemu do licznika zagrożeń odrzucania. Na przykład użytkownik, który kupuje element, może chcieć podpisać element po otrzymaniu. Dostawca może następnie użyć podpisanego potwierdzenia jako dowodu, że użytkownik otrzymał pakiet |
-| **Ujawnianie informacji** | Obejmuje narażenie informacji osobom, które nie powinny mieć do nich dostępu — na przykład możliwość odczytywania przez użytkowników pliku, do którego nie udzielił dostępu, lub zdolności intruza do odczytu danych przesyłanych między dwoma komputerami |
-| **Odmowa usługi** | Ataki typu "odmowa usługi" (DoS) odmawiają usłudze prawidłowym użytkownikom — na przykład przez udostępnienie serwera sieci Web w sposób tymczasowy lub niezdatny do użytku. Należy chronić przed pewnymi rodzajami zagrożeń systemu DoS po prostu, aby zwiększyć dostępność i niezawodność usługi |
-| **Podniesienie uprawnień** | Użytkownik nieuprzywilejowany uzyskuje dostęp uprzywilejowany i w związku z tym ma wystarczający dostęp do naruszenia lub zniszczenia całego systemu. Podniesienie poziomu zagrożeń związanych z uprawnieniami obejmuje te sytuacje, w których osoba atakująca skutecznie przełączyła wszystkie zabezpieczenia systemu i staje się częścią zaufanego systemu, w rzeczywistości niebezpiecznej sytuacji. |
+| **Spoofing (fałszowanie)** | Polega na niedozwolonym dostępie, a następnie użyciu informacji o uwierzytelnianiu innego użytkownika, takich jak nazwa użytkownika i hasło. |
+| **Tampering (manipulowanie)** | Obejmuje złośliwe modyfikacje danych. Przykładami mogą być nieautoryzowane zmiany wprowadzone do trwałych danych, takie jak przechowywane w bazie danych, oraz zmiana danych w miarę ich przepływu między dwoma komputerami za pośrednictwem otwartej sieci, na przykład Internetu. |
+| **Repudiation (wypieranie się)** | Powiązane z użytkownikami, którzy odmówią wykonania akcji bez innych stron mających na celu udowodnienie inaczej — na przykład użytkownik wykonuje niedozwoloną operację w systemie, który nie ma możliwości śledzenia zabronionych operacji. Odrzucanie odnosi się do zdolności systemu do licznika zagrożeń odrzucania. Na przykład użytkownik, który kupuje element, może chcieć podpisać element po otrzymaniu. Dostawca może następnie użyć podpisanego potwierdzenia jako dowodu, że użytkownik otrzymał pakiet |
+| **Information Disclosure (ujawnienie informacji)** | Obejmuje narażenie informacji osobom, które nie powinny mieć do nich dostępu — na przykład możliwość odczytywania przez użytkowników pliku, do którego nie udzielił dostępu, lub zdolności intruza do odczytu danych przesyłanych między dwoma komputerami |
+| **Denial of Service (odmowa usługi)** | Ataki typu "odmowa usługi" (DoS) odmawiają usłudze prawidłowym użytkownikom — na przykład przez udostępnienie serwera sieci Web w sposób tymczasowy lub niezdatny do użytku. Należy chronić przed pewnymi rodzajami zagrożeń systemu DoS po prostu, aby zwiększyć dostępność i niezawodność usługi |
+| **Elevation of Privilege (podniesienie uprawnień)** | Użytkownik nieuprzywilejowany uzyskuje dostęp uprzywilejowany i w związku z tym ma wystarczający dostęp do naruszenia lub zniszczenia całego systemu. Podniesienie poziomu zagrożeń związanych z uprawnieniami obejmuje te sytuacje, w których osoba atakująca skutecznie przełączyła wszystkie zabezpieczenia systemu i staje się częścią zaufanego systemu, w rzeczywistości niebezpiecznej sytuacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

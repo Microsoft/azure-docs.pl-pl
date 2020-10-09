@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: cdb3f30813d2650737cfa43507cef2b1d456573d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Samouczek: integracja Azure Active Directory z usługą Veritas Enterprise magazyn. Logowanie jednokrotne w chmurze
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, relacja linku między użytkownikiem usłu
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą programu Veritas Enterprise magazynu. Logowanie jednokrotne w chmurze wymaga wykonania następujących bloków konstrukcyjnych:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj usługę Veritas Enterprise magazyn. Logowanie JEDNOkrotne w chmurze](#configure-veritas-enterprise-vaultcloud-sso-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj usługę Veritas Enterprise magazyn. Logowanie JEDNOkrotne w chmurze](#configure-veritas-enterprise-vaultcloud-sso-single-sign-on)** — Rejestracja logowania jednokrotnego, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz program VERITAS Enterprise magazyn. Test rejestracji jednokrotnej w chmurze dla użytkownika](#create-veritas-enterprise-vaultcloud-sso-test-user)** — ma odpowiednik Britta Simon w programie Veritas Enterprise. w chmurze jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -136,7 +136,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu Ve
 
     c. Adres URL wylogowywania
 
-### <a name="configure-veritas-enterprise-vaultcloud-sso-single-sign-on"></a>Konfigurowanie magazynu Veritas Enterprise. Logowanie jednokrotne w chmurze
+### <a name="configure-veritas-enterprise-vaultcloud-sso-single-sign-on"></a>Skonfiguruj usługę Veritas Enterprise magazynu. pojedyncze Sign-On logowania jednokrotnego w chmurze
 
 Aby skonfigurować Logowanie jednokrotne w programie **Veritas Enterprise magazynu. po stronie logowania jednokrotnego w chmurze** musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do programu [Veritas Enterprise magazynu. zespół obsługi logowania jednokrotnego w chmurze](https://www.veritas.com/support/.html). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -204,7 +204,7 @@ Po kliknięciu kafelka rejestracji jednokrotnej w chmurze w panelu dostępu nale
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

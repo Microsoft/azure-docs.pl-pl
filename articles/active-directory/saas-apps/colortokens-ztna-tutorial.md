@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 4c823e008251a612866676f1947fb1a0f6c19655
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88525600"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-colortokens-ztna"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą ColorTokens ZTNA
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | Nazwa | Atrybut źródłowy|
     | ------------- | --------- |
     | działu, | user.userprincipalname |
-    | Grupa | User. Groups |
+    | Group (Grupa) | User. Groups |
 
     > [!NOTE]
     > Kliknij [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) , aby dowiedzieć się, jak utworzyć role w usłudze Azure AD.
@@ -154,7 +154,7 @@ Po kliknięciu kafelka ColorTokens ZTNA w panelu dostępu należy automatycznie 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

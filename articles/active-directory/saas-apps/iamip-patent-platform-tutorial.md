@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 1a2139b7a0f7d51b6c759a98c93c5250666f15a9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88525143"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu platformy patentowej IamIP
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracji aplikacji **platformy patentowej IamIP** w sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
    ![Przycisk ołówek dla podstawowej konfiguracji języka SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
     W polu **adres URL logowania** wprowadź wartość  **https: \/ /Patents.iamip.com/login-User**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (RAW)** , aby pobrać certyfikat i zapisać go na komputerze:
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (RAW)** , aby pobrać certyfikat i zapisać go na komputerze:
 
     ![Link do pobierania certyfikatu](common/certificateraw.png)
 
@@ -119,7 +119,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 
@@ -157,7 +157,7 @@ Po wybraniu kafelka IamIP na platformie patentowej w panelu dostępu należy aut
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

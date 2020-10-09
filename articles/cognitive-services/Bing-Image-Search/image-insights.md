@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883428"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Uzyskaj szczegółowe informacje o obrazach przy użyciu interfejs API wyszukiwania obrazów Bing
@@ -41,9 +41,9 @@ Aby uzyskać szczegółowe informacje o obrazie, Przechwyć token [imageInsights
 }],
 ```
 
-Następnie Wywołaj punkt końcowy szczegółów obrazu i ustaw parametr zapytania [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) na token w `imageInsightsToken`.  
+Następnie Wywołaj punkt końcowy szczegółów obrazu i ustaw parametr zapytania [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) na token w `imageInsightsToken` .  
 
-Aby określić szczegółowe informacje, które chcesz pobrać, ustaw parametr `modules` zapytania. Aby uzyskać szczegółowe informacje, ustaw wartość `modules` `All`. Aby uzyskać tylko informacje o podpisie i kolekcji, ustaw `modules` jako. `Caption%2CCollection` Aby uzyskać pełną listę możliwych szczegółowych informacji, zobacz [moduły](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nie wszystkie szczegółowe informacje są dostępne dla wszystkich obrazów. Odpowiedź zawiera wszystkie żądania szczegółowych informacji, o ile są dostępne.
+Aby określić szczegółowe informacje, które chcesz pobrać, ustaw `modules` parametr zapytania. Aby uzyskać szczegółowe informacje, ustaw wartość `modules` `All` . Aby uzyskać tylko informacje o podpisie i kolekcji, ustaw `modules` jako `Caption%2CCollection` . Aby uzyskać pełną listę możliwych szczegółowych informacji, zobacz [moduły](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nie wszystkie szczegółowe informacje są dostępne dla wszystkich obrazów. Odpowiedź zawiera wszystkie żądania szczegółowych informacji, o ile są dostępne.
 
 Poniższy przykład żąda wszystkich dostępnych szczegółowych informacji o powyższym obrazie.
 
@@ -59,7 +59,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-insights-of-a-known-image"></a>Uzyskiwanie szczegółowych informacji o znanym obrazie
 
-Jeśli masz adres URL obrazu, który chcesz uzyskać szczegółowe informacje, użyj parametru zapytania [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) zamiast parametru [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) w celu określenia obrazu. Lub, jeśli dysponujesz plikiem obrazu, możesz wysłać plik binarny obrazu w treści żądania POST. Jeśli używasz żądania POST, `Content-Type` nagłówek musi być ustawiony na. `multipart/data-form` Przy użyciu jednej z opcji rozmiar obrazu nie może przekraczać 1 MB.  
+Jeśli masz adres URL obrazu, który chcesz uzyskać szczegółowe informacje, użyj parametru zapytania [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) zamiast parametru [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) w celu określenia obrazu. Lub, jeśli dysponujesz plikiem obrazu, możesz wysłać plik binarny obrazu w treści żądania POST. Jeśli używasz żądania POST, `Content-Type` nagłówek musi być ustawiony na `multipart/data-form` . Przy użyciu jednej z opcji rozmiar obrazu nie może przekraczać 1 MB.  
 
 Jeśli masz adres URL obrazu, Poniższy przykład pokazuje, jak zażądać szczegółowych informacji o obrazie.
 
@@ -75,7 +75,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-all-image-insights"></a>Pobieranie wszystkich informacji o obrazie  
 
-Aby zażądać wszystkich szczegółowych informacji o obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `All`. Aby uzyskać wyszukiwanie pokrewne, żądanie musi zawierać ciąg zapytania użytkownika. Ten przykład przedstawia użycie [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do określenia obrazu.  
+Aby zażądać wszystkich szczegółowych informacji o obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `All` . Aby uzyskać wyszukiwanie pokrewne, żądanie musi zawierać ciąg zapytania użytkownika. Ten przykład przedstawia użycie [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) do określenia obrazu.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
@@ -174,7 +174,7 @@ Obiekt najwyższego poziomu jest obiektem [ImageInsightsResponse](https://docs.m
 
 ## <a name="recognizing-entities-in-an-image"></a>Rozpoznawanie jednostek w obrazie  
 
-Funkcja rozpoznawania jednostek identyfikuje jednostki w obrazie, obecnie tylko osoby. Aby identyfikować jednostki w obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `RecognizedEntities`.  
+Funkcja rozpoznawania jednostek identyfikuje jednostki w obrazie, obecnie tylko osoby. Aby identyfikować jednostki w obrazie, ustaw parametr query [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) na `RecognizedEntities` .  
 
 > [!NOTE]
 > Nie można określić tego modułu z żadnym innym modułem. W przypadku określenia tego modułu z innymi modułami odpowiedź nie obejmuje rozpoznanych jednostek.  
@@ -212,7 +212,7 @@ Poniżej przedstawiono odpowiedź na poprzednie żądanie. Ponieważ obraz zawie
 }
 ```
 
-`region` Pole określa obszar obrazu, gdzie Bing rozpoznaje jednostkę. W przypadku osób, region reprezentuje głowę osoby.  
+`region`Pole określa obszar obrazu, gdzie Bing rozpoznaje jednostkę. W przypadku osób, region reprezentuje głowę osoby.  
 
 Wartości prostokąta są względem szerokości i wysokości oryginalnego obrazu i mieszczą się w przedziale od 0,0 do 1,0. Na przykład jeśli obraz jest 300x200, a górny róg regionu znajduje się w punkcie (10, 20) i u dołu, prawy róg jest w punkcie (290, 150), a następnie znormalizowany prostokąt jest:  
 
@@ -408,7 +408,7 @@ Poniżej przedstawiono odpowiedź na poprzednie żądanie. Odpowiedź zawiera ob
 }
 ```
 
-Aby uzyskać listę handlowców, które oferują produkt online (patrz pole [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ), ponownie wywołaj interfejs API i ustaw wartość `modules` ShoppingSources. Następnie ustaw parametr `insightsToken` zapytania na token znaleziony w obrazie podsumowania produktu.  
+Aby uzyskać listę handlowców, które oferują produkt online (patrz pole [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ), ponownie wywołaj interfejs API i ustaw wartość `modules` ShoppingSources. Następnie ustaw `insightsToken` parametr zapytania na token znaleziony w obrazie podsumowania produktu.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

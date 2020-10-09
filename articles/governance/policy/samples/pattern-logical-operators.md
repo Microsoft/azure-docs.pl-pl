@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykłady użycia operatorów log
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545594"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Wzorzec Azure Policy: operatory logiczne

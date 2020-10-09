@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e4be05a896fbd14b21d0825376b4e2cfad6a530c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Samouczek: integracja Azure Active Directory z usługą Chromeriver
@@ -194,7 +194,7 @@ Po kliknięciu kafelka Chromeriver w panelu dostępu powinno nastąpić automaty
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68717346"
 ---
 # <a name="monitor-site-recovery"></a>Monitorowanie usługi Site Recovery
@@ -46,7 +46,7 @@ Przed rozpoczęciem warto zapoznać się z [typowymi pytaniami monitorowania](mo
 
 W obszarze **zreplikowane elementy**Monitoruj kondycję wszystkich maszyn w magazynie, dla których włączono replikację.
 
-**Stan** | **Szczegóły**
+**State** | **Szczegóły**
 --- | ---
 Dobra kondycja | Replikacja postępuje normalnie. Nie wykryto błędów ani ostrzeżeń ostrzegawczych.
 Ostrzeżenie | Wykryto co najmniej jeden objaw ostrzegawczy, który może mieć wpływ na replikację.
@@ -60,7 +60,7 @@ W przypadku **powodzenia testów trybu failover**monitoruj stan trybu failover d
 - Zalecamy uruchomienie testowej pracy w trybie failover na replikowanych maszynach co najmniej raz na sześć miesięcy. Jest to sposób, aby sprawdzić, czy tryb failover działa zgodnie z oczekiwaniami, bez zakłócania pracy w środowisku produkcyjnym. 
 - Test pracy w trybie failover jest uznawany za pomyślny dopiero po pomyślnym zakończeniu przejścia w tryb failover i po przejściu po awarii.
 
-**Stan** | **Szczegóły**
+**State** | **Szczegóły**
 --- | ---
 Zalecany test | Maszyny, które nie miały testowego przejścia w tryb failover, ponieważ włączono ochronę.
 Wykonane pomyślnie | Maszyny z lub więcej pomyślnych testów trybu failover.
@@ -73,7 +73,7 @@ W obszarze **problemy z konfiguracją**należy monitorować wszelkie problemy, k
 - Problemy z konfiguracją (z wyjątkiem dostępności aktualizacji oprogramowania) są wykrywane przez okresową operację sprawdzania poprawności, która domyślnie jest uruchamiana co 12 godzin. Można wymusić natychmiastowe uruchomienie operacji modułu sprawdzania poprawności, klikając ikonę odświeżenia obok nagłówka sekcji **problemy z konfiguracją** .
 - Kliknij linki, aby uzyskać więcej szczegółów. W przypadku problemów mających wpływ na określone maszyny kliknij pozycję **wymaga uwagi** w kolumnie **konfiguracje docelowe** . Szczegóły obejmują zalecenia dotyczące korygowania.
 
-**Stan** | **Szczegóły**
+**State** | **Szczegóły**
 --- | ---
 Brakujące konfiguracje | Brak wymaganego ustawienia, takiego jak sieć odzyskiwania lub Grupa zasobów.
 Brakujące zasoby | Nie można znaleźć określonego zasobu lub nie jest on dostępny w subskrypcji. Na przykład zasób został usunięty lub poddany migracji. Monitorowane zasoby obejmują docelową grupę zasobów, docelową sieć wirtualną/podsieć, dziennik/docelowe konto magazynu, docelowy zestaw dostępności, docelowy adres IP.
@@ -107,7 +107,7 @@ W **widoku infrastruktura**Monitoruj składniki infrastruktury objęte replikacj
 - Aby korzystać ze wszystkich funkcji w widoku infrastruktury, należy uruchomić [pakiet zbiorczy aktualizacji 22](https://support.microsoft.com/help/4072852) dla tych składników.
 - Aby skorzystać z widoku infrastruktura, wybierz odpowiedni scenariusz replikacji w danym środowisku. Aby uzyskać więcej informacji, możesz przejść do szczegółów w widoku. W poniższej tabeli przedstawiono, które scenariusze są reprezentowane.
 
-    **Scenariusz** | **Stan**  | **Wyświetlić dostępne?**
+    **Scenariusz** | **State**  | **Wyświetlić dostępne?**
     --- |--- | ---
     **Replikacja między lokacjami lokalnymi** | Wszystkie stany | Nie 
     **Replikacja maszyny wirtualnej platformy Azure między regionami platformy Azure**  | Replikacja włączona/replikacja początkowa w toku | Tak

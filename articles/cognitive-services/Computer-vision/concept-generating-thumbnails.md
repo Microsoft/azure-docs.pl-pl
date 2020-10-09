@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68945231"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generowanie miniatur inteligentnych z przyciętymi przetwarzanie obrazów
@@ -24,7 +24,7 @@ Miniatura to skrócona reprezentacja obrazu. Miniatury służą do reprezentowan
 
 Przetwarzanie obrazów algorytm generowania miniatur działa następująco:
 
-1. Usuń rozpraszające się elementy z obrazu i zidentyfikuj _obszar zainteresowania_&mdash;obrazu, w którym pojawiają się obiekty główne.
+1. Usuń rozpraszające się elementy z obrazu i zidentyfikuj _obszar zainteresowania_ &mdash; obrazu, w którym pojawiają się obiekty główne.
 1. Przytnij obraz na podstawie zidentyfikowanego _obszaru zainteresowania_.
 1. Zmień współczynnik proporcji na wymiary miniatury docelowej.
 

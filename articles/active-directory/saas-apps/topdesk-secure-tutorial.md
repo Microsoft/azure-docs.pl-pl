@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.openlocfilehash: db7f2afa7993c8f8d2fe9fe30e5ecd4f2388b44b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Samouczek: integracja Azure Active Directory z usługą TOPdesk — zabezpieczenia
@@ -184,7 +184,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją TOPdesk -
 
     f. W polu tekstowym **Display name** (Nazwa wyświetlana) wpisz nazwę konfiguracji.
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -262,7 +262,7 @@ W przypadku aplikacji TOPdesk - Secure jest to zadanie ręczne.
 
     d. W sekcji **TOPdesk Login** (Logowanie w aplikacji TOPdesk) w polu tekstowym **Login Name** (Nazwa logowania) wpisz nazwę logowania użytkownika.
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
 > Za pomocą innych narzędzi do tworzenia kont użytkowników TOPdesk i interfejsów API zapewnianych przez usługę TOPdesk — zabezpieczenia można udostępniać kontom użytkowników usługi Azure AD.
@@ -277,7 +277,7 @@ Po kliknięciu kafelka TOPdesk - Secure w panelu dostępu powinno nastąpić aut
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

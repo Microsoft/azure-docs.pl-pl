@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68854007"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Używanie znaczników dekoracji do wyróżniania tekstu
 
-Bing obsługuje wyróżnianie trafień, co oznacza terminy zapytania (lub inne warunki, które znajdują się w usłudze Bing) w ciągu wyświetlania ciągów niektórych odpowiedzi. Na przykład, `displayUrl`, i `snippet` pola w `name`postaci strony sieci Web mogą zawierać oznaczone terminy zapytania. 
+Bing obsługuje wyróżnianie trafień, co oznacza terminy zapytania (lub inne warunki, które znajdują się w usłudze Bing) w ciągu wyświetlania ciągów niektórych odpowiedzi. Na przykład,, i pola w postaci strony sieci Web `name` `displayUrl` `snippet` mogą zawierać oznaczone terminy zapytania. 
 
-Domyślnie usługi Bing nie uwzględniają znaczników wyróżniania w ciągach wyświetlanych. Aby włączyć znaczniki, Dołącz parametr `textDecorations` zapytania w żądaniu i ustaw go na `true`wartość.
+Domyślnie usługi Bing nie uwzględniają znaczników wyróżniania w ciągach wyświetlanych. Aby włączyć znaczniki, Dołącz `textDecorations` parametr zapytania w żądaniu i ustaw go na wartość `true` .
 
 ## <a name="hit-highlighting-example"></a>Przykład wyróżniania trafień
 
-Poniższy przykład pokazuje wynik sieci Web dla `Sailing Dinghy`. Usługi Bing oznaczono początkową i końcową okresu kwerendy przy użyciu znaków Unicode E000 i E001.
+Poniższy przykład pokazuje wynik sieci Web dla `Sailing Dinghy` . Usługi Bing oznaczono początkową i końcową okresu kwerendy przy użyciu znaków Unicode E000 i E001.
   
 ![Podświetlanie trafień](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
@@ -43,13 +43,13 @@ Bing oferuje opcję użycia znaków Unicode lub tagów HTML jako znaczników. Ab
 
 ## <a name="additional-text-decorations"></a>Dodatkowe dekoracje tekstu
 
-Bing może zwracać kilka różnych dekoracji tekstu. Na przykład `Computation` odpowiedź może zawierać znaczniki indeksu dolnego dla terminu `log(2)` zapytania w `expression` polu.
+Bing może zwracać kilka różnych dekoracji tekstu. Na przykład `Computation` odpowiedź może zawierać znaczniki indeksu dolnego dla terminu zapytania `log(2)` w `expression` polu.
 
 ![znaczniki obliczeń](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-Jeśli żądanie nie określiło dekoracji, `expression` pole będzie zawierać. `log10(2)` 
+Jeśli żądanie nie określiło dekoracji, `expression` pole będzie zawierać `log10(2)` . 
 
-Jeśli `textDecorations` jest `true`, Bing może zawierać następujące znaczniki w wyświetlanych ciągach odpowiedzi. Jeśli nie ma odpowiedniego tagu HTML, komórka tabeli jest pusta.
+Jeśli `textDecorations` jest `true` , Bing może zawierać następujące znaczniki w wyświetlanych ciągach odpowiedzi. Jeśli nie ma odpowiedniego tagu HTML, komórka tabeli jest pusta.
 
 |Unicode|HTML|Opis
 |-|-|-
@@ -63,18 +63,18 @@ Jeśli `textDecorations` jest `true`, Bing może zawierać następujące znaczni
 |U + E007||Oznacza początek adresu
 |U + E008||Oznacza koniec adresu
 |U + E009|\&nbsp;|Oznacza nieprzerwaną przestrzeń
-|U + E00C|\<mocne>|Oznacza początek pogrubionej zawartości
-|U + E00D|\</Strong>|Oznacza koniec pogrubionej zawartości
+|U + E00C|\<strong>|Oznacza początek pogrubionej zawartości
+|U + E00D|\</strong>|Oznacza koniec pogrubionej zawartości
 |U + E00E||Oznacza początek zawartości, której tło powinno być jaśniejsze niż otaczające tło
 |U + E00F||Oznacza koniec zawartości, której tło powinno być jaśniejsze niż otaczające tło.
 |U + E010||Oznacza początek zawartości, której tło powinno być ciemne niż otaczające tło
 |U + E011||Oznacza koniec zawartości, której tło powinno być ciemne niż otaczające tło
 |U + E012|\<del>|Oznacza początek zawartości, która powinna zostać przekreślona
 |U + E013|\</del>|Oznacza koniec zawartości, która powinna zostać przekreślona
-|U + E016|\<> podrzędne|Oznacza początek zawartości indeksu dolnego
-|U + E017|\</Sub.>|Oznacza koniec zawartości indeksu dolnego
-|U + E018|\<SUP>|Oznacza początek zawartości indeksu górnego
-|U + E019|\</SUP>|Oznacza koniec zawartości indeksu górnego
+|U + E016|\<sub>|Oznacza początek zawartości indeksu dolnego
+|U + E017|\</sub>|Oznacza koniec zawartości indeksu dolnego
+|U + E018|\<sup>|Oznacza początek zawartości indeksu górnego
+|U + E019|\</sup>|Oznacza koniec zawartości indeksu górnego
 
 ## <a name="next-steps"></a>Następne kroki
 

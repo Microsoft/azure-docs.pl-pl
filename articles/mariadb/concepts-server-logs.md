@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81272087"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Wolne dzienniki zapytań w Azure Database for MariaDB
@@ -59,18 +59,18 @@ W poniższej tabeli opisano zawartość poszczególnych dzienników. W zależno�
 |---|---|
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `TimeGenerated` UTC | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nazwa serwera |
-| `start_time_t`UTC | Godzina rozpoczęcia zapytania |
+| `start_time_t` UTC | Godzina rozpoczęcia zapytania |
 | `query_time_s` | Łączny czas wykonywania zapytania |
 | `lock_time_s` | Łączny czas zablokowania zapytania |
 | `user_host_s` | Nazwa użytkownika |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70279437"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Ocenianie dużej liczby maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure
@@ -48,7 +48,7 @@ Użyj limitów podsumowania w tej tabeli w celu zaplanowania.
 --- | --- 
 **Projekty Azure Migrate** | Oceń do 35 000 maszyn wirtualnych w projekcie.
 **Urządzenie usługi Azure Migrate** | Urządzenie może wykryć do 5000 maszyn wirtualnych.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.<br/> Urządzenie może być skojarzone tylko z pojedynczym projektem Azure Migrate.<br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem Azure Migrate. <br/><br/> 
-**Group** | W jednej grupie możesz dodać maksymalnie 35 000 maszyn wirtualnych.
+**Grupa** | W jednej grupie możesz dodać maksymalnie 35 000 maszyn wirtualnych.
 **Ocena Azure Migrate** | W ramach jednej oceny można ocenić do 35 000 maszyn wirtualnych.
 
 

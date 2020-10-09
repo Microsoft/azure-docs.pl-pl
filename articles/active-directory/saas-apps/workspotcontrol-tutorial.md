@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88526589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Samouczek: integracja Azure Active Directory z kontrolką Workspot
@@ -94,7 +94,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą kontrolki W
 
     ![Wybierz okno metody wyboru logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **Edytuj** (ołówek), aby uzyskać dostęp do **podstawowej konfiguracji protokołu SAML**.
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** (ołówek), aby uzyskać dostęp do **podstawowej konfiguracji języka SAML**.
 
     ![Ikona edycji wyróżniona w temacie "Podstawowa konfiguracja SAML"](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą kontrolki W
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistym identyfikatorem, adresem URL odpowiedzi i adresem URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Workspot Control Client](mailto:support@workspot.com) . Można również odwołać się do wzorców w sekcji podstawowe informacje o **konfiguracji SAML** Azure Portal.
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z dostępnych opcji zgodnie z wymaganiami. Zapisz go na komputerze.
+6. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z dostępnych opcji zgodnie z wymaganiami. Zapisz go na komputerze.
 
     ![Link do pobierania certyfikatu (base64)](common/certificatebase64.png)
 
@@ -176,7 +176,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Następnie Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: dc7af555bcaf8654ecdb27d804cbef0c2cedb284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81253819"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
 ms.openlocfilehash: f681dd2931300ec00fd6388b4636015c87f38170
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88525098"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SiteIntel
@@ -114,7 +114,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-   d. Wybierz pozycję **Utwórz**.
+   d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

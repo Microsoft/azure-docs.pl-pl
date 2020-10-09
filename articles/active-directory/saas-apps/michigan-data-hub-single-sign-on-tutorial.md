@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą logowania jednokrotnego w usłudze Michigan Data Hub | Microsoft Docs'
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z usługą Michigan Data Hub — pojedynczy Sign-On Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Michigan Logowanie jednokrotne w centrum danych.
 services: active-directory
 author: jeevansd
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 031190bee2dc81398ee0c4ac23ad9ec62469333a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528373"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Michigan Data Hub — Logowanie jednokrotne
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Michigan Data Hub — pojedynczy Sign-On
 
-W tym samouczku dowiesz się, jak zintegrować Logowanie jednokrotne w usłudze Michigan Data Hub za pomocą Azure Active Directory (Azure AD). Gdy integrujesz Logowanie jednokrotne w usłudze Michigan Data Hub z usługą Azure AD, możesz:
+W tym samouczku dowiesz się, jak zintegrować pojedyncze Sign-On centrum danych Michigan z Azure Active Directory (Azure AD). W przypadku integrowania jednego Sign-On centrum danych Michigan z usługą Azure AD można:
 
 * Kontrolka w usłudze Azure AD, która ma dostęp do logowania jednokrotnego centrum danych Michigan.
-* Zezwól użytkownikom na automatyczne logowanie się w celu Michigan logowania jednokrotnego do centrum danych przy użyciu kont usługi Azure AD.
+* Zezwól użytkownikom na automatyczne logowanie się w celu Michigan jednego Sign-On centrum danych z kontami usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -33,18 +33,18 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi Michigan Data Hub.
+* Michigane Sign-On pojedynczej subskrypcji z włączonym logowaniem jednokrotnym (SSO) w centrum danych.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Logowanie jednokrotne w usłudze Michigan Data **Hub obsługuje** zainicjowanie rejestracji jednokrotnej w ramach
-* Po skonfigurowaniu logowania jednokrotnego w usłudze Michigan Data Hub można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Pojedynczy Sign-On centrum danych Michigan obsługuje usługę **SP** zainicjowaną przez usługę SSO
+* Po skonfigurowaniu jednego Sign-On centrum danych Michigan można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-michigan-data-hub-single-sign-on-from-the-gallery"></a>Dodawanie logowania jednokrotnego do centrum danych Michigan z galerii
+## <a name="adding-michigan-data-hub-single-sign-on-from-the-gallery"></a>Dodawanie jednego Sign-On centrum danych Michigan z galerii
 
-Aby skonfigurować integrację logowania jednokrotnego z centrum danych Michigan w usłudze Azure AD, musisz dodać Logowanie jednokrotne Michigan centrum danych z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację jednego Sign-On centrum danych Michigan w usłudze Azure AD, musisz dodać Sign-On pojedynczej centrum danych Michigan z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
@@ -54,17 +54,17 @@ Aby skonfigurować integrację logowania jednokrotnego z centrum danych Michigan
 1. Wybierz pozycję **Michigan Data Hub logowanie** jednokrotne z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-michigan-data-hub-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego w usłudze Azure AD do usługi Michigan Data Hub — Logowanie jednokrotne
+## <a name="configure-and-test-azure-ad-sso-for-michigan-data-hub-single-sign-on"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla usługi Michigan Data Hub Single Sign-On
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Michigan Data Hub przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Michigan Data Hub Logowanie jednokrotne.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu jednego Sign-On centrum danych Michigan przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Michigan Data Hub Logowanie jednokrotne.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Michigan Data Hub, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. Skonfiguruj Logowanie jednokrotne w usłudze **[Michigan Data Hub](#configure-michigan-data-hub-single-sign-on-sso)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego usługi Michigan Data Hub logowanie](#create-michigan-data-hub-single-sign-on-test-user)** jednokrotne, aby dysponować odpowiednikiem B. Simon w przypadku logowania jednokrotnego w centrum danych Michigan, które jest połączone z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj pojedyncze Sign-On logowanie](#configure-michigan-data-hub-single-sign-on-sso)** jednokrotne w usłudze Data Hub, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz jednego Sign-On użytkownika testowego centrum danych](#create-michigan-data-hub-single-sign-on-test-user)** , aby dysponować odpowiednikiem B. Simon w ramach pojedynczego Sign-On centrum danych, które jest połączone z reprezentacją usługi Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -115,30 +115,30 @@ W tej sekcji zostanie włączone Logowanie jednokrotne w usłudze B. Simon, przy
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-michigan-data-hub-single-sign-on-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze Michigan Data Hub
+## <a name="configure-michigan-data-hub-single-sign-on-sso"></a>Konfigurowanie jednego Sign-On Logowanie jednokrotne w centrum danych
 
-Aby skonfigurować Logowanie jednokrotne na stronie Logowanie jednokrotne w usłudze **Michigan Data Hub** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej usługi Michigan Data Hub logowania jednokrotnego](mailto:support@midatahub.org). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie Logowanie jednokrotne w usłudze **Michigan Data Hub** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej centrum danych Michigan Sign-On](mailto:support@midatahub.org). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-michigan-data-hub-single-sign-on-test-user"></a>Utwórz użytkownika testowego logowania jednokrotnego centrum danych Michigan
+### <a name="create-michigan-data-hub-single-sign-on-test-user"></a>Utwórz użytkownika testowego Michigan Sign-On centrum danych
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Michigan logowania jednokrotnego centrum danych. Współpracuj z [zespołem pomocy technicznej Michigan centrum danych](mailto:support@midatahub.org) , aby dodać użytkowników w ramach platformy rejestracji jednokrotnej Michigan centrum danych. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Michigan logowania jednokrotnego centrum danych. Pracuj z [zespołem pomocy technicznej Michigan single Sign-On Hub](mailto:support@midatahub.org) , aby dodać użytkowników w jednej platformie Sign-On centrum danych Michigan. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Logowanie jednokrotne w usłudze Michigan Data Hub w panelu dostępu należy automatycznie zalogować się do usługi Michigan Data Hub logowania jednokrotnego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Single Sign-On centrum danych Michigan w panelu dostępu należy automatycznie zalogować się do Sign-On pojedynczym centrum danych Michigan, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Wypróbuj Logowanie jednokrotne w usłudze Michigan Data Hub za pomocą usługi Azure AD](https://aad.portal.azure.com/)
+- [Wypróbuj Michigan jednego Sign-On centrum danych z usługą Azure AD](https://aad.portal.azure.com/)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić Logowanie jednokrotne w centrum danych Michigan przy użyciu zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić pojedynczy Sign-On centrum danych Michigan z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

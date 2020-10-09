@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 5a601b7ec7e2615053203e23ea61fc6d2efc85bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Samouczek: integracja Azure Active Directory z usługą T&E Express
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi T&E Express, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w usłudze **[T&E Express](#configure-te-express-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w usłudze **[T&E Express](#configure-te-express-single-sign-on)** — aby skonfigurować ustawienia pojedynczego Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego T&E Express](#create-te-express-test-user)** , aby uzyskać odpowiednik Britta Simon w T&E Express, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -122,7 +122,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi T&E
 
     c. Adres URL wylogowywania
 
-### <a name="configure-te-express-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze T&E Express
+### <a name="configure-te-express-single-sign-on"></a>Skonfiguruj pojedynczy Sign-On w usłudze T&E Express
 
 1. Aby skonfigurować Logowanie jednokrotne na stronie **t&E Express** , zaloguj się do aplikacji t&e Express bez logowania jednokrotnego SAML przy użyciu poświadczeń administratora.
 
@@ -219,7 +219,7 @@ Po kliknięciu kafelka T&E Express w panelu dostępu należy automatycznie zalog
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

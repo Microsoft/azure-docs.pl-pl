@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 1a1e2716d3f2328ebd64bbb5b6b70036ac991b56
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88531926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visibly"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) w systemie Azure Active Directory
@@ -180,7 +180,7 @@ Po kliknięciu widocznego kafelka w panelu dostępu należy automatycznie zalogo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

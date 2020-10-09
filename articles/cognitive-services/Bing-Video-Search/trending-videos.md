@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68500614"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Zyskaj trendy wideo przy użyciu interfejs API wyszukiwania wideo Bing 
 
 Interfejs API wyszukiwania wideo Bing umożliwia znalezienie dzisiejszych trendów wideo z poziomu sieci Web, a w różnych kategoriach. 
 
-## <a name="get-request"></a>Pobierz żądanie
+## <a name="get-request"></a>Żądanie GET
 
 Aby uzyskać aktualne trendy wideo z interfejs API wyszukiwania wideo Bing, wyślij następujące żądanie GET:  
   

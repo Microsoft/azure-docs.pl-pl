@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528475"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą konsoli administracyjnej Mimecast
@@ -80,7 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca:
 
-    | Region (Region)  |  Wartość | 
+    | Region  |  Wartość | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Stany Zjednoczone   | `https://us-api.mimecast.com/sso/<accountcode>`|
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: 
 
-    | Region (Region)  |  Wartość | 
+    | Region  |  Wartość | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Stany Zjednoczone   | `https://us-api.mimecast.com/login/saml`|
@@ -105,7 +105,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL: 
 
-    | Region (Region)  |  Wartość | 
+    | Region  |  Wartość | 
     | --------------- | --------------- | 
     | Europa          | `https://login-eu.mimecast.com/administration/app/#/administration-dashboard`|
     | Stany Zjednoczone   | `https://login-us.mimecast.com/administration/app/#/administration-dashboard`|
@@ -113,7 +113,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | Australia       | `https://login-au.mimecast.com/administration/app/#/administration-dashboard`|
     | Offshore        | `https://login-jer.mimecast.com/administration/app/#/administration-dashboard`|
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -181,7 +181,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Usuń zaznaczenie pola wyboru **Użyj kontekstu chronionego hasłem** i **Użyj opcji kontekstu uwierzytelniania zintegrowanego** .
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-mimecast-admin-console-test-user"></a>Tworzenie użytkownika testowego konsoli Mimecast Admin Console
 
@@ -211,7 +211,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Zaznacz pole wyboru **Wymuszaj zmianę przy logowaniu** .
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
     f. Aby przypisać role do użytkownika, kliknij pozycję **rola Edytuj** i przypisz wymagane role do użytkownika zgodnie z wymaganiami organizacji.
 
@@ -227,7 +227,7 @@ Po kliknięciu kafelka Mimecast Admin Console na panelu dostępu powinno nastąp
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

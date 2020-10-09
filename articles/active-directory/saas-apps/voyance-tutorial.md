@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
 ms.openlocfilehash: e51d275b32b634b7914b4e4f53959c1b89d96aed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88531688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Samouczek: integracja Azure Active Directory z usługą Voyance
@@ -75,7 +75,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Voyance, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-voyance-single-sign-on)** jednokrotne w usłudze Voyance, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-voyance-single-sign-on)** jednokrotne w usłudze Voyance, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego Voyance](#create-voyance-test-user)** , aby uzyskać odpowiednik Britta Simon w Voyance, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -130,29 +130,29 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Voyance, wy
 
     c. Adres URL wylogowywania
 
-### <a name="configure-voyance-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Voyance
+### <a name="configure-voyance-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Voyance
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej dzierżawy Voyance jako administrator.
 
 2. Przejdź do prawego górnego rogu paska nawigacyjnego, a następnie kliknij pozycję **profil**.
     
-    ![Konfigurowanie logowania jednokrotnego na Uniwersytecie](./media/voyance-tutorial/tutorial_voyance_001.png) 
+    ![Konfigurowanie pojedynczej Sign-On na Uniwersytecie](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
 3. Kliknij pozycję **Ustawienia administratora**.
 
-    ![Skonfiguruj Logowanie jednokrotne w ustawieniach administratora po stronie aplikacji](./media/voyance-tutorial/tutorial_voyance_002.png)
+    ![Skonfiguruj pojedyncze Sign-On w ustawieniach administratora po stronie aplikacji](./media/voyance-tutorial/tutorial_voyance_002.png)
 
 4. Kliknij kartę **dostęp użytkownika** .
 
-    ![Konfigurowanie logowania jednokrotnego w dostępie użytkownika po stronie aplikacji](./media/voyance-tutorial/tutorial_voyance_003.png)
+    ![Skonfiguruj pojedyncze Sign-On w dostępie użytkownika po stronie aplikacji](./media/voyance-tutorial/tutorial_voyance_003.png)
 
 5. Kliknij przycisk **Logowanie jednokrotne** , aby skonfigurować usługę Azure AD jako dostawcy tożsamości przy użyciu protokołu SAML 2,0.
 
-    ![Przycisk Konfiguruj logowanie jednokrotne po stronie aplikacji Logowanie jednokrotne jest wyłączone](./media/voyance-tutorial/tutorial_voyance_004.png)
+    ![Przycisk Konfiguruj pojedyncze Sign-On po stronie logowania jednokrotnego jest wyłączony](./media/voyance-tutorial/tutorial_voyance_004.png)
 
 6. Przejdź do sekcji **SAML V2** i wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego na stronie aplikacji SAML V2](./media/voyance-tutorial/tutorial-voyance-005.png)
+    ![Konfigurowanie jednego Sign-On na stronie aplikacji SAML V2](./media/voyance-tutorial/tutorial-voyance-005.png)
     
     a. Wybierz pozycję **Włączone**.
     
@@ -160,7 +160,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Voyance, wy
 
     c. Otwórz pobrany certyfikat zakodowany w formacie base64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikatu dostawcy tożsamości** .
     
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -229,7 +229,7 @@ Po kliknięciu kafelka Voyance w panelu dostępu należy automatycznie zalogowa�
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

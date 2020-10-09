@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 8270bf305fcf749a81f06801b46867e614d85127
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Samouczek: integracja Azure Active Directory z niezawodnym webvisionem
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą programu Wyobraź sobie webvision, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Przypuśćmy logowanie](#configure-imagineer-webvision-single-sign-on)** jednokrotne w usłudze webvision — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj funkcję "Logowanie](#configure-imagineer-webvision-single-sign-on)** jednokrotne w usłudze webvision", aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. Utwórz program do wymuszania **[wzrokowego użytkownika testowego](#create-imagineer-webvision-test-user)** , aby uzyskać odpowiednik Britta Simon w programie Wyobraź sobie webvision, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -112,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu Wy
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-imagineer-webvision-single-sign-on"></a>Skonfiguruj zalogowanie jednokrotne w programie do aprowizacji
+### <a name="configure-imagineer-webvision-single-sign-on"></a>Skonfiguruj jednoSign-Oną funkcję przypuśćer
 
 Aby skonfigurować Logowanie jednokrotne na stronie programu **Wyobraź sobie** , należy wysłać **adres URL metadanych federacji aplikacji** do wymuszenia [zespołu pomocy technicznej webvision](mailto:support@itgny.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -180,7 +180,7 @@ Po kliknięciu kafelka Wyobraź sobie webvision w panelu dostępu należy automa
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
