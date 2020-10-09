@@ -1,13 +1,13 @@
 ---
 title: Uruchamianie usługi w ramach systemu i lokalnych kont zabezpieczeń
-description: Dowiedz się, jak uruchomić aplikację Service Fabricową w ramach systemu i kont zabezpieczeń lokalnych.  Utwórz podmioty zabezpieczeń i Zastosuj zasady Uruchom jako, aby bezpiecznie uruchamiać usługi.
+description: Dowiedz się, jak uruchomić aplikację Service Fabricową w ramach systemu i kont zabezpieczeń lokalnych.  Utwórz podmioty zabezpieczeń i Zastosuj zasady Run-As, aby bezpiecznie uruchamiać usługi.
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75610129"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Uruchamianie usługi jako konta użytkownika lokalnego lub lokalnego konta systemowego

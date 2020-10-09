@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie do Azure Key Vault
+title: Uwierzytelnianie w usłudze Azure Key Vault
 description: Dowiedz się, jak uwierzytelniać się w usłudze Azure Key Vault
 author: ShaneBala-keyvault
 ms.author: sudbalas
@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89481379"
 ---
-# <a name="authenticate-to-azure-key-vault"></a>Uwierzytelnianie do Azure Key Vault
+# <a name="authenticate-to-azure-key-vault"></a>Uwierzytelnianie w usłudze Azure Key Vault
 
 Azure Key Vault pozwala przechowywać wpisy tajne i kontrolować ich dystrybucję w scentralizowanym, bezpiecznym repozytorium w chmurze, co eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje muszą uwierzytelniać się za pomocą Key Vault w czasie wykonywania, aby uzyskać dostęp do tych kluczy tajnych.
 
@@ -48,7 +48,7 @@ Key Vault współpracuje z dwoma odrębnymi poziomami autoryzacji:
 
     Aby przypisać zasady dostępu, zobacz następujące artykuły:
 
-    - [Witryna Azure Portal](assign-access-policy-portal.md)
+    - [Azure Portal](assign-access-policy-portal.md)
     - [Interfejs wiersza polecenia platformy Azure](assign-access-policy-cli.md)
     - [Azure PowerShell](assign-access-policy-portal.md)
 
@@ -56,13 +56,13 @@ Key Vault współpracuje z dwoma odrębnymi poziomami autoryzacji:
  
     Aby przypisać role i zarządzać nimi, zobacz następujące artykuły:
 
-    - [Witryna Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
     - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
     - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
     Key Vault obecnie obsługuje rolę [współautor](/azure/role-based-access-control/built-in-roles#key-vault-contributor) , która umożliwia wykonywanie operacji zarządzania na zasobach Key Vault. Niektóre inne role są obecnie dostępne w wersji zapoznawczej. Można również tworzyć role niestandardowe, zgodnie z opisem w temacie [role niestandardowe platformy Azure](/azure/role-based-access-control/custom-roles).
 
-    Aby uzyskać ogólne informacje na temat ról, zobacz [co to jest Access Control oparte na rolach na platformie Azure (RBAC)?](/azure/role-based-access-control/overview)
+    Aby uzyskać ogólne informacje na temat ról, zobacz [co to jest usługa Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview).
 
 
 > [!IMPORTANT]
@@ -115,7 +115,7 @@ Poniższa tabela zawiera linki do różnych artykułów, które pokazują, jak k
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |
-| [Witryna Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Witryna Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Witryna Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
+| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
 | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/secrets/quick-create-cli) | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/keys/quick-create-cli) | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/certificates/quick-create-cli) |
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
 | [Szablon usługi ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
@@ -125,4 +125,4 @@ Poniższa tabela zawiera linki do różnych artykułów, które pokazują, jak k
 - [Rozwiązywanie problemów z Key Vault zasad dostępu](troubleshooting-access-issues.md)
 - [Kody błędów interfejsu API REST Key Vault](rest-error-codes.md)
 - [Przewodnik dewelopera Key Vault](developers-guide.md)
-- [Co to jest Access Control oparte na rolach (RBAC) na platformie Azure?](/azure/role-based-access-control/overview)
+- [Co to jest usługa Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)

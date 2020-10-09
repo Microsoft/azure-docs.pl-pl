@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80422554"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Zapora systemu operacyjnego gościa maszyny wirtualnej platformy Azure blokuje ruch przychodzący
@@ -142,7 +142,7 @@ Połącz się z [konsolą szeregową, a następnie otwórz wystąpienie programu
 
 #### <a name="mitigation-1"></a>Środki zaradcze 1
 
-Zobacz [jak włączyć-wyłączyć regułę zapory w systemie operacyjnym gościa](enable-disable-firewall-rule-guest-os.md).
+Zobacz [jak Enable-Disable regułę zapory w systemie operacyjnym gościa](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Środki zaradcze 2
 

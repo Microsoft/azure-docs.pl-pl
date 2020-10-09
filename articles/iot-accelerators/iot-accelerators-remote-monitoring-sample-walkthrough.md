@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80546311"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Omówienie akceleratora rozwiązania do monitorowania zdalnego
@@ -64,7 +64,7 @@ Mikrousługa udostępnia RESTful punkt końcowy, aby można było tworzyć, uruc
 
 Symulowane urządzenia można udostępnić z poziomu pulpitu nawigacyjnego w portalu rozwiązania.
 
-### <a name="iot-hub"></a>IoT Hub
+### <a name="iot-hub"></a>Usługa IoT Hub
 
 Usługa [IoT Hub](../iot-hub/index.yml) pozyskuje dane telemetryczne wysyłane z rzeczywistych i symulowanych urządzeń do chmury. Usługa IoT Hub udostępnia dane telemetryczne dla usług w zapleczu rozwiązania IoT do przetwarzania.
 
@@ -134,7 +134,7 @@ Zadania ASA zapewniają dane telemetryczne z połączonych urządzeń, aby Time 
 
 [Mikrousługa uwierzytelniania i autoryzacji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) zarządza użytkownikami uprawnionymi do uzyskiwania dostępu do akceleratora rozwiązań. Zarządzanie użytkownikami można wykonać przy użyciu dowolnego dostawcy usługi tożsamości, który obsługuje [OpenID Connect Connect](https://openid.net/connect/).
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Wdrożenia akceleratora rozwiązań używają [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) jako dostawcy połączenia OpenID Connect. Azure Active Directory przechowuje informacje o użytkowniku i udostępnia certyfikaty do weryfikowania podpisów tokenów JWT.
 

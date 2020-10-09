@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982858"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Praca zdalna przy użyciu usług sieciowych platformy Azure
@@ -80,7 +80,7 @@ W przypadku wdrożeń w innych chmurach publicznych firma Microsoft może zapewn
 
 W poniższych artykułach omówiono, jak można użyć różnych funkcji sieciowych platformy Azure do skalowania użytkowników zdalnie:
 
-| **Art** | **Opis** |
+| **Artykuł** | **Opis** |
 | --- | --- |
 | [Jak umożliwić użytkownikom zdalne działanie](../vpn-gateway/work-remotely-support.md) | Przejrzyj dostępne opcje, aby skonfigurować dostęp zdalny dla użytkowników lub uzupełnić swoje istniejące rozwiązania dodatkową pojemnością dla organizacji.|
 | [Zoptymalizowaniem chcesz korzystać z potrzeb domowych? Oto, gdzie usługa Azure Virtual WAN może pomóc](../virtual-wan/work-remotely-support.md) | Użyj wirtualnej sieci WAN platformy Azure, aby rozwiązać wymagania dotyczące łączności zdalnej w organizacji.|

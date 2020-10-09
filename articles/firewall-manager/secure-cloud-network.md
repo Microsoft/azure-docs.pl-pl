@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: victorh
 ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89536006"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
@@ -57,7 +57,7 @@ Każda z tych sieci wirtualnych będzie zawierać w nich serwer obciążenia i b
 4. Typ **obciążenia-01-SN**.
 5. W obszarze **zakres adresów podsieci**wpisz **10.1.1.0/24**.
 6. Wybierz pozycję **Dodaj**.
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 2. Wybierz pozycję **Utwórz**.
 
 Powtórz tę procedurę, aby utworzyć kolejną podobną sieć wirtualną:
@@ -120,7 +120,7 @@ Powtórz, aby połączyć sieć wirtualną **szprych-02** : Connection Name- **H
    |---------|---------|
    |Grupa zasobów     |**PD — Menedżer**|
    |Nazwa maszyny wirtualnej     |**SRV — obciążenie — 01**|
-   |Region (Region)     |**Prześlij Wschodnie stany USA)**|
+   |Region     |**Prześlij Wschodnie stany USA)**|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 
@@ -199,7 +199,7 @@ Dodaj regułę sieciową, aby można było połączyć pulpit zdalny od **SRV-ob
 2. Wybierz pozycję **Dalej: centra**.
 3. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
 4. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 6. Wybierz pozycję **Utwórz**.
 
 Ukończenie tego procesu może potrwać około pięciu minut.

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656235"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Zwiększ bezpieczeństwo wywołań niestandardowych interfejsów API z Azure Logic Apps
@@ -142,7 +142,7 @@ Teraz musisz znaleźć identyfikator klienta i identyfikator dzierżawy dla toż
 
 4. W obszarze **adres URL wystawcy**, skopiuj i Zapisz tylko identyfikator GUID dla części 3. W razie potrzeby można również użyć tego identyfikatora GUID w szablonie wdrożenia aplikacji sieci Web lub aplikacji interfejsu API.
 
-   Ten identyfikator GUID jest identyfikatorem GUID określonej dzierżawy ("Identyfikator dzierżawy") i powinien pojawić się w tym adresie URL:`https://sts.windows.net/{GUID}`
+   Ten identyfikator GUID jest identyfikatorem GUID określonej dzierżawy ("Identyfikator dzierżawy") i powinien pojawić się w tym adresie URL: `https://sts.windows.net/{GUID}`
 
 5. Bez zapisywania zmian Zamknij stronę **ustawień Azure Active Directory** .
 
@@ -206,7 +206,7 @@ Otwórz definicję aplikacji logiki w widoku Kod, przejdź do definicji akcji **
 | typ | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest równa `ActiveDirectoryOAuth` . | 
 |||| 
 
-Przykład:
+Na przykład:
 
 ``` json
 {

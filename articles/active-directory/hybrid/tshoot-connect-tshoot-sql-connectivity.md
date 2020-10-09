@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85355866"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Troubleshoot SQL connectivity issues with Azure AD Connect (Rozwiązywanie problemów z połączeniami SQL w programie Azure AD Connect)
@@ -36,10 +36,10 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 ```
 
 >[!NOTE]
->Moduł Install-Module wymaga aktualizacji [programu PowerShell 5,0 (WMF 5,0)](https://www.microsoft.com/download/details.aspx?id=50395) lub nowszej.  
+>Install-Module wymaga aktualizacji [programu PowerShell 5,0 (WMF 5,0)](https://www.microsoft.com/download/details.aspx?id=50395) lub nowszego;  
 Lub zainstaluj [PackageManagement modułów programu PowerShell w wersji zapoznawczej — marzec 2016 dla programu PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
-- **Pokaż wszystkie polecenia**:`Get-Command -Module AdSyncTools` 
+- **Pokaż wszystkie polecenia**: `Get-Command -Module AdSyncTools` 
 - **Wykonaj funkcję programu PowerShell**: `Connect-ADSyncDatabase` z następującymi parametrami
     - Server. Nazwa SQL Server.
     - Np. Obowiązkowe Nazwa wystąpienia SQL Server i opcjonalny numer portu, którego chcesz użyć. Nie określaj tego parametru, aby użyć domyślnego wystąpienia.

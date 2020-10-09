@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odwołanie do składni SQLRuleAction. Akcje s�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341587"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>SQLRuleAction odwołanie do składni dla Azure Service Bus
@@ -54,7 +54,7 @@ W tym artykule przedstawiono szczegółowe informacje na temat gramatyki akcji r
   
 ## <a name="arguments"></a>Argumenty  
   
--   `<scope>`jest opcjonalnym ciągiem wskazującym zakres `<property_name>` . Prawidłowe wartości to `sys` lub `user` . `sys`Wartość wskazuje zakres systemowy, gdzie `<property_name>` jest publiczną nazwą właściwości [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`wskazuje zakres użytkownika `<property_name>` , gdzie jest kluczem słownika [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user`zakres jest zakresem domyślnym, jeśli `<scope>` nie jest określony.  
+-   `<scope>` jest opcjonalnym ciągiem wskazującym zakres `<property_name>` . Prawidłowe wartości to `sys` lub `user` . `sys`Wartość wskazuje zakres systemowy, gdzie `<property_name>` jest publiczną nazwą właściwości [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` wskazuje zakres użytkownika `<property_name>` , gdzie jest kluczem słownika [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user` zakres jest zakresem domyślnym, jeśli `<scope>` nie jest określony.  
   
 ### <a name="remarks"></a>Uwagi  
 
@@ -73,7 +73,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
 ```  
   
 ### <a name="arguments"></a>Argumenty  
- `<regular_identifier>`jest ciągiem przedstawionym przez następujące wyrażenie regularne:  
+ `<regular_identifier>` jest ciągiem przedstawionym przez następujące wyrażenie regularne:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -81,13 +81,13 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
  Oznacza to dowolny ciąg, który rozpoczyna się od litery, po której następuje jeden lub więcej podkreśleń/liter/cyfr.  
   
- `[:IsLetter:]`oznacza dowolny znak Unicode, który jest kategoryzowany jako litera Unicode. `System.Char.IsLetter(c)`zwraca `true` wartość `c` , jeśli jest literą Unicode.  
+ `[:IsLetter:]` oznacza dowolny znak Unicode, który jest kategoryzowany jako litera Unicode. `System.Char.IsLetter(c)` zwraca `true` wartość `c` , jeśli jest literą Unicode.  
   
- `[:IsDigit:]`oznacza dowolny znak Unicode, który jest kategoryzowany jako cyfra dziesiętna. `System.Char.IsDigit(c)`zwraca `true` wartość `c` , jeśli jest cyfrą Unicode.  
+ `[:IsDigit:]` oznacza dowolny znak Unicode, który jest kategoryzowany jako cyfra dziesiętna. `System.Char.IsDigit(c)` zwraca `true` wartość `c` , jeśli jest cyfrą Unicode.  
   
  A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.  
   
- `<delimited_identifier>`jest dowolnym ciągiem, który jest ujęty w nawiasy kwadratowe ([]). Prawy nawias kwadratowy jest reprezentowany jako dwa prawy nawias kwadratowy. Poniżej przedstawiono przykłady `<delimited_identifier>` :  
+ `<delimited_identifier>` jest dowolnym ciągiem, który jest ujęty w nawiasy kwadratowe ([]). Prawy nawias kwadratowy jest reprezentowany jako dwa prawy nawias kwadratowy. Poniżej przedstawiono przykłady `<delimited_identifier>` :  
   
 ```  
 [Property With Space]  
@@ -95,7 +95,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ```  
   
- `<quoted_identifier>`to dowolny ciąg, który jest ujęty w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako dwa podwójne cudzysłowy. Nie zaleca się używania identyfikatorów w cudzysłowie, ponieważ można je łatwo pomylić z stałą typu String. Jeśli to możliwe, należy użyć oddzielonego identyfikatora. Oto przykład `<quoted_identifier>` :  
+ `<quoted_identifier>` to dowolny ciąg, który jest ujęty w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako dwa podwójne cudzysłowy. Nie zaleca się używania identyfikatorów w cudzysłowie, ponieważ można je łatwo pomylić z stałą typu String. Jeśli to możliwe, należy użyć oddzielonego identyfikatora. Oto przykład `<quoted_identifier>` :  
   
 ```  
 "Contoso & Northwind"  
@@ -110,7 +110,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ### <a name="remarks"></a>Uwagi
   
- `<pattern>`musi być wyrażeniem, które jest oceniane jako ciąg. Jest używany jako wzorzec dla operatora LIKE.      Może zawierać następujące symbole wieloznaczne:  
+ `<pattern>` musi być wyrażeniem, które jest oceniane jako ciąg. Jest używany jako wzorzec dla operatora LIKE.      Może zawierać następujące symbole wieloznaczne:  
   
 -   `%`: Dowolny ciąg składający się z zero lub więcej znaków.  
   
@@ -125,7 +125,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ### <a name="remarks"></a>Uwagi
   
- `<escape_char>`musi być wyrażeniem, które jest oceniane jako ciąg o długości 1. Jest używany jako znak ucieczki dla operatora LIKE.  
+ `<escape_char>` musi być wyrażeniem, które jest oceniane jako ciąg o długości 1. Jest używany jako znak ucieczki dla operatora LIKE.  
   
  Na przykład `property LIKE 'ABC\%' ESCAPE '\'` pasuje do `ABC%` ciągu, który rozpoczyna się od `ABC` .  
   
@@ -138,7 +138,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ### <a name="arguments"></a>Argumenty  
   
--   `<integer_constant>`jest ciągiem liczb, które nie są ujęte w cudzysłów i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
+-   `<integer_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i nie zawierają punktów dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i zgodne z tym samym zakresem.  
   
      Poniżej przedstawiono przykłady długich stałych:  
   
@@ -147,7 +147,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
     2  
     ```  
   
--   `<decimal_constant>`jest ciągiem liczb, które nie są ujęte w cudzysłów i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
+-   `<decimal_constant>` jest ciągiem liczb, które nie są ujęte w cudzysłów i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
   
      W przyszłych wersjach ten numer może być przechowywany w innym typie danych do obsługi dokładnej semantyki liczb, dlatego nie należy polegać na tym, że jest to typ danych bazowych `System.Double` `<decimal_constant>` .  
   
@@ -158,7 +158,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
     2.0  
     ```  
   
--   `<approximate_number_constant>`to liczba zapisywana w notacji wykładniczej. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością. Poniżej przedstawiono przykłady przybliżonych stałych liczbowych:  
+-   `<approximate_number_constant>` to liczba zapisywana w notacji wykładniczej. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością. Poniżej przedstawiono przykłady przybliżonych stałych liczbowych:  
   
     ```  
     101.5E5  
@@ -200,7 +200,7 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 `property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
   
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - ZESTAW służy do tworzenia nowej właściwości lub aktualizowania wartości istniejącej właściwości.
 - Usuń służy do usuwania właściwości.

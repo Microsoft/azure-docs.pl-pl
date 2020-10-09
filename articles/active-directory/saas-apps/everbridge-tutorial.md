@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 1da2fd879dbeac1836469d46567566769f6163a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Samouczek: integracja Azure Active Directory z usługą EverBridge
@@ -93,7 +93,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja SAML** .
+3. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz pozycję **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
      > [!NOTE]
      > To nie są rzeczywiste wartości. Zaktualizuj te wartości przy użyciu wartości rzeczywiste identyfikator, adres URL odpowiedzi i adres URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej EverBridge](mailto:support@everbridge.com). Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji**. Zapisz go na komputerze.
+6. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji**. Zapisz go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -192,7 +192,7 @@ Aby utworzyć test User Britta Simon w Azure Portal, wykonaj następujące kroki
 
     c. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz pozycję **Utwórz**.
+    d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -233,6 +233,6 @@ Po wybraniu kafelka EverBridge w panelu dostępu należy automatycznie zalogowa�
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

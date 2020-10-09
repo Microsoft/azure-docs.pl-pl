@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80436008"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Często zadawane pytania — pytania dotyczące maszyn wirtualnych
@@ -56,4 +56,4 @@ Program Security Center zwykle skanuje nowe dane co godzinę i odświeża odpowi
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Dlaczego otrzymuję komunikat "Brak agenta maszyny wirtualnej"?
 
-Aby można było włączyć zbieranie danych, Agent maszyny wirtualnej musi być zainstalowany na maszynach wirtualnych. Agent maszyny wirtualnej jest instalowany domyślnie w przypadku maszyn wirtualnych wdrażanych z poziomu portalu Azure Marketplace. Aby uzyskać informacje na temat sposobu instalowania agenta maszyny wirtualnej na innych maszynach wirtualnych, zobacz wpis w blogu [Agent i rozszerzenia](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+Aby można było włączyć zbieranie danych, Agent maszyny wirtualnej musi być zainstalowany na maszynach wirtualnych. Agent maszyny wirtualnej jest instalowany domyślnie w przypadku maszyn wirtualnych wdrażanych z poziomu witryny Azure Marketplace. Aby uzyskać informacje na temat sposobu instalowania agenta maszyny wirtualnej na innych maszynach wirtualnych, zobacz wpis w blogu [Agent i rozszerzenia](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

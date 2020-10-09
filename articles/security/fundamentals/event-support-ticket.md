@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80548587"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Jak zarejestrować bilet pomocy technicznej zdarzenia zabezpieczeń
@@ -43,7 +43,7 @@ ms.locfileid: "80548587"
     - Jeśli musisz skontaktować się z nami o swoim problemie, użyj numeru potwierdzenia w całej korespondencji.
     - Postęp problemu można zobaczyć w dowolnym momencie.
 
-5. Co się stanie w następnej kolejności? W zależności od problemu i ważności można wykonać następujące czynności:
+5. Co dalej? W zależności od problemu i ważności można wykonać następujące czynności:
 
     - Będziemy informować o wynikach naszych ocen. W zależności od wyniku firma Microsoft może usunąć ofertę lub zażądać jej modyfikacji. W tym zdarzeniu będziemy współpracować ze swoimi zadaniami, aby mieć pewność, że zakłócenia wpływające na klientów zostanie zminimalizowane.
     - Będziemy współpracować z ty, aby pomóc w ograniczeniu wpływu incydentu/luki w zabezpieczeniach naszych klientów.

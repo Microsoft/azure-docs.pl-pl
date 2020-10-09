@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609863"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Jak określić numer portu usługi przy użyciu parametrów w Service Fabric
@@ -40,7 +40,7 @@ W tym przykładzie ustawisz numer portu dla asp.net podstawowego interfejsu API 
       </ServiceManifestImport>
     ```
 
-1. W `Endpoint` elemencie można teraz przesłonić dowolny atrybut przy użyciu parametru. W tym przykładzie określisz `Port` i ustawisz ją jako nazwę parametru przy użyciu nawiasów kwadratowych — na przykład`[MyWebAPI_PortNumber]`
+1. W `Endpoint` elemencie można teraz przesłonić dowolny atrybut przy użyciu parametru. W tym przykładzie określisz `Port` i ustawisz ją jako nazwę parametru przy użyciu nawiasów kwadratowych — na przykład `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -62,7 +62,7 @@ W tym przykładzie ustawisz numer portu dla asp.net podstawowego interfejsu API 
       </Parameters>
     ```
 
-1. I Zdefiniuj`DefaultValue`
+1. I Zdefiniuj `DefaultValue`
 
     ```xml
       <Parameters>

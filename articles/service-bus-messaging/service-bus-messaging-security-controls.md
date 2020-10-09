@@ -4,10 +4,10 @@ description: Lista kontrolna kontroli zabezpieczeń służąca do oceniania Azur
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341638"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Kontrolki zabezpieczeń dla Azure Service Bus Messaging
@@ -46,8 +46,8 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w Azure Servi
 |---|---|--|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft |  Tak w przypadku szyfrowania po stronie serwera domyślnie. |  |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak. | Klucz zarządzany przez klienta w usłudze Azure Key Recovery może służyć do szyfrowania danych w przestrzeni nazw Service Bus w stanie spoczynku. | [Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal](configure-customer-managed-key.md)  |
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |   |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Obsługuje standardowy mechanizm HTTPS/TLS. |   |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak | |   |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Obsługuje standardowy mechanizm HTTPS/TLS. |   |
 | Wywołania interfejsu API są szyfrowane| Tak | Wywołania interfejsu API są nawiązywane za pośrednictwem [Azure Resource Manager](../azure-resource-manager/index.yml) i https. |   |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

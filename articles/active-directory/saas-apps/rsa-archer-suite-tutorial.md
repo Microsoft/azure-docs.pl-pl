@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: fa8b150e7b5e1bd5bfc5e05b3b00a13522b52f87
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500854"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pakietem RSA Archer
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | PhoneNumber | user.telephonenumber |
     | City (Miasto) | Użytkownik. miasto |
     | Kod pocztowy | User. KodPocztowy |
-    | Stan | User. State |
+    | State | User. State |
     | Ulica | User. StreetAddress |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
@@ -143,7 +143,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
 
-    a. Przejdź do karty **Logowanie** jednokrotne i wybierz pozycję **SAML** jako **tryb logowania** jednokrotnego z listy rozwijanej.
+    a. Przejdź do karty **Logowanie** jednokrotne i wybierz pozycję **SAML** jako **tryb jednego Sign-On** z listy rozwijanej.
 
     b. Zaznacz pole wyboru **Zezwalaj na ręczne obejście** .
 
@@ -153,7 +153,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Kliknij pozycję **Wybierz** przycisk i przekaż pobrany plik **XML metadanych Federacji** z Azure Portal.
 
-    f. **Zapisz** ustawienia logowania jednokrotnego. 
+    f. **Zapisz** ustawienia pojedynczej Sign-On. 
 
 ### <a name="create-rsa-archer-suite-test-user"></a>Utwórz użytkownika testowego RSA Archer Suite
 

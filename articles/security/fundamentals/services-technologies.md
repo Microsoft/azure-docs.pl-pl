@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549208"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Usługi i technologie zabezpieczeń dostępne na platformie Azure
@@ -34,8 +34,8 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 |Usługa|Opis|
 |--------|--------|
 |[&nbsp;Centrum zabezpieczeń &nbsp; Azure](/azure/security-center/security-center-intro)| Rozwiązanie do ochrony obciążeń w chmurze, które zapewnia zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami w ramach obciążeń chmury hybrydowej.|
-|[W usłudze Azure Key Vault](/azure/key-vault/key-vault-overview)| Bezpieczne przechowywanie wpisów tajnych dla haseł, parametrów połączenia i innych informacji potrzebnych do działania aplikacji. |
-|[Dzienniki usługi Azure Monitor](/azure/log-analytics/log-analytics-overview)|Usługa monitorowania, która zbiera dane telemetryczne i inne, oraz udostępnia język zapytań i aparat analityczny do dostarczania usługi Operational Insights dla aplikacji i zasobów. Może być używany samodzielnie lub z innymi usługami, takimi jak Security Center. |
+|[Usługa Azure Key Vault](/azure/key-vault/key-vault-overview)| Bezpieczne przechowywanie wpisów tajnych dla haseł, parametrów połączenia i innych informacji potrzebnych do działania aplikacji. |
+|[Dzienniki Azure Monitor](/azure/log-analytics/log-analytics-overview)|Usługa monitorowania, która zbiera dane telemetryczne i inne, oraz udostępnia język zapytań i aparat analityczny do dostarczania usługi Operational Insights dla aplikacji i zasobów. Może być używany samodzielnie lub z innymi usługami, takimi jak Security Center. |
 |[Azure Dev/Test Labs](/azure/lab-services/devtest-lab-overview)|Usługa, która pomaga deweloperom i testerom szybko tworzyć środowiska na platformie Azure, jednocześnie minimalizując straty i kontrolując koszty.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -45,7 +45,7 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 |------|--------|
 | [&nbsp; &nbsp; Szyfrowanie usługi Azure &nbsp; Storage](/azure/storage/common/storage-service-encryption)|Funkcja zabezpieczeń, która automatycznie szyfruje dane w usłudze Azure Storage.   |
 |[StorSimple zaszyfrowanego magazynu hybrydowego](/azure/storsimple/storsimple-ova-overview)| Zintegrowane rozwiązanie magazynu, które zarządza zadaniami magazynu między urządzeniami lokalnymi i magazynem w chmurze platformy Azure.|
-|[Szyfrowanie po stronie klienta platformy Azure](/azure/storage/common/storage-client-side-encryption)| Rozwiązanie do szyfrowania po stronie klienta, które szyfruje dane w aplikacjach klienckich przed przekazaniem ich do usługi Azure Storage; Ponadto odszyfrowuje dane podczas pobierania. |
+|[Szyfrowanie Client-Side platformy Azure](/azure/storage/common/storage-client-side-encryption)| Rozwiązanie do szyfrowania po stronie klienta, które szyfruje dane w aplikacjach klienckich przed przekazaniem ich do usługi Azure Storage; Ponadto odszyfrowuje dane podczas pobierania. |
 | [Sygnatury dostępu współdzielonego usługi Azure Storage](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do zasobów na koncie magazynu.  |
 |[Klucze konta usługi Azure Storage](/azure/storage/common/storage-create-storage-account)| Metoda kontroli dostępu do usługi Azure Storage, która jest używana do uwierzytelniania podczas uzyskiwania dostępu do konta magazynu. |
 |[Udziały plików platformy Azure z szyfrowaniem SMB 3,0](/azure/storage/files/storage-files-introduction)|Technologia zabezpieczeń sieci, która umożliwia automatyczne szyfrowanie sieci na potrzeby protokołu udostępniania plików bloku komunikatów serwera (SMB). |
@@ -79,17 +79,17 @@ Wraz z upływem czasu ta lista ulegnie zmianie i zwiększeniu, podobnie jak w pr
 | [&nbsp;Kopia zapasowa Azure](/azure/backup/backup-introduction-to-azure-backup)| Usługa oparta na platformie Azure służąca do tworzenia kopii zapasowych i przywracania danych w chmurze platformy Azure. |
 | [Usługa Azure &nbsp; site &nbsp; Recovery](/azure/site-recovery/site-recovery-overview)|Usługa online, która replikuje obciążenia uruchomione na maszynach fizycznych i wirtualnych z lokacji głównej do pomocniczej lokalizacji, aby umożliwić odzyskanie usług po awarii. |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 |Usługa|Opis|
 |------|--------|
 | [Sieciowe &nbsp; &nbsp; grupy zabezpieczeń](/azure/virtual-network/virtual-networks-nsg)| Funkcja kontroli dostępu opartej na sieci przy użyciu krotki 5, aby podejmować decyzje dotyczące zezwalania lub odmowy.  |
 | [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Urządzenie sieciowe używane jako punkt końcowy sieci VPN, aby umożliwić dostęp między różnymi lokalizacjami do sieci wirtualnych platformy Azure.  |
-| [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction)|Zaawansowany moduł równoważenia obciążenia aplikacji sieci Web, który może kierować na podstawie adresu URL i przeciążać protokół SSL. |
+| [Usługa Azure Application Gateway](/azure/application-gateway/application-gateway-introduction)|Zaawansowany moduł równoważenia obciążenia aplikacji sieci Web, który może kierować na podstawie adresu URL i przeciążać protokół SSL. |
 |[Zapora aplikacji sieci Web](/azure/frontdoor/waf-overview) (WAF)|Funkcja Application Gateway, która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach|
 | [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)|Moduł równoważenia obciążenia sieci aplikacji TCP/UDP. |
 | [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)| Dedykowany link sieci WAN między sieciami lokalnymi i sieciami wirtualnymi platformy Azure. |
 | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)| Globalny moduł równoważenia obciążenia DNS.|
 | [Serwer proxy aplikacji platformy Azure](/azure/active-directory/active-directory-application-proxy-get-started)| Uwierzytelniający fronton używany do zabezpieczania dostępu zdalnego aplikacji sieci Web hostowanych lokalnie. |
 |[Azure Firewall](/azure/firewall/overview)|Zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure.|
-|[Ochrona za pomocą usługi Azure DDoS](/azure/virtual-network/ddos-protection-overview)|W połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji program zapewnia ochronę przed atakami DDoS.|
+|[Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)|W połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji program zapewnia ochronę przed atakami DDoS.|
 |[Punkty końcowe usługi Virtual Network](/azure/virtual-network/virtual-network-service-endpoints-overview)|Rozszerza prywatną przestrzeń adresową sieci wirtualnej i tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia.|

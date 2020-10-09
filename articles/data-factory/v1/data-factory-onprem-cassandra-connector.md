@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991505"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Przenoszenie danych z lokalnej bazy danych Cassandra przy użyciu Azure Data Factory
@@ -261,21 +261,21 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) , aby u
 ### <a name="type-mapping-for-cassandra"></a>Mapowanie typu dla Cassandra
 | Typ Cassandra | Typ oparty na platformie .NET |
 | --- | --- |
-| ASCII |String |
+| ASCII |Ciąg |
 | BIGINT |Int64 |
 | TWORZENIA |Byte [] |
 | TYPU |Boolean |
-| DOKŁADNOŚCI |Wartość dziesiętna |
+| DOKŁADNOŚCI |Liczba dziesiętna |
 | DOUBLE |Double |
-| FLOAT |Pojedyncze |
-| INET |String |
+| FLOAT |Pojedynczy |
+| INET |Ciąg |
 | INT |Int32 |
-| TEKST |String |
+| TEKST |Ciąg |
 | ZNACZNIK czasu |DateTime |
 | TIMEUUID |Guid (identyfikator GUID) |
 | INTERFEJSU |Guid (identyfikator GUID) |
-| VARCHAR |String |
-| VARINT |Wartość dziesiętna |
+| VARCHAR |Ciąg |
+| VARINT |Liczba dziesiętna |
 
 > [!NOTE]
 > W przypadku typów kolekcji (map, Set, list itp.) zapoznaj się z sekcją [Work with Cassandra Types using przy użyciu tabeli wirtualnej](#work-with-collections-using-virtual-table) .

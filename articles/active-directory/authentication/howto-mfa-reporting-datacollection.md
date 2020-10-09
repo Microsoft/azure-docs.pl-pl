@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80653629"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Zbieranie danych użytkownika Multi-Factor Authentication platformy Azure
@@ -30,7 +30,7 @@ W przypadku serwera MFA, rozszerzenia serwera NPS i karty AD FS usługi Azure MF
 
 Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania problemów):
 
-- Znacznik czasu
+- Timestamp
 - Nazwa użytkownika
 - Imię
 - Nazwisko
@@ -60,7 +60,7 @@ Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania prob
 - Uwierzytelnione
 - Wynik
 - Inicjowanie adresu IP
-- Urządzenia
+- Devices
 - Token urządzenia
 - Typ urządzenia
 - Wersja aplikacji mobilnej
@@ -71,7 +71,7 @@ Próby uwierzytelniania (używane na potrzeby raportowania i rozwiązywania prob
 Aktywacje (próba aktywowania konta w aplikacji mobilnej Microsoft Authenticator):
 - Nazwa użytkownika
 - Nazwa konta
-- Znacznik czasu
+- Timestamp
 - Pobierz wynik kodu aktywacji
 - Pomyślne aktywowanie
 - Błąd aktywacji

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu bramy VMware Horizon — ujednolicony dostęp
@@ -60,8 +60,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. Konfigurowanie ustawień logowania jednokrotnego w ramach **[programu VMware Horizon](#configure-vmware-horizon-unified-access-gateway-sso)** — w celu skonfigurowania ustawienia rejestracji jednokrotnej na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego opartego na oprogramowaniu VMware Horizon-Unified Access Gateway](#create-vmware-horizon-unified-access-gateway-test-user)** , aby dysponować odpowiednikiem metody B. Simon w ramach ujednoliconej bramy dostępu opartej na programie VMware, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj bramę dostępu Horizon-Unified Logowanie jednokrotne](#configure-vmware-horizon-unified-access-gateway-sso)** w usłudze VMware, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego bramy dostępu Horizon-Unified VMware](#create-vmware-horizon-unified-access-gateway-test-user)** , aby dysponować odpowiednikiem metody B. Simon w ramach ujednoliconej bramy programu VMware Horizon, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -119,11 +119,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli żadna rola nie została skonfigurowana dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Konfigurowanie programu VMware Horizon — ujednolicona Brama dostępu — Logowanie jednokrotne
+## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Konfigurowanie rejestracji jednokrotnej bramy dostępu Horizon-Unified VMware
 
 Aby skonfigurować Logowanie jednokrotne na stronie **bramy programu VMware z ujednoliconym dostępem** , należy wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu ds. platformy VMware — ujednolicone bramy dostępu](mailto:support@vmware.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Tworzenie użytkownika testowego opartego na programie VMware Horizon — ujednolicona Brama dostępu
+### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Utwórz użytkownika testowego bramy dostępu Horizon-Unified VMware
 
 W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze VMware Horizon-Unified Access Gateway. Współpraca z [zespołem pomocy technicznej opartej na oprogramowaniu VMware — Unified Access](mailto:support@vmware.com) Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 

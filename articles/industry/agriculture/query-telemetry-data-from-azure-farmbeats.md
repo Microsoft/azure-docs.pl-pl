@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80349807"
 ---
 # <a name="query-ingested-telemetry-data"></a>Dane telemetryczne pozyskiwane z zapytań
@@ -42,7 +42,7 @@ Postępuj zgodnie z instrukcjami, aby wykonać zapytanie o dane telemetryczne cz
 > [!NOTE]
 > **Identyfikator** i **sensorModelId** zainteresowanego obiektu czujnika.
 
-2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Na przykład
+2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Przykład:
 
   ```json
   {

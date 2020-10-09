@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597675"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
@@ -123,7 +123,7 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
 
    [![Skonfiguruj utworzone Centrum IoT Hub jako źródło zdarzenia.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     [![Przejrzyj i Utwórz stronę przy użyciu przycisku Utwórz.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
@@ -183,7 +183,7 @@ W tej sekcji przeprowadzasz podstawową analizę danych szeregów czasowych przy
 
     [![Adres URL Azure Time Series Insights Gen2 Explorer.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. W Eksploratorze Azure Time Series Insights Gen2 zostanie wyświetlony pasek z górną częścią ekranu. Jest to Twój selektor dostępności. Upewnij się, że wybrano co najmniej dwa 2 m i jeśli to konieczne, rozwiń przedział czasu, zaznaczając i przeciągając uchwyty selektora w lewo i w prawo.
+1. W Eksploratorze Azure Time Series Insights Gen2 zostanie wyświetlony pasek z górną częścią ekranu. Jest to Twój selektor dostępności. Upewnij się, że wybrano co najmniej 2 2 m i w razie potrzeby rozwiń przedział czasu, zaznaczając i przeciągając uchwyty selektora w lewo i w prawo.
 
 1. **Wystąpienia szeregów czasowych** będą wyświetlane po lewej stronie.
 

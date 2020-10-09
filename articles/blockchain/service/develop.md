@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80348377"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Omówienie tworzenia usług łańcucha bloków platformy Azure
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z Geth w celu
 
 ## <a name="ethereum-quorum-private-transactions"></a>Ethereum transakcji prywatnych kworum
 
-Kworum to oparty na systemie Ethereum protokół księgi rozproszonej z transakcją oraz prywatnością umowy i nowymi konsensusami. Najważniejsze ulepszenia w porównaniu do funkcji go-Ethereum obejmują:
+Kworum to oparty na systemie Ethereum protokół księgi rozproszonej z transakcją oraz prywatnością umowy i nowymi konsensusami. Najważniejsze ulepszenia dotyczące Go-Ethereum obejmują:
 
 * **Prywatność** — kworum obsługuje transakcje prywatne i prywatne w ramach separacji Stanów publicznych i prywatnych oraz wykorzystuje wymiany komunikatów typu peer-to-peer do bezpośredniego transferu danych prywatnych do uczestników sieci.
 * **Alternatywne metody z Konsensusem** — weryfikacja typu "nie jest wymagana w przypadku sieci z uprawnieniami". Kworum oferuje wiele mechanizmów o consensusu, które są przeznaczone dla łańcuchów konsorcjum, takich jak TRATWy i IBFT.Usługa Azure łańcucha bloków używa mechanizmu IBFT o konsensusie.

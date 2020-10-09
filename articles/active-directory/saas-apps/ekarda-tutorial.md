@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: cfd7a007c8f26a96d929026e231cb412cdc70279
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440868"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ekarda
@@ -76,9 +76,9 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Na stronie integracja aplikacji **ekarda** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę ołówka, aby edytować **podstawowe ustawienia konfiguracji protokołu SAML** .
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę ołówka, aby edytować **podstawowe ustawienia konfiguracji protokołu SAML** .
 
-   ![Zrzut ekranu przedstawiający Konfigurowanie logowania jednokrotnego za pomocą strony SAML z wyróżnioną ikoną ołówka.](common/edit-urls.png)
+   ![Zrzut ekranu przedstawiający Konfigurowanie pojedynczej Sign-On ze stroną SAML z wyróżnioną ikoną ołówka.](common/edit-urls.png)
 
 1. Jeśli w sekcji **Podstawowa konfiguracja SAML** zostanie wyświetlony **plik metadanych dostawcy usług**, wykonaj następujące czynności:
     1. Wybierz pozycję **Przekaż plik metadanych**.
@@ -100,13 +100,13 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
     > [!NOTE]
     > Wartości w dwóch poprzednich krokach nie są rzeczywiste. Zaktualizuj je za pomocą rzeczywistego identyfikatora, adresu URL odpowiedzi i wartości adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta ekarda](mailto:contact@ekarda.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby zapisać **certyfikat (base64)** na komputerze.
+1. Na stronie **Konfigurowanie jednego Sign-On ze** standardem SAML w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby zapisać **certyfikat (base64)** na komputerze.
 
-    ![Zrzut ekranu przedstawiający sekcję certyfikatu podpisywania SAML na stronie Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML z wyróżnionym linkiem pobierania dla certyfikatu Base64.](common/certificatebase64.png)
+    ![Zrzut ekranu przedstawiający sekcję certyfikatu podpisywania SAML na stronie Konfigurowanie pojedynczego Sign-On ze stroną SAML z wyróżnionym linkiem pobierania dla certyfikatu Base64.](common/certificatebase64.png)
 
 1. W sekcji **Konfiguracja ekarda** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
-    ![Zrzut ekranu przedstawiający sekcję Set up ekarda (Konfigurowanie logowania jednokrotnego przy użyciu języka SAML) z wyróżnionymi łączami kopiowania adresów URL.](common/copy-configuration-urls.png)
+    ![Zrzut ekranu przedstawiający sekcję Set up ekarda na stronie Konfigurowanie pojedynczego Sign-On ze stroną SAML z wyróżnionymi łączami kopiowania adresów URL.](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -119,7 +119,7 @@ W tej sekcji użyjesz Azure Portal, aby utworzyć użytkownika testowego o nazwi
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład wprowadź `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i Zapisz wartość, która pojawia się w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -173,7 +173,7 @@ Po wybraniu kafelka ekarda w portalu My Apps należy automatycznie zalogować si
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 * [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 * [Wypróbuj ekarda z usługą Azure AD](https://aad.portal.azure.com/)
 * Użyj [rozwiązania ekarda Enterprise eCard](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) , aby udostępnić klientom i współpracownikom dowolną liczbę pracowników, którzy mają do nich wysyłać eCards z logo firmy. Dowiedz się więcej o [aprowizacji ekarda jako rozwiązanie logowania jednokrotnego](https://support.ekarda.com/#SSO-Implementation).
