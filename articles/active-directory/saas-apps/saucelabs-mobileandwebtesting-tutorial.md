@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8dd5ca148474a1fe1464217f60c79e3815a5b26d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Samouczek: integracja z usługą Azure Active Directory
@@ -74,7 +74,7 @@ Aby logowanie jednokrotne działało, relacja linku między użytkownikiem usłu
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu programu sosy Labs — testowania mobilnego i sieci Web, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj laboratorium sosy — urządzenia przenośne i testy w sieci Web logowanie](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie programu sosy Labs — Rejestracja jednokrotna w ramach testów mobilnych i sieci Web](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Tworzenie laboratoriów programu sosów — Użytkownik testowy testowania dla urządzeń przenośnych i sieci Web](#create-sauce-labs---mobile-and-web-testing-test-user)** , który ma odpowiednik Britta Simon w ramach programu sosy Labs — testowania mobilnego i sieci Web, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -116,7 +116,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu so
 
     c. Adres URL wylogowywania
 
-### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Konfigurowanie aplikacji do oceny sosów — Rejestracja jednokrotna dla urządzeń przenośnych i sieci Web
+### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Konfigurowanie oprogramowania sosy Labs — pojedyncze Sign-On testów mobilnych i sieci Web
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy sosów Labs-Mobile and Web test, jako administrator.
 
@@ -140,7 +140,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu so
 
     b. Zaznacz pole wyboru **Zezwalaj na inicjowanie obsługi just-in-Time** .
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -210,7 +210,7 @@ Po kliknięciu kafelka wypadaj laboratoria — urządzenia przenośne i testy w 
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

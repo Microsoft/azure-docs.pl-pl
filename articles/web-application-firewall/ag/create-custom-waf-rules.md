@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368306"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Tworzenie i używanie reguł niestandardowych zapory aplikacji sieci Web w wersji 2 na Application Gateway
@@ -28,7 +28,7 @@ W tym artykule przedstawiono kilka przykładowych reguł niestandardowych, któr
 
 ## <a name="example-1"></a>Przykład 1
 
-Wiadomo, że istnieje bot o nazwie *evilbot* , która ma być blokowana z przeszukiwania witryny sieci Web. W takim przypadku należy zablokować *Evilbot* agenta użytkownika w nagłówkach żądania.
+Wiadomo, że istnieje bot o nazwie *evilbot* , która ma być blokowana z przeszukiwania witryny sieci Web. W takim przypadku należy zablokować User-Agent *evilbot* w nagłówkach żądania.
 
 Logika: p
 
@@ -225,11 +225,11 @@ Oto odpowiedni kod JSON:
   }
 ```
 
-Odpowiadająca reguła KSR:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Odpowiadająca reguła KSR: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Przykład 4
 
-Na potrzeby tego przykładu chcesz zablokować *Evilbot*użytkownika-agenta i ruch z zakresu 192.168.5.0/24. Aby to osiągnąć, można utworzyć dwa oddzielne warunki dopasowania i umieścić je w jednej regule. Dzięki temu w przypadku dopasowania obu *evilbot* w nagłówku **i** adresie IP agenta użytkownika z zakresu 192.168.5.0/24 żądanie jest blokowane.
+Na potrzeby tego przykładu chcesz zablokować User-Agent *evilbot*i ruch w zakresie 192.168.5.0/24. Aby to osiągnąć, można utworzyć dwa oddzielne warunki dopasowania i umieścić je w jednej regule. Dzięki temu w przypadku dopasowania obu *evilbot* w nagłówku User-Agent **i** adresów IP z zakresu 192.168.5.0/24 żądanie zostanie zablokowane.
 
 Logika: p **i** q
 

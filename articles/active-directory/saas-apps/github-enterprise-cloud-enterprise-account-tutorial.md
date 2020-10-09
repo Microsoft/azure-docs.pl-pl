@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e23c8a8497459ce7cb3cab3d1469359f80ad846
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550779"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą GitHub Enterprise Cloud — konto przedsiębiorstwa
@@ -64,8 +64,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj usługę GitHub Enterprise Cloud — logowanie JEDNOkrotne konta przedsiębiorstwa](#configure-github-enterprise-cloud-enterprise-account-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz konto usługi GitHub Enterprise Cloud-Enterprise dla firmowego użytkownika testowego](#create-github-enterprise-cloud-enterprise-account-test-user)** , aby dysponować odpowiednikiem B. Simon na koncie usługi GitHub Enterprise Cloud-Enterprise, które jest połączone z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj konto usługi GitHub Enterprise Cloud-Enterprise Logowanie jednokrotne](#configure-github-enterprise-cloud-enterprise-account-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego konta usługi GitHub enterprise Cloud-Enterprise](#create-github-enterprise-cloud-enterprise-account-test-user)** , aby uzyskać odpowiednik elementu B. Simon w usłudze GitHub Enterprise Cloud-Enterprise, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -129,11 +129,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Konfigurowanie usługi GitHub Enterprise Cloud — Logowanie jednokrotne konta przedsiębiorstwa
+## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze GitHub Enterprise Cloud-Enterprise
 
 Aby skonfigurować Logowanie jednokrotne w usłudze **GitHub Enterprise Cloud-Enterprise** po stronie konta, musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do usługi [GitHub Enterprise Cloud — zespół pomocy technicznej dla przedsiębiorstw](mailto:support@github.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-github-enterprise-cloud-enterprise-account-test-user"></a>Utwórz użytkownika testowego usługi GitHub Enterprise dla przedsiębiorstwa
+### <a name="create-github-enterprise-cloud-enterprise-account-test-user"></a>Utwórz użytkownika testowego konta usługi GitHub Enterprise Cloud-Enterprise
 
 W tej sekcji użytkownik o nazwie B. Simon został utworzony w ramach konta usługi GitHub Enterprise Cloud-Enterprise. Usługa GitHub Enterprise Cloud — konto przedsiębiorstwa obsługuje Inicjowanie obsługi klienta just-in-Time, które jest domyślnie włączone. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje na koncie usługi GitHub Enterprise Cloud-Enterprise, zostanie utworzony nowy po uwierzytelnieniu.
 
@@ -147,7 +147,7 @@ Po kliknięciu kafelka konta w chmurze usługi GitHub dla przedsiębiorstw w pan
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

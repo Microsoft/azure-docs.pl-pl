@@ -49,7 +49,7 @@
           href: troubleshoot-agent-onboard.md
         - name: Problemy z rozszerzeniem maszyny wirtualnej
           href: troubleshoot-vm-extensions.md
-- name: Dokumentacja
+- name: Tematy pomocy
   items:
     - name: Rezydencja danych
       href: data-residency.md

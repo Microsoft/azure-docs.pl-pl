@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d99355a88a52e318b231d9032ede770ee0ba5208
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Samouczek: integracja Azure Active Directory z ludzkości
@@ -128,7 +128,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Humanity,
 
 2. W menu u góry kliknij pozycję **Admin** (Administrator).
 
-    ![Administracja](./media/shiftplanning-tutorial/iC786619.png "Administrator")
+    ![Administracja](./media/shiftplanning-tutorial/iC786619.png "Administracja")
 3. W obszarze **Integration** (Integracja), kliknij pozycję **Single Sign-On** (Logowanie jednokrotne).
 
     ![Logowanie jednokrotne](./media/shiftplanning-tutorial/iC786620.png "Logowanie jednokrotne")
@@ -210,7 +210,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Human
 
 2. Kliknij przycisk **Administrator**.
 
-    ![Administracja](./media/shiftplanning-tutorial/iC786619.png "Administrator")
+    ![Administracja](./media/shiftplanning-tutorial/iC786619.png "Administracja")
 
 3. Kliknij pozycję **Staff** (Personel).
 
@@ -241,6 +241,6 @@ Po kliknięciu kafelka Humanity w panelu dostępu powinno nastąpić automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

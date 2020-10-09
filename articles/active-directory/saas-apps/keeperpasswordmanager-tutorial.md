@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: c6bd0c130e860a5700256a54c081cc046219b41a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Samouczek: integracja Azure Active Directory z menedżerem haseł programu opiekuna & magazynu cyfrowego
@@ -69,7 +69,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
     * **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
     * **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 
-1. **[Konfigurowanie Menedżera haseł programu opiekuna & rejestracji jednokrotnej magazynu cyfrowego](#configure-keeper-password-manager--digital-vault-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+1. **[Konfigurowanie Menedżera haseł programu opiekuna & rejestracji jednokrotnej magazynu cyfrowego](#configure-keeper-password-manager--digital-vault-sso)** — w celu skonfigurowania ustawień pojedynczego Sign-On po stronie aplikacji.
     * **[Tworzenie użytkownika testowego usługi Keeper Password Manager & Digital Vault](#create-keeper-password-manager--digital-vault-test-user)** — aby mieć w aplikacji Keeper Password Manager & Digital Vault odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -157,7 +157,7 @@ Po kliknięciu kafelka Keeper Password Manager & Digital Vault w panelu dostępu
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

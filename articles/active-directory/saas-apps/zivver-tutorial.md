@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 3f55fed72d61597f61cb246c6c74d525b51702e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Samouczek: integracja Azure Active Directory z usługą ZIVVER
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi ZIVVER, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-zivver-single-sign-on)** jednokrotne w usłudze ZIVVER, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-zivver-single-sign-on)** jednokrotne w usłudze ZIVVER, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego ZIVVER](#create-zivver-test-user)** , aby uzyskać odpowiednik Britta Simon w ZIVVER, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -130,9 +130,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ZIVVER, wyk
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
-7. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** , a następnie kliknij przycisk **Kopiuj** ikonę, aby skopiować **adres URL metadanych federacji aplikacji** z określonych opcji zgodnie z wymaganiami i zapisać je na komputerze.
+7. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą elementu SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** i kliknij ikonę **Kopiuj** , aby skopiować **adres URL metadanych federacji aplikacji** z określonych opcji zgodnie z wymaganiami i zapisać je na komputerze.
 
     ![Link do pobierania adresu URL certyfikatu](./media/zivver-tutorial/metadataxmlurl.png)
 
@@ -146,7 +146,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ZIVVER, wyk
 
     c. Adres URL wylogowywania
 
-### <a name="configure-zivver-single-sign-on"></a>Konfigurowanie logowania jednokrotnego ZIVVER
+### <a name="configure-zivver-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On ZIVVER
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej [witryny](https://app.zivver.com/login) ZIVVER jako administrator.
 
@@ -226,7 +226,7 @@ Po kliknięciu kafelka ZIVVER w panelu dostępu należy automatycznie zalogować
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

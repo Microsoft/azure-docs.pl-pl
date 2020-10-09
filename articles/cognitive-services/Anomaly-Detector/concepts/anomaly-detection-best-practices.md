@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67721625"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Najlepsze rozwiązania dotyczące korzystania z interfejsu API wykrywania anomalii
@@ -93,9 +93,9 @@ Interfejs API wykrywania anomalii działa najlepiej na równomiernie rozmieszczo
 
 Jeśli wiesz, że dane szeregów czasowych mają wzorzec sezonowy (jeden, który występuje w regularnych odstępach czasu), możesz poprawić dokładność i czas odpowiedzi interfejsu API. 
 
-Określenie, `period` kiedy UTWORZYSZ żądanie JSON, może zmniejszyć opóźnienia wykrywania anomalii o maksymalnie 50%. `period` Jest to liczba całkowita, która określa przybliżoną liczbę punktów danych potrzebnych przez serię czasową do powtarzania wzorca. Na przykład szeregi czasowe z jednym punktem danych dziennie `period` byłyby tak `7`, a serie czasowe z jednym punktem na godzinę (z tym samym wzorcem tygodniowym) byłyby `period` `7*24`. Jeśli nie masz pewności, jakie są wzorce danych, nie musisz określać tego parametru.
+Określenie, `period` Kiedy utworzysz żądanie JSON, może zmniejszyć opóźnienia wykrywania anomalii o maksymalnie 50%. `period`Jest to liczba całkowita, która określa przybliżoną liczbę punktów danych potrzebnych przez serię czasową do powtarzania wzorca. Na przykład szeregi czasowe z jednym punktem danych dziennie byłyby `period` tak `7` , a serie czasowe z jednym punktem na godzinę (z tym samym wzorcem tygodniowym) byłyby `period`  `7*24` . Jeśli nie masz pewności, jakie są wzorce danych, nie musisz określać tego parametru.
 
-Aby uzyskać najlepsze wyniki, podaj `period`4 wartości punktów danych i dodatkowe. Na przykład dane godzinowe z wzorcem tygodniowym zgodnie z powyższym opisem powinny dostarczyć 673 punktów danych w treści`7 * 24 * 4 + 1`żądania ().
+Aby uzyskać najlepsze wyniki, podaj 4 wartości `period` punktów danych i dodatkowe. Na przykład dane godzinowe z wzorcem tygodniowym zgodnie z powyższym opisem powinny dostarczyć 673 punktów danych w treści żądania ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Próbkowanie danych do monitorowania w czasie rzeczywistym
 

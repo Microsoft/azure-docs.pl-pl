@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70881006"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Dedykowana obsługa modułu HSM platformy Azure
@@ -39,7 +39,7 @@ W konfiguracji urządzeń HSM używane są różne składniki oprogramowania:
 
 * Oprogramowanie klienckie
 * SDK
-* narzędzia
+* Narzędzia
 
 ### <a name="guidance"></a>Wskazówki
 
@@ -47,7 +47,7 @@ Firmy Gemalto udostępnia wskazówki dotyczące administrowania i konfiguracji z
 
 ### <a name="support"></a>Pomoc techniczna
 
-Wszelkie problemy dotyczące poziomu oprogramowania lub pytania w odniesieniu do korzystania z sprzętowych modułów zabezpieczeń jako części dedykowanej usługi HSM powinny być kierowane bezpośrednio do pomocy technicznej firmy Gemalto. Wszystkie składniki oprogramowania wymienione powyżej oraz wszelkie niestandardowe konfiguracje modułu HSM, które są inicjowane przez program, będą rozkierowane przez firmy Gemalto. Aby uzyskać więcej informacji, zobacz [Portal obsługi klienta firmy Gemalto](https://supportportal.gemalto.com/csm/).
+Wszelkie problemy dotyczące poziomu oprogramowania lub pytania w odniesieniu do korzystania z sprzętowych modułów zabezpieczeń jako części dedykowanej usługi HSM powinny być kierowane bezpośrednio do pomocy technicznej firmy Gemalto. Wszystkie składniki oprogramowania wymienione powyżej oraz wszelkie niestandardowe konfiguracje modułu HSM, które są inicjowane przez program, będą rozkierowane przez firmy Gemalto. Aby uzyskać więcej informacji, zobacz  [Portal obsługi klienta firmy Gemalto](https://supportportal.gemalto.com/csm/).
 
 ### <a name="consulting-services"></a>Usługi konsultingowe
 

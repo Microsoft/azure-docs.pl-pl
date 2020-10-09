@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
 ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77586193"
 ---
 # <a name="azure-functions-error-handling"></a>Obsługa błędów Azure Functions
@@ -28,7 +28,7 @@ W przypadku integracji z usługami platformy Azure błędy mogą pochodzić z in
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [BLOB Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
++ [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 
@@ -36,8 +36,8 @@ W przypadku integracji z usługami platformy Azure błędy mogą pochodzić z in
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Kolejkowanie magazynu](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
++ [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 
 + [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
-+ [Magazyn tabel](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Table Storage](functions-bindings-storage-table.md#exceptions-and-return-codes)

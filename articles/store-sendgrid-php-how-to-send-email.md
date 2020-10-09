@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67870909"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Jak używać usługi poczty E-mail SendGrid w języku PHP
@@ -410,9 +410,9 @@ php composer.phar require sendgrid/sendgrid 2.1.1
 
 Teraz, gdy znasz już podstawy usługi poczty E-mail SendGrid, Skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
-* Dokumentacja SendGrid:<https://sendgrid.com/docs>
-* Biblioteka PHP SendGrid:<https://github.com/sendgrid/sendgrid-php>
-* Oferta Specjalna SendGrid dla klientów platformy Azure:<https://sendgrid.com/windowsazure.html>
+* Dokumentacja SendGrid: <https://sendgrid.com/docs>
+* Biblioteka PHP SendGrid: <https://github.com/sendgrid/sendgrid-php>
+* Oferta Specjalna SendGrid dla klientów platformy Azure: <https://sendgrid.com/windowsazure.html>
 
 Aby uzyskać więcej informacji, zobacz również [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
 

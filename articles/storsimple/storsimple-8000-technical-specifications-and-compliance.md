@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965285"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specyfikacje techniczne i zgodność dla urządzenia StorSimple
@@ -95,7 +95,7 @@ W poniższej tabeli przedstawiono wymiary obudowy w milimetrach i calach.
 
 | Szaf | Milimetrach | 15 |
 | --- | --- | --- |
-| Właściwość Height |87,9 |3,46 |
+| Height |87,9 |3,46 |
 | Szerokość między montażem kołnierza |483 |19,02 |
 | Szerokość w obrębie treści obudowy |443 |17,44 |
 | Głębokość od przodu od początku do krańca treści obudowy |577 |22,72 |
@@ -119,7 +119,7 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy. Ta kateg
 
 | Szaf | Zakres temperatury otoczenia | Wilgotność względna | Maksymalny zbiornik mokry |
 | --- | --- | --- | --- |
-| Działał |5 °C – 35 °C (41 °F-95 °F) |20%-80% bez kondensacji- |28 °C (82 °F) |
+| Operacyjne |5 °C – 35 °C (41 °F-95 °F) |20%-80% bez kondensacji- |28 °C (82 °F) |
 | Niedziałające |-40 °C-70 °C (40 °F-158 °F) |5%-100% bez kondensacji |29 °C (84 °F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Przepływ powietrza, wysokość, wstrząsy, wibracje, Orientacja, bezpieczeństwo i EMC

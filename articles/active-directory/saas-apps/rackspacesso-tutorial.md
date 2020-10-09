@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Rackspace
@@ -73,7 +73,7 @@ W przypadku korzystania z logowania jednokrotnego za pomocą usługi Rackspace u
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Rackspace SSO, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie JEDNOkrotne](#configure-rackspace-sso-single-sign-on)** w usłudze Rackspace, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie JEDNOkrotne w usłudze Rackspace](#configure-rackspace-sso-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 1. **[Skonfiguruj Mapowanie atrybutów w panelu sterowania Rackspace,](#set-up-attribute-mapping-in-the-rackspace-control-panel)** aby przypisać role Rackspace do użytkowników usługi Azure AD.
@@ -119,7 +119,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 Ten plik zostanie przekazany do Rackspace w celu wypełnienia wymaganych ustawień konfiguracji federacji tożsamości.
 
-### <a name="configure-rackspace-sso-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Rackspace
+### <a name="configure-rackspace-sso-single-sign-on"></a>Skonfiguruj jednoSign-Onową rejestrację jednokrotną Rackspace
 
 Aby skonfigurować Logowanie jednokrotne na stronie logowania **JEDNOkrotnego Rackspace** :
 
@@ -238,7 +238,7 @@ Możesz również użyć przycisku **Weryfikuj** w ustawieniach logowania jednok
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

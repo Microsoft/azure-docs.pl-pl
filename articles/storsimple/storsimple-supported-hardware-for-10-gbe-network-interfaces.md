@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965014"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Sprzęt obsługiwany w przypadku interfejsów sieciowych 10 GbE na urządzeniu StorSimple
@@ -42,7 +42,7 @@ Firma Microsoft przetestowała następujące małe urządzenia nadawczo-Factor (
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
 | 3. |Cisco |SFP-H10GB-CU3M |
-| 4. |Telefonia — Lite |N820-05M (OM3) |
+| 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Przełączniki
 | S. Nie. | Marka | Model |
@@ -117,7 +117,7 @@ Poniższa tabela zawiera listę przełączników obsługiwanych przez Mellanox. 
 | S. Nie. | Szybkość | Model | Opis | Marka |
 | --- | --- | --- | --- | --- |
 | 1. |10 |516733 – B21 |Przełącznik bloku HP pro6120XG 10GbE Ethernet |FIRM |
-| 2. |10 |538113 – B21 |Moduł przekazywania HP 10 (PTM) |FIRM |
+| 2. |10 |538113 – B21 |Moduł Pass-Through firmy HP 10GbE (PTM) |FIRM |
 | 3. |10 |EN4093 |Moduł przełączania skalowalnego w programie IBM PureFlex System Fabric EN4093 10 Gigabit |IBM |
 | 4. |1GbE |3020 |Blok Cisco Catalyst 3020 1GbE Switch |Cisco |
 | 5. |1GbE |3020X |Blok przełącznika Cisco Catalyst 3020X 1GbE |Cisco |
