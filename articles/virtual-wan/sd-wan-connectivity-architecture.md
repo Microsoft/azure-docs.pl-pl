@@ -1,19 +1,19 @@
 ---
-title: Architektura łączności SD-WAN
+title: Architektury łączności wirtualnej sieci WAN i SD-WAN
 titleSuffix: Azure Virtual WAN
 description: Dowiedz się więcej na temat łączenia prywatnych SD-WAN z wirtualną siecią WAN platformy Azure
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 87e9549419bccc36d743871755e782a71e93e5e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267469"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828082"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architektura łączności między SIECIami wirtualnymi z usługą Azure Virtual WAN
 
@@ -22,6 +22,7 @@ Wirtualna sieć WAN platformy Azure to usługa sieciowa, która łączy wiele us
 Mimo że wirtualna sieć WAN platformy Azure to oprogramowanie sieci WAN zdefiniowane w oprogramowaniu (SD-WAN), jest również przeznaczone do zapewniania bezproblemowego połączenia z opartymi na lokalnym technologią i technologiami SD-WAN. Wiele takich usług jest oferowanych przez nasz ekosystem [wirtualnych sieci WAN](virtual-wan-locations-partners.md) i partnerów usług zarządzanych sieci platformy Azure [(msp)](../networking/networking-partners-msp.md). Przedsiębiorstwa, które przekształcają prywatne sieci WAN do SD-WAN, są dostępne w przypadku łączenia ich prywatnych SD-WAN z wirtualną siecią WAN platformy Azure. Przedsiębiorstwa mogą wybierać spośród następujących opcji:
 
 * Model bezpośredniego połączenia
+* Model bezpośredniego połączenia z usługą urządzenie WUS-in-VWAN-Hub
 * Pośredni model połączeń
 * Zarządzany model hybrydowej sieci WAN przy użyciu ulubionych [msp](../networking/networking-partners-msp.md) dostawcy usług zarządzanych
 
@@ -29,7 +30,7 @@ We wszystkich tych przypadkach połączenia wirtualnej sieci WAN z SD-WAN są po
 
 ## <a name="direct-interconnect-model"></a><a name="direct"></a>Model bezpośredniego połączenia
 
-![Model bezpośredniego połączenia](./media/sd-wan-connectivity-architecture/direct.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Model bezpośredniego połączenia&quot;:::
 
 W tym modelu architektury sprzęt lokalny (CPE) usługi SD jest podłączony bezpośrednio do wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń IPsec. Gałąź CPE może być również połączona z innymi gałęziami za pośrednictwem prywatnej SD-WAN lub wykorzystać wirtualną sieć WAN do połączenia z gałęzią. Gałęzie, które muszą uzyskać dostęp do swoich obciążeń na platformie Azure, będą mogły bezpośrednio i bezpiecznie uzyskiwać dostęp do platformy Azure za pośrednictwem tuneli IPsec zakończonych w wirtualnych centrach sieci WAN.
 
@@ -39,11 +40,42 @@ URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz 
 
 W tym modelu pewna niezależna od dostawcy Optymalizacja ruchu oparta na charakterystykach ruchu w czasie rzeczywistym może nie być obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem protokołu IPsec, a sieć VPN IPsec jest przerywana na wirtualnej bramie sieci VPN. Na przykład można wybrać ścieżkę dynamiczną na urządzeniu CPE, ponieważ odgałęzienie odnosi się do różnych informacji o pakietach sieciowych z innym węzłem SD-WAN, a tym samym zidentyfikowanie najlepszego linku do użycia w przypadku różnych priorytetów ruchu dynamicznego w gałęzi. Ta funkcja może być przydatna w obszarach, w których wymagana jest optymalizacja między ostatnimi milami (rozgałęzienie do najbliższej firmy Microsoft).
 
-Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia "SD-WAN" CPE; Każde łącze reprezentuje połączenie podwójnego tunelu z unikatowego publicznego adresu IP z systemem SD-WAN CPE do dwóch różnych wystąpień bramy sieci VPN usługi Azure Virtual WAN. Dostawcy SD-WAN mogą zaimplementować najbardziej optymalną ścieżkę do platformy Azure, na podstawie zasad ruchu ustawionych przez aparat zasad w łączach CPE. Na zakończenie na platformie Azure wszystkie połączenia przychodzące są traktowane jako równe.
+Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia &quot;SD-WAN" CPE; Każde łącze reprezentuje połączenie podwójnego tunelu z unikatowego publicznego adresu IP z systemem SD-WAN CPE do dwóch różnych wystąpień bramy sieci VPN usługi Azure Virtual WAN. Dostawcy SD-WAN mogą zaimplementować najbardziej optymalną ścieżkę do platformy Azure, na podstawie zasad ruchu ustawionych przez aparat zasad w łączach CPE. Na zakończenie na platformie Azure wszystkie połączenia przychodzące są traktowane jako równe.
+
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Model bezpośredniego połączenia z usługą urządzenie WUS-in-VWAN-Hub
+
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Model bezpośredniego połączenia&quot;:::
+
+W tym modelu architektury sprzęt lokalny (CPE) usługi SD jest podłączony bezpośrednio do wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń IPsec. Gałąź CPE może być również połączona z innymi gałęziami za pośrednictwem prywatnej SD-WAN lub wykorzystać wirtualną sieć WAN do połączenia z gałęzią. Gałęzie, które muszą uzyskać dostęp do swoich obciążeń na platformie Azure, będą mogły bezpośrednio i bezpiecznie uzyskiwać dostęp do platformy Azure za pośrednictwem tuneli IPsec zakończonych w wirtualnych centrach sieci WAN.
+
+Partnerzy usługi SD-WAN CPE mogą włączyć automatyzację, aby zautomatyzować normalne żmudnym i podatne na błędy połączenia IPsec z urządzeń CPE. Automatyzacja umożliwia kontrolerowi SD-WAN komunikowanie się z platformą Azure za pośrednictwem wirtualnego interfejsu API sieci WAN w celu skonfigurowania wirtualnych witryn sieci WAN, a także wypychania niezbędnej konfiguracji tunelu IPsec do rozgałęzienia CPEs. Zobacz [wskazówki dotyczące automatyzacji](virtual-wan-configure-automation-providers.md) , aby uzyskać opis automatyzacji połączeń wirtualnej sieci WAN przez różnych partnerów SD-WAN.
+
+URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz wybór ścieżki są implementowane i wymuszane. 
+
+W tym modelu pewna niezależna od dostawcy Optymalizacja ruchu oparta na charakterystykach ruchu w czasie rzeczywistym może nie być obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem protokołu IPsec, a sieć VPN IPsec jest przerywana na wirtualnej bramie sieci VPN. Na przykład można wybrać ścieżkę dynamiczną na urządzeniu CPE, ponieważ odgałęzienie odnosi się do różnych informacji o pakietach sieciowych z innym węzłem SD-WAN, a tym samym zidentyfikowanie najlepszego linku do użycia w przypadku różnych priorytetów ruchu dynamicznego w gałęzi. Ta funkcja może być przydatna w obszarach, w których wymagana jest optymalizacja między ostatnimi milami (rozgałęzienie do najbliższej firmy Microsoft).
+
+Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia &quot;SD-WAN":::
+
+Ten model architektury obsługuje wdrożenie [wirtualnego urządzenia sieciowego (urządzenie WUS) innej firmy bezpośrednio w koncentratorze wirtualnym](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). Pozwala to klientom, którzy chcą połączyć swoją gałąź CPE z tą samą marką urządzenie WUS w koncentratorze wirtualnym, dzięki czemu mogą oni korzystać z zastrzeżonych, kompleksowych funkcji SD-WAN podczas łączenia się z obciążeniami platformy Azure. 
+
+Kilku wirtualnych partnerów sieci WAN działały w celu zapewnienia środowiska, które automatycznie konfiguruje urządzenie WUS w ramach procesu wdrażania. Po udostępnieniu urządzenie WUS w koncentratorze wirtualnym każda dodatkowa konfiguracja, która może być wymagana przez urządzenie WUS, musi zostać wykonana za pośrednictwem portalu partnerów urządzenie WUS lub aplikacji do zarządzania. Bezpośredni dostęp do urządzenie WUS jest niedostępny. Urządzeń WUS, które są dostępne do wdrożenia bezpośrednio w wirtualnym Centrum sieci WAN platformy Azure, są przeznaczone do użycia w koncentratorze wirtualnym. W przypadku partnerów, którzy obsługują usługi urządzenie WUS w centrum VWAN, a także ich przewodników wdrażania, zobacz artykuł dotyczący [partnerów sieci WAN](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) .
+
+URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz wybór ścieżki są implementowane i wymuszane.
+W tym modelu Optymalizacja ruchu przez dostawcę według własności w czasie rzeczywistym jest obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem urządzenie WUS SD-WAN w centrum.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Pośredni model połączeń
 
-![Pośredni model połączeń](./media/sd-wan-connectivity-architecture/indirect.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Model bezpośredniego połączenia&quot;:::
+
+W tym modelu architektury sprzęt lokalny (CPE) usługi SD jest podłączony bezpośrednio do wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń IPsec. Gałąź CPE może być również połączona z innymi gałęziami za pośrednictwem prywatnej SD-WAN lub wykorzystać wirtualną sieć WAN do połączenia z gałęzią. Gałęzie, które muszą uzyskać dostęp do swoich obciążeń na platformie Azure, będą mogły bezpośrednio i bezpiecznie uzyskiwać dostęp do platformy Azure za pośrednictwem tuneli IPsec zakończonych w wirtualnych centrach sieci WAN.
+
+Partnerzy usługi SD-WAN CPE mogą włączyć automatyzację, aby zautomatyzować normalne żmudnym i podatne na błędy połączenia IPsec z urządzeń CPE. Automatyzacja umożliwia kontrolerowi SD-WAN komunikowanie się z platformą Azure za pośrednictwem wirtualnego interfejsu API sieci WAN w celu skonfigurowania wirtualnych witryn sieci WAN, a także wypychania niezbędnej konfiguracji tunelu IPsec do rozgałęzienia CPEs. Zobacz [wskazówki dotyczące automatyzacji](virtual-wan-configure-automation-providers.md) , aby uzyskać opis automatyzacji połączeń wirtualnej sieci WAN przez różnych partnerów SD-WAN.
+
+URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz wybór ścieżki są implementowane i wymuszane. 
+
+W tym modelu pewna niezależna od dostawcy Optymalizacja ruchu oparta na charakterystykach ruchu w czasie rzeczywistym może nie być obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem protokołu IPsec, a sieć VPN IPsec jest przerywana na wirtualnej bramie sieci VPN. Na przykład można wybrać ścieżkę dynamiczną na urządzeniu CPE, ponieważ odgałęzienie odnosi się do różnych informacji o pakietach sieciowych z innym węzłem SD-WAN, a tym samym zidentyfikowanie najlepszego linku do użycia w przypadku różnych priorytetów ruchu dynamicznego w gałęzi. Ta funkcja może być przydatna w obszarach, w których wymagana jest optymalizacja między ostatnimi milami (rozgałęzienie do najbliższej firmy Microsoft).
+
+Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia &quot;SD-WAN":::
 
 W tym modelu architektury gałąź SD-WAN CPEs jest połączona pośrednio z wirtualnymi koncentratorami sieci WAN. Jak widać na ilustracji, wirtualne urządzenie CPE SD-WAN jest wdrażane w sieci wirtualnej przedsiębiorstwa. Ta wirtualna CPE jest z kolei podłączona do wirtualnych koncentratorów sieci WAN przy użyciu protokołu IPsec. Wirtualne urządzenie CPE służy jako brama SD-WAN na platformie Azure. Gałęzie, które muszą uzyskać dostęp do swoich obciążeń na platformie Azure, będą mogły uzyskiwać do nich dostęp za pośrednictwem bramy v-CPE.
 
@@ -51,7 +83,17 @@ Ze względu na to, że łączność z platformą Azure odbywa się za pośrednic
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>Zarządzany model hybrydowej sieci WAN
 
-![Zarządzany model hybrydowej sieci WAN](./media/sd-wan-connectivity-architecture/hybrid.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Model bezpośredniego połączenia&quot;:::
+
+W tym modelu architektury sprzęt lokalny (CPE) usługi SD jest podłączony bezpośrednio do wirtualnych koncentratorów sieci WAN za pośrednictwem połączeń IPsec. Gałąź CPE może być również połączona z innymi gałęziami za pośrednictwem prywatnej SD-WAN lub wykorzystać wirtualną sieć WAN do połączenia z gałęzią. Gałęzie, które muszą uzyskać dostęp do swoich obciążeń na platformie Azure, będą mogły bezpośrednio i bezpiecznie uzyskiwać dostęp do platformy Azure za pośrednictwem tuneli IPsec zakończonych w wirtualnych centrach sieci WAN.
+
+Partnerzy usługi SD-WAN CPE mogą włączyć automatyzację, aby zautomatyzować normalne żmudnym i podatne na błędy połączenia IPsec z urządzeń CPE. Automatyzacja umożliwia kontrolerowi SD-WAN komunikowanie się z platformą Azure za pośrednictwem wirtualnego interfejsu API sieci WAN w celu skonfigurowania wirtualnych witryn sieci WAN, a także wypychania niezbędnej konfiguracji tunelu IPsec do rozgałęzienia CPEs. Zobacz [wskazówki dotyczące automatyzacji](virtual-wan-configure-automation-providers.md) , aby uzyskać opis automatyzacji połączeń wirtualnej sieci WAN przez różnych partnerów SD-WAN.
+
+URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz wybór ścieżki są implementowane i wymuszane. 
+
+W tym modelu pewna niezależna od dostawcy Optymalizacja ruchu oparta na charakterystykach ruchu w czasie rzeczywistym może nie być obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem protokołu IPsec, a sieć VPN IPsec jest przerywana na wirtualnej bramie sieci VPN. Na przykład można wybrać ścieżkę dynamiczną na urządzeniu CPE, ponieważ odgałęzienie odnosi się do różnych informacji o pakietach sieciowych z innym węzłem SD-WAN, a tym samym zidentyfikowanie najlepszego linku do użycia w przypadku różnych priorytetów ruchu dynamicznego w gałęzi. Ta funkcja może być przydatna w obszarach, w których wymagana jest optymalizacja między ostatnimi milami (rozgałęzienie do najbliższej firmy Microsoft).
+
+Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia &quot;SD-WAN":::
 
 W tym modelu architektury przedsiębiorstwa mogą korzystać z zarządzanej usługi SD-WAN oferowanej przez partnera dostawcy usług zarządzanych (MSP). Ten model jest podobny do modeli bezpośrednich lub pośrednich opisanych powyżej. Jednak w tym modelu projekt, aranżacja i operacje z SD-WAN są dostarczane przez dostawcę SD-WAN.
 
