@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334932"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828966"
 ---
 | Zasób | Limit | Uwaga |
 | --- | --- | --- |
@@ -41,4 +41,4 @@ ms.locfileid: "80334932"
 | Maksymalna liczba reguł niestandardowych WAF|100||
 | Maksymalne wykluczenia WAF|100||
 
-<sup>1</sup> w przypadku jednostek SKU z obsługą WAF zaleca się ograniczenie liczby zasobów do 40 w celu uzyskania optymalnej wydajności.
+<sup>1</sup> w przypadku jednostek SKU z obsługą WAF należy ograniczyć liczbę zasobów do 40.

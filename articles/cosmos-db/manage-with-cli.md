@@ -1,25 +1,25 @@
 ---
-title: Zarządzanie zasobami Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Użyj interfejsu wiersza polecenia platformy Azure, aby zarządzać kontem Azure Cosmos DB, bazą danych i kontenerami.
+title: Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Zarządzaj zasobami interfejsu API Azure Cosmos DB Core (SQL) za pomocą interfejsu wiersza polecenia platformy Azure.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: c8726801e8becd6533ae5fec099d6c535b63261a
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767557"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840595"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Zarządzanie zasobami usługi Azure Cosmos za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Zarządzanie zasobami interfejsu API platformy Azure Cosmos Core (SQL) przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W poniższym przewodniku opisano typowe polecenia służące do automatyzowania zarządzania kontami, bazami danych i kontenerami usługi Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure. W [dokumentacji interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Więcej przykładów można znaleźć w przykładach [interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md), w tym tworzenia i zarządzania kontami Cosmos DB, bazami danych i kontenerami dla MongoDB, Gremlin, Cassandra i interfejs API tabel.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
 > Nie można zmienić nazw zasobów Azure Cosmos DB, ponieważ to narusza sposób, w jaki Azure Resource Manager współpracuje z identyfikatorami URI zasobów.
@@ -214,8 +214,9 @@ W poniższych sekcjach pokazano, jak zarządzać bazą danych Azure Cosmos DB, w
 
 * [Tworzenie bazy danych](#create-a-database)
 * [Tworzenie bazy danych z udostępnioną przepływność](#create-a-database-with-shared-throughput)
+* [Migrowanie bazy danych do automatycznego skalowania przepływności](#migrate-a-database-to-autoscale-throughput)
 * [Zmień przepływność bazy danych](#change-database-throughput)
-* [Zarządzanie blokadami w bazie danych](#manage-lock-on-a-database)
+* [Uniemożliwiaj usunięcie bazy danych](#prevent-a-database-from-being-deleted)
 
 ### <a name="create-a-database"></a>Tworzenie bazy danych
 
@@ -249,6 +250,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### <a name="migrate-a-database-to-autoscale-throughput"></a>Migrowanie bazy danych do automatycznego skalowania przepływności
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### <a name="change-database-throughput"></a>Zmień przepływność bazy danych
 
 Zwiększ przepływność bazy danych Cosmos o 1000 RU/s.
@@ -275,14 +299,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-database"></a>Zarządzanie blokadą w bazie danych
+### <a name="prevent-a-database-from-being-deleted"></a>Uniemożliwiaj usunięcie bazy danych
 
-Umieść blokadę usuwania w bazie danych. Aby dowiedzieć się więcej o tym, jak włączyć tę funkcję, zobacz, [uniemożliwiając zmiany z zestawów SDK](role-based-access-control.md#prevent-sdk-changes).
+Umieść blokadę usuwania zasobów platformy Azure w bazie danych, aby zapobiec jej usunięciu. Ta funkcja wymaga zablokowania konta Cosmos z poziomu zestawów SDK płaszczyzny danych. Aby dowiedzieć się więcej, zobacz temat [zapobieganie zmianom z zestawów SDK](role-based-access-control.md#prevent-sdk-changes). Blokady zasobów platformy Azure mogą również uniemożliwić zmianę zasobu przez określenie `ReadOnly` typu blokady. W przypadku bazy danych Cosmos można jej użyć, aby uniemożliwić zmianę przepływności.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -315,7 +339,8 @@ W poniższych sekcjach pokazano, jak zarządzać kontenerem Azure Cosmos DB, w t
 * [Tworzenie kontenera z włączonym czasem TTL](#create-a-container-with-ttl)
 * [Tworzenie kontenera przy użyciu niestandardowych zasad indeksu](#create-a-container-with-a-custom-index-policy)
 * [Zmień przepływność kontenera](#change-container-throughput)
-* [Zarządzanie blokadami w kontenerze](#manage-lock-on-a-container)
+* [Migrowanie kontenera do automatycznego skalowania przepływności](#migrate-a-container-to-autoscale-throughput)
+* [Zapobiegaj usunięciu kontenera](#prevent-a-container-from-being-deleted)
 
 ### <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -454,15 +479,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-container"></a>Zarządzanie blokadą w kontenerze
+### <a name="migrate-a-container-to-autoscale-throughput"></a>Migrowanie kontenera do automatycznego skalowania przepływności
 
-Umieść blokadę usuwania dla kontenera. Aby dowiedzieć się więcej o tym, jak włączyć tę funkcję, zobacz, [uniemożliwiając zmiany z zestawów SDK](role-based-access-control.md#prevent-sdk-changes).
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### <a name="prevent-a-container-from-being-deleted"></a>Zapobiegaj usunięciu kontenera
+
+Umieść blokadę usuwania zasobów platformy Azure w kontenerze, aby zapobiec jej usunięciu. Ta funkcja wymaga zablokowania konta Cosmos z poziomu zestawów SDK płaszczyzny danych. Aby dowiedzieć się więcej, zobacz temat [zapobieganie zmianom z zestawów SDK](role-based-access-control.md#prevent-sdk-changes). Blokady zasobów platformy Azure mogą również uniemożliwić zmianę zasobu przez określenie `ReadOnly` typu blokady. W przypadku kontenera Cosmos można go użyć, aby uniemożliwić zmianę przepływności lub inną właściwość.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -491,6 +542,6 @@ az lock delete --ids $lockid
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz:
 
-- [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
-- [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Dodatkowe przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md)
+* [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+* [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Dodatkowe przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB](cli-samples.md)

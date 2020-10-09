@@ -1,16 +1,14 @@
 ---
 title: Omówienie autonomicznych klastrów Service Fabric
 description: Klastry Service Fabric są uruchamiane w systemach Windows Server i Linux, co oznacza, że będzie można wdrażać i hostować aplikacje Service Fabric wszędzie tam, gdzie będzie można uruchamiać system Windows Server lub Linux.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080661"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841071"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
 

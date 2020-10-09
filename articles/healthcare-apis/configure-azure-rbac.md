@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: c4a78168f2759f9d7bb9e50165b8cf03c71ecab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845941"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839915"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurowanie kontroli RBAC platformy Azure dla usługi FHIR 
 
@@ -31,11 +31,11 @@ Aby można było korzystać z usługi Azure RBAC, interfejs API platformy Azure 
 
 Aby udzielić użytkownikom, podmiotom usługi lub grupom dostępu do płaszczyzny danych FHIR, kliknij pozycję **Kontrola dostępu (IAM)**, a następnie kliknij pozycję **przypisania ról** i kliknij pozycję **+ Dodaj**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Dodawanie przypisania roli platformy Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Potwierdzenie trybu kontroli RBAC platformy Azure":::
 
 W wyborze **roli** Wyszukaj jedną z wbudowanych ról dla płaszczyzny danych FHIR:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Wbudowane role danych FHIR":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Potwierdzenie trybu kontroli RBAC platformy Azure":::
 
 Można wybrać jedną z opcji:
 
@@ -54,7 +54,7 @@ Interfejs API platformy Azure dla usługi FHIR będzie buforować decyzje przez 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób przypisywania ról platformy Azure dla płaszczyzny danych FHIR. Kolejne informacje o dodatkowych ustawieniach interfejsu API platformy Azure dla usługi FHIR:
+W tym artykule przedstawiono sposób przypisywania ról platformy Azure dla płaszczyzny danych FHIR. Aby dowiedzieć się więcej o dodatkowych ustawieniach interfejsu API platformy Azure dla usługi FHIR:
  
 >[!div class="nextstepaction"]
 >[Dodatkowe ustawienia interfejsu API platformy Azure dla usługi FHIR](azure-api-for-fhir-additional-settings.md)

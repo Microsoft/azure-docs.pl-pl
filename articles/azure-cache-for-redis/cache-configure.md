@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460173"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840255"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -169,11 +169,11 @@ Aby uzyskać więcej informacji, zobacz [Redis — powiadomienia dotyczące miej
 ## <a name="azure-cache-for-redis-advisor"></a>Usługa Azure cache for Redis Advisor
 W bloku **Azure cache for Redis Advisor** są wyświetlane zalecenia dotyczące pamięci podręcznej. W trakcie normalnych operacji nie są wyświetlane żadne zalecenia.
 
-![Zalecenia](./media/cache-configure/redis-cache-no-recommendations.png)
+![Zrzut ekranu pokazujący, gdzie są wyświetlane zalecenia.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Jeśli wystąpią jakiekolwiek warunki podczas operacji pamięci podręcznej, takie jak duże użycie pamięci, przepustowość sieci lub obciążenie serwera, w bloku **pamięci podręcznej platformy Azure dla Redis** zostanie wyświetlony alert.
 
-![Zalecenia](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Zrzut ekranu pokazujący, gdzie są wyświetlane alerty w sekcji Azure cache for Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Więcej informacji można znaleźć w bloku **zalecenia** .
 
@@ -258,13 +258,13 @@ Sekcja **Virtual Network** umożliwia skonfigurowanie ustawień sieci wirtualnej
 >
 >
 
-### <a name="firewall"></a>Firewall
+### <a name="firewall"></a>Zapora
 
 Konfiguracja reguł zapory jest dostępna dla wszystkich warstw usługi Azure cache for Redis.
 
 Kliknij pozycję **Zapora** , aby wyświetlić i skonfigurować reguły zapory dla pamięci podręcznej.
 
-![Firewall](./media/cache-configure/redis-firewall-rules.png)
+![Zapora](./media/cache-configure/redis-firewall-rules.png)
 
 Można określić reguły zapory z zakresem adresów IP początkowy i końcowy. Po skonfigurowaniu reguł zapory tylko połączenia klienckie z określonych zakresów adresów IP mogą łączyć się z pamięcią podręczną. Po zapisaniu reguły zapory występuje krótkie opóźnienie, zanim reguła zacznie obowiązywać. To opóźnienie jest zazwyczaj mniejsze niż jedna minuta.
 
@@ -314,7 +314,7 @@ Blok **ponowne uruchomienie** umożliwia ponowne uruchomienie węzłów pamięci
 
 Jeśli masz pamięć podręczną Premium z włączoną obsługą klastrowania, możesz wybrać fragmentów pamięci podręcznej, aby przeprowadzić ponowny rozruch.
 
-![Ponowne uruchamianie](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Zrzut ekranu pokazujący, gdzie należy wybrać fragmentów pamięci podręcznej do ponownego uruchomienia.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Aby ponownie uruchomić co najmniej jeden węzeł pamięci podręcznej, wybierz odpowiednie węzły, a następnie kliknij przycisk **Uruchom ponownie**. Jeśli masz pamięć podręczną Premium z włączoną obsługą klastrowania, wybierz fragmentu do ponownego uruchomienia, a następnie kliknij przycisk **Uruchom ponownie**. Po kilku minutach wybrane węzły zostaną przełączone ponownie, a następnie ponownie w trybie online w ciągu kilku minut później.
 
@@ -474,11 +474,11 @@ Możesz bezpiecznie wydać polecenia do pamięci podręcznej platformy Azure dla
 
 Aby uzyskać dostęp do konsoli Redis, kliknij pozycję **konsola** w bloku **Azure cache for Redis** .
 
-![Konsola Redis](./media/cache-configure/redis-console-menu.png)
+![Zrzut ekranu, który podświetla przycisk konsoli.](./media/cache-configure/redis-console-menu.png)
 
 Aby wydać polecenia względem wystąpienia pamięci podręcznej, wpisz odpowiednie polecenie w konsoli programu.
 
-![Konsola Redis](./media/cache-configure/redis-console.png)
+![Zrzut ekranu thas przedstawia konsolę Redis z poleceniem Input i wynikami.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Korzystanie z konsoli Redis z klastrowaną pamięcią podręczną Premium

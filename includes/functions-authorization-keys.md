@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 617608f382d3331e59ae92c9eb272347c736b768
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298603"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829224"
 ---
 Funkcje umożliwiają korzystanie z kluczy, aby utrudnić dostęp do punktów końcowych funkcji HTTP podczas opracowywania. Jeśli poziom dostępu HTTP w funkcji wyzwalanej przez protokół HTTP nie jest ustawiony na `anonymous` , żądania muszą zawierać klucz dostępu interfejsu API w żądaniu. 
 
-Chociaż klucze zapewniają domyślny mechanizm zabezpieczeń, warto rozważyć dodatkowe opcje zabezpieczania punktu końcowego HTTP w środowisku produkcyjnym. Na przykład zwykle nie jest dobrym sposobem dystrybuowania wspólnych kluczy tajnych w aplikacjach publicznych. Jeśli funkcja jest wywoływana z klienta publicznego, warto rozważyć zaimplementowanie innego mechanizmu Secrity. Aby dowiedzieć się więcej, zobacz temat [Zabezpieczanie punktu końcowego HTTP w środowisku produkcyjnym](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+Chociaż klucze zapewniają domyślny mechanizm zabezpieczeń, warto rozważyć dodatkowe opcje zabezpieczania punktu końcowego HTTP w środowisku produkcyjnym. Na przykład zwykle nie jest dobrym sposobem dystrybuowania wspólnych kluczy tajnych w aplikacjach publicznych. Jeśli funkcja jest wywoływana z klienta publicznego, warto rozważyć zaimplementowanie innego mechanizmu zabezpieczeń. Aby dowiedzieć się więcej, zobacz temat [Zabezpieczanie punktu końcowego HTTP w środowisku produkcyjnym](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
 
 W przypadku odnowienia wartości klucza funkcji należy ręcznie ponownie przeprowadzić dystrybucję zaktualizowanych wartości klucza do wszystkich klientów, którzy wywołują funkcję.  
 

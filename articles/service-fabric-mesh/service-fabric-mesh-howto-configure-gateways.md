@@ -1,17 +1,17 @@
 ---
 title: Konfigurowanie bramy do przesyłania żądań
 description: Dowiedz się, jak skonfigurować bramę obsługującą ruch przychodzący dla aplikacji działających na Service Fabric siatki.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461953"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839728"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurowanie zasobu bramy do przesyłania żądań
 
@@ -26,11 +26,11 @@ Ponieważ zasób bramy służy jako Most między siecią aplikacji a siecią źr
 ### <a name="gateway-resource-metadata"></a>Metadane zasobów bramy
 
 Brama jest zadeklarowana przy użyciu następujących metadanych:
-* `apiVersion`-musi być ustawiony na wartość "2018-09-01-Preview" (lub nowszą, w przyszłości)
-* `name`-Nazwa ciągu dla tej bramy
-* `type`-"Microsoft. ServiceFabricMesh/Gateways"
-* `location`-powinna być ustawiona na lokalizację aplikacji/sieci; zwykle będzie to odwołanie do parametru lokalizacji we wdrożeniu
-* `dependsOn`— Sieć, dla której ta brama będzie działać jako punkt transferu dla
+* `apiVersion` -musi być ustawiony na wartość "2018-09-01-Preview" (lub nowszą, w przyszłości)
+* `name` -Nazwa ciągu dla tej bramy
+* `type` -"Microsoft. ServiceFabricMesh/Gateways"
+* `location` -powinna być ustawiona na lokalizację aplikacji/sieci; zwykle będzie to odwołanie do parametru lokalizacji we wdrożeniu
+* `dependsOn` — Sieć, dla której ta brama będzie działać jako punkt transferu dla
 
 Oto jak wygląda w szablonie wdrożenia Azure Resource Manager (JSON): 
 
@@ -79,9 +79,9 @@ Reguły routingu są określane dla poszczególnych portów. Każdy port transfe
 #### <a name="tcp-routing-rules"></a>Reguły routingu TCP 
 
 Reguła routingu TCP składa się z następujących właściwości: 
-* `name`-odwołanie do reguły, która może być dowolnym dowolnym ciągiem 
-* `port`-Port, na którym nasłuchuje żądań przychodzących 
-* `destination`-Specyfikacja punktu końcowego obejmująca `applicationName` , `serviceName` i `endpointName` , w przypadku których żądania muszą być kierowane do
+* `name` -odwołanie do reguły, która może być dowolnym dowolnym ciągiem 
+* `port` -Port, na którym nasłuchuje żądań przychodzących 
+* `destination` -Specyfikacja punktu końcowego obejmująca `applicationName` , `serviceName` i `endpointName` , w przypadku których żądania muszą być kierowane do
 
 Oto przykładowa reguła routingu TCP:
 
@@ -106,16 +106,16 @@ Oto przykładowa reguła routingu TCP:
 #### <a name="http-routing-rules"></a>Reguły routingu HTTP 
 
 Reguła routingu HTTP składa się z następujących właściwości: 
-* `name`-odwołanie do reguły, która może być dowolnym dowolnym ciągiem 
-* `port`-Port, na którym nasłuchuje żądań przychodzących 
-* `hosts`-tablicę zasad, które mają zastosowanie do żądań skierowanych do różnych "hostów" na porcie określonym powyżej. Hosty to zbiór aplikacji i usług, które mogą być uruchomione w sieci i mogą obsługiwać żądania przychodzące, np. aplikację sieci Web. Zasady hosta są interpretowane w podanej kolejności, dlatego należy utworzyć następujące elementy na malejących poziomach
-    * `name`-Nazwa DNS hosta, dla którego określono następujące reguły routingu. Użycie znaku "*" spowoduje utworzenie reguł routingu dla wszystkich hostów.
-    * `routes`-tablicę zasad dla tego konkretnego hosta
-        * `match`-Specyfikacja przychodzącej struktury żądań dla tej reguły na podstawie`path`
-            * `path`-zawiera `value` (przychodzący identyfikator URI), `rewrite` (w jaki sposób żądanie ma zostać przesłane dalej) i `type` (obecnie tylko "prefiks")
-            * `header`-to opcjonalna Tablica wartości nagłówków do dopasowania w nagłówku żądania, gdy żądanie jest zgodne ze specyfikacją ścieżki (powyżej).
+* `name` -odwołanie do reguły, która może być dowolnym dowolnym ciągiem 
+* `port` -Port, na którym nasłuchuje żądań przychodzących 
+* `hosts` -tablicę zasad, które mają zastosowanie do żądań skierowanych do różnych "hostów" na porcie określonym powyżej. Hosty to zbiór aplikacji i usług, które mogą być uruchomione w sieci i mogą obsługiwać żądania przychodzące, np. aplikację sieci Web. Zasady hosta są interpretowane w podanej kolejności, dlatego należy utworzyć następujące elementy na malejących poziomach
+    * `name` -Nazwa DNS hosta, dla którego określono następujące reguły routingu. Użycie znaku "*" spowoduje utworzenie reguł routingu dla wszystkich hostów.
+    * `routes` -tablicę zasad dla tego konkretnego hosta
+        * `match` -Specyfikacja przychodzącej struktury żądań dla tej reguły na podstawie `path`
+            * `path` -zawiera `value` (przychodzący identyfikator URI), `rewrite` (w jaki sposób żądanie ma zostać przesłane dalej) i `type` (obecnie tylko "prefiks")
+            * `header` -to opcjonalna Tablica wartości nagłówków do dopasowania w nagłówku żądania, gdy żądanie jest zgodne ze specyfikacją ścieżki (powyżej).
               * Każdy wpis zawiera `name` (Nazwa ciągu nagłówka do dopasowania), `value` (wartość ciągu nagłówka w żądaniu) i `type` (teraz może być tylko "dokładne")
-        * `destination`— Jeśli żądanie jest zgodne, zostanie przekazane do tego miejsca docelowego, które jest określone przy użyciu `applicationName` , `serviceName` i`endpointName`
+        * `destination` — Jeśli żądanie jest zgodne, zostanie przekazane do tego miejsca docelowego, które jest określone przy użyciu `applicationName` , `serviceName` i `endpointName`
 
 Poniżej znajduje się przykład reguły routingu HTTP, która powinna być stosowana do żądań przychodzących na porcie 80, do wszystkich hostów obsługiwanych przez aplikacje w tej sieci. Jeśli adres URL żądania ma strukturę zgodną ze specyfikacją ścieżki, tj., `<IPAddress>:80/pickme/<requestContent>` zostanie ona skierowana do `myListener` punktu końcowego.  
 

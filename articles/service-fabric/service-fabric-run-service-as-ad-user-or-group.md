@@ -1,16 +1,14 @@
 ---
 title: Uruchamianie usługi Service Fabric platformy Azure jako użytkownika lub grupy usługi AD
 description: Dowiedz się, jak uruchomić usługę jako użytkownika lub grupę Active Directory w Service Fabric autonomicznym klastrze systemu Windows.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 03/29/2018
-ms.author: dekapur
-ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4a7afc2ddb0f39014a7cf0fd006d7fe23673a95
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464246"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840731"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Uruchamianie usługi jako użytkownika lub grupy Active Directory
 W klastrze autonomicznym systemu Windows Server można uruchomić usługę jako użytkownika lub grupę Active Directory przy użyciu zasad RunAs.  Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach którego działa proces Fabric.exe. Uruchamianie aplikacji na różnych kontach, nawet w udostępnianym środowisku hostowanym, sprawia, że są one bezpieczniejsze od siebie nawzajem. Należy zauważyć, że ta funkcja używa Active Directory lokalnie w domenie, a nie Azure Active Directory (Azure AD).  Możesz również uruchomić usługę jako [konto usługi zarządzanej przez grupę (gMSA)](service-fabric-run-service-as-gmsa.md).

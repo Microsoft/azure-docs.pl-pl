@@ -1,17 +1,15 @@
 ---
 title: Instalowanie Service Fabric klienta autonomicznego
-description: W tym samouczku dowiesz się, jak zainstalować klienta autonomicznego usługi Service Fabric w klastrze utworzonym w poprzedniej części samouczka.
-author: dkkapur
+description: W tym samouczku dowiesz się, jak zainstalować klienta autonomicznego Service Fabric w klastrze.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75613945"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840646"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Samouczek: instalowanie i tworzenie klastra usługi Service Fabric
 
@@ -19,7 +17,7 @@ Klastry autonomiczne usługi Service Fabric umożliwiają wybór własnego środ
 
 Ten samouczek jest drugą częścią serii. W tym samouczku przedstawiono kroki tworzenia klastra autonomicznego usługi Service Fabric.
 
-Część druga serii zawiera informacje na temat wykonywania następujących czynności:
+W tym artykule dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Pobieranie i instalowanie pakietu autonomicznego usługi Service Fabric
@@ -38,7 +36,7 @@ Możesz uzyskać bardziej szczegółowe informacje dotyczące [zawartości pakie
 
 Ponieważ tworzysz klaster z trzema węzłami z systemem Windows, musisz zmodyfikować plik `ClusterConfig.Unsecure.MultiMachine.json`.
 
-Następnie zmień trzy wiersze ipAddress, znajdujące się w wierszach 8, 15 i 22 w pliku, na adresy IP poszczególnych wystąpień.
+Następnie zaktualizuj trzy wiersze ipAddress, które występują w pliku w wierszach 8, 15 i 22, do adresów IP dla każdego wystąpienia.
 
 Zaktualizowane węzły będą wyglądać następująco:
 
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-Powinny pojawić się następujące dane wyjściowe. Jeśli w polu „Passed” na końcu zwracana jest wartość `True`, oznacza to, że test poprawności zakończył się pozytywnie, a konfiguracja wejściowa powinna umożliwiać wdrożenie klastra.
+Powinny pojawić się dane wyjściowe podobne do poniższego przykładu. Jeśli w polu „Passed” na końcu zwracana jest wartość `True`, oznacza to, że test poprawności zakończył się pozytywnie, a konfiguracja wejściowa powinna umożliwiać wdrożenie klastra.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -101,7 +99,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 
-Po pomyślnym zweryfikowaniu konfiguracji klastra uruchom skrypt *CreateServiceFabricCluster.ps1*, aby wdrożyć klaster usługi Service Fabric na maszynach wirtualnych wskazanych w pliku konfiguracji.
+Po pomyślnym zweryfikowaniu konfiguracji klastra uruchom skrypt *CreateServiceFabricCluster.ps1* , aby wdrożyć klaster Service Fabric do maszyn wirtualnych w pliku konfiguracji.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Otwórz narzędzie Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>Otwórz Service Fabric Explorer
 
 Teraz można nawiązać połączenie z klastrem przy użyciu Service Fabric Explorer bezpośrednio z jednej z maszyn przy użyciu protokołu http: \/ /localhost: 19080/Explorer/index.html lub zdalnie przy użyciu protokołu http: \/ /< *IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -128,7 +126,7 @@ Możesz dodawać i usuwać węzły w klastrze autonomicznym usługi Service Fabr
 
 ## <a name="next-steps"></a>Następne kroki
 
-W drugiej części serii omówiono równoległe przekazywanie dużej ilości danych losowych na konto magazynu, w tym następujące czynności:
+W tym artykule omówiono przekazywanie dużych ilości danych losowych do konta magazynu równolegle, takich jak:
 
 > [!div class="checklist"]
 > * Konfigurowanie parametrów połączenia

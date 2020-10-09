@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: be3cf7d946e7502147942fa8954ade70dd47bedf
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795783"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839932"
 ---
 # <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych 
 
@@ -38,7 +38,12 @@ Jeśli przepływność bazy danych jest większa niż 10 000 RU/s lub jeśli dan
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób aktualizowania jednostek ru dla interfejsu API platformy Azure dla usługi FHIR. Następnie wdróż w pełni zarządzany interfejs API platformy Azure dla usługi FHIR:
+W tym artykule przedstawiono sposób aktualizowania jednostek ru dla interfejsu API platformy Azure dla usługi FHIR. Aby dowiedzieć się więcej o konfigurowaniu kluczy zarządzanych przez klienta jako ustawienia bazy danych:
+
+>[!div class="nextstepaction"]
+>[Konfigurowanie kluczy zarządzanych przez klienta](bring-your-own-key.md)
+
+Lub można wdrożyć w pełni zarządzany interfejs API platformy Azure dla FHIR:
  
 >[!div class="nextstepaction"]
 >[Wdrażanie usługi Azure API for FHIR](fhir-paas-portal-quickstart.md)

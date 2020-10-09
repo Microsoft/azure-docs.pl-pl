@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440200"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840442"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
@@ -96,4 +96,4 @@ Dowiedz się więcej o
 > [!div class="nextstepaction"]
 > [Architektura rozwiązania Centrum rozwiązań](./architecture-micro-fulfillment-center.md)
 * Dowiedz się więcej na temat [szablonów detalicznych usługi Azure IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o innych [omówieniach usługi Azure IoT Central](../preview/overview-iot-central.md)
+* Dowiedz się więcej o [usłudze Azure IoT Central](../preview/overview-iot-central.md)

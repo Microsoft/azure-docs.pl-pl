@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950395"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839351"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Powiadomienia Azure Active Directory Identity Protection
 
@@ -44,8 +44,8 @@ Aby zapobiec przeciążeniu poczty e-mail, otrzymasz wiadomość e-mail z wykryt
 Jako administrator możesz ustawić:
 
 - **Poziom ryzyka użytkownika wyzwalający generowanie tej wiadomości e-mail** — domyślnie poziom ryzyka jest ustawiany na "wysoki".
-- Adresaci **tej wiadomości e-mail** — domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administratorzy globalni mogą również dodawać innych administratorów globalnych, administratorów zabezpieczeń, czytelników zabezpieczeń jako odbiorców.
-   - Opcjonalnie możesz **dodać dodatkowe wiadomości e-mail w celu otrzymywania powiadomień o alertach** , ponieważ ta funkcja jest dostępna w wersji zapoznawczej, a zdefiniowane przez użytkowników muszą mieć odpowiednie uprawnienia do wyświetlania raportów połączonych w Azure Portal.
+- **Adresaci tej poczty e-mail** w rolach Administrator globalny, administrator zabezpieczeń lub czytelnik zabezpieczeń zostaną automatycznie dodani do tej listy. Podjęto próbę wysłania wiadomości e-mail do pierwszych 20 członków każdej roli. Jeśli użytkownik jest zarejestrowany w usłudze PIM w celu podniesienia uprawnień do jednej z tych ról na żądanie **, będzie otrzymywać tylko wiadomości e-mail w przypadku ich podniesienia uprawnień w momencie wysłania wiadomości e-mail**.
+   - Opcjonalnie możesz **dodać niestandardowe wiadomości e-mail** , gdy zdefiniowane użytkownicy muszą mieć odpowiednie uprawnienia do wyświetlania raportów połączonych w Azure Portal.
 
 Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  Użytkownicy**ochrony tożsamości**zabezpieczeń  >  **na wykryciu zagrożeń**.
 
@@ -60,7 +60,7 @@ Obejmuje:
 
 ![Tygodniowy adres e-mail w postaci skróconej](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administratorzy globalni mogą również dodawać innych administratorów globalnych, administratorów zabezpieczeń, czytelników zabezpieczeń jako odbiorców.
+Użytkownicy z rolami administratora globalnego, administratora zabezpieczeń lub czytelnika zabezpieczeń są automatycznie dodawani do tej listy. Podjęto próbę wysłania wiadomości e-mail do pierwszych 20 członków każdej roli. Jeśli użytkownik jest zarejestrowany w usłudze PIM, aby podwyższyć poziom jednej z tych ról na żądanie **, otrzymają oni tylko wiadomości e-mail, jeśli zostaną przełączone w momencie przesłania wiadomości e-mail** .
 
 ### <a name="configure-weekly-digest-email"></a>Konfigurowanie tygodniowego adresu e-mail w postaci skróconej
 

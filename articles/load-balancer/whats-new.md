@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586719"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841037"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Co nowego w Azure Load Balancer?
 
@@ -29,6 +29,7 @@ Możesz również znaleźć najnowsze aktualizacje Azure Load Balancer i subskry
 
 | Typ |Nazwa |Opis  |Data dodania  |
 | ------ |---------|---------|---------|
+| Cecha | Obsługa przenoszenia między grupami zasobów | Usługa Load Balancer w warstwie Standardowa i Standardowa obsługa publicznego adresu IP dla [grupy zasobów jest przenoszona](https://azure.microsoft.com/updates/standard-resource-group-move/). | Październik 2020 |
 | Cecha | Obsługa zarządzania puli zaplecza opartego na protokole IP (wersja zapoznawcza) | Azure Load Balancer obsługuje dodawanie i usuwanie zasobów z puli zaplecza za pośrednictwem adresów IPv4 lub IPv6. Dzięki temu można łatwo zarządzać kontenerami, maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych skojarzonymi z Load Balancer. Zezwala również na zastrzeżone adresy IP w ramach puli zaplecza przed utworzeniem skojarzonych zasobów. Więcej informacji można znaleźć [tutaj](backend-pool-management.md)|Lipiec 2020 r. |
 | Cecha| Azure Load Balancer szczegółowych informacji przy użyciu Azure Monitor | W ramach Azure Monitor dla sieci klienci mają teraz mapy topologiczny dla wszystkich Load Balancer konfiguracji i pulpitów nawigacyjnych kondycji dla standardowych modułów równoważenia obciążenia wstępnie skonfigurowanych przy użyciu metryk w Azure Portal. [Rozpocznij pracę i Dowiedz się więcej](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Czerwiec 2020 r. |
 | Walidacja | Dodawanie weryfikacji dla portów HA | Dodano weryfikację, aby upewnić się, że reguły portów HA i reguły portów inne niż HA są konfigurowane tylko wtedy, gdy jest włączony swobodny adres IP. Wcześniej ta konfiguracja przejdzie przez program, ale nie będzie działała zgodnie z oczekiwaniami. Nie wprowadzono zmian w funkcjonalności. Więcej informacji można znaleźć [tutaj](load-balancer-ha-ports-overview.md#limitations)| Czerwiec 2020 r. |

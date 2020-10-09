@@ -2,26 +2,27 @@
 title: plik dołączania
 description: plik dołączania
 services: redis-cache
-author: wesmc7777
+author: curib
 ms.service: cache
 ms.topic: include
-ms.date: 11/05/2019
-ms.author: wesmc
+ms.date: 10/06/2020
+ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: e0557f8eb2fd120baeebee96acb4ef539344e3e7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae9526a47a77118503274fc824538980ebcd50de
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87528835"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828915"
 ---
-1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. 
-   
-   ![Wybierz pozycję Utwórz zasób](media/redis-cache-create/create-a-resource.png)
+1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.
+
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
+
    
 1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
-   
-   ![Wybieranie usługi Azure cache for Redis](media/redis-cache-create/redis-cache-new-cache-menu.png)
+
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Wybierz pozycję Pamięć podręczna platformy Azure dla Redis.":::
    
 1. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia dla nowej pamięci podręcznej.
    
@@ -32,15 +33,23 @@ ms.locfileid: "87528835"
    | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
    | **Warstwa cenowa** | Lista rozwijana i wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](../articles/azure-cache-for-redis/cache-overview.md). |
-   
-1. Wybierz przycisk **Utwórz**. 
-   
-   ![ Tworzenie pamięci podręcznej Azure Cache for Redis](media/redis-cache-create/redis-cache-cache-create.png) 
-   
-   > [!NOTE]
-   > Możesz oczekiwać, że inicjowanie obsługi pamięci podręcznej zajmie około 15 do 20 minut.   
-   
-   Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia.
-   
-   ![Utworzono pamięć podręczną platformy Azure dla Redis](media/redis-cache-create/redis-cache-cache-created.png)
 
+1. Wybierz kartę **Sieć** lub kliknij przycisk **sieci** w dolnej części strony.
+
+1. Na karcie **Sieć** wybierz metodę łączności.
+
+1. Wybierz kartę **Dalej: Zaawansowane** lub kliknij przycisk **Dalej: Zaawansowane** w dolnej części strony.
+
+1. Na karcie **Zaawansowane** dla podstawowego lub standardowego wystąpienia pamięci podręcznej wybierz opcję Włącz przełącznik, jeśli chcesz włączyć port inny niż TLS.
+
+1. Na karcie **Zaawansowane** wystąpienia pamięci podręcznej Premium Skonfiguruj ustawienia dla portu niezwiązanego z protokołem TLS, klastrowanie i trwałość danych.
+
+1. Wybierz kartę **następne: Tagi** lub kliknij przycisk **Dalej: Tagi** w dolnej części strony.
+
+1. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
+
+1. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+
+1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
+
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 

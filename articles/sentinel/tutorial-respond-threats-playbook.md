@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f75731fab9a238ffcac2e620235c9d8c5da97549
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053494"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840204"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby utworzyć nowy element PlayBook zabezpieczeń n
 
 5. W [**Projektancie aplikacji logiki**](../logic-apps/logic-apps-overview.md)wybierz szablon, którego chcesz użyć. W przypadku wybrania szablonu wymagającego poświadczeń należy je udostępnić. Alternatywnie można utworzyć nową pustą element PlayBook od podstaw. Wybierz pozycję **pusta aplikacja logiki**. 
 
-   ![Projektant aplikacji logiki](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Zrzut ekranu przedstawiający panel pustej aplikacji logiki.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. Nastąpi przekierowanie do projektanta aplikacji logiki, w którym można utworzyć nowy lub edytować szablon. Aby uzyskać więcej informacji na temat tworzenia element PlayBook z [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 

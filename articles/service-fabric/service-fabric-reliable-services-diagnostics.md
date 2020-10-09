@@ -1,16 +1,14 @@
 ---
 title: Diagnostyka Reliable Services Stanów Service Fabric platformy Azure
 description: Funkcje diagnostyczne dla stanowych Reliable Services na platformie Azure Service Fabric
-author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
-ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253120"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840765"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funkcja diagnostyki dla stanowych usług Reliable Services
 Service Fabric stanowa platformy Azure Reliable Services Klasa StatefulServiceBase emituje zdarzenia [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) , które mogą być używane do debugowania usługi, zapewnia wgląd w sposób działania środowiska uruchomieniowego i pomaga w rozwiązywaniu problemów.
@@ -89,7 +87,7 @@ Następująca nazwa wystąpienia licznika jest typowa dla licznika w `Service Fa
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-W poprzednim przykładzie, `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacją ciągu Service Fabric identyfikator partycji, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest odróżniany od wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore`jest nazwą dostawcy stanu, który przechowuje dane dla kolekcji o nazwie `urn:MyReliableDictionary` .
+W poprzednim przykładzie, `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacją ciągu Service Fabric identyfikator partycji, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest odróżniany od wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore` jest nazwą dostawcy stanu, który przechowuje dane dla kolekcji o nazwie `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Liczniki wydajności transakcyjnych replikatorów
 

@@ -1,19 +1,19 @@
 ---
 title: Operacje języka DDL w Azure Cosmos DB interfejs API Cassandra z platformy Spark
 description: W tym artykule opisano operacje dotyczące przestrzeni kluczy i języka DDL w tabeli dotyczącej Azure Cosmos DB interfejs API Cassandra z platformy Spark.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 09/24/2018
-ms.openlocfilehash: 30cac5894998ca2bb9c37217820e1000ed97ba5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: 589114fa004c8b4479e1a14c5a99161dd972c5bf
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260568"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841105"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operacje języka DDL w Azure Cosmos DB interfejs API Cassandra z platformy Spark
 
@@ -92,8 +92,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>Tworzenie tabeli
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>Weryfikuj w cqlsh

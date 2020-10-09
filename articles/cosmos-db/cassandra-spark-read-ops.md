@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a64ad1ddb955ccebdcddca996959f1bb5f932b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257418"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840963"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Odczytywanie danych z Azure Cosmos DB interfejs API Cassandra tabelach przy użyciu platformy Spark
 
@@ -86,17 +86,10 @@ readBooksDF.show
 Można wypchnąć predykaty do bazy danych, aby umożliwić lepsze zoptymalizowane zapytania Spark. Predykat to warunek zapytania, który zwraca wartość true lub false, zazwyczaj znajduje się w klauzuli WHERE. Predykat wypchnij w dół filtruje dane w kwerendzie bazy danych, zmniejszając liczbę wpisów pobieranych z bazy danych i zwiększając wydajność zapytań. Domyślnie interfejs API usługi Spark DataSet automatycznie wypycha prawidłowe klauzule WHERE do bazy danych. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain

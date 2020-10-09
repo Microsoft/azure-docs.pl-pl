@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974908"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839796"
 ---
 # <a name="how-to-reprovision-devices"></a>Jak ponownie zainicjować obsługę urządzeń
 
@@ -75,7 +75,7 @@ Poniższe kroki konfigurują zasady alokacji na potrzeby rejestracji urządzenia
 
 4. Kliknij przycisk **Zapisz** , aby włączyć ponowne Inicjowanie obsługi urządzenia na podstawie wprowadzonych zmian.
 
-    ![Wybieranie zasad alokacji rejestracji](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Zrzut ekranu, który podświetla wprowadzone zmiany i przycisk Zapisz.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

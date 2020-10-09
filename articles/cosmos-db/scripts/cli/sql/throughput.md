@@ -1,30 +1,30 @@
 ---
-title: Aktualizowanie RU/s dla bazy danych i kontenera interfejsu API języka SQL (rdzeń) dla Azure Cosmos DB
-description: Aktualizowanie RU/s dla bazy danych i kontenera interfejsu API języka SQL (rdzeń) dla Azure Cosmos DB
+title: Skrypty interfejsu wiersza polecenia platformy Azure dla operacji przepływności (RU/s) dla zasobów interfejsu API Azure Cosmos DB Core (SQL)
+description: Skrypty interfejsu wiersza polecenia platformy Azure dla operacji przepływności (RU/s) dla zasobów interfejsu API Azure Cosmos DB Core (SQL)
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 23b18d903bfd4e9d723524924e6c31db45c14d62
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 5ad1e40f12609e708a2bb818175146967b7dccf2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429900"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839482"
 ---
-# <a name="update-rus-for-a-sql-core-api-database-and-container-for-azure-cosmos-db-using-azure-cli"></a>Aktualizowanie RU/s dla bazy danych i kontenera interfejsu API języka SQL (rdzeń) dla Azure Cosmos DB przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operacje przepływności (RU/s) za pomocą interfejsu wiersza polecenia platformy Azure dla bazy danych lub kontenera dla interfejsu API Azure Cosmos DB Core (SQL)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.12.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-Ten skrypt tworzy bazę danych interfejsu API języka SQL (rdzeń) o udostępnionej przepływności i kontenerze interfejsu API SQL (rdzeń) z dedykowaną przepływność, a następnie aktualizuje przepływność zarówno dla bazy danych, jak i kontenera.
+Ten skrypt tworzy podstawową bazę danych interfejsu API (SQL) z udostępnioną przepływność i kontenerem interfejsu API Core (SQL) z dedykowaną przepływność, a następnie aktualizuje przepływność zarówno dla bazy danych, jak i kontenera. Skrypt jest następnie migrowany z warstwy Standardowa do automatycznego skalowania, a następnie odczytuje wartość przepływności automatycznego skalowania po migracji.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Throughput operations for a SQL database and container.")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
@@ -42,10 +42,12 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Tworzy konto usługi Azure Cosmos DB. |
-| [AZ cosmosdb SQL Database Create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Tworzy bazę danych SQL (rdzeń) usługi Azure Cosmos. |
-| [AZ cosmosdb SQL Container Create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Tworzy kontener usługi Azure Cosmos SQL (rdzeń). |
-| [AZ cosmosdb SQL Database — aktualizacja przepływności](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Zaktualizuj RU/s dla bazy danych SQL (rdzeń) usługi Azure Cosmos. |
-| [AZ cosmosdb SQL Container przepływność Update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Aktualizowanie RU/s dla kontenera usługi Azure Cosmos SQL (rdzeń). |
+| [AZ cosmosdb SQL Database Create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Tworzy bazę danych platformy Azure Cosmos Core (SQL). |
+| [AZ cosmosdb SQL Container Create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Tworzy kontener platformy Azure Cosmos Core (SQL). |
+| [AZ cosmosdb SQL Database — aktualizacja przepływności](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Aktualizacja przepływności dla bazy danych Azure Cosmos Core (SQL). |
+| [AZ cosmosdb SQL Container przepływność Update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Aktualizacja przepływności dla kontenera Azure Cosmos Core (SQL). |
+| [AZ cosmosdb Database przepływność migracji](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-migrate) | Migrowanie przepływności dla bazy danych Azure Cosmos Core (SQL). |
+| [AZ cosmosdb SQL Container przepływność migracji](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-migrate) | Migrowanie przepływności dla kontenera Azure Cosmos Core (SQL). |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,54 +1,20 @@
 ---
-ms.openlocfilehash: 93c88f34e32e2057efd3eae25b1f41f58b948575
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f5e180cb85e65cf832ffe0a3746e25790644e1ba
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682355"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829308"
 ---
-1. Rozpocznij sesję debugowania, wybierając klawisz F5. Okno **terminalu** drukuje niektóre komunikaty.
-1. *operations.jsw* kodzie wywołuje metody bezpośrednie `GraphTopologyList` i `GraphInstanceList` . W przypadku oczyszczenia zasobów po poprzednich przewodnikach szybki start proces ten spowoduje zwrócenie pustych list, a następnie wstrzymanie. Naciśnij klawisz Enter.
-    
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-  
-  W oknie **terminalu** zostanie wyświetlony następny zestaw wywołań metod bezpośrednich:  
-  
-  * Wywołanie `GraphTopologySet` , które używa `topologyUrl` 
-  * Wywołanie `GraphInstanceSet` , które używa następującej treści:
-  
-  ```
-  {
-    "@apiVersion": "1.0",
-    "name": "Sample-Graph",
-    "properties": {
-      "topologyName": "EVRToFilesOnMotionDetection",
-      "description": "Sample graph description",
-      "parameters": [
-        {
-          "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-        },
-        {
-          "name": "rtspUserName",
-          "value": "testuser"
-        },
-        {
-          "name": "rtspPassword",
-          "value": "testpassword"
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia"
         }
       ]
     }

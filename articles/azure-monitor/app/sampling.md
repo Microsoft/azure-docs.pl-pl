@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549569"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839609"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -295,9 +295,9 @@ W Eksplorator metryk stawki, takie jak żądania i liczby wyjątków, są mnożo
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 
@@ -482,7 +482,7 @@ Główne zalety pobierania próbek są następujące:
 
 Jeśli warunki używania innych form próbkowania nie mają zastosowania, zalecamy próbkowanie adaptacyjne. To ustawienie jest domyślnie włączone w ASP.NET/ASP.NET Core SDK. Nie zmniejszy to ruchu, dopóki nie zostanie osiągnięta określona stawka minimalna, w związku z czym w przypadku lokacji z niskim użyciem prawdopodobnie nie będą one próbkowane.
 
-## <a name="knowing-whether-sampling-is-in-operation"></a>Znajomość tego, czy próbkowanie jest w działaniu
+## <a name="knowing-whether-sampling-is-in-operation"></a>Jak sprawdzić, czy próbkowanie jest w toku
 
 Aby wykryć rzeczywistą częstotliwość próbkowania niezależnie od tego, gdzie została ona zastosowana, należy użyć [zapytania analitycznego](../log-query/log-query-overview.md) , takiego jak:
 

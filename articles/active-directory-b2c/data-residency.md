@@ -1,5 +1,5 @@
 ---
-title: Dostępność regionu i dane w miejscu zamieszkania
+title: Dostępność w poszczególnych regionach i miejsce przechowywania danych
 titleSuffix: Azure AD B2C
 description: Dostępność regionów, zamieszkania danych i informacje o Azure Active Directory B2Cych w wersji zapoznawczej.
 services: active-directory-b2c
@@ -12,12 +12,12 @@ ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388718"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840561"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: dostępność regionu & dane miejsca do zamieszkania
 
@@ -45,15 +45,15 @@ Dane zamieszkania są określane przez kraj/region wybrany podczas [tworzenia dz
 
 Dane znajdują się w **Stany Zjednoczone** dla następujących krajów/regionów:
 
-> Stany Zjednoczone, Kanada, Kostaryka, Dominikana, Salwador, Gwatemala, Meksyk, Panama, Portoryko i Trinidad & Tobago
+> Stany Zjednoczone (Stany Zjednoczone), Kanada (CA), Kostaryka (CR), Dominikana (DO), Salwador (SV), Gwatemala (GT), Meksyk (MX), Panama (PA), Portoryko (PR) i Trinidad & Tobago (TT)
 
 Dane znajdują się w **Europie** w następujących krajach/regionach:
 
-> Algieria, Austria, Azerbejdżan, Bahrajn, Białoruś, Belgia, Bułgaria, Chorwacja, Cypr, Republika Czeska, Dania, Egipt, Estonia, Finlandia, Francja, Niemcy, Grecja, Węgry, Islandia, Irlandia, Izrael, Włochy, Jordania Kazachstan, Kenia, Kuwejt, Łotwa, Liban, Liechtenstein, Litwa, Luksemburg, Republika Południowej Macedonii, Malta, Czarnogóra, Maroko, Niderlandy, Nigeria, Norwegia, Katar, Portugalia, Rumunia, Hiszpania, Macedonia, Słowacja, REP, REP, Republika Południowej Afryki, Rep. Zjednoczone Królestwo
+> Algieria (DZ), Austria (AT), Azerbejdżan (AZ), Bahrajn (BH), Białoruś (przez), Belgia (), Bułgaria (BG), Chorwacja (HR), Cypr (CY), Republika Czeska (CZ), Danię (Francja), Egipt (EG), Estonia (EE), Finlandia (FT), Francja (FR), Niemcy (DE), Grecja (GR), Węgry (HU), Islandia (IS), Irlandia (IE), Izrael (IL), Włochy (IT), Jordania (JO), Kazachstan (KZ), Kenia (KE), Kuwejt (KW), Łotwa (LV), Liban (LB), Liechtenstein (LI), Litwa (LT) , Luksemburg (LU), Północna Macedonia (ML), Malta (MT), Czarnogóra (ME), Maroko (MA), Holandia (NL), Nigeria (NG), Norwegia (NO), Oman (OM), Pakistan (PK), Polskę (PL), Portugalia (PT), Katar (pytania i odpowiedzi), Rumunia (RO), Rosja (RU), Arabia Saudyjska (SA), Serbia (RS), Słowacja (SK), Słowenii (ST), Afryka Południowa (za), Hiszpania (ES), Szwecja (SE), Szwajcaria (CH), Tunezja (TN), Turcja (TR), Ukraina (UA), Zjednoczone Emiraty Arabskie (AE) i Zjednoczone Królestwo (GB)
 
 Dane znajdują się w **Azja i Pacyfik** w następujących krajach/regionach:
 
-> Afganistan, Hongkong SAR, Indie, Indonezja, Japonia, Korea, Malezja, Filipiny, Singapur, Sri Lanka, Tajwan i Tajlandia.
+> Afganistan (AF), Hongkong SAR (HK), Indie (w), Indonezja (ID), Japonia (JP), Korea (KR), Malezja (MY), Filipiny (PH), Singapur (SG), Sri Lanka (LK), Tajwan (TW) i Tajlandia (TH).
 
 Następujące kraje/regiony są w trakcie dodawania do listy. Na razie można nadal używać Azure AD B2C, wybierając którykolwiek z powyższych krajów/regionów.
 

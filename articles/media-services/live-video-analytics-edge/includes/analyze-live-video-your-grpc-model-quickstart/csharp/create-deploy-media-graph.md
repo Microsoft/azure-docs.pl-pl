@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8f9ed14a0bcef346281c38146cbb2d9551633c15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df409af61556dfa113327302be9c1464e1427a14
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421536"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828816"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -111,9 +111,18 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
 ### <a name="prepare-to-monitor-events"></a>Przygotowanie do monitorowania zdarzeń
 
-Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code.
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
-![Rozpocznij monitorowanie](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia":::
+1. Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code.
+
+   ![Rozpocznij monitorowanie](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### <a name="run-the-sample-program"></a>Uruchamianie przykładowego programu
 

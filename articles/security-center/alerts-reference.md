@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 257c6f30709448da2f6067cec226bc810d0ffe53
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 943aedb34cef8e7db73877c926da81887ca01df2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826148"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839503"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — Podręcznik referencyjny
 
@@ -112,7 +112,6 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 |**Wykryto podejrzaną nazwę procesu [pojawia się wiele razy]**|Analiza danych hosta na hoście% {naruszony problem} wykryła proces, którego nazwa jest podejrzana, na przykład odpowiadająca znanemu narzędziu atakującemu lub nazwanemu w sposób sugerujący narzędzia atakujące, które próbują ukryć w postaci zwykłego wglądu. Ten proces może być uzasadniony działania lub wskazujący, że jedna z maszyn została naruszona. To zachowanie było widoczne [x] razy dzisiaj na następujących komputerach: [nazwy maszyn]|-|Średniaa|
 |**Wykryto podejrzaną nazwę procesu**|Analiza danych hosta na hoście% {naruszony problem} wykryła proces, którego nazwa jest podejrzana, na przykład odpowiadająca znanemu narzędziu atakującemu lub nazwanemu w sposób sugerujący narzędzia atakujące, które próbują ukryć w postaci zwykłego wglądu. Ten proces może być uzasadniony działania lub wskazujący, że jedna z maszyn została naruszona.|-|Średniaa|
 |**Rozbicie na zakończenie podejrzanego procesu**|Analiza danych hosta wskazuje na rozerwanie podejrzanego zakończenia procesu w% {Machine Name}. W każdym przypadku procesy% {NumberOfCommands} zostały zabite między% {BEGIN} i% {koniec}.|-|Niski|
-|**Podejrzane wykonanie pliku systemowego**|Analiza danych hosta wykryła plik wykonywalny na hoście% {złamany problem} uruchomiony z nietypowej lokalizacji. Ten plik wykonywalny może być prawidłowym działaniem lub oznaczeniem zagrożonego hosta.|-|Wysoki|
 |**Uruchomiono podejrzany proces systemowy**|Wystąpił błąd procesu systemowego% {Process Name} działającego w nietypowym kontekście. Złośliwe oprogramowanie często używa tej nazwy procesu do zamaskowanego złośliwego działania.|-|Wysoki|
 |**Wykryto podejrzany proces nazwany**|Analiza danych hosta na hoście% {naruszony problem} wykryła proces, którego nazwa jest bardzo podobna, ale różni się od bardzo często uruchamianego procesu (% {podobnie jak nazwa procesu}). Chociaż ten proces może być niegroźny, osoby atakujące mogą czasami ukryć w zwykłym wglądzie, nazywając ich złośliwe narzędzia w taki sposób, aby wyglądały legalnie nazwami procesów.|-|Średniaa|
 |**Wykryto nietypowe wykonywanie procesów**|Analiza danych hosta na hoście% {naruszony problem} wykryła wykonanie procesu o nazwie% {user name}, który był nietypowy. Konta, takie jak% {User Name}, są przeznaczone do wykonania ograniczonego zestawu operacji, to wykonanie zostało uznane za spoza znaku i może być podejrzane.|-|Wysoki|

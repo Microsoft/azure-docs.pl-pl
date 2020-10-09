@@ -4,12 +4,12 @@ description: Konfigurowanie narzędzi analitycznych dotyczących wydajności, do
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616758"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838946"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Konfigurowanie Application Insights witryny sieci Web ASP.NET
 
@@ -349,6 +349,12 @@ Aby dodać monitorowanie po stronie klienta, Otwórz `_Layout.cshtml` plik i pos
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Istnieje znany problem w bieżącej wersji programu Visual Studio 2019, który podczas przechowywania klucza Instrumentacji w kluczu tajnym użytkownika jest uszkodzony dla aplikacji opartych na .NET Framework, a klucz ostatecznie musi być stałe w pliku applicationinsights.config, aby obejść ten błąd. Ten artykuł został zaprojektowany, aby całkowicie uniknąć tego problemu, nie używając kluczy tajnych użytkownika.  
+
+## <a name="open-source-sdk"></a>Zestaw SDK open source
+
+* [Odczytuj i współtworzyć kod](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapoznaj się z informacjami o wersji](./release-notes.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

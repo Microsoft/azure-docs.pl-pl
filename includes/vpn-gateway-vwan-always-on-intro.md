@@ -1,23 +1,23 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4ea97e2dbee87f7ab129c4295276c9024c0212c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e40f421c0fa45d772cd333dac51fe2bdf2779f48
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117076"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829056"
 ---
 Nową funkcją klienta sieci VPN systemu Windows 10, która jest zawsze włączona, jest możliwość utrzymania połączenia sieci VPN. Zawsze, gdy aktywny profil sieci VPN może nawiązywać połączenie automatycznie i pozostaje połączony na podstawie wyzwalaczy, takich jak logowanie użytkownika, zmiana stanu sieci lub aktywny ekran urządzenia.
 
-Bram z systemem Windows 10 można używać do nawiązywania trwałych tuneli użytkowników i tuneli urządzeń na platformie Azure. W tym artykule opisano sposób konfigurowania tunelu użytkownika o zawsze włączonym sieci VPN.
+Bram z systemem Windows 10 można używać do nawiązywania trwałych tuneli użytkowników i tuneli urządzeń na platformie Azure.
 
 Zawsze włączone połączenia sieci VPN obejmują jeden z dwóch typów tuneli:
 

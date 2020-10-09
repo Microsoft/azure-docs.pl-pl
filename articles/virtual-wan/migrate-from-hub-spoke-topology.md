@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777194"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839643"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
 
@@ -105,10 +105,6 @@ Wdróż Wirtualne Centrum sieci WAN w każdym regionie. Skonfiguruj Wirtualne Ce
 
 Podłącz wirtualne koncentrator sieci WAN do istniejących obwodów usługi ExpressRoute i skonfiguruj połączenia sieci VPN typu lokacja-lokacja za pośrednictwem Internetu w oddziałach zdalnych.
 
-> [!NOTE]
-> Obwody usługi Express Routes muszą zostać uaktualnione do typu SKU Premium, aby połączyć się z koncentratorem wirtualnej sieci WAN.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="koncentrator i szprycha":::
 **Rysunek 3: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
@@ -185,7 +181,7 @@ Ruch jest kierowany w następujący sposób:
 
 Ruch jest kierowany w następujący sposób:
 
-* CENTRALĄ Europejski jest podłączony za pośrednictwem obwodu ExpressRoute w warstwie Premium do wirtualnego koncentratora sieci WAN Europa Zachodnia.
+* CENTRALĄ Europejski jest podłączony za pośrednictwem obwodu ExpressRoute do wirtualnego koncentratora sieci WAN Europa Zachodnia.
 
 * Wirtualna sieć WAN między koncentratorem a globalnym połączeniem umożliwia przesyłanie ruchu do sieci wirtualnej połączonej w regionie zdalnym.
 

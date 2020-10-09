@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 7c3438631dca921989309bb8701e113cb5ce3ff2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb4cac18f887a72c05fe520d6103dc00399cc05e
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570273"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829112"
 ---
-Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury. Dane bez struktury to dane, które nie są zgodne z konkretnym modelem danych lub definicją, takimi jak dane tekstowe lub binarne.
+Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury. Dane bez struktury to dane, które nie są zgodne z konkretnym modelem danych lub definicją, takimi jak dane tekstowe lub binarne.
 
 ## <a name="about-blob-storage"></a>Informacje o usłudze Blob Storage
 
@@ -32,7 +32,7 @@ Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów w mag
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js](https://azure.github.io/azure-storage-node)
+* [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
 * [Przejdź](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)

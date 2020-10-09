@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327603"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838691"
 ---
 # <a name="get-started-with-device-twins-java"></a>Rozpoczynanie pracy z usługą Device bliźniaczych reprezentacji (Java)
 
@@ -39,7 +39,7 @@ W tym samouczku utworzysz dwie aplikacje konsolowe Java:
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -380,7 +380,7 @@ Teraz można przystąpić do uruchamiania aplikacji konsolowych.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Aplikacja usługi Java IoT Hub do aktualizowania wartości tagów i uruchamiania zapytań dotyczących urządzeń](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Zrzut ekranu pokazujący dane wyjściowe polecenia, aby uruchomić aplikację Dodaj Tagi zapytanie usługi.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Można zobaczyć znaczniki **zakładek** i **regionów** dodane do sznurka urządzenia. Pierwsze zapytanie zwraca urządzenie, ale drugi nie.
 
@@ -390,7 +390,7 @@ Teraz można przystąpić do uruchamiania aplikacji konsolowych.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Klient urządzenia dodaje właściwość * * connectivitytype * *, która została zgłoszona](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Klient urządzenia dodaje właściwość zgłoszonego typu łączności](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. W wierszu polecenia w folderze **dodawania tagów-Query** Uruchom następujące polecenie, aby uruchomić aplikację usługi **Add-Tags-Query** Service po raz drugi:
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6be3da1e031a1ea5b32f58343639d6e7fbf2425e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2c690360167626566b2ea45aef172e1e832ab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684253"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829174"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Sprawdzanie i edytowanie plików przykładowych
 
@@ -68,9 +68,18 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
 ### <a name="prepare-to-monitor-events"></a>Przygotowanie do monitorowania zdarzeń
 
-Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code. 
+1. W Visual Studio Code Otwórz kartę **rozszerzenia** (lub naciśnij klawisze CTRL + SHIFT + X) i Wyszukaj pozycję Azure IoT Hub.
+1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
-![Rozpocznij monitorowanie](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
+1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Ustawienia rozszerzenia":::
+1. Kliknij prawym przyciskiem myszy urządzenie analizy wideo na żywo, a następnie wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. Ten krok jest wymagany do monitorowania zdarzeń IoT Hub w oknie **danych wyjściowych** Visual Studio Code. 
+
+   ![Rozpocznij monitorowanie](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>Uruchamianie przykładowego programu
 

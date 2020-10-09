@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899032"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839949"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack EDGE Pro z procesorem GPU 
 
@@ -79,20 +79,20 @@ Aby uzyskać pełną listę obsługiwanych kabli, przełączników i urządzeń 
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu
 
-Urządzenia Azure Stack EDGE Pro mają pięć 2,5 "interfejsu NVMe DC P4610 dysków SSD, z których każdy ma pojemność 1,6 TB. Stacja dysków rozruchowych to dysk SSD SATA 240 GB. Całkowita pojemność urządzenia wynosi około 8,28 TB. W poniższej tabeli wymieniono pojemność magazynu urządzenia.
+Urządzenia Azure Stack EDGE Pro mają pięć 2,5 "interfejsu NVMe DC P4610 dysków SSD, z których każdy ma pojemność 1,6 TB. Stacja dysków rozruchowych to dysk SSD SATA 240 GB. Całkowita pojemność urządzenia wynosi około 4,19 TB. W poniższej tabeli wymieniono pojemność magazynu urządzenia.
 
 |     Specyfikacja                          |     Wartość             |
 |--------------------------------------------|-----------------------|
-|    Rozruch dysków SSD SATA (SSD)      |    1                  |
 |    Liczba dysków SSD interfejsu NVMe                     |    5                  |
-|    Pojemność dysków SSD rozruchowego                       |    240 GB             |
 |    Jedna pojemność SSD interfejsu NVMe                |    1,6 TB             |
-|    Całkowita pojemność                          |    8,28 TB            |
-|    Łączna pojemność użyteczna *                  |    ~ 7,95 TB          |
+|    Rozruch dysków SSD SATA (SSD)      |    1                  |
+|    Pojemność dysków SSD rozruchowego                       |    240 GB             |
+|    Całkowita pojemność                          |    8,0 TB             |
+|    Łączna pojemność użyteczna *                  |    ~ 4,19 TB          |
 |    Kontroler SAS                          |    HBA330 12 GB/s     |
 
 
-**Niektóre miejsca są zarezerwowane do użytku wewnętrznego.*
+**Po odporności parzystości i zachowaniu miejsca do użytku wewnętrznego.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363141"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828088"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -51,7 +51,7 @@ Ponadto możesz rozważyć dodanie niestandardowej umiejętności, jeśli masz k
 
 + Dokumenty bez struktury lub częściowo strukturalne zawierające zawartość, która ma nieodłączne znaczenie lub kontekst, który jest ukryty w większym dokumencie. 
 
-  Obiekty blob w szczególności często zawierają dużą treść zawartości zapakowanej do pojedynczego "pola". Dołączając umiejętność przetwarzania obrazów i języka naturalnego do indeksatora, można utworzyć nowe informacje, które są extant w nieprzetworzonej zawartości, ale nie są w inny sposób naliczone jako odrębne pola. Niektóre gotowe do użycia umiejętności poznawcze, które mogą pomóc: Wyodrębnianie kluczowych fraz, analiza tonacji oraz rozpoznawanie jednostek (osoby, organizacje i lokalizacje).
+  Obiekty blob w szczególności często zawierają dużą treść zawartości zapakowanej do jednego "pola". Dołączając umiejętność przetwarzania obrazów i języka naturalnego do indeksatora, można utworzyć nowe informacje, które są extant w nieprzetworzonej zawartości, ale nie są w inny sposób naliczone jako odrębne pola. Niektóre gotowe do użycia umiejętności poznawcze, które mogą pomóc: Wyodrębnianie kluczowych fraz, analiza tonacji oraz rozpoznawanie jednostek (osoby, organizacje i lokalizacje).
 
   Ponadto wbudowane umiejętności mogą również służyć do zmiany struktury zawartości poprzez operacje dzielenia tekstu, scalania i kształtowania.
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318317"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839541"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
 
@@ -26,7 +26,7 @@ ms.locfileid: "91318317"
 
 Korzystając z tego samouczka i dostarczonego przykładu odtwarzacza, można skonfigurować kompleksowy podsystem ochrony zawartości multimedialnej na Azure Media Services (AMS) i Azure Active Directory (AAD) do przesyłania strumieniowego zawartości multimedialnej ze wszystkimi obsługiwanymi protokołami DRM/AES-128, przesyłania strumieniowego, koderem-dekoder i formatami kontenerów. Przykład jest wystarczająco ogólny, aby zabezpieczyć dostęp do dowolnego interfejsu API REST chronionego przez uwierzytelnianie OAuth 2 za pomocą przepływu kodu autoryzacji z kluczem testowym dla wymiany kodu (PKCE). (Usługa dostarczania licencji Azure Media Services jest tylko jedną z nich). Działa również w przypadku interfejsu API Microsoft Graph lub dowolnego niestandardowego interfejsu API REST zabezpieczonego za pomocą przepływu kodu autoryzacji OAuth 2. Jest to dokument towarzyszący do [przykładowego kodu](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 >
@@ -77,7 +77,7 @@ Jest to opcjonalne, ale zalecane jest zapoznanie się z następującymi pojęcia
 
 Podczas projektowania podsystemu prezentowane są kilka wyzwań. Ma wiele przenoszonych części, istnieją ograniczenia aplikacji klienta i przerzucanie kluczy usługi Azure AD, które występuje co sześć tygodni.
 
-Aplikacja jednostronicowa (SPA) użyta w tym samouczku uwzględnia wyzwania związane z wymaganiami dotyczącymi uwierzytelniania i poniższymi ograniczeniami. Procesor zdarzeń korzysta z następujących elementów:
+Aplikacja Single-Page (SPA) użyta w tym samouczku uwzględnia wyzwania związane z wymaganiami dotyczącymi uwierzytelniania i poniższymi ograniczeniami. Procesor zdarzeń korzysta z następujących elementów:
 
 * Punkty końcowe usługi Azure AD v2 jako platforma dewelopera usługi Azure AD (punkty końcowe v1) zmieniają się na platformę tożsamości firmy Microsoft (punkty końcowe w wersji 2).
 * Przepływ kodu autoryzacji, ponieważ niejawny przepływ uwierzytelniania OAuth 2 został uznany za przestarzały.
@@ -129,11 +129,11 @@ Ekran logowania, pozyskiwania tokenów, odnawiania tokenów i wyświetlania toke
 
 Ekran służący do analizowania tokenów JWT (access_token lub id_token):
 
-![ekran służący do analizowania tokenów JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Zrzut ekranu przedstawiający analizowanie tokenów J W T.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 Ekran służący do testowania zawartości chronionej przy użyciu różnych kombinacji protokołów DRM/AES vs streaming i format kontenera:
 
-![ekran służący do analizowania tokenów JWT](media/aad-ams-content-protection/testing-protected-content.png)
+![Zrzut ekranu, który pokazuje Testowanie zawartości chronionej przy użyciu różnych kombinacji D R M lub E S zamiast protokołów przesyłania strumieniowego w formacie kontenera](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -161,7 +161,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 1. Z menu wybierz pozycję **manifest** . Zostanie wyświetlony widok manifestu.
 1. Zmień wartość na `accessTokenAcceptedVersion` *2* (brak cudzysłowów).
 1. Zmień wartość `groupMembershipClaims` na *"Security* " (z cudzysłowami).
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 1. Wybierz opcję **Uwidacznianie interfejsu API** z menu. Zostanie wyświetlony widok Dodaj zakres. (Platforma Azure udostępnia identyfikator URI aplikacji, ale jeśli chcesz ją zmienić, możesz edytować w polu Identyfikator URI aplikacji).
 1. Kliknij przycisk **Zapisz i Kontynuuj**. Widok zostanie zmieniony. Dla każdego ustawienia w kolumnie ustawienia w poniższej tabeli wprowadź wartość w kolumnie wartość, a następnie kliknij pozycję **Dodaj zakres**.
 
@@ -209,7 +209,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
     > [!NOTE]
     > W tym momencie nie masz jeszcze adresu URL aplikacji odtwarzacza.  Jeśli aplikacja jest uruchamiana z poziomu serwera sieci weblocalhost, można użyć tylko pary wartość localhost. Po wdrożeniu aplikacji odtwarzacza możesz dodać tutaj wpis przy użyciu wdrożonego adresu URL.  Jeśli zapomnisz to zrobić, zobaczysz komunikat o błędzie w temacie Logowanie do usługi Azure AD.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 1. Na koniec upewnij się, że konfiguracja jest poprawna, a następnie wybierz pozycję **uwierzytelnianie**.  Zostanie wyświetlony widok uwierzytelnianie. Aplikacja kliencka zostanie wyświetlona jako aplikacja jednostronicowa (SPA), zostanie wyświetlony identyfikator URI przekierowania, a typ dotacji będzie przepływem kodu autoryzacji z PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Konfigurowanie zasad klucza zawartości konta Media Services i zasad przesyłania strumieniowego
@@ -313,7 +313,7 @@ Jeśli planujesz użyć innej platformy IDE/sieci Web i/lub serwera Web, takiego
 
 Po ukończeniu samouczka i podsystemu działającego można spróbować zmodyfikować go w następujących scenariuszach klientów:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Access Control oparte na rolach (RBAC) na potrzeby dostarczania licencji za pośrednictwem członkostwa w grupie usługi Azure AD
+### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) do dostarczania licencji za pośrednictwem członkostwa w grupie usługi Azure AD
 
 Do tej pory system zezwoli każdemu użytkownikowi, który może się zalogować, aby uzyskać prawidłową licencję i odtworzyć chronioną zawartość.
 
