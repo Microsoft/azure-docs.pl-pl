@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 80255790129468857e1115f3034516f04bc86d26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef0791eeec169bb925b8f667523203beaacdd2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322980"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859821"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -24,7 +24,6 @@ Użyj biblioteki klienta programu Front for .NET, aby:
 * [Znajdź podobne twarze](#find-similar-faces)
 * [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
-* [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
 
 [Dokumentacja](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -106,8 +105,6 @@ Poniższe fragmenty kodu przedstawiają sposób wykonywania następujących zada
 * [Znajdź podobne twarze](#find-similar-faces)
 * [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
-* [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
-
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -216,56 +213,6 @@ Następny fragment kodu wywołuje operację **IdentifyAsync** i drukuje wyniki d
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Utwórz migawkę migracji danych
-
-Funkcja migawek pozwala przenosić zapisane dane, takie jak wyszkolone **osoby**, do innej subskrypcji platformy Azure Cognitive Services. Możesz chcieć użyć tej funkcji, jeśli na przykład utworzono obiekt obiektu **osoby** przy użyciu bezpłatnej subskrypcji i chcesz przeprowadzić migrację go do płatnej subskrypcji. Aby zapoznać się z omówieniem funkcji migawek, zobacz [Migrowanie danych](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) z obszaru.
-
-W tym przykładzie zostanie przeprowadzona migracja grupy **osób** utworzonych w temacie [Tworzenie i uczenie osoby](#create-and-train-a-person-group). Możesz najpierw wykonać tę sekcję lub utworzyć własne konstrukcje danych (-y) do migracji.
-
-### <a name="set-up-target-subscription"></a>Skonfiguruj subskrypcję docelową
-
-Najpierw musisz mieć drugą subskrypcję platformy Azure z zasobem czołowym; można to zrobić, wykonując czynności opisane w sekcji [Konfigurowanie](#setting-up) . 
-
-Następnie Zdefiniuj następujące zmienne w `Main` metodzie programu. Należy utworzyć nowe zmienne środowiskowe dla identyfikatora subskrypcji Twojego konta platformy Azure, a także klucz, punkt końcowy i Identyfikator subskrypcji nowego konta (docelowego). 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-Na potrzeby tego przykładu Zadeklaruj zmienną dla identyfikatora obiektu **docelowego,** &mdash; który należy do nowej subskrypcji, do której zostaną skopiowane dane.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-### <a name="authenticate-target-client"></a>Uwierzytelnianie klienta docelowego
-
-Następnie Dodaj kod w celu uwierzytelnienia pomocniczej subskrypcji programu Marketo.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_client)]
-
-### <a name="use-a-snapshot"></a>Użyj migawki
-
-Pozostałe operacje migawek muszą mieć miejsce w metodzie asynchronicznej. 
-
-1. Pierwszym krokiem jest **wykonanie** migawki, która zapisuje dane pierwotnej subskrypcji w tymczasowej lokalizacji w chmurze. Ta metoda zwraca identyfikator używany do wykonywania zapytań dotyczących stanu operacji.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take)]
-
-1. Następnie wykonaj zapytanie o identyfikator do momentu zakończenia operacji.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take_wait)]
-
-1. Następnie użyj operacji **Zastosuj** , aby zapisać swoje dane z Twojej subskrypcji docelowej. Ta metoda zwraca również wartość identyfikatora.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Ponownie wykonaj zapytanie o nowy identyfikator do momentu zakończenia operacji.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Na koniec wykonaj blok try/catch i Zakończ metodę.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_trycatch)]
-
-W tym momencie nowy obiekt obiektu **osoby** powinien mieć te same dane co oryginał i powinny być dostępne z nowej subskrypcji (docelowej) platformy Azure.
-
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację rozpoznawania aplikacji z katalogu aplikacji za pomocą `dotnet run` polecenia.
@@ -288,10 +235,6 @@ Jeśli utworzono **osobę** z tego przewodnika Szybki Start i chcesz ją usuną�
 Zdefiniuj metodę usuwania przy użyciu następującego kodu:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
-
-Ponadto w przypadku migrowania danych przy użyciu funkcji Snapshot w tym przewodniku Szybki Start należy również usunąć **osobę** , która została zapisana do subskrypcji docelowej.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_target_persongroup_delete)]
 
 ## <a name="next-steps"></a>Następne kroki
 

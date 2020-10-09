@@ -1,20 +1,20 @@
 ---
 title: Biblioteka klienta języka Python — Szybki Start
-description: Użyj biblioteki klienta twarzy dla języka Python, aby wykrywać twarze, znajdować podobne (Wyszukiwanie twarzy według obrazu), identyfikować twarze (Wyszukiwanie twarzy) i migrować dane twarzy.
+description: Użyj biblioteki klienta twarzy dla języka Python, aby wykrywać twarze, znaleźć podobne (Wyszukiwanie twarzy według obrazu) i zidentyfikować twarze (wyszukiwanie rozpoznawania twarzy).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322981"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859443"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -25,7 +25,6 @@ Użyj biblioteki klienta programu Front dla języka Python, aby:
 * Tworzenie i uczenie grupy osób
 * Identyfikowanie kroju
 * Weryfikuj twarze
-* Utwórz migawkę migracji danych
 
 [Dokumentacja](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face)  |  źródłowy biblioteki [Pakiet (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/)  |  [Przykłady](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań przy
 * [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
 * [Weryfikuj twarze](#verify-faces)
-* [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -207,52 +205,6 @@ Poniższy kod porównuje każdy z obrazów źródłowych do obrazu docelowego i 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Utwórz migawkę migracji danych
-
-Funkcja migawek pozwala przenosić zapisane dane, takie jak wyszkolone **osoby**, do innej subskrypcji platformy Azure Cognitive Services. Możesz chcieć użyć tej funkcji, jeśli na przykład utworzysz obiekt obiektu **osoby** przy użyciu bezpłatnej subskrypcji, a teraz chcesz przeprowadzić migrację go do płatnej subskrypcji. Więcej informacji na temat funkcji migawek można znaleźć w temacie [Migrowanie danych własnych](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) .
-
-W tym przykładzie zostanie przeprowadzona migracja grupy **osób** utworzonych w temacie [Tworzenie i uczenie osoby](#create-and-train-a-person-group). Możesz najpierw wykonać tę sekcję lub użyć własnych konstrukcji danych czołowych.
-
-### <a name="set-up-target-subscription"></a>Skonfiguruj subskrypcję docelową
-
-Najpierw musisz mieć drugą subskrypcję platformy Azure z zasobem czołowym; można to zrobić, wykonując czynności opisane w sekcji [Konfigurowanie](#setting-up) . 
-
-Następnie Utwórz następujące zmienne w górnej części skryptu. Należy również utworzyć nowe zmienne środowiskowe dla identyfikatora subskrypcji Twojego konta platformy Azure, a także klucz, punkt końcowy i Identyfikator subskrypcji nowego konta (docelowego). 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>Uwierzytelnianie klienta docelowego
-
-Później w skrypcie Zapisz bieżący obiekt klienta jako klienta źródłowego, a następnie Uwierzytelnij nowy obiekt klienta dla subskrypcji docelowej. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>Użyj migawki
-
-Pozostałe operacje tworzenia migawek odbywają się w ramach funkcji asynchronicznej. 
-
-1. Pierwszym krokiem jest **wykonanie** migawki, która zapisuje dane pierwotnej subskrypcji w tymczasowej lokalizacji w chmurze. Ta metoda zwraca identyfikator używany do wykonywania zapytań dotyczących stanu operacji.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Następnie wykonaj zapytanie o identyfikator do momentu zakończenia operacji.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    Ten kod wykorzystuje `wait_for_operation` funkcję, którą należy zdefiniować osobno:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Wróć do funkcji asynchronicznej. Użyj operacji **Zastosuj** , aby zapisać swoje dane z Twojej subskrypcji docelowej. Ta metoda zwraca również identyfikator.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. Ponownie Użyj funkcji, `wait_for_operation` aby zbadać identyfikator do momentu zakończenia operacji.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Po wykonaniu tych kroków będziesz mieć możliwość uzyskania dostępu do konstrukcji danych własnych z nowej subskrypcji (docelowej).
-
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację rozpoznawania aplikacji z katalogu aplikacji za pomocą `python` polecenia.
@@ -271,10 +223,6 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 Jeśli utworzono **osobę** z tego przewodnika Szybki Start i chcesz ją usunąć, uruchom następujący kod w skrypcie:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-W przypadku migrowania danych przy użyciu funkcji Snapshot w tym przewodniku Szybki Start należy również usunąć **osobę** , która została zapisana do subskrypcji docelowej.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>Następne kroki
 

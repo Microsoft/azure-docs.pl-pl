@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 382a04021053bef0b5d3378231e38453885b0ef2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322983"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859858"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka go. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -24,7 +24,6 @@ Korzystanie z biblioteki klienta usługi Front Service dla języka go:
 * [Znajdź podobne twarze](#find-similar-faces)
 * [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
-* [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
 
 [Dokumentacja](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  źródłowy biblioteki [Pobieranie zestawu SDK](https://github.com/Azure/azure-sdk-for-go)
 
@@ -109,7 +108,6 @@ Te przykłady kodu pokazują, jak wykonać podstawowe zadania przy użyciu bibli
 * [Znajdź podobne twarze](#find-similar-faces)
 * [Tworzenie i uczenie grupy osób](#create-and-train-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
-* [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
@@ -246,53 +244,6 @@ Poniższy kod porównuje każdy z obrazów źródłowych do obrazu docelowego i 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
-
-## <a name="take-a-snapshot-for-data-migration"></a>Utwórz migawkę migracji danych
-
-Funkcja migawek pozwala przenosić zapisane dane, takie jak wyszkolone **osoby**, do innej subskrypcji platformy Azure Cognitive Services. Ta funkcja może być używana, jeśli na przykład utworzono obiekt obiektu **osoby** z użyciem bezpłatnej subskrypcji i teraz chcesz przeprowadzić migrację go do płatnej subskrypcji. Więcej informacji na temat funkcji migawek można znaleźć w temacie [Migrowanie danych własnych](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) .
-
-W tym przykładzie przeprowadzisz migrację grupy **osób** utworzonych w temacie [Tworzenie i uczenie](#create-and-train-a-person-group)użytkownika. Możesz najpierw wykonać tę sekcję lub użyć własnych konstrukcji danych czołowych.
-
-### <a name="set-up-target-subscription"></a>Skonfiguruj subskrypcję docelową
-
-Najpierw musisz mieć drugą subskrypcję platformy Azure z zasobem czołowym; można to zrobić przez powtórzenie kroków z sekcji [Konfiguracja](#setting-up) . 
-
-Następnie Utwórz następujące zmienne w górnej części metody **Main** . Należy również utworzyć nowe zmienne środowiskowe dla identyfikatora subskrypcji Twojego konta platformy Azure, a także klucz, punkt końcowy i Identyfikator subskrypcji nowego konta (docelowego).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
-
-Następnie wprowadź wartość identyfikatora subskrypcji do tablicy w celu wykonania następnych kroków.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_id)]
-
-### <a name="authenticate-target-client"></a>Uwierzytelnianie klienta docelowego
-
-Później w skrypcie Zapisz oryginalny obiekt Client jako klienta źródłowego, a następnie Uwierzytelnij nowy obiekt klienta dla subskrypcji docelowej. 
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_auth)]
-
-### <a name="take-a-snapshot"></a>Tworzenie migawki
-
-Następnym krokiem **[jest wykonanie migawki z użyciem](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Take)**, co spowoduje zapisanie danych pierwotnych subskrypcji w tymczasowej lokalizacji w chmurze. Ta metoda zwraca identyfikator używany do wykonywania zapytań dotyczących stanu operacji.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_take)]
-
-Następnie wykonaj zapytanie o identyfikator do momentu zakończenia operacji.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_query)]
-
-### <a name="apply-the-snapshot"></a>Zastosuj migawkę
-
-Użyj operacji **[Zastosuj](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Apply)** , aby zapisać nowo przekazane dane do subskrypcji docelowej. Ta metoda zwraca również identyfikator.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply)]
-
-Ponownie wykonaj zapytanie o identyfikator do momentu zakończenia operacji.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
-
-Po wykonaniu tych kroków możesz uzyskać dostęp do swoich konstrukcji danych własnych z nowej subskrypcji (docelowej).
-
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację rozpoznawania aplikacji z katalogu aplikacji za pomocą `go run <app-name>` polecenia.
@@ -308,7 +259,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfejs wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Jeśli w tym przewodniku szybki start utworzono **osobę** , która ma zostać usunięta, wywołaj metodę **[delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** . W przypadku migrowania danych przy użyciu funkcji Snapshot w tym przewodniku Szybki Start należy również usunąć **osobę** , która została zapisana do subskrypcji docelowej.
+Jeśli w tym przewodniku szybki start utworzono **osobę** , która ma zostać usunięta, wywołaj metodę **[delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** .
 
 ## <a name="next-steps"></a>Następne kroki
 

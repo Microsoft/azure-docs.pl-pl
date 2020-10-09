@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/18/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e084256d9c2043d4382ca180ef3178175b301367
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b884bc72381c98af77f2f49336f3dd5762c68734
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91745607"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859832"
 ---
 Poniższe ograniczenia mają zastosowanie do **tematów** Azure Event Grid (tematów systemowych, niestandardowych i partnerskich). 
 
@@ -21,7 +21,7 @@ Poniższe ograniczenia mają zastosowanie do **tematów** Azure Event Grid (tema
 | --- | --- |
 | Tematy niestandardowe na subskrypcję platformy Azure | 100 |
 | Subskrypcje zdarzeń na temat | 500 |
-| Częstotliwość publikowania dla tematu niestandardowego lub partnera (ruch przychodzący) | 5 000 zdarzeń/s lub 1 MB/s (w zależności od tego, które jest najpierw spełnione)<br/>Nie dotyczy tematów systemowych. |
+| Częstotliwość publikowania dla tematu niestandardowego lub partnera (ruch przychodzący) | 5 000 zdarzeń/s lub 1 MB/s (w zależności od tego, które jest najpierw spełnione) |
 | Rozmiar zdarzenia | 1 MB  |
 | Połączenia prywatnych punktów końcowych na temat  | 64 | 
 | Reguły zapory adresów IP na temat | 16 | 

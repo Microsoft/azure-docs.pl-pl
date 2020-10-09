@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854104"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859606"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -75,7 +75,6 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Zasoby zaplecza na Load Balancer <sup> 1<sup> | 150                   |
 | Porty wysokiej dostępności                 | 1 na wewnętrzny fronton       |
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
-| [Limit czasu bezczynności protokołu TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuty/30 minut          |
 
 <sup>1</sup> Limit wynosi do 150 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
 
@@ -88,7 +87,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                          |
 | Konfiguracje adresów IP frontonu              | 200                          |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 300, zestaw o pojedynczej dostępności |
-| Zestawy dostępności na Load Balancer     | 150                          |
+| Zestawy dostępności na Load Balancer     | 1                            |
 
 <a name="virtual-networking-limits-classic"></a>Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu **klasycznego** modelu wdrażania na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
 

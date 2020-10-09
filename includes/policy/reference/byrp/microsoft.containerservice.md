@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a60fca5bf9e3d33992ee1a22a13e4503a925b23d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 802a98c76106fade2b4fffa3fa0e8ff6ad5ceb96
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983903"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859408"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -37,4 +37,4 @@ ms.locfileid: "90983903"
 |[Kubernetesy klastrów powinny używać tylko zatwierdzonej sieci hosta i zakresu portów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |Ta zasada kontroluje dostęp do sieci hosta i dozwolony zakres portów hosta w klastrze Kubernetes. Te zasady są ogólnie dostępne dla usługi Kubernetes Service (AKS) oraz wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączonym Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/HostNetworkPorts.json) |
 |[Klastry Kubernetes nie powinny zezwalać na eskalację uprawnień kontenera](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |Ta zasada nie zezwala kontenerom na używanie eskalacji uprawnień w klastrze Kubernetes. Te zasady są ogólnie dostępne dla usługi Kubernetes Service (AKS) oraz wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączonym Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
 |[Usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |Uaktualnij klaster usługi Kubernetes do nowszej wersji Kubernetes, aby chronić przed znanymi lukami w zabezpieczeniach w bieżącej wersji Kubernetes. Luka w zabezpieczeniach CVE-2019-9946 została poprawiona w wersjach Kubernetes 1.11.9 +, 1.12.7 +, 1.13.5 + i 1.14.0 + |Inspekcja, wyłączona |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
-|[Access Control oparte na rolach (RBAC) powinny być używane w usługach Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |Aby zapewnić szczegółowe filtrowanie działań, które użytkownicy mogą wykonywać, użyj Access Control opartej na rolach (RBAC) do zarządzania uprawnieniami w klastrach usługi Kubernetes i konfigurowania odpowiednich zasad autoryzacji. |Inspekcja, wyłączona |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
+|[Access Control oparte na rolach (RBAC) powinny być używane w usługach Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |Aby zapewnić szczegółowe filtrowanie działań, które użytkownicy mogą wykonywać, użyj Role-Based Access Control (RBAC) do zarządzania uprawnieniami w klastrach usługi Kubernetes i konfigurowania odpowiednich zasad autoryzacji. |Inspekcja, wyłączona |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |

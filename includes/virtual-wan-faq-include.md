@@ -8,13 +8,17 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570196"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859581"
 ---
+### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
+
+Tak, usługa Azure Virtual WAN jest ogólnie dostępna (GA). Wirtualna sieć WAN obejmuje jednak kilka funkcji i scenariuszy. W ramach wirtualnej sieci WAN istnieje funkcja lub scenariusze, w których firma Microsoft stosuje tag podglądu. W takich przypadkach konkretna funkcja lub sam scenariusz są w wersji zapoznawczej. Jeśli nie korzystasz z określonej funkcji w wersji zapoznawczej, zostanie zastosowana zwykła pomoc techniczna. Aby uzyskać więcej informacji na temat pomocy technicznej dotyczącej wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania w wersjach](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
 Wirtualna sieć WAN oferuje wiele funkcji wbudowanych w jedno tafle szkła, takich jak połączenie sieci VPN typu lokacja-lokacja, łączność z użytkownikami/P2S, łączność ExpressRoute, łączność Virtual Network, połączenia sieci VPN ExpressRoute, połączenia przechodnie między firmami, scentralizowane Routing, Zapora platformy Azure i zabezpieczenia Menedżera zapory, monitorowanie, szyfrowanie ExpressRoute i wiele innych funkcji. Nie trzeba mieć wszystkich tych przypadków użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz rozpocząć pracę z tylko jednym przypadkiem użycia. Wirtualna architektura sieci WAN to architektura koncentratora i satelity ze skalą i wydajnością wbudowaną w miejsce, w której gałęzie (urządzenia sieci VPN/SD-WAN), użytkownicy (klienci sieci VPN platformy Azure, openVPN lub IKEv2), obwody usługi ExpressRoute, sieci wirtualne umożliwiają współdziałanie z koncentratorami wirtualnymi. Wszystkie centra są połączone z pełną siatką w standardowej wirtualnej sieci WAN, dzięki czemu użytkownik może łatwo korzystać z sieci szkieletowej firmy Microsoft w przypadku połączeń dowolnego typu (dowolnych). W przypadku urządzeń z systemem SD/WAN/VPN użytkownicy mogą ręcznie skonfigurować je w portalu Azure Virtual WAN lub korzystać z wirtualnego partnera sieci WAN CPE (SD-WAN/VPN) w celu skonfigurowania łączności z platformą Azure. Wirtualne partnerzy sieci WAN zapewniają automatyzację łączności, która umożliwia eksportowanie informacji o urządzeniu do platformy Azure, pobieranie konfiguracji platformy Azure i ustanawianie łączności z wirtualnym koncentratorem sieci WAN platformy Azure. W przypadku połączenia sieci VPN typu punkt-lokacja i użytkownika obsługiwana jest obsługa [klienta sieci VPN platformy Azure](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN lub klienta IKEv2. 
