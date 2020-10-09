@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 3010cdcf794fcadd1fbcbdc73ba33033a3ea07fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183685"
 ---
 - Konto magazynu powinno być fizycznie najbliższe regionowi, w którym jest wdrożone urządzenie (może być inne niż miejsce wdrożenia usługi).

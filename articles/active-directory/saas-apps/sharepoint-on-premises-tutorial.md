@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979700"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
@@ -89,7 +89,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
 
 1. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz tryb **SAML** , aby włączyć logowanie jednokrotne.
  
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** , aby otworzyć okno dialogowe **podstawowe ustawienia SAML** .
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące kroki:
 
@@ -105,7 +105,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania, identyfikatora i adresu URL odpowiedzi.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z danej opcji zgodnie z wymaganiami i Zapisz go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **certyfikat (base64)** z danej opcji na podstawie wymagań i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
 
@@ -154,7 +154,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
 
     1. Wybierz pozycję **zaufany dostawca tożsamości**i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
 
-    1. Wybierz przycisk **OK**.
+    1. Kliknij przycisk **OK**.
 
     ![Konfigurowanie dostawcy uwierzytelniania](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
@@ -216,7 +216,7 @@ Aby przypisać grupy zabezpieczeń usługi Azure AD do lokalnego programu ShareP
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz wcześniej utworzoną nazwę aplikacji korporacyjnej i wybierz pozycję **Logowanie jednokrotne**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** Edytuj **atrybuty użytkownika & oświadczenia** .
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** Edytuj **atrybuty użytkownika & sekcji oświadczenia** .
 
 1. Wybierz pozycję **Dodaj zgłoszenie do grupy**.
 
@@ -236,7 +236,7 @@ Można udzielić dostępu do witryny programu SharePoint do konta gościa w spó
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz wcześniej utworzoną nazwę aplikacji korporacyjnej i wybierz pozycję **Logowanie jednokrotne**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** Edytuj **atrybuty użytkownika & oświadczenia** .
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** Edytuj **atrybuty użytkownika & sekcji oświadczenia** .
 
 1. W **wymaganej strefie żądania** wybierz pozycję **unikatowy identyfikator użytkownika (identyfikator nazwy)**.
 
@@ -267,7 +267,7 @@ Konfiguracja działa dla jednej aplikacji sieci Web, ale jest wymagana dodatkowa
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz wcześniej utworzoną nazwę aplikacji korporacyjnej i wybierz pozycję **Logowanie jednokrotne**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** Edytuj **podstawową konfigurację SAML**.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** Edytuj **podstawową konfigurację SAML**.
 
     ![Podstawowa konfiguracja SAML](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
 

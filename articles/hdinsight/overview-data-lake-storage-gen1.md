@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82187249"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>Przegląd Azure Data Lake Storage Gen1 w usłudze HDInsight
@@ -83,6 +83,6 @@ Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych w Data L
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md)
 * [Omówienie usługi Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76714418"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Zadania lidera projektu w procesie nauki danych zespołu
@@ -85,7 +85,7 @@ Aby wypełnić repozytorium projektu zawartością Twojego repozytorium szablon�
    
 1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium **TeamTemplate** w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *. Na przykład: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
-1. Wybierz pozycję **Import**. Zawartość repozytorium szablonów zespołu jest importowana do repozytorium projektu. 
+1. Wybierz pozycję **Importuj**. Zawartość repozytorium szablonów zespołu jest importowana do repozytorium projektu. 
    
    ![Importuj repozytorium szablonów zespołu](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Samouczek: integracja z Azure Active Directoryami z jasnym przeglądem
@@ -131,7 +131,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
     b. Z listy **atrybutów źródłowych** wybierz wartość atrybutu **User. mail** dla tego wiersza.
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -155,13 +155,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
     ![Zrzut ekranu przedstawia Portal z wybraną opcją Wyczyść przegląd z wybranym przez administratora.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. W sekcji **integracje** w dolnej części strony kliknij przycisk **zmiany** po prawej stronie **ustawień logowania**jednokrotnego.
+3. W sekcji **integracje** w dolnej części strony kliknij przycisk **Zmień** po prawej stronie **ustawień pojedynczej Sign-On**.
 
-    ![Zrzut ekranu przedstawia przycisk zmiany logowania jednokrotnego.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Zrzut ekranu przedstawia przycisk zmiany jednego Sign-On.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Wykonaj poniższe kroki na stronie **Single Sign-On Settings** (Ustawienia logowania jednokrotnego).
 
-    ![Zrzut ekranu przedstawia stronę ustawień logowania jednokrotnego, na której można wprowadzić informacje w tym kroku.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Zrzut ekranu przedstawia stronę ustawień pojedynczej Sign-On, na której można wprowadzić informacje w tym kroku.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. W polu tekstowym **adres URL wystawcy** wklej wartość **identyfikatora usługi Azure AD** , który został skopiowany z Azure Portal.
 
@@ -171,7 +171,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
     d. Otwórz pobrany certyfikat w programie Notatnik i wklej jego zawartość w polu tekstowym **Certyfikat X.509**.   
 
-    e. Kliknij pozycję **Zapisz**.
+    e. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -196,7 +196,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

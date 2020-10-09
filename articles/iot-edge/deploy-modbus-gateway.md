@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
 ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76511148"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Łączenie urządzeń Modbus TCP za pośrednictwem bramy urządzenia IoT Edge
@@ -51,14 +51,14 @@ Ta sekcja zawiera instrukcje wdrażania przykładowego modułu Modbus firmy Micr
 
    1. Kliknij przycisk **Dodaj** listę rozwijaną i wybierz **moduł Marketplace**.
    2. Wyszukaj `Modbus` i wybierz **moduł Modbus TCP** firmy Microsoft.
-   3. Moduł jest automatycznie konfigurowany dla IoT Hub i pojawia się na liście modułów IoT Edge. Trasy są również automatycznie konfigurowane. Wybierz pozycję **Przegląd + utwórz**.
+   3. Moduł jest automatycznie konfigurowany dla IoT Hub i pojawia się na liście modułów IoT Edge. Trasy są również automatycznie konfigurowane. Wybierz pozycję **Przeglądanie + tworzenie**.
    4. Przejrzyj manifest wdrożenia i wybierz pozycję **Utwórz**.
 
 5. Wybierz moduł Modbus, `ModbusTCPModule` na liście i wybierz kartę **Ustawienia sznurka modułu** . Wymagany kod JSON dla potrzebnych właściwości sznurka modułu jest wypełniany automatycznie.
 
 6. Wyszukaj Właściwość **SlaveConnection** w formacie JSON i ustaw jej wartość na adres IPv4 urządzenia Modbus.
 
-7. Wybierz pozycję **Update** (Aktualizuj).
+7. Wybierz pozycję **Aktualizuj**.
 
 8. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj wdrożenie, a następnie wybierz pozycję **Utwórz**.
 

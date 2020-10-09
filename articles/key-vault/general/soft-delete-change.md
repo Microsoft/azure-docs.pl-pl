@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
 ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825250"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy
@@ -102,7 +102,7 @@ Jeśli użytkownik przypadkowo usunie Magazyn kluczy lub klucz tajny, można prz
 
 ### <a name="how-do-i-find-out-if-i-need-to-take-action"></a>Jak mogę sprawdzić, czy muszę podjąć działanie?
 
-Wykonaj kroki opisane powyżej w sekcji zatytułowanej "procedura przeprowadzania inspekcji magazynów kluczy, aby sprawdzić, czy usuwanie nietrwałe jest włączone". Ta zmiana wpłynie na dowolny Magazyn kluczy, w którym nie włączono usuwania nietrwałego. Dodatkowe narzędzia do inspekcji będą dostępne wkrótce, a ten dokument zostanie zaktualizowany.
+Wykonaj kroki opisane powyżej w sekcji zatytułowanej "procedura przeprowadzania inspekcji magazynów kluczy, aby sprawdzić, czy Soft-Delete jest włączone". Ta zmiana wpłynie na dowolny Magazyn kluczy, w którym nie włączono usuwania nietrwałego. Dodatkowe narzędzia do inspekcji będą dostępne wkrótce, a ten dokument zostanie zaktualizowany.
 
 ### <a name="what-action-do-i-need-to-take"></a>Jaką czynność należy wykonać?
 

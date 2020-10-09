@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: c46565f7eaa060a060183cf321bb1df1903b945c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu programu Pulse Secure PC
@@ -104,7 +104,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -162,7 +162,7 @@ Wykonaj następujące czynności na poniższej stronie:
 
     d. Wybierz pozycję wartość identyfikatora jednostki usługi Azure AD z **listy rozwijanej identyfikator jednostki dostawcy tożsamości**.
 
-    e. Wybierz pozycję adres URL logowania do usługi Azure AD z **listy rozwijanej adres URL usługi logowania**jednokrotnego dostawcy tożsamości.
+    e. Wybierz pozycję adres URL logowania do usługi Azure AD z **listy rozwijanej adres URL dostawcy tożsamości Single Sign-On**.
 
     f. **Wylogowanie jednokrotne** jest ustawieniem opcjonalnym. W przypadku wybrania tej opcji zostanie wyświetlony komunikat z prośbą o nowe uwierzytelnienie po wylogowaniu. Jeśli ta opcja nie jest zaznaczona i nie zamknięto przeglądarki, możesz ponownie nawiązać połączenie bez uwierzytelniania.
 

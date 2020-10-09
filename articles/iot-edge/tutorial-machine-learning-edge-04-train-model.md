@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88660251"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Samouczek: uczenie i wdrażanie modelu Azure Machine Learning
@@ -68,7 +68,7 @@ Będziemy przekazywać przykładowe pliki notesu do nowego projektu Azure Notebo
 
 1. Pozostaw opcję **publiczny** i **plik Readme** niezaznaczone, ponieważ nie ma potrzeby, aby projekt był publiczny lub miał plik Readme.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Wybierz pozycję **Przekaż** (ikona strzałki w górę) i wybierz pozycję **z komputera**.
 
@@ -170,7 +170,7 @@ Aby sprawdzić, czy notesy zostały ukończone pomyślnie, sprawdź, czy utworzo
     | Machine Learning obszar roboczy | turborfanDemo |
     | Container Registry | turbofandemoxxxxxxxx |
     | Usługi Application Insights | turbofaninsightxxxxxxxx |
-    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Usługa Key Vault | turbofankeyvaultbxxxxxxxx |
     | Magazyn | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Debugowanie

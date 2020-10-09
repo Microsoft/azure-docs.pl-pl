@@ -15,10 +15,10 @@ ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: dd0d69a970623e0705ee228704e2831718992bb6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075158"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>Tworzenie maszyny wirtualnej na serwerze NGINX za pomocą programu PowerShell

@@ -5,10 +5,10 @@ ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180579"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
@@ -34,15 +34,15 @@ Magazyn usługi Recovery Services zawiera dane kopii zapasowych i zasady tworzen
 
     ![Wybieranie pozycji Wszystkie usługi](./media/tutorial-backup-vm-at-scale/click-all-services.png)
 
-1. W oknie dialogowym **Wszystkie usługi** wprowadź frazę *Recovery Services*. Lista filtrów zasobów zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **magazyny Recovery Services**.
+1. W oknie dialogowym **Wszystkie usługi** wprowadź frazę *Recovery Services*. Lista zasobów jest filtrowana zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **Magazyny usługi Recovery Services**.
 
     ![Wprowadzanie i wybieranie pozycji Magazyny usługi Recovery Services](./media/tutorial-backup-vm-at-scale/all-services.png)
 
     Zostanie wyświetlona lista magazynów usługi Recovery Services w ramach subskrypcji.
 
-1. Na pulpicie nawigacyjnym **Recovery Services magazynów** wybierz pozycję **Dodaj**.
+1. Na pulpicie nawigacyjnym **Magazyny usługi Recovery Services** wybierz pozycję **Dodaj**.
 
-    ![Dodawanie magazynu Recovery Services](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
+    ![Dodawanie magazynu usługi Recovery Services](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
 
 1. W menu Magazyn usługi Recovery Services:
 
@@ -55,11 +55,11 @@ Magazyn usługi Recovery Services zawiera dane kopii zapasowych i zasady tworzen
 
     Magazyn usługi Recovery Services musi znajdować się w tej samej lokalizacji co chronione maszyny wirtualne. Jeśli Twoje maszyny wirtualne znajdują się w wielu regionach, utwórz magazyn usługi Recovery Services w każdym regionie. W tym samouczku przedstawiono magazyn Recovery Services w *Europie zachodniej* , ponieważ *myVM* (maszyna wirtualna utworzona przy użyciu szybkiego startu) została utworzona.
 
-1. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
+1. Gdy wszystko będzie gotowe do utworzenia magazynu usługi Recovery Services, wybierz pozycję **Utwórz**.
 
-    ![Tworzenie magazynu Recovery Services](./media/tutorial-backup-vm-at-scale/click-create-button.png)
+    ![Tworzenie magazynu usługi Recovery Services](./media/tutorial-backup-vm-at-scale/click-create-button.png)
 
-1. Utworzenie magazynu Recovery Services może chwilę potrwać. Monitoruj powiadomienia o stanie w obszarze **powiadomień** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów Recovery Services. Jeśli Twój magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
+1. Utworzenie magazynu usługi Recovery Services może zająć trochę czasu. Monitoruj powiadomienia o stanie wyświetlane w obszarze **Powiadomienia** w prawym górnym rogu okna portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów usługi Recovery Services. Jeśli magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
 
      ![Odświeżanie listy magazynów kopii zapasowych](./media/tutorial-backup-vm-at-scale/refresh-button.png)
 

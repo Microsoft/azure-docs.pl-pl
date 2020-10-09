@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77665497"
 ---
 # <a name="smart-groups"></a>Grupy inteligentne
@@ -29,7 +29,7 @@ Obsługiwane są następujące inteligentne Stany grup.
 
 | Stan | Opis |
 |:---|:---|
-| Nowa | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
+| Nowy | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
 | Potwierdzony | Administrator przejrzał grupę inteligentną i uruchomił ją. |
 | Zamknięte | Problem został rozwiązany. Po zamknięciu grupy inteligentnej można ją otworzyć ponownie, zmieniając ją na inny stan. |
 

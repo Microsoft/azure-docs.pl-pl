@@ -9,10 +9,10 @@ ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc
 ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90946716"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji w języku PHP (platformy laravel) i MySQL Server (wersja zapoznawcza) w Azure App Service
@@ -134,7 +134,7 @@ php artisan serve
 
 W przeglądarce przejdź do adresu `http://localhost:8000`. Dodaj na stronie kilka zadań.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Pomyślne połączenie środowiska PHP z serwerem MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -257,7 +257,7 @@ Przejdź do adresu `http://localhost:8000`. Jeśli strona ładuje się bez błę
 
 Dodaj na stronie kilka zadań.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Pomyślne połączenie środowiska PHP z usługą Azure Database for MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -272,7 +272,7 @@ git commit -m "database.php updates"
 
 Aplikacja jest gotowa do wdrożenia.
 
-## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
+## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
 W tym kroku wdrożysz aplikację PHP połączoną z bazą danych MySQL w usłudze Azure App Service.
 
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Przejdź do adresu `http://<app-name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
 
 Gratulacje! Masz uruchomioną opartą na danych aplikację PHP w usłudze Azure App Service.
 
@@ -534,7 +534,7 @@ php artisan serve
 
 Aby zobaczyć zmianę stanu zadania, przejdź do adresu `http://localhost:8000` i zaznacz pole wyboru.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Dodanie pola wyboru do zadania":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
 
 Aby zatrzymać środowisko PHP, naciśnij w terminalu klawisze `Ctrl + C`.
 
@@ -556,11 +556,11 @@ git push azure master
 
 Po zakończeniu wykonywania polecenia `git push` przejdź do aplikacji platformy Azure i przetestuj nowe funkcje.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Zmiany w modelu i bazie danych opublikowane na platformie Azure":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Aplikacja sieci Web w języku PHP na platformie Azure z elastycznym serwerem":::
 
 Jeśli dodano jakiekolwiek zadania, zostaną one zachowane w bazie danych. Aktualizacje schematu danych pozostawiają dane bez zmian.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli te zasoby nie będą raczej potrzebne w przyszłości, usuń grupę zasobów, uruchamiając następujące polecenie w usłudze Cloud Shell:
 
 ```bash

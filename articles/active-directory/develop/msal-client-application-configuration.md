@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81534469"
 ---
 # <a name="application-configuration-options"></a>Opcje konfiguracji aplikacji
@@ -79,9 +79,9 @@ Używając MSAL w kodzie, należy określić odbiorców przy użyciu jednej z na
   - Identyfikator GUID (identyfikator wystąpienia usługi Azure AD) dla aplikacji z jedną dzierżawą
   - Nazwa domeny skojarzona z wystąpieniem usługi Azure AD (również w przypadku aplikacji z jedną dzierżawą)
 - Jeden z tych symboli zastępczych jako identyfikator dzierżawy zamiast wyliczenia odbiorców urzędu usługi Azure AD:
-    - `organizations`dla aplikacji wielodostępnej
-    - `consumers`Aby zalogować użytkowników tylko przy użyciu ich kont osobistych
-    - `common`Aby zalogować użytkowników przy użyciu kont służbowych lub osobistych kont Microsoft
+    - `organizations` dla aplikacji wielodostępnej
+    - `consumers` Aby zalogować użytkowników tylko przy użyciu ich kont osobistych
+    - `common` Aby zalogować użytkowników przy użyciu kont służbowych lub osobistych kont Microsoft
 
 MSAL zgłosi znaczący wyjątek, jeśli określono zarówno odbiorców urzędu usługi Azure AD, jak i identyfikator dzierżawy.
 
@@ -111,7 +111,7 @@ Jeśli jesteś publicznym deweloperem aplikacji klienta korzystającym z usługi
   Platforma  | Identyfikator URI przekierowania
   ---------  | --------------
   Aplikacja klasyczna (.NET PD) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  UWP | wartość `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Umożliwia to Logowanie jednokrotne w przeglądarce przez ustawienie wartości na wynik WebAuthenticationBroker. GetCurrentApplicationCallbackUri (), który należy zarejestrować.
+  Platforma UWP | wartość `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Umożliwia to Logowanie jednokrotne w przeglądarce przez ustawienie wartości na wynik WebAuthenticationBroker. GetCurrentApplicationCallbackUri (), który należy zarejestrować.
   .NET Core | `https://localhost`. Umożliwia to użytkownikowi korzystanie z przeglądarki systemu na potrzeby uwierzytelniania interaktywnego, ponieważ program .NET Core nie ma obecnie interfejsu użytkownika dla osadzonego widoku sieci Web.
 
 - Nie musisz dodawać identyfikatora URI przekierowania, jeśli tworzysz aplikację platformy Xamarin dla systemu Android i iOS, która nie obsługuje brokera (identyfikator URI przekierowania jest automatycznie ustawiany na `msal{ClientId}://auth` dla platformy Xamarin Android i iOS
@@ -122,8 +122,8 @@ Jeśli jesteś publicznym deweloperem aplikacji klienta korzystającym z usługi
 
 Identyfikator URI przekierowania można zastąpić za pomocą `RedirectUri` właściwości (na przykład jeśli używasz brokerów). Poniżej przedstawiono kilka przykładów identyfikatorów URI przekierowania dla tego scenariusza:
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.Client.sample";
-- `RedirectUriOnIos`= $ "msauth. {Pakiet. ID}://auth ";
+- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.Client.sample";
+- `RedirectUriOnIos` = $ "msauth. {Pakiet. ID}://auth ";
 
 Aby uzyskać dodatkowe informacje na temat systemu iOS, zobacz [Migrowanie aplikacji systemu iOS, które używają Microsoft Authenticator od ADAL.NET do MSAL.NET](msal-net-migration-ios-broker.md) i korzystania [z brokera w systemie iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 Aby uzyskać dodatkowe informacje dotyczące systemu Android, zobacz [uwierzytelnianie przez brokera w systemie Android](brokered-auth.md).

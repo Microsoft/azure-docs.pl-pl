@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium do uczenia skryptów 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444968"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurowanie laboratorium do uczenia skryptów powłoki w systemie Linux
@@ -28,8 +28,8 @@ Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utw
 
 | Ustawienia laboratorium | Wartość/instrukcje | 
 | ------------ | ------------------ |
-| Rozmiar maszyny wirtualnej (VM) | Mały  |
-| Obraz maszyny wirtualnej | Ubuntu Server 18,04 LTS|
+| Rozmiar maszyny wirtualnej (VM) | Mała  |
+| Obraz maszyny wirtualnej | Ubuntu Server 18.04 LTS|
 | Włącz Podłączanie pulpitu zdalnego | Włącz. <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się z maszynami wirtualnymi przy użyciu pulpitu zdalnego (RDP). Aby uzyskać więcej informacji, zobacz [Włączanie maszyn wirtualnych pulpitu zdalnego dla systemu Linux w laboratorium w Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
 ## <a name="install-desktop-and-rdp"></a>Zainstaluj program Desktop i protokół RDP
@@ -61,7 +61,7 @@ W tej sekcji pokazano, jak zainstalować kilka edytorów tekstu. Program regedit
     ```bash
     sudo apt-get install gedit
     ```
-1. Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/).  Program Visual Studio Code można zainstalować przy użyciu magazynu Snap.  Aby zapoznać się z alternatywnymi opcjami instalacji, zobacz [Visual Studio Code pliki do pobrania](https://code.visualstudio.com/#alt-downloads).
+1. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/).  Program Visual Studio Code można zainstalować przy użyciu magazynu Snap.  Aby zapoznać się z alternatywnymi opcjami instalacji, zobacz [Visual Studio Code pliki do pobrania](https://code.visualstudio.com/#alt-downloads).
 
     ```bash
     sudo snap install vscode --classic 
@@ -69,7 +69,7 @@ W tej sekcji pokazano, jak zainstalować kilka edytorów tekstu. Program regedit
 
     Szablon jest teraz aktualizowany i ma zarówno język programowania, jak i narzędzia programistyczne potrzebne do ukończenia laboratorium. Obraz szablonu można teraz opublikować w laboratorium. Wybierz przycisk **Publikuj** na stronie szablon, aby opublikować szablon w laboratorium.  
 
-## <a name="cost"></a>Koszty 
+## <a name="cost"></a>Cost (Koszt) 
 Jeśli chcesz oszacować koszt tego laboratorium, możesz użyć poniższego przykładu:
  
 W przypadku klasy 25 studentów z upływem 20 godzin planowanego czasu zajęć i 10 godzin przydziału dla prac domowych lub przydziałów, Cena za laboratorium to: 

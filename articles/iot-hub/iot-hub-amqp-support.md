@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730751"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu AMQP
@@ -264,9 +264,9 @@ Następujące ścieżki linków są obsługiwane jako operacje na urządzeniach:
 
 | Utworzone przez | Typ linku | Ścieżka łącza | Opis |
 |------------|-----------|-----------|-------------|
-| Urządzenia | Link odbiornika | `/devices/<deviceID>/messages/devicebound` | Komunikaty z chmury do urządzenia, które są przeznaczone dla urządzeń, są odbierane przez każde urządzenie docelowe. |
-| Urządzenia | Link nadawcy | `/devices/<deviceID>/messages/events` | Komunikaty przesyłane z urządzenia do chmury są wysyłane przez ten link. |
-| Urządzenia | Link nadawcy | `/messages/serviceBound/feedback` | Informacje zwrotne z chmury do urządzenia są wysyłane do usługi za pośrednictwem tego linku przez urządzenia. |
+| Devices | Link odbiornika | `/devices/<deviceID>/messages/devicebound` | Komunikaty z chmury do urządzenia, które są przeznaczone dla urządzeń, są odbierane przez każde urządzenie docelowe. |
+| Devices | Link nadawcy | `/devices/<deviceID>/messages/events` | Komunikaty przesyłane z urządzenia do chmury są wysyłane przez ten link. |
+| Devices | Link nadawcy | `/messages/serviceBound/feedback` | Informacje zwrotne z chmury do urządzenia są wysyłane do usługi za pośrednictwem tego linku przez urządzenia. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Otrzymywanie poleceń z chmury do urządzenia (klient urządzenia)
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905396"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Samouczek: Konfigurowanie automatycznego skalowania dla aplikacji mikrousług

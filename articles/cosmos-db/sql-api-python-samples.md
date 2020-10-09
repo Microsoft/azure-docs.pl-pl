@@ -10,10 +10,10 @@ ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
 ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322686"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Przykłady kodu Python dla usługi Azure Cosmos DB
@@ -54,11 +54,11 @@ Przykład w języku Python [database_management. PR](https://github.com/Azure/az
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
-| [Tworzenie bazy danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L48-L56) |CosmosClient. create_database|
-| [Odczytywanie bazy danych na podstawie identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L59-L67) |CosmosClient. get_database_client|
-| [Wysyłanie zapytań do baz danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L32-L67) |CosmosClient. query_databases|
-| [Wyświetlanie listy baz danych na koncie](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L70-L81) |CosmosClient. list_databases|
-| [Usuwanie bazy danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L84-L93) |CosmosClient. delete_database|
+| [Tworzenie bazy danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L48-L56) |CosmosClient.create_database|
+| [Odczytywanie bazy danych na podstawie identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L59-L67) |CosmosClient.get_database_client|
+| [Wysyłanie zapytań do baz danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L32-L67) |CosmosClient.query_databases|
+| [Wyświetlanie listy baz danych na koncie](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L70-L81) |CosmosClient.list_databases|
+| [Usuwanie bazy danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L84-L93) |CosmosClient.delete_database|
 
 ## <a name="container-examples"></a>Przykłady dotyczące kontenerów
 
@@ -66,12 +66,12 @@ Przykład w języku Python [container_management. PR](https://github.com/Azure/a
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
-| [Zapytanie dotyczące kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |Baza danych. query_containers |
-| [Tworzenie kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |Baza danych. create_container |
-| [Wyświetl listę wszystkich kontenerów w bazie danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |Baza danych. list_containers |
-| [Pobierz kontener według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |Baza danych. get_container_client |
-| [Zarządzanie elastyczną przepływność kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L166-L192) |Container. read_offer, Container. replace_throughput|
-| [Usuwanie kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |Baza danych. delete_container |
+| [Zapytanie dotyczące kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |database.query_containers |
+| [Tworzenie kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |database.create_container |
+| [Wyświetl listę wszystkich kontenerów w bazie danych](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |database.list_containers |
+| [Pobierz kontener według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |database.get_container_client |
+| [Zarządzanie elastyczną przepływność kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L166-L192) |container.read_offer, container.replace_throughput|
+| [Usuwanie kontenera](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |database.delete_container |
 
 ## <a name="item-examples"></a>Przykłady dotyczące elementów
 
@@ -79,14 +79,14 @@ Przykład w języku Python [item_management. PR](https://github.com/Azure/azure-
 
 | Zadanie | Dokumentacja interfejsu API |
 | --- | --- |
-| [Tworzenie elementów w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L26-L38) |kontener. create_item |
-| [Odczytaj element według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L41-L49) |kontener. read_item |
-| [Odczytaj wszystkie elementy w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L52-L63) |kontener. read_all_items |
-| [Wykonywanie zapytania dotyczącego elementu według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78) |kontener. query_items |
-| [Zastąp element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L81-L88) |kontener. replace_items |
-| [Upsert element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L91-L98) |kontener. upsert_item |
-| [Usuwanie elementu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |kontener. delete_item |
-| [Pobierz kanał informacyjny zmiany elementów w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |kontener. query_items_change_feed |
+| [Tworzenie elementów w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L26-L38) |container.create_item |
+| [Odczytaj element według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L41-L49) |container.read_item |
+| [Odczytaj wszystkie elementy w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L52-L63) |container.read_all_items |
+| [Wykonywanie zapytania dotyczącego elementu według jego identyfikatora](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78) |container.query_items |
+| [Zastąp element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L81-L88) |container.replace_items |
+| [Upsert element](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L91-L98) |container.upsert_item |
+| [Usuwanie elementu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |container.delete_item |
+| [Pobierz kanał informacyjny zmiany elementów w kontenerze](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |container.query_items_change_feed |
 
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
 
@@ -98,5 +98,5 @@ Przykład w języku Python [index_management. PR](https://github.com/Azure/azure
 | [Używanie indeksowania ręcznego z określonymi elementami indeksowanymi](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L204-L263) | Secret. IndexingDirective. include |
 | [Wyklucz ścieżki z indeksowania](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L266-L336) |Zdefiniuj ścieżki do wykluczenia we `IndexingPolicy` właściwości |
 | [Używanie indeksów zakresu z ciągami](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L401-L485) | Zdefiniuj zasady indeksowania przy użyciu indeksów zakresu dla typu danych ciągu. `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
-| [Przekształcanie indeksu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |Database. replace_container (użyj zaktualizowanych zasad indeksowania)|
+| [Przekształcanie indeksu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |database.replace_container (użyj zaktualizowanych zasad indeksowania)|
 | [Użyj skanów, gdy na ścieżce istnieje tylko indeks skrótu](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L339-L398) | Ustawianie `enable_scan_in_query=True` i `enable_cross_partition_query=True` podczas wykonywania zapytania dotyczącego elementów |
