@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828455"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854362"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika w celu rejestracji
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-W żądaniu są dostępne tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure Active Directory**  >  **tożsamości zewnętrznych**  >  **niestandardowe środowisko atrybutów użytkownika** .
+Tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure AD B2C**  >  środowisku**atrybutów użytkownika** są dostępne do wysłania w żądaniu.
 
 Atrybuty niestandardowe istnieją w formacie **extension_ \<extensions-app-id> _CustomAttribute**  w katalogu. Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Aby uzyskać więcej informacji na temat atrybutów niestandardowych, zobacz [Definiowanie atrybutów niestandardowych w Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -236,8 +236,8 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wersja                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| akcja                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
@@ -257,9 +257,9 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| Wersja     | String | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
-| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg | Tak      | Wartość musi być równa `ShowBlockPage`                                              |
+| userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 **Środowisko użytkownika końcowego z odpowiedzią blokującą**
 
@@ -281,10 +281,10 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| Wersja     | String  | Tak      | Wersja interfejsu API.                                                    |
-| akcja      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
-| status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| Wersja     | Ciąg  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
+| status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
+| userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 
 **Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**
 
@@ -294,7 +294,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Najlepsze rozwiązania i sposoby rozwiązywania problemów
 
 ### <a name="using-serverless-cloud-functions"></a>Korzystanie z funkcji w chmurze bezserwerowej
-Funkcje bezserwerowe, takie jak wyzwalacze HTTP w Azure Functions, zapewniają prostą metodę tworzenia punktów końcowych interfejsu API do użycia z łącznikiem interfejsu API. Za pomocą funkcji chmury bezserwerowej można na przykład wykonać logikę walidacji i ograniczyć logowanie do określonych domen. Funkcja chmury bezserwerowej może również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze w celu uzyskania bardziej złożonych scenariuszy.
+Funkcje bezserwerowe, takie jak wyzwalacze HTTP w Azure Functions, zapewniają prostą metodę tworzenia punktów końcowych interfejsu API do użycia z łącznikiem interfejsu API. Za pomocą funkcji chmury bezserwerowej można na [przykład](code-samples.md#api-connectors)wykonać logikę walidacji i ograniczyć logowanie do określonych domen poczty e-mail. Funkcja chmury bezserwerowej może również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze w celu uzyskania bardziej złożonych scenariuszy.
 
 ### <a name="best-practices"></a>Najlepsze rozwiązania
 Upewnij się, że:
@@ -314,4 +314,4 @@ Ogólnie rzecz biorąc, warto użyć narzędzi rejestrowania włączonych przez 
 
 ## <a name="next-steps"></a>Następne kroki
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Rozpocznij pracę z naszymi [przykładami szybkiego startu usługi Azure Functions](code-samples.md#api-connectors).

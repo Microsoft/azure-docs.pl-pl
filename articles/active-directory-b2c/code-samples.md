@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 76cacbea3f98f65e290cb2722062127d2264e171
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664838"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854294"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Przykłady kodu usługi Azure Active Directory B2C
 
@@ -54,3 +54,15 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 | Sample | Opis |
 |--------| ----------- |
 | [SAML-Sp-Tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | Aplikacja testowa SAML do testowania Azure AD B2C skonfigurowana do działania jako dostawca tożsamości SAML. |
+
+## <a name="api-connectors"></a>Łączniki interfejsu API
+
+W poniższych tabelach przedstawiono linki do przykładów kodu służących do używania interfejsów API sieci Web w przepływach [interfejsu API](api-connectors-overview.md).
+
+## <a name="api-connector-azure-function-quickstarts"></a>Łącznik interfejsu API — Przewodniki Szybki Start
+
+| Sample                                                                                                                          | Opis                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Ten przykład funkcji platformy .NET Core Azure demonstruje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzać poprawność informacji podawanych przez użytkownika. |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Ten Node.js przykład funkcji platformy Azure pokazuje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzić poprawność informacji podanych przez użytkownika.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Ten przykład funkcji platformy Azure w języku Python pokazuje, jak ograniczyć logowanie do określonych domen poczty e-mail i sprawdzić poprawność informacji podanych przez użytkownika.    |

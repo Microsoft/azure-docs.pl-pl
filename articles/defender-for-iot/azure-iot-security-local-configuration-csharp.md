@@ -4,7 +4,7 @@ description: Dowiedz się więcej o usłudze Defender for IoT Security Service, 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939554"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851237"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Omówienie lokalnego pliku konfiguracji (Agent C#)
 
 Agent zabezpieczeń usługi Defender for IoT używa konfiguracji z lokalnego pliku konfiguracji.
 
-Agent zabezpieczeń odczytuje plik konfiguracji, gdy zostanie uruchomiony agent. Konfiguracje Znalezione w lokalnym pliku konfiguracji zawierają konfigurację uwierzytelniania i inne konfiguracje powiązane z agentem.
+Agent zabezpieczeń odczytuje plik konfiguracji raz, gdy zostanie uruchomiony Agent programu. Konfiguracje Znalezione w lokalnym pliku konfiguracji zawierają konfigurację uwierzytelniania i inne konfiguracje powiązane z agentem.
 
 Agent zabezpieczeń języka C# używa wielu plików konfiguracji:
 
@@ -57,7 +57,7 @@ W przypadku systemu Windows:
 | highPriorityQueueSizePercentage | 0 < numer < 1 | Część całkowitej pamięci podręcznej dedykowana dla komunikatów o wysokim priorytecie. |
 | logLevel | "Off", "krytyczny", "błąd", "ostrzeżenie", "informacje", "Debugowanie"  | Komunikaty dziennika równe i powyżej tej ważności są rejestrowane w konsoli debugowania (Dziennik systemowy w systemie Linux). |
 | fileLogLevel |  "Off", "krytyczny", "błąd", "ostrzeżenie", "informacje", "Debugowanie"| Komunikaty dziennika równe i powyżej ważności są rejestrowane w pliku (Dziennik systemowy w systemie Linux). |
-| diagnosticVerbosityLevel | "Brak", "niektóre", "wszystkie", | Poziom szczegółowości zdarzeń diagnostycznych. Brak — zdarzenia diagnostyczne nie są wysyłane, a wszystkie tylko zdarzenia diagnostyczne o wysokiej ważności są wysyłane, wszystkie — wszystkie dzienniki są również wysyłane jako zdarzenia diagnostyczne. |
+| diagnosticVerbosityLevel | "Brak", "niektóre", "wszystkie", | Poziom szczegółowości zdarzeń diagnostycznych. Brak — zdarzenia diagnostyczne nie są wysyłane. Wysyłane są tylko zdarzenia diagnostyczne o wysokiej ważności. Wszystkie — wszystkie dzienniki są również wysyłane jako zdarzenia diagnostyczne. |
 | logFilePath | Ścieżka do pliku | Jeśli fileLogLevel > wyłączone, dzienniki są zapisywane w tym pliku. |
 | defaultEventPriority | "High", "Low", "off" | Domyślny priorytet zdarzenia. |
 
@@ -85,7 +85,8 @@ W przypadku systemu Windows:
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
 | moduleName | ciąg | Nazwa tożsamości modułu zabezpieczeń. Ta nazwa musi odpowiadać nazwie tożsamości modułu w urządzeniu. |
-| deviceId | ciąg | Identyfikator urządzenia (zgodnie z zarejestrowaniem w usłudze Azure IoT Hub). || schedulerInterval | Ciąg TimeSpan | Wewnętrzny interwał harmonogramu. |
+| deviceId | ciąg | Identyfikator urządzenia (zgodnie z zarejestrowaniem w usłudze Azure IoT Hub). |
+| schedulerInterval | Ciąg TimeSpan | Wewnętrzny interwał harmonogramu. |
 | gatewayHostname | ciąg | Nazwa hosta usługi Azure IoT Hub. Zwykle <my-Hub>. azure-devices.net |
 | Parametr | ścieżka ciągu do pliku | Ścieżka do pliku, który zawiera klucz tajny uwierzytelniania.|
 | typ | "SymmetricKey", "SelfSignedCertificate" | Klucz tajny użytkownika do uwierzytelniania. Wybierz opcję *SymmetricKey* , jeśli klucz tajny użytkownika jest kluczem symetrycznym, wybierz opcję *certyfikat z* podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym. |

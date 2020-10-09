@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371341"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854991"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Zarządzane tożsamości w usłudze Azure HDInsight
 
@@ -44,7 +44,7 @@ Pozostałe kroki konfigurowania tożsamości zarządzanej zależą od scenariusz
 
 Tożsamości zarządzane są używane w usłudze Azure HDInsight w wielu scenariuszach. Szczegółowe instrukcje dotyczące instalacji i konfiguracji można znaleźć w odpowiednich dokumentach:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [Pakiet Enterprise Security](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Szyfrowanie dysków za pomocą klucza zarządzanego przez klienta](disk-encryption.md)
 
@@ -57,7 +57,7 @@ Jeśli utworzono już długotrwały klaster z wieloma różnymi tożsamościami 
  * Nie można obrócić kluczy szyfrowania w scenariuszu CMK.
 Następnie należy przypisać wymagane role i uprawnienia dla powyższych scenariuszy do wszystkich zarządzanych tożsamości używanych w klastrze. Na przykład, jeśli użyto różnych tożsamości zarządzanych dla ADLS Gen2 i klastrów ESP, obie z nich powinny mieć przypisane role "właściciel danych magazynu obiektów BLOB" i "Współautor usług domenowych w usłudze HDInsight", aby uniknąć wykonywania tych problemów.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Co się stanie, jeśli usuniesz tożsamość zarządzaną po utworzeniu klastra?
 

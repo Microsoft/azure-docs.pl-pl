@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88163700"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854727"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla platformy .NET przy użyciu usługi Azure DevOps Starter
 
@@ -133,7 +133,7 @@ Gdy usługa Azure App Service i inne utworzone powiązane zasoby nie będą już
 Aby dowiedzieć się więcej na temat modyfikowania potoków kompilacji i wydania w celu dopasowania ich do potrzeb Twojego zespołu, zapoznaj się z samouczkiem:
 
 > [!div class="nextstepaction"]
-> [Dostosowywanie procesu ciągłego wdrażania](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Dostosowywanie procesu ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Filmy wideo
 

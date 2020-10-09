@@ -3,12 +3,12 @@ title: Wykonywanie akcji przy użyciu centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak wykonywać akcje przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997717"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854430"
 ---
 # <a name="perform-actions-using-backup-center"></a>Wykonywanie akcji przy użyciu centrum kopii zapasowych
 
@@ -70,7 +70,7 @@ W zależności od typu źródła danych, które chcesz przywrócić, postępuj z
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Jeśli przywracasz serwer Azure Database for PostgreSQL
 
 1. Przejdź do centrum kopii zapasowych i wybierz pozycję **Przywróć** w górnej części karty **Przegląd** .
-2. Wybierz typ źródła danych, dla którego chcesz utworzyć kopię zapasową (w tym przypadku Azure Database for PostgreSQL serwera).
+2. Wybierz typ źródła danych, które chcesz przywrócić (w tym przypadku Azure Database for PostgreSQL serwera).
 
     ![Wybierz źródło danych dla przywracania serwera Azure Database for PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0ea4523d1558f6887e1aef344198026591dac617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752613"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851181"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Konfigurowanie niestandardowych zasad protokołu IPsec dla wirtualnej sieci WAN przy użyciu portalu
 
-Można skonfigurować niestandardowe zasady protokołu IPsec dla wirtualnej sieci WAN w Azure Portal. Zasady niestandardowe są przydatne, gdy obie strony (lokalna i Brama sieci VPN platformy Azure) mają korzystać z tych samych ustawień dla usług IKE phase 1 i IKE Phase 2.
+W Azure Portal można skonfigurować niestandardowe zasady protokołu IPsec dla połączenia wirtualnej sieci prywatnej sieci WAN. Zasady niestandardowe są przydatne, gdy obie strony (lokalna i Brama sieci VPN platformy Azure) mają korzystać z tych samych ustawień dla usług IKE phase 1 i IKE Phase 2.
 
 ## <a name="working-with-custom-policies"></a>Praca z zasadami niestandardowymi
 
@@ -24,14 +24,14 @@ Można skonfigurować niestandardowe zasady protokołu IPsec dla wirtualnej siec
 
 ## <a name="configure-a-policy"></a>Konfigurowanie zasad
 
-1. **Znajdź koncentrator wirtualny**. Przejdź w przeglądarce do witryny [Azure Portal](https://aka.ms/azurevirtualwanpreviewfeatures) i zaloguj się przy użyciu konta platformy Azure. Znajdź koncentrator wirtualny dla witryny.
-2. **Wybierz witrynę sieci VPN**. Na stronie centrum wybierz lokację sieci VPN, dla której chcesz skonfigurować zasady niestandardowe.
+1. **Znajdź koncentrator wirtualny**. Przejdź w przeglądarce do witryny [Azure Portal](https://aka.ms/azurevirtualwanpreviewfeatures) i zaloguj się przy użyciu konta platformy Azure. Przejdź do wirtualnego zasobu sieci WAN i Znajdź koncentrator wirtualny, z którym jest połączona lokacja sieci VPN.
+2. **Wybierz witrynę sieci VPN**. Na stronie Omówienie centrum kliknij pozycję **Sieć VPN (lokacja** lokacja), a następnie wybierz LOKACJĘ sieci VPN, dla której chcesz skonfigurować niestandardowe zasady protokołu IPSec.
 
    ![Wybierz](./media/virtual-wan-custom-ipsec-portal/locate.png)
 3. **Edytuj połączenie sieci VPN**. Z **menu kontekstowego** **...** wybierz pozycję **Edytuj połączenie sieci VPN**.
 
    ![edytuj](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **Skonfiguruj ustawienia**. Na stronie **Edytowanie połączenia sieci VPN** Skonfiguruj ustawienia. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
+4. **Skonfiguruj ustawienia**. Na stronie **Edytowanie połączenia sieci VPN** Zmień ustawienie IPSec z domyślne na niestandardowe i Dostosuj zasady protokołu IPSec. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
    ![Skonfiguruj i Zapisz](./media/virtual-wan-custom-ipsec-portal/edit.png)
 

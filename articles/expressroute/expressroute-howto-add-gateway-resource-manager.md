@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 7554993025d8f64a80c1b223586f856eedf9e964
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766597"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854311"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute za pomocą programu PowerShell
+# <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Samouczek: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager — program PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -29,8 +29,6 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > - Utwórz podsieć bramy.
 > - Utwórz bramę Virtual Network.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,7 +92,7 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-1. Utwórz konfigurację bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. W tym kroku określisz konfigurację, która będzie używana podczas tworzenia bramy. Ten krok nie powoduje utworzenia obiektu bramy. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
+1. Utwórz konfigurację bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. W tym kroku określisz konfigurację, która będzie używana podczas tworzenia bramy. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

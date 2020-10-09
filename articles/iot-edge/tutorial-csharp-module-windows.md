@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b9451bcf6f67eb6afc6d06f4aa0cbec83ce75d6e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449596"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855263"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Windows
 
@@ -363,7 +363,7 @@ W przeciwnym razie możesz usunąć konfiguracje lokalne i zasoby platformy Azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku został utworzony moduł usługi IoT Edge zawierający kod służący do filtrowania nieprzetworzonych danych wygenerowanych przez urządzenie usługi IoT Edge. Gdy wszystko będzie gotowe do tworzenia własnych modułów, możesz dowiedzieć się więcej na temat [opracowywania własnych modułów IoT Edge](module-development.md) lub tworzenia [modułów w programie Visual Studio](how-to-visual-studio-develop-module.md). Aby zapoznać się z przykładami modułów IoT Edge, z uwzględnieniem modułu symulowanej temperatury, zapoznaj się z przykładami modułów [IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules).
+W tym samouczku został utworzony moduł usługi IoT Edge zawierający kod służący do filtrowania nieprzetworzonych danych wygenerowanych przez urządzenie usługi IoT Edge.
 
 Możesz przejść do kolejnych samouczków, aby dowiedzieć się, jak Azure IoT Edge może pomóc w wdrażaniu usług Azure Cloud Services w celu przetwarzania i analizowania danych na krawędzi.
 

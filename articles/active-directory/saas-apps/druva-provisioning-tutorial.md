@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323519"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851156"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Druva na potrzeby automatycznego aprowizacji użytkowników
 
@@ -58,15 +58,15 @@ Przed skonfigurowaniem usługi Druva na potrzeby automatycznego inicjowania obs�
 
 2. Przejdź do **narzędzia Zarządzanie**  >  **wdrożeniami**  >  **Użytkownicy**.
 
-    ![Druva Dodaj Standard scim](media/druva-provisioning-tutorial/manage.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Druva. Polecenie Zarządzaj jest wyróżnione i widoczne jest menu Zarządzaj. W tym menu, w obszarze wdrożenia, wyróżniono użytkowników." border="false":::
 
 3.  Przejdź do **ustawień**. Kliknij przycisk **Generuj token**.
 
-    ![Druva Dodaj Standard scim](media/druva-provisioning-tutorial/settings.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Druva. Polecenie Zarządzaj jest wyróżnione i widoczne jest menu Zarządzaj. W tym menu, w obszarze wdrożenia, wyróżniono użytkowników." border="false":::
 
 4.  Skopiuj wartość **tokenu uwierzytelniania** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Druva w Azure Portal.
     
-    ![Druva Dodaj Standard scim](media/druva-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Zrzut ekranu przedstawiający konsolę administracyjną Druva. Polecenie Zarządzaj jest wyróżnione i widoczne jest menu Zarządzaj. W tym menu, w obszarze wdrożenia, wyróżniono użytkowników." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Dodaj Druva z galerii
 
@@ -123,7 +123,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Druva**.
 

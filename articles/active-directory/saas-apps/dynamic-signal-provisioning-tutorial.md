@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323855"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851224"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie sygnału dynamicznego dla automatycznej aprowizacji użytkowników
 
@@ -100,11 +100,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 6. W konsoli administracyjnej sygnału dynamicznego przejdź do **> administrator usługi Advanced > API**.
 
-    ![Inicjowanie obsługi sygnału dynamicznego](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Zrzut ekranu konsoli administracyjnej sygnału dynamicznego. Polecenie Zaawansowane jest wyróżnione w menu administratora. Menu Zaawansowane jest również widoczne z wyróżnioną P." border="false":::
 
     Skopiuj **adres URL interfejsu API Standard scim** do **adresu URL dzierżawy**. Kliknij pozycję **Generuj nowy token** w celu wygenerowania **tokenu okaziciela** i skopiuj wartość do **tokenu Secret**.
 
-    ![Inicjowanie obsługi sygnału dynamicznego](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Zrzut ekranu konsoli administracyjnej sygnału dynamicznego. Polecenie Zaawansowane jest wyróżnione w menu administratora. Menu Zaawansowane jest również widoczne z wyróżnioną P." border="false":::
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z sygnałem dynamicznym. Jeśli połączenie nie powiedzie się, upewnij się, że konto sygnału dynamicznego ma uprawnienia administratora i spróbuj ponownie.
 
@@ -114,7 +114,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy do sygnału dynamicznego**.
 

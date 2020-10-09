@@ -2,23 +2,17 @@
 title: Omówienie agenta maszyny wirtualnej platformy Azure
 description: Omówienie agenta maszyny wirtualnej platformy Azure
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612841"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855779"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie agenta maszyny wirtualnej platformy Azure
 Agent maszyny wirtualnej Microsoft Azure (Agent VM) to bezpieczny, lekki proces zarządzający interakcją maszyny wirtualnej z kontrolerem sieci szkieletowej Azure. Agent maszyny wirtualnej odgrywa podstawową rolę w procesie włączania i wykonywania rozszerzeń maszyny wirtualnej platformy Azure. Rozszerzenia maszyn wirtualnych umożliwiają konfigurację po wdrożeniu maszyny wirtualnej, taką jak instalowanie i Konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych umożliwiają również włączenie funkcji odzyskiwania, takich jak resetowanie hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny wirtualnej platformy Azure nie można uruchomić rozszerzeń maszyn wirtualnych.
@@ -70,7 +64,7 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Aby można było uruchomić agenta maszyny wirtualnej z systemem Windows, wymagany jest co najmniej system Windows Server 2008 z dodatkiem SP2 (64-bitowy) z programem .NET Framework 4,0. Zobacz [minimalną obsługę wersji dla agentów maszyny wirtualnej na platformie Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- Aby można było uruchomić agenta maszyny wirtualnej z systemem Windows, wymagany jest co najmniej system Windows Server 2008 z dodatkiem SP2 (64-bitowy) z .NET Framework 4,0. Zobacz [minimalną obsługę wersji dla agentów maszyny wirtualnej na platformie Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Upewnij się, że maszyna wirtualna ma dostęp do adresu IP 168.63.129.16. Aby uzyskać więcej informacji, zobacz [co to jest adres IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
@@ -87,7 +81,7 @@ Moduł Azure Resource Manager PowerShell może służyć do pobierania informacj
 Get-AzVM
 ```
 
-Następujące wąskie przykładowe dane wyjściowe pokazują Właściwość *ProvisionVMAgent* zagnieżdżoną wewnątrz *OSProfile*. Ta właściwość może służyć do określenia, czy Agent maszyny wirtualnej został wdrożony na maszynie wirtualnej:
+Następujące wąskie przykładowe dane wyjściowe pokazują Właściwość *ProvisionVMAgent* zagnieżdżoną wewnątrz `OSProfile` . Ta właściwość może służyć do określenia, czy Agent maszyny wirtualnej został wdrożony na maszynie wirtualnej:
 
 ```powershell
 OSProfile                  :
@@ -119,6 +113,15 @@ Agent maszyny wirtualnej platformy Azure dla systemu Windows jest automatycznie 
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Automatyczne zbieranie dzienników agenta gościa systemu Windows
 Agent gościa systemu Windows zawiera funkcję automatycznego zbierania niektórych dzienników. Ta funkcja jest kontrolerem przez proces CollectGuestLogs.exe. Istnieje zarówno dla PaaS Cloud Services, jak i Virtual Machines IaaS, a jej celem jest szybkie & Automatyczne zbieranie niektórych dzienników diagnostycznych z maszyny wirtualnej, dzięki czemu mogą one być używane do analizy w trybie offline. Zbierane dzienniki to dzienniki zdarzeń, Dzienniki systemu operacyjnego, dzienniki platformy Azure i niektóre klucze rejestru. Tworzy plik ZIP, który jest przesyłany do hosta maszyny wirtualnej. Ten plik ZIP może następnie być oglądany przez zespoły inżynieryjne i specjalistów pomocy technicznej w celu zbadania problemów na żądanie klienta będącego właścicielem maszyny wirtualnej.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Agent gościa i OSProfile certyfikaty
+Agent maszyny wirtualnej platformy Azure jest odpowiedzialny za Instalowanie certyfikatów przywoływanych w ramach `OSProfile` maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. Jeśli te certyfikaty zostaną ręcznie usunięte z konsoli MMC certyfikatów Wewnątrz maszyny wirtualnej gościa, oczekuje się, że Agent gościa doda je ponownie.
+Aby trwale usunąć certyfikat, należy usunąć go z usługi `OSProfile` , a następnie usunąć z poziomu systemu operacyjnego gościa.
+
+W przypadku maszyny wirtualnej Użyj polecenie [Remove-AzVMSecret]() , aby usunąć certyfikaty z programu `OSProfile` .
+
+Aby uzyskać więcej informacji na temat certyfikatów zestawu skalowania maszyn wirtualnych, zobacz [Virtual Machine Scale Sets-jak mogę usunąć przestarzałe certyfikaty?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji o rozszerzeniach maszyn wirtualnych, zobacz [Omówienie rozszerzeń i funkcji maszyny wirtualnej platformy Azure](overview.md).

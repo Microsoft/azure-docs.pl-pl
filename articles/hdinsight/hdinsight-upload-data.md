@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462568"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855637"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 
-Usługa HDInsight udostępnia rozproszony system plików Hadoop (HDFS) za pośrednictwem usługi Azure Storage, a Azure Data Lake Storage. Ten magazyn obejmuje Gen1 i Gen2. Usługi Azure Storage i Data Lake Storage Gen1 i Gen2 są przeznaczone do rozszerzeń systemu plików HDFS. Umożliwiają one bezpośrednie działanie pełnego zestawu składników w środowisku Hadoop w danych, którymi zarządza. Usługi Azure Storage, Data Lake Storage Gen1 i Gen2 to różne systemy plików. Systemy są zoptymalizowane pod kątem przechowywania danych i obliczeń na tych danych. Aby uzyskać informacje na temat korzyści z używania usługi Azure Storage, zobacz [Korzystanie z usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md). Zobacz również [Korzystanie z Data Lake Storage Gen1 z usługą HDInsight](hdinsight-hadoop-use-data-lake-store.md)i [Używanie Data Lake Storage Gen2 z usługą HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Usługa HDInsight udostępnia rozproszony system plików Hadoop (HDFS) za pośrednictwem usługi Azure Storage, a Azure Data Lake Storage. Ten magazyn obejmuje Gen1 i Gen2. Usługi Azure Storage i Data Lake Storage Gen1 i Gen2 są przeznaczone do rozszerzeń systemu plików HDFS. Umożliwiają one bezpośrednie działanie pełnego zestawu składników w środowisku Hadoop w danych, którymi zarządza. Usługi Azure Storage, Data Lake Storage Gen1 i Gen2 to różne systemy plików. Systemy są zoptymalizowane pod kątem przechowywania danych i obliczeń na tych danych. Aby uzyskać informacje na temat korzyści z używania usługi Azure Storage, zobacz [Korzystanie z usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md). Zobacz również [Korzystanie z Data Lake Storage Gen1 z usługą HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)i [Używanie Data Lake Storage Gen2 z usługą HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem należy zwrócić uwagę na następujące wymagania:
 * Klaster usługi Azure HDInsight. Aby uzyskać instrukcje, zobacz [Rozpoczynanie pracy z usługą Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Znajomość następujących artykułów:
     * [Korzystanie z usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    * [Korzystanie z Data Lake Storage Gen1 z usługą HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Korzystanie z Data Lake Storage Gen1 z usługą HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [Korzystanie z Data Lake Storage Gen2 z usługą HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Przekazywanie danych do usługi Azure Storage
@@ -37,7 +37,7 @@ Firma Microsoft udostępnia następujące narzędzia do pracy z usługą Azure S
 
 | Narzędzie | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Witryna Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interfejs wiersza polecenia platformy Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |

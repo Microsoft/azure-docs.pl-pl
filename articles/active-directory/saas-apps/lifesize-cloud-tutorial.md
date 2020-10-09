@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540111"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Samouczek: integracja Azure Active Directory z chmurą Lifesize
 
@@ -137,15 +137,15 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Lifesize C
 
 2. W prawym górnym rogu kliknij swoją nazwę, a następnie kliknij pozycję **Ustawienia zaawansowane**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Zrzut ekranu przedstawia element menu Ustawienia zaawansowane.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. W ustawieniach zaawansowanych kliknij teraz link **Konfiguracja logowania jednokrotnego**. Spowoduje to otwarcie strony konfiguracji logowania jednokrotnego dla Twojego wystąpienia.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Zrzut ekranu przedstawia ustawienia zaawansowane, w których można wybrać konfigurację S.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Teraz skonfiguruj następujące wartości w interfejsie użytkownika konfiguracji logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji S, na której można wprowadzić podane wartości.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. W polu tekstowym **Wystawca dostawcy tożsamości** wklej wartość pola **Identyfikator usługi Azure AD** skopiowaną z witryny Azure Portal.
 
@@ -235,6 +235,6 @@ Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie d
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: a6dc9aa70c55a0ed511a73570274c68708988451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331237"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851292"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 4me na potrzeby automatycznego aprowizacji użytkowników
 
@@ -118,19 +118,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do 4me**.
 
-    ![4me mapowania użytkowników](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z FourMe jest wyróżniony." border="false":::
     
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie 4me for Updates. Upewnij się, że [4me obsługuje filtrowanie](https://developer.4me.com/v1/scim/users/) według wybranego pasującego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![4me mapowania użytkowników](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z FourMe jest wyróżniony." border="false":::
     
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do 4me**.
 
-    ![4me mapowania użytkowników](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Zrzut ekranu strony mapowania. W obszarze Nazwa zsynchronizuj Azure Active Directory użytkownicy z FourMe jest wyróżniony." border="false":::
     
 13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w 4me dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 

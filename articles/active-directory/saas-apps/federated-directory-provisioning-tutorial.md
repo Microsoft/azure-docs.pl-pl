@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319949"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851275"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie katalogu federacyjnego dla automatycznej aprowizacji użytkowników
 
@@ -53,24 +53,24 @@ Przed skonfigurowaniem katalogu federacyjnego do automatycznego aprowizacji uży
 
 1. Zaloguj się do [konsoli administracyjnej katalogu federacyjnego](https://federated.directory/of)
 
-    ![Samouczek dotyczący katalogu federacyjnego](media/federated-directory-provisioning-tutorial/companyname.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
 
 2. Przejdź do **katalogu > katalogi użytkowników** i wybierz swoją dzierżawę. 
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
 
 3.  Aby wygenerować trwały token okaziciela, przejdź do **katalogu klucze > Utwórz nowy klucz.** 
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/federated01.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
 
 4. Utwórz klucz katalogu. 
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/federated02.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
     
 
 5. Skopiuj wartość **tokenu dostępu** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji katalogu federacyjnego w Azure Portal. 
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/federated03.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Dodawanie katalogu federacyjnego z galerii
 
@@ -96,15 +96,15 @@ Aby skonfigurować katalog federacyjny do automatycznej aprowizacji użytkownik�
 
 5. Przejdź do **adresu URL** wyróżnionego poniżej w oddzielnej przeglądarce. 
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
 
 6. Kliknij przycisk **Zaloguj**.
 
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/federated04.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
 
 7.  Ponieważ katalog federacyjny jest aplikacją OpenIDConnect, wybierz logowanie do katalogu federacyjnego przy użyciu konta służbowego firmy Microsoft.
     
-    ![Katalog federacyjny](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
  
 8. Po pomyślnym uwierzytelnieniu Zaakceptuj monit o zgodę na stronie zgody. Aplikacja zostanie następnie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta katalogu federacyjnego.
 
@@ -142,16 +142,16 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników z katalogiem federacyjnym**.
 
-    ![Samouczek dotyczący katalogu federacyjnego](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
     
     
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do katalogu federacyjnego w sekcji **Mapowanie atrybutu** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w katalogu federacyjnym dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Samouczek dotyczący katalogu federacyjnego](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Zrzut ekranu konsoli administracyjnej katalogu federacyjnego przedstawiający pole umożliwiające wprowadzenie nazwy firmy. Przyciski logowania są również widoczne." border="false":::
     
 
 12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

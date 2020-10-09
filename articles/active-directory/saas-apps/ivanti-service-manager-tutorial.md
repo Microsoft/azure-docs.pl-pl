@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: db7838224b004d50234586d14e43e77a9c2ce26b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a656ec60fd3cb1e6b94da2122d8f493f426cef07
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552751"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Samouczek: integracja Azure Active Directory z usługą Ivanti Service Manager (ISM)
 
@@ -74,7 +74,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Ivanti Service Manager (ISM), należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w usłudze **[Ivanti Service Manager (ISM)](#configure-ivanti-service-manager-ism-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne w usłudze Ivanti Service Manager (ISM)](#configure-ivanti-service-manager-ism-single-sign-on)** , aby skonfigurować pojedyncze Sign-On ustawienia po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego Ivanti Service Manager (ISM)](#create-ivanti-service-manager-ism-test-user)** , aby uzyskać odpowiednik Britta Simon w Ivanti Service Manager (ISM), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -100,7 +100,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Ivanti Service Manager (ISM) domenę i adresy URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
@@ -114,7 +114,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Ivanti Service Manager (ISM) domenę i adresy URL logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<customer>.saasit.com/`
 
@@ -135,7 +135,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     c. Adres URL wylogowywania
 
-### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Ivanti Service Manager (ISM)
+### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Ivanti Service Manager (ISM)
 
 Aby skonfigurować Logowanie jednokrotne na stronie **Ivanti Service Manager (ISM)** , musisz wysłać pobrany **certyfikat (RAW)** i odpowiednie skopiowane adresy URL z Azure Portal do [Ivanti Service Manager (ISM) zespołu pomocy technicznej](https://www.ivanti.com/support/contact). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -207,7 +207,7 @@ Po kliknięciu kafelka Ivanti Service Manager (ISM) w panelu dostępu należy au
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

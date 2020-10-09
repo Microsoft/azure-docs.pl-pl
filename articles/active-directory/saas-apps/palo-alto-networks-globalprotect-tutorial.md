@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286968"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855212"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Palo Alto Networks — GlobalProtect
 
@@ -101,7 +101,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -117,7 +117,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Konfigurowanie Palo Alto Networks — GlobalProtect Logowanie jednokrotne
 
-1. Otwórz Palo Alto Networks firewall GlobalProtect jako administrator w innym oknie przeglądarki.
+1. Otwórz Palo Alto Networks-GlobalProtect jako administrator w innym oknie przeglądarki.
 
 2. Kliknij pozycję **Device** (Urządzenie).
 

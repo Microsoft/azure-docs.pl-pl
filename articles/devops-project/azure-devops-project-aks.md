@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233333"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855456"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Wdrażanie aplikacji ASP.NET Core w usłudze Azure Kubernetes za pomocą usługi Azure DevOps Starter
 
@@ -24,9 +24,9 @@ DevOps Starter również:
 * Automatycznie tworzy zasoby platformy Azure, takie jak usługa Azure Kubernetes Service (AKS).
 * Tworzy i konfiguruje potok wydania w usłudze Azure DevOps, który konfiguruje potok kompilacji i wydania na potrzeby ciągłej integracji/ciągłego wdrażania.
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
-* Włącza [usługę Azure Monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) w celu monitorowania wydajności dla obciążeń kontenerów w klastrze usługi AKS
+* Włącza [usługę Azure Monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) w celu monitorowania wydajności dla obciążeń kontenerów w klastrze usługi AKS
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter do wdrożenia aplikacji ASP.NET Core w usłudze AKS
@@ -171,4 +171,4 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 Aby dowiedzieć się więcej na temat korzystania z pulpitu nawigacyjnego platformy Kubernetes, zobacz:
 
 > [!div class="nextstepaction"]
-> [Korzystanie z pulpitu nawigacyjnego rozwiązania Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Korzystanie z pulpitu nawigacyjnego rozwiązania Kubernetes](../aks/kubernetes-dashboard.md)

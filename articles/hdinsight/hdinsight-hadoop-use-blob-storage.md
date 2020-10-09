@@ -8,20 +8,23 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7941748f7f917847e551b0cf5cd0a7bf926d31a9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086980"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855671"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
 
-Dane można przechowywać w [usłudze Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Lub kombinację tych opcji. Te opcje magazynu umożliwiają bezpieczne usuwanie klastrów usługi HDInsight, które są używane do obliczeń bez utraty danych użytkownika.
+Dane można przechowywać w [usłudze Azure Blob Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). Lub kombinację tych opcji. Te opcje magazynu umożliwiają bezpieczne usuwanie klastrów usługi HDInsight, które są używane do obliczeń bez utraty danych użytkownika.
 
-Apache Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia klastra usługi HDInsight można określić kontener obiektów BLOB w usłudze Azure Storage jako domyślny system plików. Lub w usłudze HDInsight 3,6 można wybrać usługę Azure Storage lub Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 jako domyślny system plików z kilkoma wyjątkami. Aby uzyskać pomoc techniczną dotyczącą korzystania z Data Lake Storage generacji 1 jako magazynu domyślnego i połączonego, zobacz [dostępność klastra usługi HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. Podczas procesu tworzenia klastra usługi HDInsight można określić kontener obiektów BLOB w usłudze Azure Storage jako domyślny system plików. Lub w usłudze HDInsight 3,6 można wybrać usługę Azure Blob Storage lub Azure Data Lake Storage Gen1/Azure Data Lake Storage Gen2 jako domyślny system plików z kilkoma wyjątkami. Aby uzyskać pomoc techniczną dotyczącą używania Data Lake Storage Gen1 jako domyślnego i połączonego magazynu, zobacz [dostępność klastra usługi HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen1.md#availability-for-hdinsight-clusters).
 
-W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami usługi HDInsight. Aby dowiedzieć się, jak Data Lake Storage Gen 1 współpracuje z klastrami usługi HDInsight, zobacz [Korzystanie z Azure Data Lake Storage z klastrami Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight, zobacz [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami usługi HDInsight. 
+* Aby dowiedzieć się, jak Data Lake Storage Gen1 współpracuje z klastrami usługi HDInsight, zobacz [Korzystanie z Azure Data Lake Storage Gen1 z klastrami Azure HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen1.md).
+* Aby dowiedzieć się, jak Data Lake Storage Gen2 współpracuje z klastrami usługi HDInsight, zobacz [Korzystanie z Azure Data Lake Storage Gen2 z klastrami Azure HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2.md).
+* Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight, zobacz [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!IMPORTANT]  
 > Rodzaj konta magazynu **BlobStorage** może być używany tylko jako magazyn pomocniczy dla klastrów usługi HDInsight.
@@ -29,7 +32,7 @@ W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami us�
 | Rodzaj konta magazynu | Obsługiwane usługi | Obsługiwane warstwy wydajności |Nieobsługiwane warstwy wydajności| Obsługiwane warstwy dostępu |
 |----------------------|--------------------|-----------------------------|---|------------------------|
 | StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
-| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Nie dotyczy                    |
+| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Brak                    |
 | BlobStorage                    | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
 
 Nie zaleca się używania domyślnego kontenera obiektów BLOB do przechowywania danych firmowych. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Kontener domyślny zawiera Dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
@@ -169,9 +172,9 @@ W tym artykule przedstawiono sposób korzystania z magazynu Azure zgodnego z sys
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Wprowadzenie do Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
-* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) (Używanie sygnatur dostępu współdzielonego do usługi Azure Storage, aby ograniczyć dostęp do danych za pomocą usługi HDInsight)
+* [Szybki Start: Tworzenie klastra Apache Hadoop](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Samouczek: tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
 * [Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) (Używanie sygnatur dostępu współdzielonego do usługi Azure Storage, aby ograniczyć dostęp do danych za pomocą usługi HDInsight)

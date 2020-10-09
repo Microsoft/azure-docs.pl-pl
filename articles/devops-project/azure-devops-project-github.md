@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 41f2ee9806b8f6818f2b2dd7a48920ac9907ca79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233214"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854651"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter
 
@@ -118,9 +118,9 @@ Po skonfigurowaniu procesu ciągłej integracji/ciągłego wdrażania w ramach t
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie wieloetapowego potoku ciągłego wdrażania](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiowanie wieloetapowego potoku ciągłego wdrażania](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 Aby dowiedzieć się więcej o monitorowaniu aplikacji, zobacz:
   
  > [!div class="nextstepaction"]
- > [Co to jest usługa Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/overview)
+ > [Co to jest usługa Azure monitor?](../azure-monitor/overview.md)

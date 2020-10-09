@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823017"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854549"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Litmus
 
@@ -129,11 +129,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **zabezpieczenia** w lewym panelu nawigacyjnym.
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/security-img.png)
+    ![Zrzut ekranu przedstawia wybrany element zabezpieczeń.](./media/litmus-tutorial/security-img.png)
 
 1. W sekcji **Konfigurowanie uwierzytelniania SAML** wykonaj następujące czynności:
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/configure1.png)
+    ![Zrzut ekranu przedstawia sekcję Konfigurowanie uwierzytelniania SAML, w której można wprowadzić podane wartości.](./media/litmus-tutorial/configure1.png)
 
     a. **Włącz przełącznik SAML** .
 
@@ -143,7 +143,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wykonaj następujące czynności:
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia sekcję, w której można wprowadzić podane wartości.](./media/litmus-tutorial/configure3.png)
 
     a. W polu tekstowym **punkt końcowy SAML 2,0 (http)** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -157,15 +157,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **konta** w lewym panelu nawigacyjnym.
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![Zrzut ekranu przedstawia wybrany element konta.](./media/litmus-tutorial/accounts-img.png)
 
 1. Kliknij przycisk **Dodaj nową kartę użytkownika** .
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![Zrzut ekranu pokazuje wybrany nowy element użytkownika.](./media/litmus-tutorial/add-new-user.png)
 
 1. W sekcji **Dodawanie użytkownika** wykonaj następujące czynności:
 
-    ![Konfiguracja Litmus](./media/litmus-tutorial/user-profile.png)
+    ![Zrzut ekranu przedstawia sekcję Dodawanie użytkownika, w której można wprowadzić podane wartości.](./media/litmus-tutorial/user-profile.png)
 
     a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, na przykład **B. Simon \@ contoso.com**
 
@@ -181,7 +181,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Litmus w panelu dostępu należy automatycznie zalogować się do Litmus, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

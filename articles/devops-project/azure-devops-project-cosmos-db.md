@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ceac6edf6cadd380d6eeec545a85c4822748d3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316124"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854685"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż Node.js aplikacje obsługiwane przez Azure Cosmos DB z DevOps Starter
 
@@ -26,7 +26,7 @@ DevOps Starter również:
 
 * Tworzy i konfiguruje potok zwolnienia ciągłej integracji/ciągłego wdrażania w usłudze Azure DevOps
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter do wdrożenia aplikacji Node.js obsługiwanej przez Azure Cosmos DB
@@ -167,6 +167,4 @@ Możesz zmodyfikować potoki kompilacji i wydania, aby dopasować je do potrzeb 
 > * Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
 > * Czyszczenie zasobów
 
-Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) i następnych kroków.
-
-
+Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) i następnych kroków.

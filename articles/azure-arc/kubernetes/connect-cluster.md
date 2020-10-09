@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 74a0de494148f1f3315511c0bf6cb10f40cdc416
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540629"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855008"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -68,10 +68,8 @@ Agenci usługi Azure Arc potrzebują następujących protokołów/portów/wychod
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Wymagane przez agenta do łączenia się z platformą Azure i rejestrowania klastra                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Punkt końcowy płaszczyzny danych dla agenta do wypychania stanu i pobrania informacji o konfiguracji                                      |
-| `https://docker.io`                                                                                            | Wymagane do ściągania obrazów kontenerów                                                                                         |
-| `https://github.com`, git://github.com                                                                         | Przykładowe repozytoria GitOps są hostowane w serwisie GitHub. Agent konfiguracji wymaga łączności z określonym punktem końcowym git. |
 | `https://login.microsoftonline.com`                                                                            | Wymagane do pobierania i aktualizowania tokenów Azure Resource Manager                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Wymagane do ściągania obrazów kontenerów dla agentów usługi Azure Arc                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Wymagane do ściągania obrazów kontenerów dla agentów usługi Azure Arc                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Wymagany do ściągania certyfikatów tożsamości zarządzanych przypisanych przez system                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Zarejestruj dwóch dostawców z włączoną funkcją Azure Arc Kubernetes:
@@ -183,17 +181,36 @@ Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza p
     az -v
     ```
 
-    Wymagana `connectedk8s` wersja rozszerzenia >= 0.2.3, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
+    Wymagana `connectedk8s` wersja rozszerzenia >= 0.2.5, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
 
-2. Uruchom polecenie Connect z określonymi parametrami serwera proxy:
+2. Ustaw zmienne środowiskowe, które są używane w interfejsie wiersza polecenia platformy Azure do korzystania z serwera proxy wychodzącego:
+
+    * Jeśli używasz bash, uruchom następujące polecenie z odpowiednimi wartościami:
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * Jeśli używasz programu PowerShell, uruchom następujące polecenie z odpowiednimi wartościami:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+3. Uruchom polecenie Connect z określonymi parametrami serwera proxy:
 
     ```console
-    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. Określenie excludedCIDR w obszarze--proxy-Skip-Range jest ważne, aby zapewnić, że komunikacja w klastrze nie jest uszkodzona dla agentów.
-> 2. Powyższe specyfikacje serwera proxy są obecnie stosowane tylko dla agentów ARC, a nie dla zasobników strumieni używanych w sourceControlConfiguration. Zespół z włączonym łukiem Kubernetes aktywnie pracuje nad tą funkcją i będzie dostępny wkrótce.
+> 2. While--proxy-HTTP,--proxy-HTTPS i--proxy-Range-zakres jest oczekiwany w przypadku większości środowisk serwera proxy wychodzącego.--certyfikat proxy jest wymagany tylko wtedy, gdy istnieją zaufane certyfikaty z serwera proxy, które muszą zostać wprowadzone do magazynu zaufanych certyfikatów.
+> 3. Powyższa Specyfikacja serwera proxy jest obecnie stosowana tylko dla agentów ARC, a nie dla zasobników strumieni używanych w sourceControlConfiguration. Zespół z włączonym łukiem Kubernetes aktywnie pracuje nad tą funkcją i będzie dostępny wkrótce.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agenci Azure ARC dla Kubernetes
 

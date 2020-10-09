@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448507"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855654"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
@@ -294,12 +294,9 @@ Następnie będziemy aktualizować certyfikaty i nazwy hostów przez bezpośredn
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## <a name="next-steps"></a>Następne kroki
 
 Właśnie zakończono konfigurowanie maszyny wirtualnej platformy Azure jako nieprzezroczystej bramy Azure IoT Edge. Rozpoczęto od generowania certyfikatów testów przekazanych do Azure Key Vault. Następnie używamy skryptu i szablonu Menedżer zasobów, aby wdrożyć maszynę wirtualną za pomocą obrazu "Ubuntu Server 16,04 LTS Azure IoT Edge + środowisko uruchomieniowe" w portalu Azure Marketplace. Po nawiązaniu połączenia z maszyną wirtualną za pośrednictwem protokołu SSH zarejestrowano Cię na platformie Azure i pobrano certyfikaty z Key Vault. Wprowadziliśmy kilka aktualizacji konfiguracji środowiska uruchomieniowego IoT Edge, aktualizując plik config. YAML.
-
-Aby uzyskać więcej informacji, zobacz, [jak urządzenie IoT Edge może być używane jako brama](iot-edge-as-gateway.md) i [skonfigurować urządzenie IoT Edge do działania jako nieprzezroczyste bramy](how-to-create-transparent-gateway.md).
 
 Przejdź do następnego artykułu, aby skompilować moduły IoT Edge.
 

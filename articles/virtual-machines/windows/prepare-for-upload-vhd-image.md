@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321739"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851105"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Przygotowywanie dysku VHD lub VHDX systemu Windows do przekazania na platformę Azure
 
@@ -421,6 +421,7 @@ W szczególności program Sysprep wymaga całkowicie odszyfrowania dysków przed
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
 1. Uruchom sesję programu PowerShell jako administrator.
+1. Usuń katalog Panther (C:\Windows\Panther).
 1. Zmień katalog na `%windir%\system32\sysprep` . Następnie należy uruchomić polecenie `sysprep.exe`.
 1. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że jest zaznaczone pole wyboru **generalize** .
 
@@ -432,7 +433,7 @@ W szczególności program Sysprep wymaga całkowicie odszyfrowania dysków przed
 Teraz dysk VHD jest gotowy do przekazania. Aby uzyskać więcej informacji na temat sposobu tworzenia maszyny wirtualnej na podstawie uogólnionego dysku, zobacz [przekazywanie uogólnionego wirtualnego dysku twardego i używanie go do tworzenia nowej maszyny wirtualnej na platformie Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Niestandardowy plik *unattend.xml* nie jest obsługiwany. Chociaż obsługujemy Właściwość **additionalUnattendContent** , która zapewnia tylko ograniczoną obsługę dodawania opcji [instalacji Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) do pliku *unattend.xml* , którego używa Agent aprowizacji platformy Azure. Aby dodać FirstLogonCommands i LogonCommands, można użyć, na przykład [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) . Aby uzyskać więcej informacji, zobacz [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Niestandardowy plik *unattend.xml* nie jest obsługiwany. Chociaż obsługujemy Właściwość **additionalUnattendContent** , która zapewnia tylko ograniczoną obsługę dodawania opcji [instalacji Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) do pliku *unattend.xml* , którego używa Agent aprowizacji platformy Azure. Aby dodać FirstLogonCommands i LogonCommands, można użyć, na przykład [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) . Aby uzyskać więcej informacji, zobacz [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze
 
