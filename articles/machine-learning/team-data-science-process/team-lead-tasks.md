@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864285"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Zadania dla zespołu liderzy zespołu ds. procesów naukowych
@@ -91,7 +91,7 @@ Aby utworzyć oddzielny projekt dla zespołu:
    
 1. W oknie dialogowym **Tworzenie projektu** wprowadź nazwę zespołu, na przykład *Webteam*, w obszarze **Nazwa projektu**, a następnie wybierz pozycję **Zaawansowane**. 
    
-1. W obszarze **Kontrola wersji**wybierz pozycję **git**i w obszarze **proces elementu pracy**wybierz pozycję **Agile**. Następnie wybierz pozycję **Utwórz**. 
+1. W obszarze **Kontrola wersji**wybierz pozycję **git**i w obszarze **proces elementu pracy**wybierz pozycję **Agile**. Następnie wybierz przycisk **Utwórz**. 
    
    ![Tworzenie projektu](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -142,7 +142,7 @@ Aby wypełnić repozytoria zespołu zawartością grup wspólnych repozytoriów,
    
 1. W oknie dialogowym **Importowanie repozytorium git** wybierz pozycję **git** jako **Typ źródła**, a następnie wprowadź adres URL repozytorium wspólnych szablonów grupy w obszarze **Klonowanie adresu URL**. Adres URL to *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Na przykład: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
-1. Wybierz pozycję **Import**. Zawartość repozytorium szablonów grup jest zaimportowana do repozytorium szablonów zespołu. 
+1. Wybierz pozycję **Importuj**. Zawartość repozytorium szablonów grup jest zaimportowana do repozytorium szablonów zespołu. 
    
    ![Importuj repozytorium wspólnych szablonów grupy](./media/team-lead-tasks/import-repo-2.png)
    

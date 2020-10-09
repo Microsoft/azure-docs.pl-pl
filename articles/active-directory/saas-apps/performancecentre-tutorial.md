@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Samouczek: integracja Azure Active Directory z usługą PerformanceCentre
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi PerformanceCentre, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-performancecentre-single-sign-on)** jednokrotne w usłudze PerformanceCentre, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-performancecentre-single-sign-on)** jednokrotne w usłudze PerformanceCentre, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego PerformanceCentre](#create-performancecentre-test-user)** , aby uzyskać odpowiednik Britta Simon w PerformanceCentre, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -122,29 +122,29 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Performance
 
     c. Adres URL wylogowywania
 
-### <a name="configure-performancecentre-single-sign-on"></a>Konfigurowanie logowania jednokrotnego PerformanceCentre
+### <a name="configure-performancecentre-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On PerformanceCentre
 
 1. Zaloguj się do witryny firmowej **PerformanceCentre** jako administrator.
 
 2. Na karcie po lewej stronie kliknij pozycję **Konfiguruj**.
    
-    ![Logowanie jednokrotne w usłudze Azure AD][10]
+    ![Pojedynczy Sign-On usługi Azure AD][10]
 
 3. Na karcie po lewej stronie kliknij pozycję **różne**, a następnie kliknij pozycję **Logowanie jednokrotne**.
    
-    ![Logowanie jednokrotne w usłudze Azure AD][11]
+    ![Pojedynczy Sign-On usługi Azure AD][11]
 
 4. Jako **Protokół**wybierz pozycję **SAML**.
    
-    ![Logowanie jednokrotne w usłudze Azure AD][12]
+    ![Pojedynczy Sign-On usługi Azure AD][12]
 
 5. Otwórz pobrany plik metadanych w Notatniku, skopiuj zawartość, wklej ją do pola tekstowego **metadanych dostawcy tożsamości** , a następnie kliknij przycisk **Zapisz**.
    
-    ![Logowanie jednokrotne w usłudze Azure AD][13]
+    ![Pojedynczy Sign-On usługi Azure AD][13]
 
 6. Sprawdź, czy wartości **adresu URL podstawowego jednostki** i **identyfikatora jednostki** są poprawne.
     
-     ![Logowanie jednokrotne w usłudze Azure AD][14]
+     ![Pojedynczy Sign-On usługi Azure AD][14]
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -220,7 +220,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Performanc
     
     b. Wybierz pozycję **administrator klienta** jako **Wybierz rolę**.
     
-    c. Kliknij pozycję **Zapisz**. 
+    c. Kliknij przycisk **Zapisz**. 
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -232,7 +232,7 @@ Po kliknięciu kafelka PerformanceCentre w panelu dostępu należy automatycznie
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

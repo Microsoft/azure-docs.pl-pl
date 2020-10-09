@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
 ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245098"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Samouczek: Tworzenie i używanie zestawów replik dla odporności lub geolokalizacji w Azure Active Directory Domain Services (wersja zapoznawcza)

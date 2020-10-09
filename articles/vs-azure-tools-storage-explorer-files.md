@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60456854"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Używanie programu Storage Explorer z usługą Azure File Storage
@@ -89,7 +89,7 @@ Poniższe kroki ilustrują usuwanie udziału plików w Eksploratorze usługi Sto
 
 1. Kliknij prawym przyciskiem myszy udział plików, który chcesz usunąć, a następnie z menu kontekstowego wybierz pozycję **Usuń**. Możesz również nacisnąć klawisz **Delete**, aby usunąć aktualnie wybrany udział plików.
 
-    ![Usuń](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![Usuwanie](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
     
@@ -207,7 +207,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
         ![Dodawanie plików](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. Wybierz przycisk **Przekaż**.
+        c. Wybierz pozycję **Przekaż**.
 
     - **Przekazywanie folderu do udziału plików**
         
@@ -219,7 +219,7 @@ Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
         c. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
 
-        d. Wybierz przycisk **Przekaż**.
+        d. Wybierz pozycję **Przekaż**.
 
     - **Pobieranie pliku na komputer lokalny**
         

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262892"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importuj notesy z repozytorium GitHub do Azure Cosmos DB
@@ -37,7 +37,7 @@ Możesz połączyć się ze swoimi repozytoriami usługi GitHub lub innymi publi
 
 1. Po wybraniu wymaganego repozytorium wpis repozytorium jest przenoszony z sekcji **przypięte repozytoria** do **przypiętych repozytoriów** . W razie potrzeby można również wybrać konkretną gałąź tego repozytorium, z której mają zostać zaimportowane notesy.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Wybierz repozytorium i gałąź":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autoryzuj Azure Cosmos DB, aby uzyskać dostęp do repozytoriów usługi GitHub":::
 
 1. Wybierz **przycisk OK** , aby ukończyć operację importowania. Wszystkie notesy dostępne w wybranej gałęzi repozytorium są importowane do konta usługi Azure Cosmos.
 
@@ -53,7 +53,7 @@ Po edycji istniejącego notesu wybierz pozycję **Zapisz**. Zostanie otwarte okn
 
 W regularnym przepływie usługi GitHub po zatwierdzeniu zmian zwykle wypychane zostaną zmiany w zdalnym. Jednak w tym przypadku opcja zatwierdzania służy do przeznaczenie "przemieszczanie, zatwierdzanie i wypychanie" aktualizacji do usługi GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edytuj Notesy i zatwierdź zmiany w serwisie GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autoryzuj Azure Cosmos DB, aby uzyskać dostęp do repozytoriów usługi GitHub":::
 
 ## <a name="next-steps"></a>Następne kroki
 

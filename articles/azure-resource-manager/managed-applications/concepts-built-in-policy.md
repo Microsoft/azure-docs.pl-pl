@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650944"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Wdróż skojarzenia dla aplikacji zarządzanej przy użyciu Azure Policy
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji na temat skojarzeń, zobacz Dołączanie [zasob�
 ### <a name="prerequisites"></a>Wymagania wstępne
 Jeśli zarządzana aplikacja wymaga uprawnień do wykonania akcji, wdrożenie zasad zasobu skojarzenia nie będzie działać bez udzielania uprawnień.
 
-### <a name="policy-assignment"></a>Przypisywanie zasad
+### <a name="policy-assignment"></a>Przypisanie zasad
 Aby użyć wbudowanych zasad, Utwórz przypisanie zasad i przypisz skojarzenia wdrażania dla zasad zarządzanej aplikacji. Po pomyślnym przypisaniu zasad zasady będą identyfikować niezgodne zasoby i wdrażać skojarzenia dla tych zasobów.
 
 ![Przypisywanie wbudowanych zasad](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)

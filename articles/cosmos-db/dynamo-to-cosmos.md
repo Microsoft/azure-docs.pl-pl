@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261872"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migruj swoją aplikację z usługi Amazon DynamoDB do Azure Cosmos DB
@@ -24,7 +24,7 @@ Poniżej przedstawiono kluczowe różnice pojęciowe między Azure Cosmos DB i D
 |  DynamoDB | Azure Cosmos DB  |
 |---|---|
 |Nie dotyczy|  baza danych |
-|Tabela      |  Kolekcja |
+|tabela      |  Kolekcja |
 |  Element |  Dokument |
 |Atrybut|Pole|
 |Indeks pomocniczy|Indeks pomocniczy|

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Samouczek: integracja Azure Active Directory z percepcją Stany Zjednoczone (UltiPro)
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany Zjednoczone (UltiPro), należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Stany Zjednoczone percepcji (UltiPro) logowanie](#configure-perception-united-states-non-ultipro-single-sign-on)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Stany Zjednoczone percepcji (inne niż UltiPro) logowanie](#configure-perception-united-states-non-ultipro-single-sign-on)** jednokrotne — aby skonfigurować ustawienia pojedynczej Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Twórz percepcję Stany Zjednoczone użytkownika testowego (UltiPro)](#create-perception-united-states-non-ultipro-test-user)** , aby uzyskać odpowiednik Britta Simon w postrzeganiu Stany Zjednoczone (nie UltiPro), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -127,7 +127,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany 
 
     c. Adres URL wylogowywania   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Skonfiguruj Stany Zjednoczone percepcji (UltiPro) Logowanie jednokrotne
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Skonfiguruj Stany Zjednoczone percepcji (bez UltiPro) Sign-On
 
 1. W innym oknie przeglądarki Zaloguj się w witrynie firmowej Stany Zjednoczone (UltiPro) jako administrator.
 
@@ -143,7 +143,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany 
     
     b. W polu tekstowym **nazwa konta** wpisz nazwę **konta**.
 
-    c. W polu tekstowym **adres E-mail odpowiedzi domyślnej** wpisz prawidłowy **adres e-mail**.
+    c. W polu tekstowym **domyślna Reply-To e-mail** wpisz prawidłowy **adres e-mail**.
 
     d. Wybierz pozycję **dostawca tożsamości logowania jednokrotnego** jako element **SAML 2,0**.
 
@@ -227,7 +227,7 @@ Po kliknięciu kafelka Stany Zjednoczone (bez UltiPro) w panelu dostępu należy
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

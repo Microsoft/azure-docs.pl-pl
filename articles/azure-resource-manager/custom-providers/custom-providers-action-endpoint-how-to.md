@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650398"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>Dodawanie akcji niestandardowych do interfejsu API REST platformy Azure
@@ -114,7 +114,7 @@ Content-Type: application/json; charset=utf-8
 Istnieją dwa główne sposoby wywołania niestandardowej akcji poza niestandardowego dostawcę zasobów:
 
 - Interfejs wiersza polecenia platformy Azure
-- Szablony Azure Resource Manager
+- Szablony usługi Azure Resource Manager
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -132,7 +132,7 @@ az resource invoke-action --action {actionName} \
 
 Parametr | Wymagane | Opis
 ---|---|---
-action | *opcję* | Nazwa akcji zdefiniowanej w **ResourceProvider**.
+akcja | *opcję* | Nazwa akcji zdefiniowanej w **ResourceProvider**.
 identyfikatory | *opcję* | Identyfikator zasobu **ResourceProvider**.
 treść żądania | *znaleziono* | Treść żądania, która zostanie wysłana do **punktu końcowego**.
 

@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260579"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark w ramach PRZĘDZy z usługą HDInsight
 
-W tym artykule opisano, jak uzyskać dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark w ramach PRZĘDZy z usługą HDInsight-Spark z aparatu Spark-Shell. Usługa HDInsight to Hortonworks usługi Hadoop firmy Microsoft na platformie Azure, która korzysta z magazynu obiektów dla systemu plików HDFS i zawiera kilka wersji, w tym [platformy Spark](../hdinsight/spark/apache-spark-overview.md).  Chociaż zawartość tego dokumentu odwołuje się do usługi HDInsight-Spark, ma zastosowanie do wszystkich dystrybucji usługi Hadoop.  
+W tym artykule opisano, jak uzyskać dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark na PRZĘDZę z użyciem HDInsight-Spark z powłoki Spark. Usługa HDInsight to Hortonworks usługi Hadoop firmy Microsoft na platformie Azure, która korzysta z magazynu obiektów dla systemu plików HDFS i zawiera kilka wersji, w tym [platformy Spark](../hdinsight/spark/apache-spark-overview.md).  Chociaż zawartość tego dokumentu odwołuje się do usługi HDInsight-Spark, ma zastosowanie do wszystkich dystrybucji usługi Hadoop.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,7 +25,7 @@ W tym artykule opisano, jak uzyskać dostęp do Azure Cosmos DB interfejs API Ca
 
 * [Zapoznaj się z podstawowymi informacjami na temat łączenia się z Azure Cosmos DB interfejs API Cassandra](cassandra-spark-generic.md)
 
-* [Inicjowanie obsługi administracyjnej klastra usługi HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
+* [Inicjowanie obsługi klastra HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
 * [Zapoznaj się z przykładami kodu dotyczącymi pracy z interfejs API Cassandra](cassandra-spark-generic.md#next-steps)
 
@@ -114,7 +114,7 @@ Powłoka Spark jest używana do testowania/eksploracji.
 
 ## <a name="access-azure-cosmos-db-cassandra-api-from-jupyter-notebooks"></a>Dostęp do Azure Cosmos DB interfejs API Cassandra z notesów Jupyter
 
-Usługa HDInsight-Spark oferuje Zeppelin i Jupyter notesy. Są to środowiska notesu opartego na sieci Web, które obsługują Scala i Python. Notesy doskonale nadaje się do interaktywnej analizy poznawczej i współpracy, ale nie są przeznaczone dla procesów operacyjnych/produkcyjnych.
+HDInsight-Spark udostępnia usługi notesów Zeppelin i Jupyter. Są to środowiska notesu opartego na sieci Web, które obsługują Scala i Python. Notesy doskonale nadaje się do interaktywnej analizy poznawczej i współpracy, ale nie są przeznaczone dla procesów operacyjnych/produkcyjnych.
 
 Następujące notesy Jupyter można przekazać do klastra usługi HDInsight Spark i udostępnić próbki gotowe do pracy z Azure Cosmos DB interfejs API Cassandra. Zapoznaj się z pierwszym notesem, `1.0-ReadMe.ipynb` Aby przejrzeć konfigurację usługi platformy Spark w celu nawiązania połączenia z usługą Azure Cosmos DB interfejs API Cassandra.
 

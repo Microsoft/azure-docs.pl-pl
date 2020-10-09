@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263265"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Przetwarzanie baz danych bezserwerowe przy użyciu Azure Cosmos DB i Azure Functions
@@ -61,7 +61,7 @@ W implementacjach IoT można wywołać funkcję, gdy lampa Check Engine jest wy�
 
 Na poniższej ilustracji przedstawiono kod zapisany w Azure Portal dla tego wyzwalacza.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Utwórz wyzwalacz Azure Functions dla Cosmos DB w Azure Portal":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Przypadek użycia finansowego — wyzwalacz czasomierza i powiązanie wejściowe
 
@@ -75,9 +75,9 @@ W obszarze implementacje finansowe można wywołać funkcję, gdy saldo konta ba
 
 Poniższe obrazy przedstawiają kod w Azure Portal w tym scenariuszu.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js pliku dla wyzwalacza czasomierza dla scenariusza finansowego":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Uruchom plik. CSX dla wyzwalacza czasomierza dla scenariusza finansowego":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Przypadek użycia gier — Azure Functions wyzwalacza i powiązania danych wyjściowych dla Cosmos DB 
 

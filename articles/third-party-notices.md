@@ -7,10 +7,10 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72750421"
 ---
 # <a name="legal-notices"></a>Uwagi prawne
@@ -21,7 +21,7 @@ Microsoft, Windows, Microsoft Azure i (lub) inne produkty lub usługi firmy Micr
 Licencje związane z tym projektem nie powodują udzielenia praw do żadnych nazw, znaków logo ani znaków towarowych firmy Microsoft.
 Ogólne wytyczne dotyczące znaków towarowych firmy Microsoft można znaleźć pod adresem [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653) .
 
-Informacje o ochronie prywatności można znaleźć pod adresem[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
+Informacje o ochronie prywatności można znaleźć pod adresem [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 Firma Microsoft i wszyscy współautorzy zastrzegają sobie wszystkie pozostałe prawa, w ramach ich odpowiednich praw autorskich, patentów lub znaków towarowych, w sposób dorozumiany, w drodze estoppelu czy też w inny sposób.
 

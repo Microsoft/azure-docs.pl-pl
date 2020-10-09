@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263045"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Używanie programu Robo 3T za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
@@ -37,14 +37,14 @@ Aby dodać konto Cosmos do Menedżera połączeń usługi Robo 3T, wykonaj nast�
 
 4. W oknie **Ustawienia połączenia** wybierz nazwę. Następnie Znajdź **hosta** i **port** z informacji o połączeniu w kroku 1 i wprowadź je odpowiednio do **adresu** i **portu**.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Zrzut ekranu przedstawiający korzystanie narzędzia robomongo zarządzanie połączeniami":::
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 5. Na karcie **uwierzytelnianie** kliknij pozycję **wykonaj uwierzytelnianie**. Następnie wprowadź swoją bazę danych (domyślnie: *admin*), **nazwę użytkownika** i **hasło**.
 **Nazwę użytkownika** i **hasło** można znaleźć w informacjach o połączeniu w kroku 1.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Zrzut ekranu karty uwierzytelnianie korzystanie narzędzia robomongo":::
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 6. Na karcie **SSL** zaznacz opcję **Użyj protokołu SSL**, a następnie zmień **metodę uwierzytelniania** na certyfikat z podpisem **własnym**.
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Zrzut ekranu karty korzystanie narzędzia robomongo SSL":::
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 7. Na koniec kliknij przycisk **Testuj** , aby sprawdzić, czy możesz nawiązać połączenie, a następnie **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki

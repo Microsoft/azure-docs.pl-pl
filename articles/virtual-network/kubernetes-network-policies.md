@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73159681"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Zasady sieciowe platformy Azure Kubernetes — przegląd
@@ -32,7 +32,7 @@ Zasady sieciowe zapewniają mikrosegmenty dla zasobników, tak jak sieciowe grup
 Zasady sieciowe platformy Azure działają w połączeniu z usługą Azure CNI, która zapewnia integrację sieci wirtualnej dla kontenerów. Jest ona obsługiwana tylko w węzłach systemu Linux. Implementacje konfigurują reguły tabeli adresów IP systemu Linux na podstawie zdefiniowanych zasad w celu wymuszenia filtrowania ruchu.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planowanie zabezpieczeń dla klastra Kubernetes
-W przypadku implementowania zabezpieczeń klastra należy użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) do filtrowania ruchu północ-południe, czyli ruchu wprowadzającego i wychodzącego z podsieci klastra, a następnie używać zasad sieciowych Kubernetes dla ruchu Wschodnie-zachodniego, czyli ruchu między zasobnikami w klastrze.
+W przypadku implementowania zabezpieczeń klastra należy użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) do filtrowania ruchu North-South, czyli ruch wprowadzający i opuszczający podsieć klastra oraz używać zasad sieciowych Kubernetes dla ruchu East-West, czyli ruch między zasobnikami w klastrze.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Korzystanie z zasad sieciowych usługi Azure Kubernetes
 Zasad sieciowych platformy Azure można używać w następujący sposób, aby zapewnić mikrosegmentację dla zasobników.

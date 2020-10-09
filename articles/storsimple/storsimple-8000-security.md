@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75891510"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple zabezpieczeń i ochrony danych
@@ -118,7 +118,7 @@ Hasło Snapshot Manager StorSimple musi zawierać od 14 do 15 znaków i musi sk�
 
 Aby uzyskać więcej informacji na temat StorSimple Snapshot Manager, przejdź do [co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-### <a name="password-best-practices"></a>Najlepsze rozwiązania w zakresie haseł
+### <a name="password-best-practices"></a>Najlepsze rozwiązania dotyczące haseł
 
 Zalecamy użycie następujących wytycznych, aby zapewnić, że hasła StorSimple są mocne i dobrze chronione:
 

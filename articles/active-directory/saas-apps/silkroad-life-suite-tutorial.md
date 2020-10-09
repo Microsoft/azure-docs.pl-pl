@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 49dd333454f0eb92f5fb0dddc40390ec1baa91c5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88525590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: integracja Azure Active Directory z pakietem Life SilkRoad
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pakietu SilkRoad Life Suite, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w **[pakiecie SilkRoad Life](#configure-silkroad-life-suite-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-silkroad-life-suite-single-sign-on)** jednokrotne w usłudze SilkRoad Life, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego SilkRoad Life Suite](#create-silkroad-life-suite-test-user)** , aby dysponować odpowiednikiem Britta Simon w pakiecie SilkRoad Life, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -152,7 +152,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     c. Adres URL wylogowywania
 
-### <a name="configure-silkroad-life-suite-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w ramach pakietu SilkRoad Life
+### <a name="configure-silkroad-life-suite-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On pakietu Life Suite SilkRoad
 
 1. Zaloguj się do witryny firmy SilkRoad jako administrator.
 
@@ -161,23 +161,23 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
 1. Przejdź do pozycji **dostawca usług**, a następnie kliknij pozycję **szczegóły Federacji**.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
 1. Kliknij pozycję **Pobierz metadane federacji**, a następnie Zapisz plik metadanych na komputerze. Użyj pobranych metadanych Federacji jako **pliku metadanych dostawcy usług** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. W aplikacji **Silkroad** kliknij pozycję **źródła uwierzytelniania**.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
 1. Kliknij pozycję **Dodaj źródło uwierzytelniania**.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
 1. W sekcji **Dodaj źródło uwierzytelniania** wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
     a. W obszarze **Opcja 2 — plik metadanych**kliknij przycisk **Przeglądaj** , aby przekazać pobrany plik metadanych z Azure Portal.
   
@@ -185,11 +185,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
 1. W sekcji **źródła uwierzytelniania** kliknij pozycję **Edytuj**.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
 1. W oknie dialogowym **Edytowanie źródła uwierzytelniania** wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
     a. Jako **włączone**wybierz pozycję **tak**.
 
@@ -205,11 +205,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
 
     przykład W polu tekstowym **adres URL usługi logowania** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij przycisk **Zapisz**.
 
 1. Wyłącz wszystkie inne źródła uwierzytelniania.
 
-    ![Logowanie jednokrotne w usłudze Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![Pojedynczy Sign-On usługi Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -276,6 +276,6 @@ Po kliknięciu kafelka SilkRoad Life Suite w panelu dostępu należy automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

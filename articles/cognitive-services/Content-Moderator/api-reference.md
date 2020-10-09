@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 7fc46d06b68dca074da060b4866186a6242ffad2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72757375"
 ---
 # <a name="content-moderator-api-reference"></a>Dokumentacja interfejsu API Content Moderator
@@ -41,6 +41,6 @@ Interfejsy API przeglądu mają następujące składniki:
 
 | Opis | Tematy pomocy |
 | -------------------- |-------------|
-| **Stanowiska**<br /><br /> Inicjuj przepływy pracy do skanowania i weryfikacji dla zawartości obrazów i tekstu. Zadanie moderowania skanuje zawartość przy użyciu interfejsu API moderowania obrazów i interfejsu API moderowania tekstu. Zadania moderowania używają zdefiniowanych i domyślnych przepływów pracy do generowania przeglądów. <br /><br />Gdy moderator ludzki przejrzał znaczniki i dane prognozowania, a następnie przesłał decyzję o moderowaniu zawartości, interfejs API przeglądu przesyła wszystkie informacje do punktu końcowego interfejsu API.<br /><br /> | [Odwołanie do zadania](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Odwołanie do zadania")   |
+| **Zadania**<br /><br /> Inicjuj przepływy pracy do skanowania i weryfikacji dla zawartości obrazów i tekstu. Zadanie moderowania skanuje zawartość przy użyciu interfejsu API moderowania obrazów i interfejsu API moderowania tekstu. Zadania moderowania używają zdefiniowanych i domyślnych przepływów pracy do generowania przeglądów. <br /><br />Gdy moderator ludzki przejrzał znaczniki i dane prognozowania, a następnie przesłał decyzję o moderowaniu zawartości, interfejs API przeglądu przesyła wszystkie informacje do punktu końcowego interfejsu API.<br /><br /> | [Odwołanie do zadania](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Odwołanie do zadania")   |
 | **Przeglądy**<br /><br />Użyj narzędzia Recenzja, aby bezpośrednio utworzyć przeglądy obrazu lub tekstu dla moderatorów ludzkich.<br /><br /> Gdy moderator ludzki przejrzał znaczniki i dane prognozowania, a następnie przesłał decyzję o moderowaniu zawartości, interfejs API przeglądu przesyła wszystkie informacje do punktu końcowego interfejsu API.<br /><br /> | [Przegląd odwołania](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Przegląd odwołania")   |
-| **Przepływy pracy**<br /><br />Twórz, Aktualizuj i pobieraj szczegóły dotyczące niestandardowych przepływów pracy tworzonych przez zespół. Przepływy pracy można definiować za pomocą narzędzia do przeglądu. <br /> <br />Przepływy pracy zwykle używają Content Moderator, ale mogą również używać niektórych innych interfejsów API, które są dostępne jako łączniki w narzędziu do przeglądu.<br /><br /> | [Informacje o przepływie pracy](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Informacje o przepływie pracy")   |
+| **Przepływy**<br /><br />Twórz, Aktualizuj i pobieraj szczegóły dotyczące niestandardowych przepływów pracy tworzonych przez zespół. Przepływy pracy można definiować za pomocą narzędzia do przeglądu. <br /> <br />Przepływy pracy zwykle używają Content Moderator, ale mogą również używać niektórych innych interfejsów API, które są dostępne jako łączniki w narzędziu do przeglądu.<br /><br /> | [Informacje o przepływie pracy](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Informacje o przepływie pracy")   |

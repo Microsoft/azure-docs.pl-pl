@@ -4,10 +4,10 @@ description: Ten artykuł zawiera listę kontrolną kontroli zabezpieczeń słu�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85315387"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Kontrolki zabezpieczeń dla usługi Azure Event Hubs
@@ -46,8 +46,8 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 |---|---|--|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft |  Tak | |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak. Dostępne dla dedykowanych klastrów. | Klucz zarządzany przez klienta w magazynie kluczy platformy Azure może służyć do szyfrowania danych w centrum zdarzeń w stanie spoczynku. | [Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal](configure-customer-managed-key.md) |
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |  |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | |  |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak | |  |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | |  |
 | Wywołania interfejsu API są szyfrowane| Tak |  |  |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

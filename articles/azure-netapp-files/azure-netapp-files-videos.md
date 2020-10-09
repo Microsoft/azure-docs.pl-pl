@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: b-juche
 ms.openlocfilehash: aca6899da3c92cca0fd8564da5ec3d1679eb2579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75890973"
 ---
-# <a name="azure-netapp-files-videos"></a>Azure NetApp Files filmów wideo
+# <a name="azure-netapp-files-videos"></a>Wideo dla usługi Azure NetApp Files
 Ten artykuł zawiera odwołania do filmów wideo, które zawierają szczegółowe dyskusje na temat używania Azure NetApp Files. 
 
 Dostępnych jest kilka filmów wideo, które pomagają dowiedzieć się więcej na temat Azure NetApp Files:  

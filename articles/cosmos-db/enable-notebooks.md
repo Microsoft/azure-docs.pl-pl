@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
 ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261906"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Włącz notesy dla kont Azure Cosmos DB (wersja zapoznawcza)
@@ -28,18 +28,18 @@ Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualiz
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
-1. Wybierz pozycję **Przegląd + utwórz**. Możesz pominąć opcję **Sieć** i **Tagi** . 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Możesz pominąć opcję **Sieć** i **Tagi** . 
 1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
-   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 1. Wybierz pozycję **Przejdź do zasobu**, aby przejść do strony konta usługi Azure Cosmos DB.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Strona konta usługi Azure Cosmos DB":::
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 1. Przejdź do okienka **Eksplorator danych** . Zobaczysz teraz obszar roboczy notesy.
 
-    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Nowy obszar roboczy notesy Azure Cosmos DB":::
+    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 ## <a name="enable-notebooks-in-an-existing-cosmos-account"></a>Włącz Notesy na istniejącym koncie Cosmos
 
@@ -48,7 +48,7 @@ Możesz również włączyć Notesy na istniejących kontach. Ten krok należy w
 1. Przejdź do okienka **Eksplorator danych** na koncie Cosmos.
 1. Wybierz pozycję **Włącz notesy**.
 
-    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Utwórz nowy obszar roboczy notesy w Eksplorator danych":::
+    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 1. Spowoduje to wyświetlenie monitu o utworzenie nowego obszaru roboczego notesów. Wybierz pozycję **Ukończ instalację.**
 1. Twoje konto ma teraz możliwość korzystania z notesów!
@@ -59,18 +59,18 @@ Aby sprawdzić, czy możesz używać notesów, wybierz jeden z notesów w obszar
 
 W tym przykładzie użyjemy **GettingStarted. ipynb**. 
 
-:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Wyświetlanie notesu GettingStarted. ipynb":::
+:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 Aby uruchomić Notes:
 1. Wybierz pierwszą komórkę kodu zawierającą kod języka Python. 
 1. Wybierz pozycję **Uruchom** , aby uruchomić komórkę. Możesz również użyć **klawiszy SHIFT + ENTER** , aby uruchomić komórkę.
 1. Odśwież okienko zasobów, aby wyświetlić bazę danych i kontener, które zostały utworzone.
 
-    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Uruchamianie notesu wprowadzającego":::
+    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 Możesz również wybrać opcję **Nowy Notes** , aby utworzyć nowy Notes lub przekazać istniejący plik notesu (. ipynb), wybierając opcję **Przekaż plik** z menu **Moje notesy** . 
 
-:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Utwórz lub Przekaż nowy Notes":::
+:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
 ## <a name="next-steps"></a>Następne kroki
 

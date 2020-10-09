@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887329"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenariusz: `hbase hbck` polecenie zwraca niespójności w usłudze Azure HDInsight
 
 W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: region nie znajduje się w`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: region nie znajduje się w `hbase:meta`
 
 Region xxx w systemie plików HDFS, ale nie jest wymieniony na `hbase:meta` żadnym serwerze regionów ani wdrożony na żadnym z nich.
 
@@ -67,7 +67,7 @@ Różni się.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ręcznie scal te nakładające się regiony. Przejdź do sekcji tabela interfejsu użytkownika sieci Web HBase serwera hmaster, wybierz łącze tabela, która zawiera problem. Zostanie wyświetlony klucz Start/klucz końcowy każdego regionu należącego do tej tabeli. Następnie Scal te nakładające się regiony. W programie HBase Shell wykonaj polecenie `merge_region 'xxxxxxxx','yyyyyyy', true` . Przykład:
+Ręcznie scal te nakładające się regiony. Przejdź do sekcji tabela interfejsu użytkownika sieci Web HBase serwera hmaster, wybierz łącze tabela, która zawiera problem. Zostanie wyświetlony klucz Start/klucz końcowy każdego regionu należącego do tej tabeli. Następnie Scal te nakładające się regiony. W programie HBase Shell wykonaj polecenie `merge_region 'xxxxxxxx','yyyyyyy', true` . Na przykład:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,7 +81,7 @@ W tym scenariuszu należy scalić region i RegionC i uzyskać region z tym samym
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problem: nie można załadować`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problem: nie można załadować `.regioninfo`
 
 Nie można załadować `.regioninfo` dla regionu `/hbase/data/default/tablex/regiony` .
 

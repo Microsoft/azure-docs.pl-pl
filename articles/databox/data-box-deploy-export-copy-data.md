@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259134"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742387"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Samouczek: Kopiowanie danych z urządzenia Azure Data Box za pośrednictwem protokołu SMB (wersja zapoznawcza)
 
@@ -50,7 +50,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Wybierz pozycję **Pobierz poświadczenia**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu. 
 
-    ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Pobieranie poświadczeń udziału](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Kliknij przycisk **OK**.
     
@@ -75,7 +75,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Wybierz przycisk **OK**, aby otworzyć Eksploratora plików.
     
-    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Teraz udziały powinny być widoczne jako foldery.
     

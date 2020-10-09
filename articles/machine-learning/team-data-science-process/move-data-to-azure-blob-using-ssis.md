@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322859"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Przenoszenie danych do i z usługi Azure Blob Storage przy użyciu łączników usług SSIS
@@ -81,7 +81,7 @@ Parametry używane przez zadanie są opisane tutaj:
 ## <a name="download-data-from-azure-blob-storage"></a>Pobieranie danych z usługi Azure Blob Storage
 Aby pobrać dane z usługi Azure Blob Storage do magazynu lokalnego przy użyciu usług SSIS, użyj wystąpienia [zadania pobierania obiektów blob platformy Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
-## <a name="more-advanced-ssis-azure-scenarios"></a>Bardziej zaawansowane scenariusze usług SSIS — Azure
+## <a name="more-advanced-ssis-azure-scenarios"></a>Bardziej zaawansowane scenariusze SSIS-Azure
 Pakiet Feature Pack dla usług SSIS umożliwia obsługę bardziej złożonych przepływów przez pakowanie zadań jednocześnie. Na przykład dane obiektów BLOB mogą być przekazywane bezpośrednio do klastra usługi HDInsight, którego dane wyjściowe można pobrać z powrotem do obiektu BLOB, a następnie do magazynu lokalnego. W przypadku usług SSIS można uruchamiać zadania Hive i świńskie w klastrze usługi HDInsight przy użyciu dodatkowych łączników usług SSIS:
 
 * Aby uruchomić skrypt Hive w klastrze usługi Azure HDInsight przy użyciu usług SSIS, użyj [zadania Hive usługi Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).

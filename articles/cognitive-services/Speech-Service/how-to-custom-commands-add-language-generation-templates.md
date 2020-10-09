@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85307829"
 ---
-# <a name="add-language-generation-templates-for-speech-responses"></a>Dodawanie szablonów generowania języka dla odpowiedzi na mowę
+# <a name="add-language-generation-templates-for-speech-responses"></a>Dodawanie szablonów generowania języka na potrzeby odpowiedzi mowy
 
 W tym artykule dowiesz się, jak używać szablonów generowania języka z poleceniami niestandardowymi. Szablony generowania języka umożliwiają dostosowanie odpowiedzi wysyłanych do klienta i wprowadzenie wariancji w odpowiedziach. Dostosowanie generowania języka można osiągnąć przez:
 
@@ -97,7 +97,7 @@ Edytuj sekcję **Actions** istniejącej reguły ukończenia **ConfirmationRespon
 * Dane wejściowe: Wyłącz światła pokojowe
 * Wynik: OK, wyłączanie sygnalizatorów pokoju
 
-## <a name="use-custom-voice"></a>Korzystanie z niestandardowego głosu
+## <a name="use-custom-voice"></a>Używanie głosu niestandardowego
 
 Innym sposobem dostosowania odpowiedzi na polecenia niestandardowe jest wybranie niestandardowego głosu wyjściowego. Wykonaj następujące kroki, aby przełączyć domyślny głos na niestandardowy.
 

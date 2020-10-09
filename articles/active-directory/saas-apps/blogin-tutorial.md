@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 2a50d7b037cec2c10f83fdbbd875f80513c00a6d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88517070"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą blogu
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     
     | Nazwa | Atrybut źródłowy |
     | ------ | --------- |
-    | tytuł |user.jobtitle |
+    | title |user.jobtitle |
     
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
@@ -141,7 +141,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 Aby skonfigurować Logowanie jednokrotne na stronie **blogu** na koncie blogu i wykonaj następujące czynności:
 
 1. Przejdź do pozycji **Ustawienia**  >  **uwierzytelnianie użytkowników**  >  **Skonfiguruj Logowanie jednokrotne & Inicjowanie obsługi użytkowników**.
-2. Na następnym ekranie Zmień stan logowania jednokrotnego na **włączone** , a następnie wybierz niestandardową nazwę przycisku logowania jednokrotnego, który będzie wyświetlany na ekranie logowania.
+2. Na następnym ekranie Zmień stan Sign-On na **włączone** , a następnie wybierz niestandardową nazwę przycisku logowania jednokrotnego, który będzie wyświetlany na ekranie logowania.
 
 3. Jeśli **adres URL metadanych federacji aplikacji** został zapisany w ostatnim kroku poprzedniej sekcji, wybierz **adres URL metadanych** metody konfiguracji i wklej **adres URL metadanych federacji aplikacji** do pola adres URL metadanych. W przeciwnym razie zmień metodę konfiguracji na **ręcznie, ręcznie**Wypełnij **adres URL logowania jednokrotnego dostawcy tożsamości (adres URL rejestracji)** i **wystawcę dostawcy tożsamości (identyfikator jednostki)**, a następnie Przekaż **certyfikat (base64)**   uzyskany z usługi Azure AD.
 
@@ -165,7 +165,7 @@ Po kliknięciu kafelka bloga w panelu dostępu należy automatycznie zalogować 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

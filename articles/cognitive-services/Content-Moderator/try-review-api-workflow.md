@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72754179"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definiowanie przepływów pracy moderowania (REST) i korzystanie z nich
@@ -43,7 +43,7 @@ Wprowadź wartości dla **zespołu**, **przepływu pracy**i **OCP-APIM-Subscript
 
 ### <a name="enter-a-workflow-definition"></a>Wprowadź definicję przepływu pracy
 
-1. Edytuj pole **treści żądania** , aby wprowadzić żądanie JSON zawierające szczegóły **opisu** i **typu** ( `Image` albo `Text`).
+1. Edytuj pole **treści żądania** , aby wprowadzić żądanie JSON zawierające szczegóły **opisu** i **typu** (albo `Image` `Text` ).
 2. W polu **wyrażenie**Skopiuj domyślne wyrażenie JSON przepływu pracy. Końcowy ciąg JSON powinien wyglądać następująco:
 
 ```json
@@ -80,11 +80,11 @@ Wprowadź wartości dla **zespołu**, **przepływu pracy**i **OCP-APIM-Subscript
 
 ### <a name="submit-your-request"></a>Prześlij żądanie
   
-Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK`i zostanie wyświetlone `true`pole **zawartość odpowiedzi** .
+Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK` i zostanie wyświetlone pole **zawartość odpowiedzi** `true` .
 
 ### <a name="examine-the-new-workflow"></a>Badanie nowego przepływu pracy
 
-W [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com/)wybierz **pozycję Ustawienia** > **przepływy pracy**. Nowy przepływ pracy powinien pojawić się na liście.
+W [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com/)wybierz pozycję **Ustawienia**  >  **przepływy pracy**. Nowy przepływ pracy powinien pojawić się na liście.
 
 ![Lista narzędzi do przeglądu przepływów pracy](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. Upewnij się, 
 
 ![Pobierz parametry i nagłówki zapytania](images/workflow-get-default.PNG)
 
-Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK`, a w polu **zawartość odpowiedzi** zostanie wyświetlony przepływ pracy w formacie JSON, podobny do następującego:
+Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlony przepływ pracy w formacie JSON, podobny do następującego:
 
 ```json
 {

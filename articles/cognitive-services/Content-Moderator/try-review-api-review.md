@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72757136"
 ---
 # <a name="create-human-reviews-rest"></a>Tworzenie przeglądów ludzkich (REST)
@@ -129,13 +129,13 @@ W domyślnej treści żądania przedstawiono przykłady różnych typów przegl�
 
 ### <a name="submit-your-request"></a>Prześlij żądanie
   
-Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK`, a w polu **zawartość odpowiedzi** zostanie wyświetlony Identyfikator przeglądu. Skopiuj ten identyfikator, aby użyć go w poniższych krokach.
+Wybierz pozycję **Wyślij**. Jeśli operacja się powiedzie, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostanie wyświetlony Identyfikator przeglądu. Skopiuj ten identyfikator, aby użyć go w poniższych krokach.
 
 ![Przegląd — Tworzenie pola zawartość odpowiedzi konsoli wyświetla identyfikator przeglądu](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Zbadaj nowy przegląd
 
-W [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com)wybierz **pozycję Przeglądaj** > **wideo** **tekst**/**obrazu**/(w zależności od użytej zawartości). Zaprzekazywana zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi.
+W [narzędziu do przeglądu](https://contentmoderator.cognitive.microsoft.com)wybierz pozycję **Przeglądaj**  >  **Image** / **Text** / **wideo** tekst obrazu (w zależności od użytej zawartości). Zaprzekazywana zawartość powinna zostać wyświetlona, gotowa do przeglądu przez ludzi.
 
 ![Zapoznaj się z obrazem narzędzia piłka nożna](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ Wprowadź parametry wywołania REST zgodnie z powyższą sekcją. W tym kroku **
 
 ![Przegląd — tworzenie wyników Get konsoli](images/test-drive-review-3.PNG)
   
-Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to, `200 OK`a w polu **zawartość odpowiedzi** zostaną wyświetlone szczegóły przeglądu w formacie JSON, takie jak następujące:
+Wybierz pozycję **Wyślij**. Jeśli operacja powiedzie się, **stan odpowiedzi** to `200 OK` , a w polu **zawartość odpowiedzi** zostaną WYŚWIETLONE szczegóły przeglądu w formacie JSON, takie jak następujące:
 
 ```json
 {  

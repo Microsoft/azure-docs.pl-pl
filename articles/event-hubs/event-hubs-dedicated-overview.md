@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie dedykowanych Event Hubs platformy A
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322449"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie Event Hubs — warstwa Dedykowana
@@ -38,10 +38,10 @@ W przypadku dużych ilości danych wejściowych (>100 TUs) klaster jest kosztem 
 
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Cecha | Standardowa (Standard) | Dedykowane |
+| Cecha | Standardowa | Dedykowane |
 | --- |:---:|:---:|
 | Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
-| Przestrzenie nazw |  1 | 50 na CU |
+| Namespaces |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
 | Rozmiar komunikatu | 1 000 000 bajtów | 1 000 000 bajtów |

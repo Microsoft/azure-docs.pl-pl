@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72968740"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Automatycznie zidentyfikuj i transkrypcja zawartość w wielu językach (wersja zapoznawcza)
@@ -23,7 +23,7 @@ Video Indexer obsługuje automatyczne identyfikowanie i transkrypcję języka w 
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Wybieranie wielojęzycznej identyfikacji na indeksowanie za pomocą portalu
 
-Można wybrać **wykrywanie wielu języków** podczas przekazywania i indeksowania wideo. Alternatywnie można wybrać **wykrywanie wielu języków** podczas ponownego indeksowania wideo. Poniższe kroki opisują sposób ponownego indeksowania:
+Można wybrać **wykrywanie wielu języków** podczas przekazywania i indeksowania wideo. Alternatywnie można wybrać **wykrywanie wielu języków**  podczas ponownego indeksowania wideo. Poniższe kroki opisują sposób ponownego indeksowania:
 
 1. Przejdź do witryny internetowej [Video Indexer](https://vi.microsoft.com/) i zaloguj się.
 1. Przejdź do strony **Biblioteka** i umieść kursor nad nazwą wideo, które chcesz ponownie zindeksować. 

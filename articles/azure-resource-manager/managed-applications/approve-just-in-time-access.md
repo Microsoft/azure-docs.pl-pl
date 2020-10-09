@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 4a3604a3256fb2d3f4253891bbc28c7685748cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651022"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Konfigurowanie i zatwierdzanie dostępu just in Time do Azure Managed Applications
@@ -37,7 +37,7 @@ Ten artykuł koncentruje się na działaniach podejmowanych przez klientów w ce
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Znajdź wpis w witrynie Marketplace dla aplikacji zarządzanej z włączoną funkcją JIT. Wybierz pozycję **Utwórz**.
+1. Znajdź wpis w witrynie Marketplace dla aplikacji zarządzanej z włączoną funkcją JIT. Wybierz przycisk **Utwórz**.
 
 1. Podczas udostępniania wartości dla nowej aplikacji zarządzanej, krok **konfiguracji JIT** umożliwia włączenie lub wyłączenie dostępu JIT dla aplikacji zarządzanej. Wybierz opcję **tak** , aby **włączyć dostęp JIT**. Ta opcja jest domyślnie wybrana dla aplikacji zarządzanych, które zdefiniowano przy użyciu JIT w portalu Marketplace.
 

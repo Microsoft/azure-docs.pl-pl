@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263351"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Połącz Qlik sens, aby Azure Cosmos DB i wizualizować dane
@@ -62,15 +62,15 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz goto
 
 4. Przejdź do **nazwy DSN użytkownika** i wybierz utworzone wcześniej połączenie ODBC. Podaj nazwę połączenia i wybierz pozycję **Utwórz**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Tworzenie nowego połączenia":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Utwórz nową aplikację Qlik wykrywania":::
 
 5. Po utworzeniu połączenia możesz wybrać bazę danych, kolekcję, w której znajdują się dane gry wideo, a następnie wyświetlić jej podgląd.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Wybieranie bazy danych i kolekcji"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Utwórz nową aplikację Qlik wykrywania"::: 
 
 6. Następnie wybierz pozycję **Dodaj dane** , aby załadować dane do Qlik sens. Po załadowaniu danych do Qlikego można generować szczegółowe informacje i przeprowadzać analizę danych. Możesz użyć szczegółowych informacji lub utworzyć własną aplikację Eksplorowanie sprzedaży gier wideo. Na poniższej ilustracji przedstawiono 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Wizualizowanie danych":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Utwórz nową aplikację Qlik wykrywania":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Ograniczenia dotyczące nawiązywania połączenia z ODBC 
 

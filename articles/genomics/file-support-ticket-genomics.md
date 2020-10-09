@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72248610"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Jak skontaktować się z Microsoft Genomics w celu uzyskania pomocy technicznej
@@ -32,7 +32,7 @@ Następnie wybierz pozycję `New support request` .
 
 ![Nowy wniosek o pomoc techniczną](./media/file-support-ticket/new-support-request.png "Nowy wniosek o pomoc techniczną") 
 
-Wypełnij pola `Basics` , w tym `Issue type` i `Subscription` . Wybierz najbardziej odpowiednie `Issue type` dla problemu, jak na przykład na poniższym obrazie `Technical` . Upewnij się, że wybrano `Microsoft Genomics` odpowiednią usługę.  `Microsoft Genomics`zostanie wyświetlona w `Intelligence and Analytics` kategorii.   Po wybraniu tej opcji zostanie `Microsoft Genomics` wyświetlony monit o podanie `Support plan` typu.
+Wypełnij pola `Basics` , w tym `Issue type` i `Subscription` . Wybierz najbardziej odpowiednie `Issue type` dla problemu, jak na przykład na poniższym obrazie `Technical` . Upewnij się, że wybrano `Microsoft Genomics` odpowiednią usługę.  `Microsoft Genomics` zostanie wyświetlona w `Intelligence and Analytics` kategorii.   Po wybraniu tej opcji zostanie `Microsoft Genomics` wyświetlony monit o podanie `Support plan` typu.
 
 ![Podstawowe informacje Support request](./media/file-support-ticket/support-request-basics.png "Podstawowe informacje Support request")
 

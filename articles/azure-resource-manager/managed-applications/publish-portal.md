@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651724"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publikowanie aplikacji katalogu usług za pomocą Azure Portal
@@ -30,7 +30,7 @@ Plik. zip, który zawiera definicję aplikacji zarządzanej, musi być dostępny
 
 1. Wyszukaj **Katalog usług**.
 
-1. W wynikach przewiń do momentu znalezienia **definicji aplikacji zarządzanej katalogu usług**. Wybierz ją.
+1. W wynikach przewiń do momentu znalezienia **definicji aplikacji zarządzanej katalogu usług**. Wybierz go.
 
    ![Wyszukaj definicje aplikacji zarządzanych](./media/publish-portal/select-managed-apps-definition.png)
 
