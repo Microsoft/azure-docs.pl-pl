@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087428"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Przenoszenie danych do usługi Azure SQL Database dla usługi Azure Machine Learning
@@ -43,13 +43,13 @@ Procedury opisane w tym miejscu wymagają:
 
 Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub postępować zgodnie z instrukcjami opisanymi przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Przeniesienie danych z prostego źródła pliku do Azure SQL Database
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Przeniesienie danych z prostego źródła pliku do Azure SQL Database
 Dane w plikach prostych (CSV lub TSV) można przenieść do Azure SQL Database przy użyciu zbiorczego zapytania SQL.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Wstaw zbiorczo zapytanie SQL
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Wstaw zbiorczo zapytanie SQL
 Kroki procedury korzystającej z zapytania BULK INSERT SQL są podobne do wskazówek dotyczących przeniesienia danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bulk Wstaw zapytanie SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Przeniesienie danych z SQL Server do Azure SQL Database
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Przeniesienie danych z SQL Server do Azure SQL Database
 Jeśli dane źródłowe są przechowywane w SQL Server, istnieją różne możliwości przeniesienia danych do Azure SQL Database:
 
 1. [Eksportuj do pliku prostego](#export-flat-file)

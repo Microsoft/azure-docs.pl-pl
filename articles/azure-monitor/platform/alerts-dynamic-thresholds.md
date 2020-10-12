@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81261078"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alerty metryk z progami dynamicznymi w Azure Monitor
@@ -61,7 +61,7 @@ Można wybrać alert, który zostanie wyzwolony na jednym z następujących trze
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Co oznaczają ustawienia zaawansowane progów dynamicznych?
 
-**Okresy zakończone niepowodzeniem** — progi dynamiczne umożliwiają również skonfigurowanie "naruszeń liczbowych w celu wyzwolenia alertu", co oznacza minimalną liczbę odchyleń w określonym przedziale czasu dla systemu, aby zgłosić alert (domyślny przedział czasu to cztery odchylenia w ciągu 20 minut). Użytkownik może skonfigurować okresy zakończone niepowodzeniem i wybrać, do czego ma być wysyłany alert, zmieniając okresy niepowodzenia i przedział czasu. Ta możliwość zmniejsza poziom hałasu alertu wygenerowanego przez przejścia przejściowe. Przykład:
+**Okresy zakończone niepowodzeniem** — progi dynamiczne umożliwiają również skonfigurowanie "naruszeń liczbowych w celu wyzwolenia alertu", co oznacza minimalną liczbę odchyleń w określonym przedziale czasu dla systemu, aby zgłosić alert (domyślny przedział czasu to cztery odchylenia w ciągu 20 minut). Użytkownik może skonfigurować okresy zakończone niepowodzeniem i wybrać, do czego ma być wysyłany alert, zmieniając okresy niepowodzenia i przedział czasu. Ta możliwość zmniejsza poziom hałasu alertu wygenerowanego przez przejścia przejściowe. Na przykład:
 
 Aby wyzwolić alert, gdy problem jest ciągły przez 20 minut, 4 kolejne razy w danym okresie grupowania 5 minut, użyj następujących ustawień:
 

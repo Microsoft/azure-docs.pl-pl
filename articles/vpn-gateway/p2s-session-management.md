@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274237"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Zarządzanie sesjami sieci VPN typu punkt-lokacja
@@ -33,7 +33,7 @@ Aby wyświetlić i rozłączyć sesję w portalu:
 1. Wszystkie bieżące sesje można wyświetlić w WindowPane.
 1. Wybierz pozycję **"..."** dla sesji, którą chcesz odłączyć, a następnie wybierz pozycję **Rozłącz**.
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Aby wyświetlić i rozłączyć sesję przy użyciu programu PowerShell:
 
@@ -44,7 +44,7 @@ Aby wyświetlić i rozłączyć sesję przy użyciu programu PowerShell:
    ```
 1. Skopiuj **VpnConnectionId** sesji, którą chcesz rozłączyć.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Przykład programu PowerShell":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Przykład portalu":::
 1. Aby rozłączyć sesję, uruchom następujące polecenie:
 
    ```azurepowershell-interactive

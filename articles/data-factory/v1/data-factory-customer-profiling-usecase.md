@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021895"
 ---
 # <a name="use-case---customer-profiling"></a>Przypadek użycia — profilowanie klientów
@@ -63,6 +63,6 @@ Ten rysunek przedstawia sposób, w jaki potoki danych pojawiają się w Azure Po
 
 W tym przykładzie Data Factory jest używany do organizowania działań, które kopiują dane wejściowe, przekształcają i przetwarzają dane, a następnie wyprowadzają końcowe dane do Azure SQL Database.  Możesz również wizualizować sieć potoków danych, zarządzać nimi i monitorować ich stan za pomocą interfejsu użytkownika.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 Przez optymalizację analizy profilu użytkownika i dostosowanie jej do celów firmy, firma gier może szybko zbierać wzorce użycia i analizować efektywność kampanii marketingowych.
 

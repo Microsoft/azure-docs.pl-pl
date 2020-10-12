@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71327051"
 ---
 Aby utworzyć projekt programu Visual Studio dla rozwoju systemu Windows, musisz utworzyć projekt, skonfigurować program Visual Studio do tworzenia aplikacji klasycznych platformy .NET, zainstalować zestaw Speech SDK i wybrać architekturę docelową.
@@ -25,7 +25,7 @@ Aby rozpocząć, Utwórz projekt w programie Visual Studio i upewnij się, że p
 
 1. W oknie **Konfigurowanie nowego projektu** wprowadź wartość *HelloWorld* w polu **Nazwa projektu**, wybierz lub Utwórz ścieżkę katalogu w **lokalizacji**, a następnie wybierz pozycję **Utwórz**.
 
-1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**, które otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie** .
+1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**, które otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie** .
 
 1. Sprawdź, czy jest dostępne obciążenie **Programowanie aplikacji klasycznych dla platformy .NET** . Jeśli obciążenie nie zostało zainstalowane, zaznacz pole wyboru obok niego, a następnie wybierz pozycję **Modyfikuj** , aby rozpocząć instalację. Pobranie i zainstalowanie tego składnika może potrwać kilka minut.
 
@@ -61,7 +61,7 @@ Następnym krokiem jest zainstalowanie [pakietu NuGet zestawu Speech SDK](https:
 
 Teraz, aby skompilować i uruchomić aplikację konsolową, Utwórz konfigurację platformy zgodną z architekturą komputera.
 
-1. Na pasku menu wybierz kolejno opcje **Kompiluj** > **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Configuration Manager** .
+1. Na pasku menu wybierz kolejno opcje **Kompiluj**  >  **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Configuration Manager** .
 
    ![Okno dialogowe Configuration Manager](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

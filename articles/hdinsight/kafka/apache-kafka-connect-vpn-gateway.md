@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
 ms.openlocfilehash: ca5bff7f8a14efc0916210296048e3731aec5a59
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87873470"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Nawiązywanie połączenia z platformą Apache Kafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure
@@ -58,7 +58,7 @@ Usługa HDInsight nie zezwala na bezpośrednie łączenie się z usługą Kafka 
 
 Aby uzyskać więcej informacji na temat korzystania z usługi HDInsight w sieci wirtualnej, zobacz [Planowanie sieci wirtualnej dla klastrów usługi Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
-## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a>Nawiązywanie połączenia z Apache Kafka z sieci lokalnej
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Nawiązywanie połączenia z Apache Kafka z sieci lokalnej
 
 Aby utworzyć klaster Kafka, który komunikuje się z siecią lokalną, wykonaj kroki opisane w dokumencie [łączenie usługi HDInsight z](./../connect-on-premises-network.md) lokalnym dokumentem sieciowym.
 
@@ -74,7 +74,7 @@ W tym kroku opisano tworzenie następującej konfiguracji:
 
 Aby sprawdzić, czy klient Kafka może połączyć się z klastrem ze środowiska lokalnego, wykonaj kroki opisane w sekcji [przykład: klient języka Python](#python-client) .
 
-## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a>Nawiązywanie połączenia z Apache Kafka z klientem sieci VPN
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> Nawiązywanie połączenia z Apache Kafka z klientem sieci VPN
 
 Wykonaj kroki opisane w tej sekcji, aby utworzyć następującą konfigurację:
 
@@ -290,7 +290,7 @@ Domyślnie Apache dozorcy zwraca nazwę domeny brokerów Kafka do klientów. Ta 
 
 Aby nawiązać połączenie z bramą sieci VPN, użyj sekcji __łączenie z platformą Azure__ w dokumencie [Konfigurowanie połączenia punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) .
 
-## <a name="example-python-client"></a><a id="python-client"></a>Przykład: klient języka Python
+## <a name="example-python-client"></a><a id="python-client"></a> Przykład: klient języka Python
 
 Aby sprawdzić poprawność łączności z usługą Kafka, wykonaj następujące kroki, aby utworzyć i uruchomić producenta i klienta języka Python:
 

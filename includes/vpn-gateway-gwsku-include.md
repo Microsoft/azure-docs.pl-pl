@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74085263"
 ---
 Podczas tworzenia bramy sieci wirtualnej musisz wybrać jednostkę SKU bramy do użycia. Wybierz jednostkę SKU spełniającą Twoje wymagania na podstawie typów obciążeń, przepustowości, funkcji i umów SLA. W przypadku jednostek SKU bramy sieci wirtualnej w Strefy dostępności platformy Azure zobacz [jednostki SKU bramy strefy dostępności platformy Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
@@ -41,7 +41,7 @@ Nowe jednostki SKU bramy sieci VPN usprawniają zestawy funkcji oferowane przez 
 
 ( \* \* ) Podstawowa jednostka SKU jest uznawana za starszą wersję SKU. Podstawowa jednostka SKU ma pewne ograniczenia w zakresie funkcji. Rozmiaru bramy, która korzysta z podstawowej jednostki SKU, nie można zmienić na jedną z nowych jednostek SKU bramy. Zamiast tego należy przejść na nową jednostkę SKU, co wiąże się z koniecznością usunięcia i ponownego utworzenia bramy sieci VPN.
 
-###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Jednostki SKU bramy — zadania produkcyjne i deweloperskie i testowe
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Jednostki SKU bramy — obciążenia produkcyjne a Dev-Test
 
 Z powodu różnic w umowach SLA i zestawach funkcji zaleca się następujące jednostki SKU dla trybu produkcyjnego i w środowisku tworzenia i testowania:
 

@@ -1,7 +1,7 @@
 ---
 title: Przesyłanie strumieniowe zawartości z integracją z usługą CDN
 titleSuffix: Azure Media Services
-description: Dowiedz się więcej na temat przesyłania strumieniowego zawartości z integracją z usługą CDN, a także pobierania i pochodzenie do usługi CDN — pobieranie z wyprzedzeniem.
+description: Dowiedz się więcej na temat przesyłania strumieniowego zawartości z integracją usługi CDN, a także pobierania i Origin-Assist usługi CDN — pobieranie z wyprzedzeniem.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291283"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
@@ -32,7 +32,7 @@ Popularna zawartość będzie obsługiwana bezpośrednio z pamięci podręcznej 
 Należy również wziąć pod uwagę sposób działania adaptacyjnego przesyłania strumieniowego. Każdy pojedynczy fragment wideo jest buforowany jako jego własny obiekt. Na przykład załóżmy, że po raz pierwszy oglądasz film wideo. Jeśli podgląd pominie około zaledwie kilku sekund, a tylko fragmenty wideo skojarzone z tym, co ktoś ogląda w pamięci podręcznej w usłudze CDN. Dzięki adaptacyjnemu przesyłaniu strumieniowym zazwyczaj masz od 5 do 7 różnych szybkości transmisji wideo. Jeśli jedna osoba ogląda jedną szybkość transmisji bitów, a inna osoba ogląda inną szybkość transmisji bitów, to każda z nich jest buforowana osobno w sieci CDN. Nawet jeśli dwie osoby oglądają tę samą szybkość transmisji bitów, mogą one być przesyłane strumieniowo za pośrednictwem różnych protokołów. Każdy protokół (HLS, MPEG-KRESKa, Smooth Streaming) jest buforowany osobno. Dlatego każda szybkość transmisji bitów i protokół są buforowane oddzielnie, a tylko te fragmenty wideo, które zostały żądane, są buforowane.
 
 Z wyjątkiem środowiska testowego zalecamy włączenie usługi CDN dla punktów końcowych przesyłania strumieniowego w warstwach Standardowa i Premium. Każdy typ punktu końcowego przesyłania strumieniowego ma inny obsługiwany limit przepływności.
-Trudno jest precyzyjnie obliczyć maksymalną liczbę współbieżnych strumieni obsługiwanych przez punkt końcowy przesyłania strumieniowego, ponieważ istnieją różne czynniki, które należy wziąć pod uwagę. Należą do nich następujące elementy:
+Trudno jest precyzyjnie obliczyć maksymalną liczbę współbieżnych strumieni obsługiwanych przez punkt końcowy przesyłania strumieniowego, ponieważ istnieją różne czynniki, które należy wziąć pod uwagę. Należą do nich:
 
 - Maksymalna szybkość transmisji bitów użyta na potrzeby przesyłania strumieniowego
 - Zachowanie przed buforowaniem i przełączeniem odtwarzacza. Gracze próbują połączyć segmenty ze źródła i wykorzystać szybkość ładowania do obliczenia przełączania z adaptacyjną szybkością transmisji bitów. Jeśli punkt końcowy przesyłania strumieniowego zostanie zbliżony do nasycenia, czasy odpowiedzi mogą się różnić, a gracze zaczynają przełączać się do niższej jakości. Ponieważ zmniejsza to obciążenie odtwarzaczy punktów końcowych przesyłania strumieniowego, można skalować z powrotem do wyższej jakości, tworząc niepożądane wyzwalacze.
@@ -67,7 +67,7 @@ Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN 
 
 Można określić, czy zmiana DNS została wprowadzona w punkcie końcowym przesyłania strumieniowego (ruch jest kierowany do Azure CDN) za pomocą programu <https://www.digwebinterface.com> . Jeśli w wynikach pojawią się azureedge.net nazwy domen, ruch jest teraz wskazywany do sieci CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Pochodzenie — pomoc w sieci CDN — pobieranie z wyprzedzeniem
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 Buforowanie sieci CDN jest procesem reaktywnym. Jeśli sieć CDN będzie mogła przewidzieć żądanie następnego obiektu, Sieć CDN może proaktywnie zażądać i przechować następny obiekt w pamięci podręcznej. Dzięki temu procesowi można uzyskać trafienie pamięci podręcznej dla wszystkich (lub większości) obiektów, co zwiększa wydajność.
 
@@ -125,11 +125,11 @@ Aby wyświetlić część działania wymiany nagłówka, możesz spróbować wyk
 
     Nie, Usługa CDN — pobieranie z wyprzedzeniem odbywa się tylko po zainicjowaniu żądania/odpowiedzi przez klienta. Usługa CDN — pobieranie z wyprzedzeniem nigdy nie jest wyzwalane przez pobieranie z wyprzedzeniem, aby uniknąć pętli pobierania z wyprzedzeniem.
 
-* Czy funkcja pobierania z wyprzedzeniem usługi CDN jest zawsze włączona? Jak można ją włączyć/wyłączyć?
+* Czy funkcja jest Origin-Assist CDN-Prefetch zawsze włączona? Jak można ją włączyć/wyłączyć?
 
     Ta funkcja jest domyślnie wyłączona. Klienci muszą ją włączyć za pośrednictwem interfejsu API Akamai.
 
-* W przypadku przesyłania strumieniowego na żywo, co się stało z pomocą, jeśli następny segment lub fragment nie jest jeszcze dostępny?
+* W przypadku przesyłania strumieniowego na żywo, co się stanie Origin-Assist, jeśli następny segment lub fragment nie jest jeszcze dostępny?
 
     W takim przypadku źródłem Media Services nie będzie udostępnić `CDN-Origin-Assist-Prefetch-Path` nagłówka i sieci CDN — pobieranie z wyprzedzeniem nie zostanie przeprowadzone.
 

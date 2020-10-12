@@ -10,10 +10,10 @@ ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 41e8f6f3e3562654edcc4ba347abe57e300af511
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89074229"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
@@ -74,12 +74,12 @@ Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersj
 
 | Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - | 
-| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
-| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
-| 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
-| 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
-| 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
-| 2017-03-01 | Wersja zapoznawcza | Wszystko | <li>Wersja początkowa |
+| 2019-08-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę opisu zdarzenia |
+| 2019-01-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
+| 2017-11-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
+| 2017-08-01 | Ogólna dostępność | Wszystkie | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
+| 2017-03-01 | Wersja zapoznawcza | Wszystkie | <li>Wersja początkowa |
 
 
 > [!NOTE] 
@@ -146,7 +146,7 @@ Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w opar
 |Typ zdarzenia  | Minimalny komunikat |
 | - | - |
 | Funkcja| 15 minut |
-| Ponowny rozruch | 15 minut |
+| Ponowne uruchamianie | 15 minut |
 | Ponowne wdrożenie | 10 minut |
 | Stępują | 30 sekund |
 | Zakończ | [Użytkownik konfigurowalny](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): od 5 do 15 minut |

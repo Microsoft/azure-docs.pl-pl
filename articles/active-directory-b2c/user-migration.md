@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383975"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do Azure AD B2C
@@ -38,7 +38,7 @@ Aby uzyskać informacje na temat programistycznego tworzenia kont użytkowników
 
 ## <a name="seamless-migration"></a>Bezproblemowe Migrowanie
 
-Użyj bezproblemowego przepływu migracji, jeśli hasła zwykłego tekstu w starym dostawcy tożsamości są niedostępne. Na przykład:
+Użyj bezproblemowego przepływu migracji, jeśli hasła zwykłego tekstu w starym dostawcy tożsamości są niedostępne. Może być tak na przykład, gdy:
 
 - Hasło jest przechowywane w jednokierunkowym formacie szyfrowanym, na przykład za pomocą funkcji skrótu.
 - Hasło jest przechowywane przez starszego dostawcę tożsamości w taki sposób, aby nie można było uzyskać do niego dostępu. Na przykład gdy dostawca tożsamości sprawdza poprawność poświadczeń, wywołując usługę sieci Web.

@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290195"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej
 
 Dowiedz się, jak tworzyć, zmieniać lub usuwać wirtualne sieci równorzędne. Komunikacja równorzędna sieci wirtualnych umożliwia łączenie sieci wirtualnych w tym samym regionie i między regionami (nazywanymi również globalnymi sieciami równorzędnymi) za pośrednictwem usługi Azure Websites. Po nawiązaniu połączenia równorzędnego sieci wirtualne są nadal zarządzane jako oddzielne zasoby. Jeśli jesteś nowym elementem komunikacji równorzędnej sieci wirtualnej, możesz dowiedzieć się więcej na ten temat w temacie [Omówienie komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md) lub przez ukończenie [samouczka](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

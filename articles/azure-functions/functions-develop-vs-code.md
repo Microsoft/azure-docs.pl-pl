@@ -1,17 +1,17 @@
 ---
-title: Opracowywanie Azure Functions przy użyciu Visual Studio Code
+title: Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 description: Dowiedz się, jak opracowywać i testować Azure Functions przy użyciu rozszerzenia Azure Functions dla Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206757"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie Azure Functions przy użyciu Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio Code
 
 [Rozszerzenie Azure Functions dla Visual Studio Code] umożliwia lokalne opracowywanie funkcji i wdrażanie ich na platformie Azure. Jeśli to środowisko jest pierwsze dzięki Azure Functions, możesz dowiedzieć się więcej na temat [wprowadzenia do Azure Functions](functions-overview.md).
 
@@ -27,7 +27,7 @@ Rozszerzenia można używać w następujących językach, które są obsługiwan
 * [Skrypt C#](functions-reference-csharp.md)<sup>*</sup>
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
-* [PowerShell](functions-reference-powershell.md)
+* [Program PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
 <sup>*</sup>Wymaga [Ustawienia skryptu języka C# jako domyślnego języka projektu](#c-script-projects).
@@ -93,7 +93,7 @@ Szablon projektu tworzy projekt w wybranym języku i instaluje wymagane zależno
 
 W zależności od języka tworzone są te inne pliki:
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 * [Plik biblioteki klas HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) , który implementuje funkcję.
 
@@ -125,7 +125,7 @@ Możesz również [dodać nową funkcję do projektu](#add-a-function-to-your-pr
 
 Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane w pakietach rozszerzeń. Należy zainstalować pakiety rozszerzeń dla wyzwalaczy i powiązań, które ich potrzebują. Proces instalacji rozszerzeń powiązań zależy od języka projektu.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Uruchom polecenie [dotnet Add Package](/dotnet/core/tools/dotnet-add-package) w oknie terminalu, aby zainstalować pakiety rozszerzeń, które są potrzebne w projekcie. Następujące polecenie instaluje rozszerzenie usługi Azure Storage, które implementuje powiązania dla obiektów blob, Queue i Table Storage.
 
@@ -145,7 +145,7 @@ Nową funkcję można dodać do istniejącego projektu przy użyciu jednego ze w
 
 Wyniki tej akcji zależą od języka projektu:
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Do projektu zostanie dodany nowy plik biblioteki klas C# (. cs).
 
@@ -161,7 +161,7 @@ Funkcję można rozszerzyć przez dodanie powiązań wejściowych i wyjściowych
 
 Poniższe przykłady nawiązują połączenie z kolejką magazynu o nazwie `outqueue` , gdzie parametry połączenia dla konta magazynu są ustawiane w `MyStorageConnection` ustawieniach aplikacji w local.settings.jsna.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Zaktualizuj metodę funkcji, aby dodać następujący parametr do `Run` definicji metody:
 
@@ -431,7 +431,7 @@ Rozszerzenie Azure Functions zapewnia przydatny interfejs graficzny w obszarze d
 | **Instalowanie lub aktualizowanie Azure Functions Core Tools** | Instaluje lub aktualizuje [Azure Functions Core Tools], który jest używany do lokalnego uruchamiania funkcji. |
 | **Ponowne wdrożenie**  | Umożliwia ponowne wdrożenie plików projektu z połączonego repozytorium git do określonego wdrożenia na platformie Azure. Aby ponownie opublikować aktualizacje lokalne z Visual Studio Code, [Opublikuj ponownie projekt](#republish-project-files). |
 | **Zmień nazwę ustawień** | Zmienia nazwę klucza istniejącego ustawienia aplikacji funkcji na platformie Azure. To polecenie nie ma wpływu na ustawienia w local.settings.jspliku. Po zmianie nazwy ustawień na platformie Azure należy [pobrać te zmiany do projektu lokalnego](#download-settings-from-azure). |
-| **Uruchom ponownie** | Uruchamia ponownie aplikację funkcji na platformie Azure. Wdrożenie aktualizacji powoduje również ponowne uruchomienie aplikacji funkcji. |
+| **Uruchomieniu** | Uruchamia ponownie aplikację funkcji na platformie Azure. Wdrożenie aktualizacji powoduje również ponowne uruchomienie aplikacji funkcji. |
 | **Ustaw AzureWebJobsStorage**| Ustawia wartość `AzureWebJobsStorage` Ustawienia aplikacji. To ustawienie jest wymagane przez Azure Functions. Jest on ustawiany podczas tworzenia aplikacji funkcji na platformie Azure. |
 | **Początek** | Uruchamia zatrzymaną aplikację funkcji na platformie Azure. |
 | **Uruchom dzienniki przesyłania strumieniowego** | Uruchamia dzienniki przesyłania strumieniowego dla aplikacji funkcji na platformie Azure. Użyj dzienników przesyłania strumieniowego podczas zdalnego rozwiązywania problemów na platformie Azure, jeśli chcesz zobaczyć informacje o rejestrowaniu w czasie niemal rzeczywistym. Aby dowiedzieć się więcej, zobacz [dzienniki przesyłania strumieniowego](#streaming-logs). |

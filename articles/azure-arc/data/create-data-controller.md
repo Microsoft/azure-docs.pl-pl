@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273045"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
@@ -33,7 +33,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 - Platforma kontenera OpenShift (OCP)
 - AWS Elastic Kubernetes Service (EKS)
 - Aparat usługi Google Cloud Kubernetes (GKE)
-- Kubernetes "open source", zazwyczaj wdrożone przy użyciu kubeadm
+- Nadrzędna platforma Kubernetes typu open source, zwykle wdrożona za pomocą metody kubeadm
 
 > [!IMPORTANT]
 > * Minimalna obsługiwana wersja Kubernetes to v 1.14.

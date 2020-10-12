@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033170"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Przegląd zapytań dzienników w Azure Monitor
@@ -81,7 +81,7 @@ Log Analytics można uruchomić z kilku miejsc w Azure Portal. Zakres danych dos
 - Wybierz pozycję **dzienniki** na stronie **Przegląd** aplikacji Application Insights.
 - Wybierz pozycję **dzienniki** z menu zasobu platformy Azure.
 
-![Log Analytics](media/log-query-overview/log-analytics.png)
+![Usługa Log Analytics](media/log-query-overview/log-analytics.png)
 
 Zobacz artykuł Wprowadzenie do [log Analytics w Azure monitor](get-started-portal.md) , aby zapoznać się z samouczkiem dotyczącym log Analytics, które wprowadzają kilka funkcji.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/13/2020
 ms.openlocfilehash: 292d80f7fad796b2ee4f80478c55099148d7f855
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086697"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Skopiuj dane z i do usługi Salesforce przy użyciu Azure Data Factory
@@ -57,7 +57,7 @@ Usługi Salesforce mają limity dla obu żądań interfejsu API i współbieżny
 
 W obu scenariuszach może być również wyświetlany komunikat o błędzie "REQUEST_LIMIT_EXCEEDED". Aby uzyskać więcej informacji, zobacz sekcję "limity żądań interfejsu API" w obszarze [limity deweloperów usługi Salesforce](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -300,8 +300,8 @@ Podczas kopiowania danych z usługi Salesforce można użyć zapytania SOQL lub 
 
 | Składnia | Tryb SOQL | Tryb SQL |
 |:--- |:--- |:--- |
-| Wybór kolumny | Należy wyliczyć pola, które mają być skopiowane do zapytania, np.`SELECT field1, filed2 FROM objectname` | `SELECT *`jest obsługiwana oprócz zaznaczenia kolumny. |
-| Cudzysłowy | Nazwy zgłoszonych/obiektów nie mogą być ujęte w cudzysłów. | Nazwy pól/obiektów mogą być ujęte w cudzysłów, np.`SELECT "id" FROM "Account"` |
+| Wybór kolumny | Należy wyliczyć pola, które mają być skopiowane do zapytania, np. `SELECT field1, filed2 FROM objectname` | `SELECT *` jest obsługiwana oprócz zaznaczenia kolumny. |
+| Cudzysłowy | Nazwy zgłoszonych/obiektów nie mogą być ujęte w cudzysłów. | Nazwy pól/obiektów mogą być ujęte w cudzysłów, np. `SELECT "id" FROM "Account"` |
 | Format daty i godziny |  Zapoznaj się z informacjami [tutaj](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) i przykładami w następnej sekcji. | Zapoznaj się z informacjami [tutaj](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) i przykładami w następnej sekcji. |
 | Wartości logiczne | Reprezentowane jako `False` i `True` , np. `SELECT … WHERE IsDeleted=True` . | Reprezentowane jako 0 lub 1, np. `SELECT … WHERE IsDeleted=1` . |
 | Zmiana nazwy kolumny | Nieobsługiwane. | Obsługiwane, np.: `SELECT a AS b FROM …` . |
@@ -311,8 +311,8 @@ Podczas kopiowania danych z usługi Salesforce można użyć zapytania SOQL lub 
 
 Po określeniu zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Na przykład:
 
-* **Przykład SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Przykład SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Przykład SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Przykład SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Błąd MALFORMED_QUERY: obcięty
 
@@ -324,25 +324,25 @@ Podczas kopiowania danych z usługi Salesforce następujące mapowania są używ
 
 | Typ danych usługi Salesforce | Data Factory typ danych pośrednich |
 |:--- |:--- |
-| Numer Autokorekty |String (ciąg) |
+| Numer Autokorekty |Ciąg |
 | Pole wyboru |Boolean (wartość logiczna) |
-| Waluta |Wartość dziesiętna |
-| Data |DateTime |
+| Waluta |Liczba dziesiętna |
+| Date |DateTime |
 | Data/godzina |DateTime |
-| E-mail |String (ciąg) |
-| ID |String (ciąg) |
-| Relacja odnośnika |String (ciąg) |
-| Lista wyboru z wybórem |String (ciąg) |
-| Liczba |Wartość dziesiętna |
-| Procent |Wartość dziesiętna |
-| Telefon |String (ciąg) |
-| Lista wyboru |String (ciąg) |
-| Tekst |String (ciąg) |
-| Obszar tekstu |String (ciąg) |
-| Obszar tekstowy (Long) |String (ciąg) |
-| Obszar tekstowy (rozbudowany) |String (ciąg) |
-| Tekst (zaszyfrowany) |String (ciąg) |
-| Adres URL |String (ciąg) |
+| Poczta e-mail |Ciąg |
+| ID (Identyfikator) |Ciąg |
+| Relacja odnośnika |Ciąg |
+| Lista wyboru z wybórem |Ciąg |
+| Liczba |Liczba dziesiętna |
+| Procent |Liczba dziesiętna |
+| Telefon |Ciąg |
+| Lista wyboru |Ciąg |
+| Tekst |Ciąg |
+| Obszar tekstu |Ciąg |
+| Obszar tekstowy (Long) |Ciąg |
+| Obszar tekstowy (rozbudowany) |Ciąg |
+| Tekst (zaszyfrowany) |Ciąg |
+| Adres URL |Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

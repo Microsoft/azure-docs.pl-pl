@@ -12,10 +12,10 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589167"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
@@ -141,7 +141,7 @@ Nie, ten scenariusz nie jest obsługiwany, ponieważ serwer proxy aplikacji zako
 
 Zapoznaj się z tematem [publikowanie pulpit zdalny za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Czy można użyć ograniczonego delegowania protokołu Kerberos (Logowanie jednokrotne — uwierzytelnianie zintegrowane systemu Windows) w scenariuszu publikowania Pulpit zdalny bramy?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Czy można użyć ograniczonego delegowania protokołu Kerberos (Single Sign-On — uwierzytelnianie zintegrowane systemu Windows) w scenariuszu publikowania Pulpit zdalny Gateway?
 
 Nie, ten scenariusz nie jest obsługiwany.  
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7e4772ba2b3d8adf163d6f2932461e1e939ed84
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052447"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Kiedy używać dostawcy usługi Azure Multi-Factor Authentication

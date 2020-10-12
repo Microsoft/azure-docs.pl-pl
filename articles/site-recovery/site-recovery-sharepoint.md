@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135394"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji SharePoint na potrzeby odzyskiwania po awarii przy użyciu Azure Site Recovery
 
-W tym artykule szczegółowo opisano sposób ochrony aplikacji programu SharePoint przy użyciu [Azure Site Recovery](site-recovery-overview.md).
+W tym artykule szczegółowo opisano sposób ochrony aplikacji programu SharePoint przy użyciu  [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Omówienie
@@ -62,10 +62,10 @@ Site Recovery to Application-niezależny od i powinna działać z dowolną wersj
 
 **Scenariusz** | **Do lokacji dodatkowej** | **Na platformie Azure**
 --- | --- | ---
-**Funkcja Hyper-V** | Tak | Tak
+**Hyper-V** | Tak | Tak
 **VMware** | Tak | Tak
 **Serwer fizyczny** | Tak | Tak
-**Azure** | Nie dotyczy | Tak
+**Azure** | Nie dotyczy | Yes
 
 
 ### <a name="things-to-keep-in-mind"></a>Rzeczy, o których należy pamiętać
@@ -170,7 +170,7 @@ Najczęściej używane skrypty Azure Site Recovery można wdrożyć na koncie us
 
     * W tej metodzie przyjęto założenie, że kopia zapasowa bazy danych "Search Administration" jest dostępna w witrynie odzyskiwania po awarii.
     * Ponieważ inne bazy danych aplikacji Search Service nie są replikowane, muszą zostać ponownie utworzone. W tym celu przejdź do okna Administracja centralna i Usuń aplikację Search Service. Na każdym serwerze, który hostuje indeks wyszukiwania, Usuń pliki indeksów.
-    * Utwórz ponownie aplikację Search Service i ponownie utworzy bazy danych. Zaleca się utworzenie przygotowanego skryptu, który odtwarza tę aplikację usługi, ponieważ nie jest możliwe wykonywanie wszystkich akcji za pośrednictwem graficznego interfejsu użytkownika. Na przykład ustawienie lokalizacji dysku indeksu i skonfigurowanie topologii wyszukiwania jest możliwe tylko przy użyciu poleceń cmdlet programu SharePoint PowerShell. Użyj polecenia cmdlet Restore-SPEnterpriseSearchServiceApplication programu Windows PowerShell i określ bazę danych z dziennikami, które zostały wysłane i zreplikowane, Search_Service__DB. To polecenie cmdlet zapewnia konfigurację wyszukiwania, schemat, zarządzane właściwości, reguły i źródła, a następnie tworzy domyślny zestaw innych składników.
+    * Utwórz ponownie aplikację Search Service i ponownie utworzy bazy danych. Zaleca się utworzenie przygotowanego skryptu, który odtwarza tę aplikację usługi, ponieważ nie jest możliwe wykonywanie wszystkich akcji za pośrednictwem graficznego interfejsu użytkownika. Na przykład ustawienie lokalizacji dysku indeksu i skonfigurowanie topologii wyszukiwania jest możliwe tylko przy użyciu poleceń cmdlet programu SharePoint PowerShell. Użyj polecenia cmdlet programu Windows PowerShell Restore-SPEnterpriseSearchServiceApplication i określ bazę danych z dziennikami, które zostały wysłane i zreplikowane, Search_Service__DB. To polecenie cmdlet zapewnia konfigurację wyszukiwania, schemat, zarządzane właściwości, reguły i źródła, a następnie tworzy domyślny zestaw innych składników.
     * Po ponownym utworzeniu aplikacji Search Service należy uruchomić pełne przeszukiwanie dla każdego źródła zawartości, aby przywrócić Search Service. Niektóre informacje o analizie są tracone z farmy lokalnej, na przykład na podstawie zaleceń dotyczących wyszukiwania.
 
 7. Po zakończeniu wszystkich kroków Zapisz plan odzyskiwania, a końcowy plan odzyskiwania będzie wyglądać następująco.

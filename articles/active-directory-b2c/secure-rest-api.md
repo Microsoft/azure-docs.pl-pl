@@ -12,10 +12,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385335"
 ---
 # <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful Services 
@@ -53,7 +53,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź nazwę użytkownika interfejsu API REST.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Wybierz ponownie **klucze zasad** .
 1. Wybierz pozycję **Dodaj**.
 1. W obszarze **Opcje**wybierz pozycję **Ręczne**.
@@ -61,7 +61,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **wpis tajny** wprowadź hasło interfejsu API REST.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do korzystania z uwierzytelniania podstawowego protokołu HTTP
 
@@ -142,7 +142,7 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
     Prefiks *B2C_1A_* jest dodawany automatycznie.
 1. W polu **przekazywanie pliku** wybierz plik PFX certyfikatu z kluczem prywatnym.
 1. W polu **hasło** wpisz hasło certyfikatu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST w celu korzystania z uwierzytelniania przy użyciu certyfikatu klienta
 
@@ -323,7 +323,7 @@ Utwórz klucz zasad, aby zachować wartość tokenu okaziciela.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. W obszarze **użycie klucza**wybierz opcję `Encryption` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Skonfiguruj profil techniczny interfejsu API REST, aby użyć klucza zasad tokenu okaziciela
 

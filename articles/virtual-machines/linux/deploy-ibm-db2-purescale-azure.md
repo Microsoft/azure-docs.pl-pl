@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 17ea965758150adb72d8e8f9fee9937bd5387a48
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371927"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie programu IBM DB2 pureScale na platformie Azure
@@ -19,7 +19,7 @@ W tym artykule opisano, jak wdrożyć [przykładową architekturę](ibm-db2-pure
 
 Aby wykonać kroki używane do migracji, zobacz Skrypty instalacji w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub. Skrypty te są oparte na architekturze typowego, średniego obciążenia przetwarzania transakcji online (OLTP).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Aby wdrożyć tę architekturę, Pobierz i uruchom skrypt deploy.sh znaleziony w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub.
 
@@ -75,7 +75,7 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Powitanie                   |                                              | Nowa instalacja                                                                                           |
 | Wybierz produkt          |                                              | 11.1.3.3 wersja programu DB2. Wersje serwera z programem DB2 pureScale                                              |
-| Konfigurowanie             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| Konfiguracja             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Wybierz typ instalacji                 | Normalne                                                                                               |
 |                           | Akceptuję warunki firmy IBM                     | Zaznaczono                                                                                               |
 | Właściciel wystąpienia            | Istniejący użytkownik na przykład, nazwa użytkownika        | DB2sdin1                                                                                              |

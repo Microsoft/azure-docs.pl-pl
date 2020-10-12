@@ -10,10 +10,10 @@ ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883492"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack EDGE Pro
@@ -65,7 +65,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. Dwie popularne usługi rejestru platformy Docker dostępne w chmurze to Azure Container Registry i Docker Hub. W tym artykule jest wykorzystywany Container Registry.
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij pozycję **Utwórz**.
+2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij przycisk **Utwórz**.
 3. Oferować
 
    1. Unikatowa **Nazwa rejestru** na platformie Azure, która zawiera od 5 do 50 znaków alfanumerycznych.

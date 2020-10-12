@@ -4,10 +4,10 @@ description: Dowiedz się, jak szybko zautomatyzować powtarzalne procesy przez 
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970875"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatyzacja procesów Application Insights przy użyciu Logic Apps
@@ -118,7 +118,7 @@ Podczas tworzenia własnych zapytań Sprawdź, czy działają prawidłowo w anal
       ![Ekran konfiguracji poczty e-mail pakietu Office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Krok 7. Zapisywanie i testowanie aplikacji logiki
-* Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Kliknij pozycję **Zapisz**, aby zapisać zmiany.
 
 Możesz poczekać na uruchomienie aplikacji logiki przez wyzwalacz lub uruchomić aplikację logiki natychmiast, wybierając pozycję **Uruchom**.
 

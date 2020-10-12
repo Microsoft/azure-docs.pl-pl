@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272523"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
@@ -40,7 +40,7 @@ Wystąpienia klastra trybu failover z SQL Server w usłudze Azure Virtual Machin
 Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące kworum z maszynami wirtualnymi SQL Server na platformie Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 W tradycyjnych lokalnych środowiskach klastrowanych klaster trybu failover systemu Windows używa sieci magazynowania (SAN), która jest dostępna w obu węzłach jako magazyn udostępniony. Pliki SQL Server są hostowane w magazynie udostępnionym, a tylko aktywny węzeł może uzyskać do nich dostęp jednocześnie. 
 
@@ -48,8 +48,8 @@ SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako r
 
 ||[Dyski udostępnione platformy Azure](../../../virtual-machines/windows/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Wszyscy |Windows Server 2012|Windows Server 2016|
-|**Minimalna wersja SQL Server**|Wszyscy|SQL Server 2012|SQL Server 2016|
+|**Minimalna wersja systemu operacyjnego**| Wszystkie |Windows Server 2012|Windows Server 2016|
+|**Minimalna wersja SQL Server**|Wszystkie|SQL Server 2012|SQL Server 2016|
 |**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowego |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
 |**Obsługuje FileStream**|Tak|Nie|Tak |
 |**Pamięć podręczna Azure Blob**|Nie|Nie|Tak|

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75494913"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optymalizacja wydajności klastrów Apache Kafka HDInsight
@@ -50,7 +50,7 @@ Producenci Apache Kafka mogą złożyć grupy komunikatów (nazywanych partiami)
 
 Producenta Kafka można skonfigurować w taki sposób, aby kompresuje komunikaty przed wysłaniem ich do brokerów. `compression.type`Ustawienie określa koder-dekoder kompresji do użycia. Obsługiwane kodery-dekoder kompresji to "gzip", "przyciąganie" i "lz4". Kompresowanie jest korzystne i powinno być brane pod uwagę w przypadku ograniczenia pojemności dysku.
 
-Między dwoma najczęściej używanymi koderami-dekoder `gzip` kompresji `snappy` i `gzip` ma wyższy współczynnik kompresji, co skutkuje obniżeniem użycia dysku przy kosztach większego obciążenia procesora CPU. `snappy`Koder-dekoder zapewnia mniejszą kompresję przy mniejszej obciążeniu procesora. Można zdecydować, który koder-dekoder ma być używany w oparciu o ograniczenia procesora CPU na dysku lub producencie. `gzip`może skompresować dane z częstotliwością pięć razy wyższą niż `snappy` .
+Między dwoma najczęściej używanymi koderami-dekoder `gzip` kompresji `snappy` i `gzip` ma wyższy współczynnik kompresji, co skutkuje obniżeniem użycia dysku przy kosztach większego obciążenia procesora CPU. `snappy`Koder-dekoder zapewnia mniejszą kompresję przy mniejszej obciążeniu procesora. Można zdecydować, który koder-dekoder ma być używany w oparciu o ograniczenia procesora CPU na dysku lub producencie. `gzip` może skompresować dane z częstotliwością pięć razy wyższą niż `snappy` .
 
 Użycie kompresji danych spowoduje zwiększenie liczby rekordów, które mogą być przechowywane na dysku. Może również zwiększyć obciążenie procesora CPU w przypadkach, gdy występuje niezgodność między formatami kompresji używanymi przez producenta i brokera. dane muszą być kompresowane przed wysłaniem, a następnie dekompresowane przed przetworzeniem.
 

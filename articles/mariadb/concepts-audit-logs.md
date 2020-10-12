@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362428"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Inspekcja dzienników w Azure Database for MariaDB
@@ -31,9 +31,9 @@ Inne parametry, które można dostosować, obejmują:
 - `audit_log_exclude_users`: MariaDB użytkowników do wykluczenia z rejestrowania. Zezwala na maksymalnie czterech użytkowników. Maksymalna długość parametru to 256 znaków.
 
 > [!Note]
-> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
+> `audit_log_include_users` ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
 
-| **Wydarzenie** | **Opis** |
+| **Wydarzen** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> -Uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -59,10 +59,10 @@ W poniższych sekcjach opisano dane wyjściowe przez dzienniki inspekcji MariaDB
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
@@ -89,10 +89,10 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
@@ -102,7 +102,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Liczba sekund rozpoczęcia zapytania w znaczniku czasu systemu UNIX |
-| `error_code_d` | Kod błędu, jeśli zapytanie nie powiodło się. `0`oznacza brak błędu |
+| `error_code_d` | Kod błędu, jeśli zapytanie nie powiodło się. `0` oznacza brak błędu |
 | `thread_id_d` | Identyfikator wątku, który wykonał zapytanie |
 | `host_s` | Pusty |
 | `ip_s` | Adres IP klienta łączącego się z usługą MariaDB |

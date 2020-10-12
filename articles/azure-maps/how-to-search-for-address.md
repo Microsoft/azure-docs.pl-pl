@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310989"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
@@ -95,7 +95,7 @@ W tym przykładzie użyjemy wyszukiwania rozmytego, aby przeszukać cały świat
 
 4. Domyślnym zachowaniem jest przeszukanie całego świata i potencjalnie zwrócenie niepotrzebnych wyników. Następnie wyszukamy Pizza tylko Stany Zjednoczone. Dodaj `countrySet` klucz do sekcji **paramss** i ustaw jego wartość na `US` . Ustawienie `countrySet` klucza w celu `US` powiązania wyników z Stany Zjednoczone.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Wyszukaj Pizza w Stany Zjednoczone":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Wyszukaj adres":::
 
     Wyniki są teraz ograniczone przez kod kraju, a zapytanie zwraca Pizza Restauracje w Stany Zjednoczone.
 
@@ -143,13 +143,13 @@ W tym przykładzie przeprowadzimy wyszukiwanie wsteczne przy użyciu kilku opcjo
     | returnRoadUse | true | Zwraca typy użycia drogowego pod adresem. Aby uzyskać wszystkie możliwe typy użycia dróg, zobacz [typy użycia drogowego](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Zwraca typ dopasowania. Aby uzyskać wszystkie możliwe wartości, zobacz [odwrotne wyniki wyszukiwania adresów](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Wyszukaj wstecz.":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Wyszukaj adres":::
 
 5. Kliknij przycisk **Wyślij**i sprawdź treść odpowiedzi.
 
 6. Następnie dodamy `entityType` klucz i ustawisz jego wartość na `Municipality` . `entityType`Klucz spowoduje zastąpienie `returnMatchType` klucza w poprzednim kroku. Należy również usunąć `returnSpeedLimit` i `returnRoadUse` ponieważ żądamy informacji o gminie.  Dla wszystkich możliwych typów jednostek, zobacz [typy jednostek](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Wyszukaj odwrotny obiekt entityType.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Wyszukaj adres":::
 
 7. Kliknij pozycję **Wyślij**. Porównaj wyniki z wynikami zwróconymi w kroku 5.  Ponieważ żądany typ jednostki jest teraz `municipality` , odpowiedź nie obejmuje informacji o adresie ulicy. Ponadto zwracaną wartość `geometryId` można użyć do żądania wielokąta granicy przez Azure Maps uzyskać [interfejsu API wielokątów wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -168,7 +168,7 @@ W tym przykładzie wyszukamy krzyżyk na podstawie współrzędnych adresu.
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Przeszukaj krzyżyk.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Wyszukaj adres":::
   
 3. Kliknij przycisk **Wyślij**i sprawdź treść odpowiedzi. Zauważ, że odpowiedź zawiera `crossStreet` wartość `Occidental Avenue South` .
 

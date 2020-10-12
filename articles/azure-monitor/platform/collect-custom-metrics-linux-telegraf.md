@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207804"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
@@ -44,7 +44,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 1. Podaj nazwę maszyny wirtualnej, taką jak **MyTelegrafVM**.  
 1. Pozostaw typ dysku jako dysk **SSD**. Podaj **nazwę użytkownika**, taką jak **azureuser**. 
 1. W obszarze **Typ uwierzytelniania**wybierz pozycję **hasło**. Następnie wprowadź hasło, które będzie używane później do protokołu SSH do tej maszyny wirtualnej. 
-1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz pozycję **OK**. 
+1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz przycisk **OK**. 
 
     ![Tworzenie maszyny wirtualnej z systemem Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -58,7 +58,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 
 1. Maszyna wirtualna jest przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarte podsumowanie maszyny wirtualnej. 
 
-1. W okienku maszyn wirtualnych przejdź do karty **tożsamość** . **upewnij się,** że maszyna wirtualna ma ustawioną tożsamość przypisaną do systemu. 
+1. W okienku maszyn wirtualnych przejdź do karty **tożsamość** . Upewnij się, że **na**maszynie wirtualnej jest ustawiona tożsamość przypisana do systemu. 
  
     ![Wersja zapoznawcza maszyny wirtualnej telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

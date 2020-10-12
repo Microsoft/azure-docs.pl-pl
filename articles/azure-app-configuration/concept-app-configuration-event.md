@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590034"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagowanie na zdarzenia konfiguracji aplikacji platformy Azure
@@ -37,10 +37,10 @@ Funkcja Event Grid używa [subskrypcji zdarzeń](../event-grid/concepts.md#event
 ## <a name="event-schema"></a>Schemat zdarzeń
 Zdarzenia konfiguracji aplikacji platformy Azure zawierają wszystkie informacje potrzebne do reagowania na zmiany danych. Możesz zidentyfikować zdarzenie konfiguracji aplikacji, ponieważ właściwość eventType zaczyna się od "Microsoft. AppConfiguration". Dodatkowe informacje na temat użycia właściwości zdarzeń Event Grid są udokumentowane w [Event Grid schemacie zdarzeń](../event-grid/event-schema.md).  
 
-> |Właściwość|Typ|Opis|
+> |Właściwość|Type|Opis|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |temat|ciąg|Pełny Azure Resource Manager Identyfikator konfiguracji aplikacji, która emituje zdarzenie.|
-> |subject|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
+> |Temat|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
 > |eventTime|ciąg|Data/godzina wygenerowania zdarzenia w formacie ISO 8601.|
 > |eventType|ciąg|"Microsoft. AppConfiguration. KeyValueModified" lub "Microsoft. AppConfiguration. KeyValueDeleted".|
 > |Id|ciąg|Unikatowy identyfikator tego zdarzenia.|

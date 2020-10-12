@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81416265"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Równoważenie klastra usługi Service Fabric
 Klaster Service Fabric Menedżer zasobów obsługuje dynamiczne zmiany obciążenia, oddziałanie w celu dodania lub usunięcia węzłów lub usług. Automatycznie koryguje naruszenia ograniczeń i aktywnie ponownie równoważy klaster. Ale jak często wykonywane są te akcje i jakie są wyzwalacze?
 
-Istnieją trzy różne kategorie pracy wykonywanej przez klaster Menedżer zasobów. Oto one:
+Istnieją trzy różne kategorie pracy wykonywanej przez klaster Menedżer zasobów. Są to:
 
 1. Umieszczanie — ten etap zajmuje się umieszczeniem niestanowych replik lub bezstanowych wystąpień. Umieszczanie obejmuje nowe usługi i obsługujące repliki stanowe lub bezstanowe, które zakończyły się niepowodzeniem. Usuwanie i upuszczanie replik lub wystąpień jest tutaj obsługiwane.
 2. Sprawdzanie ograniczeń — ten etap sprawdza i koryguje naruszenia różnych ograniczeń położenia (reguł) w systemie. Przykłady reguł są takie jak upewnienie się, że węzły nie przekraczają pojemności i że są spełnione ograniczenia dotyczące umieszczania usługi.

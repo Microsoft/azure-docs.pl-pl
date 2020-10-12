@@ -1,5 +1,5 @@
 ---
-title: SAP HANA skalowanie w poziomie HSR-Pacemaker z SLES na maszynach wirtualnych platformy Azure — Rozwiązywanie problemów | Microsoft Docs
+title: SAP HANA skalowalny w poziomie HSR-Pacemaker z SLES na maszynach wirtualnych platformy Azure Rozwiązywanie problemów | Microsoft Docs
 description: Przewodnik po sprawdzaniu i rozwiązywaniu problemów ze złożoną konfiguracją wysokiej dostępności SAP HANA skalowania w poziomie na podstawie replikacji systemu SAP HANA (HSR) i Pacemaker na SLES 12 SP3 uruchomionych na maszynach wirtualnych platformy Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088312"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Weryfikowanie i rozwiązywanie problemów SAP HANA skalowalnej w poziomie konfiguracji wysokiej dostępności w SLES 12 SP3 
@@ -40,7 +40,7 @@ Ten artykuł pomaga sprawdzić konfigurację klastra Pacemaker na potrzeby skalo
 
 ## <a name="important-notes"></a>Ważne uwagi
 
-Wszystkie testy SAP HANA skalowanie w poziomie w połączeniu z replikacją systemu SAP HANA i Pacemaker zostały wykonane tylko przy użyciu SAP HANA 2,0. Wersja systemu operacyjnego była SUSE Linux Enterprise Server 12 dodatku SP3 dla aplikacji SAP. Do skonfigurowania klastra Pacemaker użyto najnowszego pakietu KCO, SAPHanaSR-skalowania z SUSE.
+Wszystkie testy SAP HANA skalowanie w poziomie w połączeniu z replikacją systemu SAP HANA i Pacemaker zostały wykonane tylko przy użyciu SAP HANA 2,0. Wersja systemu operacyjnego była SUSE Linux Enterprise Server 12 dodatku SP3 dla aplikacji SAP. Najnowszy pakiet RPM, SAPHanaSR-ScaleOut z SUSE, został użyty do skonfigurowania klastra Pacemaker.
 SUSE opublikował [szczegółowy opis tej instalacji zoptymalizowanej pod kątem wydajności][sles-hana-scale-out-ha-paper].
 
 W przypadku typów maszyn wirtualnych, które są obsługiwane w SAP HANA skalowanie w poziomie, sprawdź [katalog SAP HANA Certified IaaS][sap-hana-iaas-list].

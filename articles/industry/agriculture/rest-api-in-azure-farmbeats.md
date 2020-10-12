@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536576"
 ---
 # <a name="azure-farmbeats-apis"></a>Interfejsy API usługi Azure FarmBeats
@@ -23,7 +23,7 @@ W tym artykule opisano interfejsy API usługi Azure FarmBeats. Interfejsy API us
 - Automatycznie generowane zagregowane sekwencje czasu do szybkiego kompilowania modeli.
 - Zintegrowany aparat Azure Data Factory, aby łatwo tworzyć niestandardowe potoki przetwarzania danych.
 
-## <a name="application-development"></a>Projektowanie aplikacji
+## <a name="application-development"></a>Opracowywanie aplikacji
 
 Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje na temat wszystkich interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -68,10 +68,10 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Oto najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do usługi Azure FarmBeats Datahub.
 
 
-**Nagłówek** | **Opis i przykład**
+**Nagłówki** | **Opis i przykład**
 --- | ---
 Content-Type  | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Content-Type: Application/JSON
-Autoryzacja  | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
+Autoryzacja  | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
 Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Akceptuj: Application/JSON
 
 ### <a name="api-requests"></a>Żądania interfejsu API
@@ -109,7 +109,7 @@ Interfejsy API usługi Azure FarmBeats Datahub zwracają standardowe błędy HTT
 
  |Kod błędu             | Opis |
  |---                    | --- |
- |200                    | Success |
+ |200                    | Powodzenie |
  |201                    | Powodzenie tworzenia (post) |
  |400                    | Nieprawidłowe żądanie. Wystąpił błąd w żądaniu. |
  |401                    | Próby. Obiekt wywołujący interfejsu API nie ma autoryzacji do uzyskania dostępu do zasobu. |
@@ -149,7 +149,7 @@ Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą
     - Wprowadź nazwę.
     - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)**.
     - Użyj wartości domyślnych w pozostałych polach.
-    - Wybierz pozycję **Rejestruj**.
+    - Wybierz pozycję **Zarejestruj**.
 
 3. W okienku **Przegląd** nowych i istniejących aplikacji wykonaj następujące czynności:
 
