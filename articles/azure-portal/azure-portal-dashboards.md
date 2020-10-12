@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764013"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Tworzenie i udostępnianie pulpitów nawigacyjnych w witrynie Azure Portal
@@ -142,7 +142,7 @@ Aby użyć istniejącego pulpitu nawigacyjnego jako szablonu dla nowego pulpitu 
 
 ## <a name="publish-and-share-a-dashboard"></a>Publikowanie i udostępnianie pulpitu nawigacyjnego
 
-Gdy tworzysz pulpit nawigacyjny, jest on domyślnie prywatny, co oznacza, że jesteś jedyną osobą, która ją widzi. Aby udostępnić pulpity nawigacyjne innym osobom, możesz je opublikować i udostępnić. Aby uzyskać więcej informacji, zobacz [udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu Access Control opartej na rolach](azure-portal-dashboard-share-access.md).
+Gdy tworzysz pulpit nawigacyjny, jest on domyślnie prywatny, co oznacza, że jesteś jedyną osobą, która ją widzi. Aby udostępnić pulpity nawigacyjne innym osobom, możesz je opublikować i udostępnić. Aby uzyskać więcej informacji, zobacz [udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu Role-Based Access Control](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Otwórz udostępniony pulpit nawigacyjny
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: becbc3e59663c1898cc4e635f61f63d54360a6f5
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086542"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>Źródła informacji o niezawodności lokacji
@@ -24,7 +24,7 @@ Poniżej przedstawiono niektóre dobre nadzorowane listy linków dla tematów zw
 
 * [Awesome site niezawodność Inżynieria](https://github.com/dastergon/awesome-sre)
 * [Awesome site niezawodność inżynierów](https://github.com/SquadcastHub/awesome-sre-tools)
-* [Wzorce skalowalnych, niezawodnych i wydajnych systemów o dużej skali](http://awesome-scalability.com)
+* [Wzorce skalowalnych, niezawodnych i wydajnych systemów Large-Scale](http://awesome-scalability.com)
 * [firma awesome — systemy rozproszone](https://github.com/theanalyst/awesome-distributed-systems)
 * [Awesome consensusu](https://github.com/dgryski/awesome-consensus)
 * [firma awesome-monitoring](https://github.com/crazy-canux/awesome-monitoring)

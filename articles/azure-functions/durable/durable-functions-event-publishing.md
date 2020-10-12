@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować automatyczne publikowanie Azure Ev
 ms.topic: conceptual
 ms.date: 04/25/2020
 ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081750"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
@@ -132,11 +132,11 @@ Korzystając z Azure Portal, Utwórz kolejną aplikację funkcji, aby nasłuchiw
 
 1. Wyszukaj **Event Grid**, a następnie wybierz szablon **wyzwalacza Azure Event Grid** . 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Wybierz szablon wyzwalacza Event Grid w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
 
 1. Nazwij nowy wyzwalacz, a następnie wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nazwij wyzwalacz Event Grid w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
 
 
     Zostanie utworzona funkcja o następującym kodzie:
@@ -172,19 +172,19 @@ Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. 
 
 1. W nowej funkcji wybierz pozycję **integracja** , a następnie wybierz pozycję **Event Grid wyzwalacz (eventGridEvent)**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Wybierz łącze wyzwalacz Event Grid." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
 
 1. Wybierz pozycję **utwórz Event Grid opis**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Utwórz subskrypcję Event Grid." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
 
 1. Nazwij swoją subskrypcję zdarzenia i wybierz typ tematu **tematy Event Grid** . 
 
 1. Wybierz subskrypcję. Następnie wybierz grupę zasobów i zasób utworzony dla Event Grid tematu. 
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Tworzy subskrypcję usługi Event Grid." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
 
 Teraz możesz przystąpić do odbierania zdarzeń cyklu życia.
 
@@ -237,7 +237,7 @@ W projekcie Durable Functions, który został wcześniej skonfigurowany, Rozpocz
 Na poniższej liście opisano schemat zdarzeń cyklu życia:
 
 * **`id`**: Unikatowy identyfikator dla zdarzenia Event Grid.
-* **`subject`**: Ścieżka do tematu zdarzenia. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`to `Running` ,, `Completed` `Failed` , i `Terminated` .  
+* **`subject`**: Ścieżka do tematu zdarzenia. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` to `Running` ,, `Completed` `Failed` , i `Terminated` .  
 * **`data`**: Durable Functions określone parametry.
   * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) .
   * **`functionName`**: Nazwa funkcji programu Orchestrator.

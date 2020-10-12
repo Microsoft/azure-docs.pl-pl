@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404730"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Format ORC w Azure Data Factory

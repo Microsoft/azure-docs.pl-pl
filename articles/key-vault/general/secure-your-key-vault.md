@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
 ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842839"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
@@ -197,7 +197,7 @@ Nasz przykład opisuje prosty scenariusz. Scenariusze życiowe mogą być bardzi
 > [!NOTE]
 > Ten przykład pokazuje, jak dostęp Key Vault jest blokowany w środowisku produkcyjnym. Deweloperzy powinni mieć własną subskrypcję lub grupę zasobów z pełnymi uprawnieniami do zarządzania swoimi magazynami, maszynami wirtualnymi i kontem magazynu, na którym opracowują aplikację.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 [Informacje o Azure Key Vault](overview.md) 
  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 

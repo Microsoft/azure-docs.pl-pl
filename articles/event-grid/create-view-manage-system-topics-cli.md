@@ -4,10 +4,10 @@ description: W tym artykule pokazano, jak za pomocą interfejsu wiersza poleceni
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115047"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Tworzenie i wyświetlanie Event Grid tematów systemowych przy użyciu interfejsu wiersza polecenia platformy Azure oraz zarządzanie nimi
@@ -18,14 +18,14 @@ W przypadku interfejsu wiersza polecenia platformy Azure wymagane jest [rozszerz
 
 W Cloud Shell:
 
-- Jeśli wcześniej zainstalowano rozszerzenie, zaktualizuj je:`az extension update -n eventgrid`
-- Jeśli rozszerzenie nie zostało wcześniej zainstalowane, zainstaluj je:`az extension add -n eventgrid`
+- Jeśli wcześniej zainstalowano rozszerzenie, zaktualizuj je: `az extension update -n eventgrid`
+- Jeśli rozszerzenie nie zostało wcześniej zainstalowane, zainstaluj je:  `az extension add -n eventgrid`
 
 W przypadku instalacji lokalnej:
 
 1. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Upewnij się, że masz najnowszą wersję, sprawdzając ją `az --version` .
-2. Odinstaluj poprzednie wersje rozszerzenia:`az extension remove -n eventgrid`
-3. Zainstaluj rozszerzenie eventgrid z`az extension add -n eventgrid`
+2. Odinstaluj poprzednie wersje rozszerzenia: `az extension remove -n eventgrid`
+3. Zainstaluj rozszerzenie eventgrid z `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Tworzenie tematu systemu
 
@@ -60,7 +60,7 @@ W przypadku instalacji lokalnej:
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Aby utworzyć temat systemowy (niejawnie) podczas tworzenia subskrypcji zdarzeń dla źródła platformy Azure, użyj metody [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Przykład:
+- Aby utworzyć temat systemowy (niejawnie) podczas tworzenia subskrypcji zdarzeń dla źródła platformy Azure, użyj metody [AZ eventgrid Event-Subscription Create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Oto przykład:
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)

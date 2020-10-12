@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962166"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
@@ -291,7 +291,7 @@ Azure PowerShell to moduł, który udostępnia polecenia cmdlet do zarządzania 
 Informacje o instalowaniu i konfigurowaniu Azure PowerShell oraz o uwierzytelnianiu Azure PowerShell z subskrypcją platformy Azure znajdują się w temacie [How to Install and configure Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
-### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
@@ -426,5 +426,5 @@ Poniżej przedstawiono niektóre typowe błędy wymiany:
 
 - Po wymianie gniazd może wystąpić nieoczekiwane ponowne uruchomienie aplikacji. Jest to spowodowane tym, że po wymianie Konfiguracja powiązania nazwy hosta nie jest zsynchronizowana, co nie powoduje ponownego uruchomienia. Jednak niektóre bazowe zdarzenia magazynu (takie jak przełączanie awaryjne woluminu magazynu) mogą wykryć te rozbieżności i wymusić ponowne uruchomienie wszystkich procesów roboczych. Aby zminimalizować te typy ponownych uruchomień, należy ustawić [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` ustawienie aplikacji](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) na *wszystkie gniazda*. To ustawienie aplikacji *nie działa jednak* z aplikacjami Windows Communication Foundation (WCF).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Blokuj dostęp do gniazd nieprodukcyjnych](app-service-ip-restrictions.md)

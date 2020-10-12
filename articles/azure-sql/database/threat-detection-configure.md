@@ -11,10 +11,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
 ms.openlocfilehash: 678de4354012dcea5b954980109fd71c1004aca4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619291"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami dla Azure SQL Database
@@ -28,7 +28,7 @@ Powiadomienia dotyczące wykrytych zagrożeń można odbierać za pośrednictwem
 
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami w Azure Portal
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do strony konfiguracji serwera, który ma być chroniony. W ustawieniach zabezpieczeń wybierz pozycję **Security Center**.
 3. Na stronie Konfiguracja **usługi Azure Defender** :
 

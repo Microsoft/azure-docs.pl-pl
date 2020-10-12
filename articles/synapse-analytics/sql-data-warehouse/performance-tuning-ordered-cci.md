@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841598"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  

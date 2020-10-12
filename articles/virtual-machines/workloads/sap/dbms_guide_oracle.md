@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540714"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines wdrożenie Oracle DBMS dla obciążeń SAP
@@ -416,7 +416,7 @@ Za pomocą Azure Backup można również uruchamiać kopie zapasowe maszyny wirt
 
 
 ### <a name="high-availability"></a>Wysoka dostępność
-Funkcja Oracle Data Guard jest obsługiwana w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii. Aby zapewnić automatyczną pracę w trybie failover w usłudze Data Guard, musisz użyć opcji szybkiego startu trybu failover (FSFA). Obserwator (FSFA) wyzwala tryb failover. Jeśli nie korzystasz z FSFA, możesz użyć tylko ręcznej konfiguracji trybu failover.
+Funkcja Oracle Data Guard jest obsługiwana w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii. Aby zapewnić automatyczną pracę w trybie failover w usłudze Data Guard, musisz używać Fast-Start trybu failover (FSFA). Obserwator (FSFA) wyzwala tryb failover. Jeśli nie korzystasz z FSFA, możesz użyć tylko ręcznej konfiguracji trybu failover.
 
 Aby uzyskać więcej informacji na temat odzyskiwania po awarii dla baz danych Oracle na platformie Azure, zobacz [odzyskiwanie awaryjne dla Oracle Database bazy danych 12c w środowisku platformy Azure](../oracle/oracle-disaster-recovery.md).
 
@@ -511,7 +511,7 @@ W przypadku funkcji tworzenia kopii zapasowej/przywracania narzędzia SAP BR * T
 Aby uzyskać więcej informacji na temat korzystania z usług Azure Backup i Recovery Services na potrzeby tworzenia kopii zapasowych i odzyskiwania baz danych Oracle, zobacz [Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej platformy Azure z systemem Linux](../oracle/oracle-backup-recovery.md).
 
 ### <a name="high-availability"></a>Wysoka dostępność
-Funkcja Oracle Data Guard jest obsługiwana w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii. Aby uzyskać automatyczną pracę awaryjną w usłudze Data Guard, należy użyć funkcji szybkiego startu trybu failover (FSFA). Funkcja obserwatora (FSFA) wyzwala tryb failover. Jeśli nie korzystasz z FSFA, możesz użyć tylko ręcznej konfiguracji trybu failover. Aby uzyskać więcej informacji, zobacz [Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux](../oracle/configure-oracle-dataguard.md).
+Funkcja Oracle Data Guard jest obsługiwana w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii. Aby uzyskać automatyczną pracę awaryjną w usłudze Data Guard, należy użyć Fast-Start trybu failover (FSFA). Funkcja obserwatora (FSFA) wyzwala tryb failover. Jeśli nie korzystasz z FSFA, możesz użyć tylko ręcznej konfiguracji trybu failover. Aby uzyskać więcej informacji, zobacz [Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux](../oracle/configure-oracle-dataguard.md).
 
 
 Zagadnienia dotyczące odzyskiwania po awarii dla baz danych Oracle na platformie Azure zostały przedstawione w artykule [odzyskiwanie po awarii dla Oracle Database bazy danych 12c w środowisku platformy Azure](../oracle/oracle-disaster-recovery.md).

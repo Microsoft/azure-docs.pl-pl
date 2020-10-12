@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568255"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage

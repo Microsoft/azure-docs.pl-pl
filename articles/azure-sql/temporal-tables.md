@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618662"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do tabel danych czasowych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
@@ -42,7 +42,7 @@ W zależności od tego, czy uruchamiasz nowe programowanie, czy uaktualniasz ist
 
 ### <a name="create-new-table"></a>Utwórz nową tabelę
 
-Użyj elementu menu kontekstowego "Nowa tabela z systemową obsługą wersji" w programie SSMS Eksplorator obiektów otworzyć Edytor zapytań z skryptowym szablonem tabeli danych czasowych, a następnie użyć opcji "Określ wartości parametrów szablonu" (Ctrl + Shift + M), aby wypełnić szablon:
+Użyj elementu menu kontekstowego "Nowa System-Versioned tabela" w programie SSMS Eksplorator obiektów, aby otworzyć Edytor zapytań z skryptowym szablonem tabeli danych czasowych, a następnie użyć opcji "Określ wartości parametrów szablonu" (Ctrl + Shift + M), aby wypełnić szablon:
 
 ![SSMSNewTable](./media/temporal-tables/AzureTemporal2.png)
 

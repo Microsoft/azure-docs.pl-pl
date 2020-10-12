@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
 ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322606"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Typowe problemy z weryfikacją dwuskładnikową i kontem służbowym
@@ -109,7 +109,7 @@ Kroki opcjonalne:
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Mam problemy z logowaniem się na urządzeniu przenośnym podczas podróży
 
-Może się okazać trudne użycie metody weryfikacji powiązanej z urządzeniami przenośnymi, na przykład wiadomości SMS, podczas gdy jesteś w międzynarodowej lokalizacji. Istnieje również możliwość, że urządzenie przenośne może spowodować naliczenie opłat za roaming. W tej sytuacji zalecamy korzystanie z aplikacji Microsoft Authenticator z opcją nawiązywania połączenia z punktem aktywnym Wi-Fi. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji Microsoft Authenticator na urządzeniu przenośnym, zobacz artykuł [pobieranie i instalowanie aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) .
+Może się okazać trudne użycie metody weryfikacji powiązanej z urządzeniami przenośnymi, na przykład wiadomości SMS, podczas gdy jesteś w międzynarodowej lokalizacji. Istnieje również możliwość, że urządzenie przenośne może spowodować naliczenie opłat za roaming. W tej sytuacji zalecamy korzystanie z aplikacji Microsoft Authenticator przy użyciu opcji nawiązywania połączenia z Wi-Fi gorącą. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji Microsoft Authenticator na urządzeniu przenośnym, zobacz artykuł [pobieranie i instalowanie aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Nie mogę pobrać haseł aplikacji
 

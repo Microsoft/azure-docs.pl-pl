@@ -4,17 +4,17 @@ description: Ten artykuł zawiera informacje dotyczące sposobu łączenia strum
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 1fbbeef37c4cbdd52d2127c5242474ac46e42d25
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061703"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Używanie programu Akka Streams z usługą Event Hubs dla platformy Apache Kafka
 
 W tym samouczku pokazano, jak połączyć strumienie Akka za pomocą obsługi Event Hubs Apache Kafka bez konieczności zmiany klientów protokołu lub uruchamiania własnych klastrów. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Klonowanie projektu przykładowego
@@ -35,7 +35,7 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące wymagania wst
     * Upewnij się, że zmienna środowiskowa JAVA_HOME wskazuje folder, w którym zainstalowano zestaw JDK.
 * [Pobieranie](https://maven.apache.org/download.cgi) i [Instalowanie](https://maven.apache.org/install.html) archiwum binarnego Maven
     * W systemie Ubuntu możesz uruchomić polecenie `apt-get install maven`, aby zainstalować narzędzie Maven.
-* [Narzędzia](https://www.git-scm.com/downloads)
+* [Git](https://www.git-scm.com/downloads)
     * W systemie Ubuntu możesz uruchomić polecenie `sudo apt-get install git`, aby zainstalować usługę Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs

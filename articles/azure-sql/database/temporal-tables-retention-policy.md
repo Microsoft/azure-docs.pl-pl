@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619393"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Zarządzanie danymi historycznymi w tabelach danych czasowych przy użyciu zasad przechowywania
@@ -120,7 +120,7 @@ Zadanie oczyszczania tabel z indeksem klastrowanym magazynu wierszy wymaga, aby 
 
 Należy pamiętać, że domyślna tabela historii utworzona przez Azure SQL Database i wystąpienie zarządzane Azure SQL ma już indeks klastrowany, który jest zgodny z zasadami przechowywania. Jeśli spróbujesz usunąć ten indeks z tabeli z ograniczonym okresem przechowywania, operacja kończy się niepowodzeniem z powodu następującego błędu:
 
-*Msg 13766, Level 16, State 1 <br> </br> nie może porzucić klastrowanego indeksu "WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory", ponieważ jest on używany do automatycznego czyszczenia przestarzałych danych. Należy rozważyć ustawienie nieograniczonej HISTORY_RETENTION_PERIOD w odpowiedniej tabeli danych czasowych z systemową obsługą wersji, jeśli trzeba będzie usunąć ten indeks.*
+*Komunikat 13766, poziom 16, stan 1 <br> </br> nie może porzucić klastrowanego indeksu "WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory", ponieważ jest on używany do automatycznego czyszczenia przestarzałych danych. Należy rozważyć ustawienie nieograniczonej HISTORY_RETENTION_PERIOD w odpowiedniej tabeli danych czasowych z systemową obsługą wersji, jeśli trzeba będzie usunąć ten indeks.*
 
 Czyszczenie na klastrowanym indeksie magazynu kolumn działa optymalnie, jeśli wiersze historyczne są wstawiane w kolejności rosnącej (uporządkowane według końca kolumny okresu), która zawsze jest uwzględniana w przypadku, gdy tabela historii zostanie wypełniona wyłącznie przez mechanizm SYSTEM_VERSIONIOING. Jeśli wiersze w tabeli historii nie są uporządkowane według kolumny końca okresu (w przypadku przeprowadzenia migracji istniejących danych historycznych), należy ponownie utworzyć klastrowany indeks magazynu kolumn na podstawie indeksu B-Tree magazynu wierszy, który jest prawidłowo uporządkowany, aby osiągnąć optymalną wydajność.
 

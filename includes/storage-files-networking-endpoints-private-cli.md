@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: roygara
 ms.service: storage
@@ -9,13 +9,13 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b6f0f77da639bceaea680f015dad5c0d3d6dbda6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465072"
 ---
-Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>` , `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i `<vnet-subnet-name>` poniżej:
+Aby utworzyć prywatny punkt końcowy dla konta magazynu, najpierw musisz uzyskać odwołanie do konta magazynu i podsieci sieci wirtualnej, do której chcesz dodać prywatny punkt końcowy. Zamień `<storage-account-resource-group-name>` ,  `<storage-account-name>` , `<vnet-resource-group-name>` , `<vnet-name>` i `<vnet-subnet-name>` poniżej:
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"

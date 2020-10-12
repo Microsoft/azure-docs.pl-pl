@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
 ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998411"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
@@ -37,7 +37,7 @@ Przed rozpoczęciem upewnij się, że rozumiesz informacje w poniższych sekcjac
 >[!NOTE]
 >Poniższe informacje opisane w tej sekcji dotyczą również [rozwiązania Service map](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics"></a>Usługa Log Analytics
 
 Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w następujących regionach:
 
@@ -69,7 +69,7 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyciu jednego z zasobów:
 * [Interfejs wiersza polecenia platformy Azure](../learn/quick-create-workspace-cli.md)
 * [Program PowerShell](../platform/powershell-workspace-configuration.md)
-* [Witryna Azure Portal](../learn/quick-create-workspace.md)
+* [Azure Portal](../learn/quick-create-workspace.md)
 * [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
 - Maszyna wirtualna platformy Azure
@@ -113,7 +113,7 @@ Poniżej przedstawiono wiele metod wdrażania tych agentów.
 
 | Metoda | Opis |
 |:---|:---|
-| [Witryna Azure Portal](./vminsights-enable-portal.md) | Zainstaluj obu agentów na jednej maszynie wirtualnej, w zestawie skalowania maszyn wirtualnych lub hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
+| [Azure Portal](./vminsights-enable-portal.md) | Zainstaluj obu agentów na jednej maszynie wirtualnej, w zestawie skalowania maszyn wirtualnych lub hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
 | [Szablony usługi Resource Manager](vminsights-enable-powershell.md) | Zainstaluj obu agentów przy użyciu dowolnej z obsługiwanych metod do wdrożenia szablonu Menedżer zasobów, w tym interfejsu wiersza polecenia i programu PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Przypisz inicjatywę Azure Policy, aby automatycznie zainstalować agentów podczas tworzenia maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. |
 | [Instalacja ręczna](./vminsights-enable-hybrid.md) | Zainstaluj agentów w systemie operacyjnym gościa na komputerach hostowanych poza platformą Azure, w tym w centrum danych lub w innych środowiskach w chmurze. |
@@ -136,6 +136,6 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się, jak korzystać z funkcji monitorowania wydajności, zobacz [wyświetlanie Azure monitor dla maszyn wirtualnych Performance](vminsights-performance.md). Aby wyświetlić odnalezione zależności aplikacji, zobacz [view Azure monitor dla maszyn wirtualnych map](vminsights-maps.md).

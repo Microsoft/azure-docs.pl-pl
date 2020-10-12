@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064178"
 ---
 # <a name="manage-spark-application-dependencies"></a>Zarządzanie zależnościami aplikacji platformy Spark
@@ -23,7 +23,7 @@ Użyj szybkich linków, aby przejść do sekcji na podstawie przypadku użytkown
 * [Konfigurowanie zależności jar zadań platformy Spark za pomocą notesu Jupyter](#use-jupyter-notebook)
 * [Skonfiguruj zależności jar zadań platformy Spark za pomocą Azure Toolkit for IntelliJ użycia](#use-azure-toolkit-for-intellij)
 * [Konfigurowanie zależności jar dla klastra Spark](#jar-libs-for-cluster)
-* [Bezpieczne zarządzanie zależnościami jar](#safely-manage-jar-dependencies)
+* [Bezpieczne zarządzanie zależnościami plików jar](#safely-manage-jar-dependencies)
 * [Konfigurowanie pakietów języka Python zadań platformy Spark za pomocą notesu Jupyter](#use-jupyter-notebook-1)
 * [Bezpieczne zarządzanie pakietami języka Python dla klastra Spark](#python-packages-for-cluster)
 
@@ -98,7 +98,7 @@ W niektórych przypadkach może być konieczne skonfigurowanie zależności jar 
 
 Możesz zautomatyzować kroki przy użyciu [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md). Akcja skryptu służąca do [dodawania bibliotek niestandardowych Hive](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) jest dobrym odwołaniem. Podczas zmieniania konfiguracji usługi platformy Spark upewnij się, że używasz interfejsów API Ambari zamiast bezpośrednio modyfikować pliki konfiguracji. 
 
-## <a name="safely-manage-jar-dependencies"></a>Bezpieczne zarządzanie zależnościami jar
+## <a name="safely-manage-jar-dependencies"></a>Bezpieczne zarządzanie zależnościami plików jar
 Klaster usługi HDInsight ma wbudowane zależności jar, a aktualizacje dla tych wersji jar są wykonywane od czasu do czasu. Aby uniknąć konfliktu wersji między wbudowanym Jars i jarsem, należy rozważyć [cieniowanie zależności aplikacji](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Pakiety języka Python dla jednego zadania platformy Spark

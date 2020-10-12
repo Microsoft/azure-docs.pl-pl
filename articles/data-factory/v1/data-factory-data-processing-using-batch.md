@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998088"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
@@ -965,13 +965,13 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
 * [Odśwież dane w Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure i Power BI: omówienie podstawowe](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
   * [Wprowadzenie do Data Factory](data-factory-build-your-first-pipeline.md)
   * [Korzystanie z działań niestandardowych w potoku Data Factory](data-factory-use-custom-activities.md)
-* [Usługa Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
   * [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)

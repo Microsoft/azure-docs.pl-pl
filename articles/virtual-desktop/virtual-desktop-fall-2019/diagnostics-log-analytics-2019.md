@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997680"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Używanie Log Analytics dla funkcji diagnostyki na pulpicie wirtualnym systemu Windows (klasyczny)
@@ -132,6 +132,6 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 
 Należy uruchomić to polecenie cmdlet dla każdej dzierżawy, z której ma zostać zatrzymane wysyłanie danych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service-2019.md#common-error-scenarios).

@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438829"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Łączenie z lokalnymi źródłami danych za pomocą lokalnej bramy danych
@@ -58,7 +58,7 @@ Zalecamy utworzenie zasobu bramy platformy Azure w tej samej subskrypcji co serw
 
 Brama tworzy połączenie wychodzące do usługi Azure Service Bus. Komunikuje się ona na portach wychodzących: TCP 443 (domyślnie), 5671, 5672, 9350 do 9354.  Brama nie wymaga portów przychodzących.
 
-Może być konieczne dołączenie adresów IP do obszaru danych w zaporze. Możesz pobrać [listę adresów IP centrów danych platformy Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). Ta lista jest aktualizowana co tydzień. Na liście adresów IP centrów danych platformy Azure adresy są wymienione w notacji CIDR. Aby dowiedzieć się więcej, zobacz [Routing bezklasowy między domenami](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Może być konieczne dołączenie adresów IP do obszaru danych w zaporze. Możesz pobrać [listę adresów IP centrów danych platformy Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). Ta lista jest aktualizowana co tydzień. Na liście adresów IP centrów danych platformy Azure adresy są wymienione w notacji CIDR. Aby dowiedzieć się więcej, zobacz [Inter-Domain Routing bezklasowy](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Poniżej znajdują się w pełni kwalifikowane nazwy domen używane przez bramę.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
 ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424396"
 ---
 # <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway

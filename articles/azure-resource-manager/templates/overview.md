@@ -4,10 +4,10 @@ description: Opisuje zalety korzystania z szablonów Azure Resource Manager na p
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119365"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
@@ -16,7 +16,7 @@ Dzięki przeniesieniu do chmury wiele zespołów przyjmuje metody programowania 
 
 Aby sprostać tym wyzwaniom, można zautomatyzować wdrożenia i korzystać z zalet infrastruktury jako kodu. W kodzie można zdefiniować infrastrukturę, która musi zostać wdrożona. Kod infrastruktury jest częścią projektu. Podobnie jak w przypadku kodu aplikacji, kod infrastruktury jest przechowywany w repozytorium źródłowym i w wersji. Każdy z nich w zespole może uruchomić kod i wdrożyć podobne środowiska.
 
-Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaracyjnej, która pozwala na określenie, co zamierzasz wdrożyć, bez konieczności pisania sekwencji poleceń programowania, aby je utworzyć. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
+Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
 
 ## <a name="why-choose-arm-templates"></a>Dlaczego warto wybrać Szablony ARM?
 

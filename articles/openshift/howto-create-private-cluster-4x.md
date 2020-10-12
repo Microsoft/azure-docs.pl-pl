@@ -9,10 +9,10 @@ ms.author: jasondel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505356"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ W tym artykule opisano przygotowanie środowiska do tworzenia prywatnych klastr�
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="register-the-resource-providers"></a>Rejestrowanie dostawców zasobów
 

@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403640"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie JSON za pomocą indeksatora obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
@@ -63,7 +63,7 @@ Na stronie **Źródło danych** Źródło musi być **BLOB Storage platformy Azu
    
 + **Kontener magazynu** musi określać Twoje konto magazynu i kontener albo parametry połączenia, które są rozpoznawane jako kontener. Parametry połączenia można uzyskać na stronie portalu Blob service.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definicja źródła danych obiektu BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 — pomijanie strony "wzbogacanie zawartości" w Kreatorze
 
@@ -81,7 +81,7 @@ Przejrzyj opis [atrybutów indeksu](/rest/api/searchservice/create-index#bkmk_in
 
 Poświęć chwilę, aby przejrzeć wybrane opcje. Po uruchomieniu kreatora są tworzone fizyczne struktury danych i nie będzie można edytować tych pól bez porzucania i ponownego tworzenia wszystkich obiektów.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definicja indeksu obiektów BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
 
 ### <a name="6---create-indexer"></a>6 — Tworzenie indeksatora
 
@@ -89,7 +89,7 @@ W pełni określony Kreator tworzy trzy odrębne obiekty w usłudze wyszukiwania
 
 Jeśli nie znasz indeksatorów, *indeksator* jest zasobem w usłudze Azure wyszukiwanie poznawcze, który przeszukuje zewnętrzne źródło danych w celu przeszukiwania zawartości. Dane wyjściowe kreatora **importu danych** to indeksator, który przeszukuje źródło danych JSON, wyodrębnia zawartość z możliwością przeszukiwania i importuje go do indeksu na platformie Azure wyszukiwanie poznawcze.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definicja indeksatora obiektów BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Importuj dane — polecenie w portalu" border="false":::
 
 Kliknij przycisk **OK** , aby uruchomić kreatora i utworzyć wszystkie obiekty. Indeksowanie rozpocznie się natychmiast.
 

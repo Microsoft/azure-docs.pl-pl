@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 6d0cb0c6a9cc3080ec4b2fbd2c4b707a52a88319
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285115"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
@@ -92,7 +92,7 @@ Zapoznaj się <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>z Azure Maps</a
 
 Gdy zdarzenia myszy wystąpią na warstwie zawierającej klastrowane punkty danych, klastrowany punkt danych wraca do zdarzenia jako obiekt funkcji punktu GEOJSON. Ta funkcja wskazuje następujące właściwości:
 
-| Nazwa właściwości             | Typ    | Opis   |
+| Nazwa właściwości             | Type    | Opis   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |

@@ -19,10 +19,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 56eedda7f79fedce1e34ad837c92006e5cd8f191
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998275"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Instrukcje: wysyłanie powiadomień zaplanowanych
@@ -47,7 +47,7 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 Nie ma ograniczeń dotyczących liczby zaplanowanych powiadomień, które można wysłać.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zobacz następujące samouczki:
 

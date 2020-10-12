@@ -8,10 +8,10 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962455"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Najlepsze rozwiązania dotyczące usługi Azure App Service
@@ -34,10 +34,10 @@ Jeśli zauważysz, że aplikacja zużywa więcej czasu procesora CPU niż oczeki
 Aby uzyskać więcej informacji o aplikacjach "stanowych" vs "bezstanowe", możesz obejrzeć ten film wideo: [Planowanie skalowalnej aplikacji wielowarstwowej na Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Aby uzyskać więcej informacji na temat App Service skalowania i opcji skalowania automatycznego, zobacz [skalowanie aplikacji sieci Web w Azure App Service](manage-scale-up.md).  
 
 ## <a name="when-socket-resources-are-exhausted"></a><a name="socketresources"></a>Gdy zasoby gniazda są wyczerpane
-Typowym powodem wyczerpania wychodzących połączeń TCP jest użycie bibliotek klienckich, które nie są zaimplementowane do ponownego użycia połączeń TCP, lub gdy protokół wyższego poziomu, taki jak HTTP-Keep-Alive nie jest używany. Zapoznaj się z dokumentacją dla każdej biblioteki, do której odwołują się aplikacje w planie App Service, aby upewnić się, że są one skonfigurowane lub dostępne w kodzie w celu wydajnego ponownego użycia połączeń wychodzących. Postępuj zgodnie ze wskazówkami dotyczącymi dokumentacji biblioteki, aby zapewnić prawidłowe tworzenie i wydawanie lub czyszczenie, aby uniknąć przecieków połączeń. Chociaż takie badania bibliotek klienta są w toku, wpływ może być skorygowany przez skalowanie do wielu wystąpień.
+Typowym powodem wyczerpania wychodzących połączeń TCP jest użycie bibliotek klienckich, które nie są zaimplementowane do ponownego użycia połączeń TCP, lub gdy nie jest używany protokół wyższego poziomu, taki jak HTTP-Keep-Alive. Zapoznaj się z dokumentacją dla każdej biblioteki, do której odwołują się aplikacje w planie App Service, aby upewnić się, że są one skonfigurowane lub dostępne w kodzie w celu wydajnego ponownego użycia połączeń wychodzących. Postępuj zgodnie ze wskazówkami dotyczącymi dokumentacji biblioteki, aby zapewnić prawidłowe tworzenie i wydawanie lub czyszczenie, aby uniknąć przecieków połączeń. Chociaż takie badania bibliotek klienta są w toku, wpływ może być skorygowany przez skalowanie do wielu wystąpień.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js i wychodzące żądania http
-Podczas pracy z Node.js i wieloma wychodzącymi żądaniami HTTP, należy wziąć pod uwagę zachowanie protokołu HTTP-Keep-Alive. Możesz użyć pakietu [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) , `npm` Aby ułatwić jego wykonywanie w kodzie.
+Podczas pracy z Node.js i wieloma wychodzącymi żądaniami HTTP, w przypadku Keep-Alive protokołu HTTP jest ważne. Możesz użyć pakietu [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) , `npm` Aby ułatwić jego wykonywanie w kodzie.
 
 Zawsze Obsługuj `http` odpowiedź, nawet jeśli nie wykonujesz żadnej operacji w obsłudze. Jeśli odpowiedź nie jest prawidłowo obsługiwana, aplikacja zostanie zablokowana, ponieważ nie są dostępne żadne dodatkowe gniazda.
 
