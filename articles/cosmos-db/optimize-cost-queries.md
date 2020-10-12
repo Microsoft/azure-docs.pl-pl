@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c6ff67e3c1588f6671173d6fa1eec3dc15883291
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020919"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB
@@ -102,7 +102,7 @@ Podczas optymalizowania zapytań dotyczących kosztów należy wziąć pod uwag�
 
    Opłata za żądanie zwrócona w nagłówku żądania wskazuje koszt danego zapytania. Na przykład, jeśli zapytanie zwraca elementy 1000 1-KB, koszt operacji wynosi 1000. W związku z tym w ciągu jednej sekundy serwer honoruje tylko dwa takie żądania przed szybkością ograniczania kolejnych żądań. Aby uzyskać więcej informacji, zobacz artykuł [jednostki żądań](request-units.md) i Kalkulator jednostek żądania. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cosmos DB z następującymi artykułami:
 

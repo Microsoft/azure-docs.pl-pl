@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85384961"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Rozwiązywanie problemów Azure AD B2C zasad niestandardowych i struktury środowiska obsługi tożsamości
@@ -39,18 +39,18 @@ Sprawdzanie poprawności pliku zasad XML jest wykonywane automatycznie przy prze
 
 Typowe błędy walidacji obejmują następujące elementy:
 
-> Fragment kodu błędu:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
+> Fragment kodu błędu: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
 * Wartość elementu ClaimType może być błędna lub nie istnieje w schemacie.
 * Wartości typu ClaimType muszą być zdefiniowane w co najmniej jednym z plików w ramach zasad.
     Na przykład: `<ClaimType Id="issuerUserId">`
 * Jeśli element ClaimType jest zdefiniowany w pliku rozszerzeń, ale jest również używany w wartości profilu technicznym w pliku podstawowym, przekazanie pliku bazowego spowoduje wystąpienie błędu.
 
-> Fragment kodu błędu:`...makes a reference to a ClaimsTransformation with id...`
+> Fragment kodu błędu: `...makes a reference to a ClaimsTransformation with id...`
 
 * Przyczyny tego błędu mogą być takie same jak w przypadku błędu elementu ClaimType.
 
-> Fragment kodu błędu:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+> Fragment kodu błędu: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
 * Sprawdź, czy wartość TenantId w `<TrustFrameworkPolicy\>` `<BasePolicy\>` elementach i jest zgodna z docelową dzierżawą Azure AD B2C.
 

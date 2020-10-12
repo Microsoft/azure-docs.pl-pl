@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
 ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318304"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
@@ -169,7 +169,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |dBfs|System plików usługi Databricks|
 |instancePools|Pule wystąpień|
 |zadania|Zadania datakostki|
-|notesu|Notes usługi Databricks|
+|notebook|Notes usługi Databricks|
 |wpisy tajne|Wpisy tajne datakostek|
 |Uprawnienia sqlpermissions|Datakosteks — uprawnienia sqlpermissions|
 |SSH|Połączenia SSH|
@@ -255,7 +255,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Punkt kontrolny|Punkt kontrolny|
 |Połączenie|Połączenie|
 |Błąd|Błąd|
-|HostRegistration|HostRegistration|
+|Rejestracja hosta|Rejestracja hosta|
 |Zarządzanie|Zarządzanie|
 
 
@@ -347,7 +347,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |---|---|
 |ArchiveLogs|Archiwizuj dzienniki|
 |AutoScaleLogs|Automatyczne skalowanie dzienników|
-|CustomerManagedKeyUserLogs|Dzienniki kluczy zarządzanych przez klienta|
+|CustomerManagedKeyUserLogs|Customer-Managed dzienników kluczy|
 |EventHubVNetConnectionEvent|Dzienniki połączeń sieci wirtualnej/IP filtrowania|
 |KafkaCoordinatorLogs|Dzienniki koordynatora Kafka|
 |KafkaUserErrorLogs|Kafka dzienniki błędów użytkownika|
@@ -393,7 +393,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Inspekcja|Inspekcja|
 |Ruch wychodzący|Ruch wychodzący|
 |Ruch przychodzący|Ruch przychodzący|
-|Działał|Działał|
+|Operacyjne|Operacyjne|
 |Ślad|Ślad|
 |UserDefinedFunction|UserDefinedFunction|
 
@@ -603,7 +603,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
-|błędy|błędy|
+|Errors|Errors|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|
 |SQLInsights|Szczegółowe informacje SQL|
@@ -619,7 +619,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Zakleszczenia|Zakleszczenia|
 |DevOpsOperationsAudit|Dzienniki inspekcji operacji DevOps|
 |DmsWorkers|Pracownicy DMS|
-|błędy|błędy|
+|Errors|Errors|
 |ExecRequests|Żądania exec|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|

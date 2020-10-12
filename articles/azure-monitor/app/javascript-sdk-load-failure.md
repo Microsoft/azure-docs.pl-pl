@@ -7,10 +7,10 @@ ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333260"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Rozwiązywanie problemów z błędem ładowania zestawu SDK dla aplikacji sieci Web JavaScript
@@ -64,7 +64,7 @@ Ta sama wartość ma również zastosowanie w przypadku korzystania z zestawu SD
 
 Możesz również użyć [pakietów npm](#use-npm-packages-to-embed-the-application-insight-sdk) do osadzenia zestawu SDK Application Insights.
 
-Aby zminimalizować Sporadyczne awarie łączności sieciowej, wdrożono nagłówki kontroli pamięci podręcznej we wszystkich plikach CDN, dzięki czemu gdy przeglądarka użytkownika końcowego pobrała bieżącą wersję zestawu SDK, nie będzie musiała być pobierana ponownie, a przeglądarka użyje wcześniej uzyskanej kopii (zobacz [jak działa buforowanie](../../cdn/cdn-how-caching-works.md)). Jeśli sprawdzanie pamięci podręcznej nie powiedzie się lub wystąpiło nowe wydanie, przeglądarka użytkownika końcowego będzie musiała pobrać zaktualizowaną wersję. W scenariuszu sprawdzania awarii może być widoczny poziom tła _"hałas"_ lub tymczasowy wzrost, gdy występuje Nowa wersja i jest on ogólnie dostępny (wdrożony w sieci CDN).
+Aby zminimalizować Sporadyczne awarie łączności sieciowej, wdrożono Cache-Control nagłówki we wszystkich plikach usługi CDN, dzięki czemu gdy przeglądarka użytkownika końcowego pobrała bieżącą wersję zestawu SDK, nie będzie musiała być pobierana ponownie, a przeglądarka użyje wcześniej uzyskanej kopii (zobacz [jak działa buforowanie](../../cdn/cdn-how-caching-works.md)). Jeśli sprawdzanie pamięci podręcznej nie powiedzie się lub wystąpiło nowe wydanie, przeglądarka użytkownika końcowego będzie musiała pobrać zaktualizowaną wersję. W scenariuszu sprawdzania awarii może być widoczny poziom tła _"hałas"_ lub tymczasowy wzrost, gdy występuje Nowa wersja i jest on ogólnie dostępny (wdrożony w sieci CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights awaria usługi CDN
 

@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018403"
 ---
 # <a name="get-started-with-device-management-net"></a>Wprowadzenie do zarządzania urządzeniami (.NET)
@@ -43,7 +43,7 @@ Na końcu tego samouczka będziesz mieć dwie aplikacje konsolowe .NET:
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -65,7 +65,7 @@ W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, któr
 
 1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz szablon projektu **aplikacja konsoli (.NET Framework)** , a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *TriggerReboot*i wybierz pozycję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *TriggerReboot*i wybierz pozycję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz przycisk **Utwórz**.
 
     ![Nowy projekt Visual C# Windows Classic Desktop](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -148,7 +148,7 @@ Aby utworzyć aplikację symulowanego urządzenia, wykonaj następujące kroki:
 
 1. W programie Visual Studio w już utworzonym rozwiązaniu TriggerReboot wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**Znajdź i wybierz szablon projektu **aplikacja konsoli (.NET Framework)** , a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateManagedDevice*, a w polu **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateManagedDevice*, a w polu **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Wybierz przycisk **Utwórz**.
 
     ![Nazwa i Dodawanie projektu do rozwiązania](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 

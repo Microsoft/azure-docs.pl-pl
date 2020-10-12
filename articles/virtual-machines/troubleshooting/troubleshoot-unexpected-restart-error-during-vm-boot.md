@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87036186"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Uruchomienie systemu operacyjnego — komputer został nieoczekiwanie uruchomiony ponownie lub wystąpił nieoczekiwany błąd

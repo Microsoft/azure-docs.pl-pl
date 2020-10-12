@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 80644ed2d655544fa176a7be92aec3c01aa3bf14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75966074"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Samouczek: Tworzenie pierwszego potoku do przekształcania danych przy użyciu klastra Hadoop
@@ -82,7 +82,7 @@ Przed rozpoczęciem pracy z tym samouczkiem należy spełnić następujące wyma
 1. **Subskrypcja platformy Azure** — Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Zapoznaj się z artykułem [bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/) , aby uzyskać bezpłatne konto próbne.
 2. **Azure Storage** — używasz konta usługi Azure Storage do przechowywania danych w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zobacz artykuł [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) . Po utworzeniu konta magazynu Zanotuj **nazwę konta** i **klucz dostępu**. Aby uzyskać informacje na temat pobierania kluczy dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
 3. Pobierz i przejrzyj plik zapytania programu Hive (**HQL**) znajdujący się w lokalizacji: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql) . To zapytanie przekształca dane wejściowe w celu wygenerowania danych wyjściowych.
-4. Pobierz i przejrzyj przykładowy plik wejściowy (**Input. log**) znajdujący się w lokalizacji:[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+4. Pobierz i przejrzyj przykładowy plik wejściowy (**Input. log**) znajdujący się w lokalizacji: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Utwórz kontener obiektów BLOB o nazwie **adfgetstarted** w BLOB Storage platformy Azure.
 6. Przekaż plik **partitionweblogs. HQL** do folderu **Script** w kontenerze **adfgetstarted** . Użyj narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/).
 7. Przekaż plik **Input. log** do folderu **inputdata** w kontenerze **adfgetstarted** .

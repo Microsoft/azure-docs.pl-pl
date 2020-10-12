@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068238"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -234,7 +234,7 @@ Zastąp następujące ustawienia symboli zastępczych:
 | \<Storage account container\> | Nazwa kontenera konta magazynu |
 | \<Subscription ID\> | Subskrypcja platformy Azure |
 
-Aby uzyskać więcej informacji przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, zobacz [Tworzenie niestandardowego obrazu, który będzie używać tożsamości zarządzanej przypisanej przez użytkownika platformy Azure do bezproblemowe dostępu do plików usługi Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Przewodnik Szybki Start przedstawia sposób tworzenia i konfigurowania tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskania dostępu do konta magazynu.
+Aby uzyskać więcej informacji przy użyciu tożsamości zarządzanej przypisanej przez użytkownika, zobacz [Tworzenie niestandardowego obrazu, który będzie używać tożsamości zarządzanej User-Assigned platformy Azure do bezproblemowe dostępu do plików usługi Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). Przewodnik Szybki Start przedstawia sposób tworzenia i konfigurowania tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskania dostępu do konta magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 

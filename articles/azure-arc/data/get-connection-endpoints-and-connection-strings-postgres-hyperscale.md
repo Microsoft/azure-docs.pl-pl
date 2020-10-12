@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331016"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Uzyskaj punkty końcowe połączenia i ciągi połączeń formularzy dla grupy serwerów PostgreSQL na potrzeby skalowania w poziomie
@@ -62,7 +62,7 @@ Zwraca dane wyjściowe podobne do:
 ```
 Użyj następujących punktów końcowych:
 - Formularz połączenia i nawiązywanie połączenia z narzędziami lub aplikacjami klienckimi
-- Dostęp do pulpitów nawigacyjnych Grafana i Kibana z przeglądarki
+- Uzyskiwanie dostępu do pulpitów nawigacyjnych Grafana i Kibana z przeglądarki
 
 Na przykład można użyć punktu końcowego o nazwie _PostgreSQL wystąpienie_ do nawiązania połączenia z PSQL z grupą serwerów. Na przykład:
 ```console

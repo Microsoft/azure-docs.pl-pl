@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331985"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
@@ -180,8 +180,8 @@ Podczas kopiowania danych z MongoDB następujące mapowania są używane z typó
 | MongoDB — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
 | Binarne |Byte [] |
-| Boolean (wartość logiczna) |Wartość logiczna |
-| Date |Data i godzina |
+| Boolean (wartość logiczna) |Boolean (wartość logiczna) |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
@@ -232,7 +232,7 @@ W poniższych tabelach przedstawiono tabele wirtualne, które reprezentują oryg
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |wyskakujący |456 |0,2 |
 | 1111 |1 |124 |laboratoryjn |1235 |0,2 |
-| 2222 |0 |135 |lodówki |12543 |0,0 |
+| 2222 |0 |135 |lodówki |12543 |0.0 |
 
 **Tabela "ExampleTable_Ratings":**
 

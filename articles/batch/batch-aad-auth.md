@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
 ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533516"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
@@ -127,7 +127,7 @@ Aby uwierzytelnić się za pomocą jednostki usługi, należy przypisać kontrol
 1. W sekcji **Ustawienia** konta Partia zadań wybierz pozycję **Access Control (IAM)**.
 1. Wybierz kartę **przypisania ról** .
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).
+1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz [Rozpoczynanie pracy z Role-Based Access Control w Azure Portal](../role-based-access-control/overview.md).
 1. W polu **Wybierz** wprowadź nazwę aplikacji. Wybierz aplikację z listy, a następnie wybierz pozycję **Zapisz**.
 
 Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypisaną rolą platformy Azure.

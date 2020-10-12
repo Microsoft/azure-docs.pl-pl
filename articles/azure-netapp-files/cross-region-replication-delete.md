@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708821"
 ---
 # <a name="delete-replications"></a>Usuwanie replikacji
@@ -39,6 +39,6 @@ Możesz przerwać połączenie replikacji między woluminem źródłowym a docel
 
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
-* [Wyświetl stan kondycji relacji replikacji](cross-region-replication-display-health-status.md)
+* [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
 

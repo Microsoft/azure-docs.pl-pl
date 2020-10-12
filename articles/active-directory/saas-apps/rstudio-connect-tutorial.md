@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Samouczek: integracja Azure Active Directory z programem RStudio Connect
@@ -75,7 +75,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu połączenia RStudio, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-rstudio-connect-single-sign-on)** jednokrotne w usłudze RStudio, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-rstudio-connect-single-sign-on)** jednokrotne w usłudze RStudio, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego RStudio Connect](#create-rstudio-connect-test-user)** — Aby uzyskać odpowiednik Britta Simon w RStudio Connect, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu RS
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze RStudio
+### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurowanie RStudio Połącz pojedyncze Sign-On
 
 Aby skonfigurować Logowanie jednokrotne w usłudze **RStudio Connect**, należy użyć **adresu URL metadanych federacji aplikacji** oraz **adresu serwera** użytego powyżej. Jest to wykonywane w pliku konfiguracji RStudio Connect w lokalizacji `/etc/rstudio-connect/rstudio-connect.gcfg` .
 
@@ -179,7 +179,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

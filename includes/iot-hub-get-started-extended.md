@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75912525"
 ---
 ## <a name="extended-iot-scenarios"></a>Rozszerzone scenariusze IoT
@@ -26,7 +26,7 @@ Używanie innych usług i narzędzi platformy Azure. Po połączeniu urządzenia
 | [Zarządzanie urządzeniem IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code rozszerzenie platformy Azure IoT Hub|
 | [Zapisywanie komunikatów usługi IoT Hub w magazynie platformy Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
 | [Wizualizowanie danych czujników](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
-| [Wizualizowanie danych czujników](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |
+| [Wizualizowanie danych czujników](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Aplikacje internetowe platformy Azure                     |
 | [Prognozowanie pogody przy użyciu danych czujników](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
 | [Automatyczne wykrywanie anomalii i reagowanie na nie](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Azure Logic Apps                   |
 

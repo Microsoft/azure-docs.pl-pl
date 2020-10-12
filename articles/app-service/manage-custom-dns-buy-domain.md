@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970049"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kupowanie niestandardowej nazwy domeny dla usługi Azure App Service
@@ -61,7 +61,7 @@ Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną w
 
 Kliknij pozycję **Zastosuj**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający warstwy cenowe niestandardowych domen w kategorii produkcja z zakładkami produkcja, plan B1 i przycisk Zastosuj wyróżniony.":::
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający menu nawigacji po lewej stronie aplikacji z wybranym przyciskiem Skaluj w górę (plan App Service).":::
 
 Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalowania.
 
@@ -168,7 +168,7 @@ Upewnij się, że zakupiona domena znajduje się na liście w sekcji **domeny Ap
 Wybierz przycisk **Dodaj nazwę hosta**.
 
 ### <a name="configure-hostname"></a>Konfigurowanie nazwy hosta
-W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Przykład:
+W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Na przykład:
 
 - kontoso.net
 - \.kontoso.NET www

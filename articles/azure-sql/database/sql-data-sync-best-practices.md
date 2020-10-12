@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332988"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync) 
@@ -41,7 +41,7 @@ Omówienie usługi SQL Data Sync zawiera temat [Sync data across multiple cloud 
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Konta bazy danych z najmniej wymaganymi uprawnieniami
 
--   **Dla konfiguracji synchronizacji**. Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ zdefiniowany przez użytkownika.
+-   **Dla konfiguracji synchronizacji**. Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ User-Defined.
 
 -   **Dla trwającej synchronizacji**. Wybierz/Wstaw/Aktualizuj/Usuń w tabelach wybranych do synchronizowania oraz w metadanych synchronizacji i tabelach śledzenia; Uprawnienie EXECUTE w procedurach składowanych utworzonych przez usługę; Uprawnienie EXECUTE dla typów tabel zdefiniowanych przez użytkownika.
 

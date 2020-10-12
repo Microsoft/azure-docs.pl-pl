@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322401"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Alert Management rozwiązanie na platformie Azure Log Analytics
@@ -31,7 +31,7 @@ Rozwiązanie działa z dowolnymi rekordami w repozytorium Log Analytics z typem 
 - W przypadku alertów Nagios i Zabbix [Skonfiguruj te serwery](../learn/quick-collect-linux-computer.md) do wysyłania alertów do log Analytics.
 - W przypadku alertów System Center Operations Manager [Połącz grupę zarządzania Operations Manager z obszarem roboczym log Analytics](./om-agents.md).  Wszystkie alerty utworzone w System Center Operations Manager są importowane do Log Analytics.  
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Dodaj Alert Management rozwiązanie do obszaru roboczego Log Analytics przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań](../insights/solutions.md). Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
 ## <a name="management-packs"></a>Pakiety administracyjne

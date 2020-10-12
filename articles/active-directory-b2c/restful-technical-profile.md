@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 172824a2215e8a102ad4c284c847072960344549
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88041531"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny RESTful w zasadach niestandardowych Azure Active Directory B2C
@@ -60,7 +60,7 @@ Aby wysłać złożony ładunek JSON:
 1. Kompiluj ładunek JSON przy użyciu transformacji oświadczeń [GenerateJson](json-transformations.md) .
 1. W profilu technicznym interfejsu API REST:
     1. Dodaj transformację oświadczeń wejściowych z odwołaniem do `GenerateJson` transformacji oświadczeń.
-    1. Ustaw `SendClaimsIn` opcję metadanych na`body`
+    1. Ustaw `SendClaimsIn` opcję metadanych na `body`
     1. Ustaw `ClaimUsedForRequestPayload` opcję metadanych na nazwę żądania zawierającego ładunek JSON.
     1. W ramach żądania wejściowego Dodaj odwołanie do żądania wejściowego zawierającego ładunek JSON.
 
@@ -237,7 +237,7 @@ Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| version | Tak | Wersja interfejsu API REST. Na przykład: 1.0.1 |
+| Wersja | Tak | Wersja interfejsu API REST. Na przykład: 1.0.1 |
 | status | Tak | Musi być 409 |
 | kod | Nie | Kod błędu od dostawcy punktu końcowego RESTful, który jest wyświetlany, gdy `DebugMode` jest włączony. |
 | IdentyfikatorŻądania | Nie | Identyfikator żądania od dostawcy punktu końcowego RESTful, który jest wyświetlany, gdy `DebugMode` jest włączony. |

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417472"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiowanie danych z Cassandra za pomocą Azure Data Factory
@@ -182,21 +182,21 @@ Podczas kopiowania danych z Cassandra następujące mapowania są używane z typ
 
 | Cassandra — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |Ciąg |
 | BIGINT |Int64 |
 | TWORZENIA |Byte [] |
 | TYPU |Boolean |
-| DOKŁADNOŚCI |Wartość dziesiętna |
+| DOKŁADNOŚCI |Liczba dziesiętna |
 | DOUBLE |Double |
-| FLOAT |Pojedyncze |
-| INET |String |
+| FLOAT |Pojedynczy |
+| INET |Ciąg |
 | INT |Int32 |
-| TEKST |String |
+| TEKST |Ciąg |
 | ZNACZNIK czasu |DateTime |
 | TIMEUUID |Guid (identyfikator GUID) |
 | INTERFEJSU |Guid (identyfikator GUID) |
-| VARCHAR |String |
-| VARINT |Wartość dziesiętna |
+| VARCHAR |Ciąg |
+| VARINT |Liczba dziesiętna |
 
 > [!NOTE]
 > W przypadku typów kolekcji (map, Set, list itp.) zapoznaj się z sekcją [Work with Cassandra Types using przy użyciu tabeli wirtualnej](#work-with-collections-using-virtual-table) .

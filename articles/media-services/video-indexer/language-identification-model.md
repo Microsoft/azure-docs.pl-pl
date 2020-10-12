@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687122"
 ---
-# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Automatycznie zidentyfikuj język mówiony przy użyciu modelu identyfikacji języka
+# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Automatyczne identyfikowanie języka mówionego przy użyciu modelu identyfikacji języka
 
 Video Indexer obsługuje automatyczne identyfikowanie języka (POKRYWy), czyli proces automatycznego identyfikowania zawartości języka wymawianego z dźwiękiem i wysyłania pliku multimedialnego do uzyskanego w określonym języku. 
 
@@ -67,4 +67,4 @@ Język dominujący modelu jest dostępny w formacie JSON usługi Insights jako `
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie](video-indexer-overview.md)
-* [Automatyczne identyfikowanie i transkrypcja zawartości w wielu językach](multi-language-identification-transcription.md)
+* [Automatyczne identyfikowanie i transkrybowanie zawartości w wielu językach](multi-language-identification-transcription.md)

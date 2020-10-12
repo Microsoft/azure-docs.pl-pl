@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320565"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Dane telemetryczne żądania: Application Insights model danych
@@ -25,7 +25,7 @@ Application Insights Web SDK wysyła nazwę żądania "AS IS" w odniesieniu do w
 
 Maksymalna długość: 1024 znaków
 
-## <a name="id"></a>ID
+## <a name="id"></a>ID (Identyfikator)
 
 Identyfikator wystąpienia wywołania żądania. Służy do korelacji między żądaniem a innymi elementami telemetrii. Identyfikator powinien być globalnie unikatowy. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 

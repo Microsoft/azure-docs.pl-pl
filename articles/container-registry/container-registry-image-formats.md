@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat formatów zawartości obsługiwanych 
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84695270"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formaty zawartości obsługiwane w Azure Container Registry
@@ -32,7 +32,7 @@ Azure Container Registry obsługuje [specyfikację dystrybucji OCI](https://gith
 
 Aby dowiedzieć się więcej o artefaktach OCI, zobacz repozytorium [OCI rejestru as Storage (ORAS)](https://github.com/deislabs/oras) i repozytorium [OCI artefaktów](https://github.com/opencontainers/artifacts) w witrynie GitHub.
 
-## <a name="helm-charts"></a>Wykresy Helm
+## <a name="helm-charts"></a>Pakiety programu Helm
 
 Azure Container Registry mogą hostować repozytoria dla [wykresów Helm](https://helm.sh/), format pakietu służący do szybkiego zarządzania aplikacjami i wdrażania ich w programie Kubernetes. [Helm Client](https://docs.helm.sh/using_helm/#installing-helm) w wersji 2 (2.11.0 lub nowsza) jest obsługiwana.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312910"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pola do automatycznej aprowizacji użytkowników
@@ -79,7 +79,7 @@ Jeśli włączono automatyczną obsługę administracyjną, przypisane Użytkown
  * Jeśli obiekty grupy zostały skonfigurowane do obsługi administracyjnej, wszystkie przypisane obiekty grupy są obsługiwane do pola i wszyscy użytkownicy będący członkami tych grup. Członkostwa grup i użytkowników są zachowywane po zapisaniu do pola.
 
 > [!TIP] 
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
+> Możesz również włączyć opcję pojedyncze Sign-On oparte na protokole SAML, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Aby skonfigurować automatyczne Inicjowanie obsługi konta użytkownika:
 

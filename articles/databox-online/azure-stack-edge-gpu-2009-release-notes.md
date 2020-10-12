@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460479"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack EDGE Pro z informacjami o wersji ogólnego udostępnienia procesora GPU
@@ -35,7 +35,7 @@ Poniższe nowe funkcje są dostępne w wersji Azure Stack Edge 2009.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących urządzeń z programem Azure Stack Edge.
 
-| Nie. | Cechy | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 |**1.**|Funkcje w wersji zapoznawczej |W tej wersji na poziomie GA następujące funkcje: local Azure Resource Manager, Virtual Machines, Kubernetes, Azure Arc Enabled Kubernetes, wieloprocesowa usługa (MPS) dla procesora GPU — są dostępne w wersji zapoznawczej dla urządzenia z Azure Stack brzeg Pro.  |Te funkcje będą ogólnie dostępne w nowszej wersji. |
 | **2.** |Azure Stack EDGE Pro + Azure SQL | Tworzenie bazy danych SQL wymaga dostępu administratora.   |Wykonaj następujące czynności zamiast kroków 1-2 w temacie [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>W lokalnym interfejsie użytkownika urządzenia Włącz interfejs obliczeniowy. Wybierz pozycję **obliczenia > port # > Włącz dla obliczeń > Zastosuj.**</li><li>Pobierz `sqlcmd` na komputerze klienckim z https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Nawiąż połączenie z adresem IP interfejsu obliczeniowego (włączonym portem), dodając znak ", 1401" na końcu adresu.</li><li>Końcowe polecenie będzie wyglądać następująco: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd".</li>Po wykonaniu tej czynności kroki 3-4 z bieżącej dokumentacji powinny być identyczne. </li></ul> |
@@ -43,7 +43,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących urządzeń
 |**czwart.**|Ograniczanie przepływności|W przypadku ograniczania przepustowości, jeśli nowe zapisy nie są dozwolone na urządzeniu, operacje zapisu wykonane przez klienta NFS kończą się niepowodzeniem z powodu błędu "odmowa uprawnień".| Błąd zostanie wyświetlony w następujący sposób:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: nie można utworzyć katalogu "test": odmowa uprawnień|
 |**5000.**|Pozyskiwanie Blob Storage|W przypadku korzystania z programu AzCopy w wersji 10 na potrzeby pozyskiwania usługi BLOB Storage należy uruchomić AzCopy z następującym argumentem: `Azcopy <other arguments> --cap-mbps 2000`| Jeśli te limity nie są podane dla AzCopy, może to potencjalnie wysłać do urządzenia dużą liczbę żądań i spowodować problemy związane z usługą.|
 |**ust.**|Konta magazynu warstwowego|W przypadku korzystania z kont magazynu warstwowego obowiązują następujące kwestie:<ul><li> Obsługiwane są tylko blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane.</li><li>Brak obsługi interfejsu API migawek lub kopiowania.</li><li> Pozyskiwanie obciążeń usługi Hadoop za pośrednictwem programu `distcp` nie jest obsługiwane, ponieważ wielokrotnie używa operacji kopiowania.</li></ul>||
-|**7.**|Połączenie z udziałem NFS|Jeśli wiele procesów jest kopiowanych do tego samego udziału, a `nolock` atrybut nie jest używany, podczas kopiowania mogą pojawić się błędy.|Aby `nolock` skopiować pliki do udziału NFS, ten atrybut musi być przekazaniem do polecenia instalacji. Na przykład: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**7.**|Połączenie z udziałem NFS|Jeśli wiele procesów jest kopiowanych do tego samego udziału, a `nolock` atrybut nie jest używany, podczas kopiowania mogą pojawić się błędy.|Aby `nolock` skopiować pliki do udziału NFS, ten atrybut musi być przekazaniem do polecenia instalacji. Przykład: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**0,8.**|Klaster Kubernetes|W przypadku zastosowania aktualizacji na urządzeniu, na którym działa klaster Kubernetes, maszyny wirtualne Kubernetes zostaną ponownie uruchomione i ponownie uruchamiane. W tym przypadku tylko te, które są wdrożone z wybranymi replikami są automatycznie przywracane po aktualizacji.  |Jeśli utworzono poszczególne zbiory () poza kontrolerem replikacji bez określania zestawu replik, te zasobniki nie zostaną automatycznie przywrócone po aktualizacji urządzenia. Konieczne będzie przywrócenie tych zasobników.<br>Zestaw replik zastępuje te, które zostały usunięte z jakiegokolwiek powodu, takie jak awaria węzła lub nieprzerwane uaktualnienie węzła. Z tego powodu zalecamy użycie zestawu replik, nawet jeśli aplikacja wymaga tylko jednego elementu.|
 |**9.**|Klaster Kubernetes|Kubernetes na Azure Stack EDGE Pro jest obsługiwana tylko z Helm v3 lub nowszym. Aby uzyskać więcej informacji, zapoznaj się z [często zadawanymi pytaniami: usuwanie obiektu do](https://v3.helm.sh/docs/faq/)wykonania.|
 |**dziesięć.**|Platforma Kubernetes z włączoną usługą Azure Arc |W przypadku wersji GA usługa Azure ARC z włączonym Kubernetes jest aktualizowana z wersji 0.1.18 na 0.2.9. Ponieważ aktualizacja Kubernetes z funkcją Azure Arc nie jest obsługiwana na Azure Stack urządzeniu brzegowym, należy ponownie wdrożyć usługę Azure ARC z obsługą Kubernetes.|Wykonaj następujące kroki:<ol><li>[Zastosuj oprogramowanie urządzenia i aktualizacje Kubernetes](azure-stack-edge-gpu-install-update.md).</li><li>Nawiąż połączenie z [interfejsem programu PowerShell urządzenia](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Usuń istniejącego agenta usługi Azure Arc. Typ: `Remove-HcsKubernetesAzureArcAgent` .</li><li>Wdróż [usługę Azure Arc na nowym zasobie](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Nie używaj istniejącego zasobu usługi Azure Arc.</li></ol>|

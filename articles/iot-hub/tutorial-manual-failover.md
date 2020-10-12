@@ -12,10 +12,10 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89013949"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Samouczek: Wykonywanie ręcznego przełączania do trybu failover dla Centrum IoT Hub
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat ręcznej pracy awaryjnej i zainicjowane
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
 
@@ -132,7 +132,7 @@ Aby usunąć zasoby utworzone w ramach tego samouczka, usuń grupę zasobów. Ta
 
 3. Kliknij pozycję **Usuń grupę zasobów**. Po wyświetleniu monitu wprowadź nazwę grupy zasobów i kliknij przycisk **Usuń**, aby potwierdzić. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób konfigurowania i wykonywania ręcznego przejścia w tryb failover oraz żądania powrotu po awarii przez wykonanie następujących zadań:
 

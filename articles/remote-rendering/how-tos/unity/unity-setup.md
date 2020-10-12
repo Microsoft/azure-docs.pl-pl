@@ -7,10 +7,10 @@ ms.date: 02/27/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018981"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Konfigurowanie usługi Remote Rendering dla środowiska Unity
@@ -77,7 +77,7 @@ Nie może istnieć więcej niż jedno wystąpienie `ARRServiceUnity` naraz. Jest
 
 Aby zapoznać się z przykładem sposobu konfigurowania i używania, `ARRServiceUnity` Zobacz [Samouczek: wyświetlanie zdalnie renderowane modele](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Instalowanie pakietu usługi Remote Rendering dla środowiska Unity](install-remote-rendering-unity-package.md)
 * [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../../tutorials/unity/view-remote-models/view-remote-models.md)

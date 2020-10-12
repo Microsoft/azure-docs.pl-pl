@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699604"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurowanie zasad replikacji dla odzyskiwania po awarii oprogramowania VMware i zarządzanie nimi
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurowanie zasad replikacji dla odzyskiwania po awarii środowiska VMware i zarządzanie nimi
 
 W tym artykule opisano sposób konfigurowania zasad replikacji w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu [Azure Site Recovery](site-recovery-overview.md).
 
@@ -53,7 +53,7 @@ Edytuj zasady w następujący sposób:
 2. Wybierz zasady replikacji, które chcesz zmodyfikować.
 3. Kliknij pozycję **Edytuj ustawienia**, a następnie w razie potrzeby zaktualizuj odpowiednie pola próg/czas przechowywania punktu odzyskiwania/częstotliwość migawek dla aplikacji.
 4. Jeśli chcesz wyłączyć generowanie punktów spójności aplikacji, wybierz wartość "off" na liście rozwijanej **częstotliwości migawek spójnej na poziomie aplikacji**.
-5. Kliknij pozycję **Zapisz**. Zasady powinny zostać zaktualizowane w ciągu 30 do 60 sekund.
+5. Kliknij przycisk **Zapisz**. Zasady powinny zostać zaktualizowane w ciągu 30 do 60 sekund.
 
 
 

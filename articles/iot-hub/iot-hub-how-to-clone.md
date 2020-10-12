@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75429155"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować usługę Azure IoT Hub do innego regionu
@@ -353,7 +353,7 @@ Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. W przypadku zaso
 
 1. W polu wyszukiwania wprowadź ciąg "wdrożenie szablonu" i wybierz polecenie wprowadź.
 
-1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz pozycję **Utwórz**. Zostanie wyświetlony następujący ekran:
+1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz przycisk **Utwórz**. Zostanie wyświetlony następujący ekran:
 
    ![Zrzut ekranu przedstawiający polecenie tworzenia własnego szablonu](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -407,7 +407,7 @@ Aby wycofać zmiany, należy ponownie zainicjować obsługę administracyjną ur
 
 Teraz zakończono Migrowanie centrum i jego urządzeń. Możesz pominąć, aby [oczyścić](#clean-up).
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Przenoszenie urządzeń do nowego centrum przy użyciu polecenia Import-Export
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Przenoszenie urządzeń do nowego centrum przy użyciu Import-Export
 
 Aplikacja jest przeznaczona dla platformy .NET Core, więc można ją uruchomić w systemie Windows lub Linux. Możesz pobrać przykład, pobrać parametry połączenia, ustawić flagi, dla których mają być uruchamiane usługi, i uruchomić je. Można to zrobić bez konieczności otwierania kodu.
 

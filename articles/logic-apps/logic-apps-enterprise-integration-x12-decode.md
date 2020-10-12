@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792377"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Dekodowanie komunikatów X12 w usłudze Azure Logic Apps przy użyciu Pakietu integracyjnego dla przedsiębiorstw
@@ -57,7 +57,7 @@ Oto elementy, których potrzebujesz:
 
     ![utworzono połączenie z kontem integracji](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Przykład:
+    Na przykład:
 
     ![Wybieranie komunikatu prostego pliku X12 do dekodowania](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
