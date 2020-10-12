@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540969"
 ---
 # <a name="add-entities-to-extract-data"></a>Dodawanie jednostek do wyodrębniania danych
@@ -70,7 +70,7 @@ Ten proces działa w przypadku obiektów, które są obsługiwane przez maszynę
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz pozycję **+ Utwórz**.
-1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki, a następnie wybierz opcję **Machined**, a następnie wybierz opcję. Aby dodać podjednostki, wybierz pozycję **Dodaj strukturę**. Wybierz pozycję **Utwórz**.
+1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki, a następnie wybierz opcję **Machined**, a następnie wybierz opcję. Aby dodać podjednostki, wybierz pozycję **Dodaj strukturę**. Wybierz przycisk **Utwórz**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający tworzenie jednostki uzyskanej na maszynie.](media/add-entities/machine-learned-entity-with-structure.png)

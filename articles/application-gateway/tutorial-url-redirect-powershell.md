@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595278"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą programu Azure PowerShell

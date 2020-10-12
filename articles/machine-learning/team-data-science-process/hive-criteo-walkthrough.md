@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336653"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proces nauki danych zespołu w akcji — Używanie klastra Azure HDInsight Hadoop w zestawie danych o pojemności 1 TB
@@ -607,12 +607,12 @@ Teraz można przystąpić do kompilowania modelu Azure Machine Learning przy uż
 #### <a name="choice-of-learner"></a>Wybór
 Najpierw musisz wybrać naukę. Korzystaj z dwuklasowego drzewa decyzyjnego. Poniżej przedstawiono domyślne opcje tego rozwiązania:
 
-![Dwuklasowe parametry drzewa decyzyjnego](./media/hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class parametry drzewa podwyższania decyzji](./media/hive-criteo-walkthrough/bH3ST2z.png)
 
 Na potrzeby eksperymentu wybierz wartości domyślne. Wartości domyślne są zrozumiałe i dobrym sposobem na uzyskanie szybkich linii bazowych względem wydajności. Można zwiększyć wydajność przez odczyszczenie parametrów, jeśli wybierzesz opcję po utworzeniu linii bazowej.
 
 #### <a name="train-the-model"></a>Trenowanie modelu
-W przypadku szkolenia po prostu wywołaj moduł **uczenia modelu** . Dwa dane wejściowe do niego to informacje o podwyższej klasie i zestawie danych szkolenia. Jest to pokazane tutaj:
+W przypadku szkolenia po prostu wywołaj moduł **uczenia modelu** . Dwa dane wejściowe są do niego Two-Class informacje o podwyższaniu poziomu drzewa decyzyjnego oraz zestaw danych szkolenia. Jest to pokazane tutaj:
 
 ![Moduł uczenia modelu](./media/hive-criteo-walkthrough/2bZDZTy.png)
 

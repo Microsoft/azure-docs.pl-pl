@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
 ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870021"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
@@ -46,7 +46,7 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
    |**Ustawienie**  |**Sugerowana wartość**  |
    |---------|---------|
-   |Alias danych wyjściowych  |  Wejścia callstream — PowerBI  |
+   |Alias danych wyjściowych  |  CallStream-PowerBI  |
    |Nazwa zestawu danych  |   sa — zestaw danych  |
    |Nazwa tabeli |  oszukańcze wywołania  |
 
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji na temat Power BI zestawów danych, zobacz temat
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 
 ## <a name="test-the-query"></a>Testowanie zapytania
@@ -194,7 +194,7 @@ Możesz użyć poniższego równania, aby obliczyć wartość w ciągu kilku sek
 
 ![Równanie wartości obliczeniowej, aby przyznać okno w sekundach](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Przykład:
+Na przykład:
 
 * Masz 1 000 urządzeń wysyłających dane w odstępach jednosekundowych.
 * Używasz jednostki SKU Power BI Pro, która obsługuje 1 000 000 wierszy na godzinę.

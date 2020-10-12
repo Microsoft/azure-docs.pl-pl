@@ -19,10 +19,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231133"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Polecenia cmdlet programu PowerShell usługi Azure AD do raportowania
@@ -52,9 +52,9 @@ Dostęp do dzienników inspekcji uzyskuje się za pomocą polecenia cmdlet Get-A
 | Scenariusz                      | Polecenie programu PowerShell |
 | :--                           | :--                |
 | Nazwa wyświetlana aplikacji      | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/App/displayName EQ" Azure AD Cloud Sync "" |
-| Kategoria                      | Get-AzureADAuditDirectoryLogs-Filter "Kategoria EQ" ApplicationManagement "" |
+| Kategoria                      | Get-AzureADAuditDirectoryLogs-Filter "ApplicationManagement" " |
 | Data i godzina działania            | Get-AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
-| Wszystkie powyższe              | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/App/displayName EQ" Azure AD Cloud Sync "oraz kategorii EQ" ApplicationManagement "i activityDateTime gt 2019-04-18"|
+| Wszystkie powyższe              | Get-AzureADAuditDirectoryLogs — filtr "initiatedBy/App/displayName EQ" Azure AD Cloud Sync "oraz kategorii EQ" ApplicationManagement "i activityDateTime gt 2019-04-18"|
 
 
 Na poniższej ilustracji przedstawiono przykład tego polecenia. 
@@ -72,11 +72,11 @@ Dostęp do dzienników logowania można uzyskać za pomocą polecenia cmdlet "Ge
 
 | Scenariusz                      | Polecenie programu PowerShell |
 | :--                           | :--                |
-| Nazwa wyświetlana użytkownika             | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ" Tymotka Perkins "" |
+| Nazwa wyświetlana użytkownika             | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ Tymotka Perkins" " |
 | Data i godzina utworzenia              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (wszystko od 5:30 PM na 4/18) |
 | Stan                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
-| Nazwa wyświetlana aplikacji      | Get-AzureADAuditSignInLogs-Filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] "" |
-| Wszystkie powyższe              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ" Tymotka Perkins "i status/errorCode ne 0 i appDisplayName EQ" StoreFrontStudio [wsfed Enabled] "" |
+| Nazwa wyświetlana aplikacji      | Get-AzureADAuditSignInLogs-Filter "appDisplayName EQ StoreFrontStudio [wsfed Enabled]" " |
+| Wszystkie powyższe              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ Tymotka Perkins" i status/errorCode ne 0 i appDisplayName EQ "StoreFrontStudio [wsfed Enabled]" " |
 
 
 Na poniższej ilustracji przedstawiono przykład tego polecenia. 

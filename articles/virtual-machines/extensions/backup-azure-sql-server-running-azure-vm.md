@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
 ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511181"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup SQL Server uruchomionego na maszynie wirtualnej platformy Azure
@@ -87,7 +87,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia WorkloadBackup.
 
 Nazwa | Wartość/przykład | Typ danych
  --- | --- | ---
-locale | pl-pl  |  ciąg
+locale | en-us  |  ciąg
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | ciąg
 objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250 YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = =" | ciąg
 commandStartTimeUTCTicks | "636967192566036845"  | ciąg
@@ -100,7 +100,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 Zalecamy dodanie rozszerzenia AzureBackupWindowsWorkload do maszyny wirtualnej, aby umożliwić tworzenie kopii zapasowych SQL Server na maszynie wirtualnej. Można to osiągnąć za pomocą [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) zaprojektowanego do automatyzacji tworzenia kopii zapasowych na SQL Server maszynie wirtualnej.
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 
 Należy "zarejestrować" maszynę wirtualną platformy Azure zawierającą aplikację SQL z magazynem usługi Recovery Services. Podczas rejestracji rozszerzenie AzureBackupWindowsWorkload zostanie zainstalowane na maszynie wirtualnej. Zarejestruj maszynę wirtualną za pomocą polecenia cmdlet [register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) .
 

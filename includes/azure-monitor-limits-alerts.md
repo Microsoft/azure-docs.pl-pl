@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 08/11/2020
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88162758"
 ---
 | Zasób | Limit domyślny | Limit maksymalny |

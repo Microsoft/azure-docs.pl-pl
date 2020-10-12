@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540952"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
@@ -49,7 +49,7 @@ Aby uruchomić test, wybierz nazwę zestawu danych, a następnie wybierz pozycj�
 
 Zestaw danych do pobrania to ten sam plik, który został przekazany do testowania wsadowego.
 
-|Stan|Znaczenie|
+|State|Znaczenie|
 |--|--|
 |![Ikona pomyślnego testu zielony okrąg](./media/luis-how-to-batch-test/batch-test-result-green.png)|Wszystkie wyrażenia długości powiodło się.|
 |![Niepowodzenie testu czerwona litera x](./media/luis-how-to-batch-test/batch-test-result-red.png)|Co najmniej jeden cel wypowiedź nie jest zgodny z przewidywaniam.|

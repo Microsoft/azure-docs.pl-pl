@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541049"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Programistyczne Kompilowanie aplikacji LUIS przy użyciu Node.js
@@ -189,7 +189,7 @@ Po zakończeniu działania skryptu możesz zalogować się do [Luis](luis-refere
 > [!div class="nextstepaction"]
 > [Testowanie i uczenie aplikacji w witrynie LUIS](luis-interactive-test.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Ta przykładowa aplikacja używa następujących interfejsów API LUIS:
 - [Tworzenie aplikacji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)

@@ -4,10 +4,10 @@ description: Sterowanie mapowaniem przykładu usługi Payment Card Industry Data
 ms.date: 08/19/2020
 ms.topic: sample
 ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541649"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu PCI-DSS v 3.2.1

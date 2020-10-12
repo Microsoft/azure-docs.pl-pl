@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87286091"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure
@@ -41,7 +41,7 @@ Jedna maszyna wirtualna platformy Azure nie może nawiązać połączenia z inn�
 6. [Sprawdź, czy ruch jest blokowany przez listy ACL dla klasycznej maszyny wirtualnej](#step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm)
 7. [Sprawdź, czy punkt końcowy został utworzony dla klasycznej maszyny wirtualnej](#step-7-check-whether-the-endpoint-is-created-for-the-classic-vm)
 8. [Próba nawiązania połączenia z udziałem sieciowym maszyny wirtualnej](#step-8-try-to-connect-to-a-vm-network-share)
-9. [Sprawdź łączność między sieciami wirtualnymi](#step-9-check-inter-vnet-connectivity)
+9. [Sprawdź łączność Inter-Vnet](#step-9-check-inter-vnet-connectivity)
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
@@ -67,7 +67,7 @@ Aby uzyskać więcej informacji, zobacz [Dodawanie interfejsów sieciowych do lu
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Krok 2. Sprawdzanie, czy ruch sieciowy jest blokowany przez sieciowej grupy zabezpieczeń czy UDR
 
-Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) lub trasa zdefiniowana przez użytkownika (UDR), która zakłóca przepływ ruchu.
+Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) czy User-Defined Route (UDR), która zakłóca przepływ ruchu.
 
 ### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Krok 3. sprawdzenie, czy ruch sieciowy jest blokowany przez zaporę maszyny wirtualnej
 
@@ -109,9 +109,9 @@ Wszystkie maszyny wirtualne utworzone na platformie Azure przy użyciu klasyczne
 
 Jeśli nie można nawiązać połączenia z udziałem sieciowym maszyn wirtualnych, problem może być spowodowany przez niedostępne karty sieciowe w maszynie wirtualnej. Aby usunąć niedostępne karty sieciowe, zobacz [Jak usunąć niedostępne karty sieciowe](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Krok 9. Sprawdzanie łączności między sieciami wirtualnymi
+### <a name="step-9-check-inter-vnet-connectivity"></a>Krok 9. Sprawdzanie łączności Inter-Vnet
 
-Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowej grupy zabezpieczeń lub UDR, które zakłócają przepływ ruchu. W [tym miejscu](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)możesz również sprawdzić konfigurację sieci wirtualnej.
+Użyj [Network Watcher sprawdzenia przepływu IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) i [rejestrowania przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-overview.md) , aby określić, czy istnieje sieciowej grupy zabezpieczeń lub UDR, które zakłócają przepływ ruchu. W [tym miejscu](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)możesz również sprawdzić konfigurację Inter-Vnet.
 
 ### <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), aby szybko rozwiązać problem.

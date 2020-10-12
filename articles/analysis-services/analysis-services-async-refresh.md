@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507186"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne za pomocą interfejsu API REST
@@ -223,7 +223,7 @@ Aby uzyskać więcej informacji na temat konfigurowania nazwy głównej usługi 
 3.    Uruchom przykład.
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Badan](analysis-services-samples.md)   
 [Interfejs API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
 ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595025"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR w Azure Data Factory
@@ -72,7 +72,7 @@ Po przygotowaniu samodzielnego środowiska IR i usługi połączonej Azure Blob 
 
 1. W sekcji **Ustawienia zaawansowane** wykonaj następujące czynności:
 
-   1. Zaznacz pole wyboru **skonfiguruj Integration Runtime samodzielnego jako serwer proxy dla Azure-SSIS Integration Runtime** . 
+   1. Zaznacz pole wyboru **skonfiguruj Self-Hosted Integration Runtime jako serwer proxy dla Azure-SSIS Integration Runtime** . 
 
    1. Z listy rozwijanej **Samodzielna Integration Runtime** Wybierz istniejące własne środowisko IR jako serwer proxy dla Azure-SSIS IR.
 

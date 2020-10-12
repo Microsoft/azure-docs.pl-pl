@@ -4,10 +4,10 @@ description: Kontrolowanie mapowania SWIFT przykładowego planu CSP-CSCF V2020. 
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 868971b0523e077f0f76c0340a87df550448913a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540816"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Sterowanie mapowaniem SWIFT programu CSP-CSCF V2020 plan
@@ -29,7 +29,7 @@ Ten plan ułatwia przeglądanie kont, które mogą nie być zgodne z wymaganiami
 - Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do zapisu powinny zostać usunięte z subskrypcji
 
-## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2,6, 5,1, 6,4 i 6.5 Zarządzanie kontami | Schematy oparte na rolach
+## <a name="26-51-64-and-65a-account-management--role-based-schemes"></a>2,6, 5,1, 6,4 i 6.5 Zarządzanie kontami | Role-Based schematy
 
 [Kontrola dostępu oparta na rolach](../../../../role-based-access-control/overview.md) (Azure RBAC), która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje również definicje [Azure Policy](../../../policy/overview.md) do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ponadto ten plan przypisuje definicję Azure Policy, aby przeprowadzić inspekcję użycia niestandardowych reguł RBAC platformy Azure. Informacje o tym, gdzie są zaimplementowane niestandardowe reguły RBAC platformy Azure, mogą pomóc w sprawdzeniu potrzeby i poprawnej implementacji, ponieważ niestandardowe reguły RBAC platformy Azure są podatne na błędy.
 
@@ -131,7 +131,7 @@ Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomat
 
 - Na maszynach powinny być włączone adaptacyjne kontrole aplikacji umożliwiające Definiowanie bezpiecznych aplikacji.
 
-## <a name="11-user-installed-software"></a>1,1 oprogramowanie zainstalowane przez użytkownika
+## <a name="11-user-installed-software"></a>1,1 User-Installed oprogramowanie
 
 Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do filtrowania aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji może ułatwić wymuszanie i monitorowanie zgodności z zasadami ograniczeń oprogramowania. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których lista dozwolonych aplikacji jest zalecana, ale nie została jeszcze skonfigurowana.
 
@@ -143,7 +143,7 @@ Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomat
 Ten plan pomaga ograniczyć dostęp uprzywilejowany i kontrolować go, przypisując definicje [Azure Policy](../../../policy/overview.md) do inspekcji kont z uprawnieniami właściciela i/lub zapisu, dla których nie włączono usługi uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe pomaga zapewnić bezpieczeństwo kont nawet w przypadku naruszenia zabezpieczeń jednego z informacji o uwierzytelnianiu. Monitorowanie kont bez włączonej usługi uwierzytelnianie wieloskładnikowe umożliwia zidentyfikowanie kont, które mogą być bardziej zagrożone.
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w subskrypcji
 
 ## <a name="42-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>4,2 Identyfikacja i uwierzytelnianie (Użytkownicy w organizacji) | Dostęp sieciowy do kont nieuprzywilejowanych
 
@@ -162,7 +162,7 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 - Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 - Wdróż wymagania w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 
-## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2,3 i 4,1 Zarządzanie wystawcy Uwierzytelnianie oparte na hasłach
+## <a name="23-and-41-authenticator-management--password-based-authentication"></a>2,3 i 4,1 Zarządzanie wystawcy Uwierzytelnianie Password-Based
 
 Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Windows, które nie wymuszają minimalnej siły i innych wymagań dotyczących haseł. Świadomość maszyn wirtualnych z naruszeniem zasad dotyczących siły haseł pomaga podejmować działania naprawcze w celu zapewnienia zgodności haseł dla wszystkich kont użytkowników maszyny wirtualnej z zasadami haseł obowiązującymi w organizacji.
 

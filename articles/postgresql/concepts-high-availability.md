@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
 ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707935"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer

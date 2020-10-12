@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323641"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informacje o aplikacji i wdrażaniu w chmurze Azure wiosennej
@@ -32,10 +32,10 @@ Następujące funkcje/właściwości są zdefiniowane na poziomie aplikacji.
 | Funkcje | Opis |
 |:--|:----------------|
 | Public</br>Punkt końcowy | Adres URL dostępu do aplikacji |
-| Niestandardowy</br>Domena | Rekord CNAME, który zabezpiecza domenę niestandardową |
+| Niestandardowy</br>Obszar | Rekord CNAME, który zabezpiecza domenę niestandardową |
 | Usługa</br>Wiązanie | Połączenie z innymi usługami platformy Azure |
 | Zarządzani</br>Tożsamość | Tożsamość zarządzana przez Azure Active Directory umożliwia aplikacji łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault |
-| Stale</br>Storage | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
+| Stale</br>Magazyn | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
 
 ## <a name="deployment"></a>Wdrożenie
 
@@ -55,7 +55,7 @@ Następujące funkcje/właściwości są zdefiniowane na poziomie wdrożenia i b
 
 * **Aplikacja musi mieć jedno wdrożenie produkcyjne**: usunięcie wdrożenia produkcyjnego jest blokowane przez interfejs API. Przed usunięciem należy zastąpić do przemieszczania.
 * **Aplikacja może mieć co najwyżej dwa wdrożenia**: utworzenie więcej niż dwóch wdrożeń jest blokowane przez interfejs API. Wdróż nowy plik binarny w istniejącym wdrożeniu produkcyjnym lub przejściowym.
-* **Zarządzanie wdrażaniem nie jest dostępne w warstwie Podstawowa**: Użyj warstwy Standardowa dla funkcji wdrażania Blue-Green.
+* **Zarządzanie wdrażaniem nie jest dostępne w warstwie Podstawowa**: Użyj warstwy Standardowa na potrzeby możliwości wdrażania Blue-Green.
 
 ## <a name="see-also"></a>Zobacz też
 * [Konfigurowanie środowiska przejściowego w chmurze Azure wiosennej](spring-cloud-howto-staging-environment.md)

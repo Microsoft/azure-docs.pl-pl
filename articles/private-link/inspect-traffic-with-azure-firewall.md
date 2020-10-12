@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236759"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Używanie zapory platformy Azure do sprawdzania ruchu kierowanego do prywatnego punktu końcowego
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z r
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenariusz 2: architektura Hub i szprych — udostępniona Sieć wirtualna dla prywatnych punktów końcowych i maszyn wirtualnych
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Prywatne punkty końcowe i Virtual Machines w tym samym Virtual Network" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
 
 Ten scenariusz jest implementowany, gdy:
 
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji na temat opłat związanych z połączeniami z r
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenariusz 3: pojedyncza Sieć wirtualna
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Pojedyncza Sieć wirtualna" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
 
 Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury gwiazdy i szprych nie jest możliwa. Zastosowanie mają takie same zagadnienia jak w przypadku scenariusza 2. W tym scenariuszu opłaty za komunikację równorzędną sieci wirtualnych nie mają zastosowania.
 
@@ -87,7 +87,7 @@ Istnieją pewne ograniczenia dotyczące implementacji: migracja do architektury 
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenariusz 4: ruch lokalny do prywatnych punktów końcowych
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Ruch lokalny do prywatnych punktów końcowych" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Dedykowane Virtual Network dla prywatnych punktów końcowych" border="true":::
 
 Tę architekturę można zaimplementować, jeśli skonfigurowano łączność z siecią lokalną przy użyciu: 
 
@@ -181,7 +181,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | **Konto administratora** |  |
     | Typ uwierzytelniania | Wybierz pozycję **hasło**. |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Potwierdź hasło | Ponownie wprowadź hasło. |
     | **Reguły portów ruchu przychodzącego** |  |
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
@@ -189,7 +189,7 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
 
 3. Wybierz pozycję **Dalej: dyski**.
 
-4. W obszarze **Utwórz maszynę wirtualną**, pozostaw wartości domyślne, a następnie wybierz pozycję **Dalej: sieć**.
+4. W obszarze **Tworzenie maszyny wirtualnej — dyski** pozostaw wartości domyślne i wybierz przycisk **Dalej: Sieć**.
 
 5. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
 
@@ -197,14 +197,14 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | ------- | ----- |
     | Sieć wirtualna | Wybierz pozycję **myVMVNet**.  |
     | Podsieć | Wybierz pozycję **VMSubnet (10.1.0.0/24)**.|
-    | Publiczny adres IP | Pozostaw wartość domyślną **(nowy) myVm-ip**. |
+    | Publiczny adres IP | Pozostaw wartość domyślną **(New) myVm-IP**. |
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
     | Wybierz porty wejściowe | Wybierz pozycję **SSH**.|
     ||
 
-6. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+6. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-7. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+7. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 ## <a name="deploy-the-firewall"></a>Wdrażanie zapory
 
@@ -230,9 +230,9 @@ Zastąp następujące parametry w krokach poniższymi informacjami:
     | Publiczny adres IP    |    Wybierz pozycję **Dodaj nowe** i w polu Nazwa wprowadź nazwę moja **Zapora-IP**.    |
     | Wymuszone tunelowanie    | Pozostaw ustawienie domyślne **wyłączone**.    |
     |||
-5. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+5. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-6. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+6. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 ## <a name="enable-firewall-logs"></a>Włącz Dzienniki zapory
 
@@ -278,15 +278,15 @@ W tej sekcji utworzysz prywatny SQL Database.
     | Nazwa serwera | Wprowadź **MójSerwerBD**. Jeśli ta nazwa jest wykonywana, wprowadź unikatową nazwę.   |
     | Identyfikator logowania administratora serwera | Wprowadź wybraną nazwę. |
     | Hasło    |    Wprowadź wybrane hasło.    |
-    | Potwierdź hasło | Wprowadź ponownie hasło    |
+    | Potwierdź hasło | Ponownie wprowadź hasło    |
     | Lokalizacja    | Wybierz pozycję **(USA) Południowo-środkowe stany USA**.    |
-    | Chcesz użyć elastycznej puli SQL    | Pozostaw wartość domyślną **Nie**. |
+    | Chcesz użyć elastycznej puli SQL    | Pozostaw wartość domyślną **nie**. |
     | Obliczenia i magazyn | Pozostaw wartość domyślną **ogólnego przeznaczenia 5 rdzeń, 2 rdzeni wirtualnych, 32 GB magazynu**. |
     |||
 
-3. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+3. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-4. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+4. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 ## <a name="create-private-endpoint"></a>Utwórz prywatny punkt końcowy
 
@@ -333,7 +333,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla bazy danych Azure SQL Databas
     | Sieć wirtualna | Wybierz pozycję **myPEVnet**. |
     | Podsieć | Wybierz pozycję **PrivateEndpointSubnet**. |
     | **Integracja Prywatna strefa DNS** | |
-    | Integracja z prywatną strefą DNS | Wybierz pozycję **Tak**. |
+    | Integruj z prywatną strefą DNS | Wybierz pozycję **Tak**. |
     | Subskrypcja | Wybierz subskrypcję. |
     | Prywatne strefy DNS | Pozostaw wartość domyślną **privatelink.Database.Windows.NET**. |
 
@@ -377,7 +377,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
     |||
 
-4. Wybierz pozycję **OK**.
+4. Wybierz przycisk **OK**.
 
 5. Wybierz pozycję **+ Dodaj**.
 
@@ -402,7 +402,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **MyPEVNet** z usługą 
     | **Konfigurowanie ustawień tranzytu bramy** | |
     | Zezwalaj na tranzyt bramy | Pozostaw niezaznaczone |
 
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
 ## <a name="link-the-virtual-networks-to-the-private-dns-zone"></a>Łączenie sieci wirtualnych z prywatną strefą DNS
 
@@ -434,7 +434,7 @@ W tej sekcji połączymy sieci wirtualne **myVMVNet** i **myAzFwVNet** z prywatn
     | Włącz rejestrację autorejestrowania | Pozostaw niezaznaczone.    |
 
 
-6. Wybierz pozycję **OK**.
+6. Wybierz przycisk **OK**.
 
 ## <a name="configure-an-application-rule-with-sql-fqdn-in-azure-firewall"></a>Konfigurowanie reguły aplikacji przy użyciu nazwy FQDN programu SQL w zaporze platformy Azure
 
@@ -459,7 +459,7 @@ Ta reguła umożliwia komunikację przez zaporę utworzoną w poprzednich krokac
     | Nazwa | Wprowadź **SQLPrivateEndpoint**. |
     | Priorytet | Wprowadź wartość **100**. |
     | Akcja | Wprowadź **Zezwalaj**. |
-    | **Przepisy** |  |
+    | **Reguły** |  |
     | **Tagi w pełni kwalifikowanych nazw domen** | |
     | Nazwa  | Pozostaw to pole puste.  |
     | Typ źródła | Pozostaw domyślny **adres IP**.    |
@@ -501,9 +501,9 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Nazwa | Wprowadź **podsieć VMsubnet do AzureFirewall**. |
     | Propaguj trasy bramy | Wybierz pozycję **Nie**. |
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+5. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-6. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+6. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 7. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
@@ -520,7 +520,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Typ następnego przeskoku | Wybierz pozycję **Urządzenie wirtualne**. |
     | Adres następnego skoku | Wprowadź **10.0.0.4**. |
 
-11. Wybierz pozycję **OK**.
+11. Wybierz przycisk **OK**.
 
 12. W obszarze **Ustawienia**wybierz pozycję **podsieci** .
 
@@ -533,7 +533,7 @@ Trasa wysyła ruch z podsieci **myVM** do przestrzeni adresowej sieci wirtualnej
     | Sieć wirtualna | Wybierz pozycję **myVMVNet**. |
     | Podsieć | Wybierz pozycję **podsieć VMSubnet**.  |
 
-15. Wybierz pozycję **OK**.
+15. Wybierz przycisk **OK**.
 
 ## <a name="connect-to-the-virtual-machine-from-your-client-computer"></a>Nawiązywanie połączenia z maszyną wirtualną z komputera klienckiego
 

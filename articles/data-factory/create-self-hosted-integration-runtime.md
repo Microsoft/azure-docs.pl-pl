@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
 ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596123"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
@@ -66,7 +66,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko IR samodzielnego przy uż
 
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
-1. Na poniższej stronie wybierz pozycję **samodzielna** do utworzenia własnego środowiska IR, a następnie wybierz pozycję **Kontynuuj**.
+1. Na poniższej stronie wybierz pozycję **samodzielna** , aby utworzyć Self-Hosted IR, a następnie wybierz pozycję **Kontynuuj**.
    ![Tworzenie selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Wprowadź nazwę dla swojego środowiska IR, a następnie wybierz pozycję **Utwórz**.
@@ -117,7 +117,7 @@ Poniżej znajdują się szczegółowe informacje o parametrach i właściwościa
 | **Klucz** "`<AuthenticationKey>`"                                 | Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime. | Nie       |
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych. | Nie       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Przywróć węzeł z pliku kopii zapasowej.                          | Nie       |
-| **Uruchom ponownie**                                                     | Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.   | Nie       |
+| **Uruchomieniu**                                                     | Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.   | Nie       |
 | **Początek**                                                       | Uruchom samohostowaną usługę hosta Integration Runtime.     | Nie       |
 | **Zatrzymaj**                                                        | Zatrzymaj samohostowaną usługę hosta Integration Runtime.        | Nie       |
 | **StartUpgradeService**                                         | Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.       | Nie       |
@@ -363,7 +363,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP**wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz pozycję **Next** (Dalej). Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 

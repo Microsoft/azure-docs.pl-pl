@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: iainfou
 ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505733"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Funkcja Replica ustawia koncepcje i funkcje Azure Active Directory Domain Services (wersja zapoznawcza)

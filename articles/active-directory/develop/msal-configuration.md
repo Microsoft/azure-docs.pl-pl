@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854919"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
@@ -86,7 +86,7 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Zamapuj urząd usługi AAD & odbiorców na punkty końcowe platformy tożsamości firmy Microsoft
 
-| Typ | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
+| Type | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` jest aliasem dzierżawy, w którym znajduje się konto. Takie jak określona dzierżawa Azure Active Directory lub system konto Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Tylko konta obecne w contoso.com mogą uzyskać token. Każda zweryfikowana domena lub identyfikator GUID dzierżawy może być używany jako identyfikator dzierżawy. |

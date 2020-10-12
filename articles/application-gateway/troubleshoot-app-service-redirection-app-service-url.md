@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595948"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Rozwiązywanie problemów z App Service w programie Application Gateway

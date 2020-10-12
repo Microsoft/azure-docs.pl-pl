@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661451"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Odnawianie certyfikatów Federacji dla Microsoft 365 i Azure Active Directory
@@ -69,13 +69,13 @@ Get-Adfsproperties
 ![AutoCertificateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
 >[!NOTE] 
->Jeśli używasz AD FS 2,0, najpierw uruchom polecenie add-pssnapin Microsoft. ADFS. PowerShell.
+>Jeśli używasz AD FS 2,0, najpierw uruchom Add-Pssnapin Microsoft. ADFS. PowerShell.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Krok 2. potwierdzenie, że AD FS i usługa Azure AD są zsynchronizowane
 Na serwerze AD FS Otwórz wiersz polecenia programu PowerShell MSOnline i Połącz się z usługą Azure AD.
 
 > [!NOTE]
-> MSOL — polecenia cmdlet są częścią modułu MSOnline PowerShell.
+> MSOL-Cmdlets są częścią modułu MSOnline PowerShell.
 > Moduł MSOnline PowerShell można pobrać bezpośrednio z Galeria programu PowerShell.
 > 
 >
@@ -102,7 +102,7 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 Jeśli odciski palców w obu danych wyjściowych są zgodne, certyfikaty są synchronizowane z usługą Azure AD.
 
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Krok 3. sprawdzenie, czy certyfikat wkrótce wygaśnie
-W danych wyjściowych polecenia Get-MsolFederationProperty i Get-AdfsCertificate Sprawdź, czy w obszarze "nie po" znajduje się Data. Jeśli data jest krótsza niż 30 dni, należy podjąć odpowiednie działania.
+W danych wyjściowych elementu Get-MsolFederationProperty lub Get-AdfsCertificate Sprawdź datę w obszarze "nie po". Jeśli data jest krótsza niż 30 dni, należy podjąć odpowiednie działania.
 
 | AutoCertificateRollover | Certyfikaty zsynchronizowane z usługą Azure AD | Metadane federacji są publicznie dostępne | Ważności | Akcja |
 |:---:|:---:|:---:|:---:|:---:|
@@ -152,7 +152,7 @@ Z drugiej strony, jeśli **AutoCertificateRollover** ma **wartość true**, ale 
     PS C: \> Get-AdfsCertificate — podpisywania tokenu certyfikatu
 
    > [!NOTE]
-   > Jeśli używasz AD FS 2,0, najpierw należy uruchomić polecenie add-pssnapin Microsoft. ADFS. PowerShell.
+   > Jeśli używasz AD FS 2,0, należy najpierw uruchomić Add-Pssnapin Microsoft. ADFS. PowerShell.
    >
    >
 3. Spójrz na dane wyjściowe polecenia na liście wymienionych certyfikatów. Jeśli AD FS wygenerował nowy certyfikat, w danych wyjściowych powinny być widoczne dwa certyfikaty: jeden, dla którego wartość **isprimary** jest **równa true** , a Data **NotAfter** przypada w ciągu 5 dni, a dla którego właściwość **isprimary** ma wartość **false** , a **NotAfter** to rok w przyszłości.
@@ -167,9 +167,9 @@ Zaktualizuj Microsoft 365 przy użyciu nowych tokenów certyfikatów podpisywani
 
 1. Otwórz Moduł Microsoft Azure Active Directory dla Windows PowerShell.
 2. Uruchom $cred = Get-Credential. Gdy to polecenie cmdlet zostanie wyświetlony komunikat z prośbą o poświadczenia, wpisz poświadczenia konta administratora usługi w chmurze.
-3. Uruchom Connect-MsolService — Credential $cred. To polecenie cmdlet nawiązuje połączenie z usługą w chmurze. Utworzenie kontekstu, który nawiązuje połączenie z usługą w chmurze, jest wymagane przed uruchomieniem któregokolwiek z dodatkowych poleceń cmdlet zainstalowanych przez to narzędzie.
-4. Jeśli te polecenia są uruchamiane na komputerze, który nie jest AD FS podstawowym serwerem federacyjnym, uruchom polecenie Set-MSOLAdfscontext-Computer &lt; AD FS Primary Server &gt; , gdzie &lt; AD FS Server Primary &gt; to wewnętrzna nazwa FQDN podstawowego serwera AD FS. To polecenie cmdlet tworzy kontekst, który nawiązuje połączenie z AD FS.
-5. Uruchom Update-MSOLFederatedDomain – nazwa_domeny &lt; domeny &gt; . To polecenie cmdlet aktualizuje ustawienia z AD FS w usłudze w chmurze i konfiguruje relacje zaufania między nimi.
+3. Uruchom Connect-MsolService — $cred poświadczeń. To polecenie cmdlet nawiązuje połączenie z usługą w chmurze. Utworzenie kontekstu, który nawiązuje połączenie z usługą w chmurze, jest wymagane przed uruchomieniem któregokolwiek z dodatkowych poleceń cmdlet zainstalowanych przez to narzędzie.
+4. Jeśli te polecenia są uruchamiane na komputerze, który nie jest AD FS podstawowym serwerem federacyjnym, uruchom polecenie Set-MSOLAdfscontext-Computer &lt; AD FS Server Primary &gt; , gdzie &lt; AD FS serwer podstawowy &gt; to wewnętrzna nazwa FQDN serwera podstawowego AD FS. To polecenie cmdlet tworzy kontekst, który nawiązuje połączenie z AD FS.
+5. Uruchom Update-MSOLFederatedDomain – Nazwa_domenyname &lt; domeny &gt; . To polecenie cmdlet aktualizuje ustawienia z AD FS w usłudze w chmurze i konfiguruje relacje zaufania między nimi.
 
 > [!NOTE]
 > Jeśli konieczne jest obsługę wielu domen najwyższego poziomu, takich jak contoso.com i fabrikam.com, należy użyć przełącznika **SupportMultipleDomain** z dowolnym poleceniem cmdlet. Aby uzyskać więcej informacji, zobacz [Obsługa wielu domen najwyższego poziomu](how-to-connect-install-multiple-domains.md).

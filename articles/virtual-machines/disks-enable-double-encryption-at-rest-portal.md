@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: bf2531536796965f145a9ac3e6a23cbb6634852a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817670"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Użyj Azure Portal, aby włączyć podwójne szyfrowanie dla dysków zarządzanych
@@ -39,7 +39,7 @@ Azure Disk Storage obsługuje podwójne szyfrowanie dla dysków zarządzanych. A
 
 1. Wybierz pozycję **+ Dodaj**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Zrzut ekranu przedstawiający blok zestawu szyfrowania dysku + Dodaj jest wyróżniony.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Zrzut ekranu przedstawiający główne Azure Portal zestawy szyfrowania dysków są wyróżnione na pasku wyszukiwania.":::
 
 1. Wybierz jeden z obsługiwanych regionów.
 1. W obszarze **typ szyfrowania**wybierz pozycję **szyfrowanie podwójne przy użyciu kluczy zarządzanych przez platformę i klienta**.
@@ -49,19 +49,19 @@ Azure Disk Storage obsługuje podwójne szyfrowanie dla dysków zarządzanych. A
 
 1. Wypełnij pozostałe informacje.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Zrzut ekranu przedstawiający blok tworzenia zestawu szyfrowania dysku, regiony i podwójne szyfrowanie z kluczami zarządzanymi przez platformę i zarządzane przez klienta.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Zrzut ekranu przedstawiający główne Azure Portal zestawy szyfrowania dysków są wyróżnione na pasku wyszukiwania.":::
 
 1. Wybierz Azure Key Vault i klucz lub Utwórz nowy, jeśli jest to konieczne.
 
     > [!NOTE]
     > Jeśli utworzysz wystąpienie Key Vault, musisz włączyć ochronę nietrwałego usuwania i przeczyszczania. Te ustawienia są obowiązkowe w przypadku używania Key Vault do szyfrowania dysków zarządzanych i ochrony przed utratą danych z powodu przypadkowego usunięcia.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Zrzut ekranu przedstawiający blok tworzenia Key Vault.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Zrzut ekranu przedstawiający główne Azure Portal zestawy szyfrowania dysków są wyróżnione na pasku wyszukiwania.":::
 
 1. Wybierz przycisk **Utwórz**.
 1. Przejdź do utworzonego zestawu szyfrowania dysków i wybierz wyświetlany błąd. Spowoduje to skonfigurowanie ustawienia szyfrowania dysku.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Zrzut ekranu przedstawiający wyświetlony błąd, tekst błędu: Aby skojarzyć dysk, obraz lub migawkę z tym zestawem szyfrowania dysków, należy przyznać uprawnienia do magazynu kluczy.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Zrzut ekranu przedstawiający główne Azure Portal zestawy szyfrowania dysków są wyróżnione na pasku wyszukiwania.":::
 
     Powiadomienie powinno się wyskakujące i zakończyć pomyślnie. Pozwoli to na użycie zestawu szyfrowanie dysków w magazynie kluczy.
     
@@ -73,7 +73,7 @@ Azure Disk Storage obsługuje podwójne szyfrowanie dla dysków zarządzanych. A
 1. Wybierz zestaw szyfrowania dysków.
 1. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok szyfrowania dla dysku zarządzanego, wyróżniony wcześniej typ szyfrowania.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Zrzut ekranu przedstawiający główne Azure Portal zestawy szyfrowania dysków są wyróżnione na pasku wyszukiwania.":::
 
 Teraz włączono podwójne szyfrowanie na dysku zarządzanym.
 

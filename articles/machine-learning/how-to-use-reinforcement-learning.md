@@ -11,10 +11,10 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541717"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
@@ -326,7 +326,7 @@ rl_estimator = ReinforcementLearningEstimator(
 
 [Skrypt wpisu](https://aka.ms/azure-rl-pong-script) `pong_rllib.py` pociąga za neuronowych sieć przy użyciu [środowiska OpenAI treningów](https://github.com/openai/gym/) `PongNoFrameSkip-v4` . OpenAI gyms to standardowe interfejsy do testowania algorytmów uczenia wzmacniania w klasycznych grach Atari.
 
-W tym przykładzie używamy algorytmu szkoleniowego znanego jako [Impala](https://arxiv.org/abs/1802.01561) (architektura uczenia aktora). IMPALA parallelizes każdy aktor uczenia się do skalowania w wielu węzłach obliczeniowych bez utraty szybkości ani stabilności.
+Ten przykład używa algorytmu szkoleniowego znanego jako [Impala](https://arxiv.org/abs/1802.01561) (waga wagi Actor-Learner). IMPALA parallelizes każdy aktor uczenia się do skalowania w wielu węzłach obliczeniowych bez utraty szybkości ani stabilności.
 
 [Dostrajanie promienia](https://ray.readthedocs.io/en/latest/tune.html) organizuje zadania procesu roboczego Impala.
 

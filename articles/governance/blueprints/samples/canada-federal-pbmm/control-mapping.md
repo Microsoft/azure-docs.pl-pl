@@ -4,10 +4,10 @@ description: Sterowanie mapowaniem przykładowych planów PBMMów federalnych Ka
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: b3879ee847a0cb7a4cb6d00e842c613de53579e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541071"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Sterowanie mapowaniem przykładu Federal PBMM Canada
@@ -37,7 +37,7 @@ Ten plan ułatwia przeglądanie kont, które mogą nie być zgodne z wymaganiami
 - Konta zewnętrzne z uprawnieniami do zapisu powinny zostać usunięte z subskrypcji
 
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Zarządzanie kontami | Schematy oparte na rolach
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Zarządzanie kontami | Role-Based schematy
 
 Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach (Azure RBAC)](../../../../role-based-access-control/overview.md) na platformie Azure, która ułatwia zarządzanie dostępem do zasobów na platformie Azure. Za pomocą Azure Portal można sprawdzić, kto ma dostęp do zasobów platformy Azure i ich uprawnień. Ten plan przypisuje również definicje [Azure Policy](../../../policy/overview.md) do inspekcji użycia uwierzytelniania Azure Active Directory dla serwerów SQL i Service Fabric. Korzystanie z uwierzytelniania Azure Active Directory umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. Ponadto ten plan przypisuje definicję Azure Policy, aby przeprowadzić inspekcję użycia niestandardowych reguł RBAC platformy Azure. Informacje o tym, gdzie są zaimplementowane niestandardowe reguły RBAC platformy Azure, mogą pomóc w sprawdzeniu potrzeby i właściwej implementacji, ponieważ niestandardowe reguły RBAC platformy Azure są podatne na błędy.
 
@@ -145,7 +145,7 @@ Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomat
 
 - Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
 
-## <a name="cm-11-user-installed-software"></a>Program (CM) 11 oprogramowanie zainstalowane przez użytkownika
+## <a name="cm-11-user-installed-software"></a>CM – 11 User-Installed oprogramowanie
 
 Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane, kompleksowe rozwiązanie do tworzenia list, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji może ułatwić wymuszanie i monitorowanie zgodności z zasadami ograniczeń oprogramowania. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których lista dozwolonych aplikacji jest zalecana, ale nie została jeszcze skonfigurowana.
 
@@ -162,7 +162,7 @@ Azure Site Recovery replikuje obciążenia uruchomione na maszynach wirtualnych 
 Ten plan pomaga ograniczyć dostęp uprzywilejowany i kontrolować go, przypisując definicje [Azure Policy](../../../policy/overview.md) do inspekcji kont z uprawnieniami właściciela i/lub zapisu, dla których nie włączono usługi uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe pomaga zapewnić bezpieczeństwo kont nawet w przypadku naruszenia zabezpieczeń jednego z informacji o uwierzytelnianiu. Monitorowanie kont bez włączonej usługi uwierzytelnianie wieloskładnikowe umożliwia zidentyfikowanie kont, które mogą być bardziej zagrożone.
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w subskrypcji
 
 ## <a name="ia-5-authenticator-management"></a>Zarządzanie wystawą IA-5
 
@@ -173,7 +173,7 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Linux, które mają konta bez hasła
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Zarządzanie wystawą IA-5 (1) | Uwierzytelnianie oparte na hasłach
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Zarządzanie wystawą IA-5 (1) | Uwierzytelnianie Password-Based
 
 Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Windows, które nie wymuszają minimalnej siły i innych wymagań dotyczących haseł. Świadomość maszyn wirtualnych z naruszeniem zasad dotyczących siły haseł pomaga podejmować działania naprawcze w celu zapewnienia zgodności haseł dla wszystkich kont użytkowników maszyny wirtualnej z zasadami haseł obowiązującymi w organizacji.
 
@@ -193,7 +193,7 @@ Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../
 Ten plan pomaga ograniczyć dostęp uprzywilejowany i kontrolować go, przypisując definicje [Azure Policy](../../../policy/overview.md) do inspekcji kont z uprawnieniami właściciela i/lub zapisu, dla których nie włączono usługi uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe pomaga zapewnić bezpieczeństwo kont nawet w przypadku naruszenia zabezpieczeń jednego z informacji o uwierzytelnianiu. Monitorowanie kont bez włączonej usługi uwierzytelnianie wieloskładnikowe umożliwia zidentyfikowanie kont, które mogą być bardziej zagrożone.
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w subskrypcji
 
 ## <a name="ra-5-vulnerability-scanning"></a>Skanowanie w poszukiwaniu luk w zabezpieczeniach RA-5
 

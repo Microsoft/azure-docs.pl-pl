@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662380"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect Sync: omówienie i dostosowanie synchronizacji
@@ -64,7 +64,7 @@ Usługa synchronizacji składa się z dwóch składników, składnika **synchron
 | **Więcej informacji i odwołań** | |
 | [Porty](reference-connect-ports.md) |Wyświetla listę portów, które należy otworzyć między aparatem synchronizacji i lokalnymi katalogami i usługą Azure AD. |
 | [Atrybuty synchronizowane z usługą Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Wyświetla wszystkie atrybuty synchronizowane między lokalną usługą AD i usługą Azure AD. |
-| [Informacje ogólne o funkcjach](reference-connect-sync-functions-reference.md) |Wyświetla listę wszystkich funkcji dostępnych w ramach aprowizacji deklaracyjnej. |
+| [Informacje o funkcjach](reference-connect-sync-functions-reference.md) |Wyświetla listę wszystkich funkcji dostępnych w ramach aprowizacji deklaracyjnej. |
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

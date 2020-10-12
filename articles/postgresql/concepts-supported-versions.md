@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707918"
 ---
 # <a name="supported-postgresql-major-versions"></a>Obsługiwane wersje główne PostgreSQL

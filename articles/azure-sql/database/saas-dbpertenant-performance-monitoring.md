@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: d1349ccc5879cf461cd1c6a3c0122173a43e8123
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619716"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie wydajnością Azure SQL Database w wielodostępnej aplikacji SaaS
@@ -242,7 +242,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 [Samouczek przywracania pojedynczej dzierżawy](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * Dodatkowe [samouczki, które kompilują się na Wingtip bilety SaaS bazy danych na wdrożenie aplikacji dzierżawców](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pule elastyczne SQL](elastic-pool-overview.md)

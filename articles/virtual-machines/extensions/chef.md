@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082617"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Rozszerzenie maszyny wirtualnej Chef dla systemów Linux i Windows
@@ -71,22 +71,22 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Roz
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | ciąg (Date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | ciąg |
-| typ | `LinuxChefClient`(Linux), `ChefClient` (system Windows) | ciąg |
+| typ | `LinuxChefClient` (Linux), `ChefClient` (system Windows) | ciąg |
 | typeHandlerVersion | `1210.13` | ciąg (Double) |
 
 ### <a name="settings"></a>Ustawienia
 
 | Nazwa | Wartość/przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ----
-| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | Y |
-| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | Y |
-| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | Y |
+| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | T |
+| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | T |
+| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | T |
 
 ### <a name="protected-settings"></a>Ustawienia chronione
 
 | Nazwa | Przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | T |
 
 <!--
 ### Linux-specific settings

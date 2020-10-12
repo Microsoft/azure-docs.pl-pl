@@ -4,10 +4,10 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pro
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.openlocfilehash: 81cab05b9ad8d6d2bb7f37bc743b5237a4dd6d68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323621"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
@@ -148,7 +148,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | [9,33](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Systemy plików | ext3, EXT4, XFS, BTRFS (warunki odpowiednie dla tej tabeli)
 Inicjowanie obsługi zarządzania woluminami logicznymi (LVM)| Grube udostępnianie — tak <br></br> Alokowanie elastyczne — nie
@@ -175,7 +175,7 @@ Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wył
 
 ## <a name="network"></a>Sieć
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Tworzenie zespołu kart interfejsu sieciowego hosta | Obsługiwane przez maszyny wirtualne VMware. <br/><br/>Nieobsługiwane w przypadku replikacji maszyn fizycznych.
 Sieć VLAN hosta | Tak.
@@ -192,7 +192,7 @@ Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się w
 
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Azure ExpressRoute | Tak
 ILB | Tak
@@ -205,8 +205,8 @@ Zachowaj źródłowy adres IP | Tak
 Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
-## <a name="storage"></a>Storage
-**Składnik** | **Obsługiwane**
+## <a name="storage"></a>Magazyn
+**Składnik** | **Obsługiwał**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
@@ -237,7 +237,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
-|**Typ replikacji**   |**Obsługiwane**  |
+|**Typ replikacji**   |**Obsługiwał**  |
 |---------|---------|
 |Odciążone transfery danych (ODX)    |       Nie  |
 |Rozmieszczanie w trybie offline        |   Nie      |
@@ -245,7 +245,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacy
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Składnik** | **Obsługiwane**
+**Składnik** | **Obsługiwał**
 --- | ---
 Magazyn lokalnie nadmiarowy | Tak
 Magazyn geograficznie nadmiarowy | Tak
@@ -264,7 +264,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwane**
+**Funkcja** | **Obsługiwał**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -286,7 +286,7 @@ Rozmiar dysku danych | Do 8 192 GB podczas replikowania na dysk zarządzany (wer
 Karty sieciowe | Obsługiwane są wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
+Funkcja BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
 Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limity grupy zasobów
@@ -321,7 +321,7 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 
-**Akcja** | **Obsługiwane**
+**Akcja** | **Obsługiwał**
 --- | ---
 Przenoszenie magazynu między grupami zasobów | Nie
 Przenoszenie magazynu w ramach subskrypcji i między subskrypcjami | Nie

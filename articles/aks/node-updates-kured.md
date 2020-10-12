@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88164244"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)
@@ -21,7 +21,7 @@ Proces zachowywania Aktualności węzłów systemu Windows Server jest nieco inn
 W tym artykule opisano sposób użycia [demona ponownego rozruchu kured (KUbernetes)][kured] w celu obejrzenia węzłów systemu Linux, które wymagają ponownego uruchomienia, a następnie automatycznie obsłużyć ponowne planowanie procesów uruchamiania i ponownego uruchamiania węzła.
 
 > [!NOTE]
-> `Kured`jest projektem "open source" przez Weaveworks. Pomoc techniczna dla tego projektu w programie AKS jest dostarczana na podstawie najlepszego wysiłku. Dodatkową pomoc techniczną można znaleźć w kanale czasu bez#weaveowego Wspólnoty.
+> `Kured` jest projektem "open source" przez Weaveworks. Pomoc techniczna dla tego projektu w programie AKS jest dostarczana na podstawie najlepszego wysiłku. Dodatkową pomoc techniczną można znaleźć w kanale czasu bez#weaveowego Wspólnoty.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -78,7 +78,7 @@ Domyślnie węzły systemu Linux w programie AKS sprawdzają dostępność aktua
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Jeśli zastosowano aktualizacje, które wymagają ponownego uruchomienia węzła, plik jest zapisywana w */var/run/reboot-Required*. `Kured`sprawdza węzły, które domyślnie wymagają ponownego uruchomienia co 60 minut.
+Jeśli zastosowano aktualizacje, które wymagają ponownego uruchomienia węzła, plik jest zapisywana w */var/run/reboot-Required*. `Kured` sprawdza węzły, które domyślnie wymagają ponownego uruchomienia co 60 minut.
 
 ## <a name="monitor-and-review-reboot-process"></a>Monitorowanie i przeglądanie procesu ponownego uruchamiania
 

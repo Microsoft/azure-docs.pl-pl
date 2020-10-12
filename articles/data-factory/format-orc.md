@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404730"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945791"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Format ORC w Azure Data Factory
 
@@ -59,7 +59,7 @@ Poniżej znajduje się przykład zestawu danych ORC na platformie Azure Blob Sto
 
 Pamiętaj o następujących kwestiach:
 
-* Złożone typy danych nie są obsługiwane (struktura, mapa, lista, Unia).
+* Złożone typy danych (np. Mapa, lista, struktura) są obecnie obsługiwane tylko w przepływach danych, a nie w działaniu kopiowania. Aby użyć typów złożonych w przepływach danych, nie należy importować schematu pliku do zestawu danych, pozostawiając schemat pusty w zestawie danych. Następnie, w transformacji źródłowej, zaimportuj projekcję.
 * Biały znak w nazwie kolumny nie jest obsługiwany.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -109,9 +109,9 @@ W przypadku korzystania z wbudowanego zestawu danych zostaną wyświetlone dodat
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `orc` | tak | `orc` | format |
 | Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
-| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | Ciąg | partitionRootPath |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | Ciąg | rowUrlColumn |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub `false` <br> Przenieś `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |

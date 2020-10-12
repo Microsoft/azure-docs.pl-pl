@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
 ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997561"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight
@@ -184,7 +184,7 @@ Możesz również sprawdzić, czy rejestrowanie debugowania jest włączone dla 
 
 Aby zebrać dzienniki ze wszystkich węzłów do jednej centralnej lokalizacji, można utworzyć przepływ danych, taki jak pozyskiwanie wszystkich wpisów dziennika do Solr.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Rozwiązanie do monitorowania i rejestrowania w usłudze HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w usłudze HDInsight opartej na systemie Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

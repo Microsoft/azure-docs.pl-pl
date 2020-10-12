@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88535865"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Samouczek: integracja Azure Active Directory z programem LockPath
 
@@ -133,15 +133,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu programu 
 
     b. W menu u góry kliknij pozycję **osoba**, a następnie wybierz pozycję **Konfiguracja oświetlenia**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/keylight-tutorial/401.png)
+    ![Zrzut ekranu, na którym jest zaznaczona ikona "osoba" i "Konfiguracja oświetlenia" wybraną z listy rozwijanej.](./media/keylight-tutorial/401.png)
 
     c. W widoku drzewa po lewej stronie kliknij pozycję **SAML**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/keylight-tutorial/402.png)
+    ![Zrzut ekranu pokazujący "S A M L" wybrany w widoku drzewa.](./media/keylight-tutorial/402.png)
 
     d. W oknie dialogowym **Ustawienia SAML** kliknij przycisk **Edytuj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/keylight-tutorial/404.png)
+    ![Zrzut ekranu przedstawiający okno Ustawienia "S A M L" z wybranym przyciskiem "Edytuj".](./media/keylight-tutorial/404.png)
 
 1. Na stronie **Edytowanie ustawień SAML** wykonaj następujące czynności:
 
@@ -197,7 +197,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

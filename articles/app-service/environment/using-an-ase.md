@@ -8,10 +8,10 @@ ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255166"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
@@ -161,7 +161,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie**  >  **podstawowe** i również w obszarze **Właściwości**).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 

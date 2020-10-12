@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326460"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
@@ -33,7 +33,7 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 ## <a name="ip-firewall"></a>Zapora IP 
 Azure Event Grid obsługuje kontrolę dostępu opartą na protokole IP do publikowania w tematach i domenach. Za pomocą kontrolek opartych na protokole IP można ograniczyć wydawców do tematu lub domeny tylko do zestawu zatwierdzonego zestawu maszyn i usług w chmurze. Ta funkcja uzupełnia [mechanizmy uwierzytelniania](security-authentication.md) obsługiwane przez Event Grid.
 
-Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IP lub zakresów adresów IP w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony).
+Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IP lub zakresów adresów IP w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony).
 
 Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania zapory IP dla tematów i domen, zobacz [Konfigurowanie zapory IP](configure-firewall.md).
 

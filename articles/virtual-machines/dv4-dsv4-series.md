@@ -9,22 +9,22 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 59c00b06f1fef613b00ade13c7cacc0b88e61bf1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 959906f25cbae0158dfb0baf0b7664b8f9b9b5d4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649550"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945672"
 ---
 # <a name="dv4-and-dsv4-series"></a>Serie Dv4 i Dsv4
 
-Seria Dv4 i Dsv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Funkcja IT oferuje stałą prędkość zegara Turbo wynoszącą 3,4 GHz. 
+Seria Dv4 i Dsv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Oferuje ona wszystkie podstawowe szybkości zegara Turbo 3,4 GHz. 
 
 > [!NOTE]
 > W przypadku często zadawanych pytań zapoznaj się z tematem  [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 ## <a name="dv4-series"></a>Seria Dv4
 
-Rozmiary serii Dv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Rozmiary serii Dv4 oferują kombinację vCPU, pamięci i opcji magazynu zdalnego dla większości obciążeń produkcyjnych. Maszyny wirtualne z serii Dv4 są wyposażone w [ &reg; technologię wielowątkowości Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+Rozmiary serii Dv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Rozmiary serii Dv4 oferują kombinację vCPU, pamięci i opcji magazynu zdalnego dla większości obciążeń produkcyjnych. Maszyny wirtualne z serii Dv4 są wyposażone w [ &reg; technologię Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
 Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Dsv4. Liczniki cen i rozliczeń dla rozmiarów Dsv4 są takie same jak dla serii Dv4.
 
@@ -48,7 +48,7 @@ Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzys
 
 ## <a name="dsv4-series"></a>Seria Dsv4
 
-Rozmiary serii Dsv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Rozmiary serii Dv4 oferują kombinację vCPU, pamięci i opcji magazynu zdalnego dla większości obciążeń produkcyjnych. Maszyny wirtualne z serii Dsv4 są wyposażone w [ &reg; technologię wielowątkowości Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
+Rozmiary serii Dsv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Rozmiary serii Dv4 oferują kombinację vCPU, pamięci i opcji magazynu zdalnego dla większości obciążeń produkcyjnych. Maszyny wirtualne z serii Dsv4 są wyposażone w [ &reg; technologię Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>

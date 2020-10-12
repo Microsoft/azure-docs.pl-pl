@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408870"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
@@ -199,7 +199,7 @@ Listę można filtrować na podstawie:
 * **Filtry oparte na stanie** — Filtruj według stanu monitora połączenia, grupy testowej lub testu. Zobacz pole 2 na poniższej ilustracji.
 * **Filtrowanie filtrów opartych na alertach** według alertów wyzwalanych w ramach zasobu monitora połączeń. Zobacz pole 3 na poniższej ilustracji.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Zrzut ekranu przedstawiający sposób filtrowania widoków monitorów połączeń, grup testowych i testów w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 Na przykład aby zobaczyć wszystkie testy w monitorze połączeń (wersja zapoznawcza), gdzie źródłowy adres IP to 10.192.64.56:
 1. Zmień widok na **test**.
@@ -218,16 +218,16 @@ Aby wyświetlić tylko testy zakończone niepowodzeniem w monitorze połączeń 
 1. W polu wyszukiwania wprowadź *Outlook.office365.com*
 1. W polu **zakres** w filtrze najwyższego poziomu wybierz pozycję **miejsca docelowe**.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Zrzut ekranu przedstawiający widok, który jest filtrowany do wyświetlania tylko testów zakończonych niepowodzeniem dla miejsca docelowego Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
 Aby poznać przyczynę niepowodzenia monitora połączenia lub grupy testowej lub testu, kliknij kolumnę o nazwie przyczyna.  Oznacza to, który próg (sprawdzenia nie powiodło się% lub RTT) został naruszony i powiązane komunikaty diagnostyczne
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Zrzut ekranu przedstawiający przyczynę niepowodzenia dla monitora połączeń, testu lub grupy testów" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 Aby wyświetlić trendy w RTT i procent nieudanych testów dla monitora połączeń:
 1. Wybierz monitor połączeń, który chcesz zbadać.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Zrzut ekranu przedstawiający metryki monitora połączeń wyświetlane przez grupę testową" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
 1. Zostaną wyświetlone następujące sekcje:  
     1. Podstawowe informacje o właściwościach wybranego monitora połączeń 
@@ -237,7 +237,7 @@ Aby wyświetlić trendy w RTT i procent nieudanych testów dla monitora połącz
     1. Karty grup testowych, źródeł, miejsc docelowych i konfiguracji testów — lista grup testowych, źródeł lub miejsc docelowych w monitorze połączeń. Sprawdzanie testów nie powiodło się, zagregowany czas RTT i sprawdzenia nie powiodły się% wartości%.  Możesz także wrócić do obszaru czasu, aby wyświetlić dane. 
     1. Problemy — problemy poziomu przeskoku dla każdego testu w monitorze połączeń. 
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Zrzut ekranu przedstawiający metryki monitora połączeń wyświetlane przez grupę testową (część 2)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. Można
     * Kliknij pozycję Wyświetl wszystkie testy — aby wyświetlić wszystkie testy w monitorze połączeń
@@ -247,7 +247,7 @@ Aby wyświetlić trendy w RTT i procent nieudanych testów dla monitora połącz
 1. W widoku Wyświetl wszystkie testy można:
     * Wybierz pozycję testy i kliknij przycisk Porównaj.
     
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Zrzut ekranu przedstawiający porównanie 2 testów" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
     * Używanie klastra do rozszerzania zasobów złożonych, takich jak sieć wirtualna, podsieci do zasobów podrzędnych
     * Wyświetl topologię dla dowolnych testów, klikając opcję topologia.
@@ -259,7 +259,7 @@ Aby wyświetlić trendy w RTT i procent nieudanych testów dla grupy testowej:
 Aby wyświetlić trendy w RTT i procent testów zakończonych niepowodzeniem dla testu:
 1. Wybierz test, który chcesz zbadać. Zostanie wyświetlona topologia sieci i kompleksowe wykresy trendów dla testów zakończonych niepowodzeniem% i czas błądzenia. Aby zobaczyć zidentyfikowane problemy, w topologii wybierz dowolny przeskok w ścieżce. (Te przeskoki to zasoby platformy Azure). Ta funkcja nie jest obecnie dostępna dla sieci lokalnych
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Zrzut ekranu przedstawiający widok topologii testu" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Rejestruj zapytania w Log Analytics
 
@@ -269,7 +269,7 @@ Użyj Log Analytics, aby utworzyć niestandardowe widoki danych monitorowania. W
 
 W monitorach połączeń utworzonych przed rozpoczęciem korzystania z monitora połączeń (wersja zapoznawcza) są dostępne wszystkie cztery metryki:% sond nie powiodło się, AverageRoundtripMs, ChecksFailedPercent (wersja zapoznawcza) i RoundTripTimeMs (wersja zapoznawcza). W monitorach połączeń utworzonych w środowisku monitor połączeń (wersja zapoznawcza) dane są dostępne tylko dla metryk oznaczonych za pomocą *(wersja zapoznawcza)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Zrzut ekranu przedstawiający metryki w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/connectionMonitors
 
@@ -277,8 +277,8 @@ Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Sond nie powiodło się | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
 | AverageRoundtripMs | Średni czas błądzenia (MS) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |
-| ChecksFailedPercent (wersja zapoznawcza) | % Sprawdzenia nie powiodło się (wersja zapoznawcza) | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
-| RoundTripTimeMs (wersja zapoznawcza) | Czas błądzenia (MS) (wersja zapoznawcza) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region (Region) |
+| ChecksFailedPercent (wersja zapoznawcza) | % Sprawdzenia nie powiodło się (wersja zapoznawcza) | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (wersja zapoznawcza) | Czas błądzenia (MS) (wersja zapoznawcza) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alerty na podstawie metryk dla monitora połączeń
 
@@ -300,7 +300,7 @@ Alerty metryki można tworzyć na monitorach połączeń przy użyciu poniższyc
     1. Podaj szczegóły alertu.
     1. Utwórz regułę alertu.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Zrzut ekranu przedstawiający obszar Tworzenie reguły w Azure Monitor. Wyróżnia się adresy źródłowe i źródłowe nazwy punktów końcowych" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Zrzut ekranu przedstawiający monitory połączeń, które zostały utworzone w monitorze połączeń (wersja zapoznawcza)" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnozowanie problemów w sieci
 

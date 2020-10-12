@@ -31,10 +31,6 @@
           href: azure-stack-edge-gpu-deploy-activate.md
         - name: 8 — Konfigurowanie zasobów obliczeniowych
           href: azure-stack-edge-gpu-deploy-configure-compute.md
-        - name: '9A — Dodawanie, łączenie się w celu udostępniania'
-          href: azure-stack-edge-j-series-deploy-add-shares.md
-        - name: 9B — Dodawanie i nawiązywanie połączenia z kontami magazynu
-          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Pojęcia
       items:
         - name: Sprawdzanie wymagań
@@ -87,6 +83,8 @@
               items:
                 - name: Aplikacja bezstanowa
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Tworzenie modułu języka C#
+                  href: azure-stack-edge-j-series-create-iot-edge-module.md
             - name: Za pośrednictwem usługi Azure Arc (wersja zapoznawcza)
               items:
                 - name: Włączanie usługi Arc w klastrze platformy Kubernetes
@@ -123,12 +121,14 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Rozwiązywanie problemów z błędami certyfikatów
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-        - name: Tworzenie modułu języka C#
-          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Zarządzanie obliczeniami brzegowymi
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Zarządzanie bramą magazynu
           items:
+            - name: 'Dodawanie, łączenie się w celu udostępniania'
+              href: azure-stack-edge-j-series-deploy-add-shares.md
+            - name: Dodawanie i nawiązywanie połączenia z kontami magazynu
+              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
             - name: Udziały
               href: azure-stack-edge-j-series-manage-shares.md
             - name: Użytkownicy
@@ -149,6 +149,10 @@
               href: azure-stack-edge-return-device.md
             - name: Wymiana urządzenia
               href: azure-stack-edge-replace-device.md
+            - name: Przygotowanie na awarię urządzenia
+              href: azure-stack-edge-gpu-prepare-device-failure.md
+            - name: Odzyskiwanie po awarii urządzenia
+              href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Monitorowanie
           items:
             - name: Korzystanie z wykresów metryk

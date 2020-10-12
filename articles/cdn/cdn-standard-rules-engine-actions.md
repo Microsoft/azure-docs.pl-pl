@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760128"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Akcje w aparacie reguł standardowych dla Azure CDN
@@ -63,9 +63,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w żądaniach w
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
 Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
+Usuwanie | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
 
 ### <a name="modify-response-header"></a>Modyfikuj nagłówek odpowiedzi
 
@@ -75,9 +75,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w odpowiedziach
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Append | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
 Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | Ciąg
-Usuń | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
+Usuwanie | Gdy ta opcja jest zaznaczona, reguła jest zgodna, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
 
 ### <a name="url-redirect"></a>Przekierowywanie adresów URL
 
@@ -87,9 +87,9 @@ Użyj tej akcji, aby przekierować klientów do nowego adresu URL.
 
 Pole | Opis 
 ------|------------
-Typ | Wybierz typ odpowiedzi, aby powrócić do obiektu żądającego: znaleziono (302), przeniesione (301), tymczasowe przekierowanie (307) i trwałe przekierowanie (308).
+Type | Wybierz typ odpowiedzi, aby powrócić do obiektu żądającego: znaleziono (302), przeniesione (301), tymczasowe przekierowanie (307) i trwałe przekierowanie (308).
 Protokół | Żądanie dopasowania, HTTP i HTTPS.
-Nazwa hosta | Wybierz nazwę hosta, do którego chcesz przekierować żądanie. Pozostaw to pole puste, aby zachować hosta przychodzącego.
+Hostname (Nazwa hosta) | Wybierz nazwę hosta, do którego chcesz przekierować żądanie. Pozostaw to pole puste, aby zachować hosta przychodzącego.
 Ścieżka | Zdefiniuj ścieżkę do użycia w przekierowaniu. Pozostaw to pole puste, aby zachować ścieżkę przychodzącą.  
 Ciąg zapytania | Zdefiniuj ciąg zapytania używany w przekierowaniu. Pozostaw to pole puste, aby zachować ciąg zapytania przychodzącego. 
 Fragment | Zdefiniuj fragment do użycia w przekierowaniu. Pozostaw to pole puste, aby zachować fragment przychodzący. 

@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163190"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
@@ -45,7 +45,7 @@ ms.locfileid: "88163190"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -54,7 +54,7 @@ ms.locfileid: "88163190"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -65,7 +65,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 
@@ -82,7 +82,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć **rejes
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` `your-tenant-name` nazwę domeny dzierżawy Azure AD B2C.
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
-1. Wybierz pozycję **Rejestruj**.
+1. Wybierz pozycję **Zarejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 Następnie udostępnienie interfejsu API przez dodanie zakresu:
@@ -90,9 +90,9 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz opcję **Uwidocznij interfejs API**.
 1. Wybierz pozycję **Dodaj zakres**, a następnie wybierz pozycję **Zapisz i Kontynuuj** , aby zaakceptować domyślny identyfikator URI aplikacji.
 1. Wprowadź następujące wartości, aby utworzyć zakres, który umożliwia wykonywanie zasad niestandardowych w dzierżawie Azure AD B2C:
-    * **Nazwa zakresu**:`user_impersonation`
-    * **Nazwa wyświetlana zgody administratora**:`Access IdentityExperienceFramework`
-    * **Opis zgody administratora**:`Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+    * **Nazwa zakresu**: `user_impersonation`
+    * **Nazwa wyświetlana zgody administratora**: `Access IdentityExperienceFramework`
+    * **Opis zgody administratora**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
 1. Wybierz pozycję **Dodaj zakres**
 
 * * *
@@ -105,7 +105,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 1. W obszarze **Identyfikator URI przekierowania**Użyj listy rozwijanej, aby wybrać opcję **Klient publiczny/natywny (Mobile & Desktop)**.
 1. Dla **identyfikatora URI przekierowania**wprowadź `myapp://auth` .
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
-1. Wybierz pozycję **Rejestruj**.
+1. Wybierz pozycję **Zarejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 Następnie określ, że aplikacja powinna być traktowana jako klient publiczny:

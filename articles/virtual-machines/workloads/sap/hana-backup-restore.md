@@ -14,10 +14,10 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082209"
 ---
 # <a name="backup-and-restore-on-sap-hana-on-azure"></a>Tworzenie kopii zapasowych i przywracanie na SAP HANA na platformie Azure

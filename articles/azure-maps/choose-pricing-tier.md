@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163989"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Wybierz odpowiednią warstwę cenową w Azure Maps
@@ -33,7 +33,7 @@ Jeśli podstawowe interfejsy API geoprzestrzennej spełniają wymagania dotyczą
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderowanie mapy                              | ✓                   | ✓       |
 | Obraz satelitarny                       |                     | ✓        |
-| Wyszukiwanie                                  | ✓                    | ✓        |
+| Wyszukaj                                  | ✓                    | ✓        |
 | Wyszukiwanie wsadowe                            |                     | ✓        |
 | Trasa                                   | ✓                    |✓        |
 | Routing usługi Batch                            |                    | ✓        |

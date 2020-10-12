@@ -7,10 +7,10 @@ ms.date: 03/27/2018
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a36425acf42a469c7f48b2e954bdacfdfcce1b10
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011484"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Add logging to your Service Fabric application (Dodawanie rejestrowania do aplikacji usługi Service Fabric)
@@ -164,7 +164,7 @@ Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sek
    >[!NOTE]
    >Zalecamy, aby *nie* używać static w `Log.Logger` poprzednim przykładzie. Service Fabric może hostować wiele wystąpień tego samego typu usługi w ramach jednego procesu. Jeśli używasz statycznego `Log.Logger` , ostatni składnik służący do wzbogacania właściwości będzie wyświetlał wartości dla wszystkich wystąpień, które są uruchomione. Jest to jeden powód, dla którego zmienna _logger jest prywatną zmienną członkowską klasy usługi. Ponadto należy udostępnić `_logger` wspólny kod, który może być używany przez usługi.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej informacji [na temat monitorowania aplikacji w Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Przeczytaj o rejestrowaniu za pomocą [użyciu struktury eventflow](service-fabric-diagnostics-event-aggregation-eventflow.md) i [Windows Diagnostyka Azure](service-fabric-diagnostics-event-aggregation-wad.md).

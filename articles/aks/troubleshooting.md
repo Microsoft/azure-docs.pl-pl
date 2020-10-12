@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614023"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893139"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -86,7 +86,7 @@ AKS ma płaszczyzny kontroli HA skalowanie w pionie zgodnie z liczbą rdzeni, ab
 
 Te limity czasu mogą być związane z ruchem wewnętrznym między blokowanymi węzłami. Sprawdź, czy ten ruch nie jest blokowany, na przykład przez [sieciowe grupy zabezpieczeń](concepts-security.md#azure-network-security-groups) w podsieci dla węzłów klastra.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć Access Control oparty na rolach (RBAC) w istniejącym klastrze. Jak to zrobić?
+## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć Role-Based Access Control (RBAC) w istniejącym klastrze. Jak to zrobić?
 
 Włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub wersji API nowszej niż `2020-03-01` .
 
@@ -197,6 +197,23 @@ Wymaga to `--api-server-authorized-ip-ranges` uwzględnienia adresów IP lub zak
 W przypadku ograniczania ruchu wychodzącego z klastra AKS są [wymagane i opcjonalne zalecane](limit-egress-traffic.md) porty wyjściowe/reguły sieci oraz nazwy FQDN/aplikacji dla AKS. Jeśli ustawienia są w konflikcie z dowolną z tych reguł, niektóre `kubectl` polecenia nie będą działały prawidłowo. Podczas tworzenia klastra AKS mogą pojawić się także błędy.
 
 Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcjonalnymi zalecanymi portami wychodzącymi/regułami sieciowymi oraz nazwą FQDN/reguł aplikacji.
+
+## <a name="im-receiving-429---too-many-requests-errors"></a>Otrzymuję błędy "429 zbyt wiele żądań" 
+
+Gdy klaster Kubernetes na platformie Azure (AKS lub nie) często jest skalowany w górę lub w dół lub korzysta z automatycznego skalowania klastra (CA), te operacje mogą spowodować dużą liczbę wywołań HTTP, które z kolei przekroczą limit przydziału przypisanej subskrypcji wiodącej na awarię. Błędy będą wyglądać następująco
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+Te błędy ograniczania są szczegółowo opisane [tutaj](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) i [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+
+Rekomendowanie od zespołu inżynierów AKS ma na celu upewnienie się, że jest uruchomiona wersja co najmniej 1.18. x, która zawiera wiele ulepszeń. Więcej informacji można znaleźć w tych ulepszeniach [tutaj](https://github.com/Azure/AKS/issues/1413) i [tutaj](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Jeśli te błędy ograniczania są mierzone na poziomie subskrypcji, mogą być nadal wykonywane, jeśli:
+- Istnieją aplikacje innych firm wykonujące żądania GET (np. Monitorowanie aplikacji itp...). Zaleca się zmniejszenie częstotliwości tych wywołań.
+- W VMSS istnieje wiele klastrów AKS/nodepools. Typowym zaleceniem jest posiadanie mniej niż 20-30 klastrów w danej subskrypcji.
+
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Storage i AKS
 

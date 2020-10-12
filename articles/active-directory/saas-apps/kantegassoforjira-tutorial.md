@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 230613cc103cc851d1173f867b551af028ea898b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b22bb16c583c0385b31bde89f30763cd4fb478a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546864"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla JIRA
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Kantega Logowanie jednokrotne dla domeny JIRA i adresów URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionym polem tekstowym "Identyfikator" i "odpowiedź U R L" i wybranym przyciskiem "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon1.png)
+    ![Zrzut ekranu, na którym zostanie wyświetlona ikona "koło zębate" wybrana i "Dodatki" wybrane z listy rozwijanej.](./media/kantegassoforjira-tutorial/addon1.png)
 
 1. W sekcji karty Dodatki kliknij pozycję **Znajdź nowe dodatki**. Wyszukaj **Kantega Logowanie jednokrotne dla JIRA (SAML & Kerberos)** i kliknij przycisk **Instaluj** , aby zainstalować nową wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon2.png)
+    ![Zrzut ekranu pokazujący sekcję "Znajdowanie nowych dodatków" z opcją "Kantego S S for JIRA (S A M L & Kerberos)" w polu wyszukiwania i wybranym przyciskiem "Zainstaluj".](./media/kantegassoforjira-tutorial/addon2.png)
 
 1. Rozpocznie się instalacja wtyczki.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon3.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe wtyczki "Installing".](./media/kantegassoforjira-tutorial/addon3.png)
 
 1. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon33.png)
+    ![Zrzut ekranu pokazujący "zainstalowane i gotowe do użycia!" okno dialogowe z wybraną akcją "Zamknij".](./media/kantegassoforjira-tutorial/addon33.png)
 
 1.  Kliknij pozycję **Zarządzaj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon34.png)
+    ![Zrzut ekranu przedstawiający stronę aplikacji "Kantega S" z wybranym przyciskiem "Zarządzaj".](./media/kantegassoforjira-tutorial/addon34.png)
     
 1. Nowa wtyczka jest wymieniona w obszarze **integracji**. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon35.png)
+    ![Zrzut ekranu przedstawiający "INTEGRACJe" w wyróżnionym lewym menu nawigacji i przycisk "Konfiguruj" wybrany w sekcji "Zarządzanie dodatkami".](./media/kantegassoforjira-tutorial/addon35.png)
 
 1. W sekcji **SAML** . Wybierz pozycję **Azure Active Directory (Azure AD)** z listy rozwijanej **Dodaj dostawcę tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon4.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną "Dodaj dostawcę tożsamości" z wybraną pozycją "Azure Active Directory (Azure A D)".](./media/kantegassoforjira-tutorial/addon4.png)
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon5.png)       
+    ![Zrzut ekranu przedstawiający sekcję "Przygotowywanie platformy Azure A D" z wybraną pozycją "podstawowa".](./media/kantegassoforjira-tutorial/addon5.png)     
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności: 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon6.png)
+    ![Zrzut ekranu przedstawiający sekcję "właściwości aplikacji" z wyróżnionym polem tekstowym "app and D U R L" i przyciskiem Kopiuj oraz wybranym przyciskiem "dalej".](./media/kantegassoforjira-tutorial/addon6.png)
 
     a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
@@ -174,7 +174,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności: 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforjira-tutorial/addon7.png)
 
     a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
@@ -182,7 +182,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon8.png)
+    ![Zrzut ekranu pokazujący lokalizację "Nazwa i S" z wyróżnioną polem tekstowym "Nazwa dostawcy tożsamości" i wybranym przyciskiem "dalej".](./media/kantegassoforjira-tutorial/addon8.png)
 
     a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
@@ -190,11 +190,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon9.png)
+    ![Zrzut ekranu przedstawiający sekcję "Weryfikacja podpisu" z wybranym przyciskiem "dalej".](./media/kantegassoforjira-tutorial/addon9.png)
 
 1. W sekcji **konta użytkowników JIRA** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon10.png)
+    ![Zrzut ekranu przedstawiający "konta użytkowników JIRA" z podświetloną opcją "Utwórz użytkowników w katalogu wewnętrznym JIRA, jeśli jest to możliwe", a następnie wybierz przycisk "dalej".](./media/kantegassoforjira-tutorial/addon10.png)
 
     a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym JIRA** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
@@ -202,7 +202,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforjira-tutorial/addon11.png)
+    ![Zrzut ekranu pokazujący sekcję "Podsumowanie" z wybranym przyciskiem "Zakończ".](./media/kantegassoforjira-tutorial/addon11.png)
 
 1. W sekcji **znane domeny dla usługi Azure AD** wykonaj następujące czynności:
 
@@ -236,7 +236,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -274,11 +274,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze JIRA, m
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/kantegassoforjira-tutorial/user1.png) 
+    ![Zrzut ekranu przedstawiający wybraną ikonę "koło zębate" i pozycję "Zarządzanie użytkownikami" wybraną z listy rozwijanej.](./media/kantegassoforjira-tutorial/user1.png) 
 
 1. W obszarze Karta **Zarządzanie użytkownikami** kliknij pozycję **Utwórz użytkownika**.
 
-    ![Dodawanie pracownika](./media/kantegassoforjira-tutorial/user2.png) 
+    ![Zrzut ekranu przedstawiający sekcję "Zarządzanie użytkownikami" z wybranym przyciskiem "Utwórz użytkownika".](./media/kantegassoforjira-tutorial/user2.png) 
 
 1. Na stronie okna dialogowego **„Create new user”** (Tworzenie nowego użytkownika) wykonaj następujące kroki:
 

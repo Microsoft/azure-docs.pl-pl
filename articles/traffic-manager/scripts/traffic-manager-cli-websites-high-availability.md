@@ -15,10 +15,10 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
 ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400232"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Kierowanie ruchu w celu zapewnienia wysokiej dostępności aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure

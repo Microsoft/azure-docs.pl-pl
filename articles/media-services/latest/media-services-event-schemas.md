@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336432"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schematy Azure Event Grid dla zdarzeń Media Services
@@ -136,7 +136,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **JobStateChange** :
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | previousState | ciąg | Stan zadania przed zdarzeniem. |
 | stan | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
@@ -206,7 +206,7 @@ Dla każdej ostatecznej zmiany stanu zadania (na przykład JobFinished, JobCance
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | wydajności | Tablica | Pobiera dane wyjściowe zadania.|
 
@@ -322,7 +322,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventConnectionR
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
@@ -358,7 +358,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderConn
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za podanie tego identyfikatora w adresie URL pozyskiwania. |
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |
@@ -392,7 +392,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderDisc
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
@@ -442,7 +442,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingDat
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki. |
@@ -482,7 +482,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStr
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -521,7 +521,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStr
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | minLastTimestamp | ciąg | Minimum ostatnich sygnatur czasowych między wszystkimi ścieżkami (audio lub wideo). |
 | typeOfTrackWithMinLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z minimalną ostatnią sygnaturą czasową. |
@@ -557,7 +557,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingVid
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | firstTimestamp | ciąg | Odebrano sygnaturę czasową dla jednego z poziomów śledzenia/jakości typu wideo. |
 | firstDuration | ciąg | Czas trwania fragmentu danych z pierwszym znacznikiem czasu. |
@@ -599,7 +599,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIngestHeart
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -643,7 +643,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventTrackDiscon
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -657,7 +657,7 @@ Obiekt danych ma następujące właściwości:
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Temat EventGrid. Ta właściwość ma identyfikator zasobu dla konta Media Services. |
 | Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |

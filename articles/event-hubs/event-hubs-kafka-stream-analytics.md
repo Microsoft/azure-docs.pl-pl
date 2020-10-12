@@ -4,10 +4,10 @@ description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdar
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531291"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
@@ -27,7 +27,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * [Zestaw Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
 * [Pobierz](https://maven.apache.org/download.cgi) i [zainstaluj](https://maven.apache.org/install.html) archiwum binarne Maven.
-* [Narzędzia](https://www.git-scm.com/)
+* [Git](https://www.git-scm.com/)
 * **Konto usługi Azure Storage**. Jeśli go nie masz, [Utwórz go](../storage/common/storage-account-create.md) przed kontynuowaniem. Zadanie Stream Analytics w tym instruktażu przechowuje dane wyjściowe w usłudze Azure Blob Storage. 
 
 

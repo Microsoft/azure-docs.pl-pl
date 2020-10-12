@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
 ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541439"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Zaloguj się do portalu usługi LUIS
@@ -38,7 +38,7 @@ Nowy użytkownik do LUIS musi wykonać następującą procedurę:
     * **Lokalizacja** — wybór lokalizacji zależy od wybranej **grupy zasobów** .
     * **Warstwa cenowa** — warstwa cenowa określa maksymalną liczbę transakcji na sekundę i miesiąc.
 
-1. Zostanie wyświetlone podsumowanie zasobu, który ma zostać utworzony. Wybierz pozycję **Dalej**.
+1. Zostanie wyświetlone podsumowanie zasobu, który ma zostać utworzony. Wybierz opcję **Dalej**.
 
     ![Zrzut ekranu przedstawia stronę powitalną z opcją połączenia z kontem platformy Azure.](../media/sign-in/sign-in-confirm-key-selection.png)
 

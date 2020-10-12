@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319987"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Interfejsy API rozliczeń mierzonych w witrynie Marketplace
@@ -34,7 +34,7 @@ Dla każdej godziny dnia kalendarzowego może być emitowane tylko jedno zdarzen
 
 Dla każdej godziny dnia kalendarzowego dla każdego zasobu może być emitowane tylko jedno zdarzenie użycia. Jeśli więcej niż jedna jednostka jest zużywana w ciągu godziny, należy zbierać wszystkie jednostki używane w ciągu godziny, a następnie emitować je w pojedynczym zdarzeniu. Zdarzenia użycia mogą być emitowane tylko przez ostatnie 24 godziny. Jeśli wyemitujesz zdarzenie użycia w dowolnym momencie od 8:00 do 8:59:59 (i zostanie ono zaakceptowane) i wyślesz dodatkowe zdarzenie dla tego samego dnia od 8:00 do 8:59:59, zostanie ono odrzucone jako duplikat.
 
-**Wpis**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Wpis**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
@@ -65,7 +65,7 @@ Dla każdej godziny dnia kalendarzowego dla każdego zasobu może być emitowane
 ```
 
 >[!NOTE]
->`resourceId`ma inne znaczenie dla aplikacji SaaS i dla aplikacji zarządzanej, która emituje licznik niestandardowy. 
+>`resourceId` ma inne znaczenie dla aplikacji SaaS i dla aplikacji zarządzanej, która emituje licznik niestandardowy. 
 
 W przypadku planów aplikacji zarządzanych przez aplikacje platformy Azure `resourceId` jest to `resourceUsageId` znaleziono w obszarze `billingDetails` obiektu metadanych aplikacji zarządzanej. Przykładowy skrypt do pobrania można znaleźć w temacie [using the Azure-Managed tożsamośćs token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
@@ -95,7 +95,7 @@ Kod: 400 <br>
 Nieprawidłowe żądanie.
 
 * Podano brakujące lub nieprawidłowe dane żądania.
-* `effectiveStartTime`w przeszłości przekracza 24 godziny. Zdarzenie wygasło.
+* `effectiveStartTime` w przeszłości przekracza 24 godziny. Zdarzenie wygasło.
 * Subskrypcja SaaS nie jest w stanie subskrybowanym.
 
 Przykład ładunku odpowiedzi: 
@@ -189,7 +189,7 @@ Interfejs API zdarzeń użycia usługi Batch umożliwia emitowanie zdarzeń uży
 ```
 
 >[!NOTE]
->`resourceId`ma inne znaczenie dla aplikacji SaaS i dla aplikacji zarządzanej, która emituje licznik niestandardowy. 
+>`resourceId` ma inne znaczenie dla aplikacji SaaS i dla aplikacji zarządzanej, która emituje licznik niestandardowy. 
 
 W przypadku planów aplikacji zarządzanych przez aplikacje platformy Azure `resourceId` jest to `resourceUsageId` znaleziono w obszarze `billingDetails` obiektu metadanych aplikacji zarządzanej. Przykładowy skrypt do pobrania można znaleźć w temacie [using the Azure-Managed tożsamośćs token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 

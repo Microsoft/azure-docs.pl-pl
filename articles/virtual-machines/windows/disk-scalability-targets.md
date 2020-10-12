@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.openlocfilehash: bf56f1fac1f12f9e4994221d672410715393ae9f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815142"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows

@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2c6540513c46307e4bd51b163dd77984395006c5
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649511"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945434"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
-Seria Ev4 i Esv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, idealnie sprawdza się w przypadku różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504GiB pamięci RAM. Funkcja IT oferuje stałą prędkość zegara Turbo wynoszącą 3,4 GHz.
+Seria Ev4 i Esv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, idealnie sprawdza się w przypadku różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504GiB pamięci RAM. Oferuje ona wszystkie podstawowe szybkości zegara Turbo 3,4 GHz.
 
 > [!NOTE]
 > W przypadku często zadawanych pytań zapoznaj się z tematem  [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Seria Ev4
 
-Rozmiary serii Ev4 są uruchamiane w technologii Intel Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Ev4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Ev4 są wyposażone w &reg; technologię wielowątkowości Intel.
+Rozmiary serii Ev4 są uruchamiane w technologii Intel Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Ev4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Ev4 są wyposażone w &reg; technologię Intel Hyper-Threading.
 
 Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Esv4. Liczniki cen i rozliczeń dla rozmiarów Esv4 są takie same jak dla serii Ev4.
 
@@ -51,7 +51,7 @@ Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzys
 
 ## <a name="esv4-series"></a>Seria Esv4
 
-Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Esv4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Evs4 są wyposażone w &reg; technologię wielowątkowości Intel. Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
+Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Esv4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Evs4 są wyposażone w &reg; technologię Intel Hyper-Threading. Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400572"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Zarządzanie Traffic Manager przy użyciu programu PowerShell
@@ -267,7 +267,7 @@ Aby wyłączyć profil Traffic Manager:
 Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Polecenie cmdlet Disable-AzTrafficManagerProfile monituje o potwierdzenie. Ten monit można pominąć przy użyciu parametru "-Force".
+Disable-AzTrafficManagerProfile polecenie cmdlet monituje o potwierdzenie. Ten monit można pominąć przy użyciu parametru "-Force".
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Przykład 2: Włączanie i wyłączanie punktu końcowego Traffic Manager
 

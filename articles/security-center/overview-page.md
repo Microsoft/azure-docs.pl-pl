@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f7298ec7bba82eaddc4a002723f44bc5da68433
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447673"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945349"
 ---
 # <a name="azure-security-centers-overview-page"></a>Strona przeglądu Azure Security Center
 
@@ -40,7 +40,7 @@ Na środku strony znajdują się **cztery centralne kafelki**, z których każda
 - Dzięki **zabezpieczeniom** ocenianym Security Center nieustannie szacuje zasoby, subskrypcje i organizację pod kątem problemów z zabezpieczeniami. Następnie agreguje wszystkie wyniki w postaci pojedynczego wyniku, dzięki czemu można szybko powiedzieć, że aktualna sytuacja zabezpieczeń: wyższy wynik, tym niższy poziom ryzyka. [Dowiedz się więcej](secure-score-security-controls.md).
 - **Zgodność** — Security Center zapewnia wgląd w stan zgodności w oparciu o ciągłe oceny środowiska platformy Azure. Security Center analizuje czynniki ryzyka w środowisku chmury hybrydowej zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń. Te oceny są mapowane na kontrolki zgodności z obsługiwanego zestawu standardów. [Dowiedz się więcej](security-center-compliance-dashboard.md).
 - **Usługa Azure Defender** — jest to platforma ochrony obciążeń w chmurze (CWPP) zintegrowana w ramach Security Center w celu zaawansowanej, inteligentnej ochrony obciążeń platformy Azure i hybrydowych. Kafelek przedstawia pokrycie zasobów połączonych (dla aktualnie wybranych subskrypcji) i ostatnich alertów, które są kodowane kolorami według ważności. [Dowiedz się więcej](azure-defender.md).
-- **Spis** — kafelek przedstawia liczbę niemonitorowanych maszyn wirtualnych oraz prostą BAROMETER zasobów monitorowanych przez CenterBen zabezpieczeń. [Dowiedz się więcej](asset-inventory.md).
+- **Spis** — kafelek przedstawia liczbę niemonitorowanych maszyn wirtualnych oraz prostą BAROMETER zasobów monitorowanych przez Security Center. [Dowiedz się więcej](asset-inventory.md).
 
 
 Okienko **Insights** oferuje dostosowane elementy dla środowiska, w tym:
