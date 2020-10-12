@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752065"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Obniż koszty dzięki rezerwacji dysków platformy Azure
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Obniżenie kosztów dzięki rezerwacji dysków platformy Azure
 
 Zapisz użycie Azure Disk Storage przy użyciu zarezerwowanej pojemności. Azure Disk Storage rezerwacje połączone z Azure Reserved Virtual Machine Instances umożliwiają obniżenie całkowitych kosztów maszyn wirtualnych (VM). Rabat rezerwacji jest automatycznie stosowany do zgodnych dysków w wybranym zakresie rezerwacji. Ze względu na tę automatyczną aplikację nie trzeba przypisywać do dysku zarządzanego rezerwacji w celu uzyskania rabatów.
 
@@ -104,4 +104,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Omówienie stosowania rabatu za rezerwację do usługi Azure Disk Storage](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Zapoznaj się ze sposobem stosowania rabatu rezerwacji do Azure Disk Storage](../cost-management-billing/reservations/understand-disk-reservations.md)

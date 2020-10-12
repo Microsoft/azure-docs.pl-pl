@@ -10,10 +10,10 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 779a09532790ea272d8c95ac28f8c152216efc5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002967"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu języka C# i szablonu Menedżer zasobów
@@ -324,7 +324,7 @@ Ukończenie działania tej aplikacji konsolowej od początku do końca trwa oko�
 
 2. Przed naciśnięciem klawisza **Enter** w celu rozpoczęcia usuwania zasobów można sprawdzić poprawność tworzenia zasobów w Azure Portal. Kliknij stan wdrożenia, aby wyświetlić informacje o wdrożeniu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 * Dowiedz się, jak wdrożyć maszynę wirtualną i jej zasoby pomocnicze, przeglądając artykuł [Wdrażanie maszyny wirtualnej platformy Azure przy użyciu języka C#](../../azure-resource-manager/templates/deploy-rest.md).

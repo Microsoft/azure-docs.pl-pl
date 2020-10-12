@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005909"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Błąd zatrzymania systemu Windows — stan braku pamięci
@@ -143,7 +143,7 @@ Przed podjęciem jakichkolwiek kroków należy utworzyć kopię folderu **\Windo
    1. Przejdź do **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> zaznacz**.
    1. Na liście klucze Zwróć uwagę na wartość danych Current. Na przykład, jeśli ta wartość jest równa **1** lub **0x00000001 (1)**, wówczas zestaw kontrolek będzie ControlSet001.
 1. Sprawdź lokalizację, w której skonfigurowano Tworzenie pliku stronicowania.
-   1. W HKEY_LOCAL_MACHINE \BROKENSYSTEM rozwiń katalog pasujący do numeru ControlSet, który został zidentyfikowany w kroku 4, na przykład **ControlSet001**.
+   1. W HKEY_LOCAL_MACHINE\BROKENSYSTEM rozwiń katalog pasujący do numeru ControlSet, który został zidentyfikowany w kroku 4, na przykład **ControlSet001**.
    1. Przejdź do pozycji **kontrola >> Menedżer sesji >> zarządzanie pamięcią** i zanotuj lokalizację klucza **ExistingPageFiles** .
    1. Ten klucz powinien znajdować się w domyślnej lokalizacji platformy Azure na dysku tymczasowym. Jeśli tak nie jest, a znajduje się na dysku VHD w innej lokalizacji, na przykład na dysku danych lub dysku systemu operacyjnego, należy usunąć ten plik.
    1. Przejdź do tej lokalizacji w Eksploratorze plików, a następnie usuń plik **pagefile.sys** .

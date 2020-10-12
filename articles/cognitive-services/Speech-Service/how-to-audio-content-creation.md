@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224591"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
@@ -105,7 +105,7 @@ Po przejrzeniu danych wyjściowych audio i spełnieniu ich dostrajania można wy
 | pliki | RIFF-16khz-16bit-mono-PCM | RIFF-24khz-16bit-mono-PCM |
 | formatu | audio-16khz-128kbitrate-mono-MP3 | audio-24khz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Długi interfejs API audio](https://aka.ms/long-audio-api)
 

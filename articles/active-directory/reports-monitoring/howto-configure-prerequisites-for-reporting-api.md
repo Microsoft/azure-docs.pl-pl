@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226968"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Wymagania wstępne dotyczące uzyskiwania dostępu do interfejsu API raportowania Azure Active Directory
@@ -188,7 +188,7 @@ Te wartości są potrzebne podczas konfigurowania wywołań do interfejsu API ra
 
     b. Zgodnie z **wygaśnięciem**wybierz pozycję **za 2 lata**.
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
     d. Skopiuj wartość klucza.
 

@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132419"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Uruchamianie i testowanie U-SQL przy użyciu zestawu SDK U-SQL Azure Data Lake
@@ -35,7 +35,7 @@ Zestaw SDK U-SQL Data Lake wymaga następujących zależności:
 
     ![Narzędzia Data Lake Tools for Visual Studio Local-Run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Zainstaluj [narzędzia Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). Pliki Visual C++ i Windows SDK w pakiecie są dostępne pod adresem`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Zainstaluj [narzędzia Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs). Pliki Visual C++ i Windows SDK w pakiecie są dostępne pod adresem `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     W takim przypadku kompilator lokalny U-SQL nie może znaleźć zależności automatycznie. Należy określić ścieżkę CppSDK. Możesz skopiować pliki do innej lokalizacji lub użyć jej jako.
 
@@ -154,7 +154,7 @@ Poniżej podano opcjonalne argumenty dla **przebiegu**:
 |-Verbose|Fałsz|Pokaż szczegółowe dane wyjściowe z środowiska uruchomieniowego|
 |-WorkDir|Bieżący katalog|Katalog do użycia i wyjść kompilatora|
 |-RunScopeCEP|0|Tryb ScopeCEP do użycia|
-|-ScopeCEPTempPath|temp|Tymczasowa ścieżka do użycia na potrzeby przesyłania strumieniowego danych|
+|-ScopeCEPTempPath|tymczasowe|Tymczasowa ścieżka do użycia na potrzeby przesyłania strumieniowego danych|
 |-OptFlags| |Rozdzielana przecinkami lista flag Optymalizatora|
 
 Oto przykład:
@@ -337,7 +337,7 @@ Public LocalRunHelper ([System. IO. TextWriter messageOutput = null])
 
 ### <a name="properties"></a>Właściwości
 
-|Właściwość|Typ|Opis|
+|Właściwość|Type|Opis|
 |--------|----|-----------|
 |AlgebraPath|ciąg|Ścieżka do pliku algebry (plik algebry jest jednym z wyników kompilacji)|
 |CodeBehindReferences|ciąg|Jeśli skrypt ma dodatkowy kod związany z odwołaniami, określ ścieżki rozdzielone znakami ";"|

@@ -7,10 +7,10 @@ ms.date: 9/13/2020
 ms.topic: article
 ms.service: api-management
 ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345136"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Zasady integracji API Management Dapr
@@ -37,7 +37,7 @@ template:
 ```
 
 
-## <a name="distributed-application-runtime-dapr-integration-policies"></a>Zasady integracji środowiska uruchomieniowego aplikacji rozproszonej (Dapr)
+## <a name="distributed-application-runtime-dapr-integration-policies"></a>Zasady integracji środowiska Dapr (Distributed Application Runtime)
 
 -  [Wyślij żądanie do usługi](api-management-dapr-policies.md#invoke): używa środowiska uruchomieniowego Dapr do lokalizowania i niezawodnego komunikowania się z mikrousługą Dapr. Aby dowiedzieć się więcej na temat wywołania usługi w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) .
 -  [Wyślij komunikat do publikowania/podtematu](api-management-dapr-policies.md#pubsub): używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie. Aby dowiedzieć się więcej na temat publikowania/subskrybowania wiadomości w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) .
@@ -89,7 +89,7 @@ Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudz
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślny |
+| Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
 | Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Nie dotyczy     |
 | dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
@@ -156,7 +156,7 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślny |
+| Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
 | temat            | Nazwa tematu docelowego               | Tak      | Nie dotyczy     |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
@@ -241,7 +241,7 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                     | Wymagane | Domyślny |
+| Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
 | name            | Nazwa powiązania docelowego. Musi być zgodna z nazwą powiązań [zdefiniowaną](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) w Dapr.           | Tak      | Nie dotyczy     |
 | operation       | Nazwa operacji docelowej (specyficzne dla powiązania). Mapuje do właściwości [operacji](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie | Brak |

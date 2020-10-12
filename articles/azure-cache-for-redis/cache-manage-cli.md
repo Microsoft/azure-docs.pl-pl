@@ -8,15 +8,15 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500508"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Jak utworzyć usługę Azure cache for Redis i zarządzać nią przy użyciu klasycznego interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
+> * [Program PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Klasyczny interfejs wiersza polecenia platformy Azure](cache-manage-cli.md)
 >
 
@@ -50,9 +50,9 @@ Następujące właściwości są używane podczas tworzenia i aktualizowania us�
 | Liczba fragmentu |-r,--fragmentu-Count |Liczba fragmentów do utworzenia w pamięci podręcznej klastrów w warstwie Premium z klastrowaniem. |
 | Virtual Network |-v,--Virtual-Network |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa dokładnego identyfikatora zasobu usługi ARM do wdrożenia pamięci podręcznej platformy Azure dla Redis w systemie. Przykładowy format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Typ klucza |-t,--typ klucza |Typ klucza do odnowienia. Prawidłowe wartości: [podstawowa, pomocnicza] |
-| StaticIP |-p,--Static-IP\<static-ip\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podany, jeden z nich zostanie wybrany dla Ciebie z podsieci. |
-| Podsieć |t,--Subnet\<subnet\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa nazwę podsieci, w której ma zostać wdrożona pamięć podręczna. |
-| VirtualNetwork |-v,--Virtual-Network\<virtual-network\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa dokładnego identyfikatora zasobu usługi ARM do wdrożenia pamięci podręcznej platformy Azure dla Redis w systemie. Przykładowy format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p,--Static-IP \<static-ip\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podany, jeden z nich zostanie wybrany dla Ciebie z podsieci. |
+| Podsieć |t,--Subnet \<subnet\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa nazwę podsieci, w której ma zostać wdrożona pamięć podręczna. |
+| VirtualNetwork |-v,--Virtual-Network \<virtual-network\> |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa dokładnego identyfikatora zasobu usługi ARM do wdrożenia pamięci podręcznej platformy Azure dla Redis w systemie. Przykładowy format:/subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subskrypcja |-s,--subskrypcja |Identyfikator subskrypcji. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Zobacz wszystkie polecenia usługi Azure cache for Redis

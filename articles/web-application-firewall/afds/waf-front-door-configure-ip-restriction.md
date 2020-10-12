@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005620"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurowanie reguły ograniczeń adresów IP za pomocą zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
 
 W tym artykule opisano sposób konfigurowania reguł ograniczeń adresów IP w zaporze aplikacji sieci Web (WAF) dla drzwi frontonu platformy Azure przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, Azure PowerShell lub szablonu Azure Resource Manager.
 
-Reguła kontroli dostępu opartej na adresie IP to Niestandardowa reguła WAF, która umożliwia kontrolowanie dostępu do aplikacji sieci Web. W tym celu należy określić listę adresów IP lub zakresy adresów IP w formacie routingu międzydomenowego bez klas.
+Reguła kontroli dostępu opartej na adresie IP to Niestandardowa reguła WAF, która umożliwia kontrolowanie dostępu do aplikacji sieci Web. W tym celu należy określić listę adresów IP lub zakresy adresów IP w formacie Inter-Domain routingu, bez klas.
 
 Domyślnie aplikacja sieci Web jest dostępna z Internetu. Jeśli chcesz ograniczyć dostęp do klientów z listy znanych adresów IP lub zakresów adresów IP, możesz utworzyć regułę dopasowania adresów IP, która zawiera listę adresów IP jako pasujące wartości i zestawy, do "not" (Negate jest true) i akcję do **zablokowania**. Po zastosowaniu reguły ograniczeń adresów IP żądania, które pochodzą z adresów spoza tej listy dozwolonych, odbierają niedostępną odpowiedź 403.
 
@@ -30,8 +30,8 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 
 ### <a name="create-a-waf-policy"></a>Tworzenie zasad WAF
 
-1. Na Azure Portal wybierz pozycję **Utwórz zasób**, wpisz **Zapora aplikacji sieci Web** w polu wyszukiwania, a następnie wybierz opcję **Zapora aplikacji sieci Web (WAF)**.
-2. Wybierz pozycję **Utwórz**.
+1. Na Azure Portal wybierz pozycję **Utwórz zasób**, wpisz  **Zapora aplikacji sieci Web** w polu wyszukiwania, a następnie wybierz opcję **Zapora aplikacji sieci Web (WAF)**.
+2. Wybierz przycisk **Utwórz**.
 3. Na stronie **Tworzenie zasad WAF** Użyj następujących wartości, aby ukończyć kartę **podstawowe** :
    
    |Ustawienie  |Wartość  |
@@ -76,7 +76,7 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 1. Po zakończeniu wdrażania zasad WAF przejdź do nazwy hosta frontonu z przodu.
 2. Powinien zostać wyświetlony niestandardowy komunikat dotyczący blokady.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Test reguły WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Reguła niestandardowa":::
 
    > [!NOTE]
    > Prywatny adres IP został celowo użyty w regule niestandardowej w celu zagwarantowania, że reguła zostanie wyzwolona. W rzeczywistym wdrożeniu Utwórz reguły *zezwalania* i *odmowy* przy użyciu adresów IP dla konkretnej sytuacji.

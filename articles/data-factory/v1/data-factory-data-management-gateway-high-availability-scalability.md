@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80065206"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Zarządzanie danymi Gateway — wysoka dostępność i skalowalność (wersja zapoznawcza)
@@ -202,8 +202,8 @@ W poniższej tabeli przedstawiono możliwe stany **węzła bramy**:
 
 Stan  | Komentarze/scenariusze
 :------- | :------------------
-Online | Węzeł połączony z usługą Data Factory.
-W trybie offline | Węzeł jest w trybie offline.
+Tryb online | Węzeł połączony z usługą Data Factory.
+Tryb offline | Węzeł jest w trybie offline.
 Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania.
 Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń. 
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami. 
@@ -214,8 +214,8 @@ W poniższej tabeli przedstawiono możliwe stany **bramy logicznej**. Stan bramy
 Stan | Komentarze
 :----- | :-------
 Wymaga rejestracji | Żaden węzeł nie jest jeszcze zarejestrowany w tej bramie logicznej
-Online | Węzły bramy są w trybie online
-W trybie offline | Brak węzła w stanie online.
+Tryb online | Węzły bramy są w trybie online
+Tryb offline | Brak węzła w stanie online.
 Ograniczone | Nie wszystkie węzły w tej bramie są w dobrej kondycji. Ten stan jest ostrzeżeniem, że niektóre węzły mogą być wyłączone. <br/><br/>Może to być spowodowane problemem z synchronizacją poświadczeń w węźle dyspozytora/proces roboczy. 
 
 ### <a name="pipeline-activities-monitoring"></a>Monitorowanie potoku/działań

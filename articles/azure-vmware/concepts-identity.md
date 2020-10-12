@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i u
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750589"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
@@ -24,7 +24,7 @@ W poniższej tabeli przedstawiono uprawnienia CloudAdmin i CloudGlobalAdmin.
 
 |  Zestaw uprawnień           | CloudAdmin | CloudGlobalAdmin | Komentarz |
 | :---                     |    :---:   |       :---:      |   :--:  |
-|  Alarmy                  | Użytkownik CloudAdmin ma wszystkie przywileje alarmowe dotyczące alarmów w ramach obliczeń ResourcePool i maszyn wirtualnych.     |          --        |  -- |
+|  Alarmy                  | Użytkownik CloudAdmin ma wszystkie przywileje alarmowe dotyczące alarmów w Compute-ResourcePool i maszynach wirtualnych.     |          --        |  -- |
 |  Wdróż ponownie             |  --  |        --        |  Firma Microsoft zarządza zarządzaniem hostami.  |
 |  Certyfikaty            |  --  |        --       |  Firma Microsoft zarządza certyfikatami.  |
 |  Biblioteka zawartości         | Użytkownik CloudAdmin ma uprawnienia do tworzenia plików i używania ich w bibliotece zawartości.    |         Włączone z logowaniem jednokrotnym.         |  Firma Microsoft będzie dystrybuować pliki w bibliotece zawartości na hosty ESXi.  |

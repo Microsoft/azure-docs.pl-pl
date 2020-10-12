@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613664"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
@@ -76,7 +76,7 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
 ## <a name="technical-details"></a>Szczegóły techniczne
 
-Zdalne renderowanie na platformie Azure używa mikroaspektu Cooka-Torrance BRDF z systemem GGX NDF, Schlick wygaszania Fresnela i GGXego okresu widoczności z lambertaą Ten model jest w tej chwili niefaktycznym standardem branżowym. Więcej szczegółowych informacji można znaleźć w tym artykule: [Torrance renderowanie oparte na fizycznie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Zdalne renderowanie na platformie Azure używa Cook-Torrance mikroaspektów BRDF z GGX NDF, Schlick wygaszania Fresnela i GGX odciskiem korelacji z Lambertaą. Ten model jest w tej chwili niefaktycznym standardem branżowym. Więcej szczegółowych informacji można znaleźć w tym artykule: [Torrance renderowanie oparte na fizycznie](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Alternatywą dla modelu *"Niesztywności"* używanym podczas renderowania zdalnego na platformie Azure jest model *odblasków-Glossiness* PBR. Ten model może reprezentować szerszy zakres materiałów. Jest to jednak droższe i zwykle nie działa prawidłowo w przypadku przypadków w czasie rzeczywistym.
 Nie zawsze jest możliwe przekonwertowanie z *odblasków-Glossiness* na *sztywność* , ponieważ istnieją pary wartości *(rozpraszające, odblasków)* , których nie można przekonwertować na *(BaseColor, metalu)*. Konwersja w innym kierunku jest prostsza i bardziej precyzyjna, ponieważ wszystkie pary *(BaseColor, metale)* odpowiadają dokładnie zdefiniowanym par *(rozpraszaniem, odblasków)* .

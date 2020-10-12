@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 02f5c570b7400266ac648eaa257fb76d26819a40
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003188"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
@@ -663,7 +663,7 @@ Poniższa tabela zawiera podsumowanie danych czujników zbieranych na każdej z 
 | **Karta**        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu interfejsu API 28, skanowania w sieci Wi-Fi są ograniczone do 4 wywołań co 2 minuty. W przypadku systemu Android 10 ograniczenie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | N/A — brak publicznego interfejsu API |
 | **Sygnały nawigacyjne dotyczące beli** | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Użyj bardzo dużej lokalizacji w aplikacji.
 
@@ -671,7 +671,7 @@ Użyj bardzo dużej lokalizacji w aplikacji.
 > [Unity](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
-> [Obiektowy C](../how-tos/set-up-coarse-reloc-objc.md)
+> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
 
 > [!div class="nextstepaction"]
 > [Swift](../how-tos/set-up-coarse-reloc-swift.md)

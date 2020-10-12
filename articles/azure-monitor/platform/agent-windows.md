@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003375"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Zainstaluj agenta Log Analytics na komputerach z systemem Windows
@@ -49,7 +49,7 @@ Zapoznaj się z [omówieniem log Analytics agenta](log-analytics-agent.md#networ
 ## <a name="configure-agent-to-use-tls-12"></a>Konfigurowanie agenta do korzystania z protokołu TLS 1,2
 Protokół [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) zapewnia bezpieczeństwo danych przesyłanych w celu komunikacji między agentem systemu Windows a usługą log Analytics. Jeśli instalujesz program w [systemie operacyjnym bez włączonego protokołu tls 1,2](data-security.md#sending-data-securely-using-tls-12), należy skonfigurować protokół TLS 1,2, wykonując poniższe kroki.
 
-1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols**
+1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Utwórz podklucz w obszarze **Protokoły** dla protokołu TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
 3. Utwórz podklucz **klienta** w podkluczu wersji protokołu TLS 1,2 utworzonego wcześniej. Na przykład **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**.
 4. Utwórz następujące wartości DWORD w obszarze **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**:
@@ -59,9 +59,9 @@ Protokół [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) 
 
 Skonfiguruj .NET Framework 4,6 lub nowszy, aby obsługiwać szyfrowanie Secure, tak jak domyślnie jest ono wyłączone. [Silne Kryptografia](/dotnet/framework/network-programming/tls#schusestrongcrypto) korzysta z bezpieczniejszych protokołów sieciowych, takich jak TLS 1,2, i blokuje protokoły, które nie są bezpieczne. 
 
-1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319**.  
+1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\ . NETFramework\v4.0.30319**.  
 2. Utwórz wartość DWORD **schusestrongcrypto we** w tym podkluczu o wartości **1**.  
-3. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \software\wow6432node\microsoft \\ . NETFramework\v4.0.30319**.  
+3. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\ . NETFramework\v4.0.30319**.  
 4. Utwórz wartość DWORD **schusestrongcrypto we** w tym podkluczu o wartości **1**. 
 5. Aby ustawienia zaczęły obowiązywać, należy ponownie uruchomić system. 
 
@@ -202,10 +202,10 @@ W zwróconych wynikach wyszukiwania powinny być widoczne rekordy pulsu dla komp
 
 Dane z agenta Log Analytics są buforowane na komputerze lokalnym w *katalogu C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State* przed wysłaniem do Azure monitor. Agent próbuje przekazać co 20 sekund. Jeśli to się nie powiedzie, będzie oczekiwać wykładniczego wydłużenia czasu do momentu jego pomyślnego przeprowadzenia. Poczeka 30 sekund przed kolejną próbą, 60 sekund przed kolejnymi, 120 sekund i tak dalej, aż do maksymalnie 8,5 godzin między ponownymi próbami nawiązania połączenia. Ten czas oczekiwania jest nieco losowy, aby uniknąć jednoczesnych prób nawiązania połączenia przez wszystkich agentów. Po osiągnięciu maksymalnego buforu najstarsze dane są odrzucane.
 
-Domyślny rozmiar pamięci podręcznej to 50 MB, ale można go skonfigurować w zakresie co najmniej 5 MB i maksymalnie 1,5 GB. Jest ona przechowywana w kluczu rejestru *HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\persistence pamięci podręcznej*. Wartość reprezentuje liczbę stron z 8 KB na stronę.
+Domyślny rozmiar pamięci podręcznej to 50 MB, ale można go skonfigurować w zakresie co najmniej 5 MB i maksymalnie 1,5 GB. Jest ona przechowywana w kluczu rejestru *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. Wartość reprezentuje liczbę stron z 8 KB na stronę.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z tematem [Zarządzanie agentem log Analytics dla systemów Windows i Linux oraz ich obsługiwanie](agent-manage.md) , aby dowiedzieć się, jak ponownie skonfigurować, uaktualnić lub usunąć agenta z maszyny wirtualnej.
 

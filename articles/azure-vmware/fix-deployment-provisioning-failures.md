@@ -4,10 +4,10 @@ description: Jak uzyskać potrzebne informacje z chmury prywatnej rozwiązania V
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752238"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
@@ -37,7 +37,7 @@ Jeśli błąd wystąpił w etapach weryfikacji wstępnej przed wdrożeniem chmur
 
 Szczegóły wszystkich błędów mogą być również pomocne w rozwiązaniu problemu. Na powyższym ekranie wybierz pozycję **kliknij tutaj, aby wyświetlić szczegóły** (wyróżnione) i wyświetlenie podsumowania błędów, jak pokazano na poniższym zrzucie ekranu.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Podsumowanie błędów.":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
 
 Ponownie skopiuj i Zapisz to podsumowanie, aby uwzględnić je w funkcji SR.
  
@@ -45,15 +45,15 @@ Ponownie skopiuj i Zapisz to podsumowanie, aby uwzględnić je w funkcji SR.
 
 W przypadku wcześniejszych wdrożeń, w tym niepowodzenia, można wyszukać w dzienniku aktywności wdrożenia dostęp do programu, wybierając ikonę powiadomienia.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Otwarte powiadomienia.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
 
 W obszarze powiadomienia wybierz pozycję **więcej zdarzeń w dzienniku aktywności**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Link: więcej zdarzeń w dzienniku aktywności.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
 
 Następnie wyszukaj nazwę zasobu lub inny unikatowy element informacji użytych podczas tworzenia zasobu, aby znaleźć niepowodzenie wdrożenia i jego identyfikator korelacji. Poniższy przykład przedstawia wyniki wyszukiwania w zasobie chmury prywatnej (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Znajdź przeszłe wcześniejsze wdrożenia rozwiązania Azure VMware.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
  
 Wybranie nazwy operacji wdrożenia zakończonego niepowodzeniem spowoduje otwarcie okna ze szczegółowymi informacjami. Wybierz kartę JSON i poszukaj korelacji. Skopiuj i Dołącz do funkcji SR. 
  
@@ -63,7 +63,7 @@ Być może masz już chmurę prywatną i wystąpił błąd podczas próby skalow
 
 Podczas przeglądania chmury prywatnej w portalu wybierz pozycję **łączność > ExpressRoute** i skopiuj **Identyfikator ExpressRoute** do Schowka.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Skopiuj identyfikator ExpressRoute do Schowka."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się."::: 
  
 Wklej identyfikator ExpressRoute do odpowiedniego pola w nowym żądaniu obsługi. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tworzenia żądania pomocy technicznej](#create-your-support-request).
  
@@ -78,7 +78,7 @@ Poniżej przedstawiono dodatkowe wskazówki dotyczące tworzenia rozwiązania SR
 
 1. Wybierz ikonę **pomocy** , a następnie **+ nowe żądanie obsługi**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Zbierz identyfikator ExpressRoute dla funkcji SR.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
 
 2. Wypełnij wszystkie wymagane pola i na karcie **podstawowe** :
 

@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak administrator konta laboratorium może 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444203"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Zezwól twórcy laboratorium na wybranie lokalizacji dla laboratorium w Azure Lab Services
@@ -57,7 +57,7 @@ Jeśli lokalizacja jest ograniczona, domyślnie nie jest wyświetlana na liście
 
 ![Pokaż niedostępne lokalizacje](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Cost (Koszt)
 Wcześniej cena była oparta na wybranym przez Ciebie rozmiarze maszyny wirtualnej w laboratorium. Cena jest teraz oparta na kombinacji systemu operacyjnego, rozmiaru i lokalizacji. 
 
 ## <a name="next-steps"></a>Następne kroki

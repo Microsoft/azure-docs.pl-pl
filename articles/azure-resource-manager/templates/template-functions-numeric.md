@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677920"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funkcje liczbowe dla szablonów ARM
@@ -17,7 +17,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [add](#add)
 * [Funkcji copyindex](#copyindex)
 * [div](#div)
-* [float](#float)
+* [liczba zmiennoprzecinkowa](#float)
 * [int](#int)
 * [Maksymalny](#max)
 * [długości](#min)
@@ -33,7 +33,7 @@ Zwraca sumę dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 |operand1 |Tak |int |Pierwsza liczba do dodania. |
 |Operand2 |Tak |int |Druga liczba do dodania. |
@@ -91,7 +91,7 @@ Zwraca indeks pętli iteracji.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | Pętla | Nie | ciąg | Nazwa pętli do pobrania iteracji. |
 | przesunięcie |Nie |int |Liczba, która ma zostać dodana do wartości iteracji opartej na zero. |
@@ -156,7 +156,7 @@ Zwraca podział liczby całkowitej z dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | operand1 |Tak |int |Podzielona liczba. |
 | Operand2 |Tak |int |Liczba, która jest używana do dzielenia. Nie może mieć wartości 0. |
@@ -214,7 +214,7 @@ Konwertuje wartość na liczbę zmiennoprzecinkową. Ta funkcja jest używana ty
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |ciąg lub int |Wartość do przekonwertowania na liczbę zmiennoprzecinkową. |
 
@@ -248,7 +248,7 @@ Konwertuje określoną wartość na liczbę całkowitą.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Tak |ciąg lub int |Wartość do przekonwertowania na liczbę całkowitą. |
 
@@ -295,7 +295,7 @@ Zwraca maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przec
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |tablica liczb całkowitych lub rozdzielana przecinkami lista liczb całkowitych |Kolekcja, w której ma zostać uzyskana wartość maksymalna. |
 
@@ -346,7 +346,7 @@ Zwraca minimalną wartość z tablicy liczb całkowitych lub rozdzielaną przeci
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |tablica liczb całkowitych lub rozdzielana przecinkami lista liczb całkowitych |Kolekcja, w której ma zostać uzyskana wartość minimalna. |
 
@@ -397,7 +397,7 @@ Zwraca resztę z dzielenia liczb całkowitych przy użyciu dwóch podanych liczb
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | operand1 |Tak |int |Podzielona liczba. |
 | Operand2 |Tak |int |Liczba, która jest używana do dzielenia, nie może wynosić 0. |
@@ -455,7 +455,7 @@ Zwraca iloczyn dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | operand1 |Tak |int |Pierwsza liczba do pomnożenia. |
 | Operand2 |Tak |int |Druga liczba do pomnożenia. |
@@ -513,7 +513,7 @@ Zwraca odejmowanie dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | operand1 |Tak |int |Liczba odjęta od. |
 | Operand2 |Tak |int |Liczba, która jest odejmowana. |

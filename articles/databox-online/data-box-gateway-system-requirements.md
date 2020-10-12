@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82562444"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Wymagania systemowe Azure Data Box Gateway
@@ -32,7 +32,7 @@ Podstawowy system hosta dla Data Box Gateway jest w stanie przeznaczyć następu
 | Specyfikacje                                          | Opis              |
 |---------------------------------------------------------|--------------------------|
 | Procesory wirtualne (rdzenie)   | Minimum 4 |
-| Memory (Pamięć)  | Minimum 8 GB|
+| Pamięć  | Minimum 8 GB|
 | Dostępność|Jeden węzeł|
 | Dyski| Dysk systemu operacyjnego: 250 GB <br> Dysk danych: minimum 2 TB, alokowany elastycznie, wymagane dyski SSD|
 | Interfejsy sieciowe|Co najmniej 1 wirtualny interfejs sieciowy|
@@ -48,9 +48,9 @@ Podstawowy system hosta dla Data Box Gateway jest w stanie przeznaczyć następu
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Obsługiwane platformy wirtualizacji dla urządzenia
 
-| **System operacyjny/platforma**  |**Wersje**   |**Uwagi**  |
+| **System operacyjny/platforma**  |**Versions** (Wersje)   |**Uwagi**  |
 |---------|---------|---------|
-|Funkcja Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Narzędzia VMware nie są obsługiwane.         |
 
 

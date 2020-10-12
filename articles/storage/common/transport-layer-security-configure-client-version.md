@@ -12,10 +12,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 37b8c79df5b208feea185292fa09c323b64fa27d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89001811"
 ---
 # <a name="configure-transport-layer-security-tls-for-a-client-application"></a>Konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej
@@ -80,7 +80,7 @@ Aby sprawdzić, czy określona wersja protokołu TLS była używana przez klient
 
 :::image type="content" source="media/transport-layer-security-configure-client-version/fiddler-trace-tls-version.png" alt-text="Zrzut ekranu przedstawiający śledzenie programu Fiddler wskazujące używaną wersję protokołu TLS na żądanie":::
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Skonfiguruj minimalną wymaganą wersję Transport Layer Security (TLS) dla konta magazynu](transport-layer-security-configure-minimum-version.md)
 - [Zalecenia dotyczące zabezpieczeń usługi BLOB Storage](../blobs/security-recommendations.md)

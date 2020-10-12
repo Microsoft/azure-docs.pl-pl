@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
 ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85979921"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
@@ -54,7 +54,7 @@ Możesz uzyskać informacje na temat ostatniej automatycznej oceny skalowania pr
 
 [Zdarzenie ukończenia zmiany rozmiaru puli](./batch-pool-resize-complete-event.md) przechwytuje informacje o wszystkich obliczeniach.
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 
 Po usunięciu puli zawierającej węzły, pierwsza partia danych Usuwa węzły. Spowoduje to usunięcie samego obiektu puli. Usunięcie węzłów puli może potrwać kilka minut.
 
@@ -70,9 +70,9 @@ Może być konieczne określenie opcjonalnego zadania podrzędnego [uruchamiania
 
 Co zrobić, jeśli węzeł został skonfigurowany tak, aby poczekać na zakończenie zadania uruchamiania, ale zadanie uruchamiania zakończy się niepowodzeniem? W takim przypadku węzeł nie będzie użyteczny, ale nadal będzie naliczane opłaty.
 
-Można wykryć nieudane zadania uruchamiania przy użyciu właściwości [wynik](/rest/api/batchservice/computenode/get#taskexecutionresult) i [FailureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) właściwości węzła [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) najwyższego poziomu.
+Można wykryć nieudane zadania uruchamiania przy użyciu właściwości [wynik](/rest/api/batchservice/computenode/get#taskexecutionresult) i  [FailureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) właściwości węzła [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) najwyższego poziomu.
 
-Zadanie uruchamiania zakończone niepowodzeniem powoduje także ustawienie [stanu](/rest/api/batchservice/computenode/get#computenodestate) węzła na **Starttaskfailed** , jeśli **waitForSuccess** został ustawiony na **wartość true**.
+Zadanie uruchamiania zakończone niepowodzeniem powoduje także ustawienie [stanu](/rest/api/batchservice/computenode/get#computenodestate) węzła na **Starttaskfailed** , jeśli  **waitForSuccess** został ustawiony na **wartość true**.
 
 Podobnie jak w przypadku każdego zadania, może istnieć wiele przyczyn niepowodzenia zadania uruchamiania.  Aby rozwiązać problem, sprawdź plik stdout, stderr i wszelkie dalsze pliki dzienników specyficzne dla zadania.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82614501"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejsu API Gremlin w Azure Cosmos DB
@@ -142,7 +142,7 @@ Nawiązywane jest połączenie Gremlin za pomocą połączenia WebSocket. Chocia
 
 ### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Dlaczego nie mogę używać wywołań interfejsu API Fluent w natywnych sterownikach Gremlin?
 
-Wywołania interfejsu API Fluent nie są jeszcze obsługiwane przez interfejs API usługi Azure Cosmos DB Gremlin. Wywołania interfejsu API Fluent wymagają funkcji formatowania wewnętrznego znanej jako obsługa kodu bajtowego, która obecnie nie jest obsługiwana przez Azure Cosmos DB interfejs API Gremlin. Z tego samego powodu Najnowsza wersja sterownika Gremlin-JavaScript również nie jest obecnie obsługiwana.
+Wywołania interfejsu API Fluent nie są jeszcze obsługiwane przez interfejs API usługi Azure Cosmos DB Gremlin. Wywołania interfejsu API Fluent wymagają funkcji formatowania wewnętrznego znanej jako obsługa kodu bajtowego, która obecnie nie jest obsługiwana przez Azure Cosmos DB interfejs API Gremlin. Z tego samego powodu Najnowsza wersja sterownika Gremlin-JavaScript również nie jest obsługiwana.
 
 ## <a name="next-steps"></a>Następne kroki
 

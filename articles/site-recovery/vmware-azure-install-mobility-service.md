@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90525001"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Przygotuj maszynę źródłową do instalacji wypychanej agenta mobilności
@@ -24,7 +24,7 @@ Na każdej maszynie z systemem Windows, która ma być chroniona, wykonaj nastę
 1. Upewnij się, że istnieje połączenie sieciowe między komputerem a serwerem przetwarzania. Jeśli nie skonfigurowano oddzielnego serwera przetwarzania, domyślnie jest on uruchomiony na serwerze konfiguracji.
 1. Utwórz konto, za pomocą którego serwer przetwarzania będzie mógł uzyskać dostęp do komputera. Konto powinno mieć uprawnienia administratora, lokalne lub domeny. Użyj tego konta tylko w przypadku instalacji wypychanej i aktualizacji agenta.
 2. Jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym w następujący sposób:
-    - W obszarze HKEY_LOCAL_MACHINE klucz rejestru \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System Dodaj nową wartość DWORD: **LocalAccountTokenFilterPolicy**. Ustaw wartość na **1**.
+    - W obszarze HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System klucz rejestru Dodaj nową wartość DWORD: **LocalAccountTokenFilterPolicy**. Ustaw wartość na **1**.
     -  Aby to zrobić, w wierszu polecenia Uruchom następujące polecenie:
     
        ```

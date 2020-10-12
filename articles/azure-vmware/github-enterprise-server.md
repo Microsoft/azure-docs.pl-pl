@@ -4,17 +4,17 @@ description: Dowiedz się, jak skonfigurować serwer usługi GitHub Enterprise w
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345185"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Konfigurowanie serwera usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware
 
 W tym artykule omówiono procedurę konfigurowania programu GitHub Enterprise Server, czyli "lokalnego" w wersji [GitHub.com](https://github.com/), w chmurze prywatnej rozwiązania platformy Azure VMware. Scenariusz opisany w tym przewodniku dotyczy wystąpienia serwera z systemem GitHub Enterprise, które może obsłużyć do 3 000 deweloperów z maksymalnie 25 zadaniami na minutę w ramach akcji usługi GitHub. Obejmuje on konfigurację (w czasie pisania) funkcji w *wersji zapoznawczej* , na przykład akcji usługi GitHub. Aby dostosować konfigurację do konkretnych potrzeb, należy zapoznać się z wymaganiami wymienionymi w temacie [Instalowanie serwera GitHub Enterprise Server w oprogramowaniu VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Serwer usługi GitHub Enterprise wymaga ważnego klucza licencji. Możesz zarejestrować się w celu uzyskania [licencji na wersję próbną](https://enterprise.github.com/trial). Jeśli chcesz zwiększyć możliwości programu GitHub Enterprise Server za pośrednictwem integracji, możesz zakwalifikować się do korzystania z bezpłatnej licencji na pięć miejsc. Zastosuj tę licencję w [programie partnerskim usługi GitHub](https://partner.github.com/).
 
@@ -24,13 +24,7 @@ Pobierz [bieżącą wersję programu GitHub Enterprise Server](https://enterpris
 
 :::image type="content" source="media/github-enterprise-server/github-options.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::  
 
-:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Wdróż szablon komórki jajowe.":::  
-
-Podaj rozpoznawalną nazwę nowej maszyny wirtualnej, taką jak GitHubEnterpriseServer. Nie trzeba dołączać informacji o wersji do nazwy maszyny wirtualnej, ponieważ te szczegóły staną się nieaktualne, gdy wystąpienie zostanie uaktualnione. Wybierz teraz wszystkie ustawienia domyślne (wkrótce edytujemy te szczegóły) i poczekaj na zaimportowanie komórek jajowych.
-
-Po zaimportowaniu należy [dostosować konfigurację sprzętu](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) odpowiednio do potrzeb. W naszym przykładowym scenariuszu będziemy potrzebować poniższej konfiguracji.
-
-| Zasób | Konfiguracja standardowa | Instalacja standardowa + "funkcje beta" (akcje) |
+:::image type="content" source="media/github-enterprise-server/deploy-ova-template.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze." (akcje) |
 | --- | --- | --- |
 | Procesory wirtualne | 4 | 8 |
 | Pamięć | 32 GB | 61 GB |
@@ -41,11 +35,11 @@ Jednak Twoje potrzeby mogą się różnić. Zapoznaj się ze wskazówkami dotycz
 
 ## <a name="configuring-the-github-enterprise-server-instance"></a>Konfigurowanie wystąpienia usługi GitHub Enterprise Server
 
-:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Zainstaluj firmę GitHub Enterprise.":::  
+:::image type="content" source="media/github-enterprise-server/install-github-enterprise.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::  
 
 Po włączeniu nowo zainicjowanej maszyny wirtualnej (VM) [skonfiguruj ją za pośrednictwem przeglądarki](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#configuring-the-github-enterprise-server-instance). Konieczne będzie przekazanie pliku licencji i ustawienie hasła konsoli zarządzania. Pamiętaj o zapisaniu tego hasła w bezpiecznym miejscu.
 
-:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Uzyskaj dostęp do powłoki administratora za pośrednictwem protokołu SSH.":::    
+:::image type="content" source="media/github-enterprise-server/ssh-access.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::    
 
 Zalecamy wykonanie następujących czynności:
 
@@ -53,11 +47,11 @@ Zalecamy wykonanie następujących czynności:
 
 2. [Skonfiguruj protokół TLS w wystąpieniu](https://docs.github.com/en/enterprise/admin/configuration/configuring-tls) , aby można było używać certyfikatu podpisanego przez zaufany urząd certyfikacji.
 
-:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Konfigurowanie wystąpienia.":::
+:::image type="content" source="media/github-enterprise-server/configuring-your-instance.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Zastosuj ustawienia.  Po ponownym uruchomieniu wystąpienia można przejść do następnego kroku, **konfigurując BLOB Storage na potrzeby akcji usługi GitHub**.
 
-:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Utwórz konto administratora.":::
+:::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Po ponownym uruchomieniu wystąpienia Utwórz nowe konto administratora w wystąpieniu. Pamiętaj, aby również zanotować hasło tego użytkownika.
 
@@ -82,7 +76,7 @@ Aby zabezpieczyć wystąpienie do użycia w środowisku produkcyjnym, zalecane s
 
 Zewnętrzny magazyn obiektów BLOB jest wymagany do włączenia akcji GitHub na serwerze z systemem GitHub Enterprise (obecnie dostępnym jako funkcja "beta"). Zewnętrzny magazyn obiektów BLOB jest używany przez akcje do przechowywania artefaktów i dzienników. Akcje w witrynie GitHub Enterprise Server [obsługują platformę Azure Blob Storage jako dostawcę magazynu](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (i inne). Dlatego będziemy udostępniać nowe konto usługi Azure Storage z [typem konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) BlobStorage:
 
-:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Udostępnij konto usługi Azure Blob Storage.":::
+:::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Po zakończeniu wdrażania nowego zasobu BlobStorage skopiuj i zanotuj parametry połączenia (dostępne w obszarze klucze dostępu). Wkrótce będziemy potrzebować tego ciągu.
 
@@ -97,9 +91,9 @@ Teraz Utwórzmy tutaj akcje usługi GitHub do uruchomienia; ponownie korzystamy 
 
 Najpierw Zainicjuj obsługę nowej maszyny wirtualnej w klastrze. Nasza maszyna wirtualna zostanie utworzona na podstawie [najnowszej wersji serwera Ubuntu](http://releases.ubuntu.com/20.04.1/).
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Inicjowanie obsługi administracyjnej nowej maszyny wirtualnej.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
-:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="Inicjowanie obsługi administracyjnej nowej maszyny wirtualnej krok 2.":::
+:::image type="content" source="media/github-enterprise-server/provision-new-vm-2.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Po utworzeniu maszyny wirtualnej Włącz ją i Połącz z nią za pośrednictwem protokołu SSH.
 
@@ -168,15 +162,15 @@ Na następnej stronie zostanie wyświetlony zestaw poleceń do uruchomienia. wys
 
 Skopiuj `config.sh` polecenie i wklej je do sesji w module uruchamiającego akcje (utworzony wcześniej).
 
-:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Moduł uruchamiający akcje.":::
+:::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Użyj polecenia run.sh, aby *uruchomić moduł uruchamiający* :
 
-:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Uruchom moduł uruchamiający.":::
+:::image type="content" source="media/github-enterprise-server/run-runner.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Aby udostępnić ten moduł uruchamiający organizacjom w przedsiębiorstwie, Edytuj dostęp do swojej organizacji:
 
-:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Edytuj dostęp do modułu uruchamiającego.":::
+:::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 W tym miejscu udostępnimy ją wszystkim organizacjom, ale możesz również ograniczyć dostęp do podzbioru organizacji, a nawet do określonych repozytoriów.
 
@@ -188,7 +182,7 @@ Aby włączyć łączenie z usługą GitHub, wykonaj kroki opisane w temacie [W�
 
 Po włączeniu opcji Połącz z usługą GitHub wybierz **serwer, na którym mają być używane akcje z GitHub.com w przebiegu przepływu pracy** .
 
-:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="Włącz używanie akcji z GitHub.com w przebiegach przepływu pracy.":::
+:::image type="content" source="media/github-enterprise-server/enable-using-actions.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 ## <a name="setting-up-and-running-your-first-workflow"></a>Konfigurowanie i uruchamianie pierwszego przepływu pracy
 
@@ -196,30 +190,30 @@ Teraz, po skonfigurowaniu akcji i połączenia z usługą GitHub, przyjrzyjmy si
 
 W tym podstawowym przepływie pracy będziemy mogli `octokit/request-action` otworzyć problem w usłudze GitHub przy użyciu interfejsu API.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Przykładowy przepływ pracy.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 >[!NOTE]
 >GitHub.com hostuje akcję, ale gdy jest uruchomiona na serwerze usługi GitHub Enterprise, *automatycznie* korzysta z interfejsu API serwera usługi GitHub Enterprise.
 
 W przypadku wybrania opcji nie Zezwalaj na łączenie z usługą GitHub można użyć poniższego alternatywnego przepływu pracy.
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Alternatywny przykładowy przepływ pracy.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Przejdź do repozytorium na swoim wystąpieniu i Dodaj powyższy przepływ pracy jako: `.github/workflows/hello-world.yml`
 
-:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Inny przykładowy przepływ pracy.":::
+:::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Na karcie **Akcje** dla repozytorium Zaczekaj na wykonanie przepływu pracy.
 
-:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="Wykonywany przykładowy przepływ pracy.":::
+:::image type="content" source="media/github-enterprise-server/executed-example-workflow.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Możesz również obejrzeć, że jest on przetwarzany przez moduł uruchamiający.
 
-:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="Przepływ pracy przetwarzany przez moduł uruchamiający.":::
+:::image type="content" source="media/github-enterprise-server/workflow-processed-by-runner.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Jeśli wszystko zostało wykonane pomyślnie, zobaczysz nowy problem w repozytorium, zatytułowany "Hello World".
 
-:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Przykład w repozytorium.":::
+:::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 
 Gratulacje! Wykonano właśnie pierwszy przepływ pracy w usłudze GitHub Enterprise Server uruchomiony w chmurze prywatnej rozwiązania Azure VMware.
 

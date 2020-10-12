@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005603"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurowanie niestandardowej odpowiedzi dla zapory aplikacji sieci Web platformy Azure (WAF)
@@ -27,9 +27,7 @@ Można skonfigurować niestandardowy kod stanu odpowiedzi i treść w obszarze "
 
 W powyższym przykładzie kod odpowiedzi został zachowany jako 403 i skonfigurowano krótki komunikat "Skontaktuj się z nami", jak pokazano na poniższym obrazie:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Przykład odpowiedzi niestandardowej":::
-
-"{{Azure-ref}}" Wstawia unikatowy ciąg odwołania w treści odpowiedzi. Wartość pasuje do pola TrackingReference w `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` dziennikach i.
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Ustawienia zasad WAF" Wstawia unikatowy ciąg odwołania w treści odpowiedzi. Wartość pasuje do pola TrackingReference w `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` dziennikach i.
 
 ## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Konfigurowanie niestandardowego kodu stanu odpowiedzi i komunikatów przy użyciu programu PowerShell
 

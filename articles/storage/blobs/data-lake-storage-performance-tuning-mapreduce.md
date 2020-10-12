@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030524"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2
@@ -65,7 +65,7 @@ Jeśli używasz pustego klastra, pamięć może być całkowitą ilością pami�
 
 Kontenery PRZĘDZy określają ilość współbieżności dostępnej dla zadania.  Weź łączną ilość pamięci PRZĘDZy i Podziel ją przez MapReduce. map. Memory.  
 
-\#kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/MapReduce. map. Memory
+\# kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/MapReduce. map. Memory
 
 **Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 
@@ -93,7 +93,7 @@ MapReduce. map. Memory = WŁĄCZONĄ
 
 **Krok 4. Obliczanie liczby kontenerów PRZĘDZy**
 
-\#kontenerów PRZĘDZy = 768GB dostępnej pamięci/3 GB pamięci = 256
+\# kontenerów PRZĘDZy = 768GB dostępnej pamięci/3 GB pamięci = 256
 
 **Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 

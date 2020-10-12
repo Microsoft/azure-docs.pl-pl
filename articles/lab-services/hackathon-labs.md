@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak używać Azure Lab Services do tworzeni
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445886"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Użyj Azure Lab Services dla następnej hackathon

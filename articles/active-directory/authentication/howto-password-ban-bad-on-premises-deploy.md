@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003545"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
@@ -42,7 +42,7 @@ Na etapie inspekcji wiele organizacji stwierdzi, że mają zastosowanie następu
 * Użytkownicy często używają niezabezpieczonych haseł.
 * Muszą oni informować użytkowników o nadchodzącej zmianie wymuszania zabezpieczeń, możliwym wpływie na nie i sposobach wybierania bezpiecznych haseł.
 
-Istnieje również możliwość, że sprawdzanie poprawności hasła ma wpływ na istniejące Active Directory Automatyzacja wdrożenia kontrolera domeny. Zaleca się, aby podczas oceny okresu inspekcji, co najmniej jedna podwyższanie poziomu kontrolera domeny i jedno obniżenie kontrolera domeny było możliwe, aby pomóc w odwróceniu takich problemów. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Istnieje również możliwość, że sprawdzanie poprawności hasła ma wpływ na istniejące Active Directory Automatyzacja wdrożenia kontrolera domeny. Zaleca się, aby podczas oceny okresu inspekcji, co najmniej jedna podwyższanie poziomu kontrolera domeny i jedno obniżenie kontrolera domeny było możliwe, aby pomóc w odwróceniu takich problemów. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [Ntdsutil.exe nie może ustawić słabego hasła trybu naprawy usług katalogowych](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [Podwyższanie poziomu repliki kontrolera domeny kończy się niepowodzeniem z powodu słabego hasła trybu naprawy usług katalogowych](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -415,6 +415,6 @@ Możesz pominąć `/norestart` flagę, jeśli wolisz, aby Instalator automatyczn
 
 `Get-AzureADPasswordProtectionDCAgent`Polecenie cmdlet może służyć do wykonywania zapytań dotyczących wersji oprogramowania wszystkich aktualnie zainstalowanych agentów usługi Azure AD Password Protection w lesie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Po zainstalowaniu usług potrzebnych do ochrony hasłem usługi Azure AD na serwerach lokalnych [Włącz ochronę hasłem Premium usługi Azure AD w Azure Portal](howto-password-ban-bad-on-premises-operations.md) , aby ukończyć wdrożenie.

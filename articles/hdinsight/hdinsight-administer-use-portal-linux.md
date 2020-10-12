@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598502"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
@@ -25,17 +25,17 @@ Za pomocą [Azure Portal](https://portal.azure.com)można zarządzać klastrami 
 
 Istniejący klaster Apache Hadoop w usłudze HDInsight.  Zobacz [Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="getting-started"></a>Getting Started
 
 Zaloguj się do witryny [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Wyświetlanie listy i wyświetlanie klastrów
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Wyświetlanie listy i wyświetlanie klastrów
 
 Na stronie **Klastry usługi HDInsight** zostaną wystawione istniejące klastry.  Z poziomu portalu:
 1. W menu po lewej stronie wybierz pozycję **wszystkie usługi** .
 2. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Analiza**.
 
-## <a name="cluster-home-page"></a><a name="homePage"></a>Strona główna klastra
+## <a name="cluster-home-page"></a><a name="homePage"></a> Strona główna klastra
 
 Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters) .  Spowoduje to otwarcie widoku **przeglądu** , który wygląda podobnie do poniższego obrazu:
 
@@ -46,7 +46,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
 | Element| Opis |
 |---|---|
 |Move|Przenosi klaster do innej grupy zasobów lub innej subskrypcji.|
-|Usuń|Usuwa klaster. |
+|Usuwanie|Usuwa klaster. |
 |Odśwież|Odświeża widok.|
 
 **Menu po lewej:**  
@@ -61,7 +61,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Tagi|Pozwala ustawić pary klucz/wartość, aby zdefiniować niestandardową taksonomię usług w chmurze. Na przykład możesz utworzyć klucz o nazwie **projekt**, a następnie użyć wspólnej wartości dla wszystkich usług skojarzonych z określonym projektem.|
     |Diagnozowanie i rozwiązywanie problemów|Wyświetl informacje dotyczące rozwiązywania problemów.|
     |Szybki start|Wyświetla informacje, które ułatwiają rozpoczęcie pracy z usługą HDInsight.|
-    |narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
+    |Narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
 
   - **Menu ustawień**  
 
@@ -96,7 +96,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Kondycja zasobów|Zobacz [Omówienie usługi Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nowy wniosek o pomoc techniczną|Umożliwia utworzenie biletu pomocy technicznej w ramach pomocy technicznej firmy Microsoft.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>Właściwości klastra
+## <a name="cluster-properties"></a><a name="properties"></a> Właściwości klastra
 
 Na [stronie głównej klastra](#homePage)w obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 
@@ -196,7 +196,7 @@ Na [stronie głównej klastra](#homePage):
 1. Wybierz pozycję **SSH + logowanie do klastra** w obszarze **Ustawienia**.
 2. Wybierz pozycję **Zresetuj poświadczenie**.
 3. Wprowadź i Potwierdź nowe hasło w polach tekstowych.
-4. Wybierz przycisk **OK**.
+4. Kliknij przycisk **OK**.
 
 Hasło zostanie zmienione we wszystkich węzłach w klastrze.
 
@@ -266,7 +266,7 @@ Kafelek **rozmiar klastra** ze [strony głównej klastra](#homePage) zawiera lic
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono podstawowe funkcje administracyjne. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule przedstawiono podstawowe funkcje administracyjne. Więcej informacji można znaleźć w następujących artykułach:
 
 - [Administrowanie usługą HDInsight przy użyciu Azure PowerShell](hdinsight-administer-use-powershell.md)
 - [Administrowanie usługą HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)

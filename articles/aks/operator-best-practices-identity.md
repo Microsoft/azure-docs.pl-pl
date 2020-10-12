@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010263"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w usłudze Azure Kubernetes Service (AKS)
@@ -39,7 +39,7 @@ W przypadku klastrów zintegrowanych z usługą Azure AD w programie AKS tworzys
 
 1. Deweloperzy są uwierzytelniani za pomocą usługi Azure AD.
 1. Punkt końcowy wystawiania tokenów usługi Azure AD wystawia token dostępu.
-1. Deweloper wykonuje akcję przy użyciu tokenu usługi Azure AD, np.`kubectl create pod`
+1. Deweloper wykonuje akcję przy użyciu tokenu usługi Azure AD, np. `kubectl create pod`
 1. Kubernetes sprawdza token w Azure Active Directory i pobiera członkostwa w grupach deweloperów.
 1. Są stosowane Kubernetes kontroli dostępu opartej na rolach (RBAC) i zasad klastra.
 1. Żądanie dewelopera zakończyło się powodzeniem lub nie jest oparte na poprzedniej weryfikacji członkostwa w grupach usługi Azure AD oraz Kubernetes RBAC i zasadach.

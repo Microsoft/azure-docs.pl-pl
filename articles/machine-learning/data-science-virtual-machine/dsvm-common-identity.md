@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959147"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Skonfiguruj wspólną tożsamość na Data Science Virtual Machine
@@ -55,7 +55,7 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
     
    1. Bezpiecznie Rozpowszechnij wygenerowane hasło do nowego użytkownika, aby mogli się zalogować.
 
-1. Utwórz wystąpienie usługi Azure AD DS. Postępuj zgodnie z instrukcjami w artykule [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (sekcja "Tworzenie wystąpienia i Konfigurowanie ustawień podstawowych"). Ważne jest, aby zaktualizować istniejące hasła użytkowników w Active Directory, aby hasło w usłudze Azure AD DS zostało zsynchronizowane. Ważne jest również, aby dodać serwer DNS do usługi Azure AD DS, zgodnie z opisem w sekcji "Wypełnij pola w oknie podstawy Azure Portal, aby utworzyć wystąpienie usługi Azure AD DS".
+1. Utwórz wystąpienie usługi Azure AD DS. Postępuj zgodnie z instrukcjami w artykule  [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (sekcja "Tworzenie wystąpienia i Konfigurowanie ustawień podstawowych"). Ważne jest, aby zaktualizować istniejące hasła użytkowników w Active Directory, aby hasło w usłudze Azure AD DS zostało zsynchronizowane. Ważne jest również, aby dodać serwer DNS do usługi Azure AD DS, zgodnie z opisem w sekcji "Wypełnij pola w oknie podstawy Azure Portal, aby utworzyć wystąpienie usługi Azure AD DS".
 
 1. Utwórz oddzielną podsieć DSVM w sieci wirtualnej utworzonej w sekcji "Tworzenie i Konfigurowanie sieci wirtualnej" w poprzednim kroku.
 1. Utwórz co najmniej jedno wystąpienie DSVM w podsieci DSVM.

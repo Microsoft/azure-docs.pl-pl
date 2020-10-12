@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132351"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Informacje o kodzie Apache Spark dla deweloperów U-SQL
@@ -160,14 +160,14 @@ Język podstawowy języka U-SQL jest przekształcany w zestawy wierszy i jest op
 - `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Agregaty +`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN`wyrażenia
 - `CROSS`/`OUTER``APPLY`wyrażenia
-- `PIVOT`/`UNPIVOT`wyrażeń
-- `VALUES`Konstruktor zestawu wierszy
+- `PIVOT`/`UNPIVOT` wyrażeń
+- `VALUES` Konstruktor zestawu wierszy
 
-- Ustaw wyrażenia`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- Ustaw wyrażenia `UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
 Ponadto język U-SQL zawiera różne wyrażenia skalarne oparte na języku SQL, takie jak
 
-- `OVER`wyrażenia okna
+- `OVER` wyrażenia okna
 - różne wbudowane agregatory i funkcje klasyfikacji ( `SUM` `FIRST` itd.)
 - Niektóre z najpopularniejszych wyrażeń skalarnych SQL: `CASE` , `LIKE` ,, `NOT` , `IN` `AND` `OR` itd.
 
@@ -214,7 +214,7 @@ Optymalizator zapytań oparty na kosztach platformy Spark ma własne możliwośc
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie formatów danych platformy Spark dla deweloperów U-SQL](understand-spark-data-formats.md)
-- [Platforma .NET dla platformy Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Platforma .NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)

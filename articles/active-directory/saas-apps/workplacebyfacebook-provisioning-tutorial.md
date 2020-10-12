@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321904"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
@@ -108,21 +108,21 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |userName|Ciąg|
    |displayName|Ciąg|
    |aktywne|Wartość logiczna|
-   |title|Boolean|
+   |title|Boolean (wartość logiczna)|
    |emails[type eq "work"].value|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Nazwa. sformatowana|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |Nazwa. sformatowana|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
    |adresy [Type EQ "Other"]. sformatowane|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |externalId|Ciąg|
    |preferredLanguage|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.manager|Ciąg|
@@ -131,9 +131,9 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |urn:scim:schemas:extension:enterprise:1.0.organization|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|String|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0. is_frontline|Boolean|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Integer|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0.is_frontline|Boolean (wartość logiczna)|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Liczba całkowita|
 
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

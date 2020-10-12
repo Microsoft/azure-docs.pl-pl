@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345055"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning Studio (klasycznej)
@@ -27,7 +27,7 @@ Machine Learning Studio (klasyczne) usługi sieci Web zapewniają interfejs mię
 
 Azure Machine Learning Studio (klasyczny) ma dwa typy usług sieci Web:
 
-* Usługa żądanie-odpowiedź (RR): małe opóźnienia, wysoce skalowalna usługa, która ocenia pojedynczy rekord danych.
+* Request-Response Service (RR): małe opóźnienia i wysoce skalowalna usługa, która ocenia pojedynczy rekord danych.
 * Usługa wykonywania wsadowego (BES): asynchroniczna usługa służąca do oceniania partii rekordów danych.
 
 Dane wejściowe dla usługi BES przypominają dane wejściowe używane przez usługę RRS. Główna różnica polega na tym, że usługa BES odczytuje blok rekordów z różnych źródeł, takich jak usługa Azure Blob Storage, usługa Azure Table Storage, usługa Azure SQL Database, usługa HDInsight (zapytanie Hive) i źródła HTTP.
@@ -160,7 +160,7 @@ Strona szybkiego startu usługi sieci Web zapewnia dostęp i wskazówki dotyczą
 
 ### <a name="test-your-new-web-service"></a>Testowanie nowej usługi sieci Web
 
-Aby przetestować nową usługę sieci Web, kliknij pozycję **Testuj usługę sieci Web** w obszarze Typowe zadania. Na stronie test można testować usługę sieci Web jako usługę żądanie-odpowiedź lub usługę wykonywania wsadowego (BES).
+Aby przetestować nową usługę sieci Web, kliknij pozycję **Testuj usługę sieci Web** w obszarze Typowe zadania. Na stronie test można testować usługę sieci Web jako usługę Request-Response (RR) lub usługę wykonywania wsadowego (BES).
 
 Na stronie test RR są wyświetlane dane wejściowe, wyjściowe i wszystkie parametry globalne zdefiniowane dla eksperymentu. Aby przetestować usługę sieci Web, można ręcznie wprowadzić odpowiednie wartości dla wejść lub podać plik z wartościami rozdzielanymi przecinkami (CSV) zawierający wartości testowe.
 
@@ -212,7 +212,7 @@ Cennik jest specyficzny dla regionu, dlatego należy zdefiniować plan rozliczen
 6. Z listy rozwijanej **Grupa zasobów** wybierz grupę zasobów dla planu. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../../azure-resource-manager/management/overview.md).
 7. W polu **Nazwa planu** wpisz nazwę planu.
 8. W obszarze **Opcje planu**kliknij poziom rozliczenia dla nowego planu.
-9. Kliknij pozycję **Utwórz**.
+9. Kliknij przycisk **Utwórz**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Wdrażanie usługi sieci Web w innym regionie
 

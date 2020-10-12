@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321836"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
@@ -91,7 +91,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie systemu.
 
 Na poniższej ilustracji wyróżniono obszar geoogrodzenia na niebiesko. Trasa samochodu wynajmu jest wskazywana przez zieloną linię.
 
-   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Rysunek przedstawiający trasę z geoogrodzeniem.":::
+   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="Diagram omówienia systemu.":::
 
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
@@ -103,15 +103,15 @@ Po pomyślnym utworzeniu konta magazynu należy utworzyć kontener do przechowyw
 
 1. Przejdź do nowo utworzonego konta magazynu. W sekcji **podstawowe** informacje wybierz łącze **kontenery** .
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Zrzut ekranu kontenerów dla usługi BLOB Storage.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Diagram omówienia systemu.":::
 
 2. W lewym górnym rogu wybierz pozycję **+ kontener**. Panel pojawia się po prawej stronie przeglądarki. Nazwij kontener *contoso-Wynajem dzienników*i wybierz pozycję **Utwórz**.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Zrzut ekranu przedstawiający tworzenie kontenera obiektów BLOB.":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Diagram omówienia systemu.":::
 
 3. Przejdź do okienka **klucze dostępu** na koncie magazynu i skopiuj **nazwę konta magazynu** i wartość **klucza** w sekcji **Klucz1** . Obie te wartości są potrzebne w sekcji "Tworzenie funkcji platformy Azure i Dodawanie subskrypcji Event Grid".
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Zrzut ekranu przedstawiający nazwę i klucz konta magazynu kopiowania.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Diagram omówienia systemu.":::
 
 ## <a name="upload-a-geofence"></a>Przekaż geoogrodzenie
 
@@ -180,7 +180,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
 1. Na stronie Tworzenie **aplikacja funkcji** Nadaj nazwę aplikacji funkcji. W obszarze **Grupa zasobów**wybierz pozycję **ContosoRental** z listy rozwijanej. Wybierz pozycję **.NET Core** jako **stos środowiska uruchomieniowego**. W dolnej części strony wybierz pozycję **Dalej: Hosting >**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji funkcji.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Diagram omówienia systemu.":::
 
 1. W polu **konto magazynu**wybierz konto magazynu utworzone w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account). Wybierz pozycję **Przeglądanie + tworzenie**.
 
@@ -191,13 +191,13 @@ Teraz Skonfiguruj funkcję platformy Azure.
      >[!IMPORTANT]
     > **Wyzwalacz usługi Azure Event Hub** i szablon **wyzwalacza Azure Event Grid** mają podobne nazwy. Upewnij się, że wybierasz szablon **wyzwalacza Azure Event Grid** .
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Zrzut ekranu przedstawiający tworzenie funkcji.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Diagram omówienia systemu.":::
 
 1. Nadaj funkcji nazwę. W tym samouczku użyjesz nazwy, *GetGeoFunction*, ale ogólnie możesz użyć dowolnej nazwy. Wybierz pozycję **Utwórz funkcję**.
 
 1. W menu po lewej stronie Wybierz okienko **kod + testowanie** . Skopiuj i wklej [skrypt C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) do okna kod.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="Kopiuj/zrzut ekranu przedstawiający wklejanie kodu do okna funkcji.":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="Diagram omówienia systemu.":::
 
 1. W kodzie C# Zastąp następujące parametry:
     * Zastąp **SUBSCRIPTION_KEY** podstawowym kluczem subskrypcji konta usługi Azure Maps.
@@ -206,17 +206,17 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
 1. W menu po lewej stronie Wybierz okienko **integracja** . Wybierz **wyzwalacz Event Grid** na diagramie. Wpisz nazwę wyzwalacza, *eventGridEvent*i wybierz pozycję **utwórz subskrypcję Event Grid**.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Zrzut ekranu przedstawiający Dodawanie subskrypcji zdarzeń.":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Diagram omówienia systemu.":::
 
 1. Wypełnij szczegóły subskrypcji. Nazwij subskrypcję zdarzeń. W obszarze **schemat zdarzenia**wybierz pozycję **Event Grid schemat**. W obszarze **typy tematów**wybierz pozycję **konta usługi Azure IoT Hub**. W obszarze **Grupa zasobów**wybierz grupę zasobów utworzoną na początku tego samouczka. W obszarze **zasób**wybierz Centrum IoT utworzone w obszarze "Tworzenie usługi Azure IoT Hub". W obszarze **Filtruj do typów zdarzeń**wybierz pozycję dane **telemetryczne urządzenia**.
 
    Po wybraniu tych opcji zobaczysz zmianę **typu tematu** na **IoT Hub**. W polu **nazwa tematu systemu**można użyć nazwy, która jest taka sama jak nazwa zasobu. Na koniec w sekcji **Szczegóły punktu końcowego** wybierz pozycję **Wybierz punkt końcowy**. Zaakceptuj wszystkie ustawienia i wybierz pozycję **Potwierdź wybór**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający subskrypcję zdarzeń tworzenia.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Diagram omówienia systemu.":::
 
 1. Przejrzyj ustawienia. Upewnij się, że punkt końcowy określa funkcję utworzoną na początku tej sekcji. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Zrzut ekranu przedstawiający potwierdzenie tworzenia subskrypcji zdarzeń.":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Diagram omówienia systemu.":::
 
 1. Teraz wróć do panelu **Edytowanie wyzwalacza** . Wybierz pozycję **Zapisz**.
 
@@ -224,11 +224,11 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
 Po dodaniu subskrypcji Event Grid do funkcji platformy Azure zostanie automatycznie utworzona trasa obsługi komunikatów w określonym Centrum IoT Hub. Routing komunikatów umożliwia kierowanie różnych typów danych do różnych punktów końcowych. Można na przykład kierować komunikaty telemetryczne urządzenia, zdarzenia cyklu życia urządzenia i zdarzenia zmiany z przędzą urządzenia. Aby uzyskać więcej informacji, zobacz [używanie IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Zrzut ekranu przedstawiający Routing komunikatów w usłudze IoT Hub.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Diagram omówienia systemu.":::
 
 W Twoim przykładowym scenariuszu chcesz otrzymywać tylko komunikaty po przeniesieniu samochodu wynajmu. Utwórz kwerendę routingu, aby odfiltrować zdarzenia, `Engine` w których właściwość jest równa **"on"**. Aby utworzyć zapytanie routingu, wybierz trasę **RouteToEventGrid** i Zastąp **zapytanie routingu** z **"aparat =" na ""**. Następnie wybierz przycisk **Zapisz**. Teraz Centrum IoT publikuje tylko dane telemetryczne urządzenia, na których jest włączony aparat.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Zrzut ekranu przedstawiający komunikaty dotyczące filtru routingu.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Diagram omówienia systemu.":::
 
 >[!TIP]
 >Istnieją różne sposoby wykonywania zapytań dotyczących komunikatów przesyłanych z urządzeń do chmury. Aby dowiedzieć się więcej na temat składni routingu wiadomości, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
@@ -256,15 +256,15 @@ Gdy funkcja platformy Azure jest uruchomiona, można teraz wysyłać dane teleme
 
   Terminal lokalny powinien wyglądać podobnie do przedstawionego poniżej.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe terminalu.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Diagram omówienia systemu.":::
 
 Jeśli teraz otworzysz kontener usługi BLOB Storage, możesz zobaczyć cztery obiekty blob dla lokalizacji, w których pojazd znajduje się poza ogrodzeniem.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="Zrzut ekranu przedstawiający Wyświetlanie obiektów BLOB w kontenerze.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="Diagram omówienia systemu.":::
 
 Poniższa mapa przedstawia cztery punkty lokalizacji pojazdu poza ogrodzeniem. Każda lokalizacja była rejestrowana w regularnych odstępach czasu.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Zrzut ekranu przedstawiający mapę naruszeń.":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="Diagram omówienia systemu.":::
 
 ## <a name="explore-azure-maps-and-iot"></a>Eksplorowanie Azure Maps i IoT
 

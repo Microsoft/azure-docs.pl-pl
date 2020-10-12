@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88751446"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect w usłudze Microsoft Identity platform
@@ -35,7 +35,7 @@ W prawie wszystkie przepływy za pomocą protokołu OAuth 2,0 i OpenID Connect �
 * **Klient OAuth** jest aplikacją identyfikowaną przez identyfikator aplikacji. Klient uwierzytelniania OAuth jest zwykle stroną, z którą użytkownik końcowy współdziała, i żąda tokenów z serwera autoryzacji. Klient musi mieć przyznane uprawnienie dostępu do zasobu przez właściciela zasobu.
 * **Serwer zasobów** jest miejscem, w którym znajdują się zasoby lub dane. Ufa serwerowi autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta OAuth i używa tokenów dostępu okaziciela, aby zapewnić, że dostęp do zasobu można udzielić.
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 Każda aplikacja, która chce akceptować konta osobiste i służbowe, musi zostać zarejestrowana przez **rejestracje aplikacji** środowisko w [Azure Portal](https://aka.ms/appregistrations) , zanim będzie mogła podpisać tych użytkowników przy użyciu protokołu OAuth 2,0 lub OpenID Connect Connect. Proces rejestracji aplikacji będzie zbierać i przypisywać kilka wartości do aplikacji:
 

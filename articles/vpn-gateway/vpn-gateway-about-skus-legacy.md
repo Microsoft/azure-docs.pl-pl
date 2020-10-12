@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84687790"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Praca z jednostkami SKU bramy sieci wirtualnej (starszą wersją SKU)
@@ -47,7 +47,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 Możesz również zmienić rozmiar bramy w Azure Portal.
 
-### <a name="classic"></a><a name="classicresize"></a>Klasyczny
+### <a name="classic"></a><a name="classicresize"></a>Motyw
 
 Aby zmienić rozmiar bramy dla klasycznego modelu wdrażania, należy użyć poleceń cmdlet programu PowerShell do zarządzania usługami. Użyj następującego polecenia:
 

@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677818"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funkcje wdrażania dla szablonów ARM
@@ -15,7 +15,7 @@ ms.locfileid: "84677818"
 Menedżer zasobów udostępnia następujące funkcje do uzyskiwania wartości związanych z bieżącym wdrożeniem szablonu Azure Resource Manager (ARM):
 
 * [mieszczeniu](#deployment)
-* [naturalne](#environment)
+* [środowisko](#environment)
 * [wejściowe](#parameters)
 * [modyfikacj](#variables)
 
@@ -158,7 +158,7 @@ Poprzedni przykład zwraca następujący obiekt:
 }
 ```
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>środowisko
 
 `environment()`
 
@@ -264,7 +264,7 @@ Zwraca wartość parametru. Określona nazwa parametru musi być zdefiniowana w 
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | parameterName |Tak |ciąg |Nazwa parametru do zwrócenia. |
 
@@ -353,11 +353,11 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| stringOutput | String | Opcja 1 |
+| stringOutput | Ciąg | Opcja 1 |
 | intOutput | int | 1 |
 | objectOutput | Obiekt | {"jeden": "a", "dwa": "b"} |
 | arrayOutput | Tablica | [1, 2, 3] |
-| crossOutput | String | Opcja 1 |
+| crossOutput | Ciąg | Opcja 1 |
 
 Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Parametry w szablonie Azure Resource Manager](template-parameters.md).
 
@@ -369,9 +369,9 @@ Zwraca wartość zmiennej. Określona nazwa zmiennej musi być zdefiniowana w se
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| variableName |Tak |String |Nazwa zmiennej do zwrócenia. |
+| variableName |Tak |Ciąg |Nazwa zmiennej do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -445,9 +445,9 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | NazwaMojejZmiennej |
+| exampleOutput1 | Ciąg | NazwaMojejZmiennej |
 | exampleOutput2 | Tablica | [1, 2, 3, 4] |
-| exampleOutput3 | String | NazwaMojejZmiennej |
+| exampleOutput3 | Ciąg | NazwaMojejZmiennej |
 | exampleOutput4 |  Obiekt | {"Property1": "wartość1", "Property2": "wartość2"} |
 
 Aby uzyskać więcej informacji o używaniu zmiennych, zobacz [zmienne w szablonie Azure Resource Manager](template-variables.md).

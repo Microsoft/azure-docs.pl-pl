@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003477"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
@@ -165,7 +165,7 @@ Następujące linki nie są częścią podstawowej dokumentacji ochrony hasłem 
 
 Jeśli chcesz dowiedzieć się więcej o ochronie haseł usługi Azure AD i wdrażaniu jej w środowisku, możesz skorzystać z usługi Microsoft proaktywnie dostępnej dla tych klientów z umową Premier lub Unified support. Usługa jest nazywana Azure Active Directory: Ochrona hasłem. Aby uzyskać więcej informacji, skontaktuj się z kierownikiem ds. klientów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Jeśli masz lokalne pytanie ochrony hasła usługi Azure AD, na które nie udzielono odpowiedzi, Prześlij element opinii poniżej — Dziękujemy!
 

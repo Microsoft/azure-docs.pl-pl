@@ -4,19 +4,19 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677393"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funkcje logiczne dla szablonów ARM
 
 Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
 
-* [oraz](#and)
+* [and](#and)
 * [bool](#bool)
-* [przypadku](#if)
+* [if](#if)
 * [niemożliwe](#not)
 * [lub](#or)
 
@@ -28,11 +28,11 @@ Sprawdza, czy wszystkie wartości parametrów mają wartość true.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wartość logiczna |Pierwsza wartość, aby sprawdzić, czy wartość jest równa true. |
-| arg2 |Tak |wartość logiczna |Druga wartość do sprawdzenia, czy ma wartość true. |
-| dodatkowe argumenty |Nie |wartość logiczna |Dodatkowe argumenty do sprawdzenia, czy są spełnione. |
+| arg1 |Tak |boolean |Pierwsza wartość, aby sprawdzić, czy wartość jest równa true. |
+| arg2 |Tak |boolean |Druga wartość do sprawdzenia, czy ma wartość true. |
+| dodatkowe argumenty |Nie |boolean |Dodatkowe argumenty do sprawdzenia, czy są spełnione. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -80,7 +80,7 @@ Konwertuje parametr na wartość logiczną.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |ciąg lub int |Wartość do przekonwertowania na wartość logiczną. |
 
@@ -134,9 +134,9 @@ Zwraca wartość na podstawie tego, czy warunek ma wartość true lub false.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| rozgrzewa |Tak |wartość logiczna |Wartość, aby sprawdzić, czy jest to wartość true lub false. |
+| rozgrzewa |Tak |boolean |Wartość, aby sprawdzić, czy jest to wartość true lub false. |
 | trueValue |Tak | ciąg, int, Object lub Array |Wartość, która ma zostać zwrócona, gdy warunek ma wartość true. |
 | falseValue |Tak | ciąg, int, Object lub Array |Wartość, która ma zostać zwrócona, gdy warunek ma wartość false. |
 
@@ -179,8 +179,8 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| yesOutput | String | tak |
-| NoOutput | String | nie |
+| yesOutput | Ciąg | tak |
+| NoOutput | Ciąg | nie |
 | objectOutput | Obiekt | {"test": "wartość1"} |
 
 Poniższy [przykładowy szablon](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) pokazuje, jak używać tej funkcji z wyrażeniami, które są warunkowo prawidłowe.
@@ -239,9 +239,9 @@ Konwertuje wartość logiczną na wartość odwrotną.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wartość logiczna |Wartość do konwersji. |
+| arg1 |Tak |boolean |Wartość do konwersji. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -312,11 +312,11 @@ Sprawdza, czy parametr ma wartość true.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wartość logiczna |Pierwsza wartość, aby sprawdzić, czy wartość jest równa true. |
-| arg2 |Tak |wartość logiczna |Druga wartość do sprawdzenia, czy ma wartość true. |
-| dodatkowe argumenty |Nie |wartość logiczna |Dodatkowe argumenty do sprawdzenia, czy są spełnione. |
+| arg1 |Tak |boolean |Pierwsza wartość, aby sprawdzić, czy wartość jest równa true. |
+| arg2 |Tak |boolean |Druga wartość do sprawdzenia, czy ma wartość true. |
+| dodatkowe argumenty |Nie |boolean |Dodatkowe argumenty do sprawdzenia, czy są spełnione. |
 
 ### <a name="return-value"></a>Wartość zwracana
 

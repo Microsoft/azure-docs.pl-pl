@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w Azure Resource Manage
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677852"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funkcje tablicy dla szablonów ARM
@@ -22,17 +22,17 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami w szablonie Az
 * [pierwszego](#first)
 * [część wspólną](#intersection)
 * [ostatniego](#last)
-* [Długość](#length)
+* [length](#length)
 * [Maksymalny](#max)
 * [długości](#min)
 * [zakresu](#range)
 * [Skocz](#skip)
-* [czasochłonn](#take)
+* [take (pobierz)](#take)
 * [Unii](#union)
 
 Aby uzyskać tablicę wartości ciągów rozdzielanych wartością, zobacz [Split](template-functions-string.md#split).
 
-## <a name="array"></a>tablica
+## <a name="array"></a>array
 
 `array(convertToArray)`
 
@@ -40,7 +40,7 @@ Konwertuje wartość na tablicę.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Tak |int, String, array lub Object |Wartość do przekonwertowania na tablicę. |
 
@@ -105,7 +105,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica lub ciąg |Pierwsza tablica lub ciąg służący do łączenia. |
 | dodatkowe argumenty |Nie |Tablica lub ciąg |Dodatkowe tablice lub ciągi w kolejności sekwencyjnej dla łączenia. |
@@ -185,7 +185,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| concatOutput | String | prefiks — 5yj4yjf5mbg72 |
+| concatOutput | Ciąg | prefiks — 5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>zawiera
 
@@ -195,7 +195,7 @@ Sprawdza, czy tablica zawiera wartość, obiekt zawiera klucz, lub ciąg zawiera
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | kontener |Tak |Tablica, obiekt lub ciąg |Wartość, która zawiera wartość do znalezienia. |
 | itemToFind |Tak |ciąg lub int |Wartość do znalezienia. |
@@ -276,7 +276,7 @@ Tworzy tablicę z parametrów.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Ciąg, liczba całkowita, tablica lub obiekt |Pierwsza wartość w tablicy. |
 | dodatkowe argumenty |Nie |Ciąg, liczba całkowita, tablica lub obiekt |Dodatkowe wartości w tablicy. |
@@ -343,7 +343,7 @@ Określa, czy tablica, obiekt lub ciąg jest pusty.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Tak |Tablica, obiekt lub ciąg |Wartość, aby sprawdzić, czy jest pusta. |
 
@@ -408,7 +408,7 @@ Zwraca pierwszy element tablicy lub pierwszy znak ciągu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica lub ciąg |Wartość do pobrania pierwszego elementu lub znaku. |
 
@@ -449,8 +449,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| arrayOutput | String | jeden |
-| stringOutput | String | O |
+| arrayOutput | Ciąg | jeden |
+| stringOutput | Ciąg | O |
 
 ## <a name="intersection"></a>część wspólną
 
@@ -460,7 +460,7 @@ Zwraca pojedynczą tablicę lub obiekt ze wspólnymi elementami z parametrów.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica lub obiekt |Pierwsza wartość, która ma być używana do znajdowania typowych elementów. |
 | arg2 |Tak |Tablica lub obiekt |Druga wartość, która ma być używana do znajdowania typowych elementów. |
@@ -526,7 +526,7 @@ Zwraca ostatni element tablicy lub ostatni znak ciągu.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica lub ciąg |Wartość do pobrania ostatniego elementu lub znaku. |
 
@@ -567,8 +567,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| arrayOutput | String | trzy |
-| stringOutput | String | e |
+| arrayOutput | Ciąg | trzy |
+| stringOutput | Ciąg | e |
 
 ## <a name="length"></a>length
 
@@ -578,7 +578,7 @@ Zwraca liczbę elementów w tablicy, znaków w ciągu lub we właściwościach p
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica, ciąg lub obiekt |Tablica, która ma być używana do pobierania liczby elementów, ciągu, który ma być używany do pobierania liczby znaków lub obiektu, który ma być używany do pobierania liczby właściwości na poziomie głównym. |
 
@@ -665,7 +665,7 @@ Zwraca maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przec
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |tablica liczb całkowitych lub rozdzielana przecinkami lista liczb całkowitych |Kolekcja, w której ma zostać uzyskana wartość maksymalna. |
 
@@ -716,7 +716,7 @@ Zwraca minimalną wartość z tablicy liczb całkowitych lub rozdzielaną przeci
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |tablica liczb całkowitych lub rozdzielana przecinkami lista liczb całkowitych |Kolekcja, w której ma zostać uzyskana wartość minimalna. |
 
@@ -767,7 +767,7 @@ Tworzy tablicę liczb całkowitych od początkowej liczby całkowitej i zawieraj
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | Indeks |Tak |int |Pierwsza liczba całkowita w tablicy. Suma wartości startIndex i count nie może być większa niż 2147483647. |
 | count |Tak |int |Liczba liczb całkowitych w tablicy. Musi być nieujemną liczbą całkowitą do 10000. |
@@ -818,7 +818,7 @@ Zwraca tablicę zawierającą wszystkie elementy po określonej liczbie w tablic
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | originalValue |Tak |Tablica lub ciąg |Tablica lub ciąg, który ma być używany do pomijania. |
 | numberToSkip |Tak |int |Liczba elementów lub znaków do pominięcia. Jeśli ta wartość jest równa 0 lub mniejsza, zwracane są wszystkie elementy lub znaki w wartości. Jeśli jest większa niż długość tablicy lub ciągu, zwracana jest pusta tablica lub ciąg. |
@@ -876,9 +876,9 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | arrayOutput | Tablica | ["trzy"] |
-| stringOutput | String | 2 3 |
+| stringOutput | Ciąg | 2 3 |
 
-## <a name="take"></a>czasochłonn
+## <a name="take"></a>take (pobierz)
 
 `take(originalValue, numberToTake)`
 
@@ -886,7 +886,7 @@ Zwraca tablicę o określonej liczbie elementów od początku tablicy lub ciąg 
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | originalValue |Tak |Tablica lub ciąg |Tablica lub ciąg, z którego mają zostać przebrane elementy. |
 | numberToTake |Tak |int |Liczba elementów lub znaków do wykonania. Jeśli ta wartość jest równa 0 lub mniejsza, zwracana jest pusta tablica lub ciąg. Jeśli jest większa niż długość danej tablicy lub ciągu, zwracane są wszystkie elementy w tablicy lub ciągu. |
@@ -944,7 +944,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | arrayOutput | Tablica | ["jeden", "dwa"] |
-| stringOutput | String | on |
+| stringOutput | Ciąg | on |
 
 ## <a name="union"></a>unia
 
@@ -954,7 +954,7 @@ Zwraca pojedynczą tablicę lub obiekt ze wszystkimi elementami z parametrów. Z
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | arg1 |Tak |Tablica lub obiekt |Pierwsza wartość, która ma być używana do sprzęgania elementów. |
 | arg2 |Tak |Tablica lub obiekt |Druga wartość, która ma być używana do sprzęgania elementów. |

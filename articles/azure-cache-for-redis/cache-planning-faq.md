@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010873"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
@@ -43,7 +43,7 @@ Z tej tabeli można narysować następujące wnioski:
 | Warstwa cenowa | Rozmiar | Rdzenie procesora CPU | Dostępna przepustowość | rozmiar wartości 1 KB | rozmiar wartości 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standardowe rozmiary pamięci podręcznej** | | |**Megabity na sekundę (MB/s)/megabajty na sekundę (MB/s)** |**Żądania na sekundę (RPS pliku) bez protokołu SSL** |**Żądania na sekundę (RPS pliku) SSL** |
-| C0 | 250 MB | Udostępniona | 100/12,5  |  15 000 |   7500 |
+| C0 | 250 MB | Shared | 100/12,5  |  15 000 |   7500 |
 | C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
 | C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
@@ -77,7 +77,7 @@ Tak. pamięć podręczna platformy Azure dla usługi Redis jest dostępna w chmu
 
 | Chmura   | Sufiks DNS dla Redis            |
 |---------|---------------------------------|
-| Publiczny  | *. redis.cache.windows.net       |
+| Public  | *. redis.cache.windows.net       |
 | US Gov  | *. redis.cache.usgovcloudapi.net |
 | Niemcy | *. redis.cache.cloudapi.de       |
 | Chiny   | *. redis.cache.chinacloudapi.cn  |

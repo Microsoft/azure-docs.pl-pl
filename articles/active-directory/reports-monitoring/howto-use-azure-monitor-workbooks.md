@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226985"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Jak używać Azure Monitor skoroszytów dla raportów Azure Active Directory
@@ -107,7 +107,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Apps
+- Aplikacje
 
 - Użytkownicy
 
@@ -141,7 +141,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Apps
+- Aplikacje
 
 - Użytkownicy
 
@@ -165,7 +165,7 @@ Ten skoroszyt zawiera trendy dotyczące wyłączonych logowań. Każdy trend mo�
 
 - Przedział czasu
 
-- Apps
+- Aplikacje
 
 - Użytkownicy
 
@@ -238,7 +238,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Apps
+- Aplikacje
 
 - Użytkownicy
 
@@ -278,7 +278,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Apps
+- Aplikacje
 
 - Użytkownicy
 
