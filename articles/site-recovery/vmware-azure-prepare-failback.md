@@ -4,13 +4,13 @@ description: Przygotowanie do powrotu po awarii maszyn wirtualnych VMware po prz
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847732"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Przygotowanie do ochrony i powrotu po awarii maszyn wirtualnych VMware
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Przygotowanie do włączania ponownej ochrony i powrotu po awarii maszyn wirtualnych VMware
 
 Po przejściu w [tryb failover](site-recovery-failover.md) lokalnych maszyn wirtualnych VMware lub serwerów fizycznych na platformę Azure należy ponownie włączyć ochronę maszyn wirtualnych platformy Azure utworzonych po przejściu do trybu failover, aby umożliwić ich replikację do lokacji lokalnej. W przypadku replikacji z platformy Azure do miejsca lokalnego można wrócić po awarii, uruchamiając tryb failover z platformy Azure do lokalnego, gdy wszystko będzie gotowe.
 

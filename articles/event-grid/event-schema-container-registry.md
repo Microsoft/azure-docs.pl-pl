@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń Container
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113721"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry jako źródło Event Grid
@@ -152,11 +152,11 @@ Schemat usuniętego wykresu jest podobny do schematu dla zdarzenia usuniętego z
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Dane zdarzenia magazynu obiektów BLOB. |
@@ -165,17 +165,17 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | identyfikator | ciąg | Identyfikator zdarzenia. |
 | sygnatura czasowa | ciąg | Godzina wystąpienia zdarzenia. |
-| action | ciąg | Akcja obejmująca podane zdarzenie. |
+| akcja | ciąg | Akcja obejmująca podane zdarzenie. |
 | obiektów | object | Obiekt docelowy zdarzenia. |
 | żądając | object | Żądanie, które spowodowało wygenerowanie zdarzenia. |
 
 Obiekt docelowy ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | mediaType | ciąg | Typ MIME obiektu, do którego istnieje odwołanie. |
 | size | liczba całkowita | Liczba bajtów zawartości. Takie samo jak długość pola. |
@@ -184,11 +184,11 @@ Obiekt docelowy ma następujące właściwości:
 | repozytorium | ciąg | Nazwa repozytorium. |
 | tag | ciąg | Nazwa tagu. |
 | name | ciąg | Nazwa wykresu. |
-| version | ciąg | Wersja wykresu. |
+| Wersja | ciąg | Wersja wykresu. |
 
 Obiekt żądania ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | identyfikator | ciąg | Identyfikator żądania, który zainicjował zdarzenie. |
 | adresowe | ciąg | Adres IP lub nazwa hosta oraz prawdopodobnie port połączenia klienta, który zainicjował zdarzenie. Ta wartość jest RemoteAddr z standardowego żądania HTTP. |

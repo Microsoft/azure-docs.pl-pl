@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Anal
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020953"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
@@ -493,6 +493,6 @@ Ponieważ schemat V1 znajduje się w ścieżce przestarzałej, zaleca się używ
     | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
     ````
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Po przejrzeniu modelu danych możesz rozpocząć [Tworzenie niestandardowych zapytań](../azure-monitor/learn/tutorial-logs-dashboards.md) w dziennikach Azure monitor, aby utworzyć własny pulpit nawigacyjny.

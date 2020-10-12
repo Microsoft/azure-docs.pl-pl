@@ -17,10 +17,10 @@ ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642439"
 ---
 # <a name="application-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania aplikacjami
@@ -28,7 +28,7 @@ ms.locfileid: "88642439"
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania aplikacjami w usłudze Azure Active Directory (Azure AD) przy użyciu automatycznej aprowizacji i publikowania aplikacji lokalnych przy użyciu serwera proxy aplikacji.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Zalecenia dotyczące aplikacji w chmurze i logowania jednokrotnego
-| Rekomendacja | Komentarze |
+| Zalecenie | Komentarze |
 | --- | --- |
 | Sprawdź galerię aplikacji usługi Azure AD dla aplikacji  | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które są włączone przy użyciu logowania jednokrotnego w przedsiębiorstwie. Aby uzyskać wskazówki dotyczące instalacji specyficzne dla aplikacji, zobacz [listę samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
 | Używanie federacyjnego logowania jednokrotnego opartego na protokole SAML  | Gdy aplikacja je obsługuje, użyj federacyjnego, opartego na języku SAML logowania jednokrotnego w usłudze Azure AD zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.  | 
@@ -39,7 +39,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 | Ustanów proces zarządzania certyfikatami | Maksymalny okres istnienia certyfikatu podpisywania wynosi trzy lata. Aby zapobiec lub zminimalizować przestoje ze względu na wygaśnięcie certyfikatu, należy użyć ról i list dystrybucyjnych poczty e-mail, aby upewnić się, że powiadomienia o zmianach powiązane z certyfikatami są ściśle monitorowane. |
 
 ## <a name="provisioning-recommendations"></a>Zalecenia dotyczące aprowizacji
-| Rekomendacja | Komentarze |
+| Zalecenie | Komentarze |
 | --- | --- |
 | Korzystanie z samouczków w celu skonfigurowania aprowizacji przy użyciu aplikacji w chmurze | Zapoznaj się z [listą samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) , aby uzyskać wskazówki krok po kroku dotyczące konfigurowania aprowizacji dla aplikacji galerii, którą chcesz dodać. |
 | Użyj dzienników aprowizacji (wersja zapoznawcza) do monitorowania stanu | [Dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) zawierają szczegółowe informacje o wszystkich akcjach wykonywanych przez usługę aprowizacji, w tym o stanie poszczególnych użytkowników. |
@@ -47,7 +47,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 
 
 ## <a name="application-proxy-recommendations"></a>Zalecenia dotyczące serwera proxy aplikacji
-| Rekomendacja | Komentarze |
+| Zalecenie | Komentarze |
 | --- | --- |
 | Używanie serwera proxy aplikacji do dostępu zdalnego do zasobów wewnętrznych | Serwer proxy aplikacji jest zalecany do zapewniania użytkownikom zdalnym dostępu do zasobów wewnętrznych, zastępując potrzebę sieci VPN lub zwrotnego serwera proxy. Nie jest przeznaczona do uzyskiwania dostępu do zasobów z sieci firmowej, ponieważ może to spowodować dodanie opóźnienia.
 | Korzystanie z domen niestandardowych | Skonfiguruj niestandardowe domeny dla aplikacji (zobacz [Konfigurowanie domen niestandardowych](application-proxy-configure-custom-domain.md)), aby adresy URL użytkowników i między aplikacjami działały zarówno wewnątrz sieci, jak i poza nią. Będziesz również w stanie kontrolować markę i dostosowywać adresy URL.  W przypadku korzystania z niestandardowych nazw domen należy zaplanować uzyskanie certyfikatu publicznego z zaufanego urzędu certyfikacji niepochodzącego od firmy Microsoft. Serwer proxy aplikacji platformy Azure obsługuje standardowe, ([wieloznaczne](application-proxy-wildcard.md)) lub certyfikaty oparte na sieci SAN. (Zobacz [Planowanie serwera proxy aplikacji](application-proxy-deployment-plan.md)). |

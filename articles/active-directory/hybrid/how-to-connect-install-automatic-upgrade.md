@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317620"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
@@ -43,7 +43,7 @@ Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polec
 | Suspended |Ustawiane tylko przez system. System nie kwalifikuje się **obecnie** do otrzymywania automatycznych uaktualnień. |
 | Disabled |Automatyczne uaktualnianie jest wyłączone. |
 
-Można zmienić między **włączonym** i **wyłączonym** programem `Set-ADSyncAutoUpgrade` . Tylko system powinien ustawić stan **wstrzymane**.  Przed 1.1.750.0 polecenie cmdlet Set-ADSyncAutoUpgrade blokuje autouaktualnienie, jeśli stan autouaktualniania został ustawiony na zawieszone. Ta funkcja została zmieniona, więc nie blokuje autouaktualniania.
+Można zmienić między **włączonym** i **wyłączonym** programem `Set-ADSyncAutoUpgrade` . Tylko system powinien ustawić stan **wstrzymane**.  Przed 1.1.750.0 polecenie cmdlet Set-ADSyncAutoUpgrade blokuje autoupgrade, jeśli stan autouaktualniania został ustawiony na zawieszone. Ta funkcja została zmieniona, więc nie blokuje autouaktualniania.
 
 Automatyczne uaktualnianie korzysta z Azure AD Connect Health dla infrastruktury uaktualniania. Aby automatyczne uaktualnianie działało, upewnij się, że na serwerze proxy zostały otwarte adresy URL **Azure AD Connect Health** zgodnie z opisem w temacie [adresy URL i zakresy adresów IP pakietu Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

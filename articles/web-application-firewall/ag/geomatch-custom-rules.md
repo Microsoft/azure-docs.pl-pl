@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83744301"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geodopasowania (wersja zapoznawcza)
@@ -100,7 +100,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być dowolnymi z nast�
 | HR | Chorwacja|
 | HT | Haiti|
 | HU | Węgry|
-| ID | Indonezja|
+| ID (Identyfikator) | Indonezja|
 | IE | Irlandia|
 | IL | Izrael|
 | IN | Indie|
@@ -173,7 +173,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być dowolnymi z nast�
 | RU | Federacja Rosyjska|
 | RW | Rwanda|
 | SA | Arabia Saudyjska|
-| SD | Sudan|
+| Odchylenie standardowe | Sudan|
 | SE | Szwecja|
 | SG | Singapur|
 | SI | Słowenia|

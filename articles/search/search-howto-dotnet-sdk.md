@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 394c87bcd3e4580289fbccc6a31b164f914dc8a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020800"
 ---
 # <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Jak używać programu Microsoft. Azure. Search (v10) w aplikacji .NET
@@ -769,7 +769,7 @@ A oto wyniki, które obejmują wszystkie pola, ponieważ nie określono `Select`
 
 Ten krok kończy pracę z samouczkiem, ale nie został zatrzymany w tym miejscu. * * Następne kroki zapewniają dodatkowe zasoby, aby dowiedzieć się więcej o usłudze Azure Wyszukiwanie poznawcze.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Przeglądaj odwołania do [zestawu SDK .NET](/dotnet/api/microsoft.azure.search) oraz [interfejsu API REST](/rest/api/searchservice/).
 * Zapoznaj się z [konwencjami nazewnictwa](/rest/api/searchservice/Naming-rules) , aby poznać reguły nazewnictwa różnych obiektów.
 * Przejrzyj [obsługiwane typy danych](/rest/api/searchservice/Supported-data-types) w usłudze Azure wyszukiwanie poznawcze.

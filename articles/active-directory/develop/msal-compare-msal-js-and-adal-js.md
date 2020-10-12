@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120902"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Różnice między MSAL JS i ADAL JS
@@ -44,7 +44,7 @@ Jednak nadal musisz używać ADAL.js, jeśli aplikacja musi zalogować się uży
 
 * Metoda uzyskiwania i odnawiania tokenów dyskretnie bez monitowania użytkowników jest nazywana `acquireToken` w ADAL.js. W MSAL.js ta metoda nazywa się `acquireTokenSilent` bardziej opisową funkcją.
 
-### <a name="authority-value-common"></a>Wartość urzędu`common`
+### <a name="authority-value-common"></a>Wartość urzędu `common`
 
 W wersji 1.0 korzystanie z `https://login.microsoftonline.com/common` urzędu umożliwi użytkownikom logowanie się przy użyciu dowolnego konta usługi Azure AD (dla dowolnej organizacji).
 

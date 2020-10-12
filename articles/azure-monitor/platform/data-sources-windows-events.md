@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075260"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Źródła danych dziennika zdarzeń systemu Windows w Azure Monitor
@@ -50,7 +50,7 @@ Rekordy zdarzeń systemu Windows mają typ **zdarzenia** i mają właściwości 
 | EventLevelName |Ważność zdarzenia w postaci tekstu. |
 | Elemencie |Nazwa dziennika zdarzeń, z którego zostały zebrane zdarzenia. |
 | ParameterXml |Wartości parametrów zdarzenia w formacie XML. |
-| ManagementGroupName |Nazwa grupy zarządzania dla agentów System Center Operations Manager.  W przypadku innych agentów ta wartość jest`AOI-<workspace ID>` |
+| ManagementGroupName |Nazwa grupy zarządzania dla agentów System Center Operations Manager.  W przypadku innych agentów ta wartość jest `AOI-<workspace ID>` |
 | RenderedDescription |Opis zdarzenia z wartościami parametrów |
 | Element źródłowy |Źródło zdarzenia. |
 | SourceSystem |Typ agenta, z którego zostały zebrane zdarzenia. <br> OpsManager — Agent systemu Windows, bezpośrednie połączenie lub Operations Manager zarządzany <br> Linux — Wszyscy agenci systemu Linux  <br> AzureStorage — Diagnostyka Azure |
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 
 | Zapytanie | Opis |
 |:---|:---|
-| Zdarzenie |Wszystkie zdarzenia systemu Windows. |
+| Wydarzenie |Wszystkie zdarzenia systemu Windows. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" |Wszystkie zdarzenia systemu Windows o ważności błędu. |
 | Licznik podsumowania &#124; zdarzeń () według źródła |Liczba zdarzeń systemu Windows według źródła. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" &#124; Sumuj liczbę () według źródła |Liczba zdarzeń błędów systemu Windows według źródła. |

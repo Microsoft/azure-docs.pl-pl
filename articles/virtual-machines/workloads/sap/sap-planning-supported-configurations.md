@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88648993"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure
@@ -102,7 +102,7 @@ W przypadku maszyn wirtualnych platformy Azure następujące konfiguracje wysoki
 - SAP HANA skalowalne w poziomie konfiguracje n + m używające [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) na SUSE i Red Hat. Szczegóły znajdują się w następujących artykułach:
     - [Wdróż system SAP HANA skalowalny w poziomie za pomocą węzła Standby na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
     - [Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
-- SQL Server klaster trybu failover na podstawie usług plików skalowalnych w poziomie systemu Windows. Mimo że zalecenie dotyczące systemów produkcyjnych to użycie usługi SQL Server zawsze włączone zamiast klastrowania. SQL Server zawsze włączona zapewnia lepszą dostępność przy użyciu oddzielnego magazynu. Szczegóły zostały opisane w tym artykule: 
+- SQL Server klaster trybu failover na podstawie usług plików Scale-Out systemu Windows. Mimo że zalecenie dotyczące systemów produkcyjnych to użycie usługi SQL Server zawsze włączone zamiast klastrowania. SQL Server zawsze włączona zapewnia lepszą dostępność przy użyciu oddzielnego magazynu. Szczegóły zostały opisane w tym artykule: 
     - [Konfigurowanie SQL Server wystąpienia klastra trybu failover na maszynach wirtualnych platformy Azure](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 - Usługa SQL Server zawsze włączona jest obsługiwana w systemie operacyjnym Windows dla SQL Server na platformie Azure. Jest to domyślne zalecenie dla wystąpień SQL Server produkcyjnych na platformie Azure. Szczegóły są opisane w następujących artykułach:
     - [Wprowadzenie SQL Server zawsze dostępnych grup dostępności na maszynach wirtualnych platformy Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
@@ -286,7 +286,7 @@ Istnieje lista scenariuszy, które nie są obsługiwane w przypadku obciążeń 
 
 Inne scenariusze, które nie są obsługiwane, są takie jak:
 
-- Scenariusze wdrażania, które wprowadzają duże opóźnienia sieci między warstwą aplikacji SAP a warstwą SAP DBMS w typowej architekturze SAP, jak pokazano w NetWeaver, S/4HANA i na `Hybris` przykład. Obejmuje on:
+- Scenariusze wdrażania, które wprowadzają duże opóźnienia sieci między warstwą aplikacji SAP a warstwą SAP DBMS w typowej architekturze SAP, jak pokazano w NetWeaver, S/4HANA i na `Hybris` przykład. Możliwości obejmują:
     - Wdrażanie jednej z warstw lokalnie, a druga warstwa jest wdrażana na platformie Azure
     - Wdrażanie warstwy aplikacji SAP systemu w innym regionie świadczenia usługi Azure niż w warstwie DBMS
     - Wdrożenie jednej warstwy w centrach danych, które znajdują się na platformie Azure i drugiej warstwie na platformie Azure, z wyjątkiem sytuacji, w których takie wzorce architektury są dostarczane przez usługę natywną platformy Azure

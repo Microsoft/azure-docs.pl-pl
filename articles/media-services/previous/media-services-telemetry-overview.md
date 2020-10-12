@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265902"
 ---
 # <a name="azure-media-services-telemetry"></a>Dane telemetryczne Azure Media Services  
@@ -80,7 +80,7 @@ Właściwość|Wartość|Przykłady/uwagi
 PartitionKey|{Account ID} _ {identyfikator jednostki}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Identyfikator konta jest uwzględniany w kluczu partycji, aby uprościć przepływy pracy, w których wiele kont Media Services zapisuje się na tym samym koncie magazynu.
 RowKey|{s do północy} _ {wartość losowa}|01688_00199<br/><br/>Klucz wiersza rozpoczyna się od liczby sekund do północy, aby zezwolić na pierwsze n kwerend w stylu w ramach partycji. Aby uzyskać więcej informacji, zobacz [ten](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artykuł. 
 Timestamp|Data/godzina|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
-Typ|Typ jednostki dostarczającej dane telemetryczne|Kanał/StreamingEndpoint/Archiwum<br/><br/>Typ zdarzenia to tylko wartość ciągu.
+Type|Typ jednostki dostarczającej dane telemetryczne|Kanał/StreamingEndpoint/Archiwum<br/><br/>Typ zdarzenia to tylko wartość ciągu.
 Nazwa|Nazwa zdarzenia telemetrii|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Czas wystąpienia zdarzenia telemetrii (UTC)|2016 – 09-09T22:42:36.924 Z<br/><br/>Zaobserwowany czas jest dostarczany przez jednostkę wysyłającą dane telemetryczne (na przykład kanał). Mogą występować problemy z synchronizacją między składnikami, dzięki czemu ta wartość jest przybliżona
 ServiceID|{Identyfikator usługi}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -101,7 +101,7 @@ Właściwość|Wartość|Przykłady
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
-Typ|Typ|StreamingEndpoint
+Type|Type|StreamingEndpoint
 Nazwa|Nazwa|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
 ServiceID|Identyfikator usługi|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -120,7 +120,7 @@ Właściwość|Wartość|Przykłady/uwagi
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
-Typ|Typ|Kanał
+Type|Type|Kanał
 Nazwa|Nazwa|ChannelHeartbeat
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
 ServiceID|Identyfikator usługi|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -145,7 +145,7 @@ Właściwość|Wartość|Przykłady/uwagi
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
-Typ|Typ|Archiwum
+Type|Type|Archiwum
 Nazwa|Nazwa|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
 ServiceID|Identyfikator usługi|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -221,6 +221,6 @@ System telemetrii nie zapewnia zarządzania przechowywaniem danych ani usuwania 
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

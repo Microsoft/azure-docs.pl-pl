@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055915"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
@@ -114,7 +114,7 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Konfigurowanie urządzenia |Kliknij prawym przyciskiem myszy węzeł **urządzenia** . |Kliknij pozycję **Konfiguruj urządzenie** , aby skonfigurować jedno urządzenie lub wiele urządzeń w celu nawiązania połączenia z hostem systemu Windows. |
 | Tworzenie zasad kopii zapasowych |Wykonaj jedną z następujących czynności:<ul><li>Kliknij prawym przyciskiem myszy pozycję **zasady tworzenia kopii zapasowych**.</li><li>Kliknij lub rozwiń pozycję **grupy woluminów**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li><li>Kliknij lub rozwiń pozycję **wykaz kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li></ul> |Kliknij pozycję **Utwórz zasady tworzenia kopii zapasowych** , aby skonfigurować zaplanowaną kopię zapasową dla grupy woluminów. |
 | Utwórz grupę woluminów |Wykonaj jedną z następujących czynności:<ul><li>Kliknij węzeł **woluminy** , a następnie kliknij prawym przyciskiem myszy wolumin w okienku **wyników** .</li><li>Kliknij prawym przyciskiem myszy węzeł **grupy woluminów** .</li></ul> |Kliknij pozycję **Utwórz grupę woluminów** , aby przypisać woluminy do grupy woluminów. |
-| Usuń |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach  **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
+| Usuwanie |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach  **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
 | Szczegóły |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **szczegóły** , aby wyświetlić szczegóły konfiguracji urządzenia. |
 | Edytuj |Kliknij pozycję **zasady tworzenia kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy zasady w okienku **wyników** . |Kliknij przycisk **Edytuj** , aby zmienić harmonogram tworzenia kopii zapasowych dla grupy woluminów. |
 | Eksportuj listę |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Eksportuj listę** , aby zapisać listę w pliku z wartościami rozdzielanymi przecinkami (CSV). Następnie można zaimportować ten plik do aplikacji arkusza kalkulacyjnego do analizy. |

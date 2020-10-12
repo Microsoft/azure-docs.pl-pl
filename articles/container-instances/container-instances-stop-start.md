@@ -4,10 +4,10 @@ description: Dowiedz się, jak ręcznie zatrzymać lub uruchomić grupę kontene
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: f697f18459959cf40e71d3ca90cd8b42aaa74239
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799081"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Ręczne zatrzymywanie lub uruchamianie kontenerów w usłudze Azure Container Instances

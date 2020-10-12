@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980675"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji Threat Modeling Tool
@@ -174,7 +174,7 @@ Po skompilowaniu diagramu wybierz symbol **analizy** (Lupa) na pasku narzędzi s
 
 Po wybraniu zagrożenia można użyć trzech odrębnych funkcji:
 
-| Cechy                               | Informacyjny      |
+| Cecha                               | Informacje      |
 | --------------------------------------- | ------------ |
 | **Wskaźnik odczytu** | <p>Zagrożenie jest oznaczone jako przeczytane, co pomaga śledzić przeglądane elementy.</p><p>![Wskaźnik odczytu/odczytania](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Fokus interakcji** | <p>Wyróżniono interakcje na diagramie należącym do zagrożenia.</p><p>![Fokus interakcji](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |

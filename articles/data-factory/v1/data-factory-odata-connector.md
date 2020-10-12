@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847563"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
@@ -147,7 +147,7 @@ Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera i
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| ścieżka |Ścieżka do zasobu OData |Nie |
+| path |Ścieżka do zasobu OData |Nie |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania działań, zobacz artykuł [Tworzenie potoków](data-factory-create-pipelines.md) . Właściwości, takie jak nazwa, opis, tabele wejściowe i wyjściowe, oraz zasady są dostępne dla wszystkich typów działań.
@@ -174,15 +174,15 @@ Podczas przemieszczania danych z usługi OData następujące mapowania są używ
 | Edm.Boolean |Wartość logiczna |
 | EDM. Byte |Byte [] |
 | EDM. DateTime |DateTime |
-| EDM. Decimal |Wartość dziesiętna |
+| EDM. Decimal |Liczba dziesiętna |
 | Edm.Double |Double |
-| EDM. Single |Pojedyncze |
+| EDM. Single |Pojedynczy |
 | EDM. GUID |Guid (identyfikator GUID) |
 | EDM. Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | EDM. |Int16 |
-| Edm.String |String |
+| Edm.String |Ciąg |
 | EDM. Time |przedział_czasu |
 | Edm.DateTimeOffset |DateTimeOffset |
 

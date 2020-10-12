@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265919"
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego  
@@ -52,7 +52,7 @@ Dla wszystkich dodatkowych punktów końcowych: `{EndpointName}-{AccountName}.st
 Począwszy od wersji 2017 stycznia Media Services, istnieją dwa typy przesyłania strumieniowego: **Standard** (wersja zapoznawcza) i **Premium**. Te typy są częścią wersji punktu końcowego przesyłania strumieniowego "2,0".
 
 
-|Typ|Opis|
+|Type|Opis|
 |--------|--------|  
 |**Standardowa**|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** , można go zmienić na typ Premium przez dostosowanie jednostek przesyłania strumieniowego.|
 |**Premium** |Ta opcja jest odpowiednia dla profesjonalnych scenariuszy, które wymagają wyższego poziomu skalowania lub kontroli. Przechodzenie do typu **Premium** przez dostosowanie jednostek przesyłania strumieniowego.<br/>Dedykowane punkty końcowe przesyłania strumieniowego na żywo w środowisku izolowanym i nie konkurują o zasoby.|
@@ -77,25 +77,25 @@ Jeśli w **wersji "1,0"** punkt końcowy przesyłania strumieniowego ma >= 1 Pre
 
 ### <a name="versions"></a>Wersje
 
-|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klasyczny|1,0|0|Nie dotyczy|Bezpłatna|
-|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2,0|0|Yes|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|1,0|>0|Yes|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|2,0|>0|Yes|Święcona|
+|Klasyczny|1.0|0|Nie dotyczy|Bezpłatna|
+|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2,0|0|Tak|Święcona|
+|Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Święcona|
+|Jednostki przesyłania strumieniowego w warstwie Premium|2,0|>0|Tak|Święcona|
 
 ### <a name="features"></a>Funkcje
 
-Cechy|Standardowa (Standard)|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
 Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
-Szyfrowanie dynamiczne|Yes|Yes
-Dynamiczne tworzenie pakietów|Yes|Yes
+Szyfrowanie dynamiczne|Tak|Tak
+Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe jednostki przesyłania strumieniowego.
-Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Yes|Yes
-Pobieranie progresywne|Yes|Yes
+Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Tak|Tak
+Pobieranie progresywne|Tak|Tak
 Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania strumieniowego.|Profesjonalne użycie. 
 
 <sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>
@@ -122,5 +122,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

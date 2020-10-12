@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783167"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Wykrywanie zagrożeń przy użyciu transmisję strumieniową łowiectwa w wskaźniku platformy Azure
@@ -48,7 +48,7 @@ Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zap
 1. Aby utworzyć sesję transmisję strumieniową na podstawie zapytania polowania:
     
     1. Na karcie **zapytania** Znajdź zapytanie polowające do użycia.
-    1. Kliknij prawym przyciskiem myszy zapytanie i wybierz polecenie **Dodaj do transmisję strumieniową**. Przykład:
+    1. Kliknij prawym przyciskiem myszy zapytanie i wybierz polecenie **Dodaj do transmisję strumieniową**. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-from-query.png)
@@ -78,7 +78,7 @@ Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zap
 
 1. W Azure Portal przejdź do karty **wskaźnik**  >  **zagrożeń zarządzania Threat**  >  **Hunting**  >  **transmisję strumieniową** .
 
-1. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Przykład:
+1. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-tab.png)
@@ -87,7 +87,7 @@ Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zap
 
 ## <a name="receive-notifications-when-new-events-occur"></a>Odbieraj powiadomienia, gdy wystąpią nowe zdarzenia
 
-Ponieważ powiadomienia transmisję strumieniową o nowych zdarzeniach używają powiadomień Azure Portal, te powiadomienia są wyświetlane po każdym użyciu Azure Portal. Przykład:
+Ponieważ powiadomienia transmisję strumieniową o nowych zdarzeniach używają powiadomień Azure Portal, te powiadomienia są wyświetlane po każdym użyciu Azure Portal. Na przykład:
 
 ![Powiadomienie Azure Portal dla transmisję strumieniową](./media/livestream/notification.png)
 

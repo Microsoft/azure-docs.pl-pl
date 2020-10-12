@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
 ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87761068"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Pobieranie wirtualnego dysku twardego z systemem Linux z platformy Azure
@@ -42,7 +42,7 @@ Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współ
 
 1.  W obszarze wygenerowanego adresu URL wybierz pozycję **Pobierz plik VHD**.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Pokazuje przycisk pobierania dysku VHD.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Pokazuje przycisk menu, aby zatrzymać maszynę wirtualną.":::
 
 2.  Aby rozpocząć pobieranie, może być konieczne wybranie opcji **Zapisz** w przeglądarce. Domyślna nazwa pliku VHD jest *ABCD*.
 

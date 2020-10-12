@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441103"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
@@ -98,7 +98,7 @@ W poniższej tabeli podano zarówno rozmiar przestrzeni nazw, jak i konwersję d
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (synchronizacja początkowa)/2 (typowe zmiany)      |
 | 5        | 2.3     | 2        | 16 (synchronizacja początkowa)/4 (typowe zmiany)    |
-| 10       | 4,7     | 4        | 32 (synchronizacja początkowa)/8 (typowe zmiany)   |
+| 10       | 4.7     | 4        | 32 (synchronizacja początkowa)/8 (typowe zmiany)   |
 | 30       | 14,0    | 8        | 48 (synchronizacja początkowa)/16 (typowe zmiany)   |
 | 50       | 23,3    | 16       | 64 (synchronizacja początkowa)/32 (typowe zmiany)  |
 | 100 *     | 46,6    | 32       | 128 (synchronizacja początkowa)/32 (typowe zmiany)  |
@@ -147,7 +147,7 @@ Obsługiwane są tylko woluminy NTFS; Systemy plików ReFS, FAT, FAT32 i inne ni
 
 W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu plików NTFS: 
 
-| Cechy | Stan obsługi | Uwagi |
+| Cecha | Stan obsługi | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Poufne listy kontroli dostępu w stylu systemu Windows są zachowywane przez Azure File Sync i są wymuszane przez system Windows Server w punktach końcowych serwera. Listy ACL można również wymuszać podczas bezpośredniego instalowania udziału plików platformy Azure, jednak wymaga to dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tożsamości](#identity) . |
 | Twarde linki | Pominięto | |
@@ -385,5 +385,5 @@ Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kop
 * [Rozważ użycie ustawień zapory i serwera proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 * [Wdrażanie usługi Pliki Azure](storage-files-deployment-guide.md)
-* [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

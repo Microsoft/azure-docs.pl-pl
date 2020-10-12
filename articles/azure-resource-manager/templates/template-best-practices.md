@@ -4,10 +4,10 @@ description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource 
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87809259"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
@@ -44,7 +44,7 @@ Informacje przedstawione w tej sekcji mogą być przydatne podczas pracy z [para
 
 * Użyj notacji CamelCase przypadku nazw parametrów.
 
-* Użyj parametrów dla ustawień, które różnią się w zależności od środowiska, takiego jak jednostka SKU, rozmiar lub pojemność.
+* Użyj parametrów dla ustawień, które różnią się w zależności od środowiska, takich jak jednostka SKU, rozmiar lub pojemność.
 
 * Użyj parametrów nazw zasobów, które chcesz określić do łatwej identyfikacji.
 

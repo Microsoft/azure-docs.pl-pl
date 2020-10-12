@@ -8,10 +8,10 @@ ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
 ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88135559"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
@@ -216,7 +216,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |TaskCompleteEvent|Tak|Zdarzenia ukończenia zadania|Liczba|Łącznie|Całkowita liczba ukończonych zadań|poolId, jobId|
 |TaskFailEvent|Tak|Zdarzenia błędów zadań|Liczba|Łącznie|Łączna liczba zadań zakończonych niepowodzeniem w stanie niepowodzenia|poolId, jobId|
 |TaskStartEvent|Tak|Zdarzenia uruchamiania zadania|Liczba|Łącznie|Łączna liczba rozpoczętych zadań|poolId, jobId|
-|TotalLowPriorityNodeCount|Nie|Liczba węzłów o niskim priorytecie|Liczba|Łącznie|Łączna liczba węzłów o niskim priorytecie na koncie wsadowym|Brak wymiarów|
+|TotalLowPriorityNodeCount|Nie|Liczba węzłów Low-Priority|Liczba|Łącznie|Łączna liczba węzłów o niskim priorytecie na koncie wsadowym|Brak wymiarów|
 |TotalNodeCount|Nie|Liczba dedykowanych węzłów|Liczba|Łącznie|Łączna liczba węzłów dedykowanych na koncie wsadowym|Brak wymiarów|
 |UnusableNodeCount|Nie|Liczba węzłów, których nie można użyć|Liczba|Łącznie|Liczba nieużywanych węzłów|Brak wymiarów|
 |WaitingForStartTaskNodeCount|Nie|Oczekiwanie na liczbę węzłów zadania uruchamiania|Liczba|Łącznie|Liczba węzłów oczekujących na zakończenie zadania uruchamiania|Brak wymiarów|
@@ -332,7 +332,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |connectedclients7|Tak|Połączeni klienci (fragmentu 7)|Liczba|Maksimum||Brak wymiarów|
 |connectedclients8|Tak|Połączeni klienci (fragmentu 8)|Liczba|Maksimum||Brak wymiarów|
 |connectedclients9|Tak|Połączeni klienci (fragmentu 9)|Liczba|Maksimum||Brak wymiarów|
-|błędy|Tak|błędy|Liczba|Maksimum||ShardId, ErrorType|
+|błędy|Tak|Errors|Liczba|Maksimum||ShardId, ErrorType|
 |evictedkeys|Tak|Wykluczone klucze|Liczba|Łącznie||ShardId|
 |evictedkeys0|Tak|Wykluczone klucze (fragmentu 0)|Liczba|Łącznie||Brak wymiarów|
 |evictedkeys1|Tak|Wykluczone klucze (fragmentu 1)|Liczba|Łącznie||Brak wymiarów|
@@ -727,7 +727,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|CpuUsage|Tak|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
+|CpuUsage|Tak|Użycie procesora|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
 |MemoryUsage|Tak|Użycie pamięci|Bajty|Średnia|Całkowite użycie pamięci w bajcie.|containerName|
 |NetworkBytesReceivedPerSecond|Tak|Bajty odebrane przez sieć na sekundę|Bajty|Średnia|Bajty odebrane przez sieć na sekundę.|Brak wymiarów|
 |NetworkBytesTransmittedPerSecond|Tak|Bajty przesyłane przez sieć na sekundę|Bajty|Średnia|Bajty przesyłane przez sieć na sekundę.|Brak wymiarów|
@@ -1415,7 +1415,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Anulowane przebiegi|Tak|Anulowane przebiegi|Liczba|Łącznie|Liczba anulowanych przebiegów dla tego obszaru roboczego. Licznik jest aktualizowany w przypadku pomyślnego anulowania przebiegu.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Ukończone uruchomienia|Tak|Ukończone uruchomienia|Liczba|Łącznie|Liczba przebiegów pomyślnie ukończonych dla tego obszaru roboczego. Licznik jest aktualizowany po zakończeniu przebiegu i zebraniu danych wyjściowych.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |CpuUtilization|Tak|CpuUtilization|Liczba|Średnia|Procent użycia pamięci w węźle procesora CPU. Wykorzystanie jest zgłaszane w odstępach jednej minuty.|Scenariusz, runId, NodeId, ClusterName|
-|błędy|Tak|błędy|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy wystąpi błąd.|Scenariusz|
+|Errors|Tak|Errors|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy wystąpi błąd.|Scenariusz|
 |Nieudane uruchomienia|Tak|Nieudane uruchomienia|Liczba|Łącznie|Liczba uruchomień dla tego obszaru roboczego nie powiodła się. Licznik jest aktualizowany w przypadku niepowodzenia przebiegu.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Finalizowanie przebiegów|Tak|Finalizowanie przebiegów|Liczba|Łącznie|Liczba przebiegów w trakcie finalizowania stanu dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg został ukończony, ale kolekcja wyjściowa jest nadal w toku.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |GpuUtilization|Tak|GpuUtilization|Liczba|Średnia|Procent użycia pamięci w węźle procesora GPU. Wykorzystanie jest zgłaszane w odstępach jednej minuty.|Scenariusz, runId, NodeId, DeviceId, ClusterName|
@@ -1549,7 +1549,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
 |ApplicationRuleHit|Tak|Liczba trafień reguł aplikacji|Liczba|Łącznie|Liczba trafień reguł aplikacji|Stan, powód, protokół|
-|Przetwarzanie dataprocessed|Tak|Przetworzone dane|Bajty|Łącznie|Łączna ilość danych przetworzonych przez tę zaporę|Brak wymiarów|
+|Przetwarzanie dataprocessed|Tak|Ilość przetworzonych danych|Bajty|Łącznie|Łączna ilość danych przetworzonych przez tę zaporę|Brak wymiarów|
 |FirewallHealth|Tak|Stan kondycji zapory|Procent|Średnia|Wskazuje ogólną kondycję tej zapory|Stan, Przyczyna|
 |NetworkRuleHit|Tak|Liczba trafień reguł sieci|Liczba|Łącznie|Liczba trafień reguł sieci|Stan, powód, protokół|
 |SNATPortUtilization|Tak|Wykorzystanie portów przez przytranslatora adresów sieciowych|Procent|Średnia|Procent aktualnie używanych portów przychodzących do ruchu przychodzącego|Protokół|
@@ -1661,7 +1661,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageRoundtripMs|Tak|Średni czas błądzenia (MS)|)|Średnia|Średni czas błądzenia sieci (MS) dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym|Brak wymiarów|
 |ChecksFailedPercent|Tak|Sprawdza procent niepowodzenia (wersja zapoznawcza)|Procent|Średnia|% testów monitorowania łączności nie powiodło się|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
 |ProbesFailedPercent|Tak|% Sond nie powiodło się|Procent|Średnia|% sond monitorowania łączności nie powiodło się|Brak wymiarów|
-|RoundTripTimeMs|Tak|Czas błądzenia (MS) (wersja zapoznawcza)|)|Średnia|Czas błądzenia w milisekundach dla kontroli monitorowania łączności|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
+|RoundTripTimeMs|Tak|Czas Round-Trip (MS) (wersja zapoznawcza)|)|Średnia|Czas błądzenia w milisekundach dla kontroli monitorowania łączności|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft. Network/adresów publicipaddress
@@ -1817,7 +1817,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Używane miejsce Average_%|Tak|Zajęte miejsce (%)|Liczba|Średnia|Używane miejsce Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Używany obszar wymiany Average_%|Tak|Używany obszar wymiany (%)|Liczba|Średnia|Używany obszar wymiany Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Czas użytkownika Average_%|Tak|Czas użytkownika (%)|Liczba|Średnia|Czas użytkownika Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Available MB|Tak|Dostępna pamięć (MB)|Liczba|Średnia|Average_Available MB|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MB|Tak|Dostępna pamięć w MB|Liczba|Średnia|Average_Available MB|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Pamięć Average_Available MB|Tak|Dostępna pamięć (MB)|Liczba|Średnia|Pamięć Average_Available MB|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Zamiana Average_Available MB|Tak|Dostępny obszar wymiany (MB)|Liczba|Średnia|Zamiana Average_Available MB|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Avg. wartość operacji dysku na sek./odczyt|Tak|Średni czas dysku w s/odczyt|Liczba|Średnia|Average_Avg. wartość operacji dysku na sek./odczyt|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1854,7 +1854,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Average_Total przesyłane pakiety|Tak|Całkowita liczba przesłanych pakietów|Liczba|Średnia|Average_Total przesyłane pakiety|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Total błędy odbierania|Tak|Całkowita liczba błędów odbierania|Liczba|Średnia|Average_Total błędy odbierania|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Błędy wysyłania Average_Total|Tak|Całkowita liczba błędów transmisji|Liczba|Średnia|Błędy wysyłania Average_Total|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Uptime|Tak|Czas|Liczba|Średnia|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Tak|Czas pracy|Liczba|Średnia|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Przestrzeń wymiany Average_Used MB|Tak|Używany obszar wymiany (MB)|Liczba|Średnia|Przestrzeń wymiany Average_Used MB|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Pamięć Average_Used w kilobajtach|Tak|Używana pamięć (w kilobajtach)|Liczba|Średnia|Pamięć Average_Used w kilobajtach|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Pamięć Average_Used pamięci (MB)|Tak|Używana pamięć (MB)|Liczba|Średnia|Pamięć Average_Used pamięci (MB)|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1900,15 +1900,15 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Aktywne połączenia|Nie|Aktywne połączenia|Liczba|Łącznie|Łącznie połączeń ActiveConnections dla elementu Microsoft. Relay.|EntityName|
 |ActiveListeners|Nie|ActiveListeners|Liczba|Łącznie|Łącznie ActiveListeners dla elementu Microsoft. Relay.|EntityName|
 |BytesTransferred|Tak|BytesTransferred|Liczba|Łącznie|Łącznie BytesTransferred dla elementu Microsoft. Relay.|EntityName|
-|ListenerConnections — błąd clienterror|Nie|ListenerConnections — błąd clienterror|Liczba|Łącznie|Błąd clienterror on ListenerConnections dla elementu Microsoft. Relay.|EntityName |
-|ListenerConnections — błąd servererror|Nie|ListenerConnections — błąd servererror|Liczba|Łącznie|Błąd servererror on ListenerConnections dla elementu Microsoft. Relay.|EntityName |
-|ListenerConnections — sukces|Nie|ListenerConnections — sukces|Liczba|Łącznie|Pomyślne ListenerConnections dla elementu Microsoft. Relay.|EntityName |
+|ListenerConnections-ClientError|Nie|ListenerConnections-ClientError|Liczba|Łącznie|Błąd clienterror on ListenerConnections dla elementu Microsoft. Relay.|EntityName |
+|ListenerConnections-ServerError|Nie|ListenerConnections-ServerError|Liczba|Łącznie|Błąd servererror on ListenerConnections dla elementu Microsoft. Relay.|EntityName |
+|ListenerConnections-Success|Nie|ListenerConnections-Success|Liczba|Łącznie|Pomyślne ListenerConnections dla elementu Microsoft. Relay.|EntityName |
 |ListenerConnections-TotalRequests|Nie|ListenerConnections-TotalRequests|Liczba|Łącznie|Łącznie ListenerConnections dla elementu Microsoft. Relay.|EntityName|
 |ListenerDisconnects|Nie|ListenerDisconnects|Liczba|Łącznie|Łącznie ListenerDisconnects dla elementu Microsoft. Relay.|EntityName|
-|SenderConnections — błąd clienterror|Nie|SenderConnections — błąd clienterror|Liczba|Łącznie|Błąd clienterror on SenderConnections dla elementu Microsoft. Relay.|EntityName |
-|SenderConnections — błąd servererror|Nie|SenderConnections — błąd servererror|Liczba|Łącznie|Błąd servererror on SenderConnections dla elementu Microsoft. Relay.|EntityName |
-|SenderConnections — sukces|Nie|SenderConnections — sukces|Liczba|Łącznie|Pomyślne SenderConnections dla elementu Microsoft. Relay.|EntityName |
-|SenderConnections — TotalRequests|Nie|SenderConnections — TotalRequests|Liczba|Łącznie|Łączna liczba żądań SenderConnections dla elementu Microsoft. Relay.|EntityName|
+|SenderConnections-ClientError|Nie|SenderConnections-ClientError|Liczba|Łącznie|Błąd clienterror on SenderConnections dla elementu Microsoft. Relay.|EntityName |
+|SenderConnections-ServerError|Nie|SenderConnections-ServerError|Liczba|Łącznie|Błąd servererror on SenderConnections dla elementu Microsoft. Relay.|EntityName |
+|SenderConnections-Success|Nie|SenderConnections-Success|Liczba|Łącznie|Pomyślne SenderConnections dla elementu Microsoft. Relay.|EntityName |
+|SenderConnections-TotalRequests|Nie|SenderConnections-TotalRequests|Liczba|Łącznie|Łączna liczba żądań SenderConnections dla elementu Microsoft. Relay.|EntityName|
 |SenderDisconnects|Nie|SenderDisconnects|Liczba|Łącznie|Łącznie SenderDisconnects dla elementu Microsoft. Relay.|EntityName|
 
 
@@ -2041,7 +2041,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |wlg_effective_min_resource_percent|Tak|Efektywny minimalny procent zasobów|Procent|Maksimum|Minimalny procent zasobów zarezerwowanych i odizolowanych dla grupy obciążenia, biorąc pod uwagę minimalny poziom usług. Dotyczy tylko magazynów danych.|WorkloadGroupName, IsUserDefined|
 |wlg_queued_queries|Tak|Zakolejkowane zapytania grupy obciążenia|Liczba|Łącznie|Zakolejkowane zapytania w grupie obciążenia. Dotyczy tylko magazynów danych.|WorkloadGroupName, IsUserDefined|
 |workers_percent|Tak|Procent pracowników|Procent|Średnia|Procent pracowników. Nie dotyczy hurtowni danych.|Brak wymiarów|
-|xtp_storage_percent|Tak|Procent magazynu OLTP w pamięci|Procent|Średnia|Procent magazynu OLTP w pamięci. Nie dotyczy hurtowni danych.|Brak wymiarów|
+|xtp_storage_percent|Tak|Procent magazynu OLTP In-Memory|Procent|Średnia|Procent magazynu OLTP In-Memory. Nie dotyczy hurtowni danych.|Brak wymiarów|
 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft. SQL/serwery/elasticPools
@@ -2079,7 +2079,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |tempdb_log_size|Tak|Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Brak wymiarów|
 |tempdb_log_used_percent|Tak|Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika% tempdb|Brak wymiarów|
 |workers_percent|Tak|Procent pracowników|Procent|Średnia|Procent pracowników|Brak wymiarów|
-|xtp_storage_percent|Tak|Procent magazynu OLTP w pamięci|Procent|Średnia|Procent magazynu OLTP w pamięci|Brak wymiarów|
+|xtp_storage_percent|Tak|Procent magazynu OLTP In-Memory|Procent|Średnia|Procent magazynu OLTP In-Memory|Brak wymiarów|
 
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft. Storage/storageAccounts
@@ -2213,7 +2213,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |DeserializationError|Tak|Błędy deserializacji danych wejściowych|Liczba|Łącznie|Błędy deserializacji danych wejściowych|Logicznaname, PartitionId|
 |DroppedOrAdjustedEvents|Tak|Zdarzenia poza kolejnością|Liczba|Łącznie|Zdarzenia poza kolejnością|Logicznaname, PartitionId|
 |EarlyInputEvents|Tak|Wczesne zdarzenia wejściowe|Liczba|Łącznie|Wczesne zdarzenia wejściowe|Logicznaname, PartitionId|
-|błędy|Tak|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
+|Errors|Tak|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
 |InputEventBytes|Tak|Bajty zdarzeń wejściowych|Bajty|Łącznie|Bajty zdarzeń wejściowych|Logicznaname, PartitionId|
 |InputEvents|Tak|Zdarzenia wejściowe|Liczba|Łącznie|Zdarzenia wejściowe|Logicznaname, PartitionId|
 |InputEventsSourcesBacklogged|Tak|Zaległe zdarzenia wejściowe|Liczba|Maksimum|Zaległe zdarzenia wejściowe|Logicznaname, PartitionId|
@@ -2233,7 +2233,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |OrchestrationTriggersEnded|Nie|Zakończone wyzwalacze|Liczba|Łącznie|Liczba wyzwalaczy aranżacji, które zakończyły się powodzeniem, zakończyły się niepowodzeniem lub anulowane|Wynik, Niepowodzenie, wyzwalacz|
 |SQLOnDemandLoginAttempts|Nie|Próby logowania|Liczba|Łącznie|Liczba prób logowania, które zakończone lub zakończyły się niepowodzeniem|Wynik|
 |SQLOnDemandQueriesEnded|Nie|Zakończono zapytania|Liczba|Łącznie|Liczba zapytań zakończonych powodzeniem, zakończonych niepowodzeniem lub anulowanych|Wynik|
-|SQLOnDemandQueryProcessedBytes|Nie|Przetworzone dane|Bajty|Łącznie|Ilość danych przetworzonych przez zapytania|Brak wymiarów|
+|SQLOnDemandQueryProcessedBytes|Nie|Ilość przetworzonych danych|Bajty|Łącznie|Ilość danych przetworzonych przez zapytania|Brak wymiarów|
 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools

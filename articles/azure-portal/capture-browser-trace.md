@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83714223"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
@@ -60,7 +60,7 @@ Google Chrome i Microsoft Edge (chrom) są zarówno oparte na [projekcie "Open S
 
 1. Zatrzymaj Rejestrator kroków i Zapisz nagranie.
 
-1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz polecenie **Zapisz jako...** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
+1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz pozycję **Zapisz jako...** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
 
     ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/chromium-console-select.png)
 
@@ -202,7 +202,7 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie Fir
 
 1. Zatrzymaj Rejestrator kroków w systemie Windows lub nagrania ekranu na komputerze Mac i Zapisz nagranie.
 
-1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz pozycję **Eksportuj widoczny komunikat do**i Zapisz dane wyjściowe konsoli w pliku tekstowym.
+1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz opcję **Eksportuj widoczny komunikat do**i Zapisz dane wyjściowe konsoli w pliku tekstowym.
 
     ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/firefox-console-select.png)
 

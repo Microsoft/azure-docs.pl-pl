@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Az
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332818"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
@@ -76,7 +76,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Metoda ochrony danych — dysk krótkoterminowy & online Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. Na ekranie **Określ cele krótkoterminowe** Uwzględnij niezbędne dane wejściowe, aby utworzyć punkty kopii zapasowej na dysku, a następnie wybierz przycisk **dalej**.
+6. Na ekranie **Określ cele Short-Term** Uwzględnij niezbędne dane wejściowe, aby utworzyć punkty kopii zapasowej na dysku, a następnie wybierz przycisk **dalej**.
 
     W przykładzie **Zakres przechowywania** wynosi **5 dni**, a **częstotliwość synchronizacji** jest co **15 minut**, co jest częstotliwością tworzenia kopii zapasowych. **Ekspresowa pełna kopia zapasowa** jest ustawiona na **8:00 P. M**.
 
@@ -134,7 +134,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
 14. Po przejrzeniu szczegółów zasad na ekranie **Podsumowanie** wybierz pozycję **Utwórz grupę** , aby zakończyć przepływ pracy. Możesz wybrać pozycję **Zamknij** i monitoruj postęp zadania w obszarze roboczym Monitorowanie.
 
-    ![Tworzenie grupy ochrony w toku](./media/backup-azure-backup-sql/pg-summary.png)
+    ![Tworzenie grupy ochrony In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Tworzenie kopii zapasowej bazy danych SQL Server na żądanie
 

@@ -1,19 +1,19 @@
 ---
-title: Omówienie zabezpieczeń udziału danych platformy Azure
-description: Omówienie zabezpieczeń udziału danych platformy Azure
+title: Omówienie zabezpieczeń usługi Azure Data Share
+description: Omówienie zabezpieczeń usługi Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.openlocfilehash: 10f31b74b461941b15f13e45f90b5fbc408c90fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108417"
 ---
-# <a name="security-overview-for-azure-data-share"></a>Omówienie zabezpieczeń udziału danych platformy Azure
+# <a name="security-overview-for-azure-data-share"></a>Omówienie zabezpieczeń usługi Azure Data Share
 
 Ten artykuł zawiera omówienie zabezpieczeń usługi udziału danych platformy Azure.
 

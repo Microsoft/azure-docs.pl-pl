@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441123"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
@@ -95,7 +95,7 @@ Bramę zarządzania danymi można zainstalować w następujący sposób:
 2. Kliknij pozycję **Pobierz**, wybierz wersję **64-** bitową (32-bit nie jest więcej obsługiwane), a następnie kliknij przycisk **dalej**.
 3. Uruchom plik **MSI** bezpośrednio lub Zapisz go na dysku twardym i Uruchom.
 4. Na stronie **powitalnej** wybierz **Język** , a następnie kliknij przycisk **dalej**.
-5. **Zaakceptuj** umowę licencyjną użytkownika oprogramowania i kliknij przycisk **dalej**.
+5. **Zaakceptuj** umowę licencyjną End-User i kliknij przycisk **dalej**.
 6. Wybierz **folder** , aby zainstalować bramę, a następnie kliknij przycisk **dalej**.
 7. Na stronie **gotowy do instalacji** kliknij przycisk **Zainstaluj**.
 8. Kliknij przycisk **Zakończ** , aby zakończyć instalację.

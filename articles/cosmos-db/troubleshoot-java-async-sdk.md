@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
 ms.openlocfilehash: 60d73f8b3eae21ab399853e8d05b67b7b431ee5f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321058"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Rozwiązywanie problemów w przypadku korzystania z Azure Cosmos DB asynchronicznego zestawu Java SDK V2 z kontami interfejsu API SQL
@@ -73,7 +73,7 @@ Jeśli aplikacja jest wdrażana na platformie Azure Virtual Machines bez publicz
 * Przypisz publiczny adres IP do maszyny wirtualnej platformy Azure.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Nie można nawiązać połączenia z usługą — Zapora
-``ConnectTimeoutException``wskazuje, że zestaw SDK nie może nawiązać połączenia z usługą.
+``ConnectTimeoutException`` wskazuje, że zestaw SDK nie może nawiązać połączenia z usługą.
 W przypadku korzystania z trybu bezpośredniego może wystąpić błąd podobny do następującego:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
@@ -175,7 +175,7 @@ Przy użyciu `observeOn(customScheduler)` , należy wydać wątek we/wy na dysku
 
 ### <a name="connection-pool-exhausted-issue"></a>Problem z wyczerpaniem puli połączeń
 
-`PoolExhaustedException`to błąd po stronie klienta. Ten błąd wskazuje, że obciążenie aplikacji jest większe niż to, co może obsłużyć pula połączeń zestawu SDK. Zwiększ rozmiar puli połączeń lub Rozpowszechnij obciążenie w wielu aplikacjach.
+`PoolExhaustedException` to błąd po stronie klienta. Ten błąd wskazuje, że obciążenie aplikacji jest większe niż to, co może obsłużyć pula połączeń zestawu SDK. Zwiększ rozmiar puli połączeń lub Rozpowszechnij obciążenie w wielu aplikacjach.
 
 ### <a name="request-rate-too-large"></a>Zbyt duży współczynnik żądań
 Ten błąd jest niepowodzeniem po stronie serwera. Oznacza to, że wykorzystano zainicjowaną przepływność. Spróbuj ponownie później. Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji.

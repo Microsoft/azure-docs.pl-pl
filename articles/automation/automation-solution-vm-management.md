@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317365"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
@@ -78,7 +78,7 @@ Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours prz
 
 Maszyny wirtualne można włączyć dla funkcji Start/Stop VMs during off-hours przy użyciu nowego konta usługi Automation i Log Analytics obszaru roboczego. W takim przypadku wymagane są uprawnienia zdefiniowane w poprzedniej sekcji oraz uprawnienia zdefiniowane w tej sekcji. Wymagane są również następujące role:
 
-- Współadministrator w ramach subskrypcji. Ta rola jest wymagana do utworzenia klasycznego konta Uruchom jako, jeśli zamierzasz zarządzać klasycznymi maszynami wirtualnymi. [Klasyczne konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account) nie są już domyślnie tworzone.
+- Co-Administrator subskrypcji. Ta rola jest wymagana do utworzenia klasycznego konta Uruchom jako, jeśli zamierzasz zarządzać klasycznymi maszynami wirtualnymi. [Klasyczne konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account) nie są już domyślnie tworzone.
 - Członkostwo w roli Deweloper aplikacji [usługi Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Aby uzyskać więcej informacji na temat konfigurowania kont Uruchom jako, zobacz [uprawnienia do konfigurowania kont Uruchom jako](manage-runas-account.md#permissions).
 - Współautorem subskrypcji lub następujących uprawnień.
 

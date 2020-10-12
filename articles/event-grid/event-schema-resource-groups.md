@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń grupy zas
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105918"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło Event Grid
@@ -22,7 +22,7 @@ Gdy subskrybujesz zdarzenia dla grupy zasobów, punkt końcowy odbiera wszystkie
 
 Aby programowo obsługiwać zdarzenia, Możesz sortować zdarzenia, sprawdzając `operationName` wartość. Na przykład punkt końcowy zdarzenia może przetwarzać tylko zdarzenia dla operacji, które są równe `Microsoft.Compute/virtualMachines/write` lub `Microsoft.Storage/storageAccounts/write` .
 
-Podmiot zdarzenia jest IDENTYFIKATORem zasobu zasobu, który jest elementem docelowym operacji. Aby filtrować zdarzenia dla zasobu, podaj ten identyfikator zasobu podczas tworzenia subskrypcji zdarzeń.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Podmiot zdarzenia jest IDENTYFIKATORem zasobu zasobu, który jest elementem docelowym operacji. Aby filtrować zdarzenia dla zasobu, podaj ten identyfikator zasobu podczas tworzenia subskrypcji zdarzeń.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
 ## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
@@ -231,11 +231,11 @@ Poniższy przykład przedstawia schemat zdarzenia **ResourceActionSuccess** . Te
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Dane zdarzenia grupy zasobów. |
@@ -244,7 +244,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | autoryzacja | object | Żądana autoryzacja dla operacji. |
 | oświadczenia | object | Właściwości oświadczeń. Aby uzyskać więcej informacji, zobacz [specyfikację JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |

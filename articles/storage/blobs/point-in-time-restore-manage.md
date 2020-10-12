@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280474"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
@@ -36,7 +36,7 @@ Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie należy w�
 > [!IMPORTANT]
 > Włączenie usuwania nietrwałego, źródła zmian i przechowywania wersji obiektów BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md), [Obsługa kanałów zmian w systemie Azure Blob Storage](storage-blob-change-feed.md)i [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby skonfigurować przywracanie do punktu w czasie za pomocą Azure Portal, wykonaj następujące kroki:
 
@@ -112,7 +112,7 @@ Przywracane są tylko blokowe obiekty blob. Stronicowe obiekty blob i dołączan
 
 Można przywrócić wszystkie kontenery na koncie magazynu, aby przywrócić ich poprzedni stan w danym momencie.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu Azure Portal, wykonaj następujące czynności:
 
@@ -122,7 +122,7 @@ Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy uży
 1. Potwierdź, że chcesz wykonać zaznaczenie pola wyboru.
 1. Wybierz pozycję **Przywróć** , aby rozpocząć operację przywracania.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Zrzut ekranu przedstawiający sposób przywracania wszystkich kontenerów do określonego punktu przywracania":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -158,7 +158,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 Można przywrócić jeden lub więcej lexicographical zakresów obiektów BLOB w ramach jednego kontenera lub w wielu kontenerach, aby przywrócić te obiekty blob do ich poprzedniego stanu w danym momencie.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby przywrócić zakres obiektów BLOB w jednym lub większej liczbie kontenerów z Azure Portal, wykonaj następujące kroki:
 
@@ -169,14 +169,14 @@ Aby przywrócić zakres obiektów BLOB w jednym lub większej liczbie konteneró
 1. Określ zakresy do przywrócenia. Użyj ukośnika (/), aby odróżnić nazwę kontenera z prefiksu obiektu BLOB.
 1. Domyślnie okienko **Przywróć wybrane kontenery** określa zakres, który obejmuje wszystkie obiekty blob w kontenerze. Usuń ten zakres, jeśli nie chcesz przywrócić całego kontenera. Domyślny zakres jest pokazany na poniższej ilustracji.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Zrzut ekranu przedstawiający domyślny zakres obiektów BLOB do usunięcia przed określeniem zakresu niestandardowego":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
 
 1. Potwierdź, że chcesz wykonać zaznaczenie pola wyboru.
 1. Wybierz pozycję **Przywróć** , aby rozpocząć operację przywracania.
 
 Na poniższej ilustracji przedstawiono operację przywracania na zestawie zakresów.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Zrzut ekranu przedstawiający sposób przywracania zakresów obiektów BLOB w jednym lub większej liczbie kontenerów":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania przywracania do punktu w czasie w Azure Portal":::
 
 Operacja przywracania pokazana w obrazie wykonuje następujące czynności:
 

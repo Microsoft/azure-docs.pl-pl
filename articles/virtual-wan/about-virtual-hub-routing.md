@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983713"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
@@ -30,7 +30,7 @@ W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtu
 
 Tabela tras koncentratora wirtualnego może zawierać jedną lub więcej tras. Trasa obejmuje jego nazwę, etykietę, typ docelowy, listę prefiksów docelowych oraz informacje o następnym przeskoku dla pakietu, który ma być kierowany. **Połączenie** zazwyczaj będzie miało konfigurację routingu skojarzoną lub propagowaną do tabeli tras
 
-### <a name="connection"></a><a name="connection"></a>Połączenie
+### <a name="connection"></a><a name="connection"></a>Połączenia
 
 Połączenia są Menedżer zasobów zasobach z konfiguracją routingu. Istnieją cztery typy połączeń:
 
@@ -55,7 +55,7 @@ Połączenia dynamicznie propagują trasy do tabeli tras. W przypadku połączen
 
 Dla każdego koncentratora wirtualnego jest również dostępna **tabela tras none** . Propagowanie do tabeli tras braku nie oznacza, że trasy nie są wymagane do propagowania z połączenia. Połączenia sieci VPN, ExpressRoute i VPN użytkowników propagują trasy do tego samego zestawu tabel tras.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagacja":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Skojarzenie":::
 
 ### <a name="labels"></a><a name="static"></a>Etykiety
 Etykiety zapewniają mechanizm logicznego grupowania tabel tras. Jest to szczególnie przydatne podczas propagacji tras z połączeń do wielu tabel tras. Na przykład domyślna tabela tras ma wbudowaną etykietę o nazwie "default". Gdy użytkownicy propagują trasy połączeń do etykiety "default", automatycznie stosuje się do wszystkich domyślnych tabel tras w każdym centrum w wirtualnej sieci WAN. 

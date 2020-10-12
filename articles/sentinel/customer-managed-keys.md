@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141792"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta na platformie Azure
@@ -28,7 +28,7 @@ Ten artykuł zawiera ogólne informacje i kroki konfigurowania klucza zarządzan
 
 > [!NOTE]
 > -   Możliwość usługi Azure wskaźnik CMK jest dostępna tylko dla klientów, którzy są **nową** , i dostęp do tej możliwości są kontrolowane przez rejestrację funkcji platformy Azure.Możesz zażądać dostępu przez kontaktowanie się azuresentinelCMK@microsoft.com , a jako pojemność jest dostępna, oczekujące żądania zostaną zatwierdzone.
-> -   Funkcja CMK Azure wskaźnikowego jest dostępna tylko w regionach Wschodnie stany USA, zachodnie stany USA 2 i środkowe stany USA.
+> -   Funkcja CMK Azure wskaźnikowego jest dostępna tylko w regionach Wschodnie stany USA, zachodnie stany USA 2 i South-Central regionów w Stanach Zjednoczonych.
 > -   Funkcja CMK jest dostępna tylko dla klientów, którzy wysyłają 1 TB dziennie lub dłużej. Po zastosowaniu do firmy Microsoft informacji o dodatkowych cenach otrzymasz informacje o dodatkowym cenniku w celu udostępnienia CMK w ramach subskrypcji platformy Azure. Dowiedz się więcej o [cenach log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Jak działa CMK 
@@ -54,7 +54,7 @@ Aby udostępnić CMK, wykonaj następujące kroki: 
 
 5.  Włącz CMK na platformie Azure — wskaźnik.
 
-6.  Włącz platformę Azure.
+6.  Włączanie usługi Azure Sentinel.
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>Krok 1. Tworzenie Azure Key Vault i przechowywanie klucza
 

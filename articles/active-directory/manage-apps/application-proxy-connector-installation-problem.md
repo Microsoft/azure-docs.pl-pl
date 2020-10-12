@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764693"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
@@ -61,7 +61,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 **Przejrzyj wymagane wymagania wstępne:**
 
-1.  Sprawdź, czy maszyna obsługuje protokół TLS 1.2 — wszystkie wersje systemu Windows po 2012 R2 powinny obsługiwać protokół TLS 1,2. Jeśli komputer łącznika pochodzi z wersji 2012 R2 lub starszej, upewnij się, że na maszynie jest zainstalowany następujący artykułów bazy wiedzy:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Sprawdź, czy maszyna obsługuje protokół TLS 1.2 — wszystkie wersje systemu Windows po 2012 R2 powinny obsługiwać protokół TLS 1,2. Jeśli komputer łącznika pochodzi z wersji 2012 R2 lub starszej, upewnij się, że na maszynie jest zainstalowany następujący artykułów bazy wiedzy: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Skontaktuj się z administratorem sieci i poproś o zweryfikowanie, czy serwer proxy zaplecza i Zapora nie blokują SHA512 dla ruchu wychodzącego.
 
@@ -81,7 +81,7 @@ Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów mo�
 
 Oto możliwe wartości **IsInUserStore** i znaczenia:
 
-- **Fałsz** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector. Jest on przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego. 
+- **Fałsz** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez Register-AppProxyConnector polecenie. Jest on przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego. 
 
 Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
 
@@ -112,7 +112,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell) .
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Sprawdź, czy administrator służy do instalowania łącznika
 

@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075944"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Rozwiązywanie problemów z opóźnieniami przy użyciu dzienników Analityki magazynu
@@ -87,17 +87,17 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 
    Opóźnienie end-to-end jest obliczane przy użyciu następującego równania:
 
-   * Opóźnienie od końca do końca = opóźnienie serwera i opóźnienie klienta
+   * Opóźnienie kompleksowe = Server-Latency + opóźnienie klienta
 
    Oblicz opóźnienie klienta przy użyciu wpisu dziennika:
 
-   * Opóźnienie klienta = zakończenie do końca — serwer — opóźnienie
+   * Opóźnienie klienta = opóźnienie od końca do końca — Server-Latency
 
         Przykład: 8453 – 391 = 8062ms
 
    Poniższa tabela zawiera informacje o dużym czasie opóźnienia i stanem żądania wyniki:
 
-   | Typ obiektu BLOB |Stanem żądania =<br>Powodzenie|Stanem żądania =<br>SYGNATUR NetworkError|Rekomendacja|
+   | Typ obiektu BLOB |Stanem żądania =<br>Powodzenie|Stanem żądania =<br>SYGNATUR NetworkError|Zalecenie|
    |---|---|---|---|
    |GetBlob|Tak|Nie|[**Operacja GetBlob:** Stanem żądania = sukces](#getblob-operation-requeststatus--success)|
    |GetBlob|Nie|Tak|[**Operacja GetBlob:** Stanem żądania = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
@@ -111,10 +111,10 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane kroki":
 
 * Opóźnienie końca do końca
-* Serwer — opóźnienie
-* Klient — opóźnienie
+* Server-Latency
+* Client-Latency
 
-W **operacji GetBlob** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że usługa Azure Storage zajmuje dużo czasu na zapisanie danych do klienta. To opóźnienie wskazuje na problem po stronie klienta.
+W **operacji GetBlob** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że usługa Azure Storage zajmuje dużo czasu na zapisanie danych do klienta. To opóźnienie wskazuje Client-Side problemu.
 
 **Zaleca**
 
@@ -126,8 +126,8 @@ W **operacji GetBlob** z **stanem żądania = Success**, jeśli **Maksymalny cza
 Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane kroki":
 
 * Opóźnienie końca do końca
-* Serwer — opóźnienie
-* Klient — opóźnienie
+* Server-Latency
+* Client-Latency
 
 W **operacji GetBlob** z **stanem żądania = (SAS) NetworkError**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
 
@@ -141,10 +141,10 @@ W **operacji GetBlob** z **stanem żądania = (SAS) NetworkError**, jeśli **Mak
 Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane kroki":
 
 * Opóźnienie końca do końca
-* Serwer — opóźnienie
-* Klient — opóźnienie
+* Server-Latency
+* Client-Latency
 
-W **operacji Put** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że klient poświęca więcej czasu na wysyłanie danych do usługi Azure Storage. To opóźnienie wskazuje na problem po stronie klienta.
+W **operacji Put** z **stanem żądania = Success**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, oznacza to, że klient poświęca więcej czasu na wysyłanie danych do usługi Azure Storage. To opóźnienie wskazuje Client-Side problemu.
 
 **Zaleca**
 
@@ -156,8 +156,8 @@ W **operacji Put** z **stanem żądania = Success**, jeśli **Maksymalny czas** 
 Sprawdź następujące wartości, jak wspomniano w kroku 5 sekcji "zalecane kroki":
 
 * Opóźnienie końca do końca
-* Serwer — opóźnienie
-* Klient — opóźnienie
+* Server-Latency
+* Client-Latency
 
 W **operacji PutBlob** z **stanem żądania = (SAS) NetworkError**, jeśli **Maksymalny czas** jest poświęcany na **opóźnienia klienta**, najczęściej spotykanym problemem jest odłączenie klienta przed upływem limitu czasu w usłudze Storage.
 

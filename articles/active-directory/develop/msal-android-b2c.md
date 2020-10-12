@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119882"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Korzystanie z MSAL dla systemu Android z B2C
@@ -30,9 +30,9 @@ W programie MSAL for Android zasady B2C (podróże użytkowników) są konfiguro
 
 Dana aplikacja B2C, która ma dwie zasady:
 - Rejestrowanie/logowanie
-    * Wywołan`B2C_1_SISOPolicy`
+    * Wywołan `B2C_1_SISOPolicy`
 - Edytuj profil
-    * Wywołan`B2C_1_EditProfile`
+    * Wywołan `B2C_1_EditProfile`
 
 Plik konfiguracyjny aplikacji deklaruje dwa `authorities` . Jeden dla każdej zasady. `type`Właściwość każdego urzędu ma wartość `B2C` .
 
@@ -58,7 +58,7 @@ Plik konfiguracyjny aplikacji deklaruje dwa `authorities` . Jeden dla każdej za
 
 ## <a name="initialize-ipublicclientapplication"></a>Zainicjuj IPublicClientApplication
 
-`IPublicClientApplication`jest konstruowany przez metodę fabryki, aby umożliwić asynchroniczne analizowanie konfiguracji aplikacji.
+`IPublicClientApplication` jest konstruowany przez metodę fabryki, aby umożliwić asynchroniczne analizowanie konfiguracji aplikacji.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -235,7 +235,7 @@ B2C traktuje każdą zasadę jako oddzielny urząd. W ten sposób tokeny dostęp
 
 Każda zasada dodaje `IAccount` do pamięci podręcznej dla każdego użytkownika. Jeśli użytkownik zaloguje się do aplikacji i wywoła dwie zasady, będą mieć dwie `IAccount` s. Aby usunąć tego użytkownika z pamięci podręcznej, należy wywołać `removeAccount()` dla każdej zasady.
 
-W przypadku odnowienia tokenów dla zasad w programie `acquireTokenSilent` Podaj takie samo, `IAccount` które zostało zwrócone z poprzednich wywołań zasad do `AcquireTokenSilentParameters` . Podanie konta zwróconego przez inne zasady spowoduje wystąpienie błędu.
+W przypadku odnowienia tokenów dla zasad w programie `acquireTokenSilent` Podaj takie samo, `IAccount` które zostało zwrócone z poprzednich wywołań zasad do  `AcquireTokenSilentParameters` . Podanie konta zwróconego przez inne zasady spowoduje wystąpienie błędu.
 
 ## <a name="next-steps"></a>Następne kroki
 

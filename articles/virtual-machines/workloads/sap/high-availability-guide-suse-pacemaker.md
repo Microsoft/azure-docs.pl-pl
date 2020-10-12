@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797750"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure
@@ -419,7 +419,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    </code></pre>
 
    >[!IMPORTANT]
-   > Zainstalowana wersja **ogranicznika** pakietu musi być co najmniej **4.4.0** , aby można było korzystać z szybszych czasów pracy w trybie failover przy użyciu agenta usługi Azure ogrodzenia, jeśli węzły klastra muszą być ogrodzone. Zalecamy zaktualizowanie pakietu, jeśli jest uruchomiona Starsza wersja.  
+   > Zainstalowana wersja **ogranicznika** pakietu musi być co najmniej **4.4.0**  , aby można było korzystać z szybszych czasów pracy w trybie failover przy użyciu agenta usługi Azure ogrodzenia, jeśli węzły klastra muszą być ogrodzone. Zalecamy zaktualizowanie pakietu, jeśli jest uruchomiona Starsza wersja.  
 
 
 1. **[A]** Instalacja zestawu Azure Python SDK 
@@ -679,7 +679,7 @@ sudo crm configure property maintenance-mode=false
 
    > [!NOTE]
    > Po skonfigurowaniu zasobów Pacemaker dla agenta zdarzeń platformy Azure, gdy klaster zostanie umieszczony w trybie konserwacji lub z niego, można uzyskać komunikaty ostrzegawcze, takie jak:  
-     Ostrzeżenie: CIB-Bootstrap-Options: nieznany atrybut "hostName_ <strong>hostname</strong>"  
+     Ostrzeżenie: CIB-Bootstrap-Options: nieznany atrybut "hostName_ <strong> hostname</strong>"  
      Ostrzeżenie: CIB-Bootstrap-Options: nieznany atrybut "Azure-events_globalPullState"  
      Ostrzeżenie: CIB-Bootstrap-Options: nieznany atrybut "hostName_ <strong>hostname</strong>"  
    > Te komunikaty ostrzegawcze mogą być ignorowane.

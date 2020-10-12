@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018581"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Wyniki przedstawiają liczbę żądań wykonanych z każdą wersją protokołu TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Zrzut ekranu przedstawiający wyniki zapytania usługi log Analytics w celu zwrócenia wersji protokołu TLS":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Zapytanie o zarejestrowane żądania według adresu IP i nagłówka agenta użytkownika wywołującego
 
@@ -104,7 +104,7 @@ Aby skonfigurować minimalną wersję protokołu TLS dla istniejącego konta mag
 1. Wybierz ustawienie **konfiguracji** .
 1. W obszarze **minimalna wersja protokołu TLS**Użyj listy rozwijanej, aby wybrać minimalną wersję protokołu TLS wymaganą do uzyskania dostępu do danych na tym koncie magazynu, jak pokazano na poniższej ilustracji.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania minimalnej wersji protokołu TLS w Azure Portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Aby wyświetlić raport zgodności w Azure Portal, wykonaj następujące kroki:
 1. Filtruje wyniki dla nazwy przypisania zasad utworzonego w poprzednim kroku. Raport przedstawia, ile zasobów nie jest zgodnych z zasadami.
 1. Możesz przejść do raportu, aby uzyskać dodatkowe szczegóły, w tym listę kont magazynu, które nie są zgodne.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający raport zgodności dla zasad inspekcji dla minimalnej wersji protokołu TLS":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Użyj Azure Policy, aby wymusić minimalną wersję protokołu TLS
 
@@ -343,7 +343,7 @@ Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie
 
 Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu z minimalną wersją protokołu TLS ustawioną na TLS 1,0 (wartość domyślna dla nowego konta), gdy zasady z efektem odmowy wymagają ustawienia minimalnej wersji protokołu TLS na TLS 1,2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
 ## <a name="network-considerations"></a>Kwestie dotyczące sieci
 

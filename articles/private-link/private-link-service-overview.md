@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760955"
 ---
 # <a name="what-is-azure-private-link-service"></a>Co to jest usługa Azure Private Link Service?
@@ -91,7 +91,7 @@ Alias składa się z trzech części: *prefiks*. *Identyfikator GUID*. *Sufiks*
 - Identyfikator GUID zostanie dostarczony przez platformę. Dzięki temu nazwa powinna być globalnie unikatowa. 
 - Sufiks jest dołączany przez platformę Azure: *region*. Azure. privatelinkservice 
 
-Kompletny alias: *prefiks*. {GUID}. *region*. Azure. privatelinkservice  
+Kompletny alias:  *prefiks*. {GUID}. *region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Kontrola ekspozycji usługi
 
@@ -113,7 +113,7 @@ Szczegóły niestandardowego TLV:
 
 |Pole |Długość (oktety)  |Opis  |
 |---------|---------|----------|
-|Typ  |1        |PP2_TYPE_AZURE (0xEE)|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
 |Długość  |2      |Długość wartości|
 |Wartość  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bajty) reprezentujący LINKID prywatnego punktu końcowego. Zakodowane w formacie little endian.|

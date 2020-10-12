@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440613"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
@@ -67,9 +67,9 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
 | sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
-| sqlDwPolyBase | Niezależnie od tego, czy baza danych jest używana, gdy dane są kopiowane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). | Wartość logiczna |
-| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Wartość logiczna |
-| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Wartość logiczna |
+| sqlDwPolyBase | Niezależnie od tego, czy baza danych jest używana, gdy dane są kopiowane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). | Boolean (wartość logiczna) |
+| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean (wartość logiczna) |
+| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean (wartość logiczna) |
 | effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)` . | Tekst (ciąg) |
 | usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
 | usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |

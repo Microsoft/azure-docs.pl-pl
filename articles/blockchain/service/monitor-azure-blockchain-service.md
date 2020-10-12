@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076921"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  
@@ -36,7 +36,7 @@ Podczas tworzenia ustawienia diagnostycznego należy określić, które kategori
 
 **Łańcucha bloków dzienniki proxy** — wybierz kategorię, jeśli chcesz monitorować dzienniki proxy NGNIX. Wszystkie szczegóły transakcji klienta są dostępne do celów inspekcji i debugowania.  
 
-**Dzienniki aplikacji łańcucha bloków** — wybierz kategorię, aby pobrać dzienniki aplikacji łańcucha bloków hostowanej przez usługę zarządzaną. Na przykład dla elementu członkowskiego kworum typu ABS te dzienniki będą dzienniki z samego kworum.  
+**Dzienniki aplikacji łańcucha bloków** — wybierz kategorię, aby pobrać dzienniki aplikacji łańcucha bloków hostowanej przez usługę zarządzaną. Na przykład dla elementu członkowskiego ABS-Quorum te dzienniki będą dziennikami ze kworum.  
 
 **Żądania metryk**: wybierz opcję zbierania danych metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostycznym, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
 

@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316940"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
@@ -59,7 +59,7 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 |-----|-----|
 | Sieć Web | Małe witryny sieci Web |
 | Standardowa | Małe i średnie obciążenia |
-| Przedsiębiorstwa | Duże lub krytyczne dla działalności obciążenia|
+| Enterprise | Duże lub krytyczne dla działalności obciążenia|
 
 Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)*.
 
@@ -115,7 +115,7 @@ Aby używać BYOL z maszyną wirtualną SQL Server, musisz mieć licencję na SQ
 | Korzyść BYOL | Opis |
 |-----|-----|
 | **Redukcja kosztów** | [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) oferuje do 55% oszczędności. Aby uzyskać więcej informacji, zobacz [przełączanie modelu licencjonowania](licensing-model-azure-hybrid-benefit-ahb-change.md) |
-| **Bezpłatna pasywna replika pomocnicza** | Kolejną zaletą korzystania z własnej licencji jest [bezpłatna Licencjonowanie jednej pasywnej repliki pomocniczej](https://azure.microsoft.com/pricing/licensing-faq/) na SQL Server w celu zapewnienia wysokiej dostępności. Spowoduje to odcięcie kosztu licencjonowania SQL Server wdrożenia o wysokiej dostępności (na przykład przy użyciu zawsze włączonych grup dostępności). Prawa do uruchamiania pasywnego serwera pomocniczego są dostępne za pomocą wsparcia Software Assurance w trybie failover. |
+| **Bezpłatna pasywna replika pomocnicza** | Kolejną zaletą korzystania z własnej licencji jest [bezpłatna Licencjonowanie jednej pasywnej repliki pomocniczej](https://azure.microsoft.com/pricing/licensing-faq/) na SQL Server w celu zapewnienia wysokiej dostępności. Spowoduje to odcięcie kosztu licencjonowania SQL Server wdrożenia o wysokiej dostępności (na przykład przy użyciu zawsze włączonych grup dostępności). Prawa do uruchamiania pasywnego serwera pomocniczego są dostępne za pomocą korzyści z programu Fail-Over Server Software Assurance. |
 
 Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 przy użyciu jednego z tych obrazów dołączenia do własnych licencji, zobacz maszyny wirtualne z prefiksem "{BYOL}":
 

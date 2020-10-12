@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319528"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Jak wybrać algorytmy dla Azure Machine Learning
@@ -51,7 +51,7 @@ Poniższa tabela zawiera podsumowanie najważniejszych cech algorytmów z rodzin
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Rodzina klasyfikacji** | | | | | |
 | [Regresja logistyczna dla dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Dobrze  |Duża |Tak |4 | |
-| [Las decyzyjny dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Doskonałe |Umiarkowane |Nie |5 |Pokazuje wolniejsze czasy oceniania. Sugeruj, że nie pracuje z moduł wieloklasowy "jeden przeciw wszystkim", z powodu wolniejszych czasów oceniania spowodowanych przez blokowanie bieżnika w przypadku prognozowania drzewa |
+| [Las decyzyjny dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Doskonałe |Umiarkowane |Nie |5 |Pokazuje wolniejsze czasy oceniania. Sugeruj, że nie pracuje z moduł wieloklasowy „jeden przeciw wszystkim”, z powodu wolniejszych czasów oceniania spowodowanych przez blokowanie bieżnika w przypadku prognozowania drzewa |
 | [Dwuklasowe drzewo decyzyjne](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Doskonałe |Umiarkowane |Nie |6 |Duże rozmiary pamięci |
 | [Sieć neuronowych z dwiema klasami](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Dobrze |Umiarkowane |Nie |8 | |
 | [Średnia Perceptron średniej klasy](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Dobrze |Umiarkowane |Tak |4 | |
