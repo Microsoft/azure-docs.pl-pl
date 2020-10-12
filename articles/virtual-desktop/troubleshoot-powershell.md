@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002281"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Program PowerShell dla usługi Windows Virtual Desktop
@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 **Poprawka 2:** Użytkownik z uprawnieniami Active Directory musi wykonać przypisanie roli.
 
-### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Błąd: New-AzWvdHostPool--lokalizacja jest niedostępna dla typu zasobu
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Błąd: New-AzWvdHostPool — lokalizacja jest niedostępna dla typu zasobu
 
 ```powershell
 New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.

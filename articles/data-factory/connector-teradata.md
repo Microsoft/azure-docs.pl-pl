@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926896"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata Vantage przy użyciu Azure Data Factory
@@ -63,7 +63,7 @@ Połączona usługa programu Teradata obsługuje następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi być ustawiona na wartość **Teradata**. | Tak |
-| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem programu Teradata. Zapoznaj się z poniższymi przykładami.<br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) . | Yes |
+| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem programu Teradata. Zapoznaj się z poniższymi przykładami.<br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) . | Tak |
 | nazwa użytkownika | Określ nazwę użytkownika, aby połączyć się z programem Teradata. Ma zastosowanie w przypadku korzystania z uwierzytelniania systemu Windows. | Nie |
 | hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Możesz również wybrać odwołanie do [wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). <br>Ma zastosowanie w przypadku korzystania z uwierzytelniania systemu Windows lub odwoływania się do hasła w Key Vault na potrzeby uwierzytelniania podstawowego. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
@@ -73,8 +73,8 @@ Więcej właściwości połączenia, które można ustawić w parametrach połą
 | Właściwość | Opis | Wartość domyślna |
 |:--- |:--- |:--- |
 | UseDataEncryption | Określa, czy ma być szyfrowana cała komunikacja z bazą danych programu Teradata. Dozwolone wartości to 0 lub 1.<br><br/>- **0 (wyłączone, domyślnie)**: szyfruje wyłącznie informacje o uwierzytelnianiu.<br/>- **1 (włączone)**: szyfruje wszystkie dane przesyłane między sterownikiem a bazą danych. | Nie |
-| CharacterSet | Zestaw znaków, który ma być używany przez sesję. Np `CharacterSet=UTF16` ..<br><br/>Ta wartość może być zestawem znaków zdefiniowanym przez użytkownika lub jednym z następujących wstępnie zdefiniowanych zestawów znaków: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, zgodne z systemem DOS, KANJISJIS_0S)<br/>-EUC (zgodne z systemem UNIX, KANJIEC_0U)<br/>-IBM mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Wartość domyślna to `ASCII` . |
-| MaxRespSize |Maksymalny rozmiar buforu odpowiedzi dla żądań SQL w kilobajtach (artykułów bazy wiedzy). Np `MaxRespSize=‭10485760‬` ..<br/><br/>W przypadku bazy danych programu Teradata w wersji 16,00 lub nowszej wartość maksymalna to 7361536. Dla połączeń korzystających ze starszych wersji wartość maksymalna to 1048576. | Wartość domyślna to `65536` . |
+| CharacterSet | Zestaw znaków, który ma być używany przez sesję. Np `CharacterSet=UTF16` ..<br><br/>Ta wartość może być zestawem znaków zdefiniowanym przez użytkownika lub jednym z następujących wstępnie zdefiniowanych zestawów znaków: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, zgodne z systemem DOS, KANJISJIS_0S)<br/>-EUC (zgodne z systemem UNIX, KANJIEC_0U)<br/>-IBM mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | Wartość domyślna to `ASCII`. |
+| MaxRespSize |Maksymalny rozmiar buforu odpowiedzi dla żądań SQL w kilobajtach (artykułów bazy wiedzy). Np `MaxRespSize=‭10485760‬` ..<br/><br/>W przypadku bazy danych programu Teradata w wersji 16,00 lub nowszej wartość maksymalna to 7361536. Dla połączeń korzystających ze starszych wersji wartość maksymalna to 1048576. | Wartość domyślna to `65536`. |
 
 **Przykład użycia uwierzytelniania podstawowego**
 
@@ -152,7 +152,7 @@ Aby skopiować dane z programu Teradata, obsługiwane są następujące właści
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość `TeradataTable` . | Tak |
 | database | Nazwa wystąpienia programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
-| table | Nazwa tabeli w wystąpieniu programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| tabela | Nazwa tabeli w wystąpieniu programu Teradata. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład:**
 
@@ -173,7 +173,7 @@ Aby skopiować dane z programu Teradata, obsługiwane są następujące właści
 
 > [!NOTE]
 >
-> `RelationalTable`Typ danych jest nadal obsługiwany. Zalecamy jednak korzystanie z nowego zestawu danych.
+> `RelationalTable` Typ danych jest nadal obsługiwany. Zalecamy jednak korzystanie z nowego zestawu danych.
 
 **Poprzedni ładunek:**
 
@@ -204,17 +204,17 @@ Aby skopiować dane z programu Teradata, w sekcji **Źródło** działania kopio
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość `TeradataSource` . | Yes |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość `TeradataSource` . | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Może to być na przykład `"SELECT * FROM MyTable"`.<br>Po włączeniu obciążenia partycjonowanego należy podłączyć wszystkie odpowiednie wbudowane parametry partycji w zapytaniu. Przykłady można znaleźć w sekcji [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) . | Nie (Jeśli określono tabelę w zestawie danych) |
 | partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z programu Teradata. <br>Zezwalaj na wartości: **none** (wartość domyślna), **hash** i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z programu Teradata jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
-| partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję zakresu lub partycję skrótu dla kopii równoległej. Jeśli nie zostanie określony, podstawowy indeks tabeli zostanie automatycznie wykryty i użyty jako kolumna partycji. <br>Zastosuj, gdy opcja partycji to `Hash` lub `DynamicRange` . Jeśli używasz zapytania, aby pobrać dane źródłowe, hak `?AdfHashPartitionCondition` lub `?AdfRangePartitionColumnName` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) . | Nie |
+| partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję zakresu lub partycję skrótu dla kopii równoległej. Jeśli nie zostanie określony, podstawowy indeks tabeli zostanie automatycznie wykryty i użyty jako kolumna partycji. <br>Zastosuj, gdy opcja partycji to `Hash` lub `DynamicRange` . Jeśli używasz zapytania, aby pobrać dane źródłowe, hak `?AdfHashPartitionCondition` lub  `?AdfRangePartitionColumnName` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) . | Nie |
 | partitionUpperBound | Maksymalna wartość kolumny partycji, w której mają zostać skopiowane dane. <br>Zastosuj, gdy opcja partycji jest `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfRangePartitionUpbound` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) . | Nie |
 | partitionLowerBound | Minimalna wartość kolumny partycji, w której mają zostać skopiowane dane. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfRangePartitionLowbound` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [Kopiowanie równoległe z programu Teradata](#parallel-copy-from-teradata) . | Nie |
 
 > [!NOTE]
 >
-> `RelationalSource`Źródło kopii typu jest nadal obsługiwane, ale nie obsługuje nowego wbudowanego obciążenia równoległego z programu Teradata (opcje partycji). Zalecamy jednak korzystanie z nowego zestawu danych.
+> `RelationalSource` Źródło kopii typu jest nadal obsługiwane, ale nie obsługuje nowego wbudowanego obciążenia równoległego z programu Teradata (opcje partycji). Zalecamy jednak korzystanie z nowego zestawu danych.
 
 **Przykład: Kopiuj dane przy użyciu podstawowego zapytania bez partycji**
 
@@ -304,8 +304,8 @@ Podczas kopiowania danych z programu Teradata są stosowane następujące mapowa
 | ByteInt |Int16 |
 | Char |Ciąg |
 | Obiektów CLOB |Ciąg |
-| Data |DateTime |
-| Wartość dziesiętna |Wartość dziesiętna |
+| Date |DateTime |
+| Liczba dziesiętna |Liczba dziesiętna |
 | Double |Double |
 | Zdjęć |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
 | Liczba całkowita |Int32 |
@@ -329,7 +329,7 @@ Podczas kopiowania danych z programu Teradata są stosowane następujące mapowa
 | Kropka (Sygnatura czasowa) |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
 | Okres (Sygnatura czasowa ze strefą czasową) |Nieobsługiwane. Zastosuj jawne rzutowanie w zapytaniu źródłowym. |
 | SmallInt |Int16 |
-| Czas |przedział_czasu |
+| Godzina |przedział_czasu |
 | Czas ze strefą czasową |przedział_czasu |
 | Timestamp |DateTime |
 | Sygnatura czasowa ze strefą czasową |DateTime |

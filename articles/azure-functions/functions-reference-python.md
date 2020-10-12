@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642201"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
@@ -471,7 +471,7 @@ Możesz również użyć poświadczeń uwierzytelniania podstawowego z dodatkowy
 
 #### <a name="install-local-packages"></a>Instalowanie pakietów lokalnych
 
-Jeśli projekt używa pakietów, które nie są publicznie dostępne dla naszych narzędzi, możesz udostępnić je aplikacji, umieszczając je w \_ \_ \_ \_ katalogu App/. python_packages. Przed opublikowaniem Uruchom następujące polecenie, aby zainstalować zależności lokalnie:
+Jeśli projekt używa pakietów, które nie są publicznie dostępne dla naszych narzędzi, możesz udostępnić je aplikacji, umieszczając je w \_ \_ \_ \_ katalogu aplikacji/.python_packages. Przed opublikowaniem Uruchom następujące polecenie, aby zainstalować zależności lokalnie:
 
 ```command
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt

@@ -1,6 +1,6 @@
 ---
-title: Wdróż oferowaną w systemie Azure OpenShift kontenerów 3,11 platformy Microsoft
-description: Wdróż oferowaną w systemie Azure OpenShift kontenerów platformy Microsoft w platformie 3,11 z własnym zarządzaniem.
+title: Wdrażanie OpenShift kontenera platform 3,11 Self-Managed portalu Marketplace na platformie Azure
+description: Wdróż OpenShift kontenerów platformy 3,11 Self-Managed portalu Marketplace na platformie Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374103"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
@@ -65,7 +65,7 @@ Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK
 | Klucz publiczny SSH dla użytkownika administratora | Klucz publiczny SSH używany do logowania do maszyny wirtualnej — nie może mieć hasła |
 | Subskrypcja | Subskrypcja platformy Azure do wdrożenia klastra |
 | Grupa zasobów | Utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów dla zasobów klastra |
-| Location | Region platformy Azure, w którym ma zostać wdrożony klaster |
+| Lokalizacja | Region platformy Azure, w którym ma zostać wdrożony klaster |
 
    ![Blok podstawy oferty](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -191,7 +191,7 @@ Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Na
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 

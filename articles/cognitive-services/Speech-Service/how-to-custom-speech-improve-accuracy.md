@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-demjoh
 ms.openlocfilehash: bb904482f3cb5900b724803816269f1b10ab3720
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727879"
 ---
-# <a name="improve-custom-speech-accuracy"></a>Zwiększ dokładność Custom Speech
+# <a name="improve-custom-speech-accuracy"></a>Zwiększanie dokładności usługi Custom Speech
 
 W tym artykule dowiesz się, jak poprawić jakość modelu niestandardowego, dodając dźwięk, transkrypcje z etykietą i powiązanego tekstu.
 
@@ -37,9 +37,9 @@ Różne scenariusze tworzą różne wyniki dotyczące jakości. W poniższej tab
 | Scenariusz | Jakość rozpoznawania mowy | Błędy wstawiania | Błędy usuwania | Błędy podstawiania |
 |----------|----------------------------|------------------|-----------------|---------------------|
 | Centrum telefoniczne | Średni (< 30% WER) | Niska, z wyjątkiem sytuacji, w której inne osoby mówią w tle | Może być wysoka. Centra połączeń mogą być zakłóceniami, a nakładające się głośniki mogą mylić model | Średnia. Produkty i nazwiska osób mogą spowodować te błędy |
-| Asystent głosowy | Wysoka (może być < 10% raportowanie błędów systemu Windows) | Małe | Małe | Średnia ze względu na tytuły utworów, nazwy produktów lub lokalizacje |
-| Dyktowanie | Wysoka (może być < 10% raportowanie błędów systemu Windows) | Małe | Małe | Wysoki |
-| Podpisy kodowane wideo | Zależy od typu wideo (może być < 50% raportowanie błędów systemu Windows) | Małe | Może być wysokie ze względu na muzykę, szumy, jakość mikrofonu | Żargon mogą spowodować te błędy |
+| Asystent głosowy | Wysoka (może być < 10% raportowanie błędów systemu Windows) | Niski | Niski | Średnia ze względu na tytuły utworów, nazwy produktów lub lokalizacje |
+| Dyktowanie | Wysoka (może być < 10% raportowanie błędów systemu Windows) | Niski | Niski | Wys. |
+| Podpisy kodowane wideo | Zależy od typu wideo (może być < 50% raportowanie błędów systemu Windows) | Niski | Może być wysokie ze względu na muzykę, szumy, jakość mikrofonu | Żargon mogą spowodować te błędy |
 
 Określenie składników funkcji Raportowanie błędów systemu Windows (liczba błędów wstawienia, usunięcia i podstawiania) ułatwia określenie rodzaju danych do dodania w celu usprawnienia modelu. Użyj [portalu Custom Speech](https://speech.microsoft.com/customspeech) , aby wyświetlić jakość modelu linii bazowej. W portalu są raportowane stawki błędów dotyczące wstawiania, podstawiania i usuwania, które są łączone w wskaźniku jakości raportowanie błędów systemu Windows.
 
@@ -89,7 +89,7 @@ W poniższej tabeli przedstawiono scenariusze rozpoznawania głosu i wymieniono 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Trenowanie modelu](how-to-custom-speech-train-model.md)
+- [Szkolenie modelu](how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

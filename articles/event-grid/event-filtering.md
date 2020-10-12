@@ -4,10 +4,10 @@ description: Opisuje sposób filtrowania zdarzeń podczas tworzenia subskrypcji 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120096"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji Event Grid
@@ -121,9 +121,9 @@ W przypadku wszystkich porównań ciągów **nie** jest rozróżniana wielkość
 
 Dla zdarzeń w schemacie Event Grid należy użyć następujących wartości klucza:
 
-* ID
+* ID (Identyfikator)
 * Temat
-* Podmiot
+* Temat
 * Typ zdarzenia
 * Wersja
 * Dane zdarzenia (np. Data. Klucz1)
@@ -144,8 +144,8 @@ Mogą to być następujące wartości:
 
 * liczba
 * ciąg
-* wartość logiczna
-* tablica
+* boolean
+* array
 
 ### <a name="limitations"></a>Ograniczenia
 

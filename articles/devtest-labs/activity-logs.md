@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono kroki umożliwiające wyświetlenie dz
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097855"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Wyświetlanie dzienników aktywności dla laboratoriów w Azure DevTest Labs 
@@ -27,24 +27,24 @@ W tym artykule opisano sposób wyświetlania dzienników aktywności dla laborat
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::
 1. Na stronie **Konfiguracja i zasady** wybierz pozycję **Dziennik aktywności** w menu po lewej stronie w obszarze **Zarządzaj**. Powinny być widoczne wpisy dotyczące operacji wykonywanych w laboratorium. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Dziennik aktywności":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::    
 1. Wybierz zdarzenie, aby wyświetlić jego szczegóły. Na stronie **Podsumowanie** są wyświetlane informacje, takie jak nazwa operacji, sygnatura czasowa i osoba, która wykonała operację. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Zatrzymywanie zdarzenia maszyny wirtualnej — podsumowanie":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::        
 1. Przejdź do karty **JSON** , aby zobaczyć więcej szczegółów. W poniższym przykładzie można zobaczyć nazwę maszyny wirtualnej i operację wykonywaną na maszynie wirtualnej (zatrzymana).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Zatrzymywanie zdarzenia maszyny wirtualnej — JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::           
 1. Przejdź do karty **historia zmian (wersja zapoznawcza)** , aby zobaczyć historię zmian. W poniższym przykładzie zostanie wyświetlona zmiana wprowadzona na maszynie wirtualnej. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Zatrzymaj historię zmian zdarzeń maszyny wirtualnej":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::             
 1. Wybierz pozycję Zmień na liście historia zmian, aby wyświetlić więcej szczegółów na temat zmiany. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Zatrzymywanie zdarzenia maszyny wirtualnej — szczegóły zmiany":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Wybierz pozycję Konfiguracja i zasady w menu po lewej stronie":::             
 
 Aby uzyskać więcej informacji na temat dzienników aktywności, zobacz [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej na temat ustawiania **alertów** dotyczących dzienników aktywności, zobacz [tworzenie alertów](create-alerts.md).
-- Aby dowiedzieć się więcej o dziennikach aktywności, zobacz [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
+- Aby dowiedzieć się więcej o dziennikach aktywności, zobacz  [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
 

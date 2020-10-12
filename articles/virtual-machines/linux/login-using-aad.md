@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002319"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
@@ -158,7 +158,7 @@ Zostanie wyświetlony monit o zalogowanie się do usługi Azure AD za pomocą je
 
 Po wyświetleniu monitu wprowadź poświadczenia logowania usługi Azure AD na stronie logowania. 
 
-Po pomyślnym uwierzytelnieniu w przeglądarce internetowej zostanie wyświetlony następujący komunikat:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Po pomyślnym uwierzytelnieniu w przeglądarce internetowej zostanie wyświetlony następujący komunikat: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Zamknij okno przeglądarki, Wróć do wiersza polecenia SSH, a następnie naciśnij klawisz **Enter** . 
 

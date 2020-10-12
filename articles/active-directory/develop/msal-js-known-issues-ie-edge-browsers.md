@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83772084"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Znane problemy w programie Internet Explorer i przeglądarki Microsoft Edge (MSAL.js)
@@ -28,7 +28,7 @@ Mamy wiele raportów o problemach z uwierzytelnianiem w programie IE i Microsoft
 ### <a name="cause"></a>Przyczyna
 Przyczyny większości tych problemów są następujące. Magazyn sesji i magazyn lokalny są podzielone na partycje za pomocą stref zabezpieczeń w przeglądarce Microsoft Edge. W tej konkretnej wersji programu Microsoft Edge, gdy aplikacja jest przekierowywana między strefami, magazyn sesji i magazyn lokalny są wyczyszczone. W tym celu magazyn sesji jest czyszczony w zwykłej nawigacji przeglądarki, a sesja i magazyn lokalny są wyczyszczone w trybie InPrivate przeglądarki. MSAL.js Zapisuje określony stan w magazynie sesji i opiera się na sprawdzaniu tego stanu podczas przepływów uwierzytelniania. Po wyczyszczeniu magazynu sesji ten stan zostanie utracony i dlatego powoduje uszkodzenie środowiska.
 
-### <a name="issues"></a>Issues (Problemy)
+### <a name="issues"></a>Problemy
 
 - **Nieskończone pętle przekierowania i ponowne ładowanie stron podczas uwierzytelniania**. Gdy użytkownicy logują się do aplikacji w przeglądarce Microsoft Edge, są przekierowywani z powrotem ze strony logowania usługi AAD i są zablokowane w nieskończonej pętli przekierowania, co spowodowało powtarzanie ponownych prób ładowania strony. Zwykle towarzyszy `invalid_state` błąd w magazynie sesji.
 

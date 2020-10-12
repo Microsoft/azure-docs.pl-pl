@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986036"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
@@ -118,7 +118,7 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](./powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.

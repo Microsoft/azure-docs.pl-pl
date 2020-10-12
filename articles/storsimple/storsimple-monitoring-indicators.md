@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85512978"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Używanie wskaźników monitorowania StorSimple do zarządzania urządzeniem
@@ -56,12 +56,12 @@ Poniższa tabela służy do identyfikowania stanu wskazywanego przez diody LED n
 | Moc systemu | Błąd modułu | Błąd logiczny | Uruchomienia | Stan |
 | --- | --- | --- | --- | --- |
 | Czerwona — bursztynowa |WYŁ. |WYŁ. |Nie dotyczy |Utrata zasilania, działanie z mocą tworzenia kopii zapasowej lub zasilanie i moduły kontrolera zostały usunięte. |
-| Green |ON |ON |Nie dotyczy |Stan testu włączania napięcia (5 s) w panelu Ops |
-| Green |WYŁ. |WYŁ. |Nie dotyczy |Włącz, wszystkie funkcje są dobre |
-| Green |ON |Nie dotyczy |Diody błędów modułu PCM, diody LED błędów wentylatorów |Wszelkie błędy modułu PCM, awaria wentylatorów, ponad lub poniżej temperatury |
-| Green |ON |Nie dotyczy |Diody LED modułu we/wy |Dowolny błąd modułu kontrolera |
-| Green |ON |Nie dotyczy |Nie dotyczy |Błąd logiki obudowy |
-| Green |Flash |Nie dotyczy |Stan modułu został przeprowadzony w module kontrolera. Diody błędów modułu PCM, diody LED błędów wentylatorów |Zainstalowano nieznany typ modułu kontrolera, awaria magistrali I2C, nieważna konfiguracja danych produktu (VPD) |
+| Green (Zielony) |ON |ON |Nie dotyczy |Stan testu włączania napięcia (5 s) w panelu Ops |
+| Green (Zielony) |WYŁ. |WYŁ. |Nie dotyczy |Włącz, wszystkie funkcje są dobre |
+| Green (Zielony) |ON |Nie dotyczy |Diody błędów modułu PCM, diody LED błędów wentylatorów |Wszelkie błędy modułu PCM, awaria wentylatorów, ponad lub poniżej temperatury |
+| Green (Zielony) |ON |Nie dotyczy |Diody LED modułu we/wy |Dowolny błąd modułu kontrolera |
+| Green (Zielony) |ON |NIE DOTYCZY |NIE DOTYCZY |Błąd logiki obudowy |
+| Green (Zielony) |Flash |Nie dotyczy |Stan modułu został przeprowadzony w module kontrolera. Diody błędów modułu PCM, diody LED błędów wentylatorów |Zainstalowano nieznany typ modułu kontrolera, awaria magistrali I2C, nieważna konfiguracja danych produktu (VPD) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Diody LED wskaźnika modułu chłodzenia (PCM)
 Diody LED wskaźnika modułu chłodzenia (PCM) można znaleźć na tylnej stronie obudowy podstawowej lub obudowy EBOD na każdym module PCM. W tym temacie omówiono sposób używania następujących diod LED do monitorowania stanu urządzenia StorSimple.  

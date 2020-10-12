@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: daperlov
 ms.openlocfilehash: 0e17580524d6a67934aed83c6f745583b92e2422
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84771040"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>Za pomocą usługi GitHub Odczytuj odwołania do jednostek Common Data Model

@@ -8,10 +8,10 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212162"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
@@ -346,7 +346,7 @@ Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a ni
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Dokumentacja |
+| Wiązanie | Tematy pomocy |
 |---|---|
 | Service Bus | [Service Bus kody błędów](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Limity Service Bus](../service-bus-messaging/service-bus-quotas.md) |
@@ -384,7 +384,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 
 Jeśli `isSessionsEnabled` ustawiono `true` opcję, `sessionHandlerOptions` zostanie uznane.  Jeśli `isSessionsEnabled` ustawiono `false` opcję, `messageHandlerOptions` zostanie uznane.
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |prefetchCount|0|Pobiera lub ustawia liczbę komunikatów, które może jednocześnie wysłać odbiorca wiadomości.|
 |maxAutoRenewDuration|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|

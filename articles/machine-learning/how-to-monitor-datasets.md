@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333872"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
@@ -131,7 +131,7 @@ dset = dset.register(ws, 'target')
 
 Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Studio uczenia maszynowego Azure
+### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
 Jeśli tworzysz zestaw danych przy użyciu Azure Machine Learning Studio, upewnij się, że ścieżka do danych zawiera informacje o znaczniku czasu, Uwzględnij wszystkie podfoldery z danymi i ustaw format partycji.
 
@@ -145,7 +145,7 @@ W ustawieniach **schematu** należy określić kolumnę sygnatury czasowej z wir
 
 Jeśli dane są partycjonowane według daty, tak jak tutaj, można również określić partition_timestamp.  Umożliwia to wydajniejsze przetwarzanie dat.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Sygnatura czasowa partycji":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Ustawianie sygnatury czasowej":::
 
 
 ## <a name="create-dataset-monitors"></a>Tworzenie monitorów zestawu danych
@@ -213,7 +213,7 @@ Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowa
 
 1. Kliknij przycisk **+ Utwórz monitor** i Kontynuuj pracę kreatora, klikając przycisk **dalej**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Kreator tworzenia monitora":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Ustawianie sygnatury czasowej":::
 
 * **Wybierz docelowy zestaw danych**.  Docelowy zestaw danych jest tabelarycznym zestawem danych z określoną kolumną sygnatur czasowych, która zostanie przeanalizowana pod kątem dryfowania danych. Docelowy zestaw danych musi mieć wspólne funkcje z bazowym zestawem danych, który powinien być `timeseries` zestawem danych, do którego dodawane są nowe dane. Dane historyczne w docelowym zestawie danych mogą być analizowane lub można monitorować nowe dane.
 
@@ -240,7 +240,7 @@ W tej sekcji przedstawiono wyniki monitorowania zestawu danych, które znajdują
 
 Zacznij od wglądu w dane najwyższego poziomu do wielkości dryfu danych oraz wyróżniania funkcji do dalszej analizy.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Przegląd dryfu":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Ustawianie sygnatury czasowej":::
 
 
 | Metryka | Opis | 
@@ -253,7 +253,7 @@ Zacznij od wglądu w dane najwyższego poziomu do wielkości dryfu danych oraz w
 
 Zobacz, jak zestaw danych różni się od docelowego zestawu danych w określonym przedziale czasu.  Bliżej 100%, tym większa jest różnica między dwoma zestawami danych.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Trend wielkości dryfu":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Ustawianie sygnatury czasowej":::
 
 ### <a name="drift-magnitude-by-features"></a>Wielkość dryfu według funkcji
 
@@ -263,7 +263,7 @@ Docelowy zestaw danych jest również profilowany w czasie. Odległość statyst
 
 W Azure Machine Learning Studio kliknij pasek na wykresie, aby wyświetlić szczegóły poziomu funkcji dla tej daty. Domyślnie zostanie wyświetlona dystrybucja zestawu danych punktu odniesienia i Najnowsza dystrybucja przebiegu tej samej funkcji.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Wielkość dryfu według funkcji":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Ustawianie sygnatury czasowej":::
 
 Te metryki można także pobrać w zestawie SDK języka Python za pomocą `get_metrics()` metody dla `DataDriftDetector` obiektu.
 
@@ -271,7 +271,7 @@ Te metryki można także pobrać w zestawie SDK języka Python za pomocą `get_m
 
 Na koniec przewiń w dół, aby wyświetlić szczegółowe informacje dotyczące poszczególnych funkcji.  Użyj listy rozwijanej powyżej wykresu, aby wybrać funkcję, a następnie wybierz metrykę, którą chcesz wyświetlić.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Wykres funkcji liczbowej i porównanie":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Ustawianie sygnatury czasowej":::
 
 Metryki na wykresie zależą od typu funkcji.
 
@@ -293,7 +293,7 @@ Metryki na wykresie zależą od typu funkcji.
 
 Na tym wykresie wybierz pojedynczą datę, aby porównać dystrybucję funkcji między obiektem docelowym a tą datą dla wyświetlanej funkcji. W przypadku funkcji liczbowych pokazuje dwa rozkłady prawdopodobieństwa.  Jeśli funkcja jest liczbowa, zostanie wyświetlony wykres słupkowy.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Wybierz datę do porównania z elementem docelowym":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Ustawianie sygnatury czasowej":::
 
 ## <a name="metrics-alerts-and-events"></a>Metryki, alerty i zdarzenia
 

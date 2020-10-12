@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195923"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Przenoszenie danych do i z SQL Server przy użyciu Azure Data Factory
@@ -655,27 +655,27 @@ Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean |
+| bit |Boolean (wartość logiczna) |
 | char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
-| Wartość dziesiętna |Wartość dziesiętna |
+| Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Float |Double |
+| Liczba zmiennoprzecinkowa |Double |
 | image (obraz) |Byte [] |
 | int |Int32 |
-| pieniędzy |Wartość dziesiętna |
+| pieniędzy |Liczba dziesiętna |
 | nchar |String, Char [] |
 | ntext |String, Char [] |
-| numeryczne |Wartość dziesiętna |
+| numeryczne |Liczba dziesiętna |
 | nvarchar |String, Char [] |
-| liczba rzeczywista |Pojedyncze |
+| liczba rzeczywista |Pojedynczy |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Wartość dziesiętna |
+| smallmoney |Liczba dziesiętna |
 | sql_variant |Stream |
 | tekst |String, Char [] |
 | time |przedział_czasu |

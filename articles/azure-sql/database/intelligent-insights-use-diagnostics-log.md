@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 5fd0f14f4bbc919efd5b3c236b13654574d456d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334977"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Korzystanie z dziennika diagnostyki wydajności Intelligent Insights Azure SQL Database i problemów z wydajnością wystąpienia zarządzanego usługi Azure SQL
@@ -93,7 +93,7 @@ W zależności od wykrytego problemu z wydajnością szczegóły, które został
 | Rywalizacja o bazę danych TempDB | <li>Skróty zapytań powodujące rywalizację</li><li>Wysyłanie zapytań do ogólnej bazy danych PAGELATCH czas oczekiwania [%]</li> |
 | Niedobory jednostek DTU puli elastycznej | <li>Pula elastyczna</li><li>Najpopularniejsza baza danych zużywająca wartość DTU</li><li>Procent jednostek DTU puli używanych przez najwyższego konsumenta</li> |
 | Regresja planu | <li>Skróty zapytań</li><li>Dobre identyfikatory planu</li><li>Złe identyfikatory planu</li> |
-| Zmiana wartości konfiguracji z zakresem bazy danych | <li>Zmiany konfiguracji w zakresie bazy danych w porównaniu z wartościami domyślnymi</li> |
+| Zmiana wartości konfiguracji Database-Scoped | <li>Zmiany konfiguracji w zakresie bazy danych w porównaniu z wartościami domyślnymi</li> |
 | Powolne klienta | <li>Skróty zapytań</li><li>Czas oczekiwania</li> |
 | Obniżenie warstwy cenowej | <li>Powiadomienie tekstowe</li> |
 

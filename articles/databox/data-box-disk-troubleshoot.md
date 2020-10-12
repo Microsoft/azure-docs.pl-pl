@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925546"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Korzystanie z dzienników w celu rozwiązywania problemów ze sprawdzaniem poprawności w Azure Data Box Disk
@@ -21,7 +21,7 @@ Ten artykuł ma zastosowanie do Data Box Disk Microsoft Azure. W tym artykule op
 
 ## <a name="validation-tool-log-files"></a>Pliki dziennika narzędzia walidacji
 
-Po sprawdzeniu poprawności danych na dyskach za pomocą [Narzędzia sprawdzania poprawności](data-box-disk-deploy-copy-data.md#validate-data)zostanie wygenerowane *error.xml* , aby rejestrować błędy. Plik dziennika znajduje się w `Drive:\DataBoxDiskImport\logs` folderze dysku. Po uruchomieniu walidacji jest dostępny link do dziennika błędów.
+Po sprawdzeniu poprawności danych na dyskach za pomocą [Narzędzia sprawdzania poprawności](data-box-disk-deploy-copy-data.md#validate-data)zostanie wygenerowane *error.xml* , aby rejestrować błędy. Plik dziennika znajduje się w  `Drive:\DataBoxDiskImport\logs` folderze dysku. Po uruchomieniu walidacji jest dostępny link do dziennika błędów.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

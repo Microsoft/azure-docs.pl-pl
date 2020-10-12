@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: bezproblemowe logowanie jednokrotne — jak działa | Microsoft Docs'
-description: W tym artykule opisano sposób działania funkcji logowania jednokrotnego w Azure Active Directory.
+title: 'Azure AD Connect: bezproblemowe pojedyncze Sign-On — jak działa | Microsoft Docs'
+description: W tym artykule opisano, jak Azure Active Directory bezproblemowe pojedyncze Sign-On funkcja.
 services: active-directory
 keywords: Co to jest Azure AD Connect, zainstaluj Active Directory, wymagane składniki usługi Azure AD, logowania jednokrotnego, rejestracji jednokrotnej
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86144706"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: głębokie szczegółowe
 
-Ten artykuł zawiera szczegółowe informacje techniczne na temat działania funkcji bezproblemowego logowania jednokrotnego (SSO) Azure Active Directory.
+Ten artykuł zawiera szczegółowe informacje techniczne na temat sposobu działania Azure Active Directory bezproblemowe pojedyncze Sign-On (bezproblemowe logowanie jednokrotne).
 
 ## <a name="how-does-seamless-sso-work"></a>Jak bezproblemowo działa Logowanie jednokrotne?
 
@@ -82,8 +82,8 @@ Przepływ logowania na kliencie natywnym jest następujący:
 
 1. Użytkownik próbuje uzyskać dostęp do natywnej aplikacji (na przykład klienta programu Outlook) z dołączonego do domeny urządzenia firmowego w sieci firmowej.
 2. Jeśli użytkownik nie jest jeszcze zalogowany, aplikacja natywna Pobiera nazwę użytkownika z sesji systemu Windows na urządzeniu.
-3. Aplikacja wysyła nazwę użytkownika do usługi Azure AD i pobiera punkt końcowy MEX usługi WS-Trust dla dzierżawy. Ten punkt końcowy protokołu WS-Trust jest używany wyłącznie przez funkcję bezproblemowego logowania jednokrotnego i nie jest ogólną implementacją protokołu WS-Trust w usłudze Azure AD.
-4. Następnie aplikacja wysyła zapytanie do punktu końcowego MEX usługi WS-Trust, aby sprawdzić, czy jest dostępny punkt końcowy uwierzytelniania zintegrowanego. Punkt końcowy uwierzytelniania zintegrowanego jest używany wyłącznie przez funkcję bezproblemowego logowania jednokrotnego.
+3. Aplikacja wysyła nazwę użytkownika do usługi Azure AD i pobiera punkt końcowy WS-Trust MEX dzierżawcy. Ten WS-Trust punkt końcowy jest używany wyłącznie przez funkcję bezproblemowego logowania jednokrotnego i nie jest ogólną implementacją protokołu WS-Trust w usłudze Azure AD.
+4. Następnie aplikacja wysyła zapytanie do punktu końcowego WS-Trust MEX, aby sprawdzić, czy jest dostępny punkt końcowy uwierzytelniania zintegrowanego. Punkt końcowy uwierzytelniania zintegrowanego jest używany wyłącznie przez funkcję bezproblemowego logowania jednokrotnego.
 5. Jeśli krok 4 zakończy się pomyślnie, zostanie wystawione wyzwanie protokołu Kerberos.
 6. Jeśli aplikacja jest w stanie pobrać bilet Kerberos, przekazuje go do punktu końcowego zintegrowanego uwierzytelniania usługi Azure AD.
 7. Usługa Azure AD odszyfrowuje bilet protokołu Kerberos i weryfikuje go.

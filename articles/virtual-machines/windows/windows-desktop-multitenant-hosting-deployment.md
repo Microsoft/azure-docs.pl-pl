@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279029"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
@@ -28,10 +28,10 @@ W przypadku wdrożeń programu PowerShell, interfejsu wiersza polecenia i szablo
 
 | System operacyjny  |      PublisherName      |  Oferta | SKU |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | System Windows-10  | RS2 — Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS2  |
-| Windows 10 Pro    | MicrosoftWindowsDesktop | System Windows-10  | RS3 — Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS3  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | System Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | System Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | System Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Przekazywanie wirtualnego dysku twardego z systemem Windows 10 na platformę Azure
 Jeśli przekazujesz uogólniony wirtualny dysk twardy z systemem Windows 10, Uwaga dla systemu Windows 10 nie włączono domyślnie wbudowanego konta administratora. Aby włączyć wbudowane konto administratora, należy uwzględnić następujące polecenie jako część niestandardowego rozszerzenia skryptu.

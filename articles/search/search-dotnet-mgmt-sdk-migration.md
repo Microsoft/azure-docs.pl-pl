@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936711"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uaktualnianie wersji Azure Search .NET Management SDK
@@ -46,15 +46,15 @@ Wersja 3,0 dodaje prywatną ochronę punktu końcowego przez ograniczenie dostę
 
 ### <a name="new-apis"></a>Nowe interfejsy API
 
-| interfejs API | Kategoria| Szczegóły |
+| Interfejs API | Kategoria| Szczegóły |
 |-----|--------|------------------|
 | [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | Zapora IP | Ogranicz dostęp do punktu końcowego usługi do listy dozwolonych adresów IP. Zobacz [Konfigurowanie zapory IP](service-configure-firewall.md) dla koncepcji i instrukcje dotyczące portalu. |
-| [Zasób udostępnionego linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
-| [Połączenia prywatnego punktu końcowego](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
-| [Prywatne zasoby linku](/rest/api/searchmanagement/privatelinkresources/) | Private Link | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
-| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
+| [Zasób udostępnionego linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) | Link prywatny | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
+| [Połączenia prywatnego punktu końcowego](/rest/api/searchmanagement/privateendpointconnections) | Link prywatny | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
+| [Prywatne zasoby linku](/rest/api/searchmanagement/privatelinkresources/) | Link prywatny | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Link prywatny | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
 
-### <a name="breaking-changes"></a>Fundamentalne zmiany
+### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 Nie można już używać funkcji GET na [liście kluczy zapytań](/rest/api/searchmanagement/querykeys/listbysearchservice) . W poprzednich wersjach można było użyć opcji GET lub POST, w tej wersji i we wszystkich wersjach przenoszonych do przodu, obsługiwane są tylko pozycje POST. 
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak zbierać i analizować dane z maszyny hybrydowej 
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335419"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Samouczek: monitorowanie maszyny hybrydowej za pomocą Azure Monitor dla maszyn wirtualnych
@@ -40,15 +40,15 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W okienku po lewej stronie w sekcji **monitorowanie** wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Wybierz opcję szczegółowe dane z menu po lewej stronie" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
 1. Na stronie dołączania do usługi Azure Monitor **Insights** zostanie wyświetlony monit o utworzenie obszaru roboczego. W tym samouczku nie zalecamy wybierania istniejącego obszaru roboczego Log Analytics, jeśli już istnieje. Wybierz wartość domyślną, która jest obszarem roboczym z unikatową nazwą w tym samym regionie, w którym zarejestrowano maszynę dołączoną. Ten obszar roboczy został utworzony i skonfigurowany.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Włącz stronę Azure Monitor dla maszyn wirtualnych" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
 1. Komunikaty o stanie są odbierane podczas konfigurowania. Ten proces trwa kilka minut, ponieważ rozszerzenia są zainstalowane na podłączonej maszynie.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Włącz Azure Monitor dla maszyn wirtualnych komunikat o stanie postępu" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
     Po zakończeniu otrzymasz komunikat informujący, że maszyna została pomyślnie dołączona, a szczegółowe informacje zostały pomyślnie wdrożone.
 
@@ -56,11 +56,11 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 Po zakończeniu wdrażania i konfiguracji wybierz pozycję **szczegółowe informacje**, a następnie wybierz kartę **wydajność** . Na karcie wydajność zostanie wyświetlona wybrana grupa liczników wydajności zebranych z systemu operacyjnego gościa maszyny wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, a następnie przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentylość wykonywaną od momentu, kiedy rozszerzenie maszyny wirtualnej Log Analytics zostało zainstalowane na komputerze.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Azure Monitor dla maszyn wirtualnych wykresy wydajnościowe dla wybranej maszyny" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
 Wybierz pozycję **Mapuj** , aby otworzyć funkcję Maps, która pokazuje procesy działające na maszynie wirtualnej i ich zależności. Wybierz pozycję **Właściwości** , aby otworzyć okienko właściwości, jeśli nie jest jeszcze otwarte.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Mapa Azure Monitor dla maszyn wirtualnych dla wybranej maszyny" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Wyszukaj serwery z obsługą łuku we wszystkich usługach" border="false":::
 
 Rozwiń procesy dla maszyny wirtualnej. Wybierz jeden z procesów, aby wyświetlić jego szczegóły i wyróżnić jego zależności.
 

@@ -4,10 +4,10 @@ description: W tym artykule opisano koszt monitorowania metryk & dane spisu zbie
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84204654"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informacje o monitorowaniu kosztów Azure Monitor dla kontenerów
@@ -110,7 +110,7 @@ W przypadku włączenia monitorowania klastra AKS skonfigurowanego w następują
 
 Tabele i ilość danych wygenerowanych na godzinę można zobaczyć w przydzielonym obszarze roboczym Log Analytics. Aby uzyskać więcej informacji na temat każdej z tych tabel, zobacz [rekordy kontenerów](container-insights-log-search.md#container-records).
 
-|Tabela | Szacowany rozmiar (MB/godzina) |
+|tabela | Szacowany rozmiar (MB/godzina) |
 |------|---------------|
 |Wyd. | 12,9 |
 |InsightsMetrics | 11,3 |
@@ -118,7 +118,7 @@ Tabele i ilość danych wygenerowanych na godzinę można zobaczyć w przydzielo
 |KubeNodeInventory | 0,75 |
 |KubeServices | 0.13 |
 |ContainerInventory | 3,6 |
-|KubeHealth | 0.1 |
+|KubeHealth | 0,1 |
 |KubeMonAgentEvents |0,005 |
 
 Łącznie = 31 MB/godzina = 23,1 GB/miesiąc (jeden miesiąc = 31 dni)

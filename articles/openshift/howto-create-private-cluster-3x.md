@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: ARO, OpenShift, prywatny klaster, Red Hat
 ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727648"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Tworzenie prywatnego klastra przy użyciu usługi Azure Red Hat OpenShift 3,11
@@ -23,7 +23,7 @@ Klastry prywatne zapewniają następujące korzyści:
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Pola w poniższym fragmencie kodu konfiguracji są nowe i muszą być dołączone do konfiguracji klastra. `managementSubnetCidr`Program musi znajdować się w sieci wirtualnej klastra i jest używany przez platformę Azure do zarządzania klastrem.
+Pola w poniższym fragmencie kodu konfiguracji są nowe i muszą być dołączone do konfiguracji klastra. `managementSubnetCidr` Program musi znajdować się w sieci wirtualnej klastra i jest używany przez platformę Azure do zarządzania klastrem.
 
 ```json
 properties:

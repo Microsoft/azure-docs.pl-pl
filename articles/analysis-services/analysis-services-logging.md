@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83701494"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurowanie rejestrowania diagnostycznego
@@ -43,7 +43,7 @@ Wybieranie dzienników **aparatów** wszystkie [xEvents](https://docs.microsoft.
 |Polecenia     |  Początek polecenia       |
 |Polecenia     |  Koniec polecenia       |
 |Błędy & ostrzeżeń     |   Błąd      |
-|Odnajdź     |   Odnajdź zakończenie      |
+|Odnajdywanie     |   Odnajdź zakończenie      |
 |Powiadomienie     |    Powiadomienie     |
 |Sesja     |  Inicjowanie sesji       |
 |Blokady    |  Stanu       |
@@ -88,7 +88,7 @@ Kategoria metryki rejestruje te same [metryki serwera](analysis-services-monitor
     * **Usługa**. Wybierz tę opcję, aby rejestrować zdarzenia poziomu usługi. W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
     * **Metryki**. Wybierz tę opcję, aby przechowywać pełne dane w [metrykach](analysis-services-monitor.md#server-metrics). W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
 
-3. Kliknij pozycję **Zapisz**.
+3. Kliknij przycisk **Zapisz**.
 
     Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla programu \<workspace name> . Subskrypcja \<subscription id> nie jest zarejestrowana w celu korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
 
@@ -154,7 +154,7 @@ Dzienniki są zwykle dostępne w ciągu kilku godzin od skonfigurowania rejestro
 
 Metryki i zdarzenia serwera są zintegrowane z xEvents w ramach zasobu obszaru roboczego Log Analytics w celu przeprowadzenia analizy równoległej. Obszar roboczy Log Analytics może być również skonfigurowany do odbierania zdarzeń z innych usług platformy Azure, co zapewnia całościowy wgląd w dane rejestrowania diagnostycznego w ramach architektury.
 
-Aby wyświetlić dane diagnostyczne, w obszarze roboczym Log Analytics Otwórz pozycję **dzienniki** w menu po lewej stronie.
+Aby wyświetlić dane diagnostyczne, w obszarze roboczym Log Analytics Otwórz pozycję **dzienniki**  w menu po lewej stronie.
 
 ![Opcje przeszukiwania dzienników w Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -213,7 +213,7 @@ Istnieją setki zapytań, z których można skorzystać. Aby dowiedzieć się wi
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Włączanie rejestrowania przy użyciu programu PowerShell
 
-W tym szybkim samouczku utworzysz konto magazynu w tej samej subskrypcji i grupie zasobów co serwer usługi Analysis Service. Następnie należy użyć polecenia Set-AzDiagnosticSetting, aby włączyć rejestrowanie diagnostyczne, wysyłając dane wyjściowe do nowego konta magazynu.
+W tym szybkim samouczku utworzysz konto magazynu w tej samej subskrypcji i grupie zasobów co serwer usługi Analysis Service. Następnie użyj Set-AzDiagnosticSetting, aby włączyć rejestrowanie diagnostyczne, wysyłając dane wyjściowe do nowego konta magazynu.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć ten samouczek, musisz dysponować następującymi zasobami:

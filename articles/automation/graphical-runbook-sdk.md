@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83835040"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Korzystanie z Azure Automation graficznego zestawu Runbook SDK (wersja zapoznawcza)

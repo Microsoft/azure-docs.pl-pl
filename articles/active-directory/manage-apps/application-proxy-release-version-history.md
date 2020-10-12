@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210857"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji
@@ -83,7 +83,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 - Dodano obsługę protokołu WebSocket dla aplikacji QlikSense. Aby dowiedzieć się więcej o tym, jak zintegrować QlikSense z serwerem proxy aplikacji, zobacz ten [Przewodnik](application-proxy-qlik.md). 
 - Ulepszono Kreatora instalacji, aby ułatwić konfigurowanie wychodzącego serwera proxy. 
 - Dla łączników należy ustawić protokół TLS 1,2. 
-- Dodano nową umowę licencyjną użytkownika oprogramowania (EULA).  
+- Dodano nową umowę licencyjną End-User (EULA).  
 
 ### <a name="fixed-issues"></a>Naprawione problemy
 

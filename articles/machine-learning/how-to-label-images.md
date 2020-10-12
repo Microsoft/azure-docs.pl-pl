@@ -9,10 +9,10 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897570"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
@@ -127,7 +127,7 @@ Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie
 
 Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 
-## <a name="finish-up"></a>Zakończenie
+## <a name="finish-up"></a>Kończenie
 
 Gdy przesyłasz stronę oznakowanych danych, platforma Azure przypisze Ci nowe dane bez etykiet do użytkownika z kolejki służbowej. Jeśli nie ma więcej dostępnych danych bez etykiet, zostanie wyświetlony komunikat z linkiem do strony głównej portalu.
 

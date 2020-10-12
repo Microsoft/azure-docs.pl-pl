@@ -7,10 +7,10 @@ keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185725"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
@@ -22,7 +22,7 @@ ms.locfileid: "86185725"
 
 Azure Automation Change Tracking i spis udostępnia interfejs użytkownika oparty na przeglądarce służący do konfigurowania i konfigurowania kolekcji spisu.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -65,7 +65,7 @@ Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości
 |---------|---------|
 |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
 |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
+|Group (Grupa)     | Nazwa grupy do logicznego grupowania plików        |
 |Klucz rejestru systemu Windows   | Ścieżka do sprawdzania pliku, na przykład: „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="windows-files"></a>Pliki systemu Windows
@@ -74,7 +74,7 @@ Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości
 |---------|---------|
 |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
 |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików.       |
+|Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.       |
 |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **c:\temp\myfile.txt**.
 
 ### <a name="linux-files"></a>Pliki systemu Linux
@@ -83,7 +83,7 @@ Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości
 |---------|---------|
 |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
 |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików.        |
+|Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
 |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **/etc/*. conf**.       |
 |Typ ścieżki     | Typ elementu, który ma być śledzony. Wartości to plik i katalog.        |
 |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |

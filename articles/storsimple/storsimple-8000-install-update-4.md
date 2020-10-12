@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514312"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Zainstaluj aktualizację Update 4 na urządzeniu StorSimple
@@ -76,10 +76,10 @@ Należy pobrać i zainstalować następujące poprawki we wskazanej kolejności 
 
 | Zamówienie | KB | Opis | Typ aktualizacji | Godzina instalacji |Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Aktualizacja oprogramowania |Zwykłe <br></br>Bez zakłóceń |~ 25 minut |FirstOrderUpdate|
-| 2a. |KB4011841 <br> KB4011842 |Aktualizacje sterowników i oprogramowania układowego LSI <br> Aktualizacja oprogramowania układowego USM (wersja 3,38) |Zwykłe <br></br>Bez zakłóceń |~ 3 godz. <br> (obejmuje 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2b. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pakiet aktualizacji zabezpieczeń systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Zwykłe <br></br>Bez zakłóceń |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Zwykłe <br></br>Bez zakłóceń |- |SecondOrderUpdate|
+| 1. |KB4011839 |Aktualizacja oprogramowania |Zwykły <br></br>Bez zakłóceń |~ 25 minut |FirstOrderUpdate|
+| 2a. |KB4011841 <br> KB4011842 |Aktualizacje sterowników i oprogramowania układowego LSI <br> Aktualizacja oprogramowania układowego USM (wersja 3,38) |Zwykły <br></br>Bez zakłóceń |~ 3 godz. <br> (obejmuje 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2b. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pakiet aktualizacji zabezpieczeń systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Zwykły <br></br>Bez zakłóceń |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Zwykły <br></br>Bez zakłóceń |- |SecondOrderUpdate|
 
 Może być również konieczne zainstalowanie aktualizacji oprogramowania układowego dysku na wszystkich aktualizacjach przedstawionych w poprzednich tabelach. Aby sprawdzić, czy są wymagane aktualizacje oprogramowania układowego dysku, należy uruchomić `Get-HcsFirmwareVersion` polecenie cmdlet. Jeśli są używane te wersje oprogramowania układowego:,,,,,,, `XMGJ` `XGEG` `KZ50` `F6C2` `VR08` `N002` `0106` nie trzeba instalować tych aktualizacji.
 

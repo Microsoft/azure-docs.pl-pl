@@ -7,10 +7,10 @@ ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
 ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335538"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
@@ -141,7 +141,7 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 | 1,19  | Sie-04-20  | Wrz 2020   | Lis 2020  | 1,22 GA | 
 | 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA | 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Jak często należy oczekiwać, aby uaktualnienie wersji Kubernetes było pozostawać w pomocy technicznej?**
 

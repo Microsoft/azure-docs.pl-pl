@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88211301"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
@@ -34,7 +34,7 @@ W tej sekcji omówiono następujące często zadawane pytania:
 Istnieje kilka sposobów rozpoczynania pracy z usługą Azure cache for Redis.
 
 * Możesz zapoznać się z jednym z naszych samouczków dostępnych dla [platformy .NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), Java, [Node.js](cache-nodejs-get-started.md)i [języka](cache-java-get-started.md) [Python](cache-python-get-started.md).
-* Możesz obejrzeć, [jak tworzyć aplikacje o wysokiej wydajności za pomocą pamięci Podręcznej Microsoft Azure Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+* Możesz obejrzeć, [jak tworzyć High-Performance aplikacje przy użyciu pamięci Podręcznej Microsoft Azure dla Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 * Aby zobaczyć, jak korzystać z usługi Redis, można sprawdzić dokumentację klienta dla klientów zgodnych z językiem programowania projektu. Istnieje wielu klientów Redis, których można używać z usługą Azure cache dla Redis. Listę klientów Redis można znaleźć w temacie [https://redis.io/clients](https://redis.io/clients) .
 
 Jeśli nie masz jeszcze konta platformy Azure, możesz:
@@ -45,7 +45,7 @@ Jeśli nie masz jeszcze konta platformy Azure, możesz:
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Do czego służy opcja konfiguracji StackExchange. Redis?
 StackExchange. Redis ma wiele opcji. W tej sekcji przedstawiono niektóre typowe ustawienia. Aby uzyskać szczegółowe informacje na temat opcji StackExchange. Redis, zobacz [stackexchange. Redis Configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | Opis | Rekomendacja |
+| ConfigurationOptions | Opis | Zalecenie |
 | --- | --- | --- |
 | AbortOnConnectFail |Po ustawieniu na wartość true połączenie nie zostanie ponownie nawiązane po awarii sieci. |Ustaw wartość false i zezwól na automatyczne łączenie StackExchange. Redis. |
 | ConnectRetry |Liczba powtórzeń prób połączenia podczas początkowego połączenia. |Aby uzyskać wskazówki, zobacz następujące uwagi. |

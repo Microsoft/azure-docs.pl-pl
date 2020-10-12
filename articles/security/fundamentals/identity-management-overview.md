@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400319"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
@@ -41,7 +41,7 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 * Logowanie jednokrotne
 * Zwrotny serwer proxy
 * Multi-Factor Authentication
-* Kontrola dostępu oparta na rolach (Azure RBAC)
+* Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 * Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 * Zarządzanie tożsamościami i dostępem klientów
 * Rejestracja urządzenia
