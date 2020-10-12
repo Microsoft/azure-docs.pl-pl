@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239544"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Jak długo dane są raportowane przez usługę Azure AD Store?
@@ -33,7 +33,7 @@ Ten artykuł zawiera informacje dotyczące zasad przechowywania danych dla róż
 
 | Wersja usługi Azure AD | Początek kolekcji |
 | :--              | :--   |
-| Usługa Azure AD — warstwa Premium P1 <br /> Usługa Azure AD — warstwa Premium P2 | Gdy zarejestrujesz się w celu uzyskania subskrypcji |
+| Usługa Azure AD — wersja Premium P1 <br /> Usługa Azure AD — wersja Premium P2 | Gdy zarejestrujesz się w celu uzyskania subskrypcji |
 | Usługa Azure AD — warstwa Bezpłatna| Przy pierwszym otwarciu [bloku Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) lub użyciu [interfejsów API raportowania](https://aka.ms/aadreports)  |
 
 ---
@@ -67,7 +67,7 @@ W przypadku sygnałów zabezpieczeń proces zbierania jest uruchamiany, gdy uży
 
 **Raporty dotyczące działań**    
 
-| Raport                 | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
+| Raport                 | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — wersja Premium P1 | Usługa Azure AD — wersja Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Dzienniki inspekcji             | 7 dni        | 30 dni             | 30 dni             |
 | Logowania               | 7 dni        | 30 dni             | 30 dni             |
@@ -77,7 +77,7 @@ Dane dotyczące inspekcji i logowania można zachować dłużej niż domyślny o
 
 **Sygnały zabezpieczeń**
 
-| Raport         | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
+| Raport         | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — wersja Premium P1 | Usługa Azure AD — wersja Premium P2 |
 | :--            | :--           | :--                 | :--                 |
 | Narażeni użytkownicy  | 7 dni        | 30 dni             | 90 dni             |
 | Ryzykowne logowania | 7 dni        | 30 dni             | 90 dni             |

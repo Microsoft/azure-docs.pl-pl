@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
 ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017119"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
@@ -96,7 +96,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Kontener działa jako system plików dla plików. Można go utworzyć, wywołując metodę **FileSystemDataLakeServiceClient. create_file_system** .
+Kontener działa jako system plików dla plików. Można utworzyć jeden, wywołując metodę **FileSystemDataLakeServiceClient.create_file_system** .
 
 Ten przykład tworzy kontener o nazwie `my-file-system` .
 
@@ -114,7 +114,7 @@ def create_file_system():
 
 ## <a name="create-a-directory"></a>Tworzenie katalogu
 
-Utwórz odwołanie do katalogu, wywołując metodę **FileSystemClient. create_directory** .
+Utwórz odwołanie do katalogu, wywołując metodę **FileSystemClient.create_directory** .
 
 Ten przykład dodaje katalog o nazwie `my-directory` do kontenera. 
 
@@ -129,7 +129,7 @@ def create_directory():
 
 ## <a name="rename-or-move-a-directory"></a>Zmienianie nazwy lub przenoszenie katalogu
 
-Zmień nazwę lub Przenieś katalog, wywołując metodę **DataLakeDirectoryClient. rename_directory** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
+Zmień nazwę lub Przenieś katalog, wywołując metodę **DataLakeDirectoryClient.rename_directory** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
 
 Ten przykład zmienia nazwę podkatalogu na nazwę `my-subdirectory-renamed` .
 
@@ -149,7 +149,7 @@ def rename_directory():
 
 ## <a name="delete-a-directory"></a>Usuwanie katalogu
 
-Usuń katalog, wywołując metodę **DataLakeDirectoryClient. delete_directory** .
+Usuń katalog, wywołując metodę **DataLakeDirectoryClient.delete_directory** .
 
 Ten przykład usuwa katalog o nazwie `my-directory` .  
 
@@ -166,7 +166,7 @@ def delete_directory():
 
 ## <a name="manage-directory-permissions"></a>Zarządzanie uprawnieniami katalogu
 
-Pobierz listę kontroli dostępu (ACL) katalogu, wywołując metodę **DataLakeDirectoryClient. get_access_control** i ustawiając listę ACL, wywołując metodę **DataLakeDirectoryClient. set_access_control** .
+Pobierz listę kontroli dostępu (ACL) katalogu, wywołując metodę **DataLakeDirectoryClient.get_access_control** i ustawiając listę ACL, wywołując metodę **DataLakeDirectoryClient.set_access_control** .
 
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz  [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -196,11 +196,11 @@ def manage_directory_permissions():
      print(e) 
 ```
 
-Możesz również uzyskać i ustawić listę kontroli dostępu dla katalogu głównego kontenera. Aby uzyskać katalog główny, wywołaj metodę **FileSystemClient. _get_root_directory_client** .
+Możesz również uzyskać i ustawić listę kontroli dostępu dla katalogu głównego kontenera. Aby uzyskać katalog główny, wywołaj metodę **FileSystemClient._get_root_directory_client** .
 
 ## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu 
 
-Najpierw Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy **DataLakeFileClient** . Przekaż plik, wywołując metodę **DataLakeFileClient. append_data** . Upewnij się, że ukończono przekazywanie, wywołując metodę **DataLakeFileClient. flush_data** .
+Najpierw Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy **DataLakeFileClient** . Przekaż plik, wywołując metodę **DataLakeFileClient.append_data** . Upewnij się, że ukończono przekazywanie, wywołując metodę **DataLakeFileClient.flush_data** .
 
 Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory` .   
 
@@ -226,11 +226,11 @@ def upload_file_to_directory():
 ```
 
 > [!TIP]
-> Jeśli rozmiar pliku jest duży, kod będzie musiał wykonać wiele wywołań metody **DataLakeFileClient. append_data** . Zamiast tego Rozważ użycie metody **DataLakeFileClient. upload_data** . Dzięki temu można przekazać cały plik w jednym wywołaniu. 
+> Jeśli rozmiar pliku jest duży, kod będzie musiał wykonać wiele wywołań metody **DataLakeFileClient.append_data** . Zamiast tego Rozważ użycie metody **DataLakeFileClient.upload_data** . Dzięki temu można przekazać cały plik w jednym wywołaniu. 
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Przekaż duży plik do katalogu
 
-Użyj metody **DataLakeFileClient. upload_data** , aby przekazać duże pliki bez konieczności wykonywania wielu wywołań do metody **DataLakeFileClient. append_data** .
+Użyj metody **DataLakeFileClient.upload_data** , aby przekazać duże pliki bez konieczności wykonywania wielu wywołań do metody **DataLakeFileClient.append_data** .
 
 ```python
 def upload_file_to_directory_bulk():
@@ -254,7 +254,7 @@ def upload_file_to_directory_bulk():
 
 ## <a name="manage-file-permissions"></a>Zarządzanie uprawnieniami plików
 
-Pobierz listę kontroli dostępu (ACL) pliku, wywołując metodę **DataLakeFileClient. get_access_control** i ustawiając listę ACL, wywołując metodę **DataLakeFileClient. set_access_control** .
+Pobierz listę kontroli dostępu (ACL) pliku, wywołując metodę **DataLakeFileClient.get_access_control** i ustawiając listę ACL, wywołując metodę **DataLakeFileClient.set_access_control** .
 
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz  [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -288,7 +288,7 @@ def manage_file_permissions():
 
 ## <a name="download-from-a-directory"></a>Pobierz z katalogu 
 
-Otwórz plik lokalny do zapisu. Następnie Utwórz wystąpienie **DataLakeFileClient** , które reprezentuje plik, który chcesz pobrać. Wywołaj **DataLakeFileClient. read_file** , aby odczytać bajty z pliku, a następnie Zapisz te bajty w pliku lokalnym. 
+Otwórz plik lokalny do zapisu. Następnie Utwórz wystąpienie **DataLakeFileClient** , które reprezentuje plik, który chcesz pobrać. Wywołaj **DataLakeFileClient.read_file** , aby odczytać bajty z pliku, a następnie zapisać te bajty do pliku lokalnego. 
 
 ```python
 def download_file_from_directory():
@@ -314,7 +314,7 @@ def download_file_from_directory():
 ```
 ## <a name="list-directory-contents"></a>Wyświetlanie zawartości katalogu
 
-Wyświetlanie zawartości katalogu przez wywołanie metody **FileSystemClient. get_paths** , a następnie Wyliczenie przez wyniki.
+Wyświetlanie zawartości katalogu przez wywołanie metody **FileSystemClient.get_paths** , a następnie Wyliczenie przez wyniki.
 
 W tym przykładzie program drukuje ścieżkę każdego podkatalogu i pliku, który znajduje się w katalogu o nazwie `my-directory` .
 
@@ -337,7 +337,7 @@ def list_directory_contents():
 
 Można dodawać, aktualizować i usuwać listy ACL cyklicznie na istniejących elementach podrzędnych katalogu nadrzędnego bez konieczności wprowadzania tych zmian indywidualnie dla każdego elementu podrzędnego. Więcej informacji można znaleźć w sekcji [Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja referencyjna interfejsu API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
 * [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-file-datalake/)

@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330792"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pule elastyczne ułatwiają zarządzanie wieloma bazami danych w Azure SQL Database i skalowanie ich.
@@ -176,7 +176,7 @@ Po zakończeniu konfigurowania puli można kliknąć pozycję "Zastosuj", nazwę
 
 W Azure Portal można monitorować wykorzystanie puli elastycznej i baz danych w tej puli. Możesz również wprowadzić zestaw zmian w puli elastycznej i przesłać wszystkie zmiany w tym samym czasie. Te zmiany obejmują dodawanie lub usuwanie baz danych, zmienianie ustawień puli elastycznej lub zmienianie ustawień bazy danych.
 
-Aby rozpocząć monitorowanie puli elastycznej, Znajdź i Otwórz pulę elastyczną w portalu. Zobaczysz ekran, który zawiera przegląd stanu puli elastycznej. Obejmuje on:
+Aby rozpocząć monitorowanie puli elastycznej, Znajdź i Otwórz pulę elastyczną w portalu. Zobaczysz ekran, który zawiera przegląd stanu puli elastycznej. Możliwości obejmują:
 
 - Wykresy monitorowania przedstawiające użycie zasobów puli elastycznej
 - Ostatnie alerty i zalecenia, jeśli są dostępne dla puli elastycznej

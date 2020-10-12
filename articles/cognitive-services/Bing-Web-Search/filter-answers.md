@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84696715"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrowanie odpowiedzi uwzględnionych w odpowiedzi wyszukiwania  
@@ -115,9 +115,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 Aby ograniczyć wyniki odpowiedzi sieci Web do stron internetowych, które zostały odnalezione przez usługę Bing w określonym przedziale czasu, ustaw parametr zapytania [Aktualności](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) na jedną z następujących wartości bez uwzględniania wielkości liter:
 
-* `Day`— Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 24 godzin
-* `Week`— Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 7 dni
-* `Month`— Zwraca strony sieci Web, które zostały odnalezione w ciągu ostatnich 30 dni
+* `Day` — Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 24 godzin
+* `Week` — Zwraca strony sieci Web odnalezione przez usługę Bing w ciągu ostatnich 7 dni
+* `Month` — Zwraca strony sieci Web, które zostały odnalezione w ciągu ostatnich 30 dni
 
 Możesz również ustawić ten parametr na niestandardowy zakres dat w formularzu `YYYY-MM-DD..YYYY-MM-DD` . 
 

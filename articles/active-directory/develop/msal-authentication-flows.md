@@ -13,10 +13,10 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437874"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
@@ -136,7 +136,7 @@ Przepływ [niejawnego uwierzytelniania OAuth 2](v2-oauth2-implicit-grant-flow.md
 
 Wiele nowoczesnych aplikacji sieci Web jest zbudowanych jako po stronie klienta, jednostronicowych aplikacji (SPA), które są zapisywane w języku JavaScript lub w strukturze SPA, takiej jak kątowy, Vue.js i React.js. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera. Platforma tożsamości firmy Microsoft umożliwia aplikacjom jednostronicowym Logowanie użytkowników i uzyskiwanie tokenów umożliwiających dostęp do usług zaplecza lub interfejsów API sieci Web przy użyciu niejawnego przepływu dotacji. Niejawny przepływ umożliwia aplikacji uzyskanie tokenów identyfikatora reprezentujących uwierzytelnionego użytkownika, a także dostęp do tokenów wymaganych do wywołania chronionych interfejsów API.
 
-Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorzystują Międzyplatformowe platformy JavaScript, takie jak elektron lub reagowanie na nie, ponieważ wymagają dalszych możliwości interakcji z natywnymi platformami.
+Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorzystują Międzyplatformowe platformy JavaScript, takie jak elektron lub React-Native, ponieważ wymagają one dalszych możliwości interakcji z natywnymi platformami.
 
 Tokeny wystawione za pośrednictwem trybu niejawnego przepływu mają **ograniczenie długości** , ponieważ są zwracane do przeglądarki za pomocą adresu URL (gdzie `response_mode` is `query` lub `fragment` ). Niektóre przeglądarki ograniczają długość adresu URL na pasku przeglądarki i kończą się niepowodzeniem, gdy jest zbyt długi. W ten sposób niejawne tokeny przepływu nie zawierają `groups` ani `wids` oświadczeń.
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042145"
 ---
 # <a name="configure-runbook-input-parameters"></a>Konfigurowanie parametrów wejściowych elementu runbook
@@ -26,8 +26,8 @@ Elementy Runbook programu PowerShell i programu PowerShell w programie Azure Aut
 
 | **Właściwość** | **Opis** |
 |:--- |:--- |
-| Typ |Wymagany. Oczekiwano typu danych dla wartości parametru. Dowolny typ .NET jest prawidłowy. |
-| Nazwa |Wymagany. Nazwa parametru. Ta nazwa musi być unikatowa w elemencie Runbook, musi zaczynać się od litery i może zawierać tylko litery, cyfry lub znaki podkreślenia. |
+| Type |Wymagane. Oczekiwano typu danych dla wartości parametru. Dowolny typ .NET jest prawidłowy. |
+| Nazwa |Wymagane. Nazwa parametru. Ta nazwa musi być unikatowa w elemencie Runbook, musi zaczynać się od litery i może zawierać tylko litery, cyfry lub znaki podkreślenia. |
 | Obowiązkowy |Opcjonalny. Wartość logiczna określająca, czy parametr wymaga wartości. W przypadku wybrania tej opcji na wartość true należy podać wartość, gdy element Runbook zostanie uruchomiony. W przypadku ustawienia tej opcji na wartość false wartość jest opcjonalna. Jeśli nie określisz wartości dla `Mandatory` właściwości, program PowerShell traktuje parametr wejściowy opcjonalny domyślnie. |
 | Wartość domyślna |Opcjonalny. Wartość, która jest używana dla parametru, jeśli podczas uruchamiania elementu Runbook nie zostanie przeniesiona żadna wartość wejściowa. Element Runbook może ustawić wartość domyślną dla każdego parametru. |
 
@@ -201,7 +201,7 @@ W etykiecie poniżej pola wejściowego można zobaczyć właściwości, które z
     }
    ```
 
-   Aby rozpocząć tę metodę, Utwórz słownik do przechowywania parametrów elementu Runbook `VMName` i `resourceGroupName` ich wartości. Następnie Uruchom element Runbook. Poniżej znajduje się fragment kodu w języku C# służący do wywoływania metody, która została zdefiniowana powyżej.
+   Aby rozpocząć tę metodę, Utwórz słownik do przechowywania parametrów elementu Runbook `VMName` i  `resourceGroupName` ich wartości. Następnie Uruchom element Runbook. Poniżej znajduje się fragment kodu w języku C# służący do wywoływania metody, która została zdefiniowana powyżej.
 
    ```csharp
    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
@@ -216,7 +216,7 @@ W etykiecie poniżej pola wejściowego można zobaczyć właściwości, które z
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Uruchamianie elementu Runbook przy użyciu interfejsu API REST i przypisywanie parametrów
 
-Można utworzyć i uruchomić zadanie elementu Runbook za pomocą interfejsu API REST Azure Automation przy użyciu `PUT` metody z następującym identyfikatorem URI żądania:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+Można utworzyć i uruchomić zadanie elementu Runbook za pomocą interfejsu API REST Azure Automation przy użyciu `PUT` metody z następującym identyfikatorem URI żądania: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 W identyfikatorze URI żądania Zastąp następujące parametry:
 
@@ -324,7 +324,7 @@ Teraz można wywołać element Runbook z komputera lokalnego przy użyciu Azure 
     >[!NOTE]
     >Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać tylko z `Connect-AzAccount` siebie.
 
-1. Pobierz zawartość zapisanego pliku JSON i przekonwertuj go na ciąg. `JsonPath`wskazuje ścieżkę, w której zapisano plik JSON.
+1. Pobierz zawartość zapisanego pliku JSON i przekonwertuj go na ciąg. `JsonPath` wskazuje ścieżkę, w której zapisano plik JSON.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85830353"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Używanie identyfikatorów URI przekierowania z biblioteką uwierzytelniania firmy Microsoft dla systemów iOS i macOS
@@ -41,7 +41,7 @@ Identyfikatory URI przekierowania muszą być różne dla każdej aplikacji syst
 Uwzględniając następujące zarejestrowane aplikacje w Azure Portal:
 
 * Identyfikator klienta: `ABCDE-12345` (jest to pojedynczy identyfikator klienta)
-* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` , `msauth.com.contoso.app3://auth`
 
 APP1 używa przekierowania `msauth.com.contoso.app1://auth` . \
 App2 używa `msauth.com.contoso.app2://auth` . \
@@ -53,13 +53,13 @@ Podczas migrowania kodu, który używał biblioteki Azure AD Authentication Libr
 
 ## <a name="msal-redirect-uri-format-requirements"></a>Wymagania formatu identyfikatora URI przekierowania MSAL
 
-* Identyfikator URI przekierowania MSAL musi mieć postać`<scheme>://host`
+* Identyfikator URI przekierowania MSAL musi mieć postać `<scheme>://host`
 
     Gdzie `<scheme>` jest unikatowym ciągiem identyfikującym aplikację. Jest on głównie oparty na identyfikatorze pakietu aplikacji w celu zagwarantowania unikalności. Jeśli na przykład identyfikator pakietu aplikacji to `com.contoso.myapp` , identyfikator URI przekierowania będzie miał postać: `msauth.com.contoso.myapp://auth` .
 
     Jeśli przeprowadzasz migrację z biblioteki ADAL, identyfikator URI przekierowania prawdopodobnie będzie miał następujący format: `<scheme>://[Your_Bundle_Id]` , gdzie `scheme` jest unikatowym ciągiem. Ten format będzie nadal działał w przypadku korzystania z MSAL.
 
-* `<scheme>`musi być zarejestrowany w info. plist `CFBundleURLTypes > CFBundleURLSchemes` aplikacji.  W tym przykładzie został otwarty program info. plist jako kod źródłowy:
+* `<scheme>` musi być zarejestrowany w info. plist `CFBundleURLTypes > CFBundleURLSchemes` aplikacji.  W tym przykładzie został otwarty program info. plist jako kod źródłowy:
 
     ```xml
     <key>CFBundleURLTypes</key>

@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073085"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Dokumentacja konfiguracji usługi Azure łańcucha bloków Workbench
@@ -39,7 +39,7 @@ Aplikacja łańcucha bloków zawiera metadane konfiguracji, przepływy pracy i r
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana aplikacji. | Tak |
 | Opis | Opis aplikacji. | Nie |
 | ApplicationRoles | Kolekcja [ApplicationRoles](#application-roles). Role użytkowników, którzy mogą działać lub uczestniczyć w aplikacji.  | Tak |
-| Przepływy | Kolekcja [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
+| Przepływy | Kolekcja  [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
 
 Aby zapoznać się z przykładem, zobacz [przykład pliku konfiguracji](#configuration-file-example).
 
@@ -61,11 +61,11 @@ Logika biznesowa aplikacji może być modelowana jako maszyna stanu, w której p
 
 Aby zapoznać się z przykładem, zobacz [przykład pliku konfiguracji](#configuration-file-example).
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 
 Obsługiwane typy danych.
 
-| Typ | Opis |
+| Type | Opis |
 |-------|-------------|
 | adres  | Typ adresu łańcucha bloków, taki jak *kontrakty* lub *Użytkownicy*. |
 | array    | Tablica jednopoziomowa typu Integer, bool, Money lub Time. Tablice mogą być statyczne lub dynamiczne. Użyj **elementu ElementType** , aby określić typ danych elementów w tablicy. Zobacz [Przykładowa konfiguracja](#example-configuration-of-type-array). |
@@ -74,7 +74,7 @@ Obsługiwane typy danych.
 | enum     | Wyliczany zestaw nazwanych wartości. W przypadku korzystania z typu enum należy również określić listę EnumValues. Każda wartość jest ograniczona do 255 znaków. Prawidłowe znaki wartości to wielkie i małe litery (A-Z, a-z) i cyfry (0-9). Zobacz [przykład konfiguracji i użycia w postaci stałej](#example-configuration-of-type-enum). |
 | int      | Integer — typ danych. |
 | pieniędzy    | Typ danych walutowych. |
-| state    | Stan przepływu pracy. |
+| stan    | Stan przepływu pracy. |
 | ciąg  | Są to dane typu ciąg. maksymalnie 4000 znaków. Zobacz [Przykładowa konfiguracja](#example-configuration-of-type-string). |
 | użytkownik     | Adres typu użytkownika. |
 | time     | Typ danych czasu. |
@@ -391,7 +391,7 @@ Identyfikatory reprezentują kolekcję informacji używanych do opisywania wła�
 | Nazwa | Unikatowa nazwa właściwości lub parametru. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej właściwości lub parametru. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana właściwości lub parametru. | Tak | 255 |
 | Opis | Opis właściwości lub parametru. | Nie | 255 |
-| Typ | [Typ danych](#type)właściwości. | Tak |
+| Type | [Typ danych](#type)właściwości. | Tak |
 
 ### <a name="identifiers-example"></a>Przykład identyfikatorów
 

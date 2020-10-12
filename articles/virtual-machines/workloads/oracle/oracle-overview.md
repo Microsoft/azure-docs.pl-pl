@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
 ms.openlocfilehash: 8f20ad13953e3767e7693733d8c68f3d0aa2057c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274481"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Omówienie aplikacji i rozwiązań firmy Oracle na platformie Azure
@@ -91,7 +91,7 @@ Użyj Oracle Database Cloud Services (autonomiczna baza danych, RAC, Exadata, DB
 
 ## <a name="licensing"></a>Licencjonowanie
 
-Wdrażanie aplikacji Oracle na platformie Azure jest oparte na modelu "Przenieś własną licencję". Przyjęto założenie, że masz licencję na korzystanie z oprogramowania Oracle i że masz aktualną umowę pomocy technicznej z firmą Oracle. Firma Oracle gwarantuje mobilność licencji ze środowiska lokalnego na platformę Azure. Zobacz [często zadawane pytania dotyczące](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)programu Oracle-Azure.
+Wdrażanie aplikacji Oracle na platformie Azure jest oparte na modelu "Przenieś własną licencję". Przyjęto założenie, że masz licencję na korzystanie z oprogramowania Oracle i że masz aktualną umowę pomocy technicznej z firmą Oracle. Firma Oracle gwarantuje mobilność licencji ze środowiska lokalnego na platformę Azure. Zapoznaj się z Oracle-Azure [często zadawanych pytań](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

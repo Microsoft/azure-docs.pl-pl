@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529589"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z SAP HANA przy użyciu Azure Data Factory
@@ -150,7 +150,7 @@ Aby skopiować dane z SAP HANA, obsługiwane są następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapHanaTable** | Tak |
 | schema | Nazwa schematu w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
-| table | Nazwa tabeli w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| tabela | Nazwa tabeli w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład:**
 
@@ -189,7 +189,7 @@ Aby skopiować dane z SAP HANA, w sekcji **Źródło** działania kopiowania są
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapHanaSource** | Tak |
 | query | Określa zapytanie SQL do odczytu danych z wystąpienia SAP HANA. | Tak |
-| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none**   (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable`mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Fałsz |
+| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji  [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none**   (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji  [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable` mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Fałsz |
 | partitionSettings | Określ grupę ustawień partycjonowania danych.<br>Zastosuj, gdy opcja partycji jest `SapHanaDynamicRange` . | Fałsz |
 | partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to  `SapHanaDynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfHanaDynamicRangePartitionCondition` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z SAP HANA](#parallel-copy-from-sap-hana) . | Tak, gdy jest używana `SapHanaDynamicRange` partycja. |
 | packetSize | Określa rozmiar pakietu sieciowego (w kilobajtach), aby podzielić dane na wiele bloków. Jeśli masz dużą ilość danych do skopiowania, zwiększenie rozmiaru pakietu może zwiększyć szybkość odczytywania SAP HANA w większości przypadków. Podczas dopasowywania rozmiaru pakietu zaleca się testowanie wydajności. | Nie.<br>Wartość domyślna to 2048 (2 MB). |
@@ -279,21 +279,21 @@ Podczas kopiowania danych z SAP HANA następujące mapowania są używane z SAP 
 | LOGICZNA               | Byte                           |
 | OBIEKTÓW CLOB               | Ciąg                         |
 | DATE               | DateTime                       |
-| DOKŁADNOŚCI            | Wartość dziesiętna                        |
+| DOKŁADNOŚCI            | Liczba dziesiętna                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | LICZBA CAŁKOWITA            | Int32                          |
 | NCLOB              | Ciąg                         |
 | NVARCHAR           | Ciąg                         |
-| LICZBA RZECZYWISTA               | Pojedyncze                         |
+| LICZBA RZECZYWISTA               | Pojedynczy                         |
 | SECONDDATE         | DateTime                       |
 | SHORTTEXT          | Ciąg                         |
-| SMALLDECIMAL       | Wartość dziesiętna                        |
+| SMALLDECIMAL       | Liczba dziesiętna                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte []                         |
 | STPOINTTYPE        | Byte []                         |
 | TEKST               | Ciąg                         |
-| CZAS               | przedział_czasu                       |
+| TIME               | przedział_czasu                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | Ciąg                         |
 | ZNACZNIK czasu          | DateTime                       |

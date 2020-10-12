@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062057"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
@@ -21,7 +21,7 @@ W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki
 > [!TIP]
 > "Usługa Azure Digital bliźniaczych reprezentacji" odnosi się do tej usługi platformy Azure jako całości. "Pojedyncze sznury cyfrowe" lub "same sznury" odnoszą się do pojedynczych węzłów bliźniaczych wewnątrz Twojego wystąpienia usługi.
 
-## <a name="digital-twins"></a>Digital bliźniaczych reprezentacji
+## <a name="digital-twins"></a>Digital Twins
 
 Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [*pojęcia: modele niestandardowe*](concepts-models.md).
 
@@ -116,11 +116,11 @@ Gdy jest reprezentowany jako obiekt JSON, dwuosiowy symbol cyfrowy będzie wyśw
 | `$metadata.{propertyName}.desiredValue` | [Tylko do zapisu właściwości] Wymagana wartość określonej właściwości |
 | `$metadata.{propertyName}.desiredVersion` | [Tylko do zapisu właściwości] Wersja żądanej wartości |
 | `$metadata.{propertyName}.ackVersion` | Wersja potwierdzona przez aplikację urządzenia implementującą dwuosiową cyfrę |
-| `$metadata.{propertyName}.ackCode` | [Tylko do zapisu właściwości] `ack`Kod zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
-| `$metadata.{propertyName}.ackDescription` | [Tylko do zapisu właściwości] `ack`Opis zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
+| `$metadata.{propertyName}.ackCode` | [Tylko do zapisu właściwości] `ack` Kod zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
+| `$metadata.{propertyName}.ackDescription` | [Tylko do zapisu właściwości] `ack` Opis zwrócony przez aplikację urządzenia implementującą dwuosiową cyfrę |
 | `{componentName}` | Obiekt JSON zawierający wartości właściwości i metadanych składnika, podobnie jak w przypadku obiektu głównego. Ten obiekt istnieje, nawet jeśli składnik nie ma właściwości. |
 | `{componentName}.{propertyName}` | Wartość właściwości składnika w formacie JSON ( `string` , typ numeru lub obiekt) |
-| `{componentName}.$metadata` | Informacje o metadanych składnika, podobne do poziomu głównego`$metadata` |
+| `{componentName}.$metadata` | Informacje o metadanych składnika, podobne do poziomu głównego `$metadata` |
 
 Poniżej znajduje się przykład cyfrowego sznurka sformatowanego jako obiekt JSON:
 

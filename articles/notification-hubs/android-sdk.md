@@ -10,10 +10,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315202"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu SDK Firebase w wersji 1.0.0-zestawu
@@ -62,23 +62,23 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
 2. Po utworzeniu projektu wybierz pozycję **Dodaj Firebase do aplikacji systemu Android**.
 
-   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Dodaj Firebase":::
+   :::image type="content" source="media/android-sdk/get-started.png" alt-text="Konfigurowanie projektu":::
 
 3. Na stronie **Dodawanie Firebase do aplikacji systemu Android**   wykonaj następujące czynności:
 
    1. W polu **Nazwa pakietu systemu Android**skopiuj wartość identyfikator **aplikacji**   w pliku **Build. Gradle** aplikacji. W tym przykładzie jest to  `com.fabrikam.fcmtutorial1app` .
 
-      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Określ nazwę pakietu":::
+      :::image type="content" source="media/android-sdk/specify-package-name-fcm-settings.png" alt-text="Konfigurowanie projektu":::
 
    2. Wybierz pozycję **zarejestruj aplikację**.
 
 4. Wybierz pozycję **pobierz google-services.jsna**, Zapisz plik w folderze **aplikacji**   projektu, a następnie wybierz przycisk **dalej**.
 
-   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Pobierz usługę Google":::
+   :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Konfigurowanie projektu":::
 
 5. W konsoli usługi Firebase wybierz koło zębate dla projektu. Następnie wybierz pozycję **Ustawienia projektu**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Ustawienia projektu":::
+   :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Konfigurowanie projektu":::
 
 6. Jeśli nie pobrano **google-services.js** pliku do folderu **aplikacji**   projektu Android Studio, można to zrobić na tej stronie.
 
@@ -94,7 +94,7 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
 3. Na stronie **Notification Hubs**   Wybierz pozycję **Dodaj**   na pasku narzędzi.
 
-   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Dodawanie centrum":::
+   :::image type="content" source="media/android-sdk/add-hub.png" alt-text="Konfigurowanie projektu":::
 
 4. Na stronie **Notification Hubs**   wykonaj następujące czynności:
 
@@ -108,15 +108,15 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
    5. Wybierz pozycję  **Utwórz**.
 
-      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Utwórz centrum":::
+      :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Konfigurowanie projektu":::
 
 5. Wybierz pozycję **powiadomienia**   (ikona dzwonka), a następnie wybierz pozycję **Przejdź do zasobu**. Możesz również odświeżyć listę na stronie **Notification Hubs**   i wybrać centrum.
 
-   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Wybierz centrum":::
+   :::image type="content" source="media/android-sdk/notification-hubs.png" alt-text="Konfigurowanie projektu":::
 
 6. Wybierz z listy pozycję **zasady dostępu**   . Należy zauważyć, że są dostępne dwa parametry połączenia. Będą one potrzebne później do obsługi powiadomień wypychanych.
 
-   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Zasady dostępu":::
+   :::image type="content" source="media/android-sdk/access-policies.png" alt-text="Konfigurowanie projektu":::
 
    > [!IMPORTANT]
    > Nie należy używać zasad **DefaultFullSharedAccessSignatureymi**   w aplikacji. Ta zasada ma być używana tylko w zapleczu aplikacji.
@@ -129,7 +129,7 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
 3. Na pasku narzędzi wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Klucz serwera":::
+   :::image type="content" source="media/android-sdk/fcm-server-key.png" alt-text="Konfigurowanie projektu":::
 
 4. Azure Portal wyświetla komunikat informujący o tym, że centrum zostało pomyślnie zaktualizowane. Przycisk **Zapisz**   jest wyłączony.
 
@@ -143,15 +143,15 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą Firebas
 
 2. Wybierz docelową wersję Android SDK, która jest używana w projekcie. Następnie wybierz pozycję **Pokaż szczegóły pakietu**.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Menedżer zestawów SDK":::
+   :::image type="content" source="media/android-sdk/notification-hubs-android-studio-sdk-manager.png" alt-text="Konfigurowanie projektu":::
 
 3. Wybierz pozycję **Google API**, jeśli nie została jeszcze zainstalowana.
 
-   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Interfejsy API":::
+   :::image type="content" source="media/android-sdk/google-apis-selected.png" alt-text="Konfigurowanie projektu":::
 
 4. Przejdź do karty **SDK Tools**   . Jeśli nie zainstalowano jeszcze Usługi Google Play, wybierz pozycję **usługi Google Play**,   jak pokazano na poniższej ilustracji. Następnie wybierz pozycję **Zastosuj**   do instalacji. Zanotuj ścieżkę zestawu SDK, która będzie potrzebna w kolejnym kroku.
 
-   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Usługi odtwarzania":::
+   :::image type="content" source="media/android-sdk/google-play-services-selected.png" alt-text="Konfigurowanie projektu":::
 
 5. Jeśli zobaczysz okno dialogowe **Potwierdzanie zmiany**   , wybierz **przycisk OK**. Instalator składnika instaluje żądane składniki. Po zainstalowaniu składników wybierz pozycję **Zakończ**   .
 
@@ -237,11 +237,11 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą Firebas
 
 4. Upewnij się, że masz urządzenie wirtualne do uruchamiania aplikacji. Jeśli go nie masz, Dodaj go w następujący sposób:
 
-   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Menedżer urządzeń":::
-   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Urządzenia wirtualne":::
+   1. :::image type="content" source="media/android-sdk/open-device-manager.png" alt-text="Konfigurowanie projektu":::
+   2. :::image type="content" source="media/android-sdk/your-virtual-devices.png" alt-text="Konfigurowanie projektu":::
    3. Uruchom aplikację na wybranym urządzeniu i sprawdź, czy została ona pomyślnie zarejestrowana w centrum.
 
-      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Rejestracja urządzenia":::
+      :::image type="content" source="media/android-sdk/device-registration.png" alt-text="Konfigurowanie projektu":::
 
       > [!NOTE]
       > Rejestracja może zakończyć się niepowodzeniem podczas początkowego uruchamiania, dopóki nie `onTokenRefresh()` zostanie wywołana metoda usługi identyfikatora wystąpienia. Odświeżanie powinno inicjować pomyślne rejestrację w centrum powiadomień.
@@ -258,7 +258,7 @@ Powiadomienia wypychane można wysyłać do centrum powiadomień z [Azure Porta
 
 4. Zapoznaj się z wynikami operacji na liście w dolnej części strony portalu.
 
-   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Wyślij testowe powiadomienie":::
+   :::image type="content" source="media/android-sdk/notification-hubs-test-send.png" alt-text="Konfigurowanie projektu":::
 
 5. Zobaczysz komunikat powiadomienia na urządzeniu.
 

@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085382"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań programu Hive
-W tym dokumencie przedstawiono sposób tworzenia funkcji dla danych przechowywanych w klastrze Azure HDInsight Hadoop przy użyciu zapytań programu Hive. Te zapytania Hive używają osadzonych funkcji zdefiniowanych przez użytkownika w programie Hive (UDF), które są udostępniane przez skrypty.
+W tym dokumencie przedstawiono sposób tworzenia funkcji dla danych przechowywanych w klastrze Azure HDInsight Hadoop przy użyciu zapytań programu Hive. Te zapytania Hive używają osadzonych funkcji User-Defined Hive (UDF), które są udostępniane przez skrypty.
 
 Operacje wymagające tworzenia funkcji mogą być czasochłonne. Wydajność zapytań Hive stanie się bardziej krytyczna w takich przypadkach i można ją ulepszyć, dostrajając pewne parametry. Dostrajanie tych parametrów jest omówione w ostatniej sekcji.
 
@@ -150,7 +150,7 @@ Równania matematyczne obliczające odległość między dwoma współrzędnymi 
 
 Pełną listę programu Hive Embedded UDF można znaleźć w sekcji **wbudowane funkcje** w witrynie <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a>Tematy zaawansowane: dostrajanie parametrów Hive w celu zwiększenia szybkości zapytania
+## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tematy zaawansowane: dostrajanie parametrów Hive w celu zwiększenia szybkości zapytania
 Domyślne ustawienia parametrów klastra Hive mogą nie być odpowiednie dla zapytań Hive i danych przetwarzanych przez zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy mogą dostosowywać, aby zwiększyć wydajność zapytań programu Hive. Użytkownicy muszą dodać zapytania dostrajania parametrów przed zapytania dotyczące przetwarzania danych.
 
 1. **Przestrzeń sterty języka Java**: w przypadku kwerend obejmujących łączenie dużych zestawów danych lub przetwarzania długich rekordów **Uruchamianie poza stertą** jest jednym z typowych błędów. Ten błąd można uniknąć, ustawiając parametry *MapReduce. map. Java.* *domapreduce. Task. IO. Sort. MB* do żądanych wartości. Oto przykład:

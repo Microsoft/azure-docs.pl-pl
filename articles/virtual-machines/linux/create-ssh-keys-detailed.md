@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513195"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Szczegółowe kroki: tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na maszynie wirtualnej z systemem Linux na platformie Azure
@@ -33,7 +33,7 @@ Jeśli nie chcesz używać kluczy SSH, możesz skonfigurować maszynę wirtualn�
 
 ## <a name="generate-keys-with-ssh-keygen"></a>Generuj klucze przy użyciu protokołu SSH-Keygen
 
-Aby utworzyć klucze, preferowane polecenie jest `ssh-keygen` dostępne w przypadku narzędzi OpenSSH w Azure Cloud Shell, na hoście macOS lub Linux oraz w systemie Windows 10. `ssh-keygen`pyta o szereg pytań, a następnie zapisuje klucz prywatny i pasujący klucz publiczny. 
+Aby utworzyć klucze, preferowane polecenie jest `ssh-keygen` dostępne w przypadku narzędzi OpenSSH w Azure Cloud Shell, na hoście macOS lub Linux oraz w systemie Windows 10. `ssh-keygen` pyta o szereg pytań, a następnie zapisuje klucz prywatny i pasujący klucz publiczny. 
 
 Klucze SSH są domyślnie przechowywane w katalogu `~/.ssh`.  Jeśli nie masz katalogu `~/.ssh`, polecenie `ssh-keygen` tworzy ten katalog z odpowiednimi uprawnieniami.
 
@@ -62,17 +62,17 @@ ssh-keygen \
 
 `ssh-keygen` — program używany do tworzenia kluczy
 
-`-m PEM`= Sformatuj klucz jako PEM
+`-m PEM` = Sformatuj klucz jako PEM
 
-`-t rsa`= Typ klucza do utworzenia, w tym przypadku w formacie RSA
+`-t rsa` = Typ klucza do utworzenia, w tym przypadku w formacie RSA
 
-`-b 4096`= Liczba bitów w kluczu, w tym przypadku 4096
+`-b 4096` = Liczba bitów w kluczu, w tym przypadku 4096
 
 `-C "azureuser@myserver"` — komentarz dodany na końcu pliku klucza publicznego, aby umożliwić jego łatwą identyfikację. Zwykle jako komentarz używany jest adres e-mail, ale użycie dowolnego z nich najlepiej sprawdza się w przypadku Twojej infrastruktury.
 
-`-f ~/.ssh/mykeys/myprivatekey`= Nazwa pliku klucza prywatnego, jeśli nie zostanie użyta nazwa domyślna. Odpowiedni plik klucza publicznego dołączony do programu `.pub` jest generowany w tym samym katalogu. Ten katalog musi istnieć.
+`-f ~/.ssh/mykeys/myprivatekey` = Nazwa pliku klucza prywatnego, jeśli nie zostanie użyta nazwa domyślna. Odpowiedni plik klucza publicznego dołączony do programu `.pub` jest generowany w tym samym katalogu. Ten katalog musi istnieć.
 
-`-N mypassphrase`= dodatkowe hasło używane do uzyskiwania dostępu do pliku klucza prywatnego. 
+`-N mypassphrase` = dodatkowe hasło używane do uzyskiwania dostępu do pliku klucza prywatnego. 
 
 ### <a name="example-of-ssh-keygen"></a>Przykład polecenia ssh-keygen
 

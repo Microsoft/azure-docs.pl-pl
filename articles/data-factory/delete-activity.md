@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 47a280a46cbc0650efb9a7576bb21bb31d1d2613
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330421"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Działanie usuwania w usłudze Azure Data Factory
@@ -120,7 +120,7 @@ Istnieją dwa miejsca, w których można zobaczyć i monitorować wyniki działa
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Przykładowy plik dziennika działania usuwania
 
-| Nazwa | Kategoria | Stan | Error |
+| Nazwa | Kategoria | Stan | Błąd |
 |:--- |:--- |:--- |:--- |
 | TEST1/yyy.jswłączone | Plik | Usunięte |  |
 | TEST2/hello789.txt | Plik | Usunięte |  |

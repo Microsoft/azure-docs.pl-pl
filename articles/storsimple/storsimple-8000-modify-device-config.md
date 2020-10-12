@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514683"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Modyfikowanie konfiguracji urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
@@ -44,7 +44,7 @@ Aby zmienić nazwę urządzenia i przypisać mu unikatową przyjazną nazwę, mo
 
 Do urządzenia StorSimple połączonego z usługą StorSimple Menedżer urządzeń jest przypisana nazwa domyślna. Nazwa domyślna zazwyczaj odzwierciedla numer seryjny urządzenia. Na przykład domyślna nazwa urządzenia o długości 15 znaków, taka jak 8600-SHX0991003G44HT, wskazuje następujące elementy:
 
-* **8600** — wskazuje model urządzenia.
+* **8600**  — wskazuje model urządzenia.
 * **SHX** — wskazuje lokację produkcyjną.
 * **0991003** — wskazuje określony produkt.
 * **G44HT**— ostatnie 5 cyfr są zwiększane, aby utworzyć unikatowe numery seryjne. Nie może to być zestaw sekwencyjny.

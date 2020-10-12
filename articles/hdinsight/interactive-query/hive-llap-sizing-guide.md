@@ -8,10 +8,10 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: a9b86f09ade0d437436779ef3e4a17fcdede2cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83664963"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Przewodnik dotyczący zmiany wielkości klastra interakcyjnych zapytań usługi Azure HDInsight (Hive LLAP)
@@ -121,7 +121,7 @@ W przypadku węzła roboczego D14 v2 HDI 4,0 — Zalecana wartość to (80 GB �
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. Określanie liczby programów wykonujących na demona LLAP**  
 Konfiguracja: ***hive.llap.daemon.num.executors***, ***Hive. llap. IO. wątków. size***
 
-***Cutorshive.llap.daemon.num.exe***:   
+*** Cutorshive.llap.daemon.num.exe***:   
 Ta konfiguracja określa liczbę modułów wykonujących, które mogą wykonywać równolegle zadania równoległe na demona LLAP. Ta wartość zależy od liczby rdzeni wirtualnych, ilości pamięci podawanej na wykonawcę i ilości całkowitej dostępnej pamięci dla demona LLAP. Zazwyczaj ta wartość powinna być możliwie najbliżej liczby rdzeni wirtualnych.
 Na maszynach wirtualnych z systemem D14 v2 jest 16 rdzeni wirtualnych. Jednak nie wszystkie rdzeni wirtualnych można wykonać, ponieważ inne usługi, takie jak Nodemanager, datanode, monitor metryk itd., wymagają również części dostępnych rdzeni wirtualnych. 
 

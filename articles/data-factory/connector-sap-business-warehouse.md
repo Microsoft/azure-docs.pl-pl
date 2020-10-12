@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534383"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
@@ -183,9 +183,9 @@ Podczas kopiowania danych z SAP BW następujące mapowania są używane z SAP BW
 | ACCP | int |
 | DELIKATN | Ciąg |
 | CLNT | Ciąg |
-| WALUCIE | Wartość dziesiętna |
+| WALUCIE | Liczba dziesiętna |
 | CUKY | Ciąg |
-| GRUDZIEŃ | Wartość dziesiętna |
+| GRUDZIEŃ | Liczba dziesiętna |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -194,7 +194,7 @@ Podczas kopiowania danych z SAP BW następujące mapowania są używane z SAP BW
 | LCHR | Ciąg |
 | LRAW | Byte [] |
 | PREC | Int16 |
-| QUAN | Wartość dziesiętna |
+| QUAN | Liczba dziesiętna |
 | SUROWCÓW | Byte [] |
 | RAWSTRING | Byte [] |
 | PARAMETRY | Ciąg |

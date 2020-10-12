@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033216"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Element interfejsu użytkownika Microsoft. Network. VirtualNetworkCombo
@@ -107,8 +107,8 @@ Gdy użytkownik wybiera istniejącą sieć wirtualną, użytkownik musi zmapowa�
 
 - Jeśli ta wartość jest określona, pierwszy nienakładający się prefiks adresu `defaultValue.addressPrefixSize` jest ustalany automatycznie na podstawie istniejących sieci wirtualnych w ramach subskrypcji użytkownika.
 - Wartość domyślna dla `defaultValue.name` i `defaultValue.addressPrefixSize` ma wartość **null**.
-- `constraints.minAddressPrefixSize`musi być określony. Wszystkie istniejące sieci wirtualne z przestrzenią adresową mniejszą niż określona wartość są niedostępne do wybrania.
-- `subnets`musi być określona i `constraints.minAddressPrefixSize` musi być określona dla każdej podsieci.
+- `constraints.minAddressPrefixSize` musi być określony. Wszystkie istniejące sieci wirtualne z przestrzenią adresową mniejszą niż określona wartość są niedostępne do wybrania.
+- `subnets` musi być określona i `constraints.minAddressPrefixSize` musi być określona dla każdej podsieci.
 - Podczas tworzenia nowej sieci wirtualnej prefiks adresu każdej podsieci jest obliczany automatycznie na podstawie prefiksu adresu sieci wirtualnej i odpowiednich `addressPrefixSize` .
 - W przypadku korzystania z istniejącej sieci wirtualnej wszystkie podsieci mniejsze niż odpowiednie nie `constraints.minAddressPrefixSize` są dostępne do wyboru. Ponadto w przypadku wybrania opcji podsieci, które nie mają co najmniej `minAddressCount` dostępnych adresów, nie są dostępne do wyboru. Wartość domyślna to **0**. Aby upewnić się, że dostępne adresy są ciągłe, określ **wartość true** dla `requireContiguousAddresses` . Wartość domyślna to **true**.
 - Tworzenie podsieci w istniejącej sieci wirtualnej nie jest obsługiwane.

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888175"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
@@ -27,7 +27,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge Hub | T | T | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Obsługa Kafka jest niedostępna dla wersji ARM64 usługi Azure SQL Edge.|
 
 
@@ -96,7 +96,7 @@ WITH  ( <with_options> )
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
 - **Lokalizacja**: Określa nazwę rzeczywistego danych lub lokalizacji w źródle danych. 
    - W przypadku obiektów usługi Edge Hub lub strumienia Kafka Lokalizacja określa nazwę centrum krawędzi lub tematu Kafka, z którego ma zostać odczytana lub zapisana.
-   - W przypadku obiektów usługi SQL Stream (SQL Server, Azure SQL Database lub Azure SQL Edge) określa nazwę tabeli. Jeśli strumień jest tworzony w tej samej bazie danych i schemacie co tabela docelowa, wystarczy tylko nazwa tabeli. W przeciwnym razie musisz w pełni kwalifikować (<database_name. schema_name. table_name) nazwę tabeli.
+   - W przypadku obiektów usługi SQL Stream (SQL Server, Azure SQL Database lub Azure SQL Edge) określa nazwę tabeli. Jeśli strumień jest tworzony w tej samej bazie danych i schemacie co tabela docelowa, wystarczy tylko nazwa tabeli. W przeciwnym razie należy w pełni kwalifikować się do nazwy tabeli (<database_name. schema_name. table_name).
    - W przypadku lokalizacji obiektu usługi Azure Blob Storage Stream odwołuje się do wzorca ścieżki, który ma być używany wewnątrz kontenera obiektów BLOB. Aby uzyskać więcej informacji na temat tej funkcji, zobacz (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-Data-Lake-Gen2)
 
 - **INPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla usług takich jak Kafka, IoT Edge Hub, które są danymi wejściowymi zapytań przesyłania strumieniowego

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1452f380cec711fb224f532ccb02d11c5bbad697
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86255187"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Szablony aplikacji na platformie Azure API Management
@@ -36,7 +36,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>Lista aplikacji  
+##  <a name="application-list"></a><a name="ProductList"></a> Lista aplikacji  
  Szablon **Lista aplikacji** umożliwia dostosowanie treści strony listy aplikacji w portalu dla deweloperów.  
   
  ![Strona listy aplikacji szablony portalu dla deweloperów](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Strona listy aplikacji APIM — szablony portalu dla deweloperów")  
@@ -80,7 +80,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`Paging`|Jednostka [stronicowania](api-management-template-data-model-reference.md#Paging) .|Informacje o stronicowaniu dla kolekcji aplikacji.|  
 |`Applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje widoczne dla bieżącego użytkownika.|  
@@ -137,7 +137,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="application"></a><a name="Application"></a>Aplikacja  
+##  <a name="application"></a><a name="Application"></a> Aplikacja  
  Szablon **aplikacji** umożliwia dostosowanie treści strony aplikacji w portalu dla deweloperów.  
   
  ![Szablony portalu dla deweloperów stron aplikacji](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Szablony portalu dla deweloperów stron aplikacji APIM")  

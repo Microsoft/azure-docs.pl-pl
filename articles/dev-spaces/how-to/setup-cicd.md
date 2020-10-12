@@ -9,10 +9,10 @@ manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080270"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
@@ -70,7 +70,7 @@ Opcja wyłączenia:
 
 W gałęzi _azds_updates_ dodaliśmy PROSTą [YAML potoku platformy Azure](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) , która definiuje kroki kompilacji wymagane dla *mywebapi* i *webfrontonu*.
 
-W zależności od wybranego języka potok YAML został zaewidencjonowany w ścieżce podobnej do:`samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
+W zależności od wybranego języka potok YAML został zaewidencjonowany w ścieżce podobnej do: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Aby utworzyć potok z tego pliku:
 1. Na stronie głównej projektu DevOps przejdź do potoków > kompilacje.
@@ -160,7 +160,7 @@ Wydanie jest wykonywane po zakończeniu wszystkich zadań.
 
 Etap _produkcyjny_ potoku ciągłej integracji i ciągłego wdrażania korzysta z modułu równoważenia obciążenia, a nie z poziomu kontrolera usługi miejsca dev Spaces w celu zapewnienia dostępu do usług produkcji _produkcyjnej_ . Usługi wdrożone na etapie _produkcyjnym_ są dostępne jako adresy IP zamiast nazw DNS. W środowisku produkcyjnym można utworzyć własny kontroler transferu danych przychodzących, aby hostować usługi na podstawie własnej konfiguracji DNS.
 
-Aby określić adres IP usługi webfrontonu, kliknij krok **Drukuj publiczny adres IP webfrontonu** , aby rozwinąć dane wyjściowe dziennika. Użyj adresu IP wyświetlanego w danych wyjściowych dziennika, aby uzyskać dostęp do aplikacji **webfrontonu** .
+Aby określić adres IP usługi webfrontonu, kliknij krok  **Drukuj publiczny adres IP webfrontonu** , aby rozwinąć dane wyjściowe dziennika. Użyj adresu IP wyświetlanego w danych wyjściowych dziennika, aby uzyskać dostęp do aplikacji **webfrontonu** .
 
 ```cmd
 ...

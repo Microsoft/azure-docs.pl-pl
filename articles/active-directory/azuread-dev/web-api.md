@@ -15,10 +15,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154427"
 ---
 # <a name="web-api"></a>Interfejs API sieci Web
@@ -66,7 +66,7 @@ Zarówno tożsamość aplikacji, jak i delegowane typy tożsamości użytkownika
 
 Zapoznaj się z przykładami kodu dotyczącymi scenariuszy usługi Web API dla aplikacji sieci Web. I często sprawdzaj, czy nowe przykłady są często dodawane. Aplikacja sieci Web [do interfejsu API sieci Web](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
-## <a name="app-registration"></a>Rejestrowanie aplikacji
+## <a name="app-registration"></a>Rejestracja aplikacji
 
 Aby zarejestrować aplikację w punkcie końcowym usługi Azure AD v 1.0, zobacz [Rejestrowanie aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438405"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów
@@ -352,7 +352,7 @@ IoT Hub rejestruje ten dziennik, gdy komunikat zawierający prawidłowe właści
 
 W tym miejscu `durationMs` nie jest obliczany, ponieważ zegar IoT Hub może nie być zsynchronizowany z zegarem urządzenia i w ten sposób Obliczanie czasu trwania może być mylące. Zalecamy zapisanie logiki przy użyciu sygnatur czasowych w `properties` sekcji, aby przechwytywać opóźnienia w czasie oczekiwania między urządzeniami a chmurą.
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Liczba całkowita | Rozmiar komunikatu z urządzenia do chmury w bajtach |
 | **Identyfikator** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
@@ -386,7 +386,7 @@ IoT Hub rejestruje ten dziennik, gdy komunikat zawierający prawidłowe właści
 
 W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przychodzących komunikatów.
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | Ciąg | Wartość true lub false wskazuje, czy w IoT Hub jest włączona funkcja routingu komunikatów |
 | **parentSpanId** | Ciąg | [Identyfikator zakresu](https://w3c.github.io/trace-context/#parent-id) komunikatu nadrzędnego, który będzie w tym przypadku D2C śledzenia komunikatów |
@@ -418,7 +418,7 @@ IoT Hub rejestruje ten dziennik, gdy [Routing](iot-hub-devguide-messages-d2c.md)
 
 W `properties` sekcji ten dziennik zawiera dodatkowe informacje na temat przychodzących komunikatów.
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **Nazwapunktukoncowego** | Ciąg | Nazwa punktu końcowego routingu |
 | **punkt końcowy** | Ciąg | Typ punktu końcowego routingu |

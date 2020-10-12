@@ -4,10 +4,10 @@ description: Opisuje parametry związane z uaktualnianiem aplikacji Service Fabr
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247969"
 ---
 # <a name="application-upgrade-parameters"></a>Parametry uaktualniania aplikacji
@@ -52,7 +52,7 @@ Parametry oceny kondycji są opcjonalne. Jeśli nie zostaną określone kryteria
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Określa zastąpienia parametrów aplikacji.<br>Parametry aplikacji programu PowerShell są określane jako pary nazwa/wartość obiektu Hashtable. Na przykład @ {"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Parametry aplikacji programu Visual Studio można określić w oknie dialogowym Publikowanie Service Fabric aplikacji w polu **plik parametrów aplikacji** .
 > | Confirm |PS| Dozwolone wartości to **true** i **false**. Monituje o potwierdzenie przed uruchomieniem polecenia cmdlet. |
-> | ConsiderWarningAsError |PS, VS |Dozwolone wartości to **true** i **false**. Wartość domyślna to **False**. Traktuj ostrzeżenia o zdarzeniach dotyczących kondycji aplikacji jako błędy podczas oceny kondycji aplikacji podczas uaktualniania. Domyślnie Service Fabric nie oblicza zdarzeń kondycji ostrzeżenia w przypadku błędów (błędów), dzięki czemu uaktualnienie może być kontynuowane, nawet jeśli istnieją zdarzenia ostrzegawcze. |
+> | ConsiderWarningAsError |PS, VS |Dozwolone wartości to **true** i **false**. Wartość domyślna to **false**. Traktuj ostrzeżenia o zdarzeniach dotyczących kondycji aplikacji jako błędy podczas oceny kondycji aplikacji podczas uaktualniania. Domyślnie Service Fabric nie oblicza zdarzeń kondycji ostrzeżenia w przypadku błędów (błędów), dzięki czemu uaktualnienie może być kontynuowane, nawet jeśli istnieją zdarzenia ostrzegawcze. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |Określa zasady kondycji dla domyślnego typu usługi, który ma być używany na potrzeby monitorowanego uaktualnienia w formacie MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. Na przykład 5, 10, 15 wskazuje następujące wartości: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
 > | Force | PS, VS | Dozwolone wartości to **true** i **false**. Wskazuje, że proces uaktualniania pomija komunikat ostrzegawczy i wymusza uaktualnienie nawet wtedy, gdy numer wersji nie został zmieniony. Jest to przydatne w przypadku testowania lokalnego, ale nie jest to zalecane do użycia w środowisku produkcyjnym, ponieważ wymaga usunięcia istniejącego wdrożenia, które powoduje zmniejszenie i utratę danych. |
 > | ForceRestart |PS, VS |Jeśli zaktualizujesz konfigurację lub pakiet danych bez aktualizowania kodu usługi, usługa zostanie uruchomiona ponownie tylko wtedy, gdy właściwość ForceRestart ma **wartość true**. Po zakończeniu aktualizacji Service Fabric powiadamia usługę, że jest dostępny nowy pakiet konfiguracji lub pakiet danych. Usługa jest odpowiedzialna za zastosowanie zmian. W razie potrzeby usługa może się ponownie uruchomić. |
@@ -101,7 +101,7 @@ Usługa-kondycja — zasady | Zakodowana w notacji JSON zasada kondycji typu us�
 timeout | Określa limit czasu (w sekundach) dla operacji. Wartość domyślna: 60. |
 Upgrade-Domain-timeout | Czas, przez jaki każda domena uaktualnienia musi zakończyć pracę przed wykonaniem *FailureAction* . Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. Wartość domyślna to nigdy (nieskończoność) i powinna być odpowiednio dostosowana dla aplikacji. Wartość domyślna: P10675199DT02H48M 05.4775807 S. |
 uaktualnienie — limit czasu | Czas, przez jaki każda domena uaktualnienia musi zakończyć pracę przed wykonaniem *FailureAction* . Najpierw jest interpretowany jako ciąg reprezentujący czas trwania ISO 8601. Jeśli to się nie powiedzie, jest interpretowana jako liczba reprezentująca łączną liczbę milisekund. Wartość domyślna to nigdy (nieskończoność) i powinna być odpowiednio dostosowana dla aplikacji. Wartość domyślna: P10675199DT02H48M 05.4775807 S.|
-Ostrzeżenie jako błąd | Dozwolone wartości to **true** i **false**. Wartość domyślna to **False**. Można przesłać jako flagę. Traktuj ostrzeżenia o zdarzeniach dotyczących kondycji aplikacji jako błędy podczas oceny kondycji aplikacji podczas uaktualniania. Domyślnie Service Fabric nie oblicza zdarzeń kondycji ostrzeżenia w przypadku błędów (błędów), dzięki czemu uaktualnienie może być kontynuowane, nawet jeśli istnieją zdarzenia ostrzegawcze. |
+Ostrzeżenie jako błąd | Dozwolone wartości to **true** i **false**. Wartość domyślna to **false**. Można przesłać jako flagę. Traktuj ostrzeżenia o zdarzeniach dotyczących kondycji aplikacji jako błędy podczas oceny kondycji aplikacji podczas uaktualniania. Domyślnie Service Fabric nie oblicza zdarzeń kondycji ostrzeżenia w przypadku błędów (błędów), dzięki czemu uaktualnienie może być kontynuowane, nawet jeśli istnieją zdarzenia ostrzegawcze. |
 
 ## <a name="next-steps"></a>Następne kroki
 [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.

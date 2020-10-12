@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514540"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Bezpieczne Instalowanie i obsługiwanie urządzenia StorSimple
@@ -148,7 +148,7 @@ Aby zmniejszyć ryzyko związane z szorty, pożarem, wybuchem, urazem lub zgonem
 
 ![Powiadomienie o ikonie powiadomienia ](./media/storsimple-safety/IC740881.png) **:**
 
-W przypadku wysyłania lub przenoszenia baterii przez powietrze należy postępować zgodnie z dokumentem wskazówek dotyczących baterii IATA litu dostępnym w[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+W przypadku wysyłania lub przenoszenia baterii przez powietrze należy postępować zgodnie z dokumentem wskazówek dotyczących baterii IATA litu dostępnym w [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Po przejrzeniu tych informacji o zabezpieczeniach następnym etapem jest rozpakowanie, stojak i podłączenie urządzenia.
 

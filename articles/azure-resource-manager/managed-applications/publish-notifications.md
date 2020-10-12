@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054529"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplikacje zarządzane przez platformę Azure z powiadomieniami
@@ -178,11 +178,11 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 Parametr | Opis
 ---|---
-Klasę | Typ zdarzenia, które wyzwoliło powiadomienie. (Na przykład PUT, PATCH, DELETE.)
+eventType | Typ zdarzenia, które wyzwoliło powiadomienie. (Na przykład PUT, PATCH, DELETE.)
 applicationId | W pełni kwalifikowany identyfikator zasobu zarządzanej aplikacji, dla którego zostało wyzwolone powiadomienie.
 eventTime | Sygnatura czasowa zdarzenia, które wyzwoliło powiadomienie. (Data i godzina w formacie UTC ISO 8601).
 provisioningState | Stan aprowizacji wystąpienia aplikacji zarządzanej. (Na przykład pomyślne, Niepowodzenie, usunięcie, usunięcie.)
-Błąd | *Określany tylko wtedy, gdy provisioningState się nie powiodło*. Zawiera kod błędu, komunikat i szczegóły problemu, który spowodował awarię.
+error | *Określany tylko wtedy, gdy provisioningState się nie powiodło*. Zawiera kod błędu, komunikat i szczegóły problemu, który spowodował awarię.
 applicationDefinitionId | *Określony tylko dla aplikacji zarządzanych przez katalog usług*. Reprezentuje w pełni kwalifikowany identyfikator zasobu definicji aplikacji, dla którego Zainicjowano obsługę administracyjną wystąpienia aplikacji zarządzanej.
 plan | *Określona tylko dla aplikacji zarządzanych przez portal Azure Marketplace*. Reprezentuje wydawcę, ofertę, jednostkę SKU i wersję wystąpienia aplikacji zarządzanej.
 billingDetails | *Określona tylko dla aplikacji zarządzanych przez portal Azure Marketplace.* Szczegóły rozliczeń wystąpienia aplikacji zarządzanej. Zawiera resourceUsageId, którego można użyć do wysyłania zapytań do witryny Azure Marketplace w celu uzyskania szczegółów dotyczących użycia.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075556"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Używanie tunelowania SSH do uzyskiwania dostępu do interfejsu użytkownika, JobHistory, NameNode, Apache Oozie i innych interfejsów użytkownika
@@ -73,7 +73,7 @@ To polecenie tworzy połączenie, które kieruje ruch do lokalnego portu 9876 do
 |T|Wyłącz alokację pseudo-TTY, ponieważ po prostu przekazujesz port.|
 |n|Zapobiegaj odczytywaniu STDIN, ponieważ właśnie przekazujesz port.|
 |N|Nie wykonuj polecenia zdalnego, ponieważ po prostu przekazujesz port.|
-|k|Uruchom w tle.|
+|f|Uruchom w tle.|
 
 Po zakończeniu wykonywania polecenia ruch wysyłany do portu 9876 na komputerze lokalnym jest kierowany do węzła głównego klastra.
 

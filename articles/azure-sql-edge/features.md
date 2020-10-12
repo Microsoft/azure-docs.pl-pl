@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886527"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Obsługiwane funkcje usługi Azure SQL Edge 
@@ -52,14 +52,14 @@ Usługa Azure SQL Edge obsługuje tylko aparat bazy danych. Nie obejmuje to obs�
 Oprócz obsługi podzestawu funkcji programu SQL Server on Linux usługa Azure SQL Edge obejmuje obsługę następujących nowych funkcji: 
 
 - Funkcja przesyłania strumieniowego SQL, która jest oparta na tym samym aparacie, który ma Azure Stream Analytics, zapewnia możliwości przesyłania strumieniowego danych w czasie rzeczywistym w usłudze Azure SQL Edge. 
-- Wywołanie funkcji T-SQL `Date_Bucket` do analizy danych szeregów czasowych.
+- Wywołanie funkcji T-SQL `Date_Bucket` dla Time-Series analizy danych.
 - Możliwości uczenia maszynowego za pomocą środowiska uruchomieniowego ONNX, dołączonego do aparatu SQL.
 
 ## <a name="unsupported-features"></a>Nieobsługiwane funkcje
 
 Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są obecnie obsługiwane w usłudze Azure SQL Edge.
 
-| Obszar | Nieobsługiwana funkcja lub usługa |
+| Warstwowy | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Projekt bazy danych** | OLTP w pamięci i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
 | &nbsp; | `HierarchyID` Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253681"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktura jako kod
@@ -104,7 +104,7 @@ Uaktualnienie maszyn wirtualnych jest operacją inicjowaną przez użytkownika i
 ```
 W przypadku korzystania z automatycznych uaktualnień systemu operacyjnego z Service Fabric nowy obraz systemu operacyjnego jest przewinięcie jednej domeny aktualizacji jednocześnie w celu zapewnienia wysokiej dostępności usług uruchomionych w programie Service Fabric. Aby korzystać z automatycznych uaktualnień systemu operacyjnego w Service Fabric klaster musi być skonfigurowany do korzystania z warstwy trwałości Silver lub wyższej.
 
-Upewnij się, że w następującym kluczu rejestru ustawiono wartość "false", aby zapobiec inicjowaniu nieskoordynowanych aktualizacji na maszynach hosta z systemem Windows: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Upewnij się, że następujący klucz rejestru jest ustawiony na wartość false, aby zapobiec inicjowaniu nieskoordynowanych aktualizacji na maszynach hosta z systemem Windows: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Poniżej przedstawiono właściwości szablonu skalowania maszyn wirtualnych Menedżer zasobów, aby ustawić wartość false dla klucza rejestru WindowsUpdate:
 ```json

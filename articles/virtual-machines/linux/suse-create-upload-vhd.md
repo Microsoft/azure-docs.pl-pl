@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292120"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem SLES lub openSUSE dla platformy Azure
@@ -136,8 +136,8 @@ Alternatywą dla tworzenia własnego wirtualnego dysku twardego jest również p
    | # | Alias                 | Nazwa                  | Enabled (Włączony) | Odśwież
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Chmura: Tools_13.1      | Chmura: Tools_13.1      | Tak     | Tak
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Tak     | Tak
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Tak     | Tak
+   | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | Tak     | Tak
+   | 3 | openSUSE_13 openSUSE_13.1_Updates | openSUSE_13 openSUSE_13.1_Updates | Tak     | Tak
 
     Jeśli polecenie zwróci wartość "brak zdefiniowanych repozytoriów..." następnie użyj następujących poleceń, aby dodać te repozytoria:
 

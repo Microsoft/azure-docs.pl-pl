@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087167"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Interfejs API wykrywania anomalii Machine Learning
@@ -125,10 +125,10 @@ Interfejs API wykrywania anomalii obsługuje detektory w trzech różnych katego
 ### <a name="parameters"></a>Parametry
 Więcej szczegółowych informacji na temat tych parametrów wejściowych przedstawiono w poniższej tabeli:
 
-| Parametry wejściowe | Opis | Ustawienie domyślne | Typ | Prawidłowy zakres | Sugerowany zakres |
+| Parametry wejściowe | Opis | Ustawienie domyślne | Type | Prawidłowy zakres | Sugerowany zakres |
 | --- | --- | --- | --- | --- | --- |
 | detektory. historywindow |Historia (w liczbie punktów danych) używana do obliczania wyniku anomalii |500 |liczba całkowita |10-2000 |Zależne od serii czasu |
-| detektory. spikesdips | Określa, czy mają być wykrywane tylko wartości graniczne, tylko wartości DIP czy oba |Obie |wyliczany |Oba, skoki, DIP |Obie |
+| detektory. spikesdips | Określa, czy mają być wykrywane tylko wartości graniczne, tylko wartości DIP czy oba |Oba |wyliczany |Oba, skoki, DIP |Oba |
 | bileveldetector. czułość |Czułość wykrywania zmian poziomu dwukierunkowego. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | trenddetector. czułość |Czułość pozytywnego detektora trendu. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | tspikedetector. czułość |Czułość czujnika TSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
@@ -161,19 +161,19 @@ Detektory w punkcie końcowym sezonowości są podobne do tych w punkcie końcow
 
 Więcej szczegółowych informacji na temat tych parametrów wejściowych przedstawiono w poniższej tabeli:
 
-| Parametry wejściowe | Opis | Ustawienie domyślne | Typ | Prawidłowy zakres | Sugerowany zakres |
+| Parametry wejściowe | Opis | Ustawienie domyślne | Type | Prawidłowy zakres | Sugerowany zakres |
 | --- | --- | --- | --- | --- | --- |
 | Przetwarzanie wstępne. aggregationInterval |Interwał agregacji w sekundach dla agregacji wejściowej serii czasowej |0 (nie wykonano agregacji) |liczba całkowita |0: Pomiń agregację, > 0 w przeciwnym razie |od 5 minut do 1 dnia, zależne od serii czasu |
 | Przetwarzanie wstępne. aggregationFunc |Funkcja używana do agregowania danych w określonym AggregationInterval |średnia |wyliczany |Średnia, suma, Długość |Nie dotyczy |
 | Przetwarzanie wstępne. replaceMissing |Wartości używane do przerzucania brakujących danych |LKV (Ostatnia znana wartość) |wyliczany |zero, LKV, średnia |Nie dotyczy |
 | detektory. historywindow |Historia (w liczbie punktów danych) używana do obliczania wyniku anomalii |500 |liczba całkowita |10-2000 |Zależne od serii czasu |
-| detektory. spikesdips | Określa, czy mają być wykrywane tylko wartości graniczne, tylko wartości DIP czy oba |Obie |wyliczany |Oba, skoki, DIP |Obie |
+| detektory. spikesdips | Określa, czy mają być wykrywane tylko wartości graniczne, tylko wartości DIP czy oba |Oba |wyliczany |Oba, skoki, DIP |Oba |
 | bileveldetector. czułość |Czułość wykrywania zmian poziomu dwukierunkowego. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | postrenddetector. czułość |Czułość pozytywnego detektora trendu. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | negtrenddetector. czułość |Czułość ujemnego detektora trendu. |3.25 |double |Brak |3,25-5 (mniejsze wartości oznaczają więcej informacji poufnych) |
 | tspikedetector. czułość |Czułość czujnika TSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
 | zspikedetector. czułość |Czułość czujnika ZSpike |3 |liczba całkowita |1-10 |3-5 (mniejsze wartości oznaczają bardziej poufne) |
-| sezonowości. Enable |Czy analiza sezonowości ma być wykonywana |true |wartość logiczna |wartość true, false |Zależne od serii czasu |
+| sezonowości. Enable |Czy analiza sezonowości ma być wykonywana |true |boolean |wartość true, false |Zależne od serii czasu |
 | sezonowości. numSeasonality |Maksymalna liczba okresowych cykli do wykrycia |1 |liczba całkowita |1, 2 |1-2 |
 | sezonowości. Transform |Czy składniki trendów sezonowych (i) zostaną usunięte przed zastosowaniem wykrywania anomalii |w okresie |wyliczany |Brak, depora, deseasontrend |Nie dotyczy |
 | postprocess.tailRows |Liczba najnowszych punktów danych, które mają być przechowywane w wynikach wyjściowych |0 |liczba całkowita |0 (Zachowaj wszystkie punkty danych) lub określ liczbę punktów, które mają być zachowane w wynikach |Nie dotyczy |

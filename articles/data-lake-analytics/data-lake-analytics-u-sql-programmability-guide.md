@@ -8,10 +8,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288952"
 ---
 # <a name="u-sql-programmability-guide"></a>Przewodnik programowania U-SQL
@@ -83,7 +83,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Użyj wyrażeń języka C# dla dzisiejszej daty
 
-Aby ściągnąć bieżącą datę, można użyć następującego wyrażenia języka C#:`DateTime.Now.ToString("M/d/yyyy")`
+Aby ściągnąć bieżącą datę, można użyć następującego wyrażenia języka C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Oto przykład sposobu użycia tego wyrażenia w skrypcie:
 
@@ -529,9 +529,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Serializacja**: serializacja obiektu lub grafu obiektów z podanym elementem głównym do podanego strumienia.
 
-`MyType`wystąpienie: wystąpienie typu.  
-`IColumnWriter`składnik zapisywania/ `IColumnReader` czytelnik: źródłowy strumień kolumn.  
-`ISerializationContext`Context: enum, który definiuje zestaw flag, który określa źródłowy lub docelowy kontekst strumienia podczas serializacji.
+`MyType` wystąpienie: wystąpienie typu.  
+`IColumnWriter` składnik zapisywania/ `IColumnReader` czytelnik: źródłowy strumień kolumn.  
+`ISerializationContext` Context: enum, który definiuje zestaw flag, który określa źródłowy lub docelowy kontekst strumienia podczas serializacji.
 
 * **Pośredni**: określa, że kontekst źródłowy lub docelowy nie jest magazynem utrwalonym.
 
@@ -1259,9 +1259,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`jest wywoływana dla każdego wiersza wejściowego. Zwraca `IUnstructuredWriter output` zestaw wierszy.
+* `Output` jest wywoływana dla każdego wiersza wejściowego. Zwraca `IUnstructuredWriter output` zestaw wierszy.
 * Klasa konstruktora służy do przekazywania parametrów do zdefiniowanego przez użytkownika wystawcy.
-* `Close`służy do opcjonalnego przesłonięcia w celu zwolnienia drogi lub określenia czasu zapisania ostatniego wiersza.
+* `Close` służy do opcjonalnego przesłonięcia w celu zwolnienia drogi lub określenia czasu zapisania ostatniego wiersza.
 
 Atrybut **SqlUserDefinedOutputter** wskazuje, że typ powinien być zarejestrowany jako element, zdefiniowany przez użytkownika. Klasa ta nie może być dziedziczona.
 
@@ -2105,7 +2105,7 @@ Atrybut **SqlUserDefinedReducer** wskazuje, że typ powinien być zarejestrowany
 **SqlUserDefinedReducer** jest opcjonalnym atrybutem dla definicji ograniczenia zdefiniowanej przez użytkownika. Służy do definiowania właściwości isrekurencyjnej.
 
 * bool isrekurencyjny    
-* **true** = wskazuje, czy ten spadek jest asocjacyjny i komutatywna
+* **true**  = wskazuje, czy ten spadek jest asocjacyjny i komutatywna
 
 Główne obiekty programowalności są **danymi wejściowymi** i **wyjściowymi**. Obiekt wejściowy jest używany do wyliczania wierszy wejściowych. Dane wyjściowe służą do ustawiania wierszy wyjściowych w wyniku zmniejszenia aktywności.
 

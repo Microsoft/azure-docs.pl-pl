@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764540"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Włączanie dostępu zdalnego do programu SharePoint przy użyciu serwera proxy aplikacji usługi Azure AD
@@ -47,9 +47,9 @@ Skonfigurowanie programu SharePoint z serwerem proxy aplikacji wymaga dwóch adr
 > - W firmowym systemie nazw domen (DNS) Utwórz hosta (A), aby wskazać WFE SharePoint (lub moduł równoważenia obciążenia), a nie alias (CName).
 
 W tym artykule są stosowane następujące wartości:
-- Wewnętrzny adres URL:`https://sharepoint`
-- Zewnętrzny adres URL:`https://spsites-demo1984.msappproxy.net/`
-- Konto puli aplikacji dla aplikacji sieci Web programu SharePoint:`Contoso\spapppool`
+- Wewnętrzny adres URL: `https://sharepoint`
+- Zewnętrzny adres URL: `https://spsites-demo1984.msappproxy.net/`
+- Konto puli aplikacji dla aplikacji sieci Web programu SharePoint: `Contoso\spapppool`
 
 ## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Krok 1. Konfigurowanie aplikacji w usłudze Azure AD, która używa serwera proxy aplikacji
 
@@ -188,7 +188,7 @@ Aby skonfigurować KCD, wykonaj następujące kroki dla każdej maszyny łączni
 1. Znajdź komputer z uruchomionym łącznikiem usługi Azure AD proxy. W tym przykładzie jest to serwer programu SharePoint.
 1. Kliknij dwukrotnie komputer, a następnie wybierz kartę **Delegowanie**.
 1. Upewnij się, że opcje delegowania są ustawione tak, aby **ufać temu komputerowi w delegowaniu tylko do określonych usług**. Następnie wybierz opcję **Użyj dowolnego protokołu uwierzytelniania**.
-1. Wybierz przycisk **Dodaj** , wybierz pozycję **Użytkownicy lub komputery**, a następnie Znajdź konto puli aplikacji programu SharePoint. Na przykład: `Contoso\spapppool`.
+1. Wybierz przycisk **Dodaj** , wybierz pozycję **Użytkownicy lub komputery**, a następnie Znajdź konto puli aplikacji programu SharePoint. Przykład: `Contoso\spapppool`.
 1. Z listy nazw SPN wybierz ten, który został utworzony wcześniej dla konta usługi.
 1. Wybierz przycisk **OK** , a następnie ponownie wybierz przycisk **OK** , aby zapisać zmiany.
   

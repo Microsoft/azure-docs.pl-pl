@@ -4,10 +4,10 @@ description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012555"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
@@ -76,7 +76,7 @@ Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do t
 
 Aby ułatwić organizacjom zgodność z krajowymi, regionalnymi i branżowymi wymaganiami dotyczącymi zbierania i używania danych indywidualnych, Microsoft Azure & Azure Backup oferuje kompleksowy zestaw certyfikatów i zaświadczania. [Zapoznaj się z listą certyfikatów zgodności](compliance-offerings.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Funkcje zabezpieczeń pomagające w ochronie obciążeń w chmurze korzystających z Azure Backup](backup-azure-security-feature-cloud.md)
 * [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup](backup-azure-security-feature.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068275"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
@@ -139,12 +139,12 @@ Wybierz przycisk **ścieżka kompilacji** , aby wybrać folder kompilacji, któr
 
 W poniższym przykładzie wyjaśniono, jak to działa:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Struktura katalogów pokazująca hierarchię.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Wybierz pozycję Dodaj artefakt w potoku wydania.":::
 
 
 * System Windows — pliki znajdują się w `C:\` . Tworzony jest katalog o nazwie, `buildArtifacts` który zawiera `webapp` katalog.
 
-* System Linux — pliki istnieją w systemie `/tmp` . `webapp`Zostanie utworzony katalog obejmujący wszystkie pliki i katalogi. Pliki należy przenieść z tego katalogu. W przeciwnym razie zostaną usunięte, ponieważ znajdują się w katalogu tymczasowym.
+* System Linux — pliki istnieją w systemie  `/tmp` . `webapp`Zostanie utworzony katalog obejmujący wszystkie pliki i katalogi. Pliki należy przenieść z tego katalogu. W przeciwnym razie zostaną usunięte, ponieważ znajdują się w katalogu tymczasowym.
 
 #### <a name="inline-customization-script"></a>Wbudowany skrypt dostosowania
 
@@ -298,7 +298,7 @@ Zapisana/oferta/jednostka SKU/wersja obrazu źródłowej witryny Marketplace:
 URI obrazu — identyfikator zasobu rozproszonego obrazu:
 * $ (imageUri)
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="can-i-use-an-existing-image-template-i-have-already-created-outside-of-devops"></a>Czy mogę użyć istniejącego szablonu obrazu, który został już utworzony, poza DevOps?
 
@@ -314,7 +314,7 @@ Jeśli wystąpi błąd kompilacji, zadanie DevOps nie usuwa tymczasowej grupy za
 
 Zostanie wyświetlony komunikat o błędzie w dzienniku DevOps zadania konstruktora obrazów maszyn wirtualnych i zapoznaj się z lokalizacją dostosowywać. log. Na przykład:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Przykładowy błąd zadania DevOps, który zawiera błąd.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Wybierz pozycję Dodaj artefakt w potoku wydania.":::
 
 Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [Rozwiązywanie problemów z usługą Azure Image Builder](image-builder-troubleshoot.md). 
 

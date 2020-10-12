@@ -17,10 +17,10 @@ ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763129"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguracja aplikacji jednokrotnego kliknięcia
@@ -82,7 +82,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 
 11. Możesz wybrać **test** , aby przetestować Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 * [Co to jest rozszerzenie przeglądarki Moje aplikacje bezpieczne logowanie?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)

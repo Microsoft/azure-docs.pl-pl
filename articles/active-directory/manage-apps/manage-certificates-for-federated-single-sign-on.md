@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763214"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Zarządzanie certyfikatami federacyjnego logowania jednokrotnego w Azure Active Directory
@@ -59,12 +59,12 @@ Najpierw utwórz i Zapisz nowy certyfikat z inną datą wygaśnięcia:
 1. Wybierz aplikację, której dotyczy dana aplikacja. Zostanie wyświetlona strona przeglądu aplikacji.
 1. W lewym okienku strony przegląd aplikacji wybierz pozycję **Logowanie jednokrotne**.
 1. Jeśli zostanie wyświetlona strona **Wybierz metodę logowania** jednokrotnego, wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML-Preview** Znajdź nagłówek **certyfikatu podpisywania SAML** i wybierz ikonę **edycji** (ołówek). Zostanie wyświetlona strona **certyfikat podpisywania SAML** , która wyświetla stan (**aktywny** lub **nieaktywny**), datę wygaśnięcia i odcisk palca (ciąg skrótu) każdego certyfikatu.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu protokołu SAML-Preview** Znajdź nagłówek **certyfikatu podpisywania SAML** i wybierz ikonę **edycji** (ołówek). Zostanie wyświetlona strona **certyfikat podpisywania SAML** , która wyświetla stan (**aktywny** lub **nieaktywny**), datę wygaśnięcia i odcisk palca (ciąg skrótu) każdego certyfikatu.
 1. Wybierz pozycję **nowy certyfikat**. Zostanie wyświetlony nowy wiersz poniżej listy certyfikatów, gdzie Data wygaśnięcia jest domyślnie równa dokładnie trzech lat od bieżącej daty. (Zmiany nie zostały jeszcze zapisane, więc nadal możesz zmodyfikować datę wygaśnięcia).
 1. W wierszu nowy certyfikat Umieść kursor nad kolumną Data wygaśnięcia i wybierz ikonę **Wybierz datę** (kalendarz). Zostanie wyświetlona kontrolka kalendarz, w której są wyświetlane dni miesiąca z bieżącą datą wygaśnięcia nowego wiersza.
 1. Użyj kontrolki Calendar, aby ustawić nową datę. Możesz ustawić dowolną datę między bieżącą datą a trzy lata od daty bieżącej.
 1. Wybierz pozycję **Zapisz**. Nowy certyfikat jest teraz wyświetlany ze stanem **nieaktywny**, wybraną datą wygaśnięcia i odciskiem palca.
-1. Wybierz znak **X** , aby powrócić do strony **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML-Preview** .
+1. Wybierz **znak X** , aby powrócić do strony **Konfigurowanie pojedynczego Sign-On przy użyciu protokołu SAML-Preview** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Przekazywanie i aktywowanie certyfikatu
 

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050435"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Wdróż moduł IoT Edge Event Grid
@@ -27,7 +27,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
  
 ### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Przejdź do IoT Hub.
 1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
@@ -46,7 +46,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Nazwa**: eventgridmodule
-   * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opcje tworzenia kontenera**:
 
 ```json
@@ -67,7 +67,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     }
 ```
 
- 1. Kliknij przycisk **Zapisz**
+ 1. Kliknij pozycję **Zapisz**
  1. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
     > [!NOTE]

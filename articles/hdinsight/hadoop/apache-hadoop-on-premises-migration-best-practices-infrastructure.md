@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083104"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące infrastruktury
@@ -23,7 +23,7 @@ W tym artykule przedstawiono zalecenia dotyczące zarządzania infrastrukturą k
 
 Kluczowe Opcje planowania pojemności klastra usługi HDInsight są następujące:
 
-**Okolicy**  
+**Region**  
 Region platformy Azure określa, gdzie klaster jest fizycznie zainicjowany. Aby zminimalizować opóźnienie operacji odczytu i zapisu, klaster powinien znajdować się w tym samym regionie co dane.
 
 **Lokalizacja i rozmiar magazynu**  
@@ -101,7 +101,7 @@ Usługa HDInsight udostępnia wstępnie zapisane skrypty umożliwiające zainsta
 
 Akcje skryptu można również publikować w portalu Azure Marketplace jako aplikację usługi HDInsight.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Instalowanie aplikacji Apache Hadoop innych firm w usłudze HDInsight](../hdinsight-apps-install-applications.md)
 - [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -172,7 +172,7 @@ Usługę HDInsight można dodać do nowego lub istniejącego Virtual Network pla
 > [!Note]  
 > Usługa HDInsight nie obsługuje obecnie wymuszonego tunelowania. Wymuszone tunelowanie to ustawienie podsieci, które wymusza wychodzący ruch internetowy do urządzenia w celu przeprowadzenia inspekcji i rejestrowania. Usuń wymuszone tunelowanie przed zainstalowaniem usługi HDInsight w podsieci lub Utwórz nową podsieć dla usługi HDInsight. Usługa HDInsight nie obsługuje również ograniczania łączności sieciowej wychodzącej.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Azure Virtual-Networks — Omówienie](../../virtual-network/virtual-networks-overview.md)
 - [Rozszerzanie usługi Azure HDInsight za pomocą usługi Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 Usługa HDInsight obsługuje [punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md), które umożliwiają bezpieczne łączenie się z bazami danych platformy Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB i SQL. Po włączeniu punktu końcowego usługi Azure HDInsight ruch przepływów odbywa się za pośrednictwem zabezpieczonej trasy z centrum danych platformy Azure. Dzięki temu zwiększonemu poziomowi zabezpieczeń w warstwie sieciowej można zablokować konta magazynu danych Big Data do określonych sieci wirtualnych (sieci wirtualnych) i nadal używać klastrów usługi HDInsight bezproblemowo, aby uzyskać dostęp do tych danych i ich przetworzyć.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Punkty końcowe usługi dla sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Rozszerzanie zabezpieczeń usługi HDInsight za pomocą punktów końcowych usług](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
