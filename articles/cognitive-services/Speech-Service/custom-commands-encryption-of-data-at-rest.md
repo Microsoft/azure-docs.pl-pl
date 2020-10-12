@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294311"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych przy użyciu poleceń niestandardowych
@@ -33,13 +33,13 @@ W przypadku korzystania z poleceń niestandardowych usługa Speech Service będz
 * Plik JSON konfiguracji za pomocą aplikacji poleceń niestandardowych
 * LUIS tworzenie i klucz predykcyjny
 
-Domyślnie Twoja subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Można też zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.
+Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Można też zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. Klucze zarządzane przez klienta (CMK), znane także jako własne klucze (BYOK), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.
 
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta są dostępne tylko dla zasobów utworzonych po 27 czerwca 2020. Aby korzystać z CMK z usługą Speech Services, musisz utworzyć nowy zasób mowy. Po utworzeniu zasobu możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
 
-Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i Prześlij formularz żądania klucza zarządzanego przez klienta. Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK za pomocą usługi Speech Services należy utworzyć nowy zasób mowy na podstawie Azure Portal.
+Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij Customer-Managed formularz żądania klucza. Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK za pomocą usługi Speech Services należy utworzyć nowy zasób mowy na podstawie Azure Portal.
    > [!NOTE]
    > **Klucze zarządzane przez klienta (CMK) są obsługiwane tylko dla poleceń niestandardowych.**
    >
@@ -151,7 +151,7 @@ Po wyłączeniu kluczy zarządzanych przez klienta zasób mowy jest szyfrowany p
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Mowa — formularz żądania klucza zarządzanego przez klienta](https://aka.ms/cogsvc-cmk)
+* [Formularz żądania klucza Customer-Managed mowy](https://aka.ms/cogsvc-cmk)
 * [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Co to są tożsamości zarządzane](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

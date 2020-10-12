@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Samouczek: integracja Azure Active Directory z obsługą techniczną SolarWinds (wcześniej Samanage)
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi SolarWinds, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w **[usłudze SolarWinds Service](#configure-solarwinds-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w **[usłudze SolarWinds Service](#configure-solarwinds-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego usługi SolarWinds Service](#create-solarwinds-test-user)** , aby uzyskać odpowiednik Britta Simon w SolarWinds Service Desk, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -124,7 +124,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SolarWinds,
 
 <a name="configure-solarwinds-single-sign-on"></a>
 
-### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze SolarWinds Service
+### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Skonfiguruj pojedynczy Sign-On usługi SolarWinds Service Desk
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny SolarWinds jako administrator.
 
@@ -179,7 +179,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -243,7 +243,7 @@ Po kliknięciu kafelka SolarWinds w panelu dostępu należy automatycznie zalogo
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

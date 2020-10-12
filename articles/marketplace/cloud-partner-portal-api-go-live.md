@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292934"
 ---
 # <a name="go-live"></a>Przejdź na żywo
@@ -28,12 +28,12 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**      |   **Opis**                                                           | **Typ danych** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String       |
-| offerId        | Identyfikator oferty oferty do pobrania                                   |  String       |
-| api-version    | Najnowsza wersja interfejsu API                                                   |  Data         |
+| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład `contoso`       |  Ciąg       |
+| offerId        | Identyfikator oferty oferty do pobrania                                   |  Ciąg       |
+| api-version    | Najnowsza wersja interfejsu API                                                   |  Date         |
 |  |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 ------
 
 |  **Nazwa**       |     **Wartość**       |
@@ -44,7 +44,7 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 ## <a name="body-example"></a>Przykład treści
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 #### <a name="migrated-offers"></a>Zmigrowane oferty
 
@@ -58,14 +58,14 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**             |      **Wartość**                                                            |
 |  --------             |      ----------                                                           |
-| Location    |  Ścieżka względna do pobrania stanu tej operacji            |
+| Lokalizacja    |  Ścieżka względna do pobrania stanu tej operacji            |
 |  |  |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 | **Kod** |  **Opis**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted`-Żądanie zostało pomyślnie zaakceptowane. Odpowiedź zawiera lokalizację do śledzenia stanu operacji. |
-|  400     | `Bad/Malformed request`— Dodatkowe informacje o błędzie znajdują się w treści odpowiedzi. |
-|  404     |  `Not found`-Określona jednostka nie istnieje.                                       |
+|  202     | `Accepted` -Żądanie zostało pomyślnie zaakceptowane. Odpowiedź zawiera lokalizację do śledzenia stanu operacji. |
+|  400     | `Bad/Malformed request` — Dodatkowe informacje o błędzie znajdują się w treści odpowiedzi. |
+|  404     |  `Not found` -Określona jednostka nie istnieje.                                       |
 |  |  |

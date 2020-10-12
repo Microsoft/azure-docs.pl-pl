@@ -1,6 +1,6 @@
 ---
 title: Jak platforma tożsamości firmy Microsoft używa protokołu SAML
-description: Ten artykuł zawiera Omówienie profilów protokołu SAML logowania jednokrotnego i logowania jednokrotnego w programie Azure Active Directory.
+description: Ten artykuł zawiera omówienie jednego Sign-On i jednego Sign-Out profilów SAML w Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552802"
 ---
 # <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Jak platforma tożsamości firmy Microsoft używa protokołu SAML
@@ -31,7 +31,7 @@ Platforma tożsamości firmy Microsoft używa **identyfikatora URI metadanych** 
 
 Azure Active Directory udostępnia specyficzne dla dzierżawców i wspólne (niezależne od dzierżawy) punkty końcowe logowania jednokrotnego i wylogowania jednokrotnego. Te adresy URL przedstawiają lokalizacje adresowane — nie są tylko identyfikatorami, więc możesz przejść do punktu końcowego, aby odczytać metadane.
 
-* Punkt końcowy specyficzny dla dzierżawy znajduje się w lokalizacji `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . *\<TenantDomainName>* Symbol zastępczy reprezentuje zarejestrowaną nazwę domeny lub identyfikator GUID TenantID dzierżawy usługi Azure AD. Na przykład metadane federacji dzierżawy contoso.com są następujące:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Punkt końcowy specyficzny dla dzierżawy znajduje się w lokalizacji `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . *\<TenantDomainName>* Symbol zastępczy reprezentuje zarejestrowaną nazwę domeny lub identyfikator GUID TenantID dzierżawy usługi Azure AD. Na przykład metadane federacji dzierżawy contoso.com są następujące: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Punkt końcowy niezależny od dzierżawy znajduje się w lokalizacji `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml` . W tym adresie punktu końcowego pojawia się **typowy** zamiast nazwy domeny dzierżawy lub identyfikatora.
 

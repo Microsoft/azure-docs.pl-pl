@@ -4,10 +4,10 @@ description: Rejestruj i Analizuj zdarzenia dziennika zasobów dla Azure Contain
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553380"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Dzienniki Azure Container Registry na potrzeby oceny i inspekcji diagnostyki
@@ -24,7 +24,7 @@ Zbieranie danych dzienników zasobów przy użyciu Azure Monitor może pociągn�
 
 Następujące zdarzenia na poziomie repozytorium dla obrazów i innych artefaktów są obecnie rejestrowane:
 
-* **Wypychanie**
+* **Wydajności**
 * **Pobierać**
 * **Untag**
 * **Usuń** (łącznie ze zdarzeniami usunięcia repozytorium)
@@ -37,7 +37,7 @@ Następujące zdarzenia na poziomie repozytorium dla obrazów i innych artefakt�
 
 Dzienniki zasobów zawierają informacje wyemitowane przez zasoby platformy Azure opisujące ich wewnętrzną operację. W przypadku usługi Azure Container Registry dzienniki zawierają zdarzenia uwierzytelniania i na poziomie repozytorium przechowywane w poniższych tabelach. 
 
-* **ContainerRegistryLoginEvents** — zdarzenia i stan uwierzytelniania rejestru, w tym przychodzącą tożsamość i adres IP
+* **ContainerRegistryLoginEvents**  — zdarzenia i stan uwierzytelniania rejestru, w tym przychodzącą tożsamość i adres IP
 * **ContainerRegistryRepositoryEvents** — operacje, takie jak wypychanie i ściąganie dla obrazów i innych artefaktów w repozytoriach rejestru
 * **AzureMetrics**  -  [Metryki rejestru kontenerów](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) , takie jak agregowane liczby wypychania i ściągania.
 

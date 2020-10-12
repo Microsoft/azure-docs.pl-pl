@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290730"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Konfigurowanie laboratorium dla klas inżynieryjnych za pomocą SOLIDWORKS
@@ -76,7 +76,7 @@ Kroki opisane w tej sekcji pokazują, jak skonfigurować maszynę wirtualną sza
     > [!NOTE]
     > W oknie dialogowym **Dodawanie serwera** zostanie wyświetlony monit o **numer portu** używany przez serwer licencji oraz nazwę lub adres IP serwera licencji.
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszty
 
 Przyjrzyjmy się możliwemu szacunkowi kosztów dla tej klasy. To oszacowanie nie obejmuje kosztu uruchomienia serwera licencji. Będziemy używać klasy 25 studentów. Zaplanowana godzina klasy wynosi 20 godzin. Ponadto każdy student otrzymuje limit 10 godzin dla prac domowych lub przydziałów poza zaplanowanym czasem klasy. Wybrany rozmiar maszyny wirtualnej to **mały procesor GPU (wizualizacja)**, czyli 160 jednostek laboratorium.
 

@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117621"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0
@@ -98,9 +98,9 @@ Przy uzyskiwaniu dostępu do niezbędnych zasobów lub interfejsów API aplikacj
 - Zasoby powinny w sposób jawny osobno definiować uprawnienia `Read` i `ReadWrite`.
 - Zasoby powinny oznaczyć wszystkie uprawnienia umożliwiające dostęp do danych przekraczający granice użytkownika jako uprawnienia `Admin`.
 - Nazwy zasobów powinny być zgodne ze wzorcem `Subject.Permission[.Modifier]`, gdzie:
-  - `Subject`odpowiada typowi danych, które są dostępne
-  - `Permission`odnosi się do akcji, którą użytkownik może wykonać w przypadku tych danych
-  - `Modifier`jest używany opcjonalnie do opisywania specjalizacji innego uprawnienia
+  - `Subject` odpowiada typowi danych, które są dostępne
+  - `Permission` odnosi się do akcji, którą użytkownik może wykonać w przypadku tych danych
+  - `Modifier` jest używany opcjonalnie do opisywania specjalizacji innego uprawnienia
     
     Na przykład:
   - Mail.Read — umożliwia użytkownikom odczytywanie wiadomości e-mail.

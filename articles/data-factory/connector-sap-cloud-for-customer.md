@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 3874d3b2b0938b6fd0f763b42ef15f8250b42f1d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529623"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Skopiuj dane z chmury SAP dla klienta (C4C) przy użyciu Azure Data Factory
@@ -126,7 +126,7 @@ Aby skopiować dane z chmury SAP dla klienta, ustaw typ źródła w działaniu C
 | query | Określ niestandardowe zapytanie OData do odczytu danych. | Nie |
 | httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Jeśli nie zostanie określony, wartość domyślna to **00:30:00** (30 minut). | Nie |
 
-Przykładowe zapytanie w celu pobrania danych przez konkretny dzień:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Przykładowe zapytanie w celu pobrania danych przez konkretny dzień: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Przykład:**
 
@@ -219,9 +219,9 @@ Podczas kopiowania danych z chmury SAP dla klienta następujące mapowania są u
 | Edm.Boolean | Wartość logiczna |
 | EDM. Byte | Byte [] |
 | EDM. DateTime | DateTime |
-| EDM. Decimal | Wartość dziesiętna |
+| EDM. Decimal | Liczba dziesiętna |
 | Edm.Double | Double |
-| EDM. Single | Pojedyncze |
+| EDM. Single | Pojedynczy |
 | EDM. GUID | Guid (identyfikator GUID) |
 | EDM. Int16 | Int16 |
 | Edm.Int32 | Int32 |

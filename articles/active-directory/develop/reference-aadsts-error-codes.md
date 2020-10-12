@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115105"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
@@ -135,7 +135,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50079 | UserStrongAuthEnrollmentRequired — z powodu zmiany konfiguracji wprowadzonej przez administratora lub przenoszonej przez użytkownika do nowej lokalizacji użytkownik musi korzystać z uwierzytelniania wieloskładnikowego. |
 | AADSTS50085 | Token odświeżania wymaga danych logowania dostawy tożsamości z serwisów społecznościowych. Użytkownik musi zalogować się ponownie przy użyciu nazwy użytkownika i hasła |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError — usługa jest tymczasowo niedostępna. Próbuj ponownie. |
+| AADSTS50087 | SasRetryableError — usługa jest tymczasowo niedostępna. Spróbuj ponownie. |
 | AADSTS50089 | Token uwierzytelniania wygasł — uwierzytelnianie nie powiodło się. Użytkownik spróbuje ponownie zalogować się przy użyciu nazwy użytkownika i hasła. |
 | AADSTS50097 | DeviceAuthenticationRequired — wymagane jest uwierzytelnianie urządzenia. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized — podpis JWT jest nieprawidłowy. |
@@ -188,7 +188,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist — użytkownik lub administrator nie wyraził zgody na używanie aplikacji z IDENTYFIKATORem X. Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu. |
 | AADSTS65004 | UserDeclinedConsent — użytkownik odrzucił zgodę na dostęp do aplikacji. Użytkownik musi ponowić próbę zalogowania się i wyrazić zgodę na aplikację|
-| AADSTS65005 | MisconfiguredApplication — lista dostępu do zasobów wymagana przez aplikację nie zawiera aplikacji wykrywalnych przez zasób lub aplikacja kliencka zażądała dostępu do zasobu, który nie został określony w wymaganej liście dostępu do zasobów lub usługa grafu zwróciła Nieprawidłowe żądanie lub nie znaleziono zasobu. Jeśli aplikacja obsługuje protokół SAML, być może skonfigurowano aplikację z nieprawidłowym identyfikatorem (jednostką). Wypróbuj rozwiązanie wymienione w polu SAML przy użyciu poniższego linku:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication — lista dostępu do zasobów wymagana przez aplikację nie zawiera aplikacji wykrywalnych przez zasób lub aplikacja kliencka zażądała dostępu do zasobu, który nie został określony w wymaganej liście dostępu do zasobów lub usługa grafu zwróciła Nieprawidłowe żądanie lub nie znaleziono zasobu. Jeśli aplikacja obsługuje protokół SAML, być może skonfigurowano aplikację z nieprawidłowym identyfikatorem (jednostką). Wypróbuj rozwiązanie wymienione w polu SAML przy użyciu poniższego linku: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | Aplikacja musi mieć dostęp do usługi `(\"{name}\")` , której Twoja organizacja `\"{organization}\"` nie subskrybuje lub nie została włączona. Skontaktuj się z administratorem IT, aby zapoznać się z konfiguracją subskrypcji usług. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant — uwierzytelnianie nie powiodło się. Token odświeżania jest nieprawidłowy. Błąd może być spowodowany następującymi przyczynami:<ul><li>Nagłówek powiązania tokenu jest pusty</li><li>Wartość skrótu powiązania tokenu nie jest zgodna</li></ul> |
@@ -200,7 +200,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS70007 | UnsupportedResponseMode — aplikacja zwróciła nieobsługiwaną wartość dla `response_mode` żądania tokenu.  |
 | AADSTS70008 | ExpiredOrRevokedGrant — token odświeżania wygasł z powodu braku aktywności. Token został wystawiony w dniu XXX i był nieaktywny przez określony czas. |
 | AADSTS70011 | InvalidScope — zakres żądany przez aplikację jest nieprawidłowy. |
-| AADSTS70012 | MsaServerError — Wystąpił błąd serwera podczas uwierzytelniania użytkownika MSA (konsumenta). Próbuj ponownie. Jeśli to się nie powiedzie, [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError — Wystąpił błąd serwera podczas uwierzytelniania użytkownika MSA (konsumenta). Spróbuj ponownie. Jeśli to się nie powiedzie, [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | Błąd przepływu urządzenia AuthorizationPending-OAuth 2,0. Autoryzacja jest w stanie oczekiwania. Urządzenie ponowi próbę sondowania żądania. |
 | AADSTS70018 | BadVerificationCode — nieprawidłowy kod weryfikacyjny ze względu na to, że użytkownik pisze nieprawidłowy kod użytkownika dla przepływu kodu urządzenia. Autoryzacja nie jest zatwierdzona. |
 | AADSTS70019 | CodeExpired — upłynął kod weryfikacyjny. Użytkownik musi się ponownie zalogować. |
@@ -243,7 +243,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat — format nazwy głównej jest nieprawidłowy lub nie jest zgodny z oczekiwanym `name[/host][@realm]` formatem. Nazwa główna jest wymagana, Host i obszar są opcjonalne i mogą być ustawione na wartość null. |
 | AADSTS90023 | InvalidRequest — żądanie usługi uwierzytelniania jest nieprawidłowe. |
 | AADSTS9002313 | InvalidRequest — żądanie jest źle sformułowane lub nieprawidłowe. — Ten problem występuje, ponieważ wystąpił problem z żądaniem do określonego punktu końcowego. Sugestia tego problemu polega na uzyskaniu programu Fiddler śledzenia błędu i przejrzeniu, czy żądanie jest właściwie sformatowane. |
-| AADSTS90024 | RequestBudgetExceededError — Wystąpił błąd przejściowy. Próbuj ponownie. |
+| AADSTS90024 | RequestBudgetExceededError — Wystąpił błąd przejściowy. Spróbuj ponownie. |
 | AADSTS90033 | MsodsServiceUnavailable — usługa Katalog online firmy Microsoft (MSODS) nie jest dostępna. |
 | AADSTS90036 | MsodsServiceUnretryableFailure — wystąpił nieoczekiwany błąd, którego nie można ponownie ponowić z usługi WCF hostowanej przez MSODS. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md), aby uzyskać więcej informacji na temat błędu. |
 | AADSTS90038 | NationalCloudTenantRedirection — określona dzierżawa "Y" należy do chmury krajowej "X". Bieżące wystąpienie w chmurze "Z" nie sfederować z X. Zwracany jest błąd przekierowania w chmurze. |
@@ -252,12 +252,12 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS90055 | TenantThrottlingError — zbyt wiele żądań przychodzących. Ten wyjątek jest zgłaszany dla zablokowanych dzierżawców. |
 | AADSTS90056 | BadResourceRequest — aby zrealizować kod dla tokenu dostępu, aplikacja powinna wysłać żądanie POST do `/token` punktu końcowego. Ponadto przed tym należy podać kod autoryzacji i wysłać go w żądaniu POST do `/token` punktu końcowego. Zapoznaj się z tym artykułem, aby uzyskać omówienie przepływu kodu autoryzacji OAuth 2,0: [.. /azuread-dev/V1-Protocols-OAuth-Code.MD](../azuread-dev/v1-protocols-oauth-code.md). Kierowanie użytkownika do `/authorize` punktu końcowego, który zwróci authorization_code. Po opublikowaniu żądania do `/token` punktu końcowego użytkownik otrzymuje token dostępu. Zaloguj się do Azure Portal i sprawdź **punkty końcowe > rejestracje aplikacji** , aby upewnić się, że dwa punkty końcowe zostały prawidłowo skonfigurowane. |
 | AADSTS90072 | PassThroughUserMfaError — konto zewnętrzne, za pomocą którego loguje się użytkownik, nie istnieje w dzierżawie, do której się zarejestrował; Dlatego użytkownik nie może spełnić wymagań usługi MFA dla dzierżawy. Najpierw należy dodać konto jako użytkownika zewnętrznego w dzierżawie. Wyloguj się i zaloguj się przy użyciu innego konta użytkownika usługi Azure AD. |
-| AADSTS90081 | OrgIdWsFederationMessageInvalid — Wystąpił błąd, gdy usługa podjęła próbę przetworzenia komunikatu protokołu WS-Federation. Komunikat jest nieprawidłowy. |
+| AADSTS90081 | OrgIdWsFederationMessageInvalid — Wystąpił błąd, gdy usługa podjęła próbę przetworzenia komunikatu WS-Federation. Komunikat jest nieprawidłowy. |
 | AADSTS90082 | OrgIdWsFederationNotSupported — wybrane zasady uwierzytelniania dla żądania nie są obecnie obsługiwane. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed — konta gościa nie są dozwolone w tej witrynie. |
 | AADSTS90085 | OrgIdWsFederationSltRedemptionFailed — usługa nie może wystawić tokenu, ponieważ obiekt firmy nie został jeszcze zainicjowany. |
 | AADSTS90086 | OrgIdWsTrustDaTokenExpired — token użytkownika DA ważność. |
-| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed — Wystąpił błąd podczas tworzenia komunikatu protokołu WS-Federation z identyfikatora URI. |
+| AADSTS90087 | OrgIdWsFederationMessageCreationFromUriFailed — Wystąpił błąd podczas tworzenia komunikatu WS-Federation z identyfikatora URI. |
 | AADSTS90090 | GraphRetryableError — usługa jest tymczasowo niedostępna. |
 | AADSTS90091 | GraphServiceUnreachable |
 | AADSTS90092 | GraphNonRetryableError |
@@ -315,7 +315,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS700022 | InvalidMultipleResourcesScope — podana wartość zakresu parametru wejściowego jest nieprawidłowa, ponieważ zawiera więcej niż jeden zasób. |
 | AADSTS700023 | InvalidResourcelessScope — podana wartość dla zakresu parametru wejściowego jest nieprawidłowa podczas żądania tokenu dostępu. |
 | AADSTS7000215 | Podano nieprawidłowy klucz tajny klienta. Błąd dewelopera — aplikacja próbuje zalogować się bez wymaganych lub poprawnych parametrów uwierzytelniania.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | Kod autoryzacji podany przez InvalidGrantRedeemAgainstWrongTenant jest przeznaczony do użycia w odniesieniu do innych dzierżawców, w rezultacie odrzucony. Kod autoryzacji OAuth2 musi zostać zrealizowany w odniesieniu do tej samej dzierżawy, dla którego uzyskano (odpowiednio/typowe lub/{tenant-ID}) |
 | AADSTS1000000 | UserNotBoundError — interfejs API bind wymaga, aby użytkownik usługi Azure AD mógł także uwierzytelniać się przy użyciu zewnętrznego dostawcy tożsamości, który jeszcze nie wystąpił. |
 | AADSTS1000002 | BindCompleteInterruptError — powiązanie zostało wykonane pomyślnie, ale użytkownik musi zostać poinformowany. |

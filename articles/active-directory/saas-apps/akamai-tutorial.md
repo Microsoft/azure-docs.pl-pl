@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329520"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
@@ -36,7 +36,7 @@ Na poniższym obrazie opisano, gdzie Akamai EAA mieści się w szerszym scenariu
 
 ### <a name="key-authentication-scenarios"></a>Scenariusze uwierzytelniania kluczy
 
-Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, Akamai EAA rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (na przykład dostęp bez hasła) do tych aplikacji. Obejmuje on:
+Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, Akamai EAA rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (na przykład dostęp bez hasła) do tych aplikacji. Możliwości obejmują:
 
 * Aplikacje uwierzytelniania oparte na nagłówkach
 * Pulpit zdalny
@@ -45,7 +45,7 @@ Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protok
 * VNC (Virtual Network Computing)
 * Uwierzytelnianie anonimowe lub brak nieskompilowanych aplikacji uwierzytelniania
 * Aplikacje uwierzytelniania NTLM (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
-* Aplikacja oparta na formularzach (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
+* Aplikacja Forms-Based (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
 
 ### <a name="integration-scenarios"></a>Scenariusze integracji
 
@@ -169,7 +169,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -313,7 +313,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Zrzut ekranu przedstawiający kartę wdrożenie konsoli Akamai EAA z komunikatem o stanie aplikacji: "aplikacja została pomyślnie wdrożona".](./media/header-akamai-tutorial/configure15.png)
 
-1. Środowisko użytkownika końcowego.
+1. End-User środowiska.
 
     ![Zrzut ekranu przedstawiający ekran otwierający dla myapps.microsoft.com z obrazem tła i oknem dialogowym logowania.](./media/header-akamai-tutorial/enduser01.png)
 
@@ -363,7 +363,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     ![Zrzut ekranu konsoli usługi Akamai EAA niestandardowe ustawienia nagłówków HTTP dla SECRETRDPAPP z przyciskiem Zapisz i przejdź do wdrożenia w prawym dolnym rogu.](./media/header-akamai-tutorial/configure24.png)
 
-1. Środowisko użytkownika końcowego
+1. Środowisko End-User
 
     ![Zrzut ekranu okna myapps.microsoft.com z obrazem tła i oknem dialogowym logowania.](./media/header-akamai-tutorial/enduser03.png)
 
@@ -429,7 +429,7 @@ Kliknij pozycję Zapisz i przejdź do wdrożenia
 
     ![Zrzut ekranu przedstawiający kartę wdrożenie konsoli usługi Akamai EAA dla protokołu SSH — zabezpieczenia z pokazywaniem przycisku Wdróż aplikację.](./media/header-akamai-tutorial/configure32.png)
 
-1. Środowisko użytkownika końcowego
+1. Środowisko End-User
 
     ![Zrzut ekranu okna dialogowego logowania do okna myapps.microsoft.com.](./media/header-akamai-tutorial/enduser03.png)
 

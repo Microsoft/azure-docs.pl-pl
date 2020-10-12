@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012402"
 ---
 # <a name="package-an-application"></a>Tworzenie pakietu aplikacji
@@ -225,7 +225,7 @@ Aby zainicjować obsługę administracyjną pakietu, Użyj zewnętrznej obsługi
 >[!NOTE]
 > Inicjowanie obsługi oparte na ścieżce względnej magazynu obrazów nie obsługuje obecnie `sfpkg` plików. W związku z tym `sfpkg` nie należy kopiować do magazynu obrazów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Wdrażanie i usuwanie aplikacji][10] — opis sposobu użycia programu PowerShell do zarządzania wystąpieniami aplikacji
 

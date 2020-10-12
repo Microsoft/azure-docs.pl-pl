@@ -4,10 +4,10 @@ description: Dodawanie właścicieli i użytkowników w Azure DevTest Labs przy 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533329"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Dodawanie właścicieli i użytkowników w Azure DevTest Labs
@@ -29,7 +29,7 @@ W poniższej tabeli przedstawiono akcje, które mogą być wykonywane przez uży
 | **Akcje, które użytkownicy w tej roli mogą wykonywać** | **Użytkownik DevTest Labs** | **Właściciel** | **Współautor** |
 | --- | --- | --- | --- |
 | **Zadania laboratoryjne** | | | |
-| Dodawanie użytkowników do laboratorium |Nie |Yes |Nie |
+| Dodawanie użytkowników do laboratorium |Nie |Tak |Nie |
 | Aktualizowanie ustawień kosztów |Nie |Tak |Tak |
 | **Zadania podstawowe maszyny wirtualnej** | | | |
 | Dodawanie i usuwanie obrazów niestandardowych |Nie |Tak |Tak |

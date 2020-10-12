@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318321"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w Log Analytics i Application Insights
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w usługach Log Analytics i Application Insights
 
 Log Analytics to magazyn danych, w którym można znaleźć dane osobowe. Application Insights przechowuje dane w partycji Log Analytics. W tym artykule omówiono, gdzie w Log Analytics i Application Insights takie dane są zwykle znajdowane, a także możliwości obsługi takich danych.
 
@@ -78,12 +78,12 @@ Jak wspomniano wcześniej w [strategii dotyczącej obsługi danych osobowych](#s
 
 ### <a name="view-and-export"></a>Wyświetl i Eksportuj
 
-W przypadku żądań danych widoku i eksportu należy użyć [interfejsu API zapytania log Analytics](https://dev.loganalytics.io/) lub [interfejsu API zapytania Application Insights](https://dev.applicationinsights.io/quickstart) . Logika umożliwiająca przekonwertowanie kształtu danych na odpowiedni, który zostanie zaimplementowana dla użytkowników. [Azure Functions](https://azure.microsoft.com/services/functions/) jest doskonałym miejscem do hostowania takich logiki.
+W przypadku żądań danych widoku i eksportu należy użyć [interfejsu API zapytania log Analytics](https://dev.loganalytics.io/) lub  [interfejsu API zapytania Application Insights](https://dev.applicationinsights.io/quickstart) . Logika umożliwiająca przekonwertowanie kształtu danych na odpowiedni, który zostanie zaimplementowana dla użytkowników. [Azure Functions](https://azure.microsoft.com/services/functions/) jest doskonałym miejscem do hostowania takich logiki.
 
 > [!IMPORTANT]
 >  Chociaż większość operacji przeczyszczania może zakończyć się znacznie szybciej niż umowa SLA, **formalna umowa SLA na zakończenie operacji przeczyszczania jest ustawiana na 30 dni** z powodu dużego wpływu na używanej platformy danych. Jest to proces zautomatyzowany; nie ma sposobu na zażądanie, aby operacja była szybsza.
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 
 > [!WARNING]
 > Usuwanie w Log Analytics są destrukcyjne i nieodwracalne! W ich wykonaniu należy zachować szczególną ostrożność.

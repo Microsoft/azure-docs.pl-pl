@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue to kolejka o wysokiej przepływności, któ
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257446"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Wprowadzenie do ReliableConcurrentQueue na platformie Azure Service Fabric
@@ -215,7 +215,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### <a name="best-effort-notification-based-processing"></a>Przetwarzanie oparte na powiadomieniach o najlepszym wysiłku
+### <a name="best-effort-notification-based-processing"></a>Best-Effort Notification-Based przetwarzania
 Inny interesujący wzór programistyczny używa interfejsu API Count. Tutaj można zaimplementować dla kolejki optymalne, oparte na powiadomieniach przetwarzanie. Liczba kolejek może być używana do ograniczania do kolejki lub zadania usuwania z kolejki.  Należy pamiętać, że tak jak w poprzednim przykładzie, ponieważ przetwarzanie następuje poza transakcją, elementy nieprzetworzone mogą zostać utracone, jeśli wystąpi błąd podczas przetwarzania.
 
 ```
@@ -263,7 +263,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### <a name="best-effort-drain"></a>Odzyskanie najlepszego wysiłku
+### <a name="best-effort-drain"></a>Best-Effort opróżniania
 Nie można zagwarantować opróżniania kolejki z powodu jednoczesnego charakteru struktury danych.  Istnieje możliwość, że nawet jeśli żadne operacje użytkownika w kolejce nie są wykonywane w locie, określone wywołanie TryDequeueAsync może nie zwracać elementu, który był wcześniej w kolejce i został przekazany.  Element znajdujący się w kolejce jest zagwarantowany, *aby stał się* widoczny do usuwania z kolejki, ale bez mechanizmu komunikacji poza pasmem, niezależny konsument nie może wiedzieć, że kolejka osiągnęła stan stabilny, nawet jeśli wszyscy producenci zostali zatrzymani i nie są dozwolone żadne nowe operacje w kolejce. W ten sposób operacja opróżniania jest optymalna dla implementacji poniżej.
 
 Użytkownik powinien zatrzymać wszystkie pozostałe zadania producenta i konsumenta oraz poczekać na zatwierdzenie lub przerwanie transakcji w locie przed podjęciem próby opróżnienia kolejki.  Jeśli użytkownik zna oczekiwaną liczbę elementów w kolejce, może skonfigurować powiadomienie, które sygnalizuje, że wszystkie elementy zostały odkolejkowane.

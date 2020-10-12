@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87530269"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Ogólne informacje i wskazówki dotyczące zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
@@ -95,7 +95,7 @@ Użyj nowej grupy zasobów dla każdego klastra, aby można było rozróżnić z
 
 * Wyłącz zasady dostępu warunkowego przy użyciu zasad opartych na adresie IP. Wymaga to włączenia punktów końcowych usługi na sieci wirtualnych, w którym są wdrażane klastry. Jeśli używasz zewnętrznej usługi na potrzeby uwierzytelniania wieloskładnikowego (innego niż AAD), zasady oparte na adresie IP nie będą działały
 
-* `AllowCloudPasswordValidation`zasady są wymagane dla użytkowników federacyjnych. Ponieważ Usługa HDInsight używa nazwy użytkownika/hasła bezpośrednio do uzyskiwania tokenów z usługi Azure AD, te zasady należy włączyć dla wszystkich użytkowników federacyjnych.
+* `AllowCloudPasswordValidation` zasady są wymagane dla użytkowników federacyjnych. Ponieważ Usługa HDInsight używa nazwy użytkownika/hasła bezpośrednio do uzyskiwania tokenów z usługi Azure AD, te zasady należy włączyć dla wszystkich użytkowników federacyjnych.
 
 * Włącz punkty końcowe usługi, jeśli wymagane jest obejście dostępu warunkowego przy użyciu zaufanych adresów IP.
 

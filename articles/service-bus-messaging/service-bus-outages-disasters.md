@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono techniki ochrony aplikacji przed poten
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065628"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Najlepsze rozwiązania dotyczące izolowania aplikacji od wyłączeń i awarii usługi Service Bus
@@ -19,9 +19,9 @@ Awaria jest definiowana jako tymczasowa niedostępność Azure Service Bus. Awar
 Awaria jest definiowana jako stała utrata Service Bus jednostki skalowania lub centrum danych. Centrum danych może lub nie staje się ponownie dostępne. Zazwyczaj awaria powoduje utratę niektórych lub wszystkich komunikatów lub innych danych. Przykładami awarii są pożary, powodzi lub ziemi.
 
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Ochrona przed awariami i katastrofami — Service Bus Premium
-Pojęcia dotyczące wysokiej dostępności i odzyskiwania po awarii są wbudowane bezpośrednio w warstwę Azure Service Bus Premium, zarówno w tym samym regionie (za pośrednictwem Strefy dostępności), jak i w różnych regionach (za pośrednictwem odzyskiwania geograficznego).
+Pojęcia dotyczące wysokiej dostępności i odzyskiwania po awarii są wbudowane bezpośrednio w warstwę Azure Service Bus Premium, zarówno w tym samym regionie (za pośrednictwem Strefy dostępności), jak i w różnych regionach (za pośrednictwem Geo-Disaster Recovery).
 
-### <a name="geo-disaster-recovery"></a>Geograficznie — odzyskiwanie po awarii
+### <a name="geo-disaster-recovery"></a>Geo-Disaster odzyskiwanie
 
 Service Bus Premium obsługuje odzyskiwanie geograficzne po awarii na poziomie przestrzeni nazw. Aby uzyskać więcej informacji, zobacz [Azure Service Bus geograficznie z odzyskiwaniem po awarii](service-bus-geo-dr.md). Funkcja odzyskiwania po awarii dostępna tylko dla [jednostki SKU Premium](service-bus-premium-messaging.md) , implementuje odzyskiwanie po awarii metadanych i opiera się na podstawowych i pomocniczych przestrzeniach nazw odzyskiwania po awarii.
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89014051"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Komunikat diagnozowanie i rozwiązywanie problemów Azure Cosmos DB "zbyt duży nagłówek żądania"
@@ -45,6 +45,6 @@ Nieprawidłowe żądanie 400 dotyczy operacji zapytania, w których jest używan
 1. Postępuj zgodnie ze wskazówkami zawartymi w artykułach z porad dotyczących wydajności [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) lub [.NET V2](performance-tips.md) . Przekonwertuj aplikację tak, aby korzystała z trybu połączenia bezpośredniego z protokołem TCP. Tryb połączenia bezpośredniego z protokołem TCP nie ma ograniczenia rozmiaru nagłówka, takiego jak protokół HTTP, więc pozwala uniknąć tego problemu. 
 1. Jeśli tryb połączenia bezpośredniego z protokołem TCP nie jest opcją dla obciążenia, ustaw `ResponseContinuationTokenLimitInKb` opcję. Tę opcję można znaleźć w `FeedOptions` wersji 2 lub `QueryRequestOptions` 3.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Diagnozowanie i rozwiązywanie](troubleshoot-dot-net-sdk.md) problemów podczas korzystania z zestawu SDK Azure Cosmos DB platformy .NET.
 * Poznaj wskazówki dotyczące wydajności dla [platform .NET v3](performance-tips-dotnet-sdk-v3-sql.md) i [.NET V2](performance-tips.md).

@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119219"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — pozyskiwanie tokenu
@@ -202,7 +202,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację protokołu: [Microsoft Ide
 
 ## <a name="application-token-cache"></a>Pamięć podręczna tokenów aplikacji
 
-W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken*XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient`sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
+W programie MSAL.NET `AcquireTokenForClient` używa pamięci podręcznej token aplikacji. (Wszystkie inne metody AcquireToken*XX* używają pamięci podręcznej tokenów użytkowników). Nie wywołuj `AcquireTokenSilent` przed wywołaniem `AcquireTokenForClient` , ponieważ `AcquireTokenSilent` używa pamięci podręcznej tokenów *użytkownika* . `AcquireTokenForClient` sprawdza sam pamięć podręczną tokenu *aplikacji* i aktualizuje go.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

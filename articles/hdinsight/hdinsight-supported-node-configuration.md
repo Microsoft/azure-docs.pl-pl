@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/14/2020
 ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83646623"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Jakie są domyślne i zalecane konfiguracje węzłów dla usługi Azure HDInsight?
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji na temat specyfikacji poszczególnych typów mas
 | Usługi ML: domyślny rozmiar maszyny wirtualnej |  |  |  |  |  | D4_v2 |  |
 | Usługi ML: minimalny zalecany rozmiar maszyny wirtualnej |  |  |  |  |  | D4_v2 |  |
 
-\*= Rozmiary maszyn wirtualnych dla klastrów usługi Spark pakiet Enterprise Security (ESP)
+\* = Rozmiary maszyn wirtualnych dla klastrów usługi Spark pakiet Enterprise Security (ESP)
 
 ### <a name="brazil-south-and-japan-west-only"></a>Brazylia Południowa i Japonia Zachodnia
 

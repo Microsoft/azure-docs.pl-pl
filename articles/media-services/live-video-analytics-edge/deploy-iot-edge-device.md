@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie ana
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887226"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
@@ -40,7 +40,7 @@ Zobacz [Tworzenie roli niestandardowego Azure Resource Manager](create-custom-az
 
 Jeśli zamierzasz korzystać z usługi Live Video Analytics do ciągłego rejestrowania wideo w chmurze, a następnie używać [interfejsów API zapytań](playback-recordings-how-to.md#query-api) przed ich odtworzeniem, Zalecamy zaktualizowanie usług multimedialnych do korzystania z [punktu końcowego przesyłania strumieniowego Premium](../latest/streaming-endpoint-concept.md#types).  
 
-Jest to opcjonalny krok. Aby to zrobić, możesz użyć tego polecenia platformy Azure:
+Ten krok jest opcjonalny. Aby to zrobić, możesz użyć tego polecenia platformy Azure:
 
 ```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1

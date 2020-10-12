@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542742"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Znajdowanie i usuwanie niedołączonych dysków zarządzanych i niezarządzanych platformy Azure — Azure Portal
@@ -45,17 +45,17 @@ Jeśli masz niezarządzane dyski, które nie są dołączone do maszyny wirtualn
 
     Zostanie wyświetlona lista wszystkich dysków niezarządzanych. Dowolny dysk, który ma " **-** " w kolumnie **dołączone do** , jest niedołączonym dyskiem.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Zrzut ekranu przedstawiający blok dysków niezarządzanych. Dyski w tym bloku, które zostały dołączone do kolumny, są niedołączone.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Zrzut ekranu przedstawiający blok poszczególnych dysków zarządzanych. Ten blok będzie widoczny w stanie dysku, jeśli jest niedołączony. Możesz usunąć ten dysk, jeśli nie musisz już zachować swoich danych.":::
 
 1. Wybierz niedołączony dysk, który chcesz usunąć, spowoduje to wyświetlenie bloku dysku.
 
 1. W bloku dysku można potwierdzić, że jest on niedołączony, ponieważ jest **dołączony do** nadal **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Zrzut ekranu przedstawiający blok pojedynczego dysku niezarządzanego. Jeśli jest on niedołączony, będzie miał jako wartość dołączona do. Jeśli dane dysków nie są już potrzebne, możesz je usunąć.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Zrzut ekranu przedstawiający blok poszczególnych dysków zarządzanych. Ten blok będzie widoczny w stanie dysku, jeśli jest niedołączony. Możesz usunąć ten dysk, jeśli nie musisz już zachować swoich danych.":::
 
 1. Wybierz pozycję **Usuń**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Zrzut ekranu przedstawiający blok pojedynczego dysku niezarządzanego, podświetl pozycję Usuń.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Zrzut ekranu przedstawiający blok poszczególnych dysków zarządzanych. Ten blok będzie widoczny w stanie dysku, jeśli jest niedołączony. Możesz usunąć ten dysk, jeśli nie musisz już zachować swoich danych.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

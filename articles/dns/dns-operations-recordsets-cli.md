@@ -11,16 +11,16 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 4bf3ee75c9445856fb8a2ce789a3f2f345e720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84701668"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Zarządzanie rekordami i zestawami nazw DNS w Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Witryna Azure Portal](dns-operations-recordsets-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
 > * [Program PowerShell](dns-operations-recordsets.md)
 
@@ -220,7 +220,7 @@ Nie można dodawać, usuwać ani modyfikować rekordów w automatycznie tworzony
 
 W przeciwieństwie do większości innych typów rekordów, zestaw rekordów CNAME może zawierać tylko jeden rekord.  W związku z tym nie można zastąpić bieżącej wartości przez dodanie nowego rekordu i usunięcie istniejącego rekordu, tak jak w przypadku innych typów rekordów.
 
-Zamiast tego, aby zmodyfikować rekord CNAME, użyj polecenia `az network dns record-set cname set-record` . Aby uzyskać pomoc, zobacz`az network dns record-set cname set-record --help`
+Zamiast tego, aby zmodyfikować rekord CNAME, użyj polecenia `az network dns record-set cname set-record` . Aby uzyskać pomoc, zobacz `az network dns record-set cname set-record --help`
 
 Przykład modyfikuje zestaw rekordów CNAME *www* w strefie *contoso.com*, *w grupie zasobów zasobu,* do punktu "www.fabrikam.NET" zamiast istniejącej wartości:
 

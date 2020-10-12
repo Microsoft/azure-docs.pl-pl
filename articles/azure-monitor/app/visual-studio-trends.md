@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318168"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analizowanie trendów w programie Visual Studio
@@ -69,7 +69,7 @@ Aby poruszać się między bąbelkami w wizualizacji:
 > 
 > 
 
-## <a name="filter"></a>Filtr
+## <a name="filter"></a>Filtrowanie
 Odkryj bardziej szczegółowe trendy, używając kontrolek filtrów w dolnej części okna. Aby zastosować filtr, kliknij jego nazwę. Możliwość szybkiego przełączania się między różnymi filtrami ułatwia odkrywanie trendów, które mogą ukrywać się w konkretnym wymiarze telemetrii. Jeśli zastosujesz filtr w jednym wymiarze, na przykład typ wyjątku, filtry w innych wymiarach pozostaną kliknięcia, nawet jeśli są wyszarzone. Aby cofnąć zastosowanie filtru, kliknij go ponownie. Naciśnij klawisz Ctrl i kliknij, aby wybrać wiele filtrów w tym samym wymiarze.
 
 ![Filtry trendów](./media/visual-studio-trends/TrendsFiltering-750.png)

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315975"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria zależności: Application Insights model danych
@@ -19,7 +19,7 @@ Telemetria zależności (w [Application Insights](./app-insights-overview.md)) r
 
 Nazwa polecenia zainicjowanego z tym wywołaniem zależności. Niska wartość kardynalności. Przykładami są nazwa procedury przechowywanej i szablon ścieżki URL.
 
-## <a name="id"></a>ID
+## <a name="id"></a>ID (Identyfikator)
 
 Identyfikator wystąpienia wywołania zależności. Używany do korelacji z elementem żądania telemetrii, odpowiadającym temu wywołaniu zależności. Aby uzyskać więcej informacji, zobacz stronę [korelacji](./correlation.md) .
 
@@ -27,7 +27,7 @@ Identyfikator wystąpienia wywołania zależności. Używany do korelacji z elem
 
 Polecenie zainicjowane przez to wywołanie zależności. Przykłady to instrukcja SQL i adres URL protokołu HTTP ze wszystkimi parametrami zapytania.
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 
 Nazwa typu zależności. Niska wartość kardynalności logicznego grupowania zależności i interpretacji innych pól, takich jak CommandName i resultCode. Przykłady to SQL, Azure Table i HTTP.
 

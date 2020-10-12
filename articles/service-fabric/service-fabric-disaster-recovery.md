@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257513"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii na platformie Azure Service Fabric
@@ -151,7 +151,7 @@ Jeśli okaże się, że pozostałe repliki są niewystarczające do kontynuowani
 > [!NOTE]
 > Usługi systemowe mogą również mieć negatywny wpływ na kworum. Wpływ jest specyficzny dla danej usługi. Z tego względu utrata kworum w usłudze nazw ma wpływ na rozpoznawanie nazw, podczas gdy usługa Menedżer trybu failover powoduje zablokowanie nowego tworzenia usługi i przełączenia w tryb failover. 
 > 
-> Usługi systemowe Service Fabric są zgodne z tym samym wzorcem, co usługi do zarządzania stanem, ale nie zalecamy przechodzenia do nich utraty kworum i utraty danych. Zamiast tego zalecamy zapoznaj się z [pomocą techniczną](service-fabric-support.md) , aby znaleźć rozwiązanie, które jest przeznaczone do Twojej sytuacji. Zwykle zaleca się po prostu poczekanie, aż repliki w dół zostaną zwrócone.
+> Usługi systemowe Service Fabric są zgodne z tym samym wzorcem, co usługi do zarządzania stanem, ale nie zalecamy przechodzenia do nich utraty kworum i utraty danych. Zamiast tego zalecamy zapoznaj się z  [pomocą techniczną](service-fabric-support.md) , aby znaleźć rozwiązanie, które jest przeznaczone do Twojej sytuacji. Zwykle zaleca się po prostu poczekanie, aż repliki w dół zostaną zwrócone.
 >
 
 #### <a name="troubleshooting-quorum-loss"></a>Rozwiązywanie problemów z utratą kworum

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533907"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
@@ -54,7 +54,7 @@ Użytkownicy, grupy i aplikacje z tego katalogu mogą zarządzać zasobami w ram
 
 - Użytkownicy usługi Azure AD nie mają dostępu do fizycznych zasobów ani lokalizacji, dlatego nie jest możliwe, że nie mogą oni obejść testów logicznych zasad RBAC określonych poniżej.
 
-W przypadku potrzeb diagnostycznych i konserwacyjnych wymagany jest model operacyjny, który korzysta z systemu podniesienia uprawnień just-in-Time. Azure AD Privileged Identity Management (PIM) wprowadza koncepcję uprawnionego administratora. [Uprawnieni Administratorzy](../../active-directory/privileged-identity-management/pim-configure.md) powinni być użytkownikami, którzy potrzebują uprzywilejowanego dostępu, a następnie, ale nie codziennie. Rola pozostaje nieaktywna, a gdy użytkownik potrzebuje dostępu, przechodzi proces aktywacji i staje się aktywnym administratorem na określony z góry czas.
+W przypadku potrzeb diagnostycznych i konserwacyjnych wymagany jest model operacyjny, który korzysta z systemu podniesienia uprawnień just-in-Time. Azure AD Privileged Identity Management (PIM) wprowadza koncepcję uprawnionych administratorów. [uprawnieni Administratorzy](../../active-directory/privileged-identity-management/pim-configure.md) powinni być użytkownikami, którzy potrzebują uprzywilejowanego dostępu, a następnie, ale nie codziennie. Rola pozostaje nieaktywna, a gdy użytkownik potrzebuje dostępu, przechodzi proces aktywacji i staje się aktywnym administratorem na określony z góry czas.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ Koncepcje kontenerów dzierżawców są głęboko przegrane w usłudze katalogow
 
 Nawet wtedy, gdy metadane z wielu dzierżawców Azure Active Directory są przechowywane na tym samym dysku fizycznym, nie istnieje żadna relacja między kontenerami innymi niż zdefiniowane przez usługę katalogową, która z kolei jest podyktowana przez administratora dzierżawy.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu oparta na rolach (Azure RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 
 [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia udostępnianie różnych składników dostępnych w ramach subskrypcji platformy Azure przez zapewnienie szczegółowych informacji o zarządzaniu dostępem na platformie Azure. Funkcja RBAC systemu Azure umożliwia rozdzielenie obowiązków w organizacji i udzielanie dostępu na podstawie tego, co użytkownicy potrzebują do wykonywania swoich zadań. Zamiast udzielać wszystkim nieograniczonych uprawnień w ramach subskrypcji lub zasobów platformy Azure, można zezwolić tylko na niektóre akcje.
 
@@ -76,7 +76,7 @@ Usługa Azure RBAC ma trzy podstawowe role, które mają zastosowanie do wszystk
 
 - **Czytelnik** może wyświetlać istniejące zasoby platformy Azure.
 
-![Kontrola dostępu oparta na rolach (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
+![Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
 Pozostałe role platformy Azure na platformie Azure umożliwiają zarządzanie określonymi zasobami platformy Azure. Na przykład rola współautora maszyny wirtualnej pozwala użytkownikom na tworzenie maszyn wirtualnych i zarządzanie nimi. Nie daje im dostępu do Virtual Network platformy Azure lub podsieci, z którą nawiąże połączenie maszyna wirtualna.
 

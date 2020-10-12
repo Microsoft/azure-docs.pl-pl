@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033517"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights Azure Functions obsługiwanych funkcji
@@ -27,24 +27,24 @@ Aby uzyskać więcej informacji na temat zgodnych wersji Application Insights, z
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **Automatyczne zbieranie**        |                 |                   |               
-| &bull;Żądań                     | Tak             | Tak               | 
-| &bull;Wyłączenia                   | Tak             | Tak               | 
-| &bull;Liczniki wydajności         | Tak             | Tak               |
-| &bull;Tamten                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash;PROTOKOŁY      |                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash;ServiceBus|                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Server       |                 | Tak               | 
+| &bull; Żądań                     | Tak             | Tak               | 
+| &bull; Wyłączenia                   | Tak             | Tak               | 
+| &bull; Liczniki wydajności         | Tak             | Tak               |
+| &bull; Tamten                   |                   |                   |               
+| &nbsp;&nbsp;&nbsp;&mdash; PROTOKOŁY      |                 | Tak               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Tak               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Tak               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Server       |                 | Tak               | 
 | | | | 
 | **Obsługiwane funkcje**                |                   |                   |               
-| &bull;QuickPulse/LiveMetrics       | Tak             | Tak               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Bezpieczny kanał kontroli|                 | Tak               | 
-| &bull;Sond                     | Tak             | Tak               | 
-| &bull;Pulsów                   |                 | Tak               | 
+| &bull; QuickPulse/LiveMetrics       | Tak             | Tak               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Bezpieczny kanał kontroli|                 | Tak               | 
+| &bull; Sond                     | Tak             | Tak               | 
+| &bull; Pulsów                   |                 | Tak               | 
 | | | | 
-| **korelacja**                       |                   |                   |               
-| &bull;ServiceBus                     |                   | Tak               | 
-| &bull;EventHub                       |                   | Tak               | 
+| **Korelacja**                       |                   |                   |               
+| &bull; ServiceBus                     |                   | Tak               | 
+| &bull; EventHub                       |                   | Tak               | 
 | | | | 
 | **Konfigurowalne**                      |                   |                   |           
 | &bull;W pełni konfigurowalne.<br/>Aby uzyskać instrukcje, zobacz [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) .<br/>Zobacz [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) , aby poznać wszystkie opcje.               |                   | Tak                   | 

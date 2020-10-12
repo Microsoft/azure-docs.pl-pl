@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317471"
 ---
 # <a name="understand-autoscale-settings"></a>Omówienie ustawień automatycznego skalowania
@@ -87,7 +87,7 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
 
 | Sekcja | Nazwa elementu | Opis |
 | --- | --- | --- |
-| Ustawienie | ID | Identyfikator zasobu ustawienia skalowania automatycznego. Ustawienia automatycznego skalowania są zasobem Azure Resource Manager. |
+| Ustawienie | ID (Identyfikator) | Identyfikator zasobu ustawienia skalowania automatycznego. Ustawienia automatycznego skalowania są zasobem Azure Resource Manager. |
 | Ustawienie | name | Nazwa ustawienia skalowania automatycznego. |
 | Ustawienie | location | Lokalizacja ustawienia skalowania automatycznego. Ta lokalizacja może różnić się od lokalizacji skalowanego zasobu. |
 | properties | targetResourceUri | Identyfikator zasobu dla skalowanego zasobu. Dla każdego zasobu może istnieć tylko jedno ustawienie skalowania automatycznego. |
@@ -103,10 +103,10 @@ Aby zilustrować schemat ustawienia skalowania automatycznego, używane jest nas
 | metricTrigger | timeGrain | Czas trwania próbkowania metryki. Na przykład **TimeGrain = "PT1M"** oznacza, że metryki powinny być agregowane co 1 minutę przy użyciu metody agregacji określonej w elemencie Statistics. |
 | metricTrigger | Statystyka | Metoda agregacji w okresie timeGrain. Na przykład **Statystyka = "Average"** i **TIMEGRAIN = "PT1M"** oznacza, że metryki powinny być agregowane co 1 minutę, pobierając średnią. Ta właściwość określa sposób próbkowania metryki. |
 | metricTrigger | timeWindow | Ilość czasu, aby wyszukać metryki. Na przykład **timeWindow = "PT10M"** oznacza, że za każdym razem, gdy uruchamiane jest automatyczne skalowanie, bada metryki w ciągu ostatnich 10 minut. Przedział czasu umożliwia znormalizowanie metryk i pozwala uniknąć reakcji na przejścia przejściowe. |
-| metricTrigger | timeAggregation | Metoda agregacji używana do agregowania metryk próbkowanych. Na przykład **TimeAggregation = "Average"** powinna agregować metryki próbkowane, pobierając średnią. W poprzednim przypadku należy wziąć dziesięć próbek 1-minutowych i obliczyć ich średnią. |
+| metricTrigger | timeAggregation | Metoda agregacji używana do agregowania metryk próbkowanych. Na przykład **TimeAggregation = "Average"** powinna agregować metryki próbkowane, pobierając średnią. W poprzednim przypadku należy pobrać 10 1-minutowy próbek i obliczyć ich średnią. |
 | Rule | scaleAction | Akcja, która ma zostać podjęta po wyzwoleniu metricTrigger reguły. |
 | scaleAction | kierunek | "Zwiększ", aby skalować w poziomie lub "Zmniejsz" w celu skalowania w poziomie.|
-| scaleAction | wartość | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
+| scaleAction | value | Jak znacznie zwiększyć lub zmniejszyć pojemność zasobu. |
 | scaleAction | cooldown | Czas oczekiwania po operacji skalowania przed ponownym skalowaniem. Na przykład jeśli **cooldown = "PT10M"**, funkcja automatycznego skalowania nie próbuje ponownie skalować przez kolejne 10 minut. Cooldown to umożliwienie ustabilizowania metryk po dodaniu lub usunięciu wystąpień. |
 
 ## <a name="autoscale-profiles"></a>Profile skalowania automatycznego
