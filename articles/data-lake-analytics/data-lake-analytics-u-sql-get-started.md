@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128849"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Wprowadzenie do języka U-SQL w Azure Data Lake Analytics
@@ -56,8 +56,8 @@ Zwróć uwagę na znak zapytania obok typu danych w `Duration` polu. Oznacza to,
 ### <a name="key-concepts"></a>Kluczowe pojęcia
 
 * **Zmienne zestawu wierszy**: każde wyrażenie zapytania, które generuje zestaw wierszy, można przypisać do zmiennej. Język U-SQL jest zgodny ze wzorcem nazewnictwa zmiennych T-SQL ( `@searchlog` na przykład) w skrypcie.
-* Słowo kluczowe **Extract** odczytuje dane z pliku i definiuje schemat podczas odczytu. `Extractors.Tsv`jest wbudowanym ekstraktorem U-SQL dla plików wartości rozdzielanych znakami tabulacji. Można opracowywać niestandardowe wyodrębniania.
-* Dane **wyjściowe** są zapisywane z zestawu wierszy do pliku. `Outputters.Csv()`jest wbudowanym wypełnieniem U-SQL w celu utworzenia pliku z wartościami rozdzielanymi przecinkami. Możesz opracowywać niestandardowe wyprowadzenia.
+* Słowo kluczowe **Extract** odczytuje dane z pliku i definiuje schemat podczas odczytu. `Extractors.Tsv` jest wbudowanym ekstraktorem U-SQL dla plików wartości rozdzielanych znakami tabulacji. Można opracowywać niestandardowe wyodrębniania.
+* Dane **wyjściowe** są zapisywane z zestawu wierszy do pliku. `Outputters.Csv()` jest wbudowanym wypełnieniem U-SQL w celu utworzenia pliku z wartościami rozdzielanymi przecinkami. Możesz opracowywać niestandardowe wyprowadzenia.
 
 ### <a name="file-paths"></a>Ścieżki plików
 

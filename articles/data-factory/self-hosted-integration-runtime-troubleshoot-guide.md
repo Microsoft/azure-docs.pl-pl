@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: abnarain
 ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069479"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
@@ -32,7 +32,7 @@ W przypadku działań zakończonych niepowodzeniem w przypadku samodzielnego śr
 
 1. Zostaną wyświetlone powiązane dzienniki dla uruchomienia działania zakończonego niepowodzeniem. Kliknij przycisk **Wyślij dzienniki** , aby uzyskać dalszą pomoc.
 
-    ![Wyślij dzienniki](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+    ![Wysyłanie dzienników](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
 1. Możesz wybrać dzienniki, które chcesz wysłać. W przypadku *samodzielnego środowiska IR*można przekazać dzienniki powiązane z działaniem zakończonym niepowodzeniem lub wszystkie dzienniki w autonomicznym węźle IR. W przypadku *udostępnionego środowiska IR*można przekazać tylko dzienniki powiązane z działaniem zakończonym niepowodzeniem.
 
@@ -478,7 +478,7 @@ Oczekiwana jest następująca odpowiedź:
 
 Samoobsługowy, zintegrowany węzeł środowiska uruchomieniowego może mieć **nieaktywny** stan, jak pokazano na poniższym zrzucie ekranu:
 
-![Nieaktywny samoobsługowy węzeł IR](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Nieaktywny węzeł Self-Hosted IR](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 To zachowanie występuje, gdy węzły nie mogą komunikować się ze sobą.
 

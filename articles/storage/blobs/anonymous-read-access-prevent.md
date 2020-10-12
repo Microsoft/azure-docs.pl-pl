@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086576"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
@@ -59,7 +59,7 @@ Wykonaj następujące kroki, aby utworzyć metrykę, która śledzi żądania an
 
 Po skonfigurowaniu metryki anonimowe żądania pojawią się na wykresie. Na poniższej ilustracji przedstawiono anonimowe żądania agregowane w ciągu ostatnich 30 minut.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Zrzut ekranu przedstawiający zagregowane żądania anonimowe względem magazynu obiektów BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji obiektów BLOB":::
 
 Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o wprowadzeniu pewnej liczby żądań anonimowych do konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -85,7 +85,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 1. W obszarze **szczegóły kategorii**w sekcji **Dziennik** wybierz typy żądań do zarejestrowania. Wszystkie żądania anonimowe będą żądaniami odczytu, więc wybierz pozycję **StorageRead** , aby przechwytywać anonimowe żądania.
 1. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**. Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji obiektów BLOB":::
 
 Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -241,7 +241,7 @@ Aby wyświetlić raport zgodności w Azure Portal, wykonaj następujące kroki:
 1. Filtruje wyniki dla nazwy przypisania zasad utworzonego w poprzednim kroku. Raport przedstawia, ile zasobów nie jest zgodnych z zasadami.
 1. Możesz przejść do raportu, aby uzyskać dodatkowe szczegóły, w tym listę kont magazynu, które nie są zgodne.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający raport zgodności dla zasad inspekcji dla dostępu publicznego obiektu BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji obiektów BLOB":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Użyj Azure Policy, aby wymusić autoryzowany dostęp
 
@@ -277,7 +277,7 @@ Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie
 
 Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu, które zezwala na dostęp publiczny (domyślnie dla nowego konta), gdy zasady z efektem Odmów wymagają niedozwolonego dostępu publicznego.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania metryki do sumowania transakcji obiektów BLOB":::
 
 ## <a name="next-steps"></a>Następne kroki
 

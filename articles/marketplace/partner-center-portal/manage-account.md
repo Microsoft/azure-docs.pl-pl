@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
 ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400693"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
@@ -111,7 +111,7 @@ Po ustawieniu wypłaty stan Wstrzymaj na **wł**. wszystkie wypłaty zostaną ws
 > [!NOTE]
 > **Wypłata** została wybrana z tytułu stanu ma zastosowanie do **wszystkich** źródeł przychodów, które są płatne za pomocą Centrum partnerskiego firmy Microsoft, w tym Azure Marketplace, AppSource, Microsoft Store, reklamy itp.). Dla każdego źródła przychodu nie można wybrać różnych stanów wstrzymania.
 
-### <a name="devices"></a>Urządzenia
+### <a name="devices"></a>Devices
 
 Ustawienia zarządzania urządzeniami dotyczą tylko publikowania platformy UWP. [Dowiedz się więcej](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -265,7 +265,7 @@ Jeśli chcesz udzielić Centrum partnerskiego dostępu do nowego konta aplikacji
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz pozycję **Dodaj aplikacje usługi Azure AD**.
 2. Na następnej stronie wybierz pozycję **Nowa aplikacja usługi Azure AD**.
-3. Wprowadź **adres URL odpowiedzi** dla nowej aplikacji usługi Azure AD. Jest to adres URL, pod którym użytkownicy mogą się logować i korzystać z aplikacji usługi Azure AD (czasami także znanego również jako adres URL aplikacji lub adres URL logowania). **Adres URL odpowiedzi** nie może mieć więcej niż 256 znaków i musi być unikatowy w obrębie katalogu.
+3. Wprowadź **adres URL odpowiedzi** dla nowej aplikacji usługi Azure AD. Jest to adres URL, pod którym użytkownicy mogą się zalogować i korzystać z aplikacji usługi Azure AD (czasami znanego również jako adres URL aplikacji lub adres URL Sign-On). **Adres URL odpowiedzi** nie może mieć więcej niż 256 znaków i musi być unikatowy w obrębie katalogu.
 4. Wprowadź **Identyfikator URI aplikacji** dla nowej aplikacji usługi Azure AD. Jest to identyfikator logiczny dla aplikacji usługi Azure AD, który jest prezentowany podczas wysyłania żądania logowania jednokrotnego do usługi Azure AD. **Identyfikator URI identyfikatora aplikacji** musi być unikatowy dla każdej aplikacji usługi Azure AD w katalogu. Ten identyfikator nie może zawierać więcej niż 256 znaków. Aby uzyskać więcej informacji o IDENTYFIKATORze URI aplikacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. W sekcji **role** Określ role lub dostosowane uprawnienia dla aplikacji usługi Azure AD.
 6. Wybierz pozycję **Zapisz**.

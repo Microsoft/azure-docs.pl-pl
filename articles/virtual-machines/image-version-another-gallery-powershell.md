@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89299953"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiowanie obrazu z innej galerii przy użyciu programu PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "89299953"
 Jeśli masz wiele galerii w organizacji, możesz tworzyć obrazy z obrazów przechowywanych w innych galeriach. Na przykład możesz mieć galerię deweloperskią i testową do tworzenia i testowania nowych obrazów. Gdy są gotowe do użycia w środowisku produkcyjnym, można je skopiować do galerii produkcyjnej przy użyciu tego przykładu. Możesz również utworzyć obraz z obrazu w innej galerii przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-another-gallery-cli.md).
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten artykuł, musisz mieć istniejącą galerię źródłową, definicję obrazu i wersję obrazu. Należy również mieć galerię docelową. 
 

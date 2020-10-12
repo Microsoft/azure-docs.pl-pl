@@ -9,10 +9,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616860"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
@@ -47,7 +47,7 @@ Ta czynność powinna działać w wielu scenariuszach. wiemy, że unikatowy stat
 Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpieczeń sieci w magazynach danych w Azure Integration Runtime i samoobsługowe Integration Runtime, zobacz poniżej dwóch tabel.  
 * **Azure Integration Runtime**
 
-    | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych | Private Link     | Usługa zaufana     | Statyczny zakres adresów IP | Tagi usługi | Zezwalaj na usługi platformy Azure |
+    | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych | Link prywatny     | Usługa zaufana     | Statyczny zakres adresów IP | Tagi usługi | Zezwalaj na usługi platformy Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
     | Magazyny danych Azure PaaS       | Azure Cosmos DB                                     | Tak              | -                   | Tak             | -            | Tak                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Tak*            | Tak*         | -                    |

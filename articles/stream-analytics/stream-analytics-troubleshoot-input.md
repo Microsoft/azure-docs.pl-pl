@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87448883"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Znajdź centrum zdarzeń.
 
@@ -165,7 +165,7 @@ SELECT foo FROM DataTwo
 
 Stream Analytics zadania używają wbudowanego [punktu końcowego zgodnego z centrum zdarzeń](../iot-hub/iot-hub-devguide-messages-read-builtin.md) IoT Hub, aby nawiązać połączenie i odczytać zdarzenia z IoT Hub. Jeśli odczyt na partycję przekracza limity IoT Hub, można użyć [rozwiązań dla centrum zdarzeń](#readers-per-partition-exceeds-event-hubs-limit) , aby rozwiązać ten problem. Grupę odbiorców można utworzyć dla wbudowanego punktu końcowego za pomocą sesji punktu końcowego portalu IoT Hub Portal lub [zestawu IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
