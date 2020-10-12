@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172375"
 ---
 # <a name="private-ip-addresses"></a>Prywatne adresy IP
@@ -74,7 +74,7 @@ Nazwa hosta jest mapowana na podstawowy adres IP głównego interfejsu siecioweg
 
 * Wiele interfejsów sieciowych
 * Wiele adresów IP
-* Obie
+* Oba
 
 Maszyny wirtualne skonfigurowane przy użyciu systemu DNS zarządzanego przez platformę Azure rozwiązują nazwy hostów w tej samej sieci wirtualnej. Użyj niestandardowego serwera DNS do rozpoznawania nazw hostów maszyn wirtualnych w połączonych sieciach wirtualnych.
 
@@ -83,7 +83,7 @@ Maszyny wirtualne skonfigurowane przy użyciu systemu DNS zarządzanego przez pl
 Prywatny adres IP można przypisać do konfiguracji **frontonu** :
 
 * [Wewnętrzny moduł równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Usługa Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Ten prywatny adres IP służy jako wewnętrzny punkt końcowy. Wewnętrzny punkt końcowy jest dostępny tylko dla zasobów w sieci wirtualnej i podłączonych do niej sieci zdalnych. Można przypisać dynamiczny lub statyczny adres IP.
 

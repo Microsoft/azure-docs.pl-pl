@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135795"
 ---
-# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych z obsługą Azure Disk Encryption w innym regionie platformy Azure
+# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych z obsługą usługi Azure Disk Encryption w innym regionie platformy Azure
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączonym Azure Disk Encryption (ADE) z jednego regionu świadczenia usługi Azure do innego.
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z
 > Site Recovery obecnie obsługuje ADE, z i bez Azure Active Directory (AAD) dla maszyn wirtualnych z systemami operacyjnymi Windows. W przypadku systemów operacyjnych Linux obsługujemy tylko ADE bez usługi AAD. Ponadto w przypadku maszyn z uruchomionym programem ADE 1,1 (bez usługi AAD) maszyny wirtualne muszą używać dysków zarządzanych. Maszyny wirtualne z dyskami niezarządzanymi nie są obsługiwane. Jeśli przełączysz się z programu ADE 0,1 (z usługą AAD) do 1,1, musisz wyłączyć replikację i włączyć replikację dla maszyny wirtualnej po włączeniu opcji 1,1.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Wymagane uprawnienia użytkownika
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Wymagane uprawnienia użytkownika
 Site Recovery wymaga, aby użytkownik miał uprawnienia do tworzenia magazynu kluczy w regionie docelowym i kopiowania kluczy z magazynu kluczy regionów źródłowych do magazynu kluczy regionu docelowego.
 
 Aby włączyć replikację maszyn wirtualnych z włączoną funkcją szyfrowania dysku z Azure Portal, użytkownik musi mieć następujące uprawnienia zarówno w **regionie źródłowym, jak i** w magazynach kluczy docelowych.
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 4. Po włączeniu maszyn wirtualnych na potrzeby replikacji można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**.
 
 >[!NOTE]
->Podczas replikacji początkowej stan może zająć trochę czasu, bez pozornego postępu. Kliknij przycisk **Odśwież** , aby pobrać najnowszy stan.
+>Podczas replikacji początkowej stan może zająć trochę czasu, bez pozornego postępu. Kliknij przycisk **Odśwież**  , aby pobrać najnowszy stan.
 
 ## <a name="update-target-vm-encryption-settings"></a>Zaktualizuj ustawienia szyfrowania docelowej maszyny wirtualnej
 W następujących scenariuszach wymagane jest zaktualizowanie ustawień szyfrowania docelowej maszyny wirtualnej:

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
 ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609507"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Nawiązywanie połączenia z serwerem IBM MQ z poziomu usługi Azure Logic Apps
@@ -118,7 +118,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
    | **Limit czasu** | Wprowadź wartość, aby określić czas oczekiwania na nadejście komunikatu w pustej kolejce. Jeśli nic nie zostanie wprowadzone, zostanie pobrany pierwszy komunikat w kolejce i nie ma czasu oczekiwania na wyświetlenie komunikatu. |
    |||
 
-   Przykład:
+   Na przykład:
 
    ![Właściwości akcji "Przeglądaj wiadomość"](media/connectors-create-api-mq/browse-message-properties.png)
 

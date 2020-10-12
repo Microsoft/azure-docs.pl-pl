@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: anandsub
 ms.custom: devx-track-python
 ms.openlocfilehash: 8c13e0e3f1cb8809a126b11409becd2211864c32
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87876550"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
@@ -118,7 +118,7 @@ Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu interfejsu API R
 
 Aby uzyskać pełną dokumentację interfejsu API REST, zobacz [Data Factory Dokumentacja interfejsu API REST](/rest/api/datafactory/).
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 Pełny Przewodnik tworzenia i monitorowania potoku przy użyciu programu PowerShell znajduje się w temacie [Tworzenie fabryki danych i potoku przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Uruchom następujący skrypt, aby stale sprawdzać stan uruchomienia potoku do momentu zakończenia kopiowania danych.

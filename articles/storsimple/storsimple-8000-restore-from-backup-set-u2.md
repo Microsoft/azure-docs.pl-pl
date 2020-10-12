@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527833"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Przywracanie woluminu StorSimple z zestawu kopii zapasowych
@@ -59,9 +59,9 @@ Następujące zastrzeżenia dotyczą przywracania opartego na mapę cieplną:
 
 W Update 4 polecenia cmdlet programu Windows PowerShell mogą służyć do wykonywania zapytań dotyczących uruchamiania zadań uzupełniania, anulowania zadania uzupełniania i uzyskiwania stanu zadania uzupełniania.
 
-* `Get-HcsRehydrationJob`— To polecenie cmdlet pobiera stan zadania uzupełniania. Pojedyncze zadanie uzupełniania jest wyzwalane dla jednego woluminu.
+* `Get-HcsRehydrationJob` — To polecenie cmdlet pobiera stan zadania uzupełniania. Pojedyncze zadanie uzupełniania jest wyzwalane dla jednego woluminu.
 
-* `Set-HcsRehydrationJob`— To polecenie cmdlet pozwala wstrzymywać, zatrzymywać, wznawiać zadanie uzupełniania, gdy trwa uzupełnianie.
+* `Set-HcsRehydrationJob` — To polecenie cmdlet pozwala wstrzymywać, zatrzymywać, wznawiać zadanie uzupełniania, gdy trwa uzupełnianie.
 
 Aby uzyskać więcej informacji na temat uzupełniania poleceń cmdlet, przejdź do [dokumentacji poleceń cmdlet programu Windows PowerShell dla StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 

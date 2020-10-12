@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311380"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
@@ -90,11 +90,11 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Pobiera element z tablicy. |
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
-| `['get', string]` | wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['get', string, object]` | wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string]` | value | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string, object]` | value | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['has', string]` | boolean | Określa, czy właściwości funkcji mają określoną właściwość. |
 | `['has', string, object]` | boolean | Określa, czy właściwości obiektu mają określoną właściwość. |
-| `['id']` | wartość | Pobiera identyfikator funkcji, jeśli ma. |
+| `['id']` | value | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
 | `['in', boolean | string | number, array]` | boolean | Określa, czy element istnieje w tablicy |
 | `['in', substring, string]` | boolean | Określa, czy podciąg istnieje w ciągu |

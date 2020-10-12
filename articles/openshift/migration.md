@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: Migracja, ARO, OpenShift, Red Hat
 ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469749"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrowanie z usługi Azure Red Hat OpenShift 3,11 do platformy Azure Red Hat OpenShift 4
@@ -25,7 +25,7 @@ W tym artykule pokazano, jak przeprowadzić migrację z klastra Red Hat OpenShif
 > [!NOTE]
 > Narzędzi do migracji Red Hat OpenShift, takich jak narzędzie do migracji płaszczyzny kontroli i narzędzie do migracji aplikacji klastra (kamera) nie mogą być używane w przypadku klastrów Red Hat OpenShift 3,11 platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster usługi Azure Red Hat OpenShift 3,11.
 
@@ -71,7 +71,7 @@ az aro create \
 
 ## <a name="configure-the-target-openshift-4-cluster"></a>Konfigurowanie docelowego klastra OpenShift 4
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Aby użytkownicy mogli korzystać z usługi Azure Red Hat OpenShift, muszą najpierw uwierzytelniać się w klastrze. Warstwa uwierzytelniania identyfikuje użytkownika skojarzonego z żądaniami do interfejsu API Red Hat OpenShift platformy Azure. Następnie warstwa autoryzacji używa informacji o użytkowniku żądającym, aby określić, czy żądanie jest dozwolone.
 

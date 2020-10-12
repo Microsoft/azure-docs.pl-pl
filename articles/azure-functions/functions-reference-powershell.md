@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071163"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
@@ -74,7 +74,7 @@ Ten `TriggerMetadata` parametr służy do dostarczania dodatkowych informacji na
 $TriggerMetadata.sys
 ```
 
-| Właściwość   | Opis                                     | Typ     |
+| Właściwość   | Opis                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Kiedy, w UTC, funkcja została wyzwolona        | DateTime |
 | MethodName | Nazwa funkcji, która została wyzwolona     | ciąg   |
@@ -145,7 +145,7 @@ Obsługiwane są również następujące typowe parametry:
 
 Aby uzyskać więcej informacji, zobacz [Informacje o parametry](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-#### <a name="push-outputbinding-example-http-responses"></a>Przykład polecenia push-OutputBinding: odpowiedzi HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Przykład Push-OutputBinding: odpowiedzi HTTP
 
 Wyzwalacz HTTP zwraca odpowiedź przy użyciu powiązania wyjściowego o nazwie `response` . W poniższym przykładzie powiązanie danych wyjściowych `response` ma wartość "output #1":
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Przykład push-OutputBinding: powiązanie danych wyjściowych kolejki
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Przykład Push-OutputBinding: powiązanie danych wyjściowych kolejki
 
 `Push-OutputBinding` służy do wysyłania danych do powiązań wyjściowych, takich jak [powiązanie danych wyjściowych usługi Azure queue storage](functions-bindings-storage-queue-output.md). W poniższym przykładzie komunikat zapisany w kolejce ma wartość "Output #1":
 
@@ -295,7 +295,7 @@ Wyzwalacze HTTP i webhook oraz powiązania wyjściowe HTTP używają obiektów R
 
 Obiekt żądania, który jest przesyłany do skryptu, jest typu `HttpRequestContext` , który ma następujące właściwości:
 
-| Właściwość  | Opis                                                    | Typ                      |
+| Właściwość  | Opis                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Obiekt, który zawiera treść żądania. `Body` jest serializowany do najlepszego typu na podstawie danych. Na przykład, jeśli dane są w formacie JSON, są one przenoszone jako tablica skrótów. Jeśli dane są ciągami, są one przenoszone jako ciąg. | object |
 | **`Headers`** | Słownik zawierający nagłówki żądania.                | Ciąg<słownika, ciąg><sup>*</sup> |
@@ -310,7 +310,7 @@ Obiekt żądania, który jest przesyłany do skryptu, jest typu `HttpRequestCont
 
 Obiekt odpowiedzi, który ma zostać wysłany z tyłu, ma typ `HttpResponseContext` , który ma następujące właściwości:
 
-| Właściwość      | Opis                                                 | Typ                      |
+| Właściwość      | Opis                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Obiekt, który zawiera treść odpowiedzi.           | object                    |
 | **`ContentType`** | Krótkie ustawienie typu zawartości odpowiedzi. | ciąg                    |

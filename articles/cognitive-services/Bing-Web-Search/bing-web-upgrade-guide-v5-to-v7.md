@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609456"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uaktualnianie z wersji interfejs API wyszukiwania w sieci Web Bing V5 do wersji 7
 
 Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfejs API wyszukiwania w sieci Web Bing. Skorzystaj z tego przewodnika, aby ułatwić identyfikację części aplikacji, które należy zaktualizować, aby użyć wersji 7.
 
-## <a name="breaking-changes"></a>Fundamentalne zmiany
+## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 ### <a name="endpoints"></a>Punkty końcowe
 
@@ -56,7 +56,7 @@ RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
-Disabled (Wyłączony)|InsufficientAuthorization.AuthorizationDisabled
+Disabled|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|Błąd servererror. UnexpectedError
 DataSourceErrors|Błąd servererror. ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86142767"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
@@ -25,7 +25,7 @@ Aby umożliwić węzłom obliczeniowym bezpieczne komunikowanie się z innymi ma
 
 - **Uwierzytelnianie**. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
-- **Sieć wirtualna platformy Azure**. Zapoznaj się z następującą sekcją dotyczącą wymagań i konfiguracji sieci wirtualnej. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu wiersza polecenia (CLI) platformy Azure lub innych metod.
+- **Sieć wirtualna platformy Azure**. Zapoznaj się z następującą sekcją dotyczącą wymagań i konfiguracji sieci wirtualnej. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu Azure Command-Line Interface (CLI) lub innych metod.
   - Aby utworzyć sieć wirtualną opartą na Azure Resource Manager, zobacz [Tworzenie sieci wirtualnej](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Sieć wirtualna oparta na Menedżer zasobów jest zalecana w przypadku nowych wdrożeń i jest obsługiwana tylko w pulach, które używają konfiguracji maszyny wirtualnej.
   - Aby utworzyć klasyczną sieć wirtualną, zobacz [Tworzenie sieci wirtualnej (klasycznej) z wieloma podsieciami](/previous-versions/azure/virtual-network/create-virtual-network-classic). Klasyczna Sieć wirtualna jest obsługiwana tylko w pulach, które używają konfiguracji Cloud Services.
 

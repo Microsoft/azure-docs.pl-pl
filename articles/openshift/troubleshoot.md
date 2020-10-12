@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ms.openlocfilehash: 55360ef295ff80b700b059d053203458f9f384db
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469086"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Rozwiązywanie problemów z usługą Azure Red Hat OpenShift

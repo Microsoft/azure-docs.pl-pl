@@ -4,10 +4,10 @@ description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271498"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
@@ -48,7 +48,7 @@ Obsługiwane są następujące jednostki SKU urządzenie Data Box:
 > [!IMPORTANT]
 > Początkowe dane kopii zapasowej z pojedynczego źródła danych muszą być zawarte w obrębie jednego Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak Azure Data Box mogą zawierać początkowe kopie zapasowe z wielu źródeł danych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Agent MARS uruchomiony w programie DPM/serwera usługi MAB powinien zostać uaktualniony do [najnowszej wersji](https://aka.ms/azurebackup_agent) (2.0.9171.0 lub nowszej).
 

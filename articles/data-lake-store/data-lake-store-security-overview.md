@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192836"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Zabezpieczenia w Azure Data Lake Storage Gen1
 
 Wiele firm korzysta z analizy danych Big Data, aby ułatwić im podejmowanie szybkich decyzji. Organizacja może mieć złożone i regulowane środowisko, zwiększając liczbę różnych użytkowników. Firma może mieć pewność, że krytyczne dane biznesowe są bezpiecznie przechowywane przy użyciu odpowiedniego poziomu dostępu do poszczególnych użytkowników. Azure Data Lake Storage Gen1 jest zaprojektowana, aby pomóc spełnić te wymagania dotyczące zabezpieczeń. W tym artykule omówiono możliwości zabezpieczeń Data Lake Storage Gen1, w tym:
 
-* Authentication
+* Uwierzytelnianie
 * Autoryzacja
 * Izolacja sieciowa
 * Ochrona danych
@@ -50,10 +50,10 @@ Cztery role podstawowe są domyślnie zdefiniowane dla Data Lake Storage Gen1. R
 
 Należy pamiętać, że chociaż role są przypisane do zarządzania kontami, niektóre role mają wpływ na dostęp do danych. Aby kontrolować dostęp do operacji, które użytkownik może wykonywać w systemie plików, należy użyć list ACL. W poniższej tabeli przedstawiono podsumowanie praw zarządzania i praw dostępu do danych dla ról domyślnych.
 
-| Role | Prawa do zarządzania | Prawa dostępu do danych | Wyjaśnienie |
+| Role | Prawa do zarządzania | Prawa dostępu do danych | Objaśnienie |
 | --- | --- | --- | --- |
 | Nie przypisano żadnej roli |Brak |Regulowane przez listę kontroli dostępu |Użytkownik nie może użyć poleceń cmdlet Azure Portal lub Azure PowerShell do przeglądania Data Lake Storage Gen1. Użytkownik może używać tylko narzędzi wiersza polecenia. |
-| Właściciel |Wszystko |Wszystko |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
+| Właściciel |Wszystkie |Wszystkie |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
 | Czytelnik |Tylko odczyt |Regulowane przez listę kontroli dostępu |Rola czytelnik może wyświetlać wszystko dotyczące zarządzania kontami, na przykład tego, który użytkownik jest przypisany do danej roli. Rola czytelnik nie może wprowadzać żadnych zmian. |
 | Współautor |Wszystkie z wyjątkiem dodawania i usuwania ról |Regulowane przez listę kontroli dostępu |Rola współautor może zarządzać niektórymi aspektami konta, takimi jak wdrożenia i tworzenie alertów oraz zarządzanie nimi. Rola współautor nie może dodawać ani usuwać ról. |
 | Administrator dostępu użytkowników |Dodawanie i usuwanie ról |Regulowane przez listę kontroli dostępu |Rola Administrator dostępu użytkowników może zarządzać dostępem użytkowników do kont. |

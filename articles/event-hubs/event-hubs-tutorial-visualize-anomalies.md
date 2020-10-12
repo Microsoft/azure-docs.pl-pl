@@ -4,10 +4,10 @@ description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzecz
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934059"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
@@ -16,7 +16,7 @@ Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analyti
 
 W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie można odczytać strumień danych w czasie rzeczywistym za pomocą Azure Stream Analytics, który oddziela prawidłowe transakcje od nieprawidłowych transakcji, a następnie używa Power BI do wizualnego identyfikowania transakcji, które są otagowane jako nieprawidłowe.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Tworzenie centrum zdarzeń
@@ -211,7 +211,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
    ![Zrzut ekranu przedstawiający sposób dodawania strumienia wejściowego do zadania usługi Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Kliknij pozycję **Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Dodawanie danych wyjściowych do zadania usługi Stream Analytics
 
@@ -233,7 +233,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
 4. Zaakceptuj wartości domyślne w pozostałych polach.
 
-5. Kliknij pozycję **Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
@@ -262,7 +262,7 @@ To zapytanie służy do pobierania danych, które ostatecznie są wysyłane do w
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testowanie zapytania dla zadania usługi Stream Analytics 
 

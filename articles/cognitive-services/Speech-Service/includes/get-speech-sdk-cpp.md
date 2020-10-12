@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81399879"
 ---
 :::row:::
     :::column span="3":::
-        Zestaw SDK mowy C++ jest dostępny w systemach Windows, Linux i macOS. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. <span class="docon docon-navigate-external x-hidden-focus"> </span>Speech </a>.
+        Zestaw SDK mowy C++ jest dostępny w systemach Windows, Linux i macOS. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. <span class="docon docon-navigate-external x-hidden-focus"></span> Speech </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -45,6 +45,6 @@ Alternatywnie zestaw SDK mowy C++ można zainstalować z plików binarnych. Pobi
 
   Aby utworzyć aplikację, skopiuj lub Przenieś wymagane pliki binarne (i biblioteki) do środowiska deweloperskiego. Uwzględnij je zgodnie z potrzebami w procesie kompilacji.
 
-#### <a name="additional-resources"></a>Dodatkowe zasoby
+#### <a name="additional-resources"></a>Zasoby dodatkowe
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux i macOS — kod źródłowy języka C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux i macOS — kod źródłowy języka C++ <span class="docon docon-navigate-external x-hidden-focus"></span></a>

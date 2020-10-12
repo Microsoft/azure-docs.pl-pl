@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670206"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Sprzężenia w kwerendach dziennika Azure Monitor
@@ -39,7 +39,7 @@ SecurityEvent
 
 W tym przykładzie pierwszy zestaw danych filtruje wszystkie zdarzenia logowania. Jest to przyłączone do drugiego zestawu danych, który filtruje wszystkie zdarzenia wylogowania. Rzutowane kolumny to _Computer_, _Account_, _TargetLogonId_i _TimeGenerated_. Zestawy danych są skorelowane przez wspólną kolumnę _TargetLogonId_. Dane wyjściowe są pojedynczym rekordem na korelację, która ma zarówno czas logowania, jak i wylogowania.
 
-Jeśli oba zestawy danych mają kolumny o tych samych nazwach, kolumny zestawu danych po prawej stronie będą mieć numer indeksu, więc w tym przykładzie wyniki będą wyświetlane jako _TargetLogonId_ z wartościami z tabeli po lewej stronie i _TargetLogonId1_ z wartościami z tabeli po prawej stronie. W takim przypadku druga kolumna _TargetLogonId1_ została usunięta przy użyciu `project-away` operatora.
+Jeśli oba zestawy danych mają kolumny o tych samych nazwach, kolumny zestawu danych po prawej stronie będą mieć numer indeksu, więc w tym przykładzie wyniki będą wyświetlane jako _TargetLogonId_ z wartościami z tabeli po lewej stronie i _TargetLogonId1_  z wartościami z tabeli po prawej stronie. W takim przypadku druga kolumna _TargetLogonId1_ została usunięta przy użyciu `project-away` operatora.
 
 > [!NOTE]
 > Aby zwiększyć wydajność, należy zachować tylko odpowiednie kolumny połączonych zestawów danych przy użyciu `project` operatora.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052391"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Często zadawane pytania dotyczące samoobsługowego resetowania hasła
@@ -263,7 +263,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   >
 * **P: jakie typy kont działają dla zapisywania zwrotnego haseł?**
 
-  > Odp **.:** Zapisywanie zwrotne haseł działa w przypadku kont użytkowników synchronizowanych z Active Directory lokalnych do usługi Azure AD, w tym federacyjnych, podłączanych skrótami haseł i użytkowników przekazujących Autentication.
+  > Odp **.:** Zapisywanie zwrotne haseł działa w przypadku kont użytkowników synchronizowanych z Active Directory lokalnych do usługi Azure AD, w tym federacyjnych, synchronizowanych skrótów haseł i Pass-Through użytkowników Autentication.
   >
   >
 * **P: czy zapisywanie zwrotne haseł wymusza zasady haseł mojej domeny?**

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972186"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)
@@ -179,7 +179,7 @@ Aby dowiedzieć się, jak skonfigurować szyfrowanie usługi Azure Storage za po
 
 Aby wyświetlić zakresy szyfrowania dla konta magazynu w Azure Portal, przejdź do ustawienia **zakresy szyfrowania** dla konta magazynu. W tym okienku można włączyć lub wyłączyć zakres szyfrowania albo zmienić klucz dla zakresu szyfrowania.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Zrzut ekranu przedstawiający listę zakresów szyfrowania w Azure Portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia zakresu szyfrowania w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Aby utworzyć kontener z domyślnym zakresem szyfrowania w Azure Portal, należy
 1. Z listy rozwijanej **zakres szyfrowania** wybierz domyślny zakres szyfrowania dla kontenera.
 1. Aby wymagać, aby wszystkie obiekty blob w kontenerze używały domyślnego zakresu szyfrowania, zaznacz pole wyboru, aby **użyć tego zakresu szyfrowania dla wszystkich obiektów BLOB w kontenerze**. Jeśli to pole wyboru jest zaznaczone, każdy obiekt BLOB w kontenerze nie może zastąpić domyślnego zakresu szyfrowania.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający kontener z domyślnym zakresem szyfrowania":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia zakresu szyfrowania w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -277,7 +277,7 @@ Aby przekazać obiekt BLOB z zakresem szyfrowania określonym w Azure Portal, na
 1. Zlokalizuj sekcję listy rozwijanej **zakres szyfrowania** . Domyślnie obiekt BLOB jest tworzony z domyślnym zakresem szyfrowania dla kontenera, jeśli został on określony. Jeśli kontener wymaga, aby obiekty blob używały domyślnego zakresu szyfrowania, ta sekcja jest wyłączona.
 1. Aby określić inny zakres dla przekazywanego obiektu BLOB, wybierz opcję **Wybierz istniejący zakres**, a następnie wybierz żądany zakres z listy rozwijanej.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający sposób przekazywania obiektu BLOB z zakresem szyfrowania":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia zakresu szyfrowania w Azure Portal":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 

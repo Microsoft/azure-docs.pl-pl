@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417176"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
@@ -72,8 +72,8 @@ Właściwości są opisane w dalszej części tego artykułu. Właściwość Ite
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania for-each. | String | Tak
-typ | Musi być ustawiona na wartość **foreach** | String | Tak
+name | Nazwa działania for-each. | Ciąg | Tak
+typ | Musi być ustawiona na wartość **foreach** | Ciąg | Tak
 issekwencyjne | Określa, czy pętla powinna być wykonywana sekwencyjnie, czy równolegle.  Maksymalnie 20 iteracji pętli można wykonać jednocześnie równolegle). Na przykład jeśli masz działanie ForEach iteracji dla działania kopiowania z 10 różnymi źródłami i ujściami zestawów danych z parametrem **Issekwencyjnym** ustawionym na wartość false, wszystkie kopie są wykonywane jednocześnie. Wartość domyślna to false. <br/><br/> Jeśli wartość "issekwencyjne" ma wartość FAŁSZ, upewnij się, że istnieje poprawna konfiguracja do uruchamiania wielu plików wykonywalnych. W przeciwnym razie ta właściwość powinna być stosowana z zachowaniem ostrożności, aby uniknąć ponoszenia konfliktów zapisu. Aby uzyskać więcej informacji, zobacz sekcję [wykonywanie równoległe](#parallel-execution) . | Boolean | Nie. Wartość domyślna to false.
 batchCount | Liczba partii do użycia w celu kontrolowania liczby równoległych wykonań (gdy właściwość issekwencyjne ma wartość false). Jest to górny limit współbieżności, ale działanie for-each nie będzie zawsze wykonywane na tym numerze | Integer (maksimum 50) | Nie. Wartość domyślna to 20.
 Elementy | Wyrażenie zwracające tablicę JSON do iteracji. | Wyrażenie (które zwraca tablicę JSON) | Tak

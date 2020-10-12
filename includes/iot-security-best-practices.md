@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72793127"
 ---
 Zabezpieczanie infrastruktury Internet rzeczy (IoT) wymaga rygorystycznej strategii dotyczącej zabezpieczeń. Ta strategia wymaga zabezpieczania danych w chmurze, ochrony integralności danych podczas przesyłania przez publiczny Internet oraz bezpiecznego udostępniania urządzeń. Każda warstwa kompiluje większą gwarancję bezpieczeństwa w ogólnej infrastrukturze.

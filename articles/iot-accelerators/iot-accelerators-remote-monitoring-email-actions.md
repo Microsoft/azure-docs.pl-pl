@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168365"
 ---
 # <a name="add-an-email-action"></a>Dodaj akcję poczty e-mail
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby dodać akcję poczty e-mail do istniejącej reg
 
 1. Upewnij się, że **stan reguły** jest ustawiony na **włączone**.
 
-1. Kliknij przycisk **Zastosuj**.
+1. Kliknij pozycję **Zastosuj**.
 
 ## <a name="create-a-new-rule"></a>Tworzenie nowej reguły
 
@@ -77,11 +77,11 @@ Wykonaj następujące kroki, aby dodać akcję poczty e-mail podczas tworzenia n
 
 1. Upewnij się, że **stan reguły** jest ustawiony na **włączone**.
 
-1. Kliknij przycisk **Zastosuj**.
+1. Kliknij pozycję **Zastosuj**.
 
 Twoja reguła z akcją wiadomości e-mail jest teraz włączona. Za każdym razem, gdy akcja jest wyzwalana, do adresatów jest wysyłana nowa wiadomość e-mail.
 
-## <a name="sign-in-to-outlook"></a>Zaloguj się do programu Outlook<a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Zaloguj się do programu Outlook <a name="outlook"></a>
 
 Po pierwszym włączeniu akcji poczty e-mail w akceleratorze rozwiązań należy zalogować się do programu Outlook. Ta akcja powoduje skonfigurowanie konta e-mail, które wysyła powiadomienia e-mail.
 
@@ -132,13 +132,13 @@ Poniższe kroki ułatwiają logowanie się i Konfigurowanie akcji poczty e-mail:
 
 1. Kliknij przycisk **Autoryzuj**. Zostanie wyświetlony monit o zalogowanie się. Konto używane do logowania powinno być adresem e-mail używanym przez aplikację do wysyłania powiadomień e-mail:
 
-1. Kliknij pozycję **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
+1. Kliknij przycisk **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
 
 1. Po pomyślnym skonfigurowaniu powiadomienia e-mail zostanie wyświetlony następujący komunikat:
 
    ![Pomyślne logowanie do programu Outlook](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## <a name="customize-the-email-html"></a>Dostosowywanie wiadomości e-mail w formacie HTML<a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Dostosowywanie wiadomości e-mail w formacie HTML <a name="htmledit"></a>
 
 Wbudowany Akcelerator rozwiązania do monitorowania zdalnego udostępnia podstawowy szablon HTML dla wiadomości e-mail z akcją. Szablon wiadomości e-mail używa wartości z ustawień akcji poczty e-mail. Oto przykład wiadomości e-mail:
 
@@ -156,9 +156,9 @@ Poniższe kroki pokazują, jak edytować szablon wiadomości e-mail w formacie H
 
 1. Aby dostosować komunikat, można dodać lub usunąć wszystkie parametry w tym szablonie. W razie konieczności można także dodawać, usuwać lub zamieniać wywołania:
 
-    Na przykład w kodzie .NET:`emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
+    Na przykład w kodzie .NET:  `emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
 
-    Na przykład w kodzie Java:`this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
+    Na przykład w kodzie Java:  `this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
 1. Parametry w szablonie mają postać `${...}` . Aby usunąć parametr, Usuń wymagany wiersz. Aby dodać parametr, Dodaj wiersz z wartością do wstawienia.
 

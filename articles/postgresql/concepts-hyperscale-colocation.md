@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884432"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Współlokalizacja tabeli w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
@@ -47,7 +47,7 @@ CREATE TABLE page (
 
 Teraz chcemy odpowiedzieć na zapytania, które mogą być wystawiane przez pulpit nawigacyjny dostępny dla klienta. Przykładowe zapytanie to "Zwróć liczbę wizyt w ubiegłym tygodniu dla wszystkich stron zaczynających się od"/blog "w dzierżawie szóstej."
 
-Jeśli nasze dane były w opcji wdrożenia na jednym serwerze, możemy łatwo wyrazić nasze zapytanie przy użyciu bogatego zestawu operacji relacyjnych oferowanych przez SQL:
+Jeśli nasze dane były w Single-Server opcji wdrażania, możemy łatwo wyrazić nasze zapytanie przy użyciu bogatego zestawu operacji relacyjnych oferowanych przez SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -96,7 +96,7 @@ Następnie wyniki dwóch kroków muszą być połączone przez aplikację.
 
 Uruchomienie zapytań musi zajrzeć do danych w fragmentów rozproszeniu między węzłami.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Niewydajne zapytania":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Fragmentów":::
 
 W takim przypadku Dystrybucja danych tworzy znaczące wady:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Ze względu na filtr i sprzężenie w tenant_id, funkcja Citus (fragmentów) wie, że całe zapytanie może być odpowiedzią przy użyciu zestawu współdzielonego elementu, który zawiera dane dla danej dzierżawy. Pojedynczy węzeł PostgreSQL może odpowiedzieć na zapytanie w jednym kroku.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Lepsze zapytanie":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Fragmentów":::
 
 W niektórych przypadkach zapytania i schematy tabeli muszą zostać zmienione w celu uwzględnienia identyfikatora dzierżawy w unikatowych ograniczeniach i warunkach sprzężenia. Ta zmiana jest zwykle prosta.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
 ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89468661"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie usługi Azure Cloud Shell

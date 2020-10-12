@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670308"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregacje w zapytaniach dziennika Azure Monitor
@@ -22,7 +22,7 @@ ms.locfileid: "77670308"
 
 W tym artykule opisano funkcje agregacji w zapytaniach dziennika Azure Monitor, które oferują przydatne metody analizowania danych. Wszystkie te funkcje współpracują z `summarize` operatorem, który tworzy tabelę z zagregowanymi wynikami tabeli wejściowej.
 
-## <a name="counts"></a>Liczby
+## <a name="counts"></a>Licznik
 
 ### <a name="count"></a>count
 Policz liczbę wierszy w zestawie wyników po zastosowaniu filtrów. Poniższy przykład zwraca łączną liczbę wierszy w tabeli _wydajności_ w ciągu ostatnich 30 minut. Wynik jest zwracany w kolumnie o nazwie *count_* , chyba że zostanie przypisana nazwa określona:
@@ -121,7 +121,7 @@ Perf
 
 Może to wskazywać, że niektóre procesory CPU mają podobne wartości Mediane, ale podczas gdy niektóre z nich są stałe, inne komputery zgłosiły znacznie niższe i wyższe wartości procesora, co oznacza, że są one skokami.
 
-### <a name="variance"></a>Wariancja
+### <a name="variance"></a>Variance (Wariancja)
 Aby bezpośrednio oszacować wariancję wartości, należy użyć odchylenia standardowego i metod wariancji:
 
 ```Kusto

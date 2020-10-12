@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135450"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planowanie pojemności i skalowanie na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure
@@ -79,8 +79,8 @@ Po użyciu [Planista wdrażania Site Recovery](site-recovery-deployment-planner.
 
 * **Ograniczanie przepustowości**: ruch VMware replikowany do platformy Azure odbywa się za pomocą określonego serwera przetwarzania. Przepustowość można ograniczyć na maszynach, na których działają jako serwery przetwarzania.
 * **Wpływ na przepustowość**: można mieć wpływ na przepustowość używaną do replikacji przy użyciu kilku kluczy rejestru:
-  * Wartość rejestru **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\UploadThreadsPerVM** określa liczbę wątków używanych na potrzeby transferu danych (replikacja początkowa lub różnicowa) dysku. Wyższa wartość zwiększa przepustowość sieci używaną podczas replikacji.
-  * Wartość rejestru **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\DownloadThreadsPerVM** określa liczbę wątków, które są używane na potrzeby transferu danych podczas powrotu po awarii.
+  * Wartość rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** określa liczbę wątków używanych na potrzeby transferu danych (replikacja początkowa lub różnicowa) dysku. Wyższa wartość zwiększa przepustowość sieci używaną podczas replikacji.
+  * Wartość rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** określa liczbę wątków, które są używane na potrzeby transferu danych podczas powrotu po awarii.
 
 ### <a name="throttle-bandwidth"></a>Ograniczanie przepustowości
 
@@ -92,7 +92,7 @@ Po użyciu [Planista wdrażania Site Recovery](site-recovery-deployment-planner.
 
     ![Zrzut ekranu przedstawiający okno dialogowe właściwości Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-Możesz też użyć polecenia cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)), aby ustawić ograniczanie przepływności. Przykład:
+Możesz też użyć polecenia cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)), aby ustawić ograniczanie przepływności. Oto przykład:
 
 ```azurepowershell-interactive
 $mon = [System.DayOfWeek]::Monday
@@ -104,7 +104,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Zmiana przepustowości sieci dla maszyny wirtualnej
 
-1. W rejestrze maszyny wirtualnej przejdź do **HKEY_LOCAL_MACHINE \Software\microsoft\windows Backup\Replication Azure**.
+1. W rejestrze maszyny wirtualnej przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
    * Aby zmienić ruch związany z przepustowością na dysku replikacji, należy zmodyfikować wartość **UploadThreadsPerVM**. Utwórz klucz, jeśli nie istnieje.
    * Aby zmienić przepustowość dla ruchu powrotu po awarii z platformy Azure, zmodyfikuj wartość **DownloadThreadsPerVM**.
 2. Wartość domyślna dla każdego klucza to **4**. W sieci „o nadmiarowych zasobach” należy zmienić wartości domyślne tych kluczy rejestru. Maksymalna wartość, której można użyć, to **32**. Monitoruj ruch, aby zoptymalizować tę wartość.

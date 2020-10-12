@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.openlocfilehash: 55456a6be938411d3c08a0eaa8fdbfb0844e7129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72391734"
 ---
 Zmiany wprowadzone w udziale plików platformy Azure przy użyciu Azure Portal lub protokołu SMB nie są natychmiast wykrywane i replikowane, podobnie jak zmiany w punkcie końcowym serwera. Azure Files nie ma jeszcze powiadomień o zmianach ani rejestrowania, dlatego nie ma możliwości automatycznego inicjowania sesji synchronizacji w przypadku zmiany plików. W systemie Windows Server Azure File Sync używa [rejestrowania numerów USN systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) do automatycznego inicjowania sesji synchronizacji, gdy pliki zostaną zmienione.
 
 Aby wykryć zmiany w udziale plików platformy Azure, Azure File Sync ma zaplanowane zadanie o nazwie *zadanie wykrywania zmian*. Zadanie wykrywania zmian wylicza każdy plik w udziale plików, a następnie porównuje go z wersją synchronizacji dla tego pliku. Gdy zadanie wykrywania zmian określi, że pliki uległy zmianie, Azure File Sync inicjuje sesję synchronizacji. Zadanie wykrywania zmian jest inicjowane co 24 godziny. Ponieważ zadanie wykrywania zmian działa przez wyliczenie wszystkich plików w udziale plików platformy Azure, wykrywanie zmian trwa dłużej w większych przestrzeniach nazw niż w mniejszych przestrzeniach nazw. W przypadku dużych przestrzeni nazw może upłynąć więcej niż co 24 godziny, aby określić, które pliki uległy zmianie.
 
-Aby natychmiast synchronizować pliki, które zostały zmienione w udziale plików platformy Azure, można ręcznie zainicjować wykrywanie zmian w udziale plików platformy Azure za pomocą polecenia cmdlet **Invoke-AzStorageSyncChangeDetection** programu PowerShell. To polecenie cmdlet jest przeznaczone dla scenariuszy, w których jakiś typ zautomatyzowany proces wprowadza zmiany w udziale plików platformy Azure lub zmiany są wykonywane przez administratora (na przykład przeniesienie plików i katalogów do udziału). W przypadku zmian wprowadzonych przez użytkownika końcowego zaleca się zainstalowanie agenta Azure File Sync na maszynie wirtualnej IaaS, a użytkownicy końcowi uzyskują dostęp do udziału plików za pomocą maszyny wirtualnej IaaS. W ten sposób wszystkie zmiany zostaną szybko zsynchronizowane z innymi agentami bez konieczności korzystania z polecenia cmdlet Invoke-AzStorageSyncChangeDetection. Aby dowiedzieć się więcej, zobacz dokumentację [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
+Aby natychmiast synchronizować pliki, które zostały zmienione w udziale plików platformy Azure, można ręcznie zainicjować wykrywanie zmian w udziale plików platformy Azure za pomocą polecenia cmdlet **Invoke-AzStorageSyncChangeDetection** programu PowerShell. To polecenie cmdlet jest przeznaczone dla scenariuszy, w których jakiś typ zautomatyzowany proces wprowadza zmiany w udziale plików platformy Azure lub zmiany są wykonywane przez administratora (na przykład przeniesienie plików i katalogów do udziału). W przypadku zmian wprowadzonych przez użytkownika końcowego zaleca się zainstalowanie agenta Azure File Sync na maszynie wirtualnej IaaS, a użytkownicy końcowi uzyskują dostęp do udziału plików za pomocą maszyny wirtualnej IaaS. W ten sposób wszystkie zmiany będą szybko synchronizowane z innymi agentami bez konieczności używania polecenia cmdlet Invoke-AzStorageSyncChangeDetection. Aby dowiedzieć się więcej, zobacz dokumentację [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) .
 
 >[!NOTE]
 >Zmiany wprowadzone w udziale plików platformy Azure przy użyciu REST nie aktualizują czasu ostatniej modyfikacji SMB i nie będą widoczne jako zmiany przez synchronizację.

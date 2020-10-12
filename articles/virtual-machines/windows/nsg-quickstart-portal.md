@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
 ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84170055"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Jak otworzyć porty na maszynie wirtualnej przy użyciu Azure Portal
@@ -25,7 +25,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 1. Wyszukaj i wybierz grupę zasobów dla maszyny wirtualnej, wybierz pozycję **Dodaj**, a następnie wyszukaj i wybierz pozycję **sieciowa Grupa zabezpieczeń**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     Zostanie otwarte okno **Tworzenie sieciowej grupy zabezpieczeń** .
 

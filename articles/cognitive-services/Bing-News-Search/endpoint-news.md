@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74111487"
 ---
 # <a name="bing-news-search-api-endpoints"></a>interfejs API wyszukiwania wiadomości Bing punkty końcowe
@@ -31,7 +31,7 @@ Aby uzyskać wyniki wyszukiwania wiadomości za pomocą interfejs API wyszukiwan
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Zwraca elementy wiadomości na podstawie zapytania wyszukiwania. Jeśli zapytanie wyszukiwania jest puste, interfejs API zwróci najpopularniejsze artykuły z różnych kategorii. Wyślij zapytanie według adresu URL, aby zakodować termin wyszukiwania i dołączyć je`q=""` do parametru. Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-search-endpoint).
+Zwraca elementy wiadomości na podstawie zapytania wyszukiwania. Jeśli zapytanie wyszukiwania jest puste, interfejs API zwróci najpopularniejsze artykuły z różnych kategorii. Wyślij zapytanie według adresu URL, aby zakodować termin wyszukiwania i dołączyć je do `q=""` parametru. Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>Najważniejsze elementy wiadomości według kategorii
 
@@ -39,7 +39,7 @@ Zwraca elementy wiadomości na podstawie zapytania wyszukiwania. Jeśli zapytani
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Zwraca najważniejsze elementy wiadomości według kategorii. Możesz zażądać najważniejszych artykułów firmy, sportu lub rozrywki, korzystając `category=business`z, `category=sports`lub. `category=entertainment` `category` Parametru można używać tylko z `/news` adresem URL. Istnieją pewne formalne wymagania dotyczące określania kategorii; Zapoznaj `category` się z dokumentacją dotyczącą [parametrów zapytania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Wyślij zapytanie według adresu URL, aby zakodować termin wyszukiwania i dołączyć je`q=""` do parametru. Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-endpoint).
+Zwraca najważniejsze elementy wiadomości według kategorii. Możesz zażądać najważniejszych artykułów firmy, sportu lub rozrywki, korzystając z `category=business` , `category=sports` lub `category=entertainment` . `category`Parametru można używać tylko z `/news` adresem URL. Istnieją pewne formalne wymagania dotyczące określania kategorii; Zapoznaj się z `category` dokumentacją dotyczącą [parametrów zapytania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Wyślij zapytanie według adresu URL, aby zakodować termin wyszukiwania i dołączyć je do `q=""` parametru. Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Informacje o trendach tematów 
 
@@ -47,7 +47,7 @@ Zwraca najważniejsze elementy wiadomości według kategorii. Możesz zażądać
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Zwraca tematy dotyczące nowości w sieciach społecznościowych. Gdy ta `/trendingtopics` opcja jest uwzględniona, wyszukiwanie w usłudze Bing ignoruje kilka innych `freshness` parametrów `?q=""`, takich jak i. Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-trending-endpoint).
+Zwraca tematy dotyczące nowości w sieciach społecznościowych. Gdy ta `/trendingtopics` opcja jest uwzględniona, wyszukiwanie w usłudze Bing ignoruje kilka innych parametrów, takich jak `freshness` i `?q=""` . Aby uzyskać dostęp, zobacz temat [Obsługiwane kraje/regiony i rynki](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Następne kroki
 

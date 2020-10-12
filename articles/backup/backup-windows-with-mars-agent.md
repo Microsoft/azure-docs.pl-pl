@@ -4,10 +4,10 @@ description: Użyj agenta Microsoft Azure Recovery Services (MARS) do tworzenia 
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052226"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Tworzenie kopii zapasowych plików i folderów systemu Windows Server na platformie Azure
@@ -127,7 +127,7 @@ Aby włączyć ograniczanie sieci:
     ![Konfigurowanie ograniczania sieci dla operacji tworzenia kopii zapasowych](./media/backup-configure-vault/throttling-dialog.png)
 1. Określ dozwoloną przepustowość w godzinach pracy i godzinach wolnych. Wartości przepustowości zaczynają się od 512 KB/s i mogą trafiać do 1 023 MB/s. Następnie wybierz przycisk **OK**.
 
-## <a name="run-an-on-demand-backup"></a>Uruchamianie kopii zapasowej na żądanie
+## <a name="run-an-on-demand-backup"></a>Uruchamianie tworzenia kopii zapasowej na żądanie
 
 1. W agencie MARS wybierz pozycję **Wykonaj kopię zapasową teraz**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: b342731b953f7b68f8fcd9e55c49c907e5e8cc5d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973500"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Samouczek: integracja chmury Atlassian z usługą Azure Active Directory
@@ -114,7 +114,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Protokół SAML na platformie Azure](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** przewiń w dół, aby **skonfigurować chmurę Atlassian**
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** przewiń w dół, aby **skonfigurować chmurę Atlassian**
    
    a. Kliknij pozycję **adresy URL konfiguracji**
 
@@ -128,7 +128,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Identyfikator jednostki i SS](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
    ![Certyfikat podpisywania](./media/atlassian-cloud-tutorial/certificate.png)
 
@@ -136,7 +136,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. **Dodaj/Zapisz** konfigurację SAML w Atlassian
 
-1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , Edytuj **podstawową sekcję konfiguracji protokołu SAML** na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** na platformie Azure i Otwórz **stronę logowania** jednokrotnego w portalu administracyjnym Atlassian
+1. Aby skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , należy edytować sekcję **Podstawowa konfiguracja protokołu SAML** w obszarze **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** na platformie Azure i otworzyć **stronę logowania** jednokrotnego SAML w portalu administratora Atlassian
 
    a. Skopiuj wartość **identyfikatora jednostki Sp** z Atlassian, wklej ją w polu **Identyfikator (identyfikator jednostki)** na platformie Azure i ustaw ją jako domyślną
    
@@ -150,7 +150,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![obraz adresów URL](./media/atlassian-cloud-tutorial/urls.png)
    
-1. Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , Edytuj podstawową sekcję **konfiguracji protokołu SAML** na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** na platformie Azure. Skopiuj **adres URL wystąpienia** (z kroku 1) i wklej go w polu **Zaloguj adres URL** na platformie Azure
+1. Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , Edytuj podstawową sekcję **Konfiguracja protokołu SAML** w obszarze **Konfigurowanie pojedynczego Sign-On ze stroną SAML** na platformie Azure. Skopiuj **adres URL wystąpienia** (z kroku 1) i wklej go w polu **Zaloguj adres URL** na platformie Azure
 
    ![Edytuj przycisk w adresach URL](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -198,7 +198,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082555"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Przygotowanie mapowania sieci na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V na platformie Azure
@@ -55,9 +55,9 @@ Oto przykład ilustrujący ten mechanizm. Przyjrzyjmy się organizacji z dwiema 
 
 **Lokalizacja** | **Serwer VMM** | **Sieci VMNETWORK** | **Zamapowane na**
 ---|---|---|---
-Nowy Jork | VMM — NewYork| VMNetwork1-NewYork | Zamapowana na VMNetwork1-Chicago
+Nowy Jork | VMM-NewYork| VMNetwork1-NewYork | Mapowany do VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Niezamapowane
-Chicago | VMM — Chicago| VMNetwork1-Chicago | Zamapowana do VMNetwork1-NewYork
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapowany do VMNetwork1-NewYork
  | | VMNetwork2-Chicago | Niezamapowane
 
 W tym przykładzie:
@@ -101,17 +101,17 @@ Jeśli Sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą n
 
 ### <a name="failback-behavior"></a>Zachowanie powrotu po awarii
 
-Aby zobaczyć, co się dzieje w przypadku powrotu po awarii (replikacja odwrotna), Załóżmy, że VMNetwork1-NewYork jest zamapowana na VMNetwork1-Chicago przy użyciu następujących ustawień.
+Aby zobaczyć, co się dzieje w przypadku powrotu po awarii (replikacja odwrotna), Załóżmy, że VMNetwork1-NewYork jest mapowany do VMNetwork1-Chicago z poniższymi ustawieniami.
 
 
 **MASZYN** | **Połączono z siecią maszyny wirtualnej**
 ---|---
-Maszyna wirtualna 1 | VMNetwork1 — sieć
+Maszyna wirtualna 1 | VMNetwork1-Network
 VM2 (replika VM1) | VMNetwork1-Chicago
 
 Korzystając z tych ustawień, zobaczmy, co się dzieje w kilku możliwych scenariuszach.
 
-**Scenariusz** | **Wynik**
+**Scenariusz** | **Wynikiem**
 ---|---
 Nie zmieniono właściwości sieci maszyny wirtualnej-2 po przejściu w tryb failover. | Maszyna wirtualna — 1 jest połączona z siecią źródłową.
 Właściwości sieci maszyny wirtualnej-2 są zmieniane po przejściu w tryb failover i są odłączone. | Maszyna wirtualna — 1 została odłączona.

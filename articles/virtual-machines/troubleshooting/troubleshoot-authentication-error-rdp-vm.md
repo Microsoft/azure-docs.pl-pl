@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088567"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Rozwiązywanie problemów z uwierzytelnianiem podczas używania protokołu RDP w celu połączenia z maszyną wirtualną platformy Azure
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Pobierz wersję x. x protokołu SSH/TLS z dzienników systemu operacyjnego gościa na stronie błędy SCHANNEL.
 
-#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a>Sprawdzanie połączeń algorytmów zgodnych ze standardem FIPs
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> Sprawdzanie połączeń algorytmów zgodnych ze standardem FIPs
 
 Pulpit zdalny można wymusić, aby używać tylko połączeń algorytmów zgodnych ze standardem FIPs. Można to skonfigurować przy użyciu klucza rejestru. W tym celu Otwórz okno wiersza polecenia z podwyższonym poziomem uprawnień, a następnie wykonaj zapytanie o następujące klucze:
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: b165741f9f7a4eb7af8424b9175aa5ec9261fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602724"
 ---
 # <a name="azure-firewall-certifications"></a>Certyfikaty zapory platformy Azure
@@ -34,7 +34,7 @@ Następujące certyfikaty zapory platformy Azure dotyczą globalnej platformy Az
 - CFTC 1,31
 - Zaświadczanie gwiazdy
 - Wydawanie certyfikatów w witrynie CSA STAR
-- Automatyczna Ocena w witrynie CSA STAR
+- Self-Assessmenta CSA STAR
 - Canadian Privacy Laws
 - DPP (WIELKA BRYTANIA)
 - IAF ENISA UE

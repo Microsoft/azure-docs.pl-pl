@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: bac13f187c99166bc868112792d80833387a84dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373780"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Zarządzanie Azure Data Lake Analytics przy użyciu aplikacji Java

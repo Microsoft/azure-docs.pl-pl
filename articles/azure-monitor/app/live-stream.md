@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973589"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
@@ -29,7 +29,7 @@ Za pomocą Live Metrics Stream można:
 
 Metryki na żywo są obecnie obsługiwane w aplikacjach ASP.NET, ASP.NET Core, Azure Functions, Java i Node.js.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 1. Aby włączyć metryki na żywo, należy przestrzegać wytycznych dotyczących języka.
    * Metryki na żywo [ASP.NET](./asp-net.md) są domyślnie włączone.

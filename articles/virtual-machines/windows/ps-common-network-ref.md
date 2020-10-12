@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: b4d6b20e63c42616aad0f8776fae159a0f2aa455
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088380"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Typowe polecenia programu PowerShell dla usługi Azure Virtual Networks
@@ -46,13 +46,13 @@ Niektóre zmienne mogą być przydatne w przypadku uruchamiania więcej niż jed
 | Zadanie | Polecenie |
 | ---- | ------- |
 | Wyświetl listę sieci wirtualnych |[Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Wyświetla listę wszystkich sieci wirtualnych w grupie zasobów. |
-| Uzyskaj informacje o sieci wirtualnej |Get-AzVirtualNetwork-Name "myVNet"-ResourceGroupName $myResourceGroup |
+| Uzyskaj informacje o sieci wirtualnej |Get-AzVirtualNetwork-Name "myVNet" — ResourceGroupName $myResourceGroup |
 | Wyświetlanie listy podsieci w sieci wirtualnej |Get-AzVirtualNetwork-Name "myVNet"-ResourceGroupName $myResourceGroup &#124; Wybieranie podsieci |
 | Pobierz informacje o podsieci |[Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) -Name "mySubnet1"-VirtualNetwork $VNET<BR><BR>Pobiera informacje o podsieci w określonej sieci wirtualnej. Wartość $vnet reprezentuje obiekt zwrócony przez Get-AzVirtualNetwork. |
 | Wyświetlanie listy adresów IP |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) -ResourceGroupName $myResourceGroup<BR><BR>Wyświetla listę publicznych adresów IP w grupie zasobów. |
 | Wyświetlanie listy modułów równoważenia obciążenia |[Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) -ResourceGroupName $myResourceGroup<BR><BR>Wyświetla listę wszystkich modułów równoważenia obciążenia w grupie zasobów. |
 | Wyświetl listę interfejsów sieciowych |[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) -ResourceGroupName $myResourceGroup<BR><BR>Wyświetla wszystkie interfejsy sieciowe w grupie zasobów. |
-| Uzyskaj informacje o interfejsie sieciowym |Get-AzNetworkInterface-Name "myNIC"-ResourceGroupName $myResourceGroup<BR><BR>Pobiera informacje o konkretnym interfejsie sieciowym. |
+| Uzyskaj informacje o interfejsie sieciowym |Get-AzNetworkInterface-Name "myNIC" — ResourceGroupName $myResourceGroup<BR><BR>Pobiera informacje o konkretnym interfejsie sieciowym. |
 | Pobieranie konfiguracji adresu IP interfejsu sieciowego |[Get-AzNetworkInterfaceIPConfig](/powershell/module/az.network/get-aznetworkinterfaceipconfig) -Name "myNICIP"-interfejsu sieciowego $nic<BR><BR>Pobiera informacje o konfiguracji protokołu IP określonego interfejsu sieciowego. Wartość $nic reprezentuje obiekt zwrócony przez Get-AzNetworkInterface. |
 
 ## <a name="manage-network-resources"></a>Zarządzanie zasobami sieciowymi

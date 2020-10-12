@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973091"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Tworzenie funkcji wyzwalanej czasomierzem na platformie Azure
@@ -36,30 +36,30 @@ Twoja nowa aplikacja funkcji jest gotowa do użycia. Następnie utworzysz funkcj
 
 1. W aplikacji funkcji wybierz pozycję **funkcje**, a następnie wybierz pozycję **+ Dodaj** . 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 1. Wybierz szablon **wyzwalacza czasomierza** . 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Wybierz wyzwalacz czasomierza w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 1. Skonfiguruj nowy wyzwalacz przy użyciu ustawień określonych w tabeli poniżej obrazu, a następnie wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Zrzut ekranu przedstawia nową stronę funkcji z wybranym szablonem wyzwalacza czasomierza." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
     
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Nazwa** | Domyślny | Określa nazwę funkcji wyzwalanej czasomierzem. |
+    | **Nazwa** | Domyślne | Określa nazwę funkcji wyzwalanej czasomierzem. |
     | **Zaplanuj** | 0 \* /1 \* \* \*\* | Składające się z 6 pól [wyrażenie CRON](functions-bindings-timer.md#ncrontab-expressions) planujące uruchamianie funkcji co minutę. |
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
 1. W funkcji wybierz pozycję **Code + test** i rozwiń dzienniki.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Przetestuj wyzwalacz czasomierza w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 1. Sprawdź wykonywanie, wyświetlając informacje zapisane w dziennikach.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Wyświetl wyzwalacz czasomierza w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 Teraz możesz zmienić harmonogram funkcji tak, aby była uruchamiana co godzinę, a nie co minutę.
 
@@ -69,15 +69,15 @@ Teraz możesz zmienić harmonogram funkcji tak, aby była uruchamiana co godzin�
 
 1. Wybierz **czasomierz (Timer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Zaktualizuj harmonogram czasomierza w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 1. Zaktualizuj wartość **harmonogramu** do `0 0 */1 * * *` , a następnie wybierz pozycję **Zapisz**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Harmonogram aktualizowania czasomierza usługi Functions w witrynie Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Pomyślnie utworzona aplikacja funkcji." border="true":::
 
 Teraz masz funkcję, która jest uruchamiana co godzinę, w ciągu godziny.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

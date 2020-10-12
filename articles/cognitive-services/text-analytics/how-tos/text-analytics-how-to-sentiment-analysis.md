@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 08/25/2020
 ms.author: aahi
 ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933022"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Instrukcje: wykrywanie tonacji przy użyciu interfejs API analizy tekstu
@@ -90,7 +90,7 @@ Utwórz żądanie POST. Możesz [użyć programu Poster](text-analytics-how-to-c
 
 ### <a name="request-endpoints"></a>Punkty końcowe żądania
 
-Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz podać prawidłowy adres URL używanej wersji. Przykład:
+Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu analiza tekstu na platformie Azure lub [kontenera analiza tekstu](text-analytics-how-to-install-containers.md)wystąpienia. Musisz podać prawidłowy adres URL używanej wersji. Na przykład:
 
 > [!NOTE]
 > Klucz i punkt końcowy dla zasobu analiza tekstu można znaleźć w witrynie Azure Portal. Zostaną one umieszczone na stronie **szybkiego startu** zasobu w obszarze **Zarządzanie zasobami**. 
@@ -103,7 +103,7 @@ Ustaw punkt końcowy HTTPS na potrzeby analizy tonacji przy użyciu zasobu anali
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
 
-Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Przykład:
+Aby uzyskać opinię na temat wyników wyszukiwania, należy uwzględnić `opinionMining=true` parametr. Na przykład:
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 

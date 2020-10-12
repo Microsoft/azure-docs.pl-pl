@@ -12,10 +12,10 @@ ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f81af557242503c6380d0ff7bc1dfaed852cd908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070687"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools programu PowerShell
@@ -84,7 +84,7 @@ Accept wildcard characters: False
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
 Aby uzyskać więcej informacji, zobacz about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>Potwierdź — ADSyncToolsADModuleLoaded
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>STRESZCZENIE
 {{Wypełnienie w postaci streszczenia}}
@@ -225,7 +225,7 @@ Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipal
 ```
 
 ### <a name="description"></a>OPIS
-Generuje raport ConsistencyGuid na podstawie pliku CSV importu z usługi Import-ADSyncToolsImmutableIdMigration
+Generuje raport ConsistencyGuid na podstawie pliku CSV importu z Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -554,9 +554,9 @@ Funkcja wysyła zapytanie do historii uruchamiania programu AAD Connect i ekspor
 #Required Parameters
 ```
 
-$sourcePath = read-host-Prompt "wprowadź ścieżkę do pliku dziennika z nazwą pliku" # " \<Source_Path\> " $outputPath = read-host-Prompt "wprowadź ścieżkę do pliku wyjściowego z nazwą pliku" # " \<Out_Path\> .
+$sourcePath = Read-Host-Prompt "wprowadź ścieżkę do pliku dziennika o nazwie pliku" # " \<Source_Path\> " $outputPath = Read-Host-Prompt "wprowadź ścieżkę do pliku wyjściowego z nazwą pliku" # " \<Out_Path\>
  
- Get-ADSyncToolsUsersSourceAnchorChanged-sourcePath $sourcePath-outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged-ścieżka_źródłowa $sourcePath-outputPath $outputPath
 
 #### <a name="example-2"></a>PRZYKŁAD 2
 ```
@@ -747,14 +747,14 @@ Dla każdego certyfikatu zostanie utworzona kopia zapasowa z rozdzieloną nazwą
 Check all users in target OU - Expired Certificates will be copied to separated files and no certificates will be removed
 ```
 
-Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = users = użytkownicy, OU = Corp, DC = contoso, DC = com"-ObjectClass
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = users = użytkownicy, OU = Corp, DC = contoso, DC = com" — Klasa ObjectClass
 
 #### <a name="example-2"></a>PRZYKŁAD 2
 ```
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 
-Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = Computers, OU = Corp, DC = contoso, DC = com"-ObjectClass Computer-$false
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = komputery, OU = Corp, DC = contoso, DC = com"-ObjectClass Computer-w $false
 
 ### <a name="parameters"></a>PARAMETRY
 
@@ -833,7 +833,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="resolve-adsynchostaddress"></a>Rozwiąż — ADSyncHostAddress
+## <a name="resolve-adsynchostaddress"></a>Resolve-ADSyncHostAddress
 
 ### <a name="synopsis"></a>STRESZCZENIE
 {{Wypełnienie w postaci streszczenia}}
@@ -1016,7 +1016,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="trace-adsynctoolsadimport"></a>Trace — ADSyncToolsADImport
+## <a name="trace-adsynctoolsadimport"></a>Trace-ADSyncToolsADImport
 
 ### <a name="synopsis"></a>STRESZCZENIE
 Tworzy plik śledzenia z kroku importowania usługi AD i
@@ -1140,7 +1140,7 @@ Accept wildcard characters: False
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
 Aby uzyskać więcej informacji, zobacz about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="trace-adsynctoolsldapquery"></a>Trace — ADSyncToolsLdapQuery
+## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>STRESZCZENIE
 Krótki opis

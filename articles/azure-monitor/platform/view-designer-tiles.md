@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77658510"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Przewodnik dotyczący wyświetlania kafelków projektanta w Azure Monitor
@@ -47,10 +47,10 @@ Kafelek **Liczba** wyświetla zarówno liczbę rekordów z kwerendy dziennika, j
 |:--- |:--- |
 | Nazwa |Tekst wyświetlany w górnej części kafelka. |
 | Opis |Tekst wyświetlany pod nazwą kafelka. |
-| **Tabliczek** | |
+| **Kafelek** | |
 | Legenda |Tekst wyświetlany w polu wartość. |
 | Zapytanie |Uruchomione zapytanie. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |
@@ -71,7 +71,7 @@ Ten kafelek przedstawia liczbę rekordów z dwóch różnych zapytań dziennikó
 | **Drugi kafelek** | |
 | Legenda |Tekst wyświetlany w polu wartość. |
 | Zapytanie |Uruchomione zapytanie. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |
@@ -88,14 +88,14 @@ Kafelek **pierścieniowy** Wyświetla pojedynczą liczbę, która podsumowuje ko
 | Opis |Tekst wyświetlany pod nazwą kafelka. |
 | **Pierścień** | |
 | Zapytanie |Zapytanie, które jest uruchamiane dla pierścienia. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. To zapytanie zwykle używa słowa kluczowego *Measure* do podsumowywania wyników. |
-| **Pierścień** |**Centrum>** |
+| **Pierścień** |** Centrum>** |
 | Tekst |Tekst wyświetlany w obszarze wartości w pierścieniu. |
 | Operacja |Operacja wykonywana na właściwości Value, która podsumowuje ją jako pojedynczą wartość.<ul><li>Sum: Dodaj wartości wszystkich rekordów z wartością właściwości.</li><li>Wartość procentowa: procent wartości zsumowanych z rekordów z wartością właściwości w porównaniu do wartości zsumowanych wszystkich rekordów.</li></ul> |
 | Wartości wynikowe używane w środku operacji |Opcjonalnie wybierz znak plus (+), aby dodać jedną lub więcej wartości. Wyniki zapytania są ograniczone do rekordów o określonych wartościach właściwości. Jeśli nie zostaną dodane żadne wartości, wszystkie rekordy zostaną uwzględnione w zapytaniu. |
 | **Pierścień** |**> dodatkowe opcje** |
 | Kolory |Kolor wyświetlany dla każdej z trzech najważniejszych właściwości. Aby określić alternatywne kolory dla konkretnych wartości właściwości, użyj *zaawansowanego mapowania kolorów*. |
 | Zaawansowane mapowanie kolorów |Wyświetla kolor reprezentujący określone wartości właściwości. Jeśli określona wartość znajduje się w pierwszych trzech, zamiast koloru standardowego zostanie wyświetlony kolor alternatywny. Jeśli właściwość nie znajduje się w trzech pierwszych, kolor nie jest wyświetlany. |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |
@@ -116,7 +116,7 @@ Ten kafelek to wykres liniowy, który wyświetla wiele serii z zapytania dzienni
 | Użyj skali logarytmicznej |Wybierz ten link, aby użyć skali logarytmicznej dla osi y. |
 | Lekcji |Określ jednostki dla wartości zwracanych przez zapytanie. Te informacje służą do wyświetlania etykiet na wykresie wskazujących typy wartości i opcjonalnie na potrzeby konwertowania wartości. **Typ jednostki** Określa kategorię jednostki i definiuje bieżące dostępne wartości **typu jednostki** . W przypadku wybrania wartości w **konwersji na** następnie wartości liczbowe są konwertowane z bieżącego typu **jednostki** na typ **konwersji na** . |
 | Etykieta niestandardowa |Tekst wyświetlany dla osi y obok etykiety dla typu *jednostki* . Jeśli etykieta nie zostanie określona, zostanie wyświetlony tylko typ *jednostki* . |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |
@@ -133,7 +133,7 @@ Ten kafelek ma zarówno wykres liniowy, który wyświetla wiele serii z zapytani
 | Opis |Tekst wyświetlany pod nazwą kafelka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytanie, które jest uruchamiane dla wykresu liniowego. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. To zapytanie zwykle używa słowa kluczowego *Measure* do podsumowywania wyników. Jeśli zapytanie używa słowa kluczowego *Interval* , oś x używa tego przedziału czasowego. Jeśli zapytanie nie używa słowa kluczowego *Interval* , oś x używa interwałów godzinowych. |
-| **Wykres liniowy** |**Objaśnienie>** |
+| **Wykres liniowy** |** Objaśnienie>** |
 | Tytuł objaśnienia | Tekst wyświetlany powyżej wartości objaśnienia. |
 | Nazwa serii |Wartość właściwości serii, która ma być używana jako wartość objaśnienia. Jeśli nie podano żadnej serii, są używane wszystkie rekordy z zapytania. |
 | Operacja |Operacja wykonywana na właściwości Value, która podsumowuje ją jako pojedynczą wartość dla objaśnienia.<ul><li>Średnia: średnia wartości ze wszystkich rekordów.</li><li>Liczba: liczba wszystkich rekordów zwracanych przez zapytanie.</li><li>Ostatnia próbka: wartość ostatniego interwału, który znajduje się na wykresie.</li><li>Max: maksymalna wartość interwałów uwzględnionych na wykresie.</li><li>Minimum: minimalna wartość interwałów uwzględnionych na wykresie.</li><li>Sum: suma wartości ze wszystkich rekordów.</li></ul> |
@@ -141,7 +141,7 @@ Ten kafelek ma zarówno wykres liniowy, który wyświetla wiele serii z zapytani
 | Użyj skali logarytmicznej |Wybierz ten link, aby użyć skali logarytmicznej dla osi y. |
 | Lekcji |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
 | Etykieta niestandardowa |Tekst wyświetlany dla osi y obok etykiety dla typu *jednostki* . Jeśli etykieta nie zostanie określona, zostanie wyświetlony tylko typ *jednostki* . |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |
@@ -166,7 +166,7 @@ Kafelek **dwie osie czasu** wyświetla wyniki dwóch zapytań dzienników w czas
 | Kolor |Kolor używany dla kolumn w drugiej serii. |
 | Zapytanie wykresu |Zapytanie, które jest uruchamiane dla drugiej serii. Liczba rekordów dla każdego przedziału czasu jest reprezentowana przez kolumny wykresu. |
 | Operacja |Operacja wykonywana na właściwości Value, która podsumowuje ją jako pojedynczą wartość dla objaśnienia.<ul><li>Średnia: średnia wartości ze wszystkich rekordów.</li><li>Liczba: liczba wszystkich rekordów zwracanych przez zapytanie.</li><li>Ostatnia próbka: wartość ostatniego interwału, który znajduje się na wykresie.</li><li>Max: maksymalna wartość interwałów uwzględnionych na wykresie. |
-| **Zaawansowany** |**> weryfikacja przepływu danych** |
+| **Zaawansowane** |**> weryfikacja przepływu danych** |
 | Enabled (Włączony) |Wybierz ten link, jeśli dla kafelka powinna być włączona weryfikacja przepływu danych. Takie podejście zapewnia alternatywny komunikat, jeśli dane są niedostępne. Zwykle używasz podejścia do dostarczania komunikatu w okresie tymczasowym, gdy widok zostanie zainstalowany, a dane staną się dostępne. |
 | Zapytanie |Zapytanie, które jest uruchamiane w celu określenia, czy dane są dostępne dla widoku. Jeśli zapytanie nie zwraca żadnych wyników, zamiast wartości głównej kwerendy zostanie wyświetlony komunikat. |
 | Komunikat |Komunikat, który jest wyświetlany, jeśli zapytanie weryfikacyjne przepływu danych nie zwraca żadnych danych. Jeśli nie podano komunikatu, zostanie wyświetlony komunikat o stanie *wykonywanie oceny* . |

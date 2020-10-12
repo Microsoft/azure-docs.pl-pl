@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.reviewer: arvinh
 ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052390"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji

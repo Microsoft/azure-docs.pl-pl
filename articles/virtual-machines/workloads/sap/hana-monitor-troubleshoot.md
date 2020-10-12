@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617074"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
@@ -75,7 +75,7 @@ Jednym z najważniejszych testów dla SAP HANA w systemie Linux jest upewnienie 
 
 Następujące polecenie systemu Linux nie zwraca niczego: **RPM-pytań i odpowiedzi grep ulimit.** Jeśli zostanie wyświetlona, _ulimit_ jest zainstalowana, odinstaluj ją natychmiast.
 
-## <a name="memory"></a>Memory (Pamięć)
+## <a name="memory"></a>Pamięć
 
 Możesz zauważyć, że ilość pamięci przydzielonej przez bazę danych SAP HANA jest większa niż oczekiwano. Następujące alerty wskazują na problemy z wysoką ilością pamięci:
 
