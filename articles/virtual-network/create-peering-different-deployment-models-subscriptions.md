@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051629"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania i subskrypcje
@@ -57,7 +57,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 6. W wyświetlonym bloku **myVnetA-Access Control (IAM)** kliknij pozycję **+ Dodaj przypisanie roli**.
 7. W wyświetlonym bloku **Dodaj przypisanie roli** wybierz opcję **współautor sieci** w polu **rola** .
 8. W polu **Wybierz** wybierz pozycję UserB lub wpisz adres e-mail UserB, aby go wyszukać. Lista wyświetlanych użytkowników pochodzi z tego samego Azure Active Directory dzierżawy, co sieć wirtualna, dla której konfigurujesz komunikację równorzędną. Kliknij pozycję UserB, gdy pojawi się na liście.
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 10. Wyloguj się z portalu jako UserA, a następnie zaloguj się jako UserB.
 11. Kliknij pozycję **+ Nowy**, wpisz *sieć wirtualną* w polu **Wyszukaj w witrynie Marketplace** , a następnie w wynikach wyszukiwania kliknij pozycję **Sieć wirtualna** .
 12. W wyświetlonym bloku **Virtual Network** wybierz pozycję **klasyczny** w polu **Wybierz model wdrażania** , a następnie kliknij przycisk **Utwórz**.
@@ -72,7 +72,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
     - **Lokalizacja**: *Wschodnie stany USA*
 
 14. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetB*. Kliknij pozycję **myVnetB** , gdy pojawi się w wynikach wyszukiwania. Zostanie wyświetlony blok dla sieci wirtualnej **myVnetB** .
-15. W wyświetlonym bloku **myVnetB** kliknij pozycję **Właściwości** z pionowej listy opcji po lewej stronie bloku. Skopiuj **Identyfikator zasobu**, który jest używany w późniejszym kroku. Identyfikator zasobu jest podobny do następującego przykładu:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. W wyświetlonym bloku **myVnetB** kliknij pozycję **Właściwości** z pionowej listy opcji po lewej stronie bloku. Skopiuj **Identyfikator zasobu**, który jest używany w późniejszym kroku. Identyfikator zasobu jest podobny do następującego przykładu: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Wykonaj kroki 5-9 dla myVnetB, wprowadzając **usera** w kroku 8.
 17. Wyloguj się z portalu jako UserB i zaloguj się jako UserA.
 18. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetA*. Kliknij pozycję **myVnetA** , gdy pojawi się w wynikach wyszukiwania. Zostanie wyświetlony blok dla sieci wirtualnej **myVnet** .
@@ -297,7 +297,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>Program PowerShell
 
 1. W wierszu polecenia programu PowerShell wprowadź następujące polecenie, aby usunąć sieć wirtualną (Menedżer zasobów):
 

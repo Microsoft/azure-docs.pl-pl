@@ -12,10 +12,10 @@ ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
 ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399809"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
@@ -35,7 +35,7 @@ Ta lista kontrolna ułatwi szybkie wdrożenie krytycznych zalecanych akcji w cel
 Upewnij się, że śledzisz, które funkcje i kroki są kompletne podczas odczytywania tej listy kontrolnej.
 
 > [!NOTE]
-> Wiele zaleceń zawartych w tym dokumencie dotyczy tylko aplikacji skonfigurowanych do korzystania z Azure Active Directory jako ich dostawcy tożsamości. Skonfigurowanie aplikacji do logowania jednokrotnego zapewnia korzyści wynikające z zasad poświadczeń, wykrywania zagrożeń, inspekcji, rejestrowania i innych funkcji. [Zarządzanie aplikacjami w usłudze Azure AD](../../active-directory/manage-apps/what-is-application-management.md) to podstawa, na której bazują wszystkie te zalecenia.
+> Wiele zaleceń zawartych w tym dokumencie dotyczy tylko aplikacji skonfigurowanych do korzystania z Azure Active Directory jako ich dostawcy tożsamości. Skonfigurowanie aplikacji dla jednego Sign-On zapewnia korzyści wynikające z zasad poświadczeń, wykrywania zagrożeń, inspekcji, rejestrowania i innych funkcji Dodaj do tych aplikacji. [Zarządzanie aplikacjami w usłudze Azure AD](../../active-directory/manage-apps/what-is-application-management.md) to podstawa, na której bazują wszystkie te zalecenia.
 
 Zalecenia zawarte w tym dokumencie są wyrównane z [wynikiem bezpiecznego tożsamości](../../active-directory/fundamentals/identity-secure-score.md), zautomatyzowanej oceny konfiguracji zabezpieczeń tożsamości dzierżawy usługi Azure AD. Organizacje mogą używać strony oceny zabezpieczeń tożsamości w portalu usługi Azure AD, aby znaleźć luki w ich bieżącej konfiguracji, aby upewnić się, że są one zgodne z bieżącymi [najlepszymi rozwiązaniami](identity-management-best-practices.md) firmy Microsoft dotyczącymi zabezpieczeń. Zaimplementowanie każdego zalecenia na stronie ze wskaźnikiem zabezpieczeń spowoduje zwiększenie oceny i umożliwi śledzenie postępu, a także ułatwia porównanie implementacji z innymi podobnymi organizacjami wielkości lub branżą.
 

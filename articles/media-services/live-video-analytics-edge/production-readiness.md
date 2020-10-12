@@ -4,10 +4,10 @@ description: Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdraża
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071934"
 ---
 # <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze rozwiązania
@@ -152,7 +152,7 @@ Maszyna wirtualna z systemem Linux, która jest używana jako urządzenie brzego
 1. `sudo apt-get autoremove1`
 
     Opcja autousuwania usuwa pakiety, które zostały zainstalowane automatycznie, ponieważ inny pakiet wymagał tego, ale z tymi innymi pakietami został usunięty, nie są już potrzebne.
-1. `sudo docker image ls`— Zawiera listę obrazów platformy Docker w systemie brzegowym
+1. `sudo docker image ls` — Zawiera listę obrazów platformy Docker w systemie brzegowym
 1. `sudo docker system prune `
 
     Platforma Docker podejmuje ostrożne podejście do czyszczenia nieużywanych obiektów (często nazywanych "odzyskiwaniem pamięci"), takich jak obrazy, kontenery, woluminy i sieci: te obiekty zwykle nie są usuwane, chyba że jawnie poprosimy platformę Docker. Może to spowodować, że platforma Docker będzie używać dodatkowego miejsca na dysku. Dla każdego typu obiektu Docker udostępnia polecenie Oczyść. Ponadto można użyć Oczyść oczyszczania systemu platformy Docker, aby oczyścić jednocześnie wiele typów obiektów. Aby uzyskać więcej informacji, zobacz [oczyszczanie nieużywanych obiektów platformy Docker](https://docs.docker.com/config/pruning/).

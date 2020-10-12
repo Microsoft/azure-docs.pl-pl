@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
 ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279437"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
@@ -50,14 +50,14 @@ System Azure wymaga, aby wydawcy zatwierdzonych dystrybucji systemu Linux regula
 
 ## <a name="azure-tuned-kernels"></a>Jądra dostosowane do platformy Azure
 
-Platforma Azure współpracuje ściśle z różnymi rozpowszechnianymi dystrybucjami systemu Linux w celu optymalizacji obrazów opublikowanych w portalu Azure Marketplace. Jednym z aspektów tej współpracy jest opracowywanie "dostrojonych" jądra systemu Linux, które są zoptymalizowane pod kątem platformy Azure i dostarczane jako w pełni obsługiwane składniki dystrybucji w systemie Linux. Jądra dostosowane do platformy Azure zawierają nowe funkcje i ulepszenia wydajności oraz szybciej (zazwyczaj co kwartał) erze w porównaniu z domyślnymi lub ogólnymi jądrami, które są dostępne w dystrybucji.
+Platforma Azure współpracuje ściśle z różnymi rozpowszechnianymi dystrybucjami systemu Linux w celu optymalizacji obrazów opublikowanych w portalu Azure Marketplace. Jednym z aspektów tej współpracy jest opracowywanie "dostrojonych" jądra systemu Linux, które są zoptymalizowane pod kątem platformy Azure i dostarczane jako w pełni obsługiwane składniki dystrybucji w systemie Linux. Azure-Tuned jądra zawierają nowe funkcje i ulepszenia wydajności oraz szybciej (zazwyczaj co kwartał) erze w porównaniu z domyślnymi lub ogólnymi jądrami, które są dostępne w ramach dystrybucji.
 
-W większości przypadków te jądra są wstępnie zainstalowane na domyślnych obrazach w portalu Azure Marketplace, dzięki czemu klienci będą natychmiast mogli korzystać z tych zoptymalizowanych jądra. Więcej informacji o tych jądrach dostrojonych na platformie Azure można znaleźć w następujących linkach:
+W większości przypadków te jądra są wstępnie zainstalowane na domyślnych obrazach w portalu Azure Marketplace, dzięki czemu klienci będą natychmiast mogli korzystać z tych zoptymalizowanych jądra. Więcej informacji na temat tych Azure-Tuned jądra można znaleźć w następujących linkach:
 
-- [CentOS oparte na platformie Azure — dostępne dla jądra za pośrednictwem SIG wirtualizacji CentOS](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned jądro dostępne za pośrednictwem SIG wirtualizacji CentOS](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian jądro w chmurze — dostępne za pomocą obrazu Debian 10 i Debian 9 "na platformie Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [SLES jądro dopasowane do platformy Azure](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Ubuntu jądro dopasowane do platformy Azure](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [SLES Azure-Tuned jądro](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Ubuntu Azure-Tuned jądro](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 ## <a name="partners"></a>Partnerzy
 

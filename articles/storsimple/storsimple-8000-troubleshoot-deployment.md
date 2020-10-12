@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187068"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
@@ -135,7 +135,7 @@ Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urz�
 | 5 |Błąd 350031: urządzenie zostało już zarejestrowane. | |Nie trzeba podejmować żadnych działań. |
 | 6 |Błąd 350016: Rejestracja urządzenia nie powiodła się. | |Upewnij się, że klucz rejestracji jest prawidłowy. |
 | 7 |Invoke-HcsSetupWizard: Wystąpił błąd podczas rejestrowania urządzenia. może to być spowodowane niepoprawnym adresem IP lub nazwą DNS. Sprawdź ustawienia sieci i spróbuj ponownie. Jeśli problem będzie się powtarzał, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md). (Błąd 350050) |Upewnij się, że urządzenie może wysyłać polecenia ping do sieci zewnętrznej. Jeśli nie masz łączności z siecią zewnętrzną, Rejestracja może zakończyć się niepowodzeniem z powodu tego błędu. Ten błąd może być kombinacją co najmniej jednego z następujących elementów:<ul><li>Nieprawidłowy adres IP</li><li>Niepoprawna podsieć</li><li>Nieprawidłowa Brama</li><li>Nieprawidłowe ustawienia DNS</li></ul> |Zobacz kroki opisane w [przykładowym kroku krok po kroku](#step-by-step-storsimple-troubleshooting-example). |
-| 8 |Invoke-HcsSetupWizard: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x1FBE2]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie się powtarzać, skontaktuj się z pomoc techniczna firmy Microsoft. |Jest to błąd ogólny zgłoszony dla wszystkich niewidocznych dla użytkownika błędów usługi lub agenta. Najbardziej typową przyczyną może być to, że uwierzytelnianie usługi ACS nie powiodło się. Możliwa przyczyna błędu polega na tym, że występują problemy z konfiguracją serwera NTP i czas na urządzeniu nie zostały prawidłowo ustawione. |Skoryguj czas (jeśli występują problemy), a następnie ponów próbę wykonania operacji rejestracji. W przypadku użycia polecenia Set-HcsSystem-timezone do dostosowania strefy czasowej należy wyrazić wielką literę w strefie czasowej (na przykład "Pacyficzny czas standardowy").  Jeśli ten problem będzie się powtarzać, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) w celu wykonania następnych kroków. |
+| 8 |Invoke-HcsSetupWizard: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x1FBE2]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie się powtarzać, skontaktuj się z pomoc techniczna firmy Microsoft. |Jest to błąd ogólny zgłoszony dla wszystkich niewidocznych dla użytkownika błędów usługi lub agenta. Najbardziej typową przyczyną może być to, że uwierzytelnianie usługi ACS nie powiodło się. Możliwa przyczyna błędu polega na tym, że występują problemy z konfiguracją serwera NTP i czas na urządzeniu nie zostały prawidłowo ustawione. |Skoryguj czas (jeśli występują problemy), a następnie ponów próbę wykonania operacji rejestracji. W przypadku użycia Set-HcsSystem-strefy czasowej, aby dostosować strefę czasu, należy zrobić wielką literę każdego wyrazu w strefie czasowej (na przykład "Pacyficzny czas standardowy").  Jeśli ten problem będzie się powtarzać, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) w celu wykonania następnych kroków. |
 | 9 |Ostrzeżenie: nie można aktywować urządzenia. Hasła administratora urządzenia i StorSimple Snapshot Manager nie zostały zmienione. |Jeśli rejestracja nie powiedzie się, hasła administratora i StorSimple Snapshot Manager nie są zmieniane. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Narzędzia do rozwiązywania problemów z wdrożeniami usługi StorSimple
@@ -173,11 +173,11 @@ Aby wykryć błędy łączności, użyj następujących poleceń cmdlet programu
 * `Test-Connection`: To polecenie cmdlet służy do sprawdzania łączności sieciowej wewnątrz i poza siecią.
 * `Test-HcsmConnection`: To polecenie cmdlet służy do sprawdzania łączności pomyślnie zarejestrowanego urządzenia.
 * `Sync-HcsTime`: To polecenie cmdlet służy do wyświetlania czasu urządzenia i wymuszania synchronizacji czasu z serwerem NTP.
-* `Enable-HcsPing`i `Disable-HcsPing` : Użyj tych poleceń cmdlet, aby umożliwić hostom pingowanie interfejsów sieciowych na urządzeniu StorSimple. Domyślnie interfejsy sieciowe StorSimple nie odpowiadają na żądania ping.
+* `Enable-HcsPing` i `Disable-HcsPing` : Użyj tych poleceń cmdlet, aby umożliwić hostom pingowanie interfejsów sieciowych na urządzeniu StorSimple. Domyślnie interfejsy sieciowe StorSimple nie odpowiadają na żądania ping.
 * `Trace-HcsRoute`: Użyj tego polecenia cmdlet jako narzędzia do śledzenia tras. Wysyła pakiety do każdego routera w drodze do ostatecznego miejsca docelowego w danym okresie, a następnie oblicza wyniki na podstawie pakietów zwróconych z każdego przeskoku. Ponieważ `Trace-HcsRoute` pokazuje stopień utraty pakietów na danym routerze lub łączu, można wskazać, które routery lub łącza mogą powodować problemy z siecią.
 * `Get-HcsRoutingTable`: Użyj tego polecenia cmdlet, aby wyświetlić tabelę lokalnego routingu IP.
 
-## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter
+## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Get-NetAdapter
 W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urządzenia po raz pierwszy stan sprzętu nie jest dostępny w interfejsie użytkownika usługi StorSimple Menedżer urządzeń, ponieważ urządzenie nie zostało jeszcze zarejestrowane w usłudze. Ponadto blok **kondycji sprzętu** może nie zawsze odzwierciedlać stan urządzenia, szczególnie w przypadku problemów mających wpływ na synchronizację usługi. W takich sytuacjach można użyć `Get-NetAdapter` polecenia cmdlet w celu określenia kondycji i stanu interfejsów sieciowych.
 
 ### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Aby wyświetlić listę wszystkich kart sieciowych na urządzeniu
@@ -238,7 +238,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ```
 
 
-## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-connection
+## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-Connection
 Za pomocą `Test-Connection` polecenia cmdlet można określić, czy urządzenie StorSimple może nawiązać połączenie z siecią zewnętrzną. Jeśli wszystkie parametry sieci, w tym DNS, są poprawnie skonfigurowane w Kreatorze instalacji, można użyć `Test-Connection` polecenia cmdlet do pingowania znanego adresu spoza sieci, na przykład Outlook.com.
 
 Należy włączyć polecenie ping, aby rozwiązać problemy z łącznością z tym poleceniem cmdlet, jeśli polecenie ping jest wyłączone.
@@ -277,7 +277,7 @@ HCSNODE0      outlook.com     132.245.92.194
 ## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-HcsmConnection
 Użyj `Test-HcsmConnection` polecenia cmdlet dla urządzenia, które jest już połączone i zarejestrowane w usłudze StorSimple Menedżer urządzeń. To polecenie cmdlet umożliwia zweryfikowanie łączności między zarejestrowanym urządzeniem i odpowiadającą StorSimple Menedżer urządzeń usługą. To polecenie można uruchomić na program Windows PowerShell dla usługi StorSimple.
 
-### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Aby uruchomić polecenie cmdlet Test-HcsmConnection
+### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Aby uruchomić Test-HcsmConnection polecenie cmdlet
 1. Upewnij się, że urządzenie jest zarejestrowane.
 2. Sprawdź stan urządzenia. Jeśli urządzenie zostanie zdezaktywowane, w trybie konserwacji lub offline może zostać wyświetlony jeden z następujących błędów:
    
@@ -359,7 +359,7 @@ Checking connectivity from device to SaaS.. Failure
 
 Urządzenie nie może nawiązać połączenia przy użyciu bieżącej konfiguracji serwera proxy sieci Web. Może to być problem z konfiguracją serwera proxy sieci Web lub problemem z łącznością sieciową. W takim przypadku należy upewnić się, że ustawienia serwera proxy sieci Web są prawidłowe, a serwery proxy sieci Web są w trybie online i dostępne.
 
-## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Rozwiązywanie problemów z poleceniem cmdlet Sync-HcsTime
+## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Sync-HcsTime
 Użyj tego polecenia cmdlet, aby wyświetlić czas urządzenia. Jeśli czas urządzenia ma przesunięcie z serwerem NTP, możesz użyć tego polecenia cmdlet, aby wymusić synchronizację czasu z serwerem NTP.
 - Jeśli przesunięcie między urządzeniem a serwerem NTP jest większe niż 5 minut, pojawi się ostrzeżenie. 
 - Jeśli przesunięcie przekroczy 15 minut, urządzenie przejdzie w tryb offline. Nadal można użyć tego polecenia cmdlet, aby wymusić synchronizację czasu. 
@@ -425,7 +425,7 @@ Na przykład jeśli masz 2 interfejsy sieciowe, dane 2 i dane 3 połączone z In
 
 Jeśli na urządzeniu StorSimple jest uruchomiona Aktualizacja Update 1, interfejs sieciowy DATA 0 ma najwyższy poziom preferencji ruchu w chmurze. Oznacza to, że nawet jeśli istnieją inne interfejsy obsługujące chmurę, ruch w chmurze byłby kierowany przez dane 0.
 
-Jeśli `Get-HcsRoutingTable` polecenie cmdlet zostanie uruchomione bez określenia żadnych parametrów (jak pokazano w poniższym przykładzie), polecenie cmdlet będzie wyprowadzać tabele routingu IPv4 i IPv6. Alternatywnie możesz określić `Get-HcsRoutingTable -IPv4` lub `Get-HcsRoutingTable -IPv6` uzyskać odpowiednią tabelę routingu.
+Jeśli `Get-HcsRoutingTable` polecenie cmdlet zostanie uruchomione bez określenia żadnych parametrów (jak pokazano w poniższym przykładzie), polecenie cmdlet będzie wyprowadzać tabele routingu IPv4 i IPv6. Alternatywnie możesz określić `Get-HcsRoutingTable -IPv4` lub `Get-HcsRoutingTable -IPv6`  uzyskać odpowiednią tabelę routingu.
 
 ```output
 Controller0>
@@ -525,9 +525,9 @@ Przyczyną błędu może być dowolny z następujących elementów:
   
 3. Sprawdź kondycję interfejsu sieciowego:
    
-   * Użyj polecenia cmdlet Get-adapter, aby wykryć kondycję interfejsów sieciowych dla danych 0. 
+   * Użyj polecenia cmdlet Get-NetAdapter, aby wykryć kondycję interfejsów sieciowych dla danych 0. 
    * Jeśli łącze nie działa, stan **numer IfIndex** będzie wskazywać, że interfejs nie działa. Następnie należy sprawdzić połączenie sieciowe portu z urządzeniem i przełącznikiem. Konieczne jest również wyróżnienie nieprawidłowych kabli. 
-   * Jeśli podejrzewasz, że port danych 0 na aktywnym kontrolerze zakończył się niepowodzeniem, możesz to potwierdzić, łącząc się z portem danych 0 na kontrolerze 1. Aby to potwierdzić, odłącz kabel sieciowy od tyłu urządzenia od kontrolera 0, podłącz kabel do kontrolera 1, a następnie ponownie uruchom polecenie cmdlet Get-adapter.
+   * Jeśli podejrzewasz, że port danych 0 na aktywnym kontrolerze zakończył się niepowodzeniem, możesz to potwierdzić, łącząc się z portem danych 0 na kontrolerze 1. Aby to potwierdzić, odłącz kabel sieciowy od tyłu urządzenia od kontrolera 0, podłącz kabel do kontrolera 1, a następnie ponownie uruchom Get-NetAdapter polecenie cmdlet.
      Jeśli port DATA 0 kontrolera nie powiedzie się, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) w celu wykonania następnych kroków. Może być konieczne zastąpienie kontrolera w systemie.
 4. Sprawdź łączność z przełącznikiem:
    
@@ -543,7 +543,7 @@ Przyczyną błędu może być dowolny z następujących elementów:
      > Jeśli masz uruchomioną wiele usług, musisz się upewnić, że klucz rejestracji odpowiedniej usługi jest używany do zarejestrowania urządzenia. Jeśli urządzenie zostało zarejestrowane z nieprawidłową usługą StorSimple Menedżer urządzeń, musisz [skontaktować się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby uzyskać kolejne kroki. Może być konieczne przeprowadzenie resetowania urządzenia do ustawień fabrycznych (co może spowodować utratę danych), a następnie nawiązanie połączenia z zamierzoną usługą.
      > 
      > 
-6. Za pomocą polecenia cmdlet Test-connection Sprawdź, czy masz połączenie z siecią zewnętrzną. Aby uzyskać więcej informacji, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Test-connection](#troubleshoot-with-the-test-connection-cmdlet).
+6. Użyj polecenia cmdlet Test-Connection, aby sprawdzić, czy masz połączenie z siecią zewnętrzną. Aby uzyskać więcej informacji, przejdź do [rozwiązywania problemów za pomocą polecenia cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 7. Sprawdź, czy istnieją zakłócenia zapory. Jeśli sprawdzono, że ustawienia wirtualnego adresu IP (VIP), podsieci, bramy i DNS są poprawne i nadal występują problemy z łącznością, istnieje możliwość, że zapora blokuje komunikację między urządzeniem a zewnętrzną siecią. Należy upewnić się, że porty 80 i 443 są dostępne na urządzeniu StorSimple na potrzeby komunikacji wychodzącej. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 8. Sprawdź dzienniki. Przejdź do usługi [support Packages i dzienników urządzeń dostępnych do rozwiązywania problemów](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Jeśli powyższe kroki nie rozwiązują problemu, [skontaktuj się z](storsimple-8000-contact-microsoft-support.md) pomocą techniczną pomoc techniczna firmy Microsoft.

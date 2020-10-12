@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829843"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
@@ -28,7 +28,7 @@ W celu ukończenia tego samouczka:
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 1. Na stronie **Nowa funkcja** wprowadź `cosmos` w polu wyszukiwania, a następnie wybierz szablon **wyzwalacza Azure Cosmos DB** .
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Strona funkcje w Azure Portal":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Kod Azure Cosmos DB":::
 
 
 1. Skonfiguruj nowy wyzwalacz przy użyciu ustawień określonych w poniższej tabeli:
@@ -64,7 +64,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
     | **Nazwa kolekcji dzierżaw** | leases | Nazwa kolekcji do przechowywania dzierżaw. |
     | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Tak | Sprawdza obecność kolekcji dzierżaw i automatycznie tworzy ją. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Kod Azure Cosmos DB":::
 
 1. Wybierz pozycję **Utwórz funkcję**. 
 
@@ -72,7 +72,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 1. Aby wyświetlić kod funkcji oparty na szablonie, wybierz pozycję **Code + test**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Szablon funkcji usługi Azure Cosmos DB w języku C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Kod Azure Cosmos DB":::
 
     Ten szablon funkcji zapisuje w dziennikach liczbę dokumentów oraz identyfikator pierwszego dokumentu.
 
@@ -101,7 +101,7 @@ Następnie nawiąż połączenie z kontem Azure Cosmos DB i Utwórz `Items` kont
     | **Identyfikator bazy danych** | Zadania |Nazwa nowej bazy danych. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji. |
     | **Identyfikator kontenera** | Elementy | Nazwa nowego kontenera. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji.  |
     | **[Klucz partycji](../cosmos-db/partition-data.md)** | /category|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór poprawnego klucza partycji jest istotny podczas tworzenia kontenera wykonywania. | 
-    | **Przepływność** |400 RU| Użyj wartości domyślnej. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. |    
+    | **Przepływność** |400 RU| Użyj wartości domyślnej. Jeśli chcesz zmniejszyć opóźnienie, możesz później skalować przepływność w górę. |    
 
 1. Kliknij przycisk **OK** , aby utworzyć kontener elementów. Utworzenie kontenera może chwilę potrwać.
 
@@ -111,15 +111,7 @@ Gdy kontener określony w powiązaniu funkcji istnieje, można przetestować fun
 
 1. Rozwiń kontener nowe **elementy** w obszarze Eksplorator danych, wybierz pozycję **elementy**, a następnie wybierz pozycję **nowy element**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Tworzenie elementu w kontenerze elementów":::
-
-1. Zastąp zawartość nowego elementu następującą zawartością, a następnie wybierz pozycję **Zapisz**.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Kod Azure Cosmos DB"
     }
     ```
 

@@ -13,10 +13,10 @@ ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051348"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Wprowadzenie do uwierzytelniania opartego na certyfikacie w usłudze Azure Active Directory
@@ -104,7 +104,7 @@ Konfiguracja programu umożliwia korzystanie z programu [Azure Active Directory 
 
 Jako pierwszy krok konfiguracji należy nawiązać połączenie z dzierżawcą. Gdy tylko połączenie z dzierżawcą istnieje, możesz przejrzeć, dodać, usunąć i zmodyfikować zaufane urzędy certyfikacji, które są zdefiniowane w Twoim katalogu.
 
-### <a name="connect"></a>Połącz
+### <a name="connect"></a>Connect
 
 Aby nawiązać połączenie z dzierżawcą, użyj polecenia cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) :
 
@@ -184,7 +184,7 @@ Poniższe kroki przedstawiają proces aktualizowania i unieważniania tokenu aut
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 ```
 
-Ustawiona data musi przypadać w przyszłości. Jeśli Data nie przypada w przyszłości, właściwość **StsRefreshTokensValidFrom** nie jest ustawiona. Jeśli data przypada w przyszłości, **StsRefreshTokensValidFrom** jest ustawiona na bieżącą godzinę (nie datę wskazywaną przez polecenie Set-MsolUser).
+Ustawiona data musi przypadać w przyszłości. Jeśli Data nie przypada w przyszłości, właściwość **StsRefreshTokensValidFrom** nie jest ustawiona. Jeśli data przypada w przyszłości, **StsRefreshTokensValidFrom** jest ustawiona na bieżącą godzinę (nie datę wskazywaną przez Set-MsolUser polecenie).
 
 ## <a name="step-4-test-your-configuration"></a>Krok 4. Testowanie konfiguracji
 

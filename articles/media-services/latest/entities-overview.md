@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300191"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
@@ -47,7 +47,7 @@ Operatory zakresu:
 - `ge`: Sprawdź, czy pole jest *większe niż lub równe* wartości stałej.
 - `le`: Sprawdź, czy pole jest *mniejsze niż lub równe* wartości stałej.
 
-## <a name="filter"></a>Filtr
+## <a name="filter"></a>Filtrowanie
 
 Użyj `$filter` , aby podać parametr filtru OData, aby znaleźć tylko te obiekty, które Cię interesują.
 
@@ -158,7 +158,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porządkowania do różnych jednostek:
 
-|Nazwa jednostki|Nazwa właściwości|Filtr|Zamówienie|
+|Nazwa jednostki|Nazwa właściwości|Filtrowanie|Zamówienie|
 |---|---|---|---|
 |[Elementy zawartości](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
 ||Właściwości. alternateId |`eq`||

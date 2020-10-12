@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090216"
 ---
 # <a name="collaborative-coding-with-git"></a>Wspólne kodowanie przy użyciu narzędzia Git
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 Po przełączeniu do gałęzi roboczej można rozpocząć opracowywanie kodu lub artefaktów dokumentacji, aby zakończyć element roboczy. Uruchamianie `git checkout master` przełączników z powrotem do `master` gałęzi.
 
-Dobrym sposobem jest utworzenie gałęzi git dla każdego elementu pracy scenariusza użytkownika. Następnie dla każdego elementu pracy zadania można utworzyć gałąź na podstawie gałęzi scenariusza użytkownika. Uporządkuj gałęzie w hierarchii, które odnoszą się do relacji z scenariuszem użytkownika, gdy istnieje wiele osób pracujących w różnych wątkach użytkownika dla tego samego projektu lub na różnych zadaniach dla tego samego scenariusza użytkownika. Można zminimalizować konflikty, ponieważ każdy członek zespołu pracuje nad inną gałęzią lub innym kodem lub innymi artefaktami podczas udostępniania gałęzi. 
+Dobrym sposobem jest utworzenie gałęzi git dla każdego elementu pracy scenariusza użytkownika. Następnie dla każdego elementu pracy zadania można utworzyć gałąź na podstawie gałęzi scenariusza użytkownika. Uporządkuj gałęzie w hierarchii, które odnoszą się do Story-Task użytkownika w przypadku wielu osób pracujących w różnych wątkach użytkownika dla tego samego projektu lub na różnych zadaniach dla tego samego scenariusza użytkownika. Można zminimalizować konflikty, ponieważ każdy członek zespołu pracuje nad inną gałęzią lub innym kodem lub innymi artefaktami podczas udostępniania gałęzi. 
 
 Na poniższym diagramie przedstawiono zalecaną strategię rozgałęziania dla przetwarzania TDSP. Może nie być potrzebna tyle gałęzi, jak pokazano w tym miejscu, zwłaszcza gdy tylko jedna lub dwie osoby pracują nad projektem lub tylko jedna osoba pracuje nad wszystkimi zadaniami ze scenariusza użytkownika. Jednak rozdzielenie gałęzi deweloperskiej od gałęzi głównej jest zawsze dobrym sposobem i może pomóc zapobiec przerwaniu gałęzi wydania przez działania deweloperskie. Pełny opis modelu rozgałęzień usługi git można znaleźć w [pomyślnym modelu rozgałęziania usługi git](https://nvie.com/posts/a-successful-git-branching-model/).
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Tworzenie żądania ściągnięcia
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Utwórz żądanie ściągnięcia
 
 Po zakończeniu jednego lub kilku zatwierdzeń i wypchnięciu, gdy wszystko jest gotowe do scalenia bieżącej gałęzi roboczej z gałęzią podstawową, można utworzyć i przesłać *żądanie ściągnięcia* w Azure Repos. 
 

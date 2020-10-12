@@ -4,10 +4,10 @@ description: Programy obsługi zdarzeń i miejsca docelowe w Event Grid na kraw�
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 18e2b944f60ebdf8a1b0c60ba446a13df13134c5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171588"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Programy obsługi zdarzeń i miejsca docelowe w Event Grid na krawędzi
@@ -145,7 +145,7 @@ Aby opublikować w temacie Service Bus, ustaw polecenie `endpointType` na `servi
 
 ## <a name="storage-queues"></a>Kolejki usługi Storage
 
-Aby opublikować w kolejce magazynu, ustaw polecenie `endpointType` na `storageQueue` i podaj:
+Aby opublikować w kolejce magazynu, ustaw polecenie  `endpointType` na `storageQueue` i podaj:
 
 * QueueName: Nazwa kolejki magazynu, w której jest publikowany.
 * connectionString: parametry połączenia dla konta magazynu, w którym znajduje się kolejka magazynu.

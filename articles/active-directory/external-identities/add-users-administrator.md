@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909777"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal
@@ -27,7 +27,7 @@ Po dodaniu użytkownika-gościa do katalogu można wysłać użytkownikowi goś�
 > [!IMPORTANT]
 > Należy postępować zgodnie z instrukcjami w temacie [: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](https://aka.ms/adprivacystatement) , aby dodać adres URL zasad zachowania poufności informacji organizacji. W ramach procesu wykupu po raz pierwszy zaproszony użytkownik musi wyrazić zgodę na warunki zachowania poufności, aby kontynuować. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Upewnij się, że ustawienia współpracy zewnętrznej Twojej organizacji zostały skonfigurowane tak, aby można było zapraszać Gości. Domyślnie wszyscy użytkownicy i Administratorzy mogą zapraszać Gości. Jednak zasady współpracy zewnętrznej w organizacji mogą być skonfigurowane tak, aby uniemożliwić określonym użytkownikom lub administratorom zapraszanie Gości. Aby dowiedzieć się, jak wyświetlać i ustawiać te zasady, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](delegate-invitations.md).
 

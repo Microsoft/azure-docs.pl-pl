@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343024"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Nagłówki HTTP do debugowania X-we dla aparatu reguł Azure CDN
@@ -70,7 +70,7 @@ Nagłówek X-we-Debug raportuje informacje o kodzie stanu pamięci podręcznej w
 Terminy używane w powyższej składni nagłówka odpowiedzi są zdefiniowane w następujący sposób:
 - StatusCode: wskazuje, w jaki sposób żądana zawartość była obsługiwana przez usługę CDN, która jest reprezentowana przez kod stanu pamięci podręcznej.
     
-    Kod stanu TCP_DENIED może być raportowany, a nie brak, gdy nieautoryzowane żądanie jest odrzucane z powodu uwierzytelniania opartego na tokenie. Jednak kod stanu brak będzie nadal używany podczas wyświetlania raportów o stanie pamięci podręcznej lub nieprzetworzonych danych dziennika.
+    Kod stanu TCP_DENIED może być raportowany, a nie brak, gdy nieautoryzowane żądanie jest odrzucane z powodu Token-Based uwierzytelniania. Jednak kod stanu brak będzie nadal używany podczas wyświetlania raportów o stanie pamięci podręcznej lub nieprzetworzonych danych dziennika.
 
 - Platforma: wskazuje platformę, w której zażądano zawartości. Następujące kody są prawidłowe dla tego pola:
 
@@ -106,7 +106,7 @@ Termin używany w powyższej składni nagłówka odpowiedzi jest zdefiniowany w 
 Wartość  | Opis
 -------| --------
 TAK    | Wskazuje, że żądana zawartość była uprawniona do buforowania.
-NO     | Wskazuje, że żądana zawartość nie kwalifikuje się do buforowania. Ten stan może być spowodowany jedną z następujących przyczyn: <br /> -Konfiguracja specyficzna dla klienta: Konfiguracja specyficzna dla Twojego konta może uniemożliwić serwerom pop buforowanie elementu zawartości. Na przykład aparat reguł może uniemożliwić buforowanie zasobu przez włączenie funkcji pomijania pamięci podręcznej dla żądań kwalifikujących.<br /> -Cache nagłówki odpowiedzi: żądana pamięć podręczna i nagłówki wygaśnięcia elementu zawartości mogą uniemożliwiać serwerom POP buforowanie.
+NO     | Wskazuje, że żądana zawartość nie kwalifikuje się do buforowania. Ten stan może być spowodowany jedną z następujących przyczyn: <br /> -Customer-Specific konfiguracja: Konfiguracja specyficzna dla Twojego konta może uniemożliwić serwerom pop buforowanie elementu zawartości. Na przykład aparat reguł może uniemożliwić buforowanie zasobu przez włączenie funkcji pomijania pamięci podręcznej dla żądań kwalifikujących.<br /> -Cache nagłówki odpowiedzi: żądany Cache-Control zasobów i nagłówki wygaśnięcia mogą uniemożliwiać serwerom POP buforowanie.
 UNKNOWN | Wskazuje, że serwery nie mogły ocenić, czy żądany zasób był w pamięci podręcznej. Ten stan zwykle występuje, gdy żądanie jest odrzucane z powodu uwierzytelniania opartego na tokenie.
 
 ### <a name="sample-response-header"></a>Przykładowy nagłówek odpowiedzi
@@ -115,7 +115,7 @@ Następujący przykładowy nagłówek odpowiedzi wskazuje, czy żądana zawarto�
 
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
-## <a name="cache-key-response-header"></a>Cache-Key — nagłówek odpowiedzi
+## <a name="cache-key-response-header"></a>Nagłówek odpowiedzi Cache-Key
 `X-EC-Debug: x-ec-cache-key`Nagłówek odpowiedzi wskazuje fizyczny klucz pamięci podręcznej skojarzony z żądaną zawartością. Fizyczna pamięć podręczna — klucz składa się ze ścieżki, która identyfikuje zasób na potrzeby buforowania. Innymi słowy, serwery będą sprawdzać, czy w pamięci podręcznej znajduje się podręczna wersja elementu zawartości, zgodnie z jego ścieżką zdefiniowaną w kluczu podręcznym.
 
 Ta fizyczna pamięć podręczna — klucz rozpoczyna się od podwójnego ukośnika (//), po którym następuje protokół używany do żądania zawartości (HTTP lub HTTPS). Następuje ścieżka względna do żądanego zasobu, który rozpoczyna się od punktu dostępu do zawartości (na przykład _/000001/_).
@@ -147,7 +147,7 @@ Następujący przykładowy nagłówek odpowiedzi wskazuje fizyczny klucz pamięc
 
 Terminy używane w powyższej składni nagłówka odpowiedzi są zdefiniowane w następujący sposób:
 
-- MASeconds: wskazuje maksymalny wiek (w sekundach) zdefiniowany przez nagłówki kontroli pamięci podręcznej żądanych zawartości.
+- MASeconds: wskazuje maksymalny wiek (w sekundach) określony przez nagłówki Cache-Control żądanej zawartości.
 
 - MATimePeriod: konwertuje wartość Max-Age (czyli MASeconds) na przybliżoną równowartość większej jednostki (na przykład dni). 
 

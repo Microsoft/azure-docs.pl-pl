@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538844"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
@@ -132,7 +132,7 @@ Możesz użyć skryptu programu PowerShell, aby sprawdzić, czy użytkownicy maj
 
 2. `Get-MsolAccountSku` można go użyć do odnalezienia wszystkich licencji na produkty inicjowane w organizacji usługi Azure AD.
 
-   ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku i sprawdź](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Użyj wartości *AccountSkuId* dla licencji, którą interesujesz za pomocą [tego skryptu programu PowerShell](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Spowoduje to utworzenie listy użytkowników, którzy mają tę licencję z informacjami o sposobie przypisywania licencji.
 
@@ -163,7 +163,7 @@ Oto przykład ostatnich zmian licencji grupowych, z uwzględnieniem szczegółó
 
 Po zmianie licencji na grupę usługa Azure AD zacznie stosować zmiany do wszystkich użytkowników.
 
-1. Aby sprawdzić, kiedy grupy rozpoczęły przetwarzanie, Ustaw filtr **działania** , aby *rozpocząć stosowanie licencji opartej na grupie dla użytkowników*. Należy pamiętać, że aktor dla operacji jest *Microsoft Azure AD licencjonowania opartego na grupach* — konta systemowego, które jest używane do wykonywania wszystkich zmian licencji grupowych.
+1. Aby sprawdzić, kiedy grupy rozpoczęły przetwarzanie, Ustaw filtr **działania** , aby *rozpocząć stosowanie licencji opartej na grupie dla użytkowników*. Należy pamiętać, że aktor dla operacji jest *Microsoft Azure AD Group-Based Licencjonowanie* — konta systemowego, które jest używane do wykonywania wszystkich zmian licencji grupowych.
    >[!TIP]
    > Kliknij element na liście, aby wyświetlić pole *zmodyfikowano właściwości* — pokazuje zmiany licencji, które zostały pobrane do przetwarzania. Jest to przydatne, jeśli wprowadzono wiele zmian w grupie i nie masz pewności, która z nich została przetworzona.
 
@@ -179,7 +179,7 @@ Po zmianie licencji na grupę usługa Azure AD zacznie stosować zmiany do wszys
    > ```
 
 3. Aby wyświetlić pełny dziennik, w jaki sposób przetworzył grupę, w tym wszystkie zmiany użytkownika, ustaw następujące filtry:
-   - **Zainicjowane przez (aktor)**: "Microsoft Azure AD licencjonowania opartego na grupach"
+   - **Zainicjowane przez (aktor)**: "Microsoft Azure AD Group-Based Licencjonowanie"
    - **Zakres dat** (opcjonalnie): niestandardowy zakres dla gdy wiadomo, że określona grupa została rozpoczęta i zakończyła przetwarzanie
 
 To przykładowe dane wyjściowe przedstawiają początek przetwarzania, wszystkie wynikowe zmiany użytkownika i zakończenie przetwarzania.

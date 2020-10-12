@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087474"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Uruchamianie obciążeń Azure Machine Learning przy użyciu automatycznego uczenia maszynowego na Apache Spark w usłudze HDInsight
@@ -21,7 +21,7 @@ Azure Machine Learning upraszcza i przyspiesza kompilowanie, uczenie i wdrażani
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Instalowanie Azure Machine Learning w klastrze usługi HDInsight
 
 Ogólne samouczki dotyczące automatycznego uczenia maszynowego znajdują się w [samouczku: korzystanie z zautomatyzowanej uczenia maszynowego do kompilowania modelu regresji](../../machine-learning/tutorial-auto-train-models.md).
-Wszystkie nowe klastry usługi HDInsight-Spark są wstępnie zainstalowane przy użyciu zestawu Azure AutoML SDK.
+Wszystkie nowe klastry HDInsight-Spark są preinstalowane z użyciem AzureML-AutoML SDK.
 
 > [!Note]
 > Pakiety Azure Machine Learning są instalowane w środowisku python3 Conda. Zainstalowany Notes Jupyter powinien być uruchamiany przy użyciu jądra PySpark3.

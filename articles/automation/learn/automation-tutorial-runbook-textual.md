@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987626"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell
@@ -113,13 +113,13 @@ Utworzony element Runbook nadal działa w trybie roboczym. Należy opublikować 
 
 7. Po zakończeniu wyświetlania stanu elementu Runbook kliknij pozycję **dane wyjściowe**. Zostanie otwarta strona wyjście, na której będzie widoczny `Hello World` komunikat.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnionym przyciskiem wyjście.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnioną sekcją podsumowania zadań.":::
 
 8. Zamknij stronę wyjściową.
 
 9. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny tylko `Hello World` w strumieniu danych wyjściowych. Należy pamiętać, że w okienku strumienie mogą być wyświetlane inne strumienie zadania elementu Runbook, takie jak pełne strumienie i błędy, jeśli element Runbook zapisze w nich.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnionym przyciskiem wszystkie dzienniki.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnioną sekcją podsumowania zadań.":::
 
 10. Zamknij okienko strumieni i okienko zadania, aby powrócić do strony MyFirstRunbook.
 

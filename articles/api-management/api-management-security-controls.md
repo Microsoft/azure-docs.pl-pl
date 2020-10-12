@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902579"
 ---
 # <a name="security-controls-for-api-management"></a>Kontrolki zabezpieczeń dla API Management
@@ -20,7 +20,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w API Management.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Network
+## <a name="network"></a>Sieć
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |---|---|--|--|
@@ -51,8 +51,8 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w API Management.
 |---|---|--|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Dane poufne, takie jak certyfikaty, klucze i wartości nazwane tajne, są szyfrowane przy użyciu zarządzanych przez usługę usług według kluczy wystąpienia usługi. |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Nie | Wszystkie klucze szyfrowania są dla każdego wystąpienia usługi i są zarządzane przez usługę. |  |
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak | |  |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Usługa [Express Route](../expressroute/index.yml) i szyfrowanie sieci wirtualnej są udostępniane przez [Sieć Azure](../virtual-network/index.yml). |  |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |  |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Usługa [Express Route](../expressroute/index.yml) i szyfrowanie sieci wirtualnej są udostępniane przez [Sieć Azure](../virtual-network/index.yml). |  |
 | Wywołania interfejsu API są szyfrowane| Tak | Wywołania płaszczyzny zarządzania są nawiązywane za pośrednictwem [Azure Resource Manager](../azure-resource-manager/index.yml) za pośrednictwem protokołu TLS. Wymagany jest prawidłowy token sieci Web JSON (JWT).  Wywołania płaszczyzny danych mogą być zabezpieczone przy użyciu protokołu TLS i jednego z obsługiwanych mechanizmów uwierzytelniania (na przykład certyfikatu klienta lub tokenu JWT). |   |
  |
 

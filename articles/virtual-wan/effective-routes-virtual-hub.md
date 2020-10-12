@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983643"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Wyświetlanie obowiązujących tras koncentratora wirtualnego
@@ -33,7 +33,7 @@ Na stronie dane wyjściowe są wyświetlane następujące pola:
 * **Źródło**: Identyfikator zasobu źródła routingu.
 * **Ścieżka as**: ATRYBUT BGP AS (system autonomiczny) wyświetla listę wszystkich numerów AS, które muszą zostać przesunięte w celu uzyskania dostępu do lokalizacji, do której jest dołączona ścieżka, jest anonsowana z.
 
-### <a name="example"></a><a name="example"></a>Przykład
+### <a name="example"></a><a name="example"></a>Przyklad
 
 Wartości w poniższej tabeli przykładowej wykazują, że połączenie koncentratora wirtualnego lub tabela tras poznania trasy 10.2.0.0/24 (prefiks gałęzi). Poznasz trasę z powodu **typu następnego przeskoku sieci VPN** VPN_S2S_Gateway z **następnym przeskokiem** VPN Gateway identyfikator zasobu. **Kierowanie punktów początkowych** do identyfikatora zasobu w tabeli/połączeniu z BRAMą VPN/trasą. **Ścieżka as** wskazuje ścieżkę as dla gałęzi.
 

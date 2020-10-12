@@ -4,10 +4,10 @@ description: Jak kończyć zdarzenia z rozwiązanie Auth0 do usług platformy Az
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103284"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integracja Azure Event Grid z usługą rozwiązanie Auth0

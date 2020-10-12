@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: yexu
 ms.openlocfilehash: 428b8956b4a86009c946d9d8e9e9ba1c58d31403
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87388406"
 ---
 # <a name="troubleshoot-copy-data-tool-in-azure-data-factory"></a>Rozwiązywanie problemów z narzędziami Kopiowanie danych w programie Azure Data Factory

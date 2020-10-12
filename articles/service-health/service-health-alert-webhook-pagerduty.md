@@ -4,10 +4,10 @@ description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usłu
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091542"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi PagerDuty przy użyciu elementów webhook
@@ -27,7 +27,7 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 
     a. **Typ integracji**: Microsoft Azure
 
-    b. **Nazwa integracji**:\<Name\>
+    b. **Nazwa integracji**: \<Name\>
 
     !["Ustawienia integracji" w usługi PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 

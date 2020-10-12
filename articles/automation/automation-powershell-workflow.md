@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186008"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Informacje o przepływie pracy programu PowerShell dla Azure Automation
@@ -76,7 +76,7 @@ $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
 
-Jeśli spróbujesz uruchomić ten element w przepływie pracy, zostanie wyświetlony komunikat o błędzie mówiący`Method invocation is not supported in a Windows PowerShell Workflow.`
+Jeśli spróbujesz uruchomić ten element w przepływie pracy, zostanie wyświetlony komunikat o błędzie mówiący `Method invocation is not supported in a Windows PowerShell Workflow.`
 
 Jedną z opcji jest zawinięcie tych dwóch wierszy kodu w bloku [InlineScript](#use-inlinescript) . W tym przypadku `Service` reprezentuje obiekt usługi w bloku.
 
@@ -261,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Ponieważ poświadczenia nazwy użytkownika nie są utrwalane po wywołaniu działania [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) lub po ostatnim punkcie kontrolnym, należy ustawić poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po wywołaniu lub wyjściu z `Suspend-Workflow` punktu kontrolnego.  W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Ponieważ poświadczenia nazwy użytkownika nie są utrwalane po wywołaniu działania [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) lub po ostatnim punkcie kontrolnym, należy ustawić poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po wywołaniu lub wyjściu z `Suspend-Workflow` punktu kontrolnego.  W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Poniższy kod pokazuje, jak obsłużyć tę sytuację w elementach Runbook przepływu pracy programu PowerShell.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319575"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Plik CreateUiDefinition.json dla środowiska tworzenia aplikacji zarządzanej platformy Azure
@@ -39,7 +39,7 @@ Szablon jest następujący:
 `CreateUiDefinition`Zawsze zawiera trzy właściwości:
 
 * jścia
-* version
+* Wersja
 * parameters
 
 Program obsługi powinien zawsze mieć wartość `Microsoft.Azure.CreateUIDef` , a Najnowsza obsługiwana wersja to `0.1.2-preview` .
@@ -129,7 +129,7 @@ Dla programu `location` Określ właściwości kontrolki lokalizacji, która ma 
 
 **Podstawowy** krok to pierwszy krok generowany, gdy Azure Portal przeanalizuje plik. Domyślnie krok podstawowe umożliwia użytkownikom wybranie subskrypcji, grupy zasobów i lokalizacji wdrożenia.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Domyślne podstawy":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Kreator kart":::
 
 W tej sekcji możesz dodać więcej elementów. Jeśli to możliwe, należy dodać elementy, które wykonują zapytania dotyczące parametrów obejmujących całe wdrożenie, takich jak nazwa klastra lub poświadczenia administratora.
 
