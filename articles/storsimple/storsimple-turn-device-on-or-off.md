@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515267"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Włączanie lub wyłączanie urządzenia z serii StorSimple 8000
@@ -86,12 +86,12 @@ Awaria lub przerwy w zasilaniu mogą wyłączyć urządzenie StorSimple. Awaria 
 * [Tylko urządzenie z podstawową obudową](#8100)
 * [Urządzenie z obudową EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only"></a>Tylko urządzenie z podstawową obudową<a name="8100"></a>
+### <a name="device-with-primary-enclosure-only"></a>Tylko urządzenie z podstawową obudową <a name="8100"></a>
 System może kontynuować swoją normalną operację, jeśli nastąpi utrata mocy do jednego z jego zasilaczy. Aby jednak zapewnić wysoką dostępność urządzenia, należy przywrócić zasilanie do zasilacza najszybciej, jak to możliwe.
 
 W przypadku awarii lub przerwy w zasilaniu obu zasilaczach system zostanie zamknięty w sposób uporządkowany i kontrolowany. Po przywróceniu napięcia system zostanie automatycznie włączony.
 
-### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD<a name="8600"></a>
+### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD <a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Utrata mocy w jednym zasilaczu
 System może kontynuować swoją normalną operację, jeśli nastąpi utrata mocy do jednej z jej zasilaczy podstawowego lub obudowy EBOD. Aby zapewnić wysoką dostępność urządzenia, Przywróć zasilanie do zasilacza tak szybko, jak to możliwe.
 
@@ -140,7 +140,7 @@ Uruchomienie urządzenia StorSimple może być konieczne w przypadku jego przeni
 * [Urządzenie z obudową podstawową](#8100a)
 * [Urządzenie z obudową EBOD](#8600a)
 
-### <a name="device-with-primary-enclosure"></a>Urządzenie z obudową podstawową<a name="8100a"></a>
+### <a name="device-with-primary-enclosure"></a>Urządzenie z obudową podstawową <a name="8100a"></a>
 Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowany, można to zrobić za pośrednictwem Azure Portal lub za pośrednictwem program Windows PowerShell dla usługi StorSimple. 
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowany, można to z
 
 Po uzyskaniu dostępu do program Windows PowerShell dla usługi StorSimple lub Azure Portal, wykonaj kroki opisane w [sekcji wyłączanie urządzenia StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD<a name="8600a"></a>
+### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD <a name="8600a"></a>
 > [!IMPORTANT]
 > Przed zamknięciem obudowy podstawowej i obudowy EBOD upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu**i sprawdź, czy wszystkie składniki są w dobrej kondycji.
 

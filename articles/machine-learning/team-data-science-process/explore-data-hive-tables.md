@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c0dfa06e2ece2ba4631c0d5681b066ab0134daba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085671"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Eksplorowanie danych tabel programu Hive za pomocą zapytań Hive
@@ -34,11 +34,11 @@ W tym artykule założono, że masz:
 * Jeśli potrzebujesz instrukcji dotyczących przesyłania zapytań Hive, zobacz [Jak przesłać zapytania Hive](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Przykładowe skrypty zapytań Hive do eksploracji danych
-1. Pobierz liczbę obserwacji na partycję`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Pobierz liczbę obserwacji dziennie`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+1. Pobierz liczbę obserwacji na partycję  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Pobierz liczbę obserwacji dziennie  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Pobieranie poziomów w kolumnie kategorii  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. Pobierz liczbę poziomów w połączeniu dwóch kolumn kategorii`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Pobierz liczbę poziomów w połączeniu dwóch kolumn kategorii  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Pobieranie dystrybucji dla kolumn liczbowych  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Wyodrębnij rekordy z sprzęgania dwóch tabel

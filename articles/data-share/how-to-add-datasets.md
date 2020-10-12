@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513493"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Jak dodać zestawy danych do istniejącego udziału w usłudze Azure Data Share
@@ -21,7 +21,7 @@ Aby uzyskać informacje na temat dodawania zestawów danych podczas tworzenia ud
 
 ## <a name="navigate-to-a-sent-data-share"></a>Przejdź do wysłanego udziału danych
 
-W udziale danych platformy Azure przejdź do wysłanego udziału i wybierz kartę **DataSets** . kliknij przycisk **+ Dodaj zestawy danych** , aby dodać więcej zestawów danych.
+W udziale danych platformy Azure przejdź do wysłanego udziału i wybierz kartę **DataSets** . Kliknij przycisk **+ Dodaj zestawy danych** , aby dodać więcej zestawów danych.
 
 ![Dodaj zestawy danych](./media/how-to/how-to-add-datasets/add-datasets.png)
 

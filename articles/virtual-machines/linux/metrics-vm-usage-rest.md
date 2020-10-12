@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292320"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Pobieranie metryk użycia maszyn wirtualnych przy użyciu interfejsu API REST
@@ -36,7 +36,7 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|  
 |--------------------|-----------------|  
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|  
-|*Authorization:*|Wymagany. Ustaw na prawidłowy  [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |  
+|*Authorization:*|Wymagany. Ustaw na prawidłowy [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer`. |  
 
 ### <a name="uri-parameters"></a>Parametry identyfikatora URI
 
@@ -45,7 +45,7 @@ Wymagane są następujące nagłówki:
 | subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nazwa grupy zasobów platformy Azure skojarzonej z zasobem. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
 | VMName | Nazwa maszyny wirtualnej platformy Azure. |
-| metricnames | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](../../load-balancer/load-balancer-standard-diagnostics.md). |
+| metricnames | Rozdzielana przecinkami lista prawidłowych  [metryk Load Balancer](../../load-balancer/load-balancer-standard-diagnostics.md). |
 | api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje interfejs API-Version `2018-01-01` uwzględniony w powyższym adresie URL.  |
 | zakres czasu | Ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO` , który definiuje zakres czasu zwracanych metryk. Ten opcjonalny parametr ma ustawioną wartość zwracającą wartość dnia w przykładzie. |
 | &nbsp; | &nbsp; |

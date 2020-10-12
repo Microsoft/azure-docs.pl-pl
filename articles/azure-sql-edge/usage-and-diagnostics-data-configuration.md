@@ -9,10 +9,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
 ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888046"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Konfiguracja danych dotyczących użycia i diagnostyki usługi Azure SQL Edge

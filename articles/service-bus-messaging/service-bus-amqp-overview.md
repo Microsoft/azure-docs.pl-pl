@@ -4,10 +4,10 @@ description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Que
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066342"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
@@ -65,7 +65,7 @@ W tej chwili następujące biblioteki klienckie są znane do pracy z Service Bus
 | Java |Klient usługi wiadomości w języku Java Apache Qpid (JMS)<br/>IIT Software SwiftMQ Client Java |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton — PHP |
-| Python |Apache Qpid Proton — Python |
+| Python |Proton-Python Apache Qpid |
 | C# |AMQP .NET Lite |
 
 **Rysunek 2. tabela bibliotek klienckich AMQP 1,0**

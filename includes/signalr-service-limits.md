@@ -14,10 +14,10 @@ ms.workload: TBD
 ms.date: 05/11/2020
 ms.author: zhshang
 ms.openlocfilehash: 496d98c5faebfcef511152476b58dd6257dbbedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83673547"
 ---
 | Zasób | Limit domyślny | Limit maksymalny | 
@@ -28,7 +28,7 @@ ms.locfileid: "83673547"
 | Łączna liczba jednostek usługi sygnałów platformy Azure na subskrypcję na region |150 |Nieograniczona liczba |
 | Liczba połączeń na jednostkę dziennie dla warstwy Bezpłatna |20 |20 |
 | Liczba połączeń na jednostkę dziennie dla warstwy Standardowa |1000 |1000|
-| Liczba uwzględnionych komunikatów na jednostkę dziennie dla warstwy Bezpłatna|20 000 |20 000 |
+| Liczba uwzględnionych komunikatów na jednostkę dziennie dla warstwy Bezpłatna|20 000 |20 000 |
 | Dodatkowe komunikaty na jednostkę dziennie dla warstwy Bezpłatna|0 |0 |
 | Liczba uwzględnionych komunikatów na jednostkę dziennie dla warstwy Standardowa|1 000 000 |1 000 000 |
 | Dodatkowe komunikaty na jednostkę dziennie dla warstwy Standardowa|Nieograniczona liczba |Nieograniczona liczba |

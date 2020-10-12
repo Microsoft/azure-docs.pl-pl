@@ -1,6 +1,6 @@
 ---
 title: Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure
-description: Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen.
+description: Dla zapory można włączyć filtrowanie na podstawie analizy zagrożeń, aby zapora mogła odrzucać ruch z/do znanych złośliwych adresów IP i domen oraz wysyłać odpowiednie alerty.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655072"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure
 
-Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.<br>
+Dla zapory można włączyć filtrowanie na podstawie analizy zagrożeń, aby zapora mogła odrzucać ruch z/do znanych złośliwych adresów IP i domen oraz wysyłać odpowiednie alerty. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Analiza zagrożeń zapory" border="false":::
@@ -27,7 +27,7 @@ Można wybrać opcję rejestrowania alertu, gdy reguła jest wyzwalana, lub wybr
 
 Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu. Nie można wyłączyć tej funkcji ani zmienić trybu do momentu udostępnienia interfejsu portalu w Twoim regionie.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interfejs portalu filtrowania oparty na analizie zagrożeń":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Analiza zagrożeń zapory":::
 
 ## <a name="logs"></a>Dzienniki
 

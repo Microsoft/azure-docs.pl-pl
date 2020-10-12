@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89013065"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej
@@ -201,8 +201,8 @@ W poniższej tabeli przedstawiono przykład takiej sytuacji, w której mogą wys
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transakcja A: <br> Wstaw pracownika <br> jednostka w podstawowym |                                   |                    | Transakcja wstawiona do elementu podstawowego,<br> jeszcze nie zreplikowane. |
 | T1       |                                                            | Transakcja A <br> zreplikowane do<br> dodatkowych | T1 | Transakcja jest replikowana do pomocniczej. <br>Czas ostatniej synchronizacji został zaktualizowany.    |
-| T2       | Transakcja B:<br>Aktualizowanie<br> Jednostka Employee<br> w podstawowym  |                                | T1                 | Transakcja B zapisywana w podstawowym,<br> jeszcze nie zreplikowane.  |
-| T3       | Transakcja C:<br> Aktualizowanie <br>administrator<br>Jednostka roli w<br>głównym |                    | T1                 | Transakcja C została zapisywana na podstawową,<br> jeszcze nie zreplikowane.  |
+| T2       | Transakcja B:<br>Aktualizacja<br> Jednostka Employee<br> w podstawowym  |                                | T1                 | Transakcja B zapisywana w podstawowym,<br> jeszcze nie zreplikowane.  |
+| T3       | Transakcja C:<br> Aktualizacja <br>administrator<br>Jednostka roli w<br>głównym |                    | T1                 | Transakcja C została zapisywana na podstawową,<br> jeszcze nie zreplikowane.  |
 | *T4*     |                                                       | Transakcja C <br>zreplikowane do<br> dodatkowych | T1         | Transakcja C została zreplikowana do pomocniczej.<br>LastSyncTime nie został zaktualizowany, ponieważ <br>transakcja B nie została jeszcze zreplikowana.|
 | *Otrzymując*     | Odczytaj jednostki <br>z pomocniczego                           |                                  | T1                 | Otrzymujesz nieodświeżoną wartość dla pracownika <br> jednostka, ponieważ transakcja B nie została <br> zreplikowane jeszcze. Otrzymujesz nową wartość dla<br> Jednostka roli administratora, ponieważ C ma<br> powtórzon. Czas ostatniej synchronizacji nadal nie<br> Zaktualizowano, ponieważ transakcja B<br> nie zreplikowane. Możesz powiedzieć<br>Jednostka roli administratora jest niespójna <br>ponieważ data/godzina jednostki przypada po <br>Czas ostatniej synchronizacji. |
 | *T6*     |                                                      | Transakcja B<br> zreplikowane do<br> dodatkowych | T6                 | *T6* — wszystkie transakcje za poorednictwem języka C <br>zreplikowane, czas ostatniej synchronizacji<br> został zaktualizowany. |

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086725"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizowanie danych usługi Twitter przy użyciu Apache Hive i Apache Hadoop w usłudze HDInsight
@@ -38,7 +38,7 @@ Serwis Twitter umożliwia pobieranie danych dla każdego tweetu jako dokumentu J
    |--- |--- |
    | Nazwa |MyHDInsightApp |
    | Opis |MyHDInsightApp |
-   | witryna sieci web |`https://www.myhdinsightapp.com` |
+   | Witryna internetowa |`https://www.myhdinsightapp.com` |
 
 4. Wybierz pozycję **tak, zgadzam**się, a następnie wybierz pozycję **Utwórz aplikację w usłudze Twitter**.
 

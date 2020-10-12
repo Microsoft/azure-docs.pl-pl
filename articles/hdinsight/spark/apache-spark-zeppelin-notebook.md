@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084532"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Korzystanie z notesów Apache Zeppelin z klastrem Apache Spark w usłudze Azure HDInsight
@@ -159,7 +159,7 @@ Jak wspomniano powyżej, `%sh` interpreter nie jest obsługiwany z usługi HDIns
 
 Użytkownicy domeny uprzywilejowanych mogą używać tego `Shiro.ini` pliku do kontrolowania dostępu do interfejsu użytkownika interpretera. Tylko Ci użytkownicy mogą tworzyć nowe `%sh` interpretery i ustawiać uprawnienia dla każdego nowego `%sh` interpretera. Aby kontrolować dostęp przy użyciu `shiro.ini` pliku, wykonaj następujące czynności:
 
-1. Zdefiniuj nową rolę przy użyciu istniejącej nazwy grupy domen. W poniższym przykładzie `adminGroupName` jest grupą uprzywilejowanych użytkowników w usłudze AAD. Nie używaj znaków specjalnych ani białych spacji w nazwie grupy. Znaki po `=` udzieleniu uprawnień dla tej roli. `*`oznacza, że grupa ma pełne uprawnienia.
+1. Zdefiniuj nową rolę przy użyciu istniejącej nazwy grupy domen. W poniższym przykładzie `adminGroupName` jest grupą uprzywilejowanych użytkowników w usłudze AAD. Nie używaj znaków specjalnych ani białych spacji w nazwie grupy. Znaki po `=` udzieleniu uprawnień dla tej roli. `*` oznacza, że grupa ma pełne uprawnienia.
 
     ```
     [roles]

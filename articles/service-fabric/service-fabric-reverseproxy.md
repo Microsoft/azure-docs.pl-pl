@@ -7,10 +7,10 @@ ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd8e6dd712801de49971c1ef27cea664d73a4cb0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012776"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy na platformie Azure Service Fabric
@@ -150,7 +150,7 @@ Dla klastra lokalnego domyślnie `Fabric_NodeIPOrFQDN` jest ustawiona wartość 
 
 Usługi Service Fabric, które są uruchamiane w ramach kontenerów Docker Compose, wymagają specjalnej *sekcji portów* Docker-Compose. yml http: lub https: Configuration. Aby uzyskać więcej informacji, zobacz [Docker Compose obsługa wdrażania w usłudze Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Skonfiguruj [i skonfiguruj zwrotny serwer proxy w klastrze](service-fabric-reverseproxy-setup.md).
 * [Skonfiguruj przekazywanie do bezpiecznej usługi HTTP przy użyciu zwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnozowanie zdarzeń zwrotnego serwera proxy](service-fabric-reverse-proxy-diagnostics.md)

@@ -4,10 +4,10 @@ description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91492490"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Oszczędność kosztów dzięki rozwiązaniu VMware platformy Azure
@@ -54,10 +54,10 @@ Aby kupić wystąpienie:
    | ------------ | ------------ |
    | Subskrypcja | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są odliczane od salda zobowiązania pieniężnego (jeśli jest dostępne) lub naliczane jako nadwyżka. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
    | Zakres        | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:<br><ul><li><b>Zakres pojedynczej grupy zasobów — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.</li><li><b>Zakres pojedynczej subskrypcji — stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.</li><li><b>Zakres udostępniony — stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>       |
-   | Region (Region)       | Region świadczenia usługi Azure objęty rezerwacją.   |
+   | Region       | Region świadczenia usługi Azure objęty rezerwacją.   |
    | Rozmiar hosta    | AV36    |
-   | Termin         | Jeden rok lub trzy lata.  |
-   | Ilość     | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.    |
+   | Okres         | Jeden rok lub trzy lata.  |
+   | Liczba     | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych hostów rozwiązań VMware platformy Azure, które mogą uzyskać rabat rozliczeń.    |
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dane użycia i użycie rezerwacji
 
@@ -81,8 +81,8 @@ Można również podzielić rezerwację na mniejsze fragmenty lub scalić rezerw
 >Po zakupieniu rezerwacji nie będzie można wprowadzać następujących typów zmian bezpośrednio:
 >
 > - Istniejący region rezerwacji
-> - Jednostka SKU
-> - Ilość
+> - SKU
+> - Liczba
 > - Czas trwania
 >
 >Istnieje jednak możliwość *wymiany*   rezerwacji, jeśli chcesz wprowadzić zmiany.

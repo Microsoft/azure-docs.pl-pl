@@ -4,10 +4,10 @@ description: Dowiedz się, jak spakować istniejącą aplikację jako plik wykon
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259269"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric
@@ -29,11 +29,11 @@ Program Visual Studio zawiera Service Fabric szablon usługi ułatwiający wdro�
    * *Program* określa plik wykonywalny, który powinien zostać uruchomiony w celu uruchomienia usługi.
    * *Argumenty* określa argumenty, które powinny być przekazane do pliku wykonywalnego. Może to być lista parametrów z argumentami.
    * *Element workingfolder* określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-     * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog przedstawiony w poprzedniej strukturze plików).
-     * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` pokazany w poprzedniej strukturze plików).
-     * `Work`Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
+     * `CodeBase` Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog przedstawiony w poprzedniej strukturze plików).
+     * `CodePackage` Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` pokazany w poprzedniej strukturze plików).
+     * `Work` Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
 4. Nadaj nazwę usłudze i kliknij przycisk **OK**.
-5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do pliku ServiceManifest.xml. Na przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do pliku ServiceManifest.xml. Przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Teraz można używać akcji Package i Publish względem lokalnego klastra przez debugowanie rozwiązania w programie Visual Studio. Gdy wszystko będzie gotowe, można opublikować aplikację w klastrze zdalnym lub zaewidencjonować rozwiązanie do kontroli źródła.
 7. Przeczytaj temat [Sprawdzanie działającej aplikacji](#check-your-running-application) , aby dowiedzieć się, jak wyświetlić usługę plików wykonywalnych gościa działającą w Service Fabric Explorer.
 
@@ -147,7 +147,7 @@ Element CodePackage określa lokalizację (i wersję) kodu usługi.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name`Element jest używany do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage`ma także `version` atrybut. Można go użyć do określenia wersji kodu i może być również używany do uaktualnienia kodu usługi przy użyciu infrastruktury zarządzania cyklem życia aplikacji w Service Fabric.
+`Name`Element jest używany do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage` ma także `version` atrybut. Można go użyć do określenia wersji kodu i może być również używany do uaktualnienia kodu usługi przy użyciu infrastruktury zarządzania cyklem życia aplikacji w Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcjonalnie: Aktualizacja SetupEntrypoint
 
@@ -180,12 +180,12 @@ W poprzednim przykładzie SetupEntryPoint uruchamia plik wsadowy o nazwie `Launc
 
 `ExeHost`Element Określa plik wykonywalny (i argumenty), który ma zostać użyty do uruchomienia usługi. Opcjonalnie możesz dodać `IsExternalExecutable="true"` atrybut do, `ExeHost` Aby wskazać, że program jest zewnętrznym plikiem wykonywalnym poza pakietem kodu. Na przykład `<ExeHost IsExternalExecutable="true">`.
 
-* `Program`Określa nazwę pliku wykonywalnego, który powinien uruchomić usługę.
-* `Arguments`określa argumenty, które powinny być przekazane do pliku wykonywalnego. Może to być lista parametrów z argumentami.
-* `WorkingFolder`Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-  * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog w poprzedniej strukturze plików).
-  * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` w poprzedniej strukturze plików).
-    * `Work`Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
+* `Program` Określa nazwę pliku wykonywalnego, który powinien uruchomić usługę.
+* `Arguments` określa argumenty, które powinny być przekazane do pliku wykonywalnego. Może to być lista parametrów z argumentami.
+* `WorkingFolder` Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
+  * `CodeBase` Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog w poprzedniej strukturze plików).
+  * `CodePackage` Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` w poprzedniej strukturze plików).
+    * `Work` Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
 
 Element workingfolder jest przydatne do ustawiania prawidłowego katalogu roboczego, dzięki czemu ścieżki względne mogą być używane przez skrypty aplikacji lub inicjalizacji.
 
@@ -201,7 +201,7 @@ Element workingfolder jest przydatne do ustawiania prawidłowego katalogu robocz
 W poprzednim przykładzie `Endpoint` element określa punkty końcowe, w których aplikacja może nasłuchiwać. W tym przykładzie aplikacja Node.js nasłuchuje przy użyciu protokołu HTTP na porcie 3000.
 
 Ponadto możesz polecić Service Fabric opublikować ten punkt końcowy w Usługa nazewnictwa, tak aby inne usługi mogły odnaleźć adres punktu końcowego dla tej usługi. Dzięki temu można komunikować się między usługami, które są plikami wykonywalnymi gościa.
-Adres punktu końcowego publikowany ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme`i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN`to adres IP lub w pełni kwalifikowana nazwa domeny węzła, w którym znajduje się ten plik wykonywalny, i jest obliczana dla Ciebie.
+Adres punktu końcowego publikowany ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme` i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN` to adres IP lub w pełni kwalifikowana nazwa domeny węzła, w którym znajduje się ten plik wykonywalny, i jest obliczana dla Ciebie.
 
 W poniższym przykładzie po wdrożeniu usługi w Service Fabric Explorer zobaczysz punkt końcowy podobny do `http://10.1.4.92:3000/myapp/` opublikowanego dla wystąpienia usługi. Lub jeśli jest to komputer lokalny, zobaczysz `http://localhost:3000/myapp/` .
 
@@ -257,11 +257,11 @@ Przekierowanie konsoli można skonfigurować w `ServiceManifest.xml` pliku przy 
 </EntryPoint>
 ```
 
-`ConsoleRedirection`może służyć do przekierowania danych wyjściowych konsoli (stdout i stderr) do katalogu roboczego. Zapewnia to możliwość sprawdzenia, czy podczas instalacji lub wykonywania aplikacji w klastrze Service Fabric nie występują błędy.
+`ConsoleRedirection` może służyć do przekierowania danych wyjściowych konsoli (stdout i stderr) do katalogu roboczego. Zapewnia to możliwość sprawdzenia, czy podczas instalacji lub wykonywania aplikacji w klastrze Service Fabric nie występują błędy.
 
-`FileRetentionCount`Określa liczbę plików, które są zapisywane w katalogu roboczym. Na przykład wartość 5 oznacza, że pliki dziennika dla poprzednich pięciu wykonań są przechowywane w katalogu roboczym.
+`FileRetentionCount` Określa liczbę plików, które są zapisywane w katalogu roboczym. Na przykład wartość 5 oznacza, że pliki dziennika dla poprzednich pięciu wykonań są przechowywane w katalogu roboczym.
 
-`FileMaxSizeInKb`Określa maksymalny rozmiar plików dziennika.
+`FileMaxSizeInKb` Określa maksymalny rozmiar plików dziennika.
 
 Pliki dziennika są zapisywane w jednym z katalogów roboczych usługi. Aby określić, gdzie znajdują się pliki, użyj Service Fabric Explorer, aby określić węzeł, w którym usługa jest uruchomiona, i który katalog roboczy jest używany. Ten proces został omówiony w dalszej części tego artykułu.
 

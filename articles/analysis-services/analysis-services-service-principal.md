@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077375"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
@@ -44,13 +44,13 @@ Aby można było użyć nazwy głównej usługi dla operacji zarządzania serwer
 
 Identyfikator appID i hasło i certyfikat jednostki usługi mogą być używane w parametrach połączenia w taki sam sposób, jak nazwa UPN.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 #### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Korzystanie z modułu AZ. AnalysisServices
 
-W przypadku używania jednostki usługi do operacji zarządzania zasobami z modułem [AZ. AnalysisServices](/powershell/module/az.analysisservices) należy użyć `Connect-AzAccount` polecenia cmdlet. 
+W przypadku używania jednostki usługi do operacji zarządzania zasobami z modułem [AZ. AnalysisServices](/powershell/module/az.analysisservices)  należy użyć `Connect-AzAccount` polecenia cmdlet. 
 
 W poniższym przykładzie identyfikator appID i hasło są używane do wykonywania operacji płaszczyzny kontroli w celu synchronizacji z replikami tylko do odczytu i skalowania w górę/w poziomie:
 

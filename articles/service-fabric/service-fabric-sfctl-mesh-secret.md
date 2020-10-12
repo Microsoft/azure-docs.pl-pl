@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260333"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
@@ -19,7 +19,7 @@ Pobierz i Usuń zasoby z siatką kluczy tajnych.
 
 |Polecenie|Opis|
 | --- | --- |
-| usunięcie | Usuwa zasób tajny. |
+| delete | Usuwa zasób tajny. |
 | list | Wyświetla listę wszystkich zasobów tajnych. |
 | pokaż | Pobiera tajny zasób o podaną nazwę. |
 

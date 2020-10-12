@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 1ab72788c768568366f2627055015c74028330b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515236"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Korzystanie z bloku podsumowanie urządzenia StorSimple Menedżer urządzeń połączony z StorSimple wirtualną macierzy
@@ -49,7 +49,7 @@ Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak stan, mo
 
 * Na wykresie **użycia** można wyświetlić magazyn podstawowy używany w ramach macierzy wirtualnej oraz magazyn w chmurze zużyty w ciągu ostatnich 7 dni — domyślny okres. Użyj opcji **Edytuj** w prawym górnym rogu wykresu, aby wybrać inną skalę czasu.
 
-* Kafelek **udziały** lub **woluminy** zawiera podsumowanie liczby udziałów lub woluminów w urządzeniu pogrupowanych według stanu. Kliknij kafelek, aby otworzyć blok listy **udziały** lub **woluminy** , a następnie kliknij pojedynczy udział lub wolumin, aby wyświetlić lub zmodyfikować jego właściwości. Aby uzyskać więcej informacji, zobacz jak [zarządzać udziałami](storsimple-virtual-array-manage-shares.md) lub [zarządzać woluminami](storsimple-virtual-array-manage-volumes.md).
+* Kafelek **udziały** lub **woluminy** zawiera podsumowanie liczby udziałów lub woluminów w urządzeniu pogrupowanych według stanu. Kliknij kafelek, aby otworzyć blok listy **udziały**  lub **woluminy** , a następnie kliknij pojedynczy udział lub wolumin, aby wyświetlić lub zmodyfikować jego właściwości. Aby uzyskać więcej informacji, zobacz jak [zarządzać udziałami](storsimple-virtual-array-manage-shares.md) lub [zarządzać woluminami](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Instrukcje:

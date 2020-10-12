@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258638"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Zdarzenia klastra Service Fabric systemu Linux w dzienniku systemu
@@ -25,7 +25,7 @@ W wersji 6,4 SyslogConsumer został wprowadzony do wysyłania zdarzeń platformy
 Każde zdarzenie dziennika systemu zawiera 4 składniki
 * Urządzenia
 * Tożsamość
-* Komunikat
+* Wiadomość
 * Ważność
 
 SyslogConsumer zapisuje wszystkie zdarzenia platformy przy użyciu funkcji `Local0` . Możesz zaktualizować do dowolnego prawidłowego obiektu, zmieniając konfigurację konfiguracji. Używana tożsamość to `ServiceFabric` . Pole Message zawiera całe zdarzenie serializowane w formacie JSON, tak aby można było wykonywać zapytania i korzystać z różnych narzędzi. 

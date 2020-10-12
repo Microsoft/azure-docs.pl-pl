@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116465"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Rozwiązywanie problemów: lokalna Ochrona hasłem w usłudze Azure AD
@@ -50,7 +50,7 @@ Głównym objawem tego problemu jest 30018 zdarzeń w dzienniku zdarzeń adminis
 
 1. Upewnij się, że las i wszystkie serwery proxy są zarejestrowane w ramach tej samej dzierżawy platformy Azure.
 
-   To wymaganie można sprawdzić, uruchamiając `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` polecenia cmdlet i programu PowerShell, a następnie porównując `AzureTenant` Właściwość każdego zwróconego elementu. W celu poprawnej operacji raportowana nazwa dzierżawy musi być taka sama dla wszystkich agentów kontrolerów domeny i serwerów proxy.
+   To wymaganie można sprawdzić, uruchamiając  `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` polecenia cmdlet i programu PowerShell, a następnie porównując `AzureTenant` Właściwość każdego zwróconego elementu. W celu poprawnej operacji raportowana nazwa dzierżawy musi być taka sama dla wszystkich agentów kontrolerów domeny i serwerów proxy.
 
    Jeśli istnieje warunek niezgodności rejestracji dzierżawy platformy Azure, ten problem może zostać rozwiązany przez uruchomienie `Register-AzureADPasswordProtectionProxy` poleceń cmdlet i/lub `Register-AzureADPasswordProtectionForest` programu PowerShell zgodnie z wymaganiami, co pozwala upewnić się, że do wszystkich rejestracji są używane poświadczenia z tej samej dzierżawy platformy Azure.
 
@@ -84,7 +84,7 @@ The forest has not been registered with Azure. Password policies cannot be downl
 
 Istnieją dwie możliwe przyczyny tego problemu.
 
-1. Las rzeczywiście nie został zarejestrowany. Aby rozwiązać ten problem, uruchom polecenie Register-AzureADPasswordProtectionForest, zgodnie z opisem w temacie [wymagania dotyczące wdrażania](howto-password-ban-bad-on-premises-deploy.md).
+1. Las rzeczywiście nie został zarejestrowany. Aby rozwiązać ten problem, uruchom polecenie Register-AzureADPasswordProtectionForest zgodnie z opisem w temacie [wymagania dotyczące wdrażania](howto-password-ban-bad-on-premises-deploy.md).
 1. Las został zarejestrowany, ale agent DC nie może odszyfrować danych rejestracji lasu. Ten przypadek ma taką samą przyczynę główną jak problem #2 wymieniony powyżej w obszarze [Agent kontrolera domeny nie może zaszyfrować lub odszyfrować plików zasad haseł](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). W prosty sposób potwierdzić, że ten błąd będzie widoczny tylko w przypadku agentów DC działających na kontrolerach domeny systemu Windows Server 2012 lub Windows Server 2012R2, podczas gdy agenci DC działający w systemie Windows Server 2016 i nowszych kontrolerach domeny są prawidłowe. Obejście jest takie samo: uaktualnienie wszystkich kontrolerów domeny do systemu Windows Server 2016 lub nowszego.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Hasła słabe są akceptowane, ale nie powinny być

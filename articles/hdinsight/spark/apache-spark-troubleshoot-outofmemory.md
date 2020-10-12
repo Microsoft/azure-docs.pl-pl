@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709049"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError wyjątki dla Apache Spark w usłudze Azure HDInsight
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Przyczyna
 
-`java.lang.OutOfMemoryError: unable to create new native thread`Najważniejsze elementy systemu operacyjnego nie mogą przypisywać więcej natywnych wątków do JVMs. Potwierdzenie, że ten wyjątek jest spowodowany przez naruszenie limitu liczby wątków dla procesu.
+`java.lang.OutOfMemoryError: unable to create new native thread` Najważniejsze elementy systemu operacyjnego nie mogą przypisywać więcej natywnych wątków do JVMs. Potwierdzenie, że ten wyjątek jest spowodowany przez naruszenie limitu liczby wątków dla procesu.
 
 Po nieoczekiwanym zakończeniu działania serwera usługi Livy wszystkie połączenia z klastrami Spark są również przerywane, co oznacza, że wszystkie zadania i powiązane dane zostaną utracone. W ramach mechanizmu odzyskiwania sesji HDP 2,6 wprowadzono usługi Livy szczegóły sesji w dozorcy do odzyskania po zakończeniu działania serwera usługi Livy.
 
@@ -239,7 +239,7 @@ Usuń wszystkie wpisy, wykonując kroki opisane poniżej.
 1. Poczekaj na zakończenie powyższego polecenia, a kursor ma zwrócić monit, a następnie uruchom ponownie usługę usługi Livy z Ambari, która powinna zakończyć się powodzeniem.
 
 > [!NOTE]
-> `DELETE`sesja usługi Livy po zakończeniu jego wykonywania. Sesje wsadowe usługi Livy nie zostaną usunięte automatycznie zaraz po zakończeniu aplikacji platformy Spark, która jest zaprojektowana. Sesja usługi Livy jest jednostką utworzoną przez żądanie POST na serwerze REST usługi Livy. `DELETE`Do usunięcia tej jednostki jest potrzebne wywołanie. W przeciwnym razie należy poczekać na zakończenie działania GC.
+> `DELETE` sesja usługi Livy po zakończeniu jego wykonywania. Sesje wsadowe usługi Livy nie zostaną usunięte automatycznie zaraz po zakończeniu aplikacji platformy Spark, która jest zaprojektowana. Sesja usługi Livy jest jednostką utworzoną przez żądanie POST na serwerze REST usługi Livy. `DELETE`Do usunięcia tej jednostki jest potrzebne wywołanie. W przeciwnym razie należy poczekać na zakończenie działania GC.
 
 ---
 

@@ -4,10 +4,10 @@ description: Wskazówki i zalecenia dotyczące używania Service Fabric niezawod
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260915"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Wskazówki i zalecenia dotyczące niezawodnych kolekcji na platformie Azure Service Fabric
@@ -40,17 +40,17 @@ Poniżej przedstawiono niektóre kwestie, o których należy pamiętać:
   Oznacza to, że wersja danych odczytana z pojedynczej pomocniczej może być fałszywa.
   Odczyty z podstawowego są zawsze stabilne: nigdy nie może być fałszywie zaawansowana.
 * Bezpieczeństwo/prywatność danych utrwalonych przez aplikację w niezawodnej kolekcji to decyzja i podlegająca ochronie zapewnianej przez Zarządzanie magazynem; co. Szyfrowanie dysków systemu operacyjnego może służyć do ochrony danych przechowywanych w usłudze Rest.
-* `ReliableDictionary`Wyliczenie używa posortowanej struktury danych uporządkowanej według klucza. Aby zwiększyć efektywność wyliczania, zatwierdzenia są dodawane do tymczasowej tabeli podręcznej i później przenoszone do głównego posortowanej struktury danych post. Dodaje/aktualizuje/usuwa środowisko uruchomieniowe najlepszego przypadku o (1) i najgorszym czasie wykonywania operacji o wartości o (log n), w przypadku sprawdzania poprawności obecności klucza. Pobieranie może mieć wartość O (1) lub O (log n) w zależności od tego, czy czytasz od ostatniego zatwierdzenia, czy ze starszego zatwierdzenia.
+* `ReliableDictionary` Wyliczenie używa posortowanej struktury danych uporządkowanej według klucza. Aby zwiększyć efektywność wyliczania, zatwierdzenia są dodawane do tymczasowej tabeli podręcznej i później przenoszone do głównego posortowanej struktury danych post. Dodaje/aktualizuje/usuwa środowisko uruchomieniowe najlepszego przypadku o (1) i najgorszym czasie wykonywania operacji o wartości o (log n), w przypadku sprawdzania poprawności obecności klucza. Pobieranie może mieć wartość O (1) lub O (log n) w zależności od tego, czy czytasz od ostatniego zatwierdzenia, czy ze starszego zatwierdzenia.
 
 ## <a name="volatile-reliable-collections"></a>Niezawodne kolekcje nietrwałe
 Podczas decydowania o korzystaniu z niezawodnych kolekcji nietrwałych należy wziąć pod uwagę następujące kwestie:
 
-* ```ReliableDictionary```czy obsługa nietrwałych
-* ```ReliableQueue```czy obsługa nietrwałych
-* ```ReliableConcurrentQueue```nie ma obsługi nietrwałej
+* ```ReliableDictionary``` czy obsługa nietrwałych
+* ```ReliableQueue``` czy obsługa nietrwałych
+* ```ReliableConcurrentQueue``` nie ma obsługi nietrwałej
 * Utrwalone usługi nie mogą być nietrwałe. Zmiana ```HasPersistedState``` flagi ```false``` wymaga ponownego utworzenia całej usługi od podstaw
 * Nietrwałe usługi nie mogą zostać utrwalone. Zmiana ```HasPersistedState``` flagi ```true``` wymaga ponownego utworzenia całej usługi od podstaw
-* ```HasPersistedState```jest konfiguracją poziomu usługi. Oznacza to, że **wszystkie** kolekcje zostaną utrwalone lub nietrwałe. Nie można mieszać nietrwałych i utrwalonych kolekcji
+* ```HasPersistedState``` jest konfiguracją poziomu usługi. Oznacza to, że **wszystkie** kolekcje zostaną utrwalone lub nietrwałe. Nie można mieszać nietrwałych i utrwalonych kolekcji
 * Utrata partycji nietrwałej kworum powoduje utratę danych
 * Tworzenie kopii zapasowych i przywracanie nie jest dostępne dla usług lotnych
 

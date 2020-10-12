@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
 ms.openlocfilehash: 8e0037f6aea4aef53efc192066027e0a0143bda1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086181"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Twórz Apache Spark zadania przesyłania strumieniowego z przetwarzaniem zdarzeń dokładnie raz
@@ -47,15 +47,15 @@ Na platformie Azure usługa Azure Event Hubs i [Apache Kafka](https://kafka.apac
 
 W przypadku przesyłania strumieniowego Spark źródła, takie jak Event Hubs i Kafka, mają *niezawodne odbiorcy*, gdzie każdy odbiorca śledzi postęp odczytywania źródła. Niezawodny odbiorca utrzymuje swój stan w magazynie odpornym na uszkodzenia, w ramach [Apache ZooKeeper](https://zookeeper.apache.org/) lub punktów kontrolnych przetwarzania strumieniowego platformy Spark, które są zapisywane w systemie plików HDFS. Jeśli taki odbiornik ulegnie awarii i zostanie później uruchomiony ponownie, może zostać wznowiony w miejscu, w którym został pozostawiony.
 
-### <a name="use-the-write-ahead-log"></a>Korzystanie z dziennika zapisu
+### <a name="use-the-write-ahead-log"></a>Korzystanie z dziennika Write-Ahead
 
-Funkcja przesyłania strumieniowego Spark obsługuje zapisywanie w dzienniku z wyprzedzeniem, gdzie każde odebrane zdarzenie jest najpierw zapisywane w katalogu punktów kontrolnych platformy Spark w magazynie odpornym na błędy, a następnie przechowywane w odpornym na rozdzielonym zestawie danych (RDD). Na platformie Azure Magazyn Odporny na uszkodzenia to system plików HDFS objęty usługą Azure Storage lub Azure Data Lake Storage. W aplikacji do przesyłania strumieniowego Spark dziennik zapisu jest włączony dla wszystkich odbiorników przez ustawienie `spark.streaming.receiver.writeAheadLog.enable` Ustawienia konfiguracji na `true` . Dziennik zapisu z wyprzedzeniem zapewnia odporność na uszkodzenia w przypadku awarii sterownika i modułów wykonujących.
+Funkcja przesyłania strumieniowego Spark obsługuje dziennik Write-Ahead, w którym każde odebrane zdarzenie jest najpierw zapisywane w katalogu punktów kontrolnych platformy Spark w magazynie z odpornym na błędy, a następnie przechowywane w odpornym na rozdzielonym zestawie danych (RDD). Na platformie Azure Magazyn Odporny na uszkodzenia to system plików HDFS objęty usługą Azure Storage lub Azure Data Lake Storage. W aplikacji do przesyłania strumieniowego Spark dziennik Write-Ahead jest włączony dla wszystkich odbiorników przez ustawienie `spark.streaming.receiver.writeAheadLog.enable` konfiguracji na wartość `true` . Dziennik Write-Ahead zapewnia odporność na uszkodzenia dla niepowodzeń zarówno sterownika, jak i programu wykonującego.
 
 W przypadku pracowników, którzy uruchamiają zadania dotyczące danych zdarzeń, każda RDD jest określana jako replikacja i dystrybucja między wieloma pracownikami. Jeśli zadanie nie powiedzie się z powodu awarii procesu roboczego, zadanie zostanie uruchomione ponownie w innym procesie roboczym, który ma replikę danych zdarzenia, więc zdarzenie nie zostanie utracone.
 
 ### <a name="use-checkpoints-for-drivers"></a>Używanie punktów kontrolnych dla sterowników
 
-Należy ponownie uruchomić sterowniki zadań. Jeśli sterownik z uruchomioną aplikacją Spark Streaming nie ulegnie awarii, zajmie się wszystkimi uruchomionymi odbiornikami, zadaniami i dowolnymi odporne przechowywania danych zdarzeń. W takim przypadku należy mieć możliwość zapisania postępu zadania, aby można było je później wznowić. Jest to osiągane przez kontrolowanie bezpośredniego grafu (DAG) DStream okresowo dla magazynu odpornego na błędy. Metadane DAG obejmują konfigurację używaną do tworzenia aplikacji przesyłania strumieniowego, operacje definiujące aplikację oraz wszystkie partie, które znajdują się w kolejce, ale nie zostały jeszcze zakończone. Te metadane umożliwiają ponowne uruchomienie uszkodzonego sterownika z informacji o punkcie kontrolnym. Po ponownym uruchomieniu sterownika zostanie uruchomiony nowy odbiornik, który odzyska dane zdarzenia z powrotem do odporne z dziennika zapisu.
+Należy ponownie uruchomić sterowniki zadań. Jeśli sterownik z uruchomioną aplikacją Spark Streaming nie ulegnie awarii, zajmie się wszystkimi uruchomionymi odbiornikami, zadaniami i dowolnymi odporne przechowywania danych zdarzeń. W takim przypadku należy mieć możliwość zapisania postępu zadania, aby można było je później wznowić. Jest to osiągane przez kontrolowanie bezpośredniego grafu (DAG) DStream okresowo dla magazynu odpornego na błędy. Metadane DAG obejmują konfigurację używaną do tworzenia aplikacji przesyłania strumieniowego, operacje definiujące aplikację oraz wszystkie partie, które znajdują się w kolejce, ale nie zostały jeszcze zakończone. Te metadane umożliwiają ponowne uruchomienie uszkodzonego sterownika z informacji o punkcie kontrolnym. Po ponownym uruchomieniu sterownika zostanie uruchomiony nowy odbiornik, który odzyska dane zdarzenia z powrotem do odporne z dziennika Write-Ahead.
 
 Punkty kontrolne są włączane w ramach przesyłania strumieniowego Spark w dwóch krokach.
 

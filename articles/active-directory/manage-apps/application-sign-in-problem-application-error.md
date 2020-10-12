@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759542"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Na stronie aplikacji jest wyświetlany komunikat o błędzie po zalogowaniu się użytkownika
@@ -124,7 +124,7 @@ Aby zmienić, które części tokenu SAML są podpisane cyfrowo przez usługę A
 
 7. Po załadowaniu aplikacji wybierz pozycję **Logowanie jednokrotne** w okienku nawigacji.
 
-8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
+8. W obszarze **certyfikat podpisywania SAML**wybierz pozycję  **Pokaż zaawansowane ustawienia podpisywania certyfikatu**.
 
 9. Wybierz **opcję podpisywania** , której aplikacja oczekuje spośród następujących opcji:
 

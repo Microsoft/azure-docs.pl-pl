@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313318"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
@@ -66,7 +66,7 @@ Aby sprawdzić, czy funkcja jest włączona dla Twojej dzierżawy, możesz to zr
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
 > [!NOTE]
-> Nie można już użyć polecenia cmdlet Set-MsolDirSyncFeature, aby aktywnie włączyć funkcję odporności zduplikowanych atrybutów przed jej włączeniem dla dzierżawy. Aby można było przetestować tę funkcję, należy utworzyć nową dzierżawę Azure Active Directory.
+> Nie można już używać Set-MsolDirSyncFeature polecenia cmdlet do aktywnego włączania funkcji odporności na zduplikowane atrybuty przed włączeniem jej dla dzierżawy. Aby można było przetestować tę funkcję, należy utworzyć nową dzierżawę Azure Active Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identyfikowanie obiektów z błędami DirSyncProvisioningErrors
 Obecnie istnieją dwie metody identyfikacji obiektów, które mają te błędy ze względu na konflikty zduplikowanych właściwości, Azure Active Directory program PowerShell i [Microsoft 365 centrum administracyjne](https://admin.microsoft.com). W przyszłości istnieją plany umożliwiające przejęcie dodatkowych raportów opartych na portalu.
@@ -85,7 +85,7 @@ Następnie użyj następujących poleceń cmdlet i operatorów, aby wyświetlić
 2. [Według typu właściwości](#by-property-type)
 3. [Przez wartość powodującą konflikt](#by-conflicting-value)
 4. [Używanie wyszukiwania ciągów](#using-a-string-search)
-5. Segregowa
+5. Sorted
 6. [W ograniczonej ilości lub wszystkich](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Zobacz wszystko

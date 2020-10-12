@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513944"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Zarządzanie kontrolerami urządzeń StorSimple
@@ -117,7 +117,7 @@ Wykonaj następujące kroki, aby przywrócić domyślne ustawienia fabryczne urz
    
     `Reset-HcsFactoryDefault`
    
-    Aby zamiast tego zresetować pojedynczy kontroler, należy użyć polecenia cmdlet [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) z `-scope` parametrem.)
+    Aby zamiast tego zresetować pojedynczy kontroler, należy użyć polecenia cmdlet  [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) z `-scope` parametrem.)
    
     System zostanie wielokrotnie uruchomiony ponownie. Użytkownik zostanie powiadomiony o pomyślnym zakończeniu resetowania. W zależności od modelu systemu może upłynąć 45-60 minut na urządzenie 8100 i 60-90 min, aby w ciągu tego procesu wystąpił komunikat 8600.
    

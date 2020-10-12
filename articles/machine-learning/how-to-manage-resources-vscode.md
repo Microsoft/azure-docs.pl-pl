@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/30/2020
 ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530633"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Zarządzanie zasobami Azure Machine Learning przy użyciu rozszerzenia VS Code (wersja zapoznawcza)
@@ -217,7 +217,7 @@ Aby wyświetlić eksperyment w Azure Machine Learning Studio:
 1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
 1. Rozwiń węzeł **eksperymenty** w obszarze roboczym.
 1. Kliknij prawym przyciskiem myszy eksperyment, który chcesz wyświetlić, a następnie wybierz pozycję **Wyświetl eksperyment**. 
-1. Zostanie wyświetlony monit z prośbą o otwarcie adresu URL eksperymentu w programie Azure Machine Learning Studio. Wybierz pozycję **Otwórz**.
+1. Zostanie wyświetlony monit z prośbą o otwarcie adresu URL eksperymentu w programie Azure Machine Learning Studio. Wybierz pozycję **Open** (Otwórz).
 
 ### <a name="track-run-progress"></a>Śledzenie postępu przebiegu
 
@@ -227,7 +227,7 @@ Po uruchomieniu eksperymentu możesz chcieć zobaczyć jego postęp. Aby śledzi
 1. Rozwiń węzeł **eksperymenty** w obszarze roboczym.
 1. Rozwiń węzeł eksperymenty, dla którego chcesz śledzić postęp.
 1. Kliknij prawym przyciskiem myszy przebieg i wybierz pozycję **Widok Uruchom w Azure Portal**.
-1. Zostanie wyświetlony monit z prośbą o otwarcie adresu URL uruchamiania w programie Azure Machine Learning Studio. Wybierz pozycję **Otwórz**.
+1. Zostanie wyświetlony monit z prośbą o otwarcie adresu URL uruchamiania w programie Azure Machine Learning Studio. Wybierz pozycję **Open** (Otwórz).
 
 ### <a name="download-run-logs--outputs"></a>Pobierz dzienniki uruchamiania & dane wyjściowe
 

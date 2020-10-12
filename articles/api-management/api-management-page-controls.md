@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250027"
 ---
 # <a name="azure-api-management-page-controls"></a>Kontrolki strony API Management platformy Azure
@@ -47,7 +47,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
 -   [subskrypcja — przycisk](#subscribe-button)  
 -   [subskrypcja — Anuluj](#subscription-cancel)  
   
-##  <a name="app-actions"></a><a name="app-actions"></a>aplikacje — akcje  
+##  <a name="app-actions"></a><a name="app-actions"></a> aplikacje — akcje  
  `app-actions`Kontrolka udostępnia interfejs użytkownika służący do manipulowania aplikacjami na stronie profilu użytkownika w portalu dla deweloperów.  
   
  ![Kontrolka akcji&#45;aplikacji](./media/api-management-page-controls/APIM-app-actions-control.png "Aplikacja APIM — kontrola akcji")  
@@ -69,7 +69,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Aplikacje](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a><a name="basic-signin"></a>Logowanie Podstawowe  
+##  <a name="basic-signin"></a><a name="basic-signin"></a> Logowanie Podstawowe  
  `basic-signin`Kontrolka udostępnia kontrolkę do zbierania informacji logowania użytkownika na stronie logowania w portalu dla deweloperów.  
   
  ![podstawowa&#45;— kontrola logowania](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM — kontrola logowania")  
@@ -88,7 +88,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Zaloguj się](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a><a name="paging-control"></a>Kontrola stronicowania  
+##  <a name="paging-control"></a><a name="paging-control"></a> Kontrola stronicowania  
  `paging-control`Zawiera funkcje stronicowania na stronach portalu dla deweloperów, na których jest wyświetlana lista elementów.  
   
  ![Kontrolka stronicowania](./media/api-management-page-controls/APIM-paging-control.png "APIM — formant stronicowania")  
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Lista produktów](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a><a name="providers"></a>udostępnia  
+##  <a name="providers"></a><a name="providers"></a> udostępnia  
  `providers`Kontrolka zapewnia kontrolkę wyboru dostawców uwierzytelniania na stronie logowania w portalu dla deweloperów.  
   
  ![Sterowanie dostawcami](./media/api-management-page-controls/APIM-providers-control.png "Kontrolka dostawcy APIM")  
@@ -130,7 +130,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Zaloguj się](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a><a name="search-control"></a>Kontrolka wyszukiwania  
+##  <a name="search-control"></a><a name="search-control"></a> Kontrolka wyszukiwania  
  `search-control`Funkcja zawiera funkcje wyszukiwania na stronach portalu dla deweloperów, na których jest wyświetlana lista elementów.  
   
  ![Kontrolka wyszukiwania](./media/api-management-page-controls/APIM-search-control.png "APIM — formant wyszukiwania")  
@@ -151,7 +151,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Lista produktów](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a><a name="sign-up"></a>Utwórz konto  
+##  <a name="sign-up"></a><a name="sign-up"></a> Utwórz konto  
  `sign-up`Formant zawiera kontrolkę do zbierania informacji o profilu użytkownika na stronie rejestracji w portalu dla deweloperów.  
   
  ![Podpisz&#45;ą kontrolę](./media/api-management-page-controls/APIM-sign-up-control.png "APIM — formant rejestracji")  
@@ -170,7 +170,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Zarejestruj się](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a><a name="subscribe-button"></a>subskrypcja — przycisk  
+##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subskrypcja — przycisk  
  `subscribe-button`Zawiera kontrolkę umożliwiającą subskrybowanie użytkownika w produkcie.  
   
  ![Kontrolka przycisku&#45;Subskrybuj](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM — formant subskrypcji przycisku")  
@@ -189,7 +189,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
   
 -   [Product](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a>subskrypcja — Anuluj  
+##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subskrypcja — Anuluj  
  `subscription-cancel`Formant umożliwia kontrolowanie anulowania subskrypcji produktu na stronie profilu użytkownika w portalu dla deweloperów.  
   
  ![&#45;anulowania subskrypcji](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Subskrypcja APIM — anulowanie kontroli")  

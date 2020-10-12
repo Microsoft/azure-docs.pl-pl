@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak subskrybenci mogą definiować komu
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066750"
 ---
 # <a name="topic-filters-and-actions"></a>Filtry tematów i akcje
@@ -30,7 +30,7 @@ Service Bus obsługuje trzy warunki filtrowania:
      - **From**
      - **ReplyToSessionId**
      - **SessionId** 
-     - **Do**
+     - **Działanie**
      - wszystkie właściwości zdefiniowane przez użytkownika. 
      
      Dopasowanie istnieje, gdy wartość przychodzącego komunikatu dla właściwości jest równa wartości określonej w filtrze korelacji. W przypadku wyrażeń ciągów w porównaniu jest rozróżniana wielkość liter. Podczas określania wielu właściwości dopasowania filtr łączy je jako logiczne i warunkowe, co oznacza, że filtr jest zgodny, wszystkie warunki muszą być zgodne.
@@ -62,4 +62,4 @@ Zobacz następujące przykłady:
 
 - [.NET — samouczek dotyczący wysyłania i odbierania podstawowych z użyciem filtrów](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET — filtry tematów](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Szablon Azure Resource Manager](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+- [Szablon usługi Azure Resource Manager](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

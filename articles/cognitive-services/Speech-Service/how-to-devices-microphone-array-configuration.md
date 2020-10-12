@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
 ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82781758"
 ---
-# <a name="how-to-configure-a-microphone-array"></a>Jak skonfigurować tablicę mikrofonu
+# <a name="how-to-configure-a-microphone-array"></a>Jak skonfigurować macierz mikrofonów
 
 W tym artykule dowiesz się, jak skonfigurować [tablicę mikrofonu](https://aka.ms/sdsdk-microphone). Obejmuje to ustawienie kąta pracy oraz sposób wybierania mikrofonu używanego dla zestawu Speech Devices SDK.
 
@@ -36,20 +36,20 @@ W programie v 1.11.0 zestaw SDK urządzeń mowy obsługuje również konfiguracj
 
 
 ## <a name="windows"></a>Windows
-W systemie Windows informacje o geometrii macierzy mikrofonu są automatycznie uzyskiwane ze sterownika audio. Dlatego właściwości `DeviceGeometry`, `SelectedGeometry`i `MicArrayGeometryConfigFile` są opcjonalne. Używamy [pliku JSON](https://aka.ms/sdsdk-micarray-json) , który jest `MicArrayGeometryConfigFile` używany do pobierania tylko zakresu Beamforming.
+W systemie Windows informacje o geometrii macierzy mikrofonu są automatycznie uzyskiwane ze sterownika audio. Dlatego właściwości `DeviceGeometry` ,  `SelectedGeometry` i `MicArrayGeometryConfigFile` są opcjonalne. Używamy [pliku JSON](https://aka.ms/sdsdk-micarray-json) , który jest używany `MicArrayGeometryConfigFile` do pobierania tylko zakresu Beamforming.
 
-Jeśli jest określona tablica mikrofonu przy użyciu `AudioConfig::FromMicrophoneInput`, użyjemy określonego mikrofonu. Jeśli mikrofon nie został określony lub `AudioConfig::FromDefaultMicrophoneInput` jest wywoływany, użyjemy domyślnego mikrofonu, który jest określony w ustawieniach dźwięku w systemie Windows.
+Jeśli jest określona tablica mikrofonu przy użyciu `AudioConfig::FromMicrophoneInput` , użyjemy określonego mikrofonu. Jeśli mikrofon nie został określony lub `AudioConfig::FromDefaultMicrophoneInput` jest wywoływany, użyjemy domyślnego mikrofonu, który jest określony w ustawieniach dźwięku w systemie Windows.
 Stos audio firmy Microsoft w zestawie SDK urządzeń mowy obsługuje tylko próbkowanie dla częstotliwości próbkowania, które są całkowitymi wielokrotnośćmi 16 KHz.
 
 ## <a name="linux"></a>Linux
 W systemie Linux należy podać informacje o geometrii mikrofonu. Korzystanie z `DeviceGeometry` i `SelectedGeometry` pozostaje obsługiwane. Można go również dostarczyć za pośrednictwem pliku JSON przy użyciu `MicArrayGeometryConfigFile` właściwości. Podobnie jak w przypadku systemu Windows, zakres Beamforming może być dostarczony przez plik JSON.
 
-Jeśli jest określona tablica mikrofonu przy użyciu `AudioConfig::FromMicrophoneInput`, użyjemy określonego mikrofonu. Jeśli mikrofon nie został określony lub `AudioConfig::FromDefaultMicrophoneInput` jest wywoływany, zostanie zarejestrowany z urządzenia ALSA o nazwie *default*. Domyślnie *Domyślnie* jest zawsze wskazywana karta 0 Device 0, ale użytkownicy mogą ją zmienić w `asound.conf` pliku. 
+Jeśli jest określona tablica mikrofonu przy użyciu `AudioConfig::FromMicrophoneInput` , użyjemy określonego mikrofonu. Jeśli mikrofon nie został określony lub `AudioConfig::FromDefaultMicrophoneInput` jest wywoływany, zostanie zarejestrowany z urządzenia ALSA o nazwie *default*. Domyślnie *Domyślnie* jest zawsze wskazywana karta 0 Device 0, ale użytkownicy mogą ją zmienić w `asound.conf` pliku. 
 
 Stos audio firmy Microsoft w zestawie SDK usługi Speech Devices obsługuje tylko próbkowanie dla częstotliwości próbkowania, które są całkowitymi wielokrotnośćmi 16 KHz. Dodatkowo obsługiwane są następujące formaty: 32-bitowe IEEE little endian float, 32-bit little endiand int, 24-bitowe little endian ze znakiem int, 16-bitowym, little endian ze znakiem int oraz 8-bitowe podpisane int.
 
 ## <a name="android"></a>Android
-Obecnie tylko [roobo V1](speech-devices-sdk-android-quickstart.md) jest obsługiwany przez zestaw SDK urządzeń mowy. Zachowanie jest takie samo jak w poprzednich wersjach, `MicArrayGeometryConfigFile` z wyjątkiem właściwości Now można użyć do określenia pliku JSON zawierającego zakres Beamforming.
+Obecnie tylko [roobo V1](speech-devices-sdk-android-quickstart.md) jest obsługiwany przez zestaw SDK urządzeń mowy. Zachowanie jest takie samo jak w poprzednich wersjach, z wyjątkiem `MicArrayGeometryConfigFile` Właściwości Now można użyć do określenia pliku JSON zawierającego zakres Beamforming.
 
 ## <a name="microphone-array-configuration-json"></a>Plik JSON konfiguracji macierzy mikrofonu
 

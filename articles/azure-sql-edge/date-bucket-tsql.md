@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886835"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -43,9 +43,9 @@ Część *daty* , która jest używana z parametrem "number". Np. Rok, miesiąc,
 |---|---|
 |**dzień**|**DD**, **d**|  
 |**ciągu**|**tydz**, **ww**|  
-|**wydajność**|**formacie**|  
-|**minutę**|**mi**, **n**|  
-|**drugi**|**SS**, **s**|  
+|**wydajność**|**hh**|  
+|**minuta**|**mi**, **n**|  
+|**sekunda**|**SS**, **s**|  
 |**milisekund**|**Arial**|  
 
 *Liczba*

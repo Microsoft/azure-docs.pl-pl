@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273300"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Salesforce do automatycznego aprowizacji użytkowników
@@ -53,7 +53,7 @@ Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, k
 Ta sekcja przeprowadzi Cię przez proces łączenia się z [interfejsem API aprowizacji usługi Azure AD do konta użytkownika usługi Salesforce — V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm), a następnie Konfigurując usługę aprowizacji do tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w usłudze Salesforce na podstawie przypisywania użytkowników i grup w usłudze Azure AD.
 
 > [!Tip]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla usługi Salesforce, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
+> Możesz również włączyć opcję Sign-On Single opartych na protokole SAML dla usługi Salesforce, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
 
 ### <a name="configure-automatic-user-account-provisioning"></a>Konfigurowanie automatycznego inicjowania obsługi konta użytkownika
 

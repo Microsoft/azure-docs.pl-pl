@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f45b5709369dfc2025b55bc3acec69e9328ce403
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513421"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Przypisywanie roli do grupy w chmurze w Azure Active Directory
@@ -102,4 +102,4 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
-- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](roles-groups-faq-troubleshooting.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](roles-groups-faq-troubleshooting.md)

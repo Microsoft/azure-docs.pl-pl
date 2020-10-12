@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 07/21/2020
 ms.openlocfilehash: 27df83552b450b7657c0595d1d419001df98148c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040228"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -19,7 +19,7 @@ Aby móc korzystać z konta usługi OneDrive w Logic Apps, musisz autoryzować L
 
 Wykonaj następujące kroki, aby autoryzować Logic Apps do nawiązywania połączenia z kontem w usłudze OneDrive:  
 
-1. Zaloguj się w witrynie Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 
 1. W obszarze **usługi platformy Azure**wybierz pozycję **Logic Apps**. Następnie wybierz z listy nazwę aplikacji logiki.
 

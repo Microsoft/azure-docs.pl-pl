@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085943"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
@@ -37,7 +37,7 @@ Można również użyć Oozie do planowania zadań specyficznych dla systemu, ta
 
 * **Azure SQL Database**.  Zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
 
-* Schemat identyfikatora URI magazynu podstawowego klastrów. `wasb://`w przypadku usługi Azure Storage `abfs://` dla Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` . Zobacz również [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
+* Schemat identyfikatora URI magazynu podstawowego klastrów. `wasb://` w przypadku usługi Azure Storage `abfs://` dla Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` . Zobacz również [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Przykładowy przepływ pracy
 
@@ -491,7 +491,7 @@ Za pomocą interfejsu API REST Oozie można tworzyć własne narzędzia, które 
 
 * **Identyfikator URI**: można uzyskać dostęp do interfejsu API REST spoza klastra pod adresem `https://CLUSTERNAME.azurehdinsight.net/oozie` .
 
-* **Uwierzytelnianie**: Aby przeprowadzić uwierzytelnianie, użyj interfejsu API dla konta http klastra (administratora) i hasła. Przykład:
+* **Uwierzytelnianie**: Aby przeprowadzić uwierzytelnianie, użyj interfejsu API dla konta http klastra (administratora) i hasła. Na przykład:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
