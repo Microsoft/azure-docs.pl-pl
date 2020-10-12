@@ -7,10 +7,10 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260245"
 ---
 # <a name="service-fabric-terminology-overview"></a>Przegląd terminologii Service Fabric
@@ -169,7 +169,7 @@ Różne środowiska mają różne poziomy obsługi dla struktur i modeli wdraża
 
 W poniższej tabeli opisano różne modele aplikacji i narzędzia, które istnieją dla nich w odniesieniu do Service Fabric.
 
-| Typ aplikacji | Opisane przez | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
+| Typ aplikacji | Opisane przez | Visual Studio | Eclipse | SFCTL | AZ CLI | Program PowerShell|
 |---|---|---|---|---|---|---|
 | Aplikacje siatki Service Fabric | Model zasobów (YAML & JSON) | VS 2017 |Nieobsługiwane |Nieobsługiwane | Tylko obsługiwane środowisko siatki | Nieobsługiwane|
 |Aplikacje natywne Service Fabric | Natywny model aplikacji (XML) | VS 2017 i VS 2015| Obsługiwane|Obsługiwane|Obsługiwane|Obsługiwane|

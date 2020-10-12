@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087388"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Używanie Apache Kafka w usłudze HDInsight z platformą Azure IoT Hub

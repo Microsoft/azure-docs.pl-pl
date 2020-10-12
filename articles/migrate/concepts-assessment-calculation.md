@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275527"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)

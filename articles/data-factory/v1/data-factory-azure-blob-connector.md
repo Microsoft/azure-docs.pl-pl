@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438538"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Blob Storage przy użyciu Azure Data Factory
@@ -49,7 +49,7 @@ Dane z następujących magazynów danych można kopiować **do platformy Azure B
 >
 > Działanie Copy nie usuwa danych ze źródła, gdy dane zostaną pomyślnie skopiowane do lokalizacji docelowej. Jeśli musisz usunąć dane źródłowe po pomyślnej kopii, Utwórz [niestandardowe działanie](data-factory-use-custom-activities.md) , aby usunąć dane i użyć działania w potoku. Aby zapoznać się z przykładem, zobacz sekcję [usuwanie obiektu BLOB lub folderu w witrynie GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do/z Blob Storage platformy Azure przy użyciu różnych narzędzi/interfejsów API.
 
 Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. [W tym](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) artykule opisano tworzenie potoku w celu skopiowania danych z lokalizacji BLOB Storage platformy Azure do innej lokalizacji usługi Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym tworzenia potoku w celu skopiowania danych z usługi Azure Blob Storage do Azure SQL Database, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).

@@ -12,10 +12,10 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436395"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Dodaj odporność na uszkodzenia w działaniu kopiowania, pomijając niezgodne wiersze
@@ -50,7 +50,7 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
 >[!NOTE]
 >Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania zewnętrznego mechanizmu ładowania danych, w tym [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) lub do zwolnienia w usłudze [Amazon RedShift](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Aby załadować dane do usługi Azure Synapse Analytics przy użyciu bazy danych Base, należy użyć natywnej obsługi odporności na uszkodzenia bazy. w tym celu należy określić wartość "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" w działaniu kopiowania.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json

@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264134"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aktualizowanie usługi Media Services po stopniowym uaktualnieniu kluczy dostępu do magazynu
@@ -47,7 +47,7 @@ Media Services zależy od dostarczonego do niego klucza magazynu. Lokalizatory u
 ## <a name="steps-to-rotate-storage-keys"></a>Procedura rotacji kluczy magazynu 
  
  1. Zmień klucz podstawowy konta magazynu za pomocą polecenia cmdlet programu PowerShell lub witryny [Azure](https://portal.azure.com/) Portal.
- 2. Wywołaj polecenie cmdlet Sync-AzMediaServiceStorageKeys z odpowiednimi parametrami, aby wymusić konto multimediów w celu pobrania kluczy konta magazynu
+ 2. Wywołaj Sync-AzMediaServiceStorageKeys polecenie cmdlet z odpowiednimi parametrami, aby wymusić konto multimediów w celu pobrania kluczy konta magazynu
  
     Poniższy przykład pokazuje, jak zsynchronizować klucze z kontami magazynu.
   
@@ -55,7 +55,7 @@ Media Services zależy od dostarczonego do niego klucza magazynu. Lokalizatory u
   
  3. Zaczekaj godzinę lub tak. Sprawdź, czy scenariusze przesyłania strumieniowego działają.
  4. Zmień klucz pomocniczy konta magazynu za pomocą polecenia cmdlet programu PowerShell lub Azure Portal.
- 5. Wywołaj synchronizację — AzMediaServiceStorageKeys PowerShell z odpowiednimi paramsmi, aby wymusić konto multimediów w celu pobrania nowych kluczy konta magazynu. 
+ 5. Wywołaj Sync-AzMediaServiceStorageKeys PowerShell z odpowiednimi paramsmi, aby wymusić konto multimediów w celu pobrania nowych kluczy konta magazynu. 
  6. Zaczekaj godzinę lub tak. Sprawdź, czy scenariusze przesyłania strumieniowego działają.
  
 ### <a name="a-powershell-cmdlet-example"></a>Przykład polecenia cmdlet programu PowerShell 
@@ -79,7 +79,7 @@ W poniższym artykule pokazano, jak dodać konta magazynu do konta AMS: [Dołąc
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Podziękowania

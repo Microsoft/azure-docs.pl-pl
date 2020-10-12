@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977832"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta sieci VPN na potrzeby połączeń typu punkt-lokacja i protokołu OpenVPN: Uwierzytelnianie w usłudze Azure AD
@@ -154,7 +154,7 @@ Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z
 
     ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 
@@ -252,7 +252,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<excluderoutes> \<rou
 ```
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Czy mogę zaimportować profil z wiersza polecenia?
 
-Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig.xml** w folderze **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
+Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig.xml** w folderze **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
 
 ```
 azurevpn -i azurevpnconfig.xml 
