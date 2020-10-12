@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84803629"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu Azure Portal
@@ -78,7 +78,7 @@ Dla każdej maszyny wirtualnej w sieci wirtualnej Dodaj konfigurację protokołu
 
         2. W polu **prywatny adres IP**, ustawienie **alokacji** wybierz pozycję **statyczny**.
 
-        3. Wybierz przycisk **OK**.
+        3. Kliknij przycisk **OK**.
 
 Po zakończeniu drugiej konfiguracji protokołu IP dla pomocniczej karty sieciowej zostanie ona wyświetlona w obszarze Ustawienia **konfiguracji protokołu IP** dla danej karty sieciowej.
 
@@ -112,7 +112,7 @@ Dla każdej witryny sieci Web (contoso.com i fabrikam.com) skonfiguruj pulę adr
 
    3. W polu **Lokalizacja**wybierz tę samą lokalizację co maszyny wirtualne.
 
-   4. Wybierz przycisk **OK**.
+   4. Kliknij przycisk **OK**.
 
       Po utworzeniu publicznych adresów IP są one wyświetlane pod **publicznymi** adresami IP.
 
@@ -152,7 +152,7 @@ Dla każdej witryny sieci Web (contoso.com i fabrikam.com) skonfiguruj pulę adr
 
     2. W obszarze **Konfiguracja protokołu IP sieci**wybierz konfigurację IP pomocniczej karty sieciowej dla maszyny wirtualnej wybranej w poprzednim kroku (na przykład **VM1NIC2-ipconfig2** lub **VM2NIC2-ipconfig2**).
 
-7. Wybierz przycisk **OK**.
+7. Kliknij przycisk **OK**.
 
 Po skonfigurowaniu puli zaplecza adresy są wyświetlane w obszarze Ustawienia **puli zaplecza** modułu równoważenia obciążenia.
 
@@ -166,7 +166,7 @@ Konfigurowanie sondy kondycji dla modułu równoważenia obciążenia:
 
 3. W obszarze **Ustawienia**wybierz pozycję **sonda kondycji**. W następnym okienku w górnej części strony wybierz pozycję **Dodaj**. 
 
-4. Wpisz nazwę sondy kondycji (na przykład **http**). Wybierz przycisk **OK**.
+4. Wpisz nazwę sondy kondycji (na przykład **http**). Kliknij przycisk **OK**.
 
 ### <a name="step-6-configure-load-balancing-rules"></a>Krok 6. Konfigurowanie reguł równoważenia obciążenia
 

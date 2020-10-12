@@ -4,13 +4,13 @@ description: Opisuje strukturę i właściwości szablonów Azure Resource Manag
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116543"
 ---
-# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Zrozumienie struktury i składni szablonów ARM
+# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
 W tym artykule opisano strukturę szablonu Azure Resource Manager (ARM). Przedstawia różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach.
 
@@ -48,9 +48,9 @@ Każdy element ma właściwości, które można ustawić. W tym artykule opisano
 
 ## <a name="parameters"></a>Parametry
 
-W sekcji Parametry szablonu należy określić, które wartości można wprowadzać podczas wdrażania zasobów. W szablonie jest ograniczona do 256 parametrów. Można zmniejszyć liczbę parametrów za pomocą obiektów, które zawierają wiele właściwości.
+W sekcji parameters (parametry) szablonu można określić, które wartości mają być wprowadzane podczas wdrażania zasobów. W szablonie można umieścić maksymalnie 256 parametrów. Można zmniejszyć liczbę parametrów za pomocą obiektów, które zawierają wiele właściwości.
 
-Dostępne właściwości dla parametru to:
+Dostępne są następujące właściwości parametrów:
 
 ```json
 "parameters": {
@@ -277,7 +277,7 @@ Poniższy przykład pokazuje strukturę definicji wyjściowej:
 | Nazwa wyjściowa |Tak |Nazwa wartości wyjściowej. Musi być prawidłowym identyfikatorem JavaScript. |
 | rozgrzewa |Nie | Wartość logiczna wskazująca, czy ta wartość wyjściowa jest zwracana. Gdy `true` wartość jest uwzględniona w danych wyjściowych dla wdrożenia. Gdy `false` Wartość wyjściowa jest pomijana dla tego wdrożenia. Gdy nie zostanie określony, wartość domyślna to `true` . |
 | typ |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
-| wartość |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
+| value |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
 | kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach Azure Resource Manager](copy-outputs.md). |
 
 Aby zapoznać się z przykładami sposobu korzystania z danych wyjściowych, zobacz dane [wyjściowe w szablonie Azure Resource Manager](template-outputs.md).

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ab772bd9cb415045ef70cb4cf9a518791befb192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507669"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrowanie danych do rozwiązania VMware platformy Azure przy użyciu Azure Data Box
@@ -38,7 +38,7 @@ Aby przeprowadzić migrację danych zbiorczych, użyj urządzenie Data Box w nas
 * Aby przeprowadzić migrację danych maszyny wirtualnej w celu skonfigurowania środowisk deweloperskich i testowych.
 * Migracja dużej liczby szablonów maszyn wirtualnych, plików ISO i dysków maszyny wirtualnej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Sprawdź wymagania wstępne i [kolejność urządzenie Data Box](../databox/data-box-deploy-ordered.md) przy użyciu Azure Portal. W trakcie procesu zamówienia należy wybrać konto magazynu, które umożliwia korzystanie z magazynu obiektów BLOB. Po otrzymaniu urządzenia urządzenie Data Box Połącz je z siecią lokalną i [Skonfiguruj urządzenie](../databox/data-box-deploy-set-up.md) przy użyciu adresu IP, który jest dostępny z sieci zarządzania vSphere.
 
@@ -54,7 +54,7 @@ Połącz się z urządzenie Data Box lokalnym interfejsem użytkownika sieci Web
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/nfs-client-access.png)
 
-2. Wprowadź adres IP VMware ESXi hostów i wybierz pozycję **Dodaj**. Można skonfigurować dostęp dla wszystkich hostów w klastrze vSphere, powtarzając ten krok. Wybierz przycisk **OK**.
+2. Wprowadź adres IP VMware ESXi hostów i wybierz pozycję **Dodaj**. Można skonfigurować dostęp dla wszystkich hostów w klastrze vSphere, powtarzając ten krok. Kliknij przycisk **OK**.
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 2](media/nfs-client-access2.png)
 > [!IMPORTANT]

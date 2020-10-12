@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
 ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119008"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Rozwiązywanie problemów z łącznością — Azure Event Grid
@@ -61,7 +61,7 @@ Jeśli aplikacja działa w podsieci i jeśli istnieje skojarzona sieciowa Grupa 
 
 Sprawdź, czy publiczny adres IP komputera, na którym uruchomiona jest aplikacja, nie jest blokowany przez EventGrid tematu/zapory adresu IP domeny.
 
-Domyślnie tematy Event Grid/domeny są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Domyślnie tematy Event Grid/domeny są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Reguły zapory adresów IP są stosowane na poziomie tematu/domeny Event Grid. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Dowolna próba połączenia z adresu IP, który nie jest zgodny z dozwoloną regułą adresów IP w temacie/domenie Event Grid jest odrzucana jako zabronione. Odpowiedź nie zawiera wzmianki o regule adresów IP.
 

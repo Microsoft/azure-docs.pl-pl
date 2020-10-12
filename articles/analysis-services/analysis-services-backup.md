@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506999"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Analysis Services kopii zapasowej i przywracania bazy danych
@@ -74,7 +74,7 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 5. Kliknij przycisk **OK** , aby utworzyć i zapisać plik kopii zapasowej.
 
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 Użyj polecenia cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) .
 
 ## <a name="restore"></a>Przywracanie
@@ -100,7 +100,7 @@ Podczas przywracania plik kopii zapasowej musi znajdować się na koncie magazyn
 5. Określ opcje. Opcje zabezpieczeń muszą być zgodne z opcjami tworzenia kopii zapasowych użytymi podczas tworzenia kopii zapasowej.
 
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Użyj polecenia cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) .
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: 7fad90cf47591b5ffab4232c2be3180138738f01
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83992837"
 ---
 # <a name="how-the-translator-counts-characters"></a>Jak translator zlicza znaki
@@ -24,8 +24,8 @@ Translator zlicza każdy punkt kodu Unicode tekstu wejściowego jako znak. Każd
 Jakie są następujące zliczenia:
 
 * Tekst przesłany do usługi Translator w treści żądania
-   * `Text`w przypadku korzystania z metod przeszukiwania, transliteracji i słownika
-   * `Text`i `Translation` w przypadku korzystania z przykładów słownika
+   * `Text` w przypadku korzystania z metod przeszukiwania, transliteracji i słownika
+   * `Text` i `Translation` w przypadku korzystania z przykładów słownika
 * Wszystkie znaczniki: HTML, tagi XML itp. w polu tekstowym treści żądania. Nie zliczane jest notacja JSON użyta do skompilowania żądania (na przykład "Text:").
 * Pojedyncza litera
 * Znaki interpunkcyjne

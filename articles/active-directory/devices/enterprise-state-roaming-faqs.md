@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268540"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
@@ -29,7 +29,7 @@ W tym artykule znajdują się odpowiedzi na pytania, które mogą być dostępne
 * *Motyw*, który obejmuje funkcje, takie jak kompozycja pulpitu i ustawienia paska zadań.
 * *Ustawienia programu Internet Explorer*, w tym ostatnio otwierane karty i elementy ulubione.
 * *Ustawienia przeglądarki Microsoft Edge*, takie jak Ulubione i listy do czytania.
-* *Hasła*, w tym hasła internetowe, profile sieci Wi-Fi i inne.
+* *Hasła*, w tym hasła internetowe, profile Wi-Fi i inne.
 * *Preferencje językowe*, które obejmują ustawienia układów klawiatury, języka systemu, daty i godziny itd.
 * *Funkcje ułatwień dostępu*, takie jak motyw o wysokim kontraście, Narrator i Lupa.
 * *Inne ustawienia systemu Windows*, takie jak ustawienia myszy.
@@ -77,7 +77,7 @@ W listopadzie 2015 lub nowszych wersjach systemu Windows 10 Enterprise State Roa
 Gdy wiele kont usługi Azure AD z różnych dzierżaw usługi Azure AD znajduje się na tym samym urządzeniu, należy zaktualizować rejestr urządzenia, aby komunikować się z usługą Azure Rights Management dla każdej dzierżawy usługi Azure AD.  
 
 1. Znajdź identyfikator GUID dla każdej dzierżawy usługi Azure AD. Otwórz Azure Portal i wybierz dzierżawę usługi Azure AD. Identyfikator GUID dla dzierżawy znajduje się na stronie właściwości wybranej dzierżawy ( https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) , **Identyfikator katalogu**oznaczonego nazwą. 
-2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc \<tenant ID GUID> **.
+2. Po skonfigurowaniu identyfikatora GUID należy dodać klucz rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
    W kluczu **GUID identyfikatora dzierżawy** Utwórz nową wartość ciągu wielociągowego (reg-wiele-SZ) o nazwie **AllowedRMSServerUrls**. W przypadku danych określ adresy URL punktów dystrybucji licencjonowania innych dzierżawców platformy Azure, do których uzyskuje dostęp urządzenie.
 3. Adresy URL punktów dystrybucji licencjonowania można znaleźć, uruchamiając polecenie cmdlet **Get-AadrmConfiguration** w module aadrm. Jeśli wartości dla **LicensingIntranetDistributionPointUrl** i **LicensingExtranetDistributionPointUrl** są różne, określ obie wartości. Jeśli wartości są takie same, określ wartość tylko raz.
 

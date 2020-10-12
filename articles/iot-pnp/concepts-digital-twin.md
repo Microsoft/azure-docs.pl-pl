@@ -1,5 +1,5 @@
 ---
-title: Informacje o usłudze IoT Plug and Play Digital bliźniaczych reprezentacji
+title: Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 description: Zrozumienie, jak Plug and Play IoT używa cyfrowego bliźniaczych reprezentacji
 author: prashmo
 ms.author: prashmo
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578057"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Informacje o usłudze IoT Plug and Play Digital bliźniaczych reprezentacji
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 
 Urządzenie Plug and Play IoT implementuje model opisany przez schemat [Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) . Model opisuje zestaw składników, właściwości, poleceń i komunikatów telemetrycznych, które może mieć określone urządzenie. Za pierwszym razem, gdy urządzenie IoT Plug and Play nawiązuje połączenie z Centrum IoT.
 
@@ -22,7 +22,7 @@ Plug and Play IoT używa programu DTDL w wersji 2. Aby uzyskać więcej informac
 
 DTDL nie ma na wyłączność Plug and Play IoT. Inne usługi IoT, takie jak [Azure Digital bliźniaczych reprezentacji](../digital-twins/overview.md), służą do reprezentowania całych środowisk, takich jak budynki i sieci energetyczne. Aby dowiedzieć się więcej, zobacz [Omówienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji](../digital-twins/concepts-models.md).
 
-W tym artykule opisano, jak składniki i właściwości są reprezentowane w *odpowiednich* i *raportowanych* sekcjach sznurka urządzenia. Opisano w nim również, w jaki sposób te koncepcje są mapowane do odpowiedniej cyfrowej przędzy.
+W tym artykule opisano, jak składniki i właściwości są reprezentowane w *odpowiednich* i *raportowanych* sekcjach sznurka urządzenia. Opisano w nim również, w jaki sposób te koncepcje są mapowane do odpowiedniej bliźniaczej reprezentacji urządzenia.
 
 Urządzenie typu Plug and Play w tym artykule implementujące [model kontrolera temperatury](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) za pomocą składnika [termostatu](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) .
 
@@ -131,7 +131,7 @@ Właściwości to pola danych, które reprezentują stan jednostki (na przykład
 
 #### <a name="read-only-property"></a>Właściwość tylko do odczytu
 
-Schemat:
+Schematy
 
 ```json
 {
@@ -309,9 +309,9 @@ Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1
 
 Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w program umożliwiający **Uzyskiwanie dwuosiowych**, **Aktualizowanie dwuosiowych**, **Wywoływanie polecenia składnika** i **Wywoływanie polecenia** służącego do zarządzania wieloosiowymi urządzeniami Możesz użyć [interfejsów API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) bezpośrednio lub za pomocą [zestawu SDK usługi](../iot-pnp/libraries-sdks.md).
 
-## <a name="digital-twin-change-events"></a>Wielocyfrowe zdarzenia zmiany
+## <a name="digital-twin-change-events"></a>Zdarzenia zmiany cyfrowej reprezentacji bliźniaczej
 
-Po włączeniu zdarzeń zmiany dwuosiowe zdarzenie jest wyzwalane za każdym razem, gdy bieżąca lub żądana wartość składnika lub właściwości zostanie zmieniona. Zdarzenia zmiany cyfrowej przędzy są generowane w formacie [poprawek JSON](http://jsonpatch.com/) . Odpowiednie zdarzenia są generowane w formacie przędzy urządzenia, jeśli są włączone zdarzenia zmiany bliźniaczych.
+W przypadku włączenia zdarzeń zmiany reprezentacji bliźniaczej zdarzenie jest wyzwalane za każdym razem, gdy bieżąca lub żądana wartość składnika lub właściwości zostanie zmieniona. Zdarzenia zmiany cyfrowej przędzy są generowane w formacie [poprawek JSON](http://jsonpatch.com/) . Odpowiednie zdarzenia są generowane w formacie przędzy urządzenia, jeśli są włączone zdarzenia zmiany bliźniaczych.
 
 Aby dowiedzieć się, jak włączyć routing dla zdarzeń cyfrowych i wieloosiowych, zobacz [używanie IoT Hub Routing komunikatów do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Aby zrozumieć format wiadomości, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md).
 

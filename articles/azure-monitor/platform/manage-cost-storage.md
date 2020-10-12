@@ -15,10 +15,10 @@ ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578261"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
@@ -124,7 +124,7 @@ Dodatkowe szczegóły ograniczeń warstwy cenowej są dostępne w [ramach subskr
 Żadna ze starszych warstw cenowych nie ma opartych na regionie cen.  
 
 > [!NOTE]
-> Aby użyć uprawnień, które pochodzą z zakupu pakietu OMS E1, pakietu OMS E2 lub dodatku OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
+> Aby użyć uprawnień pochodzących z zakupu pakietu OMS E1, pakietu OMS E2 lub Add-On OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
@@ -567,7 +567,7 @@ union *
 To zapytanie nie jest dokładną replikacją sposobu obliczania użycia, ale będzie działała w większości przypadków w celu zapewnienia zaleceń dotyczących warstwy cenowej.  
 
 > [!NOTE]
-> Aby użyć uprawnień, które pochodzą z zakupu pakietu OMS E1, pakietu OMS E2 lub dodatku OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
+> Aby użyć uprawnień pochodzących z zakupu pakietu OMS E1, pakietu OMS E2 lub Add-On OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Utwórz alert, gdy zbieranie danych jest wysokie
 

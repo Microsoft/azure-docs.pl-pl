@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
 ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022500"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>Co to jest Azure Monitor dla maszyn wirtualnych?
@@ -52,7 +52,7 @@ Poniżej przedstawiono procedurę konfigurowania Azure Monitor dla maszyn wirtua
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby włączyć monitorowanie dla maszyn wirtualnych, zobacz temat [wdrażanie Azure monitor dla maszyn wirtualnych](vminsights-enable-overview.md) .
 

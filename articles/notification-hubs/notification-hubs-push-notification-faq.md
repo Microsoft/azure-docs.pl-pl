@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077920"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
@@ -119,7 +119,7 @@ Ze względu na charakter powiadomień wypychanych (są one dostarczane przez zew
 
 Gdy aplikacja mobilna jest zarejestrowana w portalu dla deweloperów platformy (na przykład Apple lub Google), wysyłany jest identyfikator aplikacji i tokeny zabezpieczające. Zaplecze aplikacji udostępnia te tokeny PNS platformy, aby można było wysyłać powiadomienia wypychane do urządzeń. Tokeny zabezpieczające mogą mieć postać certyfikatów (na przykład Apple iOS lub Windows Phone) lub kluczy zabezpieczeń (np. Google Android lub Windows). Muszą być skonfigurowane w centrach powiadomień. Konfiguracja zazwyczaj odbywa się na poziomie centrum powiadomień, ale można ją również wykonać na poziomie przestrzeni nazw w scenariuszu obejmującym wiele dzierżawców.
 
-#### <a name="namespaces"></a>Przestrzenie nazw
+#### <a name="namespaces"></a>Namespaces
 
 Przestrzenie nazw mogą być używane do grupowania wdrożenia. Mogą one również służyć do reprezentowania wszystkich centrów powiadomień dla wszystkich dzierżawców tej samej aplikacji w scenariuszu obejmującym wiele dzierżawców.
 
@@ -191,7 +191,7 @@ Usługa Azure Notification Hubs udostępnia kilka funkcji rozwiązywania problem
 
 Usługa Azure Notification Hubs umożliwia wyświetlanie danych telemetrycznych w [Azure Portal]. Szczegóły metryk są dostępne na stronie [metryki Notification Hubs] .
 
-Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Pobierz metryki Azure monitor przy użyciu platformy .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Ten przykład używa nazwy użytkownika i hasła. Aby użyć certyfikatu, przeciąż metodę FromServicePrincipal, aby dostarczyć certyfikat, jak pokazano w [tym przykładzie](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Pobieranie metryk i dzienników aktywności dla zasobu](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -200,7 +200,7 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 > [!NOTE]
 > Pomyślne powiadomienia oznaczają, że powiadomienia wypychane zostały dostarczone do zewnętrznego PNS (na przykład APN dla systemów iOS i macOS lub FCM dla urządzeń z systemem Android). Jest odpowiedzialny za PNS do dostarczania powiadomień do urządzeń docelowych. Zazwyczaj PNS nie ujawnia metryk dostarczania podmiotom trzecim.  
 
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Cennik Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Interfejsy API REST Notification Hubs]: /previous-versions/azure/reference/dn530746(v=azure.100)
@@ -212,6 +212,6 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 [Rozwiązywanie problemów Notification Hubs]: ./notification-hubs-push-notification-fixer.md
 [Metryki Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Eksportowanie/Importowanie rejestracji]: ./export-modify-registrations-bulk.md
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

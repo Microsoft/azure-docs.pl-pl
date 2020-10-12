@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267840"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
@@ -130,8 +130,8 @@ Zapoznaj się z przykładem XML na końcu tego artykułu: [przykład XML](media-
 | **Profil** |**XS: ciąg** |Profil ścieżki wideo. |
 | **Poziomie** |**XS: ciąg** |Poziom ścieżki wideo. |
 | **PixelFormat** |**XS: ciąg** |Format piksela ścieżki wideo. |
-| **Width**<br /><br /> Wymagane |**XS: int** |Zakodowana Szerokość wideo (w pikselach). |
-| **Height**<br /><br /> Wymagane |**XS: int** |Zakodowana wysokość wideo w pikselach. |
+| **Szerokość**<br /><br /> Wymagane |**XS: int** |Zakodowana Szerokość wideo (w pikselach). |
+| **Proporcj**<br /><br /> Wymagane |**XS: int** |Zakodowana wysokość wideo w pikselach. |
 | **DisplayAspectRatioNumerator**<br /><br /> Wymagane |**XS: Double** |Licznik współczynnik proporcji wyświetlania wideo. |
 | **DisplayAspectRatioDenominator**<br /><br /> Wymagane |**XS: Double** |Mianownik współczynnika proporcji wyświetlania wideo. |
 | **DisplayAspectRatioDenominator**<br /><br /> Wymagane |**XS: Double** |Przykładowy współczynnik proporcji filmu wideo. |
@@ -151,7 +151,7 @@ Zapoznaj się z przykładem XML na końcu tego artykułu: [przykład XML](media-
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **głównych**<br /><br /> Wymagane |**XS: ciąg** |Klucz w parze klucz/wartość. |
-| **wartościami**<br /><br /> Wymagane |**XS: ciąg** |Wartość w parze klucz/wartość. |
+| **wartość**<br /><br /> Wymagane |**XS: ciąg** |Wartość w parze klucz/wartość. |
 
 ## <a name="programtype"></a><a name="ProgramType"></a> ProgramType
 Typ **programu** jest globalnym typem złożonym opisującym program.  
@@ -650,6 +650,6 @@ Poniżej znajduje się przykład pliku metadanych danych wejściowych.
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

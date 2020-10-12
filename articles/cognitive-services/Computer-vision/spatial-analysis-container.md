@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277295"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
@@ -65,7 +65,7 @@ W tym artykule zostaną pobrane i zainstalowane następujące pakiety oprogramow
 
 | Wymaganie | Opis |
 |--|--|
-| Aparat fotograficzny | Kontener analizy przestrzennej nie jest powiązany z konkretną marką aparatu. Urządzenie aparatu fotograficznego musi: obsługiwać protokoły przesyłania strumieniowego w czasie rzeczywistym (RTSP) i kodowanie H. 264, być dostępne dla komputera hosta i można przesyłać strumieniowo w rozdzielczości 15FPS i 1080p. |
+| Aparat fotograficzny | Kontener analizy przestrzennej nie jest powiązany z konkretną marką aparatu. Urządzenie aparatu fotograficznego musi: obsługiwać kodowanie przy użyciu protokołu przesyłania strumieniowego (Real-Time streaming) i H. 264, dostępne dla komputera hosta oraz możliwość przesyłania strumieniowego przy użyciu rozdzielczości 15FPS i 1080p. |
 | System operacyjny Linux | Na komputerze-hoście musi być zainstalowany [Ubuntu Desktop 18,04 LTS](http://releases.ubuntu.com/18.04/) .  |
 
 
@@ -111,7 +111,7 @@ W [Azure Portal](https://portal.azure.com/)przejdź do zasobu Azure Stack Edge. 
 
 Na stronie **Konfigurowanie obliczeń krawędzi**   Wybierz istniejący IoT Hub lub wybierz opcję utworzenia nowego. Domyślnie warstwa cenowa standardowa (S1) jest używana do tworzenia zasobów IoT Hub. Aby użyć zasobu warstwy Bezpłatna IoT Hub, utwórz go, a następnie wybierz. Zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge 
 
-Kliknij pozycję **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
+Kliknij przycisk **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka minut. Po utworzeniu zasobu IoT Hub zostanie zaktualizowany kafelek **Konfiguruj zmiany krawędzi** , aby pokazać nową konfigurację. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia**   .
 
 Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.            
 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511640"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
@@ -239,7 +239,7 @@ Właściciel
 &nbsp;&nbsp;&nbsp;&nbsp;Wykonane<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Współautor danych obiektu blob magazynu
+Współautor danych obiektu blob usługi Storage
 
 &nbsp;&nbsp;&nbsp;&nbsp;Wykonane<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -294,7 +294,7 @@ Aby wyświetlić operacje na danych w interfejsie API REST i korzystać z nich, 
 `NotActions`Uprawnienie określa operacje zarządzania, które są wykluczone z dozwolonej `Actions` . Użyj `NotActions` uprawnienia, jeśli zestaw operacji, do których chcesz zezwolić, jest łatwiejszy w użyciu, wykluczając operacje ograniczone. Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotActions` operacji od `Actions` operacji.
 
 > [!NOTE]
-> Jeśli użytkownik ma przypisaną rolę, która wyklucza operację w programie `NotActions` , i ma przypisaną drugą rolę, która przyznaje dostęp do tej samej operacji, użytkownik może wykonać tę operację. `NotActions`nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji, gdy wymagane jest wykluczenie określonych operacji.
+> Jeśli użytkownik ma przypisaną rolę, która wyklucza operację w programie `NotActions` , i ma przypisaną drugą rolę, która przyznaje dostęp do tej samej operacji, użytkownik może wykonać tę operację. `NotActions` nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji, gdy wymagane jest wykluczenie określonych operacji.
 >
 
 ## <a name="dataactions"></a>Akcje dataactions
@@ -314,7 +314,7 @@ Aby wyświetlić operacje na danych w interfejsie API REST i korzystać z nich, 
 `NotDataActions`Uprawnienie określa operacje na danych, które są wykluczone z dozwolonej `DataActions` . Dostęp udzielony przez rolę (czynne uprawnienia) jest obliczany przez odjęcie `NotDataActions` operacji od `DataActions` operacji. Każdy dostawca zasobów udostępnia swój odpowiedni zestaw interfejsów API do realizacji operacji na danych.
 
 > [!NOTE]
-> Jeśli użytkownik ma przypisaną rolę, która wyklucza operację danych w programie `NotDataActions` , i przypisuje drugą rolę, która przyznaje dostęp do tej samej operacji danych, użytkownik może wykonać tę operację. `NotDataActions`nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji na danych, gdy wymagane jest wykluczenie określonych operacji na danych.
+> Jeśli użytkownik ma przypisaną rolę, która wyklucza operację danych w programie `NotDataActions` , i przypisuje drugą rolę, która przyznaje dostęp do tej samej operacji danych, użytkownik może wykonać tę operację. `NotDataActions` nie jest regułą odmowy — jest to po prostu wygodny sposób tworzenia zestawu dozwolonych operacji na danych, gdy wymagane jest wykluczenie określonych operacji na danych.
 >
 
 ## <a name="assignablescopes"></a>AssignableScopes
@@ -337,6 +337,6 @@ Informacje o `AssignableScopes` rolach niestandardowych można znaleźć w temac
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wbudowane role platformy Azure](built-in-roles.md)
+* [Role wbudowane platformy Azure](built-in-roles.md)
 * [Role niestandardowe platformy Azure](custom-roles.md)
 * [Operacje związane z dostawcami zasobów w usłudze Azure Resource Manager](resource-provider-operations.md)

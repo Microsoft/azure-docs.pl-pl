@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
 ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83873635"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
@@ -167,7 +167,7 @@ Aby skopiować dane z bazy danych DB2, obsługiwane są następujące właściwo
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Db2Table** | Tak |
-| schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
@@ -202,7 +202,7 @@ Aby skopiować dane z bazy danych DB2, w sekcji **Źródło** działania kopiowa
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Db2Source** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
 
@@ -247,28 +247,28 @@ Podczas kopiowania danych z programu DB2 następujące mapowania są używane z 
 | BigInt |Int64 |
 | Binarne |Byte [] |
 | Obiekt blob |Byte [] |
-| Char |String |
-| Obiektów CLOB |String |
-| Data |Datetime (data/godzina) |
-| DB2DynArray |String |
-| DbClob |String |
-| Wartość dziesiętna |Wartość dziesiętna |
-| DecimalFloat |Wartość dziesiętna |
+| Char |Ciąg |
+| Obiektów CLOB |Ciąg |
+| Date |Datetime (data/godzina) |
+| DB2DynArray |Ciąg |
+| DbClob |Ciąg |
+| Liczba dziesiętna |Liczba dziesiętna |
+| DecimalFloat |Liczba dziesiętna |
 | Double |Double |
-| Float |Double |
-| Zdjęć |String |
-| Integer |Int32 |
+| Liczba zmiennoprzecinkowa |Double |
+| Zdjęć |Ciąg |
+| Liczba całkowita |Int32 |
 | LongVarBinary |Byte [] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numeryczne |Wartość dziesiętna |
-| Rzeczywiste |Pojedyncze |
+| LongVarChar |Ciąg |
+| LongVarGraphic |Ciąg |
+| Numeryczne |Liczba dziesiętna |
+| Rzeczywiste |Pojedynczy |
 | SmallInt |Int16 |
 | Godzina |przedział_czasu |
-| Znacznik czasu |DateTime |
+| Timestamp |DateTime |
 | Liczby |Byte [] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |Ciąg |
+| VarGraphic |Ciąg |
 | Xml |Byte [] |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

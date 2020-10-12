@@ -9,10 +9,10 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578040"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
@@ -124,7 +124,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|Jednostka SKU|Rdzenie|Pamięć|Storage|
+|SKU|Rdzenie|Pamięć|Magazyn|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -141,7 +141,7 @@ Poniżej znajdują się obecnie obsługiwane maksymalne wartości skalowania w p
 
 Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region (Region)| Windows | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
 |Australia Środkowa| 100 | Niedostępny |
 |Australia Środkowa 2| 100 | Niedostępny |
@@ -149,7 +149,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Australia Południowo-Wschodnia | 100 | 20 |
 |Brazil South| 100 | 20 |
 |Kanada Środkowa| 100 | 20 |
-|Środkowe stany USA| 100 | 20 |
+|Central US| 100 | 20 |
 |Chiny Wschodnie 2| 100 | 20 |
 |Chiny Północne 2| 100 | 20 |
 |Azja Wschodnia| 100 | 20 |

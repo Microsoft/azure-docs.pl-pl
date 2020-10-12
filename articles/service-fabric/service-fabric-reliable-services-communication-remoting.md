@@ -7,10 +7,10 @@ ms.date: 09/20/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022160"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Komunikacja zdalna usługi w języku C# z Reliable Services
@@ -221,7 +221,7 @@ Ta zmiana gwarantuje, że usługa nasłuchuje na odbiorniku V1 i v2.
 Ten krok zapewnia, że klient używa stosu v2.
 Brak zmian w projekcie/usłudze klienta nie jest wymagana. Wystarcza tworzenie projektów klientów ze zaktualizowanym zestawem interfejsów.
 
-3. Ten krok jest opcjonalny. Użyj atrybutu odbiornika v2, a następnie Uaktualnij usługę v2.
+3. Ta czynność jest opcjonalna. Użyj atrybutu odbiornika v2, a następnie Uaktualnij usługę v2.
 Ten krok zapewnia, że usługa nasłuchuje tylko na odbiorniku v2.
 
     ```csharp
@@ -348,7 +348,7 @@ Ta zmiana gwarantuje, że usługa nasłuchuje w punkcie 1 i odbiorniku V2_1.
 Ten krok zapewnia, że klient używa stosu V2_1.
 Brak zmian w projekcie/usłudze klienta nie jest wymagana. Wystarcza tworzenie projektów klientów ze zaktualizowanym zestawem interfejsów.
 
-3. Ten krok jest opcjonalny. Usuń wersję odbiornika V1 z atrybutu, a następnie Uaktualnij usługę v2.
+3. Ta czynność jest opcjonalna. Usuń wersję odbiornika V1 z atrybutu, a następnie Uaktualnij usługę v2.
 Ten krok zapewnia, że usługa nasłuchuje tylko na odbiorniku v2.
 
     ```csharp
@@ -548,7 +548,7 @@ Wykonaj następujące kroki:
       });
       ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Interfejs API sieci Web z OWIN w Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Windows Communication Foundation komunikacji z Reliable Services](service-fabric-reliable-services-communication-wcf.md)

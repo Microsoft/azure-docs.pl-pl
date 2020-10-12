@@ -10,10 +10,10 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: d5aba3638ce19c24841fe5b49b19b1139327b790
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578091"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Biblioteki klienta i interfejsy API REST
@@ -24,7 +24,7 @@ Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane 
 
 ## <a name="client-libraries"></a>Biblioteki klienta
 
-| Zestaw               | Protokoły             |Otwórz a źródło zamknięte| Przestrzenie nazw                          | Możliwości                                                      |
+| Zestaw               | Protokoły             |Otwórz a źródło zamknięte| Namespaces                          | Możliwości                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Otwórz            | Azure. ResourceManager. Komunikacja | Udostępnianie zasobów usług komunikacyjnych i zarządzanie nimi             |
 | Wspólne                 | REST | Otwórz               | Azure. Communications. Common          | Udostępnia typy podstawowe dla innych bibliotek klienta |
@@ -40,7 +40,7 @@ Należy pamiętać, że biblioteki klienta Azure Resource Manager, Administracja
 Poniżej przedstawiono szczegółowo lokalizacje publikowania poszczególnych pakietów biblioteki klienta. 
 
 
-| Obszar           | JavaScript | .NET | Python | Java | SWIFT lub obj-C | Java (Android) | Inne                          |
+| Warstwowy           | JavaScript | .NET | Python | Java | SWIFT lub obj-C | Java (Android) | Inne                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
 | Azure Resource Manager | -         | [NuGet](https://www.NuGet.org/packages/Azure.ResourceManager.Communication)    |   [PyPi](https://pypi.org/project/azure-mgmt-communication/)    |  -  | -              | -  | [Przejdź za pośrednictwem usługi GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
 | Wspólne         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Common/)    | Nie dotyczy      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [SWIFT za pośrednictwem usługi GitHub](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.1)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |

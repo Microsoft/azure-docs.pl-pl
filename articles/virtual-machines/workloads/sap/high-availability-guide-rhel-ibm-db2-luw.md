@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077390"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Wysoka dostępność programu IBM Db2 LUW na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux Server
@@ -41,7 +41,7 @@ Przed rozpoczęciem instalacji zapoznaj się z następującymi informacjami i do
 | [2191498] | SAP w systemie Linux z platformą Azure: ulepszone monitorowanie |
 | [2243692] | Maszyna wirtualna z systemem Linux na platformie Azure (IaaS): problemy z licencją SAP |
 | [2002167] | Red Hat Enterprise Linux 7. x: Instalowanie i uaktualnianie |
-| [2694118] | Dodatek Red Hat Enterprise Linux HA na platformie Azure |
+| [2694118] | Red Hat Enterprise Linux HA Add-On na platformie Azure |
 | [1999351] | Rozwiązywanie problemów z ulepszonym monitorowaniem platformy Azure dla oprogramowania SAP |
 | [2233094] | DB6: Aplikacje SAP na platformie Azure korzystające z programu IBM DB2 dla systemów Linux, UNIX i Windows — dodatkowe informacje |
 | [1612105] | DB6: często zadawane pytania dotyczące bazy danych DB2 z HADR Cluster |
@@ -54,11 +54,11 @@ Przed rozpoczęciem instalacji zapoznaj się z następującymi informacjami i do
 | [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux][deployment-guide] (ten artykuł) |
 | [Wdrażanie systemu Azure Virtual Machines Database Management System (DBMS) dla oprogramowania SAP w systemie Linux][dbms-guide] — Przewodnik |
 | [Obciążenie SAP na liście kontrolnej planowania i wdrażania platformy Azure][azr-sap-plancheck] |
-| [Omówienie dodatku o wysokiej dostępności dla Red Hat Enterprise Linux 7][rhel-ha-addon] |
-| [Administracja dodatkiem wysokiej dostępności][rhel-ha-admin] |
-| [Dodatkowe informacje o wysokiej dostępności][rhel-ha-ref] |
+| [Przegląd Add-On wysokiej dostępności dla Red Hat Enterprise Linux 7][rhel-ha-addon] |
+| [Administracja Add-On wysokiej dostępności][rhel-ha-admin] |
+| [Informacje o wysokiej dostępności Add-On][rhel-ha-ref] |
 | [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra][rhel-azr-supp]
-| [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) klastra o wysokiej dostępności na Microsoft Azure][rhel-azr-inst]
+| [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra na Microsoft Azure][rhel-azr-inst]
 | [Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP][dbms-db2] |
 | [IBM DB2 HADR Cluster 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR Cluster 10,5][db2-hadr-10.5] |
@@ -413,7 +413,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Ustaw **przypisanie** na **static**, a następnie wprowadź adres IP **Virtual-IP** zdefiniowany na początku.
 
-   d. Wybierz przycisk **OK**.
+   d. Kliknij przycisk **OK**.
 
    e. Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
 
@@ -429,7 +429,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    e. Wybierz Maszyny wirtualne w klastrze programu IBM DB2.
 
-   f. Wybierz przycisk **OK**.
+   f. Kliknij przycisk **OK**.
 
 1. Utwórz sondę kondycji:
 
@@ -439,7 +439,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5**i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
 
-   d. Wybierz przycisk **OK**.
+   d. Kliknij przycisk **OK**.
 
 1. Utwórz reguły równoważenia obciążenia:
 
@@ -455,7 +455,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    f. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
 
-   przykład Wybierz przycisk **OK**.
+   przykład Kliknij przycisk **OK**.
 
 **[A]** Dodaj regułę zapory dla portu sondy:
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent

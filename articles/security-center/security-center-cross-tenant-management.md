@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782816"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w Security Center
@@ -28,7 +28,7 @@ Zarządzanie między dzierżawcami pozwala wyświetlać stan zabezpieczeń wielu
 
 - Zespoły ds. zabezpieczeń organizacji z wieloma dzierżawcami mogą wyświetlać stan zabezpieczeń i zarządzać nimi z jednej lokalizacji.
 
-## <a name="set-up-cross-tenant-management"></a>Konfigurowanie zarządzania przez wiele dzierżawców
+## <a name="set-up-cross-tenant-management"></a>Konfigurowanie zarządzania wieloma dzierżawami
 
 Skonfiguruj zarządzanie pośrednictwem wielu dzierżawców, delegując dostęp do zasobów zarządzanych dzierżawców do własnej dzierżawy przy użyciu funkcji [zarządzania zasobami delegowanych przez platformę Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
@@ -43,7 +43,7 @@ Na górnym pasku menu kliknij ikonę filtru, a następnie wybierz subskrypcje, z
 
   ![Filtrowanie dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Widoki i akcje są zasadniczo takie same. Poniżej przedstawiono kilka przykładów:
+Widoki i akcje są zasadniczo takie same. Oto kilka przykładów:
 
 - **Zarządzanie zasadami zabezpieczeń**: w jednym widoku Zarządzaj Stanami zabezpieczeń wielu zasobów przy użyciu [zasad](tutorial-security-policy.md), podejmuj działania z zaleceniami dotyczącymi zabezpieczeń, a następnie Zbieraj dane związane z zabezpieczeniami i zarządzaj nimi.
 - **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](secure-score-security-controls.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.

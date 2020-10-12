@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265971"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Omówienie przesyłania strumieniowego na żywo przy użyciu Media Services
@@ -74,18 +74,18 @@ Począwszy od wersji 2,10 Media Services, podczas tworzenia kanału można okre�
 
 Poniższa tabela zawiera Przewodnik porównujący dwa typy kanałów obsługiwane w Media Services
 
-| Cechy | Kanał Pass-through | Kanał standardowy |
+| Cecha | Kanał Pass-through | Kanał standardowy |
 | --- | --- | --- |
-| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Yes |
+| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Tak |
 | Rozdzielczość maksymalna, liczba warstw |1080p, 8 warstw, 60 klatek na sekundę |720, 6 warstw, 30 fps |
 | Protokoły wejściowe |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Cena |Zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "wideo na żywo" |Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/media-services/) |
 | Maksymalny czas działania |24x7 |8 godzin |
-| Obsługa wstawiania przednich |Nie |Yes |
-| Obsługa sygnalizowania AD |Nie |Yes |
-| Podpisy CEA 608/708 |Yes |Yes |
-| Obsługa niejednorodnych danych wejściowych GOPs |Yes |Nie — dane wejściowe muszą być stałe 2sec GOPs |
-| Obsługa danych wejściowych stawki ramki zmiennej |Yes |Nie — dane wejściowe muszą być stałym wskaźnikiem ramki.<br/>Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Jednak koder nie może porzucić 10 klatek na sekundę. |
+| Obsługa wstawiania przednich |Nie |Tak |
+| Obsługa sygnalizowania AD |Nie |Tak |
+| Podpisy CEA 608/708 |Tak |Tak |
+| Obsługa niejednorodnych danych wejściowych GOPs |Tak |Nie — dane wejściowe muszą być stałe 2sec GOPs |
+| Obsługa danych wejściowych stawki ramki zmiennej |Tak |Nie — dane wejściowe muszą być stałym wskaźnikiem ramki.<br/>Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Jednak koder nie może porzucić 10 klatek na sekundę. |
 | Autoshutoff kanałów, gdy źródło danych wejściowych jest tracone |Nie |Po upływie 12 godzin, jeśli nie jest uruchomiony żaden program |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
@@ -153,14 +153,14 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 | Stan kanału | Wskaźniki interfejsu użytkownika portalu | Czy jest to rozliczenia? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Uruchomiono |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |TAK |
+| Uruchomienie |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |TAK |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymano |Zatrzymano |Nie |
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Powiązane tematy

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022279"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
@@ -97,13 +97,13 @@ Korzystanie z projektu tożsamości pod Identity umożliwia uwierzytelnianie w c
 
 Gdy aplikacje potrzebują poświadczeń, komunikują się z magazynem cyfrowym, pobierają najnowszą zawartość, a następnie nawiązują połączenie z wymaganą usługą. Azure Key Vault może to być ten magazyn cyfrowy. Uproszczony przepływ pracy służący do pobierania poświadczeń z Azure Key Vault przy użyciu tożsamości zarządzanych pod na poniższym diagramie:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Uproszczony przepływ pracy dla tożsamości zarządzanej pod na platformie Azure":::
 
 Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, takie jak poświadczenia, klucze konta magazynu lub certyfikaty. Azure Key Vault można zintegrować z klastrem AKS przy użyciu [dostawcy Azure Key Vault dla sterownika CSI magazynu](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)Secret. Sterownik CSI magazynu wpisów tajnych umożliwia klastrowi AKS natywne pobieranie zawartości wpisu tajnego z Key Vault i bezpieczne dostarczanie ich tylko do żądania pod. Pracuj z operatorem klastra, aby wdrożyć sterownik CSI magazynu kluczy tajnych na węzłach procesu roboczego AKS. Możesz użyć tożsamości zarządzanej pod, aby zażądać dostępu do Key Vault i pobrać zawartość klucza tajnego wymaganą przez sterownik CSI magazynu wpisów tajnych.
 
 Azure Key Vault za pomocą sterownika CSI magazynu kluczy tajnych można używać w przypadku węzłów systemu Linux i Kubernetes, które wymagają wersji 1,16 lub nowszej. W przypadku węzłów systemu Windows i Kubernetes jest wymagana wersja 1,18 lub nowsza.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Ten artykuł koncentruje się na sposobach zabezpieczania swoich zasobników. Aby zaimplementować niektóre z tych obszarów, zobacz następujące artykuły:
 

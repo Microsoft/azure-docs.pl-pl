@@ -4,10 +4,10 @@ description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333668"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
@@ -24,7 +24,7 @@ W tym artykule opisano, jak wykluczać dyski z replikacji podczas odzyskiwania p
 
 Dyski można wykluczać z replikacji, co zostało podsumowane w tabeli.
 
-**Azure–Azure** | **Z programu VMware do platformy Azure** | **Funkcja Hyper-V do platformy Azure** | **Serwer fizyczny do platformy Azure**
+**Azure–Azure** | **Z programu VMware do platformy Azure** | **Z funkcji Hyper-V do platformy Azure** | **Serwer fizyczny do platformy Azure**
 --- | --- | --- | ---
 Tak | Tak | Tak | Tak
 
@@ -201,7 +201,7 @@ Te dyski są dostępne na źródłowej maszynie wirtualnej.
 **Nazwa dysku** | **Dysk systemu operacyjnego gościa** | **Litera dysku** | **Typ danych dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego
-DB-disk1 (Wyklucz z replikacji) | Dysk1 | D:\ | pagefile.sys
+DB-Disk1 (Wyklucz z replikacji) | Dysk1 | D:\ | pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
@@ -210,7 +210,7 @@ Nasze ustawienia pliku stronicowania na źródłowej maszynie wirtualnej są nas
 ![Zrzut ekranu przedstawiający okno dialogowe pamięć wirtualna z wyróżnioną linią D: Drive [wolumin stronicowania] z wyświetlonym rozmiarem pliku stronicowania (MB) 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Włączamy replikację dla maszyny wirtualnej.
-2. Wyłączono bazę danych disk1 z replikacji.
+2. Wykluczono DB-Disk1 z replikacji.
 
 #### <a name="disks-after-failover"></a>Dyski po przejściu w tryb failover
 
@@ -219,7 +219,7 @@ Po przejściu do trybu failover na maszynie wirtualnej platformy Azure zostały 
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego
-DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/pagefile.sys <br/><br/> Ponieważ DB-disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
+DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/pagefile.sys <br/><br/> Ponieważ DB-Disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
@@ -236,7 +236,7 @@ Te dyski są dostępne na źródłowej maszynie wirtualnej.
 **Nazwa dysku** | **Dysk systemu operacyjnego gościa** | **Litera dysku** | **Typ danych dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego
-DB-disk1 (Wyklucz z replikacji) | Dysk1 | G:\ | pagefile.sys
+DB-Disk1 (Wyklucz z replikacji) | Dysk1 | G:\ | pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
@@ -245,7 +245,7 @@ Nasze ustawienia pliku stronicowania na lokalnej maszynie wirtualnej są następ
 ![Ustawienia pliku stronicowania na lokalnej maszynie wirtualnej](./media/exclude-disks-replication/pagefile-g-drive-source-vm.png)
 
 1. Włączamy replikację dla maszyny wirtualnej.
-2. Wyłączono bazę danych disk1 z replikacji.
+2. Wykluczono DB-Disk1 z replikacji.
 
 #### <a name="disks-after-failover"></a>Dyski po przejściu w tryb failover
 

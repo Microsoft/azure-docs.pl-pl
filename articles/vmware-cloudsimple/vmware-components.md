@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142506"
 ---
 # <a name="private-cloud-vmware-components"></a>Składniki VMware chmury prywatnej
@@ -48,7 +48,7 @@ Program vCenter Server Appliance (VCSA) zapewnia funkcje uwierzytelniania, zarz�
 
 ### <a name="vcenter-single-sign-on"></a>Logowanie jednokrotne vCenter
 
-Osadzony kontroler usług platformy VCSA jest skojarzony z **domeną logowania**jednokrotnego.  Nazwa domeny to **cloudsimple. Local**.  Tworzony jest domyślny użytkownik mający **CloudOwner@cloudsimple.com** dostęp do programu vCenter.  Możesz dodać [źródła tożsamości](set-vcenter-identity.md)lokalnego/usługi Azure Active Directory dla serwera vCenter.
+Osadzony kontroler usług platformy w systemie VCSA jest skojarzony z **domeną programu vCenter Single Sign-On**.  Nazwa domeny to **cloudsimple. Local**.  Tworzony jest domyślny użytkownik mający **CloudOwner@cloudsimple.com** dostęp do programu vCenter.  Możesz dodać [źródła tożsamości](set-vcenter-identity.md)lokalnego/usługi Azure Active Directory dla serwera vCenter.
 
 ## <a name="vsan-storage"></a>Magazyn sieci vSAN
 

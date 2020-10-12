@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318096"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Tworzenie konta usługi Azure Remote Rendering
@@ -52,7 +52,7 @@ Zapoznaj się z [listą dostępnych regionów](../reference/regions.md) w celu w
 
 Wartości dla **`arrAccountId`** i **`arrAccountKey`** można znaleźć w portalu, zgodnie z opisem w następujących krokach:
 
-* Przejdź do [Azure Portal](https://www.portal.azure.com)
+* Przejdź do witryny [Azure Portal](https://www.portal.azure.com).
 * Znajdź **"zdalne konto renderowania"** — powinno ono znajdować się na liście **"ostatnie zasoby"** . Możesz również wyszukać ją na pasku wyszukiwania u góry. W takim przypadku upewnij się, że subskrypcja, której chcesz użyć, została wybrana w domyślnym filtrze subskrypcji (ikona filtru obok paska wyszukiwania):
 
 ![Filtr subskrypcji](./media/azure-subscription-filter.png)

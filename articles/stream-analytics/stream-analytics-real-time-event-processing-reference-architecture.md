@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 23c7112639a64097d95df29bde16636702837f9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83832983"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Architektura referencyjna: przetwarzanie zdarzeń w czasie rzeczywistym za pomocą Microsoft Azure Stream Analytics
@@ -24,12 +24,12 @@ Microsoft Azure udostępnia obszerny katalog technologii analitycznych, które m
 
 ## <a name="contents"></a>Zawartość
 * Streszczenie
-* Wprowadzenie do analizy w czasie rzeczywistym
-* Wartość propozycji danych w czasie rzeczywistym na platformie Azure
-* Typowe scenariusze analizy w czasie rzeczywistym
+* Wprowadzenie do analizy Real-Time
+* Propozycja wartości Real-Time danych na platformie Azure
+* Typowe scenariusze analizy Real-Time
 * Architektura i składniki
   * Źródła danych
-  * Warstwa integracji danych
+  * Warstwa Data-Integration
   * Warstwa analizy w czasie rzeczywistym
   * Warstwa magazynowania danych
   * Warstwa prezentacji/zużycia

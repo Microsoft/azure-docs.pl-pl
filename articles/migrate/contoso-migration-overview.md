@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: f9f7b3b64cf91019ed4e40d5d52b859419b74836
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86107635"
 ---
 # <a name="contoso-migration-series"></a>Seria dotycząca migracji w firmie Contoso
@@ -26,7 +26,7 @@ Artykuły z tej serii są podsumowane w poniższej tabeli.
 - W każdym scenariuszu wdrażania udostępniamy informacje o sterownikach i celach firmy, proponowanej architekturze, krokach do przeprowadzenia migracji oraz zaleceniach dotyczących czyszczenia i następnych kroków po zakończeniu migracji.
 
 
-**Art** | **Szczegóły** 
+**Artykuł** | **Szczegóły** 
 --- | --- 
 [Artykuł 1: Omówienie](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Omówienie serii artykułów, strategii migracji firmy Contoso i przykładowych aplikacji, które są używane w tej serii. 
 [Artykuł 2. wdrażanie infrastruktury platformy Azure](/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Firma Contoso przygotowuje infrastrukturę lokalną i infrastrukturę platformy Azure do migracji. Ta sama infrastruktura jest używana dla wszystkich artykułów w serii. 

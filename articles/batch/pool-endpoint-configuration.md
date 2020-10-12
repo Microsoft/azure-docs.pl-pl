@@ -4,10 +4,10 @@ description: Jak skonfigurować lub wyłączyć dostęp do portów SSH lub RDP w
 ms.topic: how-to
 ms.date: 02/13/2018
 ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83780293"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurowanie lub wyłączanie dostępu zdalnego do węzłów obliczeniowych w puli Azure Batch
@@ -21,7 +21,7 @@ Konfiguracja punktu końcowego składa się z co najmniej jednej [puli translacj
 
 Każda konfiguracja puli NAT zawiera co najmniej jedną [regułę sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Każda reguła sieciowej grupy zabezpieczeń umożliwia lub odrzuca określony ruch sieciowy do punktu końcowego. Można wybrać Zezwalanie na ruch, ruch identyfikowany przez [tag usługi](../virtual-network/security-overview.md#service-tags) (na przykład "Internet") lub blokowanie ruchu z określonych adresów IP lub podsieci.
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 * Konfiguracja punktu końcowego puli jest częścią [konfiguracji sieci](/rest/api/batchservice/pool/add#networkconfiguration)puli. Konfiguracja sieci może opcjonalnie obejmować ustawienia umożliwiające dołączenie puli do [sieci wirtualnej platformy Azure](batch-virtual-network.md). W przypadku skonfigurowania puli w sieci wirtualnej można utworzyć reguły sieciowej grupy zabezpieczeń, które używają ustawień adresu w sieci wirtualnej.
 * Podczas konfigurowania puli NAT można skonfigurować wiele reguł sieciowej grupy zabezpieczeń. Reguły są sprawdzane w kolejności priorytetów. Gdy reguła ma zastosowanie, żadne inne reguły nie są sprawdzane pod kątem dopasowania.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442092"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Kontrolki zabezpieczeń dla Azure SQL Database i wystąpienia zarządzanego SQL
@@ -45,7 +45,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w Azure SQL D
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Authentication| Tak | Azure Active Directory (Azure AD) |
+| Uwierzytelnianie| Tak | Azure Active Directory (Azure AD) |
 | Autoryzacja| Tak | Brak |
 
 ## <a name="data-protection"></a>Ochrona danych

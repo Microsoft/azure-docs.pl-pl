@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d10f06577738364e3f4a0ea40221d37ebfb31c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116288"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optymalizacja zbiorczych operacji wstawiania i używania danych przejściowych na Azure Database for PostgreSQL-pojedynczym serwerze 
@@ -19,7 +19,7 @@ W tym artykule opisano, jak można zoptymalizować operacje wstawiania zbiorczeg
 ## <a name="use-unlogged-tables"></a>Korzystanie z niezarejestrowanych tabel
 Jeśli istnieją operacje związane z obciążeniem, które obejmują dane przejściowe lub wstawiają duże zbiory danych zbiorczo, należy rozważyć użycie niezarejestrowanych tabel.
 
-Niezarejestrowane tabele to funkcja PostgreSQL, która może być efektywnie używana do optymalizacji zbiorczych operacji wstawiania. PostgreSQL używa funkcji zapisu z wyprzedzeniem (WAL). Domyślnie zapewnia ona niepodzielność i trwałość. Wartość niepodzielności, spójności, izolacji i trwałości tworzą właściwości KWAŚNe. 
+Niezarejestrowane tabele to funkcja PostgreSQL, która może być efektywnie używana do optymalizacji zbiorczych operacji wstawiania. PostgreSQL używa rejestrowania Write-Ahead (WAL). Domyślnie zapewnia ona niepodzielność i trwałość. Wartość niepodzielności, spójności, izolacji i trwałości tworzą właściwości KWAŚNe. 
 
 Wstawianie do nierejestrowanej tabeli oznacza, że PostgreSQL wstawia bez zapisywania w dzienniku transakcji, który sam jest operacją we/wy. W związku z tym te tabele są znacznie szybsze niż zwykłe tabele.
 
