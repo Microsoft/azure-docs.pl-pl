@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113075"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Rozwiązywanie problemów z serwerem konfiguracji
@@ -28,8 +28,8 @@ Maszyna źródłowa rejestruje się na serwerze konfiguracji podczas instalacji 
    1. Sprawdź, czy żądany identyfikator hosta jest taki sam jak identyfikator hosta maszyny źródłowej.
    2. Sprawdź, czy maszyna źródłowa ma co najmniej jeden adres IP przypisany do fizycznej karty sieciowej. Aby rejestracja agenta z serwerem konfiguracji zakończyła się powodzeniem, maszyna źródłowa musi mieć co najmniej jeden prawidłowy adres IP v4 przypisany do fizycznej karty sieciowej.
    3. Uruchom jedno z następujących poleceń na maszynie źródłowej, aby pobrać wszystkie adresy IP maszyny źródłowej:
-      - Dla systemu Windows:`> ipconfig /all`
-      - Dla systemu Linux:`# ifconfig -a`
+      - Dla systemu Windows: `> ipconfig /all`
+      - Dla systemu Linux: `# ifconfig -a`
 
 3. Jeśli nie znaleziono **poprawnego adresu IP** , Wyszukaj **przyczynę ciągu =>wartość null**. Ten błąd występuje, gdy maszyna źródłowa używa pustego hosta do zarejestrowania na serwerze konfiguracji. Jeśli ciąg zostanie znaleziony:
     - Po rozwiązaniu problemów postępuj zgodnie z instrukcjami w temacie [Rejestrowanie maszyny źródłowej na serwerze konfiguracji](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) , aby ponowić próbę rejestracji ręcznie.
@@ -234,7 +234,7 @@ Ten błąd może wystąpić, gdy w bazie danych istnieje wiele wpisów identyfik
 
 W celu rozwiązania tego problemu:
 
-1. Usuń nieodświeżoną/starą maszynę wirtualną CS z serwera vCenter. Aby uzyskać więcej informacji, zobacz [usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md).
+1. Usuń nieodświeżoną/starą maszynę wirtualną CS z serwera vCenter. Aby uzyskać więcej informacji, zobacz  [usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md).
 2. Zaloguj się do maszyny wirtualnej serwera konfiguracji i nawiąż połączenie z bazą danych MySQL svsdb1. 
 3. Wykonaj następujące zapytanie:
 

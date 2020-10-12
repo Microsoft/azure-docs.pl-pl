@@ -4,10 +4,10 @@ description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wype
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180936"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz pozycję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz opcję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -302,7 +302,7 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
 
 4. Na serwerze otwórz rejestr, wprowadzając polecenie **regedit** w oknie uruchamiania.
 
-5. Przejdź do rejestru *komputer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu o nazwie `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Przejdź do rejestru *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu o nazwie `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Aby uzyskać identyfikator użytkownika platformy Azure, wykonaj jedną z następujących czynności:
@@ -310,7 +310,7 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
     >- Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` polecenie.
     > - Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` o nazwie *CurrentUserId*.
 
-6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Wybierz pozycję **OK**.
+6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Kliknij przycisk **OK**.
 
 7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 

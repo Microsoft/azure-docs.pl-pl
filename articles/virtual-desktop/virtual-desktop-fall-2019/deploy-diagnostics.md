@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88691415"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
@@ -168,11 +168,11 @@ Aby można było wyświetlić kondycję maszyn wirtualnych, należy włączyć L
 
 Aby wdrożyć szablon zarządzania zasobami platformy Azure dla narzędzia Diagnostyka:
 
-1.  Przejdź do [strony usługi GitHub Azure RDS-templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
+1.  Przejdź do [strony usługi GitHub Azure RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Wdróż szablon na platformie Azure i postępuj zgodnie z instrukcjami w szablonie. Upewnij się, że masz dostępne następujące informacje:
 
-    -   Identyfikator klienta
-    -   Klient-klucz tajny
+    -   Client-Id
+    -   Client-Secret
     -   Identyfikator obszaru roboczego usługi Log Analytics
 
 3.  Po podaniu parametrów wejściowych Zaakceptuj warunki i postanowienia, a następnie wybierz pozycję **Kup**.
@@ -191,7 +191,7 @@ Aby ustawić identyfikator URI przekierowania:
 4.  W lewym panelu w obszarze Zarządzaj wybierz pozycję **uwierzytelnianie**.
 5.  Wprowadź żądany identyfikator URI przekierowania do pola tekstowego **Identyfikator URI przekierowania** , a następnie wybierz pozycję **Zapisz** w lewym górnym rogu menu.
 6. W menu rozwijanym w obszarze Typ wybierz pozycję **Sieć Web** .
-7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Na przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Strona URI przekierowania](../media/redirect-uri-page.png)

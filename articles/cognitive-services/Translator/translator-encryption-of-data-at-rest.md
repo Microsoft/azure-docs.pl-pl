@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079204"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w usłudze translator
@@ -37,7 +37,7 @@ W przypadku subskrypcji, które obsługują tylko zarządzane przez firmę Micro
 Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). CMK zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych. Jeśli CMK jest skonfigurowany dla Twojej subskrypcji, zapewniane jest podwójne szyfrowanie, które oferuje drugą warstwę ochrony, a jednocześnie pozwala kontrolować klucz szyfrowania za pomocą Azure Key Vault.
 
 > [!IMPORTANT]
-> Klucze zarządzane przez klienta są dostępne dla wszystkich warstw cenowych usługi Translator. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta](https://aka.ms/cogsvc-cmk) w ciągu około 3-5 dni roboczych, aby wypróbować stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą translator należy utworzyć nowy zasób usługi Translator. Po utworzeniu zasobu usługi Translator możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
+> Klucze zarządzane przez klienta są dostępne dla wszystkich warstw cenowych usługi Translator. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij żądanie dotyczące [klucza Customer-Managed usługi Translator](https://aka.ms/cogsvc-cmk) , a następnie poczekaj około 3-5 dni roboczych na wysłuchanie stanu żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą translator należy utworzyć nowy zasób usługi Translator. Po utworzeniu zasobu usługi Translator możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
 
 Wykonaj następujące kroki, aby włączyć obsługę kluczy zarządzanych przez klienta w usłudze Translator:
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby włączyć obsługę kluczy zarządzanych przez
 
 ### <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 
-Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vault. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Zasób Cognitive Services i Magazyn kluczy muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Aby przechowywać klucze zarządzane przez klienta, należy użyć usługi Azure Key Vault. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Zasób Cognitive Services i Magazyn kluczy muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Nowy zasób Cognitive Services jest zawsze szyfrowany przy użyciu kluczy zarządzanych przez firmę Microsoft. W momencie utworzenia zasobu nie można włączyć kluczy zarządzanych przez klienta. Klucze zarządzane przez klienta są przechowywane w Azure Key Vault, a Magazyn kluczy musi być zainicjowany przy użyciu zasad dostępu, które przyznają kluczowe uprawnienia do zarządzanej tożsamości skojarzonej z zasobem Cognitive Services. Tożsamość zarządzana jest dostępna zaraz po utworzeniu zasobu.
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: eafad5edf9dcac5745986d09060baf7e4278762d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903978"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Podwójne szyfrowanie infrastruktury dla Azure Database for MySQL
@@ -33,15 +33,15 @@ Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szy
 
 3. Podaj podstawowe informacje o serwerze. Wybierz **dodatkowe ustawienia** i Włącz pole wyboru **podwójne szyfrowanie infrastruktury** , aby ustawić parametr.
 
-    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Azure Database for MySQL wybór":::
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Opcja Azure Database for MySQL":::
 
 4. Wybierz pozycję **Przegląd + Utwórz** , aby udostępnić serwer.
 
-    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Podsumowanie Azure Database for MySQL":::
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Opcja Azure Database for MySQL":::
 
 5. Po utworzeniu serwera można sprawdzić poprawność szyfrowania podwójnej infrastruktury, sprawdzając stan w bloku serwer **szyfrowania danych** .
 
-    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Azure Database for MySQL walidacji":::
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Opcja Azure Database for MySQL":::
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---cli"></a>Tworzenie serwera Azure Database for MySQL z podwójnym szyfrowaniem infrastruktury — interfejs wiersza polecenia
 

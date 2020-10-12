@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081852"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla Durable Functions (Azure Functions)
@@ -32,7 +32,7 @@ W przypadku pisania funkcji programu Orchestrator w językach skryptów (na przy
 }
 ```
 
-* `orchestration`jest nazwą aranżacji, której klienci muszą używać, gdy chcą uruchamiać nowe wystąpienia tej funkcji programu Orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, zostanie użyta nazwa funkcji.
+* `orchestration` jest nazwą aranżacji, której klienci muszą używać, gdy chcą uruchamiać nowe wystąpienia tej funkcji programu Orchestrator. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, zostanie użyta nazwa funkcji.
 
 Wewnętrznie to powiązanie wyzwalacza sonduje serię kolejek w domyślnym koncie magazynu dla aplikacji funkcji. Te kolejki są wewnętrznymi szczegółami implementacji rozszerzenia, dlatego nie są one jawnie skonfigurowane we właściwościach powiązania.
 
@@ -139,7 +139,7 @@ Jeśli używasz VS Code lub Azure Portal do programowania, wyzwalacz aktywności
 }
 ```
 
-* `activity`to nazwa działania. Ta wartość jest nazwą, której funkcje programu Orchestrator używają do wywołania tej funkcji działania. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, zostanie użyta nazwa funkcji.
+* `activity` to nazwa działania. Ta wartość jest nazwą, której funkcje programu Orchestrator używają do wywołania tej funkcji działania. Ta właściwość jest opcjonalna. Jeśli nie zostanie określony, zostanie użyta nazwa funkcji.
 
 Wewnętrznie to powiązanie wyzwalacza sonduje kolejkę w domyślnym koncie magazynu dla aplikacji funkcji. Ta kolejka jest wewnętrznymi szczegółami implementacji rozszerzenia, dlatego nie jest on jawnie skonfigurowany we właściwościach powiązania.
 
@@ -261,8 +261,8 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 }
 ```
 
-* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez docelowe funkcje programu Orchestrator.
-* `connectionName`— Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez docelowe funkcje programu Orchestrator. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
+* `taskHub` — Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez docelowe funkcje programu Orchestrator.
+* `connectionName` — Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez docelowe funkcje programu Orchestrator. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
 
 > [!NOTE]
 > W większości przypadków zaleca się pominięcie tych właściwości i zagwarantowanie zachowania domyślnego.
@@ -523,8 +523,8 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 }
 ```
 
-* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez funkcje jednostki docelowej.
-* `connectionName`— Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez funkcje jednostki docelowej. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
+* `taskHub` — Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez funkcje jednostki docelowej.
+* `connectionName` — Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez funkcje jednostki docelowej. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
 
 > [!NOTE]
 > W większości przypadków zaleca się pominięcie opcjonalnych właściwości i zagwarantowanie zachowania domyślnego.

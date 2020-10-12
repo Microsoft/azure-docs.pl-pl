@@ -10,10 +10,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654807"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Cele skalowalności i wydajności dla kont usługi BLOB Storage na stronie Premium
@@ -43,7 +43,7 @@ Jeśli używasz kont usługi BLOB Storage w warstwie Premium dla dysków niezarz
 
 Jeśli nie można przeprowadzić migracji do dysków zarządzanych, skompiluj aplikację tak, aby korzystała z wielu kont magazynu, i Podziel swoje dane na te konta magazynu. Jeśli na przykład chcesz dołączyć dyski o pojemności 51 TB na wiele maszyn wirtualnych, rozłożyć je na dwa konta magazynu. 35 TB to limit dla pojedynczego konta magazynu w warstwie Premium. Upewnij się, że pojedyncze konto magazynu wydajności Premium nigdy nie ma więcej niż 35 TB dysków z zainicjowaną obsługą.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md)
 - [Cele skalowalności dla kont magazynu blokowych obiektów BLOB w warstwie Premium](../blobs/scalability-targets-premium-block-blobs.md)

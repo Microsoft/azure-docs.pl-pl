@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87115952"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definiowanie atrybutów niestandardowych w Azure Active Directory B2C
@@ -40,7 +40,7 @@ ms.locfileid: "87115952"
 5. Podaj **nazwę** dla atrybutu niestandardowego (na przykład "ShoeSize")
 6. Wybierz **Typ danych**. Dostępne są tylko **ciągi**, **wartości logiczne**i **int** .
 7. Opcjonalnie wprowadź **Opis** dla celów informacyjnych.
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
 
 Atrybut niestandardowy jest teraz dostępny na liście **atrybutów użytkownika** i do użycia w przepływach użytkownika. Atrybut niestandardowy jest tworzony tylko za pierwszym razem, gdy jest używany w dowolnym przepływie użytkownika, a nie po dodaniu go do listy **atrybutów użytkownika**.
 
@@ -48,8 +48,8 @@ Atrybut niestandardowy jest teraz dostępny na liście **atrybutów użytkownika
 
 1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
 1. Wybierz zasady (na przykład "B2C_1_SignupSignin"), aby je otworzyć.
-1. Wybierz pozycję **atrybuty użytkownika** , a następnie wybierz atrybut niestandardowy (na przykład "ShoeSize"). Kliknij pozycję **Zapisz**.
+1. Wybierz pozycję **atrybuty użytkownika** , a następnie wybierz atrybut niestandardowy (na przykład "ShoeSize"). Kliknij przycisk **Zapisz**.
 1. Wybierz pozycję **oświadczenia aplikacji** , a następnie wybierz atrybut niestandardowy.
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 Po utworzeniu nowego użytkownika przy użyciu przepływu użytkownika, który używa nowo utworzonego atrybutu niestandardowego, obiekt może być badany w [eksploratorze Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Alternatywnie możesz użyć funkcji [Uruchom przepływ użytkownika](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) w przepływie użytkownika, aby zweryfikować środowisko klienta. Na liście atrybutów zebranych podczas rejestracji można teraz zobaczyć **ShoeSize** i zobaczyć je w tokenie wysyłanym z powrotem do aplikacji.

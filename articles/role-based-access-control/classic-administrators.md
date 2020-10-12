@@ -1,6 +1,6 @@
 ---
 title: Klasyczni administratorzy subskrypcji platformy Azure
-description: Opisuje, jak dodać lub zmienić role administratora współpracującego z platformą Azure oraz administrator usługi oraz jak wyświetlić administratora konta.
+description: Opisuje sposób dodawania lub zmieniania ról usługi Azure Co-Administrator i administratora usługi oraz sposób wyświetlania konta administratora.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,30 +15,30 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076445"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klasyczni administratorzy subskrypcji platformy Azure
 
 Firma Microsoft zaleca, aby zarządzać dostępem do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (Azure RBAC). Jeśli jednak nadal korzystasz z klasycznego modelu wdrażania, musisz użyć klasycznej roli administratora subskrypcji: administrator usługi i administrator współpracujący. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager a wdrożenie klasyczne](../azure-resource-manager/management/deployment-models.md).
 
-W tym artykule opisano, jak dodać lub zmienić role administratora współadministratora i usługi oraz jak wyświetlić administratora konta.
+W tym artykule opisano, jak dodać lub zmienić role Co-Administrator i administratora usługi oraz jak wyświetlić administratora konta.
 
 ## <a name="add-a-co-administrator"></a>Dodawanie współadministratora
 
 > [!TIP]
-> Wystarczy dodać współadministratora, jeśli użytkownik musi zarządzać klasycznymi wdrożeniami platformy Azure przy użyciu [modułu Azure Service Management PowerShell](/powershell/module/servicemanagement/azure.service). Jeśli użytkownik używa tylko Azure Portal do zarządzania zasobami klasycznymi, nie trzeba dodawać administratora klasycznego dla użytkownika.
+> Należy dodać Co-Administrator, jeśli użytkownik musi zarządzać klasycznymi wdrożeniami platformy Azure przy użyciu [modułu Azure Service Management PowerShell](/powershell/module/servicemanagement/azure.service). Jeśli użytkownik używa tylko Azure Portal do zarządzania zasobami klasycznymi, nie trzeba dodawać administratora klasycznego dla użytkownika.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi lub współadministrator.
 
 1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-    Współadministratory mogą być przypisani tylko w zakresie subskrypcji.
+    Co-Administrators można przypisać tylko w zakresie subskrypcji.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
@@ -52,7 +52,7 @@ W tym artykule opisano, jak dodać lub zmienić role administratora współadmin
 
     ![Zrzut ekranu, który dodaje współadministratora](./media/classic-administrators/add-coadmin.png)
 
-## <a name="add-a-guest-user-as-a-co-administrator"></a>Dodawanie użytkownika-gościa jako współadministratora
+## <a name="add-a-guest-user-as-a-co-administrator"></a>Dodaj użytkownika-gościa jako Co-Administrator
 
 Aby dodać użytkownika-gościa jako współadministratora, wykonaj te same czynności co w poprzedniej sekcji [Dodawanie współadministratora](#add-a-co-administrator) . Użytkownik-Gość musi spełniać następujące kryteria:
 
@@ -62,11 +62,11 @@ Aby uzyskać więcej informacji, jak dodać użytkownika-gościa do katalogu, zo
 
 ### <a name="differences-for-guest-users"></a>Różnice dla użytkowników-Gości
 
-Użytkownicy-Goście, którym przypisano rolę współadministrator, mogą zobaczyć pewne różnice w porównaniu z użytkownikami należącymi do roli współadministratora. Poniżej przedstawiono przykładowy scenariusz:
+Użytkownicy-Goście, którym przypisano rolę Co-Administrator, mogą zobaczyć pewne różnice w porównaniu z użytkownikami członków z rolą Co-Administrator. Poniżej przedstawiono przykładowy scenariusz:
 
 - Użytkownik A za pomocą konta usługi Azure AD (konto służbowe) to administrator usługi dla subskrypcji platformy Azure.
 - Użytkownik B ma konto Microsoft.
-- Użytkownik A przypisuje rolę współadministratora użytkownikowi B.
+- Użytkownik A przypisuje rolę Co-Administrator użytkownikowi B.
 - Użytkownik B może wykonać prawie wszystko, ale nie może zarejestrować aplikacji ani wyszukać użytkowników w katalogu usługi Azure AD.
 
 Należy się spodziewać, że użytkownik B może zarządzać wszystkimi elementami. Przyczyna tej różnicy polega na tym, że konto Microsoft jest dodawana do subskrypcji jako użytkownik będący gościem, a nie użytkownikiem będącym członkiem. Użytkownicy-Goście mają różne domyślne uprawnienia w usłudze Azure AD w porównaniu z użytkownikami należącymi do członków. Na przykład użytkownicy z członkami mogą odczytywać innych użytkowników w usłudze Azure AD, a użytkownicy-Goście nie mogą. Użytkownicy będący członkami mogą rejestrować nowe jednostki usługi w usłudze Azure AD, a użytkownicy-Goście nie mogą.
@@ -77,17 +77,17 @@ Pamiętaj, że [wbudowane role platformy Azure](../role-based-access-control/bui
 
 Aby uzyskać informacje, które porównują użytkowników i użytkowników-Gości, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-## <a name="remove-a-co-administrator"></a>Usuwanie współadministratora
+## <a name="remove-a-co-administrator"></a>Usuwanie Co-Administrator
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi lub współadministrator.
 
 1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
-1. Dodaj znacznik wyboru obok administratora współpracującego, który chcesz usunąć.
+1. Dodaj znacznik wyboru obok Co-Administrator, które chcesz usunąć.
 
 1. Kliknij przycisk **Usuń**.
 
@@ -125,8 +125,8 @@ Może istnieć tylko jeden administrator usługi dla każdej subskrypcji platfor
 
 | Konto administratora konta | Czy administrator usługi może zmienić inny konto Microsoft? | Czy można zmienić administratora usługi na konto usługi Azure AD w tym samym katalogu? | Czy można zmienić administratora usługi na konto usługi Azure AD w innym katalogu? |
 | --- | --- | --- | --- |
-| Konto Microsoft | Yes | Nie | Nie |
-| Konto usługi Azure AD | Tak | Yes | Nie |
+| Konto Microsoft | Tak | Nie | Nie |
+| Konto usługi Azure AD | Tak | Tak | Nie |
 
 Jeśli administrator konta jest kontem usługi Azure AD, możesz zmienić administratora usługi na konto usługi Azure AD w tym samym katalogu, ale nie w innym katalogu. Na przykład program abby@contoso.com może zmienić administratora usługi na bob@contoso.com , ale nie może zmienić administratora usługi na, john@notcontoso.com chyba że john@notcontoso.com ma obecność w katalogu contoso.com.
 
@@ -151,5 +151,5 @@ Wykonaj następujące kroki, aby wyświetlić administratora konta.
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a57f42400468d69970c7c0b5d05d99a21b2d6b9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949562"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
@@ -156,7 +156,7 @@ Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby u
 
     ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 
-9. Kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
+9. Kliknij przycisk **Finish** (Zakończ). Zamknij konsolę zarządzania usługami AD FS.
 
 ## <a name="troubleshooting-logs"></a>Dzienniki rozwiązywania problemów
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539847"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Procedury składowane zarządzania Azure Database for MariaDB
@@ -25,11 +25,11 @@ Poniższe procedury składowane służą do konfigurowania lub usuwania replikac
 
 |**Nazwa procedury składowanej**|**Parametry wejściowe**|**Parametry wyjściowe**|**Uwaga dotycząca użycia**|
 |-----|-----|-----|-----|
-|*MySQL. az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Nie dotyczy|Aby przenieść dane z trybem SSL, Przekaż kontekst certyfikatu urzędu certyfikacji do parametru master_ssl_ca. </br><br>Aby przesłać dane bez protokołu SSL, Przekaż pusty ciąg do parametru master_ssl_ca.|
-|*Baza danych MySQL. az_replication _start*|NIE DOTYCZY|NIE DOTYCZY|Uruchamia replikację.|
-|*Baza danych MySQL. az_replication _stop*|NIE DOTYCZY|NIE DOTYCZY|Kończy replikację.|
-|*Baza danych MySQL. az_replication _remove_master*|NIE DOTYCZY|NIE DOTYCZY|Usuwa relację replikacji między źródłem a repliką.|
-|*MySQL. az_replication_skip_counter*|NIE DOTYCZY|NIE DOTYCZY|Pomija jeden błąd replikacji.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Nie dotyczy|Aby przenieść dane z trybem SSL, Przekaż kontekst certyfikatu urzędu certyfikacji do parametru master_ssl_ca. </br><br>Aby przesłać dane bez protokołu SSL, Przekaż pusty ciąg do parametru master_ssl_ca.|
+|*mysql.az_replication _start*|NIE DOTYCZY|NIE DOTYCZY|Uruchamia replikację.|
+|*mysql.az_replication _stop*|NIE DOTYCZY|NIE DOTYCZY|Kończy replikację.|
+|*mysql.az_replication _remove_master*|NIE DOTYCZY|NIE DOTYCZY|Usuwa relację replikacji między źródłem a repliką.|
+|*mysql.az_replication_skip_counter*|NIE DOTYCZY|NIE DOTYCZY|Pomija jeden błąd replikacji.|
 
 Aby skonfigurować replikacja typu data-in między źródłem a repliką w Azure Database for MariaDB, zapoznaj się z [tematem konfigurowanie replikacja typu Data-in](howto-data-in-replication.md).
 
@@ -39,9 +39,9 @@ Poniższe procedury składowane są dostępne w Azure Database for MariaDB zarz�
 
 |**Nazwa procedury składowanej**|**Parametry wejściowe**|**Parametry wyjściowe**|**Uwaga dotycząca użycia**|
 |-----|-----|-----|-----|
-|*MySQL. az_kill*|processlist_id|Nie dotyczy|Równoważne [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Nastąpi przerwanie połączenia skojarzonego z podanym processlist_id po zakończeniu wszelkich instrukcji wykonywanych przez połączenie.|
-|*MySQL. az_kill_query*|processlist_id|Nie dotyczy|Równoważne [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Zakończy instrukcję, że połączenie jest aktualnie wykonywane. Opuszcza połączenie.|
-|*MySQL. az_load_timezone*|NIE DOTYCZY|NIE DOTYCZY|Ładuje tabele strefy czasowej, aby zezwolić na `time_zone` ustawienie wartości nazwanych (np. "USA/Pacyfik").|
+|*mysql.az_kill*|processlist_id|Nie dotyczy|Równoważne [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Nastąpi przerwanie połączenia skojarzonego z podanym processlist_id po zakończeniu wszelkich instrukcji wykonywanych przez połączenie.|
+|*mysql.az_kill_query*|processlist_id|Nie dotyczy|Równoważne [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Zakończy instrukcję, że połączenie jest aktualnie wykonywane. Opuszcza połączenie.|
+|*mysql.az_load_timezone*|NIE DOTYCZY|NIE DOTYCZY|Ładuje tabele strefy czasowej, aby zezwolić na `time_zone` ustawienie wartości nazwanych (np. "USA/Pacyfik").|
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak skonfigurować [replikacja typu Data-in](howto-data-in-replication.md)

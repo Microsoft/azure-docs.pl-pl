@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936949"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Zarządzanie wygasaniem zawartości internetowej w usłudze Azure CDN
@@ -38,7 +38,7 @@ Ustawienia pamięci podręcznej można również kontrolować przy użyciu Azure
 > Aby uzyskać więcej informacji o tym, jak działa Azure CDN, aby przyspieszyć dostęp do plików i innych zasobów, zobacz [Omówienie usługi Azure Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ustawianie nagłówków kontroli pamięci podręcznej przy użyciu reguł buforowania sieci CDN
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ustawianie nagłówków Cache-Control przy użyciu reguł buforowania usługi CDN
 Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jest użycie reguł buforowania w Azure Portal. Aby uzyskać więcej informacji na temat reguł buforowania usługi CDN, zobacz [kontrola Azure CDN buforowania przy użyciu reguł buforowania](cdn-caching-rules.md).
 
 > [!NOTE] 
@@ -57,7 +57,7 @@ Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jes
    ![Strona buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Aby ustawić nagłówki kontroli pamięci podręcznej serwera sieci Web przy użyciu globalnych reguł buforowania:**
+**Aby ustawić nagłówki Cache-Control serwera sieci Web przy użyciu globalnych zasad buforowania:**
 
 1. W obszarze **globalne reguły buforowania**Ustaw **zachowanie buforowania ciągu zapytania** , aby **zignorować ciągi zapytań** i ustawić **zachowanie buforowania** w celu **przesłonięcia**.
       
@@ -69,7 +69,7 @@ Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jes
 
 1. Wybierz pozycję **Zapisz**.
 
-**Aby ustawić nagłówki kontroli pamięci podręcznej pliku serwera sieci Web przy użyciu niestandardowych reguł buforowania:**
+**Aby ustawić nagłówki Cache-Control pliku serwera sieci Web przy użyciu niestandardowych reguł buforowania:**
 
 1. W obszarze **niestandardowe reguły buforowania**Utwórz dwa warunki dopasowywania:
 
@@ -84,7 +84,7 @@ Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jes
 1. Wybierz pozycję **Zapisz**.
 
 
-## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ustawianie nagłówków kontroli pamięci podręcznej przy użyciu plików konfiguracji
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ustawianie nagłówków Cache-Control przy użyciu plików konfiguracji
 W przypadku zawartości statycznej, takiej jak obrazy i arkusze stylów, można kontrolować częstotliwość aktualizacji, modyfikując **applicationHost.config** lub **Web.config** pliki konfiguracji dla aplikacji sieci Web. Aby ustawić `Cache-Control` nagłówek zawartości, użyj `<system.webServer>/<staticContent>/<clientCache>` elementu w obu plikach.
 
 ### <a name="using-applicationhostconfig-files"></a>Korzystanie z plików ApplicationHost.config
@@ -109,7 +109,7 @@ Poniższy przykład pliku konfiguracji XML pokazuje, jak ustawić element, `<cli
 
 Aby użyć atrybutu **cacheControlMaxAge** , należy ustawić wartość atrybutu **cacheControlMode** na `UseMaxAge` . To ustawienie spowodowało dodanie nagłówka HTTP i dyrektywy `Cache-Control: max-age=<nnn>` do odpowiedzi. Format wartości TimeSpan dla atrybutu **cacheControlMaxAge** jest `<days>.<hours>:<min>:<sec>` . Jego wartość jest konwertowana na sekundy i jest używana jako wartość `Cache-Control` `max-age` dyrektywy. Aby uzyskać więcej informacji na temat `<clientCache>` elementu, zobacz [pamięć \<clientCache> podręczna klienta ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
-## <a name="setting-cache-control-headers-programmatically"></a>Programistyczne Ustawianie nagłówków kontroli pamięci podręcznej
+## <a name="setting-cache-control-headers-programmatically"></a>Programowe Ustawianie nagłówków Cache-Control
 W przypadku aplikacji ASP.NET można programowo kontrolować zachowanie buforowania usługi CDN przez ustawienie właściwości **HttpResponse. cache** interfejsu API platformy .NET. Aby uzyskać informacje na temat właściwości **HttpResponse. cache** , zobacz [HttpResponse. cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) i [HttpCachePolicy class](/dotnet/api/system.web.httpcachepolicy).  
 
 Aby programowo przechować zawartość aplikacji w ASP.NET, wykonaj następujące kroki:

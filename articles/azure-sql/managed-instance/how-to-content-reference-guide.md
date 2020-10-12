@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617455"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informacje o zawartości wystąpienia zarządzanego usługi Azure SQL
@@ -67,7 +67,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 - [Monitorowanie wydajności za pomocą magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Rozwiązywanie problemów z wydajnością przy użyciu funkcji Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Korzystanie z dziennika diagnostyki Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
-- [Monitoruj przestrzeń OLTP w pamięci](../in-memory-oltp-monitor-space.md)
+- [Monitoruj In-Memory miejsce OLTP](../in-memory-oltp-monitor-space.md)
 
 ### <a name="extended-events"></a>Zdarzenia rozszerzone
 

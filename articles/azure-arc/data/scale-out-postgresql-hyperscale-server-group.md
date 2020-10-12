@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285387"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Skalowanie w poziomie grupy serwerów PostgreSQL na platformie Azure
@@ -152,7 +152,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 ```
 
 > [!CAUTION]
-> Wersja zapoznawcza nie obsługuje skalowania do tyłu. Na przykład nie jest jeszcze możliwe zmniejszenie liczby węzłów procesu roboczego. Jeśli trzeba to zrobić, należy wyodrębnić/utworzyć kopię zapasową danych, porzucić grupę serwerów, stworzyć nową grupę serwerów z mniejszymi węzłami roboczymi, a następnie zaimportować dane.
+> Wersja zapoznawcza nie obsługuje zmniejszania skali w poziomie. Na przykład nie jest jeszcze możliwe zmniejszenie liczby węzłów roboczych. Jeśli trzeba to zrobić, należy wyodrębnić dane/utworzyć kopię zapasową danych, usunąć grupę serwerów, utworzyć nową grupę serwerów z mniejszą liczbą węzłów roboczych, a następnie zaimportować dane.
 
 W tym przykładzie zwiększamy liczbę węzłów procesu roboczego z 2 do 4, uruchamiając następujące polecenie:
 

@@ -1,7 +1,7 @@
 ---
-title: sys. external_job_streams (Transact-SQL) — Azure SQL Edge
-description: Dowiedz się więcej o używaniu wykazu sys. external_job_streams w usłudze Azure SQL Edge
-keywords: sys. external_job_streams, SQL Edge
+title: sys.external_job_streams (Transact-SQL) — Azure SQL Edge
+description: Dowiedz się więcej o używaniu sys.external_job_streams w usłudze Azure SQL Edge
+keywords: sys.external_job_streams, SQL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
 ms.openlocfilehash: 35010d3aba7f6d5ee3185291c917ff7726ba8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900358"
 ---
 # <a name="sysexternal_job_streams-transact-sql"></a>sys.external_job_streams (Transact-SQL)
@@ -22,8 +22,8 @@ Zwraca wiersz każdy dla obiektu strumienia zewnętrznego danych wejściowych lu
 
 |Nazwa kolumny|Typ danych|Opis|  
 |-----------------|---------------|-----------------|
-|**job_id**|**int**| Numer identyfikacyjny obiektu dla obiektu zadania przesyłania strumieniowego. Ta kolumna jest mapowana do kolumny object_id wykazu sys. external_streaming_jobs.|
-|**stream_id**|**int**| Numer identyfikacyjny obiektu strumienia. Ta kolumna jest mapowana do kolumny object_id wykazu sys. external_streams. |
+|**job_id**|**int**| Numer identyfikacyjny obiektu dla obiektu zadania przesyłania strumieniowego. Ta kolumna mapuje do kolumny object_id sys.external_streaming_jobs.|
+|**stream_id**|**int**| Numer identyfikacyjny obiektu strumienia. Ta kolumna mapuje do kolumny object_id sys.external_streams. |
 |**is_input**|**bit**| 1 Jeśli obiekt Stream jest używany jako dane wejściowe dla zadania przesyłania strumieniowego, w przeciwnym razie 0.|
 |**is_output**|**bit**| 1, jeśli obiekt Stream jest używany w danych wyjściowych dla zadania przesyłania strumieniowego, w przeciwnym razie 0.|
 
