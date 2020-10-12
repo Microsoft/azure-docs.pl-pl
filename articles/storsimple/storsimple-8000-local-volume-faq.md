@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511510"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple woluminy przypięte lokalnie: często zadawane pytania
@@ -178,7 +178,7 @@ Więcej informacji na temat [konwertowania woluminu warstwowego na wolumin przyp
 
 **Pytania.** Czy można sklonować wolumin przypięty lokalnie?
 
-**Z.** Tak, można. Jednak wolumin przypięty lokalnie zostanie sklonowany jako wolumin warstwowy domyślnie. Więcej informacji na temat [klonowania woluminu przypiętego lokalnie](storsimple-8000-clone-volume-u2.md)
+**Z.** Tak, możesz. Jednak wolumin przypięty lokalnie zostanie sklonowany jako wolumin warstwowy domyślnie. Więcej informacji na temat [klonowania woluminu przypiętego lokalnie](storsimple-8000-clone-volume-u2.md)
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Pytania dotyczące przełączenia awaryjnego woluminu przypiętego lokalnie
 **Pytania.** Muszę przełączyć urządzenie do trybu failover na innym urządzeniu fizycznym. Czy moje woluminy przypięte lokalnie zostaną przełączone w tryb failover jako przypięty lokalnie czy warstwowe?
@@ -201,5 +201,5 @@ Więcej informacji na temat [trybu failover i odzyskiwania woluminów przypięty
 
 **Pytania.** Czy można przenieść kontener woluminów do trybu failover za pomocą lokalnie przypiętych woluminów do urządzenia w chmurze?
 
-**Z.** Tak, można. Woluminy przypięte lokalnie zostaną przełączone w tryb failover jako woluminy warstwowe. Więcej informacji na temat [trybu failover i odzyskiwania woluminów przypiętych lokalnie w różnych wersjach](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**Z.** Tak, możesz. Woluminy przypięte lokalnie zostaną przełączone w tryb failover jako woluminy warstwowe. Więcej informacji na temat [trybu failover i odzyskiwania woluminów przypiętych lokalnie w różnych wersjach](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261516"
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat usługi Media Encoder Standard
@@ -99,8 +99,8 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | **Multimedia**<br/><br/> minOccurs = "0" |**XS: int** |Szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Maksymalna szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "00:00:05" |**XS: godzina** |Długość buforu wideo. |
-| **Width**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
-| **Height**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
+| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
+| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
 | **BFrames**<br/><br/> minOccurs = "0" |**XS: int** |Liczba klatek między ramkami referencyjnymi. |
 | **ReferenceFrames**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "3" |**XS: int** |Liczba ramek odwołań w grupę GOP. |
 | **Entropia**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "CABAC" |**XS: ciąg** |Może to być jedna z następujących wartości: **CABAC** i **Cavlc**. |
@@ -127,7 +127,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 
 ### <a name="groups"></a>Grupy
 
-| Dokumentacja | Opis |
+| Tematy pomocy | Opis |
 | --- | --- |
 | [Audio](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis obiektu [audio](media-services-mes-schema.md#AudioGroup) , aby poznać odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
 
@@ -185,7 +185,7 @@ Koder-dekoder audio|Szczegóły
 | --- | --- | --- |
 | **Początek** |**XS: ciąg** | |
 | **Krok** |**XS: ciąg** | |
-| **Zakresu** |**XS: ciąg** | |
+| **Zakres** |**XS: ciąg** | |
 | **PreserveResolutionAfterRotation** |**XS: wartość logiczna** |Szczegółowe wyjaśnienie można znaleźć w następującej sekcji: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
@@ -217,8 +217,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -231,8 +231,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -245,8 +245,8 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Szerokość**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
 | **Jakość**<br/><br/> minOccurs = "0" |**XS: int** |Prawidłowe wartości: 1 (najgorszy) — 100 (Najlepsza) |
 
 ### <a name="attributes"></a>Atrybuty
@@ -303,6 +303,6 @@ Zobacz przykłady ustawień wstępnych XML, które są tworzone w oparciu o ten 
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

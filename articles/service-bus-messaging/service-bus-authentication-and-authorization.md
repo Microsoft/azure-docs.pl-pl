@@ -4,16 +4,16 @@ description: Uwierzytelniaj aplikacje w celu Service Bus z uwierzytelnianiem syg
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066865"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja w usłudze Service Bus
 Istnieją dwa sposoby uwierzytelniania i autoryzowania dostępu do zasobów Azure Service Bus: katalog aktywności platformy Azure (Azure AD) i sygnatury dostępu współdzielonego (SAS). Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z tych dwóch typów mechanizmów zabezpieczeń. 
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 Integracja z usługą Azure AD dla zasobów Service Bus zapewnia kontrolę dostępu opartą na rolach (RBAC) w celu uzyskania szczegółowej kontroli nad dostępem klientów do zasobów. Za pomocą kontroli dostępu opartej na rolach (RBAC) można udzielać uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD w celu zwrócenia tokenu OAuth 2,0. Token może służyć do autoryzowania żądania dostępu do zasobu Service Bus (Kolejka, temat itp.).
 
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:

@@ -12,10 +12,10 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067430"
 ---
 # <a name="what-is-the-speech-cli"></a>Co to jest interfejs wiersza polecenia usługi Mowa?
@@ -42,7 +42,7 @@ Użyj zestawu Speech SDK, gdy:
 
 * Uruchamianie w ramach zasobów obliczeniowych platformy Azure — Wysyłanie poleceń interfejsu wiersza polecenia funkcji rozpoznawania mowy do uruchamiania na zdalnym zasobie obliczeniowym platformy Azure przy użyciu `spx webjob` .
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia mowy, zapoznaj się z [artykułem podstawowe informacje](spx-basics.md). W tym artykule przedstawiono sposób uruchamiania niektórych podstawowych poleceń, a także przedstawiono nieco bardziej zaawansowane polecenia do uruchamiania operacji wsadowych na potrzeby zamiany mowy na tekst i zamiany tekstu na mowę. Po przeczytaniu artykułu podstawowe należy mieć wystarczającą wiedzę na temat składni, aby rozpocząć pisanie niektórych poleceń niestandardowych lub zautomatyzować proste operacje usługi Speech.
 

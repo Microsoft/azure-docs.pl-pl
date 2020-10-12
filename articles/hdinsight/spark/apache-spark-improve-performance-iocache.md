@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
 ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081761"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Poprawianie wydajności Apache Spark obciążeń przy użyciu pamięci podręcznej we/wy usługi Azure HDInsight
 
-Pamięć podręczna we/wy to usługa buforowania danych dla usługi Azure HDInsight, która zwiększa wydajność Apache Spark zadań. Pamięć podręczna we/wy działa również w przypadku obciążeń [Apache tez](https://tez.apache.org/) i [Apache Hive](https://hive.apache.org/) , które można uruchamiać w klastrach [Apache Spark](https://spark.apache.org/) . Pamięć podręczna we/wy używa składnika pamięci podręcznej Open Source o nazwie RubiX. RubiX to lokalna pamięć podręczna dysku do użycia z aparatami analizy danych Big Data, które uzyskują dostęp do danych z systemów magazynu w chmurze. RubiX jest unikatowy w systemach buforowania, ponieważ używa dysków półprzewodnikowych (dysków SSD), a nie rezerwowej pamięci operacyjnej do celów buforowania. Usługa pamięci podręcznej we/wy uruchamia i zarządza serwerami metadanych RubiX w każdym węźle procesu roboczego klastra. Konfiguruje także wszystkie usługi klastra na potrzeby przezroczystego użycia pamięci podręcznej RubiX.
+Pamięć podręczna we/wy to usługa buforowania danych dla usługi Azure HDInsight, która zwiększa wydajność Apache Spark zadań. Pamięć podręczna we/wy działa również w przypadku obciążeń [Apache tez](https://tez.apache.org/) i [Apache Hive](https://hive.apache.org/) , które można uruchamiać w klastrach [Apache Spark](https://spark.apache.org/) . Pamięć podręczna we/wy używa składnika pamięci podręcznej Open Source o nazwie RubiX. RubiX to lokalna pamięć podręczna dysku do użycia z aparatami analizy danych Big Data, które uzyskują dostęp do danych z systemów magazynu w chmurze. RubiX jest unikatowy w systemach buforowania, ponieważ używa dysków Solid-State (dysków SSD), a nie rezerwuje pamięci operacyjnej do celów buforowania. Usługa pamięci podręcznej we/wy uruchamia i zarządza serwerami metadanych RubiX w każdym węźle procesu roboczego klastra. Konfiguruje także wszystkie usługi klastra na potrzeby przezroczystego użycia pamięci podręcznej RubiX.
 
 Większość dysków SSD zapewnia więcej niż 1 GByte na sekundę przepustowości. Ta przepustowość, dostosowana przez system operacyjny w pamięci podręcznej plików, zapewnia wystarczającą przepustowość do ładowania aparatów przetwarzania obliczeń danych Big Data, takich jak Apache Spark. Pamięć operacyjna jest dostępna do Apache Spark, aby przetwarzać silnie zależne od pamięci zadania, takie jak losowo. Korzystanie z wyłącznej pamięci operacyjnej pozwala Apache Spark uzyskać optymalne użycie zasobów.  
 

@@ -11,10 +11,10 @@ author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
 ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276088"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
@@ -33,7 +33,7 @@ Obszar roboczy jest scentralizowanym miejscem do:
 * Magazynowanie zasobów tworzonych podczas korzystania z Azure Machine Learning, w tym:
   * [Środowiska](#environments)
   * [Eksperymenty](#experiments)
-  * [Pipelines](#ml-pipelines)
+  * [Potoki](#ml-pipelines)
   * [Zestawy danych](#datasets-and-datastores)
   * [Modele](#models)
   * [Punkty końcowe](#endpoints)
@@ -202,7 +202,7 @@ Wdrożony punkt końcowy modułu IoT to kontener platformy Docker, który obejmu
 Jeśli włączono monitorowanie, platforma Azure zbiera dane telemetryczne z modelu w module Azure IoT Edge. Dane telemetryczne są dostępne tylko dla Ciebie i są przechowywane w wystąpieniu konta magazynu.
 
 Azure IoT Edge zapewnia, że moduł jest uruchomiony, i monitoruje urządzenie, które je obsługuje. 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 ### <a name="azure-machine-learning-cli"></a>Interfejs wiersza polecenia Azure Machine Learning 
 

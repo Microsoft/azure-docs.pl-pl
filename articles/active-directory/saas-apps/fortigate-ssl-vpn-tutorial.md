@@ -16,10 +16,10 @@ ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331118"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN
@@ -77,11 +77,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **sieci VPN Fortigate SSL** w sekcji **Zarządzanie** wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
    ![Zrzut ekranu pokazujący przycisk ołówka służący do edytowania podstawowej konfiguracji języka SAML.](common/edit-urls.png)
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wprowadź następujące wartości:
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wprowadź następujące wartości:
 
     a. W polu **adres URL logowania** wprowadź adres URL we wzorcu `https://<FQDN>/remote/login` .
 
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
    1. W obszarze **Nazwa**wprowadź polecenie **Grupuj**.
    1. Wybierz pozycję **Zapisz**.   
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz łącze **pobierania** obok pozycji **certyfikat (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz łącze **pobierania** obok pozycji **certyfikat (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
 
     ![Zrzut ekranu przedstawiający link pobierania certyfikatu.](common/certificatebase64.png)
 

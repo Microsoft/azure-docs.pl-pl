@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513472"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Jak dodać odbiorcę do istniejącego udziału danych w udziale danych platformy Azure
@@ -21,7 +21,7 @@ Aby uzyskać informacje na temat dodawania odbiorców podczas tworzenia udziału
 
 ## <a name="navigate-to-a-sent-data-share"></a>Przejdź do wysłanego udziału danych
 
-W udziale danych platformy Azure przejdź do wysłanego udziału i wybierz kartę **zaproszenia** . w tym miejscu znajdują się wszyscy adresaci zaproszeń do tego udziału danych. Aby dodać nowe konto, kliknij przycisk **Dodaj adresata**.
+W udziale danych platformy Azure przejdź do wysłanego udziału i wybierz kartę **zaproszenia** . W tym miejscu znajdują się wszyscy adresaci zaproszeń do tego udziału danych. Aby dodać nowe konto, kliknij przycisk **Dodaj adresata**.
 
 ![Dodaj odbiorcę](./media/how-to/how-to-add-recipients/add-recipient.png)
 

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084646"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Znane problemy dotyczące klastra Apache Spark w usłudze HDInsight
@@ -69,7 +69,7 @@ I nie zapisano dziennika sterownika.
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Łącznik Spark-Phoenix nie jest obsługiwany
 
-Klastry HDInsight Spark nie obsługują łącznika Spark-Phoenix.
+Klastry usługi HDInsight Spark nie obsługują łącznika Spark-Phoenix.
 
 **Środki zaradcze**
 

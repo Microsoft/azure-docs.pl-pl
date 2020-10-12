@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329486"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze
@@ -251,7 +251,7 @@ Jest to typowy, ale nie jest wymagany, aby używać tych samych analizatorów dl
 
 Powracamy do naszego przykładu dla pola **title** indeks odwrócony wygląda następująco:
 
-| Termin | Lista dokumentów |
+| Okres | Lista dokumentów |
 |------|---------------|
 | atman | 1 |
 | sekwencje | 2 |
@@ -265,7 +265,7 @@ W polu title tylko *Hotel* pojawia się w dwóch dokumentach: 1, 3.
 
 W przypadku pola **Description** indeks jest następujący:
 
-| Termin | Lista dokumentów |
+| Okres | Lista dokumentów |
 |------|---------------|
 | dmuchaw | 3
 | oraz | 4

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480137"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Dodawanie interfejsów sieciowych do maszyn wirtualnych lub ich usuwanie
@@ -117,7 +117,7 @@ Aby dowiedzieć się więcej o ustawieniach interfejsu sieciowego i sposobach ic
 
 5. Na pasku menu maszyny wirtualnej wybierz kolejno opcje **Sieć**  >  **Odłącz interfejs sieciowy**.
 
-6. W oknie dialogowym **Odłącz interfejs sieciowy** wybierz interfejs sieciowy, który chcesz odłączyć. Następnie wybierz pozycję **OK**.
+6. W oknie dialogowym **Odłącz interfejs sieciowy** wybierz interfejs sieciowy, który chcesz odłączyć. Następnie wybierz przycisk **OK**.
 
     >[!NOTE]
     >Jeśli na liście znajduje się tylko jeden interfejs sieciowy, nie można go odłączyć, ponieważ maszyna wirtualna musi mieć dołączony co najmniej jeden interfejs sieciowy.

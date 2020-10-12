@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.openlocfilehash: 7f0a8fcb841399eb910f5f043cc75ddad037ee30
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88606859"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planowanie i zarządzanie kosztami Azure Cosmos DB
@@ -71,7 +71,7 @@ Po rozpoczęciu korzystania z Azure Cosmos DB zasobów z Azure Portal można zob
 1. Utwórz nowy kontener, taki jak kontener grafu.
 1. Wprowadź przepływność wymaganą dla obciążenia, np. 400 RU/s. Po wprowadzeniu wartości przepływności można zobaczyć oszacowanie cen, jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Szacowanie kosztów w Azure Portal":::
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
 
 ## <a name="use-budgets-and-cost-alerts"></a>Używanie alertów dotyczących budżetu i kosztów
 
@@ -85,7 +85,7 @@ Gdy korzystasz z zasobów z Azure Cosmos DB, naliczane są koszty. Koszty jednos
 
 Korzystając z analizy kosztów, można wyświetlić Azure Cosmos DB koszty w wykresach i tabelach dla różnych przedziałów czasu. Kilka przykładów jest dziennie, bieżących, poprzedniego miesiąca i roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków i sprawdzaniu, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, możesz również łatwo zobaczyć miejsce ich przekroczenia. Aby wyświetlić koszty Azure Cosmos DB w analizie kosztów:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów**. Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
 
@@ -93,7 +93,7 @@ Korzystając z analizy kosztów, można wyświetlić Azure Cosmos DB koszty w wy
 
 1. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Cosmos DB, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz **Azure Cosmos DB** z listy. Oto przykład przedstawiający koszty tylko Azure Cosmos DB:
  
-   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitorowanie kosztów za pomocą okienka analiza kosztów":::
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
 
 W poprzednim przykładzie zobaczysz bieżący koszt dla Azure Cosmos DB w miesiącu lutego. Wykresy zawierają również koszty Azure Cosmos DB według lokalizacji i grupy zasobów.
 

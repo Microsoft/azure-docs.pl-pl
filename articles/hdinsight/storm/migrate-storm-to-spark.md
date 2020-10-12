@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081200"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrowanie Apache Storm usługi Azure HDInsight 3,6 do programu HDInsight 4,0 Apache Spark
@@ -33,7 +33,7 @@ Ten dokument zawiera Przewodnik migracji z Apache Storm do strumienia Spark i pr
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Porównanie między Apache Storm i Spark streaming, przetwarzania strumieniowego platformy Spark
 
-System Apache Storm zapewnia różne poziomy gwarantowanego przetwarzania komunikatów. Na przykład podstawowa aplikacja burzowa może gwarantować co najmniej jednokrotne przetwarzanie, a [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) może zagwarantować dokładnie jedno przetwarzanie. Funkcja przetwarzania strumieniowego platformy Spark i przetwarzania strumieniowego platformy Spark gwarantuje, że każde zdarzenie wejściowe jest przetwarzane dokładnie jeden raz, nawet jeśli wystąpi awaria węzła. Burza ma model, który przetwarza każde pojedyncze zdarzenie, i można również użyć modelu Micro Batch z Trident. Model przetwarzania strumieniowego Spark streaming i Spark
+System Apache Storm zapewnia różne poziomy gwarantowanego przetwarzania komunikatów. Na przykład podstawowa aplikacja burzowa może gwarantować co najmniej jednokrotne przetwarzanie, a [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) może zagwarantować dokładnie jedno przetwarzanie. Funkcja przetwarzania strumieniowego platformy Spark i przetwarzania strumieniowego platformy Spark gwarantuje, że każde zdarzenie wejściowe jest przetwarzane dokładnie jeden raz, nawet jeśli wystąpi awaria węzła. Burza ma model, który przetwarza każde pojedyncze zdarzenie, i można również użyć modelu Micro Batch z Trident. Model przetwarzania strumieniowego platformy Spark i przesyłania strumieniowego platformy Spark zapewniają Micro-Batche.
 
 |  |Storm |Przesyłanie strumieniowe w usłudze Spark | Strumień strukturalny platformy Spark|
 |---|---|---|---|
@@ -46,7 +46,7 @@ System Apache Storm zapewnia różne poziomy gwarantowanego przetwarzania komuni
 
 Proces przesyłania strumieniowego platformy Spark polega na wymianie strumienia Spark (DStreams). Przesyłanie strumieniowe ze strukturą będzie nadal otrzymywać ulepszenia i konserwację, a DStreams będzie tylko w trybie konserwacji. **Uwaga: musisz mieć linki, aby wyróżnić ten punkt**. Przesyłanie strumieniowe ze strukturą nie ma tylu funkcji jak DStreams dla źródeł i ujścia, które obsługuje, dlatego należy oszacować wymagania, aby wybrać odpowiednią opcję przetwarzania strumienia Spark.
 
-## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Przetwarzanie strumienia strumieniowego (Single Event) vs Micro Processing
+## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Przetwarzanie strumieniowe (Single Event) i przetwarzanie Micro-Batch przetwarzania
 
 Burza zawiera model, który przetwarza każde pojedyncze zdarzenie. Oznacza to, że wszystkie rekordy przychodzące będą przetwarzane zaraz po ich nadejściu. Aplikacje strumieniowe Spark muszą czekać część sekund, aby zebrać każdą mikropartię zdarzeń przed wysłaniem tej partii na potrzeby przetwarzania. Z kolei aplikacja oparta na zdarzeniach natychmiast przetwarza każde zdarzenie. Opóźnienie przesyłania strumieniowego Spark jest zwykle w ciągu kilku sekund. Zalety metody Micro-Batch to wydajniejsze przetwarzanie danych i prostsze obliczenia zagregowane.
 

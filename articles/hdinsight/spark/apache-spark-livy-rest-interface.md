@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084617"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Przesyłanie zadań zdalnych do klastra usługi HDInsight Spark przy użyciu interfejsu API REST platformy Apache Spark
@@ -97,7 +97,7 @@ W tej sekcji przedstawiono przykłady użycia usługi Livy Spark do przesyłania
 * Skopiowano już za pośrednictwem aplikacji jar do konta magazynu skojarzonego z klastrem.
 * Zainstalowano na komputerze, na którym próbujesz wykonać te kroki.
 
-Wykonaj poniższe czynności:
+Wykonaj następujące czynności:
 
 1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne środowiskowe. Ten przykład jest oparty na środowisku systemu Windows, Popraw zmienne odpowiednio do potrzeb środowiska. Zamień `CLUSTERNAME` i `PASSWORD` z odpowiednimi wartościami.
 

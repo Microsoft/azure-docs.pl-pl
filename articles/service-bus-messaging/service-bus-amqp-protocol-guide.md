@@ -4,10 +4,10 @@ description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Ser
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064540"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
@@ -73,7 +73,7 @@ Połączenia, kanały i sesje są nieulotne. Jeśli połączenie podstawowe jest
 
 ### <a name="amqp-outbound-port-requirements"></a>Wymagania dotyczące portów wychodzących AMQP
 
-Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) jest włączona. `EnableLinkRedirect`to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
+Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) jest włączona. `EnableLinkRedirect` to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
 
 ![Lista portów docelowych][4]
 
@@ -222,10 +222,10 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 | --- | --- | --- |
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
-| na |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Do](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| na wartość |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Działanie](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Temat |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Odpowiedz do |Zdefiniowany przez aplikację wskaźnik ścieżki odpowiedzi, nieinterpretowany przez Service Bus. |[From](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[Korelacj](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Typ zawartości |Zdefiniowany przez aplikację wskaźnik typu zawartości dla treści, nieinterpretowany przez Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Kodowanie zawartości |Zdefiniowany przez aplikację wskaźnik kodowania zawartości dla treści, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
 | bezwzględny czas wygaśnięcia |Deklaruje, że bezwzględnie utraci komunikat. Zignorowano w danych wejściowych (zaobserwowane jest czas wygaśnięcia nagłówka), autorytatywny dla danych wyjściowych. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -359,7 +359,7 @@ Komunikat żądania ma następujące właściwości aplikacji:
 
 | Klucz | Opcjonalne | Typ wartości | Zawartość wartości |
 | --- | --- | --- | --- |
-| operacje |Nie |ciąg |**Put-token** |
+| operation |Nie |ciąg |**Put-token** |
 | typ |Nie |ciąg |Typ umieszczanego tokenu. |
 | name |Nie |ciąg |"Odbiorcy", do którego ma zastosowanie token. |
 | datę |Tak |sygnatura czasowa |Czas wygaśnięcia tokenu. |

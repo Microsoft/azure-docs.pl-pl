@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697847"
 ---
 # <a name="http-api-reference"></a>Dokumentacja interfejsu API protokołu HTTP
@@ -24,7 +24,7 @@ Wszystkie interfejsy API HTTP implementowane przez rozszerzenie wymagają nastę
 | **`connection`** | Ciąg zapytania    | **Nazwa** parametrów połączenia dla konta magazynu. Jeśli nie zostanie określony, przyjmuje się domyślne parametry połączenia dla aplikacji funkcji. |
 | **`systemKey`**  | Ciąg zapytania    | Klucz autoryzacji wymagany do wywołania interfejsu API. |
 
-`systemKey`jest kluczem autoryzacji automatycznie generowanym przez hosta Azure Functions. Zapewnia ona specjalny dostęp do interfejsów API rozszerzenia zadania trwałego i można nimi zarządzać w taki sam sposób jak [inne klucze autoryzacji](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Można generować adresy URL, które zawierają prawidłowe `taskHub` `connection` wartości ciągu zapytania,, i, `systemKey` przy użyciu interfejsów API [powiązania klienta aranżacji](durable-functions-bindings.md#orchestration-client) , takie jak `CreateCheckStatusResponse` `CreateHttpManagementPayload` interfejsy API i interfejsy `createCheckStatusResponse` i interfejsów API `createHttpManagementPayload` w języku JavaScript.
+`systemKey` jest kluczem autoryzacji automatycznie generowanym przez hosta Azure Functions. Zapewnia ona specjalny dostęp do interfejsów API rozszerzenia zadania trwałego i można nimi zarządzać w taki sam sposób jak [inne klucze autoryzacji](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Można generować adresy URL, które zawierają prawidłowe `taskHub` `connection` wartości ciągu zapytania,, i, `systemKey` przy użyciu interfejsów API [powiązania klienta aranżacji](durable-functions-bindings.md#orchestration-client) , takie jak `CreateCheckStatusResponse` `CreateHttpManagementPayload` interfejsy API i interfejsy `createCheckStatusResponse` i interfejsów API `createHttpManagementPayload` w języku JavaScript.
 
 W następnych sekcjach znajdują się określone interfejsy API protokołu HTTP obsługiwane przez rozszerzenie i przedstawiono przykłady ich użycia.
 
@@ -60,7 +60,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`instanceId`**   | Adres URL             | Parametr opcjonalny. Identyfikator wystąpienia aranżacji. Jeśli nie zostanie określony, funkcja programu Orchestrator rozpocznie się od losowego identyfikatora wystąpienia. |
 | **`{content}`**    | Żądaj zawartości | Opcjonalny. Dane wejściowe funkcji programu Orchestrator w formacie JSON. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
@@ -154,7 +154,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`createdTimeTo`**     | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień, które zostały utworzone w czasie lub przed daną sygnaturą czasową ISO8601.|
 | **`runtimeStatus`**     | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień na podstawie ich stanu czasu wykonywania. Aby wyświetlić listę możliwych wartości stanu środowiska uruchomieniowego, zobacz artykuł o [wystąpieniach zapytań](durable-functions-instance-management.md) . |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
@@ -283,7 +283,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`runtimeStatus`**     | Ciąg zapytania    | Parametr opcjonalny. Jeśli ta wartość jest określona, filtruje listę zwracanych wystąpień na podstawie ich stanu czasu wykonywania. Aby wyświetlić listę możliwych wartości stanu środowiska uruchomieniowego, zobacz artykuł o [wystąpieniach zapytań](durable-functions-instance-management.md) . |
 | **`top`**               | Ciąg zapytania    | Parametr opcjonalny. Gdy ta wartość jest określona, ogranicza liczbę wystąpień zwracanych przez zapytanie. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Oto przykład ładunków odpowiedzi, w tym stanu aranżacji (sformatowany do czytelności):
 
@@ -374,7 +374,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | Adres URL             | Identyfikator wystąpienia aranżacji. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić następujące wartości kodów stanu HTTP.
 
@@ -436,7 +436,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 > [!NOTE]
 > Ta operacja może być bardzo kosztowna w odniesieniu do operacji we/wy usługi Azure Storage, jeśli w tabelach wystąpień i/lub historia występuje wiele wierszy. Więcej informacji o tych tabelach można znaleźć w dokumentacji dotyczącej [wydajności i skalowania w Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) .
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić następujące wartości kodów stanu HTTP.
 
@@ -489,7 +489,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`eventName`**   | Adres URL             | Nazwa zdarzenia, na które oczekuje wystąpienie aranżacji docelowej. |
 | **`{content}`**   | Żądaj zawartości | Ładunek zdarzenia w formacie JSON. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
@@ -543,7 +543,7 @@ Parametry żądania dla tego interfejsu API zawierają zestaw domyślny opisany 
 | **`instanceId`**  | Adres URL             | Identyfikator wystąpienia aranżacji. |
 | **`reason`**      | Ciąg zapytania    | Opcjonalny. Przyczyna zakończenia wystąpienia aranżacji. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
@@ -592,7 +592,7 @@ Parametry żądania dla tego interfejsu API zawierają zestaw domyślny opisany 
 | **`instanceId`**  | Adres URL             | Identyfikator wystąpienia aranżacji. |
 | **`reason`**      | Ciąg zapytania    | Opcjonalny. Przyczyna odwinięcia wystąpienia aranżacji. |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Można zwrócić kilka możliwych wartości kodu stanu.
 
@@ -648,7 +648,7 @@ Content-Type: application/json
 > [!NOTE]
 > Domyślnie w przypadku [jednostek opartych na klasie w programie .NET](durable-functions-dotnet-entities.md#defining-entity-classes)określenie `op` wartości `delete` spowoduje usunięcie stanu jednostki. Jeśli jednostka definiuje operację o nazwie `delete` , jednak zostanie wywołana operacja zdefiniowana przez użytkownika.
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Ta operacja ma kilka możliwych odpowiedzi:
 
@@ -673,7 +673,7 @@ GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     &code={systemKey}
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Ta operacja ma dwie możliwe odpowiedzi:
 
@@ -727,7 +727,7 @@ Parametry żądania dla tego interfejsu API obejmują domyślnie wymieniony wcze
 | **`top`**                   | Ciąg zapytania    | Parametr opcjonalny. Gdy ta wartość jest określona, ogranicza liczbę jednostek zwracanych przez zapytanie. |
 
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Pomyślnie odpowiedź HTTP 200 zawiera serializowaną w notacji JSON tablicę jednostek i opcjonalnie stan każdej jednostki.
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246813"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
@@ -25,11 +25,11 @@ W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, któ
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Trenowanie
+- Szkolenie
 - Wymagania
-- Projektowanie
+- Projekt
 
-## <a name="training"></a>Trenowanie
+## <a name="training"></a>Szkolenie
 Przed rozpoczęciem opracowywania aplikacji w chmurze należy zapoznać się z tematem bezpieczeństwo i prywatność na platformie Azure. Wykonując ten krok, można zmniejszyć liczbę i ważność luk w zabezpieczeniach w aplikacji. Zostanie przygotowana do odpowiedniej reakcji na stale zmieniający się poziom zagrożenia.
 
 Skorzystaj z następujących zasobów na etapie uczenia, aby zaznajomić się z usługami platformy Azure, które są dostępne dla deweloperów i z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń na platformie Azure:
@@ -97,7 +97,7 @@ Jednak warto również założyć, że nastąpi [naruszenie](https://docs.micros
 
   - Jak odzyskiwać dane z ataku, takiego jak przecieki lub manipulowanie danymi?
 
-## <a name="design"></a>Projektowanie
+## <a name="design"></a>Projekt
 
 Faza projektowania ma kluczowe znaczenie dla ustanowienia najlepszych rozwiązań dotyczących projektowania i specyfikacji funkcjonalnych. Ma ona również kluczowe znaczenie dla przeprowadzania analizy ryzyka, która pomaga w ograniczeniu bezpieczeństwa i ochrony prywatności w całym projekcie.
 

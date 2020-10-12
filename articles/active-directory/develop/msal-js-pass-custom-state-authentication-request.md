@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477587"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Przekazywanie stanu niestandardowego w żądaniach uwierzytelniania przy użyciu MSAL.js
@@ -46,12 +46,12 @@ export type AuthenticationParameters = {
 
 > [!Note]
 > Jeśli chcesz pominąć buforowany token i przejść do serwera, przekaż wartość Boolean do `forceRefresh` obiektu AuthenticationParameters używanego do wykonywania żądania logowania/tokenu.
-> `forceRefresh`nie powinno być używane domyślnie z powodu wpływu na wydajność aplikacji.
+> `forceRefresh` nie powinno być używane domyślnie z powodu wpływu na wydajność aplikacji.
 > Korzystanie z pamięci podręcznej umożliwi użytkownikom lepsze środowisko pracy.
 > Pomijanie pamięci podręcznej powinno być używane tylko w scenariuszach, w których wiadomo, że aktualnie buforowane dane nie mają aktualnych informacji.
 > Takie jak narzędzie administracyjne, które dodaje role do użytkownika, który musi uzyskać nowy token ze zaktualizowanymi rolami.
 
-Przykład:
+Na przykład:
 
 ```javascript
 let loginRequest = {

@@ -1,5 +1,5 @@
 ---
-title: plik dołączania
+title: plik dołączany
 description: Dołączanie pliku do poufnych informacji scenariusza klienta strony docelowe (demon, aplikacja sieci Web, interfejs API sieci Web)
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 08/14/2020
 ms.author: jmprieur
 ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436475"
 ---
 ## <a name="add-a-client-secret-or-certificate"></a>Dodawanie klucza tajnego klienta lub certyfikatu

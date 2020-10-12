@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975063"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Używanie funkcji przechwytywania pakietów do aktywnego monitorowania sieci z alertami i Azure Functions
@@ -80,7 +80,7 @@ Pierwszym krokiem jest utworzenie funkcji platformy Azure w celu przetworzenia a
     |**Subskrypcja**|[Twoja subskrypcja] Subskrypcja, dla której ma zostać utworzona aplikacja funkcji.||
     |**Grupa zasobów**|PacketCaptureRG|Grupa zasobów zawierająca aplikację funkcji.|
     |**Plan hostingu**|Plan zużycia| Typ planu używany przez aplikację funkcji. Opcje to użycie lub plan Azure App Service. |
-    |**Lokalizacja**|Środkowe stany USA| Region, w którym ma zostać utworzona aplikacja funkcji.|
+    |**Lokalizacja**|Central US| Region, w którym ma zostać utworzona aplikacja funkcji.|
     |**Konto magazynu**|automatycznie generowanych| Konto magazynu, które Azure Functions potrzeby magazynowania ogólnego przeznaczenia.|
 
 3. W bloku **aplikacje funkcji PacketCaptureExample** wybierz pozycję **funkcje**  >  **Funkcja niestandardowa**  > **+** .
@@ -148,7 +148,7 @@ Aby użyć Network Watcher poleceń cmdlet programu PowerShell, Przekaż najnows
 
     ![Pliki programu PowerShell][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Aby użyć poleceń cmdlet programu PowerShell, należy się uwierzytelnić. Uwierzytelnianie można skonfigurować w aplikacji funkcji. Aby skonfigurować uwierzytelnianie, należy skonfigurować zmienne środowiskowe i przekazać zaszyfrowany plik klucza do aplikacji funkcji.
 
@@ -349,7 +349,7 @@ Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu.
   |**Metryka**|Wysłane segmenty TCP| Metryka używana do wyzwalania alertu. |
   |**Warunek**|Większe niż| Warunek, który ma być używany podczas oceniania metryki.|
   |**Próg**|100| Wartość metryki wyzwalającej alert. Ta wartość powinna być ustawiona na prawidłową wartość dla danego środowiska.|
-  |**Okres**|W ciągu ostatnich pięciu minut| Określa okres, w którym ma być wyszukiwany próg dla metryki.|
+  |**Czasu**|W ciągu ostatnich pięciu minut| Określa okres, w którym ma być wyszukiwany próg dla metryki.|
   |**Element webhook**|[adres URL elementu webhook z aplikacji funkcji]| Adres URL elementu webhook z aplikacji funkcji, który został utworzony w poprzednich krokach.|
 
 > [!NOTE]

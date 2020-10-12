@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2020
 ms.openlocfilehash: 7b4d00e8c0366d10fddafa66db699c1a59fd9ad7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83659776"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Wdrażanie i wywoływanie niestandardowych interfejsów API z przepływów pracy w Azure Logic Apps
@@ -27,7 +27,7 @@ Aby można było wywołać niestandardowy interfejs API z poziomu aplikacji logi
 
 2. W otwartym menu aplikacji w obszarze **interfejs API**wybierz pozycję **definicja interfejsu API**. Ustaw **lokalizację definicji interfejsu API** na adres URL swagger.jspliku.
 
-   Zazwyczaj adres URL jest wyświetlany w tym formacie:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Zazwyczaj adres URL jest wyświetlany w tym formacie: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Link do dokumentu struktury Swagger dla niestandardowego interfejsu API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 

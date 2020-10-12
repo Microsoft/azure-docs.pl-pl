@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018624"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializacja niezawodnych obiektów kolekcji na platformie Azure Service Fabric
@@ -138,7 +138,7 @@ Użytkownicy korzystający z serializatorów niestandardowych powinni przestrzeg
 Typowym sposobem obsługi wszystkich wersji jest dodanie informacji o rozmiarze na początku i dodanie tylko właściwości opcjonalnych.
 W ten sposób każda wersja może odczytywać tyle, ile może i przeskoczyć do pozostałej części strumienia.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
   * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.

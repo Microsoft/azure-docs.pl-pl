@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440001"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
@@ -83,7 +83,7 @@ Apache Hive to system magazynu danych dla usługi Hadoop, który umożliwia pods
 
 Program Hive umożliwia tworzenie struktury projektu na danych o dużej strukturze. Po zdefiniowaniu struktury można użyć programu Hive do wykonywania zapytań dotyczących danych w klastrze usługi Hadoop bez konieczności korzystania z programu, a nawet znajomości języka Java lub MapReduce. HiveQL (język zapytań Hive) umożliwia pisanie zapytań zawierających instrukcje podobne do języka T-SQL.
 
-W przypadku analityków danych program Hive może uruchamiać funkcje zdefiniowane przez użytkownika (UDF) języka Python w zapytaniach programu Hive w celu przetworzenia rekordów. Ta możliwość znacznie rozszerza możliwości zapytań Hive w analizie danych. W odróżnieniu od analityków danych może przeprowadzenie skalowalnej inżynierii funkcji w językach, w których są one najczęściej znane: takie jak HiveQL i Python języka SQL. 
+W przypadku analityków danych program Hive może uruchamiać funkcje User-Defined języka Python (UDF) w zapytaniach programu Hive w celu przetworzenia rekordów. Ta możliwość znacznie rozszerza możliwości zapytań Hive w analizie danych. W odróżnieniu od analityków danych może przeprowadzenie skalowalnej inżynierii funkcji w językach, w których są one najczęściej znane: takie jak HiveQL i Python języka SQL. 
 
 Aby uzyskać więcej informacji na temat klastrów Hive usługi Azure HDInsight, zobacz [Używanie technologii Hive i HiveQL z usługą Hadoop w usłudze HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Aby dowiedzieć się, jak utworzyć skalowalne, kompleksowe rozwiązanie do nauki o danych za pomocą klastrów Hive usługi Azure HDInsight, zobacz [proces analizy danych zespołu w akcji: korzystanie z klastrów usługi HDInsight Hadoop](hive-walkthrough.md).
 

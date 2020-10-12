@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707314"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Przenoszenie danych z programu Teradata przy użyciu Azure Data Factory
@@ -284,25 +284,25 @@ Podczas przesuwania danych do programu Teradata następujące mapowania są uży
 
 | Typ bazy danych programu Teradata | Typ programu .NET Framework |
 | --- | --- |
-| Char |String |
-| Obiektów CLOB |String |
-| Zdjęć |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |Ciąg |
+| Obiektów CLOB |Ciąg |
+| Zdjęć |Ciąg |
+| VarChar |Ciąg |
+| VarGraphic |Ciąg |
 | Obiekt blob |Byte [] |
 | Byte |Byte [] |
 | VarByte |Byte [] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| Wartość dziesiętna |Wartość dziesiętna |
+| Liczba dziesiętna |Liczba dziesiętna |
 | Double |Double |
-| Integer |Int32 |
+| Liczba całkowita |Int32 |
 | Liczba |Double |
 | SmallInt |Int16 |
-| Data |DateTime |
+| Date |Data i godzina |
 | Godzina |przedział_czasu |
-| Czas ze strefą czasową |String |
-| Znacznik czasu |DateTime |
+| Czas ze strefą czasową |Ciąg |
+| Timestamp |DateTime |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
 | Dzień interwału |przedział_czasu |
 | Interwał od dnia do godziny |przedział_czasu |
@@ -314,15 +314,15 @@ Podczas przesuwania danych do programu Teradata następujące mapowania są uży
 | Interwał minut |przedział_czasu |
 | Interwał od minuty do sekundy |przedział_czasu |
 | Interwał drugi |przedział_czasu |
-| Rok interwału |String |
-| Interwał od roku do miesiąca |String |
-| Miesiąc interwału |String |
-| Okres (Data) |String |
-| Czas (Time) |String |
-| Okres (czas ze strefą czasową) |String |
-| Kropka (Sygnatura czasowa) |String |
-| Okres (Sygnatura czasowa ze strefą czasową) |String |
-| Xml |String |
+| Rok interwału |Ciąg |
+| Interwał od roku do miesiąca |Ciąg |
+| Miesiąc interwału |Ciąg |
+| Okres (Data) |Ciąg |
+| Czas (Time) |Ciąg |
+| Okres (czas ze strefą czasową) |Ciąg |
+| Kropka (Sygnatura czasowa) |Ciąg |
+| Okres (Sygnatura czasowa ze strefą czasową) |Ciąg |
+| Xml |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie danych na kolumny w datadataset, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

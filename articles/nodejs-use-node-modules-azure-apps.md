@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
 ms.openlocfilehash: 6c1bbe48ca5205cf1db49d67a711e9a7523e1845
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88077122"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)
@@ -64,7 +64,7 @@ Jednym z potencjalnych problemów z **package.jsw** pliku jest określenie tylko
 > [!NOTE]
 > W przypadku wdrażania do Azure App Service, jeśli <b>package.jsna</b> pliku odwołuje się do modułu macierzystego, w przypadku publikowania aplikacji za pomocą narzędzia Git może zostać wyświetlony błąd podobny do poniższego:
 >
-> npm błąd! module-name@0.6.0Zainstaluj: "Node-GYP Configure build"
+> npm błąd! module-name@0.6.0 Zainstaluj: "Node-GYP Configure build"
 >
 > npm błąd! polecenie "cmd"/c "" Node-GYP Configure build "" nie powiodło się z 1
 >
@@ -78,14 +78,14 @@ Gdy aplikacja jest gotowa do produkcji, można zablokować wymagania dotyczące 
 > [!NOTE]
 > W przypadku wdrażania do Azure App Service, jeśli <b>npm-shrinkwrap.jsna</b> pliku odwołuje się do modułu macierzystego, w przypadku publikowania aplikacji za pomocą narzędzia Git może zostać wyświetlony błąd podobny do poniższego:
 >
-> npm błąd! module-name@0.6.0Zainstaluj: "Node-GYP Configure build"
+> npm błąd! module-name@0.6.0 Zainstaluj: "Node-GYP Configure build"
 >
 > npm błąd! polecenie "cmd"/c "" Node-GYP Configure build "" nie powiodło się z 1
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy rozumiesz, jak używać modułów Node.js z platformą Azure, Dowiedz się, jak [określić wersję Node.js](https://github.com/squillace/nodejs-microservice), [skompilować i wdrożyć aplikację internetową Node.js](app-service/quickstart-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Teraz, gdy rozumiesz, jak używać modułów Node.js z platformą Azure, Dowiedz się, jak [określić wersję Node.js](https://github.com/squillace/nodejs-microservice), [skompilować i wdrożyć aplikację internetową Node.js](app-service/quickstart-nodejs.md)oraz [jak korzystać z interfejsu Command-Line platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/azure/developer/javascript/).
 

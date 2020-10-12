@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012079"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
@@ -20,7 +20,7 @@ Funkcja SAS chroni dostęp do Service Bus na podstawie reguł autoryzacji. Są o
 > [!NOTE]
 > Azure Service Bus obsługuje autoryzowanie dostępu do przestrzeni nazw Service Bus i jej jednostek przy użyciu Azure Active Directory (Azure AD). Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów w kodzie i ryzyka potencjalnych luk w zabezpieczeniach.
 >
-> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji zobacz następujące artykuły:
 > - [Uwierzytelnianie i Autoryzowanie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek](authenticate-application.md).
 > - [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus](service-bus-managed-service-identity.md)
 
@@ -181,7 +181,7 @@ W przypadku przyznania nadawcy lub klienta tokenu sygnatury dostępu współdzie
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Użyj sygnatury dostępu współdzielonego (na poziomie AMQP)
 
-W poprzedniej sekcji pokazano, jak używać tokenu sygnatury dostępu współdzielonego z żądaniem HTTP POST w celu wysyłania danych do Service Bus. Jak wiadomo, możesz uzyskać dostęp do Service Bus przy użyciu Advanced Message Queuing Protocol (AMQP), który jest preferowanym protokołem używanym ze względu na wydajność, w wielu scenariuszach. Użycie tokenu sygnatury dostępu współdzielonego z AMQP został opisany w dokumencie [AMQP zabezpieczenia oparte na żądaniach 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , który jest w roboczym projekcie od 2013, ale jest obecnie obsługiwany przez platformę Azure.
+W poprzedniej sekcji pokazano, jak używać tokenu sygnatury dostępu współdzielonego z żądaniem HTTP POST w celu wysyłania danych do Service Bus. Jak wiadomo, możesz uzyskać dostęp do Service Bus przy użyciu Advanced Message Queuing Protocol (AMQP), który jest preferowanym protokołem używanym ze względu na wydajność, w wielu scenariuszach. Użycie tokenu sygnatury dostępu współdzielonego z AMQP został opisany w dokumencie [AMQP Claim-Based Security w wersji 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , który działa w wersji roboczej od 2013, ale jest obecnie obsługiwany przez platformę Azure.
 
 Przed rozpoczęciem wysyłania danych do Service Bus, Wydawca musi wysłać token sygnatury dostępu współdzielonego w komunikacie AMQP do dobrze zdefiniowanego węzła AMQP o nazwie **$CBS** (można go zobaczyć jako "Specjalna" Kolejka używana przez usługę, aby uzyskać i zweryfikować wszystkie tokeny sygnatury dostępu współdzielonego). Wydawca musi określić pole **ReplyTo** wewnątrz komunikatu AMQP; jest to węzeł, w którym usługa odpowiada na wydawcę, z wynikiem walidacji tokenu (prosty wzorzec żądania/odpowiedzi między wydawcą a usługą). Ten węzeł odpowiedzi jest tworzony "na bieżąco" mówiąc o "dynamicznym tworzeniu węzła zdalnego" zgodnie z opisem w specyfikacji AMQP 1,0. Po sprawdzeniu, czy token sygnatury dostępu współdzielonego jest prawidłowy, Wydawca może przejść do przodu i rozpocząć wysyłanie danych do usługi.
 
@@ -277,7 +277,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 | Pobierz stan skojarzony z sesją kolejki komunikatów |Nasłuchiwanie |Dowolny prawidłowy adres kolejki |
 | Ustawianie stanu skojarzonego z sesją kolejki komunikatów |Nasłuchiwanie |Dowolny prawidłowy adres kolejki |
 | Zaplanuj wiadomość w celu późniejszego dostarczenia; na przykład [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Nasłuchiwanie | Dowolny prawidłowy adres kolejki
-| **Rozdziału** | | |
+| **Temat** | | |
 | Tworzenie tematu |Zarządzanie |Dowolny adres przestrzeni nazw |
 | Usuwanie tematu |Zarządzanie |Dowolny prawidłowy adres tematu |
 | Wyliczenie tematów |Zarządzanie |/$Resources/topics |
@@ -294,12 +294,12 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 | Wiadomość utracona |Nasłuchiwanie |.. /myTopic/Subscriptions/mySubscription |
 | Pobierz stan skojarzony z sesją tematu |Nasłuchiwanie |.. /myTopic/Subscriptions/mySubscription |
 | Ustawianie stanu skojarzonego z sesją tematu |Nasłuchiwanie |.. /myTopic/Subscriptions/mySubscription |
-| **Przepisy** | | |
+| **Reguły** | | |
 | Tworzenie reguły |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
 | Usuwanie reguły |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
 | Wyliczanie zasad |Zarządzanie lub nasłuchiwanie |.. /myTopic/Subscriptions/mySubscription/Rules
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 

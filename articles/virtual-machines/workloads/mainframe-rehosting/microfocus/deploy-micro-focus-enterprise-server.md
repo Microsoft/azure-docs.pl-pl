@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042543"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Wdrażanie programu Micro Focus Enterprise Server 5,0 do AKS
@@ -35,7 +35,7 @@ Jest to proces z trzema krokami. Należy:
 
 Pozwala to na skalowanie w poziomie (i skalowanie) obciążeń związanych z modernizacją komputerów mainframe na platformie Azure dzięki prawdziwej obciążeniu platformy chmury.
 
-Gotowe? Zacznijmy!
+Gotowe? Zaczynajmy.
 
 ## <a name="create-the-azure-container-registry"></a>Tworzenie Azure Container Registry
 
@@ -73,7 +73,7 @@ Po zalogowaniu Otwórz wiersz polecenia i zainicjuj następujące polecenia plat
 
 -   **acrmf50.azurecr.IO logowania platformy Docker** — poprawny format w tym miejscu to *Docker login \<registry name\> *. Zastąp dowolną nazwę, która została użyta podczas tworzenia rejestru.
 
-    -   Wymagana jest **Nazwa użytkownika** i **hasło** skopiowane z Azure Portal. Powinien wyglądać podobnie do poniższej ilustracji.
+    -   Wymagana jest **Nazwa użytkownika** i **hasło** skopiowane z Azure Portal. Na ekranie powinna być widoczna zawartość podobna do tej z poniższej ilustracji.
 
     ![Zrzut ekranu przedstawiający wiersz polecenia administratora](media/deploy-image-2.png)
 

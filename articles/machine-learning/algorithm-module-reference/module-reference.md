@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886393"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Informacje o algorytmach & module dla projektanta Azure Machine Learning
@@ -32,7 +32,7 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 ## <a name="data-preparation-modules"></a>Moduły przygotowywania danych
 
 
-| Funkcjonalność | Opis | Moduł |
+| Funkcja | Opis | Moduł |
 | --- |--- | --- |
 | Dane wejściowe i wyjściowe | Przenieś dane ze źródeł w chmurze do potoku. Zapisuj wyniki lub dane pośrednie w usłudze Azure Storage, SQL Database lub Hive, a następnie uruchamiaj potok lub korzystaj z magazynu w chmurze, aby wymieniać dane między potokami.  | [Ręczne wprowadzanie danych](enter-data-manually.md) <br/> [Eksportuj dane](export-data.md) <br/> [Importuj dane](import-data.md) |
 | Przekształcanie danych | Operacje na danych, które są unikatowe dla uczenia maszynowego, takie jak normalizowanie lub pakowania danych, Zmniejszanie liczby wymiarów i konwertowanie danych między różnymi formatami plików.| [Dodawanie kolumn](add-columns.md) <br/> [Dodawanie wierszy](add-rows.md) <br/> [Stosowanie operacji matematycznej](apply-math-operation.md) <br/> [Stosowanie przekształcenia SQL](apply-sql-transformation.md) <br/> [Czyszczenie brakujących danych](clean-missing-data.md) <br/> [Obcinanie wartości](clip-values.md) <br/> [Konwertowanie na plik CSV](convert-to-csv.md) <br/> [Konwertowanie na zestaw danych](convert-to-dataset.md) <br/> [Konwertowanie na wartości wskaźnika](convert-to-indicator-values.md) <br/> [Edytowanie metadanych](edit-metadata.md) <br/> [Grupowanie danych w pojemniki](group-data-into-bins.md) <br/> [Łączenie danych](join-data.md) <br/> [Normalizowanie danych](normalize-data.md) <br/> [Partycjonowanie i próbkowanie](partition-and-sample.md)  <br/> [Usuwanie zduplikowanych wierszy](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Wybieranie przekształcenia kolumn](select-columns-transform.md) <br/> [Wybieranie kolumn w zestawie danych](select-columns-in-dataset.md) <br/> [Dzielenie danych](split-data.md) |
@@ -41,7 +41,7 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 
 ## <a name="machine-learning-algorithms"></a>Algorytmy uczenia maszynowego
 
-| Funkcjonalność | Opis | Moduł |
+| Funkcja | Opis | Moduł |
 | --- |--- | --- |
 | Regresja | Przewidywanie wartości. | [Regresja wzmocnionego drzewa decyzyjnego](boosted-decision-tree-regression.md) <br/> [Regresja lasu decyzyjnego](decision-forest-regression.md) <br/> [Szybka regresja kwantylowa lasu decyzyjnego](fast-forest-quantile-regression.md)  <br/> [Regresja liniowa](linear-regression.md)  <br/> [Regresja sieci neuronowej](neural-network-regression.md)  <br/> [Regresja Poissona](poisson-regression.md)  <br/>|
 | Klastrowanie | Grupuj dane jednocześnie.| [Klastrowanie metodą k-średnich](k-means-clustering.md)
@@ -49,7 +49,7 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Moduły do kompilowania i oceniania modeli
 
-| Funkcjonalność | Opis | Moduł |
+| Funkcja | Opis | Moduł |
 | --- |--- | --- |
 | Uczenie modelu | Uruchom dane za pomocą algorytmu. |  [Trenowanie modelu klastrowania](train-clustering-model.md) <br/> [Trenowanie modelu](train-model.md) <br/> [Uczenie modelu Pytorch](train-pytorch-model.md) <br/> [Dostrajanie hiperparametrów modelu](tune-model-hyperparameters.md) |
 | Ocenianie i ocenianie modelu | Zmierz dokładność nauczonego modelu. | [Stosowanie przekształcenia](apply-transformation.md) <br/> [Przypisywanie danych do klastrów](assign-data-to-clusters.md) <br/> [Krzyżowa weryfikacja modelu](cross-validate-model.md) <br/> [Ocena modelu](evaluate-model.md) <br/> [Ocenianie modelu obrazów](score-image-model.md) <br/> [Klasyfikacja modelu](score-model.md) |

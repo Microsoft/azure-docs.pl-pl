@@ -4,10 +4,10 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275544"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
@@ -34,8 +34,8 @@ Azure Migrate: Narzędzie migracji serwera migruje maszyny oparte na interfejsie
 | SUSE Linux Enterprise Server 15 SP1                     | T                                                                                                                                         | T                              | T                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | T                                                                                                                                         | T                              | T                                                          |
 | Ubuntu Server 16,04, 18,04, 19,04, 19,10                | T                                                                                                                                         | T                              | T                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](https://go.microsoft.com/fwlink/?linkid=2143939)_   | T                              | T                                                          |
-| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_Cent OS 8. x wymaga [przygotowania ręcznego](https://go.microsoft.com/fwlink/?linkid=2143939)_ | T                              | T                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | T<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](https://go.microsoft.com/fwlink/?linkid=2143939)_   | T                              | T                                                          |
+| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | T<br>_Cent OS 8. x wymaga [przygotowania ręcznego](https://go.microsoft.com/fwlink/?linkid=2143939)_ | T                              | T                                                          |
 | Oracle Linux 7,7, 7,7-CI                                |  T                                                                                                                                        | T                              | T                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Czy mogę używać magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii?

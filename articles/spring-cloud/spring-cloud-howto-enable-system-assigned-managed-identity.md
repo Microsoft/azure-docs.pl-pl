@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888575"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
@@ -35,7 +35,7 @@ Aby skonfigurować tożsamość zarządzaną w [Azure Portal](https://portal.azu
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 2. Przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 3. Wybierz pozycję **tożsamość**.
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij pozycję **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij przycisk **Zapisz**.
 
  ![Tożsamość zarządzana w portalu](./media/spring-cloud-managed-identity/identity-1.png)
 

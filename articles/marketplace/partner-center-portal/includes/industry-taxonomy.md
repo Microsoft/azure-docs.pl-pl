@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: plik dołączany
 description: Uwzględnij plik dla taksonomii branżowej
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 3b18bba04d313091cb579498febb3f383f018bff
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88604641"
 ---
 Opcjonalnie możesz wybrać maksymalnie dwie branże i dwie pionowe w poszczególnych branżach. Kategorie te są używane do wyświetlania oferty, gdy branżowe i pionowe są używane w filtrach wyszukiwania i stosowane w sklepie online. Jeśli oferta dotyczy określonej branży i/lub pionowej, Wyjaśnij, w jaki sposób oferta obsługuje wybrane branże lub pionowo w opisie oferty. W przeciwnym razie, jeśli oferta nie jest specyficzna dla branży, nie należy zaznaczać i pozostawić tej sekcji pustą.

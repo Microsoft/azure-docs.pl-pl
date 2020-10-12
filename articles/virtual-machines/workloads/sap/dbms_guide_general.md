@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331356"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
@@ -115,7 +115,7 @@ Aby postępować zgodnie z tym rozdziałem, przeczytaj i zapoznaj się z informa
 - [Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure](./sap-supported-product-on-azure.md)
 - [Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure](./sap-planning-supported-configurations.md) 
 
-Przed przeczytaniem tego rozdziału należy zrozumieć i poznać różne serie maszyn wirtualnych oraz różnice między warstwami standardowa i Premium. 
+Przed przeczytaniem tego rozdziału należy zrozumieć i poznać różne VM-Series i różnice między magazynem w warstwie Standardowa i Premium. 
 
 W przypadku magazynu blokowego platformy Azure użycie usługi Azure Managed disks jest zdecydowanie zalecane. Aby uzyskać szczegółowe informacje na temat usługi Azure Managed disks, przeczytaj artykuł [wprowadzenie do dysków zarządzanych dla maszyn wirtualnych platformy Azure](../../managed-disks-overview.md).
 
@@ -309,7 +309,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 > Inne scenariusze, w których nie są obsługiwane wirtualne urządzenia sieciowe, są następujące:
 >
 > * Ścieżki komunikacji między maszynami wirtualnymi platformy Azure, które reprezentują węzły klastra Pacemaker systemu Linux i urządzenia SBD, zgodnie z opisem w temacie [wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server aplikacji SAP](./high-availability-guide-suse.md).
-> * Ścieżki komunikacji między maszynami wirtualnymi platformy Azure i systemem Windows Server Serwer plików skalowalny w poziomie (SOFS) skonfigurowano zgodnie z opisem w artykule [klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](./sap-high-availability-guide-wsfc-file-share.md). 
+> * Ścieżki komunikacji między maszynami wirtualnymi platformy Azure a serwerem plików Scale-Out systemu Windows Server (SOFS) skonfigurowano zgodnie z opisem w artykule [klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](./sap-high-availability-guide-wsfc-file-share.md). 
 >
 > Sieciowe urządzenia wirtualne w ścieżkach komunikacyjnych mogą łatwo podwójnie opóźnić opóźnienia sieci między dwoma partnerami komunikacji. Mogą również ograniczyć przepływność w ścieżkach krytycznych między warstwą aplikacji SAP a warstwą DBMS. W niektórych scenariuszach klientów wirtualne urządzenia sieciowe mogą spowodować awarię klastrów Pacemaker systemu Linux. Są to przypadki, w których komunikacja między węzłami klastra Pacemaker systemu Linux komunikuje się z urządzeniem SBD za pośrednictwem sieciowego urządzenia wirtualnego.
 >

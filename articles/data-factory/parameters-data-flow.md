@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780400"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametryzacja przepływów mapowania danych
@@ -67,7 +67,7 @@ Podczas przypisywania parametru wyrażenia potoku typu String, domyślnie dodawa
 Jeśli parametr przepływu danych `stringParam` odwołuje się do parametru potoku o wartości `upper(column1)` . 
 
 - Jeśli wyrażenie jest zaznaczone, program `$stringParam` oblicza wartość Kolumna1 wszystkie wielkie litery.
-- Jeśli wyrażenie nie jest zaznaczone (zachowanie domyślne), program `$stringParam` oblicza wartość`'upper(column1)'`
+- Jeśli wyrażenie nie jest zaznaczone (zachowanie domyślne), program  `$stringParam` oblicza wartość `'upper(column1)'`
 
 #### <a name="passing-in-timestamps"></a>Przekazywanie w sygnaturach czasowych
 
@@ -84,7 +84,7 @@ Załóżmy, że masz parametr liczby całkowitej `intParam` , który odwołuje s
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-pipeline-2.png "Ustawianie parametru przepływu danych")
 
-`@pipeline.parameters.pipelineParam`ma przypisaną wartość `abs(1)` w czasie wykonywania.
+`@pipeline.parameters.pipelineParam` ma przypisaną wartość `abs(1)` w czasie wykonywania.
 
 ![Ustawianie parametru przepływu danych](media/data-flow/parameter-pipeline-4.png "Ustawianie parametru przepływu danych")
 

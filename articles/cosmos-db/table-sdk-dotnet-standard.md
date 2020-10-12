@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 03/18/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: bf8563274d7aa677249335612d0156d6a5ecbd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018454"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabelę .NET Standard interfejs API: pobieranie i informacje o wersji
@@ -120,7 +120,7 @@ Ta międzyplatformowa biblioteka .NET Standard [Microsoft. Azure. Cosmos. Table]
 | [od 0.9.1 — wersja zapoznawcza](#0.9.1-preview) |18 października 2018 |--- |
 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084719"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Jądra notesu Jupyter w klastrze Apache Spark w usłudze Azure HDInsight
@@ -52,7 +52,7 @@ Klaster Apache Spark w usłudze HDInsight. Aby uzyskać instrukcje, zobacz [Twor
 
 Oto kilka korzyści wynikających z używania nowych jądra z notesem Jupyter w klastrach usługi HDInsight Spark.
 
-- **Wstępnie ustawione konteksty**. Przy użyciu **PySpark**, **PySpark3**lub jądra **platformy Spark** nie trzeba jawnie ustawiać kontekstów platformy Spark ani Hive przed rozpoczęciem pracy z aplikacjami. Te konteksty są domyślnie dostępne. Te konteksty są następujące:
+- **Wstępnie ustawione konteksty**. Przy użyciu  **PySpark**, **PySpark3**lub jądra **platformy Spark** nie trzeba jawnie ustawiać kontekstów platformy Spark ani Hive przed rozpoczęciem pracy z aplikacjami. Te konteksty są domyślnie dostępne. Te konteksty są następujące:
 
   - **SC** -for Spark — kontekst
   - **SqlContext** — dla kontekstu Hive
@@ -74,7 +74,7 @@ Oto kilka korzyści wynikających z używania nowych jądra z notesem Jupyter w 
    | --- | --- | --- |
    | Pomoc |`%%help` |Generuje tabelę zawierającą wszystkie dostępne magicy z przykładem i opisem |
    | informacje o |`%%info` |Wyprowadza informacje o sesji dla bieżącego punktu końcowego usługi Livy |
-   | ponowne |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfiguruje parametry tworzenia sesji. Flaga Force ( `-f` ) jest wymagana, jeśli sesja została już utworzona, co gwarantuje, że sesja zostanie porzucona i utworzona ponownie. Aby uzyskać listę prawidłowych parametrów, spójrz na [treść żądania post/Sessions usługi Livy](https://github.com/cloudera/livy#request-body) . Parametry muszą być przesyłane jako ciąg JSON i muszą znajdować się w następnym wierszu po Magic, jak pokazano w przykładowej kolumnie. |
+   | konfigurowanie |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfiguruje parametry tworzenia sesji. Flaga Force ( `-f` ) jest wymagana, jeśli sesja została już utworzona, co gwarantuje, że sesja zostanie porzucona i utworzona ponownie. Aby uzyskać listę prawidłowych parametrów, spójrz na [treść żądania post/Sessions usługi Livy](https://github.com/cloudera/livy#request-body) . Parametry muszą być przesyłane jako ciąg JSON i muszą znajdować się w następnym wierszu po Magic, jak pokazano w przykładowej kolumnie. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli `-o` parametr zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako [Pandas](https://pandas.pydata.org/) Dataframe. |
    | local |`%%local`<br>`a=1` |Cały kod w późniejszych wierszach jest wykonywany lokalnie. Kod musi być prawidłowym kodem python2 niezależnie od tego, którego jądra używasz. Tak więc, nawet w przypadku wybrania jądra **PySpark3** lub **Spark** podczas tworzenia notesu, jeśli używasz `%%local` Magic w komórce, ta komórka musi mieć tylko prawidłowy kod python2. |
    | dzienniki |`%%logs` |Wyprowadza dzienniki dla bieżącej sesji usługi Livy. |

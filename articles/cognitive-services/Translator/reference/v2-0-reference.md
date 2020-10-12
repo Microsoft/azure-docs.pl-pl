@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
 ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588619"
 ---
 # <a name="translator-v20"></a>Translator 2.0
@@ -27,7 +27,7 @@ Program w wersji 2 translatora można bezproblemowo zintegrować z aplikacjami, 
 ## <a name="getting-started"></a>Wprowadzenie
 Aby uzyskać dostęp do translatora, musisz [zarejestrować się w usłudze Microsoft Azure](../translator-text-how-to-signup.md).
 
-## <a name="authentication"></a>Authentication 
+## <a name="authentication"></a>Uwierzytelnianie 
 Wszystkie wywołania translatora wymagają klucza subskrypcji do uwierzytelnienia. Interfejs API obsługuje trzy metody uwierzytelniania:
 
 - Token dostępu. Użyj klucza subskrypcji, aby utworzyć token dostępu, wysyłając żądanie POST do usługi uwierzytelniania. Szczegółowe informacje znajdują się w dokumentacji usługi tokenu. Przekaż token dostępu do usługi translatora przy użyciu `Authorization` nagłówka lub `access_token` parametru zapytania. Token dostępu jest ważny przez 10 minut. Uzyskaj nowy token dostępu co 10 minut i Kontynuuj używanie tego samego tokenu dostępu dla powtarzanych żądań w ciągu 10 minut.
@@ -52,7 +52,7 @@ Jeśli chcesz zapobiec niezbyt wulgarności w tłumaczeniu, nawet jeśli znajduj
 |ProfanityAction    |Akcja |Przykładowe źródło (japoński)  |Przykładowe tłumaczenie (angielski)  |
 |:--|:--|:--|:--|
 |NoAction   |Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niedostępność zostanie przekazana z lokalizacji źródłowej do docelowej.        |彼はジャッカスです.     |Jest to Jackass.   |
-|Oznacz     |Wulgarne słowa będą otoczone \< nie>ami tagów XML i \<>/profanity.       |彼はジャッカスです. |Jest to \< wulgarne>Jackass \< /profanity>.  |
+|Oznacz     |Słowa wulgarne będą otoczone tagami XML \<profanity> i \</profanity> .       |彼はジャッカスです. |Jest to \<profanity> Jackass \</profanity> .  |
 |Usunięte    |Wyrazy wulgarne zostaną usunięte z danych wyjściowych bez zastępowania.     |彼はジャッカスです. |Jest to.   |
 
     
@@ -85,13 +85,13 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis    |Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID  |ciągiem    |Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|tekst|ciągiem   |Wymagany. Ciąg, który reprezentuje tekst do przetłumaczenia. Tekst nie może zawierać więcej niż 10 000 znaków.|query|ciąg|
+|AppID  |ciągiem    |Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|tekst|ciągiem   |Wymagane. Ciąg, który reprezentuje tekst do przetłumaczenia. Tekst nie może zawierać więcej niż 10 000 znaków.|query|ciąg|
 |wniosek|ciągiem   |Opcjonalny. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu. Na przykład EN dla języka angielskiego.|query|ciąg|
-|na|ciągiem |Wymagany. Ciąg, który reprezentuje kod języka, do którego zostanie przetłumaczony tekst.|query|ciąg|
-|contentType|ciągiem    |Opcjonalny. Format przetłumaczonego tekstu. Obsługiwane formaty to `text/plain` (domyślne) i `text/html` . Wszystkie elementy HTML muszą być poprawnie sformułowane i kompletne.|query|ciąg|
+|na wartość|ciągiem |Wymagane. Ciąg, który reprezentuje kod języka, do którego zostanie przetłumaczony tekst.|query|ciąg|
+|contentType|ciągiem    |Opcjonalny. Format przetłumaczonego tekstu. Obsługiwane formaty to `text/plain` (domyślne) i  `text/html` . Wszystkie elementy HTML muszą być poprawnie sformułowane i kompletne.|query|ciąg|
 |category|ciągiem   |Opcjonalny. Ciąg, który zawiera kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.|query|ciąg|
-|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem  |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 
@@ -136,7 +136,7 @@ Oto format treści żądania:
 Te elementy znajdują się w `TranslateArrayRequest` :
 
 
-* `AppId`Potrzeb. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
+* `AppId`: Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
 * `From`Obowiązkowe. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu. Jeśli to pole pozostanie puste, odpowiedź będzie obejmować wynik automatycznego wykrywania języka.
 * `Options`Obowiązkowe. `Options`Obiekt, który zawiera następujące wartości. Są one opcjonalne i domyślne dla najczęściej używanych ustawień. Określone elementy muszą być wymienione w porządku alfabetycznym.
     - `Category`: Ciąg zawierający kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.
@@ -145,14 +145,14 @@ Te elementy znajdują się w `TranslateArrayRequest` :
     - `State`: Stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.
     - `Uri`: Filtruj wyniki według tego identyfikatora URI. Wartość domyślna: `all`.
     - `User`: Filtruj wyniki według tego użytkownika. Wartość domyślna: `all`.
-* `Texts`Potrzeb. Tablica zawierająca tekst do tłumaczenia. Wszystkie ciągi muszą być w tym samym języku. Suma całego tekstu, który ma zostać przetłumaczony, nie może przekraczać 10 000 znaków. Maksymalna liczba elementów tablicy to 2 000.
-* `To`Potrzeb. Ciąg, który reprezentuje kod języka, do którego zostanie przetłumaczony tekst.
+* `Texts`: Wymagany. Tablica zawierająca tekst do tłumaczenia. Wszystkie ciągi muszą być w tym samym języku. Suma całego tekstu, który ma zostać przetłumaczony, nie może przekraczać 10 000 znaków. Maksymalna liczba elementów tablicy to 2 000.
+* `To`: Wymagany. Ciąg, który reprezentuje kod języka, do którego zostanie przetłumaczony tekst.
 
 Można pominąć opcjonalne elementy. Elementy, które są bezpośrednimi elementami podrzędnymi, `TranslateArrayRequest` muszą być wymienione w porządku alfabetycznym.
 
 `TranslateArray`Metoda akceptuje `application/xml` lub `text/xml` dla `Content-Type` .
 
-**Wartość zwracana:** `TranslateArrayResponse`Tablica. Każdy z `TranslateArrayResponse` nich ma następujące elementy:
+**Wartość zwracana:** `TranslateArrayResponse` Tablica. Każdy z `TranslateArrayResponse` nich ma następujące elementy:
 
 * `Error`: Wskazuje błąd, jeśli wystąpi. W przeciwnym razie ustaw wartość null.
 * `OriginalSentenceLengths`: Tablica liczb całkowitych, która wskazuje długość każdego zdania w tekście źródłowym. Długość tablicy wskazuje liczbę zdań.
@@ -190,7 +190,7 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -231,9 +231,9 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|locale|ciągiem |Wymagany. Ciąg, który reprezentuje jeden z następujących, używany do lokalizowania nazw języka: <ul><li>Kombinacja kodu ISO 639 2 litery małymi literami związanymi z językiem i symbolem wielokulturowym ISO 3166 2. <li>Kod kulturowy z małymi literami ISO 639.|query|ciąg|
-|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|locale|ciągiem |Wymagane. Ciąg, który reprezentuje jeden z następujących, używany do lokalizowania nazw języka: <ul><li>Kombinacja kodu ISO 639 2 litery małymi literami związanymi z językiem i symbolem wielokulturowym ISO 3166 2. <li>Kod kulturowy z małymi literami ISO 639.|query|ciąg|
+|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem  |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -248,7 +248,7 @@ Typ zawartości odpowiedzi: Application/XML
 ## <a name="get-getlanguagesfortranslate"></a>Pobierz/GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Uwagi o implementacji
-Pobiera listę kodów języka reprezentujących języki obsługiwane przez usługę tłumaczenia.  `Translate`i `TranslateArray` można przetłumaczyć między dowolne dwa z tych języków.
+Pobiera listę kodów języka reprezentujących języki obsługiwane przez usługę tłumaczenia.  `Translate` i `TranslateArray` można przetłumaczyć między dowolne dwa z tych języków.
 
 Identyfikator URI żądania to `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate` .
 
@@ -265,8 +265,8 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|Autoryzacja|ciągiem  |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -298,8 +298,8 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
  
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -330,12 +330,12 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|tekst|ciągiem   |Wymagany. Ciąg zawierający co najmniej jedno zdanie, które ma być wymawiane dla strumienia w określonym języku. Długość tekstu nie może przekraczać 2 000 znaków.|query|ciąg|
-|language|ciągiem   |Wymagany. Ciąg, który reprezentuje kod języka obsługiwanego w języku, w którym należy mówić do tekstu. Kod musi być jednym z kodów zwracanych przez metodę `GetLanguagesForSpeak` .|query|ciąg|
-|format|ciągiem|Opcjonalny. Ciąg określający identyfikator typu zawartości. Obecnie `audio/wav` i `audio/mp3` są dostępne. Wartość domyślna to `audio/wav`.|query|ciąg|
-|opcje|ciągiem    |Opcjonalny. Ciąg określający właściwości wykorzystanej mowy:<ul><li>`MaxQuality`i `MinSize` określ jakość sygnału audio. `MaxQuality`zapewnia najwyższą jakość. `MinSize`zapewnia najmniejszy rozmiar pliku. Wartość domyślna to `MinSize` .</li><li>`female`i `male` Określ żądany Płeć głosu. Wartość domyślna to `female`. Użyj pionowego słupka ( <code>\|</code> ), aby dołączyć wiele opcji. Przykład: `MaxQuality|Male`.</li></li></ul>  |query|ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|tekst|ciągiem   |Wymagane. Ciąg zawierający co najmniej jedno zdanie, które ma być wymawiane dla strumienia w określonym języku. Długość tekstu nie może przekraczać 2 000 znaków.|query|ciąg|
+|language|ciągiem   |Wymagane. Ciąg, który reprezentuje kod języka obsługiwanego w języku, w którym należy mówić do tekstu. Kod musi być jednym z kodów zwracanych przez metodę `GetLanguagesForSpeak` .|query|ciąg|
+|format|ciągiem|Opcjonalny. Ciąg określający identyfikator typu zawartości. Obecnie  `audio/wav` i `audio/mp3` są dostępne. Wartość domyślna to `audio/wav`.|query|ciąg|
+|opcje|ciągiem    |Opcjonalny. Ciąg określający właściwości wykorzystanej mowy:<ul><li>`MaxQuality` i `MinSize` określ jakość sygnału audio. `MaxQuality` zapewnia najwyższą jakość. `MinSize` zapewnia najmniejszy rozmiar pliku. Wartość domyślna to  `MinSize` .</li><li>`female` i `male` Określ żądany Płeć głosu. Wartość domyślna to `female`. Użyj pionowego słupka ( <code>\|</code> ), aby dołączyć wiele opcji. Przykład: `MaxQuality|Male`.</li></li></ul>  |query|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem  |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -366,9 +366,9 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem  |Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|tekst|ciągiem|Wymagany. Ciąg zawierający tekst, którego język ma być zidentyfikowany. Długość tekstu nie może przekraczać 10 000 znaków.|query|  ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem  |Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|tekst|ciągiem|Wymagane. Ciąg zawierający tekst, którego język ma być zidentyfikowany. Długość tekstu nie może przekraczać 10 000 znaków.|query|  ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key  |ciągiem    |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -412,7 +412,7 @@ Oto format treści odpowiedzi:
 ```
 
 ### <a name="response-class-status-200"></a>Klasa odpowiedzi (stan 200)
-`DetectArray`zakończył się pomyślnie. Zwraca tablicę ciągów, która zawiera dwuznakowy kod języka dla każdego wiersza tablicy wejściowej.
+`DetectArray` zakończył się pomyślnie. Zwraca tablicę ciągów, która zawiera dwuznakowy kod języka dla każdego wiersza tablicy wejściowej.
 
 ciąg
 
@@ -422,8 +422,8 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -456,17 +456,17 @@ Typ zawartości odpowiedzi: aplikacja: XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych   |
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|originalText|ciągiem|Wymagany. Ciąg, który zawiera tekst do przetłumaczenia. Maksymalna długość ciągu to 1 000 znaków.|query|ciąg|
-|translatedText|ciągiem |Wymagany. Ciąg, który zawiera tekst przetłumaczony na język docelowy. Maksymalna długość ciągu to 2 000 znaków.|query|ciąg|
-|wniosek|ciągiem   |Wymagany. Ciąg, który reprezentuje kod języka oryginalnego języka tekstu. Na przykład EN dla języka angielskiego i Niemcy dla języka niemieckiego.|query|ciąg|
-|na|ciągiem|Wymagany. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.|query|ciąg|
-|rating|ciągiem |Opcjonalny. Liczba całkowita reprezentująca ocenę jakości dla ciągu. Wartość należy do zakresu od-10 do 10. Domyślnym ustawieniem jest 1.|query|liczba całkowita|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|originalText|ciągiem|Wymagane. Ciąg, który zawiera tekst do przetłumaczenia. Maksymalna długość ciągu to 1 000 znaków.|query|ciąg|
+|translatedText|ciągiem |Wymagane. Ciąg, który zawiera tekst przetłumaczony na język docelowy. Maksymalna długość ciągu to 2 000 znaków.|query|ciąg|
+|wniosek|ciągiem   |Wymagane. Ciąg, który reprezentuje kod języka oryginalnego języka tekstu. Na przykład EN dla języka angielskiego i Niemcy dla języka niemieckiego.|query|ciąg|
+|na wartość|ciągiem|Wymagane. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.|query|ciąg|
+|rating|ciągiem |Opcjonalny. Liczba całkowita reprezentująca ocenę jakości dla ciągu. Wartość należy do zakresu od-10 do 10. Wartość domyślna to 1.|query|liczba całkowita|
 |contentType|ciągiem    |Opcjonalny. Format przetłumaczonego tekstu. Obsługiwane formaty to `text/plain` i `text/html` . Wszystkie elementy HTML muszą być poprawnie sformułowane i kompletne.    |query|ciąg|
 |category|ciągiem|Opcjonalny. Ciąg, który zawiera kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.|query|ciąg|
-|użytkownik|ciągiem|Wymagany. Ciąg, który służy do śledzenia nadawcy przesłania.|query|ciąg|
+|użytkownik|ciągiem|Wymagane. Ciąg, który służy do śledzenia nadawcy przesłania.|query|ciąg|
 |adresu|ciągiem|Opcjonalny. Ciąg, który zawiera lokalizację zawartości tłumaczenia.|query|ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji: `"Bearer" + " " + "access_token"` .  |header|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji:  `"Bearer" + " " + "access_token"` .  |header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -475,7 +475,7 @@ Typ zawartości odpowiedzi: aplikacja: XML
 |:--|:--|
 |400    |Nieprawidłowe żądanie. Sprawdź parametry wejściowe i szczegółową odpowiedź na błąd.|
 |401    |Nieprawidłowe poświadczenia.|
-|410|`AddTranslation`nie jest już obsługiwane.|
+|410|`AddTranslation` nie jest już obsługiwane.|
 |500    |Błąd serwera. Jeśli błąd będzie się powtarzać, daj nam znać. Podaj przybliżoną datę, & godzinę żądania oraz IDENTYFIKATORem żądania zawartym w nagłówku odpowiedzi `X-MS-Trans-Info` .|
 |503    |Usługa jest tymczasowo niedostępna. Spróbuj ponownie, aby poinformować nas o tym, czy błąd będzie nadal występował.|
 
@@ -516,14 +516,14 @@ Oto format treści żądania:
 
 Te elementy znajdują się w `AddtranslationsRequest` :
 
-* `AppId`Potrzeb. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
-* `From`Potrzeb. Ciąg, który zawiera kod języka języka źródłowego. Musi być jednym z języków zwracanych przez `GetLanguagesForTranslate` metodę.
-* `To`Potrzeb. Ciąg, który zawiera kod języka dla języka docelowego. Musi być jednym z języków zwracanych przez `GetLanguagesForTranslate` metodę.
-* `Translations`Potrzeb. Tablica tłumaczeń do dodania do pamięci translacji. Każde tłumaczenie musi zawierać `OriginalText` , `TranslatedText` , i `Rating` . Maksymalny rozmiar każdego z `OriginalText` i `TranslatedText` 1 000 znaków. Suma wszystkich `OriginalText` i `TranslatedText` elementów nie może być dłuższa niż 10 000 znaków. Maksymalna liczba elementów tablicy to 100.
-* `Options`Potrzeb. Zestaw opcji, w tym `Category` ,, `ContentType` `Uri` , i `User` . Ciąg `User` jest wymagany. `Category`, `ContentType` , i `Uri` są opcjonalne. Określone elementy muszą być wymienione w porządku alfabetycznym.
+* `AppId`: Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
+* `From`: Wymagany. Ciąg, który zawiera kod języka języka źródłowego. Musi być jednym z języków zwracanych przez `GetLanguagesForTranslate` metodę.
+* `To`: Wymagany. Ciąg, który zawiera kod języka dla języka docelowego. Musi być jednym z języków zwracanych przez `GetLanguagesForTranslate` metodę.
+* `Translations`: Wymagany. Tablica tłumaczeń do dodania do pamięci translacji. Każde tłumaczenie musi zawierać `OriginalText` , `TranslatedText` , i `Rating` . Maksymalny rozmiar każdego z `OriginalText` i `TranslatedText` 1 000 znaków. Suma wszystkich `OriginalText` i `TranslatedText` elementów nie może być dłuższa niż 10 000 znaków. Maksymalna liczba elementów tablicy to 100.
+* `Options`: Wymagany. Zestaw opcji, w tym `Category` ,, `ContentType` `Uri` , i `User` . Ciąg `User` jest wymagany. `Category`, `ContentType` , i `Uri` są opcjonalne. Określone elementy muszą być wymienione w porządku alfabetycznym.
 
 ### <a name="response-class-status-200"></a>Klasa odpowiedzi (stan 200)
-`AddTranslationArray`Metoda powiodła się. 
+`AddTranslationArray` Metoda powiodła się. 
 
 Po 31 stycznia 2018, zgłoszenia zdań nie będą akceptowane. Usługa odpowie z kodem błędu 410.
 
@@ -535,7 +535,7 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -544,7 +544,7 @@ Typ zawartości odpowiedzi: Application/XML
 |:--|:--|
 |400    |Nieprawidłowe żądanie. Sprawdź parametry wejściowe i szczegółową odpowiedź na błąd.|
 |401    |Nieprawidłowe poświadczenia.|
-|410    |`AddTranslation`nie jest już obsługiwane.|
+|410    |`AddTranslation` nie jest już obsługiwane.|
 |500    |Błąd serwera. Jeśli błąd będzie się powtarzać, daj nam znać. Podaj przybliżoną datę, & godzinę żądania oraz IDENTYFIKATORem żądania zawartym w nagłówku odpowiedzi `X-MS-Trans-Info` .|
 |503|Usługa jest tymczasowo niedostępna. Spróbuj ponownie, aby poinformować nas o tym, czy błąd będzie nadal występował.|
 
@@ -568,10 +568,10 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem  |Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query| ciąg|
-|tekst|ciągiem   |Wymagany. Ciąg, który reprezentuje tekst do podziału na zdania. Maksymalny rozmiar tekstu to 10 000 znaków.|query|ciąg|
-|language   |ciągiem    |Wymagany. Ciąg, który reprezentuje kod języka tekstu wejściowego.|query|ciąg|
-|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .   |header|ciąg|
+|AppID|ciągiem  |Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query| ciąg|
+|tekst|ciągiem   |Wymagane. Ciąg, który reprezentuje tekst do podziału na zdania. Maksymalny rozmiar tekstu to 10 000 znaków.|query|ciąg|
+|language   |ciągiem    |Wymagane. Ciąg, który reprezentuje kod języka tekstu wejściowego.|query|ciąg|
+|Autoryzacja|ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .   |header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem|Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -586,7 +586,7 @@ Typ zawartości odpowiedzi: Application/XML
 ## <a name="post-gettranslations"></a>Opublikuj/GetTranslations
 
 ### <a name="implementation-notes"></a>Uwagi o implementacji
-Pobiera tablicę tłumaczeń dla danej pary językowej ze sklepu i aparatu MT. `GetTranslations`różni się od `Translate` , że zwraca wszystkie dostępne tłumaczenia.
+Pobiera tablicę tłumaczeń dla danej pary językowej ze sklepu i aparatu MT. `GetTranslations` różni się od `Translate` , że zwraca wszystkie dostępne tłumaczenia.
 
 Identyfikator URI żądania to `https://api.microsofttranslator.com/V2/Http.svc/GetTranslations` .
 
@@ -665,12 +665,12 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|AppID|ciągiem|Wymagany. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
-|tekst|ciągiem|Wymagany. Ciąg, który reprezentuje tekst do przetłumaczenia. Maksymalny rozmiar tekstu to 10 000 znaków.|query|ciąg|
-|wniosek|ciągiem|Wymagany. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu.|query|ciąg|
-|na |ciągiem    |Wymagany. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.|query|ciąg|
-|maxTranslations|ciągiem|Wymagany. Liczba całkowita, która reprezentuje maksymalną liczbę tłumaczeń do zwrócenia.|query|liczba całkowita|
-|Autoryzacja| ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji: `"Bearer" + " " + "access_token"` .|ciąg|  header|
+|AppID|ciągiem|Wymagane. Jeśli `Authorization` `Ocp-Apim-Subscription-Key` jest używany nagłówek lub, pozostaw `appid` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .|query|ciąg|
+|tekst|ciągiem|Wymagane. Ciąg, który reprezentuje tekst do przetłumaczenia. Maksymalny rozmiar tekstu to 10 000 znaków.|query|ciąg|
+|wniosek|ciągiem|Wymagane. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu.|query|ciąg|
+|na wartość |ciągiem    |Wymagane. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.|query|ciąg|
+|maxTranslations|ciągiem|Wymagane. Liczba całkowita, która reprezentuje maksymalną liczbę tłumaczeń do zwrócenia.|query|liczba całkowita|
+|Autoryzacja| ciągiem|Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste. Token autoryzacji:  `"Bearer" + " " + "access_token"` .|ciąg|  header|
 |Ocp-Apim-Subscription-Key|ciągiem  |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -711,11 +711,11 @@ Oto format treści żądania:
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest`obejmuje następujące elementy:
+`GetTranslationsArrayRequest` obejmuje następujące elementy:
 
-* `AppId`Potrzeb. Jeśli `Authorization` nagłówek jest używany, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
-* `From`Potrzeb. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu.
-* `MaxTranslations`Potrzeb. Liczba całkowita, która reprezentuje maksymalną liczbę tłumaczeń do zwrócenia.
+* `AppId`: Wymagany. Jeśli `Authorization` nagłówek jest używany, pozostaw `AppId` pole puste. W przeciwnym razie Uwzględnij ciąg, który zawiera `"Bearer" + " " + "access_token"` .
+* `From`: Wymagany. Ciąg, który reprezentuje kod języka przetłumaczonego tekstu.
+* `MaxTranslations`: Wymagany. Liczba całkowita, która reprezentuje maksymalną liczbę tłumaczeń do zwrócenia.
 * `Options`Obowiązkowe. `Options`Obiekt, który zawiera następujące wartości. Są one opcjonalne i domyślne dla najczęściej używanych ustawień. Określone elementy muszą być wymienione w porządku alfabetycznym.
     - `Category`: Ciąg zawierający kategorię (domenę) tłumaczenia. Wartość domyślna to `general`.
     - `ContentType`: Jedyną obsługiwaną opcją i wartością domyślną jest `text/plain` .
@@ -729,8 +729,8 @@ Oto format treści żądania:
 * `State`: Stan użytkownika, aby pomóc skorelować żądanie i odpowiedź. Ta sama zawartość zostanie zwrócona w odpowiedzi.
 * `Uri`: Filtruj wyniki według tego identyfikatora URI. Jeśli wartość nie jest ustawiona, wartością domyślną jest `all` .
 * `User`: Filtruj wyniki według tego użytkownika. Jeśli wartość nie jest ustawiona, wartością domyślną jest `all` .
-* `Texts`Potrzeb. Tablica zawierająca tekst do tłumaczenia. Wszystkie ciągi muszą być w tym samym języku. Suma całego tekstu, który ma zostać przetłumaczony, nie może przekraczać 10 000 znaków. Maksymalna liczba elementów tablicy wynosi 10.
-* `To`Potrzeb. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.
+* `Texts`: Wymagany. Tablica zawierająca tekst do tłumaczenia. Wszystkie ciągi muszą być w tym samym języku. Suma całego tekstu, który ma zostać przetłumaczony, nie może przekraczać 10 000 znaków. Maksymalna liczba elementów tablicy wynosi 10.
+* `To`: Wymagany. Ciąg, który reprezentuje kod języka w celu przetłumaczenia tekstu na.
 
 Można pominąć opcjonalne elementy. Elementy, które są bezpośrednimi elementami podrzędnymi, `GetTranslationsArrayRequest` muszą być wymienione w porządku alfabetycznym.
 
@@ -788,7 +788,7 @@ Typ zawartości odpowiedzi: Application/XML
 
 |Parametr|Wartość|Opis|Typ parametru|Typ danych|
 |:--|:--|:--|:--|:--|
-|Autoryzacja  |ciągiem    |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji: `"Bearer" + " " + "access_token"` .|header|ciąg|
+|Autoryzacja  |ciągiem    |Wymagane, jeśli oba `appid` pola i `Ocp-Apim-Subscription-Key` nagłówki są puste.  Token autoryzacji:  `"Bearer" + " " + "access_token"` .|header|ciąg|
 |Ocp-Apim-Subscription-Key|ciągiem  |Wymagane, jeśli oba `appid` pola i `Authorization` nagłówki są puste.|header|ciąg|
 
 ### <a name="response-messages"></a>Komunikaty odpowiedzi
@@ -797,7 +797,7 @@ Typ zawartości odpowiedzi: Application/XML
 |:--|:--|
 |400    |Nieprawidłowe żądanie. Sprawdź parametry wejściowe i szczegółową odpowiedź na błąd.|
 |401    |Nieprawidłowe poświadczenia.|
-|500    |Błąd serwera. Jeśli błąd będzie się powtarzać, daj nam znać. Podaj przybliżoną datę, & godzinę żądania oraz IDENTYFIKATORem żądania zawartym w nagłówku odpowiedzi `X-MS-Trans-Info` .|
+|500    |Błąd serwera. Jeśli błąd będzie się powtarzać, daj nam znać. Podaj przybliżoną datę, & godzinę żądania oraz IDENTYFIKATORem żądania zawartym w nagłówku odpowiedzi  `X-MS-Trans-Info` .|
 |503    |Usługa jest tymczasowo niedostępna. Spróbuj ponownie, aby poinformować nas o tym, czy błąd będzie nadal występował.|
 
 ## <a name="next-steps"></a>Następne kroki

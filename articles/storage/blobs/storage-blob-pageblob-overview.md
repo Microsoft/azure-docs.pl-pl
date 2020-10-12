@@ -11,17 +11,17 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018845"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
 Usługa Azure Storage oferuje trzy typy magazynu obiektów blob: blokowe obiekty blob, Dodawanie obiektów blob i stronicowe obiekty blob. Blokowe obiekty blob składają się z bloków i są idealnym rozwiązaniem do przechowywania plików tekstowych lub binarnych oraz wydajnego przekazywania dużych plików. Dołącz obiekty blob również składają się z bloków, ale są one zoptymalizowane pod kątem operacji dołączania, dzięki czemu są idealnym rozwiązaniem dla scenariuszy rejestrowania. Stronicowe obiekty blob składają się z 512-bajtowych stron o rozmiarze do 8 TB i są przeznaczone do częstego losowego wykonywania operacji odczytu i zapisu. Stronicowe obiekty blob są podstawą dysków usługi Azure IaaS. Ten artykuł koncentruje się na zrozumieniu funkcji i zalet stron obiektów BLOB.
 
-Stronicowe obiekty blob to zbiór stron 512-bajtowych, co umożliwia odczytywanie i zapisywanie dowolnych zakresów bajtów. W związku z tym, stronicowe obiekty blob są idealne do przechowywania opartych na indeksach i rozrzedzonych struktur danych, takich jak dyski systemu operacyjnego i danych dla Virtual Machines i baz danych Na przykład usługa Azure SQL DB używa stronicowych obiektów BLOB jako podstawowego magazynu trwałego dla swoich baz danych. Ponadto stronicowe obiekty blob są również często używane dla plików z aktualizacjami opartymi na zakresie.  
+Stronicowe obiekty blob to zbiór stron 512-bajtowych, co umożliwia odczytywanie i zapisywanie dowolnych zakresów bajtów. W związku z tym, stronicowe obiekty blob są idealne do przechowywania opartych na indeksach i rozrzedzonych struktur danych, takich jak dyski systemu operacyjnego i danych dla Virtual Machines i baz danych Na przykład usługa Azure SQL DB używa stronicowych obiektów BLOB jako podstawowego magazynu trwałego dla swoich baz danych. Ponadto stronicowe obiekty blob są również często używane dla plików z aktualizacjami Range-Based.  
 
 Najważniejsze funkcje usługi Azure Page BLOB to interfejs REST, trwałość magazynu bazowego i bezproblemowe możliwości migracji na platformę Azure. Te funkcje zostały omówione bardziej szczegółowo w następnej sekcji. Ponadto obiekty blob na stronie platformy Azure są obecnie obsługiwane przez dwa typy magazynów: Premium Storage i magazyn w warstwie Standardowa. Premium Storage zaprojektowano specjalnie dla obciążeń wymagających spójnej wysokiej wydajności i małych opóźnień, dzięki czemu doskonałe obiekty blob są idealne dla scenariuszy magazynu o wysokiej wydajności. Standardowe konta magazynu są tańsze dla uruchamiania obciążeń niewrażliwych na opóźnienia.
 

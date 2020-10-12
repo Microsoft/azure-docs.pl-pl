@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888138"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Zarządzanie danymi historycznymi przy użyciu zasad przechowywania
@@ -79,7 +79,7 @@ Następujące sześć zdarzeń rozszerzonych ułatwia śledzenie stanu operacji 
 | data_retention_cleanup_exception  | Występuje proces oczyszczania tabeli z zasadami przechowywania kończy się niepowodzeniem. |
 | data_retention_cleanup_completed  | Występuje, gdy trwa czyszczenie procesu tabeli z zasadami przechowywania danych. |  
 
-Ponadto nowy typ bufora pierścieniowego `RING_BUFFER_DATA_RETENTION_CLEANUP` został dodany do wykazu sys. dm_os_ring_buffers dynamiczny widok zarządzania. Ten widok może służyć do monitorowania operacji czyszczenia danych. 
+Ponadto `RING_BUFFER_DATA_RETENTION_CLEANUP` sys.dm_os_ring_buffers do dynamicznego widoku zarządzania został dodany nowy typ buforu pierścieniowego o nazwie. Ten widok może służyć do monitorowania operacji czyszczenia danych. 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329435"
 ---
 # <a name="security-control-v2-network-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia sieci
@@ -116,7 +116,7 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 -   Chroń zasoby przed atakami DDoS, włączając ochronę standardową DDoS w sieciach wirtualnych platformy Azure. 
 -   Użyj Azure Security Center do wykrywania niepowodowanych problemów z konfiguracją, związanych z powyższym. 
 
-- [Dokumentacja usługi Azure Firewall](/azure/firewall/)
+- [Dokumentacja zapory platformy Azure](/azure/firewall/)
 
 - [Jak wdrożyć usługę Azure WAF](../../web-application-firewall/overview.md)
 

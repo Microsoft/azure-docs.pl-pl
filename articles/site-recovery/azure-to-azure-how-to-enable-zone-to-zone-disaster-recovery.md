@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: sideeksh
 ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007795"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Włączanie odzyskiwania po awarii maszyny wirtualnej platformy Azure między strefami dostępności
@@ -67,7 +67,7 @@ Jak wspomniano powyżej, funkcja odzyskiwania po awarii strefy do strefy zmniejs
 
 Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych należy upewnić się, że inne funkcje włączone na maszynie wirtualnej współdziałają ze strefą odzyskiwania po awarii strefy.
 
-|Cechy  | Instrukcja obsługi  |
+|Cecha  | Instrukcja obsługi  |
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |
