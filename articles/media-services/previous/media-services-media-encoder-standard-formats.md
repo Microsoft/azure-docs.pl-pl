@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257436"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formaty i kodeki narzędzia Media Encoder Standard
@@ -34,17 +34,17 @@ Ten dokument zawiera listę najpopularniejszych formatów importu i eksportu pli
 ## <a name="input-containerfile-formats"></a>Dane wejściowe w formacie kontenera/pliku
 | Formaty plików (rozszerzenia nazw plików) | Obsługiwane |
 | --- | --- |
-| FLV (z koderami-dekoderami H.264 i AAC) (flv) |Yes |
-| MXF (mxf) |Yes |
-| GXF (gxf) |Yes |
-| MPEG2-PS, MPEG2-TS, 3GP (ts, ps, 3gp, 3gpp, mpg) |Yes |
-| Windows Media Video (WMV)/ASF (wmv, asf) |Yes |
-| AVI (nieskompresowany 8-bitowy/10-bitowy) (avi) |Yes |
-| MP4 (mp4, m4a, m4v)/ISMV (isma, ismv) |Yes |
-| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (dvr-ms) |Yes |
-| Matroska/WebM (mkv) |Yes |
-| WAVE/WAV (wav) |Yes |
-| QuickTime (mov) |Yes |
+| FLV (z koderami-dekoderami H.264 i AAC) (flv) |Tak |
+| MXF (mxf) |Tak |
+| GXF (gxf) |Tak |
+| MPEG2-PS, MPEG2-TS, 3GP (ts, ps, 3gp, 3gpp, mpg) |Tak |
+| Windows Media Video (WMV)/ASF (wmv, asf) |Tak |
+| AVI (nieskompresowany 8-bitowy/10-bitowy) (avi) |Tak |
+| MP4 (mp4, m4a, m4v)/ISMV (isma, ismv) |Tak |
+| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (dvr-ms) |Tak |
+| Matroska/WebM (mkv) |Tak |
+| WAVE/WAV (wav) |Tak |
+| QuickTime (mov) |Tak |
 
 > [!NOTE]
 > Powyżej znajduje się lista najczęściej spotykanych rozszerzeń nazw plików. Media Encoder Standard obsługuje wiele innych (na przykład:. M2TS,. mpeg2video,. QT). Jeśli próbujesz zakodować plik i otrzymasz komunikat o błędzie o nieobsługiwanym formacie, podaj swoją opinię [tutaj](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
@@ -64,37 +64,37 @@ lub
 | Kodery-dekoder wideo | Obsługiwane |
 | --- | --- |
 | AVC 8-bitowy/10-bitowy, do 4:2:2, wraz z AVCIntra |8-bitowy 4:2:0 oraz 4:2:2 |
-| Avid DNxHD (w pliku MXF) |Yes |
-| DVCPro/DVCProHD (w pliku MXF) |Yes |
-| Digital video (DV) (w plikach AVI) |Yes |
-| JPEG 2000 |Yes |
+| Avid DNxHD (w pliku MXF) |Tak |
+| DVCPro/DVCProHD (w pliku MXF) |Tak |
+| Digital video (DV) (w plikach AVI) |Tak |
+| JPEG 2000 |Tak |
 | MPEG-2 (maksymalny profil 422 i wysoki poziom; wraz z wariantami, takimi jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® oraz D10) |Maksymalnie profil 422 |
-| MPEG-1 |Yes |
-| VC-1/WMV9 |Yes |
+| MPEG-1 |Tak |
+| VC-1/WMV9 |Tak |
 | Canopus HQ/HQX |Nie |
-| MPEG-4 część 2 |Yes |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |Yes |
-| YUV420 bez kompresji lub mezzanine |Yes |
-| Apple ProRes 422 |Yes |
-| Apple ProRes 422 LT |Yes |
-| Apple ProRes 422 HQ |Yes |
-| Apple ProRes Proxy |Yes |
-| Apple ProRes 4444 |Yes |
-| Apple ProRes 4444 XQ |Yes |
+| MPEG-4 część 2 |Tak |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |Tak |
+| YUV420 bez kompresji lub mezzanine |Tak |
+| Apple ProRes 422 |Tak |
+| Apple ProRes 422 LT |Tak |
+| Apple ProRes 422 HQ |Tak |
+| Apple ProRes Proxy |Tak |
+| Apple ProRes 4444 |Tak |
+| Apple ProRes 4444 XQ |Tak |
 | HEVC/H. 265| Główne i główne 10 (&#42;) profile<br/>Główna obsługa 10 profilów jest przeznaczona dla zawartości 8bit 4:2:0. |
 
 ## <a name="input-audio-codecs"></a>Kodery-dekoder Audio Input
 | Kodery-dekodery wejściowych danych audio | Obsługiwane |
 | --- | --- |
-| AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Yes |
-| MPEG Layer 2 |Yes |
-| MP3 (MPEG-1 Audio Layer 3) |Yes |
-| Windows Media Audio |Yes |
-| WAV/PCM |Yes |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |
-| AMR (Adaptive Multi-Rate) |Yes |
+| AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Tak |
+| MPEG Layer 2 |Tak |
+| MP3 (MPEG-1 Audio Layer 3) |Tak |
+| Windows Media Audio |Tak |
+| WAV/PCM |Tak |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Tak |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Tak |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Tak |
+| AMR (Adaptive Multi-Rate) |Tak |
 | AES (SMPTE 331M oraz 302M, AES3-2003) |Nie |
 | Dolby® E |Nie |
 | Dolby® Digital (AC3) |Nie |
@@ -111,7 +111,7 @@ W poniższej tabeli wymieniono kodery-dekoder i formaty plików, które są obs�
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

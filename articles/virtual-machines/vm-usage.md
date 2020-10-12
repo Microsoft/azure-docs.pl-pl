@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322926"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
@@ -59,7 +59,7 @@ W przypadku niektórych obrazów w galerii platformy Azure typ obrazu jest wype�
 - Wersja zapoznawcza systemu Windows Server 
 
 ## <a name="service-type"></a>Typ usługi
-Pole Typ usługi w polu dodatkowe informacje odpowiada dokładnemu rozmiarowi wdrożonej maszyny wirtualnej. W przypadku maszyn wirtualnych magazynu w warstwie Premium (opartych na dyskach SSD) i maszyn wirtualnych z systemem innym niż Premium (na DYSKach twardych) są naliczane opłaty. W przypadku wdrożenia rozmiaru opartego na dyskach SSD, takiego jak standardowa \_ DS2 \_ v2, rozmiar inny niż SSD ( `Standard\_D2\_v2 VM` ) w kolumnie podkategorii miernika i rozmiar SSD () można znaleźć `Standard\_DS2\_v2` w polu dodatkowe informacje.
+Pole Typ usługi w polu dodatkowe informacje odpowiada dokładnemu rozmiarowi wdrożonej maszyny wirtualnej. W przypadku maszyn wirtualnych magazynu w warstwie Premium (opartych na dyskach SSD) i maszyn wirtualnych z systemem innym niż Premium (na DYSKach twardych) są naliczane opłaty. W przypadku wdrożenia rozmiaru opartego na dyskach SSD, takiego jak standardowa \_ DS2 \_ v2, rozmiar inny niż SSD ( `Standard\_D2\_v2 VM` ) zostanie wyświetlony w kolumnie licznik Sub-Category i rozmiar SSD ( `Standard\_DS2\_v2` ) w polu dodatkowe informacje.
 
 ## <a name="region-names"></a>Nazwy regionów
 Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia różni się od nazwy regionu używanej w Azure Resource Manager. Poniżej znajduje się mapowanie między wartościami regionu:
@@ -103,7 +103,7 @@ Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia ró�
 | westeurope | West Europe|
 | WestIndia | Indie Zachodnie|
 | westus | Zachodnie stany USA|
-| westus2 | Zachodnie stany USA 2|
+| zachodnie_stany_USA_2 | Zachodnie stany USA 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Często zadawane pytania dotyczące użycia maszyn wirtualnych

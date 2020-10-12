@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
 ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086712"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
@@ -264,7 +264,7 @@ Obszarze storageprofile | Zobacz [profil magazynu](#storage-metadata) | 2019-06-
 subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej | 2017-08-01
 tags | [Tagi](../../azure-resource-manager/management/tag-resources.md) dla maszyny wirtualnej  | 2017-08-01
 tagsList | Tagi sformatowane jako tablica JSON dla łatwiejszego analizowania programistycznego  | 2019-06-04
-version | Wersja obrazu maszyny wirtualnej | 2017-04-02
+Wersja | Wersja obrazu maszyny wirtualnej | 2017-04-02
 vmId | [Unikatowy identyfikator](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) dla maszyny wirtualnej | 2017-04-02
 vmScaleSetName | [Nazwa zestawu skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) w zestawie skalowania maszyn wirtualnych | 2017-12-01
 vmSize | [Rozmiar maszyny wirtualnej](../sizes.md) | 2017-04-02
@@ -507,7 +507,7 @@ identyfikator      | Identyfikator zasobu
 offer   | Oferta platformy lub obrazu z witryny Marketplace
 publisher | Wydawca obrazu
 sku     | Jednostka SKU obrazu
-version | Wersja platformy lub obrazu witryny Marketplace
+Wersja | Wersja platformy lub obrazu witryny Marketplace
 
 Obiekt dysku systemu operacyjnego zawiera następujące informacje na temat dysku systemu operacyjnego używanego przez maszynę wirtualną:
 
@@ -829,7 +829,7 @@ Przejdź            | https://github.com/Microsoft/azureimds/blob/master/imdssam
 Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
-PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Program PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb

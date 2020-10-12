@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708156"
 ---
 # <a name="deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania
@@ -123,7 +123,7 @@ W skrypcie Zaloguj się przy użyciu `az login --service-principal` , dostarczaj
 
 - [Jak zalogować się do interfejsu wiersza polecenia platformy Azure w ramach elementu konfiguracji okręgu](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
 
-## <a name="language-specific-considerations"></a>Uwagi dotyczące języka
+## <a name="language-specific-considerations"></a>Zagadnienia dotyczące Language-Specific
 
 ### <a name="java"></a>Java
 

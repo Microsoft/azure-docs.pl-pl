@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
 ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322972"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
@@ -67,7 +67,7 @@ Maszyny wirtualne 2. generacji obsługują następujące obrazy w portalu Market
 * Oracle Linux 7,7, 7,7-CI
 
 > [!NOTE]
-> Konkretne rozmiary maszyn wirtualnych, takie jak Mv2, mogą obsługiwać tylko podzestaw tych obrazów — szczegółowe informacje można znaleźć w dokumentacji odpowiedniego rozmiaru maszyny wirtualnej.
+> Konkretne rozmiary maszyn wirtualnych, takie jak Mv2-Series, obsługują tylko podzbiór tych obrazów — szczegółowe informacje można znaleźć w dokumentacji odpowiedniego rozmiaru maszyny wirtualnej.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokalna a maszyny wirtualne 2. generacji platformy Azure
 
@@ -85,7 +85,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cechy | Pierwsza generacja | Druga generacja |
+| Cecha | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
@@ -99,7 +99,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 | Niestandardowy dysk/obraz/system operacyjny wymiany         | :heavy_check_mark: | :heavy_check_mark: |
 | Obsługa zestawu skalowania maszyn wirtualnych | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
-| Tworzenie kopii zapasowej/przywracanie                    | :heavy_check_mark: | :heavy_check_mark: |
+| Tworzenie/przywracanie kopii zapasowych                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria obrazów udostępnionych              | :heavy_check_mark: | :heavy_check_mark: |
 | Szyfrowanie dysków Azure             | :heavy_check_mark: | y                |
 
@@ -125,7 +125,7 @@ Poniżej przedstawiono procedurę tworzenia maszyny wirtualnej generacji 2 (Gen2
 
 ![Wybierz maszynę wirtualną generacji 1 lub Gen 2](./media/generation-2/gen1-gen2-select.png)
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 Możesz również użyć programu PowerShell do utworzenia maszyny wirtualnej, bezpośrednio odwołującej się do jednostki SKU generacji 1 lub 2.
 

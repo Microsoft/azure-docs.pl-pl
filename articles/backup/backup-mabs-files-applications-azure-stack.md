@@ -4,10 +4,10 @@ description: Użyj Azure Backup, aby utworzyć kopię zapasową i odzyskać Azur
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180987"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Tworzenie kopii zapasowych plików i aplikacji na Azure Stack
@@ -46,19 +46,19 @@ Aby skonfigurować Azure Backup Server ochrony plików w Azure Stack maszynach w
 
     Firma Microsoft zaleca umieszczenie w jednej grupie ochrony wszystkich danych, które będą współużytkowane z zasadami ochrony. Aby uzyskać pełne informacje o planowaniu i wdrażaniu grup ochrony, zobacz artykuł System Center DPM, [wdrażanie grup ochrony](/system-center/dpm/create-dpm-protection-groups).
 
-4. Na ekranie **Wybierz metodę ochrony danych** wpisz nazwę grupy ochrony. Zaznacz pole wyboru dla **opcji chcę uzyskać krótkoterminową ochronę przy użyciu:** i chcę **chronić w trybie online**. Wybierz pozycję **Dalej**.
+4. Na ekranie **Wybierz metodę ochrony danych** wpisz nazwę grupy ochrony. Zaznacz pole wyboru dla **opcji chcę uzyskać krótkoterminową ochronę przy użyciu:** i chcę **chronić w trybie online**. Wybierz opcję **Dalej**.
 
     ![Wybierz metodę ochrony danych](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     Aby wybrać opcję chcę **chronić w trybie online**, musisz najpierw wybrać opcję **Chcę uzyskać krótkoterminową ochronę przy użyciu:** dysk. Azure Backup Server nie chroni na taśmie, więc dysk jest jedynym wyborem dla ochrony krótkoterminowej.
 
-5. Na ekranie **Określ cele krótkoterminowe** wybierz, jak długo mają być przechowywane punkty odzyskiwania zapisane na dysku, oraz czas zapisywania przyrostowych kopii zapasowych. Wybierz pozycję **Dalej**.
+5. Na ekranie **określ Short-Term cele** wybierz, jak długo mają być przechowywane punkty odzyskiwania zapisane na dysku, oraz czas zapisywania przyrostowych kopii zapasowych. Wybierz opcję **Dalej**.
 
     > [!IMPORTANT]
     > Danych odzyskiwania operacyjnego (Backup) **nie** należy przechowywać na dyskach dołączonych Azure Backup Server przez więcej niż pięć dni.
     >
 
-    ![Określ cele krótkoterminowe](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
+    ![Określ cele Short-Term](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     Zamiast wybierać interwał przyrostowych kopii zapasowych, aby uruchomić ekspresową pełną kopię zapasową tuż przed każdym zaplanowanym punktem odzyskiwania, wybierz **tuż przed punktem odzyskiwania**. W przypadku ochrony obciążeń aplikacji Azure Backup Server tworzy punkty odzyskiwania zgodnie z harmonogramem częstotliwości synchronizacji (pod warunkiem, że aplikacja obsługuje przyrostowe kopie zapasowe). Jeśli aplikacja nie obsługuje przyrostowych kopii zapasowych, Azure Backup Server uruchamia ekspresową pełną kopię.
 

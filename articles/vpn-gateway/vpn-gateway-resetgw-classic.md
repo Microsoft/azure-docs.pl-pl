@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: c0313c74b046d4c93c8625eab8659df392041059
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89419813"
 ---
 # <a name="reset-a-vpn-gateway"></a>Resetowanie bramy VPN Gateway
@@ -28,7 +28,7 @@ Jeśli połączenie nie zostanie przywrócone po pierwszym ponownym rozruchu kom
 
 Jeśli po dwóch ponownych uruchomieniach nadal występują problemy z łącznością między różnymi lokalizacjami, Otwórz żądanie pomocy technicznej z Azure Portal.
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Przed zresetowaniem bramy dla każdego tunelu połączenia sieci VPN typu lokacja-lokacja (site-to site, S2S) korzystającego z protokołu IPsec należy sprawdzić kluczowe elementy wymienione poniżej. Brak zgodności którychkolwiek elementów spowoduje przerwanie połączenia tuneli sieci VPN S2S. Weryfikowanie i poprawianie konfiguracji usług lokalnych i bram sieci VPN platformy Azure powoduje zaoszczędzenie niepotrzebnych ponownych uruchomień i zakłóceń dla innych połączeń roboczych na bramach.
 
@@ -50,7 +50,7 @@ Bramę sieci VPN Menedżer zasobów można zresetować przy użyciu Azure Portal
    ![Resetowanie bloku VPN Gateway](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. W bloku Reset kliknij przycisk **Resetuj** .
 
-## <a name="powershell"></a><a name="ps"></a>PowerShell
+## <a name="powershell"></a><a name="ps"></a>Program PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Model wdrażania usługi Resource Manager
 

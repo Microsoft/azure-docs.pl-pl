@@ -6,10 +6,10 @@ ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378121"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM

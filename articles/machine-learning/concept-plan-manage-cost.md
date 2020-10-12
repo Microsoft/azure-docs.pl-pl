@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704732"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
@@ -109,11 +109,11 @@ Oto kilka opcji, których dysponujesz:
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Korzystanie z maszyn wirtualnych o niskim priorytecie
 
-System Azure umożliwia korzystanie z nadmiarowej niewykorzystanej pojemności jako maszyn wirtualnych o niskim priorytecie w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy korzystanie z maszyn wirtualnych o niskim priorytecie dla obciążeń wsadowych. Należy również użyć ich w przypadku, gdy przerwy są odzyskiwane za pomocą ponownych przesyłania (dla usługi Batch Inferencing) lub przez ponowne uruchomienie (w przypadku szkolenia głębokiego uczenia się z punktem kontrolnym).
+System Azure umożliwia używanie nadmiernej pojemności niewykorzystywanej jako Low-Priority maszyn wirtualnych w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy używanie Low-Priority maszyn wirtualnych do obsługi obciążeń wsadowych. Należy również użyć ich w przypadku, gdy przerwy są odzyskiwane za pomocą ponownych przesyłania (dla usługi Batch Inferencing) lub przez ponowne uruchomienie (w przypadku szkolenia głębokiego uczenia się z punktem kontrolnym).
 
-Maszyny wirtualne o niskim priorytecie mają jeden przydział oddzielny od dedykowanej wartości przydziału, która jest przez rodzinę maszyn wirtualnych. Dowiedz się [więcej na temat przydziałów AmlCompute](how-to-manage-quotas.md).
+Low-Priority maszyny wirtualne mają jeden przydział oddzielony od dedykowanej wartości przydziału, czyli przez rodzinę maszyn wirtualnych. Dowiedz się [więcej na temat przydziałów AmlCompute](how-to-manage-quotas.md).
 
- Maszyny wirtualne o niskim priorytecie nie działają w przypadku wystąpień obliczeniowych, ponieważ wymagają one obsługi interaktywnych środowisk notesu.
+ Low-Priority maszyny wirtualne nie działają w przypadku wystąpień obliczeniowych, ponieważ wymagają one obsługi interaktywnego środowiska notesu.
 
 ## <a name="use-reserved-instances"></a>Użycie wystąpień zarezerwowanych
 

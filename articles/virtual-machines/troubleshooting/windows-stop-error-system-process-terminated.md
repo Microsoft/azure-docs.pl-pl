@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347766"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Błąd zatrzymania systemu Windows — Przerwano proces systemowy stanu 0xC000021A
@@ -37,7 +37,7 @@ W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azur
 
 0xC000021A błędu oznacza **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Ten błąd występuje, gdy proces krytyczny, taki jak WinLogon (winlogon.exe) lub Podsystem wykonawczy serwera klienta (csrss.exe) nie powiedzie się. Gdy jądro wykryje, że jedna z tych usług została zatrzymana, zgłasza błąd **zatrzymania 0xC000021A** . Ten błąd może mieć kilka przyczyn, w tym:
+Ten błąd występuje, gdy proces krytyczny, taki jak WinLogon (winlogon.exe) lub podsystem Run-Time serwera klienta (csrss.exe) zakończy się niepowodzeniem. Gdy jądro wykryje, że jedna z tych usług została zatrzymana, zgłasza błąd **zatrzymania 0xC000021A** . Ten błąd może mieć kilka przyczyn, w tym:
 
 - Zainstalowano niezgodne pliki systemowe.
 - Instalacja aktualizacji dodatku Service Pack lub KB nie powiodła się.

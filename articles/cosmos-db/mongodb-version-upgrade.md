@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
 ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409667"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Uaktualnij wersję protokołu MongoDB Wire interfejsu API Azure Cosmos DB dla konta MongoDB
@@ -62,27 +62,27 @@ Należy zastąpić istniejący punkt końcowy w aplikacjach i sterownikach, któ
 
 2. Z opcji po lewej stronie wybierz `Features` blok. Spowoduje to ujawnienie funkcji poziomu konta, które są dostępne dla Twojego konta bazy danych.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal z wyróżnioną pozycją MongoDB z użyciem bloku funkcji" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 3. Kliknij `Upgrade to Mongo server version 3.6` wiersz. Jeśli ta opcja nie jest widoczna, Twoje konto może nie kwalifikować się do tego uaktualnienia. W takim przypadku prosimy [o zgłoszenie biletu pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Blok funkcji z opcjami." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 4. Przejrzyj informacje o tym konkretnym uaktualnieniu. Należy pamiętać, że uaktualnienie zostanie ukończone tylko do momentu, gdy aplikacje nie będą używały zaktualizowanego punktu końcowego, jak zostało to wyróżnione w tej sekcji. Kliknij pozycję włączone zaraz po `Enable` przygotowaniu do uruchomienia procesu.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Rozszerzone wskazówki dotyczące uaktualniania." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 5. Po uruchomieniu procesu w `Features` menu zostanie wyświetlony stan uaktualnienia. Stan przejdzie z `Pending` do, do `In Progress` , do `Upgraded` . Ten proces nie ma wpływu na istniejące funkcje ani operacje na koncie bazy danych.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Stan uaktualnienia po zainicjowaniu." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 6. Po zakończeniu uaktualniania stan będzie wyświetlany jako `Upgraded` . Kliknij go, aby dowiedzieć się więcej o następnych krokach i akcjach, które należy wykonać, aby zakończyć proces. [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/en-us/support/create-ticket/) , jeśli wystąpił problem podczas przetwarzania żądania.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Stan uaktualnionego konta." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 7. **Aby rozpocząć korzystanie z uaktualnionej wersji konta bazy danych**, Wróć do `Overview` bloku i skopiuj nowe parametry połączenia do użycia w aplikacji. Aplikacje rozpoczną korzystanie z uaktualnionej wersji zaraz po nawiązaniu połączenia z nowym punktem końcowym. Istniejące połączenia nie będą przerywane i mogą być aktualizowane w Twojej wygodie. Aby zapewnić spójne środowisko, wszystkie aplikacje muszą używać nowego punktu końcowego.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nowy blok przeglądu." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,10 +14,10 @@ ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336534"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
@@ -55,7 +55,7 @@ Jeśli jeden region ulegnie awarii, ruch jest kierowany do następnego najbliżs
 
 Sonda kondycji modułu równoważenia obciążenia między regionami zbiera informacje o dostępności co 20 sekund. Jeśli jeden z regionalnych modułów równoważenia obciążenia powróci swoją dostępność na 0, moduł równoważenia obciążenia między regionami wykryje awarię. Moduł równoważenia obciążenia w regionie jest wyłączany. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram widoku ruchu globalnego w regionie." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram modułu równoważenia obciążenia między regionami." border="true":::
 
 ### <a name="ultra-low-latency"></a>Niezwykle małe opóźnienia
 
@@ -101,7 +101,7 @@ W **regionie głównym** jest wdrażany moduł równoważenia obciążenia międ
 * Zachodnie stany USA
 * West Europe
 * Southeast Asia
-* Środkowe stany USA
+* Central US
 * Europa Północna
 * Azja Wschodnia
 

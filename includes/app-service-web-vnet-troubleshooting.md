@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255257"
 ---
 Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools**do  >  **konsoli**narzędzia.
 
-#### <a name="tools"></a>narzędzia
+#### <a name="tools"></a>Narzędzia
 W natywnych aplikacjach systemu Windows narzędzia **ping**, **nslookup**i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
 
 ```console

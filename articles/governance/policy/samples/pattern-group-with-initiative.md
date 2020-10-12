@@ -4,10 +4,10 @@ description: Ten Azure Policy wzorzec zawiera przykład sposobu grupowania defin
 ms.date: 06/29/2020
 ms.topic: sample
 ms.openlocfilehash: fc79775b79c9846ee435917731428627fc65549e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649961"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Wzorzec Azure Policy: definicje zasad grupy

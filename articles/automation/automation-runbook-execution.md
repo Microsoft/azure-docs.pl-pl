@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776293"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
@@ -218,7 +218,7 @@ Elementy Runbook, które działają w piaskownicach platformy Azure, nie obsług
 
 ## <a name="device-and-application-characteristics"></a>Charakterystyka urządzenia i aplikacji
 
-Zadania elementu Runbook w piaskownicach platformy Azure nie mogą uzyskać dostępu do żadnych właściwości urządzenia lub aplikacji. Najpopularniejszym interfejsem API używanym do wykonywania zapytań o metryki wydajności w systemie Windows jest usługa WMI z niektórymi typowymi metrykami używanymi do wykorzystania pamięci i procesora CPU. Jednak nie ma znaczenia, który interfejs API jest używany, ponieważ zadania uruchomione w chmurze nie mogą uzyskać dostępu do implementacji firmy Microsoft w sieci Web (WBEM). Ta platforma jest oparta na model wspólnych informacji (CIM), co zapewnia standardy branżowe do definiowania cech urządzeń i aplikacji.
+Zadania elementu Runbook w piaskownicach platformy Azure nie mogą uzyskać dostępu do żadnych właściwości urządzenia lub aplikacji. Najpopularniejszym interfejsem API używanym do wykonywania zapytań o metryki wydajności w systemie Windows jest usługa WMI z niektórymi typowymi metrykami używanymi do wykorzystania pamięci i procesora CPU. Jednak nie ma znaczenia, który interfejs API jest używany, ponieważ zadania uruchomione w chmurze nie mogą uzyskać dostępu do implementacji firmy Microsoft Web-Based Enterprise Management (WBEM). Ta platforma jest oparta na model wspólnych informacji (CIM), co zapewnia standardy branżowe do definiowania cech urządzeń i aplikacji.
 
 ## <a name="webhooks"></a>Elementy webhook
 

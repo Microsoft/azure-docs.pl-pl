@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087216"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: alerty
@@ -44,17 +44,17 @@ Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*
 
 Poniżej znajduje się fragment z procesu *SELECT Condition* pokazujący typy sygnałów alertów, które są dostępne dla usługi Azure Digital bliźniaczych reprezentacji. Na tej stronie można filtrować typ sygnału i wybrać żądany sygnał z listy.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Zrzut ekranu przedstawiający stronę Pierwsza konfiguracja logiki sygnału. Wyróżnienie pola Typ sygnału umożliwia wybranie metryk lub dzienników aktywności oraz listę metryk poniżej, które mogą być wybrane.":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku, grupy akcji i szczegółów reguły alertu":::
 
 Po wybraniu sygnału zostanie wyświetlony monit o skonfigurowanie logiki alertu. Można filtrować według wymiaru, ustawiać wartość progową dla alertu i ustawić częstotliwość sprawdzania dla warunku. Poniżej znajduje się przykład konfigurowania alertu w przypadku, gdy Metryka dotycząca średniego współczynnika błędów routingu spadnie powyżej 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak średnia jest większa niż 5":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku, grupy akcji i szczegółów reguły alertu":::
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 
 Po skonfigurowaniu alertów zostaną one wyświetlone na stronie *alerty* dla danego wystąpienia.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania. Skonfigurowano jeden alert" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku, grupy akcji i szczegółów reguły alertu" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

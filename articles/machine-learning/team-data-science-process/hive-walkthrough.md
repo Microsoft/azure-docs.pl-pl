@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336517"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: Użyj klastrów Azure HDInsight Hadoop
@@ -813,7 +813,7 @@ Aby uruchomić to zapytanie z poziomu wiersza polecenia w katalogu Hive:
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-Mamy teraz wewnętrzną tabelę **nyctaxidb. nyctaxi_downsampled_dataset**, do której można uzyskać dostęp za pomocą modułu [Import danych][import-data] z Machine Learning. Ponadto możemy użyć tego zestawu danych do kompilowania modeli Machine Learning.  
+Mamy teraz wewnętrzną tabelę **nyctaxidb.nyctaxi_downsampled_dataset**, do której można uzyskać dostęp za pomocą modułu [Import danych][import-data] z Machine Learning. Ponadto możemy użyć tego zestawu danych do kompilowania modeli Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Użyj modułu Importuj dane w Machine Learning, aby uzyskać dostęp do danych z próbką w dół
 Aby wystawić zapytania Hive w module [importu danych][import-data] Machine Learning, musisz mieć dostęp do Machine Learning obszaru roboczego. Wymagany jest również dostęp do poświadczeń klastra i skojarzonego z nim konta magazynu.

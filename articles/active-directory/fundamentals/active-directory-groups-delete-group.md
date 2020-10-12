@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 800c1742b49fce7e1adf8c3ca22181cfb7d0a085
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565511"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Usuwanie grupy przy użyciu Azure Active Directory
@@ -36,7 +36,7 @@ Grupę Azure Active Directory (Azure AD) można usunąć z dowolnej liczby powod
 
 3. Na stronie **grupy — wszystkie grupy** Wyszukaj i wybierz grupę, którą chcesz usunąć. W przypadku tych kroków będziemy używać **zasad zarządzania urządzeniami przenośnymi — wschód**.
 
-    ![Grupy — Strona wszystkie grupy, wyróżniona nazwa grupy](media/active-directory-groups-delete-group/group-all-groups-screen.png)
+    ![Strona grupy Groups-All, wyróżniona nazwa grupy](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
 4. Na stronie **Omówienie zasad zarządzania urządzeniami przenośnymi — wschód** , a następnie wybierz pozycję **Usuń**.
 

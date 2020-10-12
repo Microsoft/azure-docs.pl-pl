@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321093"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory
@@ -40,9 +40,9 @@ Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
 1. Na stronie **użytkownik** wprowadź informacje dla tego użytkownika:
 
-   - **Nazwa**. Wymagany. Imię i nazwisko nowego użytkownika. Na przykład, *Maria Parker*.
+   - **Nazwa**. Wymagane. Imię i nazwisko nowego użytkownika. Na przykład, *Maria Parker*.
 
-   - **Nazwa użytkownika**. Wymagany. Nazwa użytkownika nowego użytkownika. Na przykład `mary@contoso.com`.
+   - **Nazwa użytkownika**. Wymagane. Nazwa użytkownika nowego użytkownika. Na przykład `mary@contoso.com`.
 
      Część domeny nazwa użytkownika musi używać początkowej domyślnej nazwy domeny, * \<yourdomainname> . onmicrosoft.com*lub niestandardowej nazwy domeny, takiej jak *contoso.com*. Aby uzyskać więcej informacji na temat tworzenia niestandardowej nazwy domeny, zobacz [Dodawanie niestandardowej nazwy domeny za pomocą portalu Azure Active Directory](add-custom-domain.md).
 
@@ -54,7 +54,7 @@ Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
 1. Skopiuj automatycznie generowane hasło podane w polu **hasło** . Musisz podać to hasło użytkownikowi, aby zalogować się po raz pierwszy.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Użytkownik zostanie utworzony i dodany do organizacji usługi Azure AD.
 
