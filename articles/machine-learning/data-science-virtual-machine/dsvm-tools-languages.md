@@ -12,10 +12,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87843270"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Języki obsługiwane na Data Science Virtual Machine 
@@ -72,7 +72,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 | ------------- | ------------- |
 | Obsługiwane wersje językowe | Python 2,7 i 3,5 |
 | Obsługiwane wersje DSVM      | Linux   |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | `conda`Tworzone są dwa środowiska globalne: <br /> * `root`środowisko zlokalizowane w programie `/anaconda/` to Python 2,7. <br/> * `py35`środowisko zlokalizowane w programie `/anaconda/envs/py35` to Python 3,5.       |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | `conda`Tworzone są dwa środowiska globalne: <br /> * `root` środowisko zlokalizowane w programie `/anaconda/` to Python 2,7. <br/> * `py35` środowisko zlokalizowane w programie `/anaconda/envs/py35` to Python 3,5.       |
 | Linki do przykładów      | Dołączono przykładowe notesy Jupyter dla języka Python.     |
 | Narzędzia pokrewne na DSVM      | PySpark, R, Julia      |
 
@@ -111,7 +111,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 | ------------- | ------------- |
 | Obsługiwane wersje językowe | Microsoft R Open 3. x (100% zgodne z CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (skalowalna platforma języka R oparta na przedsiębiorstwie)|
 | Obsługiwane wersje DSVM      | Linux, Windows     |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Systemy`C:\Program Files\Microsoft\ML Server\R_SERVER` <br />System`/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | Systemy `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />System `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Linki do przykładów      | Dołączono przykładowe notesy Jupyter dla języka R.     |
 | Narzędzia pokrewne na DSVM      | Spark, Python, Julia      |
 
@@ -160,7 +160,7 @@ System **Linux**:
 | ------------- | ------------- |
 | Obsługiwane wersje językowe | 0,6 |
 | Obsługiwane wersje DSVM      | Linux, Windows     |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Windows: zainstalowano o`C:\JuliaPro-VERSION`<br /> Linux: zainstalowano o`/opt/JuliaPro-VERSION`    |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | Windows: zainstalowano o `C:\JuliaPro-VERSION`<br /> Linux: zainstalowano o `/opt/JuliaPro-VERSION`    |
 | Linki do przykładów      | Dołączono przykładowe notesy Jupyter dla Julia.     |
 | Narzędzia pokrewne na DSVM      | Python, R      |
 

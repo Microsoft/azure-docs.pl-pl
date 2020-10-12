@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359158"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Dedykowana sieć HSM platformy Azure
@@ -39,7 +39,7 @@ Przed zainicjowaniem obsługi dedykowanego urządzenia HSM klienci muszą najpie
 
 ### <a name="subnets"></a>Podsieci
 
-Podsieci umożliwiają segmentację sieci wirtualnej na oddzielne przestrzenie adresowe, które są używane przez zasoby platformy Azure, które znajdują się w nich. Dedykowane sprzętowych modułów zabezpieczeń są wdrażane w podsieci w sieci wirtualnej. Każde urządzenie dedykowane HSM wdrożone w podsieci klienta otrzyma prywatny adres IP z tej podsieci. Podsieć, w której wdrożono urządzenie HSM, musi być jawnie delegowana do usługi: Microsoft. HardwareSecurityModules/modułów dedicatedhsms. Zapewnia to pewne uprawnienia do usługi HSM do wdrożenia w podsieci. Delegowanie do dedykowanej sprzętowych modułów zabezpieczeń nakłada pewne ograniczenia zasad w podsieci. Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR) nie są obecnie obsługiwane w delegowanych podsieciach. W związku z tym, gdy podsieć zostanie delegowana do dedykowanej sprzętowych modułów zabezpieczeń, może być używana tylko do wdrażania zasobów modułu HSM. Wdrożenie innych zasobów klienta w podsieci zakończy się niepowodzeniem.
+Podsieci umożliwiają segmentację sieci wirtualnej na oddzielne przestrzenie adresowe, które są używane przez zasoby platformy Azure, które znajdują się w nich. Dedykowane sprzętowych modułów zabezpieczeń są wdrażane w podsieci w sieci wirtualnej. Każde urządzenie dedykowane HSM wdrożone w podsieci klienta otrzyma prywatny adres IP z tej podsieci. Podsieć, w której wdrożono urządzenie HSM, musi być jawnie delegowana do usługi: Microsoft. HardwareSecurityModules/modułów dedicatedhsms. Zapewnia to pewne uprawnienia do usługi HSM do wdrożenia w podsieci. Delegowanie do dedykowanej sprzętowych modułów zabezpieczeń nakłada pewne ograniczenia zasad w podsieci. Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy User-Defined (UDR) nie są obecnie obsługiwane w delegowanych podsieciach. W związku z tym, gdy podsieć zostanie delegowana do dedykowanej sprzętowych modułów zabezpieczeń, może być używana tylko do wdrażania zasobów modułu HSM. Wdrożenie innych zasobów klienta w podsieci zakończy się niepowodzeniem.
 
 
 ### <a name="expressroute-gateway"></a>Brama ExpressRoute

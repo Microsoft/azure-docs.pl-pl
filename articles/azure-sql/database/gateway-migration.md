@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004276"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
@@ -70,7 +70,7 @@ Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynaj�
 Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020** :
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Ukończone](#tab/completed-ip)
+# <a name="completed"></a>[Zakończone](#tab/completed-ip)
 
 Następujące migracje bramy zostały ukończone: 
 

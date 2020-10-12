@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836364"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Sterownik systemu plików obiektów blob platformy Azure (ABFS): dedykowany sterownik magazynu platformy Azure dla usługi Hadoop
@@ -31,7 +31,7 @@ Jednak niektóre funkcje, które muszą być nadal wykonywane przez sterownik:
 
 ### <a name="uri-scheme-to-reference-data"></a>Schemat identyfikatora URI do danych referencyjnych
 
-Spójne z innymi implementacjami systemu plików w ramach usługi Hadoop, sterownik ABFS definiuje własny schemat identyfikatorów URI, aby zasoby (Katalogi i pliki) mogły być rozdzielone odrębnie. Schemat identyfikatora URI jest udokumentowany w [użyciu identyfikatora uri Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md). Struktura identyfikatora URI:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Spójne z innymi implementacjami systemu plików w ramach usługi Hadoop, sterownik ABFS definiuje własny schemat identyfikatorów URI, aby zasoby (Katalogi i pliki) mogły być rozdzielone odrębnie. Schemat identyfikatora URI jest udokumentowany w [użyciu identyfikatora uri Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md). Struktura identyfikatora URI: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Korzystając z powyższego formatu identyfikatora URI, można użyć standardowych narzędzi i struktur usługi Hadoop do odwoływania się do tych zasobów:
 
@@ -44,7 +44,7 @@ Wewnętrznie sterownik ABFS tłumaczy zasoby określone w identyfikatorze URI na
 
 ### <a name="authentication"></a>Uwierzytelnianie
 
-Sterownik ABFS obsługuje dwie metody uwierzytelniania, dzięki czemu aplikacja Hadoop może bezpiecznie uzyskiwać dostęp do zasobów znajdujących się w ramach konta obsługującego Data Lake Storage Gen2. Szczegółowe informacje o dostępnych schematach uwierzytelniania znajdują się w [przewodniku po zabezpieczeniach usługi Azure Storage](security-recommendations.md). Oto one:
+Sterownik ABFS obsługuje dwie metody uwierzytelniania, dzięki czemu aplikacja Hadoop może bezpiecznie uzyskiwać dostęp do zasobów znajdujących się w ramach konta obsługującego Data Lake Storage Gen2. Szczegółowe informacje o dostępnych schematach uwierzytelniania znajdują się w [przewodniku po zabezpieczeniach usługi Azure Storage](security-recommendations.md). Są to:
 
 - **Klucz współużytkowany:** Pozwala to użytkownikom na dostęp do wszystkich zasobów na koncie. Klucz jest szyfrowany i przechowywany w konfiguracji usługi Hadoop.
 

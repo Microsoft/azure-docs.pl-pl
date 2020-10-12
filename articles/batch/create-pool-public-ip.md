@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć pulę wsadową korzystającą z własny
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91849332"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Utwórz pulę Azure Batch z określonymi publicznymi adresami IP

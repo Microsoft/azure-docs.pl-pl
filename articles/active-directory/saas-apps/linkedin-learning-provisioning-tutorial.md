@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: c788ca62baf15a64b157cef6f17a7ccee25720a8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356081"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie uczenia w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
@@ -122,8 +122,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |adresy [typ EQ "Work"]. locale|Ciąg|
    |title|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
 

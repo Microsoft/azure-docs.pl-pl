@@ -4,10 +4,10 @@ description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją a
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532107"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
@@ -176,7 +176,7 @@ Wszystkie nowe TelemetryClients automatycznie dodają określoną wartość wła
    - [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
    - [Lejki](usage-funnels.md)
    - [Przechowywanie](usage-retention.md)
-   - [Przepływy użytkowników](usage-flows.md)
+   - [Przepływy użytkownika](usage-flows.md)
    - [Skoroszyty](../platform/workbooks-overview.md)
    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

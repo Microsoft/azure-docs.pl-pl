@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1019c31b10801a12c960dd5dadd8836fd9b7cd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939276"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Tworzenie reguł zapory serwera Azure Database for PostgreSQL elastycznych i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -86,7 +86,7 @@ Zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure <!--F
 ## <a name="create-and-manage-firewall-rule-after-server-create"></a>Utwórz regułę zapory po utworzeniu serwera i zarządzaj nią
 Polecenie **AZ Postgres elastyczna-Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
-Polecenia
+Polecenia:
 - **Tworzenie**: Tworzenie elastycznej reguły zapory serwera.
 - **Lista**: Lista elastycznych reguł zapory serwera.
 - **Aktualizacja**: aktualizowanie elastycznej reguły zapory serwera.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323778"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Tworzenie aplikacji Java dla platformy Apache HBase
@@ -103,7 +103,7 @@ Ta sekcja wskazuje, że projekt wymaga składników **HBase-Client** i **Phoenix
 | Wersja klastra usługi HDInsight | Wersja Apache HBase do użycia |
 | --- | --- |
 | 3,6 | 1.1.2 |
-| 4.0 | 2.0.0 |
+| 4,0 | 2.0.0 |
 
 Aby uzyskać więcej informacji na temat wersji i składników usługi HDInsight, zobacz [co to są różne składniki Apache Hadoop dostępne w usłudze HDInsight](../hdinsight-component-versioning.md).
 
@@ -703,7 +703,7 @@ Poniższe kroki używają Azure PowerShell [AZ module](https://docs.microsoft.co
     Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName $myCluster
     ```
 
-### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Brak wyników lub nieoczekiwanych wyników przy użyciu polecenia Start-HBaseExample
+### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Brak wyników lub nieoczekiwanych wyników podczas korzystania z Start-HBaseExample
 
 Użyj `-showErr` parametru, aby wyświetlić błąd standardowy (stderr), który jest generowany podczas wykonywania zadania.
 

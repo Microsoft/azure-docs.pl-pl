@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664124"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Rozwiązywanie problemów z funkcją stornowania samoobsługowego resetowania haseł w Azure Active Directory
@@ -104,29 +104,29 @@ Azure AD Connect wymaga uprawnień do AD DS **resetowania hasła** , aby można 
 1. Zaloguj się na serwerze Azure AD Connect i uruchom **Synchronization Service Manager** , wybierając pozycję **Uruchom**  >  **usługę synchronizacji**.
 1. Na karcie **Łączniki** wybierz pozycję lokalna **Active Directory Domain Services** łącznika, a następnie wybierz pozycję **Właściwości**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Synchronization Service Manager pokazujący, jak edytować właściwości" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
 1. W oknie podręcznym wybierz pozycję **Połącz z lasem Active Directory** i zanotuj Właściwość **Nazwa użytkownika** . Ta właściwość jest kontem AD DS używanym przez Azure AD Connect do przeprowadzenia synchronizacji katalogów.
 
     Aby Azure AD Connect do wykonywania funkcji zapisywania zwrotnego haseł, konto AD DS musi mieć uprawnienie resetowania hasła. Uprawnienia do tego konta użytkownika są sprawdzane w poniższych krokach.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Znajdowanie usługi synchronizacji Active Directory konta użytkownika" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
 1. Zaloguj się do lokalnego kontrolera domeny i uruchom aplikację **Active Directory Użytkownicy i komputery** .
 1. Wybierz pozycję **Widok** i upewnij się, że jest włączona opcja **funkcje zaawansowane** .  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory Użytkownicy i komputery pokazują funkcje zaawansowane" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
 1. Znajdź AD DS konto użytkownika, które chcesz zweryfikować. Kliknij prawym przyciskiem myszy nazwę konta i wybierz pozycję **Właściwości**.  
 1. W oknie podręcznym przejdź do karty **zabezpieczenia** i wybierz pozycję **Zaawansowane**.  
 1. W oknie podręcznym **Zaawansowane ustawienia zabezpieczeń dla administratora** przejdź do karty **dostęp czynny** .
 1. Wybierz **pozycję Wybierz użytkownika**, wybierz konto AD DS używane przez Azure AD Connect, a następnie wybierz pozycję **Wyświetl dostęp czynny**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Karta dostęp czynny z informacjami o koncie synchronizacji" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
 1. Przewiń w dół i Wyszukaj **hasło resetowania hasła**. Jeśli wpis ma znacznik wyboru, konto AD DS ma uprawnienia do resetowania hasła wybranego Active Directorygo konta użytkownika.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Sprawdzanie, czy konto synchronizacji ma uprawnienie Resetowanie hasła" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Typowe błędy zapisywania zwrotnego haseł
 
@@ -217,7 +217,7 @@ Aby prawidłowo pomóc, prosimy o podanie możliwie największej szczegółowoś
 * **Kod pomocy technicznej**: jaki był kod pomocy technicznej wygenerowany podczas napotkania błędu przez użytkownika?
    * Aby znaleźć ten kod, Odtwórz błąd, a następnie wybierz link **kod pomocy technicznej** u dołu ekranu i Wyślij do niego identyfikator GUID.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Kod pomocy technicznej znajduje się w prawym dolnym rogu okna przeglądarki sieci Web.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika":::
 
   * Jeśli jesteś na stronie bez kodu pomocy technicznej u dołu, wybierz klawisz F12 i wyszukaj identyfikatory SID i CID i Wyślij te dwa wyniki do inżyniera pomocy technicznej.
 * **Data, godzina i strefa czasowa**: Uwzględnij dokładną datę i godzinę *w strefie czasowej* wystąpienia błędu.

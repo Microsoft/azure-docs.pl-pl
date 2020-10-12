@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357492"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Wykonywanie analizy za pomocą Azure Machine Learning Studio (klasyczny) przy użyciu bazy danych SQL Server
@@ -40,9 +40,9 @@ Aby uzyskać dostęp do bazy danych SQL Server w Azure Machine Learning Studio (
 
 Możesz również zainstalować środowisko IR wcześniej, pobierając i uruchamiając pakiet instalacyjny MSI z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Plik MSI może również służyć do uaktualniania istniejącego środowiska IR do najnowszej wersji z zachowaniem wszystkich ustawień.
 
-W Data Factory samoobsługowe Integration Runtime są spełnione następujące wymagania wstępne:
+Data Factory Self-Hosted Integration Runtime ma następujące wymagania wstępne:
 
-* Data Factory integracja samodzielna wymaga 64-bitowego systemu operacyjnego z .NET Framework 4.6.1 lub nowszym.
+* Integracja Self-Hosted Data Factory wymaga 64-bitowego systemu operacyjnego z .NET Framework 4.6.1 lub nowszym.
 * Obsługiwane wersje systemu operacyjnego Windows to Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * Zalecaną konfiguracją maszyny IR jest co najmniej 2 GHz, 4-rdzeniowy procesor CPU, 8 GB pamięci RAM i dysk 80 GB.
 * Jeśli maszyna hosta przechodzi w stan hibernacji, środowisko IR nie będzie odpowiadać na żądania danych. W związku z tym należy skonfigurować odpowiedni plan zasilany na komputerze przed zainstalowaniem środowiska IR. Jeśli komputer jest skonfigurowany do hibernacji, w instalacji programu IR zostanie wyświetlony komunikat.

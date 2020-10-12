@@ -12,10 +12,10 @@ ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
 ms.openlocfilehash: 1b68cb2c99a0a4fa5e60047a6a695da2abfb0278
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327514"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Kompilowanie i wdrażanie aplikacji sieci Web Node.js przy użyciu programu Express na platformie Azure Cloud Services

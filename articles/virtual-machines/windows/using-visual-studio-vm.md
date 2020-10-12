@@ -11,10 +11,10 @@ ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
 ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836160"
 ---
 # <a name="visual-studio-images-on-azure"></a>Obrazy programu Visual Studio na platformie Azure
@@ -31,7 +31,7 @@ Obrazy dla najnowszych wersji głównych, Visual Studio 2019, Visual Studio 2017
 | Wersja wydania                                                                                                                                                | Wersje              | Wersja produktu   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Najnowsze (wersja 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, społeczność | 16.5.4 wersja    |
-| Visual Studio 2019: RTW                         | Przedsiębiorstwa | 16.0.13 wersja    |
+| Visual Studio 2019: RTW                         | Enterprise | 16.0.13 wersja    |
 | Visual Studio 2017: Najnowsze (wersja 15,9)           | Enterprise, społeczność | 15.9.22 wersja   |
 | Visual Studio 2017: RTW                             | Enterprise, społeczność | 15.0.28 wersja  |
 | Visual Studio 2015: Najnowsze (Aktualizacja Update 3)               | Enterprise, społeczność | 14.0.25431.01 wersja |

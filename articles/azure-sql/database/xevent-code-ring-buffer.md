@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619835"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w Azure SQL Database
@@ -28,15 +28,15 @@ Chcesz uzyskać pełny przykładowy kod dla najłatwiejszego szybkiego sposobu p
 W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
 1. Tworzy tabelę zawierającą dane, które mają być prezentowane za pomocą.
-2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, mianowicie **SqlServer. sql_statement_starting**.
+2. Tworzy sesję dla istniejącego zdarzenia rozszerzonego, czyli **SqlServer.sql_statement_starting**.
 
    * Zdarzenie jest ograniczone do instrukcji SQL zawierających określony ciąg aktualizacji: instrukcja, taka **jak "% Update tabEmployee%"**.
-   * Wybiera do wysłania danych wyjściowych zdarzenia do obiektu docelowego bufora pierścieniowego, mianowicie  **package0. ring_buffer**.
+   * Wybiera do wysłania danych wyjściowych zdarzenia do obiektu docelowego bufora pierścieniowego, mianowicie  **package0.ring_buffer**.
 3. Uruchamia sesję zdarzeń.
 4. Wystawia kilka prostych instrukcji dotyczących aktualizacji SQL.
 5. Emituje instrukcję SELECT języka SQL w celu pobrania danych wyjściowych zdarzenia z bufora pierścieni.
 
-   * **sys. dm_xe_database_session_targets** i inne dynamiczne widoki zarządzania (widoków DMV) są dołączone.
+   * **sys.dm_xe_database_session_targets** i inne dynamiczne widoki zarządzania (widoków DMV) są sprzężone.
 6. Kończy sesję zdarzeń.
 7. Odrzuca obiekt docelowy buforu pierścieniowego, aby zwolnić jego zasoby.
 8. Odrzuca sesję zdarzeń i tabelę demonstracyjną.
@@ -57,8 +57,8 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
 W przypadku bardzo drobnej modyfikacji Poniższy przykład kodu buforu pierścieniowego można uruchomić na Azure SQL Database lub Microsoft SQL Server. Różnica polega na obecności węzła "_database" w nazwie niektórych dynamicznych widoków zarządzania (widoków DMV) użytego w klauzuli FROM w kroku 5. Na przykład:
 
-* sys. dm_xe<strong>_database</strong>_session_targets
-* sys. dm_xe_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 

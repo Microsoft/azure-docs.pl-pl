@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441209"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
@@ -39,7 +39,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Australia Wschodnia     |Trzy strefy dostępności         |
 |Southeast Asia    |Trzy strefy dostępności        |
 |Kanada środkowa *     |Trzy strefy dostępności          |
-|Środkowe stany USA     |Trzy strefy dostępności          |
+|Central US     |Trzy strefy dostępności          |
 |East US     |Trzy strefy dostępności          |
 |Wschodnie stany USA 2     |Trzy strefy dostępności         |
 |Francja Środkowa    |Dwie strefy dostępności        |

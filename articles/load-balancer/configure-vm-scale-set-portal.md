@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439516"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal
@@ -38,7 +38,7 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
 
 1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób**  >  **Oblicz**  >  **zestaw skalowania maszyn wirtualnych** lub Wyszukaj **zestaw skalowania maszyn wirtualnych** w obszarze wyszukiwania w portalu Marketplace.
 
-2. Wybierz pozycję **Utwórz**.
+2. Wybierz przycisk **Utwórz**.
 
 3. W obszarze **Tworzenie zestawu skalowania maszyn wirtualnych**wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
@@ -49,10 +49,10 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
     | Grupa zasobów                 | Wybierz pozycję Utwórz nowy, wprowadź nazwę **zasobu**, a następnie wybierz pozycję OK lub wybierz istniejącą grupę zasobów. |
     | **Szczegóły zestawu skalowania**          |                                                                                                       |
     | Nazwa zestawu skalowania maszyn wirtualnych | Wprowadź **myVMSS**                                                                                      |
-    | Region (Region)                         | Wybierz **Wschodnie stany USA 2**                                                                                    |
+    | Region                         | Wybierz **Wschodnie stany USA 2**                                                                                    |
     | Strefa dostępności              | Nie zaznaczaj **niczego**                                                                                       |
     | **Szczegóły wystąpienia**           |                                                                                                       |
-    | Image (Obraz)                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
+    | Obraz                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
     | Wystąpienie usługi Azure Spot            | Wybierz pozycję **nie**                                                                                         |
     | Rozmiar                           | Pozostaw domyślnie                                                                                      |
     | **Konto administratora**      |                                                                                                       |

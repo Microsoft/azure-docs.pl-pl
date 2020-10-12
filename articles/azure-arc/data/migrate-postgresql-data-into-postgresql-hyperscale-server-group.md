@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939643"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrowanie bazy danych PostgreSQL do usługi Azure ARC z włączoną grupą serwerów PostgreSQL do skalowania
@@ -36,7 +36,7 @@ Co pozostanie, aby to zrobić:
 - Resetowanie parametrów serwera
 - Zresetuj konteksty zabezpieczeń: Utwórz ponownie użytkowników, role i uprawnienia do resetowania...
 
-Aby wykonać tę operację tworzenia kopii zapasowej/przywracania, można użyć dowolnego narzędzia, które może wykonywać operacje tworzenia kopii zapasowej/przywracania dla Postgres. Przykład:
+Aby wykonać tę operację tworzenia kopii zapasowej/przywracania, można użyć dowolnego narzędzia, które może wykonywać operacje tworzenia kopii zapasowej/przywracania dla Postgres. Na przykład:
 - Azure Data Studio i jego rozszerzenie Postgres
 - `pgcli`
 - `pgAdmin`
@@ -53,20 +53,20 @@ Weź pod uwagę następujące ustawienia:
 
 - **Punktu**  
     Serwer Postgres działający w środowisku usługi Azure Arc i o nazwie postgres01. Jest to wersja 12. Nie ma żadnej bazy danych z wyjątkiem standardowej bazy danych Postgres.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Migrowanie — miejsce docelowe":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Migrowanie źródła":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>Utwórz kopię zapasową źródłowej bazy danych lokalnie
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrowanie-Źródło-kopia zapasowa":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrowanie źródła":::
 
 Skonfiguruj:
 1. Nadaj mu nazwę pliku: **MySourceBackup**
 2. Ustaw format na **niestandardową** 
- :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="migrację-Źródło-kopia zapasowa — konfiguracja":::
+ :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migrowanie źródła":::
 
 Tworzenie kopii zapasowej zostało ukończone pomyślnie:  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migracja-Źródło — ukończono tworzenie kopii zapasowej":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migrowanie źródła":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utwórz pustą bazę danych w systemie docelowym w grupie serwerów PostgreSQL na platformie Azure z włączonym łukiem
 
@@ -98,17 +98,17 @@ Nadaj nazwę docelowej bazie danych **RESTORED_MyOnPremPostgresDB**
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migrowanie-miejsce docelowe — DB — tworzenie"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Przywracanie bazy danych w konfiguracji Arc
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-DB-Restore":::
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migrowanie źródła":::
 
 Skonfiguruj przywracanie:
 1. Wskaż plik zawierający kopię zapasową do przywrócenia: **MySourceBackup**
 2. Zachowaj format ustawiony na **niestandardowy lub** 
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Przeprowadź migrację funkcji pułapki-DB-Restore-Configure":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrowanie źródła":::
 
 3. Kliknij przycisk **Przywróć**.  
 
    Przywracanie zakończyło się pomyślnie.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrowanie — ukończono przywracanie bazy danych":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrowanie źródła":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Sprawdź, czy baza danych została pomyślnie przywrócona w grupie serwerów PostgreSQL na platformie Azure Arc
 
@@ -118,20 +118,7 @@ Użyj jednej z następujących metod:
 
 Rozwiń wystąpienie Postgres hostowane w konfiguracji usługi Azure Arc. Zostanie wyświetlona tabela w przywróconej bazie danych, a po wybraniu danych zostanie wyświetlony ten sam wiersz, co w wystąpieniu lokalnym:
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrowanie — weryfikacja bazy danych":::
-
-**W `psql` ramach konfiguracji usługi Azure ARC:**  
-
-W ramach konfiguracji Arc można użyć `psql` programu do nawiązania połączenia z wystąpieniem Postgres, ustawienia kontekstu bazy danych `RESTORED_MyOnPremPostgresDB` i wykonywania zapytań dotyczących danych:
-
-1. Wyświetl listę punktów końcowych, które mają być pomocne przy użyciu `psql` parametrów połączenia:
-
-   ```console
-   azdata arc postgres endpoint list -n postgres01
-   [
-     {
-       "Description": "PostgreSQL Instance",
-       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migrowanie źródła"
      },
      {
        "Description": "Log Search Dashboard",
@@ -194,4 +181,4 @@ W ramach konfiguracji Arc można użyć `psql` programu do nawiązania połącze
 
 > * W tych dokumentach Pomiń sekcje Zaloguj się **do Azure Portal**i **Utwórz bazę danych Azure Database for Postgres-Citus**. Zaimplementuj pozostałe kroki w ramach wdrożenia usługi Azure Arc. Te sekcje są specyficzne dla Azure Database for PostgreSQL Citus) oferowanych jako usługa PaaS w chmurze platformy Azure, ale inne części dokumentów są bezpośrednio stosowane do wieloskalowania z włączonym systemem Azure Arc PostgreSQL.
 
-- [Skalowanie grupy serwerów Azure Database for PostgreSQL w poziomie](scale-out-postgresql-hyperscale-server-group.md)
+- [Skalowanie w poziomie grupy serwerów usługi Azure Database for PostgreSQL — hiperskala](scale-out-postgresql-hyperscale-server-group.md)

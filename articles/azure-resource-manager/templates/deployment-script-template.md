@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
 ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89667491"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
@@ -344,7 +344,7 @@ Za pomocą Azure PowerShell można zarządzać skryptami wdrażania w zakresie s
 - [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): usuwa skrypt wdrożenia i powiązane z nim zasoby.
 - [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): zapisuje dziennik wykonania skryptu wdrożenia na dysku.
 
-Dane wyjściowe polecenia Get-AzDeploymentScript są podobne do:
+Dane wyjściowe Get-AzDeploymentScript są podobne do:
 
 ```output
 Name                : runPowerShellInlineWithOutput
